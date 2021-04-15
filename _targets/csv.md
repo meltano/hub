@@ -1,6 +1,6 @@
 ---
 name: CSV
-tap_name: tap-csv
+tap_name: target-csv
 layout: default
 description: Use Meltano to pull data from various sources and load it into Comma Separated Values (CSV) files
 ---

@@ -11,15 +11,17 @@ permalink: /targets/index.html
     <ul class="target-list">
         {% for target in site.targets %}
         <h2>
-            <a href="{{ target.url }}">
-                {% if target.variant %}
-                {{ target.tap_name }}--{{ target.variant }}
-                {% else %}
-                {{ target.tap_name }}
-                {% endif %}
+            <a href="{{ target.url | prepend: site.baseurl | prepend: site.url }}">
+                {{ target.name }}
             </a>
         </h2>
-        <p>{{ target.name | markdownify }}</p>
+        <p>
+            {% if target.variant %}
+            {{ target.tap_name }}--{{ target.variant }}
+            {% else %}
+            {{ target.tap_name }}
+            {% endif %}
+        </p>
         {% endfor %}
     </ul>
 

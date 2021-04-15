@@ -11,11 +11,11 @@ permalink: /taps/index.html
     <ul class="tap-list">
         {% for tap in site.taps %}
         <h2>
-            <a href="{{ tap.url }}">
-                {{ tap.tap_name }}
+            <a href="{{ tap.url | prepend: site.baseurl | prepend: site.url }}">
+                {{ tap.name }}
             </a>
         </h2>
-        <p>{{ tap.name | markdownify }}</p>
+        <p>{{ tap.tap_name | markdownify }}</p>
         {% endfor %}
     </ul>
 

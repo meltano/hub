@@ -1,6 +1,6 @@
 ---
 name: PostgreSQL
-tap_name: tap-postgres
+tap_name: target-postgres
 layout: default
 description: Use Meltano to pull data from various sources and load it into PostgreSQL
 ---

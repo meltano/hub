@@ -1,6 +1,6 @@
 ---
 name: Snowflake - Transferwise variant
-tap_name: tap-snowflake
+tap_name: target-snowflake
 variant: transferwise
 layout: default
 description: Use Meltano to pull data from various sources and load it into Snowflake

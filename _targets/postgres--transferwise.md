@@ -1,6 +1,6 @@
 ---
 name: PostgreSQL - Transferwise variant
-tap_name: tap-postgres
+tap_name: target-postgres
 variant: transferwise
 layout: default
 description: Use Meltano to pull data from various sources and load it into PostgreSQL

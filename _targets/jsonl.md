@@ -1,6 +1,6 @@
 ---
 name: JSONL
-tap_name: tap-jsonl
+tap_name: target-jsonl
 layout: default
 description: Use Meltano to pull data from various sources and load it into JSON Lines (JSONL) files
 ---
