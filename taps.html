@@ -1,0 +1,22 @@
+---
+layout: default
+title: Taps
+permalink: /taps/index.html
+---
+
+<div class="home">
+
+    <h1 class="page-heading">Taps</h1>
+
+    <ul class="tap-list">
+        {% for tap in site.taps %}
+        <h2>
+            <a href="{{ tap.url }}">
+                {{ tap.tap_name }}
+            </a>
+        </h2>
+        <p>{{ tap.name | markdownify }}</p>
+        {% endfor %}
+    </ul>
+
+</div>

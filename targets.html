@@ -1,0 +1,26 @@
+---
+layout: default
+title: Targets
+permalink: /targets/index.html
+---
+
+<div class="home">
+
+    <h1 class="page-heading">Targets</h1>
+
+    <ul class="target-list">
+        {% for target in site.targets %}
+        <h2>
+            <a href="{{ target.url }}">
+                {% if target.variant %}
+                {{ target.tap_name }}--{{ target.variant }}
+                {% else %}
+                {{ target.tap_name }}
+                {% endif %}
+            </a>
+        </h2>
+        <p>{{ target.name | markdownify }}</p>
+        {% endfor %}
+    </ul>
+
+</div>
