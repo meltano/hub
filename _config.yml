@@ -13,7 +13,7 @@ description: > # this means to ignore newlines until "baseurl:"
   tap or target. The Hub is lovingly curated by Meltano and the wider 
   Singer community.
 baseurl: "/singerhub"
-url: "http://meltano.gitlab.io/" # the base hostname & protocol for your site
+url: "http://meltano.gitlab.io" # the base hostname & protocol for your site
 twitter_username: meltanodata
 
 collections:
