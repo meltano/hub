@@ -1,6 +1,6 @@
 ---
 name: Snowflake - Meltano variant
-tap_name: target-snowflake
+singer_name: target-snowflake
 variant: meltano
 layout: default
 description: Use Meltano to pull data from various sources and load it into Snowflake

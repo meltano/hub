@@ -1,8 +1,118 @@
 ---
 name: PostgreSQL
-tap_name: target-postgres
-layout: default
-description: Use Meltano to pull data from various sources and load it into PostgreSQL
+type: target
+target_type:
+singer_name: target-postgres
+variant: datamill-co
+description: A Singer Target for loading data ino PostgreSQL
+namespace: target_postgres
+dialect: postgres
+target_schema: $TARGET_POSTGRES_SCHEMA
+maintainer:
+  name: Data Mill
+  link: https://github.com/datamill-co/  
+repo: https://github.com/datamill-co/target-postgres
+pip_url: singer-target-postgres
+settings_group_validation:
+  - ['postgres_host', 'postgres_port', 'postgres_database', 'postgres_username', 'postgres_password', 'postgres_schema']
+settings:
+  - name: postgres_host
+    env: TARGET_POSTGRES_HOST
+    env_aliases: [PG_ADDRESS]
+    value: localhost
+  - name: postgres_port
+    env: TARGET_POSTGRES_PORT
+    env_aliases: [PG_PORT]
+    kind: integer
+    value: 5432
+  - name: postgres_database
+    env: TARGET_POSTGRES_DATABASE
+    env_aliases: [PG_DATABASE]
+  - name: postgres_username
+    env: TARGET_POSTGRES_USERNAME
+    env_aliases: [PG_USERNAME]
+  - name: postgres_password
+    env: TARGET_POSTGRES_PASSWORD
+    env_aliases: [PG_PASSWORD]
+    kind: password
+  - name: postgres_schema
+    env: TARGET_POSTGRES_SCHEMA
+    env_aliases: [PG_SCHEMA]
+    meltano_default: $MELTANO_EXTRACT__LOAD_SCHEMA
+  - name: postgres_sslmode
+    env: TARGET_POSTGRES_SSLMODE
+    value: prefer
+    description: "Refer to the libpq docs for more information about SSL: https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-PARAMKEYWORDS"
+  - name: postgres_sslcert
+    env: TARGET_POSTGRES_SSLCERT
+    value: "~/.postgresql/postgresql.crt"
+    description: Only used if a SSL request w/ a client certificate is being made
+  - name: postgres_sslkey
+    env: TARGET_POSTGRES_SSLKEY
+    value: "~/.postgresql/postgresql.key"
+    description: Only used if a SSL request w/ a client certificate is being made
+  - name: postgres_sslrootcert
+    env: TARGET_POSTGRES_SSLROOTCERT
+    value: "~/.postgresql/root.crt"
+    description: Used for authentication of a server SSL certificate
+  - name: postgres_sslcrl
+    env: TARGET_POSTGRES_SSLCRL
+    value: "~/.postgresql/root.crl"
+    description: Used for authentication of a server SSL certificate
+  - name: invalid_records_detect
+    kind: boolean
+    value: true
+    description: Include `false` in your config to disable `target-postgres` from crashing on invalid records
+  - name: invalid_records_threshold
+    kind: integer
+    value: 0
+    description: Include a positive value `n` in your config to allow for `target-postgres` to encounter at most `n` invalid records per stream before giving up.
+  - name: disable_collection
+    kind: boolean
+    value: false
+    description: "Include `true` in your config to disable Singer Usage Logging: https://github.com/datamill-co/target-postgres#usage-logging"
+  - name: logging_level
+    kind: options
+    value: INFO
+    options:
+      - label: Debug
+        value: DEBUG
+      - label: Info
+        value: INFO
+      - label: Warning
+        value: WARNING
+      - label: Error
+        value: ERROR
+      - label: Critical
+        value: CRITICAL
+    description: The level for logging. Set to `DEBUG` to get things like queries executed, timing of those queries, etc.
+  - name: persist_empty_tables
+    kind: boolean
+    value: false
+    description: Whether the Target should create tables which have no records present in Remote.
+  - name: max_batch_rows
+    kind: integer
+    value: 200000
+    description: The maximum number of rows to buffer in memory before writing to the destination table in Postgres
+  - name: max_buffer_size
+    kind: integer
+    value: 104857600
+    description: "The maximum number of bytes to buffer in memory before writing to the destination table in Postgres. Default: 100MB in bytes"
+  - name: batch_detection_threshold
+    kind: integer
+    description: How often, in rows received, to count the buffered rows and bytes to check if a flush is necessary. There's a slight performance penalty to checking the buffered records count or bytesize, so this controls how often this is polled in order to mitigate the penalty. This value is usually not necessary to set as the default is dynamically adjusted to check reasonably often.
+  - name: state_support
+    kind: boolean
+    value: true
+    description: Whether the Target should emit `STATE` messages to stdout for further consumption. In this mode, which is on by default, STATE messages are buffered in memory until all the records that occurred before them are flushed according to the batch flushing schedule the target is configured with.
+  - name: add_upsert_indexes
+    kind: boolean
+    value: true
+    description: Whether the Target should create column indexes on the important columns used during data loading. These indexes will make data loading slightly slower but the deduplication phase much faster. Defaults to on for better baseline performance.
+  - name: before_run_sql
+    description: Raw SQL statement(s) to execute as soon as the connection to Postgres is opened by the target. Useful for setup like `SET ROLE` or other connection state that is important.
+  - name: after_run_sql
+    description: Raw SQL statement(s) to execute as soon as the connection to Postgres is opened by the target. Useful for setup like `SET ROLE` or other connection state that is important.
 ---
 
 # PostgreSQL

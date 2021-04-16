@@ -1,6 +1,6 @@
 ---
 name: PostgreSQL - Meltano variant
-tap_name: target-postgres
+singer_name: target-postgres
 variant: meltano
 layout: default
 description: Use Meltano to pull data from various sources and load it into PostgreSQL

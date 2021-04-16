@@ -24,9 +24,10 @@ collections:
 
 defaults:
   - scope:
-      path: "_targets/"
+      path: "_targets"
     values:
-      layout: default
+      layout: "target"
+      target: true
 
 # Outputting
 permalink: /:categories/:year/:month/:day/:title

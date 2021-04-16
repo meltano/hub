@@ -1,6 +1,6 @@
 ---
 name: SQLite
-tap_name: target-sqlite
+singer_name: target-sqlite
 layout: default
 description: Use Meltano to pull data from various sources and load it into SQLite
 ---

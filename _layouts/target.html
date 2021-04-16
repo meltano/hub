@@ -1,0 +1,25 @@
+---
+layout: default
+---
+<article class="target">
+
+    <header class="post-header">
+        <h1 class="post-title">{{ page.name }}</h1>
+    </header>
+
+    <div class="post-content">
+        <h2>{{ page.description | markdownify }}</h2>
+        <p>Project repository: <a href="{{page.repo}}">{{ page.repo }}</a></p> 
+        <h3>Maintainer: <a href="{{page.maintainer.link}}">{{ page.maintainer.name }}</a></h3>
+        <h3>Maintenance Status: {{ page.maintenance_status }}</h3>
+        <ul>
+
+        <h3>Target Settings</h3>
+        {% for setting in page.settings %}
+        <li><code class="highlighter-rouge">{{ setting.name }}</code></li>
+        <p>{{ setting.description }} </p>
+        {% endfor %}
+        </ul>
+    </div>
+
+</article>
