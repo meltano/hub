@@ -1,638 +1,248 @@
 ---
 name: PostgreSQL
 type: target
-target_type:
-singer_name: target-postgres
-variant: datamill-co
+target_type: database
 description: A Singer Target for loading data ino PostgreSQL
-namespace: target_postgres
 dialect: postgres
-target_schema: $TARGET_POSTGRES_SCHEMA
-maintainer:
-  name: Data Mill
-  link: https://github.com/datamill-co/  
-repo: https://github.com/datamill-co/target-postgres
-pip_url: singer-target-postgres
-settings_group_validation:
-  - ['postgres_host', 'postgres_port', 'postgres_database', 'postgres_username', 'postgres_password', 'postgres_schema']
-settings:
-  - name: postgres_host
-    env: TARGET_POSTGRES_HOST
-    env_aliases: [PG_ADDRESS]
-    value: localhost
-  - name: postgres_port
-    env: TARGET_POSTGRES_PORT
-    env_aliases: [PG_PORT]
-    kind: integer
-    value: 5432
-  - name: postgres_database
-    env: TARGET_POSTGRES_DATABASE
-    env_aliases: [PG_DATABASE]
-  - name: postgres_username
-    env: TARGET_POSTGRES_USERNAME
-    env_aliases: [PG_USERNAME]
-  - name: postgres_password
-    env: TARGET_POSTGRES_PASSWORD
-    env_aliases: [PG_PASSWORD]
-    kind: password
-  - name: postgres_schema
-    env: TARGET_POSTGRES_SCHEMA
-    env_aliases: [PG_SCHEMA]
-    meltano_default: $MELTANO_EXTRACT__LOAD_SCHEMA
-  - name: postgres_sslmode
-    env: TARGET_POSTGRES_SSLMODE
-    value: prefer
-    description: "Refer to the libpq docs for more information about SSL: https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-PARAMKEYWORDS"
-  - name: postgres_sslcert
-    env: TARGET_POSTGRES_SSLCERT
-    value: "~/.postgresql/postgresql.crt"
-    description: Only used if a SSL request w/ a client certificate is being made
-  - name: postgres_sslkey
-    env: TARGET_POSTGRES_SSLKEY
-    value: "~/.postgresql/postgresql.key"
-    description: Only used if a SSL request w/ a client certificate is being made
-  - name: postgres_sslrootcert
-    env: TARGET_POSTGRES_SSLROOTCERT
-    value: "~/.postgresql/root.crt"
-    description: Used for authentication of a server SSL certificate
-  - name: postgres_sslcrl
-    env: TARGET_POSTGRES_SSLCRL
-    value: "~/.postgresql/root.crl"
-    description: Used for authentication of a server SSL certificate
-  - name: invalid_records_detect
-    kind: boolean
-    value: true
-    description: Include `false` in your config to disable `target-postgres` from crashing on invalid records
-  - name: invalid_records_threshold
-    kind: integer
-    value: 0
-    description: Include a positive value `n` in your config to allow for `target-postgres` to encounter at most `n` invalid records per stream before giving up.
-  - name: disable_collection
-    kind: boolean
-    value: false
-    description: "Include `true` in your config to disable Singer Usage Logging: https://github.com/datamill-co/target-postgres#usage-logging"
-  - name: logging_level
-    kind: options
-    value: INFO
-    options:
-      - label: Debug
-        value: DEBUG
-      - label: Info
+singer_name: target-postgres
+variants:
+    - name: datamill-co
+      target_schema: $TARGET_POSTGRES_SCHEMA
+      maintainer:
+        name: Data Mill
+        link: https://github.com/datamill-co/  
+      maintenance_status: Active
+      primary_variant: true
+      repo: https://github.com/datamill-co/target-postgres
+      pip_url: singer-target-postgres
+      dependencies: >
+        `target-postgres` [requires](https://www.psycopg.org/docs/install.html#runtime-requirements) the
+        [`libpq` library](https://www.postgresql.org/docs/current/libpq.html) to be available on your system.
+        If you've installed PostgreSQL, you should already have it, but you can also install it by itself using the
+        [`libpq-dev` package](https://pkgs.org/download/libpq-dev) on Ubuntu/Debian or the
+        [`libpq` Homebrew formula](https://formulae.brew.sh/formula/libpq) on macOS.
+      settings_group_validation:
+        - ['postgres_host', 'postgres_port', 'postgres_database', 'postgres_username', 'postgres_password', 'postgres_schema']
+      settings:
+      - name: postgres_host
+        env: TARGET_POSTGRES_HOST
+        env_aliases: [PG_ADDRESS]
+        value: localhost
+      - name: postgres_port
+        env: TARGET_POSTGRES_PORT
+        env_aliases: [PG_PORT]
+        kind: integer
+        value: 5432
+      - name: postgres_database
+        env: TARGET_POSTGRES_DATABASE
+        env_aliases: [PG_DATABASE]
+      - name: postgres_username
+        env: TARGET_POSTGRES_USERNAME
+        env_aliases: [PG_USERNAME]
+      - name: postgres_password
+        env: TARGET_POSTGRES_PASSWORD
+        env_aliases: [PG_PASSWORD]
+        kind: password
+      - name: postgres_schema
+        env: TARGET_POSTGRES_SCHEMA
+        env_aliases: [PG_SCHEMA]
+        meltano_default: $MELTANO_EXTRACT__LOAD_SCHEMA
+      - name: postgres_sslmode
+        env: TARGET_POSTGRES_SSLMODE
+        value: prefer
+        description: "Refer to the libpq docs for more information about SSL: https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-PARAMKEYWORDS"
+      - name: postgres_sslcert
+        env: TARGET_POSTGRES_SSLCERT
+        value: "~/.postgresql/postgresql.crt"
+        description: Only used if a SSL request w/ a client certificate is being made
+      - name: postgres_sslkey
+        env: TARGET_POSTGRES_SSLKEY
+        value: "~/.postgresql/postgresql.key"
+        description: Only used if a SSL request w/ a client certificate is being made
+      - name: postgres_sslrootcert
+        env: TARGET_POSTGRES_SSLROOTCERT
+        value: "~/.postgresql/root.crt"
+        description: Used for authentication of a server SSL certificate
+      - name: postgres_sslcrl
+        env: TARGET_POSTGRES_SSLCRL
+        value: "~/.postgresql/root.crl"
+        description: Used for authentication of a server SSL certificate
+      - name: invalid_records_detect
+        kind: boolean
+        value: true
+        description: Include `false` in your config to disable `target-postgres` from crashing on invalid records
+      - name: invalid_records_threshold
+        kind: integer
+        value: 0
+        description: Include a positive value `n` in your config to allow for `target-postgres` to encounter at most `n` invalid records per stream before giving up.
+      - name: disable_collection
+        kind: boolean
+        value: false
+        description: "Include `true` in your config to disable Singer Usage Logging: https://github.com/datamill-co/target-postgres#usage-logging"
+      - name: logging_level
+        kind: options
         value: INFO
-      - label: Warning
-        value: WARNING
-      - label: Error
-        value: ERROR
-      - label: Critical
-        value: CRITICAL
-    description: The level for logging. Set to `DEBUG` to get things like queries executed, timing of those queries, etc.
-  - name: persist_empty_tables
-    kind: boolean
-    value: false
-    description: Whether the Target should create tables which have no records present in Remote.
-  - name: max_batch_rows
-    kind: integer
-    value: 200000
-    description: The maximum number of rows to buffer in memory before writing to the destination table in Postgres
-  - name: max_buffer_size
-    kind: integer
-    value: 104857600
-    description: "The maximum number of bytes to buffer in memory before writing to the destination table in Postgres. Default: 100MB in bytes"
-  - name: batch_detection_threshold
-    kind: integer
-    description: How often, in rows received, to count the buffered rows and bytes to check if a flush is necessary. There's a slight performance penalty to checking the buffered records count or bytesize, so this controls how often this is polled in order to mitigate the penalty. This value is usually not necessary to set as the default is dynamically adjusted to check reasonably often.
-  - name: state_support
-    kind: boolean
-    value: true
-    description: Whether the Target should emit `STATE` messages to stdout for further consumption. In this mode, which is on by default, STATE messages are buffered in memory until all the records that occurred before them are flushed according to the batch flushing schedule the target is configured with.
-  - name: add_upsert_indexes
-    kind: boolean
-    value: true
-    description: Whether the Target should create column indexes on the important columns used during data loading. These indexes will make data loading slightly slower but the deduplication phase much faster. Defaults to on for better baseline performance.
-  - name: before_run_sql
-    description: Raw SQL statement(s) to execute as soon as the connection to Postgres is opened by the target. Useful for setup like `SET ROLE` or other connection state that is important.
-  - name: after_run_sql
-    description: Raw SQL statement(s) to execute as soon as the connection to Postgres is opened by the target. Useful for setup like `SET ROLE` or other connection state that is important.
+        options:
+          - label: Debug
+            value: DEBUG
+          - label: Info
+            value: INFO
+          - label: Warning
+            value: WARNING
+          - label: Error
+            value: ERROR
+          - label: Critical
+            value: CRITICAL
+        description: The level for logging. Set to `DEBUG` to get things like queries executed, timing of those queries, etc.
+      - name: persist_empty_tables
+        kind: boolean
+        value: false
+        description: Whether the Target should create tables which have no records present in Remote.
+      - name: max_batch_rows
+        kind: integer
+        value: 200000
+        description: The maximum number of rows to buffer in memory before writing to the destination table in Postgres
+      - name: max_buffer_size
+        kind: integer
+        value: 104857600
+        description: "The maximum number of bytes to buffer in memory before writing to the destination table in Postgres. Default: 100MB in bytes"
+      - name: batch_detection_threshold
+        kind: integer
+        description: How often, in rows received, to count the buffered rows and bytes to check if a flush is necessary. There's a slight performance penalty to checking the buffered records count or bytesize, so this controls how often this is polled in order to mitigate the penalty. This value is usually not necessary to set as the default is dynamically adjusted to check reasonably often.
+      - name: state_support
+        kind: boolean
+        value: true
+        description: Whether the Target should emit `STATE` messages to stdout for further consumption. In this mode, which is on by default, STATE messages are buffered in memory until all the records that occurred before them are flushed according to the batch flushing schedule the target is configured with.
+      - name: add_upsert_indexes
+        kind: boolean
+        value: true
+        description: Whether the Target should create column indexes on the important columns used during data loading. These indexes will make data loading slightly slower but the deduplication phase much faster. Defaults to on for better baseline performance.
+      - name: before_run_sql
+        description: Raw SQL statement(s) to execute as soon as the connection to Postgres is opened by the target. Useful for setup like `SET ROLE` or other connection state that is important.
+      - name: after_run_sql
+        description: Raw SQL statement(s) to execute as soon as the connection to Postgres is opened by the target. Useful for setup like `SET ROLE` or other connection state that is important.
+    - name: transferwise
+      docs: https://meltano.com/plugins/loaders/postgres--transferwise.html
+      repo: https://github.com/transferwise/pipelinewise-target-postgres
+      maintainer:
+        name: Transferwise
+        link: https://github.com/transferwise
+      maintenance_status: Active
+      pip_url: pipelinewise-target-postgres
+      settings_group_validation:
+        - ['host', 'port', 'user', 'password', 'dbname', 'default_target_schema']
+      settings:
+        - name: host
+          env_aliases: [PG_ADDRESS]
+          value: localhost
+          description: PostgreSQL host
+        - name: port
+          env_aliases: [PG_PORT]
+          kind: integer
+          value: 5432
+          description: PostgreSQL port
+        - name: user
+          env_aliases: [PG_USERNAME]
+          description: PostgreSQL user
+        - name: password
+          env_aliases: [PG_PASSWORD]
+          kind: password
+          description: PostgreSQL password
+        - name: dbname
+          env_aliases: [PG_DATABASE]
+          description: PostgreSQL database name
+        - name: ssl
+          kind: boolean
+          value: false
+          value_post_processor: stringify
+        - name: default_target_schema
+          env_aliases: [TARGET_POSTGRES_SCHEMA, PG_SCHEMA]
+          meltano_default: $MELTANO_EXTRACT__LOAD_SCHEMA
+          description: Name of the schema where the tables will be created. If `schema_mapping` is not defined then every stream sent by the tap is loaded into this schema.
+        # Optional settings
+        - name: batch_size_rows
+          kind: integer
+          value: 100000
+          description: Maximum number of rows in each batch. At the end of each batch, the rows in the batch are loaded into Postgres.
+        - name: flush_all_streams
+          kind: boolean
+          value: false
+          description: "Flush and load every stream into Postgres when one batch is full. Warning: This may trigger the COPY command to use files with low number of records."
+        - name: parallelism
+          kind: integer
+          value: 0
+          description: The number of threads used to flush tables. 0 will create a thread for each stream, up to parallelism_max. -1 will create a thread for each CPU core. Any other positive number will create that number of threads, up to parallelism_max.
+        - name: parallelism_max
+          kind: integer
+          value: 16
+          description: Max number of parallel threads to use when flushing tables.
+        - name: default_target_schema_select_permission
+          description: Grant USAGE privilege on newly created schemas and grant SELECT privilege on newly created tables to a specific role or a list of roles. If `schema_mapping` is not defined then every stream sent by the tap is granted accordingly.
+        - name: schema_mapping
+          kind: object
+          description: >
+            Useful if you want to load multiple streams from one tap to multiple Postgres schemas.
+            If the tap sends the `stream_id` in `<schema_name>-<table_name>` format then this option overwrites the `default_target_schema` value.
+            Note, that using `schema_mapping` you can overwrite the `default_target_schema_select_permission` value to grant SELECT permissions to different groups per schemas or optionally you can create indices automatically for the replicated tables.
+        - name: add_metadata_columns
+          kind: boolean
+          value: false
+          description: Metadata columns add extra row level information about data ingestions, (i.e. when was the row read in source, when was inserted or deleted in postgres etc.) Metadata columns are creating automatically by adding extra columns to the tables with a column prefix `_SDC_`. The column names are following the stitch naming conventions documented at https://www.stitchdata.com/docs/data-structure/integration-schemas#sdc-columns. Enabling metadata columns will flag the deleted rows by setting the `_SDC_DELETED_AT` metadata column. Without the `add_metadata_columns` option the deleted rows from singer taps will not be recongisable in Postgres.
+        - name: hard_delete
+          kind: boolean
+          value: false
+          description: When `hard_delete` option is true then DELETE SQL commands will be performed in Postgres to delete rows in tables. It's achieved by continuously checking the `_SDC_DELETED_AT` metadata column sent by the singer tap. Due to deleting rows requires metadata columns, `hard_delete` option automatically enables the `add_metadata_columns` option as well.
+        - name: data_flattening_max_level
+          kind: integer
+          value: 0
+          description: Object type RECORD items from taps can be transformed to flattened columns by creating columns automatically. When value is 0 (default) then flattening functionality is turned off.
+        - name: primary_key_required
+          kind: boolean
+          value: true
+          description: Log based and Incremental replications on tables with no Primary Key cause duplicates when merging UPDATE events. When set to true, stop loading data if no Primary Key is defined.
+        - name: validate_records
+          kind: boolean
+          value: false
+          description: Validate every single record message to the corresponding JSON schema. This option is disabled by default and invalid RECORD messages will fail only at load time by Postgres. Enabling this option will detect invalid records earlier but could cause performance degradation.
+        - name: temp_dir
+          description: "(Default: platform-dependent) Directory of temporary CSV files with RECORD messages."
+    - name: meltano
+      docs: 'https://meltano.com/plugins/loaders/postgres--meltano.html'
+      repo: https://github.com/meltano/target-postgres
+      maintainer:
+        name: Meltano Community
+      maintenance_status: Active
+      pip_url: 'git+https://github.com/meltano/target-postgres.git'
+      settings_group_validation:
+        - ['url', 'schema']
+        - ['user', 'password', 'host', 'port', 'dbname', 'schema']
+      settings:
+        - name: user
+          aliases: [username]
+          env_aliases: [PG_USERNAME, POSTGRES_USER]
+          value: warehouse
+        - name: password
+          kind: password
+          env_aliases: [PG_PASSWORD, POSTGRES_PASSWORD]
+          value: warehouse
+        - name: host
+          aliases: [address]
+          env_aliases: [PG_ADDRESS, POSTGRES_HOST]
+          value: localhost
+        - name: port
+          kind: integer
+          env_aliases: [PG_PORT, POSTGRES_PORT]
+          value: 5502
+        - name: dbname
+          aliases: [database]
+          label: Database Name
+          env_aliases: [PG_DATABASE, POSTGRES_DBNAME]
+          value: warehouse
+        - name: url
+          env_aliases: [PG_URL, POSTGRES_URL]
+          label: URL
+          description: Lets you set `user`, `password`, `host`, `port`, and `dbname` in one go using a `postgresql://` URI. Takes precedence over the other settings when set.
+        - name: schema
+          env_aliases: [PG_SCHEMA, POSTGRES_SCHEMA]
+          value: $MELTANO_EXTRACT__LOAD_SCHEMA
 ---
-
-# PostgreSQL
-
-The `target-postgres` [loader](/plugins/loaders/) loads [extracted](/plugins/extractors/) data into a [PostgreSQL](https://www.postgresql.org/) database.
-
-- **Repository**: <https://github.com/datamill-co/target-postgres>
-- **Maintainer**: [Data Mill](https://datamill.co/)
-- **Maintenance status**: Active
-
-#### Alternative variants
-
-Multiple [variants](/docs/plugins.html#variants) of `target-postgres` are available.
-This document describes the default `datamill-co` variant, which is recommended for new users.
-
-Alternative options are [`transferwise`](./postgres--transferwise.html) and [`meltano`](./postgres--meltano.html).
-
-## Getting Started
-
-### Prerequisites
-
-If you haven't already, follow the initial steps of the [Getting Started guide](/docs/getting-started.html):
-
-1. [Install Meltano](/docs/getting-started.html#install-meltano)
-1. [Create your Meltano project](/docs/getting-started.html#create-your-meltano-project)
-1. [Add an extractor to pull data from a source](/docs/getting-started.html#add-an-extractor-to-pull-data-from-a-source)
-
-#### Dependencies
-
-`target-postgres` [requires](https://www.psycopg.org/docs/install.html#runtime-requirements) the
-[`libpq` library](https://www.postgresql.org/docs/current/libpq.html) to be available on your system.
-If you've installed PostgreSQL, you should already have it, but you can also install it by itself using the
-[`libpq-dev` package](https://pkgs.org/download/libpq-dev) on Ubuntu/Debian or the
-[`libpq` Homebrew formula](https://formulae.brew.sh/formula/libpq) on macOS.
-
-### Installation and configuration
-
-#### Using the Command Line Interface
-
-1. Add the `target-postgres` loader to your project using [`meltano add`](/docs/command-line-interface.html#add):
-
-    ```bash
-    meltano add loader target-postgres
-    ```
-
-1. Configure the [settings](#settings) below using [`meltano config`](/docs/command-line-interface.html#config).
-
-#### Using Meltano UI
-
-1. Start [Meltano UI](/docs/ui.html) using [`meltano ui`](/docs/command-line-interface.html#ui):
-
-    ```bash
-    meltano ui
-    ```
-
-1. Open the Loaders interface at <http://localhost:5000/loaders>.
-1. Click the "Add to project" button for "PostgreSQL".
-1. Configure the [settings](#settings) below in the "Configuration" interface that opens automatically.
-
-### Next steps
-
-Follow the remaining step of the [Getting Started guide](/docs/getting-started.html):
-
-1. [Run a data integration (EL) pipeline](/docs/getting-started.html#run-a-data-integration-el-pipeline)
-
-If you run into any issues, refer to the ["Troubleshooting" section](#troubleshooting) below or [learn how to get help](/docs/getting-help.html).
-
-## Settings
-
-`target-postgres` requires the [configuration](/docs/configuration.html) of the following settings:
-
-- [Postgres Host](#postgres-host)
-- [Postgres Port](#postgres-port)
-- [Postgres Database](#postgres-database)
-- [Postgres Username](#postgres-username)
-- [Postgres Password](#postgres-password)
-- [Postgres Schema](#postgres-schema)
-
-These and other supported settings are documented below.
-To quickly find the setting you're looking for, use the Table of Contents in the sidebar.
-
-#### Minimal configuration
-
-A minimal configuration of `target-postgres` in your [`meltano.yml` project file](/docs/project.html#meltano-yml-project-file) will look like this:
-
-```yml{5-10}
-plugins:
-  loaders:
-  - name: target-postgres
-    variant: datamill-co
-    config:
-      postgres_host: postgres.example.com
-      postgres_port: 5432
-      postgres_username: my_user
-      postgres_database: my_database
-      # postgres_schema: my_schema   # override if default (see below) is not appropriate
-```
-
-Sensitive values are most appropriately stored in [the environment](/docs/configuration.html#configuring-settings) or your project's [`.env` file](/docs/project.html#env):
-
-```bash
-export TARGET_POSTGRES_PASSWORD=my_password
-```
-
-### Postgres Host
-
-- Name: `postgres_host`
-- [Environment variable](/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_HOST`, alias: `TARGET_POSTGRES_POSTGRES_HOST`, `PG_ADDRESS`
-- Default: `localhost`
-
-#### How to use
-
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](/docs/command-line-interface.html#config), or an [environment variable](/docs/configuration.html#configuring-settings):
-
-```bash
-meltano config target-postgres set postgres_host <host>
-
-export TARGET_POSTGRES_HOST=<host>
-```
-
-### Postgres Port
-
-- Name: `postgres_port`
-- [Environment variable](/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_PORT`, alias: `TARGET_POSTGRES_POSTGRES_PORT`, `PG_PORT`
-- Default: `5432`
-
-#### How to use
-
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](/docs/command-line-interface.html#config), or an [environment variable](/docs/configuration.html#configuring-settings):
-
-```bash
-meltano config target-postgres set postgres_port 5502
-
-export TARGET_POSTGRES_PORT=5502
-```
-
-### Postgres Database
-
-- Name: `postgres_database`
-- [Environment variable](/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_DATABASE`, alias: `TARGET_POSTGRES_POSTGRES_DATABASE`, `PG_DATABASE`
-
-#### How to use
-
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](/docs/command-line-interface.html#config), or an [environment variable](/docs/configuration.html#configuring-settings):
-
-```bash
-meltano config target-postgres set postgres_database <database>
-
-export TARGET_POSTGRES_DATABASE=<database>
-```
-
-### Postgres Username
-
-- Name: `postgres_username`
-- [Environment variable](/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_USERNAME`, alias: `TARGET_POSTGRES_POSTGRES_USERNAME`, `PG_USERNAME`
-
-#### How to use
-
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](/docs/command-line-interface.html#config), or an [environment variable](/docs/configuration.html#configuring-settings):
-
-```bash
-meltano config target-postgres set postgres_username <username>
-
-export TARGET_POSTGRES_USERNAME=<username>
-```
-
-### Postgres Password
-
-- Name: `postgres_password`
-- [Environment variable](/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_PASSWORD`, alias: `TARGET_POSTGRES_POSTGRES_PASSWORD`, `PG_PASSWORD`
-
-#### How to use
-
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](/docs/command-line-interface.html#config), or an [environment variable](/docs/configuration.html#configuring-settings):
-
-```bash
-meltano config target-postgres set postgres_password <password>
-
-export TARGET_POSTGRES_PASSWORD=<password>
-```
-
-### Postgres Schema
-
-- Name: `postgres_schema`
-- [Environment variable](/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_SCHEMA`, alias: `TARGET_POSTGRES_POSTGRES_SCHEMA`
-- Default: `$MELTANO_EXTRACT__LOAD_SCHEMA`, which [will expand to](/docs/configuration.html#expansion-in-setting-values) the value of the [`load_schema` extra](/docs/plugins.html#load-schema-extra) for the extractor used in the pipeline, which defaults to the extractor's namespace, e.g. `tap_gitlab` for [`tap-gitlab`](/plugins/extractors/gitlab.html).
-
-#### How to use
-
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](/docs/command-line-interface.html#config), or an [environment variable](/docs/configuration.html#configuring-settings):
-
-```bash
-meltano config target-postgres set postgres_schema <schema>
-
-export TARGET_POSTGRES_POSTGRES_SCHEMA=<schema>
-```
-
-### Postgres SSLmode
-
-- Name: `postgres_sslmode`
-- [Environment variable](/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_SSLMODE`, alias: `TARGET_POSTGRES_POSTGRES_SSLMODE`
-- Default: `prefer`
-
-Refer to the [libpq docs](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-PARAMKEYWORDS) for more information about SSL.
-
-#### How to use
-
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](/docs/command-line-interface.html#config), or an [environment variable](/docs/configuration.html#configuring-settings):
-
-```bash
-meltano config target-postgres set postgres_sslmode <mode>
-
-export TARGET_POSTGRES_SSLMODE=<mode>
-```
-
-### Postgres SSLcert
-
-- Name: `postgres_sslcert`
-- [Environment variable](/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_SSLCERT`, alias: `TARGET_POSTGRES_POSTGRES_SSLCERT`
-- Default: `~/.postgresql/postgresql.crt`
-
-Only used if a SSL request w/ a client certificate is being made
-
-#### How to use
-
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](/docs/command-line-interface.html#config), or an [environment variable](/docs/configuration.html#configuring-settings):
-
-```bash
-meltano config target-postgres set postgres_sslcert <path>
-
-export TARGET_POSTGRES_SSLCERT=<path>
-```
-
-### Postgres SSLkey
-
-- Name: `postgres_sslkey`
-- [Environment variable](/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_SSLKEY`, alias: `TARGET_POSTGRES_POSTGRES_SSLKEY`
-- Default: `~/.postgresql/postgresql.key`
-
-Only used if a SSL request w/ a client certificate is being made
-
-#### How to use
-
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](/docs/command-line-interface.html#config), or an [environment variable](/docs/configuration.html#configuring-settings):
-
-```bash
-meltano config target-postgres set postgres_sslkey <path>
-
-export TARGET_POSTGRES_SSLKEY=<path>
-```
-
-### Postgres SSLrootcert
-
-- Name: `postgres_sslrootcert`
-- [Environment variable](/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_SSLROOTCERT`, alias: `TARGET_POSTGRES_POSTGRES_SSLROOTCERT`
-- Default: `~/.postgresql/root.crt`
-
-Used for authentication of a server SSL certificate
-
-#### How to use
-
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](/docs/command-line-interface.html#config), or an [environment variable](/docs/configuration.html#configuring-settings):
-
-```bash
-meltano config target-postgres set postgres_sslrootcert <path>
-
-export TARGET_POSTGRES_SSLROOTCERT=<path>
-```
-
-### Postgres SSLcrl
-
-- Name: `postgres_sslcrl`
-- [Environment variable](/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_SSLCRL`, alias: `TARGET_POSTGRES_POSTGRES_SSLCRL`
-- Default: `~/.postgresql/root.crl`
-
-Used for authentication of a server SSL certificate
-
-#### How to use
-
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](/docs/command-line-interface.html#config), or an [environment variable](/docs/configuration.html#configuring-settings):
-
-```bash
-meltano config target-postgres set postgres_sslcrl <path>
-
-export TARGET_POSTGRES_SSLCRL=<path>
-```
-
-### Invalid Records Detect
-
-- Name: `invalid_records_detect`
-- [Environment variable](/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_INVALID_RECORDS_DETECT`
-- Default: `true`
-
-Include `false` in your config to disable `target-postgres` from crashing on invalid records
-
-#### How to use
-
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](/docs/command-line-interface.html#config), or an [environment variable](/docs/configuration.html#configuring-settings):
-
-```bash
-meltano config target-postgres set invalid_records_detect false
-
-export TARGET_POSTGRES_INVALID_RECORDS_DETECT=false
-```
-
-### Invalid Records Threshold
-
-- Name: `invalid_records_threshold`
-- [Environment variable](/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_INVALID_RECORDS_THRESHOLD`
-- Default: `0`
-
-Include a positive value `n` in your config to allow for `target-postgres` to encounter at most `n` invalid records per stream before giving up.
-
-#### How to use
-
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](/docs/command-line-interface.html#config), or an [environment variable](/docs/configuration.html#configuring-settings):
-
-```bash
-meltano config target-postgres set invalid_records_threshold 5
-
-export TARGET_POSTGRES_INVALID_RECORDS_THRESHOLD=5
-```
-
-### Disable Collection
-
-- Name: `disable_collection`
-- [Environment variable](/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_DISABLE_COLLECTION`
-- Default: `false`
-
-Include `true` in your config to disable [Singer Usage Logging](https://github.com/datamill-co/target-postgres#usage-logging).
-
-#### How to use
-
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](/docs/command-line-interface.html#config), or an [environment variable](/docs/configuration.html#configuring-settings):
-
-```bash
-meltano config target-postgres set disable_collection true
-
-export TARGET_POSTGRES_DISABLE_COLLECTION=true
-```
-
-### Logging Level
-
-- Name: `logging_level`
-- [Environment variable](/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_LOGGING_LEVEL`
-- Options: `DEBUG`, `INFO`, `WARNING`, `ERROR`, `CRITICAL`
-- Default: `INFO`
-
-The level for logging. Set to `DEBUG` to get things like queries executed, timing of those queries, etc. See [Python's Logger Levels](https://docs.python.org/3/library/logging.html#levels) for information about valid values.
-
-#### How to use
-
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](/docs/command-line-interface.html#config), or an [environment variable](/docs/configuration.html#configuring-settings):
-
-```bash
-meltano config target-postgres set logging_level DEBUG
-
-export TARGET_POSTGRES_LOGGING_LEVEL=DEBUG
-```
-
-### Persist Empty Tables
-
-- Name: `persist_empty_tables`
-- [Environment variable](/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_PERSIST_EMPTY_TABLES`
-- Default: `false`
-
-Whether the Target should create tables which have no records present in Remote.
-
-#### How to use
-
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](/docs/command-line-interface.html#config), or an [environment variable](/docs/configuration.html#configuring-settings):
-
-```bash
-meltano config target-postgres set persist_empty_tables true
-
-export TARGET_POSTGRES_PERSIST_EMPTY_TABLES=true
-```
-
-### Max Batch Rows
-
-- Name: `max_batch_rows`
-- [Environment variable](/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_MAX_BATCH_ROWS`
-- Default: `200000`
-
-The maximum number of rows to buffer in memory before writing to the destination table in Postgres
-
-#### How to use
-
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](/docs/command-line-interface.html#config), or an [environment variable](/docs/configuration.html#configuring-settings):
-
-```bash
-meltano config target-postgres set max_batch_rows 100000
-
-export TARGET_POSTGRES_MAX_BATCH_ROWS=100000
-```
-
-### Max Buffer Size
-
-- Name: `max_buffer_size`
-- [Environment variable](/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_MAX_BUFFER_SIZE`
-- Default: `104857600` (100MB in bytes)
-
-The maximum number of bytes to buffer in memory before writing to the destination table in Postgres.
-
-#### How to use
-
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](/docs/command-line-interface.html#config), or an [environment variable](/docs/configuration.html#configuring-settings):
-
-```bash
-meltano config target-postgres set max_buffer_size 52428800 # 50MB in bytes
-
-export TARGET_POSTGRES_MAX_BUFFER_SIZE=52428800
-```
-
-### Batch Detection Threshold
-
-- Name: `batch_detection_threshold`
-- [Environment variable](/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_BATCH_DETECTION_THRESHOLD`
-- Default: 1/40th of [Max Batch Rows](#max-batch-rows), usually `5000`
-
-How often, in rows received, to count the buffered rows and bytes to check if a flush is necessary.
-
-There's a slight performance penalty to checking the buffered records count or bytesize, so this controls how often this is polled in order to mitigate the penalty. This value is usually not necessary to set as the default is dynamically adjusted to check reasonably often.
-
-#### How to use
-
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](/docs/command-line-interface.html#config), or an [environment variable](/docs/configuration.html#configuring-settings):
-
-```bash
-meltano config target-postgres set batch_detection_threshold 1000
-
-export TARGET_POSTGRES_BATCH_DETECTION_THRESHOLD=100
-```
-
-### State Support
-
-- Name: `state_support`
-- [Environment variable](/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_STATE_SUPPORT`
-- Default: `true`
-
-Whether the Target should emit `STATE` messages to stdout for further consumption.
-
-In this mode, which is on by default, STATE messages are buffered in memory until all the records that occurred before them are flushed according to the batch flushing schedule the target is configured with.
-
-#### How to use
-
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](/docs/command-line-interface.html#config), or an [environment variable](/docs/configuration.html#configuring-settings):
-
-```bash
-meltano config target-postgres set state_support false
-
-export TARGET_POSTGRES_STATE_SUPPORT=false
-```
-
-### Add Upsert Indexes
-
-- Name: `add_upsert_indexes`
-- [Environment variable](/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_ADD_UPSERT_INDEXES`
-- Default: `true`
-
-Whether the Target should create column indexes on the important columns used during data loading.
-
-These indexes will make data loading slightly slower but the deduplication phase much faster. Defaults to on for better baseline performance.
-
-#### How to use
-
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](/docs/command-line-interface.html#config), or an [environment variable](/docs/configuration.html#configuring-settings):
-
-```bash
-meltano config target-postgres set add_upsert_indexes false
-
-export TARGET_POSTGRES_ADD_UPSERT_INDEXES=false
-```
-
-### Before Run SQL
-
-- Name: `before_run_sql`
-- [Environment variable](/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_BEFORE_RUN_SQL`
-
-Raw SQL statement(s) to execute as soon as the connection to Postgres is opened by the target. Useful for setup like `SET ROLE` or other connection state that is important.
-
-#### How to use
-
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](/docs/command-line-interface.html#config), or an [environment variable](/docs/configuration.html#configuring-settings):
-
-```bash
-meltano config target-postgres set before_run_sql <sql>
-
-export TARGET_POSTGRES_BEFORE_RUN_SQL=<sql>
-```
-
-### After Run SQL
-
-- Name: `after_run_sql`
-- [Environment variable](/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_AFTER_RUN_SQL`
-
-Raw SQL statement(s) to execute as soon as the connection to Postgres is opened by the target. Useful for setup like `SET ROLE` or other connection state that is important.
-
-#### How to use
-
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](/docs/command-line-interface.html#config), or an [environment variable](/docs/configuration.html#configuring-settings):
-
-```bash
-meltano config target-postgres set after_run_sql <sql>
-
-export TARGET_POSTGRES_AFTER_RUN_SQL=<sql>
-```
-
-## Troubleshooting
-
-### Error: `psycopg2.ProgrammingError: syntax error at or near "-"`
-
-This error message indicates that the extractor you are using this loader with generates
-stream names that include the source database schema in addition to the table name: `<schema>-<table>`, e.g. `public-accounts`.
-This is not supported by [this variant](#alternative-variants) of `target-postgres`.
-
-Instead, use the [`transferwise` variant](/plugins/loaders/postgres--transferwise.html) which was made to be used with extractors that behave this way.
-
-### Error: `pg_config executable not found` or `libpq-fe.h: No such file or directory`
-
-This error message indicates that the [`libpq`](https://www.postgresql.org/docs/current/libpq.html) dependency is missing.
-
-To resolve this, refer to the ["Dependencies" section](#dependencies) above.

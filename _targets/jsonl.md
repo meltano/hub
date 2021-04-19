@@ -14,7 +14,10 @@ maintainer:
 maintenance_status: Active  
 settings:
   - name: destination_path
-    description: Sets the destination path the JSONL files are written to, relative to the project root. The directory needs to exist already, it will not be created automatically. To write JSONL files to the project root, set an empty string (`""`).
+    description: >
+        Sets the destination path the JSONL files are written to, relative to the project root. 
+        The directory needs to exist already, it will not be created automatically. 
+        To write JSONL files to the project root, set an empty string (`""`).
     value: output
   - name: do_timestamp_file
     kind: boolean
