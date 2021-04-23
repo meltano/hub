@@ -14,3 +14,7 @@ plugins:
     settings:
     - name: access_token
     - name: repository
+  loaders:
+  - name: target-jsonl
+    variant: andyh1203
+    pip_url: target-jsonl
