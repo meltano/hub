@@ -1,3 +1,16 @@
 version: 1
 send_anonymous_usage_stats: true
 project_id: 8a952b1e-ae69-40a9-9c71-19bafa3a96e7
+plugins:
+  extractors:
+  - name: tap-github
+    namespace: tap_github
+    pip_url: tap-github
+    executable: tap-github
+    capabilities:
+    - catalog
+    - discover
+    - state
+    settings:
+    - name: access_token
+    - name: repository
