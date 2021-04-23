@@ -2,7 +2,7 @@
 name: PostgreSQL
 type: target
 target_type: database
-description: A Singer Target for loading data ino PostgreSQL
+description: A Singer Target for loading data into PostgreSQL
 dialect: postgres
 singer_name: target-postgres
 variants:
@@ -122,7 +122,7 @@ variants:
       - name: after_run_sql
         description: Raw SQL statement(s) to execute as soon as the connection to Postgres is opened by the target. Useful for setup like `SET ROLE` or other connection state that is important.
     - name: transferwise
-      docs: https://meltano.com/plugins/loaders/postgres--transferwise.html
+      docs: https://transferwise.github.io/pipelinewise/connectors/targets/postgres.html
       repo: https://github.com/transferwise/pipelinewise-target-postgres
       maintainer:
         name: Transferwise
@@ -207,7 +207,6 @@ variants:
         - name: temp_dir
           description: "(Default: platform-dependent) Directory of temporary CSV files with RECORD messages."
     - name: meltano
-      docs: 'https://meltano.com/plugins/loaders/postgres--meltano.html'
       repo: https://github.com/meltano/target-postgres
       maintainer:
         name: Meltano Community
@@ -244,5 +243,5 @@ variants:
           description: Lets you set `user`, `password`, `host`, `port`, and `dbname` in one go using a `postgresql://` URI. Takes precedence over the other settings when set.
         - name: schema
           env_aliases: [PG_SCHEMA, POSTGRES_SCHEMA]
-          value: $MELTANO_EXTRACT__LOAD_SCHEMA
+          meltano_default: $MELTANO_EXTRACT__LOAD_SCHEMA
 ---

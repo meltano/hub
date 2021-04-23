@@ -16,7 +16,7 @@ permalink: /targets/index.html
             </a>
         </h2>
         <p>
-            {{ target.singer_name }}{% if target.variants.size > 0 %} - {{target.variants.size}} variants available {% endif %}
+            {{ target.singer_name }}{% if target.variants.size > 1 %} - {{target.variants.size | minus: 1}} additional variants available {% endif %}
         </p>
         {% endfor %}
     </ul>

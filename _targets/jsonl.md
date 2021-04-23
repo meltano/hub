@@ -5,23 +5,25 @@ target_type: file
 singer_name: target-jsonl
 description: A Singer Target for loading data in JSONL file
 namespace: target_jsonl
-variant: andyh1203
-repo: https://github.com/andyh1203/target-jsonl
-pip_url: target-jsonl
-maintainer:
-  name: Andy Huynh
-  link: https://github.com/andyh1203
-maintenance_status: Active  
-settings:
-  - name: destination_path
-    description: >
-        Sets the destination path the JSONL files are written to, relative to the project root. 
-        The directory needs to exist already, it will not be created automatically. 
-        To write JSONL files to the project root, set an empty string (`""`).
-    value: output
-  - name: do_timestamp_file
-    kind: boolean
-    label: Include timestamp in file names
-    description: Specifies if the files should get timestamped
-    value: false
+variants:
+    - name: andyh1203
+      repo: https://github.com/andyh1203/target-jsonl
+      pip_url: target-jsonl
+      primary_variant: true
+      maintainer:
+        name: Andy Huynh
+        link: https://github.com/andyh1203
+      maintenance_status: Active  
+      settings:
+        - name: destination_path
+          description: >
+              Sets the destination path the JSONL files are written to, relative to the project root. 
+              The directory needs to exist already, it will not be created automatically. 
+              To write JSONL files to the project root, set an empty string (`""`).
+          value: output
+        - name: do_timestamp_file
+          kind: boolean
+          label: Include timestamp in file names
+          description: Specifies if the files should get timestamped
+          value: false
 ---

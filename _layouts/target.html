@@ -8,30 +8,23 @@ layout: default
     </header>
 
     <div class="post-content">
-        <h2>{{ page.description | markdownify }}</h2>
-        <p>Project repository: <a href="{{page.repo}}">{{ page.repo }}</a></p> 
-        <h3>Maintainer: <a href="{{page.maintainer.link}}">{{ page.maintainer.name }}</a></h3>
-        <h3>Maintenance Status: {{ page.maintenance_status }}</h3>
-        <ul>
-
-        {% if page.variants %}
-          {% for variant in page.variants %}
+        {% for variant in page.variants %}
             {% if variant.primary_variant %}
-                    <h3>Target Settings</h3>
-                    {% for setting in variant.settings %}
-                    <li><code class="highlighter-rouge">{{ setting.name }}</code></li>
-                    <p>{{ setting.description }} </p>
-                    {% endfor %}
+
+            <h2>{{ variant.description | markdownify }}</h2>
+            <p>Project repository: <a href="{{page.repo}}">{{ variant.repo }}</a></p> 
+            <h3>Maintainer: <a href="{{page.maintainer.link}}">{{ variant.maintainer.name }}</a></h3>
+            <h3>Maintenance Status: {{ variant.maintenance_status }}</h3>
+            <ul>
+
+                <h3>Target Settings</h3>
+                {% for setting in variant.settings %}
+                    {% include setting.html %}
+                {% endfor %}
+            
+            </ul>
             {%endif%}
-          {% endfor %}
-        {% else %}
-        <h3>Target Settings</h3>
-        {% for setting in page.settings %}
-        <li><code class="highlighter-rouge">{{ setting.name }}</code></li>
-        <p>{{ setting.description }} </p>
         {% endfor %}
-        </ul>
-        {% endif %}
 
     </div>
 
