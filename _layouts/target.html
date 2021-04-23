@@ -14,12 +14,25 @@ layout: default
         <h3>Maintenance Status: {{ page.maintenance_status }}</h3>
         <ul>
 
+        {% if page.variants %}
+          {% for variant in page.variants %}
+            {% if variant.primary_variant %}
+                    <h3>Target Settings</h3>
+                    {% for setting in variant.settings %}
+                    <li><code class="highlighter-rouge">{{ setting.name }}</code></li>
+                    <p>{{ setting.description }} </p>
+                    {% endfor %}
+            {%endif%}
+          {% endfor %}
+        {% else %}
         <h3>Target Settings</h3>
         {% for setting in page.settings %}
         <li><code class="highlighter-rouge">{{ setting.name }}</code></li>
         <p>{{ setting.description }} </p>
         {% endfor %}
         </ul>
+        {% endif %}
+
     </div>
 
 </article>
