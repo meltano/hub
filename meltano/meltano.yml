@@ -12,8 +12,9 @@ plugins:
     - discover
     - state
     settings:
-    - name: access_token
     - name: repository
+    - name: access_token
+      kind: password
   loaders:
   - name: target-jsonl
     variant: andyh1203
