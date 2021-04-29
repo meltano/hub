@@ -1,4 +1,3 @@
----
 name: CSV
 type: target
 target_type: file
@@ -11,7 +10,7 @@ variants:
       repo: https://github.com/singer-io/target-csv
       repo_forks: https://github.com/singer-io/target-csv/network
       pip_url: target-csv
-      maintainer: 
+      maintainer:
           name: Stitch
           link: https://www.stitchdata.com/
       maintenance_status: Unresponsive
@@ -42,4 +41,3 @@ variants:
                 value: '"'
             value: "'"
             description: A one-character string used to quote fields containing special characters, such as the delimiter or quotechar, or which contain new-line characters. It defaults to single quote (').
----

@@ -1,4 +1,3 @@
----
 name: PostgreSQL
 type: target
 target_type: database
@@ -10,7 +9,7 @@ variants:
       target_schema: $TARGET_POSTGRES_SCHEMA
       maintainer:
         name: Data Mill
-        link: https://github.com/datamill-co/  
+        link: https://github.com/datamill-co/
       maintenance_status: Active
       primary_variant: true
       repo: https://github.com/datamill-co/target-postgres
@@ -244,4 +243,3 @@ variants:
         - name: schema
           env_aliases: [PG_SCHEMA, POSTGRES_SCHEMA]
           meltano_default: $MELTANO_EXTRACT__LOAD_SCHEMA
----

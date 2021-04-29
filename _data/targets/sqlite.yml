@@ -1,4 +1,3 @@
----
 name: SQLite
 type: target
 target_type: database
@@ -28,4 +27,3 @@ variants:
         - name: timestamp_column
           value: '__loaded_at'
           description: Name of the column used for recording the timestamp when Data are loaded to SQLite.
----

@@ -1,4 +1,3 @@
----
 name: Redshift
 type: target
 target_type: database
@@ -49,7 +48,7 @@ variants:
         env_aliases: [TARGET_REDSHIFT_SCHEMA]
         meltano_default: $MELTANO_EXTRACT__LOAD_SCHEMA
         description: Name of the schema where the tables will be created. If schema_mapping is not defined then every stream sent by the tap is loaded into this schema.
-  
+
       # Optional settings
       - name: aws_profile
         label: AWS profile name
@@ -101,7 +100,7 @@ variants:
         value: 16
         description: Max number of parallel threads to use when flushing tables.
       - name: default_target_schema_select_permissions
-        description: Grant USAGE privilege on newly created schemas and grant SELECT privilege on newly created tables to a specific list of users or groups. If schema_mapping is not defined then every stream sent by the tap is granted accordingly. 
+        description: Grant USAGE privilege on newly created schemas and grant SELECT privilege on newly created tables to a specific list of users or groups. If schema_mapping is not defined then every stream sent by the tap is granted accordingly.
       - name: schema_mapping
         kind: object
         description: Useful if you want to load multiple streams from one tap to multiple Redshift schemas. If the tap sends the stream_id in <schema_name>-<table_name> format then this option overwrites the default_target_schema value. Note, that using schema_mapping you can overwrite the default_target_schema_select_permissions value to grant SELECT permissions to different groups per schemas or optionally you can create indices automatically for the replicated tables.
@@ -150,4 +149,3 @@ variants:
       - name: temp_dir
         label: Temp directory
         description: "(Default: platform-dependent) Directory of temporary CSV files with RECORD messages."
----

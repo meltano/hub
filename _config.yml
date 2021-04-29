@@ -10,7 +10,7 @@ title: SingerHub
 email: hello@meltano.com
 description: > # this means to ignore newlines until "baseurl:"
   The SingerHub is a central place to find any Singer-compatible
-  tap or target. The Hub is lovingly curated by Meltano and the wider 
+  tap or target. The Hub is lovingly curated by Meltano and the wider
   Singer community.
 baseurl: ""
 url: "http://singerhub.io" # the base hostname & protocol for your site
@@ -19,12 +19,10 @@ twitter_username: meltanodata
 collections:
   taps:
     output: true
-  targets:
-    output: true
 
 defaults:
   - scope:
-      path: "_targets"
+      type: targets
     values:
       layout: "target"
       target: true

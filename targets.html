@@ -9,15 +9,13 @@ permalink: /targets/index.html
     <h1 class="page-heading">Targets</h1>
 
     <ul class="target-list">
-        {% for target in site.targets %}
-        <h2>
-            <a href="{{ target.url | prepend: site.baseurl | prepend: site.url }}">
-                {{ target.name }}
-            </a>
-        </h2>
-        <p>
-            {{ target.singer_name }}{% if target.variants.size > 1 %} - {{target.variants.size | minus: 1}} additional variants available {% endif %}
-        </p>
+        {% for target_hash in site.data.targets %}
+            {% assign target = target_hash[1] %}
+            <h2>
+                <a href="{{ target.url | prepend: site.baseurl | prepend: site.url }}">
+                    {{ target.name }}
+                </a>
+            </h2>
         {% endfor %}
     </ul>
 
