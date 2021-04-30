@@ -16,15 +16,11 @@ baseurl: ""
 url: "http://singerhub.io" # the base hostname & protocol for your site
 twitter_username: meltanodata
 
-collections:
-  taps:
-    output: true
-
 defaults:
   - scope:
-      type: targets
+      type: plugins
     values:
-      layout: "target"
+      layout: "plugin"
       target: true
 
 # Outputting
