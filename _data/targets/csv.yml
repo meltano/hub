@@ -5,7 +5,7 @@ description: Singer target for loading data into [Comma Separated Values (CSV)](
 dialect: csv
 singer_name: target-csv
 variants:
-    - name: stitch
+    - name: singer-io
       primary_variant: true
       repo: https://github.com/singer-io/target-csv
       repo_forks: https://github.com/singer-io/target-csv/network

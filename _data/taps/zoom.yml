@@ -1,0 +1,36 @@
+name: Zoom
+type: tap
+source:
+  type: api
+  name: Zoom API
+  url: https://marketplace.zoom.us/docs/api-reference/introduction
+description: Video conferencing software
+singer_name: tap-zoom
+variants:
+- name: mashey
+  primary_variant: true
+  maintainer:
+    name: Mashey
+    link: https://www.mashey.com/
+  maintenance_status: Active
+  repo: https://github.com/mashey/tap-zoom
+  pip_url: 'git+https://github.com/mashey/tap-zoom.git'
+  capabilities:
+    - catalog
+    - discover
+  settings_group_validation:
+    - ['jwt']
+    - ['client_id', 'client_secret', 'refresh_token']
+  settings:
+    - name: jwt
+      kind: password
+      label: JSON Web Token
+      documentation: https://marketplace.zoom.us/docs/guides/auth/jwt
+    - name: client_id
+      documentation: https://marketplace.zoom.us/docs/guides/auth/oauth
+    - name: client_secret
+      kind: password
+      documentation: https://marketplace.zoom.us/docs/guides/auth/oauth
+    - name: refresh_token
+      kind: password
+      documentation: https://marketplace.zoom.us/docs/guides/auth/oauth

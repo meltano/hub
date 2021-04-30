@@ -1,0 +1,172 @@
+name: Bing Ads
+type: tap
+source:
+  type: api
+  name: Bing Ads API
+  url: https://docs.microsoft.com/en-us/advertising/guides/
+description: Advertising Platform
+singer_name: tap-bing-ads
+variants:
+- name: singer-io
+  primary_variant: true
+  maintainer:
+    name: Stitch
+    link: https://www.stitchdata.com/
+  maintenance_status: Unresponsive
+  repo: https://github.com/singer-io/tap-bing-ads
+  pip_url: tap-bing-ads
+  capabilities:
+    - catalog
+    - discover
+    - state
+  # TODO: `metadata` is not appropriate for hub, but necessary in Meltano because the default selection
+  # of `*.*` which selects all streams and properties is invalid. (See not on fieldExclusions in readme)
+  # It'd be better to mark these with `selected-by-default: false` in `tap-bing-ads`'s catalog
+  # Meltano doesn't support that yet, though: https://gitlab.com/meltano/meltano/-/issues/2556
+  metadata:
+    ad_group_performance_report:
+      AbsoluteTopImpressionSharePercent:
+        inclusion: available
+        selected: false
+      AbsoluteTopImpressionRatePercent:
+        inclusion: available
+        selected: false
+      AbsoluteTopImpressionShareLostToBudgetPercent:
+        inclusion: available
+        selected: false
+      AbsoluteTopImpressionShareLostToRankPercent:
+        inclusion: available
+        selected: false
+      AudienceImpressionLostToBudgetPercent:
+        inclusion: available
+        selected: false
+      AudienceImpressionLostToRankPercent:
+        inclusion: available
+        selected: false
+      AudienceImpressionSharePercent:
+        inclusion: available
+        selected: false
+      ClickSharePercent:
+        inclusion: available
+        selected: false
+      ExactMatchImpressionSharePercent:
+        inclusion: available
+        selected: false
+      ImpressionLostToAdRelevancePercent:
+        inclusion: available
+        selected: false
+      ImpressionLostToBidPercent:
+        inclusion: available
+        selected: false
+      ImpressionLostToBudgetPercent:
+        inclusion: available
+        selected: false
+      ImpressionLostToExpectedCtrPercent:
+        inclusion: available
+        selected: false
+      ImpressionLostToRankPercent:
+        inclusion: available
+        selected: false
+      ImpressionLostToRankAggPercent:
+        inclusion: available
+        selected: false
+      ImpressionSharePercent:
+        inclusion: available
+        selected: false
+      TopImpressionRatePercent:
+        inclusion: available
+        selected: false
+      TopImpressionShareLostToBudgetPercent:
+        inclusion: available
+        selected: false
+      TopImpressionShareLostToRankPercent:
+        inclusion: available
+        selected: false
+      TopImpressionSharePercent:
+        inclusion: available
+        selected: false
+    campaign_performance_report:
+      AbsoluteTopImpressionSharePercent:
+        inclusion: available
+        selected: false
+      AbsoluteTopImpressionRatePercent:
+        inclusion: available
+        selected: false
+      AbsoluteTopImpressionShareLostToBudgetPercent:
+        inclusion: available
+        selected: false
+      AbsoluteTopImpressionShareLostToRankPercent:
+        inclusion: available
+        selected: false
+      AudienceImpressionLostToBudgetPercent:
+        inclusion: available
+        selected: false
+      AudienceImpressionLostToRankPercent:
+        inclusion: available
+        selected: false
+      AudienceImpressionSharePercent:
+        inclusion: available
+        selected: false
+      ClickSharePercent:
+        inclusion: available
+        selected: false
+      ExactMatchImpressionSharePercent:
+        inclusion: available
+        selected: false
+      ImpressionLostToAdRelevancePercent:
+        inclusion: available
+        selected: false
+      ImpressionLostToBidPercent:
+        inclusion: available
+        selected: false
+      ImpressionLostToBudgetPercent:
+        inclusion: available
+        selected: false
+      ImpressionLostToExpectedCtrPercent:
+        inclusion: available
+        selected: false
+      ImpressionLostToRankPercent:
+        inclusion: available
+        selected: false
+      ImpressionLostToRankAggPercent:
+        inclusion: available
+        selected: false
+      ImpressionSharePercent:
+        inclusion: available
+        selected: false
+      TopImpressionRatePercent:
+        inclusion: available
+        selected: false
+      TopImpressionShareLostToBudgetPercent:
+        inclusion: available
+        selected: false
+      TopImpressionShareLostToRankPercent:
+        inclusion: available
+        selected: false
+      TopImpressionSharePercent:
+        inclusion: available
+        selected: false
+  settings_group_validation:
+    - ['customer_id', 'account_ids', 'oauth_client_id', 'oauth_client_secret', 'refresh_token', 'developer_token', 'start_date']
+  settings:
+    - name: developer_token
+      env: OAUTH_BING_ADS_DEVELOPER_TOKEN
+      kind: password
+    - name: oauth_client_id
+      env: OAUTH_BING_ADS_CLIENT_ID
+      label: OAuth Client ID
+      kind: password
+    - name: oauth_client_secret
+      env: OAUTH_BING_ADS_CLIENT_SECRET
+      label: OAuth Client Secret
+      kind: password
+    - name: refresh_token
+      kind: password
+
+    - name: customer_id
+      label: Customer ID
+    - name: account_ids
+      label: Account ID(s)
+    - name: start_date
+      description: Determines how much historical data will be extracted. Please be aware that the larger the time period and amount of data, the longer the initial extraction can be expected to take.
+      kind: date_iso8601

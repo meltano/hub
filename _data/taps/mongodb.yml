@@ -1,0 +1,50 @@
+name: MongoDB
+type: tap
+source:
+  type: database
+  name: MongoDB database
+  url: https://www.mongodb.com/
+description: General purpose, document-based, distributed database
+singer_name: tap-mongodb
+variants:
+- name: singer-io
+  primary_variant: true
+  maintainer:
+    name: Stitch
+    link: https://www.stitchdata.com/
+  maintenance_status: Unresponsive
+  repo: https://github.com/singer-io/tap-mongodb
+  pip_url: tap-mongodb
+  capabilities:
+    - catalog
+    - discover
+    - state
+  settings_group_validation:
+    - ['host', 'port', 'user', 'password', 'database']
+  settings:
+    - name: host
+      label: Host URL
+      value: localhost
+    - name: port
+      kind: integer
+      value: 27017
+    - name: user
+    - name: password
+      kind: password
+    - name: database
+      label: Database Name
+    - name: replica_set
+    - name: ssl
+      kind: boolean
+      value: false
+      value_post_processor: stringify
+      label: SSL
+    - name: verify_mode
+      kind: boolean
+      value: true
+      value_post_processor: stringify
+      description: SSL Verify Mode
+    - name: include_schemas_in_destination_stream_name
+      kind: boolean
+      value: false
+      description: Forces the stream names to take the form `<database_name>_<collection_name>` instead of `<collection_name>`

@@ -1,7 +1,6 @@
 name: Google Ads
 type: tap
-tap_type: api # TODO: Find single name instead of having both tap_type and target_type
-source: # TODO: Better name that can stand in for "source" and "destination", replaces tap/target_type
+source: # TODO: Better name that can stand in for "source" and "destination", replaces target_type
   type: api
   name: Google Adwords API
   url: https://developers.google.com/adwords/api/
@@ -21,7 +20,7 @@ variants:
       - state
     # TODO: `select` is not appropriate for hub, but necessary in Meltano because the default selection
     # of `*.*` which selects all streams and properties is invalid.
-    # It'd be better to mark these with `selected-by-default: true` in `tap-adwords`'s catalog'
+    # It'd be better to mark the other properties with `selected-by-default: false` in `tap-adwords`'s catalog
     # Meltano doesn't support that yet, though: https://gitlab.com/meltano/meltano/-/issues/2556
     select:
       - campaigns.*
