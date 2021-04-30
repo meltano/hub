@@ -15,6 +15,10 @@ plugins:
     - name: repository
     - name: access_token
       kind: password
+    config:
+      repository: singer-io/tap-github
+    select:
+    - commits.*
   loaders:
   - name: target-jsonl
     variant: andyh1203
