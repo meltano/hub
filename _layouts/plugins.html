@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-{% assign plugins = site.data[page.plugin_type] %}
+{% assign plugins = site.data[page.plugin_type] | sort %}
 <div class="home">
 
   <h1 class="page-heading">{{page.title}}</h1>
