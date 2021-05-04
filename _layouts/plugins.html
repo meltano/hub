@@ -1,0 +1,20 @@
+---
+layout: default
+---
+{% assign plugins = site.data[page.plugin_type] | sort %}
+<div class="home">
+
+  <h1 class="page-heading">{{page.title}}</h1>
+
+  <ul class="plugin-list">
+      {% for plugin_hash in plugins %}
+          {% assign plugin = plugin_hash[1] %}
+          <h2>
+              <a href="{{ plugin.url | prepend: site.baseurl | prepend: site.url }}">
+                  {{ plugin.name }}
+              </a>
+          </h2>
+      {% endfor %}
+  </ul>
+
+</div>
