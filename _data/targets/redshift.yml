@@ -1,8 +1,8 @@
-name: Redshift
+name: redshift
+label: Redshift
 type: target
 target_type: database
-description: A Singer Target for loading data into Redshift
-dialect: redshift
+description: For loading data into Redshift
 singer_name: target-redshift
 variants:
     - name: transferwise

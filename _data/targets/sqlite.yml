@@ -1,8 +1,8 @@
-name: SQLite
+name: sqlite
+label: SQLite
 type: target
 target_type: database
-description: A Singer Target for loading data into SQLite
-dialect: sqlite
+description: For loading data into SQLite
 singer_name: target-sqlite
 variants:
     - name: meltano

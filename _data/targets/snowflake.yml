@@ -1,8 +1,8 @@
-name: Snowflake
+name: snowflake
+label: Snowflake
 type: target
 target_type: database
-description: A Singer Target for loading data into Snowflake
-dialect: snowflake
+description: For loading data into Snowflake
 singer_name: target-snowflake
 variants:
     - name: datamill-co

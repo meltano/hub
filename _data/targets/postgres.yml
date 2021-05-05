@@ -1,8 +1,8 @@
-name: PostgreSQL # TODO: Rename to label, so "postgres" can be "name"? Or use "identifier" for "postgres"?
+name: postgres # TODO: Rename to label, so "postgres" can be "name"? Or use "identifier" for "postgres"?
+label: PostgreSQL
 type: target
 target_type: database
 description: For loading data into PostgreSQL
-dialect: postgresql
 singer_name: target-postgres
 variants:
     - name: datamill-co

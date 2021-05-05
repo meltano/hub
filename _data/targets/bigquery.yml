@@ -1,9 +1,9 @@
-name: BigQuery
+name: bigquery
+label: BigQuery
 type: target
 target_type: database
 singer_name: target-bigquery
-dialect: bigquery
-description: A Singer Target for loading data into BigQuery
+description: For loading data into BigQuery
 variants:
     - name : adswerve
       default: true

@@ -1,9 +1,9 @@
-name: JSONL
+name: jsonl
+label: JSONL
 type: target
 target_type: file
 singer_name: target-jsonl
 description: A Singer Target for loading data in JSONL file
-namespace: target_jsonl
 variants:
     - name: andyh1203
       repo: https://github.com/andyh1203/target-jsonl
