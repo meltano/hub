@@ -21,11 +21,9 @@ variants:
     - state
   settings:
     - name: account_id
-      env_aliases: [STRIPE_ACCOUNT_ID]
       label: Account ID
       placeholder: Ex. acct_1a2b3c4d5e
     - name: client_secret
-      env_aliases: [STRIPE_API_KEY]
       kind: password
       label: Secret API Key
       placeholder: Ex. sk_live_1a2b3c4d5e

@@ -26,11 +26,10 @@ variants:
     - name: streams
       kind: array
       description: Array holding objects describing streams (tables) to extract, with `name`, `table`, `columns`, `datetime_key`, and `filters` keys. See docs for details.
-    - name: credentials_path # TODO: This is not a real setting, so it wouldn't show up in the `config.json` JSON schema. We should probably make it a real setting!
-      # The tap doesn't know this setting, but will read the GOOGLE_APPLICATION_CREDENTIALS env var.
-      env_aliases: [GOOGLE_APPLICATION_CREDENTIALS]
-      meltano_default: $MELTANO_PROJECT_ROOT/client_secrets.json
-      description: Fully qualified path to `client_secrets.json` for your service account.
+    - name: credentials_path
+      description: >
+        This is not a real setting, so it should not appear in the `config.json` JSON schema.
+        The taret will read the `GOOGLE_APPLICATION_CREDENTIALS` environment variable which should be a fully qualified path to `client_secrets.json` for your service account. 
     - name: start_datetime
       kind: date_iso8601
       description: Determines how much historical data will be extracted. Please be aware that the larger the time period and amount of data, the longer the initial extraction can be expected to take.
