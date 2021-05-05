@@ -1,4 +1,5 @@
-name: BigQuery
+name: bigquery
+label: BigQuery
 type: tap
 source:
   type: database

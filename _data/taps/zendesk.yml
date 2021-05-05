@@ -1,4 +1,5 @@
-name: Zendesk
+name: zendesk
+label: Zendesk
 type: tap
 source:
   type: api

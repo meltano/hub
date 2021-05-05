@@ -1,4 +1,5 @@
-name: PostgreSQL
+name: postgres
+label: PostgreSQL
 type: tap
 source:
   type: database

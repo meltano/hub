@@ -1,4 +1,5 @@
-name: Google Analytics
+name: google-analytics
+label: Google Analytics
 type: tap
 source:
   type: api

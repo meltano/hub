@@ -1,4 +1,5 @@
-name: Comma Separated Values (CSV)
+name: csv
+label: Comma Separated Values (CSV)
 type: tap
 source:
   type: file

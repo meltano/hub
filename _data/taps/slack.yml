@@ -1,4 +1,5 @@
-name: Slack
+name: slack
+label: Slack
 type: tap
 source:
   type: api

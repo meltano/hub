@@ -1,4 +1,5 @@
-name: Fastly
+name: fastly
+label: Fastly
 type: tap
 source:
   type: api

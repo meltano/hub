@@ -1,4 +1,5 @@
-name: Quickbooks
+name: quickbooks
+label: Quickbooks
 type: tap
 source:
   type: api

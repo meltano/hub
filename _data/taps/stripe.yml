@@ -1,4 +1,5 @@
-name: Stripe
+name: stripe
+label: Stripe
 type: tap
 source:
   type: api

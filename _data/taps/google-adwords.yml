@@ -1,4 +1,5 @@
-name: Google Ads
+name: adwords
+label: Google Ads
 type: tap
 source: # TODO: Better name that can stand in for "source" and "destination", replaces target_type
   type: api

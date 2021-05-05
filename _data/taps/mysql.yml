@@ -1,4 +1,5 @@
-name: MySQL / MariaDB
+name: mysql
+label: MySQL / MariaDB
 type: tap
 source:
   type: database

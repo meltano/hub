@@ -1,4 +1,5 @@
-name: GitLab
+name: gitlab
+label: GitLab
 type: tap
 source:
   type: api
