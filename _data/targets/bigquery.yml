@@ -24,7 +24,7 @@ variants:
         - name: location
           description: Dataset location
           value: US
-        - name: credentials_path # TODO: This is not a real setting, so it wouldn't show up in the `config.json` JSON schema. We should probably make it a real setting!
+        - name: credentials_path
           description: >
             This is not a real setting, so it should not appear in the `config.json` JSON schema.
             The taret will read the `GOOGLE_APPLICATION_CREDENTIALS` environment variable which should be a fully qualified path to `client_secrets.json` for your service account. 
