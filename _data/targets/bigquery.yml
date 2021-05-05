@@ -11,7 +11,7 @@ variants:
       pip_url: git+https://github.com/adswerve/target-bigquery.git@v0.10.2
       maintainer:
         name: Adswerve
-        link: https://adswerve.com/
+        url: https://adswerve.com/
       maintenance_status: Active
       settings_group_validation:
           - ['project_id', 'dataset_id', 'location', 'credentials_path']

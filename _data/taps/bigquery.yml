@@ -11,7 +11,7 @@ variants:
   default: true
   maintainer:
     name: Anelen
-    link: https://anelen.co
+    url: https://anelen.co
   maintenance_status: Active
   repo: https://github.com/anelendata/tap-bigquery
   pip_url: tap-bigquery

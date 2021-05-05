@@ -11,7 +11,7 @@ variants:
   default: true
   maintainer:
     name: Stitch
-    link: https://www.stitchdata.com/
+    url: https://www.stitchdata.com/
   maintenance_status: Unresponsive
   repo: https://github.com/singer-io/tap-shopify
   pip_url: tap-shopify

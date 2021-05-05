@@ -11,7 +11,7 @@ variants:
   default: true
   maintainer:
     name: Wise
-    link: https://wise.com/
+    url: https://wise.com/
   maintenance_status: Active
   repo: https://github.com/transferwise/pipelinewise-tap-mysql
   pip_url: pipelinewise-tap-mysql

@@ -11,7 +11,7 @@ variants:
   default: true
   maintainer:
     name: Mashey
-    link: https://www.mashey.com/
+    url: https://www.mashey.com/
   maintenance_status: Active
   repo: https://github.com/mashey/tap-zoom
   pip_url: 'git+https://github.com/mashey/tap-zoom.git'

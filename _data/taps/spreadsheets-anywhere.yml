@@ -10,7 +10,7 @@ variants:
   default: true
   maintainer:
     name: Eric Simmerman
-    link: https://github.com/ets
+    url: https://github.com/ets
   maintenance_status: Active
   repo: https://github.com/ets/tap-spreadsheets-anywhere
   pip_url: git+https://github.com/ets/tap-spreadsheets-anywhere.git

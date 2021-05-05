@@ -9,7 +9,7 @@ variants:
       target_schema: $TARGET_POSTGRES_SCHEMA # TODO: This is just used by Meltano, definitely doesn't belong here. Better to identify specific setting as being the schema/"dataset identifier"
       maintainer:
         name: Data Mill # TODO: Move to separate data list of maintainers per variant ID
-        link: https://datamill.co/ # TODO: Rename to "url", always link to website, not Git repo
+        url: https://datamill.co/ # TODO: Rename to "url", always link to website, not Git repo
       maintenance_status: Active
       default: true
       repo: https://github.com/datamill-co/target-postgres
@@ -125,7 +125,7 @@ variants:
       repo: https://github.com/transferwise/pipelinewise-target-postgres
       maintainer:
         name: Transferwise
-        link: https://github.com/transferwise
+        url: https://wise.com/
       maintenance_status: Active
       pip_url: pipelinewise-target-postgres
       settings_group_validation:
