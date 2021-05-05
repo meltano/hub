@@ -40,8 +40,7 @@ variants:
     - name: ssl
       kind: boolean
       value: false
-      value_post_processor: stringify # TODO: This is Meltano specific, but this tap actually wants "true" or "false" with quotes
-      description: Using SSL via postgres `sslmode='require'` option. If the server does not accept SSL connections or the client certificate is not recognized the connection will fail
+      description: Using SSL via postgres `sslmode='require'` option. If the server does not accept SSL connections or the client certificate is not recognized the connection will fail. The tap requires a stringified version of the boolean values, i.e. "true" or "false" with quotes.
 
     - name: filter_schemas
       description: Scan only the specified comma-separated schemas to improve the performance of data extraction

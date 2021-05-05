@@ -34,8 +34,8 @@ variants:
     - name: database
     - name: ssl
       kind: boolean
+      description: The tap requires a stringified version of the boolean values, i.e. "true" or "false" with quotes.
       value: false
-      value_post_processor: stringify # TODO: This is Meltano specific, but this tap actually wants "true" or "false" with quotes
 
     - name: filter_dbs
       description: Comma separated list of schemas to extract tables only from particular schemas and to improve data extraction performance
