@@ -20,7 +20,7 @@ variants:
          - "`target-postgres` [requires](https://www.psycopg.org/docs/install.html#runtime-requirements) the [`libpq` library](https://www.postgresql.org/docs/current/libpq.html) to be available on your system. If you've installed PostgreSQL, you should already have it, but you can also install it by itself using the [`libpq-dev` package](https://pkgs.org/download/libpq-dev) on Ubuntu/Debian or the [`libpq` Homebrew formula](https://formulae.brew.sh/formula/libpq) on macOS."
       settings_group_validation:
         - ['postgres_host', 'postgres_port', 'postgres_database', 'postgres_username', 'postgres_password', 'postgres_schema']
-      settings: # TODO: Express using JSON schema, like SDK does https://gitlab.com/meltano/hub/-/issues/23
+      settings:
       - name: postgres_host
         value: localhost
       - name: postgres_port
@@ -29,7 +29,7 @@ variants:
       - name: postgres_database
       - name: postgres_username
       - name: postgres_password
-        kind: password # TODO: Making `password` a separate kind comes from `input[type]` in HTML, but perhaps the type and the sensitive nature of this field are orthogonal properties https://gitlab.com/meltano/hub/-/issues/23
+        kind: password
       - name: postgres_schema
         schema_id: true
       - name: postgres_sslmode
