@@ -23,36 +23,21 @@ variants:
         - ['snowflake_account', 'snowflake_username', 'snowflake_password', 'snowflake_database', 'snowflake_warehouse', 'snowflake_schema']
       settings:
         - name: snowflake_account
-          env: TARGET_SNOWFLAKE_ACCOUNT
-          env_aliases: [SF_ACCOUNT]
           description: >
             `ACCOUNT` might require the `region` and `cloud` platform where your account is located, in the form of: `<your_account_name>.<region_id>.<cloud>` (e.g. `xy12345.east-us-2.azure`)
             Refer to Snowflake's documentation about Account: https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name-and-url
         - name: snowflake_username
-          env: TARGET_SNOWFLAKE_USERNAME
-          env_aliases: [SF_USER]
         - name: snowflake_password
-          env: TARGET_SNOWFLAKE_PASSWORD
-          env_aliases: [SF_PASSWORD]
           kind: password
         - name: snowflake_role
-          env: TARGET_SNOWFLAKE_ROLE
-          env_aliases: [SF_ROLE]
           description: If not specified, Snowflake will use the user's default role.
         - name: snowflake_database
-          env: TARGET_SNOWFLAKE_DATABASE
-          env_aliases: [SF_DATABASE]
         - name: snowflake_authenticator
           value: snowflake
           description: Specifies the authentication provider for snowflake to use. Valud options are the internal one ("snowflake"), a browser session ("externalbrowser"), or Okta ("https://<your_okta_account_name>.okta.com"). See the snowflake docs for more details.
         - name: snowflake_warehouse
-          env: TARGET_SNOWFLAKE_WAREHOUSE
-          env_aliases: [SF_WAREHOUSE]
         - name: snowflake_schema
-          env: TARGET_SNOWFLAKE_SCHEMA
-          env_aliases: [SF_SCHEMA]
-          meltano_default: $MELTANO_EXTRACT__LOAD_SCHEMA
-          value_processor: upcase_string
+          schema_id: true
         # Optional settings
         - name: invalid_records_detect
           kind: boolean
@@ -109,23 +94,16 @@ variants:
         - ['account', 'dbname', 'user', 'password', 'warehouse', 's3_bucket', 'stage', 'file_format', 'default_target_schema']
       settings:
         - name: account
-          env_aliases: [SF_ACCOUNT]
           description: Snowflake account name (i.e. rtXXXXX.eu-central-1)
           placeholder: E.g. rtXXXXX.eu-central-1
         - name: dbname
-          aliases: [database]
-          env_aliases: [TARGET_SNOWFLAKE_DATABASE, SF_DATABASE]
           description: Snowflake Database name
         - name: user
-          aliases: [username]
-          env_aliases: [TARGET_SNOWFLAKE_USERNAME, SF_USER]
           description: Snowflake User
         - name: password
-          env_aliases: [SF_PASSWORD]
           kind: password
           description: Snowflake Password
         - name: warehouse
-          env_aliases: [SF_WAREHOUSE]
           description: Snowflake virtual warehouse name
         - name: s3_bucket
           description: S3 Bucket name
@@ -134,10 +112,7 @@ variants:
         - name: file_format
           description: Named file format name created at pre-requirements section. Has to be a fully qualified name including the schema name.
         - name: default_target_schema
-          aliases: [schema]
-          env_aliases: [TARGET_SNOWFLAKE_SCHEMA, SF_SCHEMA]
-          meltano_default: $MELTANO_EXTRACT__LOAD_SCHEMA
-          value_processor: upcase_string
+          schema_id: true
           description: Name of the schema where the tables will be created, without database prefix. If `schema_mapping` is not defined then every stream sent by the tap is loaded into this schema.
         # Optional settings
         - name: aws_access_key_id
@@ -231,28 +206,20 @@ variants:
         - [account, username, password, role, database, warehouse, schema]
       settings:
         - name: account
-          env_aliases: [SF_ACCOUNT, SNOWFLAKE_ACCOUNT]
-          description: Account Name in Snowflake (https://XXXXX.snowflakecomputing.com)
+          description: Account Name in Snowflake (https://<account_name>.snowflakecomputing.com)
         - name: username
-          env_aliases: [SF_USER, SNOWFLAKE_USERNAME]
           description: The username you use for logging in
         - name: password
-          env_aliases: [SF_PASSWORD, SNOWFLAKE_PASSWORD]
           kind: password
           description: The password you use for logging in
         - name: role
-          env_aliases: [SF_ROLE, SNOWFLAKE_ROLE]
           description: Role to be used for loading the data, e.g. `LOADER`. Also this role is GRANTed usage to all tables and schemas created
         - name: database
-          env_aliases: [SF_DATABASE, SNOWFLAKE_DATABASE]
           description: The name of the Snowflake database you want to use
         - name: warehouse
-          env_aliases: [SF_WAREHOUSE, SNOWFLAKE_WAREHOUSE]
           description: The name of the Snowflake warehouse you want to use
         - name: schema
-          env_aliases: [SF_SCHEMA, SNOWFLAKE_SCHEMA]
-          meltano_default: $MELTANO_EXTRACT__LOAD_SCHEMA
-          value_processor: upcase_string
+          schema_id: true
         - name: batch_size
           kind: integer
           value: 5000

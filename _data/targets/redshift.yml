@@ -44,29 +44,24 @@ variants:
         label: S3 Bucket name
         description: AWS S3 bucket name
       - name: default_target_schema
-        env_aliases: [TARGET_REDSHIFT_SCHEMA]
-        meltano_default: $MELTANO_EXTRACT__LOAD_SCHEMA
+        schema_id: true
         description: Name of the schema where the tables will be created. If schema_mapping is not defined then every stream sent by the tap is loaded into this schema.
 
       # Optional settings
       - name: aws_profile
         label: AWS profile name
-        env_aliases: [AWS_PROFILE]
         description: AWS profile name for profile based authentication. If not provided, AWS_PROFILE environment variable will be used.
       - name: aws_access_key_id
         kind: password
         label: AWS S3 Access Key ID
-        env_aliases: [AWS_ACCESS_KEY_ID]
         description: S3 Access Key Id. Used for S3 and Redshift copy operations. If not provided, AWS_ACCESS_KEY_ID environment variable will be used.
       - name: aws_secret_access_key
         label: AWS S3 Secret Access Key
         kind: password
-        env_aliases: [AWS_SECRET_ACCESS_KEY]
         description: S3 Secret Access Key. Used for S3 and Redshift copy operations. If not provided, AWS_SECRET_ACCESS_KEY environment variable will be used.
       - name: aws_session_token
         label: AWS S3 Session Token
         kind: password
-        env_aliases: [AWS_SESSION_TOKEN]
         description: S3 AWS STS token for temporary credentials. If not provided, AWS_SESSION_TOKEN environment variable will be used.
       - name: aws_redshift_copy_role_arn
         label: AWS Redshift COPY role ARN

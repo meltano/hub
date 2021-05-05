@@ -23,46 +23,29 @@ variants:
         - ['postgres_host', 'postgres_port', 'postgres_database', 'postgres_username', 'postgres_password', 'postgres_schema']
       settings: # TODO: Express using JSON schema, like SDK does. Meltano can map types to its own kinds
       - name: postgres_host
-        env: TARGET_POSTGRES_HOST # TODO: Probably not appropriate here
-        env_aliases: [PG_ADDRESS] # TODO: Probably not appropriate here
         value: localhost
       - name: postgres_port
-        env: TARGET_POSTGRES_PORT
-        env_aliases: [PG_PORT]
         kind: integer
         value: 5432
       - name: postgres_database
-        env: TARGET_POSTGRES_DATABASE
-        env_aliases: [PG_DATABASE]
       - name: postgres_username
-        env: TARGET_POSTGRES_USERNAME
-        env_aliases: [PG_USERNAME]
       - name: postgres_password
-        env: TARGET_POSTGRES_PASSWORD
-        env_aliases: [PG_PASSWORD]
         kind: password # TODO: Making `password` a separate kind comes from `input[type]` in HTML, but perhaps the type and the sensitive nature of this field are orthogonal properties
       - name: postgres_schema
-        env: TARGET_POSTGRES_SCHEMA
-        env_aliases: [PG_SCHEMA]
-        meltano_default: $MELTANO_EXTRACT__LOAD_SCHEMA # TODO: Identify the schema/"dataset identifier" field some other way
+        schema_id: true
       - name: postgres_sslmode
-        env: TARGET_POSTGRES_SSLMODE
         value: prefer
         description: "Refer to the libpq docs for more information about SSL: https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-PARAMKEYWORDS"
       - name: postgres_sslcert
-        env: TARGET_POSTGRES_SSLCERT
         value: "~/.postgresql/postgresql.crt"
         description: Only used if a SSL request w/ a client certificate is being made
       - name: postgres_sslkey
-        env: TARGET_POSTGRES_SSLKEY
         value: "~/.postgresql/postgresql.key"
         description: Only used if a SSL request w/ a client certificate is being made
       - name: postgres_sslrootcert
-        env: TARGET_POSTGRES_SSLROOTCERT
         value: "~/.postgresql/root.crt"
         description: Used for authentication of a server SSL certificate
       - name: postgres_sslcrl
-        env: TARGET_POSTGRES_SSLCRL
         value: "~/.postgresql/root.crl"
         description: Used for authentication of a server SSL certificate
       - name: invalid_records_detect
@@ -131,31 +114,24 @@ variants:
         - ['host', 'port', 'user', 'password', 'dbname', 'default_target_schema']
       settings:
         - name: host
-          env_aliases: [PG_ADDRESS]
           value: localhost
           description: PostgreSQL host
         - name: port
-          env_aliases: [PG_PORT]
           kind: integer
           value: 5432
           description: PostgreSQL port
         - name: user
-          env_aliases: [PG_USERNAME]
           description: PostgreSQL user
         - name: password
-          env_aliases: [PG_PASSWORD]
           kind: password
           description: PostgreSQL password
         - name: dbname
-          env_aliases: [PG_DATABASE]
           description: PostgreSQL database name
         - name: ssl
           kind: boolean
           value: false
           value_post_processor: stringify
         - name: default_target_schema
-          env_aliases: [TARGET_POSTGRES_SCHEMA, PG_SCHEMA]
-          meltano_default: $MELTANO_EXTRACT__LOAD_SCHEMA
           description: Name of the schema where the tables will be created. If `schema_mapping` is not defined then every stream sent by the tap is loaded into this schema.
         # Optional settings
         - name: batch_size_rows
@@ -215,30 +191,20 @@ variants:
         - ['user', 'password', 'host', 'port', 'dbname', 'schema']
       settings:
         - name: user
-          aliases: [username]
-          env_aliases: [PG_USERNAME, POSTGRES_USER]
           value: warehouse
         - name: password
           kind: password
-          env_aliases: [PG_PASSWORD, POSTGRES_PASSWORD]
           value: warehouse
         - name: host
-          aliases: [address]
-          env_aliases: [PG_ADDRESS, POSTGRES_HOST]
           value: localhost
         - name: port
           kind: integer
-          env_aliases: [PG_PORT, POSTGRES_PORT]
           value: 5502
         - name: dbname
-          aliases: [database]
           label: Database Name
-          env_aliases: [PG_DATABASE, POSTGRES_DBNAME]
           value: warehouse
         - name: url
-          env_aliases: [PG_URL, POSTGRES_URL]
           label: URL
           description: Lets you set `user`, `password`, `host`, `port`, and `dbname` in one go using a `postgresql://` URI. Takes precedence over the other settings when set.
         - name: schema
-          env_aliases: [PG_SCHEMA, POSTGRES_SCHEMA]
-          meltano_default: $MELTANO_EXTRACT__LOAD_SCHEMA
+          schema_id: true
