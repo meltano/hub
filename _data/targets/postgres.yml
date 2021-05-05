@@ -6,7 +6,6 @@ dialect: postgresql
 singer_name: target-postgres
 variants:
     - name: datamill-co
-      target_schema: $TARGET_POSTGRES_SCHEMA # TODO: This is just used by Meltano, definitely doesn't belong here. Better to identify specific setting as being the schema/"dataset identifier"
       maintainer:
         name: Data Mill # TODO: Move to separate data list of maintainers per variant ID
         url: https://datamill.co/

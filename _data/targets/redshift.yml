@@ -20,7 +20,6 @@ variants:
         - discover
         - state
       dialect: redshift
-      target_schema: $TARGET_REDSHIFT_SCHEMA
       settings_group_validation:
         - ['host', 'port', 'user', 'password', 'dbname', 's3_bucket', 'default_target_schema', 'aws_profile']
         - ['host', 'port', 'user', 'password', 'dbname', 's3_bucket', 'default_target_schema', 'aws_access_key_id', 'aws_secret_access_key']
