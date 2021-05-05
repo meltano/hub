@@ -1,9 +1,11 @@
 name: jsonl
 label: JSONL
 type: target
-target_type: file
+destination:
+  type: file
+  name: JSON Lines file type
 singer_name: target-jsonl
-description: A Singer Target for loading data in JSONL file
+description: For loading data into [JSONL](https://jsonlines.org/) files
 variants:
     - name: andyh1203
       repo: https://github.com/andyh1203/target-jsonl

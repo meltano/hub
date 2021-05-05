@@ -1,7 +1,10 @@
 name: sqlite
 label: SQLite
 type: target
-target_type: database
+destination:
+  type: database
+  name: SQLite database
+  url: https://sqlite.org/index.html
 description: For loading data into SQLite
 singer_name: target-sqlite
 variants:

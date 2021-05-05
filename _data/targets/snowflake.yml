@@ -1,7 +1,10 @@
 name: snowflake
 label: Snowflake
 type: target
-target_type: database
+destination:
+  type: database
+  name: Snowflake data warehouse
+  url: https://www.snowflake.com/
 description: For loading data into Snowflake
 singer_name: target-snowflake
 variants:

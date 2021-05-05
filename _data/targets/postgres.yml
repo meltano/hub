@@ -1,7 +1,10 @@
 name: postgres
 label: PostgreSQL
 type: target
-target_type: database
+destination:
+  type: database
+  name: PostgreSQL database
+  url: https://www.postgresql.org/
 description: For loading data into PostgreSQL
 singer_name: target-postgres
 variants:

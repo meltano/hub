@@ -1,7 +1,10 @@
 name: redshift
 label: Redshift
 type: target
-target_type: database
+destination:
+  type: database
+  name: Amazon Redshift data warehouse
+  url: https://aws.amazon.com/redshift/
 description: For loading data into Redshift
 singer_name: target-redshift
 variants:
