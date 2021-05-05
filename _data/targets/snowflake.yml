@@ -16,12 +16,8 @@ variants:
         url: https://datamill.co/
       maintenance_status: Active
       default: true
-      dependencies: >
-        `target-postgres` [requires](https://www.psycopg.org/docs/install.html#runtime-requirements) the
-        [`libpq` library](https://www.postgresql.org/docs/current/libpq.html) to be available on your system.
-        If you've installed PostgreSQL, you should already have it, but you can also install it by itself using the
-        [`libpq-dev` package](https://pkgs.org/download/libpq-dev) on Ubuntu/Debian or the
-        [`libpq` Homebrew formula](https://formulae.brew.sh/formula/libpq) on macOS.
+      dependencies: 
+        - "`target-snowflake` [requires](https://www.psycopg.org/docs/install.html#runtime-requirements) the [`libpq` library](https://www.postgresql.org/docs/current/libpq.html) to be available on your system. If you've installed PostgreSQL, you should already have it, but you can also install it by itself using the [`libpq-dev` package](https://pkgs.org/download/libpq-dev) on Ubuntu/Debian or the [`libpq` Homebrew formula](https://formulae.brew.sh/formula/libpq) on macOS."
       settings_group_validation:
         - ['snowflake_account', 'snowflake_username', 'snowflake_password', 'snowflake_database', 'snowflake_warehouse', 'snowflake_schema']
       settings:
