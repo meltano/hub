@@ -16,7 +16,7 @@ variants:
   maintenance_status: Unresponsive
   docs: 'https://meltano.com/plugins/extractors/recharge.html'
   repo: https://github.com/singer-io/tap-recharge
-  pip_url: tap-recharge==1.0.3 # TODO: Drop version number?
+  pip_url: tap-recharge
   capabilities:
     - catalog
     - discover
