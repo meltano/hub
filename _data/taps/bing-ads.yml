@@ -1,7 +1,7 @@
 name: bing-ads
 label: Bing Ads
 type: tap
-source:
+domain:
   type: api
   name: Bing Ads API
   url: https://docs.microsoft.com/en-us/advertising/guides/

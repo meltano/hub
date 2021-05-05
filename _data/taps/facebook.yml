@@ -1,7 +1,7 @@
 name: facebook
 label: Facebook Ads
 type: tap
-source:
+domain:
   type: api
   name: Facebook Ads API
   url: https://developers.facebook.com/docs/marketing-apis

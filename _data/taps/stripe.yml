@@ -1,7 +1,7 @@
 name: stripe
 label: Stripe
 type: tap
-source:
+domain:
   type: api
   name: Stripe API
   url: https://stripe.com/docs/api

@@ -1,7 +1,7 @@
 name: shopify
 label: Shopify
 type: tap
-source:
+domain:
   type: api
   name: Shopify API
   url: https://shopify.dev/docs/admin-api/rest/reference

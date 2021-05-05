@@ -1,7 +1,7 @@
 name: zoom
 label: Zoom
 type: tap
-source:
+domain:
   type: api
   name: Zoom API
   url: https://marketplace.zoom.us/docs/api-reference/introduction

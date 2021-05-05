@@ -1,7 +1,7 @@
 name: gitlab
 label: GitLab
 type: tap
-source:
+domain:
   type: api
   name: GitLab API
   url: https://docs.gitlab.com/ee/api/

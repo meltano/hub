@@ -1,7 +1,7 @@
 name: recharge
 label: ReCharge
 type: tap
-source:
+domain:
   type: api
   name: ReCharge API
   url: https://rechargepayments.com/developers/

@@ -1,7 +1,7 @@
 name: mysql
 label: MySQL / MariaDB
 type: tap
-source:
+domain:
   type: database
   name: MySQL or MariaDB database
   url: https://www.mysql.com/

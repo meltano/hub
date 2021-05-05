@@ -1,7 +1,7 @@
 name: jsonl
 label: JSONL
 type: target
-destination:
+domain:
   type: file
   name: JSON Lines file type
 singer_name: target-jsonl

@@ -1,7 +1,7 @@
 name: bigquery
 label: BigQuery
 type: target
-destination:
+domain:
   type: database
   name: Google BigQuery data warehouse
   url: https://cloud.google.com/bigquery

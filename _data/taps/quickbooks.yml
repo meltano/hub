@@ -1,7 +1,7 @@
 name: quickbooks
 label: Quickbooks
 type: tap
-source:
+domain:
   type: api
   name: Quickbooks Online API
   url: https://developer.intuit.com/app/developer/qbo/docs/develop

@@ -1,7 +1,7 @@
 name: zendesk
 label: Zendesk
 type: tap
-source:
+domain:
   type: api
   name: Zendesk API
   url: https://developer.zendesk.com/rest_api

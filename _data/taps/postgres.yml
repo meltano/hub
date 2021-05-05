@@ -1,7 +1,7 @@
 name: postgres
 label: PostgreSQL
 type: tap
-source:
+domain:
   type: database
   name: PostgreSQL
   url: https://www.postgresql.org/

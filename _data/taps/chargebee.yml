@@ -1,7 +1,7 @@
 name: chargebee
 label: Chargebee
 type: tap
-source:
+domain:
   type: api
   name: Chargebee API
   url: https://apidocs.chargebee.com/docs/api

@@ -1,7 +1,7 @@
 name: postgres
 label: PostgreSQL
 type: target
-destination:
+domain:
   type: database
   name: PostgreSQL database
   url: https://www.postgresql.org/

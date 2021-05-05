@@ -1,7 +1,7 @@
 name: mongodb
 label: MongoDB
 type: tap
-source:
+domain:
   type: database
   name: MongoDB database
   url: https://www.mongodb.com/

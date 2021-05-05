@@ -1,7 +1,7 @@
 name: marketo
 label:: Marketo
 type: tap
-source:
+domain:
   type: api
   name: Marketo API
   url: https://developers.marketo.com/rest-api/

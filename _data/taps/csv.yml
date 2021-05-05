@@ -1,7 +1,7 @@
 name: csv
 label: Comma Separated Values (CSV)
 type: tap
-source:
+domain:
   type: file
   name: Comma Separated Values (CSV) file
   url: https://en.wikipedia.org/wiki/Comma-separated_values

@@ -1,7 +1,7 @@
 name: redshift
 label: Redshift
 type: target
-destination:
+domain:
   type: database
   name: Amazon Redshift data warehouse
   url: https://aws.amazon.com/redshift/

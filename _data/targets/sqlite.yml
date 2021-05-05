@@ -1,7 +1,7 @@
 name: sqlite
 label: SQLite
 type: target
-destination:
+domain:
   type: database
   name: SQLite database
   url: https://sqlite.org/index.html

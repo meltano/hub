@@ -1,7 +1,7 @@
 name: google-analytics
 label: Google Analytics
 type: tap
-source:
+domain:
   type: api
   name: Google Analytics Reporting API
   url: https://developers.google.com/analytics/devguides/reporting/core/v4/

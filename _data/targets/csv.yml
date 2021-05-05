@@ -1,7 +1,7 @@
 name: csv
 label: CSV
 type: target
-destination:
+domain:
   type: file
   name: Comma Separate Values file type
 description: For loading data into [Comma Separated Values (CSV)](https://en.wikipedia.org/wiki/Comma-separated_values) files

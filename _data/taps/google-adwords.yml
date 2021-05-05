@@ -1,7 +1,7 @@
 name: adwords
 label: Google Ads
 type: tap
-source: # TODO: Better name that can stand in for "source" and "destination", replaces target_type
+domain:
   type: api
   name: Google Adwords API
   url: https://developers.google.com/adwords/api/

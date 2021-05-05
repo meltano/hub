@@ -1,7 +1,7 @@
 name: slack
 label: Slack
 type: tap
-source:
+domain:
   type: api
   name: Slack API
   url: https://api.slack.com/

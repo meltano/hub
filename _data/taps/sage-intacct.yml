@@ -1,7 +1,7 @@
 name: intacct
 label: Sage Intacct
 type: tap
-source:
+domain:
   type: api
   name: Sage Intacct API
   url: https://developer.intacct.com/api/

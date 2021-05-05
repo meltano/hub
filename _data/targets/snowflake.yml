@@ -1,7 +1,7 @@
 name: snowflake
 label: Snowflake
 type: target
-destination:
+domain:
   type: database
   name: Snowflake data warehouse
   url: https://www.snowflake.com/
