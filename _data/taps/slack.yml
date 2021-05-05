@@ -8,7 +8,7 @@ description: Team communication tool
 singer_name: tap-slack
 variants:
 - name: mashey
-  primary_variant: true
+  default: true
   maintainer:
     name: Mashey
     link: https://www.mashey.com/

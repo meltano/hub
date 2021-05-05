@@ -7,7 +7,7 @@ description: Data extractor for CSV and Excel files from any smart_open supporte
 singer_name: tap-spreadsheets-anywhere
 variants:
 - name: ets
-  primary_variant: true
+  default: true
   maintainer:
     name: Eric Simmerman
     link: https://github.com/ets

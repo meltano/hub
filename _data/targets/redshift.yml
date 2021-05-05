@@ -8,7 +8,7 @@ variants:
     - name: transferwise
       repo: https://github.com/transferwise/pipelinewise-target-redshift
       docs: https://transferwise.github.io/pipelinewise/connectors/targets/redshift.html
-      primary_variant: true
+      default: true
       maintainer:
         name: Transferwise
         link: https://github.com/transferwise

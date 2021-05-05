@@ -1,8 +1,8 @@
 name: PostgreSQL # TODO: Rename to label, so "postgres" can be "name"? Or use "identifier" for "postgres"?
 type: target
 target_type: database
-description: A Singer Target for loading data into PostgreSQL # TODO: No need to repeat "A Singer Target"
-dialect: postgres # Is "dialect" precise enough to belong on te hub? Perhaps we if we describe it as the common URI scheme used for connection strings. But then it would be "postgresql"
+description: For loading data into PostgreSQL
+dialect: postgresql
 singer_name: target-postgres
 variants:
     - name: datamill-co
@@ -11,7 +11,7 @@ variants:
         name: Data Mill # TODO: Move to separate data list of maintainers per variant ID
         link: https://datamill.co/ # TODO: Rename to "url", always link to website, not Git repo
       maintenance_status: Active
-      primary_variant: true # TODO: Rename to "default"
+      default: true
       repo: https://github.com/datamill-co/target-postgres
       pip_url: singer-target-postgres
       dependencies: > # TODO: Should this be a list? Relation to https://gitlab.com/meltano/singer-sdk/-/issues/117?

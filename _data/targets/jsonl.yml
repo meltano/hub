@@ -8,7 +8,7 @@ variants:
     - name: andyh1203
       repo: https://github.com/andyh1203/target-jsonl
       pip_url: target-jsonl
-      primary_variant: true
+      default: true
       maintainer:
         name: Andy Huynh
         link: https://github.com/andyh1203

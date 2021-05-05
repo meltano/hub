@@ -8,7 +8,7 @@ description: Accounting management platform
 singer_name: tap-quickbooks
 variants:
 - name: hotgluexyz
-  primary_variant: true
+  default: true
   maintainer:
     name: Hotglue
     url: https://hotglue.xyz/

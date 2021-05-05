@@ -8,7 +8,7 @@ description: Support ticketing system & customer service platform
 singer_name: tap-zendesk
 variants:
   - name: twilio-labs
-    primary_variant: true
+    default: true
     maintainer:
       name: Twilio
       link: https://twilio.com

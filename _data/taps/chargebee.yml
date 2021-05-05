@@ -8,7 +8,7 @@ description: Subscription billing software
 singer_name: tap-chargebee
 variants:
 - name: hotgluexyz
-  primary_variant: true
+  default: true
   maintainer:
     name: Hotglue
     url: https://hotglue.xyz/

@@ -8,7 +8,7 @@ description: Online payment processing for internet businesses
 singer_name: tap-stripe
 variants:
 - name: meltano
-  primary_variant: true
+  default: true
   maintainer:
     name: Meltano Community
   maintenance_status: Active

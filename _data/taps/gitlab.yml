@@ -8,7 +8,7 @@ description: Single application for the entire DevOps lifecycle
 singer_name: tap-gitlab
 variants:
 - name: meltano
-  primary_variant: true
+  default: true
   maintainer:
     name: Meltano Community
   maintenance_status: Active

@@ -8,7 +8,7 @@ description: Subscription payments platform
 singer_name: tap-recharge
 variants:
 - name: singer-io
-  primary_variant: true
+  default: true
   maintainer:
     name: Stitch
     link: https://www.stitchdata.com/

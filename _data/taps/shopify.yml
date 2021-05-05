@@ -8,7 +8,7 @@ description: Ecommerce platform
 singer_name: tap-shopify
 variants:
 - name: singer-io
-  primary_variant: true
+  default: true
   maintainer:
     name: Stitch
     link: https://www.stitchdata.com/

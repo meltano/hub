@@ -10,7 +10,7 @@ variants:
       maintainer:
         name: Meltano Community
       maintenance_status: Active
-      primary_variant: true
+      default: true
       pip_url: 'git+https://gitlab.com/meltano/target-sqlite.git'
       settings_group_validation:
         - ['batch_size']

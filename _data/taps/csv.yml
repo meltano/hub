@@ -8,7 +8,7 @@ description: Generic data extractor of CSV (comma separated value) files
 singer_name: tap-csv
 variants:
 - name: meltano
-  primary_variant: true
+  default: true
   maintainer:
     name: Meltano Community
   maintenance_status: Active

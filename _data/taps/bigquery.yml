@@ -8,7 +8,7 @@ description: BigQuery data warehouse
 singer_name: tap-bigquery
 variants:
 - name: anelendata
-  primary_variant: true
+  default: true
   maintainer:
     name: Anelen
     link: https://anelen.co

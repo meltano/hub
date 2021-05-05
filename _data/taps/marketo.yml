@@ -8,7 +8,7 @@ description: Marketing automation for account-based marketing
 singer_name: tap-marketo
 variants:
 - name: meltano
-  primary_variant: true
+  default: true
   maintainer:
     name: Meltano Community
   maintenance_status: Active

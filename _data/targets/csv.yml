@@ -6,7 +6,7 @@ dialect: csv
 singer_name: target-csv
 variants:
     - name: singer-io
-      primary_variant: true
+      default: true
       repo: https://github.com/singer-io/target-csv
       repo_forks: https://github.com/singer-io/target-csv/network
       pip_url: target-csv

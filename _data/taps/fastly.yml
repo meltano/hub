@@ -8,7 +8,7 @@ description: Edge cloud computing services provider
 singer_name: tap-fastly
 variants:
 - name: meltano
-  primary_variant: true
+  default: true
   maintainer:
     name: Meltano Community
   maintenance_status: Active

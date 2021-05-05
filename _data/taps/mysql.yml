@@ -8,7 +8,7 @@ description: MySQL / MariaDB database extractor
 singer_name: tap-mysql
 variants:
 - name: transferwise
-  primary_variant: true
+  default: true
   maintainer:
     name: Wise
     link: https://wise.com/

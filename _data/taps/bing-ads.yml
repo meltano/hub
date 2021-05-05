@@ -8,7 +8,7 @@ description: Advertising Platform
 singer_name: tap-bing-ads
 variants:
 - name: singer-io
-  primary_variant: true
+  default: true
   maintainer:
     name: Stitch
     link: https://www.stitchdata.com/

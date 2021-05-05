@@ -8,7 +8,7 @@ description: Customer-relationship management & customer success platform
 singer_name: tap-salesforce
 variants:
 - name: meltano
-  primary_variant: true
+  default: true
   maintainer:
     name: Meltano Community
   maintenance_status: Active

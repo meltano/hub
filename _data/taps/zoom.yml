@@ -8,7 +8,7 @@ description: Video conferencing software
 singer_name: tap-zoom
 variants:
 - name: mashey
-  primary_variant: true
+  default: true
   maintainer:
     name: Mashey
     link: https://www.mashey.com/

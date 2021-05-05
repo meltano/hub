@@ -12,7 +12,7 @@ variants:
         name: Data Mill
         link: https://github.com/datamill-co/
       maintenance_status: Active
-      primary_variant: true
+      default: true
       dependencies: >
         `target-postgres` [requires](https://www.psycopg.org/docs/install.html#runtime-requirements) the
         [`libpq` library](https://www.postgresql.org/docs/current/libpq.html) to be available on your system.

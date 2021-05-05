@@ -11,7 +11,7 @@ variants:
     maintainer:
       name: Meltano Community
     maintenance_status: Active
-    primary_variant: true
+    default: true
     repo: https://gitlab.com/meltano/tap-adwords
     pip_url: git+https://gitlab.com/meltano/tap-adwords.git
     capabilities:
