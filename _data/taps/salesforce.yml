@@ -19,17 +19,6 @@ variants:
     - properties
     - discover
     - state
-  # TODO: `select` is not appropriate for hub, but necessary in Meltano because the default selection
-  # of `*.*` which selects all streams and properties is not desirable, since Salesforce can contain a lot of types.
-  # It'd be better to mark the other streams with `selected-by-default: false` in `tap-salesforce`'s catalog
-  # Meltano doesn't support that yet, though: https://gitlab.com/meltano/meltano/-/issues/2556
-  select:
-    - Lead.*
-    - Contact.*
-    - User.*
-    - OpportunityHistory.*
-    - Account.*
-    - Opportunity.*
   settings_group_validation:
     - ['username', 'password', 'security_token', 'start_date']
     - ['client_id', 'client_secret', 'refresh_token', 'start_date']
