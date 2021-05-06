@@ -9,7 +9,7 @@ class PluginPageGenerator < Jekyll::Generator
   def generate_pages(site, collection)
     site.data[collection].each do |plugin_name, plugin|
       plugin['variants'].each do |variant|
-        if variant['primary_variant']
+        if variant['default']
           page = PluginVariantPage.new(site, plugin_name, plugin, variant, variant_specific: false)
           site.pages << page
           plugin['url'] = page.url
@@ -29,7 +29,7 @@ class PluginPageGenerator < Jekyll::Generator
       @dir  = "#{plugin['type']}s"
 
       basename = plugin_name
-      title = plugin['name']
+      title = plugin['label']
       if variant_specific
         basename += "--#{variant['name']}"
         title += " (#{variant['name']} variant)"

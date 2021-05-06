@@ -1,17 +1,19 @@
-name: JSONL
+name: jsonl
+label: JSONL
 type: target
-target_type: file
+domain:
+  type: file
+  name: JSON Lines file type
 singer_name: target-jsonl
-description: A Singer Target for loading data in JSONL file
-namespace: target_jsonl
+description: For loading data into [JSONL](https://jsonlines.org/) files
 variants:
     - name: andyh1203
       repo: https://github.com/andyh1203/target-jsonl
       pip_url: target-jsonl
-      primary_variant: true
+      default: true
       maintainer:
         name: Andy Huynh
-        link: https://github.com/andyh1203
+        url: https://github.com/andyh1203
       maintenance_status: Active
       settings:
         - name: destination_path

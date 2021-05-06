@@ -1,6 +1,7 @@
-name: Zendesk
+name: zendesk
+label: Zendesk
 type: tap
-source:
+domain:
   type: api
   name: Zendesk API
   url: https://developer.zendesk.com/rest_api
@@ -8,10 +9,10 @@ description: Support ticketing system & customer service platform
 singer_name: tap-zendesk
 variants:
   - name: twilio-labs
-    primary_variant: true
+    default: true
     maintainer:
       name: Twilio
-      link: https://twilio.com
+      url: https://twilio.com
     maintenance_status: Active
     repo: https://github.com/twilio-labs/twilio-tap-zendesk
     pip_url: twilio-tap-zendesk
@@ -47,7 +48,7 @@ variants:
   - name: singer-io
     maintainer:
       name: Stitch
-      link: https://www.stitchdata.com/
+      url: https://www.stitchdata.com/
     maintenance_status: Unresponsive
     repo: https://github.com/singer-io/tap-zendesk
     pip_url: tap-zendesk

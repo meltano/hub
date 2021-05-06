@@ -11,7 +11,7 @@ layout: default
           {% assign plugin = plugin_hash[1] %}
           <h2>
               <a href="{{ plugin.url | prepend: site.baseurl | prepend: site.url }}">
-                  {{ plugin.name }}
+                  {{ plugin.label }}
               </a>
           </h2>
       {% endfor %}

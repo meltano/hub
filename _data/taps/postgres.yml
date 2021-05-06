@@ -1,6 +1,7 @@
-name: PostgreSQL
+name: postgres
+label: PostgreSQL
 type: tap
-source:
+domain:
   type: database
   name: PostgreSQL
   url: https://www.postgresql.org/
@@ -8,10 +9,10 @@ description: PostgreSQL database extractor
 singer_name: tap-postgres
 variants:
 - name: transferwise
-  primary_variant: true
+  default: true
   maintainer:
     name: Wise
-    link: https://wise.com/
+    url: https://wise.com/
   maintenance_status: Active
   repo: https://github.com/transferwise/pipelinewise-tap-postgres
   pip_url: pipelinewise-tap-postgres
@@ -39,8 +40,7 @@ variants:
     - name: ssl
       kind: boolean
       value: false
-      value_post_processor: stringify # TODO: This is Meltano specific, but this tap actually wants "true" or "false" with quotes
-      description: Using SSL via postgres `sslmode='require'` option. If the server does not accept SSL connections or the client certificate is not recognized the connection will fail
+      description: Using SSL via postgres `sslmode='require'` option. If the server does not accept SSL connections or the client certificate is not recognized the connection will fail. The tap requires a stringified version of the boolean values, i.e. "true" or "false" with quotes.
 
     - name: filter_schemas
       description: Scan only the specified comma-separated schemas to improve the performance of data extraction

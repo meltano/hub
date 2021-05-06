@@ -1,6 +1,7 @@
-name: Sage Intacct
+name: intacct
+label: Sage Intacct
 type: tap
-source:
+domain:
   type: api
   name: Sage Intacct API
   url: https://developer.intacct.com/api/
@@ -8,7 +9,7 @@ description: Financial management software
 singer_name: tap-intacct
 variants:
 - name: hotgluexyz
-  primary_variant: true
+  default: true
   maintainer:
     name: Hotglue
     url: https://hotglue.xyz/

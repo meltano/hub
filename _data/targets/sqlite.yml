@@ -1,8 +1,11 @@
-name: SQLite
+name: sqlite
+label: SQLite
 type: target
-target_type: database
-description: A Singer Target for loading data into SQLite
-dialect: sqlite
+domain:
+  type: database
+  name: SQLite database
+  url: https://sqlite.org/index.html
+description: For loading data into SQLite
 singer_name: target-sqlite
 variants:
     - name: meltano
@@ -10,7 +13,7 @@ variants:
       maintainer:
         name: Meltano Community
       maintenance_status: Active
-      primary_variant: true
+      default: true
       pip_url: 'git+https://gitlab.com/meltano/target-sqlite.git'
       settings_group_validation:
         - ['batch_size']
@@ -19,7 +22,6 @@ variants:
           label: Database Name
           description: Name of the SQLite database file to be used or created, relative to the project root. The `.db` extension is optional and will be added automatically when omitted.
           value: warehouse
-          env_aliases: [SQLITE_DATABASE]
         - name: batch_size
           kind: integer
           value: 50
