@@ -1,34 +1,36 @@
-name: BigQuery
+name: bigquery
+label: BigQuery
 type: target
-target_type: database
+domain:
+  type: database
+  name: Google BigQuery data warehouse
+  url: https://cloud.google.com/bigquery
 singer_name: target-bigquery
-dialect: bigquery
-description: A Singer Target for loading data into BigQuery
+description: For loading data into BigQuery
 variants:
     - name : adswerve
-      primary_variant: true
+      default: true
       repo: https://github.com/adswerve/target-bigquery
       pip_url: git+https://github.com/adswerve/target-bigquery.git@v0.10.2
       maintainer:
         name: Adswerve
-        link: https://adswerve.com/
+        url: https://adswerve.com/
       maintenance_status: Active
       settings_group_validation:
-          - ['project_id', 'dataset_id', 'location', 'credentials_path']
+          - ['project_id', 'dataset_id', 'location']
       settings:
         - name: project_id
           description: BigQuery project
         - name: dataset_id
           description: BigQuery dataset
-          meltano_default: $MELTANO_EXTRACT__LOAD_SCHEMA
+          schema_id: true
         - name: location
           description: Dataset location
           value: US
-        - name: credentials_path # TODO: This is not a real setting, so it wouldn't show up in the `config.json` JSON schema. We should probably make it a real setting!
-          # The target doesn't know this setting, but will read the GOOGLE_APPLICATION_CREDENTIALS env var.
-          env_aliases: [GOOGLE_APPLICATION_CREDENTIALS]
-          meltano_default: $MELTANO_PROJECT_ROOT/client_secrets.json
-          description: Fully qualified path to `client_secrets.json` for your service account.
+        - name: credentials_path
+          description: >
+            This is not a real setting, so it should not appear in the `config.json` JSON schema.
+            The taret will read the `GOOGLE_APPLICATION_CREDENTIALS` environment variable which should be a fully qualified path to `client_secrets.json` for your service account. 
         - name: validate_records
           description: Validate records
           kind: boolean

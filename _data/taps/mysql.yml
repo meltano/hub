@@ -1,6 +1,7 @@
-name: MySQL / MariaDB
+name: mysql
+label: MySQL / MariaDB
 type: tap
-source:
+domain:
   type: database
   name: MySQL or MariaDB database
   url: https://www.mysql.com/
@@ -8,10 +9,10 @@ description: MySQL / MariaDB database extractor
 singer_name: tap-mysql
 variants:
 - name: transferwise
-  primary_variant: true
+  default: true
   maintainer:
     name: Wise
-    link: https://wise.com/
+    url: https://wise.com/
   maintenance_status: Active
   repo: https://github.com/transferwise/pipelinewise-tap-mysql
   pip_url: pipelinewise-tap-mysql
@@ -33,8 +34,8 @@ variants:
     - name: database
     - name: ssl
       kind: boolean
+      description: The tap requires a stringified version of the boolean values, i.e. "true" or "false" with quotes.
       value: false
-      value_post_processor: stringify # TODO: This is Meltano specific, but this tap actually wants "true" or "false" with quotes
 
     - name: filter_dbs
       description: Comma separated list of schemas to extract tables only from particular schemas and to improve data extraction performance

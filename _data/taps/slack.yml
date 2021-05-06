@@ -1,6 +1,7 @@
-name: Slack
+name: slack
+label: Slack
 type: tap
-source:
+domain:
   type: api
   name: Slack API
   url: https://api.slack.com/
@@ -8,10 +9,10 @@ description: Team communication tool
 singer_name: tap-slack
 variants:
 - name: mashey
-  primary_variant: true
+  default: true
   maintainer:
     name: Mashey
-    link: https://www.mashey.com/
+    url: https://www.mashey.com/
   maintenance_status: Active
   repo: https://github.com/Mashey/tap-slack
   pip_url: git+https://github.com/Mashey/tap-slack.git
@@ -29,7 +30,7 @@ variants:
       label: Sync Start Date
       description: Determines how much historical data will be extracted. Please be aware that the larger the time period and amount of data, the longer the initial extraction can be expected to take.
     - name: channels
-      labels: Channels to Sync
+      label: Channels to Sync
       kind: array
       description: By default the tap will sync all channels it has been invited to, but this can be overriden to limit it ot specific channels. Note this needs to be channel ID, not the name, as recommended by the Slack API. To get the ID for a channel, either use the Slack API or find it in the URL.
       placeholder: Ex. ["abc123", "def456"]
