@@ -1,0 +1,7 @@
+name: sqlfluff
+namespace: sqlfluff
+pip_url: sqlfluff
+commands:
+  lint:
+    args: lint transform/models
+    description: Lint SQL in transform models
