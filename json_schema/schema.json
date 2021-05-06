@@ -19,7 +19,7 @@
             "type": "string",
             "title": "The name of the tap or target. ",
             "description": "This is lowercase and can be used to determine the pip name.",
-            "pattern": "^[a-z]+$",
+            "pattern": "^[a-z-]+$",
             "example": "bigquery"
         },
         "label": {
@@ -149,6 +149,7 @@
                             "enum": [
                                 "catalog",
                                 "discover",
+                                "properties",
                                 "state"
                             ]
                         }
@@ -268,6 +269,13 @@
                                     "description": "An explanation about the purpose of this instance.",
                                     "default": ""
                                 },
+                                "documentation": {
+                                    "id": "#/properties/variants/items/properties/settings/items/properties/documentation",
+                                    "type": "string",
+                                    "title": "The documentation schema",
+                                    "description": "An explanation about the purpose of this instance.",
+                                    "default": ""
+                                },
                                 "placeholder": {
                                     "id": "#/properties/variants/items/properties/settings/items/properties/description",
                                     "type": "string",
@@ -279,6 +287,20 @@
                                     "id": "#/properties/variants/items/properties/settings/items/anyOf/2/properties/kind",
                                     "type": "string",
                                     "title": "The kind schema",
+                                    "enum": [
+                                        "array",
+                                        "boolean",
+                                        "date_iso8601",
+                                        "email",
+                                        "file",
+                                        "hidden",
+                                        "integer",
+                                        "oauth",
+                                        "object",
+                                        "options",
+                                        "password",
+                                        "string"
+                                    ],
                                     "description": "An explanation about the purpose of this instance.",
                                     "default": ""
                                 },
@@ -293,6 +315,12 @@
                                         },
                                         {
                                             "type": "integer"
+                                        },
+                                        {
+                                            "type": "object"
+                                        },
+                                        {
+                                            "type": "array"
                                         }
                                     ],
                                     "title": "The value schema",

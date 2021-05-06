@@ -40,9 +40,6 @@ variants:
 
       - name: refresh_token
         kind: oauth
-        oauth:
-          # https://oauth.svc.meltanodata.com/google-adwords/
-          provider: google-adwords
         label: Access Token
         description: The Refresh Token generated through the OAuth flow run using your OAuth Client and your Developer Token
         placeholder: Ex. *****************
