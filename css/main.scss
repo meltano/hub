@@ -45,24 +45,35 @@ $on-laptop: 800px;
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import "base", "layout", "syntax-highlighting";
 
-ul.plugin-grid {
+ul.button-grid {
   padding: 0;
   margin-left: 0;
   display: grid;
-  // TODO: Fill up full with, currently has some empty space on right
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  grid-column-gap: 30px;
-  grid-row-gap: 30px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
   align-items: center;
   justify-content: center;
+
+  &.two-columns {
+    grid-template-columns: 1fr 1fr;
+  }
 
   > li {
     list-style: none;
     text-align: center;
-    width: 150px;
 
     a {
       display: block;
+      padding: 10px 20px;
+
+      border: 1px solid transparent;
+      border-radius: 5px;
+
+      &:hover {
+        text-decoration: none;
+        border-color: $brand-color;
+      }
 
       .logo-well {
         margin: 0 auto;
@@ -71,6 +82,7 @@ ul.plugin-grid {
         display: flex;
         justify-content: center;
         align-items: center;
+        margin-bottom: 10px;
 
         img.logo {
           max-width: 100px;
@@ -78,10 +90,20 @@ ul.plugin-grid {
         }
       }
 
-      .label {
-        margin-top: 10px;
+      strong {
+        display: block;
+        font-size: 1.5em;
+        margin-bottom: 10px;
+      }
+
+      span.label {
         display: block;
         font-size: 1.2em;
+      }
+
+      p {
+        color: $text-color;
+        margin-bottom: 0;
       }
     }
   }
