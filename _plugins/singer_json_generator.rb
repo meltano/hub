@@ -1,4 +1,4 @@
-class PluginJsonGenerator < Jekyll::Generator
+class SingerJsonGenerator < Jekyll::Generator
   safe true
 
   def generate(site)

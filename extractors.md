@@ -10,29 +10,7 @@ Meltano lets you easily extract data out of arbitrary data sources (databases, S
 
 Extractors for the following sources are currently [discoverable](https://meltano.com/docs/plugins.html#discoverable-plugins) and supported out of the box:
 
-- [BigQuery](/extractors/bigquery.html)
-- [Bing Ads](/extractors/bing-ads.html)
-- [Chargebee](/extractors/chargebee.html)
-- [Comma Separated Values (CSV)](/extractors/csv.html)
-- [Facebook Ads](/extractors/facebook.html)
-- [Fastly](/extractors/fastly.html)
-- [GitLab](/extractors/gitlab.html)
-- [Google Ads](/extractors/adwords.html)
-- [Google Analytics](/extractors/google-analytics.html)
-- [Marketo](/extractors/marketo.html)
-- [MongoDB](/extractors/mongodb.html)
-- [MySQL / MariaDB](/extractors/mysql.html)
-- [PostgreSQL](/extractors/postgres.html)
-- [Quickbooks](/extractors/quickbooks.html)
-- [ReCharge](/extractors/recharge.html)
-- [Sage Intacct](/extractors/intacct.html)
-- [Salesforce](/extractors/salesforce.html)
-- [Shopify](/extractors/shopify.html)
-- [Slack](/extractors/slack.html)
-- [Spreadsheets Anywhere](/extractors/spreadsheets-anywhere.html) (CSV files and Excel spreadsheets on cloud or local storage)
-- [Stripe](/extractors/stripe.html)
-- [Zendesk](/extractors/zendesk.html)
-- [Zoom](/extractors/zoom.html)
+{% include plugin_grid.html plugins=site.data.meltano.extractors %}
 
 To learn more about extracting and [loading](/loaders/) data using Meltano, refer to the [Data Integration (EL) guide](https://meltano.com/docs/integration.html).
 

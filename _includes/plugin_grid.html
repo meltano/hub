@@ -1,0 +1,16 @@
+{% assign plugins = include.plugins | sort %}
+<ul class="plugin-grid">
+  {% for plugin_hash in plugins %} {% assign plugin = plugin_hash[1] %}
+  <li>
+    <a href="{{ plugin.url | prepend: site.baseurl | prepend: site.url }}">
+      <div class="logo-well">
+        <img
+          src="{{ plugin.logo_url | prepend: site.baseurl | prepend: site.url }}"
+          class="logo"
+        />
+      </div>
+      <span class="label"> {{ plugin.label }} </span>
+    </a>
+  </li>
+  {% endfor %}
+</ul>
