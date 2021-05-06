@@ -23,6 +23,7 @@ body {
     -o-font-feature-settings: "kern" 1;
     font-feature-settings: "kern" 1;
     font-kerning: normal;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 
@@ -99,7 +100,6 @@ a {
     }
 
     &:hover {
-        color: $text-color;
         text-decoration: underline;
     }
 }
