@@ -45,9 +45,9 @@ $on-laptop: 800px;
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import "base", "layout", "syntax-highlighting";
 
-ul.plugin-list {
+ul.plugin-grid {
   padding: 0;
-  margin: 0;
+  margin-left: 0;
   display: grid;
   // TODO: Fill up full with, currently has some empty space on right
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
