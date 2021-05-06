@@ -7,8 +7,8 @@ description: The Leading Destination for the Singer Community
 
 ## Meltano's Committment to the Singer Community
 
-We aim to make the MeltanoHub a fantastic resource for members of the Singer Community to meet all of their needs. 
-To achieve this mission, we've created several tools and artifacts.
+We aim to make the MeltanoHub a fantastic resource for members of the Singer Community. 
+As we've detailed in the Meltano handbook, we're fully [embracing Singer](https://meltano.com/docs/#embracing-singer) and this part of the MeltanoHub is part of those efforts.
 
 ### Standardized Taps and Targets
 
