@@ -23,6 +23,12 @@ defaults:
       layout: "plugin"
       target: true
 
+collections:
+  extractors:
+    output: true
+  loaders:
+    output: true
+
 # Outputting
 permalink: /:categories/:year/:month/:day/:title
 

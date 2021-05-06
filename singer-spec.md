@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Singer Spec
-permalink: /singer-spec/
+permalink: /singer/spec/
 description: The Open Source Singer Specification 
 ---
 
