@@ -1,5 +1,5 @@
 {% assign plugins = include.plugins | sort %}
-<ul class="plugin-grid">
+<ul class="button-grid">
   {% for plugin_hash in plugins %} {% assign plugin = plugin_hash[1] %}
   <li>
     <a href="{{ plugin.url | prepend: site.baseurl | prepend: site.url }}">
