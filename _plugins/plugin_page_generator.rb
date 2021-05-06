@@ -8,6 +8,8 @@ class PluginPageGenerator < Jekyll::Generator
 
   def generate_pages(site, collection)
     site.data[collection].each do |plugin_name, plugin|
+      plugin['logo_url'] = "/assets/logos/#{plugin['type']}s/#{plugin_name}.png"
+
       plugin['variants'].each do |variant|
         if variant['default']
           page = PluginVariantPage.new(site, plugin_name, plugin, variant, variant_specific: false)
