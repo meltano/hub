@@ -17,12 +17,10 @@ variants:
         url: https://wise.com/
       maintenance_status: Active
       pip_url: pipelinewise-target-redshift
-      executable: target-redshift
       capabilities:
         - catalog
         - discover
         - state
-      dialect: redshift
       settings_group_validation:
         - ['host', 'port', 'user', 'password', 'dbname', 's3_bucket', 'default_target_schema', 'aws_profile']
         - ['host', 'port', 'user', 'password', 'dbname', 's3_bucket', 'default_target_schema', 'aws_access_key_id', 'aws_secret_access_key']

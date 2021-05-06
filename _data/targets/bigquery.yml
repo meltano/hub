@@ -5,7 +5,6 @@ domain:
   type: database
   name: Google BigQuery data warehouse
   url: https://cloud.google.com/bigquery
-target_type: database
 singer_name: target-bigquery
 description: For loading data into BigQuery
 variants:
