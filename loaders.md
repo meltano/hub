@@ -9,13 +9,7 @@ Meltano lets you easily load [extracted](/extractors/) data into arbitrary data 
 
 Loaders for the following destinations are currently [discoverable](https://meltano.com/docs/plugins.html#discoverable-plugins) and supported out of the box:
 
-- [BigQuery](/loaders/bigquery.html)
-- [Comma Separated Values (CSV)](/loaders/csv.html)
-- [JSON Lines (JSONL)](/loaders/jsonl.html)
-- [PostgreSQL](/loaders/postgres.html)
-- [Redshift](/loaders/redshift.html)
-- [Snowflake](/loaders/snowflake.html)
-- [SQLite](/loaders/sqlite.html)
+{% include plugin_grid.html plugins=site.data.meltano.loaders %}
 
 To learn more about [extracting](/loaders/) and loading data using Meltano, refer to the [Data Integration (EL) guide](https://meltano.com/docs/integration.html).
 

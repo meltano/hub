@@ -1,4 +1,4 @@
-class PluginPageGenerator < Jekyll::Generator
+class SingerPluginPageGenerator < Jekyll::Generator
   safe true
 
   def generate(site)
