@@ -5,24 +5,33 @@ plugins:
   extractors:
   - name: tap-github
     namespace: tap_github
-    pip_url: tap-github
+    pip_url: git+https://github.com/dataops-tk/tap-github.git
     executable: tap-github
     capabilities:
     - catalog
     - discover
     - state
     settings:
-    - name: repository
-    - name: access_token
+    - name: searches
+      kind: array
+    - name: auth_token
       kind: password
+    - name: start_date
+      value: '2010-01-01T00:00:00Z'
     config:
-      repository: singer-io/tap-github
+      searches:
+      - name: tap_something
+        query: tap-+language:Python
     select:
     - commits.*
+    - '*.*'
   loaders:
   - name: target-jsonl
     variant: andyh1203
     pip_url: target-jsonl
+    config:
+      destination_path: data/
+      do_timestamp_file: true
   - name: target-bigquery
     variant: adswerve
     pip_url: git+https://github.com/adswerve/target-bigquery.git@v0.10.2
