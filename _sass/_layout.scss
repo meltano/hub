@@ -3,17 +3,19 @@
  */
 .site-header {
     background-color: $brand-color;
-    min-height: 56px;
+    min-height: $header-height;
 
     // Positioning context for the mobile navigation icon
-    position: relative;
+    position: fixed;
+    left: 0;
+    right: 0;
 }
 
 .site-title {
     font-size: 24px;
     font-weight: bold;
-    line-height: 56px;
-    height: 56px;
+    line-height: $header-height;
+    height: $header-height;
     letter-spacing: -1px;
     margin-bottom: 0;
     float: left;
@@ -43,7 +45,7 @@
 
 .site-nav {
     float: right;
-    line-height: 56px;
+    line-height: $header-height;
 
     .menu-icon {
         display: none;
@@ -201,7 +203,7 @@
  * Page content
  */
 .page-content {
-    padding: $spacing-unit 0;
+    padding: $header-height + $spacing-unit 0 $spacing-unit;
 }
 
 .page-heading {
