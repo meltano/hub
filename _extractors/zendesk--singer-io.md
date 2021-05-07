@@ -1,9 +1,9 @@
 ---
+title: Zendesk (`singer-io` variant)
 layout: page
 description: Use Meltano to pull data from the Zendesk API and load it into Snowflake, PostgreSQL, and more
 ---
 
-# Zendesk (`singer-io` variant)
 
 The `tap-zendesk` [extractor](https://meltano.com/plugins/extractors/) pulls data from the [Zendesk API](https://developer.zendesk.com/rest_api).
 

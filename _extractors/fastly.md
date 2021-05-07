@@ -1,9 +1,9 @@
 ---
+title: Fastly
 layout: page
 description: Use Meltano to pull data from the Fastly API and load it into Snowflake, PostgreSQL, and more
 ---
 
-# Fastly
 
 The `tap-fastly` [extractor](https://meltano.com/plugins/extractors/) pulls data from the [Fastly API](https://developer.fastly.com/reference/api/).
 

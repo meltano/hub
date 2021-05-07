@@ -1,9 +1,8 @@
 ---
+title: Google Ads (AdWords)
 layout: page
 description: Use Meltano to pull data from the Google Ads (AdWords) API and load it into Snowflake, PostgreSQL, and more
 ---
-
-# Google Ads (AdWords)
 
 The `tap-adwords` [extractor](https://meltano.com/plugins/extractors/) pulls data from the [Google AdWords API](https://developers.google.com/adwords/api/).
 

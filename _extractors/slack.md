@@ -1,9 +1,9 @@
 ---
+title: Slack
 layout: page
 description: Use Meltano to pull data from the Slack API and load it into Snowflake, PostgreSQL, and more
 ---
 
-# Slack
 
 The `tap-slack` [extractor](https://meltano.com/plugins/extractors/) pulls data from the [Slack API](https://api.slack.com/).
 

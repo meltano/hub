@@ -1,9 +1,9 @@
 ---
+title: Spreadsheets Anywhere
 layout: page
 description: Use Meltano to pull data from CSV files and Excel spreadsheets on cloud or local storage and load it into Snowflake, PostgreSQL, and more
 ---
 
-# Spreadsheets Anywhere
 
 The `tap-spreadsheets-anywhere` [extractor](https://meltano.com/plugins/extractors/) pulls data from [CSV](https://en.wikipedia.org/wiki/Comma-separated_values) files and Excel spreadsheets on cloud or local storage.
 

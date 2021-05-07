@@ -1,9 +1,9 @@
 ---
+title: ReCharge
 layout: page
 description: Use Meltano to pull data from the ReCharge API and load it into Snowflake, PostgreSQL, and more
 ---
 
-# ReCharge
 
 The `tap-recharge` [extractor](https://meltano.com/plugins/extractors/) pulls data from the [ReCharge API](https://rechargepayments.com/developers/).
 
