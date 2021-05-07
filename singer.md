@@ -1,5 +1,6 @@
 ---
 layout: page
+header: singer
 title: Singer Ecosystem
 permalink: /singer/
 description: The Leading Destination for the Singer Community
