@@ -57,6 +57,20 @@
         &:not(:last-child) {
             margin-right: 20px;
         }
+
+        @media screen and (min-width: $on-palm) {
+            &.button {
+                border: 1px solid white;
+                border-radius: 5px;
+                padding: 3px 6px;
+
+                &:hover {
+                    text-decoration: none;
+                    color: $brand-color;
+                    background-color: white;
+                }
+            }
+        }
     }
 
     @include media-query($on-palm) {
