@@ -46,7 +46,8 @@ class SingerPluginPageGenerator < Jekyll::Generator
         'excerpt' => plugin['description'],
         'variant_specific' => variant_specific,
         'plugin' => plugin,
-        'variant' => variant
+        'variant' => variant,
+        'header' => 'singer'
       }
 
       data.default_proc = proc do |_, key|
