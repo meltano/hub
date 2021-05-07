@@ -2,7 +2,7 @@
 
   <div class="wrapper">
 
-    <a class="site-title" href="{{ site.baseurl }}/">
+    <a class="site-title" href="{{ "/singer" | prepend: site.baseurl | prepend: site.url }}">
       <img class="logo" src="https://meltano.com/meltano-logo-with-text-white.svg" alt="Meltano">
       Hub
       <small>for Singer</small>
@@ -23,6 +23,7 @@
         <a class="page-link" href="{{ "/singer" | prepend: site.baseurl | prepend: site.url }}">Ecosystem</a>
         <a class="page-link" href="{{ "/singer/spec" | prepend: site.baseurl | prepend: site.url }}">Spec</a>
         <a class="page-link" href="https://gitlab.com/meltano/singer-sdk" target="_blank">SDK</a>
+        <a class="page-link button" href="{{ "/" | prepend: site.baseurl | prepend: site.url }}">MeltanoHub</a>
         <!-- {% for my_page in site.pages %}
           {% if my_page.title %}
           <a class="page-link" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
