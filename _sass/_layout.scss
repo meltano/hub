@@ -224,6 +224,11 @@
     @include media-query($on-laptop) {
         font-size: 36px;
     }
+
+    img.logo {
+        max-width: 60px;
+        max-height: 60px;
+    }
 }
 
 .post-content {
