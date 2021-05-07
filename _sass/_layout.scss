@@ -18,6 +18,10 @@
     margin-bottom: 0;
     float: left;
 
+    @include media-query($on-palm) {
+        width: calc(100% - 36px - 15px);
+    }
+
     &,
     &:visited {
         color: white;
@@ -96,6 +100,8 @@
         .page-link {
             display: block;
             padding: 5px 10px;
+
+            color: $brand-color;
 
             &:not(:last-child) {
                 margin-right: 0;
