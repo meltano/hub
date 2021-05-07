@@ -3,11 +3,49 @@ layout: default
 header: singer
 ---
 
-{% assign plugins = site.data[page.plugin_type] %}
+{% assign plugins = site.data[page.plugin_type] %} {% if page.plugin_type ==
+"taps" %} {% assign meltano_type = "extractors" %} {% assign human_type =
+"source" %} {% assign singular_type = "tap" %} {% else %} {% assign meltano_type
+= "loaders" %} {% assign human_type = "destination" %} {% assign singular_type =
+"target" %} {% endif %}
+
 <div class="home">
   <header class="post-header">
     <h1 class="post-title">{{ page.title }}</h1>
   </header>
 
+  <p>
+    All
+    <a href="https://singer.io" target="_blank">Singer</a> {{page.plugin_type}}
+    listed here can be run standalone, or as
+    <a href="/{{meltano_type}}">{{meltano_type}}</a> in
+    <a href="https://meltano.com" target="_blank">Meltano</a>.
+  </p>
+
   {% include plugin_grid.html plugins=plugins %}
+
+  <h2>Don't see your {{human_type}} listed here?</h2>
+
+  <p>
+    More {{page.plugin_type}} can be found on
+    <a href="https://singer.io#{{page.plugin_type}}" target="_blank"
+      >Singer.io</a
+    >
+    and on
+    <a
+      href="https://github.com/search?q=singer+{{singular_type}}&type=Repositories"
+      target="_blank"
+      >GitHub</a
+    >. We are working to
+    <a href="https://gitlab.com/meltano/hub/-/issues/11" target="_blank"
+      >add all of these to MeltanoHub</a
+    >
+    as well.
+  </p>
+
+  <p>
+    If a {{singular_type}} for your {{human_type}} doesn't exist yet, you can
+    create one yourself using the
+    <a href="https://gitlab.com/meltano/singer-sdk" target="_blank">SDK</a>.
+  </p>
 </div>

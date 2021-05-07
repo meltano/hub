@@ -280,7 +280,7 @@ Each item within the `streams` list is another JSON object with the following re
 Optional properties within the list are:
 
 * `table_name` - this is only used for a database source and is the name of the table
-* `metadata` - this is a list that defines extra information about items within a stream. This is discussed more in the [Metadata](/docs/singer-spec.html#metadata) section below
+* `metadata` - this is a list that defines extra information about items within a stream. This is discussed more in the [Metadata](#metadata) section below
 
 An example catalog with a single stream and no metadata is as follows:
 
@@ -343,7 +343,7 @@ There are two kinds of metadata:
 |  Keyword                    |  Tap Type  |  Description  |
 | ----------------------------|:----------:|---------------|
 | `selected`                  | All        | Either `true` or `false`.  Indicates that this node in the schema has been selected by the user for replication. |
-| `replication-method`        | All        | Either `FULL_TABLE`, `INCREMENTAL`, or `LOG_BASED`. The replication method to use for a stream. <br></br> See [Data Integration](/docs/integration.html#replication-methods) for more details on the replication type.|
+| `replication-method`        | All        | Either `FULL_TABLE`, `INCREMENTAL`, or `LOG_BASED`. The replication method to use for a stream. <br></br> See [Data Integration](https://meltano.com/docs/integration.html#replication-methods) for more details on the replication type.|
 | `replication-key`           | All        | The name of a property in the source to use as a `bookmark`.  For example, this will often be an `updated_at` field or an auto-incrementing primary key (requires `replication-method`).|
 | `view-key-properties`       | Database   | List of key properties for a database view. |
 
