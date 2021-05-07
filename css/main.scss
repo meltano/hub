@@ -55,17 +55,13 @@ ul.button-grid {
   align-items: center;
   justify-content: center;
 
-  &.two-columns {
-    grid-template-columns: 1fr 1fr;
-  }
-
   > li {
     list-style: none;
     text-align: center;
 
     a {
       display: block;
-      padding: 10px 20px;
+      padding: 10px;
 
       border: 1px solid transparent;
       border-radius: 5px;
@@ -104,6 +100,17 @@ ul.button-grid {
       p {
         color: $text-color;
         margin-bottom: 0;
+      }
+    }
+  }
+
+  &.two-columns {
+    grid-template-columns: 1fr 1fr;
+
+    > li {
+      a {
+        padding-left: 20px;
+        padding-right: 20px;
       }
     }
   }
