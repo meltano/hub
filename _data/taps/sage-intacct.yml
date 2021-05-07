@@ -10,9 +10,6 @@ singer_name: tap-intacct
 variants:
 - name: hotgluexyz
   default: true
-  maintainer:
-    name: Hotglue
-    url: https://hotglue.xyz/
   maintenance_status: Active
   repo: https://github.com/hotgluexyz/tap-intacct
   pip_url: git+https://github.com/hotgluexyz/tap-intacct.git

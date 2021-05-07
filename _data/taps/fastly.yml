@@ -10,8 +10,6 @@ singer_name: tap-fastly
 variants:
 - name: meltano
   default: true
-  maintainer:
-    name: Meltano Community
   maintenance_status: Active
   repo: https://gitlab.com/meltano/tap-fastly
   pip_url: 'git+https://gitlab.com/meltano/tap-fastly.git'

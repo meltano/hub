@@ -10,9 +10,6 @@ singer_name: tap-zendesk
 variants:
   - name: twilio-labs
     default: true
-    maintainer:
-      name: Twilio
-      url: https://twilio.com
     maintenance_status: Active
     repo: https://github.com/twilio-labs/twilio-tap-zendesk
     pip_url: twilio-tap-zendesk
@@ -46,9 +43,6 @@ variants:
         kind: date_iso8601
         description: Determines how much historical data will be extracted. Please be aware that the larger the time period and amount of data, the longer the initial extraction can be expected to take.
   - name: singer-io
-    maintainer:
-      name: Stitch
-      url: https://www.stitchdata.com/
     maintenance_status: Unresponsive
     repo: https://github.com/singer-io/tap-zendesk
     pip_url: tap-zendesk

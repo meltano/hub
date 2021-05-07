@@ -10,9 +10,6 @@ singer_name: tap-recharge
 variants:
 - name: singer-io
   default: true
-  maintainer:
-    name: Stitch
-    url: https://www.stitchdata.com/
   maintenance_status: Unresponsive
   docs: 'https://meltano.com/plugins/extractors/recharge.html'
   repo: https://github.com/singer-io/tap-recharge

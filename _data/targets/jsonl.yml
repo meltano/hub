@@ -11,9 +11,6 @@ variants:
       repo: https://github.com/andyh1203/target-jsonl
       pip_url: target-jsonl
       default: true
-      maintainer:
-        name: Andy Huynh
-        url: https://github.com/andyh1203
       maintenance_status: Active
       settings:
         - name: destination_path
