@@ -11,9 +11,6 @@ variants:
   - name: datamill-co
     repo: https://github.com/datamill-co/target-snowflake
     pip_url: target-snowflake
-    maintainer:
-      name: Data Mill
-      url: https://datamill.co/
     maintenance_status: Active
     default: true
     dependencies:
@@ -91,9 +88,6 @@ variants:
   - name: transferwise
     docs: https://transferwise.github.io/pipelinewise/connectors/targets/snowflake.html
     repo: https://github.com/transferwise/pipelinewise-target-snowflake
-    maintainer:
-      name: Transferwise
-      url: https://wise.com/
     maintenance_status: Active
     pip_url: pipelinewise-target-snowflake
     settings_group_validation:
@@ -214,8 +208,6 @@ variants:
   - name: meltano
     repo: https://gitlab.com/meltano/target-snowflake
     pip_url: git+https://gitlab.com/meltano/target-snowflake.git
-    maintainer:
-      name: Meltano Community
     maintenance_status: Active
     settings_group_validation:
       - [account, username, password, role, database, warehouse, schema]

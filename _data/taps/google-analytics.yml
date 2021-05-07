@@ -10,8 +10,6 @@ singer_name: tap-google-analytics
 variants:
 - name: meltano
   default: true
-  maintainer:
-    name: Meltano Community
   maintenance_status: Active
   repo: https://gitlab.com/meltano/tap-google-analytics
   pip_url: 'git+https://gitlab.com/meltano/tap-google-analytics.git'

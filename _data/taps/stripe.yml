@@ -10,8 +10,6 @@ singer_name: tap-stripe
 variants:
 - name: meltano
   default: true
-  maintainer:
-    name: Meltano Community
   maintenance_status: Active
   repo: https://github.com/meltano/tap-stripe
   pip_url: 'git+https://github.com/meltano/tap-stripe.git'

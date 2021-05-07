@@ -10,9 +10,6 @@ singer_name: tap-slack
 variants:
 - name: mashey
   default: true
-  maintainer:
-    name: Mashey
-    url: https://www.mashey.com/
   maintenance_status: Active
   repo: https://github.com/Mashey/tap-slack
   pip_url: git+https://github.com/Mashey/tap-slack.git
