@@ -104,6 +104,16 @@ ul.button-grid {
     }
   }
 
+  @include media-query($on-palm) {
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+
+    > li a strong {
+      font-size: 1.2em;
+    }
+  }
+
   &.two-columns {
     grid-template-columns: 1fr 1fr;
 
