@@ -1,9 +1,9 @@
 ---
+title: Salesforce
 layout: page
 description: Use Meltano to pull data from the Salesforce API and load it into Snowflake, PostgreSQL, and more
 ---
 
-# Salesforce
 
 The `tap-salesforce` [extractor](https://meltano.com/plugins/extractors/) pulls data from the [Salesforce API](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_what_is_rest_api.htm).
 

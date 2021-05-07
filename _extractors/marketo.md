@@ -1,9 +1,9 @@
 ---
+title: Marketo
 layout: page
 description: Use Meltano to pull data from the Marketo API and load it into Snowflake, PostgreSQL, and more
 ---
 
-# Marketo
 
 The `tap-marketo` [extractor](https://meltano.com/plugins/extractors/) pulls data from the [Marketo API](https://developers.marketo.com/rest-api/).
 

@@ -1,9 +1,8 @@
 ---
+title: Comma Separated Values (CSV)
 layout: page
 description: Use Meltano to pull data from Comma Separated Values (CSV) files and load it into Snowflake, PostgreSQL, and more
 ---
-
-# Comma Separated Values (CSV)
 
 The `tap-csv` [extractor](https://meltano.com/plugins/extractors/) pulls data from [Comma Separated Values (CSV)](https://en.wikipedia.org/wiki/Comma-separated_values) files.
 

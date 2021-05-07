@@ -1,9 +1,8 @@
 ---
+title: Snowflake (`meltano` variant)
 layout: page
 description: Use Meltano to pull data from various sources and load it into Snowflake
 ---
-
-# Snowflake (`meltano` variant)
 
 The `target-snowflake` [loader](https://meltano.com/plugins/loaders/) loads [extracted](https://meltano.com/plugins/extractors/) data into a [Snowflake](https://www.snowflake.com/) data warehouse.
 

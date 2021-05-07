@@ -1,9 +1,9 @@
 ---
+title: Quickbooks
 layout: page
 description: Use Meltano to pull data from the Quickbooks Online API and load it into Snowflake, PostgreSQL, and more
 ---
 
-# Quickbooks
 
 The `tap-quickbooks` [extractor](https://meltano.com/plugins/extractors/) pulls data from the [Quickbooks Online API](https://developer.intuit.com/app/developer/qbo/docs/develop).
 

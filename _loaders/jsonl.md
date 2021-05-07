@@ -1,9 +1,8 @@
 ---
+title: JSON Lines (JSONL)
 layout: page
 description: Use Meltano to pull data from various sources and load it into JSON Lines (JSONL) files
 ---
-
-# JSON Lines (JSONL)
 
 The `target-jsonl` [loader](https://meltano.com/plugins/loaders/) loads [extracted](https://meltano.com/plugins/extractors/) data into [JSON Lines (JSONL)](https://jsonlines.org/) files.
 

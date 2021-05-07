@@ -1,9 +1,8 @@
 ---
+title: SQLite
 layout: page
 description: Use Meltano to pull data from various sources and load it into SQLite
 ---
-
-# SQLite
 
 The `target-sqlite` [loader](https://meltano.com/plugins/loaders/) loads [extracted](https://meltano.com/plugins/extractors/) data into a [SQLite](https://www.sqlite.org/) database.
 

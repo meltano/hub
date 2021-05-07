@@ -1,9 +1,8 @@
 ---
+title: Comma Separated Values (CSV)
 layout: page
 description: Use Meltano to pull data from various sources and load it into Comma Separated Values (CSV) files
 ---
-
-# Comma Separated Values (CSV)
 
 The `target-csv` [loader](https://meltano.com/plugins/loaders/) loads [extracted](https://meltano.com/plugins/extractors/) data into [Comma Separated Values (CSV)](https://en.wikipedia.org/wiki/Comma-separated_values) files.
 

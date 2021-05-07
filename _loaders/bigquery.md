@@ -1,9 +1,8 @@
 ---
+title: BigQuery
 layout: page
 description: Use Meltano to pull data from various sources and load it into BigQuery
 ---
-
-# BigQuery
 
 The `target-bigquery` [loader](https://meltano.com/plugins/loaders/) loads [extracted](https://meltano.com/plugins/extractors/) data into a [BigQuery](https://cloud.google.com/bigquery) data warehouse.
 
