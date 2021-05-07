@@ -1,9 +1,8 @@
 ---
+title: Redshift
 layout: page
 description: Use Meltano to pull data from various sources and load it into Amazon Redshift
 ---
-
-# Redshift
 
 The `target-redshift` [loader](https://meltano.com/plugins/loaders/) loads [extracted](https://meltano.com/plugins/extractors/) data into an [Amazon Redshift](https://aws.amazon.com/redshift/) data warehouse.
 
@@ -65,7 +64,7 @@ If you run into any issues, [learn how to get help](https://meltano.com/docs/get
 - [Database Name](#database-name)
 - [Default Target Schema](#default-target-schema)
 
-Since the loader will first upload the data to S3 before using a COPY command to load the data into Redshift, some additional AWS specific settings are needed: 
+Since the loader will first upload the data to S3 before using a COPY command to load the data into Redshift, some additional AWS specific settings are needed:
 
 - [S3 Bucket](#s3_bucket)
 
@@ -82,7 +81,7 @@ Access Key:
 
 Session Token:
 
-- [AWS Session Token](#aws-session-token)   
+- [AWS Session Token](#aws-session-token)
 
 These and other supported settings are documented below.
 To quickly find the setting you're looking for, use the Table of Contents in the sidebar.
@@ -103,7 +102,7 @@ plugins:
       dbname: my_database
       # default_target_schema: my_schema    # override if default (see below) is not appropriate
       s3_bucket: my-s3-bucket-name
-      # AWS credential settings 
+      # AWS credential settings
       aws_profile: my_aws_cli_profile
 ```
 
@@ -247,7 +246,7 @@ export TARGET_REDSHIFT_AWS_SECRET_ACCESS_KEY=<aws secret access key>
 
 - Name: `aws_session_token`
 - [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_REDSHIFT_AWS_SESSION_TOKEN`
-- Default: 
+- Default:
 
 AWS STS token for temporary credentials. If not provided, `AWS_SESSION_TOKEN` environment variable will be used.
 
@@ -635,7 +634,7 @@ meltano config target-redshift set skip_updates true
 export TARGET_REDSHIFT_SKIP_UPDATES=true
 ```
 
-### Compression 
+### Compression
 
 - Name: `compression`
 - [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_REDSHIFT_COMPRESSION`

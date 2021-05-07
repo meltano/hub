@@ -1,2 +1,9 @@
-<li><code class="highlighter-rouge">{{ setting.name }}</code></li>
-<p>{{ setting.description }} </p>
+{% assign setting=include.setting %}
+<h3>
+  {% if setting.label %} {{setting.label}} (<code>{{ setting.name }}</code>) {%
+  else %}
+  <code>{{ setting.name }}</code>
+  {% endif %}
+</h3>
+
+<p>{{ setting.description }}</p>

@@ -1,9 +1,8 @@
 ---
+title: BigQuery
 layout: page
 description: Use Meltano to pull data from a BigQuery data warehouse and load it into Snowflake, PostgreSQL, and more
 ---
-
-# BigQuery
 
 The `tap-bigquery` [extractor](https://meltano.com/plugins/extractors/) pulls data from a [BigQuery](https://cloud.google.com/bigquery) data warehouse.
 

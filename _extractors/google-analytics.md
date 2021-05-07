@@ -1,9 +1,8 @@
 ---
+title: Google Analytics
 layout: page
 description: Use Meltano to pull data from the Google Analytics API and load it into Snowflake, PostgreSQL, and more
 ---
-
-# Google Analytics
 
 The `tap-google-analytics` [extractor](https://meltano.com/plugins/extractors/) pulls data from the [Google Analytics Reporting API](https://developers.google.com/analytics/devguides/reporting/core/v4/).
 

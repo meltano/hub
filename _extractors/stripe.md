@@ -1,9 +1,9 @@
 ---
+title: Stripe
 layout: page
 description: Use Meltano to pull data from the Stripe API and load it into Snowflake, PostgreSQL, and more
 ---
 
-# Stripe
 
 The `tap-stripe` [extractor](https://meltano.com/plugins/extractors/) pulls data from the [Stripe API](https://stripe.com/docs/api).
 

@@ -1,9 +1,8 @@
 ---
+title: Bing Ads
 layout: page
 description: Use Meltano to pull data from the Bing Ads API and load it into Snowflake, PostgreSQL, and more
 ---
-
-# Bing Ads
 
 The `tap-bing-ads` [extractor](https://meltano.com/plugins/extractors/) pulls data from the [Bing Ads API](https://docs.microsoft.com/en-us/advertising/guides/).
 
@@ -149,9 +148,9 @@ export OAUTH_BING_ADS_CLIENT_SECRET=<secret>
 - Name: `refresh_token`
 - [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_BING_ADS_REFRESH_TOKEN`
 
-See <https://docs.microsoft.com/en-us/advertising/guides/get-started#quick-start-production>. 
+See <https://docs.microsoft.com/en-us/advertising/guides/get-started#quick-start-production>.
 If you're using a Refresh Token you should not need a redirect URI in the request.
-Note that you'll need to include the OAuth Scopes when requesting the token. 
+Note that you'll need to include the OAuth Scopes when requesting the token.
 The recommended scopes are `scope=openid%20profile%20https://ads.microsoft.com/ads.manage%20offline_access`.
 
 #### How to use

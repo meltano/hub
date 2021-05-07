@@ -1,9 +1,9 @@
 ---
+title: PostgreSQL
 layout: page
 description: Use Meltano to pull data from a PostgreSQL database and load it into Snowflake, PostgreSQL, and more
 ---
 
-# PostgreSQL
 
 The `tap-postgres` [extractor](https://meltano.com/plugins/extractors/) pulls data from a [PostgreSQL](https://www.postgresql.org/) database.
 

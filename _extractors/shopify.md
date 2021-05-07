@@ -1,9 +1,9 @@
 ---
+title: Shopify
 layout: page
 description: Use Meltano to pull data from the Shopify API and load it into Snowflake, PostgreSQL, and more
 ---
 
-# Shopify
 
 The `tap-shopify` [extractor](https://meltano.com/plugins/extractors/) pulls data from the [Shopify API](https://shopify.dev/docs/admin-api/rest/reference).
 

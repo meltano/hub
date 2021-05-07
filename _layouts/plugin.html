@@ -1,54 +1,111 @@
 ---
 layout: default
 ---
-{% assign plugin = page.plugin %}
-{% assign variant = page.variant %}
+
+{% assign plugin = page.plugin %} {% assign variant = page.variant %}
 <article class="plugin">
+  <header class="post-header">
+    <h1 class="post-title">
+      {{ plugin.label }} {% if page.variant_specific %} (<code>
+        {{variant.name}}
+      </code>
+      variant) {% endif %}
+    </h1>
+  </header>
 
-    <header class="post-header">
-        <h1 class="post-title">
-            {{ plugin.label }}
-            {% if page.variant_specific %}
-            (<code>{{variant.name}}</code> variant)
-            {% endif %}
-        </h1>
-    </header>
+  <div class="post-content">
+    <p>
+      The <code>{{plugin.singer_name}}</code> Singer tap pulls data from the
+      <a href="{{plugin.domain.url}}" target="_blank">{{plugin.domain.name}}</a
+      >.
+    </p>
 
-    <div class="post-content">
-        <h2>{{ variant.description | markdownify }}</h2>
-        <p>Project repository: <a href="{{variant.repo}}">{{ variant.repo }}</a></p> 
-        <h3>Maintainer: <a href="{{variant.maintainer.link}}">{{ variant.maintainer.name }}</a></h3>
-        <h3>Maintenance Status: {{ variant.maintenance_status }}</h3>
+    <ul>
+      <li>
+        <strong>Repository</strong>:
+        <a href="{{variant.repo}}">{{ variant.repo }}</a>
+      </li>
+      <li>
+        <strong>Maintainer</strong>: {% if variant.maintainer.link %}
+        <a href="{{variant.maintainer.link}}">{{ variant.maintainer.name }}</a>
+        {% else %} {{ variant.maintainer.name }} {%endif %}
+      </li>
+      <li>
+        <strong>Maintenance status</strong>: {{ variant.maintenance_status }}
+      </li>
+    </ul>
 
-        {% if plugin.variants.size > 1 %}
+    {% if plugin.variants.size > 1 %}
 
-        <h3>Alternative variants</h3>
+    <h2>Alternative variants</h2>
 
-        <ul>
-            {% for alt_variant in plugin.variants %}
-                {% if alt_variant != variant %}
-                <li>
-                    <a href="{{ alt_variant.url | prepend: site.baseurl | prepend: site.url }}">
-                        <code>{{alt_variant.name}}</code>
-                    </a>
-                    {% if alt_variant.primary_variant %}(default){%endif%}
-                </li>
-                {% endif %}
-            {% endfor %}
-        </ul>
+    <p>
+      Multiple
+      <a href="https://meltano.com/docs/plugins.html#variants" target="_blank"
+        >variants</a
+      >
+      of <code>{{plugin.singer_name}}</code> are available. {% if
+      page.variant_specific %} This document describes the
+      <code>{{variant.name}}</code> variant. {% else %} This document describes
+      the default <code>{{variant.name}}</code> variant, which is recommended
+      for new users. {% endif %}
+    </p>
 
-        {% endif %}
+    <p>Alternative variants are:</p>
 
-        <ul>
+    <ul>
+      {% for alt_variant in plugin.variants %} {% if alt_variant != variant %}
+      <li>
+        <a
+          href="{{ alt_variant.url | prepend: site.baseurl | prepend: site.url }}"
+        >
+          <code>{{alt_variant.name}}</code>
+        </a>
+        {% if alt_variant.primary_variant %}(default){%endif%}
+      </li>
+      {% endif %} {% endfor %}
+    </ul>
 
-            <h3>plugin Settings</h3>
-            {% for setting in variant.settings %}
-                {% include setting.html %}
-            {% endfor %}
-        
-        </ul>
+    {% endif %}
 
-        <i>View {{plugin.label}} <a href="https://gitlab.com/meltano/hub/-/tree/main/_data/{{ plugin.name }}.yml">source</a></i>
-    </div>
+    <h2>Installation</h2>
 
+    <h3>Standalone</h3>
+
+    <pre><code>pip install {{variant.pip_url}}</code></pre>
+
+    <h3>With <a href="https://meltano.com" target="_blank">Meltano</a></h3>
+
+    {% if plugin.type == "tap" %} {% assign meltano_type = "extractor" %} {%
+    else %} {% assign meltano_type = "loader" %} {% endif %} {% if
+    page.variant_specific %}
+    <pre><code>meltano add {{meltano_type}} {{plugin.singer_name}} --variant {{variant.name}}</code></pre>
+    {% else %}
+    <pre><code>meltano add {{meltano_type}} {{plugin.singer_name}}</code></pre>
+    {% endif %}
+
+    <p>
+      To learn more, refer to the
+      <a href="/{{meltano_type}}s/{{plugin.name}}"
+        >Meltano-specific documentation for
+        <code>{{plugin.singer_name}}</code></a
+      >.
+    </p>
+
+    <h2>Settings</h2>
+
+    {% for setting in variant.settings %} {% include setting.html
+    setting=setting %} {% endfor %}
+
+    <h2>Found an issue on this page?</h2>
+
+    <p>
+      This page is generated from a
+      <a
+        href="https://gitlab.com/meltano/hub/-/tree/main/_data/{{plugin.type}}s/{{ plugin.name }}.yml"
+        >YAML file</a
+      >
+      that you can contribute changes to!
+    </p>
+  </div>
 </article>

@@ -1,9 +1,8 @@
 ---
+title: GitLab
 layout: page
 description: Use Meltano to pull data from the GitLab API and load it into Snowflake, PostgreSQL, and more
 ---
-
-# GitLab
 
 The `tap-gitlab` [extractor](https://meltano.com/plugins/extractors/) pulls data from the [GitLab API](https://docs.gitlab.com/ee/api/).
 

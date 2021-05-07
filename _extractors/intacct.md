@@ -1,9 +1,9 @@
 ---
+title: Sage Intacct
 layout: page
 description: Use Meltano to pull data from the Sage Intacct API and load it into Snowflake, PostgreSQL, and more
 ---
 
-# Sage Intacct
 
 The `tap-intacct` [extractor](https://meltano.com/plugins/extractors/) pulls data from the [Sage Intacct API](https://developer.intacct.com/api/).
 

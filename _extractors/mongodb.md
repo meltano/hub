@@ -1,9 +1,9 @@
 ---
+title: MongoDB
 layout: page
 description: Use Meltano to pull data from a MongoDB database and load it into Snowflake, PostgreSQL, and more
 ---
 
-# MongoDB
 
 The `tap-mongodb` [extractor](https://meltano.com/plugins/extractors/) pulls data from a [MongoDB](https://www.mongodb.com/) database.
 
