@@ -9,8 +9,6 @@ description: Advertising Platform
 singer_name: tap-adwords
 variants:
   - name: meltano
-    maintainer:
-      name: Meltano Community
     maintenance_status: Active
     default: true
     repo: https://gitlab.com/meltano/tap-adwords

@@ -9,9 +9,6 @@ description: For loading data into PostgreSQL
 singer_name: target-postgres
 variants:
     - name: datamill-co
-      maintainer:
-        name: Data Mill # TODO: Move to separate data list of maintainers per variant ID
-        url: https://datamill.co/
       maintenance_status: Active
       default: true
       repo: https://github.com/datamill-co/target-postgres
@@ -104,9 +101,6 @@ variants:
     - name: transferwise
       docs: https://transferwise.github.io/pipelinewise/connectors/targets/postgres.html
       repo: https://github.com/transferwise/pipelinewise-target-postgres
-      maintainer:
-        name: Transferwise
-        url: https://wise.com/
       maintenance_status: Active
       pip_url: pipelinewise-target-postgres
       settings_group_validation:
@@ -180,8 +174,6 @@ variants:
           description: "(Default: platform-dependent) Directory of temporary CSV files with RECORD messages."
     - name: meltano
       repo: https://github.com/meltano/target-postgres
-      maintainer:
-        name: Meltano Community
       maintenance_status: Active
       pip_url: 'git+https://github.com/meltano/target-postgres.git'
       settings_group_validation:

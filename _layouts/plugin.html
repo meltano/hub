@@ -3,7 +3,8 @@ layout: default
 header: singer
 ---
 
-{% assign plugin = page.plugin %} {% assign variant = page.variant %}
+{% assign plugin = page.plugin %} {% assign variant = page.variant %} {% assign
+maintainer = site.data.maintainers[variant.name] %}
 <article class="plugin">
   <header class="post-header">
     <h1 class="post-title">
@@ -27,9 +28,9 @@ header: singer
         <a href="{{variant.repo}}">{{ variant.repo }}</a>
       </li>
       <li>
-        <strong>Maintainer</strong>: {% if variant.maintainer.link %}
-        <a href="{{variant.maintainer.link}}">{{ variant.maintainer.name }}</a>
-        {% else %} {{ variant.maintainer.name }} {%endif %}
+        <strong>Maintainer</strong>: {% if maintainer.url %}
+        <a href="{{maintainer.url}}" target="_blank">{{ maintainer.label }}</a>
+        {% else %} {{ maintainer.name }} {%endif %}
       </li>
       <li>
         <strong>Maintenance status</strong>: {{ variant.maintenance_status }}
@@ -62,7 +63,7 @@ header: singer
         >
           <code>{{alt_variant.name}}</code>
         </a>
-        {% if alt_variant.primary_variant %}(default){%endif%}
+        {% if alt_variant.default %}(default){%endif%}
       </li>
       {% endif %} {% endfor %}
     </ul>

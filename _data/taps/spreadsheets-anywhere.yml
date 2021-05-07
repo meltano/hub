@@ -9,9 +9,6 @@ singer_name: tap-spreadsheets-anywhere
 variants:
 - name: ets
   default: true
-  maintainer:
-    name: Eric Simmerman
-    url: https://github.com/ets
   maintenance_status: Active
   repo: https://github.com/ets/tap-spreadsheets-anywhere
   pip_url: git+https://github.com/ets/tap-spreadsheets-anywhere.git

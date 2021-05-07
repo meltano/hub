@@ -12,9 +12,6 @@ variants:
       repo: https://github.com/transferwise/pipelinewise-target-redshift
       docs: https://transferwise.github.io/pipelinewise/connectors/targets/redshift.html
       default: true
-      maintainer:
-        name: Transferwise
-        url: https://wise.com/
       maintenance_status: Active
       pip_url: pipelinewise-target-redshift
       capabilities:

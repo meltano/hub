@@ -12,9 +12,6 @@ variants:
       repo: https://github.com/singer-io/target-csv
       repo_forks: https://github.com/singer-io/target-csv/network
       pip_url: target-csv
-      maintainer:
-          name: Stitch
-          url: https://www.stitchdata.com/
       maintenance_status: Unresponsive
       adoptable: true
       settings:

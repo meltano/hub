@@ -10,9 +10,6 @@ singer_name: tap-mongodb
 variants:
 - name: singer-io
   default: true
-  maintainer:
-    name: Stitch
-    url: https://www.stitchdata.com/
   maintenance_status: Unresponsive
   repo: https://github.com/singer-io/tap-mongodb
   pip_url: tap-mongodb

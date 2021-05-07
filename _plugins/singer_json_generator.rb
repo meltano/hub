@@ -11,6 +11,12 @@ class SingerJsonGenerator < Jekyll::Generator
 
     plugins.sort_by! { |p| p['label'] }
 
+    plugins.each do |plugin|
+      plugin['variants'].each do |variant|
+        variant['maintainer'] ||= site.data['maintainers'][variant['name']]
+      end
+    end
+
     # singer/targets.json
     generate_file(site, "/singer", "#{collection}.json", JSON.generate(plugins))
 

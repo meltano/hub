@@ -10,9 +10,6 @@ singer_name: tap-mysql
 variants:
 - name: transferwise
   default: true
-  maintainer:
-    name: Wise
-    url: https://wise.com/
   maintenance_status: Active
   repo: https://github.com/transferwise/pipelinewise-tap-mysql
   pip_url: pipelinewise-tap-mysql
