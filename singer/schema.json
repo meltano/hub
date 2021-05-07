@@ -102,7 +102,6 @@
                     "name",
                     "repo",
                     "pip_url",
-                    "maintainer",
                     "maintenance_status",
                     "settings"
                 ],
@@ -160,9 +159,6 @@
                         "title": "The maintainer schema",
                         "description": "Details the name and URL of the maintainer.",
                         "default": {},
-                        "required": [
-                            "name"
-                        ],
                         "properties": {
                             "name": {
                                 "id": "#/properties/variants/items/properties/maintainer/properties/name",
