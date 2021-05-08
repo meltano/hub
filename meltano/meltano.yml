@@ -35,6 +35,26 @@ plugins:
   - name: target-bigquery
     variant: adswerve
     pip_url: git+https://github.com/adswerve/target-bigquery.git@v0.10.2
+  - name: target-athena
+    namespace: target_athena
+    pip_url: git+https://github.com/aaronsteers/target-athena.git
+    executable: /Users/ajsteers/Source/target-athena/target-athena.sh
+    settings:
+    - name: aws_access_key_id
+      kind: password
+    - name: aws_secret_access_key
+      kind: password
+    - name: s3_bucket
+    - name: athena_database
+    - name: s3_staging_dir
+    - name: work_group
+    - name: compression
+    config:
+      aws_region: us-east-2
+      athena_database: default
+      s3_bucket: devtest-meltano-bucket-01
+      s3_staging_dir: s3://devtest-meltano-bucket-01/stage_dir/
+      compression: none
   transformers:
   - name: dbt
     pip_url: dbt==0.16.1

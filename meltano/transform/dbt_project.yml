@@ -3,6 +3,7 @@ version: '1.0'
 profile: meltano
 source-paths:
 - models
+- source
 analysis-paths:
 - analysis
 test-paths:
