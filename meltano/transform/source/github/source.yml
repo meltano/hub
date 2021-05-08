@@ -6,3 +6,4 @@ sources:
     schema: default
     tables:
       - name: tap_something
+      - name: target_something

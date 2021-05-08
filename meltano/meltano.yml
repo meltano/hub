@@ -22,8 +22,9 @@ plugins:
       searches:
       - name: tap_something
         query: tap-+language:Python
+      - name: target_something
+        query: target-+language:Python
     select:
-    - commits.*
     - '*.*'
   loaders:
   - name: target-jsonl
@@ -55,6 +56,7 @@ plugins:
       s3_bucket: devtest-meltano-bucket-01
       s3_staging_dir: s3://devtest-meltano-bucket-01/stage_dir/
       compression: none
+      temp_dir: .output
   transformers:
   - name: dbt
     pip_url: git+https://github.com/Tomme/dbt-athena.git
