@@ -1,15 +1,16 @@
+config-version: 2
+version: 2
 name: my_meltano_project
-version: '1.0'
 profile: meltano
 source-paths:
 - models
 - source
+data-paths:
+- data
 analysis-paths:
 - analysis
 test-paths:
 - tests
-data-paths:
-- data
 macro-paths:
 - macros
 snapshot-paths:

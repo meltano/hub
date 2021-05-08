@@ -57,7 +57,9 @@ plugins:
       compression: none
   transformers:
   - name: dbt
-    pip_url: dbt==0.16.1
+    pip_url: git+https://github.com/Tomme/dbt-athena.git
+    env:
+      DBT_TARGET: athena
   files:
   - name: dbt
     pip_url: git+https://gitlab.com/meltano/files-dbt.git

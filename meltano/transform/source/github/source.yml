@@ -1,6 +1,8 @@
+config-version: 2
 version: 2
 sources:
   - name: tap_github_index
-    database: default
+    database: awsdatacatalog
+    schema: default
     tables:
       - name: tap_something
