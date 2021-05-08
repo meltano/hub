@@ -1,0 +1,6 @@
+version: 2
+sources:
+  - name: tap_github_index
+    database: default
+    tables:
+      - name: tap_something
