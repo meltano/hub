@@ -1,0 +1,17 @@
+description: Online Community Platform
+domain:
+  description: Online Community Platform
+  name: inSided API
+  type: api
+  url: https://www.insided.com/
+label: inSided
+name: insided
+singer_name: singer-tap-insided
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: karbonhq
+  pip_url: git+https://github.com/karbonhq/singer-tap-insided.git
+  repo: https://github.com/karbonhq/singer-tap-insided
+  settings: []
