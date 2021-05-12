@@ -40,6 +40,13 @@
             "title": "The type of Singer executable",
             "description": "An explanation about the purpose of this instance."
         },
+        "description": {
+            "id": "#/properties/description",
+            "type": "string",
+            "title": "The description schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": ""
+        },
         "domain": {
             "id": "#/properties/domain",
             "type": "object",
@@ -72,16 +79,16 @@
                     "format": "uri",
                     "title": "The url of the data domain.",
                     "description": "Links to the website represnting the database, api, etc."
-                }
+                },
+                "description": {
+                    "id": "#/properties/domain/description",
+                    "type": "string",
+                    "title": "The description schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": ""
+                },
             },
             "additionalProperties": false
-        },
-        "description": {
-            "id": "#/properties/description",
-            "type": "string",
-            "title": "The description schema",
-            "description": "An explanation about the purpose of this instance.",
-            "default": ""
         },
         "singer_name": {
             "id": "#/properties/singer_name",
