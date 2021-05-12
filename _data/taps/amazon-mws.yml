@@ -1,0 +1,17 @@
+description: Amazon API for Selling Automation
+domain:
+  description: Legacy Amazon API for Selling Automation
+  name: Amazon Marketplace Web Service API
+  type: api
+  url: https://developer.amazonservices.com/
+label: Amazon MWS
+name: amazon-mws
+singer_name: tap-amazon-mws
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: fishtown-analytics
+  pip_url: git+https://github.com/fishtown-analytics/tap-amazon-mws.git
+  repo: https://github.com/fishtown-analytics/tap-amazon-mws
+  settings: []
