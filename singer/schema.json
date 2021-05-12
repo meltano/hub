@@ -9,8 +9,6 @@
         "label",
         "type",
         "domain",
-        "description",
-        "singer_name",
         "variants"
     ],
     "properties": {
@@ -188,7 +186,8 @@
                         "title": "Variant Maintenance Status",
                         "enum": [
                             "Active",
-                            "Unresponsive"
+                            "Unresponsive",
+                            "Unknown"
                         ],
                         "description": "The maintenance_status of the variant."
                     },
