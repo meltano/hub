@@ -1,0 +1,14 @@
+domain:
+  description: SaaS mobile marketing analytics and attribution platform
+  name: AppsFlyer
+  type: api
+  url: https://www.appsflyer.com/
+label: AppsFlyer
+name: appsflyer
+type: tap
+variants:
+- maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-appsflyer.git
+  repo: https://github.com/singer-io/tap-appsflyer
+  singer_name: tap-appsflyer
