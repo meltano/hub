@@ -1,0 +1,17 @@
+description: Affiliate Marketing Network
+domain:
+  description: Affiliate Marketing Network
+  name: Awin SOAP API
+  type: api
+  url: https://www.awin.com/us
+label: Awin
+name: awin
+singer_name: tap-awin
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: ideavateltd
+  pip_url: git+https://github.com/ideavateltd/tap-awin.git
+  repo: https://github.com/ideavateltd/tap-awin
+  settings: []
