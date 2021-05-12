@@ -11,4 +11,4 @@ variants:
   name: singer-io
   pip_url: git+https://github.com/singer-io/tap-appsflyer.git
   repo: https://github.com/singer-io/tap-appsflyer
-  singer_name: tap-appsflyer
+  settings: []
