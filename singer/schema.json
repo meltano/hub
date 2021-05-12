@@ -17,7 +17,7 @@
             "type": "string",
             "title": "The name of the tap or target. ",
             "description": "This is lowercase and can be used to determine the pip name.",
-            "pattern": "^[a-z-]+$",
+            "pattern": "^[a-z-0-9]+$",
             "example": "bigquery"
         },
         "label": {
