@@ -1,0 +1,17 @@
+description: Open-source distributed event streaming platform
+domain:
+  description: Open-source distributed event streaming platform
+  name: Apache Kafka
+  type: database
+  url: https://kafka.apache.org/
+label: Apache Kafka
+name: kafka
+singer_name: pipelinewise-tap-kafka
+type: tap
+variants:
+- default: true
+  maintenance_status: Active
+  name: transferwise
+  pip_url: git+https://github.com/transferwise/pipelinewise-tap-kafka.git
+  repo: https://github.com/transferwise/pipelinewise-tap-kafka
+  settings: []
