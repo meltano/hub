@@ -50,3 +50,20 @@ variants:
     - name: end_date
       kind: date_iso8601
       description: Date up to when historical data will be extracted.
+- default: false
+  maintenance_status: Unknown
+  name: zenkay
+  pip_url: git+https://github.com/zenkay/tap-google-analytics.git
+  repo: https://github.com/zenkay/tap-google-analytics
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: saidtezel
+  pip_url: git+https://github.com/saidtezel/tap-google-analytics.git
+  repo: https://github.com/saidtezel/tap-google-analytics
+  settings: []
+- name: transferwise
+  maintenance_status: Active
+  pip_url: git+https://github.com/transferwise/pipelinewise-tap-google-analytics.git
+  repo: https://github.com/transferwise/pipelinewise-tap-google-analytics
+  settings: []

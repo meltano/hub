@@ -99,8 +99,12 @@ maintainer = site.data.maintainers[variant.name] %}
 
     <h2>Settings</h2>
 
+    {% if variant.settings.size == 0 %}
+      <p> Check the <a href="{{variant.repo}}">README of the repository</a> for more information on settings for this {{plugin.type}}.</p>
+    {% else %}
     {% for setting in variant.settings %} {% include setting.html
     setting=setting %} {% endfor %}
+    {% endif %}
 
     <h2>Found an issue on this page?</h2>
 

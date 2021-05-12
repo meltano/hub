@@ -1,0 +1,23 @@
+description: Marketing Automation Software 
+domain:
+  description: Marketing Automation Software 
+  name: Autopilot API
+  type: api
+  url: https://autopilotapp.com/
+label: Autopilot
+name: autopilot
+singer_name: tap-autopilot
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-autopilot.git
+  repo: https://github.com/singer-io/tap-autopilot
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: wcjohnson11
+  pip_url: git+https://github.com/wcjohnson11/tap-autopilot.git
+  repo: https://github.com/wcjohnson11/tap-autopilot
+  settings: []

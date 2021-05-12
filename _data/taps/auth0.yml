@@ -1,0 +1,17 @@
+description: Extract the Users resource from the API
+domain:
+  description: Authentication and Authorization Platform
+  name: Auth0 Management API
+  type: api
+  url: https://auth0.com/
+label: Auth0 Users
+name: auth0
+singer_name: tap-auth0
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: nickhould
+  pip_url: git+https://github.com/nickhould/tap-auth0.git
+  repo: https://github.com/nickhould/tap-auth0
+  settings: []

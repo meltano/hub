@@ -1,0 +1,17 @@
+description: Cloud-based Business-planning Software
+domain:
+  description: Cloud-based Business-planning Software
+  name: Anaplan API
+  type: api
+  url: https://www.anaplan.com/
+label: Anaplan
+name: anaplan
+singer_name: tap-anaplan
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: kdamodaran1
+  pip_url: git+https://github.com/kdamodaran1/tap-anaplan.git
+  repo: https://github.com/kdamodaran1/tap-anaplan
+  settings: []

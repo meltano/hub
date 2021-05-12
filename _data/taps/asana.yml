@@ -1,0 +1,23 @@
+description: Project Management Software
+domain:
+  description: Project Management Software
+  name: Asana API
+  type: api
+  url: https://asana.com/
+label: Asana
+name: asana
+singer_name: tap-asana
+type: tap
+variants:
+- default: false
+  maintenance_status: Unknown
+  name: lambtron
+  pip_url: git+https://github.com/lambtron/tap-asana.git
+  repo: https://github.com/lambtron/tap-asana
+  settings: []
+- default: true
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-asana.git
+  repo: https://github.com/singer-io/tap-asana
+  settings: []
