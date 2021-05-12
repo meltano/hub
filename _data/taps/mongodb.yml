@@ -44,3 +44,9 @@ variants:
       kind: boolean
       value: false
       description: Forces the stream names to take the form `<database_name>_<collection_name>` instead of `<collection_name>`
+- default: false
+  maintenance_status: Active
+  name: transferwise
+  pip_url: git+https://github.com/transferwise/pipelinewise-tap-mongodb.git
+  repo: https://github.com/transferwise/pipelinewise-tap-mongodb
+  settings: []

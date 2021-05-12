@@ -9,8 +9,6 @@
         "label",
         "type",
         "domain",
-        "description",
-        "singer_name",
         "variants"
     ],
     "properties": {
@@ -19,7 +17,7 @@
             "type": "string",
             "title": "The name of the tap or target. ",
             "description": "This is lowercase and can be used to determine the pip name.",
-            "pattern": "^[a-z-]+$",
+            "pattern": "^[a-z-0-9]+$",
             "example": "bigquery"
         },
         "label": {
@@ -39,6 +37,13 @@
             ],
             "title": "The type of Singer executable",
             "description": "An explanation about the purpose of this instance."
+        },
+        "description": {
+            "id": "#/properties/description",
+            "type": "string",
+            "title": "The description schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": ""
         },
         "domain": {
             "id": "#/properties/domain",
@@ -72,16 +77,16 @@
                     "format": "uri",
                     "title": "The url of the data domain.",
                     "description": "Links to the website represnting the database, api, etc."
+                },
+                "description": {
+                    "id": "#/properties/domain/description",
+                    "type": "string",
+                    "title": "The description schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": ""
                 }
             },
             "additionalProperties": false
-        },
-        "description": {
-            "id": "#/properties/description",
-            "type": "string",
-            "title": "The description schema",
-            "description": "An explanation about the purpose of this instance.",
-            "default": ""
         },
         "singer_name": {
             "id": "#/properties/singer_name",
@@ -181,7 +186,8 @@
                         "title": "Variant Maintenance Status",
                         "enum": [
                             "Active",
-                            "Unresponsive"
+                            "Unresponsive",
+                            "Unknown"
                         ],
                         "description": "The maintenance_status of the variant."
                     },

@@ -47,3 +47,9 @@ variants:
         - SET @@session.net_read_timeout=3600
         - SET @@session.innodb_lock_wait_timeout=3600
       description: List of SQL commands to run when a connection made. This allows to set session variables dynamically, like timeouts.
+- default: false
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-mysql.git
+  repo: https://github.com/singer-io/tap-mysql
+  settings: []

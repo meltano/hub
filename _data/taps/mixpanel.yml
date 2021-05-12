@@ -1,0 +1,23 @@
+description: Product Analytics Tool
+domain:
+  description: Product Analytics Tool
+  name: Mixpanel API
+  type: api
+  url: https://mixpanel.com/
+label: Mixpanel
+name: mixpanel
+singer_name: tap-mixpanel
+type: tap
+variants:
+- default: false
+  maintenance_status: Unknown
+  name: bytecodeio
+  pip_url: git+https://github.com/bytecodeio/tap-mixpanel.git
+  repo: https://github.com/bytecodeio/tap-mixpanel
+  settings: []
+- default: true
+  maintenance_status: Active
+  name: transferwise
+  pip_url: git+https://github.com/transferwise/pipelinewise-tap-mixpanel.git
+  repo: https://github.com/transferwise/pipelinewise-tap-mixpanel
+  settings: []

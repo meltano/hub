@@ -1,0 +1,17 @@
+description: People Counting Solutions for Retail Stores
+domain:
+  description: People Counting Solutions for Retail Stores
+  name: SMS Store Traffic API
+  type: api
+  url: https://storetraffic.com/
+label: SMS Store Traffic
+name: storetraffic
+singer_name: tap-sms
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: jboltron3000
+  pip_url: git+https://github.com/jboltron3000/tap-SMS.git
+  repo: https://github.com/jboltron3000/tap-SMS
+  settings: []

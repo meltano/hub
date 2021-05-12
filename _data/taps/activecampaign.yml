@@ -1,0 +1,17 @@
+description: Customer Experience Automation Platform
+domain:
+  description: Customer Experience Automation Platform
+  name: ActiveCampaign API
+  type: api
+  url: https://www.activecampaign.com/
+label: ActiveCampaign
+name: activecampaign
+singer_name: tap-activecampaign
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: bytecodeio
+  pip_url: git+https://github.com/bytecodeio/tap-activecampaign.git
+  repo: https://github.com/bytecodeio/tap-activecampaign
+  settings: []

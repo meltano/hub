@@ -1,0 +1,23 @@
+description: Cloud communications platform as a service
+domain:
+  description: Cloud communications platform as a service
+  name: Twilio API
+  type: api
+  url: https://www.twilio.com/
+label: Twilio
+name: twilio
+singer_name: tap-twilio
+type: tap
+variants:
+- default: false
+  maintenance_status: Unknown
+  name: bytecodeio
+  pip_url: git+https://github.com/bytecodeio/tap-twilio.git
+  repo: https://github.com/bytecodeio/tap-twilio
+  settings: []
+- default: true
+  maintenance_status: Active
+  name: transferwise
+  pip_url: git+https://github.com/transferwise/pipelinewise-tap-snowflake.git
+  repo: https://github.com/transferwise/pipelinewise-tap-snowflake
+  settings: []
