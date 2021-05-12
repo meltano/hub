@@ -1,0 +1,17 @@
+description: Subscription Management Platform
+domain:
+  description: Subscription Management Platform
+  name: Zuora API
+  type: api
+  url: https://www.zuora.com/
+label: Zuora
+name: zuora
+singer_name: pipelinewise-tap-zuora
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: transferwise
+  pip_url: git+https://github.com/transferwise/pipelinewise-tap-zuora.git
+  repo: https://github.com/transferwise/pipelinewise-tap-zuora
+  settings: []

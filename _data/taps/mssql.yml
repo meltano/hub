@@ -1,0 +1,29 @@
+description: Microsoft SQL Server
+domain:
+  description: Microsoft SQL Server
+  name: Microsoft SQL Server Database
+  type: database
+  url: https://www.microsoft.com/en-us/sql-server/sql-server-2019
+label: Microsoft SQL Server
+name: mssql
+singer_name: tap-mssql
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-mssql.git
+  repo: https://github.com/singer-io/tap-mssql
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: cmoresid
+  pip_url: git+https://github.com/cmoresid/tap-mssql.git
+  repo: https://github.com/cmoresid/tap-mssql
+  settings: []
+- default: false
+  maintenance_status: Active
+  name: transferwise
+  pip_url: git+https://github.com/wintersrd/pipelinewise-tap-mssql.git
+  repo: https://github.com/wintersrd/pipelinewise-tap-mssql
+  settings: []

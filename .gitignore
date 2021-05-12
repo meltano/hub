@@ -8,3 +8,6 @@ singer/taps.json
 singer/targets.json
 singer/taps/
 singer/targets/
+.venv/
+*.env
+.vscode/*

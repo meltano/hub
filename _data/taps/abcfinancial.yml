@@ -1,0 +1,17 @@
+description: SaaS solution for club management
+domain:
+  description: SaaS solution for club management
+  name: ABC Financial API
+  type: api
+  url: https://abcfinancial.3scale.net
+label: ABC Fitness Solutions  #Renamed from ABCFinancial
+name: abcfinancial
+singer_name: tap-abcfinancial
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: dmzobel
+  pip_url: git+https://github.com/dmzobel/tap-abcfinancial.git
+  repo: https://github.com/dmzobel/tap-abcfinancial
+  settings: []

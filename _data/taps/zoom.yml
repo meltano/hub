@@ -32,3 +32,9 @@ variants:
     - name: refresh_token
       kind: password
       documentation: https://marketplace.zoom.us/docs/guides/auth/oauth
+- default: false
+  maintenance_status: Unknown
+  name: karbonhq
+  pip_url: git+https://github.com/karbonhq/singer-tap-zoom.git
+  repo: https://github.com/karbonhq/singer-tap-zoom
+  settings: []
