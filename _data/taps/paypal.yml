@@ -1,0 +1,23 @@
+description: Online Payments System
+domain:
+  description: Online Payments System
+  name: PayPal API
+  type: api
+  url: https://www.paypal.com/us/home
+label: PayPal
+name: paypal
+singer_name: tap-paypal
+type: tap
+variants:
+- default: false
+  maintenance_status: Unknown
+  name: milk-bar
+  pip_url: git+https://github.com/milk-bar/tap-paypal.git
+  repo: https://github.com/milk-bar/tap-paypal
+  settings: []
+- default: true
+  maintenance_status: Unknown
+  name: yoast
+  pip_url: git+https://github.com/Yoast/singer-tap-paypal.git
+  repo: https://github.com/Yoast/singer-tap-paypal
+  settings: []
