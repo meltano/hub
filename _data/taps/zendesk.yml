@@ -75,9 +75,15 @@ variants:
       - name: start_date
         kind: date_iso8601
         description: Determines how much historical data will be extracted. Please be aware that the larger the time period and amount of data, the longer the initial extraction can be expected to take.
-  - default: true
+  - default: false
     maintenance_status: Active
     name: transferwise
     pip_url: git+https://github.com/transferwise/pipelinewise-tap-zendesk.git
     repo: https://github.com/transferwise/pipelinewise-tap-zendesk
+    settings: []
+  - default: false
+    maintenance_status: Unknown
+    name: radico
+    pip_url: git+https://github.com/Radico/tap-zendesk.git
+    repo: https://github.com/Radico/tap-zendesk
     settings: []
