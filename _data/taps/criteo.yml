@@ -1,0 +1,23 @@
+description: Advertising Platform
+domain:
+  description: Advertising Platform
+  name: Criteo API
+  type: api
+  url: https://www.criteo.com/
+label: Criteo
+name: criteo
+singer_name: tap-criteo
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: jude188
+  pip_url: git+https://github.com/Jude188/tap-criteo.git
+  repo: https://github.com/Jude188/tap-criteo
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: uptilab2
+  pip_url: git+https://github.com/uptilab2/tap-criteo.git
+  repo: https://github.com/uptilab2/tap-criteo
+  settings: []

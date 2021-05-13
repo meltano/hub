@@ -1,0 +1,17 @@
+description: Customer Relationship Management Platform
+domain:
+  description: Customer Relationship Management Platform
+  name: Close API
+  type: api
+  url: https://close.com/
+label: Close
+name: closeio
+singer_name: tap-closeio
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-closeio.git
+  repo: https://github.com/singer-io/tap-closeio
+  settings: []

@@ -1,0 +1,17 @@
+description: Subscription Management Software
+domain:
+  description: Subscription Management Software
+  name: billwerk API
+  type: api
+  url: https://billwerk.io/
+label: billwerk
+name: billwerk
+singer_name: tap-billwerk
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: bi-media
+  pip_url: git+https://github.com/bi-media/tap-billwerk.git
+  repo: https://github.com/bi-media/tap-billwerk
+  settings: []

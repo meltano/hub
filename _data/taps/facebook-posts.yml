@@ -1,0 +1,17 @@
+description: Facebook Posts Graph API
+domain:
+  description: Facebook Posts Graph API
+  name: Facebook Posts API
+  type: api
+  url: https://developers.facebook.com/docs/graph-api
+label: Facebook Posts
+name: facebook-posts
+singer_name: tap-facebook-posts
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: rowanv
+  pip_url: git+https://github.com/rowanv/tap-facebook-posts.git
+  repo: https://github.com/rowanv/tap-facebook-posts
+  settings: []
