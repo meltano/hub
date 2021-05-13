@@ -1,0 +1,17 @@
+description: Space Analytics Platform
+domain:
+  description: Space Analytics Platform
+  name: Density API
+  type: api
+  url: https://www.density.io/
+label: Density
+name: density
+singer_name: tap-density
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: envoy
+  pip_url: git+https://github.com/envoy/tap-density.git
+  repo: https://github.com/envoy/tap-density
+  settings: []
