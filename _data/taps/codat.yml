@@ -1,0 +1,17 @@
+description: Financial Integration Software
+domain:
+  description: Financial Integration Software
+  name: Codat API
+  type: api
+  url: https://www.codat.io/
+label: Codat
+name: codat
+singer_name: tap-codat
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-codat.git
+  repo: https://github.com/singer-io/tap-codat
+  settings: []
