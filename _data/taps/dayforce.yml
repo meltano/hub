@@ -1,0 +1,17 @@
+description: Human Capital Management Software
+domain:
+  description: Human Capital Management Software
+  name: Dayforce API
+  type: api
+  url: https://www.ceridian.com/products/dayforce
+label: Dayforce
+name: dayforce
+singer_name: tap-dayforce
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: goodeggs
+  pip_url: git+https://github.com/goodeggs/tap-dayforce.git
+  repo: https://github.com/goodeggs/tap-dayforce
+  settings: []
