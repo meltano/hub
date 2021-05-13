@@ -1,0 +1,17 @@
+description: Customer Engagement Platform
+domain:
+  description: Customer Engagement Platform
+  name: Emarsys API
+  type: api
+  url: https://emarsys.com/
+label: Emarsys
+name: emarsys
+singer_name: tap-emarsys
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-emarsys.git
+  repo: https://github.com/singer-io/tap-emarsys
+  settings: []
