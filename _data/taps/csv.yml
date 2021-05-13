@@ -28,3 +28,15 @@ variants:
       description: Project-relative path to JSON file holding array of objects with `entity`, `file`, and `keys` keys
       placeholder: Ex. files-def.json
       documentation: https://gitlab.com/meltano/tap-csv#run
+- default: false
+  maintenance_status: Unknown
+  name: robertjmoore
+  pip_url: git+https://github.com/robertjmoore/tap-csv.git
+  repo: https://github.com/robertjmoore/tap-csv
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: hotgluexyz
+  pip_url: git+https://github.com/hotgluexyz/tap-csv.git
+  repo: https://github.com/hotgluexyz/tap-csv
+  settings: []
