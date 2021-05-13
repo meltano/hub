@@ -1,0 +1,17 @@
+description: IMB Db2 Relational Database
+domain:
+  description: IMB Db2 Relational Database
+  name: Db2 Database
+  type: database
+  url: https://www.ibm.com/analytics/db2
+label: IBM Db2
+name: db2
+singer_name: tap-db2
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-db2.git
+  repo: https://github.com/singer-io/tap-db2
+  settings: []
