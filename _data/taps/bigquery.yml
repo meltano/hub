@@ -40,3 +40,9 @@ variants:
       kind: boolean
       value: true
       description: When replicating incrementally, disable to only select records whose `datetime_key` is greater than the maximum value replicated in the last run, by excluding records whose timestamps match exactly. This could cause records to be missed that were created after the last run finished, but during the same second and with the same timestamp.
+- default: false
+  maintenance_status: Unknown
+  name: fixdauto
+  pip_url: git+https://github.com/fixdauto/tap-bigquery.git
+  repo: https://github.com/fixdauto/tap-bigquery
+  settings: []

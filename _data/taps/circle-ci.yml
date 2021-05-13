@@ -1,0 +1,17 @@
+description: CI/CD Platfrom
+domain:
+  description: CI/CD Platfrom
+  name: CircleCI API
+  type: api
+  url: https://circleci.com/
+label: CircleCI
+name: circle-ci
+singer_name: tap-circle-ci
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: sisudata
+  pip_url: git+https://github.com/sisudata/tap-circle-ci.git
+  repo: https://github.com/sisudata/tap-circle-ci
+  settings: []

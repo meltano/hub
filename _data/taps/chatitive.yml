@@ -1,0 +1,17 @@
+description: Mobile Messaging Platform
+domain:
+  description: Mobile Messaging Platform
+  name: Chatitive API
+  type: api
+  url: https://chatitive.com/
+label: Chatitive
+name: chatitive
+singer_name: tap-chatitive
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: codyss
+  pip_url: git+https://github.com/codyss/tap-chatitive.git
+  repo: https://github.com/codyss/tap-chatitive
+  settings: []

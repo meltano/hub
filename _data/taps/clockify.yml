@@ -1,0 +1,17 @@
+description: Time Tracking Software
+domain:
+  description: Time Tracking Software
+  name: Clockify API
+  type: api
+  url: https://clockify.me/
+label: Clockify
+name: clockify
+singer_name: tap-clockify
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: immuta
+  pip_url: git+https://github.com/immuta/tap-clockify.git
+  repo: https://github.com/immuta/tap-clockify
+  settings: []

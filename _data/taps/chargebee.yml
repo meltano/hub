@@ -47,3 +47,9 @@ variants:
     kind: integer
     value: 8
     label: Maximum number of threads to use
+- default: false
+  maintenance_status: Unknown
+  name: envoy
+  pip_url: git+https://github.com/envoy/tap-chargebee.git
+  repo: https://github.com/envoy/tap-chargebee
+  settings: []

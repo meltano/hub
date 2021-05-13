@@ -1,0 +1,17 @@
+description: Digital Experience Platform
+domain:
+  description: Digital Experience Platform
+  name: Fullstory API
+  type: api
+  url: https://www.fullstory.com/
+label: Fullstory
+name: fullstory
+singer_name: tap-fullstory
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-fullstory.git
+  repo: https://github.com/singer-io/tap-fullstory
+  settings: []

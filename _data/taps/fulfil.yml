@@ -1,0 +1,17 @@
+description: Enterprise Resource Planning Platform
+domain:
+  description: Enterprise Resource Planning Platform
+  name: Fulfil API
+  type: api
+  url: https://www.fulfil.io/
+label: Fulfil
+name: fulfil
+singer_name: tap-fulfil
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: fulfilio
+  pip_url: git+https://github.com/fulfilio/tap-fulfil.git
+  repo: https://github.com/fulfilio/tap-fulfil
+  settings: []

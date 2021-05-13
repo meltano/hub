@@ -1,0 +1,17 @@
+description: Venue Management Software
+domain:
+  description: Venue Management Software
+  name: Clubspeed API
+  type: api
+  url: https://clubspeed.com/
+label: Clubspeed
+name: clubspeed
+singer_name: tap-clubspeed
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: lambtron
+  pip_url: git+https://github.com/lambtron/tap-clubspeed.git
+  repo: https://github.com/lambtron/tap-clubspeed
+  settings: []

@@ -1,0 +1,17 @@
+description: Marketing Platform
+domain:
+  description: Marketing Platform
+  name: Bront API
+  type: api
+  url: https://bronto.com/
+label: Bronto
+name: bronto
+singer_name: tap-bronto
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: fishtown-analytics
+  pip_url: git+https://github.com/fishtown-analytics/tap-bronto.git
+  repo: https://github.com/fishtown-analytics/tap-bronto
+  settings: []

@@ -1,0 +1,17 @@
+description: Exchange Rates API
+domain:
+  description: Exchange Rates API
+  name: Exchangeratesapi.io API
+  type: api
+  url: https://exchangeratesapi.io/
+label: Exchangeratesapi.io
+name: exchangeratesapi
+singer_name: tap-exchangeratesapi
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-exchangeratesapi.git
+  repo: https://github.com/singer-io/tap-exchangeratesapi
+  settings: []

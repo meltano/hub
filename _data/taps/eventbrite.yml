@@ -1,0 +1,17 @@
+description: Event Management and Ticketing Platform
+domain:
+  description: Event Management and Ticketing Platform
+  name: Eventbrite API
+  type: api
+  url: https://www.eventbrite.com/
+label: Eventbrite
+name: eventbrite
+singer_name: tap-eventbrite
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: phillymedia
+  pip_url: git+https://github.com/phillymedia/tap-eventbrite.git
+  repo: https://github.com/phillymedia/tap-eventbrite
+  settings: []
