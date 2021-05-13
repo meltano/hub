@@ -1,0 +1,17 @@
+description: Digital Asset Management Platform
+domain:
+  description: Digital Asset Management Platform
+  name: Bynder API
+  type: api
+  url: https://www.bynder.com/en/
+label: Bynder
+name: bynder
+singer_name: tap-bynder
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: radico
+  pip_url: git+https://github.com/Radico/tap-bynder.git
+  repo: https://github.com/Radico/tap-bynder
+  settings: []
