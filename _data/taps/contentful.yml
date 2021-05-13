@@ -1,0 +1,17 @@
+description: Content Management Platform
+domain:
+  description: Content Management Platform
+  name: Contentful API
+  type: api
+  url: https://www.contentful.com/
+label: Contentful
+name: contentful
+singer_name: tap-contentful
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: dmzobel
+  pip_url: git+https://github.com/dmzobel/tap-contentful.git
+  repo: https://github.com/dmzobel/tap-contentful
+  settings: []
