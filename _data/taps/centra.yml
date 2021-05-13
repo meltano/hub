@@ -1,0 +1,17 @@
+description: Ecommerce Platform
+domain:
+  description: Ecommerce Platform
+  name: Centra API
+  type: api
+  url: https://www.centra.com/
+label: Centra
+name: centra
+singer_name: tap-centra
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: icebug
+  pip_url: git+https://github.com/icebug/tap-centra.git
+  repo: https://github.com/icebug/tap-centra
+  settings: []
