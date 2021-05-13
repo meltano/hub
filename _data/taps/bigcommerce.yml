@@ -1,0 +1,17 @@
+description: Ecommerce Platform
+domain:
+  description: Ecommerce Platform
+  name: BigCommerce API
+  type: api
+  url: https://www.bigcommerce.com/
+label: BigCommerce
+name: bigcommerce
+singer_name: tap-bigcommerce
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-bigcommerce.git
+  repo: https://github.com/singer-io/tap-bigcommerce
+  settings: []
