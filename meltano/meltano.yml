@@ -21,9 +21,9 @@ plugins:
     config:
       searches:
       - name: tap_something
-        query: tap-+language:Python
+        query: tap-+language:Python+fork:true
       - name: target_something
-        query: target-+language:Python
+        query: target-+language:Python+fork:true
     select:
     - '*.*'
   loaders:
