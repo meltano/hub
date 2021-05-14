@@ -4,7 +4,7 @@ Specifying creds:
 
 `.env`
 
-```
+```dotenv
 TAP_GITHUB_ACCESS_TOKEN="****"
 TARGET_ATHENA_AWS_ACCESS_KEY_ID=****
 TARGET_ATHENA_AWS_SECRET_ACCESS_KEY=****
