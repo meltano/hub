@@ -1,0 +1,17 @@
+description: Data Governance Solutions
+domain:
+  description: Data Governance Solutions
+  name: Immuta API
+  type: api
+  url: https://www.immuta.com/
+label: Immuta
+name: immuta
+singer_name: tap-immuta
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: immuta
+  pip_url: git+https://github.com/immuta/tap-immuta.git
+  repo: https://github.com/immuta/tap-immuta
+  settings: []
