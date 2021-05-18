@@ -1,0 +1,17 @@
+description: Search platform
+domain:
+  description: Search platform
+  name: Google Search Console API
+  type: api
+  url: https://developers.google.com/webmaster-tools/search-console-api-original/v3/how-tos/search_analytics
+label: Google Search Console
+name: google-search-console
+singer_name: tap-google-search-console
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: bytecodeio
+  pip_url: git+https://github.com/bytecodeio/tap-google-search-console.git
+  repo: https://github.com/bytecodeio/tap-google-search-console
+  settings: []

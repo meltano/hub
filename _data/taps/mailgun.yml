@@ -1,0 +1,17 @@
+description: Transactional Email API Service
+domain:
+  description: Transactional Email API Service
+  name: Mailgun API
+  type: api
+  url: https://documentation.mailgun.com/en/latest/api_reference.html
+label: Mailgun
+name: mailgun
+singer_name: tap-mailgun
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: streetteam
+  pip_url: git+https://github.com/streetteam/tap-mailgun.git
+  repo: https://github.com/streetteam/tap-mailgun
+  settings: []

@@ -1,0 +1,17 @@
+description: Restaurant Management Software
+domain:
+  description: Restaurant Management Software
+  name: MarketMan API
+  type: api
+  url: https://api-doc.marketman.com/?version=latest#intro
+label: MarketMan
+name: marketman
+singer_name: tap-marketman
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: mashey
+  pip_url: git+https://github.com/Mashey/tap-marketman.git
+  repo: https://github.com/Mashey/tap-marketman
+  settings: []

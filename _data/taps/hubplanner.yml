@@ -1,0 +1,17 @@
+description: Resource Management and Timesheet software
+domain:
+  description: Resource Management and Timesheet software
+  name: Hub Planner API
+  type: api
+  url: https://hubplanner.com/
+label: Hub Planner
+name: hubplanner
+singer_name: tap-hubplanner
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: rangle
+  pip_url: git+https://github.com/rangle/tap-hubplanner.git
+  repo: https://github.com/rangle/tap-hubplanner
+  settings: []

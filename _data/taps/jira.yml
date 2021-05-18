@@ -1,0 +1,17 @@
+description: Issue and Project Tracking Software
+domain:
+  description: Issue and Project Tracking Software
+  name: Jira Cloud API
+  type: api
+  url: https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/
+label: Jira
+name: jira
+singer_name: tap-jira
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-jira.git
+  repo: https://github.com/singer-io/tap-jira
+  settings: []

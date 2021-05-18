@@ -1,0 +1,17 @@
+description: Email Client
+domain:
+  description: Email Client
+  name: GMail Workplace API
+  type: api
+  url: https://www.google.com/gmail/about/
+label: GMail
+name: gmail
+singer_name: tap-gmail
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: mashey
+  pip_url: git+https://github.com/Mashey/tap-gmail.git
+  repo: https://github.com/Mashey/tap-gmail
+  settings: []

@@ -1,0 +1,17 @@
+description: Customer Service Software
+domain:
+  description: Customer Service Software
+  name: Helpscout API
+  type: api
+  url: https://developer.helpscout.com/mailbox-api/
+label: Helpscout
+name: helpscout
+singer_name: tap-helpscout
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: bytecodeio
+  pip_url: git+https://github.com/bytecodeio/tap-helpscout.git
+  repo: https://github.com/bytecodeio/tap-helpscout
+  settings: []

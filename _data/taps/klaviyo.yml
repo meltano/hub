@@ -1,0 +1,17 @@
+description: Email Marketing and SMS Marketing Platform
+domain:
+  description: Email Marketing and SMS Marketing Platform
+  name: Klaviyo Metrics API
+  type: api
+  url: https://apidocs.klaviyo.com/reference/metrics
+label: Klaviyo
+name: klaviyo
+singer_name: tap-klaviyo
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: codyss
+  pip_url: git+https://github.com/codyss/tap-klaviyo.git
+  repo: https://github.com/codyss/tap-klaviyo
+  settings: []

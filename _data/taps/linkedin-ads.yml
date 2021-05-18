@@ -1,0 +1,17 @@
+description: LinkedIn Ad Platform
+domain:
+  description: LinkedIn Ad Platform
+  name: LinkedIn Ads API
+  type: api
+  url: https://docs.microsoft.com/en-us/linkedin/marketing/
+label: LinkedIn Ads
+name: linkedin-ads
+singer_name: tap-linkedin-ads
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: bytecodeio
+  pip_url: git+https://github.com/bytecodeio/tap-linkedin-ads.git
+  repo: https://github.com/bytecodeio/tap-linkedin-ads
+  settings: []
