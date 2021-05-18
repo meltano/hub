@@ -15,3 +15,9 @@ variants:
   pip_url: git+https://github.com/bytecodeio/tap-google-sheets.git
   repo: https://github.com/bytecodeio/tap-google-sheets
   settings: []
+- default: false
+  maintenance_status: Unknown
+  name: dcaribou
+  pip_url: git+https://github.com/dcaribou/tap-gsheets.git
+  repo: https://github.com/dcaribou/tap-gsheets
+  settings: []
