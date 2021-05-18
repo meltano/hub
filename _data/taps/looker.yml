@@ -1,0 +1,17 @@
+description: Business Intelligence (BI) & Data Analytics Platform
+domain:
+  description: Business Intelligence (BI) & Data Analytics Platform
+  name: Looker API
+  type: api
+  url: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1
+label: Looker
+name: looker
+singer_name: tap-looker
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: bytecodeio
+  pip_url: git+https://github.com/bytecodeio/tap-looker.git
+  repo: https://github.com/bytecodeio/tap-looker
+  settings: []
