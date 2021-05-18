@@ -1,0 +1,17 @@
+description: Cloud Spreadsheets
+domain:
+  description: Cloud Spreadsheets
+  name: Google Sheets API v4
+  type: api
+  url: https://developers.google.com/webmaster-tools/search-console-api-original/v3/how-tos/search_analytics
+label: Google Sheets
+name: google-sheets
+singer_name: tap-google-sheets
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: bytecodeio
+  pip_url: git+https://github.com/bytecodeio/tap-google-sheets.git
+  repo: https://github.com/bytecodeio/tap-google-sheets
+  settings: []
