@@ -1,0 +1,23 @@
+description: Automated Accounts Receivable Software Solution
+domain:
+  description: Automated Accounts Receivable Software Solution
+  name: Invoiced API
+  type: api
+  url: https://www.invoiced.com/
+label: Invoiced
+name: invoiced
+singer_name: tap-invoiced
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-invoiced.git
+  repo: https://github.com/singer-io/tap-invoiced
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: invoiced
+  pip_url: git+https://github.com/Invoiced/tap-invoiced.git
+  repo: https://github.com/Invoiced/tap-invoiced
+  settings: []
