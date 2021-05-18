@@ -1,0 +1,23 @@
+description: Integrated Marketing Platform
+domain:
+  description: Integrated Marketing Platform
+  name: Mailchimp API
+  type: api
+  url: https://mailchimp.com/developer/marketing/api/
+label: Mailchimp
+name: mailchimp
+singer_name: tap-mailchimp
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: lovepopcards
+  pip_url: git+https://github.com/lovepopcards/tap-mailchimp.git
+  repo: https://github.com/lovepopcards/tap-mailchimp
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-mailchimp.git
+  repo: https://github.com/singer-io/tap-mailchimp
+  settings: []

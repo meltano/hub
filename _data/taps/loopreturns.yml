@@ -1,0 +1,17 @@
+description: Refund platform
+domain:
+  description: Refund platform
+  name: Loop Returns api
+  type: api
+  url: https://docs.loopreturns.com/
+label: Loop Returns
+name: loopreturns
+singer_name: tap-loopreturns
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: loopreturns
+  pip_url: git+https://github.com/LoopReturns/tap-loopreturns.git
+  repo: https://github.com/LoopReturns/tap-loopreturns
+  settings: []

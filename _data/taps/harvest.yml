@@ -1,0 +1,17 @@
+description: Time Tracking Software
+domain:
+  description: Time Tracking Software
+  name: Harvest API
+  type: api
+  url: https://help.getharvest.com/api-v2/
+label: Harvest
+name: harvest
+singer_name: tap-harvest
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-harvest.git
+  repo: https://github.com/singer-io/tap-harvest
+  settings: []

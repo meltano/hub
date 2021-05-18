@@ -24,6 +24,6 @@ variants:
 - default: true
   maintenance_status: Active
   name: transferwise
-  pip_url: git+https://github.com/wintersrd/pipelinewise-tap-mssql.git
-  repo: https://github.com/wintersrd/pipelinewise-tap-mssql
+  pip_url: git+https://github.com/transferwise/pipelinewise-tap-s3-csv
+  repo: https://github.com/transferwise/pipelinewise-tap-s3-csv
   settings: []

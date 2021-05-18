@@ -1,0 +1,17 @@
+description: Cross-Channel Marketing Platform
+domain:
+  description: Cross-Channel Marketing Platform
+  name: Iterable API
+  type: api
+  url: https://api.iterable.com/api/docs
+label: Iterable
+name: iterable
+singer_name: tap-iterable
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: lambtron
+  pip_url: git+https://github.com/lambtron/tap-iterable.git
+  repo: https://github.com/lambtron/tap-iterable
+  settings: []

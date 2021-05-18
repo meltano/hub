@@ -1,0 +1,17 @@
+description: Partnership Automation Software
+domain:
+  description: Partnership Automation Software
+  name: Impact API
+  type: api
+  url: https://developer.impact.com/default
+label: Impact
+name: impact
+singer_name: tap-impact
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: bytecodeio
+  pip_url: git+https://github.com/bytecodeio/tap-impact.git
+  repo: https://github.com/bytecodeio/tap-impact
+  settings: []

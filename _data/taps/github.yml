@@ -1,0 +1,23 @@
+description: Code hosting platform
+domain:
+  description: Code hosting platform
+  name: GitHub API
+  type: api
+  url: https://docs.github.com/en/rest
+label: GitHub
+name: github
+singer_name: tap-github
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-github.git
+  repo: https://github.com/singer-io/tap-github
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: dataops-tk
+  pip_url: git+https://github.com/dataops-tk/tap-github.git
+  repo: https://github.com/dataops-tk/tap-github
+  settings: []

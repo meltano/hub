@@ -1,0 +1,17 @@
+description: Public Holiday and Observance API
+domain:
+  description: Public Holiday and Observance API
+  name: Holiday API
+  type: api
+  url: https://holidayapi.com/docs
+label: Holiday API
+name: holidays
+singer_name: tap-holidays
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: goodeggs
+  pip_url: git+https://github.com/goodeggs/tap-holidays.git
+  repo: https://github.com/goodeggs/tap-holidays
+  settings: []
