@@ -1,0 +1,17 @@
+description: Customer Service Agent Platform
+domain:
+  description: Customer Service Agent Platform
+  name: Stella Connect API
+  type: api
+  url: https://stellaconnect.com/
+label: Stella Connect
+name: stella
+singer_name: tap-stella
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: pathlight
+  pip_url: git+https://github.com/Pathlight/tap-stella.git
+  repo: https://github.com/Pathlight/tap-stella
+  settings: []
