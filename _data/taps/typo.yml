@@ -1,0 +1,17 @@
+description: Data Quality Service
+domain:
+  description: Data Quality Service
+  name: Typo API
+  type: api
+  url: https://www.typo.ai/
+label: Typo
+name: typo
+singer_name: tap-typo
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: typo-ai
+  pip_url: git+https://github.com/typo-ai/tap-typo.git
+  repo: https://github.com/typo-ai/tap-typo
+  settings: []
