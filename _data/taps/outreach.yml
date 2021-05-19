@@ -1,0 +1,18 @@
+description: Sales Engagement Platform
+domain:
+  description: Sales Engagement Platform
+  name: Outreach API
+  type: api
+  url: https://api.outreach.io/api/v2/docs
+label: Outreach
+name: outreach
+singer_name: tap-outreach
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: cmbramwell
+  pip_url: git+https://github.com/cmbramwell/tap-outreach.git
+  repo: https://github.com/cmbramwell/tap-outreach
+  settings: []
+
