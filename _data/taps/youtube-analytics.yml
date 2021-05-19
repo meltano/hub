@@ -1,0 +1,17 @@
+description: Video Streaming Platform
+domain:
+  description: Video Streaming Platform
+  name: YouTube Reporting and Data API
+  type: api
+  url: https://developers.google.com/youtube/
+label: YouTube Analytics
+name: youtube-analytics
+singer_name: tap-youtube-analytics
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: bytecodeio
+  pip_url: git+https://github.com/bytecodeio/tap-youtube-analytics.git
+  repo: https://github.com/bytecodeio/tap-youtube-analytics
+  settings: []
