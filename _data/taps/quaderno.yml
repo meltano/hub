@@ -1,0 +1,17 @@
+description: Automated Sales Tax, VAT & GST Software
+domain:
+  description: Automated Sales Tax, VAT & GST Software
+  name: Quaderno API
+  type: api
+  url: https://www.quaderno.io/
+label: Quaderno
+name: quaderno
+singer_name: tap-quaderno
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: nickleomartin
+  pip_url: git+https://github.com/NickLeoMartin/tap-quaderno.git
+  repo: https://github.com/NickLeoMartin/tap-quaderno
+  settings: []
