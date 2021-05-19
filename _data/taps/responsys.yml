@@ -1,0 +1,17 @@
+description: Campaign Management Software
+domain:
+  description: Campaign Management Software
+  name: Responsys Connect CSV Exporter
+  type: file
+  url: https://www.oracle.com/cx/marketing/campaign-management/
+label: Responsys
+name: responsys
+singer_name: tap-responsys
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-responsys.git
+  repo: https://github.com/singer-io/tap-responsys
+  settings: []
