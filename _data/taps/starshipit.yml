@@ -1,0 +1,17 @@
+description: Fulfillment Automation
+domain:
+  description: Fulfillment Automation
+  name: Starshipit API
+  type: api
+  url: https://github.com/Zookal/tap-starshipit
+label: Starshipit
+name: starshipit
+singer_name: tap-starshipit
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: zookal
+  pip_url: git+https://github.com/Zookal/tap-starshipit.git
+  repo: https://github.com/Zookal/tap-starshipit
+  settings: []
