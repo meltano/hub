@@ -1,0 +1,23 @@
+description: Mobile Campaign Manager
+domain:
+  description: Mobile Campaign Manager
+  name: Taboola Backstage API
+  type: api
+  url: https://developers.taboola.com/backstage-api/reference
+label: Taboola Backstage
+name: taboola
+singer_name: tap-taboola
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-taboola.git
+  repo: https://github.com/singer-io/tap-taboola
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: fishtown-analytics
+  pip_url: git+https://github.com/fishtown-analytics/tap-taboola.git
+  repo: https://github.com/fishtown-analytics/tap-taboola
+  settings: []
