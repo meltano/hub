@@ -1,0 +1,17 @@
+description: Fitness Social Network
+domain:
+  description: Fitness Social Network
+  name: Strava API
+  type: api
+  url: https://developers.strava.com/docs/reference/#api-models-DetailedAthlete
+label: Strava
+name: strava
+singer_name: tap-strava
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: briansloane
+  pip_url: git+https://github.com/briansloane/tap-strava.git
+  repo: https://github.com/briansloane/tap-strava
+  settings: []

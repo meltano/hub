@@ -1,0 +1,17 @@
+description: Accounting Software
+domain:
+  description: Accounting Software
+  name: Xero API
+  type: api
+  url: https://developer.xero.com/documentation/
+label: Xero
+name: xero
+singer_name: tap-xero
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-xero.git
+  repo: https://github.com/singer-io/tap-xero
+  settings: []

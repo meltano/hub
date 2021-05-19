@@ -1,0 +1,23 @@
+description: SaaS Incident Response Platform
+domain:
+  description: SaaS Incident Response Platform
+  name: PagerDuty API
+  type: api
+  url: https://developer.pagerduty.com/docs/rest-api-v2/rest-api/
+label: PagerDuty
+name: pagerduty
+singer_name: tap-pagerduty
+type: tap
+variants:
+- default: false
+  maintenance_status: Unknown
+  name: jacksonh
+  pip_url: git+https://github.com/jacksonh/tap-pagerduty.git
+  repo: https://github.com/jacksonh/tap-pagerduty
+  settings: []
+- default: true
+  maintenance_status: Unknown
+  name: goodeggs
+  pip_url: git+https://github.com/goodeggs/tap-pagerduty.git
+  repo: https://github.com/goodeggs/tap-pagerduty
+  settings: []

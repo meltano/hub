@@ -1,0 +1,29 @@
+description: SaaS Metrics and Analytics Platform
+domain:
+  description: SaaS Metrics and Analytics Platform
+  name: SaasOptics API
+  type: api
+  url: https://saasoptics.com/
+label: SaasOptics
+name: saasoptics
+singer_name: tap-saasoptics
+type: tap
+variants:
+- default: false
+  maintenance_status: Unknown
+  name: bytecodeio
+  pip_url: git+https://github.com/bytecodeio/tap-saasoptics.git
+  repo: https://github.com/bytecodeio/tap-saasoptics
+  settings: []
+- default: true
+  maintenance_status: Unknown
+  name: anelendata
+  pip_url: git+https://github.com/anelendata/tap-saasoptics.git
+  repo: https://github.com/anelendata/tap-saasoptics
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-saasoptics.git
+  repo: https://github.com/singer-io/tap-saasoptics
+  settings: []

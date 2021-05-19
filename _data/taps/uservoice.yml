@@ -1,0 +1,23 @@
+description: Customer Engagement Tool
+domain:
+  description: Customer Engagement Tool
+  name: UserVoice API
+  type: api
+  url: https://www.uservoice.com/
+label: UserVoice
+name: uservoice
+singer_name: tap-uservoice
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-uservoice.git
+  repo: https://github.com/singer-io/tap-uservoice
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: fishtown-analytics
+  pip_url: git+https://github.com/fishtown-analytics/tap-uservoice.git
+  repo: https://github.com/fishtown-analytics/tap-uservoice
+  settings: []

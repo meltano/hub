@@ -1,0 +1,17 @@
+description: Human Capital Management Software
+domain:
+  description: Human Capital Management Software
+  name: Zenefits API
+  type: api
+  url: https://developers.zenefits.com/docs/overview
+label: Zenefits
+name: zenefits
+singer_name: tap-zenefits
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: mashey
+  pip_url: git+https://github.com/Mashey/tap-zenefits.git
+  repo: https://github.com/Mashey/tap-zenefits
+  settings: []

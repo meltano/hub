@@ -1,0 +1,17 @@
+description: Digital Library
+domain:
+  description: Digital Library
+  name: Open Library API
+  type: api
+  url: https://openlibrary.org/developers/api
+label: Open Library
+name: open-library
+singer_name: tap-open-library
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: loeakaodas
+  pip_url: git+https://github.com/loeakaodas/tap-open-library.git
+  repo: https://github.com/loeakaodas/tap-open-library
+  settings: []

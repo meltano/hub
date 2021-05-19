@@ -1,0 +1,17 @@
+description: Support ticketing system & customer service platform
+domain:
+  description: Support ticketing system & customer service platform
+  name: Zendesk API
+  type: api
+  url: https://developer.zendesk.com/rest_api/docs/chat/introduction
+label: Zendesk Chat
+name: zendesk-chat
+singer_name: tap-zendesk-chat
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-zendesk-chat.git
+  repo: https://github.com/singer-io/tap-zendesk-chat
+  settings: []

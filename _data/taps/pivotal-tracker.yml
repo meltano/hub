@@ -1,0 +1,17 @@
+description: Agile Project Management Software
+domain:
+  description: Agile Project Management Software
+  name: PivotalTracker API
+  type: api
+  url: https://www.pivotaltracker.com/help/api/rest/v5#top
+label: PivotalTracker
+name: pivotal-tracker
+singer_name: tap-pivotal-tracker
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: goodeggs
+  pip_url: git+https://github.com/goodeggs/tap-pivotal-tracker.git
+  repo: https://github.com/goodeggs/tap-pivotal-tracker
+  settings: []

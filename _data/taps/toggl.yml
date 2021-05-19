@@ -1,0 +1,17 @@
+description: Time Tracking Software
+domain:
+  description: Time Tracking Software
+  name: Toggl API
+  type: api
+  url: https://www.toggl.com/
+label: Toggl
+name: toggl
+singer_name: tap-toggl
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: lambtron
+  pip_url: git+https://github.com/lambtron/tap-toggl.git
+  repo: https://github.com/lambtron/tap-toggl
+  settings: []

@@ -1,0 +1,17 @@
+description: Restaurant Point of Sale and Management System
+domain:
+  description: Restaurant Point of Sale and Management System
+  name: Toast API
+  type: api
+  url: https://pos.toasttab.com/
+label: Toast
+name: toast
+singer_name: tap-toast
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: lambtron
+  pip_url: git+https://github.com/lambtron/tap-toast.git
+  repo: https://github.com/lambtron/tap-toast
+  settings: []

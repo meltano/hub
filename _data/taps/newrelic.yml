@@ -1,0 +1,17 @@
+description: Software Obseravibility
+domain:
+  description: Software Obseravibility
+  name: NewRelic API
+  type: api
+  url: https://docs.newrelic.com/docs/apis/nerdgraph/get-started/introduction-new-relic-nerdgraph/
+label: New Relic
+name: newrelic
+singer_name: tap-newrelic
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: fixdauto
+  pip_url: git+https://github.com/fixdauto/tap-newrelic.git
+  repo: https://github.com/fixdauto/tap-newrelic
+  settings: []
