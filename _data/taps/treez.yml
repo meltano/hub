@@ -1,0 +1,17 @@
+description: Enterprise Software Platform for Retailers in the Cannabis space
+domain:
+  description: Enterprise Software Platform for Retailers in the Cannabis space
+  name: Treez API
+  type: api
+  url: https://code.treez.io/
+label: Treez
+name: treez
+singer_name: tap-treez
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: mashey
+  pip_url: git+https://github.com/Mashey/tap-treez.git
+  repo: https://github.com/Mashey/tap-treez
+  settings: []
