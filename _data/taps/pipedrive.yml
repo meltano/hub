@@ -1,0 +1,17 @@
+description: Sales CRM and Pipeline Management Software
+domain:
+  description: Sales CRM and Pipeline Management Software
+  name: Pipedrive API
+  type: api
+  url: https://developers.pipedrive.com/docs/api/v1
+label: Pipedrive
+name: pipedrive
+singer_name: tap-pipedrive
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-pipedrive.git
+  repo: https://github.com/singer-io/tap-pipedrive
+  settings: []
