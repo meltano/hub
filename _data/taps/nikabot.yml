@@ -1,0 +1,17 @@
+description: Time Tracking Software
+domain:
+  description: Time Tracking Software
+  name: Nikabot API
+  type: api
+  url: https://api.nikabot.com/swagger-ui.html#/
+label: Nikabot
+name: nikabot
+singer_name: tap-nikabot
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: phdesign
+  pip_url: git+https://github.com/phdesign/tap-nikabot.git
+  repo: https://github.com/phdesign/tap-nikabot
+  settings: []
