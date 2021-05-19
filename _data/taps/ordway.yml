@@ -1,0 +1,17 @@
+description: Billing and Revenue Automation Platform
+domain:
+  description: Billing and Revenue Automation Platform
+  name: Ordway API
+  type: api
+  url: https://www.ordwaylabs.com/
+label: Ordway
+name: ordway
+singer_name: tap-ordway
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-ordway.git
+  repo: https://github.com/singer-io/tap-ordway
+  settings: []
