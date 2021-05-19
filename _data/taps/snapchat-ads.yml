@@ -1,0 +1,17 @@
+description: Social Media Platform
+domain:
+  description: Social Media Platform
+  name: Snapchat Ads API
+  type: api
+  url: https://developers.snapchat.com/docs/
+label: Snapchat Ads
+name: snapchat-ads
+singer_name: tap-snapchat-ads
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: bytecodeio
+  pip_url: git+https://github.com/bytecodeio/tap-snapchat-ads.git
+  repo: https://github.com/bytecodeio/tap-snapchat-ads
+  settings: []

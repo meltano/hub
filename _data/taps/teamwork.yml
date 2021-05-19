@@ -1,0 +1,17 @@
+description: Project Management Software
+domain:
+  description: Project Management Software
+  name: Teamwork API
+  type: api
+  url: https://developer.teamwork.com/
+label: Teamwork
+name: teamwork
+singer_name: tap-teamwork
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: immuta
+  pip_url: git+https://github.com/immuta/tap-teamwork.git
+  repo: https://github.com/immuta/tap-teamwork
+  settings: []

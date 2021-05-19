@@ -1,0 +1,17 @@
+description: Cloud Communication Software
+domain:
+  description: Cloud Communication Software
+  name: RingCentral API
+  type: api
+  url: https://developers.ringcentral.com/api-reference/
+label: RingCentral
+name: ringcentral
+singer_name: tap-ringcentral
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: fishtown-analytics
+  pip_url: git+https://github.com/fishtown-analytics/tap-ringcentral.git
+  repo: https://github.com/fishtown-analytics/tap-ringcentral
+  settings: []

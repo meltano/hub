@@ -1,0 +1,17 @@
+description: Hotel CRM and Email Marketing Software
+domain:
+  description: Hotel CRM and Email Marketing Software
+  name: Revinate API
+  type: api
+  url: https://porter.revinate.com/documentation
+label: Revinate
+name: revinate
+singer_name: tap-revinate
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: bytecodeio
+  pip_url: git+https://github.com/bytecodeio/tap-revinate.git
+  repo: https://github.com/bytecodeio/tap-revinate
+  settings: []

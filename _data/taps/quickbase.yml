@@ -1,0 +1,23 @@
+description: Low-code Platform
+domain:
+  description: Low-code Platform
+  name: Quickbase API
+  type: api
+  url: https://help.quickbase.com/api-guide/intro.html
+label: Quickbase
+name: quickbase
+singer_name: tap-quickbase
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-quickbase.git
+  repo: https://github.com/singer-io/tap-quickbase
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: flash716
+  pip_url: git+https://github.com/flash716/tap-quickbase.git
+  repo: https://github.com/flash716/tap-quickbase
+  settings: []

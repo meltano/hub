@@ -1,0 +1,17 @@
+description: Business Management Software
+domain:
+  description: Business Management Software
+  name: NetSuite API
+  type: api
+  url: https://www.netsuite.com/
+label: NetSuite
+name: netsuite
+singer_name: tap-netsuite
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: hotgluexyz
+  pip_url: git+https://github.com/hotgluexyz/tap-netsuite.git
+  repo: https://github.com/hotgluexyz/tap-netsuite
+  settings: []

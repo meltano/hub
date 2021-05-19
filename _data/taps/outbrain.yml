@@ -1,0 +1,17 @@
+description: Web Advertising Platform
+domain:
+  description: Web Advertising Platform
+  name: Outbrain API
+  type: api
+  url: https://www.outbrain.com/
+label: Outbrain
+name: outbrain
+singer_name: tap-outbrain
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: fishtown-analytics
+  pip_url: git+https://github.com/fishtown-analytics/tap-outbrain.git
+  repo: https://github.com/fishtown-analytics/tap-outbrain
+  settings: []

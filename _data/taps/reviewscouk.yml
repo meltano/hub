@@ -1,0 +1,17 @@
+description: Review Website
+domain:
+  description: Review Website
+  name: Reviews.io API
+  type: api
+  url: https://www.reviews.co.uk/
+label: Reviews.io
+name: reviewscouk
+singer_name: tap-reviewscouk
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: ideavateltd
+  pip_url: git+https://github.com/ideavateltd/tap-reviewscouk.git
+  repo: https://github.com/ideavateltd/tap-reviewscouk
+  settings: []

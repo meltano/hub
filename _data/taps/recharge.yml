@@ -30,3 +30,9 @@ variants:
       value: tap-recharge via Meltano
       description: User agent to send to ReCharge along with API requests. Typically includes name of integration and an email address you can be reached at
       placeholder: Ex. tap-recharge via Meltano <user@example.com>
+- default: false
+  maintenance_status: Unknown
+  name: bytecodeio
+  pip_url: git+https://github.com/bytecodeio/tap-recharge.git
+  repo: https://github.com/bytecodeio/tap-recharge
+  settings: []

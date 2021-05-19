@@ -1,0 +1,17 @@
+description: Customer Review Website
+domain:
+  description: Customer Review Website
+  name: TrustPilot API
+  type: api
+  url: https://developers.trustpilot.com/
+label: TrustPilot
+name: trustpilot
+singer_name: tap-trustpilot
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: fishtown-analytics
+  pip_url: git+https://github.com/fishtown-analytics/tap-trustpilot.git
+  repo: https://github.com/fishtown-analytics/tap-trustpilot
+  settings: []

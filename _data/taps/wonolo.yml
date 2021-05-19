@@ -1,0 +1,17 @@
+description: On-Demand Staffing Solution
+domain:
+  description: On-Demand Staffing Solution
+  name: Wonolo API
+  type: api
+  url: https://wonolo.readme.io/docs/getting-started
+label: Wonolo
+name: wonolo
+singer_name: tap-wonolo
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: goodeggs
+  pip_url: git+https://github.com/goodeggs/tap-wonolo.git
+  repo: https://github.com/goodeggs/tap-wonolo
+  settings: []

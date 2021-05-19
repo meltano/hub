@@ -1,0 +1,17 @@
+description: B2B Marketing Automation Software
+domain:
+  description: B2B Marketing Automation Software
+  name: Pardot API
+  type: api
+  url: https://www.pardot.com/
+label: Pardot
+name: pardot
+singer_name: tap-pardot
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-pardot.git
+  repo: https://github.com/singer-io/tap-pardot
+  settings: []

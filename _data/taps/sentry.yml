@@ -1,0 +1,17 @@
+description: Commercial and Small Business Insurance
+domain:
+  description: Commercial and Small Business Insurance
+  name: Sentry API
+  type: api
+  url: https://sentry.io/api
+label: Sentry
+name: sentry
+singer_name: tap-sentry
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: valulucchesi
+  pip_url: git+https://github.com/valulucchesi/tap-sentry.git
+  repo: https://github.com/valulucchesi/tap-sentry
+  settings: []

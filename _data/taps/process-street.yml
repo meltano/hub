@@ -1,0 +1,17 @@
+description: Recruiting Workflow Software
+domain:
+  description: Recruiting Workflow Software
+  name: Process Street API
+  type: api
+  url: https://developer.process.st/
+label: Process Street
+name: process-street
+singer_name: tap-process-street
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: process-street
+  pip_url: git+https://github.com/process-street/tap-process-street.git
+  repo: https://github.com/process-street/tap-process-street
+  settings: []
