@@ -11,5 +11,7 @@ class MeltanoPluginEnricher < Jekyll::Generator
       plugin['logo_url'] = "/assets/logos/#{logo_type}s/#{plugin_name}.png"
       plugin['url'] = "/#{collection}/#{plugin_name}"
     end
+
+    site.data['meltano']["sorted_#{collection}"] = site.data['meltano'][collection].values.sort_by { |p| p['label'] }
   end
 end

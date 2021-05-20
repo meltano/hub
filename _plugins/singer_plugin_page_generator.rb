@@ -22,6 +22,8 @@ class SingerPluginPageGenerator < Jekyll::Generator
         variant['url'] = page.url
       end
     end
+
+    site.data["sorted_#{collection}"] = site.data[collection].values.sort_by { |p| p['label'] }
   end
 
   class PluginVariantPage < Jekyll::Page
