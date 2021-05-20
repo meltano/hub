@@ -7,9 +7,10 @@ description: Use Meltano to easily load extracted data into arbitrary destinatio
 
 Meltano lets you easily load [extracted](/extractors/) data into arbitrary destinations (databases, SaaS APIs, and file formats) using [Singer targets](/singer/targets/), which take the role of [your project](https://meltano.com/docs/project.html)'s [loader plugins](https://meltano.com/docs/plugins.html#loaders).
 
-Loaders for the following destinations are currently [discoverable](https://meltano.com/docs/plugins.html#discoverable-plugins) and supported out of the box:
+{% assign plugins = site.data.meltano.sorted_loaders %}
+Loaders for the following {{plugins.size}} destinations are currently [discoverable](https://meltano.com/docs/plugins.html#discoverable-plugins) and supported out of the box:
 
-{% include plugin_grid.html plugins=site.data.meltano.sorted_loaders %}
+{% include plugin_grid.html plugins=plugins %}
 
 To learn more about [extracting](/loaders/) and loading data using Meltano, refer to the [Data Integration (EL) guide](https://meltano.com/docs/integration.html).
 
