@@ -4,6 +4,7 @@ domain:
   name: AppsFlyer API
   type: api
   url: https://www.appsflyer.com/
+include: scraped/appsflyer
 label: AppsFlyer
 name: appsflyer
 singer_name: tap-appsflyer
