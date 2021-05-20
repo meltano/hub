@@ -10,7 +10,7 @@ Meltano lets you easily extract data out of arbitrary sources (databases, SaaS A
 
 Extractors for the following sources are currently [discoverable](https://meltano.com/docs/plugins.html#discoverable-plugins) and supported out of the box:
 
-{% include plugin_grid.html plugins=site.data.meltano.extractors %}
+{% include plugin_grid.html plugins=site.data.meltano.sorted_extractors %}
 
 To learn more about extracting and [loading](/loaders/) data using Meltano, refer to the [Data Integration (EL) guide](https://meltano.com/docs/integration.html).
 

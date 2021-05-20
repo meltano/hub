@@ -3,8 +3,8 @@ layout: default
 header: singer
 ---
 
-{% assign plugins = site.data[page.plugin_type] %} {% if page.plugin_type ==
-"taps" %} {% assign meltano_type = "extractors" %} {% assign human_type =
+{% assign plugins = site.data[page.plugin_collection] %} {% if page.plugin_type
+== "taps" %} {% assign meltano_type = "extractors" %} {% assign human_type =
 "source" %} {% assign singular_type = "tap" %} {% else %} {% assign meltano_type
 = "loaders" %} {% assign human_type = "destination" %} {% assign singular_type =
 "target" %} {% endif %}
