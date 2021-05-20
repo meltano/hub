@@ -1,55 +1,62 @@
-name: google-analytics
-label: Google Analytics
-type: tap
-domain:
-  type: api
-  name: Google Analytics Reporting API
-  url: https://developers.google.com/analytics/devguides/reporting/core/v4/
 description: App and website analytics platform hosted by Google
+domain:
+  name: Google Analytics Reporting API
+  type: api
+  url: https://developers.google.com/analytics/devguides/reporting/core/v4/
+label: Google Analytics
+name: google-analytics
 singer_name: tap-google-analytics
+type: tap
 variants:
-- name: meltano
+- capabilities:
+  - catalog
+  - discover
   default: true
   maintenance_status: Active
+  name: meltano
+  pip_url: git+https://gitlab.com/meltano/tap-google-analytics.git
   repo: https://gitlab.com/meltano/tap-google-analytics
-  pip_url: 'git+https://gitlab.com/meltano/tap-google-analytics.git'
-  capabilities:
-    - catalog
-    - discover
-  settings_group_validation:
-    - ['key_file_location', 'view_id', 'start_date']
-    - ['oauth_credentials.client_id', 'oauth_credentials.client_secret', 'oauth_credentials.access_token', 'oauth_credentials.refresh_token', 'view_id', 'start_date']
   settings:
-    - name: key_file_location
-      kind: file
-      label: Client Secrets
-      placeholder: Ex. client_secrets.json
-    - name: oauth_credentials.client_id
-      kind: password
-      label: OAuth Client ID
-    - name: oauth_credentials.client_secret
-      kind: password
-      label: OAuth Client Secret
-    - name: oauth_credentials.access_token
-      kind: password
-      label: OAuth Access Token
-    - name: oauth_credentials.refresh_token
-      kind: password
-      label: OAuth Refresh Token
-
-    - name: view_id
-      label: View ID
-      placeholder: Ex. 198343027
-    - name: reports
-      label: Reports
-      placeholder: Ex. my_report_definition.json
-
-    - name: start_date
-      kind: date_iso8601
-      description: This property determines how much historical data will be extracted. Please be aware that the larger the time period and amount of data, the longer the initial extraction can be expected to take.
-    - name: end_date
-      kind: date_iso8601
-      description: Date up to when historical data will be extracted.
+  - kind: file
+    label: Client Secrets
+    name: key_file_location
+    placeholder: Ex. client_secrets.json
+  - kind: password
+    label: OAuth Client ID
+    name: oauth_credentials.client_id
+  - kind: password
+    label: OAuth Client Secret
+    name: oauth_credentials.client_secret
+  - kind: password
+    label: OAuth Access Token
+    name: oauth_credentials.access_token
+  - kind: password
+    label: OAuth Refresh Token
+    name: oauth_credentials.refresh_token
+  - label: View ID
+    name: view_id
+    placeholder: Ex. 198343027
+  - label: Reports
+    name: reports
+    placeholder: Ex. my_report_definition.json
+  - description: This property determines how much historical data will be extracted.
+      Please be aware that the larger the time period and amount of data, the longer
+      the initial extraction can be expected to take.
+    kind: date_iso8601
+    name: start_date
+  - description: Date up to when historical data will be extracted.
+    kind: date_iso8601
+    name: end_date
+  settings_group_validation:
+  - - key_file_location
+    - view_id
+    - start_date
+  - - oauth_credentials.client_id
+    - oauth_credentials.client_secret
+    - oauth_credentials.access_token
+    - oauth_credentials.refresh_token
+    - view_id
+    - start_date
 - default: false
   maintenance_status: Unknown
   name: zenkay
@@ -62,8 +69,8 @@ variants:
   pip_url: git+https://github.com/saidtezel/tap-google-analytics.git
   repo: https://github.com/saidtezel/tap-google-analytics
   settings: []
-- name: transferwise
-  maintenance_status: Active
+- maintenance_status: Active
+  name: transferwise
   pip_url: git+https://github.com/transferwise/pipelinewise-tap-google-analytics.git
   repo: https://github.com/transferwise/pipelinewise-tap-google-analytics
   settings: []

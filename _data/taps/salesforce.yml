@@ -1,75 +1,80 @@
-name: salesforce
-label: Salesforce
-type: tap
-domain:
-  type: api
-  name: Salesforce API
-  url: https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_what_is_rest_api.htm
 description: Customer-relationship management & customer success platform
+domain:
+  name: Salesforce API
+  type: api
+  url: https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_what_is_rest_api.htm
+label: Salesforce
+name: salesforce
 singer_name: tap-salesforce
+type: tap
 variants:
-- name: meltano
+- capabilities:
+  - properties
+  - discover
+  - state
   default: true
   maintenance_status: Active
+  name: meltano
+  pip_url: git+https://gitlab.com/meltano/tap-salesforce.git
   repo: https://gitlab.com/meltano/tap-salesforce
-  pip_url: 'git+https://gitlab.com/meltano/tap-salesforce.git'
-  capabilities:
-    - properties
-    - discover
-    - state
-  settings_group_validation:
-    - ['username', 'password', 'security_token', 'start_date']
-    - ['client_id', 'client_secret', 'refresh_token', 'start_date']
   settings:
-    - name: username
-      placeholder: Ex. me@my-organization.com
-    - name: password
-      kind: password
-      label: Password
-      placeholder: Ex. *****************
-    - name: security_token
-      kind: password
-      label: Security Token
-      placeholder: Ex. *****************
-      description: Your Salesforce Account access token
-      documentation: https://meltano.com/plugins/extractors/salesforce.html#salesforce-setup
-
-    - name: client_id
-      label: Client ID
-    - name: client_secret
-      kind: password
-    - name: refresh_token
-      kind: password
-
-    - name: start_date
-      kind: date_iso8601
-      description: Determines how much historical data will be extracted. Please be aware that the larger the time period and amount of data, the longer the initial extraction can be expected to take.
-
-    - name: is_sandbox
-      kind: boolean
-      value: false
-      description: Use Salesforce Sandbox
-    - name: api_type
+  - name: username
+    placeholder: Ex. me@my-organization.com
+  - kind: password
+    label: Password
+    name: password
+    placeholder: Ex. *****************
+  - description: Your Salesforce Account access token
+    documentation: https://meltano.com/plugins/extractors/salesforce.html#salesforce-setup
+    kind: password
+    label: Security Token
+    name: security_token
+    placeholder: Ex. *****************
+  - label: Client ID
+    name: client_id
+  - kind: password
+    name: client_secret
+  - kind: password
+    name: refresh_token
+  - description: Determines how much historical data will be extracted. Please be
+      aware that the larger the time period and amount of data, the longer the initial
+      extraction can be expected to take.
+    kind: date_iso8601
+    name: start_date
+  - description: Use Salesforce Sandbox
+    kind: boolean
+    name: is_sandbox
+    value: false
+  - kind: options
+    label: API Type
+    name: api_type
+    options:
+    - label: REST
       value: REST
-      kind: options
-      options:
-        - label: REST
-          value: REST
-        - label: BULK
-          value: BULK
-      label: API Type
-    - name: select_fields_by_default
-      kind: boolean
-      value: true
-      description: Select by default any new fields discovered in Salesforce objects
-    - name: state_message_threshold
-      kind: integer
-      value: 1000
-      description: Generate a STATE message every N records
-    - name: max_workers
-      kind: integer
-      value: 8
-      label: Maximum number of threads to use
+    - label: BULK
+      value: BULK
+    value: REST
+  - description: Select by default any new fields discovered in Salesforce objects
+    kind: boolean
+    name: select_fields_by_default
+    value: true
+  - description: Generate a STATE message every N records
+    kind: integer
+    name: state_message_threshold
+    value: 1000
+  - kind: integer
+    label: Maximum number of threads to use
+    name: max_workers
+    value: 8
+  settings_group_validation:
+  - - username
+    - password
+    - security_token
+    - start_date
+  - - client_id
+    - client_secret
+    - refresh_token
+    - start_date
 - default: false
   maintenance_status: Unknown
   name: singer-io

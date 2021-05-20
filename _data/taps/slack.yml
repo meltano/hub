@@ -1,56 +1,66 @@
-name: slack
-label: Slack
-type: tap
-domain:
-  type: api
-  name: Slack API
-  url: https://api.slack.com/
 description: Team communication tool
+domain:
+  name: Slack API
+  type: api
+  url: https://api.slack.com/
+label: Slack
+name: slack
 singer_name: tap-slack
+type: tap
 variants:
-- name: mashey
+- capabilities:
+  - catalog
+  - discover
+  - state
   default: true
   maintenance_status: Active
-  repo: https://github.com/Mashey/tap-slack
+  name: mashey
   pip_url: git+https://github.com/Mashey/tap-slack.git
-  capabilities:
-    - catalog
-    - discover
-    - state
+  repo: https://github.com/Mashey/tap-slack
   settings:
-    - name: api_token
-      kind: password
-      label: API Token
-      documentation: https://support.zendesk.com/hc/en-us/articles/226022787-Generating-a-new-API-token-
-    - name: start_date
-      kind: date_iso8601
-      label: Sync Start Date
-      description: Determines how much historical data will be extracted. Please be aware that the larger the time period and amount of data, the longer the initial extraction can be expected to take.
-    - name: channels
-      label: Channels to Sync
-      kind: array
-      description: By default the tap will sync all channels it has been invited to, but this can be overriden to limit it ot specific channels. Note this needs to be channel ID, not the name, as recommended by the Slack API. To get the ID for a channel, either use the Slack API or find it in the URL.
-      placeholder: Ex. ["abc123", "def456"]
-    - name: private_channels
-      label: Join Private Channels
-      kind: boolean
-      value: true
-      description: Specifies whether to sync private channels or not. Default is true.
-    - name: join_public_channels
-      label: Join Public Channels
-      kind: boolean
-      value: false
-      description: Specifies whether to have the tap auto-join all public channels in your ogranziation. Default is false.
-    - name: archived_channels
-      label: Sync Archived Channels
-      kind: boolean
-      value: false
-      description: Specifies whether the tap will sync archived channels or not. Note that a bot cannot join an archived channel, so unless the bot was added to the channel prior to it being archived it will not be able to sync the data from that channel. Default is false.
-    - name: date_window_size
-      label: Date Window Size
-      kind: integer
-      value: 7
-      description: Specifies the window size for syncing certain streams (messages, files, threads). The default is 7 days.
+  - documentation: https://support.zendesk.com/hc/en-us/articles/226022787-Generating-a-new-API-token-
+    kind: password
+    label: API Token
+    name: api_token
+  - description: Determines how much historical data will be extracted. Please be
+      aware that the larger the time period and amount of data, the longer the initial
+      extraction can be expected to take.
+    kind: date_iso8601
+    label: Sync Start Date
+    name: start_date
+  - description: By default the tap will sync all channels it has been invited to,
+      but this can be overriden to limit it ot specific channels. Note this needs
+      to be channel ID, not the name, as recommended by the Slack API. To get the
+      ID for a channel, either use the Slack API or find it in the URL.
+    kind: array
+    label: Channels to Sync
+    name: channels
+    placeholder: Ex. ["abc123", "def456"]
+  - description: Specifies whether to sync private channels or not. Default is true.
+    kind: boolean
+    label: Join Private Channels
+    name: private_channels
+    value: true
+  - description: Specifies whether to have the tap auto-join all public channels in
+      your ogranziation. Default is false.
+    kind: boolean
+    label: Join Public Channels
+    name: join_public_channels
+    value: false
+  - description: Specifies whether the tap will sync archived channels or not. Note
+      that a bot cannot join an archived channel, so unless the bot was added to the
+      channel prior to it being archived it will not be able to sync the data from
+      that channel. Default is false.
+    kind: boolean
+    label: Sync Archived Channels
+    name: archived_channels
+    value: false
+  - description: Specifies the window size for syncing certain streams (messages,
+      files, threads). The default is 7 days.
+    kind: integer
+    label: Date Window Size
+    name: date_window_size
+    value: 7
 - default: false
   maintenance_status: Unknown
   name: envoy

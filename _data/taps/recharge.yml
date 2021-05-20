@@ -1,35 +1,38 @@
-name: recharge
-label: ReCharge
-type: tap
-domain:
-  type: api
-  name: ReCharge API
-  url: https://rechargepayments.com/developers/
 description: Subscription payments platform
+domain:
+  name: ReCharge API
+  type: api
+  url: https://rechargepayments.com/developers/
+label: ReCharge
+name: recharge
 singer_name: tap-recharge
+type: tap
 variants:
-- name: singer-io
+- capabilities:
+  - catalog
+  - discover
+  - state
   default: true
+  docs: https://meltano.com/plugins/extractors/recharge.html
   maintenance_status: Unresponsive
-  docs: 'https://meltano.com/plugins/extractors/recharge.html'
-  repo: https://github.com/singer-io/tap-recharge
+  name: singer-io
   pip_url: tap-recharge
-  capabilities:
-    - catalog
-    - discover
-    - state
+  repo: https://github.com/singer-io/tap-recharge
   settings:
-    - name: access_token
-      kind: password
-      description: Private API Token
-      placeholder: Ex. 1a2b3c4d5e6f
-    - name: start_date
-      kind: date_iso8601
-      description: Determines how much historical data will be extracted. Please be aware that the larger the time period and amount of data, the longer the initial extraction can be expected to take.
-    - name: user_agent
-      value: tap-recharge via Meltano
-      description: User agent to send to ReCharge along with API requests. Typically includes name of integration and an email address you can be reached at
-      placeholder: Ex. tap-recharge via Meltano <user@example.com>
+  - description: Private API Token
+    kind: password
+    name: access_token
+    placeholder: Ex. 1a2b3c4d5e6f
+  - description: Determines how much historical data will be extracted. Please be
+      aware that the larger the time period and amount of data, the longer the initial
+      extraction can be expected to take.
+    kind: date_iso8601
+    name: start_date
+  - description: User agent to send to ReCharge along with API requests. Typically
+      includes name of integration and an email address you can be reached at
+    name: user_agent
+    placeholder: Ex. tap-recharge via Meltano <user@example.com>
+    value: tap-recharge via Meltano
 - default: false
   maintenance_status: Unknown
   name: bytecodeio

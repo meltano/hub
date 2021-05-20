@@ -1,37 +1,39 @@
-name: zoom
-label: Zoom
-type: tap
-domain:
-  type: api
-  name: Zoom API
-  url: https://marketplace.zoom.us/docs/api-reference/introduction
 description: Video conferencing software
+domain:
+  name: Zoom API
+  type: api
+  url: https://marketplace.zoom.us/docs/api-reference/introduction
+label: Zoom
+name: zoom
 singer_name: tap-zoom
+type: tap
 variants:
-- name: mashey
+- capabilities:
+  - catalog
+  - discover
   default: true
   maintenance_status: Active
+  name: mashey
+  pip_url: git+https://github.com/mashey/tap-zoom.git
   repo: https://github.com/mashey/tap-zoom
-  pip_url: 'git+https://github.com/mashey/tap-zoom.git'
-  capabilities:
-    - catalog
-    - discover
-  settings_group_validation:
-    - ['jwt']
-    - ['client_id', 'client_secret', 'refresh_token']
   settings:
-    - name: jwt
-      kind: password
-      label: JSON Web Token
-      documentation: https://marketplace.zoom.us/docs/guides/auth/jwt
-    - name: client_id
-      documentation: https://marketplace.zoom.us/docs/guides/auth/oauth
-    - name: client_secret
-      kind: password
-      documentation: https://marketplace.zoom.us/docs/guides/auth/oauth
-    - name: refresh_token
-      kind: password
-      documentation: https://marketplace.zoom.us/docs/guides/auth/oauth
+  - documentation: https://marketplace.zoom.us/docs/guides/auth/jwt
+    kind: password
+    label: JSON Web Token
+    name: jwt
+  - documentation: https://marketplace.zoom.us/docs/guides/auth/oauth
+    name: client_id
+  - documentation: https://marketplace.zoom.us/docs/guides/auth/oauth
+    kind: password
+    name: client_secret
+  - documentation: https://marketplace.zoom.us/docs/guides/auth/oauth
+    kind: password
+    name: refresh_token
+  settings_group_validation:
+  - - jwt
+  - - client_id
+    - client_secret
+    - refresh_token
 - default: false
   maintenance_status: Unknown
   name: karbonhq

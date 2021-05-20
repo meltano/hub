@@ -1,98 +1,106 @@
-name: adwords
-label: Google Ads
-type: tap
-domain:
-  type: api
-  name: Google Adwords API
-  url: https://developers.google.com/adwords/api/
 description: Advertising Platform
+domain:
+  name: Google Adwords API
+  type: api
+  url: https://developers.google.com/adwords/api/
+label: Google Ads
+name: adwords
 singer_name: tap-adwords
+type: tap
 variants:
-  - name: meltano
-    maintenance_status: Active
-    default: true
-    repo: https://gitlab.com/meltano/tap-adwords
-    pip_url: git+https://gitlab.com/meltano/tap-adwords.git
-    capabilities:
-      - properties
-      - discover
-      - state
-    settings_group_validation:
-      - ['developer_token', 'oauth_client_id', 'oauth_client_secret', 'refresh_token', 'user_agent', 'customer_ids', 'start_date']
-    settings:
-      - name: developer_token
-        kind: password
-        label: Developer Token
-        description: Your Developer Token for Google AdWord Application
-        placeholder: Ex. *****************
-      - name: oauth_client_id
-        kind: password
-        label: OAuth Client ID
-        description: Your Google OAuth Client ID
-        placeholder: Ex. 123456789012345.apps.googleusercontent.com
-      - name: oauth_client_secret
-        kind: password
-        label: OAuth Client Secret
-        description: Your Google OAuth Client Secret
-        placeholder: Ex. *****************
-
-      - name: refresh_token
-        kind: oauth
-        label: Access Token
-        description: The Refresh Token generated through the OAuth flow run using your OAuth Client and your Developer Token
-        placeholder: Ex. *****************
-      - name: customer_ids
-        label: Account ID(s)
-        placeholder: Ex. 1234567890,1234567891,1234567892
-        description: A comma-separated list of Ad Account IDs to replicate data from
-
-      - name: start_date
-        kind: date_iso8601
-        description: Determines how much historical data will be extracted. Please be aware that the larger the time period and amount of data, the longer the initial extraction can be expected to take.
-      - name: end_date
-        kind: date_iso8601
-        description: Date up to when historical data will be extracted.
-      - name: user_agent
-        value: tap-adwords via Meltano
-        label: User Agent for your OAuth Client
-        placeholder: Ex. tap-adwords via Meltano <user@example.com>
-        description: The User Agent for your OAuth Client (used in requests made to the AdWords API)
-
-      - name: conversion_window_days
-        kind: integer
-        value: 0
-        label: Conversion Window Days
-        description: How many Days before the Start Date to fetch data for Performance Reports
-      - name: primary_keys
-        kind: object
-        value:
-          KEYWORDS_PERFORMANCE_REPORT:
-            - customerID
-            - campaignID
-            - adGroupID
-            - keywordID
-            - day
-            - network
-            - device
-          AD_PERFORMANCE_REPORT:
-            - customerID
-            - campaignID
-            - adGroupID
-            - adID
-            - day
-            - network
-            - device
-        label: Primary Keys
-        description: Primary Keys for the selected Entities (Streams)
-  - default: false
-    maintenance_status: Unknown
-    name: reachlocal
-    pip_url: git+https://github.com/reachlocal/tap-adwords.git
-    repo: https://github.com/reachlocal/tap-adwords
-    settings: []
-  - default: false
-    maintenance_status: Unknown
-    name: georgiyolovski
-    pip_url: git+https://github.com/georgiyolovski/tap-adwords.git
-    repo: https://github.com/georgiyolovski/tap-adwords
-    settings: []
+- capabilities:
+  - properties
+  - discover
+  - state
+  default: true
+  maintenance_status: Active
+  name: meltano
+  pip_url: git+https://gitlab.com/meltano/tap-adwords.git
+  repo: https://gitlab.com/meltano/tap-adwords
+  settings:
+  - description: Your Developer Token for Google AdWord Application
+    kind: password
+    label: Developer Token
+    name: developer_token
+    placeholder: Ex. *****************
+  - description: Your Google OAuth Client ID
+    kind: password
+    label: OAuth Client ID
+    name: oauth_client_id
+    placeholder: Ex. 123456789012345.apps.googleusercontent.com
+  - description: Your Google OAuth Client Secret
+    kind: password
+    label: OAuth Client Secret
+    name: oauth_client_secret
+    placeholder: Ex. *****************
+  - description: The Refresh Token generated through the OAuth flow run using your
+      OAuth Client and your Developer Token
+    kind: oauth
+    label: Access Token
+    name: refresh_token
+    placeholder: Ex. *****************
+  - description: A comma-separated list of Ad Account IDs to replicate data from
+    label: Account ID(s)
+    name: customer_ids
+    placeholder: Ex. 1234567890,1234567891,1234567892
+  - description: Determines how much historical data will be extracted. Please be
+      aware that the larger the time period and amount of data, the longer the initial
+      extraction can be expected to take.
+    kind: date_iso8601
+    name: start_date
+  - description: Date up to when historical data will be extracted.
+    kind: date_iso8601
+    name: end_date
+  - description: The User Agent for your OAuth Client (used in requests made to the
+      AdWords API)
+    label: User Agent for your OAuth Client
+    name: user_agent
+    placeholder: Ex. tap-adwords via Meltano <user@example.com>
+    value: tap-adwords via Meltano
+  - description: How many Days before the Start Date to fetch data for Performance
+      Reports
+    kind: integer
+    label: Conversion Window Days
+    name: conversion_window_days
+    value: 0
+  - description: Primary Keys for the selected Entities (Streams)
+    kind: object
+    label: Primary Keys
+    name: primary_keys
+    value:
+      AD_PERFORMANCE_REPORT:
+      - customerID
+      - campaignID
+      - adGroupID
+      - adID
+      - day
+      - network
+      - device
+      KEYWORDS_PERFORMANCE_REPORT:
+      - customerID
+      - campaignID
+      - adGroupID
+      - keywordID
+      - day
+      - network
+      - device
+  settings_group_validation:
+  - - developer_token
+    - oauth_client_id
+    - oauth_client_secret
+    - refresh_token
+    - user_agent
+    - customer_ids
+    - start_date
+- default: false
+  maintenance_status: Unknown
+  name: reachlocal
+  pip_url: git+https://github.com/reachlocal/tap-adwords.git
+  repo: https://github.com/reachlocal/tap-adwords
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: georgiyolovski
+  pip_url: git+https://github.com/georgiyolovski/tap-adwords.git
+  repo: https://github.com/georgiyolovski/tap-adwords
+  settings: []

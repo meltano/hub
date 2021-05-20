@@ -1,7 +1,7 @@
 description: For extracting data from Snowflake
 domain:
-  type: database
   name: Snowflake data warehouse
+  type: database
   url: https://www.snowflake.com/
 label: Snowflake
 name: snowflake

@@ -1,67 +1,76 @@
-name: postgres
-label: PostgreSQL
-type: tap
-domain:
-  type: database
-  name: PostgreSQL
-  url: https://www.postgresql.org/
 description: PostgreSQL database extractor
+domain:
+  name: PostgreSQL
+  type: database
+  url: https://www.postgresql.org/
+label: PostgreSQL
+name: postgres
 singer_name: tap-postgres
+type: tap
 variants:
-- name: transferwise
+- capabilities:
+  - catalog
+  - discover
+  - state
   default: true
   maintenance_status: Active
-  repo: https://github.com/transferwise/pipelinewise-tap-postgres
+  name: transferwise
   pip_url: pipelinewise-tap-postgres
-  capabilities:
-    - catalog
-    - discover
-    - state
-  settings_group_validation:
-    - ['host', 'port', 'user', 'password', 'dbname']
+  repo: https://github.com/transferwise/pipelinewise-tap-postgres
   settings:
-    - name: host
-      value: localhost
-      description: PostgreSQL host
-    - name: port
-      kind: integer
-      value: 5432
-      description: PostgreSQL port
-    - name: user
-      description: PostgreSQL user
-    - name: password
-      kind: password
-      description: PostgreSQL password
-    - name: dbname
-      description: PostgreSQL database name
-    - name: ssl
-      kind: boolean
-      value: false
-      description: Using SSL via postgres `sslmode='require'` option. If the server does not accept SSL connections or the client certificate is not recognized the connection will fail. The tap requires a stringified version of the boolean values, i.e. "true" or "false" with quotes.
-
-    - name: filter_schemas
-      description: Scan only the specified comma-separated schemas to improve the performance of data extraction
-    - name: default_replication_method
-      kind: options
-      options:
-        - label: Log-based Incremental Replication
-          value: LOG_BASED
-        - label: Key-based Incremental Replication
-          value: INCREMENTAL
-        - label: Full Table Replication
-          value: FULL_TABLE
-    - name: max_run_seconds
-      kind: integer
-      value: 43200
-      description: Stop running the tap after certain number of seconds
-    - name: logical_poll_total_seconds
-      kind: integer
-      value: 10800
-      description: Stop running the tap when no data received from wal after certain number of seconds
-    - name: break_at_end_lsn
-      kind: boolean
-      value: true
-      description: Stop running the tap if the newly received lsn is after the max lsn that was detected when the tap started
+  - description: PostgreSQL host
+    name: host
+    value: localhost
+  - description: PostgreSQL port
+    kind: integer
+    name: port
+    value: 5432
+  - description: PostgreSQL user
+    name: user
+  - description: PostgreSQL password
+    kind: password
+    name: password
+  - description: PostgreSQL database name
+    name: dbname
+  - description: Using SSL via postgres `sslmode='require'` option. If the server
+      does not accept SSL connections or the client certificate is not recognized
+      the connection will fail. The tap requires a stringified version of the boolean
+      values, i.e. "true" or "false" with quotes.
+    kind: boolean
+    name: ssl
+    value: false
+  - description: Scan only the specified comma-separated schemas to improve the performance
+      of data extraction
+    name: filter_schemas
+  - kind: options
+    name: default_replication_method
+    options:
+    - label: Log-based Incremental Replication
+      value: LOG_BASED
+    - label: Key-based Incremental Replication
+      value: INCREMENTAL
+    - label: Full Table Replication
+      value: FULL_TABLE
+  - description: Stop running the tap after certain number of seconds
+    kind: integer
+    name: max_run_seconds
+    value: 43200
+  - description: Stop running the tap when no data received from wal after certain
+      number of seconds
+    kind: integer
+    name: logical_poll_total_seconds
+    value: 10800
+  - description: Stop running the tap if the newly received lsn is after the max lsn
+      that was detected when the tap started
+    kind: boolean
+    name: break_at_end_lsn
+    value: true
+  settings_group_validation:
+  - - host
+    - port
+    - user
+    - password
+    - dbname
 - default: false
   maintenance_status: Unknown
   name: singer-io

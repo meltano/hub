@@ -1,52 +1,52 @@
-name: chargebee
-label: Chargebee
-type: tap
-domain:
-  type: api
-  name: Chargebee API
-  url: https://apidocs.chargebee.com/docs/api
 description: Subscription billing software
+domain:
+  name: Chargebee API
+  type: api
+  url: https://apidocs.chargebee.com/docs/api
+label: Chargebee
+name: chargebee
 singer_name: tap-chargebee
+type: tap
 variants:
-- name: hotgluexyz
-  default: true
-  maintenance_status: Active
-  repo: https://github.com/hotgluexyz/tap-chargebee
-  pip_url: git+https://github.com/hotgluexyz/tap-chargebee.git
-  capabilities:
+- capabilities:
   - properties
   - discover
   - state
+  default: true
+  maintenance_status: Active
+  name: hotgluexyz
+  pip_url: git+https://github.com/hotgluexyz/tap-chargebee.git
+  repo: https://github.com/hotgluexyz/tap-chargebee
+  settings:
+  - kind: password
+    label: API Key
+    name: api_key
+  - label: Chargebee Site
+    name: site
+  - label: Chargebee Product Catalog
+    name: product_catalog
+  - description: Determines how much historical data will be extracted. Please be
+      aware that the larger the time period and amount of data, the longer the initial
+      extraction can be expected to take.
+    kind: date_iso8601
+    name: start_date
+  - description: Select by default any new fields discovered in Quickbooks objects
+    kind: boolean
+    name: select_fields_by_default
+    value: true
+  - description: Generate a STATE message every N records
+    kind: integer
+    name: state_message_threshold
+    value: 1000
+  - kind: integer
+    label: Maximum number of threads to use
+    name: max_workers
+    value: 8
   settings_group_validation:
   - - api_key
     - site
     - product_catalog
     - start_date
-  settings:
-  - name: api_key
-    label: API Key
-    kind: password
-  - name: site
-    label: Chargebee Site
-  - name: product_catalog
-    label: Chargebee Product Catalog
-  - name: start_date
-    kind: date_iso8601
-    description: Determines how much historical data will be extracted. Please be
-      aware that the larger the time period and amount of data, the longer the initial
-      extraction can be expected to take.
-  - name: select_fields_by_default
-    kind: boolean
-    value: true
-    description: Select by default any new fields discovered in Quickbooks objects
-  - name: state_message_threshold
-    kind: integer
-    value: 1000
-    description: Generate a STATE message every N records
-  - name: max_workers
-    kind: integer
-    value: 8
-    label: Maximum number of threads to use
 - default: false
   maintenance_status: Unknown
   name: envoy

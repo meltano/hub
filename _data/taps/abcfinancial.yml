@@ -4,7 +4,7 @@ domain:
   name: ABC Financial API
   type: api
   url: https://abcfinancial.3scale.net
-label: ABC Fitness Solutions  #Renamed from ABCFinancial
+label: ABC Fitness Solutions
 name: abcfinancial
 singer_name: tap-abcfinancial
 type: tap
