@@ -6,7 +6,7 @@ plugins:
   - name: tap-github
     namespace: tap_github
     pip_url: git+https://github.com/dataops-tk/tap-github.git
-    executable: tap-github
+    executable: /Users/ajsteers/Source/tap-github/tap-github.sh
     capabilities:
     - catalog
     - discover
@@ -25,7 +25,9 @@ plugins:
       - name: target_something
         query: target-+language:Python+fork:true
     select:
-    - '*.*'
+    - 'repository_search.*'
+    - 'issues.*'
+    - 'issue_comments.*'
   loaders:
   - name: target-jsonl
     variant: andyh1203

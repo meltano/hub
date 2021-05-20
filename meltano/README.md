@@ -5,7 +5,7 @@ Specifying creds:
 `.env`
 
 ```dotenv
-TAP_GITHUB_ACCESS_TOKEN="****"
+TAP_GITHUB_AUTH_TOKEN="****"
 TARGET_ATHENA_AWS_ACCESS_KEY_ID=****
 TARGET_ATHENA_AWS_SECRET_ACCESS_KEY=****
 TARGET_ATHENA_S3_BUCKET=devtest-meltano-bucket-01
