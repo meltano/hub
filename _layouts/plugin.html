@@ -77,17 +77,36 @@ maintainer = site.data.maintainers[variant.name] %}
 
     <h3>Standalone</h3>
 
+    <p>
+      Install the package using
+      <a href="https://pip.pypa.io/" target="_blank">pip</a>:
+    </p>
+
     <pre><code>pip install {{variant.pip_url}}</code></pre>
 
     <h3>With <a href="https://meltano.com" target="_blank">Meltano</a></h3>
 
-    {% if plugin.type == "tap" %} {% assign meltano_type = "extractor" %} {%
-    else %} {% assign meltano_type = "loader" %} {% endif %} {% if
-    page.variant_specific %}
-    <pre><code>meltano add {{meltano_type}} {{plugin.singer_name}} --variant {{variant.name}}</code></pre>
-    {% else %}
-    <pre><code>meltano add {{meltano_type}} {{plugin.singer_name}}</code></pre>
-    {% endif %}
+    {% if plugin.type == "tap" %} {% assign meltano_plugins =
+    site.data.meltano.extractors %} {% assign meltano_type_article = "an" %} {%
+    assign meltano_type = "extractor" %} {% else %} {% assign meltano_plugins =
+    site.data.meltano.loaders %} {% assign meltano_type_article = "a" %} {%
+    assign meltano_type = "loader" %} {% endif %} {% if
+    meltano_plugins[plugin.name] %} {% assign meltano_variant_names =
+    meltano_plugins[plugin.name].variants | map: "name" %} {% else %} {% assign
+    meltano_variant_names = [] %} {% endif %} {% if meltano_variant_names
+    contains variant.name or meltano_plugins[plugin.name].variant ==
+    variant.name %}
+    <p>
+      Add the {{plugin.type}} to your
+      <a
+        href="https://meltano.com/docs/getting-started.html#create-your-meltano-project"
+        target="_blank"
+        >Meltano project</a
+      >
+      as {{meltano_type_article}} {{meltano_type}}:
+    </p>
+
+    <pre><code>meltano add {{meltano_type}} {{plugin.singer_name}}{% if page.variant_specific %} --variant {{variant.name}}{% endif %}</code></pre>
 
     <p>
       To learn more, refer to the
@@ -96,15 +115,34 @@ maintainer = site.data.maintainers[variant.name] %}
         <code>{{plugin.singer_name}}</code></a
       >.
     </p>
+    {% else %}
+    <p>
+      Add the {{plugin.type}} to your
+      <a
+        href="https://meltano.com/docs/getting-started.html#create-your-meltano-project"
+        target="_blank"
+        >Meltano project</a
+      >
+      as a
+      <a
+        href="https://meltano.com/docs/plugin-management.html#custom-plugins"
+        target="_blank"
+        >custom {{meltano_type}}</a
+      >:
+    </p>
+
+    <pre><code>meltano add --custom {{meltano_type}} {{plugin.singer_name}}{% if page.variant_specific %} --variant {{variant.name}}{% endif %}</code></pre>
+    {% endif %}
 
     <h2>Settings</h2>
 
     {% if variant.settings.size == 0 %}
-      <p> Check the <a href="{{variant.repo}}">README of the repository</a> for more information on settings for this {{plugin.type}}.</p>
-    {% else %}
-    {% for setting in variant.settings %} {% include setting.html
-    setting=setting %} {% endfor %}
-    {% endif %}
+    <p>
+      Check the <a href="{{variant.repo}}">README of the repository</a> for more
+      information on settings for this {{plugin.type}}.
+    </p>
+    {% else %} {% for setting in variant.settings %} {% include setting.html
+    setting=setting %} {% endfor %} {% endif %}
 
     <h2>Found an issue on this page?</h2>
 
@@ -114,8 +152,9 @@ maintainer = site.data.maintainers[variant.name] %}
         href="https://gitlab.com/meltano/hub/-/tree/main/_data/{{plugin.type}}s/{{ plugin.name }}.yml"
         >YAML file</a
       >
-      that you can contribute changes to! 
-      It is also validated against a <a href="/singer/schema.json">JSON Schema</a> used for both taps and targets.
+      that you can contribute changes to! It is also validated against a
+      <a href="/singer/schema.json">JSON Schema</a> used for both taps and
+      targets.
     </p>
   </div>
 </article>
