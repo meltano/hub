@@ -9,7 +9,7 @@ Meltano lets you easily load [extracted](/extractors/) data into arbitrary desti
 
 Loaders for the following destinations are currently [discoverable](https://meltano.com/docs/plugins.html#discoverable-plugins) and supported out of the box:
 
-{% include plugin_grid.html plugins=site.data.meltano.loaders %}
+{% include plugin_grid.html plugins=site.data.meltano.sorted_loaders %}
 
 To learn more about [extracting](/loaders/) and loading data using Meltano, refer to the [Data Integration (EL) guide](https://meltano.com/docs/integration.html).
 
