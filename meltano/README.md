@@ -1,19 +1,31 @@
 # Meltano project for MeltanoHub
 
-Specifying creds:
+## Infra Setup
 
-`.env`
+Initial infra setup steps are defined in [setup.md](./setup.md).
 
-```dotenv
-TAP_GITHUB_AUTH_TOKEN="****"
-TARGET_ATHENA_AWS_ACCESS_KEY_ID=****
-TARGET_ATHENA_AWS_SECRET_ACCESS_KEY=****
-TARGET_ATHENA_S3_BUCKET=devtest-meltano-bucket-01
+## Specifying local creds and dev config
 
-# TARGET_ATHENA_S3_STAGING_DIR=test-stage-dir
+1. Copy local settings and config from [`.env.template`](.env.template) to a new `.env` file.
 
-DBT_TARGET=athena
+## Testing EL locally
 
-AWS_ACCESS_KEY_ID=****
-AWS_SECRET_ACCESS_KEY=****
+```bash
+JOBID="LOCAL_DEV"
+meltano elt tap-github target-jsonl --job_id=$JOBID
+meltano elt tap-github target-jsonl --job_id=$JOBID --dump=state > .output/local-dev.state.json
+```
+
+## Running EL
+
+```bash
+JOBID="ATHENA_DEV"
+meltano elt tap-github target-athena --job_id=$JOBID
+meltano elt tap-github target-athena --job_id=$JOBID --dump=state > .output/local-dev.state.json
+```
+
+## Running dbt transforms
+
+```bash
+meltano invoke dbt run
 ```
