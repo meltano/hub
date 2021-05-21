@@ -1,6 +1,6 @@
 ---
 title: SQLite
-layout: page
+layout: plugin_page
 description: Use Meltano to pull data from various sources and load it into SQLite
 ---
 

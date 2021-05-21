@@ -1,6 +1,6 @@
 ---
 title: Google Ads (AdWords)
-layout: page
+layout: plugin_page
 description: Use Meltano to pull data from the Google Ads (AdWords) API and load it into Snowflake, PostgreSQL, and more
 ---
 

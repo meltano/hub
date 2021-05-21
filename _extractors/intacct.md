@@ -1,6 +1,6 @@
 ---
 title: Sage Intacct
-layout: page
+layout: plugin_page
 description: Use Meltano to pull data from the Sage Intacct API and load it into Snowflake, PostgreSQL, and more
 ---
 

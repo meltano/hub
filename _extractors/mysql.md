@@ -1,6 +1,6 @@
 ---
 title: MySQL / MariaDB
-layout: page
+layout: plugin_page
 description: Use Meltano to pull data from a MySQL or MariaDB database and load it into Snowflake, PostgreSQL, and more
 ---
 

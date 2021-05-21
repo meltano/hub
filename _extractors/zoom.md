@@ -1,6 +1,6 @@
 ---
 title: Zoom
-layout: page
+layout: plugin_page
 description: Use Meltano to pull data from the Zoom API and load it into Snowflake, PostgreSQL, and more
 ---
 

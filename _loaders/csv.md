@@ -1,6 +1,6 @@
 ---
 title: Comma Separated Values (CSV)
-layout: page
+layout: plugin_page
 description: Use Meltano to pull data from various sources and load it into Comma Separated Values (CSV) files
 ---
 
