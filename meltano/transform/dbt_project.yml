@@ -3,23 +3,22 @@ version: 2
 name: my_meltano_project
 profile: meltano
 source-paths:
-- models
-- source
+- sources
 data-paths:
-- data
+- sources/seeds
 analysis-paths:
-- analysis
+- transforms/analyses
 test-paths:
-- tests
+- transforms/tests
 macro-paths:
 - macros
 snapshot-paths:
 - snapshots
-target-path: ../.meltano/transformers/dbt/target
+target-path: ./.dbt/target
 log-path: logs
 modules-path: dbt_modules
 clean-targets:
-- ../.meltano/transformers/dbt/target
+- ./.dbt/target
 - dbt_modules
 - logs
 models:
