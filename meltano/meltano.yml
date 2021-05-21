@@ -3,6 +3,17 @@ send_anonymous_usage_stats: true
 project_id: 8a952b1e-ae69-40a9-9c71-19bafa3a96e7
 plugins:
   extractors:
+  - name: tap-github-repos
+    inherit_from: tap-github
+    select:
+    - repositories.*
+  - name: tap-github-metrics
+    inherit_from: tap-github
+    select:
+    - issues.*
+    - issue_comments.*
+    - "!*.comments"
+    - "!*.body"
   - name: tap-github
     namespace: tap_github
     pip_url: git+https://github.com/dataops-tk/tap-github.git
@@ -18,16 +29,23 @@ plugins:
       kind: password
     - name: start_date
       value: '2010-01-01T00:00:00Z'
+    - name: metrics_log_level
+      kind: string
     config:
       searches:
-      - name: tap_something
-        query: tap-+language:Python+fork:true
-      - name: target_something
-        query: target-+language:Python+fork:true
+      - name: tap forks
+        query: tap- fork:only language:Python singer in:readme
+      - name: tap non-forks
+        query: tap- fork:false language:Python singer in:readme
+      - name: targets forks
+        query: target- fork:only language:Python singer in:readme
+      - name: target non-forks
+        query: target- fork:false language:Python singer in:readme
+      metrics_log_level: DEBUG
     select:
-    - 'repositories.*'
-    - 'issues.*'
-    - 'issue_comments.*'
+    - repositories.*
+    - issues.*
+    - issue_comments.*
   loaders:
   - name: target-jsonl
     variant: andyh1203
@@ -51,9 +69,9 @@ plugins:
     - name: compression
     config:
       aws_region: us-east-2
-      athena_database: default
       s3_bucket: devtest-meltano-bucket-01
-      s3_staging_dir: s3://devtest-meltano-bucket-01/stage/${STAGE}/
+      athena_database: raw_ajdev
+      s3_staging_dir: s3://devtest-meltano-bucket-01/stage/ajdev/
       compression: none
       temp_dir: .output
   transformers:

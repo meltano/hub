@@ -3,11 +3,12 @@ version: 2
 name: my_meltano_project
 profile: meltano
 source-paths:
-- sources
+- sources/github
+- transforms/marts
 data-paths:
 - sources/seeds
 analysis-paths:
-- transforms/analyses
+- analyses/sql
 test-paths:
 - transforms/tests
 macro-paths:
@@ -21,5 +22,8 @@ clean-targets:
 - ./.dbt/target
 - dbt_modules
 - logs
+
 models:
-  my_meltano_project: null
+  my_meltano_project:
+    marts:
+

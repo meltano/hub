@@ -1,9 +1,10 @@
 config-version: 2
 version: 2
 sources:
-  - name: tap_github_index
+  - name: tap_github
     database: awsdatacatalog
-    schema: default
+    schema: raw_ajdev
     tables:
-      - name: tap_something
-      - name: target_something
+      - name: repositories
+      - name: issues
+      - name: issue_comments
