@@ -1,0 +1,84 @@
+version: 1
+send_anonymous_usage_stats: true
+project_id: 8a952b1e-ae69-40a9-9c71-19bafa3a96e7
+plugins:
+  extractors:
+  - name: tap-github-repos
+    inherit_from: tap-github
+    select:
+    - repositories.*
+  - name: tap-github-metrics
+    inherit_from: tap-github
+    select:
+    - issues.*
+    - issue_comments.*
+    - "!*.comments"
+    - "!*.body"
+  - name: tap-github
+    namespace: tap_github
+    pip_url: git+https://github.com/dataops-tk/tap-github.git
+    executable: /Users/ajsteers/Source/tap-github/tap-github.sh
+    capabilities:
+    - catalog
+    - discover
+    - state
+    settings:
+    - name: searches
+      kind: array
+    - name: auth_token
+      kind: password
+    - name: start_date
+      value: '2010-01-01T00:00:00Z'
+    - name: metrics_log_level
+      kind: string
+    config:
+      searches:
+      - name: tap forks
+        query: tap- fork:only language:Python singer in:readme
+      - name: tap non-forks
+        query: tap- fork:false language:Python singer in:readme
+      - name: targets forks
+        query: target- fork:only language:Python singer in:readme
+      - name: target non-forks
+        query: target- fork:false language:Python singer in:readme
+      metrics_log_level: DEBUG
+    select:
+    - repositories.*
+    - issues.*
+    - issue_comments.*
+  loaders:
+  - name: target-jsonl
+    variant: andyh1203
+    pip_url: target-jsonl
+    config:
+      destination_path: data/
+      do_timestamp_file: true
+  - name: target-athena
+    namespace: target_athena
+    pip_url: git+https://github.com/aaronsteers/target-athena.git
+    executable: /Users/ajsteers/Source/target-athena/target-athena.sh
+    settings:
+    - name: aws_access_key_id
+      kind: password
+    - name: aws_secret_access_key
+      kind: password
+    - name: s3_bucket
+    - name: athena_database
+    - name: s3_staging_dir
+    - name: work_group
+    - name: compression
+    config:
+      aws_region: us-east-2
+      s3_bucket: devtest-meltano-bucket-01
+      athena_database: raw_ajdev
+      s3_staging_dir: s3://devtest-meltano-bucket-01/stage/ajdev/
+      compression: none
+      temp_dir: .output
+  transformers:
+  - name: dbt
+    pip_url: git+https://github.com/Tomme/dbt-athena.git
+    env:
+      DBT_TARGET: athena
+  files:
+  - name: dbt
+    pip_url: git+https://gitlab.com/meltano/files-dbt.git
