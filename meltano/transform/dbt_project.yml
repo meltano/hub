@@ -1,0 +1,29 @@
+config-version: 2
+version: 2
+name: my_meltano_project
+profile: meltano
+source-paths:
+- sources/github
+- transforms/marts
+data-paths:
+- sources/seeds
+analysis-paths:
+- analyses/sql
+test-paths:
+- transforms/tests
+macro-paths:
+- macros
+snapshot-paths:
+- snapshots
+target-path: ./.dbt/target
+log-path: logs
+modules-path: dbt_modules
+clean-targets:
+- ./.dbt/target
+- dbt_modules
+- logs
+
+models:
+  my_meltano_project:
+    marts:
+
