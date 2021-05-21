@@ -1,6 +1,6 @@
 ---
 title: BigQuery
-layout: page
+layout: plugin_page
 description: Use Meltano to pull data from a BigQuery data warehouse and load it into Snowflake, PostgreSQL, and more
 ---
 
@@ -51,7 +51,7 @@ If you run into any issues, [learn how to get help](https://meltano.com/docs/get
 These and other supported settings are documented below.
 To quickly find the setting you're looking for, use the Table of Contents in the sidebar.
 
-#### Minimal configuration
+**Minimal configuration**
 
 A minimal configuration of `tap-bigquery` in your [`meltano.yml` project file](https://meltano.com/docs/project.html#meltano-yml-project-file) will look like this:
 

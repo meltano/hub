@@ -1,6 +1,6 @@
 ---
 title: PostgreSQL
-layout: page
+layout: plugin_page
 description: Use Meltano to pull data from a PostgreSQL database and load it into Snowflake, PostgreSQL, and more
 ---
 

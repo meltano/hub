@@ -1,6 +1,6 @@
 ---
 title: Comma Separated Values (CSV)
-layout: page
+layout: plugin_page
 description: Use Meltano to pull data from Comma Separated Values (CSV) files and load it into Snowflake, PostgreSQL, and more
 ---
 
