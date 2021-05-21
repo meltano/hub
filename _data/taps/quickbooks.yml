@@ -1,6 +1,7 @@
-name: Quickbooks
+name: quickbooks
+label: Quickbooks
 type: tap
-source:
+domain:
   type: api
   name: Quickbooks Online API
   url: https://developer.intuit.com/app/developer/qbo/docs/develop
@@ -8,10 +9,7 @@ description: Accounting management platform
 singer_name: tap-quickbooks
 variants:
 - name: hotgluexyz
-  primary_variant: true
-  maintainer:
-    name: Hotglue
-    url: https://hotglue.xyz/
+  default: true
   maintenance_status: Active
   repo: https://github.com/hotgluexyz/tap-quickbooks
   pip_url: git+https://github.com/hotgluexyz/tap-quickbooks.git

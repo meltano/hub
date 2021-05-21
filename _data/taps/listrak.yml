@@ -1,0 +1,23 @@
+description: Digital Marketing Platform
+domain:
+  description: Digital Marketing Platform
+  name: Listrak API
+  type: api
+  url: https://webservices.listrak.com/SoapWSDL.aspx
+label: Listrak
+name: listrak
+singer_name: tap-listrak
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: fishtown-analytics
+  pip_url: git+https://github.com/fishtown-analytics/tap-listrak.git
+  repo: https://github.com/fishtown-analytics/tap-listrak
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-listrak.git
+  repo: https://github.com/singer-io/tap-listrak
+  settings: []

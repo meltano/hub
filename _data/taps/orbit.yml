@@ -1,0 +1,17 @@
+description: Community Experience Platform
+domain:
+  description: Community Experience Platform
+  name: Orbit API
+  type: api
+  url: https://docs.orbit.love/reference
+label: Orbit
+name: orbit
+singer_name: tap-orbit
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: fishtown-analytics
+  pip_url: git+https://github.com/fishtown-analytics/tap-orbit.git
+  repo: https://github.com/fishtown-analytics/tap-orbit
+  settings: []

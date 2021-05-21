@@ -1,6 +1,7 @@
-name: Fastly
+name: fastly
+label: Fastly
 type: tap
-source:
+domain:
   type: api
   name: Fastly API
   url: https://developer.fastly.com/reference/api/
@@ -8,9 +9,7 @@ description: Edge cloud computing services provider
 singer_name: tap-fastly
 variants:
 - name: meltano
-  primary_variant: true
-  maintainer:
-    name: Meltano Community
+  default: true
   maintenance_status: Active
   repo: https://gitlab.com/meltano/tap-fastly
   pip_url: 'git+https://gitlab.com/meltano/tap-fastly.git'

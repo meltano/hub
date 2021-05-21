@@ -1,0 +1,17 @@
+description: Sales Engagement & Automation Software
+domain:
+  description: Sales Engagement & Automation Software
+  name: Mailshake API
+  type: api
+  url: https://api-docs.mailshake.com/
+label: Mailshake
+name: mailshake
+singer_name: tap-mailshake
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: bytecodeio
+  pip_url: git+https://github.com/bytecodeio/tap-mailshake.git
+  repo: https://github.com/bytecodeio/tap-mailshake
+  settings: []

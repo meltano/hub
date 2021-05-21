@@ -1,0 +1,17 @@
+description: Exchange Rate API
+domain:
+  description: Exchange Rate API
+  name: Exchangerate Host API
+  type: api
+  url: https://exchangerate.host/#/
+label: exchangerate.host
+name: exchangeratehost
+singer_name: tap-exchangeratehost
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: anelendata
+  pip_url: git+https://github.com/anelendata/tap-exchangeratehost.git
+  repo: https://github.com/anelendata/tap-exchangeratehost
+  settings: []

@@ -1,6 +1,7 @@
-name: Salesforce
+name: salesforce
+label: Salesforce
 type: tap
-source:
+domain:
   type: api
   name: Salesforce API
   url: https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_what_is_rest_api.htm
@@ -8,9 +9,7 @@ description: Customer-relationship management & customer success platform
 singer_name: tap-salesforce
 variants:
 - name: meltano
-  primary_variant: true
-  maintainer:
-    name: Meltano Community
+  default: true
   maintenance_status: Active
   repo: https://gitlab.com/meltano/tap-salesforce
   pip_url: 'git+https://gitlab.com/meltano/tap-salesforce.git'
@@ -18,17 +17,6 @@ variants:
     - properties
     - discover
     - state
-  # TODO: `select` is not appropriate for hub, but necessary in Meltano because the default selection
-  # of `*.*` which selects all streams and properties is not desirable, since Salesforce can contain a lot of types.
-  # It'd be better to mark the other streams with `selected-by-default: false` in `tap-salesforce`'s catalog
-  # Meltano doesn't support that yet, though: https://gitlab.com/meltano/meltano/-/issues/2556
-  select:
-    - Lead.*
-    - Contact.*
-    - User.*
-    - OpportunityHistory.*
-    - Account.*
-    - Opportunity.*
   settings_group_validation:
     - ['username', 'password', 'security_token', 'start_date']
     - ['client_id', 'client_secret', 'refresh_token', 'start_date']
@@ -82,3 +70,15 @@ variants:
       kind: integer
       value: 8
       label: Maximum number of threads to use
+- default: false
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-salesforce.git
+  repo: https://github.com/singer-io/tap-salesforce
+  settings: []
+- default: false
+  maintenance_status: Active
+  name: transferwise
+  pip_url: git+https://github.com/transferwise/pipelinewise-tap-salesforce.git
+  repo: https://github.com/transferwise/pipelinewise-tap-salesforce
+  settings: []

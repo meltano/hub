@@ -1,18 +1,17 @@
-name: CSV
+name: csv
+label: CSV
 type: target
-target_type: file
-description: Singer target for loading data into [Comma Separated Values (CSV)](https://en.wikipedia.org/wiki/Comma-separated_values) files
-dialect: csv
+domain:
+  type: file
+  name: Comma Separate Values file type
+description: For loading data into [Comma Separated Values (CSV)](https://en.wikipedia.org/wiki/Comma-separated_values) files
 singer_name: target-csv
 variants:
     - name: singer-io
-      primary_variant: true
+      default: true
       repo: https://github.com/singer-io/target-csv
       repo_forks: https://github.com/singer-io/target-csv/network
       pip_url: target-csv
-      maintainer:
-          name: Stitch
-          link: https://www.stitchdata.com/
       maintenance_status: Unresponsive
       adoptable: true
       settings:

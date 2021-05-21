@@ -1,0 +1,17 @@
+description: Social Networking Website
+domain:
+  description: Social Networking Website
+  name: Twitter API
+  type: api
+  url: https://developer.twitter.com
+label: Twitter
+name: twitter
+singer_name: tap-twitter
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: bernietai
+  pip_url: git+https://github.com/bernietai/tap-twitter.git
+  repo: https://github.com/bernietai/tap-twitter
+  settings: []

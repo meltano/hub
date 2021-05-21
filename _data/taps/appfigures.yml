@@ -1,0 +1,17 @@
+description: Reporting platform for mobile app developers
+domain:
+  description: Reporting platform for mobile app developers
+  name: AppFigures API
+  type: api
+  url: https://appfigures.com/
+label: AppFigures
+name: appfigures
+singer_name: tap-appfigures
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: meowwolf
+  pip_url: git+https://github.com/MeowWolf/tap-appfigures.git
+  repo: https://github.com/MeowWolf/tap-appfigures
+  settings: []

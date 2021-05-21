@@ -1,0 +1,17 @@
+description: Customer Experience Platform
+domain:
+  description: Customer Experience Platform
+  name: UJET API
+  type: api
+  url: https://ujet.cx/
+label: UJET
+name: ujet
+singer_name: tap-ujet
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: bytecodeio
+  pip_url: git+https://github.com/bytecodeio/tap-ujet.git
+  repo: https://github.com/bytecodeio/tap-ujet
+  settings: []

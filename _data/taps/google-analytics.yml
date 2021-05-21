@@ -1,6 +1,7 @@
-name: Google Analytics
+name: google-analytics
+label: Google Analytics
 type: tap
-source:
+domain:
   type: api
   name: Google Analytics Reporting API
   url: https://developers.google.com/analytics/devguides/reporting/core/v4/
@@ -8,9 +9,7 @@ description: App and website analytics platform hosted by Google
 singer_name: tap-google-analytics
 variants:
 - name: meltano
-  primary_variant: true
-  maintainer:
-    name: Meltano Community
+  default: true
   maintenance_status: Active
   repo: https://gitlab.com/meltano/tap-google-analytics
   pip_url: 'git+https://gitlab.com/meltano/tap-google-analytics.git'
@@ -22,42 +21,49 @@ variants:
     - ['oauth_credentials.client_id', 'oauth_credentials.client_secret', 'oauth_credentials.access_token', 'oauth_credentials.refresh_token', 'view_id', 'start_date']
   settings:
     - name: key_file_location
-      env_aliases: [GOOGLE_ANALYTICS_API_CLIENT_SECRETS]
       kind: file
-      value: $MELTANO_PROJECT_ROOT/client_secrets.json
       label: Client Secrets
       placeholder: Ex. client_secrets.json
     - name: oauth_credentials.client_id
-      env_aliases: [GOOGLE_ANALYTICS_API_OAUTH_CLIENT_ID]
       kind: password
       label: OAuth Client ID
     - name: oauth_credentials.client_secret
-      env_aliases: [GOOGLE_ANALYTICS_API_OAUTH_CLIENT_SECRET]
       kind: password
       label: OAuth Client Secret
     - name: oauth_credentials.access_token
-      env_aliases: [GOOGLE_ANALYTICS_API_OAUTH_ACCESS_TOKEN]
       kind: password
       label: OAuth Access Token
     - name: oauth_credentials.refresh_token
-      env_aliases: [GOOGLE_ANALYTICS_API_OAUTH_REFRESH_TOKEN]
       kind: password
       label: OAuth Refresh Token
 
     - name: view_id
-      env_aliases: [GOOGLE_ANALYTICS_API_VIEW_ID]
       label: View ID
       placeholder: Ex. 198343027
     - name: reports
-      env_aliases: [GOOGLE_ANALYTICS_API_REPORTS]
       label: Reports
       placeholder: Ex. my_report_definition.json
 
     - name: start_date
-      env_aliases: [GOOGLE_ANALYTICS_API_START_DATE]
       kind: date_iso8601
       description: This property determines how much historical data will be extracted. Please be aware that the larger the time period and amount of data, the longer the initial extraction can be expected to take.
     - name: end_date
-      env_aliases: [GOOGLE_ANALYTICS_API_END_DATE]
       kind: date_iso8601
       description: Date up to when historical data will be extracted.
+- default: false
+  maintenance_status: Unknown
+  name: zenkay
+  pip_url: git+https://github.com/zenkay/tap-google-analytics.git
+  repo: https://github.com/zenkay/tap-google-analytics
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: saidtezel
+  pip_url: git+https://github.com/saidtezel/tap-google-analytics.git
+  repo: https://github.com/saidtezel/tap-google-analytics
+  settings: []
+- name: transferwise
+  maintenance_status: Active
+  pip_url: git+https://github.com/transferwise/pipelinewise-tap-google-analytics.git
+  repo: https://github.com/transferwise/pipelinewise-tap-google-analytics
+  settings: []

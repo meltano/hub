@@ -1,0 +1,17 @@
+description: Customer Relationship Management System
+domain:
+  description: Customer Relationship Management System 
+  name: Agile CRM API
+  type: api
+  url: https://www.agilecrm.com/
+label: Agile CRM
+name: agilecrm
+singer_name: tap-agilecrm
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: dreamdata-io
+  pip_url: git+https://github.com/dreamdata-io/tap-agilecrm.git
+  repo: https://github.com/dreamdata-io/tap-agilecrm
+  settings: []

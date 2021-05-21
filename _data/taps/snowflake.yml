@@ -1,0 +1,16 @@
+description: For extracting data from Snowflake
+domain:
+  type: database
+  name: Snowflake data warehouse
+  url: https://www.snowflake.com/
+label: Snowflake
+name: snowflake
+singer_name: pipelinewise-tap-snowflake
+type: tap
+variants:
+- default: true
+  maintenance_status: Active
+  name: transferwise
+  pip_url: git+https://github.com/transferwise/pipelinewise-tap-snowflake.git
+  repo: https://github.com/transferwise/pipelinewise-tap-snowflake
+  settings: []

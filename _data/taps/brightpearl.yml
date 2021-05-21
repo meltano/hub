@@ -1,0 +1,17 @@
+description: Retail Management Software
+domain:
+  description: Retail Management Software
+  name: BrightPearl API
+  type: api
+  url: https://www.brightpearl.com/
+label: BrightPearl
+name: brightpearl
+singer_name: tap-brightpearl
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: zookal
+  pip_url: git+https://github.com/Zookal/tap-brightpearl.git
+  repo: https://github.com/Zookal/tap-brightpearl
+  settings: []

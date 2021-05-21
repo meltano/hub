@@ -1,0 +1,17 @@
+description: Business Intelligence (BI) & Data Analytics Platform
+domain:
+  description: Business Intelligence (BI) & Data Analytics Platform
+  name: LookML via GitHub API
+  type: api
+  url: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1
+label: LookML
+name: lookml
+singer_name: tap-lookml
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: bytecodeio
+  pip_url: git+https://github.com/bytecodeio/tap-lookml.git
+  repo: https://github.com/bytecodeio/tap-lookml
+  settings: []

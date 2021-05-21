@@ -1,6 +1,7 @@
-name: BigQuery
+name: bigquery
+label: BigQuery
 type: tap
-source:
+domain:
   type: database
   name: Google BigQuery data warehouse
   url: https://cloud.google.com/bigquery
@@ -8,10 +9,7 @@ description: BigQuery data warehouse
 singer_name: tap-bigquery
 variants:
 - name: anelendata
-  primary_variant: true
-  maintainer:
-    name: Anelen
-    link: https://anelen.co
+  default: true
   maintenance_status: Active
   repo: https://github.com/anelendata/tap-bigquery
   pip_url: tap-bigquery
@@ -25,11 +23,10 @@ variants:
     - name: streams
       kind: array
       description: Array holding objects describing streams (tables) to extract, with `name`, `table`, `columns`, `datetime_key`, and `filters` keys. See docs for details.
-    - name: credentials_path # TODO: This is not a real setting, so it wouldn't show up in the `config.json` JSON schema. We should probably make it a real setting!
-      # The tap doesn't know this setting, but will read the GOOGLE_APPLICATION_CREDENTIALS env var.
-      env_aliases: [GOOGLE_APPLICATION_CREDENTIALS]
-      meltano_default: $MELTANO_PROJECT_ROOT/client_secrets.json
-      description: Fully qualified path to `client_secrets.json` for your service account.
+    - name: credentials_path
+      description: >
+        This is not a real setting, so it should not appear in the `config.json` JSON schema.
+        The taret will read the `GOOGLE_APPLICATION_CREDENTIALS` environment variable which should be a fully qualified path to `client_secrets.json` for your service account.
     - name: start_datetime
       kind: date_iso8601
       description: Determines how much historical data will be extracted. Please be aware that the larger the time period and amount of data, the longer the initial extraction can be expected to take.
@@ -43,3 +40,9 @@ variants:
       kind: boolean
       value: true
       description: When replicating incrementally, disable to only select records whose `datetime_key` is greater than the maximum value replicated in the last run, by excluding records whose timestamps match exactly. This could cause records to be missed that were created after the last run finished, but during the same second and with the same timestamp.
+- default: false
+  maintenance_status: Unknown
+  name: fixdauto
+  pip_url: git+https://github.com/fixdauto/tap-bigquery.git
+  repo: https://github.com/fixdauto/tap-bigquery
+  settings: []

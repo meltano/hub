@@ -1,0 +1,17 @@
+description: Project management software
+domain:
+  description: Project management software
+  name: Clubhouse API
+  type: api
+  url: https://clubhouse.io/
+label: Clubhouse
+name: clubhouse
+singer_name: tap-clubhouse
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: envoy
+  pip_url: git+https://github.com/envoy/tap-clubhouse.git
+  repo: https://github.com/envoy/tap-clubhouse
+  settings: []

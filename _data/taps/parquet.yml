@@ -1,0 +1,17 @@
+description: Columnar Storage Format
+domain:
+  description: Columnar Storage Format
+  name: Parquet Files
+  type: file
+  url: https://parquet.apache.org/
+label: Parquet
+name: parquet
+singer_name: tap-parquet
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: dataops-tk
+  pip_url: git+https://github.com/dataops-tk/tap-parquet.git
+  repo: https://github.com/dataops-tk/tap-parquet
+  settings: []

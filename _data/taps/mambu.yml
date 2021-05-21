@@ -1,0 +1,17 @@
+description: SaaS cloud banking platform
+domain:
+  description: SaaS cloud banking platform
+  name: Mambu API
+  type: api
+  url: https://api.mambu.com/?shell
+label: Mambu
+name: mambu
+singer_name: tap-mambu
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: bytecodeio
+  pip_url: git+https://github.com/bytecodeio/tap-mambu.git
+  repo: https://github.com/bytecodeio/tap-mambu
+  settings: []

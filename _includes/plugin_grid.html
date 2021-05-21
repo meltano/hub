@@ -1,0 +1,15 @@
+<ul class="button-grid">
+  {% for plugin in include.plugins %}
+  <li>
+    <a href="{{ plugin.url | prepend: site.baseurl | prepend: site.url }}">
+      <div class="logo-well">
+        <img
+          src="{{ plugin.logo_url | prepend: site.baseurl | prepend: site.url }}"
+          class="logo"
+        />
+      </div>
+      <span class="label"> {{ plugin.label }} </span>
+    </a>
+  </li>
+  {% endfor %}
+</ul>

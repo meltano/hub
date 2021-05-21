@@ -1,0 +1,23 @@
+description: Customer Communication Platform
+domain:
+  description: Customer Communication Platform
+  name: SendGrid API
+  type: api
+  url: https://sendgrid.com/docs/for-developers/sending-email/api-getting-started/
+label: SendGrid
+name: sendgrid
+singer_name: tap-sendgrid
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-sendgrid.git
+  repo: https://github.com/singer-io/tap-sendgrid
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: codyss
+  pip_url: git+https://github.com/codyss/tap-sendgrid.git
+  repo: https://github.com/codyss/tap-sendgrid
+  settings: []

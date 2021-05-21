@@ -1,6 +1,7 @@
-name: Zoom
+name: zoom
+label: Zoom
 type: tap
-source:
+domain:
   type: api
   name: Zoom API
   url: https://marketplace.zoom.us/docs/api-reference/introduction
@@ -8,10 +9,7 @@ description: Video conferencing software
 singer_name: tap-zoom
 variants:
 - name: mashey
-  primary_variant: true
-  maintainer:
-    name: Mashey
-    link: https://www.mashey.com/
+  default: true
   maintenance_status: Active
   repo: https://github.com/mashey/tap-zoom
   pip_url: 'git+https://github.com/mashey/tap-zoom.git'
@@ -34,3 +32,9 @@ variants:
     - name: refresh_token
       kind: password
       documentation: https://marketplace.zoom.us/docs/guides/auth/oauth
+- default: false
+  maintenance_status: Unknown
+  name: karbonhq
+  pip_url: git+https://github.com/karbonhq/singer-tap-zoom.git
+  repo: https://github.com/karbonhq/singer-tap-zoom
+  settings: []

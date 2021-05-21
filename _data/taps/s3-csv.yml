@@ -1,0 +1,29 @@
+description: Extract CSV files from S3
+domain:
+  description: Extract CSV files from S3
+  name: AWS S3 CSV File Extract
+  type: api
+  url: https://aws.amazon.com/s3/
+label: AWS S3 CSV
+name: s3-csv
+singer_name: tap-s3-csv
+type: tap
+variants:
+- default: false
+  maintenance_status: Unknown
+  name: valulucchesi
+  pip_url: git+https://github.com/valulucchesi/tap-s3-csv.git
+  repo: https://github.com/valulucchesi/tap-s3-csv
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: fishtown-analytics
+  pip_url: git+https://github.com/fishtown-analytics/tap-s3-csv.git
+  repo: https://github.com/fishtown-analytics/tap-s3-csv
+  settings: []
+- default: true
+  maintenance_status: Active
+  name: transferwise
+  pip_url: git+https://github.com/transferwise/pipelinewise-tap-s3-csv
+  repo: https://github.com/transferwise/pipelinewise-tap-s3-csv
+  settings: []

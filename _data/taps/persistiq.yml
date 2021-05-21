@@ -1,0 +1,17 @@
+description: Sales Email Automation
+domain:
+  description: Sales Email Automation
+  name: PersistIQ API
+  type: api
+  url: https://apidocs.persistiq.com/#introduction
+label: PersistIQ
+name: persistiq
+singer_name: tap-persistiq
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: nickleomartin
+  pip_url: git+https://github.com/NickLeoMartin/tap-persistiq.git
+  repo: https://github.com/NickLeoMartin/tap-persistiq
+  settings: []

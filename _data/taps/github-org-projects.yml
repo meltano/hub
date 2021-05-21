@@ -1,0 +1,17 @@
+description: Code hosting Platform
+domain:
+  description: Code hosting Platform
+  name: GitHub Org scope API
+  type: api
+  url: https://docs.github.com/en/rest
+label: GitHub Org
+name: github-org-projects
+singer_name: tap-github-org-projects
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: rossmcdonald
+  pip_url: git+https://github.com/rossmcdonald/tap-github-org-projects.git
+  repo: https://github.com/rossmcdonald/tap-github-org-projects
+  settings: []

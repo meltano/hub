@@ -1,0 +1,23 @@
+description: Social Networking Website
+domain:
+  description: Social Networking Website
+  name: Twitter Ads API
+  type: api
+  url: https://developer.twitter.com
+label: Twitter Ads
+name: twitter-ads
+singer_name: tap-twitter-ads
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: dreamdata-io
+  pip_url: git+https://github.com/dreamdata-io/tap-twitter-ads.git
+  repo: https://github.com/dreamdata-io/tap-twitter-ads
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: bytecodeio
+  pip_url: git+https://github.com/bytecodeio/tap-twitter-ads.git
+  repo: https://github.com/bytecodeio/tap-twitter-ads
+  settings: []

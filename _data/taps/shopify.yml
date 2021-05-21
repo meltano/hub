@@ -1,6 +1,7 @@
-name: Shopify
+name: shopify
+label: Shopify
 type: tap
-source:
+domain:
   type: api
   name: Shopify API
   url: https://shopify.dev/docs/admin-api/rest/reference
@@ -8,10 +9,7 @@ description: Ecommerce platform
 singer_name: tap-shopify
 variants:
 - name: singer-io
-  primary_variant: true
-  maintainer:
-    name: Stitch
-    link: https://www.stitchdata.com/
+  default: true
   maintenance_status: Unresponsive
   repo: https://github.com/singer-io/tap-shopify
   pip_url: tap-shopify

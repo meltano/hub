@@ -1,6 +1,7 @@
-name: Marketo
+name: marketo
+label: Marketo
 type: tap
-source:
+domain:
   type: api
   name: Marketo API
   url: https://developers.marketo.com/rest-api/
@@ -8,9 +9,7 @@ description: Marketing automation for account-based marketing
 singer_name: tap-marketo
 variants:
 - name: meltano
-  primary_variant: true
-  maintainer:
-    name: Meltano Community
+  default: true
   maintenance_status: Active
   repo: https://gitlab.com/meltano/tap-marketo
   pip_url: 'git+https://gitlab.com/meltano/tap-marketo.git'

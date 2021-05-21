@@ -1,0 +1,17 @@
+description: Social Networking Website
+domain:
+  description: Social Networking Website
+  name: Twitter Filtered Stream API
+  type: api
+  url: https://developer.twitter.com
+label: Twitter Filtered Stream
+name: twitter-streams
+singer_name: tap-twitter-streams
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: pbegle
+  pip_url: git+https://github.com/pbegle/tap-twitter-streams.git
+  repo: https://github.com/pbegle/tap-twitter-streams
+  settings: []

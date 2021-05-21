@@ -1,6 +1,7 @@
-name: Chargebee
+name: chargebee
+label: Chargebee
 type: tap
-source:
+domain:
   type: api
   name: Chargebee API
   url: https://apidocs.chargebee.com/docs/api
@@ -8,10 +9,7 @@ description: Subscription billing software
 singer_name: tap-chargebee
 variants:
 - name: hotgluexyz
-  primary_variant: true
-  maintainer:
-    name: Hotglue
-    url: https://hotglue.xyz/
+  default: true
   maintenance_status: Active
   repo: https://github.com/hotgluexyz/tap-chargebee
   pip_url: git+https://github.com/hotgluexyz/tap-chargebee.git
@@ -49,3 +47,9 @@ variants:
     kind: integer
     value: 8
     label: Maximum number of threads to use
+- default: false
+  maintenance_status: Unknown
+  name: envoy
+  pip_url: git+https://github.com/envoy/tap-chargebee.git
+  repo: https://github.com/envoy/tap-chargebee
+  settings: []

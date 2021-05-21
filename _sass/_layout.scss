@@ -2,43 +2,76 @@
  * Site header
  */
 .site-header {
-    border-top: 5px solid $grey-color-dark;
-    border-bottom: 1px solid $grey-color-light;
-    min-height: 56px;
+    background-color: $brand-color;
+    min-height: $header-height;
 
     // Positioning context for the mobile navigation icon
-    position: relative;
+    position: fixed;
+    left: 0;
+    right: 0;
 }
 
 .site-title {
-    font-size: 26px;
-    font-weight: 300;
-    line-height: 56px;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: $header-height;
+    height: $header-height;
     letter-spacing: -1px;
     margin-bottom: 0;
     float: left;
 
+    @include media-query($on-palm) {
+        width: calc(100% - 36px - 15px);
+    }
+
     &,
     &:visited {
-        color: $grey-color-dark;
+        color: white;
+    }
+
+    &:hover {
+        text-decoration: none;
+    }
+
+    img.logo {
+        display: inline-block;
+        height: 2.3rem;
+        vertical-align: text-bottom;
+        position: relative;
+        top: 1px;
+        margin-right: -6px;
     }
 }
 
 .site-nav {
     float: right;
-    line-height: 56px;
+    line-height: $header-height;
 
     .menu-icon {
         display: none;
     }
 
     .page-link {
-        color: $text-color;
+        color: white;
         line-height: $base-line-height;
 
         // Gaps between nav items, but not on the last one
         &:not(:last-child) {
             margin-right: 20px;
+        }
+
+        @media screen and (min-width: $on-palm) {
+            &.button {
+                border: 1px solid white;
+                border-radius: 5px;
+                padding: 3px 6px;
+
+                &:hover {
+                    text-decoration: none;
+                    color: $brand-color;
+                    background-color: white;
+                }
+            }
         }
     }
 
@@ -83,6 +116,8 @@
         .page-link {
             display: block;
             padding: 5px 10px;
+
+            color: $brand-color;
 
             &:not(:last-child) {
                 margin-right: 0;
@@ -168,7 +203,7 @@
  * Page content
  */
 .page-content {
-    padding: $spacing-unit 0;
+    padding: $header-height + $spacing-unit 0 $spacing-unit;
 }
 
 .page-heading {
@@ -210,6 +245,11 @@
 
     @include media-query($on-laptop) {
         font-size: 36px;
+    }
+
+    img.logo {
+        max-width: 60px;
+        max-height: 60px;
     }
 }
 

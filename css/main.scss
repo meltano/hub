@@ -1,34 +1,34 @@
 ---
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
+
 @charset "utf-8";
 
-
-
 // Our variables
-$base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-$base-font-size:   16px;
+$base-font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont,
+  "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans",
+  "Helvetica Neue", sans-serif;
+$base-font-size: 16px;
 $base-font-weight: 400;
-$small-font-size:  $base-font-size * 0.875;
+$small-font-size: $base-font-size * 0.875;
 $base-line-height: 1.5;
 
-$spacing-unit:     30px;
+$header-height: 56px;
+$spacing-unit: 30px;
 
-$text-color:       #111;
-$background-color: #fdfdfd;
-$brand-color:      #2a7ae2;
+$text-color: #2c3e50;
+$background-color: #fff;
+$brand-color: #464acb;
 
-$grey-color:       #828282;
+$grey-color: #828282;
 $grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark:  darken($grey-color, 25%);
+$grey-color-dark: darken($grey-color, 25%);
 
 // Width of the content area
-$content-width:    800px;
+$content-width: 800px;
 
-$on-palm:          600px;
-$on-laptop:        800px;
-
-
+$on-palm: 600px;
+$on-laptop: 800px;
 
 // Use media queries like this:
 // @include media-query($on-palm) {
@@ -38,16 +38,91 @@ $on-laptop:        800px;
 //     }
 // }
 @mixin media-query($device) {
-    @media screen and (max-width: $device) {
-        @content;
-    }
+  @media screen and (max-width: $device) {
+    @content;
+  }
 }
 
-
-
 // Import partials from `sass_dir` (defaults to `_sass`)
-@import
-        "base",
-        "layout",
-        "syntax-highlighting"
-;
+@import "base", "layout", "syntax-highlighting";
+
+ul.button-grid {
+  padding: 0;
+  margin-left: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  align-items: center;
+  justify-content: center;
+
+  > li {
+    list-style: none;
+    text-align: center;
+
+    a {
+      display: block;
+      padding: 10px;
+
+      border: 1px solid transparent;
+      border-radius: 5px;
+
+      &:hover {
+        text-decoration: none;
+        border-color: $brand-color;
+      }
+
+      .logo-well {
+        margin: 0 auto;
+        width: 100px;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10px;
+
+        img.logo {
+          max-width: 100px;
+          max-height: 100px;
+        }
+      }
+
+      strong {
+        display: block;
+        font-size: 1.5em;
+        margin-bottom: 10px;
+      }
+
+      span.label {
+        display: block;
+        font-size: 1.2em;
+      }
+
+      p {
+        color: $text-color;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  @include media-query($on-palm) {
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+
+    > li a strong {
+      font-size: 1.2em;
+    }
+  }
+
+  &.two-columns {
+    grid-template-columns: 1fr 1fr;
+
+    > li {
+      a {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+  }
+}

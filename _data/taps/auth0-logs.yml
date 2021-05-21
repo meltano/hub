@@ -1,0 +1,17 @@
+description: Extract the Logs resource from the API
+domain:
+  description: Authentication and Authorization Platform
+  name: Auth0 Management API
+  type: api
+  url: https://auth0.com/
+label: Auth0 Logs
+name: auth0-logs-checkpoint
+singer_name: tap-auth0-logs-checkpoint
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: process-street
+  pip_url: git+https://github.com/process-street/tap-auth0-logs-checkpoint.git
+  repo: https://github.com/process-street/tap-auth0-logs-checkpoint
+  settings: []

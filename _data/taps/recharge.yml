@@ -1,6 +1,7 @@
-name: ReCharge
+name: recharge
+label: ReCharge
 type: tap
-source:
+domain:
   type: api
   name: ReCharge API
   url: https://rechargepayments.com/developers/
@@ -8,14 +9,11 @@ description: Subscription payments platform
 singer_name: tap-recharge
 variants:
 - name: singer-io
-  primary_variant: true
-  maintainer:
-    name: Stitch
-    link: https://www.stitchdata.com/
+  default: true
   maintenance_status: Unresponsive
   docs: 'https://meltano.com/plugins/extractors/recharge.html'
   repo: https://github.com/singer-io/tap-recharge
-  pip_url: tap-recharge==1.0.3 # TODO: Drop version number?
+  pip_url: tap-recharge
   capabilities:
     - catalog
     - discover
@@ -32,3 +30,9 @@ variants:
       value: tap-recharge via Meltano
       description: User agent to send to ReCharge along with API requests. Typically includes name of integration and an email address you can be reached at
       placeholder: Ex. tap-recharge via Meltano <user@example.com>
+- default: false
+  maintenance_status: Unknown
+  name: bytecodeio
+  pip_url: git+https://github.com/bytecodeio/tap-recharge.git
+  repo: https://github.com/bytecodeio/tap-recharge
+  settings: []

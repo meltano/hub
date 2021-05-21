@@ -1,0 +1,17 @@
+description: Ecommerce tools and integration
+domain:
+  description: Ecommerce tools and integration
+  name: Bold Commerce API
+  type: api
+  url: https://boldcommerce.com/
+label: Bold Commerce
+name: bold
+singer_name: tap-bold
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: oriskincare
+  pip_url: git+https://github.com/oriskincare/tap-bold.git
+  repo: https://github.com/oriskincare/tap-bold
+  settings: []

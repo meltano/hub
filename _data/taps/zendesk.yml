@@ -1,6 +1,7 @@
-name: Zendesk
+name: zendesk
+label: Zendesk
 type: tap
-source:
+domain:
   type: api
   name: Zendesk API
   url: https://developer.zendesk.com/rest_api
@@ -8,10 +9,7 @@ description: Support ticketing system & customer service platform
 singer_name: tap-zendesk
 variants:
   - name: twilio-labs
-    primary_variant: true
-    maintainer:
-      name: Twilio
-      link: https://twilio.com
+    default: true
     maintenance_status: Active
     repo: https://github.com/twilio-labs/twilio-tap-zendesk
     pip_url: twilio-tap-zendesk
@@ -45,9 +43,6 @@ variants:
         kind: date_iso8601
         description: Determines how much historical data will be extracted. Please be aware that the larger the time period and amount of data, the longer the initial extraction can be expected to take.
   - name: singer-io
-    maintainer:
-      name: Stitch
-      link: https://www.stitchdata.com/
     maintenance_status: Unresponsive
     repo: https://github.com/singer-io/tap-zendesk
     pip_url: tap-zendesk
@@ -80,3 +75,15 @@ variants:
       - name: start_date
         kind: date_iso8601
         description: Determines how much historical data will be extracted. Please be aware that the larger the time period and amount of data, the longer the initial extraction can be expected to take.
+  - default: false
+    maintenance_status: Active
+    name: transferwise
+    pip_url: git+https://github.com/transferwise/pipelinewise-tap-zendesk.git
+    repo: https://github.com/transferwise/pipelinewise-tap-zendesk
+    settings: []
+  - default: false
+    maintenance_status: Unknown
+    name: radico
+    pip_url: git+https://github.com/Radico/tap-zendesk.git
+    repo: https://github.com/Radico/tap-zendesk
+    settings: []

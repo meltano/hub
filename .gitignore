@@ -3,5 +3,11 @@ _site
 .jekyll-metadata
 public/
 .ruby-version
-.DS_Store
-.vscode/settings.json
+
+singer/taps.json
+singer/targets.json
+singer/taps/
+singer/targets/
+.venv/
+*.env
+.vscode/*

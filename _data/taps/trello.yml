@@ -1,0 +1,23 @@
+description: Project Management Software
+domain:
+  description: Project Management Software
+  name: Trello API
+  type: api
+  url: https://developer.atlassian.com/cloud/trello/rest/
+label: Trello
+name: trello
+singer_name: tap-trello
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: cloudposse
+  pip_url: git+https://github.com/cloudposse/tap-trello.git
+  repo: https://github.com/cloudposse/tap-trello
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-trello.git
+  repo: https://github.com/singer-io/tap-trello
+  settings: []

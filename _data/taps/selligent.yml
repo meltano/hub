@@ -1,0 +1,23 @@
+description: B2C Marketing Automation Platform
+domain:
+  description: B2C Marketing Automation Platform
+  name: Selligent API
+  type: api
+  url: https://www.selligent.com/
+label: Selligent
+name: selligent
+singer_name: tap-selligent
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-selligent.git
+  repo: https://github.com/singer-io/tap-selligent
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: fishtown-analytics
+  pip_url: git+https://github.com/fishtown-analytics/tap-selligent.git
+  repo: https://github.com/fishtown-analytics/tap-selligent
+  settings: []

@@ -1,0 +1,17 @@
+description: Marketing Platform
+domain:
+  description: Marketing Platform
+  name: Pepperjam API
+  type: api
+  url: https://support.pepperjam.com/s/advertiser-api-documentation
+label: Pepperjam
+name: pepperjam
+singer_name: tap-pepperjam
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: bytecodeio
+  pip_url: git+https://github.com/bytecodeio/tap-pepperjam.git
+  repo: https://github.com/bytecodeio/tap-pepperjam
+  settings: []

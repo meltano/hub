@@ -1,0 +1,23 @@
+description: Email Marketing and Automation Tools
+domain:
+  description: Email Marketing and Automation Tools
+  name: Campaign Monitor API
+  type: api
+  url: https://www.campaignmonitor.com/
+label: Campaign Monitor
+name: campaign-monitor
+singer_name: tap-campaign-monitor
+type: tap
+variants:
+- default: false
+  maintenance_status: Unknown
+  name: fishtown-analytics
+  pip_url: git+https://github.com/fishtown-analytics/tap-campaign-monitor.git
+  repo: https://github.com/fishtown-analytics/tap-campaign-monitor
+  settings: []
+- default: true
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-campaign-monitor.git
+  repo: https://github.com/singer-io/tap-campaign-monitor
+  settings: []

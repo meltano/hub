@@ -6,22 +6,30 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: SingerHub
-email: hello@meltano.com
+title: MeltanoHub
 description: > # this means to ignore newlines until "baseurl:"
-  The SingerHub is a central place to find any Singer-compatible
-  tap or target. The Hub is lovingly curated by Meltano and the wider
+  The MeltanoHub is a central place to find any [Meltano](https://meltano.com) plugin as well as
+  [Singer](https://singer.io)-compatible taps and targets.
+  The Hub is lovingly curated by Meltano and the wider
   Singer community.
 baseurl: ""
-url: "http://singerhub.io" # the base hostname & protocol for your site
-twitter_username: meltanodata
+url: "https://hub.meltano.com" # the base hostname & protocol for your site
+twitter_username: MeltanoData
+gitlab_username: Meltano/Hub
 
 defaults:
   - scope:
       type: plugins
     values:
       layout: "plugin"
+      header: singer
       target: true
+
+collections:
+  extractors:
+    output: true
+  loaders:
+    output: true
 
 # Outputting
 permalink: /:categories/:year/:month/:day/:title

@@ -2,7 +2,10 @@
 
   <div class="wrapper">
 
-    <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
+    <a class="site-title" href="{{ site.baseurl }}/">
+      <img class="logo" src="https://meltano.com/meltano-logo-with-text-white.svg" alt="Meltano">
+      Hub
+    </a>
 
     <nav class="site-nav">
       <a href="#" class="menu-icon">
@@ -14,9 +17,11 @@
       </a>
 
       <div class="trigger">
-        <a class="page-link" href="{{ "/taps/index.html" | prepend: site.baseurl | prepend: site.url }}">Taps</a>
-        <a class="page-link" href="{{ "/targets/index.html" | prepend: site.baseurl | prepend: site.url }}">Targets</a>
-        <a class="page-link" href="{{ "/singer-spec/index.html" | prepend: site.baseurl | prepend: site.url }}">Spec</a>
+        <a class="page-link" href="{{ "/extractors" | prepend: site.baseurl | prepend: site.url }}">Extractors</a>
+        <a class="page-link" href="{{ "/loaders" | prepend: site.baseurl | prepend: site.url }}">Loaders</a>
+        <a class="page-link" href="https://meltano.com/docs/transforms.html" target="_blank">dbt</a>
+        <a class="page-link" href="https://meltano.com/docs/orchestration.html" target="_blank">Airflow</a>
+        <a class="page-link button" href="{{ "/singer" | prepend: site.baseurl | prepend: site.url }}">Hub for Singer</a>
         <!-- {% for my_page in site.pages %}
           {% if my_page.title %}
           <a class="page-link" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
