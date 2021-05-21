@@ -7,9 +7,8 @@ https://github.com/singer-io/tap-yotpo
 
 SELECT *
 FROM dbt.list_taps
-WHERE full_name in (
+WHERE repo_full_name in (
     'singer-io/tap-ordway',
     'singer-io/tap-pendo',
     'singer-io/tap-yotpo'
 )
-;
