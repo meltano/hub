@@ -35,9 +35,6 @@ plugins:
     config:
       destination_path: data/
       do_timestamp_file: true
-  - name: target-bigquery
-    variant: adswerve
-    pip_url: git+https://github.com/adswerve/target-bigquery.git@v0.10.2
   - name: target-athena
     namespace: target_athena
     pip_url: git+https://github.com/aaronsteers/target-athena.git
@@ -56,7 +53,7 @@ plugins:
       aws_region: us-east-2
       athena_database: default
       s3_bucket: devtest-meltano-bucket-01
-      s3_staging_dir: s3://devtest-meltano-bucket-01/stage_dir/
+      s3_staging_dir: s3://devtest-meltano-bucket-01/stage/${STAGE}/
       compression: none
       temp_dir: .output
   transformers:
