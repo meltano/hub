@@ -25,7 +25,7 @@ plugins:
       - name: target_something
         query: target-+language:Python+fork:true
     select:
-    - 'repository_search.*'
+    - 'repositories.*'
     - 'issues.*'
     - 'issue_comments.*'
   loaders:
