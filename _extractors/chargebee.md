@@ -1,6 +1,6 @@
 ---
 title: Chargebee
-layout: page
+layout: plugin_page
 description: Use Meltano to pull data from the Chargebee API and load it into Snowflake, PostgreSQL, and more
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Google Analytics
-layout: page
+layout: plugin_page
 description: Use Meltano to pull data from the Google Analytics API and load it into Snowflake, PostgreSQL, and more
 ---
 

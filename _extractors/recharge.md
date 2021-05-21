@@ -1,6 +1,6 @@
 ---
 title: ReCharge
-layout: page
+layout: plugin_page
 description: Use Meltano to pull data from the ReCharge API and load it into Snowflake, PostgreSQL, and more
 ---
 

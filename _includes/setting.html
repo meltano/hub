@@ -1,5 +1,5 @@
 {% assign setting=include.setting %}
-<h3>
+<h3 id="{{ setting.name | slugify }}">
   {% if setting.label %} {{setting.label}} (<code>{{ setting.name }}</code>) {%
   else %}
   <code>{{ setting.name }}</code>

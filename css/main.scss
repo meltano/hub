@@ -126,3 +126,21 @@ ul.button-grid {
     }
   }
 }
+
+details.post-toc {
+  margin-bottom: 15px;
+
+  summary {
+    cursor: pointer;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding-top: $header-height;
+  margin-top: -$header-height;
+}
