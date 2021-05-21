@@ -1,0 +1,11 @@
+**/.env
+**/logs
+
+.meltano
+.output
+data
+
+**/.secrets
+!**/.secrets/README.md
+
+.terraform
