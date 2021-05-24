@@ -1,22 +1,52 @@
-name: intacct
-label: Sage Intacct
-type: tap
-domain:
-  type: api
-  name: Sage Intacct API
-  url: https://developer.intacct.com/api/
 description: Financial management software
+domain:
+  name: Sage Intacct API
+  type: api
+  url: https://developer.intacct.com/api/
+label: Sage Intacct
+name: intacct
 singer_name: tap-intacct
+type: tap
 variants:
-- name: hotgluexyz
-  default: true
-  maintenance_status: Active
-  repo: https://github.com/hotgluexyz/tap-intacct
-  pip_url: git+https://github.com/hotgluexyz/tap-intacct.git
-  capabilities:
+- capabilities:
   - properties
   - discover
   - state
+  default: true
+  maintenance_status: Active
+  name: hotgluexyz
+  pip_url: git+https://github.com/hotgluexyz/tap-intacct.git
+  repo: https://github.com/hotgluexyz/tap-intacct
+  settings:
+  - label: Company Id
+    name: company_id
+  - label: Intacct Sender Id
+    name: sender_id
+  - kind: password
+    label: Intacct Sender Password
+    name: sender_password
+  - label: Intacct User Id
+    name: user_id
+  - kind: password
+    label: Intacct User Password
+    name: user_password
+  - description: Determines how much historical data will be extracted. Please be
+      aware that the larger the time period and amount of data, the longer the initial
+      extraction can be expected to take.
+    kind: date_iso8601
+    name: start_date
+  - description: Select by default any new fields discovered in Quickbooks objects
+    kind: boolean
+    name: select_fields_by_default
+    value: true
+  - description: Generate a STATE message every N records
+    kind: integer
+    name: state_message_threshold
+    value: 1000
+  - kind: integer
+    label: Maximum number of threads to use
+    name: max_workers
+    value: 8
   settings_group_validation:
   - - company_id
     - sender_id
@@ -24,33 +54,3 @@ variants:
     - user_id
     - user_password
     - start_date
-  settings:
-  - name: company_id
-    label: Company Id
-  - name: sender_id
-    label: Intacct Sender Id
-  - name: sender_password
-    label: Intacct Sender Password
-    kind: password
-  - name: user_id
-    label: Intacct User Id
-  - name: user_password
-    label: Intacct User Password
-    kind: password
-  - name: start_date
-    kind: date_iso8601
-    description: Determines how much historical data will be extracted. Please be
-      aware that the larger the time period and amount of data, the longer the initial
-      extraction can be expected to take.
-  - name: select_fields_by_default
-    kind: boolean
-    value: true
-    description: Select by default any new fields discovered in Quickbooks objects
-  - name: state_message_threshold
-    kind: integer
-    value: 1000
-    description: Generate a STATE message every N records
-  - name: max_workers
-    kind: integer
-    value: 8
-    label: Maximum number of threads to use

@@ -1,89 +1,99 @@
-name: zendesk
-label: Zendesk
-type: tap
-domain:
-  type: api
-  name: Zendesk API
-  url: https://developer.zendesk.com/rest_api
 description: Support ticketing system & customer service platform
+domain:
+  name: Zendesk API
+  type: api
+  url: https://developer.zendesk.com/rest_api
+label: Zendesk
+name: zendesk
 singer_name: tap-zendesk
+type: tap
 variants:
-  - name: twilio-labs
-    default: true
-    maintenance_status: Active
-    repo: https://github.com/twilio-labs/twilio-tap-zendesk
-    pip_url: twilio-tap-zendesk
-    capabilities:
-      - catalog
-      - discover
-      - state
-    settings_group_validation:
-      - ['email', 'api_token', 'subdomain', 'start_date']
-      - ['access_token', 'subdomain', 'start_date']
-    settings:
-      - name: email
-        kind: email
-        placeholder: Ex. me@my-organization.com
-      - name: api_token
-        kind: password
-        label: API Token
-        placeholder: Ex. *****************
-        documentation: https://support.zendesk.com/hc/en-us/articles/226022787-Generating-a-new-API-token-
-
-      - name: access_token
-        kind: password
-        description: OAuth Access Token
-        documentation: https://support.zendesk.com/hc/en-us/articles/203663836
-
-      - name: subdomain
-        label: Zendesk Subdomain
-        placeholder: Ex. my-subdomain.zendesk.com
-        documentation: https://support.zendesk.com/hc/en-us/articles/221682747-Where-can-I-find-my-Zendesk-subdomain-
-      - name: start_date
-        kind: date_iso8601
-        description: Determines how much historical data will be extracted. Please be aware that the larger the time period and amount of data, the longer the initial extraction can be expected to take.
-  - name: singer-io
-    maintenance_status: Unresponsive
-    repo: https://github.com/singer-io/tap-zendesk
-    pip_url: tap-zendesk
-    capabilities:
-      - catalog
-      - discover
-      - state
-    settings_group_validation:
-      - ['email', 'api_token', 'subdomain', 'start_date']
-      - ['access_token', 'subdomain', 'start_date']
-    settings:
-      - name: email
-        kind: email
-        placeholder: Ex. me@my-organization.com
-      - name: api_token
-        kind: password
-        label: API Token
-        placeholder: Ex. *****************
-        documentation: https://support.zendesk.com/hc/en-us/articles/226022787-Generating-a-new-API-token-
-
-      - name: access_token
-        kind: password
-        description: OAuth Access Token
-        documentation: https://support.zendesk.com/hc/en-us/articles/203663836
-
-      - name: subdomain
-        label: Zendesk Subdomain
-        placeholder: Ex. my-subdomain.zendesk.com
-        documentation: https://support.zendesk.com/hc/en-us/articles/221682747-Where-can-I-find-my-Zendesk-subdomain-
-      - name: start_date
-        kind: date_iso8601
-        description: Determines how much historical data will be extracted. Please be aware that the larger the time period and amount of data, the longer the initial extraction can be expected to take.
-  - default: false
-    maintenance_status: Active
-    name: transferwise
-    pip_url: git+https://github.com/transferwise/pipelinewise-tap-zendesk.git
-    repo: https://github.com/transferwise/pipelinewise-tap-zendesk
-    settings: []
-  - default: false
-    maintenance_status: Unknown
-    name: radico
-    pip_url: git+https://github.com/Radico/tap-zendesk.git
-    repo: https://github.com/Radico/tap-zendesk
-    settings: []
+- capabilities:
+  - catalog
+  - discover
+  - state
+  default: true
+  maintenance_status: Active
+  name: twilio-labs
+  pip_url: twilio-tap-zendesk
+  repo: https://github.com/twilio-labs/twilio-tap-zendesk
+  settings:
+  - kind: email
+    name: email
+    placeholder: Ex. me@my-organization.com
+  - documentation: https://support.zendesk.com/hc/en-us/articles/226022787-Generating-a-new-API-token-
+    kind: password
+    label: API Token
+    name: api_token
+    placeholder: Ex. *****************
+  - description: OAuth Access Token
+    documentation: https://support.zendesk.com/hc/en-us/articles/203663836
+    kind: password
+    name: access_token
+  - documentation: https://support.zendesk.com/hc/en-us/articles/221682747-Where-can-I-find-my-Zendesk-subdomain-
+    label: Zendesk Subdomain
+    name: subdomain
+    placeholder: Ex. my-subdomain.zendesk.com
+  - description: Determines how much historical data will be extracted. Please be
+      aware that the larger the time period and amount of data, the longer the initial
+      extraction can be expected to take.
+    kind: date_iso8601
+    name: start_date
+  settings_group_validation:
+  - - email
+    - api_token
+    - subdomain
+    - start_date
+  - - access_token
+    - subdomain
+    - start_date
+- capabilities:
+  - catalog
+  - discover
+  - state
+  maintenance_status: Unresponsive
+  name: singer-io
+  pip_url: tap-zendesk
+  repo: https://github.com/singer-io/tap-zendesk
+  settings:
+  - kind: email
+    name: email
+    placeholder: Ex. me@my-organization.com
+  - documentation: https://support.zendesk.com/hc/en-us/articles/226022787-Generating-a-new-API-token-
+    kind: password
+    label: API Token
+    name: api_token
+    placeholder: Ex. *****************
+  - description: OAuth Access Token
+    documentation: https://support.zendesk.com/hc/en-us/articles/203663836
+    kind: password
+    name: access_token
+  - documentation: https://support.zendesk.com/hc/en-us/articles/221682747-Where-can-I-find-my-Zendesk-subdomain-
+    label: Zendesk Subdomain
+    name: subdomain
+    placeholder: Ex. my-subdomain.zendesk.com
+  - description: Determines how much historical data will be extracted. Please be
+      aware that the larger the time period and amount of data, the longer the initial
+      extraction can be expected to take.
+    kind: date_iso8601
+    name: start_date
+  settings_group_validation:
+  - - email
+    - api_token
+    - subdomain
+    - start_date
+  - - access_token
+    - subdomain
+    - start_date
+- default: false
+  maintenance_status: Active
+  name: transferwise
+  pip_url: git+https://github.com/transferwise/pipelinewise-tap-zendesk.git
+  repo: https://github.com/transferwise/pipelinewise-tap-zendesk
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: radico
+  pip_url: git+https://github.com/Radico/tap-zendesk.git
+  repo: https://github.com/Radico/tap-zendesk
+  settings: []

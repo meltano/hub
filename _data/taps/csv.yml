@@ -1,33 +1,34 @@
-name: csv
-label: CSV
-type: tap
-domain:
-  type: file
-  name: Comma Separated Values (CSV) file
-  url: https://en.wikipedia.org/wiki/Comma-separated_values
 description: Generic data extractor of CSV (comma separated value) files
+domain:
+  name: Comma Separated Values (CSV) file
+  type: file
+  url: https://en.wikipedia.org/wiki/Comma-separated_values
+label: CSV
+name: csv
 singer_name: tap-csv
+type: tap
 variants:
-- name: meltano
+- capabilities:
+  - discover
+  - state
   default: true
   maintenance_status: Active
-  repo: https://gitlab.com/meltano/tap-csv
+  name: meltano
   pip_url: git+https://gitlab.com/meltano/tap-csv.git
-  capabilities:
-    - discover
-    - state
-  settings_group_validation:
-    - ['files']
-    - ['csv_files_definition']
+  repo: https://gitlab.com/meltano/tap-csv
   settings:
-    - name: files
-      kind: array
-      description: Array of objects with `entity`, `file`, and `keys` keys
-    - name: csv_files_definition
-      label: CSV Files Definition
-      description: Project-relative path to JSON file holding array of objects with `entity`, `file`, and `keys` keys
-      placeholder: Ex. files-def.json
-      documentation: https://gitlab.com/meltano/tap-csv#run
+  - description: Array of objects with `entity`, `file`, and `keys` keys
+    kind: array
+    name: files
+  - description: Project-relative path to JSON file holding array of objects with
+      `entity`, `file`, and `keys` keys
+    documentation: https://gitlab.com/meltano/tap-csv#run
+    label: CSV Files Definition
+    name: csv_files_definition
+    placeholder: Ex. files-def.json
+  settings_group_validation:
+  - - files
+  - - csv_files_definition
 - default: false
   maintenance_status: Unknown
   name: robertjmoore

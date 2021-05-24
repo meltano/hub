@@ -1,26 +1,28 @@
-name: marketo
-label: Marketo
-type: tap
-domain:
-  type: api
-  name: Marketo API
-  url: https://developers.marketo.com/rest-api/
 description: Marketing automation for account-based marketing
+domain:
+  name: Marketo API
+  type: api
+  url: https://developers.marketo.com/rest-api/
+label: Marketo
+name: marketo
 singer_name: tap-marketo
+type: tap
 variants:
-- name: meltano
+- capabilities: []
   default: true
   maintenance_status: Active
+  name: meltano
+  pip_url: git+https://gitlab.com/meltano/tap-marketo.git
   repo: https://gitlab.com/meltano/tap-marketo
-  pip_url: 'git+https://gitlab.com/meltano/tap-marketo.git'
-  capabilities: []
   settings:
-    - name: endpoint
-    - name: identity
-    - name: client_id
-      label: Client ID
-    - name: client_secret
-      kind: password
-    - name: start_date
-      description: Determines how much historical data will be extracted. Please be aware that the larger the time period and amount of data, the longer the initial extraction can be expected to take.
-      kind: date_iso8601
+  - name: endpoint
+  - name: identity
+  - label: Client ID
+    name: client_id
+  - kind: password
+    name: client_secret
+  - description: Determines how much historical data will be extracted. Please be
+      aware that the larger the time period and amount of data, the longer the initial
+      extraction can be expected to take.
+    kind: date_iso8601
+    name: start_date

@@ -1,49 +1,54 @@
-name: mongodb
-label: MongoDB
-type: tap
-domain:
-  type: database
-  name: MongoDB database
-  url: https://www.mongodb.com/
 description: General purpose, document-based, distributed database
+domain:
+  name: MongoDB database
+  type: database
+  url: https://www.mongodb.com/
+label: MongoDB
+name: mongodb
 singer_name: tap-mongodb
+type: tap
 variants:
-- name: singer-io
+- capabilities:
+  - catalog
+  - discover
+  - state
   default: true
   maintenance_status: Unresponsive
-  repo: https://github.com/singer-io/tap-mongodb
+  name: singer-io
   pip_url: tap-mongodb
-  capabilities:
-    - catalog
-    - discover
-    - state
-  settings_group_validation:
-    - ['host', 'port', 'user', 'password', 'database']
+  repo: https://github.com/singer-io/tap-mongodb
   settings:
-    - name: host
-      label: Host URL
-      value: localhost
-    - name: port
-      kind: integer
-      value: 27017
-    - name: user
-    - name: password
-      kind: password
-    - name: database
-      label: Database Name
-    - name: replica_set
-    - name: ssl
-      kind: boolean
-      value: false
-      label: SSL
-    - name: verify_mode
-      kind: boolean
-      value: true
-      description: SSL Verify Mode
-    - name: include_schemas_in_destination_stream_name
-      kind: boolean
-      value: false
-      description: Forces the stream names to take the form `<database_name>_<collection_name>` instead of `<collection_name>`
+  - label: Host URL
+    name: host
+    value: localhost
+  - kind: integer
+    name: port
+    value: 27017
+  - name: user
+  - kind: password
+    name: password
+  - label: Database Name
+    name: database
+  - name: replica_set
+  - kind: boolean
+    label: SSL
+    name: ssl
+    value: false
+  - description: SSL Verify Mode
+    kind: boolean
+    name: verify_mode
+    value: true
+  - description: Forces the stream names to take the form `<database_name>_<collection_name>`
+      instead of `<collection_name>`
+    kind: boolean
+    name: include_schemas_in_destination_stream_name
+    value: false
+  settings_group_validation:
+  - - host
+    - port
+    - user
+    - password
+    - database
 - default: false
   maintenance_status: Active
   name: transferwise

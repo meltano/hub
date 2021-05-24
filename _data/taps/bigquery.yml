@@ -1,45 +1,59 @@
-name: bigquery
-label: BigQuery
-type: tap
-domain:
-  type: database
-  name: Google BigQuery data warehouse
-  url: https://cloud.google.com/bigquery
 description: BigQuery data warehouse
+domain:
+  name: Google BigQuery data warehouse
+  type: database
+  url: https://cloud.google.com/bigquery
+label: BigQuery
+name: bigquery
 singer_name: tap-bigquery
+type: tap
 variants:
-- name: anelendata
+- capabilities:
+  - catalog
+  - discover
+  - state
   default: true
   maintenance_status: Active
-  repo: https://github.com/anelendata/tap-bigquery
+  name: anelendata
   pip_url: tap-bigquery
-  capabilities:
-    - catalog
-    - discover
-    - state
-  settings_group_validation:
-    - ['streams', 'start_datetime', 'credentials_path']
+  repo: https://github.com/anelendata/tap-bigquery
   settings:
-    - name: streams
-      kind: array
-      description: Array holding objects describing streams (tables) to extract, with `name`, `table`, `columns`, `datetime_key`, and `filters` keys. See docs for details.
-    - name: credentials_path
-      description: >
-        This is not a real setting, so it should not appear in the `config.json` JSON schema.
-        The taret will read the `GOOGLE_APPLICATION_CREDENTIALS` environment variable which should be a fully qualified path to `client_secrets.json` for your service account.
-    - name: start_datetime
-      kind: date_iso8601
-      description: Determines how much historical data will be extracted. Please be aware that the larger the time period and amount of data, the longer the initial extraction can be expected to take.
-    - name: end_datetime
-      kind: date_iso8601
-      description: Date up to when historical data will be extracted.
-    - name: limit
-      kind: integer
-      description: Limits the number of records returned in each stream, applied as a limit in the query.
-    - name: start_always_inclusive
-      kind: boolean
-      value: true
-      description: When replicating incrementally, disable to only select records whose `datetime_key` is greater than the maximum value replicated in the last run, by excluding records whose timestamps match exactly. This could cause records to be missed that were created after the last run finished, but during the same second and with the same timestamp.
+  - description: Array holding objects describing streams (tables) to extract, with
+      `name`, `table`, `columns`, `datetime_key`, and `filters` keys. See docs for
+      details.
+    kind: array
+    name: streams
+  - description: 'This is not a real setting, so it should not appear in the `config.json`
+      JSON schema. The taret will read the `GOOGLE_APPLICATION_CREDENTIALS` environment
+      variable which should be a fully qualified path to `client_secrets.json` for
+      your service account.
+
+      '
+    name: credentials_path
+  - description: Determines how much historical data will be extracted. Please be
+      aware that the larger the time period and amount of data, the longer the initial
+      extraction can be expected to take.
+    kind: date_iso8601
+    name: start_datetime
+  - description: Date up to when historical data will be extracted.
+    kind: date_iso8601
+    name: end_datetime
+  - description: Limits the number of records returned in each stream, applied as
+      a limit in the query.
+    kind: integer
+    name: limit
+  - description: When replicating incrementally, disable to only select records whose
+      `datetime_key` is greater than the maximum value replicated in the last run,
+      by excluding records whose timestamps match exactly. This could cause records
+      to be missed that were created after the last run finished, but during the same
+      second and with the same timestamp.
+    kind: boolean
+    name: start_always_inclusive
+    value: true
+  settings_group_validation:
+  - - streams
+    - start_datetime
+    - credentials_path
 - default: false
   maintenance_status: Unknown
   name: fixdauto

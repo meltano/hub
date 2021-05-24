@@ -1,56 +1,56 @@
-name: quickbooks
-label: Quickbooks
-type: tap
-domain:
-  type: api
-  name: Quickbooks Online API
-  url: https://developer.intuit.com/app/developer/qbo/docs/develop
 description: Accounting management platform
+domain:
+  name: Quickbooks Online API
+  type: api
+  url: https://developer.intuit.com/app/developer/qbo/docs/develop
+label: Quickbooks
+name: quickbooks
 singer_name: tap-quickbooks
+type: tap
 variants:
-- name: hotgluexyz
-  default: true
-  maintenance_status: Active
-  repo: https://github.com/hotgluexyz/tap-quickbooks
-  pip_url: git+https://github.com/hotgluexyz/tap-quickbooks.git
-  capabilities:
+- capabilities:
   - properties
   - discover
   - state
+  default: true
+  maintenance_status: Active
+  name: hotgluexyz
+  pip_url: git+https://github.com/hotgluexyz/tap-quickbooks.git
+  repo: https://github.com/hotgluexyz/tap-quickbooks
+  settings:
+  - label: Realm ID
+    name: realmId
+  - kind: password
+    label: Client ID
+    name: client_id
+  - kind: password
+    name: client_secret
+  - kind: password
+    name: refresh_token
+  - description: Determines how much historical data will be extracted. Please be
+      aware that the larger the time period and amount of data, the longer the initial
+      extraction can be expected to take.
+    kind: date_iso8601
+    name: start_date
+  - description: Use Quickbooks Sandbox
+    kind: boolean
+    name: is_sandbox
+    value: false
+  - description: Select by default any new fields discovered in Quickbooks objects
+    kind: boolean
+    name: select_fields_by_default
+    value: true
+  - description: Generate a STATE message every N records
+    kind: integer
+    name: state_message_threshold
+    value: 1000
+  - kind: integer
+    label: Maximum number of threads to use
+    name: max_workers
+    value: 8
   settings_group_validation:
   - - client_id
     - client_secret
     - refresh_token
     - realmId
     - start_date
-  settings:
-  - name: realmId
-    label: Realm ID
-  - name: client_id
-    kind: password
-    label: Client ID
-  - name: client_secret
-    kind: password
-  - name: refresh_token
-    kind: password
-  - name: start_date
-    kind: date_iso8601
-    description: Determines how much historical data will be extracted. Please be
-      aware that the larger the time period and amount of data, the longer the initial
-      extraction can be expected to take.
-  - name: is_sandbox
-    kind: boolean
-    value: false
-    description: Use Quickbooks Sandbox
-  - name: select_fields_by_default
-    kind: boolean
-    value: true
-    description: Select by default any new fields discovered in Quickbooks objects
-  - name: state_message_threshold
-    kind: integer
-    value: 1000
-    description: Generate a STATE message every N records
-  - name: max_workers
-    kind: integer
-    value: 8
-    label: Maximum number of threads to use
