@@ -1,40 +1,47 @@
-name: bing-ads
-label: Bing Ads
-type: tap
-domain:
-  type: api
-  name: Bing Ads API
-  url: https://docs.microsoft.com/en-us/advertising/guides/
 description: Advertising Platform
+domain:
+  name: Bing Ads API
+  type: api
+  url: https://docs.microsoft.com/en-us/advertising/guides/
+label: Bing Ads
+name: bing-ads
 singer_name: tap-bing-ads
+type: tap
 variants:
-- name: singer-io
+- capabilities:
+  - catalog
+  - discover
+  - state
   default: true
   maintenance_status: Unresponsive
-  repo: https://github.com/singer-io/tap-bing-ads
+  name: singer-io
   pip_url: tap-bing-ads
-  capabilities:
-    - catalog
-    - discover
-    - state
-  settings_group_validation:
-    - ['customer_id', 'account_ids', 'oauth_client_id', 'oauth_client_secret', 'refresh_token', 'developer_token', 'start_date']
+  repo: https://github.com/singer-io/tap-bing-ads
   settings:
-    - name: developer_token
-      kind: password
-    - name: oauth_client_id
-      label: OAuth Client ID
-      kind: password
-    - name: oauth_client_secret
-      label: OAuth Client Secret
-      kind: password
-    - name: refresh_token
-      kind: password
-
-    - name: customer_id
-      label: Customer ID
-    - name: account_ids
-      label: Account ID(s)
-    - name: start_date
-      description: Determines how much historical data will be extracted. Please be aware that the larger the time period and amount of data, the longer the initial extraction can be expected to take.
-      kind: date_iso8601
+  - kind: password
+    name: developer_token
+  - kind: password
+    label: OAuth Client ID
+    name: oauth_client_id
+  - kind: password
+    label: OAuth Client Secret
+    name: oauth_client_secret
+  - kind: password
+    name: refresh_token
+  - label: Customer ID
+    name: customer_id
+  - label: Account ID(s)
+    name: account_ids
+  - description: Determines how much historical data will be extracted. Please be
+      aware that the larger the time period and amount of data, the longer the initial
+      extraction can be expected to take.
+    kind: date_iso8601
+    name: start_date
+  settings_group_validation:
+  - - customer_id
+    - account_ids
+    - oauth_client_id
+    - oauth_client_secret
+    - refresh_token
+    - developer_token
+    - start_date

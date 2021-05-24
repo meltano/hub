@@ -42,8 +42,13 @@
             "id": "#/properties/description",
             "type": "string",
             "title": "The description schema",
-            "description": "An explanation about the purpose of this instance.",
-            "default": ""
+            "description": "An explanation about the purpose of this instance."
+        },
+        "include": {
+            "id": "#/properties/include",
+            "type": "string",
+            "title": "Specifies the YAML file to reference",
+            "description": "This key indentifies the other YAML file used to build the current file. In the context of the clean Singer files, this can point to scraped/<plugin>. For Meltano it would point to singer/<plugin>."
         },
         "domain": {
             "id": "#/properties/domain",

@@ -1,22 +1,24 @@
-name: spreadsheets-anywhere
-label: Spreadsheets Anywhere
-type: tap
+description: Data extractor for CSV and Excel files from any smart_open supported
+  transport (S3, SFTP, localhost, etc...)
 domain:
-  type: file
   name: CSV and Excel spreadsheets on cloud or local storage
-description: Data extractor for CSV and Excel files from any smart_open supported transport (S3, SFTP, localhost, etc...)
+  type: file
+label: Spreadsheets Anywhere
+name: spreadsheets-anywhere
 singer_name: tap-spreadsheets-anywhere
+type: tap
 variants:
-- name: ets
+- capabilities:
+  - catalog
+  - discover
+  - state
   default: true
   maintenance_status: Active
-  repo: https://github.com/ets/tap-spreadsheets-anywhere
+  name: ets
   pip_url: git+https://github.com/ets/tap-spreadsheets-anywhere.git
-  capabilities:
-    - catalog
-    - discover
-    - state
+  repo: https://github.com/ets/tap-spreadsheets-anywhere
   settings:
-    - name: tables
-      kind: array
-      description: An array holding json objects that each describe a set of targeted source files. See docs for details.
+  - description: An array holding json objects that each describe a set of targeted
+      source files. See docs for details.
+    kind: array
+    name: tables
