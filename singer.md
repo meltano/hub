@@ -21,15 +21,17 @@ All taps and targets available through the MeltanoHub are listed here:
 * [Singer Taps](/singer/taps/)
 * [Singer Targets](/singer/targets/)
 
-Each tap and target is defined in YAML and is validated against a JSON Schema available on [the Hub](/singer/schema.json).
+Each tap and target is defined in YAML and is validated against a JSON Schema available on [the Hub](/singer/api/v1/schema.json).
 The JSON Schema will continue to evolve as we iterate towards a formal launch of the MeltanoHub, after which there will be strong versioning.
 
 We've also compiled all taps and targets into their own JSON files for use by anyone.
-These are available here:
+The latest version of these files will always be available at the endpoints:
 
 * [Tap JSON](/singer/taps.json)
 * [Target JSON](/singer/targets.json)
 
+These files will also be versioned when changes are made in a backwards-incompatible way. 
+The versioned files will be available through the [API endpoint](/singer/api/v1/).
 Individual YAML files are also available through the individual pages or on the [repository](https://gitlab.com/meltano/hub/) building the MeltanoHub.
 
 ### Tap and Target SDKs
