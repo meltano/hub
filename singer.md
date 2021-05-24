@@ -25,7 +25,7 @@ Each tap and target is defined in YAML and is validated against a JSON Schema av
 The JSON Schema will continue to evolve as we iterate towards a formal launch of the MeltanoHub, after which there will be strong versioning.
 
 We've also compiled all taps and targets into their own JSON files for use by anyone.
-The latest version of these files will always be available at the endpoints:
+The latest version of these files will always be available at these endpoints:
 
 * [Tap JSON](/singer/taps.json)
 * [Target JSON](/singer/targets.json)
