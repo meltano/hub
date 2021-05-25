@@ -9,9 +9,15 @@ name: anaplan
 singer_name: tap-anaplan
 type: tap
 variants:
-- default: true
+- default: false
   maintenance_status: Unknown
   name: kdamodaran1
   pip_url: git+https://github.com/kdamodaran1/tap-anaplan.git
   repo: https://github.com/kdamodaran1/tap-anaplan
+  settings: []
+- default: true
+  maintenance_status: Active
+  name: matthew-skinner
+  pip_url: git+https://github.com/matthew-skinner/tap-anaplan.git
+  repo: https://github.com/matthew-skinner/tap-anaplan
   settings: []
