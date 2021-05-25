@@ -1,0 +1,17 @@
+description: Content Management System
+domain:
+  description: Content Management System
+  name: Wordpress API for Plugin Stats
+  type: api
+  url: https://developer.wordpress.org/rest-api/
+label: Wordpress.org Plugin Stats
+name: wordpress-plugin-stats
+singer_name: singer-tap-wordpress-plugin-stats
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: yoast
+  pip_url: git+https://github.com/Yoast/singer-tap-wordpress-plugin-stats.git
+  repo: https://github.com/Yoast/singer-tap-wordpress-plugin-stats
+  settings: []

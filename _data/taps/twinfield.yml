@@ -1,0 +1,17 @@
+description: Tax and Accounting Software
+domain:
+  description: Tax and Accounting Software
+  name: Twinfield API
+  type: api
+  url: https://accounting2.twinfield.com/webservices/documentation/#/ApiReference/Request/BrowseData
+label: Twinfield
+name: twinfield
+singer_name: singer-tap-twinfield
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: yoast
+  pip_url: git+https://github.com/Yoast/singer-tap-twinfield.git
+  repo: https://github.com/Yoast/singer-tap-twinfield
+  settings: []

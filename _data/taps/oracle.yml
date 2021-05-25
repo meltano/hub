@@ -1,0 +1,29 @@
+description: Cloud Database
+domain:
+  description: Cloud Database
+  name: Oracle Database
+  type: database
+  url: https://www.oracle.com/database/
+label: Oracle DB
+name: oracle
+singer_name: pipelinewise-tap-oracle
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: transferwise
+  pip_url: git+https://github.com/transferwise/pipelinewise-tap-oracle.git
+  repo: https://github.com/transferwise/pipelinewise-tap-oracle
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: mpcarter
+  pip_url: git+https://github.com/mpcarter/pipelinewise-tap-oracle.git
+  repo: https://github.com/mpcarter/pipelinewise-tap-oracle
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: visch
+  pip_url: git+https://github.com/visch/pipelinewise-tap-oracle.git
+  repo: https://github.com/visch/pipelinewise-tap-oracle
+  settings: []

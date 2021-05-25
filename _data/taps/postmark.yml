@@ -1,0 +1,17 @@
+description: Application Email Service
+domain:
+  description: Application Email Service
+  name: Postmark API
+  type: api
+  url: https://postmarkapp.com/developer
+label: Postmark
+name: postmark
+singer_name: singer-tap-postmark
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: yoast
+  pip_url: git+https://github.com/Yoast/singer-tap-postmark.git
+  repo: https://github.com/Yoast/singer-tap-postmark
+  settings: []
