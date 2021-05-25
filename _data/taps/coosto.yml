@@ -1,0 +1,17 @@
+description: Social Media Management Platform
+domain:
+  description: Social Media Management Platform
+  name: Coosto API
+  type: api
+  url: https://www.coosto.com/en
+label: Coosto
+name: coosto
+singer_name: singer-tap-coosto
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: yoast
+  pip_url: git+https://github.com/Yoast/singer-tap-coosto.git
+  repo: https://github.com/Yoast/singer-tap-coosto
+  settings: []

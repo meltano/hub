@@ -1,0 +1,17 @@
+description: POS System & Credit Card Readers
+domain:
+  description: POS System & Credit Card Readers
+  name: Clover API
+  type: api
+  url: https://docs.clover.com/docs/making-rest-api-calls
+label: Clover
+name: clover
+singer_name: tap-clover
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: kalai-wavicle
+  pip_url: git+https://github.com/Kalai-Wavicle/tap-clover.git
+  repo: https://github.com/Kalai-Wavicle/tap-clover
+  settings: []

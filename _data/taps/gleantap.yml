@@ -1,0 +1,17 @@
+description: Gym & Fitness CRM
+domain:
+  description: Gym & Fitness CRM
+  name: Gleantap API
+  type: api
+  url: https://app.gleantap.com/docs/
+label: Gleantap
+name: gleantap
+singer_name: tap-gleantap
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: radico
+  pip_url: git+https://github.com/Radico/tap-gleantap.git
+  repo: https://github.com/Radico/tap-gleantap
+  settings: []

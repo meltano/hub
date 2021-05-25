@@ -1,0 +1,17 @@
+description: B2B Sales Acceleration Software
+domain:
+  description: B2B Sales Acceleration Software
+  name: Exact Sales API
+  type: api
+  url: https://exactdev.docs.apiary.io/
+label: Exact Sales
+name: exactsales
+singer_name: tap-exactsales
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: rafaeljusi
+  pip_url: git+https://github.com/rafaeljusi/tap-exactsales.git
+  repo: https://github.com/rafaeljusi/tap-exactsales
+  settings: []
