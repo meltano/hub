@@ -1,0 +1,17 @@
+description: Job Search Software
+domain:
+  description: Job Search Software
+  name: Indeed API
+  type: api
+  url: https://opensource.indeedeng.io/api-documentation/
+label: Indeed
+name: indeed
+singer_name: tap-indeed
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: aroder
+  pip_url: git+https://github.com/aroder/tap-indeed.git
+  repo: https://github.com/aroder/tap-indeed
+  settings: []
