@@ -1,0 +1,17 @@
+description: Cloud Log Management, Monitoring, SIEM Tools
+domain:
+  description: Cloud Log Management, Monitoring, SIEM Tools
+  name: Sumologic API
+  type: api
+  url: https://www.sumologic.com/
+label: Sumo Logic
+name: sumologic
+singer_name: tap-sumologic
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: splitio
+  pip_url: git+https://github.com/splitio/tap-sumologic.git
+  repo: https://github.com/splitio/tap-sumologic
+  settings: []
