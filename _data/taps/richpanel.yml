@@ -1,0 +1,17 @@
+description: x
+domain:
+  description: Customer Service CRM
+  name: Richpanel API
+  type: api
+  url: https://richpanel.com/
+label: Richpanel
+name: richpanel
+singer_name: tap-richpanel
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: richpanel-company
+  pip_url: git+https://github.com/richpanel-company/tap-richpanel.git
+  repo: https://github.com/richpanel-company/tap-richpanel
+  settings: []
