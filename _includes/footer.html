@@ -20,7 +20,15 @@
           <li>
             {% include icon-twitter.html username=site.twitter_username %}
           </li>
-          {% endif %}
+          {% endif %} {% if site.slack_username %}
+          <li>
+            {% include icon-slack.html username=site.slack_username %}
+          </li>
+          {% endif %} {% if site.youtube_username %}
+        <li>
+            {% include icon-youtube.html username=site.youtube_username %}
+        </li>
+        {% endif %}
         </ul>
       </div>
 
