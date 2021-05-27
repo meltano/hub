@@ -14,7 +14,7 @@ As we've detailed in the Meltano handbook, we're fully [embracing Singer](https:
 ### Standardized Taps and Targets
 
 We've started by converting all taps and targets compatible with Meltano to a clean YAML format that has no references to external tools.
-Our expectation is that other tools, including Meltano, can utilize these definitions to build their own library of Singer-compatible taps and targets.
+Our expectation is that other tools, including Meltano, will utilize these definitions to build their own library of Singer taps and targets.
 
 All taps and targets available through the MeltanoHub are listed here:
 
@@ -22,7 +22,6 @@ All taps and targets available through the MeltanoHub are listed here:
 * [Singer Targets](/singer/targets/)
 
 Each tap and target is defined in YAML and is validated against a JSON Schema available on [the Hub](/singer/api/v1/schema.json).
-The JSON Schema will continue to evolve as we iterate towards a formal launch of the MeltanoHub, after which there will be strong versioning.
 
 We've also compiled all taps and targets into their own JSON files for use by anyone.
 The latest version of these files will always be available at these endpoints:
@@ -36,8 +35,8 @@ Individual YAML files are also available through the individual pages or on the 
 
 ### Tap and Target SDKs
 
-We've also created an [SDK for Singer Taps](https://gitlab.com/meltano/singer-sdk) that is the best way to build and maintain Singer-compatible taps.
-We're actively working on an [SDK for Singer Targets](https://gitlab.com/groups/meltano/-/epics/91) due to be launched in May 2021.
+We've also created an [SDK for Taps](https://gitlab.com/meltano/singer-sdk) that is the best way to build and maintain Singer taps.
+We're actively working on an [SDK for Targets](https://gitlab.com/groups/meltano/-/epics/91) due to be launched in June 2021.
 
 Read more about the [launch of the SDK on our blog](https://meltano.com/blog/2021/04/05/meltano-launches-v0-1-0-of-the-singer-tap-sdk/).
 
