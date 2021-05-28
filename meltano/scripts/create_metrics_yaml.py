@@ -47,7 +47,7 @@ def yaml_write(records, yaml_filepath):
     for record in records:
         repo_metrics = {}
         for key in INCLUDE_KEYS:
-            repo_metrics[key] = record[key]
+            repo_metrics[key] = yaml.safe_load(record[key])
         content_dict[record["repo_full_name"]] = repo_metrics
     Path(yaml_filepath).write_text(yaml.dump(content_dict))
 
