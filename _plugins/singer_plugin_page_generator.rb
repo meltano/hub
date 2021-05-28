@@ -11,6 +11,15 @@ class SingerPluginPageGenerator < Jekyll::Generator
       plugin['logo_url'] = "/assets/logos/#{plugin['type']}s/#{plugin_name}.png"
 
       plugin['variants'].each do |variant|
+        repo_url = variant['repo']
+        repo_path_match = repo_url.match(%r{\Ahttps?://(?:www\.)?git(?:hub|lab)\.com/([^/]+/[^/.]+)}i)
+        if repo_path_match
+          repo_path = repo_path_match[1]
+          variant['metrics'] = site.data['metrics'][repo_path]
+        else
+          puts("Unknown Git repo URL #{repo_url}")
+        end
+
         if variant['default']
           page = PluginVariantPage.new(site, plugin_name, plugin, variant, variant_specific: false)
           site.pages << page
