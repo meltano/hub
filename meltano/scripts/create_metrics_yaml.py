@@ -20,7 +20,7 @@ from pathlib import Path
 
 # Relative paths to meltano project folder:
 CSV_INFILE = "data/fact_repo_metrics-20210528.csv"
-YAML_OUTFILE = "data/repo_metrics_out-20210528.yml"
+YAML_OUTFILE = "../_data/metrics.yml"
 
 # Which keys to save in metrics yaml output:
 INCLUDE_KEYS = {
