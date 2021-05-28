@@ -19,9 +19,19 @@ maintainer = site.data.maintainers[variant.name] %}
   <li>
     <strong>Maintainer</strong>: {% if maintainer.url %}
     <a href="{{maintainer.url}}" target="_blank">{{ maintainer.label }}</a>
-    {% else %} {{ maintainer.name }} {%endif %}
+    {% else %} {{ maintainer.label }} {% endif %}
   </li>
+  {% if variant.maintenance_status != "Unknown" %}
   <li><strong>Maintenance status</strong>: {{ variant.maintenance_status }}</li>
+  {% endif %} {% if variant.metrics %} {% assign metrics = variant.metrics %}
+  <li>
+    <strong>Last push at</strong>: {{ metrics.last_push_timestamp |
+    date_to_string }}
+  </li>
+  <li><strong>Open issues</strong>: {{ metrics.num_open_issues }}</li>
+  {% if metrics.num_stargazers > 0 %}
+  <li><strong>Stars</strong>: {{ metrics.num_stargazers }}</li>
+  {% endif %} {% endif %}
 </ul>
 
 {% if plugin.variants.size > 1 %}
@@ -133,5 +143,6 @@ setting=setting %} {% endfor %} {% endif %}
     >YAML file</a
   >
   that you can contribute changes to! It is also validated against a
-  <a href="/singer/api/v1/schema.json">JSON Schema</a> used for both taps and targets.
+  <a href="/singer/api/v1/schema.json">JSON Schema</a> used for both taps and
+  targets.
 </p>
