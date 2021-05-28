@@ -28,7 +28,7 @@ maintainer = site.data.maintainers[variant.name] %}
     <strong>Last push at</strong>: {{ metrics.last_push_timestamp |
     date_to_string }}
   </li>
-  <li><strong>Open issues</strong>: {{ metrics.num_open_issues }}</li>
+  <li><strong>Open issues and PRs</strong>: {{ metrics.num_open_issues }}</li>
   {% if metrics.num_stargazers > 0 %}
   <li><strong>Stars</strong>: {{ metrics.num_stargazers }}</li>
   {% endif %} {% endif %}
