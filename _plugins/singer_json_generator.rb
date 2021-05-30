@@ -9,7 +9,7 @@ class SingerJsonGenerator < Jekyll::Generator
   def generate_json(site, collection)
     plugins = site.data[collection].values
 
-    plugins.sort_by! { |p| p['label'] }
+    plugins.sort_by! { |p| p['label'].downcase }
 
     plugins.each do |plugin|
       plugin['variants'].each do |variant|
