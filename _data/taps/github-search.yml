@@ -1,0 +1,17 @@
+description: Code hosting platform
+domain:
+  description: Code hosting platform
+  name: GitHub Repository Search API
+  type: api
+  url: https://docs.github.com/en/rest
+label: GitHub Search
+name: github-search
+singer_name: tap-github
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/dataops-tk/tap-github.git
+  repo: https://github.com/dataops-tk/tap-github
+  settings: []

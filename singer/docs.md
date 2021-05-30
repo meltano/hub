@@ -10,6 +10,10 @@ description: The Leading Destination for the Singer Community
 The Meltano team aims to make MeltanoHub a fantastic resource for members of the [Singer](https://singer.io) Community.
 We're fully [embracing Singer](https://meltano.com/docs/#embracing-singer) and MeltanoHub for Singer is a large part of those efforts.
 
+## Development
+
+MeltanoHub is under active development by Meltano. Check out the [main development epic](https://gitlab.com/groups/meltano/-/epics/83) for our roadmap or [view the issues](https://gitlab.com/meltano/hub/-/issues) to understand progress on a specific feature. 
+
 ## Standardized Connectors
 
 All taps and targets are pulled from external sources, such as GitHub and GitLab, and are organized into a clean YAML format that has no references to external tools. Learn more about the [architecture of MeltanoHub for Singer here](/singer/docs/#architecture).
