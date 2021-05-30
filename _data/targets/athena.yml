@@ -1,0 +1,17 @@
+description: Serverless S3 Database
+domain:
+  description: Serverless S3 Database
+  name: AWS Athena
+  type: file
+  url: https://aws.amazon.com/athena/
+label: Athena
+name: athena
+singer_name: target-athena
+type: target
+variants:
+    - name: dataops-tk
+      repo: https://github.com/dataops-tk/target-athena
+      pip_url: git+https://github.com/dataops-tk/target-athena.git
+      default: true
+      maintenance_status: Active
+      settings: []
