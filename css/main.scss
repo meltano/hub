@@ -125,6 +125,17 @@ ul.button-grid {
       }
     }
   }
+
+  &.three-columns {
+  grid-template-columns: 1fr 1fr 1fr;
+
+    > li {
+      a {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+    }
+  }
 }
 
 details.post-toc {

@@ -21,6 +21,10 @@ header: singer
     <a href="/{{meltano_type}}">{{meltano_type}}</a> in
     <a href="https://meltano.com" target="_blank">Meltano</a>.
   </p>
+  <p>
+      All {{page.plugin_type}} listed on this page are available as JSON
+      via the <a href="/singer/{{page.plugin_type}}.json">API</a>.
+  </p>
 
   {% include plugin_grid.html plugins=plugins %}
 
