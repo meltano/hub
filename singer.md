@@ -1,45 +1,81 @@
 ---
 layout: page
 header: singer
-title: Singer Ecosystem
 permalink: /singer/
 description: The Leading Destination for the Singer Community
 ---
 
-## Meltano's Commitment to the Singer Community
+<h2 style="text-align:center"> Welcome to MeltanoHub for Singer </h2>
 
-We aim to make MeltanoHub a fantastic resource for members of the [Singer](https://singer.io) Community.
-As we've detailed in the Meltano handbook, we're fully [embracing Singer](https://meltano.com/docs/#embracing-singer) and this section of MeltanoHub is part of those efforts.
+  <p> 
+  MeltanoHub for Singer is the leading destination for the Singer Community to discover
+  taps, targets, and other valuable resources. Read the <a href="https://meltano.com/blog">launch announcement</a> to learn more about
+  our goals with MeltanoHub or read the <a href="/singer/docs">docs</a> to understand more about our committment to the Singer community and the architecture behind the Hub.
+  </p> 
 
-### Standardized Connectors
 
-We've started by converting all taps and targets compatible with Meltano to a clean YAML format that has no references to external tools.
-Our expectation is that other tools, including Meltano, will utilize these definitions to build their own library of Singer taps and targets.
+  <ul class="button-grid two-columns">
+    <li>
+      <a href="/singer/taps">
+        <strong>Singer Taps</strong>
 
-All taps and targets available through MeltanoHub are listed here:
+        <p>Find a Singer tap to pull data from a SaaS API, database, or file</p>
+      </a>
+    </li>
+    <li>
+      <a href="/singer/targets">
+        <strong>Singer Targets</strong>
 
-* [Singer Taps](/singer/taps/)
-* [Singer Targets](/singer/targets/)
+        <p>
+          Find a Singer target to load data into a database, file, or SaaS API
+        </p>
+      </a>
+    </li>
+    <li>
+      <a href="/singer/spec">
+        <strong>Singer Spec</strong>
 
-Each tap and target is defined in YAML and is validated against a JSON Schema available via [the Hub API](/singer/api/v1/schema.json).
+        <p>
+          Learn more about the Singer specification for open source data
+          connectors
+        </p>
+      </a>
+    </li>
+    <li>
+      <a href="https://gitlab.com/meltano/singer-sdk" target="_blank">
+        <strong>SDK for Taps &amp; Targets</strong>
 
-We've also compiled all taps and targets into their own JSON files for use by anyone.
-The latest version of these files will always be available at these endpoints:
+        <p>
+          Learn more about building Singer taps and targets for new sources and
+          destinations
+        </p>
+      </a>
+    </li>
+  </ul>
 
-* [Tap JSON](/singer/taps.json)
-* [Target JSON](/singer/targets.json)
+<h2 style="text-align:center"> API Resources </h2>
 
-These files will also be versioned when changes are made in a backwards-incompatible way. 
-The versioned files will be available through the [API](/singer/api/v1/).
-Individual YAML files are also available through the individual connector pages or on the [repository](https://gitlab.com/meltano/hub/) building MeltanoHub.
+  <p>
+  MeltanoHub for Singer is built with the entire community in mind. We have several resources available
+  at a <a href="/singer/api/vi">versioned endpoint</a> that can be used by other organizations to build a catalog of taps and targets within their products. You can view the latest version of each resource below:
 
-### Tap and Target SDKs
-
-We've also created an [SDK for Taps](https://gitlab.com/meltano/singer-sdk) that is the best way to build and maintain Singer taps.
-We're actively working on an [SDK for Targets](https://gitlab.com/groups/meltano/-/epics/91) due to be launched in June 2021.
-
-Read more about the [launch of the SDK on our blog](https://meltano.com/blog/2021/04/05/meltano-launches-v0-1-0-of-the-singer-tap-sdk/).
-
-### Singer Spec
-
-We've created a simplified version of the [Singer Specification](/singer/spec) with the goal of making it easier for people new to the Singer ecosystem to understand the spec.
+  <ul class="button-grid three-columns">
+    <li>
+      <a href="/singer/taps.json">
+        <strong>Tap JSON</strong>
+        <p>JSON object of all Singer taps on MeltanoHub</p>
+      </a>
+    </li>
+    <li>
+      <a href="/singer/targets.json">
+        <strong>Target JSON</strong>
+        <p>JSON object of all Singer targets on MeltanoHub</p>
+      </a>
+    </li>
+    <li>
+      <a href="/singer/api/v1/schema.json">
+        <strong>JSON Schema</strong>
+        <p>JSON Schema used to validate connectors</p>
+      </a>
+    </li>
+  </ul>
