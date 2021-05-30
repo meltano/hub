@@ -32,7 +32,7 @@ class SingerPluginPageGenerator < Jekyll::Generator
       end
     end
 
-    site.data["sorted_#{collection}"] = site.data[collection].values.sort_by { |p| p['label'] }
+    site.data["sorted_#{collection}"] = site.data[collection].values.sort_by { |p| p['label'].downcase }
   end
 
   class PluginVariantPage < Jekyll::Page
