@@ -12,6 +12,6 @@ class MeltanoPluginEnricher < Jekyll::Generator
       plugin['url'] = "/#{collection}/#{plugin_name}"
     end
 
-    site.data['meltano']["sorted_#{collection}"] = site.data['meltano'][collection].values.sort_by { |p| p['label'] }
+    site.data['meltano']["sorted_#{collection}"] = site.data['meltano'][collection].values.sort_by { |p| p['label'].downcase }
   end
 end
