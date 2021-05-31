@@ -67,7 +67,7 @@ class SingerPluginPageGenerator < Jekyll::Generator
 
       @data = {
         'title' => title,
-        'excerpt' => description,
+        'description' => description,
         'image_url' => plugin['logo_url'],
         'variant_specific' => variant_specific,
         'plugin' => plugin,

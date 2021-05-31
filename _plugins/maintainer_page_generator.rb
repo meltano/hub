@@ -43,7 +43,7 @@ class MaintainerPageGenerator < Jekyll::Generator
 
       @data = {
         'title' => "Connectors by #{maintainer['label']}",
-        'excerpt' => "Open source Singer taps and targets maintained by #{maintainer['label']}",
+        'description' => "Open source Singer taps and targets maintained by #{maintainer['label']}",
         'maintainer' => maintainer,
         'header' => 'singer'
       }
