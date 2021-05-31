@@ -32,16 +32,6 @@ description: The Leading Destination for the Singer Community
       </a>
     </li>
     <li>
-      <a href="/singer/spec">
-        <strong>Singer Spec</strong>
-
-        <p>
-          Learn more about the Singer specification for open source data
-          connectors
-        </p>
-      </a>
-    </li>
-    <li>
       <a href="https://gitlab.com/meltano/singer-sdk" target="_blank">
         <strong>SDK for Taps &amp; Targets</strong>
 
@@ -51,13 +41,23 @@ description: The Leading Destination for the Singer Community
         </p>
       </a>
     </li>
+    <li>
+      <a href="/singer/spec">
+        <strong>Singer Spec</strong>
+
+        <p>
+          Learn more about the Singer specification for open source data
+          connectors
+        </p>
+      </a>
+    </li>
   </ul>
 
-<h2 style="text-align:center"> API Resources </h2>
+<h2 style="text-align:center" id="api-resources"> API Resources </h2>
 
   <p>
   MeltanoHub for Singer is built with the entire community in mind. We have several resources available
-  at a <a href="/singer/api/vi">versioned endpoint</a> that can be used by other organizations to build a catalog of taps and targets within their products. You can view the latest version of each resource below:
+  at a <a href="/singer/api/v1">versioned endpoint</a> that can be used by other organizations to build a catalog of taps and targets within their products. You can view the latest version of each resource below:
 
   <ul class="button-grid three-columns">
     <li>
