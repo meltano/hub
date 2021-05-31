@@ -9,7 +9,7 @@ singer_name: tap-chargebee
 type: tap
 variants:
 - capabilities:
-  - properties
+  - catalog
   - discover
   - state
   default: true
