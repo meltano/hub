@@ -1,5 +1,6 @@
 class MeltanoPluginEnricher < Jekyll::Generator
   safe true
+  priority :highest
 
   def generate(site)
     enrich_plugins(site, "extractors", "tap")

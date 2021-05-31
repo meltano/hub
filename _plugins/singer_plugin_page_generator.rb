@@ -1,15 +1,20 @@
 class SingerPluginPageGenerator < Jekyll::Generator
   safe true
-  priority :highest
+  priority :high
 
   def generate(site)
-    generate_pages(site, 'taps')
-    generate_pages(site, 'targets')
+    generate_pages(site, 'taps', 'extractors')
+    generate_pages(site, 'targets', 'loaders')
   end
 
-  def generate_pages(site, collection)
+  def generate_pages(site, collection, meltano_collection)
     site.data[collection].each do |plugin_name, plugin|
       plugin['logo_url'] = "/assets/logos/#{plugin['type']}s/#{plugin_name}.png"
+
+      meltano_plugin = site.data['meltano'][meltano_collection][plugin_name]
+      if meltano_plugin
+        plugin['meltano_url'] = meltano_plugin['url']
+      end
 
       plugin['variants'].each do |variant|
         repo_url = variant['repo']
