@@ -154,4 +154,8 @@ h5,
 h6 {
   padding-top: $header-height;
   margin-top: -$header-height;
+
+  code {
+    font-size: 0.9em;
+  }
 }
