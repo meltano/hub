@@ -2,6 +2,7 @@
 layout: page
 header: singer
 permalink: /singer/
+title: MeltanoHub for Singer
 description: The Leading Destination for the Singer Community
 ---
 

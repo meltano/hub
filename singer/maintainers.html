@@ -1,0 +1,20 @@
+---
+layout: page
+header: singer
+title: Singer Connector Maintainers
+permalink: /singer/maintainers/
+description: Maintainers of open source Singer taps and targets
+---
+
+<ul class="button-grid three-columns">
+  {% for maintainer in site.data.sorted_maintainers %}
+  <li>
+    <a href="{{maintainer.page_url}}">
+      <strong>
+        {{maintainer.label}}
+        <small>{{maintainer.plugins.size}}</small>
+      </strong>
+    </a>
+  </li>
+  {% endfor %}
+</ul>

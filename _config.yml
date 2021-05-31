@@ -26,6 +26,12 @@ defaults:
       layout: "plugin"
       header: singer
       target: true
+  - scope:
+      type: maintainers
+    values:
+      layout: "maintainer"
+      header: singer
+      target: true
 
 collections:
   extractors:
