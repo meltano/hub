@@ -17,9 +17,6 @@ class SingerJsonGenerator < Jekyll::Generator
       end
     end
 
-    # singer/<taps/targets>.json #TODO Point this to latest version
-    generate_file(site, "/singer", "#{collection}.json", JSON.generate(plugins))
-
     # singer/api/v1/<taps/targets>.json
     generate_file(site, "/singer/api/v1", "#{collection}.json", JSON.generate(plugins))
 

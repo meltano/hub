@@ -61,15 +61,15 @@ description: The Leading Destination for the Singer Community
 
   <ul class="button-grid three-columns">
     <li>
-      <a href="/singer/taps.json">
+      <a href="/singer/api/v1/taps.json">
         <strong>Tap JSON</strong>
-        <p>JSON object of all Singer taps on MeltanoHub</p>
+        <p>JSON file with all Singer taps on MeltanoHub</p>
       </a>
     </li>
     <li>
-      <a href="/singer/targets.json">
+      <a href="/singer/api/v1/targets.json">
         <strong>Target JSON</strong>
-        <p>JSON object of all Singer targets on MeltanoHub</p>
+        <p>JSON file with all Singer targets on MeltanoHub</p>
       </a>
     </li>
     <li>
