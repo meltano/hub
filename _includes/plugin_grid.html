@@ -10,6 +10,13 @@
       </div>
       <span class="label"> {{ plugin.label }} </span>
     </a>
+    {% if plugin.meltano_url %}
+    <a
+      href="{{plugin.meltano_url}}"
+      class="meltano-badge"
+      title="Meltano Optimized"
+    ></a>
+    {% endif %}
   </li>
   {% endfor %} {% if include.more_url %}
   <li>

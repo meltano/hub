@@ -5,10 +5,10 @@
     background-color: $brand-color;
     min-height: $header-height;
 
-    // Positioning context for the mobile navigation icon
     position: fixed;
     left: 0;
     right: 0;
+    z-index: 999
 }
 
 .site-title {

@@ -58,9 +58,10 @@ ul.button-grid {
 
   > li {
     list-style: none;
+    position: relative;
     text-align: center;
 
-    a {
+    a:first-child {
       display: block;
       padding: 10px;
 
@@ -98,7 +99,7 @@ ul.button-grid {
         small {
           padding: 1px 5px;
           position: relative;
-          bottom: 1px;
+          bottom: 2px;
           margin-left: 5px;
           border: 1px solid $brand-color;
           border-radius: 5px;
@@ -114,6 +115,27 @@ ul.button-grid {
       p {
         color: $text-color;
         margin-bottom: 0;
+      }
+    }
+
+    a.meltano-badge {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      width: 30px;
+      height: 30px;
+
+      border: 1px solid $brand-color;
+      border-radius: 30px;
+      background-color: white;
+      background-image: url(https://meltano.com/meltano-logo.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 24px 24px;
+
+      &:hover {
+        background-color: $brand-color;
+        background-image: url(https://meltano.com/meltano-logo-white.svg);
       }
     }
   }
