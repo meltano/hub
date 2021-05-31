@@ -7,7 +7,7 @@ docs: https://meltano.com/plugins/extractors/quickbooks.html
 repo: https://github.com/hotgluexyz/tap-quickbooks
 pip_url: git+https://github.com/hotgluexyz/tap-quickbooks.git
 capabilities:
-- properties
+- catalog
 - discover
 - state
 settings_group_validation:
