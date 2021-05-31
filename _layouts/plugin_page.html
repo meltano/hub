@@ -8,9 +8,9 @@ layout: default
     <h1 class="post-title">
       {% if plugin %}
       <img class="logo" src="{{plugin.logo_url}}" />
-      {{ plugin.label }} {% if page.variant_specific %} (<code>
-        {{variant.name}}
-      </code>
+      {{ plugin.label }} {% if page.variant_specific %} (<code
+        >{{variant.name}}</code
+      >
       variant) {% endif %} {% else %} {{ page.title}} {% endif %}
     </h1>
   </header>

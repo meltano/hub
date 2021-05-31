@@ -6,7 +6,7 @@ domain:
   url: https://www.insided.com/
 label: inSided
 name: insided
-singer_name: singer-tap-insided
+singer_name: tap-insided
 type: tap
 variants:
 - default: true
