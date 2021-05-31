@@ -5,10 +5,17 @@ layout: plugin_page
 {% assign plugin = page.plugin %} {% assign variant = page.variant %} {% assign
 maintainer = site.data.maintainers[variant.name] %}
 <p>
-  The <code>{{plugin.singer_name}}</code>
-  <a href="/singer/{{plugin.type}}s">Singer {{plugin.type}}</a> pulls data from
-  the
-  <a href="{{plugin.domain.url}}" target="_blank">{{plugin.domain.name}}</a>.
+  {% if plugin.type == "tap" %} The <code>{{plugin.singer_name}}</code>
+  <a href="/singer/taps">Singer tap</a>
+  extracts data from the
+  <a href="{{plugin.domain.url}}" target="_blank">{{plugin.domain.name}}</a>
+  that can then be loaded using any <a href="/singer/targets">Singer target</a>.
+  {% else %} The
+  <code>{{plugin.singer_name}}</code>
+  <a href="/singer/targets">Singer target</a>
+  loads data extracted using any <a href="/singer/taps">Singer tap</a> into
+  <a href="{{plugin.domain.url}}" target="_blank">{{plugin.domain.name}}</a>. {%
+  endif %}
 </p>
 
 <ul>
