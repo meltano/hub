@@ -42,11 +42,18 @@ class SingerPluginPageGenerator < Jekyll::Generator
       @dir  = "#{plugin['type']}s"
 
       basename = plugin_name
-      title = plugin['label']
+      title = "#{plugin['label']} Singer #{plugin['type']}"
       if variant_specific
         basename += "--#{variant['name']}"
         title += " (#{variant['name']} variant)"
       end
+
+      description =
+        if plugin['type'] == 'tap'
+          "The open source #{plugin['label']} Singer tap extracts data from the #{plugin['domain']['name']} that can then be loaded using any Singer target."
+        else
+          "The open source #{plugin['label']} Singer target loads data extracted using any Singer tap into #{plugin['domain']['name']}."
+        end
 
       @basename = basename
       @ext      = '.html'
@@ -54,7 +61,8 @@ class SingerPluginPageGenerator < Jekyll::Generator
 
       @data = {
         'title' => title,
-        'excerpt' => plugin['description'],
+        'excerpt' => description,
+        'image_url' => plugin['logo_url'],
         'variant_specific' => variant_specific,
         'plugin' => plugin,
         'variant' => variant,
