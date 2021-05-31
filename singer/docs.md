@@ -12,7 +12,7 @@ We're fully [embracing Singer](https://meltano.com/docs/#embracing-singer) and M
 
 ## Development
 
-MeltanoHub is under active development by Meltano. Check out the [main development epic](https://gitlab.com/groups/meltano/-/epics/83) for our roadmap or [view the issues](https://gitlab.com/meltano/hub/-/issues) to understand progress on a specific feature. 
+MeltanoHub is under active development by Meltano. Check out the [main development epic](https://gitlab.com/groups/meltano/-/epics/83) for our roadmap or [view the issues](https://gitlab.com/meltano/hub/-/issues) to understand progress on a specific feature.
 
 ## Standardized Connectors
 
@@ -35,10 +35,10 @@ Additionally, metrics such as last update, stars, and open issues and PRs, are p
 A listing of all taps and targets is available via the [API](/singer/api/v1) as JSON.
 The latest version of these files will always be available at these endpoints:
 
-* [Tap JSON](/singer/taps.json)
-* [Target JSON](/singer/targets.json)
+* [Tap JSON](/singer/api/v1/taps.json)
+* [Target JSON](/singer/api/v1/targets.json)
 
-These files will also be versioned when changes are made in a backwards-incompatible way. 
+These files will also be versioned when changes are made in a backwards-incompatible way.
 The versioned files will be available through the [API](/singer/api/v1/).
 Individual YAML files are also available through the individual connector pages or on the [repository](https://gitlab.com/meltano/hub/) building MeltanoHub.
 
@@ -57,7 +57,7 @@ We've created a simplified version of the [Singer Specification](/singer/spec) w
 
 ## Architecture
 
-MeltanoHub is built with every part of the Singer ecosystem and Meltano product family. This is a completely open source, end-to-end, production example of Meltano using full-featured Singer connectors. 
+MeltanoHub is built with every part of the Singer ecosystem and Meltano product family. This is a completely open source, end-to-end, production example of Meltano using full-featured Singer connectors.
 
 We use Meltano itself to pull data from GitHub. View the Meltano project for this effort in the [Hub repository](https://gitlab.com/meltano/hub/-/tree/main/meltano).
 

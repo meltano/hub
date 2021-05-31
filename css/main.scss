@@ -91,6 +91,16 @@ ul.button-grid {
         display: block;
         font-size: 1.5em;
         margin-bottom: 10px;
+
+        small {
+          padding: 1px 5px;
+          position: relative;
+          bottom: 1px;
+          margin-left: 5px;
+          border: 1px solid $brand-color;
+          border-radius: 5px;
+          font-size: 0.6em;
+        }
       }
 
       span.label {
@@ -127,7 +137,7 @@ ul.button-grid {
   }
 
   &.three-columns {
-  grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
 
     > li {
       a {
@@ -154,4 +164,8 @@ h5,
 h6 {
   padding-top: $header-height;
   margin-top: -$header-height;
+
+  code {
+    font-size: 0.9em;
+  }
 }

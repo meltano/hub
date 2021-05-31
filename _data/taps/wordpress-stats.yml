@@ -6,7 +6,7 @@ domain:
   url: https://developer.wordpress.org/rest-api/
 label: Wordpress.org Stats
 name: wordpress-stats
-singer_name: singer-tap-wordpress-stats
+singer_name: tap-wordpress-stats
 type: tap
 variants:
 - default: true

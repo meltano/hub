@@ -11,5 +11,12 @@
       <span class="label"> {{ plugin.label }} </span>
     </a>
   </li>
-  {% endfor %}
+  {% endfor %} {% if include.more_url %}
+  <li>
+    <a href="{{ include.more_url }}">
+      <strong>{{ include.more_title }}</strong>
+      <p>{{ include.more_description }}</p>
+    </a>
+  </li>
+  {% endif %}
 </ul>
