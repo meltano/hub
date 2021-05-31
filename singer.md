@@ -7,24 +7,24 @@ description: The Leading Destination for the Singer Community
 
 <h2 style="text-align:center"> Welcome to MeltanoHub for Singer </h2>
 
-  <p> 
+  <p>
   MeltanoHub for Singer is the leading destination for the Singer Community to discover
   taps, targets, and other valuable resources. Read the <a href="https://meltano.com/blog">launch announcement</a> to learn more about
-  our goals with MeltanoHub or read the <a href="/singer/docs">docs</a> to understand more about our committment to the Singer community and the architecture behind the Hub.
-  </p> 
+  our goals with MeltanoHub or read the <a href="/singer/docs">docs</a> to understand more about our commitment to the Singer community and the architecture behind the Hub.
+  </p>
 
 
   <ul class="button-grid two-columns">
     <li>
       <a href="/singer/taps">
-        <strong>Singer Taps</strong>
+        <strong>Singer Taps <small>{{site.data.taps.size}}</small></strong>
 
         <p>Find a Singer tap to pull data from a SaaS API, database, or file</p>
       </a>
     </li>
     <li>
       <a href="/singer/targets">
-        <strong>Singer Targets</strong>
+        <strong>Singer Targets <small>{{site.data.targets.size}}</small></strong>
 
         <p>
           Find a Singer target to load data into a database, file, or SaaS API
