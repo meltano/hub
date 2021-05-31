@@ -5,7 +5,7 @@ domain:
   url: https://www.snowflake.com/
 label: Snowflake
 name: snowflake
-singer_name: pipelinewise-tap-snowflake
+singer_name: tap-snowflake
 type: tap
 variants:
 - default: true

@@ -6,7 +6,7 @@ domain:
   url: https://kafka.apache.org/
 label: Apache Kafka
 name: kafka
-singer_name: pipelinewise-tap-kafka
+singer_name: tap-kafka
 type: tap
 variants:
 - default: true

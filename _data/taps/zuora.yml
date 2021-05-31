@@ -6,7 +6,7 @@ domain:
   url: https://www.zuora.com/
 label: Zuora
 name: zuora
-singer_name: pipelinewise-tap-zuora
+singer_name: tap-zuora
 type: tap
 variants:
 - default: true
