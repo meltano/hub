@@ -6,7 +6,7 @@ domain:
   url: https://developers.basecone.com/ApiReference/General
 label: Basecone
 name: basecone
-singer_name: singer-tap-basecone
+singer_name: tap-basecone
 type: tap
 variants:
 - default: true

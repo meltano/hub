@@ -6,7 +6,7 @@ domain:
   url: https://developer.wordpress.org/rest-api/
 label: Wordpress.org Reviews
 name: wordpress-reviews
-singer_name: singer-tap-wordpress-reviews
+singer_name: tap-wordpress-reviews
 type: tap
 variants:
 - default: true

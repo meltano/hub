@@ -6,7 +6,7 @@ domain:
   url: https://postmarkapp.com/developer
 label: Postmark
 name: postmark
-singer_name: singer-tap-postmark
+singer_name: tap-postmark
 type: tap
 variants:
 - default: true

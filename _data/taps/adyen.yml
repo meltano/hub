@@ -6,7 +6,7 @@ domain:
   url: https://docs.adyen.com/reporting
 label: Adyen
 name: adyen
-singer_name: singer-tap-adyen
+singer_name: tap-adyen
 type: tap
 variants:
 - default: true
