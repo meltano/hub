@@ -1,5 +1,6 @@
 class SingerPluginPageGenerator < Jekyll::Generator
   safe true
+  priority :highest
 
   def generate(site)
     generate_pages(site, 'taps')

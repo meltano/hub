@@ -6,7 +6,7 @@ domain:
   url: https://www.oracle.com/database/
 label: Oracle DB
 name: oracle
-singer_name: pipelinewise-tap-oracle
+singer_name: tap-oracle
 type: tap
 variants:
 - default: true

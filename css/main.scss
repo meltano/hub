@@ -90,7 +90,10 @@ ul.button-grid {
       strong {
         display: block;
         font-size: 1.5em;
-        margin-bottom: 10px;
+
+        &:not(:last-child) {
+          margin-bottom: 10px;
+        }
 
         small {
           padding: 1px 5px;
