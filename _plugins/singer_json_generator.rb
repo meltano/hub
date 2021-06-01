@@ -19,6 +19,7 @@ class SingerJsonGenerator < Jekyll::Generator
 
     # singer/api/v1/<taps/targets>.json
     generate_file(site, "/singer/api/v1", "#{collection}.json", JSON.generate(plugins))
+    generate_file(site, "/singer/", "#{collection}.json", JSON.generate(plugins))
 
     plugins.each do |plugin|
       # singer/targets/bigquery.json
