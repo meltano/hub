@@ -35,8 +35,8 @@ Additionally, metrics such as last update, stars, and open issues and PRs, are p
 A listing of all taps and targets is available via the [API](/singer/api/v1) as JSON.
 The latest version of these files will always be available at these endpoints:
 
-* [Tap JSON](/singer/api/v1/taps.json)
-* [Target JSON](/singer/api/v1/targets.json)
+* [Tap JSON](/singer/taps.json)
+* [Target JSON](/singer/targets.json)
 
 These files will also be versioned when changes are made in a backwards-incompatible way.
 The versioned files will be available through the [API](/singer/api/v1/).
@@ -61,6 +61,6 @@ MeltanoHub is built with every part of the Singer ecosystem and Meltano product 
 
 We use Meltano itself to pull data from GitHub. View the Meltano project for this effort in the [Hub repository](https://gitlab.com/meltano/hub/-/tree/main/meltano).
 
-Using the SDK, we built a [custom GitHub tap](https://github.com/dataops-tk/tap-github) and a [custom Athena target](https://github.com/aaronsteers/target-athena). Each of these are listed on the Hub as well.
+Using the SDK, we built a [custom GitHub tap](/singer/taps/github-search) and a [custom Athena target](/singer/targets/target-athena).
 
 We're using dbt to [manage transformations](https://gitlab.com/meltano/hub/-/tree/main/meltano/transform/transforms/marts/singer) with Athena to aid in curating the data.
