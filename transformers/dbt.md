@@ -4,9 +4,9 @@ layout: plugin_page
 description: Use Meltano to transform data in your warehouse using dbt
 ---
 
-The `dbt` [transformer](https://meltano.com/docs/transforms.html/) uses SQL to transform data stored in your warehouse.
+The [`dbt`](https://www.getdbt.com) [transformer](https://meltano.com/docs/transforms.html/) uses SQL to transform data stored in your warehouse.
 
-- **Repository**: <https://www.getdbt.com/>
+- **Repository**: <https://github.com/fishtown-analytics/dbt>
 - **Maintainer**: Fishtown Analytics
 - **Maintenance status**: Active
 
