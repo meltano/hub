@@ -36,6 +36,8 @@ daily-pipeline:
     JOB_ID: ATHENA-PROD
   script:
   - cd meltano/
+  - pip3 install meltano
+  - meltano install
   - meltano elt tap-github target-athena --job_id=$JOB_ID
   - apt-get update && apt-get install jq
   - |
