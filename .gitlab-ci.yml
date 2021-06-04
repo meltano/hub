@@ -16,6 +16,7 @@ test:
     - test
   except:
   - main
+  - schedule
 
 pages:
   stage: deploy
@@ -26,3 +27,19 @@ pages:
     - public
   only:
   - main
+  except:
+  - schedule
+
+daily-pipeline:
+  stage: deploy
+  variables:
+    JOB_ID: ATHENA-PROD
+  script:
+  - cd meltano/
+  - meltano elt tap-github target-athena --job_id=$JOB_ID
+  - apt-get update && apt-get install jq
+  - |
+    echo "Logging current state...\n" && \
+    meltano elt tap-github target-athena --job_id=$JOB_ID --dump=state |  jq '.'     
+  only:
+  - schedule
