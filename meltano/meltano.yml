@@ -56,7 +56,7 @@ plugins:
   - name: target-athena
     namespace: target_athena
     pip_url: git+https://github.com/aaronsteers/target-athena.git
-    executable: /Users/ajsteers/Source/target-athena/target-athena.sh
+    executable: target-athena
     settings:
     - name: aws_access_key_id
       kind: password
