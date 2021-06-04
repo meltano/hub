@@ -35,12 +35,16 @@ daily-pipeline:
   stage: deploy
   variables:
     JOB_ID: ATHENA-PROD
+    TARGET_ATHENA_S3_BUCKET: prod-meltano-bucket-01
+    DBT_TARGET: athena
+    STAGE: prod
   before_script:
   - ''
   script:
   - cd meltano/
   - pip3 install meltano
   - meltano install
+  - echo "Installing creds file from CI..." && cp $MELTANO_ENV_FILE .env
   - meltano elt tap-github target-athena --job_id=$JOB_ID
   - apt-get update && apt-get install jq
   - |
