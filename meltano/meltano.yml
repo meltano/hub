@@ -16,8 +16,8 @@ plugins:
     - "!*.body"
   - name: tap-github
     namespace: tap_github
-    pip_url: git+https://github.com/dataops-tk/tap-github.git
-    executable: /Users/ajsteers/Source/tap-github/tap-github.sh
+    pip_url: git+https://github.com/dataops-tk/tap-github@master
+    executable: tap-github
     capabilities:
     - catalog
     - discover
