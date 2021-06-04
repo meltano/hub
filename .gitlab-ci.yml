@@ -35,6 +35,7 @@ daily-pipeline:
   stage: deploy
   variables:
     JOB_ID: ATHENA-PROD
+  before_script:
   script:
   - cd meltano/
   - pip3 install meltano
