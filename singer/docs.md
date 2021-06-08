@@ -46,7 +46,7 @@ Our expectation is that other tools, including Meltano, will utilize the data av
 
 ## Tap and Target SDKs
 
-We've also created an [SDK for Taps](https://gitlab.com/meltano/singer-sdk) that is the best way to build and maintain Singer taps.
+We've also created an [SDK for Taps](https://sdk.meltano.com) that is the best way to build and maintain Singer taps.
 We're actively working on an [SDK for Targets](https://gitlab.com/groups/meltano/-/epics/91) due to be launched in June 2021.
 
 Read more about the [launch of the SDK on the Meltano blog](https://meltano.com/blog/2021/04/05/meltano-launches-v0-1-0-of-the-singer-tap-sdk/).
