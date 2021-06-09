@@ -86,7 +86,7 @@ plugins:
   - name: tap-google-analytics
     variant: meltano
     config:
-      view_id: 188274549
+      view_id: '188274549'
       start_date: '2020-10-01T00:00:00Z'
 ```
 
