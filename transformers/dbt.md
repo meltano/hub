@@ -56,7 +56,6 @@ plugins:
     pip_url: dbt==0.16.1
 ```
 
-
 ### Project Directory
 
 - Name: `project_dir`
@@ -74,7 +73,6 @@ meltano config dbt set project_dir <project_dir>
 
 export DBT_PROJECT_DIR=<project_dir>
 ```
-
 
 ### Profiles Directory
 
@@ -114,7 +112,6 @@ meltano config dbt set target_schema <schema>
 export DBT_TARGET_SCHEMA=<schema>
 ```
 
-
 ### Models
 
 - Name: `models`
@@ -125,7 +122,6 @@ This defines the list of models which dbt will run during a transformation.
 
 This setting corresponds to [dbt's `--models` option](https://docs.getdbt.com/reference/commands/run#running-specific-models).
 
-
 #### How to use
 
 Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
@@ -135,7 +131,6 @@ meltano config dbt set models <models>
 
 export DBT_MODELS=<models>
 ```
-
 
 ### Target
 
@@ -154,7 +149,6 @@ meltano config dbt set target <target>
 
 export DBT_TARGET=<target>
 ```
-
 
 ### Source Schema
 
