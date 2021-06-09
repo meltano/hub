@@ -95,6 +95,42 @@ meltano config dbt set profiles_dir <profiles_dir>
 export DBT_PROFILES_DIR=<profiles_dir>
 ```
 
+### Target
+
+- Name: `target`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `DBT_TARGET`
+- Default: `$MELTANO_LOAD__DIALECT`, which [will expand to](https://meltano.com/docs/integration.html#pipeline-environment-variables) the value of the [`dialect` extra](https://meltano.com/docs/plugins.html#dialect-extra) for the loader used in the pipeline, e.g. `postgres` for `target-postgres` and `snowflake` for `target-snowflake`.
+
+This is the dialect of your warehouse where data is stored. It maps to the [`target:` value](https://gitlab.com/meltano/files-dbt/-/blob/master/bundle/transform/profile/profiles.yml#L5) in the dbt [`profiles.yml` file](https://docs.getdbt.com/dbt-cli/configure-your-profile).
+
+#### How to use
+
+This setting is managed by the loader and is not recommended to be changed via the transformer. You can, if needed, overwrite this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+
+```bash
+meltano config dbt set target <target>
+
+export DBT_TARGET=<target>
+```
+
+### Source Schema
+
+- Name: `source_schema`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `DBT_SOURCE_SCHEMA`
+- Default: `$MELTANO_LOAD__TARGET_SCHEMA`, which [will expand to](https://meltano.com/docs/integration.html#pipeline-environment-variables) the value of the schema setting for the loader used in the pipeline.
+
+This defines the schema were dbt will read data from.
+
+#### How to use
+
+This setting is managed by the loader and is not recommended to be changed via the transformer. You can, if needed, overwrite this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+
+```bash
+meltano config dbt set source_schema <source_schema>
+
+export DBT_SOURCE_SCHEMA=<source_schema>
+```
+
 ### Target Schema
 
 - Name: `target_schema`
@@ -131,40 +167,4 @@ Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](ht
 meltano config dbt set models <models>
 
 export DBT_MODELS=<models>
-```
-
-### Target
-
-- Name: `target`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `DBT_TARGET`
-- Default: `$MELTANO_LOAD__DIALECT`, which [will expand to](https://meltano.com/docs/integration.html#pipeline-environment-variables) the value of the [`dialect` extra](https://meltano.com/docs/plugins.html#dialect-extra) for the loader used in the pipeline, e.g. `postgres` for `target-postgres` and `snowflake` for `target-snowflake`.
-
-This is the dialect of your warehouse where data is stored. It maps to the [`target:` value](https://gitlab.com/meltano/files-dbt/-/blob/master/bundle/transform/profile/profiles.yml#L5) in the dbt [`profiles.yml` file](https://docs.getdbt.com/dbt-cli/configure-your-profile).
-
-#### How to use
-
-This setting is managed by the loader and is not recommended to be changed via the transformer. You can, if needed, overwrite this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
-
-```bash
-meltano config dbt set target <target>
-
-export DBT_TARGET=<target>
-```
-
-### Source Schema
-
-- Name: `source_schema`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `DBT_SOURCE_SCHEMA`
-- Default: `$MELTANO_LOAD__TARGET_SCHEMA`, which [will expand to](https://meltano.com/docs/integration.html#pipeline-environment-variables) the value of the schema setting for the loader used in the pipeline.
-
-This defines the schema were dbt will read data from.
-
-#### How to use
-
-This setting is managed by the loader and is not recommended to be changed via the transformer. You can, if needed, overwrite this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
-
-```bash
-meltano config dbt set source_schema <source_schema>
-
-export DBT_SOURCE_SCHEMA=<source_schema>
 ```
