@@ -274,3 +274,25 @@ Runs tests on data in deployed models.
 ```bash
 meltano invoke dbt:test
 ```
+
+## Troubleshooting
+
+### No Models Running
+
+If no models are running, consider overriding the [models setting](#models) using a [pipeline-specific configuration](https://meltano.com/docs/integration.html#pipeline-specific-configuration). 
+
+You could also create a new key in your extractor definition and reference it via an [environment variable](https://meltano.com/docs/configuration.html#environment-variables). `models` to `$MELTANO_EXTRACT__MODEL_NAME`
+
+```bash
+# meltano.yml
+...
+plugins:
+  extractors:
+  - name: tap-foo
+    model_name: my_dbt_models # Specify any models here,
+# etc
+  transformers:
+  - name: dbt    # Other settings here...
+    config:
+      models: $MELTANO_EXTRACT__MODEL_NAME # Refers to the `model_name` key.
+```
