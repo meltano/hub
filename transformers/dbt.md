@@ -43,6 +43,7 @@ If you run into any issues, [learn how to get help](https://meltano.com/docs/get
 
 Meltano automatically sets default values for all `dbt` settings that can be [overridden](https://meltano.com/docs/configuration.html) if needed. 
 These settings are documented below.
+Settings can also be configured as you would in a [normal dbt project](https://docs.getdbt.com/reference/dbt_project.yml) via the `/transform/dbt_project.yml` file in your Meltano project.
 To quickly find the setting you're looking for, use the Table of Contents at the top of the page.
 
 #### Minimal configuration
