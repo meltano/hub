@@ -168,3 +168,109 @@ meltano config dbt set models <models>
 
 export DBT_MODELS=<models>
 ```
+
+## Commands
+
+[Meltano commands](https://meltano.com/docs/command-line-interface.html#commands) are shortcuts for combinations of arguments used with [`meltano invoke`](https://meltano.com/docs/command-line-interface.html#invoke). 
+The command specified will use the defined arguments and pass along any specified environment variables.
+The commands for dbt are documented below.
+
+### Clean
+
+- Command: clean
+- Argument: `clean`
+- Reference: [dbt clean](https://docs.getdbt.com/reference/commands/clean)
+
+Delete all folders in the clean-targets list (usually the dbt_modules and target directories.)
+
+#### How to use
+
+```bash
+meltano invoke dbt:clean
+```      
+
+### Compile
+
+- Command: compile
+- Argument: `compile --models $DBT_MODELS`
+- Reference: [dbt compile](https://docs.getdbt.com/reference/commands/compile)
+
+Generates executable SQL from source model, test, and analysis files. Compiled SQL files are written to the target/ directory.
+View the [Models](#models) documentation for details on the `$DBT_MODELS` environment variable.
+
+#### How to use
+
+```bash
+meltano invoke dbt:compile
+```            
+
+### Dependencies
+
+- Command: deps
+- Argument: `deps`
+- Reference: [dbt deps](https://docs.getdbt.com/reference/commands/deps)
+
+Pull the most recent version of the dependencies listed in packages.yml
+
+#### How to use
+
+```bash
+meltano invoke dbt:deps
+```    
+
+### Run
+
+- Command: run
+- Argument: `run --models $DBT_MODELS`
+- Reference: [dbt run](https://docs.getdbt.com/reference/commands/run)
+
+Compile SQL and execute against the current target database. 
+View the [Models](#models) documentation for details on the `$DBT_MODELS` environment variable.
+
+#### How to use
+
+```bash
+meltano invoke dbt:run
+```    
+
+### Seed
+
+- Command: seed
+- Argument: `seed`
+- Reference: [dbt seed](https://docs.getdbt.com/reference/commands/seed)
+
+Load data from csv files into your data warehouse.
+
+#### How to use
+
+```bash
+meltano invoke dbt:seed
+```   
+
+### Snapshot
+
+- Command: snapshot
+- Argument: `snapshot`
+- Reference: [dbt snapshot](https://docs.getdbt.com/reference/commands/snapshot)
+
+Execute snapshots defined in your project.
+
+#### How to use
+
+```bash
+meltano invoke dbt:snapshot
+```   
+
+### Test
+
+- Command: test
+- Argument: `test`
+- Reference: [dbt test](https://docs.getdbt.com/reference/commands/test)
+
+Runs tests on data in deployed models.
+
+#### How to use
+
+```bash
+meltano invoke dbt:test
+```
