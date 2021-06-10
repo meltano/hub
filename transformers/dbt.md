@@ -176,11 +176,11 @@ The commands for `dbt` are documented below.
 
 ### Clean
 
-- Command: clean
+- Command: `clean`
 - Argument: `clean`
 - Reference: [`dbt clean`](https://docs.getdbt.com/reference/commands/clean)
 
-Delete all folders in the clean-targets list (usually the dbt_modules and target directories.)
+Delete all folders in the `clean-targets` list (usually the `dbt_modules` and `target` directories.)
 
 #### How to use
 
