@@ -23,8 +23,6 @@ If you haven't already, follow the [Getting Started guide](https://meltano.com/d
 
 ### Installation and configuration
 
-#### Using the Command Line Interface
-
 1. Add the `dbt` transformer to your project using [`meltano add`](https://meltano.com/docs/command-line-interface.html#add):
 
     ```bash
@@ -43,8 +41,9 @@ If you run into any issues, [learn how to get help](https://meltano.com/docs/get
 
 Meltano automatically sets default values for all `dbt` settings that can be [overridden](https://meltano.com/docs/configuration.html) if needed. 
 These settings are documented below.
-Settings can also be configured as you would in a [normal dbt project](https://docs.getdbt.com/reference/dbt_project.yml) via the `/transform/dbt_project.yml` file in your Meltano project.
 To quickly find the setting you're looking for, use the Table of Contents at the top of the page.
+
+Settings for `dbt` itself can be configured through [`dbt_project.yml`](https://docs.getdbt.com/reference/dbt_project.yml) as usual, which can be found at `transform/dbt_project.yml` in your Meltano project.
 
 #### Minimal configuration
 
@@ -87,7 +86,7 @@ This setting corresponds to [dbt's `--profiles-dir` option](https://docs.getdbt.
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [`meltano config`](https://meltano.com/docs/command-line-interface.html#config) or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
 
 ```bash
 meltano config dbt set profiles_dir <profiles_dir>
@@ -105,7 +104,7 @@ This is the dialect of your warehouse where data is stored. It maps to the [`tar
 
 #### How to use
 
-This setting is managed by the loader and is not recommended to be changed via the transformer. You can, if needed, overwrite this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+This setting is managed by the loader and is not recommended to be changed via the transformer. You can, if needed, overwrite this setting using [`meltano config`](https://meltano.com/docs/command-line-interface.html#config) or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
 
 ```bash
 meltano config dbt set target <target>
@@ -123,7 +122,7 @@ This defines the schema were dbt will read data from.
 
 #### How to use
 
-This setting is managed by the loader and is not recommended to be changed via the transformer. You can, if needed, overwrite this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+This setting is managed by the loader and is not recommended to be changed via the transformer. You can, if needed, overwrite this setting using [`meltano config`](https://meltano.com/docs/command-line-interface.html#config) or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
 
 ```bash
 meltano config dbt set source_schema <source_schema>
@@ -141,7 +140,7 @@ This is the schema dbt writes transformation results to.
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [`meltano config`](https://meltano.com/docs/command-line-interface.html#config) or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
 
 ```bash
 meltano config dbt set target_schema <schema>
@@ -161,7 +160,7 @@ This setting corresponds to [dbt's `--models` option](https://docs.getdbt.com/re
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [`meltano config`](https://meltano.com/docs/command-line-interface.html#config) or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
 
 ```bash
 meltano config dbt set models <models>
@@ -173,13 +172,13 @@ export DBT_MODELS=<models>
 
 [Meltano commands](https://meltano.com/docs/command-line-interface.html#commands) are shortcuts for combinations of arguments used with [`meltano invoke`](https://meltano.com/docs/command-line-interface.html#invoke). 
 The command specified will use the defined arguments and pass along any specified environment variables.
-The commands for dbt are documented below.
+The commands for `dbt` are documented below.
 
 ### Clean
 
 - Command: clean
 - Argument: `clean`
-- Reference: [dbt clean](https://docs.getdbt.com/reference/commands/clean)
+- Reference: [`dbt clean`](https://docs.getdbt.com/reference/commands/clean)
 
 Delete all folders in the clean-targets list (usually the dbt_modules and target directories.)
 
@@ -191,9 +190,9 @@ meltano invoke dbt:clean
 
 ### Compile
 
-- Command: compile
+- Command: `compile`
 - Argument: `compile --models $DBT_MODELS`
-- Reference: [dbt compile](https://docs.getdbt.com/reference/commands/compile)
+- Reference: [`dbt compile`](https://docs.getdbt.com/reference/commands/compile)
 
 Generates executable SQL from source model, test, and analysis files. Compiled SQL files are written to the target/ directory.
 View the [Models](#models) documentation for details on the `$DBT_MODELS` environment variable.
@@ -208,9 +207,9 @@ meltano invoke dbt:compile
 
 - Command: deps
 - Argument: `deps`
-- Reference: [dbt deps](https://docs.getdbt.com/reference/commands/deps)
+- Reference: [`dbt deps`](https://docs.getdbt.com/reference/commands/deps)
 
-Pull the most recent version of the dependencies listed in packages.yml
+Pull the most recent version of the dependencies listed in `packages.yml`.
 
 #### How to use
 
@@ -220,9 +219,9 @@ meltano invoke dbt:deps
 
 ### Run
 
-- Command: run
+- Command: `run`
 - Argument: `run --models $DBT_MODELS`
-- Reference: [dbt run](https://docs.getdbt.com/reference/commands/run)
+- Reference: [`dbt run`](https://docs.getdbt.com/reference/commands/run)
 
 Compile SQL and execute against the current target database. 
 View the [Models](#models) documentation for details on the `$DBT_MODELS` environment variable.
@@ -235,9 +234,9 @@ meltano invoke dbt:run
 
 ### Seed
 
-- Command: seed
+- Command: `seed`
 - Argument: `seed`
-- Reference: [dbt seed](https://docs.getdbt.com/reference/commands/seed)
+- Reference: [`dbt seed`](https://docs.getdbt.com/reference/commands/seed)
 
 Load data from csv files into your data warehouse.
 
@@ -249,9 +248,9 @@ meltano invoke dbt:seed
 
 ### Snapshot
 
-- Command: snapshot
+- Command: `snapshot`
 - Argument: `snapshot`
-- Reference: [dbt snapshot](https://docs.getdbt.com/reference/commands/snapshot)
+- Reference: [`dbt snapshot`](https://docs.getdbt.com/reference/commands/snapshot)
 
 Execute snapshots defined in your project.
 
@@ -263,9 +262,9 @@ meltano invoke dbt:snapshot
 
 ### Test
 
-- Command: test
+- Command: `test`
 - Argument: `test`
-- Reference: [dbt test](https://docs.getdbt.com/reference/commands/test)
+- Reference: [`dbt test`](https://docs.getdbt.com/reference/commands/test)
 
 Runs tests on data in deployed models.
 
@@ -279,20 +278,19 @@ meltano invoke dbt:test
 
 ### No Models Running
 
-If no models are running, consider overriding the [models setting](#models) using a [pipeline-specific configuration](https://meltano.com/docs/integration.html#pipeline-specific-configuration). 
+If no models are running, consider overriding the [`models` setting](#models) using a [pipeline-specific configuration](https://meltano.com/docs/integration.html#pipeline-specific-configuration). 
 
-You could also create a new key in your extractor definition and reference it via an [environment variable](https://meltano.com/docs/configuration.html#environment-variables). `models` to `$MELTANO_EXTRACT__MODEL_NAME`
+You can also add a [custom](https://meltano.com/docs/configuration.html#custom-settings) [extra](https://meltano.com/docs/configuration.html#plugin-extras) to your extractor definition in your [`meltano.yml` project file](https://meltano.com/docs/project.html#meltano-yml-project-file), that can then be [referenced](https://meltano.com/docs/integration.html#pipeline-environment-variables) from `dbt`'s `models` setting using an [environment variable](https://meltano.com/docs/configuration.html#expansion-in-setting-values):
 
 ```bash
 # meltano.yml
-...
 plugins:
   extractors:
   - name: tap-foo
-    model_name: my_dbt_models # Specify any models here,
-# etc
+    model_name: my_dbt_models # Specify any models here
+# ...
   transformers:
-  - name: dbt    # Other settings here...
+  - name: dbt
     config:
-      models: $MELTANO_EXTRACT__MODEL_NAME # Refers to the `model_name` key.
+      models: $MELTANO_EXTRACT__MODEL_NAME # Refers to the extractor's `model_name`
 ```
