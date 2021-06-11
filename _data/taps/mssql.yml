@@ -23,7 +23,7 @@ variants:
   settings: []
 - default: false
   maintenance_status: Active
-  name: transferwise
+  name: wintersrd
   pip_url: git+https://github.com/wintersrd/pipelinewise-tap-mssql.git
   repo: https://github.com/wintersrd/pipelinewise-tap-mssql
   settings: []
