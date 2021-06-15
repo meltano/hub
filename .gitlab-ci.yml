@@ -43,6 +43,7 @@ jekyll_pages:
     - pip install PyYAML
 
 discovery_test:
+  <<: *discovery_template
   script:
     - python discovery_yaml_generator.py
     - cp discovery.yml $CI_PROJECT_DIR/test/
