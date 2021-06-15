@@ -7,7 +7,7 @@ description: Use Meltano to pull data from various sources and load it into Comm
 The `target-csv` [loader](https://meltano.com/plugins/loaders/) loads [extracted](https://meltano.com/plugins/extractors/) data into [Comma Separated Values (CSV)](https://en.wikipedia.org/wiki/Comma-separated_values) files.
 
 - **Repository**: <https://github.com/hotgluexyz/target-csv>
-- **Maintainer**: [hotglue](https://hotglue.xyz/)
+- **Maintainer**: [Hotglue](https://hotglue.xyz/)
 - **Maintenance status**: Active
 
 ## Getting Started
