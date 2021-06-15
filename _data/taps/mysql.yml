@@ -35,9 +35,6 @@ variants:
   - description: Comma separated list of schemas to extract tables only from particular
       schemas and to improve data extraction performance
     name: filter_dbs
-  - description: Number of rows to export from MySQL in one batch.
-    name: export_batch_rows
-    value: 50000
   - description: List of SQL commands to run when a connection made. This allows to
       set session variables dynamically, like timeouts.
     kind: array
