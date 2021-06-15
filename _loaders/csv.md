@@ -6,11 +6,9 @@ description: Use Meltano to pull data from various sources and load it into Comm
 
 The `target-csv` [loader](https://meltano.com/plugins/loaders/) loads [extracted](https://meltano.com/plugins/extractors/) data into [Comma Separated Values (CSV)](https://en.wikipedia.org/wiki/Comma-separated_values) files.
 
-- **Repository**: <https://github.com/singer-io/target-csv>
-- **Maintainer**: [Stitch](https://www.stitchdata.com/)
-- **Maintenance status**: Unresponsive to community issues and contributions
-  - A [more active fork](https://github.com/singer-io/target-csv/network) may be available that you can [use instead](https://meltano.com/docs/plugin-management.html#using-a-custom-fork-of-a-plugin).
-  - This plugin is [up for adoption](https://meltano.com/docs/contributor-guide.html#adopting-a-plugin)!
+- **Repository**: <https://github.com/hotgluexyz/target-csv>
+- **Maintainer**: [hotglue](https://hotglue.xyz/)
+- **Maintenance status**: Active
 
 ## Getting Started
 
@@ -71,7 +69,7 @@ A minimal configuration of `target-csv` in your [`meltano.yml` project file](htt
 plugins:
   loaders:
   - name: target-csv
-    variant: singer-io
+    variant: hotgluexyz
     config:
       destination_path: my_csv_files
 ```
