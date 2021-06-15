@@ -22,8 +22,8 @@ discovery_test:
   script:
     - python discovery_yaml_generator.py
     - cp discovery.yml $CI_PROJECT_DIR/public/
-    artifacts:
-      paths:
+  artifacts:
+    paths:
       - test
     except:
     - main
