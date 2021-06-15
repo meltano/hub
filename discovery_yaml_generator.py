@@ -1,8 +1,6 @@
-import json
 import os
 import re
 import yaml
-from copy import deepcopy
 
 DISCOVERY_VERSION = 18
 MELTANO_DIR = "_data/meltano/"
