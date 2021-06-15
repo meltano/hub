@@ -46,7 +46,8 @@ discovery_test:
   <<: *discovery_template
   script:
     - python discovery_yaml_generator.py
-    - cp discovery.yml test/
+    - mkdir -p $CI_PROJECT_DIR/test/
+    - cp discovery.yml $CI_PROJECT_DIR/test/
   artifacts:
     paths:
       - test
@@ -57,7 +58,8 @@ discovery_pages:
   <<: *discovery_template
   script:
     - python discovery_yaml_generator.py
-    - cp discovery.yml public/
+    - mkdir -p $CI_PROJECT_DIR/public/
+    - cp discovery.yml $CI_PROJECT_DIR/public/
   artifacts:
       paths:
       - public
