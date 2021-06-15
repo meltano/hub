@@ -5,6 +5,7 @@ namespace: tap_spreadsheets_anywhere
 docs: 'https://meltano.com/plugins/extractors/spreadsheets-anywhere.html'
 repo: https://github.com/ets/tap-spreadsheets-anywhere
 pip_url: git+https://github.com/ets/tap-spreadsheets-anywhere.git
+variant: ets
 capabilities:
   - catalog
   - discover
