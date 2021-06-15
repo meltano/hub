@@ -17,6 +17,17 @@ test:
   except:
   - main
 
+discovery_test:
+  image: python:3
+  script:
+    - python discovery_yaml_generator.py
+    - cp discovery.yml $CI_PROJECT_DIR/public/
+    artifacts:
+      paths:
+      - test
+    except:
+    - main
+
 pages:
   stage: deploy
   script:
@@ -26,3 +37,14 @@ pages:
     - public
   only:
   - main
+
+discovery_pages:
+  image: python:3
+  script:
+    - python discovery_yaml_generator.py
+    - cp discovery.yml $CI_PROJECT_DIR/public/
+  artifacts:
+      paths:
+      - test
+  only:
+    - main

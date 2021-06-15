@@ -6,7 +6,7 @@ from copy import deepcopy
 
 DISCOVERY_VERSION = 18
 MELTANO_DIR = "_data/meltano/"
-DISCOVERY_FILE = "_data/meltano/generated_discovery.yml"
+DISCOVERY_FILE = "discovery.yml"
 
 discovery_dict = {}
 discovery_dict["version"] = DISCOVERY_VERSION
