@@ -11,7 +11,7 @@ variables:
   before_script:
     - bundle install
 
-test:
+jekyll_test:
   <<: *jekyll_template
   stage: test
   script:
@@ -22,7 +22,7 @@ test:
   except:
   - main
 
-pages:
+jekyll_pages:
   <<: *jekyll_template
   stage: deploy
   script:
@@ -39,6 +39,8 @@ pages:
 
 .discovery_template: &discovery_template
   image: python:3
+  before_script:
+    - pip install PyYAML
 
 discovery_test:
   script:
