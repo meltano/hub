@@ -18,6 +18,6 @@ variants:
 - default: true
   maintenance_status: Active
   name: transferwise
-  pip_url: git+https://github.com/transferwise/pipelinewise-tap-snowflake.git
-  repo: https://github.com/transferwise/pipelinewise-tap-snowflake
+  pip_url: git+https://github.com/transferwise/pipelinewise-tap-twilio.git
+  repo: https://github.com/transferwise/pipelinewise-tap-twilio
   settings: []
