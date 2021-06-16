@@ -44,6 +44,7 @@ jekyll_pages:
 
 discovery_test:
   <<: *discovery_template
+  stage: test
   script:
     - python discovery_yaml_generator.py
     - mkdir -p $CI_PROJECT_DIR/test/
@@ -56,6 +57,7 @@ discovery_test:
 
 discovery_pages:
   <<: *discovery_template
+  stage: deploy
   script:
     - python discovery_yaml_generator.py
     - mkdir -p $CI_PROJECT_DIR/public/
