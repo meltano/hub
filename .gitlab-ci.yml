@@ -2,6 +2,11 @@ variables:
   JEKYLL_ENV: production
   LC_ALL: C.UTF-8
 
+stages:
+  - discovery
+  - test
+  - deploy
+
 ##########################
 # Jekyll Build
 ##########################
@@ -14,6 +19,9 @@ variables:
 jekyll_test:
   <<: *jekyll_template
   stage: test
+  needs:
+    - job: discovery_test
+      artifacts: true
   script:
   - bundle exec jekyll build -d test
   artifacts:
@@ -22,10 +30,14 @@ jekyll_test:
   except:
   - main
 
-jekyll_pages:
+pages:
   <<: *jekyll_template
   stage: deploy
+  needs:
+    - job: discovery_gen
+      artifacts: true
   script:
+  - cp discovery/discovery.yml public
   - bundle exec jekyll build -d public
   artifacts:
     paths:
@@ -47,23 +59,21 @@ discovery_test:
   stage: test
   script:
     - python discovery_yaml_generator.py
-    - mkdir -p $CI_PROJECT_DIR/test/
-    - cp discovery.yml $CI_PROJECT_DIR/test/
   artifacts:
     paths:
       - test
   except:
     - main
 
-discovery_pages:
+discovery_gen:
   <<: *discovery_template
-  stage: deploy
+  stage: discovery
   script:
     - python discovery_yaml_generator.py
-    - mkdir -p $CI_PROJECT_DIR/public/
-    - cp discovery.yml $CI_PROJECT_DIR/public/
+    - mkdir .discovery
+    - cp discovery.yml discovery
   artifacts:
       paths:
-      - public
+      - discovery
   only:
     - main
