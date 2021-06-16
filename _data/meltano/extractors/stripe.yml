@@ -2,24 +2,25 @@ name: tap-stripe
 label: Stripe
 description: Online payment processing for internet businesses
 namespace: tap_stripe
-variant: meltano
-docs: 'https://meltano.com/plugins/extractors/stripe.html'
-repo: https://github.com/meltano/tap-stripe
-pip_url: 'git+https://github.com/meltano/tap-stripe.git'
-capabilities:
-  - catalog
-  - discover
-  - state
-settings:
-  - name: account_id
-    env_aliases: [STRIPE_ACCOUNT_ID]
-    label: Account ID
-    placeholder: Ex. acct_1a2b3c4d5e
-  - name: client_secret
-    env_aliases: [STRIPE_API_KEY]
-    kind: password
-    label: Secret API Key
-    placeholder: Ex. sk_live_1a2b3c4d5e
-  - name: start_date
-    kind: date_iso8601
-    description: Determines how much historical data will be extracted. Please be aware that the larger the time period and amount of data, the longer the initial extraction can be expected to take.
+variants:
+- name: meltano
+  docs: 'https://meltano.com/plugins/extractors/stripe.html'
+  repo: https://github.com/meltano/tap-stripe
+  pip_url: 'git+https://github.com/meltano/tap-stripe.git'
+  capabilities:
+    - catalog
+    - discover
+    - state
+  settings:
+    - name: account_id
+      env_aliases: [STRIPE_ACCOUNT_ID]
+      label: Account ID
+      placeholder: Ex. acct_1a2b3c4d5e
+    - name: client_secret
+      env_aliases: [STRIPE_API_KEY]
+      kind: password
+      label: Secret API Key
+      placeholder: Ex. sk_live_1a2b3c4d5e
+    - name: start_date
+      kind: date_iso8601
+      description: Determines how much historical data will be extracted. Please be aware that the larger the time period and amount of data, the longer the initial extraction can be expected to take.

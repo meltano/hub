@@ -1,5 +1,5 @@
-- name: dashboard-gitlab
-  namespace: tap_gitlab
-  variant: meltano
-  repo: https://gitlab.com/meltano/dashboard-gitlab
-  pip_url: 'git+https://gitlab.com/meltano/dashboard-gitlab.git'
+name: dashboard-gitlab
+namespace: tap_gitlab
+variant: meltano
+repo: https://gitlab.com/meltano/dashboard-gitlab
+pip_url: 'git+https://gitlab.com/meltano/dashboard-gitlab.git'
