@@ -20,10 +20,11 @@ jekyll_test:
   <<: *jekyll_template
   stage: test
   needs:
-    - job: discovery_test
+    - job: discovery_gen
       artifacts: true
   script:
-  - bundle exec jekyll build -d test
+    - cp discovery/discovery.yml test
+    - bundle exec jekyll build -d test
   artifacts:
     paths:
     - test
@@ -37,8 +38,8 @@ pages:
     - job: discovery_gen
       artifacts: true
   script:
-  - cp discovery/discovery.yml public
-  - bundle exec jekyll build -d public
+    - cp discovery/discovery.yml public
+    - bundle exec jekyll build -d public
   artifacts:
     paths:
     - public
@@ -49,31 +50,15 @@ pages:
 # discovery.yml Generation
 ##########################
 
-.discovery_template: &discovery_template
+discovery_gen:
   image: python:3
   before_script:
     - pip install PyYAML
-
-discovery_test:
-  <<: *discovery_template
-  stage: discovery
-  script:
-    - python discovery_yaml_generator.py
-  artifacts:
-    paths:
-      - test
-  except:
-    - main
-
-discovery_gen:
-  <<: *discovery_template
   stage: discovery
   script:
     - python discovery_yaml_generator.py
     - mkdir .discovery
     - cp discovery.yml discovery
   artifacts:
-      paths:
+    paths:
       - discovery
-  only:
-    - main
