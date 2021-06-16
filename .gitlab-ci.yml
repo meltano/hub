@@ -56,7 +56,7 @@ pages:
 
 discovery_test:
   <<: *discovery_template
-  stage: test
+  stage: discovery
   script:
     - python discovery_yaml_generator.py
   artifacts:
