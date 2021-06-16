@@ -23,7 +23,6 @@ jekyll_test:
     - job: discovery_gen
       artifacts: true
   script:
-    - cp $CI_PROJECT_DIR/discovery/discovery.yml $CI_PROJECT_DIR/test/
     - bundle exec jekyll build -d test
   artifacts:
     paths:
@@ -38,7 +37,6 @@ pages:
     - job: discovery_gen
       artifacts: true
   script:
-    - cp $CI_PROJECT_DIR/discovery/discovery.yml $CI_PROJECT_DIR/public/
     - bundle exec jekyll build -d public
   artifacts:
     paths:
@@ -57,8 +55,6 @@ discovery_gen:
   stage: discovery
   script:
     - python discovery_yaml_generator.py
-    - mkdir -p $CI_PROJECT_DIR/discovery/
-    - cp discovery.yml $CI_PROJECT_DIR/discovery/
   artifacts:
     paths:
-      - discovery
+      - discovery.yml
