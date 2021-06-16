@@ -1,4 +1,4 @@
-- name: docker
-  namespace: docker
-  repo: https://gitlab.com/meltano/files-docker
-  pip_url: git+https://gitlab.com/meltano/files-docker.git
+name: docker
+namespace: docker
+repo: https://gitlab.com/meltano/files-docker
+pip_url: git+https://gitlab.com/meltano/files-docker.git

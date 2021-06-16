@@ -1,13 +1,18 @@
-image: ruby:2.7
-
 variables:
   JEKYLL_ENV: production
   LC_ALL: C.UTF-8
 
-before_script:
-  - bundle install
+##########################
+# Jekyll Build
+##########################
 
-test:
+.jekyll_template: &jekyll_template
+  image: ruby:2.7
+  before_script:
+    - bundle install
+
+jekyll_test:
+  <<: *jekyll_template
   stage: test
   script:
   - bundle exec jekyll build -d test
@@ -17,7 +22,8 @@ test:
   except:
   - main
 
-pages:
+jekyll_pages:
+  <<: *jekyll_template
   stage: deploy
   script:
   - bundle exec jekyll build -d public
@@ -26,3 +32,36 @@ pages:
     - public
   only:
   - main
+
+##########################
+# discovery.yml Generation
+##########################
+
+.discovery_template: &discovery_template
+  image: python:3
+  before_script:
+    - pip install PyYAML
+
+discovery_test:
+  <<: *discovery_template
+  script:
+    - python discovery_yaml_generator.py
+    - mkdir -p $CI_PROJECT_DIR/test/
+    - cp discovery.yml $CI_PROJECT_DIR/test/
+  artifacts:
+    paths:
+      - test
+  except:
+    - main
+
+discovery_pages:
+  <<: *discovery_template
+  script:
+    - python discovery_yaml_generator.py
+    - mkdir -p $CI_PROJECT_DIR/public/
+    - cp discovery.yml $CI_PROJECT_DIR/public/
+  artifacts:
+      paths:
+      - public
+  only:
+    - main
