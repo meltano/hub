@@ -21,3 +21,9 @@ variants:
   pip_url: git+https://github.com/transferwise/pipelinewise-tap-twilio.git
   repo: https://github.com/transferwise/pipelinewise-tap-twilio
   settings: []
+- default: false
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-twilio.git
+  repo: https://github.com/singer-io/tap-twilio
+  settings: []
