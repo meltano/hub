@@ -1,0 +1,17 @@
+description: Customer Experience Management Platform
+domain:
+  description: Customer Experience Management Platform
+  name: Clarabridge API
+  type: api
+  url: https://www.programmableweb.com/api/clarabridge
+label: Clarabridge
+name: clarabridge
+singer_name: tap-clarabridge
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: pathlight
+  pip_url: git+https://github.com/Pathlight/tap-clarabridge.git
+  repo: https://github.com/Pathlight/tap-clarabridge
+  settings: []

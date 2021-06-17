@@ -1,0 +1,23 @@
+description: Identity Provider
+domain:
+  description: Identity Provider
+  name: Okta API
+  type: api
+  url: https://developer.okta.com/docs/reference/
+label: Okta
+name: okta
+singer_name: tap-okta
+type: tap
+variants:
+- default: false
+  maintenance_status: Unknown
+  name: rshah-amplify
+  pip_url: git+https://github.com/rshah-amplify/tap-okta.git
+  repo: https://github.com/rshah-amplify/tap-okta
+  settings: []
+- default: true
+  maintenance_status: Unknown
+  name: isabella232
+  pip_url: git+https://github.com/isabella232/tap-okta.git
+  repo: https://github.com/isabella232/tap-okta
+  settings: []

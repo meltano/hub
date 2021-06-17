@@ -1,0 +1,23 @@
+description: E-Commerce Logistics Platform
+domain:
+  description: E-Commerce Logistics Platform
+  name: Estoca API
+  type: api
+  url: https://estoca.com.br/
+label: Estoca
+name: estoca
+singer_name: tap-estoca
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: muriloo
+  pip_url: git+https://github.com/Muriloo/tap-estoca.git
+  repo: https://github.com/Muriloo/tap-estoca
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: r4ir4
+  pip_url: git+https://github.com/r4ir4/tap-estoca.git
+  repo: https://github.com/r4ir4/tap-estoca
+  settings: []

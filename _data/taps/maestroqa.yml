@@ -1,0 +1,17 @@
+description: Customer Service Quality Assurance Software
+domain:
+  description: Customer Service Quality Assurance Software
+  name: MaestroQA API
+  type: api
+  url: https://help.maestroqa.com/en/articles/3209794-maestroqa-api
+label: MaestroQA
+name: maestroqa
+singer_name: tap-maestroqa
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: pathlight
+  pip_url: git+https://github.com/Pathlight/tap-maestroqa.git
+  repo: https://github.com/Pathlight/tap-maestroqa
+  settings: []

@@ -1,0 +1,23 @@
+description: Workspace Management Platform
+domain:
+  description: Workspace Management Platform
+  name: OfficeRnD API
+  type: api
+  url: https://developer.officernd.com/
+label: OfficeRnD
+name: officernd
+singer_name: tap-officernd
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: cschouten
+  pip_url: git+https://github.com/cschouten/tap-officernd.git
+  repo: https://github.com/cschouten/tap-officernd
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: saltboxteam
+  pip_url: git+https://github.com/saltboxteam/tap-officernd.git
+  repo: https://github.com/saltboxteam/tap-officernd
+  settings: []

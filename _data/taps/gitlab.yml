@@ -73,3 +73,9 @@ variants:
   - - api_url
     - projects
     - start_date
+- default: false
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-gitlab.git
+  repo: https://github.com/singer-io/tap-gitlab
+  settings: []

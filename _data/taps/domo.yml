@@ -1,0 +1,17 @@
+description: BI Platform
+domain:
+  description: BI Platform
+  name: Domo API
+  type: api
+  url: https://developer.domo.com/docs/api-overview/api-overview
+label: Domo
+name: domo
+singer_name: tap-domo
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: mashey
+  pip_url: git+https://github.com/Mashey/tap-domo.git
+  repo: https://github.com/Mashey/tap-domo
+  settings: []

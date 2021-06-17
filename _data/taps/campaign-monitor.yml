@@ -21,3 +21,15 @@ variants:
   pip_url: git+https://github.com/singer-io/tap-campaign-monitor.git
   repo: https://github.com/singer-io/tap-campaign-monitor
   settings: []
+- default: false
+  maintenance_status: Unknown
+  name: sbwheeler
+  pip_url: git+https://github.com/sbwheeler/tap-campaignmonitor.git
+  repo: https://github.com/sbwheeler/tap-campaignmonitor
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: radico
+  pip_url: git+https://github.com/Radico/tap-campaignmonitor.git
+  repo: https://github.com/Radico/tap-campaignmonitor
+  settings: []

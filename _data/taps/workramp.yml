@@ -1,0 +1,17 @@
+description: Learning Management System
+domain:
+  description: Learning Management System
+  name: Workramp API
+  type: api
+  url: https://www.workramp.com/products/enterprise/integrations/
+label: Workramp
+name: workramp
+singer_name: tap-workramp
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: pathlight
+  pip_url: git+https://github.com/Pathlight/tap-workramp.git
+  repo: https://github.com/Pathlight/tap-workramp
+  settings: []

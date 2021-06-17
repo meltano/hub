@@ -1,0 +1,59 @@
+description: Inbound Marketing software
+domain:
+  description: Inbound Marketing software
+  name: Hubspot API
+  type: api
+  url: https://legacydocs.hubspot.com/docs/overview
+label: Hubspot
+name: hubspot
+singer_name: tap-hubspot
+type: tap
+variants:
+- default: false
+  maintenance_status: Unknown
+  name: thoughtchad
+  pip_url: git+https://github.com/thoughtchad/tap-hubspot.git
+  repo: https://github.com/thoughtchad/tap-hubspot
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: cdchan
+  pip_url: git+https://github.com/cdchan/tap-hubspot.git
+  repo: https://github.com/cdchan/tap-hubspot
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: uniquelyhonest
+  pip_url: git+https://github.com/uniquelyhonest/tap-hubspot.git
+  repo: https://github.com/uniquelyhonest/tap-hubspot
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: wcjohnson11
+  pip_url: git+https://github.com/wcjohnson11/tap-hubspot.git
+  repo: https://github.com/wcjohnson11/tap-hubspot
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: mvaerle
+  pip_url: git+https://github.com/mvaerle/tap-hubspot.git
+  repo: https://github.com/mvaerle/tap-hubspot
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: anthonyp
+  pip_url: git+https://github.com/anthonyp/tap-hubspot.git
+  repo: https://github.com/anthonyp/tap-hubspot
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: ragbadaskar
+  pip_url: git+https://github.com/ragbadaskar/tap-hubspot.git
+  repo: https://github.com/ragbadaskar/tap-hubspot
+  settings: []
+- default: true
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-hubspot.git
+  repo: https://github.com/singer-io/tap-hubspot
+  settings: []

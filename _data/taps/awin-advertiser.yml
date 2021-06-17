@@ -1,0 +1,17 @@
+description: Affiliate Marketing Network
+domain:
+  description: Affiliate Marketing Network
+  name: Awin Advertiser API
+  type: api
+  url: https://wiki.awin.com/index.php/Advertiser_API
+label: Awin Advertiser
+name: awin-advertiser
+singer_name: tap-awin-advertiser
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: horze-international
+  pip_url: git+https://github.com/Horze-International/tap-awin-advertiser.git
+  repo: https://github.com/Horze-International/tap-awin-advertiser
+  settings: []

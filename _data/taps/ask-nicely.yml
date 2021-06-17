@@ -1,0 +1,17 @@
+description: Customer Experience Platform
+domain:
+  description: Customer Experience Platform
+  name: AskNicely API
+  type: api
+  url: https://asknicely.asknice.ly/help/apidocs/auth
+label: AskNicely
+name: ask-nicely
+singer_name: tap-ask-nicely
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: mashey
+  pip_url: git+https://github.com/Mashey/tap-ask-nicely.git
+  repo: https://github.com/Mashey/tap-ask-nicely
+  settings: []

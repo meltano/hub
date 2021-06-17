@@ -1,0 +1,47 @@
+description: B2B SaaS Billing Software
+domain:
+  description: B2B SaaS Billing Software
+  name: Chargify API
+  type: api
+  url: https://reference.chargify.com/v1/basics/introduction
+label: Chargify
+name: chargify
+singer_name: tap-chargify
+type: tap
+variants:
+- default: false
+  maintenance_status: Unknown
+  name: chrishumphries
+  pip_url: git+https://github.com/chrishumphries/tap-chargify.git
+  repo: https://github.com/chrishumphries/tap-chargify
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: lambtron
+  pip_url: git+https://github.com/lambtron/tap-chargify.git
+  repo: https://github.com/lambtron/tap-chargify
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: manatees-first
+  pip_url: git+https://github.com/manatees-first/tap-chargify.git
+  repo: https://github.com/manatees-first/tap-chargify
+  settings: []
+- default: true
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-chargify.git
+  repo: https://github.com/singer-io/tap-chargify
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: andylu-test
+  pip_url: git+https://github.com/andylu-test/tap-chargify.git
+  repo: https://github.com/andylu-test/tap-chargify
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: angaza
+  pip_url: git+https://github.com/angaza/tap-chargify.git
+  repo: https://github.com/angaza/tap-chargify
+  settings: []

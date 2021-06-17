@@ -1,0 +1,17 @@
+description: Agile Project Management for GitHub
+domain:
+  description: Agile Project Management for GitHub
+  name: ZenHub API
+  type: api
+  url: https://github.com/ZenHubIO/API
+label: ZenHub
+name: zenhub
+singer_name: singer-tap-zenhub
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: chillu
+  pip_url: git+https://github.com/chillu/singer-tap-zenhub.git
+  repo: https://github.com/chillu/singer-tap-zenhub
+  settings: []
