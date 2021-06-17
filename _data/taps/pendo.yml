@@ -9,9 +9,45 @@ name: pendo
 singer_name: tap-pendo
 type: tap
 variants:
-- default: true
+- default: false
   maintenance_status: Unknown
   name: singer-io
   pip_url: git+https://github.com/singer-io/tap-pendo.git
   repo: https://github.com/singer-io/tap-pendo
+  settings: []
+- default: true
+  maintenance_status: Unknown
+  name: jwalterclark
+  pip_url: git+https://github.com/jwalterclark/tap-pendo.git
+  repo: https://github.com/jwalterclark/tap-pendo
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: diegobatt
+  pip_url: git+https://github.com/diegobatt/tap-pendo.git
+  repo: https://github.com/diegobatt/tap-pendo
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: jeffhuth-bytecode
+  pip_url: git+https://github.com/jeffhuth-bytecode/tap-pendo.git
+  repo: https://github.com/jeffhuth-bytecode/tap-pendo
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: isabella232
+  pip_url: git+https://github.com/isabella232/tap-pendo.git
+  repo: https://github.com/isabella232/tap-pendo
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: alisa-aylward-toast
+  pip_url: git+https://github.com/alisa-aylward-toast/tap-pendo.git
+  repo: https://github.com/alisa-aylward-toast/tap-pendo
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: bytecodeio
+  pip_url: git+https://github.com/bytecodeio/tap-pendo.git
+  repo: https://github.com/bytecodeio/tap-pendo
   settings: []
