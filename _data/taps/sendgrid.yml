@@ -3,7 +3,7 @@ domain:
   description: Customer Communication Platform
   name: SendGrid API
   type: api
-  url: https://sendgrid.com/docs/for-developers/sending-email/api-getting-started/
+  url: https://docs.sendgrid.com/docs/for-developers/sending-email/api-getting-started/
 label: SendGrid
 name: sendgrid
 singer_name: tap-sendgrid
@@ -20,4 +20,10 @@ variants:
   name: codyss
   pip_url: git+https://github.com/codyss/tap-sendgrid.git
   repo: https://github.com/codyss/tap-sendgrid
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: isabella232
+  pip_url: git+https://github.com/isabella232/singer-tap-sendgrid.git
+  repo: https://github.com/isabella232/singer-tap-sendgrid
   settings: []

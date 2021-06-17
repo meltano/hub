@@ -15,3 +15,27 @@ variants:
   pip_url: git+https://github.com/fishtown-analytics/tap-amazon-mws.git
   repo: https://github.com/fishtown-analytics/tap-amazon-mws
   settings: []
+- default: false
+  maintenance_status: Unknown
+  name: imcallister
+  pip_url: git+https://github.com/imcallister/singer-tap-amazon-mws.git
+  repo: https://github.com/imcallister/singer-tap-amazon-mws
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: pys933
+  pip_url: git+https://github.com/pys933/singer-tap-amazon-mws.git
+  repo: https://github.com/pys933/singer-tap-amazon-mws
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: mmichie
+  pip_url: git+https://github.com/mmichie/singer-tap-amazon-mws.git
+  repo: https://github.com/mmichie/singer-tap-amazon-mws
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: adswerve
+  pip_url: git+https://github.com/adswerve/singer-tap-amazon-mws.git
+  repo: https://github.com/adswerve/singer-tap-amazon-mws
+  settings: []
