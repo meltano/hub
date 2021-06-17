@@ -1,0 +1,17 @@
+description: Performance Marketing Platform
+domain:
+  description: Performance Marketing Platform
+  name: Kwanko API
+  type: api
+  url: https://platform.kwanko.com/
+label: Kwanko
+name: kwanko
+singer_name: tap-kwanko
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: uptilab2
+  pip_url: git+https://github.com/uptilab2/tap-kwanko.git
+  repo: https://github.com/uptilab2/tap-kwanko
+  settings: []
