@@ -1,0 +1,17 @@
+description: Ecommerce Helpdesk
+domain:
+  description: Ecommerce Helpdesk
+  name: Gorgias API
+  type: api
+  url: https://developers.gorgias.com/reference
+label: Gorgias
+name: gorgias
+singer_name: tap-gorgias
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: pathlight
+  pip_url: git+https://github.com/Pathlight/tap-gorgias.git
+  repo: https://github.com/Pathlight/tap-gorgias
+  settings: []

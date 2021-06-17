@@ -1,0 +1,35 @@
+description: Business Communication Platform
+domain:
+  description: Business Communication Platform
+  name: Microsoft Teams API
+  type: api
+  url: https://docs.microsoft.com/en-us/graph/
+label: Microsoft Teams
+name: ms-teams
+singer_name: tap-ms-teams
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-ms-teams.git
+  repo: https://github.com/singer-io/tap-ms-teams
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: mauricio87
+  pip_url: git+https://github.com/mauricio87/tap-ms-teams.git
+  repo: https://github.com/mauricio87/tap-ms-teams
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: isabella232
+  pip_url: git+https://github.com/isabella232/tap-ms-teams.git
+  repo: https://github.com/isabella232/tap-ms-teams
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: bytecodeio
+  pip_url: git+https://github.com/bytecodeio/tap-ms-teams.git
+  repo: https://github.com/bytecodeio/tap-ms-teams
+  settings: []

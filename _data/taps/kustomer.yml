@@ -1,0 +1,71 @@
+description: Customer Service CRM
+domain:
+  description: Customer Service CRM
+  name: Kustomer API
+  type: api
+  url: https://api.kustomerapp.com/
+label: Kustomer
+name: kustomer
+singer_name: tap-kustomer
+type: tap
+variants:
+- default: false
+  maintenance_status: Unknown
+  name: rossbrg
+  pip_url: git+https://github.com/rossbrg/tap-kustomer.git
+  repo: https://github.com/rossbrg/tap-kustomer
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: pathlight
+  pip_url: git+https://github.com/Pathlight/tap-kustomer.git
+  repo: https://github.com/Pathlight/tap-kustomer
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: cdolan-summersalt
+  pip_url: git+https://github.com/cdolan-summersalt/tap-kustomer.git
+  repo: https://github.com/cdolan-summersalt/tap-kustomer
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: emrom1008
+  pip_url: git+https://github.com/emrom1008/tap-kustomer.git
+  repo: https://github.com/emrom1008/tap-kustomer
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: isabella232
+  pip_url: git+https://github.com/isabella232/tap-kustomer.git
+  repo: https://github.com/isabella232/tap-kustomer
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: beamtech
+  pip_url: git+https://github.com/beamtech/tap-kustomer.git
+  repo: https://github.com/beamtech/tap-kustomer
+  settings: []
+- default: true
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-kustomer.git
+  repo: https://github.com/singer-io/tap-kustomer
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: bytecodeio
+  pip_url: git+https://github.com/bytecodeio/tap-kustomer.git
+  repo: https://github.com/bytecodeio/tap-kustomer
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: jeffhuth-bytecode
+  pip_url: git+https://github.com/jeffhuth-bytecode/tap-kustomer.git
+  repo: https://github.com/jeffhuth-bytecode/tap-kustomer
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: drueffect
+  pip_url: git+https://github.com/dRuEFFECT/tap-kustomer.git
+  repo: https://github.com/dRuEFFECT/tap-kustomer
+  settings: []

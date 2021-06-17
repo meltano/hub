@@ -26,3 +26,9 @@ variants:
       extraction can be expected to take.
     kind: date_iso8601
     name: start_date
+- default: false
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-marketo.git
+  repo: https://github.com/singer-io/tap-marketo
+  settings: []

@@ -1,0 +1,23 @@
+description: Kanban Tracking Software
+domain:
+  description: Kanban Tracking Software
+  name: Kanbanize API
+  type: api
+  url: https://knowledgebase.kanbanize.com/hc/en-us/articles/360012393692-Kanbanize-REST-API-
+label: Kanbanize
+name: kanbanize
+singer_name: tap-kanbanize
+type: tap
+variants:
+- default: false
+  maintenance_status: Unknown
+  name: ashalan
+  pip_url: git+https://github.com/ashalan/tap-kanbanize.git
+  repo: https://github.com/ashalan/tap-kanbanize
+  settings: []
+- default: true
+  maintenance_status: Unknown
+  name: n8sty
+  pip_url: git+https://github.com/n8sty/tap-kanbanize.git
+  repo: https://github.com/n8sty/tap-kanbanize
+  settings: []

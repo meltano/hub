@@ -1,0 +1,29 @@
+description: Video Delivery Software
+domain:
+  description: Video Delivery Software
+  name: Platform Purple API
+  type: api
+  url: https://www.platformpurple.com/
+label: Platform Purple
+name: platformpurple
+singer_name: tap-platformpurple
+type: tap
+variants:
+- default: false
+  maintenance_status: Unknown
+  name: isabella232
+  pip_url: git+https://github.com/isabella232/tap-platformpurple.git
+  repo: https://github.com/isabella232/tap-platformpurple
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: fishtown-analytics
+  pip_url: git+https://github.com/fishtown-analytics/tap-platformpurple.git
+  repo: https://github.com/fishtown-analytics/tap-platformpurple
+  settings: []
+- default: true
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-platformpurple.git
+  repo: https://github.com/singer-io/tap-platformpurple
+  settings: []
