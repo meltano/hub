@@ -1,0 +1,17 @@
+description: Customer Support Software
+domain:
+  description: Customer Support Software
+  name: Freshdesk API
+  type: api
+  url: https://developer.freshdesk.com/api/
+label: Freshdesk
+name: freshdesk
+singer_name: tap-freshdesk
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-freshdesk.git
+  repo: https://github.com/singer-io/tap-freshdesk
+  settings: []
