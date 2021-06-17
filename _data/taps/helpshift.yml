@@ -1,0 +1,17 @@
+description: Customer Service Platform
+domain:
+  description: Customer Service Platform
+  name: Helpshift API
+  type: api
+  url: https://apidocs.helpshift.com/
+label: Helpshift
+name: helpshift
+singer_name: tap-helpshift
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: pathlight
+  pip_url: git+https://github.com/Pathlight/tap-helpshift.git
+  repo: https://github.com/Pathlight/tap-helpshift
+  settings: []
