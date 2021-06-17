@@ -1,0 +1,17 @@
+description: Advertising Platform
+domain:
+  description: Advertising Platform
+  name: Facebook Reviews API
+  type: api
+  url: https://developers.facebook.com/docs/graph-api/
+label: Facebook Reviews
+name: facebook-reviews
+singer_name: tap-facebook-reviews
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: packlane
+  pip_url: git+https://github.com/Packlane/tap-facebook-reviews.git
+  repo: https://github.com/Packlane/tap-facebook-reviews
+  settings: []
