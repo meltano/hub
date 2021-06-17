@@ -9,9 +9,15 @@ name: ujet
 singer_name: tap-ujet
 type: tap
 variants:
-- default: true
+- default: false
   maintenance_status: Unknown
   name: bytecodeio
   pip_url: git+https://github.com/bytecodeio/tap-ujet.git
   repo: https://github.com/bytecodeio/tap-ujet
+  settings: []
+- default: true
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-ujet.git
+  repo: https://github.com/singer-io/tap-ujet
   settings: []
