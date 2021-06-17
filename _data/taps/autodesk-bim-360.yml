@@ -1,0 +1,23 @@
+description: Construction Management Software
+domain:
+  description: Construction Management Software
+  name: AutoDesk Forge BIM 360 API
+  type: api
+  url: https://forge.autodesk.com/en/docs/bim360/v1/reference/http/
+label: AutoDesk Forge BIM 360
+name: autodesk-bim-360
+singer_name: tap-autodesk-bim-360
+type: tap
+variants:
+- default: false
+  maintenance_status: Unknown
+  name: datamill-co
+  pip_url: git+https://github.com/datamill-co/tap-autodesk-bim-360.git
+  repo: https://github.com/datamill-co/tap-autodesk-bim-360
+  settings: []
+- default: true
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-autodesk-bim-360.git
+  repo: https://github.com/singer-io/tap-autodesk-bim-360
+  settings: []
