@@ -1,0 +1,17 @@
+description: Flight Comparison Tool
+domain:
+  description: Flight Comparison Tool
+  name: Idealo API
+  type: api
+  url: https://business.idealo.com/de/assets/api/click-report.html#_general
+label: Idealo
+name: idealo-click-report
+singer_name: tap-idealo-click-report
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: horze-international
+  pip_url: git+https://github.com/Horze-International/tap-idealo-click-report.git
+  repo: https://github.com/Horze-International/tap-idealo-click-report
+  settings: []
