@@ -2,8 +2,7 @@
 layout: plugin_page
 ---
 
-{% assign plugin = page.plugin %} {% assign variant = page.variant %} {% assign
-maintainer = site.data.maintainers[variant.name] %}
+{% assign plugin = page.plugin %} {% assign variant = page.variant %}
 <p>
   {% if plugin.type == "tap" %} The <code>{{plugin.singer_name}}</code>
   <a href="/singer/taps">Singer tap</a>
@@ -25,6 +24,7 @@ maintainer = site.data.maintainers[variant.name] %}
     <a href="{{variant.repo}}" target="_blank">{{ variant.repo }}</a>
   </li>
   <li>
+    {% assign maintainer = variant.maintainer %}
     <a href="/singer/maintainers"><strong>Maintainer</strong></a
     >: {% if maintainer.url %}
     <a href="{{maintainer.url}}" target="_blank">{{ maintainer.label }}</a>
