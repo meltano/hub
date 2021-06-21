@@ -21,6 +21,11 @@ youtube_username: Meltano
 
 defaults:
   - scope:
+      type: meltano_plugins
+    values:
+      layout: "meltano_plugin"
+      target: true
+  - scope:
       type: plugins
     values:
       layout: "plugin"
