@@ -1,0 +1,17 @@
+description: NoSQL Database
+domain:
+  description: NoSQL Database
+  name: Cassandra Database
+  type: database
+  url: https://cassandra.apache.org/
+label: Cassandra
+name: target-cassandra
+singer_name: target-cassandra
+type: target
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: coeff
+  pip_url: git+https://github.com/coeff/target-cassandra.git
+  repo: https://github.com/coeff/target-cassandra
+  settings: []

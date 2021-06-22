@@ -1,0 +1,29 @@
+description: Real-time Streaming Platform
+domain:
+  description: Real-time Streaming Platform
+  name: Amazon Kinesis Stream
+  type: api
+  url: https://aws.amazon.com/kinesis/
+label: Kinesis
+name: target-kinesis
+singer_name: target-kinesis
+type: target
+variants:
+- default: false
+  maintenance_status: Unknown
+  name: marouane-tradelab
+  pip_url: git+https://github.com/marouane-tradelab/target-kinesis.git
+  repo: https://github.com/marouane-tradelab/target-kinesis
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: aaimtt
+  pip_url: git+https://github.com/aaimtt/target-kinesis.git
+  repo: https://github.com/aaimtt/target-kinesis
+  settings: []
+- default: true
+  maintenance_status: Unknown
+  name: prontopro
+  pip_url: git+https://github.com/ProntoPro/target-kinesis.git
+  repo: https://github.com/ProntoPro/target-kinesis
+  settings: []
