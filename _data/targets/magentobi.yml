@@ -1,0 +1,35 @@
+description: Business Intelligence Tool
+domain:
+  description: Business Intelligence Tool
+  name: Magento BI Import API
+  type: api
+  url: https://developers.rjmetrics.com/cloudbi/iapi.html
+label: Magento BI
+name: target-magentobi
+singer_name: target-magentobi
+type: target
+variants:
+- default: false
+  maintenance_status: Unknown
+  name: kirill533
+  pip_url: git+https://github.com/kirill533/target-magentobi.git
+  repo: https://github.com/kirill533/target-magentobi
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: isabella232
+  pip_url: git+https://github.com/isabella232/target-magentobi.git
+  repo: https://github.com/isabella232/target-magentobi
+  settings: []
+- default: true
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/target-magentobi.git
+  repo: https://github.com/singer-io/target-magentobi
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: robertjmoore
+  pip_url: git+https://github.com/robertjmoore/target-magentobi.git
+  repo: https://github.com/robertjmoore/target-magentobi
+  settings: []

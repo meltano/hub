@@ -1,0 +1,35 @@
+description: Cloud Spreadsheet Software
+domain:
+  description: Cloud Spreadsheet Software
+  name: Google Sheets
+  type: file
+  url: https://developers.google.com/sheets/api/quickstart/python
+label: Google Sheets
+name: target-gsheet
+singer_name: target-gsheet
+type: target
+variants:
+- default: false
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/target-gsheet.git
+  repo: https://github.com/singer-io/target-gsheet
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: tmonks
+  pip_url: git+https://github.com/tmonks/target-gsheet.git
+  repo: https://github.com/tmonks/target-gsheet
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: dmnpignaud
+  pip_url: git+https://github.com/dmnpignaud/target-gsheet.git
+  repo: https://github.com/dmnpignaud/target-gsheet
+  settings: []
+- default: true
+  maintenance_status: Unknown
+  name: idme
+  pip_url: git+https://github.com/IDme/target-gsheet.git
+  repo: https://github.com/IDme/target-gsheet
+  settings: []
