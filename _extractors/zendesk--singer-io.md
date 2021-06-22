@@ -137,17 +137,17 @@ See <https://support.zendesk.com/hc/en-us/articles/226022787-Generating-a-new-AP
 
 1. Login to your Zendesk dashboard.
 
-![Screenshot of sample Zendesk dashboard](/images/tap-zendesk/01-zendesk-docs.png)
+![Screenshot of sample Zendesk dashboard](/assets/images/tap-zendesk/01-zendesk-docs.png)
 
 2. On the left navigation, scroll down to the `Channels` section to click on the `API` link. If you don't see this, your account does not have adequate permissions.
 
-![Screenshot of left nav with API link](/images/tap-zendesk/02-zendesk-docs.png)
+![Screenshot of left nav with API link](/assets/images/tap-zendesk/02-zendesk-docs.png)
 
 3. Ensure that `Token Access` is enabled
 
 4. Click on the `+` button to create a new API token
 
-![Screenshot of new API token creation](/images/tap-zendesk/03-zendesk-docs.png)
+![Screenshot of new API token creation](/assets/images/tap-zendesk/03-zendesk-docs.png)
 
 5. Add `Meltano` as the API Token Description
 
