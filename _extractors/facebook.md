@@ -99,7 +99,7 @@ To get your Account ID:
 2. Log in if you haven't already.
 3. Make sure the correct account is selected in the top left corner.
 
-![Screenshot of account selector](/images/tap-facebook/account-selector.png)
+![Screenshot of account selector](/assets/images/tap-facebook/account-selector.png)
 
 4. You will see the Account ID displayed inside the selector. You can also find it in the URL, after `?act=` and ahead of any additional parameters starting with `&`:
 
@@ -151,7 +151,7 @@ Once you authorize Meltano to access your Facebook Ads data, Facebook will gener
 6. Enter your email address under "Contact Email" if it is not yet populated automatically.
 7. Click "Create App ID".
 
-![Screenshot of "Create A New App ID" modal](/images/tap-facebook/create-new-app-id.png)
+![Screenshot of "Create A New App ID" modal](/assets/images/tap-facebook/create-new-app-id.png)
 
 8. Under "Add a Product", find "Marketing API", and click "Set Up".
 
@@ -165,7 +165,7 @@ Now that your app has been created and the Marketing API product has been enable
 4. Click "Get Token".
 5. Copy the token that appears in the field.
 
-![Screenshot of "Get Access Token" section](/images/tap-facebook/get-access-token.png)
+![Screenshot of "Get Access Token" section](/assets/images/tap-facebook/get-access-token.png)
 
 This is the Access Token you will provide to Meltano.
 
@@ -185,7 +185,7 @@ To find out exactly when this token will expire, you can use the Access Token De
 3. Click "Debug" on the right.
 4. Look for the value under "Expires".
 
-![Screenshot of the Access Token Debugger](/images/tap-facebook/access-token-debugger.png)
+![Screenshot of the Access Token Debugger](/assets/images/tap-facebook/access-token-debugger.png)
 
 To prevent any interruption of your data pipeline, we recommend that you generate and configure a new token before the currently configured one expires:
 

@@ -118,7 +118,7 @@ As a first step, you need to create a new project in Google Cloud Platform or us
 
 2. Open the [Service accounts page](https://console.developers.google.com/iam-admin/serviceaccounts). If prompted, select a project or create a new one to use for accessing Google Analytics.
 
-   ![Screenshot of Google Service Accounts page](/images/tap-google-analytics/02-ga-service-account-configuration-create-new-account.png)
+   ![Screenshot of Google Service Accounts page](/assets/images/tap-google-analytics/02-ga-service-account-configuration-create-new-account.png)
 
 3. Click "Create service account"
 
@@ -128,7 +128,7 @@ As a first step, you need to create a new project in Google Cloud Platform or us
 
    We also do not need to grant access to any users for this service account, as we only need the key.
 
-   ![Screenshot of Google Service Account Configuration for new Account](/images/tap-google-analytics/02-ga-service-account-configuration-new-account.png)
+   ![Screenshot of Google Service Account Configuration for new Account](/assets/images/tap-google-analytics/02-ga-service-account-configuration-new-account.png)
 
    Click `Create Key`, select `JSON` as the key type and create a new private key. Then click `Save` and store it locally as `client_secrets.json`.
 
@@ -146,7 +146,7 @@ To grant this service account access to your Google Analytics data, add the emai
 
 Only the [Read & Analyze permissions](https://support.google.com/analytics/answer/2884495) are needed as Meltano only extracts data to generate reports.
 
-![Screenshot of Google Analytics Add User](/images/tap-google-analytics/03-ga-add-user.png)
+![Screenshot of Google Analytics Add User](/assets/images/tap-google-analytics/03-ga-add-user.png)
 
 ##### Step 3: Enabling the APIs
 
@@ -154,11 +154,11 @@ Only the [Read & Analyze permissions](https://support.google.com/analytics/answe
 
    Now enable the API using the button at the top, so that the button will say "Disable API" instead:
 
-   ![Screenshot of Google Analytics Reporting API](/images/tap-google-analytics/04-ga-reporting-api.png)
+   ![Screenshot of Google Analytics Reporting API](/assets/images/tap-google-analytics/04-ga-reporting-api.png)
 
 2. Next, visit the [Google Analytics API](https://console.developers.google.com/apis/api/analytics.googleapis.com/overview) dashboard, make sure that the project you used in the previous step is selected, and enable this API as well.
 
-   ![Screenshot of Google Analytics API](/images/tap-google-analytics/05-ga-api.png)
+   ![Screenshot of Google Analytics API](/assets/images/tap-google-analytics/05-ga-api.png)
 
 #### How to use
 
@@ -255,11 +255,11 @@ To get your View ID:
 2. Log in if you haven't already.
 3. Open the account/property/view selector in the top left corner
 
-![Screenshot of closed account selector](/images/tap-google-analytics/account-selector-closed.png)
+![Screenshot of closed account selector](/assets/images/tap-google-analytics/account-selector-closed.png)
 
 3. Select the account, property, and view that you would like to connect with Meltano
 
-![Screenshot of open account selector](/images/tap-google-analytics/account-selector-open.png)
+![Screenshot of open account selector](/assets/images/tap-google-analytics/account-selector-open.png)
 
 4. You will see the View ID displayed inside the selector below the name of the view (e.g. "All Web Site Data"): `188274549`
 

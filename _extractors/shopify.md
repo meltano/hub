@@ -140,7 +140,7 @@ Now that your app has been created, we can acquire the password Meltano will use
 1. In the "Admin API" section on the private app details page, find the "Password" field and click "Show"
 2. The value that appears (starting with `shppa_`) is your API password. You can copy and paste it into the Meltano data source configuration.
 
-![Screenshot of Shopify interface showing private app API password](/images/tap-shopify/private-app-api-password.png)
+![Screenshot of Shopify interface showing private app API password](/assets/images/tap-shopify/private-app-api-password.png)
 
 #### How to use
 
