@@ -1,0 +1,35 @@
+description: Object Storage
+domain:
+  description: Object Storage
+  name: Azure Blob Storage
+  type: file
+  url: https://azure.microsoft.com/en-us/services/storage/blobs/
+label: Azure Blob Storage
+name: target-azureblobstorage
+singer_name: target-azureblobstorage
+type: target
+variants:
+- default: false
+  maintenance_status: Unknown
+  name: opencolleges
+  pip_url: git+https://github.com/opencolleges/target-azureblobstorage.git
+  repo: https://github.com/opencolleges/target-azureblobstorage
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: allanw
+  pip_url: git+https://github.com/allanw/target-azureblobstorage.git
+  repo: https://github.com/allanw/target-azureblobstorage
+  settings: []
+- default: true
+  maintenance_status: Unknown
+  name: shrutikaponde-vc
+  pip_url: git+https://github.com/shrutikaponde-vc/target-azureblobstorage.git
+  repo: https://github.com/shrutikaponde-vc/target-azureblobstorage
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: olehegi
+  pip_url: git+https://github.com/olehegi/target-azureblobstorage.git
+  repo: https://github.com/olehegi/target-azureblobstorage
+  settings: []
