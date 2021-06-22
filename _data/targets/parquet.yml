@@ -1,0 +1,29 @@
+description: Columnar Storage Format
+domain:
+  description: Columnar Storage Format
+  name: Apache Parquet Files
+  type: file
+  url: https://parquet.apache.org/
+label: Parquet
+name: target-parquet
+singer_name: target-parquet
+type: target
+variants:
+- default: false
+  maintenance_status: Unknown
+  name: mrtns
+  pip_url: git+https://github.com/mrtns/target-parquet.git
+  repo: https://github.com/mrtns/target-parquet
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: mirelagrigoras
+  pip_url: git+https://github.com/mirelagrigoras/target-parquet.git
+  repo: https://github.com/mirelagrigoras/target-parquet
+  settings: []
+- default: true
+  maintenance_status: Unknown
+  name: estrategiahq
+  pip_url: git+https://github.com/estrategiahq/target-parquet.git
+  repo: https://github.com/estrategiahq/target-parquet
+  settings: []
