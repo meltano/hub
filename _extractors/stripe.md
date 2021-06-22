@@ -98,11 +98,11 @@ To get your account ID:
 
    - Or in the upper right, click on the avatar to access a dropdown, and click on `Profile`
 
-![Screenshot of what the avatar dropdown with Profile looks like](/images/tap-stripe/01-stripe-docs.png)
+![Screenshot of what the avatar dropdown with Profile looks like](/assets/images/tap-stripe/01-stripe-docs.png)
 
 2. Once the page loads, scroll to the bottom to find your account ID in the section labelled `Accounts`
 
-![Screenshot of account ID](/images/tap-stripe/02-stripe-docs.png)
+![Screenshot of account ID](/assets/images/tap-stripe/02-stripe-docs.png)
 
 3. Copy and paste it somewhere you can refer later on when configuring the tap.
 
@@ -131,7 +131,7 @@ To get your secret API key:
 
    - You can find this by clicking on the `Developers` link on the left navigation and clicking on `API Keys`
 
-![Screeenshot of where the Developers link is on the left side](/images/tap-stripe/03-stripe-docs.png)
+![Screeenshot of where the Developers link is on the left side](/assets/images/tap-stripe/03-stripe-docs.png)
 
 2. Under the `Standard keys` section, click on the button to `Create secret key`
 
@@ -142,15 +142,15 @@ In this case, use the "Reveal live key token" button under "Token" and to the ri
 
 :::
 
-![Screenshot of where Create secret key button is](/images/tap-stripe/04-stripe-docs.png)
+![Screenshot of where Create secret key button is](/assets/images/tap-stripe/04-stripe-docs.png)
 
 3. To make things easy to track, assign the secret key a name of `Meltano` so you know why you created the key
 
-![Screenshot of naming secret key](/images/tap-stripe/05-stripe-docs.png)
+![Screenshot of naming secret key](/assets/images/tap-stripe/05-stripe-docs.png)
 
 4. Once you click on `Create`, you should be greeted with you new API key which you'll copy and paste into the data source configuration.
 
-![Screenshot of the new API key](/images/tap-stripe/06-stripe-docs.png)
+![Screenshot of the new API key](/assets/images/tap-stripe/06-stripe-docs.png)
 
 #### How to use
 

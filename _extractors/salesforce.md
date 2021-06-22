@@ -153,7 +153,7 @@ If you don't already have a Salesforce Security Token for your account, you can 
 
 An email with the Security Token will be sent to your email.
 
-![Screenshot of Salesforce Security Token Reset](/images/salesforce/01-salesforce-reset-security-token.png)
+![Screenshot of Salesforce Security Token Reset](/assets/images/salesforce/01-salesforce-reset-security-token.png)
 
 ::: tip
 

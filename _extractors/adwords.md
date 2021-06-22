@@ -173,7 +173,7 @@ To get your Account ID(s):
 2. Log in if you haven't already.
 3. Make sure the correct account is selected in the top left corner.
 
-![Screenshot of account selector](/images/tap-adwords/account-selector.png)
+![Screenshot of account selector](/assets/images/tap-adwords/account-selector.png)
 
 4. You will see the Account ID displayed inside the selector to the right of the account name, with added dashes for readability.
 
