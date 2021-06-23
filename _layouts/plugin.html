@@ -2,8 +2,7 @@
 layout: plugin_page
 ---
 
-{% assign plugin = page.plugin %} {% assign variant = page.variant %} {% assign
-maintainer = site.data.maintainers[variant.name] %}
+{% assign plugin = page.plugin %} {% assign variant = page.variant %}
 <p>
   {% if plugin.type == "tap" %} The <code>{{plugin.singer_name}}</code>
   <a href="/singer/taps">Singer tap</a>
@@ -25,6 +24,7 @@ maintainer = site.data.maintainers[variant.name] %}
     <a href="{{variant.repo}}" target="_blank">{{ variant.repo }}</a>
   </li>
   <li>
+    {% assign maintainer = variant.maintainer %}
     <a href="/singer/maintainers"><strong>Maintainer</strong></a
     >: {% if maintainer.url %}
     <a href="{{maintainer.url}}" target="_blank">{{ maintainer.label }}</a>
@@ -207,7 +207,8 @@ setting=setting %} {% endfor %} {% endif %}
 <h2 id="looking-for-help">Looking for help?</h2>
 
 <p>
-  If you're having trouble getting the {{plugin.type}} to work by itself or with
+  If you're having trouble getting
+  <code>{{plugin.singer_name}}</code> to work by itself or with
   <a href="https://meltano.com" target="_blank">Meltano</a>, look for an
   <a href="{{variant.repo}}/issues" target="_blank"
     >existing issue in its repository</a

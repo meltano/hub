@@ -11,15 +11,11 @@ class SingerJsonGenerator < Jekyll::Generator
 
     plugins.sort_by! { |p| p['label'].downcase }
 
-    plugins.each do |plugin|
-      plugin['variants'].each do |variant|
-        variant['maintainer'] ||= site.data['maintainers'][variant['name']]
-      end
-    end
+    # singer/<taps/targets>.json
+    generate_file(site, "/singer/", "#{collection}.json", JSON.generate(plugins))
 
     # singer/api/v1/<taps/targets>.json
     generate_file(site, "/singer/api/v1", "#{collection}.json", JSON.generate(plugins))
-    generate_file(site, "/singer/", "#{collection}.json", JSON.generate(plugins))
 
     plugins.each do |plugin|
       # singer/targets/bigquery.json
