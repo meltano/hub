@@ -1,4 +1,5 @@
-{% assign setting=include.setting %}
+{% assign setting=include.setting %} {% assign plugin_name=include.plugin_name
+%}
 <h3 id="{{ setting.name | slugify }}">
   {% if setting.label %} {{setting.label}} (<code>{{ setting.name }}</code>) {%
   else %}
@@ -6,4 +7,65 @@
   {% endif %}
 </h3>
 
-<p>{{ setting.description }}</p>
+{% if plugin_name %} {% capture env_var %}{{plugin_name | replace: "-", "_" |
+upcase}}_{{setting.name | upcase}}{% endcapture %}
+<ul>
+  <li>
+    <a
+      href="https://meltano.com/docs/configuration.html#configuring-settings"
+      target="_blank"
+      >Environment variable</a
+    >: {% if setting.env %} <code>{{setting.env}}</code>, alias:
+    <code>{{env_var}}</code>
+    {% assign env_var = setting.env %} {% elsif setting.env_aliases %}
+    <code>{{env_var}}</code>, alias: {% else %}
+    <code>{{env_var}}</code>
+    {% endif %} {% for env_alias in setting.env_aliases %}
+    <code>{{env_alias}}</code>
+    {% endfor %}
+  </li>
+  {% if setting.options %}
+  <li>
+    Options: {% for option in setting.options %}
+    <code>{{option.value}}</code> {% endfor %}
+  </li>
+  {% endif %} {% if setting.value != nil %}
+  <li>Default: <code>{{setting.value}}</code></li>
+  {% endif %}
+</ul>
+{% endif %} {{ setting.description | markdownify }} {% if setting.documentation
+%}
+<p>
+  See
+  <a href="{{setting.documentation}}" target="_blank"
+    >{{ setting.documentation }}</a
+  >.
+</p>
+{% endif %} {% if plugin_name %}
+<h4 id="how-to-use-{{ setting.name | slugify }}">How to use</h4>
+
+<p>
+  Manage this setting using <a href="#using-meltano-ui">Meltano UI</a>,
+  <a
+    href="https://meltano.com/docs/command-line-interface.html#config"
+    taregt="_blank"
+    ><code>meltano config</code></a
+  >, or an
+  <a
+    href="https://meltano.com/docs/configuration.html#configuring-settings"
+    target="_blank"
+    >environment variable</a
+  >:
+</p>
+
+{% capture example_value %}{% case setting.kind %}{% when "integer" %}{% if
+setting.value %}{{setting.value}}{% else %}1234{% endif %}{% when "boolean" %}{%
+if setting.value == true %}false{% else %}true{% endif %}{% when "date_iso8601"
+%}YYYY-MM-DDTHH:MM:SSZ{% when "array" %}'[...]'{% when "object" %}'{...}'{% when
+"options" %}{{setting.options[0].value}}{% else %}&lt;{{setting.name}}&gt;{%
+endcase %}{% endcapture %}
+
+<pre><code>meltano config {{plugin_name}} set {{setting.name}} {{example_value}}
+
+export {{env_var}}={{example_value}}</code></pre>
+{% endif %}
