@@ -49,7 +49,7 @@ assign singer_plugin = plugin.singer_plugin %} {% assign variant = page.variant
   <li><strong>Maintenance status</strong>: {{ variant.maintenance_status }}</li>
   {% endif %} {% if variant.metrics %} {% assign metrics = variant.metrics %}
   <li>
-    <strong>Last push at</strong>: {{ metrics.last_push_timestamp |
+    <strong>Last update at</strong>: {{ metrics.last_updated_timestamp |
     date_to_string }}
   </li>
   <li>
