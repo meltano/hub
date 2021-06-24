@@ -1,6 +1,6 @@
 description: Code hosting platform
 label: GitHub
-name: github
+name: tap-github
 namepsace: tap_github
 variants:
 - name: singer-io
