@@ -194,3 +194,21 @@ h6 {
     font-size: 0.9em;
   }
 }
+
+input.grid-search {
+  display: block;
+  margin: 0 auto 15px;
+  padding: 10px 20px;
+  border: 1px solid $brand-color;
+  border-radius: 40px;
+  outline: none;
+  font-size: 1.1rem;
+  text-align: center;
+  color: $brand-color;
+  width: 50%;
+
+  &:disabled {
+    background-color: white;
+    border-color: #ccc;
+  }
+}
