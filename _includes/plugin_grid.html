@@ -1,6 +1,15 @@
+{% if include.search %}
+<input
+  type="search"
+  class="grid-search"
+  placeholder="Search all {{include.search}}..."
+  disabled="disabled"
+/>
+{% endif %}
+
 <ul class="button-grid">
   {% for plugin in include.plugins %}
-  <li>
+  <li data-search-terms="{{plugin.label}} {{plugin.name}}">
     <a href="{{ plugin.url | prepend: site.baseurl | prepend: site.url }}">
       <div class="logo-well">
         <img

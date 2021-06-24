@@ -16,9 +16,9 @@ supports the following {{plugins.size}} [out of the box](https://meltano.com/doc
 {% assign custom_targets_count = targets_count | minus: plugins.size %}
 {% if custom_targets_count > 0 %}
 {% capture more_title %} View {{custom_targets_count}} more targets {% endcapture %}
-{% include plugin_grid.html plugins=plugins more_url="/singer/targets" more_title=more_title more_description="All are supported as custom loaders" %}
+{% include plugin_grid.html plugins=plugins search="loaders" more_url="/singer/targets" more_title=more_title more_description="All are supported as custom loaders" %}
 {% else %}
-{% include plugin_grid.html plugins=plugins %}
+{% include plugin_grid.html plugins=plugins search="loaders" %}
 {% endif %}
 
 ## Don't see your destination listed here?
