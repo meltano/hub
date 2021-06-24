@@ -3,8 +3,9 @@
   {% include head.html %}
 
   <body>
-    {% if page.header %} {% include header_{{page.header}}.html %} {% else %} {%
-    include header.html %} {% endif %}
+    {% include banner.html %} {% if page.header %} {% include
+    header_{{page.header}}.html %} {% else %} {% include header.html %} {% endif
+    %}
 
     <div class="page-content">
       <div class="wrapper">{{ content }}</div>
