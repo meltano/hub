@@ -6,3 +6,8 @@
 /venv
 /.meltano
 .env
+
+# Python internal files
+
+__pycache__
+*.pyc
