@@ -20,7 +20,7 @@ variants:
     - discover
     - state
   settings_group_validation:
-    - ['start_date', 'access_token', 'repository']
+    - ['access_token', 'repository', 'start_date']
   settings: 
     - name: start_date
       label: Start Date

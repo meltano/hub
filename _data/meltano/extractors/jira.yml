@@ -14,8 +14,8 @@ variants:
     - catalog
     - state
   settings_group_validation:
-    - ['start_date','username','password','base_url','user_agent']
-    - ['oauth_client_secret','user_agent','oauth_client_id','access_token','cloud_id','refresh_token','start_date']
+    - ['username','password','base_url','start_date','user_agent']
+    - ['oauth_client_secret','oauth_client_id','access_token','cloud_id','refresh_token','start_date','user_agent']
   settings:
     - name: username
       label: Username

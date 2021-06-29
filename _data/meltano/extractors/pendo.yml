@@ -13,7 +13,7 @@ variants:
     - discover
     - state
   settings_group_validation:
-    - ['start_date', 'x_pendo_integration_key', 'period']
+    - ['x_pendo_integration_key', 'period', 'start_date']
   settings:
     - name: x_pendo_integration_key
       label: Integration Key
