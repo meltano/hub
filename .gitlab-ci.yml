@@ -3,6 +3,7 @@ variables:
   LC_ALL: C.UTF-8
 
 stages:
+  - validate
   - discovery
   - test
   - deploy
@@ -58,3 +59,16 @@ discovery_gen:
   artifacts:
     paths:
       - discovery.yml
+
+##########################
+# Validate taps and targets
+##########################
+
+jsonschema_validation:
+  image: python:3
+  before_script:
+    - pip install PyYAML
+    - pip install jsonschema
+  stage: validate
+  script:
+    - python yaml_validate.py
