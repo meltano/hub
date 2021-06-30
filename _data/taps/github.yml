@@ -22,10 +22,6 @@ variants:
   settings_group_validation:
     - ['access_token', 'repository', 'start_date']
   settings: 
-    - name: start_date
-      label: Start Date
-      kind: date_iso8601
-      description: Defines how far into the past to pull data for the provided repositories.
     - name: access_token
       label: Personal Access Tokens
       docs: https://github.com/settings/tokens
@@ -35,6 +31,10 @@ variants:
       label: Repositories
       placeholder: Ex. "meltano/meltano meltano/sdk meltano/hub"
       description: Space-separated list of repositories. Each repository must be prefaced by the user/organization name, e.g. `"meltano/meltano meltano/sdk meltano/hub"`
+    - name: start_date
+      label: Start Date
+      kind: date_iso8601
+      description: Defines how far into the past to pull data for the provided repositories.
 - default: false
   maintenance_status: Unknown
   name: dataops-tk
