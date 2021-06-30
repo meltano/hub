@@ -15,7 +15,7 @@ job_fail = False
 with open(SCHEMA_DIR, "r") as json_schema_file:
     schema = json.load(json_schema_file)
 
-def connector_validate(connector_dir):
+def connector_validate(connector_dir, job_fail):
     for root, subdir, files in os.walk(connector_dir):
 
         for file in files:
@@ -25,12 +25,16 @@ def connector_validate(connector_dir):
             try:
                 validate(instance=plugin_data, schema=schema)
             except Exception as e:
-                print(f"Validation error for {file} with message {str(e)}")
                 job_fail = True
+                print(f"Validation error for {file} with message {str(e)}")
 
-connector_validate(TAP_DIR)
-connector_validate(TARGET_DIR)
+    return job_fail
+
+job_fail = connector_validate(TAP_DIR, job_fail)
+job_fail = connector_validate(TARGET_DIR, job_fail)
+
 if job_fail:
+    print("Schema validation failed.")
     sys.exit(1)
 else:
     print("All taps and targest pass the JSON Schema.")
