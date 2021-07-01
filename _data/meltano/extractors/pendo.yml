@@ -1,16 +1,9 @@
 description: Product Experience and Digital Adoption Solutions
-domain:
-  description: Product Experience and Digital Adoption Solutions
-  name: Pendo API
-  type: api
-  url: https://developers.pendo.io/docs/?bash#overview
 label: Pendo
-name: pendo
-singer_name: tap-pendo
-type: tap
+name: tap-pendo
+namespace: tap_pendo
 variants:
 - name: singer-io
-  default: true
   maintenance_status: Active
   docs: https://hub.meltano.com/extractors/pendo
   pip_url: git+https://github.com/singer-io/tap-pendo.git
@@ -51,39 +44,3 @@ variants:
       label: Start Date
       description: This is the default start date value to use if no bookmark is present.
       kind: date_iso8601
-- default: false
-  maintenance_status: Unknown
-  name: jwalterclark
-  pip_url: git+https://github.com/jwalterclark/tap-pendo.git
-  repo: https://github.com/jwalterclark/tap-pendo
-  settings: []
-- default: false
-  maintenance_status: Unknown
-  name: diegobatt
-  pip_url: git+https://github.com/diegobatt/tap-pendo.git
-  repo: https://github.com/diegobatt/tap-pendo
-  settings: []
-- default: false
-  maintenance_status: Unknown
-  name: jeffhuth-bytecode
-  pip_url: git+https://github.com/jeffhuth-bytecode/tap-pendo.git
-  repo: https://github.com/jeffhuth-bytecode/tap-pendo
-  settings: []
-- default: false
-  maintenance_status: Unknown
-  name: isabella232
-  pip_url: git+https://github.com/isabella232/tap-pendo.git
-  repo: https://github.com/isabella232/tap-pendo
-  settings: []
-- default: false
-  maintenance_status: Unknown
-  name: alisa-aylward-toast
-  pip_url: git+https://github.com/alisa-aylward-toast/tap-pendo.git
-  repo: https://github.com/alisa-aylward-toast/tap-pendo
-  settings: []
-- default: false
-  maintenance_status: Unknown
-  name: bytecodeio
-  pip_url: git+https://github.com/bytecodeio/tap-pendo.git
-  repo: https://github.com/bytecodeio/tap-pendo
-  settings: []
