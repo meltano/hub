@@ -276,8 +276,8 @@
                                     "description": "An explanation about the purpose of this instance.",
                                     "default": ""
                                 },
-                                "documentation": {
-                                    "id": "#/properties/variants/items/properties/settings/items/properties/documentation",
+                                "docs": {
+                                    "id": "#/properties/variants/items/properties/settings/items/properties/docs",
                                     "type": "string",
                                     "title": "The documentation schema",
                                     "description": "An explanation about the purpose of this instance.",
