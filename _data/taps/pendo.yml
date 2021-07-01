@@ -24,7 +24,6 @@ variants:
   settings:
     - name: x_pendo_integration_key
       label: Integration Key
-      env: TAP_PENDO_INTEGRATION_KEY
       description: "This is the integration key generated via the Pendo website: Settings -> Integrations -> Integration Keys."
       kind: password
     - name: period
