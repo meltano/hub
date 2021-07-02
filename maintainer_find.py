@@ -12,7 +12,7 @@ for filename in os.listdir(directory):
     plugin_name = filename.split(".")[0]
 
     with open(f, "r") as plugin_file:
-        plugin_data = yaml.load(plugin_file)
+        plugin_data = yaml.load(plugin_file, Loader=yaml.FullLoader)
 
     variants = plugin_data.get("variants")
     for variant in variants:
