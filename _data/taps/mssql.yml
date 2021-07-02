@@ -12,6 +12,7 @@ variants:
 - default: true
   maintenance_status: Unknown
   name: singer-io
+  language: clojure
   pip_url: git+https://github.com/singer-io/tap-mssql.git
   repo: https://github.com/singer-io/tap-mssql
   settings: []
