@@ -20,7 +20,7 @@ def connector_validate(connector_dir, job_fail):
 
         for file in files:
             with open(os.path.join(root, file), "r") as plugin_file:
-                plugin_data = yaml.load(plugin_file)
+                plugin_data = yaml.load(plugin_file, Loader=yaml.FullLoader)
             
             try:
                 validate(instance=plugin_data, schema=schema)

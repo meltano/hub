@@ -129,6 +129,21 @@
                         "title": "The repository URL",
                         "description": "An explanation about the purpose of this instance."
                     },
+                    "language": {
+                        "id": "#/properties/variants/items/properties/language",
+                        "type": "string",
+                        "format": "uri",
+                        "enum": [
+                            "python",
+                            "clojure",
+                            "java",
+                            "go",
+                            "scala"
+                        ],
+                        "title": "The primary language of the connector",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": "python"
+                    },
                     "repo_forks": {
                         "id": "#/properties/variants/items/properties/repo_forks",
                         "type": "string",
