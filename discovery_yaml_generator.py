@@ -17,7 +17,7 @@ for root, subdir, files in os.walk(MELTANO_DIR):
 
     for file in files:
         with open(os.path.join(root, file), "r") as plugin_file:
-            plugin_data = yaml.load(plugin_file)
+            plugin_data = yaml.load(plugin_file, Loader=yaml.FullLoader)
         
         meltano_array.append(plugin_data)
 
