@@ -1,4 +1,7 @@
 description: dbt Artifact Files
+domain:
+  type: file
+  name: JSON Lines file type
 label: dbt Artifacts
 name: dbt-artifacts
 singer_name: tap-dbt-artifacts
