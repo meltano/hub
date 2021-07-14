@@ -13,7 +13,6 @@ $base-font-weight: 400;
 $small-font-size: $base-font-size * 0.875;
 $base-line-height: 1.5;
 
-$banner-height: 35px;
 $header-height: 56px;
 $spacing-unit: 30px;
 
@@ -46,40 +45,6 @@ $on-laptop: 800px;
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import "base", "layout", "syntax-highlighting";
-
-header.banner {
-  position: fixed;
-  z-index: 999;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: $banner-height;
-  background-color: white;
-  color: $brand-color;
-
-  p {
-    margin: 0;
-    padding: 0px 1rem;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    line-height: $banner-height;
-    text-align: center;
-    font-weight: bold;
-
-    a {
-      color: inherit;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  }
-}
-
-.site-header {
-  top: $banner-height;
-}
 
 ul.button-grid {
   padding: 0;
@@ -222,8 +187,8 @@ h3,
 h4,
 h5,
 h6 {
-  padding-top: $header-height + $banner-height;
-  margin-top: -$header-height - $banner-height;
+  padding-top: $header-height;
+  margin-top: -$header-height;
 
   code {
     font-size: 0.9em;
