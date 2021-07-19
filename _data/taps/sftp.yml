@@ -1,0 +1,23 @@
+description: File Transfer Protocl
+domain:
+  description: File Transfer Protocl
+  name: SSH File Transfer Protocl (SFTP)
+  type: file
+  url: https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol
+label: SFTP
+name: sftp
+singer_name: tap-sftp
+type: tap
+variants:
+- default: false
+  maintenance_status: Unknown
+  name: bonobos
+  pip_url: git+https://github.com/bonobos/tap-sftp.git
+  repo: https://github.com/bonobos/tap-sftp
+  settings: []
+- default: true
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-sftp.git
+  repo: https://github.com/singer-io/tap-sftp
+  settings: []
