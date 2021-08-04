@@ -2,7 +2,7 @@ function escapeRegex(string) {
   return string.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&");
 }
 
-window.addEventListener("load", () => {
+window.addEventListener("DOMContentLoaded", () => {
   var field = document.querySelector("input.grid-search");
   if (!field) {
     return;
