@@ -102,9 +102,9 @@ Schema messages define the structure of the data sent in a record message. Every
 * `schema` - a [JSON Schema](http://json-schema.org/) describing the `record` property of record messages for a given stream
 * `key_properties` - a list of strings indicating which properties make up the primary key for this stream. Each item in the list must be the name of a top-level property defined in the schema. An empty list may be used to indicate there is no primary key for the stream
 
-::: tip What is JSON Schema?
+##### What is a JSON Schema?
 
-[JSON Schema](http://json-schema.org/) is a way to annotate and validate JSON objects. The data types available in raw JSON are limited compared to the variety of types available in many targets. Within the Singer Spec, JSON schema definitions are used to tell a target the exact data type to use when storing data.
+A [JSON Schema](http://json-schema.org/) is a way to annotate and validate JSON objects. The data types available in raw JSON are limited compared to the variety of types available in many targets. Within the Singer Spec, JSON schema definitions are used to tell a target the exact data type to use when storing data.
 
 Using the `record` example shown previously, the JSON schema for that record could be:
 
@@ -131,7 +131,7 @@ This definition now explicitly defines what kind of data is expected in a record
 
 Also of note, there are [several different versions](https://json-schema.org/specification-links.html) of JSON Schema. The most common one is Draft 4 and Meltano and the [SDK](https://sdk.meltano.com) both support this draft.
 
-:::
+##### Optional SCHEMA message properties
 
 Schema messages can optionally have:
 
@@ -165,13 +165,11 @@ Putting it together, a full schema message looks like this:
 }
 ```
 
-Note that in the above example the message was formatted for readibility, but when output from a tap the entire message will be on a single-line.
+Note that in the above example the message was formatted for readability, but when output from a tap the entire message will be on a single-line.
 
-::: tip SCHEMA and RECORD Message Order matters
+#### Ordering of SCHEMA and RECORD Messages
 
 Before any record messages for a given data stream are output by a tap, they must be preceded by a schema message for the stream. While the extraction will still work, it will be assumed that the record is schema-less and will be loaded in a potentially unexpected manner.
-
-:::
 
 #### State
 
