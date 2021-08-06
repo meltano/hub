@@ -1,0 +1,17 @@
+description: Fulfillment Software for D2C Brands
+domain:
+  description: Fulfillment Software for D2C Brands
+  name: ShipHero API
+  type: api
+  url: https://developer.shiphero.com/
+label: ShipHero
+name: shiphero
+singer_name: tap-shiphero
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-shiphero.git
+  repo: https://github.com/singer-io/tap-shiphero
+  settings: []

@@ -1,0 +1,17 @@
+description: Shipping Software for Ecommerce Fulfillment
+domain:
+  description: Shipping Software for Ecommerce Fulfillment
+  name: ShipStation API
+  type: api
+  url: https://www.shipstation.com/developer-api/
+label: ShipStation
+name: shipstation
+singer_name: tap-shipstation
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: mashey
+  pip_url: git+https://github.com/Mashey/tap-shipstation.git
+  repo: https://github.com/Mashey/tap-shipstation
+  settings: []
