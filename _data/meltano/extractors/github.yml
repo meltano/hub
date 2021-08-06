@@ -10,7 +10,7 @@ variants:
   pip_url: git+https://github.com/singer-io/tap-github.git
   repo: https://github.com/singer-io/tap-github
   capabilities:
-    - catalog
+    - properties
     - discover
     - state
   settings_group_validation:
