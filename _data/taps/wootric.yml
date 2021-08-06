@@ -1,0 +1,17 @@
+description: Customer Experience Management Software
+domain:
+  description: Customer Experience Management Software
+  name: Wootric API
+  type: api
+  url: https://docs.wootric.com/api/
+label: Wootric
+name: wootric
+singer_name: tap-wootric
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-wootric.git
+  repo: https://github.com/singer-io/tap-wootric
+  settings: []
