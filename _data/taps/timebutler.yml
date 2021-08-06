@@ -4,8 +4,8 @@ domain:
   name: Timebutler API
   type: api
   url: https://timebutler.de/
-label: Time
-name: Timebutler
+label: Timebutler
+name: timebutler
 singer_name: tap-timebutler
 type: tap
 variants:
