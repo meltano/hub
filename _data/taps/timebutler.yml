@@ -1,0 +1,17 @@
+description: Time Management Software
+domain:
+  description: Time Management Software
+  name: Timebutler API
+  type: api
+  url: https://timebutler.de/
+label: Time
+name: Timebutler
+singer_name: tap-timebutler
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: taikonauten
+  pip_url: git+https://github.com/taikonauten/tap-timebutler.git
+  repo: https://github.com/taikonauten/tap-timebutler
+  settings: []
