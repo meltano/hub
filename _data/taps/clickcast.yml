@@ -1,0 +1,20 @@
+description: Clickcast
+domain:
+  description: Job ad platform
+  name: Clickcast API by Appcast
+  type: api
+  url: https://www.appcast.io
+label: Clickcast
+name: Clickcast
+singer_name: tap-clickcast
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: datateer
+  pip_url: git+https://github.com/datateer/tap-clickcast.git
+  repo: https://github.com/datateer/tap-clickcast
+  settings:
+  - kind: password
+    name: partner_token
+
