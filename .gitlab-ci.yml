@@ -52,12 +52,34 @@ pages:
 # Daily data pipeline
 ##########################
 
-daily-pipeline:
+data-pipeline-test:
   image: python:3.8
   stage: deploy
   needs: []
   variables:
-    JOB_ID: ATHENA-PROD
+    JOB_ID: ATHENA-CI-TEST
+    TARGET_ATHENA_S3_BUCKET: prod-meltano-bucket-01
+    DBT_TARGET: athena
+    STAGE: test
+  before_script:
+  - ''
+  script:
+  - cd meltano/
+  - pip3 install meltano
+  - meltano install
+  - echo "Installing creds file from CI..." && cp $MELTANO_ENV_FILE .env
+  - meltano elt tap-github-test target-athena --job_id=$JOB_ID
+  - apt-get update && apt-get install jq
+  - |
+    echo "Logging current state...\n" && \
+    meltano elt tap-github target-athena-test --job_id=$JOB_ID --dump=state |  jq '.'     
+
+repos-daily:
+  image: python:3.8
+  stage: deploy
+  needs: []
+  variables:
+    JOB_ID: GITHUB-REPOS-PROD
     TARGET_ATHENA_S3_BUCKET: prod-meltano-bucket-01
     DBT_TARGET: athena
     STAGE: prod
@@ -69,6 +91,30 @@ daily-pipeline:
   - meltano install
   - echo "Installing creds file from CI..." && cp $MELTANO_ENV_FILE .env
   - meltano elt tap-github target-athena --job_id=$JOB_ID
+  - apt-get update && apt-get install jq
+  - |
+    echo "Logging current state...\n" && \
+    meltano elt tap-github-repos target-athena --job_id=$JOB_ID --dump=state |  jq '.'     
+  only:
+  - schedule
+
+metrics-daily:
+  image: python:3.8
+  stage: deploy
+  needs: []
+  variables:
+    JOB_ID: GITHUB-METRICS-PROD
+    TARGET_ATHENA_S3_BUCKET: prod-meltano-bucket-01
+    DBT_TARGET: athena
+    STAGE: prod
+  before_script:
+  - ''
+  script:
+  - cd meltano/
+  - pip3 install meltano
+  - meltano install
+  - echo "Installing creds file from CI..." && cp $MELTANO_ENV_FILE .env
+  - meltano elt tap-github-metrics target-athena --job_id=$JOB_ID
   - apt-get update && apt-get install jq
   - |
     echo "Logging current state...\n" && \
