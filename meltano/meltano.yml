@@ -63,7 +63,9 @@ plugins:
       metrics_log_level: DEBUG
       stream_maps:
         repositories:
-          __filter__: "'tap-' in name or 'target-' in name"
+          __filter__: >
+            ('tap-' in name or 'target-' in name)
+            and name not in ['singer-tap-template', 'singer-target-template']
     select:
     - repositories.*
     - issues.*
