@@ -63,14 +63,13 @@ data-pipeline-test:
     STAGE: test
     TAP_REF: tap-github-test
   before_script:
-  - ''
+  - apt-get update && apt-get install -y jq
   script:
   - cd meltano/
   - pip3 install meltano
   - meltano install
   - echo "Installing creds file from CI..." && cp $MELTANO_ENV_FILE .env
   - meltano elt $TAP_REF target-athena --job_id=$JOB_ID
-  - apt-get update && apt-get install jq
   - |
     echo "Logging current state...\n" && \
     meltano elt $TAP_REF target-athena-test --job_id=$JOB_ID --dump=state |  jq '.'     
@@ -86,14 +85,13 @@ repos-daily:
     STAGE: prod
     TAP_REF: tap-github-repos
   before_script:
-  - ''
+  - apt-get update && apt-get install -y jq
   script:
   - cd meltano/
   - pip3 install meltano
   - meltano install
   - echo "Installing creds file from CI..." && cp $MELTANO_ENV_FILE .env
   - meltano elt $TAP_REF target-athena --job_id=$JOB_ID
-  - apt-get update && apt-get install jq
   - |
     echo "Logging current state...\n" && \
     meltano elt $TAP_REF target-athena --job_id=$JOB_ID --dump=state |  jq '.'     
@@ -111,14 +109,13 @@ metrics-daily:
     STAGE: prod
     TAP_REF: tap-github-metrics
   before_script:
-  - ''
+  - apt-get update && apt-get install -y jq
   script:
   - cd meltano/
   - pip3 install meltano
   - meltano install
   - echo "Installing creds file from CI..." && cp $MELTANO_ENV_FILE .env
   - meltano elt $TAP_REF target-athena --job_id=$JOB_ID
-  - apt-get update && apt-get install jq
   - |
     echo "Logging current state...\n" && \
     meltano elt $TAP_REF target-athena --job_id=$JOB_ID --dump=state |  jq '.'     
