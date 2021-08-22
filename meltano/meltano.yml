@@ -64,8 +64,9 @@ plugins:
       stream_maps:
         repositories:
           __filter__: >
-            ('tap-' in name or 'target-' in name)
-            and name not in ['singer-tap-template', 'singer-target-template']
+            ('tap-' in name or 'target-' in full_name)
+            and name != 'singer-tap-template'
+            and name != 'singer-target-template'
     select:
     - repositories.*
     - issues.*
