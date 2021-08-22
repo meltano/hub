@@ -31,6 +31,8 @@ plugins:
       value: '2010-01-01T00:00:00Z'
     - name: metrics_log_level
       kind: string
+    - name: stream_maps
+      kind: object
     config:
       searches:
       - name: tap forks
@@ -42,6 +44,9 @@ plugins:
       - name: target non-forks
         query: target- fork:false language:Python singer in:readme
       metrics_log_level: DEBUG
+      stream_maps:
+        repositories:
+          __filter__: "'tap-' in name or 'target-' in name"
     select:
     - repositories.*
     - issues.*
