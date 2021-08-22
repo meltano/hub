@@ -1,0 +1,17 @@
+description: Customer Success Software
+domain:
+  description: Customer Success Software
+  name: CustomerX API
+  type: api
+  url: https://doc.api.customerx.com.br/?version=latest
+label: CustomerX
+name: customerx
+singer_name: tap-customerx
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: rafaeljusi
+  pip_url: git+https://github.com/rafaeljusi/tap-customerx.git
+  repo: https://github.com/rafaeljusi/tap-customerx
+  settings: []

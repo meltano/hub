@@ -1,0 +1,23 @@
+description: ERP Software
+domain:
+  description: ERP Software
+  name: Bling ERP API
+  type: api
+  url: https://ajuda.bling.com.br/hc/pt-br/categories/360002186394-API-para-Desenvolvedores
+label: Bling ERP
+name: bling-erp
+singer_name: tap-bling-erp
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: muriloo
+  pip_url: git+https://github.com/Muriloo/tap-bling-erp.git
+  repo: https://github.com/Muriloo/tap-bling-erp
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: r4ir4
+  pip_url: git+https://github.com/r4ir4/tap-bling-erp.git
+  repo: https://github.com/r4ir4/tap-bling-erp
+  settings: []

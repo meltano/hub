@@ -1,0 +1,23 @@
+description: Reservation and Guest Experience Platform
+domain:
+  description: Reservation and Guest Experience Platform
+  name: SevenRooms API
+  type: api
+  url: https://api-docs.sevenrooms.com/_/login
+label: SevenRooms
+name: sevenrooms
+singer_name: tap-sevenrooms
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: uptilab2
+  pip_url: git+https://github.com/uptilab2/tap-sevenrooms.git
+  repo: https://github.com/uptilab2/tap-sevenrooms
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: hugo4400
+  pip_url: git+https://github.com/Hugo4400/tap-sevenrooms.git
+  repo: https://github.com/Hugo4400/tap-sevenrooms
+  settings: []

@@ -1,0 +1,23 @@
+description: Enterprise Management Software
+domain:
+  description: Enterprise Management Software
+  name: Workday API
+  type: api
+  url: https://community.workday.com/api
+label: Workday
+name: workday-raas
+singer_name: tap-workday-raas
+type: tap
+variants:
+- default: false
+  maintenance_status: Unknown
+  name: isabella232
+  pip_url: git+https://github.com/isabella232/tap-workday-raas.git
+  repo: https://github.com/isabella232/tap-workday-raas
+  settings: []
+- default: true
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-workday-raas.git
+  repo: https://github.com/singer-io/tap-workday-raas
+  settings: []

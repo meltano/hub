@@ -1,0 +1,17 @@
+description: Online Payment Solutions
+domain:
+  description: Online Payment Solutions
+  name: Braintree API
+  type: api
+  url: https://developer.paypal.com/braintree/docs/start/overview
+label: Braintree
+name: braintree
+singer_name: tap-braintree
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-braintree.git
+  repo: https://github.com/singer-io/tap-braintree
+  settings: []

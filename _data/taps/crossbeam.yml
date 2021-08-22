@@ -1,0 +1,23 @@
+description: Partner Ecosystem Platform
+domain:
+  description: Partner Ecosystem Platform
+  name: Crossbeam API
+  type: api
+  url: https://developers.crossbeam.com/
+label: Crossbeam
+name: crossbeam
+singer_name: tap-crossbeam
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-crossbeam.git
+  repo: https://github.com/singer-io/tap-crossbeam
+  settings: []
+- default: false
+  maintenance_status: Unknown
+  name: b-ryan
+  pip_url: git+https://github.com/b-ryan/tap-crossbeam.git
+  repo: https://github.com/b-ryan/tap-crossbeam
+  settings: []

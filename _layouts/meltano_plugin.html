@@ -1,0 +1,321 @@
+---
+layout: plugin_page
+---
+
+{% assign plugin_type = page.plugin_type %} {% assign plugin = page.plugin %} {%
+assign singer_plugin = plugin.singer_plugin %} {% assign variant = page.variant
+%}
+<p>
+  {% if plugin_type == "extractor" %} The <code>{{plugin.name}}</code>
+  <a href="https://meltano.com/docs/plugins.html#extractors" target="_blank"
+    >Meltano extractor</a
+  >
+  pulls data from the
+  <a href="{{singer_plugin.domain.url}}" target="_blank"
+    >{{singer_plugin.domain.name}}</a
+  >
+  that can then be sent to a destination using a
+  <a href="https://meltano.com/docs/plugins.html#loaders" target="_blank"
+    >loader</a
+  >. {% else %} The
+  <code>{{plugin.name}}</code>
+  <a href="https://meltano.com/docs/plugins.html#loaders" target="_blank"
+    >Meltano loader</a
+  >
+  sends data into
+  <a href="{{singer_plugin.domain.url}}" target="_blank"
+    >{{singer_plugin.domain.name}}</a
+  >
+  after it was pulled from a source using an
+  <a href="https://meltano.com/docs/plugins.html#extractors" target="_blank"
+    >extractor</a
+  >. {% endif %}
+</p>
+
+<ul>
+  <li>
+    <strong>Repository</strong>:
+    <a href="{{variant.repo}}" target="_blank">{{ variant.repo }}</a>
+  </li>
+  <li>
+    {% assign maintainer = variant.maintainer %}
+    <a href="/singer/maintainers"><strong>Maintainer</strong></a
+    >: {% if maintainer.url %}
+    <a href="{{maintainer.url}}" target="_blank">{{ maintainer.label }}</a>
+    {% else %} {{ maintainer.label }} {% endif %}
+  </li>
+  {% if variant.maintenance_status and variant.maintenance_status != "Unknown"
+  %}
+  <li><strong>Maintenance status</strong>: {{ variant.maintenance_status }}</li>
+  {% endif %} {% if variant.metrics %} {% assign metrics = variant.metrics %}
+  <li>
+    <strong>Last update at</strong>: {{ metrics.last_updated_timestamp |
+    date_to_string }}
+  </li>
+  <li>
+    <a href="{{variant.repo}}/issues" target="_blank">
+      <strong>Open issues and PRs</strong> </a
+    >: {{ metrics.num_open_issues }}
+  </li>
+  {% if metrics.num_stargazers > 0 %}
+  <li><strong>Stars</strong>: {{ metrics.num_stargazers }}</li>
+  {% endif %} {% endif %}
+</ul>
+
+{% if plugin.variants.size > 1 %}
+
+<h2 id="variants">Alternative variants</h2>
+
+<p>
+  Multiple
+  <a href="https://meltano.com/docs/plugins.html#variants" target="_blank"
+    >variants</a
+  >
+  of <code>{{plugin.name}}</code> are available. {% if page.variant_specific %}
+  This document describes the <code>{{variant.name}}</code> variant. {% else %}
+  This document describes the default <code>{{variant.name}}</code> variant,
+  which is recommended for new users. {% endif %}
+</p>
+
+<p>Alternative variants are:</p>
+
+<ul>
+  {% for alt_variant in plugin.variants %} {% if alt_variant != variant %}
+  <li>
+    <a href="{{ alt_variant.url | prepend: site.baseurl | prepend: site.url }}">
+      <code>{{alt_variant.name}}</code>
+    </a>
+    {% if alt_variant.default %}(default){%endif%}
+  </li>
+  {% endif %} {% endfor %}
+</ul>
+
+{% endif %}
+
+<h2 id="getting-started">Getting Started</h2>
+
+<h3 id="prerequisites">Prerequisites</h3>
+
+<p>
+  If you haven't already, follow the initial steps of the
+  <a href="https://meltano.com/docs/getting-started.html" target="_blank"
+    >Getting Started guide</a
+  >:
+</p>
+
+<ol>
+  <li>
+    <a
+      href="https://meltano.com/docs/getting-started.html#install-meltano"
+      target="_blank"
+    >
+      Install Meltano
+    </a>
+  </li>
+  <li>
+    <a
+      href="https://meltano.com/docs/getting-started.html#create-your-meltano-project"
+      target="_blank"
+    >
+      Create your Meltano project
+    </a>
+  </li>
+  {% if plugin_type == "loader" %}
+  <li>
+    <a
+      href="https://meltano.com/docs/getting-started.html#add-an-extractor-to-pull-data-from-a-source"
+      target="_blank"
+    >
+      Add an extractor to pull data from a source
+    </a>
+  </li>
+  {% endif %}
+</ol>
+
+<h3 id="installation-and-configuration">Installation and configuration</h3>
+
+<h4 id="using-the-command-line-interface">Using the Command Line Interface</h4>
+
+<ol>
+  <li>
+    <p>
+      Add the <code>{{plugin.name}}</code> {{plugin_type}} to your project using
+      <a
+        href="https://meltano.com/docs/command-line-interface.html#add"
+        target="_blank"
+      >
+        <code>meltano add</code> </a
+      >:
+    </p>
+
+    <pre><code>meltano add {{plugin_type}} {{plugin.name}}{% if page.variant_specific %} --variant {{variant.name}}{% endif %}</code></pre>
+  </li>
+  {% if variant.settings.size > 0 %}
+  <li>
+    Configure the <a href="#settings">settings</a> below using
+    <a
+      href="https://meltano.com/docs/command-line-interface.html#config"
+      target="_blank"
+    >
+      <code>meltano config</code> </a
+    >.
+  </li>
+  {% endif %}
+</ol>
+
+<h4 id="using-meltano-ui">Using Meltano UI</h4>
+
+<ol>
+  <li>
+    <p>
+      Start
+      <a href="https://meltano.com/docs/ui.html" target="_blank">Meltano UI</a>
+      using
+      <a
+        href="https://meltano.com/docs/command-line-interface.html#ui"
+        target="_blank"
+        ><code>meltano ui</code></a
+      >:
+    </p>
+
+    <pre><code>meltano ui</code></pre>
+  </li>
+  <li>
+    Open the {{plugin_type | capitalize}}s interface at
+    <a href="http://localhost:5000/{{plugin_type}}s" target="_blank"
+      >http://localhost:5000/{{plugin_type}}s</a
+    >.
+  </li>
+  <li>Click the “Add to project” button for “{{plugin.label}}”.</li>
+  {% if page.variant_specific %}
+  <li>Choose "Add variant '{{variant.name}}'".</li>
+  {% endif %} {% if variant.settings.size > 0 %}
+  <li>
+    Configure the <a href="#settings">settings</a> below in the “Configuration”
+    interface that opens automatically.
+  </li>
+  {% endif %}
+</ol>
+
+<h3 id="next-steps">Next steps</h3>
+
+<p>
+  Follow the remaining steps of the
+  <a href="https://meltano.com/docs/getting-started.html" target="_blank">
+    Getting Started guide</a
+  >:
+</p>
+
+<ol>
+  {% if plugin_type == "extractor" %}
+  <li>
+    <a
+      href="https://meltano.com/docs/getting-started.html#select-entities-and-attributes-to-extract"
+      target="_blank"
+    >
+      Select entities and attributes to extract
+    </a>
+  </li>
+  <li>
+    <a
+      href="https://meltano.com/docs/getting-started.html#add-a-loader-to-send-data-to-a-destination"
+      target="_blank"
+    >
+      Add a loader to send data to a destination
+    </a>
+  </li>
+  {% endif %}
+  <li>
+    <a
+      href="https://meltano.com/docs/getting-started.html#run-a-data-integration-el-pipeline"
+      target="_blank"
+    >
+      Run a data integration (EL) pipeline
+    </a>
+  </li>
+</ol>
+
+<p>
+  If you run into any issues,
+  <a href="#looking-for-help">learn how to get help</a>.
+</p>
+
+{% if variant.settings.size > 0 %}
+<h2 id="settings">Settings</h2>
+
+{% if variant.settings_group_validation.size == 1 %}
+<p>
+  <code>{{plugin.name}}</code> requires the
+  <a href="https://meltano.com/docs/configuration.html" target="_blank">
+    configuration
+  </a>
+  of the following settings:
+</p>
+
+<ul>
+  {% for setting_name in variant.settings_group_validation[0] %}
+  <li>
+    <a href="#{{setting_name | slugify}}">
+      <code>{{setting_name}}</code>
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+{% elsif variant.settings_group_validation.size > 1 %}
+<p>
+  <code>{{plugin.name}}</code> requires the
+  <a href="https://meltano.com/docs/configuration.html" target="_blank">
+    configuration
+  </a>
+  of one of the following groups of settings:
+</p>
+
+<ul>
+  {% for setting_group in variant.settings_group_validation %}
+  <li>
+    {% for setting_name in setting_group %}
+    <a href="#{{setting_name | slugify}}">
+      <code>{{setting_name}}</code>
+    </a>
+    {% endfor %}
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+<p>
+  These and other supported settings are documented below. To quickly find the
+  setting you're looking for, use the <a href="#toc">Table of Contents</a> at
+  the top of the page.
+</p>
+
+{% for setting in variant.settings %} {% include setting.html setting=setting
+plugin_name=plugin.name %} {% endfor %} {% endif %}
+
+<h2 id="looking-for-help">Looking for help?</h2>
+
+<p>
+  If you're having trouble getting the
+  <code>{{plugin.name}}</code> {{plugin_type}} to work, look for an
+  <a href="{{variant.repo}}/issues" target="_blank"
+    >existing issue in its repository</a
+  >, file a <a href="{{variant.repo}}/issues/new" target="_blank">new issue</a>,
+  or
+  <a
+    href="https://join.slack.com/t/meltano/shared_invite/zt-obgpdeba-7yrqKhwyMBfdHDXsZY8G7Q"
+    target="_blank"
+    >join the Meltano Slack community</a
+  >
+  and ask for help in the <code>#plugins-general</code> channel.
+</p>
+
+<h3>Found an issue on this page?</h3>
+
+<p>
+  This page is generated from a
+  <a
+    href="https://gitlab.com/meltano/hub/-/tree/main/_data/meltano/{{plugin_type}}s/{{ plugin.name }}.yml"
+    >YAML file</a
+  >
+  that you can contribute changes to!
+</p>

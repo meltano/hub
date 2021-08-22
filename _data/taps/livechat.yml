@@ -1,0 +1,17 @@
+description: Chat Support Software
+domain:
+  description: Chat Support Software
+  name: LiveChat API
+  type: api
+  url: https://developers.livechat.com/docs/
+label: LiveChat
+name: livechat
+singer_name: tap-livechat
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: pathlight
+  pip_url: git+https://github.com/Pathlight/tap-livechat.git
+  repo: https://github.com/Pathlight/tap-livechat
+  settings: []

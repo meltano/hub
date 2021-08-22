@@ -102,9 +102,9 @@ Schema messages define the structure of the data sent in a record message. Every
 * `schema` - a [JSON Schema](http://json-schema.org/) describing the `record` property of record messages for a given stream
 * `key_properties` - a list of strings indicating which properties make up the primary key for this stream. Each item in the list must be the name of a top-level property defined in the schema. An empty list may be used to indicate there is no primary key for the stream
 
-::: tip What is JSON Schema?
+##### What is a JSON Schema?
 
-[JSON Schema](http://json-schema.org/) is a way to annotate and validate JSON objects. The data types available in raw JSON are limited compared to the variety of types available in many targets. Within the Singer Spec, JSON schema definitions are used to tell a target the exact data type to use when storing data.
+A [JSON Schema](http://json-schema.org/) is a way to annotate and validate JSON objects. The data types available in raw JSON are limited compared to the variety of types available in many targets. Within the Singer Spec, JSON schema definitions are used to tell a target the exact data type to use when storing data.
 
 Using the `record` example shown previously, the JSON schema for that record could be:
 
@@ -129,9 +129,9 @@ Using the `record` example shown previously, the JSON schema for that record cou
 
 This definition now explicitly defines what kind of data is expected in a record and how to handle it when loading the data.
 
-Also of note, there are [several different versions](https://json-schema.org/specification-links.html) of JSON Schema. The most common one is Draft 4 and Meltano and the Singer SDK both support this draft.
+Also of note, there are [several different versions](https://json-schema.org/specification-links.html) of JSON Schema. The most common one is Draft 4 and Meltano and the [SDK](https://sdk.meltano.com) both support this draft.
 
-:::
+##### Optional SCHEMA message properties
 
 Schema messages can optionally have:
 
@@ -165,13 +165,11 @@ Putting it together, a full schema message looks like this:
 }
 ```
 
-Note that in the above example the message was formatted for readibility, but when output from a tap the entire message will be on a single-line.
+Note that in the above example the message was formatted for readability, but when output from a tap the entire message will be on a single-line.
 
-::: tip SCHEMA and RECORD Message Order matters
+#### Ordering of SCHEMA and RECORD Messages
 
 Before any record messages for a given data stream are output by a tap, they must be preceded by a schema message for the stream. While the extraction will still work, it will be assumed that the record is schema-less and will be loaded in a potentially unexpected manner.
-
-:::
 
 #### State
 
@@ -343,7 +341,7 @@ There are two kinds of metadata:
 |  Keyword                    |  Tap Type  |  Description  |
 | ----------------------------|:----------:|---------------|
 | `selected`                  | All        | Either `true` or `false`.  Indicates that this node in the schema has been selected by the user for replication. |
-| `replication-method`        | All        | Either `FULL_TABLE`, `INCREMENTAL`, or `LOG_BASED`. The replication method to use for a stream. <br></br> See [Data Integration](https://meltano.com/docs/integration.html#replication-methods) for more details on the replication type.|
+| `replication-method`        | All        | Either `FULL_TABLE`, `INCREMENTAL`, or `LOG_BASED`. The replication method to use for a stream. <br> See [Data Integration](https://meltano.com/docs/integration.html#replication-methods) for more details on the replication type.|
 | `replication-key`           | All        | The name of a property in the source to use as a `bookmark`.  For example, this will often be an `updated_at` field or an auto-incrementing primary key (requires `replication-method`).|
 | `view-key-properties`       | Database   | List of key properties for a database view. |
 
@@ -351,7 +349,7 @@ There are two kinds of metadata:
 
 |  Keyword                    |  Tap Type  |  Description  |
 | ----------------------------|:----------:|---------------|
-| `inclusion`                 | All        | Either `available`, `automatic`, or `unsupported`. </br></br>`available` means the field is available for selection, and the tap will only emit values for that field if it is marked with `"selected": true`. </br></br>`automatic` means that the tap will emit values for the field.  </br></br>`unsupported` means that the field exists in the source data but the tap is unable to provide it.|
+| `inclusion`                 | All        | Either `available`, `automatic`, or `unsupported`. <br>`available` means the field is available for selection, and the tap will only emit values for that field if it is marked with `"selected": true`. <br>`automatic` means that the tap will emit values for the field.  <br>`unsupported` means that the field exists in the source data but the tap is unable to provide it.|
 | `selected-by-default`       | All        | Either `true` or `false`.  Indicates if a node in the schema should be replicated _if_ a user has not expressed any opinion on whether or not to replicate it.|
 | `valid-replication-keys`    | All        | List of the fields that could be used as replication keys.|
 | `forced-replication-method` | All        | Used to force the replication method to either `FULL_TABLE` or `INCREMENTAL`.|
@@ -484,10 +482,10 @@ where `<metrics-json>` is a JSON object with the following keys:
 
 | Metric Key | Description |
 | ---------- | ----------- |
-| `type` | The type of the metric. Indicates how consumers of the data should interpret the value field. There are two types of metrics: </br></br> `counter` - The value should be interpreted as a number that is added to a cumulative or running total </br></br> `timer` - The value is the duration in seconds of some operation |
+| `type` | The type of the metric. Indicates how consumers of the data should interpret the value field. There are two types of metrics: <br> `counter` - The value should be interpreted as a number that is added to a cumulative or running total <br> `timer` - The value is the duration in seconds of some operation |
 | `metric` | The name of the metric. This should consist only of letters, numbers, underscore, and dash characters. For example, "http_request_duration"|
 | `value` | The value of the datapoint, either an integer or a float. For example, "1234" or "1.234" |
-| `tags` | Mapping of tags describing the data. The keys can be any strings consisting solely of letters, numbers, underscores, and dashes. For consistency's sake, we recommend using the following tags when they are relevant.  Note that for many metrics, many of those tags will not be relevant. </br></br> `endpoint` - For a Tap that pulls data from an HTTP API, this should be a descriptive name for the endpoint, such as "users" or "deals" or "orders" </br></br> `http_status_code` - The HTTP status code. For example, 200 or 500 </br></br> `job_type` - For a process that we are timing, some description of the type of the job. For example, if we have a Tap that does a POST to an HTTP API to generate a report and then polls with a GET until the report is done, we could use a job type of "run_report".</br></br>`status` - Either "succeeded" or "failed" |
+| `tags` | Mapping of tags describing the data. The keys can be any strings consisting solely of letters, numbers, underscores, and dashes. For consistency's sake, we recommend using the following tags when they are relevant.  Note that for many metrics, many of those tags will not be relevant. <br> `endpoint` - For a Tap that pulls data from an HTTP API, this should be a descriptive name for the endpoint, such as "users" or "deals" or "orders" <br> `http_status_code` - The HTTP status code. For example, 200 or 500 <br> `job_type` - For a process that we are timing, some description of the type of the job. For example, if we have a Tap that does a POST to an HTTP API to generate a report and then polls with a GET until the report is done, we could use a job type of "run_report".<br>`status` - Either "succeeded" or "failed" |
 
 Here are some examples of metrics and how those metrics should be
 interpreted.

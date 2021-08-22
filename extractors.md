@@ -16,9 +16,9 @@ supports the following {{plugins.size}} [out of the box](https://meltano.com/doc
 {% assign custom_taps_count = taps_count | minus: plugins.size %}
 {% if custom_taps_count > 0 %}
 {% capture more_title %} View {{custom_taps_count}} more taps {% endcapture %}
-{% include plugin_grid.html plugins=plugins more_url="/singer/taps" more_title=more_title more_description="All are supported as custom extractors" %}
+{% include plugin_grid.html plugins=plugins search="extractors" more_url="/singer/taps" more_title=more_title more_description="All are supported as custom extractors" %}
 {% else %}
-{% include plugin_grid.html plugins=plugins %}
+{% include plugin_grid.html plugins=plugins search="extractors" %}
 {% endif %}
 
 ## Don't see your source listed here?

@@ -1,0 +1,17 @@
+description: Construction Management Software
+domain:
+  description: Construction Management Software
+  name: Aconex API
+  type: api
+  url: https://help.aconex.com/aconex/aconex-apis
+label: Aconex
+name: aconex
+singer_name: tap-aconex
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: fostersdata
+  pip_url: git+https://github.com/FostersData/tap-aconex.git
+  repo: https://github.com/FostersData/tap-aconex
+  settings: []

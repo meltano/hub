@@ -3,29 +3,13 @@ class SingerPluginPageGenerator < Jekyll::Generator
   priority :high
 
   def generate(site)
-    generate_pages(site, 'taps', 'extractors')
-    generate_pages(site, 'targets', 'loaders')
+    generate_pages(site, 'tap')
+    generate_pages(site, 'target')
   end
 
-  def generate_pages(site, collection, meltano_collection)
-    site.data[collection].each do |plugin_name, plugin|
-      plugin['logo_url'] = "/assets/logos/#{plugin['type']}s/#{plugin_name}.png"
-
-      meltano_plugin = site.data['meltano'][meltano_collection][plugin_name]
-      if meltano_plugin
-        plugin['meltano_url'] = meltano_plugin['url']
-      end
-
+  def generate_pages(site, plugin_type)
+    site.data["#{plugin_type}s"].each do |plugin_name, plugin|
       plugin['variants'].each do |variant|
-        repo_url = variant['repo']
-        repo_path_match = repo_url.match(%r{\Ahttps?://(?:www\.)?git(?:hub|lab)\.com/([^/]+/[^/.]+)}i)
-        if repo_path_match
-          repo_path = repo_path_match[1]
-          variant['metrics'] = site.data['metrics'][repo_path]
-        else
-          puts("Unknown Git repo URL #{repo_url}")
-        end
-
         if variant['default']
           page = PluginVariantPage.new(site, plugin_name, plugin, variant, variant_specific: false)
           site.pages << page
@@ -37,8 +21,6 @@ class SingerPluginPageGenerator < Jekyll::Generator
         variant['url'] = page.url
       end
     end
-
-    site.data["sorted_#{collection}"] = site.data[collection].values.sort_by { |p| p['label'].downcase }
   end
 
   class PluginVariantPage < Jekyll::Page

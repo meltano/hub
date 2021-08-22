@@ -1,0 +1,17 @@
+description: Field Service Software
+domain:
+  description: Field Service Software
+  name: ServiceM8 API
+  type: api
+  url: https://developer.servicem8.com/docs
+label: ServiceM8
+name: servicem8
+singer_name: tap-servicem8
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: fostersdata
+  pip_url: git+https://github.com/FostersData/tap-servicem8.git
+  repo: https://github.com/FostersData/tap-servicem8
+  settings: []

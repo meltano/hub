@@ -14,10 +14,27 @@ plugins:
     - issue_comments.*
     - "!*.comments"
     - "!*.body"
+  - name: tap-github-test
+    # This invocation is used for testing and should run as quickly as possible.
+    inherit_from: tap-github
+    select:
+    - repositories.*
+    - issues.*
+    - issue_comments.*
+    - '!*.comments'
+    - '!*.body'
+    config:
+      searches:
+      - name: target forks
+        query: target- fork:only language:Python singer in:readme
+      stream_maps:
+        repositories:
+          __filter__: full_name == 'dataops-tk/target-athena'
   - name: tap-github
     namespace: tap_github
     pip_url: git+https://github.com/dataops-tk/tap-github@main
-    executable: tap-github
+    # Comment or uncomment this line to use the local checkout
+    # executable: //Users/aj/Source/tap-github/tap-github.sh
     capabilities:
     - catalog
     - discover
@@ -58,10 +75,16 @@ plugins:
     config:
       destination_path: data/
       do_timestamp_file: true
+  - name: target-athena-test
+    inherit_from: target-athena
+    config:
+      athena_database: test_localdev
+      s3_staging_dir: s3://devtest-meltano-bucket-01/test/localdev/
   - name: target-athena
     namespace: target_athena
-    pip_url: git+https://github.com/aaronsteers/target-athena.git
-    executable: target-athena
+    pip_url: git+https://github.com/dataops-tk/target-athena.git
+    # Comment or uncomment this line to use the local checkout
+    # executable: //Users/aj/Source/target-athena/target-athena.sh
     settings:
     - name: aws_access_key_id
       kind: password
@@ -79,6 +102,7 @@ plugins:
       s3_staging_dir: s3://devtest-meltano-bucket-01/stage/ajdev/
       compression: none
       temp_dir: .output
+      add_record_metadata: True
   transformers:
   - name: dbt
     pip_url: git+https://github.com/Tomme/dbt-athena.git

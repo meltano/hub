@@ -1,0 +1,17 @@
+description: Call Tracking and Monitoring Software
+domain:
+  description: Call Tracking and Monitoring Software
+  name: Callcap API
+  type: api
+  url: https://callcap.com/support/api-documentation/
+label: Callcap
+name: call-cap
+singer_name: tap-call-cap
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: llazarovgannett
+  pip_url: git+https://github.com/LLazarovGannett/tap-call-cap.git
+  repo: https://github.com/LLazarovGannett/tap-call-cap
+  settings: []

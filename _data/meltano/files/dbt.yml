@@ -1,6 +1,6 @@
-- name: dbt
-  namespace: dbt
-  repo: https://gitlab.com/meltano/files-dbt
-  pip_url: git+https://gitlab.com/meltano/files-dbt.git
-  update:
-    transform/profile/profiles.yml: true
+name: dbt
+namespace: dbt
+repo: https://gitlab.com/meltano/files-dbt
+pip_url: git+https://gitlab.com/meltano/files-dbt.git
+update:
+  transform/profile/profiles.yml: true

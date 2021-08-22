@@ -1,16 +1,30 @@
-image: ruby:2.7
-
 variables:
   JEKYLL_ENV: production
   LC_ALL: C.UTF-8
 
-before_script:
-  - bundle install
+stages:
+  - validate
+  - discovery
+  - test
+  - deploy
 
-test:
+##########################
+# Jekyll Build
+##########################
+
+.jekyll_template: &jekyll_template
+  image: ruby:2.7
+  before_script:
+    - bundle install
+
+jekyll_test:
+  <<: *jekyll_template
   stage: test
+  needs:
+    - job: discovery_gen
+      artifacts: true
   script:
-  - bundle exec jekyll build -d test
+    - bundle exec jekyll build -d test
   artifacts:
     paths:
     - test
@@ -19,9 +33,13 @@ test:
   - schedule
 
 pages:
+  <<: *jekyll_template
   stage: deploy
+  needs:
+    - job: discovery_gen
+      artifacts: true
   script:
-  - bundle exec jekyll build -d public
+    - bundle exec jekyll build -d public
   artifacts:
     paths:
     - public
@@ -29,6 +47,10 @@ pages:
   - main
   except:
   - schedule
+
+##########################
+# Daily data pipeline
+##########################
 
 daily-pipeline:
   image: python:3.8
@@ -52,3 +74,31 @@ daily-pipeline:
     meltano elt tap-github target-athena --job_id=$JOB_ID --dump=state |  jq '.'     
   only:
   - schedule
+
+##########################
+# discovery.yml Generation
+##########################
+
+discovery_gen:
+  image: python:3
+  before_script:
+    - pip install PyYAML
+  stage: discovery
+  script:
+    - python discovery_yaml_generator.py
+  artifacts:
+    paths:
+      - discovery.yml
+
+##########################
+# Validate taps and targets
+##########################
+
+jsonschema_validation:
+  image: python:3
+  before_script:
+    - pip install PyYAML
+    - pip install jsonschema
+  stage: validate
+  script:
+    - python yaml_validate.py

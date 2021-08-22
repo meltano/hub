@@ -9,9 +9,10 @@ name: mssql
 singer_name: tap-mssql
 type: tap
 variants:
-- default: true
+- default: false
   maintenance_status: Unknown
   name: singer-io
+  language: clojure
   pip_url: git+https://github.com/singer-io/tap-mssql.git
   repo: https://github.com/singer-io/tap-mssql
   settings: []
@@ -21,9 +22,9 @@ variants:
   pip_url: git+https://github.com/cmoresid/tap-mssql.git
   repo: https://github.com/cmoresid/tap-mssql
   settings: []
-- default: false
+- default: true
   maintenance_status: Active
-  name: transferwise
+  name: wintersrd
   pip_url: git+https://github.com/wintersrd/pipelinewise-tap-mssql.git
   repo: https://github.com/wintersrd/pipelinewise-tap-mssql
   settings: []

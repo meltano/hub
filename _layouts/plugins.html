@@ -27,7 +27,7 @@ header: singer
     <a href="https://meltano.com" target="_blank">Meltano</a>.
   </p>
 
-  {% include plugin_grid.html plugins=plugins %}
+  {% include plugin_grid.html plugins=plugins search=page.plugin_type %}
 
   <p>
     All {{page.plugin_type}} listed on this page are available as JSON via the
@@ -47,7 +47,7 @@ header: singer
       target="_blank"
       >GitHub</a
     >. We are working to
-    <a href="https://gitlab.com/meltano/hub/-/issues/11" target="_blank"
+    <a href="https://gitlab.com/groups/meltano/-/epics/83" target="_blank"
       >add all of these to MeltanoHub</a
     >
     as well.
@@ -56,6 +56,6 @@ header: singer
   <p>
     If a {{singular_type}} for your {{human_type}} doesn't exist yet, you can
     create one yourself using the
-    <a href="https://gitlab.com/meltano/singer-sdk" target="_blank">SDK</a>.
+    <a href="https://sdk.meltano.com" target="_blank">SDK</a>.
   </p>
 </div>

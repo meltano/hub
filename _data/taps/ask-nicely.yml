@@ -1,0 +1,32 @@
+description: Customer Experience Platform
+domain:
+  description: Customer Experience Platform
+  name: AskNicely API
+  type: api
+  url: https://asknicely.asknice.ly/help/apidocs/auth
+label: AskNicely
+name: ask-nicely
+singer_name: tap-ask-nicely
+type: tap
+variants:
+- default: true
+  maintenance_status: Active
+  docs: https://hub.meltano.com/extractors/ask-nicely
+  name: mashey
+  pip_url: git+https://github.com/Mashey/tap-ask-nicely.git
+  repo: https://github.com/Mashey/tap-ask-nicely
+  capabilities:
+    - catalog
+    - discover
+    - state
+  settings_group_validation:
+    - ['subdomain', 'api_key']
+  settings: 
+    - name: subdomain
+      label: Subdomain
+      description: The subdomain of your Ask Nicely account.
+    - name: api_key
+      kind: password
+      label: API Key
+      documentation: https://asknicely.asknice.ly/help/apidocs/auth
+      description: The API Key generated via your Ask Nicely account.

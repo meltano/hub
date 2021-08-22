@@ -1,0 +1,17 @@
+description: Search Campaign Management
+domain:
+  description: Search Campaign Management
+  name: Google Search Ads 360 API
+  type: api
+  url: https://developers.google.com/search-ads/v2/reference
+label: Google Search Ads 360
+name: search-ads
+singer_name: tap-search-ads
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: uptilab2
+  pip_url: git+https://github.com/uptilab2/tap-search-ads.git
+  repo: https://github.com/uptilab2/tap-search-ads
+  settings: []

@@ -129,6 +129,21 @@
                         "title": "The repository URL",
                         "description": "An explanation about the purpose of this instance."
                     },
+                    "language": {
+                        "id": "#/properties/variants/items/properties/language",
+                        "type": "string",
+                        "format": "uri",
+                        "enum": [
+                            "python",
+                            "clojure",
+                            "java",
+                            "go",
+                            "scala"
+                        ],
+                        "title": "The primary language of the connector",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": "python"
+                    },
                     "repo_forks": {
                         "id": "#/properties/variants/items/properties/repo_forks",
                         "type": "string",
@@ -291,7 +306,7 @@
                                     "default": ""
                                 },
                                 "kind": {
-                                    "id": "#/properties/variants/items/properties/settings/items/anyOf/2/properties/kind",
+                                    "id": "#/properties/variants/items/properties/settings/items/properties/kind",
                                     "type": "string",
                                     "title": "The kind schema",
                                     "enum": [
@@ -312,7 +327,7 @@
                                     "default": ""
                                 },
                                 "value": {
-                                    "id": "#/properties/variants/items/properties/settings/items/anyOf/3/properties/value",
+                                    "id": "#/properties/variants/items/properties/settings/items/properties/value",
                                     "oneOf": [
                                         {
                                             "type": "string"
@@ -333,22 +348,53 @@
                                     "title": "The value schema",
                                     "description": "An explanation about the purpose of this instance."
                                 },
+                                "default": {
+                                    "id": "#/properties/variants/items/properties/settings/items/properties/default",
+                                    "oneOf": [
+                                        {
+                                            "type": "string"
+                                        },
+                                        {
+                                            "type": "boolean"
+                                        },
+                                        {
+                                            "type": "integer"
+                                        },
+                                        {
+                                            "type": "object"
+                                        },
+                                        {
+                                            "type": "array"
+                                        }
+                                    ],
+                                    "title": "The default value schema",
+                                    "description": "An explanation about the purpose of this instance."
+                                },
+                                "value_post_processor": {
+                                    "id": "#/properties/variants/items/properties/settings/items/properties/value_post_processor",
+                                    "type": "string",
+                                    "title": "The value_post_processor schema",
+                                    "enum": [
+                                        "stringify"
+                                    ],
+                                    "description": "An explanation about the purpose of this instance."
+                                },
                                 "schema_id": {
-                                    "id": "#/properties/variants/items/properties/settings/items/anyOf/4/properties/schema_id",
+                                    "id": "#/properties/variants/items/properties/settings/items/properties/schema_id",
                                     "type": "boolean",
                                     "title": "The schema_id schema",
                                     "description": "An explanation about the purpose of this instance.",
                                     "default": false
                                 },
                                 "options": {
-                                    "id": "#/properties/variants/items/properties/settings/items/anyOf/6/properties/options",
+                                    "id": "#/properties/variants/items/properties/settings/items/properties/options",
                                     "type": "array",
                                     "title": "The options schema",
                                     "description": "An explanation about the purpose of this instance.",
                                     "default": [],
                                     "additionalItems": true,
                                     "items": {
-                                        "id": "#/properties/variants/items/properties/settings/items/anyOf/6/properties/options/items",
+                                        "id": "#/properties/variants/items/properties/settings/items/properties/options/items",
                                         "type": "object",
                                         "title": "The first anyOf schema",
                                         "description": "An explanation about the purpose of this instance.",
@@ -359,14 +405,14 @@
                                         ],
                                         "properties": {
                                             "label": {
-                                                "id": "#/properties/variants/items/properties/settings/items/anyOf/6/properties/options/items/properties/label",
+                                                "id": "#/properties/variants/items/properties/settings/items/properties/options/items/properties/label",
                                                 "type": "string",
                                                 "title": "The label schema",
                                                 "description": "An explanation about the purpose of this instance.",
                                                 "default": ""
                                             },
                                             "value": {
-                                                "id": "#/properties/variants/items/properties/settings/items/anyOf/6/properties/options/items/properties/value",
+                                                "id": "#/properties/variants/items/properties/settings/items/properties/options/items/properties/value",
                                                 "type": "string",
                                                 "title": "The value schema",
                                                 "description": "An explanation about the purpose of this instance.",

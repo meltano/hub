@@ -1,0 +1,17 @@
+description: Referral Program Software
+domain:
+  description: Referral Program Software
+  name: Referral SaasQuatch API
+  type: api
+  url: https://docs.saasquatch.com/api/
+label: Referral SaasQuatch
+name: referral-saasquatch
+singer_name: tap-referral-saasquatch
+type: tap
+variants:
+- default: true
+  maintenance_status: Unknown
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-referral-saasquatch.git
+  repo: https://github.com/singer-io/tap-referral-saasquatch
+  settings: []
