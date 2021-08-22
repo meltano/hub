@@ -55,6 +55,7 @@ pages:
 daily-pipeline:
   image: python:3.8
   stage: deploy
+  needs: []
   variables:
     JOB_ID: ATHENA-PROD
     TARGET_ATHENA_S3_BUCKET: prod-meltano-bucket-01
