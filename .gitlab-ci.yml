@@ -61,6 +61,7 @@ data-pipeline-test:
     TARGET_ATHENA_S3_BUCKET: prod-meltano-bucket-01
     DBT_TARGET: athena
     STAGE: test
+    TAP_REF: tap-github-test
   before_script:
   - ''
   script:
@@ -68,11 +69,11 @@ data-pipeline-test:
   - pip3 install meltano
   - meltano install
   - echo "Installing creds file from CI..." && cp $MELTANO_ENV_FILE .env
-  - meltano elt tap-github-test target-athena --job_id=$JOB_ID
+  - meltano elt $TAP_REF target-athena --job_id=$JOB_ID
   - apt-get update && apt-get install jq
   - |
     echo "Logging current state...\n" && \
-    meltano elt tap-github target-athena-test --job_id=$JOB_ID --dump=state |  jq '.'     
+    meltano elt $TAP_REF target-athena-test --job_id=$JOB_ID --dump=state |  jq '.'     
 
 repos-daily:
   image: python:3.8
@@ -83,6 +84,7 @@ repos-daily:
     TARGET_ATHENA_S3_BUCKET: prod-meltano-bucket-01
     DBT_TARGET: athena
     STAGE: prod
+    TAP_REF: tap-github-repos
   before_script:
   - ''
   script:
@@ -90,11 +92,11 @@ repos-daily:
   - pip3 install meltano
   - meltano install
   - echo "Installing creds file from CI..." && cp $MELTANO_ENV_FILE .env
-  - meltano elt tap-github target-athena --job_id=$JOB_ID
+  - meltano elt $TAP_REF target-athena --job_id=$JOB_ID
   - apt-get update && apt-get install jq
   - |
     echo "Logging current state...\n" && \
-    meltano elt tap-github-repos target-athena --job_id=$JOB_ID --dump=state |  jq '.'     
+    meltano elt $TAP_REF target-athena --job_id=$JOB_ID --dump=state |  jq '.'     
   only:
   - schedule
 
@@ -107,6 +109,7 @@ metrics-daily:
     TARGET_ATHENA_S3_BUCKET: prod-meltano-bucket-01
     DBT_TARGET: athena
     STAGE: prod
+    TAP_REF: tap-github-metrics
   before_script:
   - ''
   script:
@@ -114,11 +117,11 @@ metrics-daily:
   - pip3 install meltano
   - meltano install
   - echo "Installing creds file from CI..." && cp $MELTANO_ENV_FILE .env
-  - meltano elt tap-github-metrics target-athena --job_id=$JOB_ID
+  - meltano elt $TAP_REF target-athena --job_id=$JOB_ID
   - apt-get update && apt-get install jq
   - |
     echo "Logging current state...\n" && \
-    meltano elt tap-github target-athena --job_id=$JOB_ID --dump=state |  jq '.'     
+    meltano elt $TAP_REF target-athena --job_id=$JOB_ID --dump=state |  jq '.'     
   only:
   - schedule
 
