@@ -149,3 +149,5 @@ jsonschema_validation:
   stage: validate
   script:
     - python yaml_validate.py
+  except:
+  - schedule
