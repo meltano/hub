@@ -15,7 +15,7 @@ Instructions:
 
 import csv
 from typing import Iterable
-import yaml
+from ruamel.yaml import yaml
 from pathlib import Path
 
 # Relative paths to meltano project folder:

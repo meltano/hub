@@ -1,6 +1,6 @@
 import os
 import re
-import yaml
+from ruamel.yaml import yaml
 
 DISCOVERY_VERSION = 18
 MELTANO_DIR = "_data/meltano/"
@@ -18,11 +18,10 @@ for root, subdir, files in os.walk(MELTANO_DIR):
     for file in files:
         with open(os.path.join(root, file), "r") as plugin_file:
             plugin_data = yaml.load(plugin_file, Loader=yaml.FullLoader)
-        
+
         meltano_array.append(plugin_data)
 
     discovery_dict[meltano_type] = meltano_array
 
 with open(DISCOVERY_FILE, "a") as outfile:
     yaml.dump(discovery_dict, outfile)
-

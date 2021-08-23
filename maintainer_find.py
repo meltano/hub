@@ -1,10 +1,9 @@
 import json
 import os
-import yaml
-from copy import deepcopy
+from ruamel.yaml import yaml
 
-directory = '_data/taps/'
- 
+directory = "_data/taps/"
+
 name_list = set()
 
 for filename in os.listdir(directory):
@@ -20,4 +19,3 @@ for filename in os.listdir(directory):
         name_list.add(name)
 
 print(name_list)
-

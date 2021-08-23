@@ -52,7 +52,7 @@ pages:
 discovery_gen:
   image: python:3
   before_script:
-    - pip install PyYAML
+    - pip install ruamel.yaml
   stage: discovery
   script:
     - python discovery_yaml_generator.py
@@ -67,7 +67,7 @@ discovery_gen:
 jsonschema_validation:
   image: python:3
   before_script:
-    - pip install PyYAML
+    - pip install ruamel.yaml
     - pip install jsonschema
   stage: validate
   script:
