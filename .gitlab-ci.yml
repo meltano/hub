@@ -54,7 +54,7 @@ pages:
 
 data-pipeline-test:
   image: python:3.8
-  stage: deploy
+  stage: test
   needs: []
   variables:
     JOB_ID: ATHENA-CI-TEST
