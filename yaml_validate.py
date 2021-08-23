@@ -1,10 +1,11 @@
-from ruamel.yaml import yaml
+from ruamel.yaml import YAML
 import json
 import os
 import sys
 
 from jsonschema import validate
 
+yaml = YAML()
 
 TAP_DIR = "_data/taps/"
 TARGET_DIR = "_data/targets/"
@@ -21,7 +22,7 @@ def connector_validate(connector_dir, job_fail):
 
         for file in files:
             with open(os.path.join(root, file), "r") as plugin_file:
-                plugin_data = yaml.load(plugin_file, Loader=yaml.FullLoader)
+                plugin_data = yaml.load(plugin_file)
 
             try:
                 validate(instance=plugin_data, schema=schema)

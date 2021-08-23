@@ -1,7 +1,9 @@
 import json
 import os
-from ruamel.yaml import yaml
+from ruamel.yaml import YAML
 from copy import deepcopy
+
+yaml = YAML()
 
 
 def merge(a, b, path=None, update=True):
@@ -55,7 +57,7 @@ def merge(a, b, path=None, update=True):
 
 
 with open("_data/scraped.yml", "r") as scraped_file:
-    scraped = yaml.load(scraped_file, Loader=yaml.FullLoader)
+    scraped = yaml.load(scraped_file)
 
 directory = "_data/singer/"
 
@@ -65,7 +67,7 @@ for filename in os.listdir(directory):
     plugin_name = filename.split(".")[0]
 
     with open(f, "r") as plugin_file:
-        plugin_data = yaml.load(plugin_file, Loader=yaml.FullLoader)
+        plugin_data = yaml.load(plugin_file)
 
     includes = plugin_data.get("include").split("/")
     include_source = includes[0]
