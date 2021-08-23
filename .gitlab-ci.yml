@@ -122,6 +122,26 @@ metrics-daily:
   only:
   - schedule
 
+transforms-daily:
+  image: python:3.8
+  stage: deploy
+  needs: [repos-daily, metrics-daily]
+  variables:
+    JOB_ID: GITHUB-REPOS-PROD
+    TARGET_ATHENA_S3_BUCKET: prod-meltano-bucket-01
+    DBT_TARGET: athena
+    STAGE: prod
+    TAP_REF: tap-github-repos
+  before_script:
+  - apt-get update && apt-get install -y jq
+  script:
+  - cd meltano/
+  - pip3 install meltano
+  - meltano install
+  - meltano invoke dbt run
+  only:
+  - schedule
+
 ##########################
 # discovery.yml Generation
 ##########################
