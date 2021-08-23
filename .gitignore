@@ -1,9 +1,13 @@
+
 _site
 .sass-cache
 .jekyll-metadata
 public/
 .ruby-version
 
+# ignore build artifacts
+/discovery.yml
+/test
 singer/taps.json
 singer/targets.json
 singer/api/v1/taps.json
