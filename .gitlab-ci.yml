@@ -73,6 +73,8 @@ data-pipeline-test:
   - |
     echo "Logging current state...\n" && \
     meltano elt $TAP_REF target-athena-test --job_id=$JOB_ID --dump=state |  jq '.'     
+  except:
+  - schedule
 
 repos-daily:
   image: python:3.8
