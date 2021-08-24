@@ -138,6 +138,7 @@ transforms-daily:
   - cd meltano/
   - pip3 install meltano
   - meltano install
+  - echo "Installing creds file from CI..." && cp $MELTANO_ENV_FILE .env
   - meltano invoke dbt run
   only:
   - schedule
