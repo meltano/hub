@@ -2,5 +2,9 @@ FROM lightdash/lightdash:latest
 
 # TODO: Add any custom image prep here.
 
-RUN pip3 uninstall dbt
-RUN pip3 install git+https://github.com/dataops-tk/target-athena.git
+ENV PIP=/usr/local/venv/bin/pip
+
+RUN dbt --version
+RUN $PIP uninstall -y dbt dbt-core
+RUN $PIP install git+https://github.com/Tomme/dbt-athena.git
+RUN dbt --version
