@@ -119,4 +119,4 @@ plugins:
       ui:
         # TODO: Investigate why `docker` alone does not resolve from PATH
         executable: /usr/local/bin/docker
-        args: compose -f analysis/lightdash/docker-compose.yml up
+        args: compose -f analysis/lightdash/docker-compose.yml up --force-recreate --build
