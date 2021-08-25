@@ -1,0 +1,29 @@
+version: "3.9"
+services:
+  lightdash:
+    image: lightdash/lightdash:latest
+    depends_on:
+      - db
+    environment:
+      - PGHOST=${PGHOST:-db}
+      - PGPORT=${PGPORT:-5432}
+      - PGUSER=${PGUSER:-postgres}
+      - PGPASSWORD=${PGPASSWORD:-pass}
+      - PGDATABASE=${PGDATABASE:-postgres}
+      - SECURE_COOKIES=${SECURE_COOKIES:-false}
+      - TRUST_PROXY=${TRUST_PROXY:-false}
+      - LIGHTDASH_SECRET=${LIGHTDASH_SECRET:-pass}
+      - PORT=${PORT:-8080}
+    volumes:
+      - "${DBT_PROFILES_DIR:-/Users/aj/Source/hub/meltano/transform/profile}:/usr/app/profiles"
+      - "${DBT_PROJECT_DIR:-/Users/aj/Source/hub/meltano/transform}:/usr/app/dbt"
+    ports:
+      - ${PORT:-8080}:${PORT:-8080}
+
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: ${PGPASSWORD:-pass}
+      POSTGRES_USER: ${PGUSER:-postgres}
+      POSTGRES_DB: ${PGDATABASE:-postgres}

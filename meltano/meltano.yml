@@ -97,7 +97,7 @@ plugins:
       s3_staging_dir: s3://devtest-meltano-bucket-01/stage/ajdev/
       compression: none
       temp_dir: .output
-      add_record_metadata: True
+      add_record_metadata: true
   transformers:
   - name: dbt
     pip_url: git+https://github.com/Tomme/dbt-athena.git
@@ -106,3 +106,17 @@ plugins:
   files:
   - name: dbt
     pip_url: git+https://gitlab.com/meltano/files-dbt.git
+  utilities:
+  - name: lightdash
+    namespace: lightdash
+    pip_url: git+https://gitlab.com/meltano/files-lightdash.git
+    # TODO: Investigate why `docker` alone does not resolve
+    # executable: /usr/local/bin/docker
+    # args doesn't appear to be supported at the top level:
+    # args: compose -f analysis/lightdash/dev/docker-compose.yml up
+    commands:
+      # meltano invoke lightdash:ui
+      ui:
+        # TODO: Investigate why `docker` alone does not resolve from PATH
+        executable: /usr/local/bin/docker
+        args: compose -f analysis/lightdash/docker-compose.yml up
