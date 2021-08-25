@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: fact_repo_metrics
+    description: "Repo metrics."
+    columns:
+      - name: connector_type
+        description: "Connector type ('tap' or 'target')."
+      - name: connector_name
+      - name: last_push_timestamp
+        meta:
+          metrics:
+            last_push_timestamp:
+              type: max
+      - name: repo_full_name
+        meta:
+          metrics:
+            num_unique_repos: # name of your metric
+              type: count_distinct # metric type
