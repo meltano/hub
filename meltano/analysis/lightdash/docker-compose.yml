@@ -17,6 +17,8 @@ services:
       - TRUST_PROXY=${TRUST_PROXY:-false}
       - LIGHTDASH_SECRET=${LIGHTDASH_SECRET:-pass}
       - PORT=${PORT:-8080}
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
     volumes:
       - "${DBT_PROFILES_DIR:-/Users/aj/Source/hub/meltano/transform/profile}:/usr/app/profiles"
       - "${DBT_PROJECT_DIR:-/Users/aj/Source/hub/meltano/transform}:/usr/app/dbt"
