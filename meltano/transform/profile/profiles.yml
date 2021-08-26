@@ -17,7 +17,7 @@ meltano:
       region_name: us-east-2
     athena-prod:
       type: athena
-      database: prod01
+      database: awsdatacatalog
       s3_staging_dir: s3://prod-meltano-bucket-01/dbt/
       schema: dbt
       region_name: us-east-2
