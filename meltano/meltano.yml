@@ -101,9 +101,9 @@ plugins:
     - name: compression
     config:
       aws_region: us-east-2
-      s3_bucket: devtest-meltano-bucket-01
-      athena_database: raw_ajdev
-      s3_staging_dir: s3://devtest-meltano-bucket-01/stage/ajdev/
+      s3_bucket: prod-meltano-bucket-01
+      athena_database: prod01
+      s3_staging_dir: s3://prod-meltano-bucket-01/data/raw/
       compression: none
       temp_dir: .output
       add_record_metadata: True
