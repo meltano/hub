@@ -11,7 +11,7 @@ type: tap
 variants:
 - default: true
   maintenance_status: Unknown
-  name: singer-io
-  pip_url: git+https://github.com/dataops-tk/tap-github.git
-  repo: https://github.com/dataops-tk/tap-github
+  name: meltanolabs
+  pip_url: git+https://github.com/MeltanoLabs/tap-github.git
+  repo: https://github.com/MeltanoLabs/tap-github
   settings: []
