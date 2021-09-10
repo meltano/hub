@@ -10,6 +10,12 @@ singer_name: tap-surveymonkey
 type: tap
 variants:
 - default: false
+  maintenance_status: Active
+  name: danladd
+  pip_url: git+https://gitlab.com/danladd/tap-surveymonkey.git
+  repo: https://gitlab.com/danladd/tap-surveymonkey
+  settings: []
+- default: false
   maintenance_status: Unknown
   name: mikedillion
   pip_url: git+https://github.com/mikedillion/tap-surveymonkey.git
