@@ -14,7 +14,25 @@ variants:
   name: danladd
   pip_url: git+https://gitlab.com/danladd/tap-surveymonkey.git
   repo: https://gitlab.com/danladd/tap-surveymonkey
-  settings: []
+  settings: 
+  - description: Your Access Token for SurveyMonkey
+    kind: password
+    label: Access Token
+    name: access_token
+  - description: Determines how much historical data will be extracted. Please be
+      aware that the larger the time period and amount of data, the longer the initial
+      extraction can be expected to take.
+    label: Start Date
+    kind: date_iso8601
+    name: start_date
+  - name: per_page
+    kind: integer
+    label: Results Per Page
+    description: Number of results for paginated endpoints (Default = 100)
+  - name: drop_open_ended_text
+    kind: boolean
+    label: Drop Free Text Answers
+    description: If true, drop free text answers from survey responses (Deafult = False)
 - default: false
   maintenance_status: Unknown
   name: mikedillion
