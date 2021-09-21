@@ -15,4 +15,5 @@ singer/taps/
 singer/targets/
 .venv/
 *.env
+*.DS_Store
 .vscode/*
