@@ -53,6 +53,7 @@ discovery_validation:
   image: python:3
   before_script:
     - pip install PyYAML
+    - pip install deepdiff
   stage: discovery
   script:
     - curl https://meltano.com/discovery.yml --output meltano.yml
