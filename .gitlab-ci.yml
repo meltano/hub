@@ -55,7 +55,9 @@ discovery_gen:
     - pip install PyYAML
   stage: discovery
   script:
+    - curl https://meltano.com/discovery.yml --output meltano.yml
     - python discovery_yaml_generator.py
+    - python yaml_diff.py
   artifacts:
     paths:
       - discovery.yml
