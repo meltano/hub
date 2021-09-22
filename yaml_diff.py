@@ -29,10 +29,10 @@ ddiff = DeepDiff(
         iterable_compare_func=compare_func
     )
 
-if ddiff == "{}":
+if len(ddiff) == 0:
     print("Generated discovery.yml matches Meltano discovery.yml")
     sys.exit()
 else:
-    print("Generated discovery.yml does not Meltano discovery.yml")
+    print("Generated discovery.yml does not match Meltano discovery.yml")
     pprint(ddiff, indent = 2)
     sys.exit(1)
