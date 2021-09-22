@@ -34,5 +34,5 @@ if ddiff == "{}":
     sys.exit()
 else:
     print("Generated discovery.yml does not Meltano discovery.yml")
-pprint(ddiff, indent = 2)
+    pprint(ddiff, indent = 2)
     sys.exit(1)
