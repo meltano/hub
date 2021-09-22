@@ -21,7 +21,7 @@ jekyll_test:
   <<: *jekyll_template
   stage: test
   needs:
-    - job: discovery_gen
+    - job: discovery_validation
       artifacts: true
   script:
     - bundle exec jekyll build -d test
@@ -35,7 +35,7 @@ pages:
   <<: *jekyll_template
   stage: deploy
   needs:
-    - job: discovery_gen
+    - job: discovery_validation
       artifacts: true
   script:
     - bundle exec jekyll build -d public
