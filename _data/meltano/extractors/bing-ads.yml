@@ -4,7 +4,7 @@ description: Advertising Platform
 namespace: tap_bing_ads
 variants:
 - name: singer-io
-  docs: 'https://meltano.com/plugins/extractors/bing-ads.html'
+  docs: 'https://hub.meltano.com/extractors/bing-ads.html'
   repo: https://github.com/singer-io/tap-bing-ads
   pip_url: tap-bing-ads
   capabilities:

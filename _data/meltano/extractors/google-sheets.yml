@@ -1,14 +1,11 @@
 name: tap-google-sheets
 description: Cloud Spreadsheets
 label: Google Sheets
-namepsace: tap_google_sheets
-type: tap
+namespace: tap_google_sheets
 variants:
 - name: singer-io
-  default: true
   docs: https://hub.meltano.com/extractors/google-sheets
-  maintenance_status: Active
-  pip_url: git+https://github.com/singer-io/tap-google-sheets.git
+  pip_url: 'git+https://github.com/singer-io/tap-google-sheets.git'
   repo: https://github.com/singer-io/tap-google-sheets
   capabilities:
     - discover
@@ -44,16 +41,3 @@ variants:
       value: tap-google-sheets via Meltano
       description: Used to identify the tap in the Google Remote API logs.
       placeholder: Ex. "tap-google-search-console <api_user_email@example.com>"
-- default: false
-  maintenance_status: Unknown
-  name: bytecodeio
-  pip_url: git+https://github.com/bytecodeio/tap-google-sheets.git
-  repo: https://github.com/bytecodeio/tap-google-sheets
-  settings: []
-- default: false
-  maintenance_status: Unknown
-  name: dcaribou
-  pip_url: git+https://github.com/dcaribou/tap-gsheets.git
-  repo: https://github.com/dcaribou/tap-gsheets
-  settings: []
-

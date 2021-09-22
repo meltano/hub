@@ -4,7 +4,7 @@ description: App and website analytics platform hosted by Google
 namespace: tap_google_analytics
 variants:
 - name: meltano
-  docs: 'https://meltano.com/plugins/extractors/google-analytics.html'
+  docs: 'https://hub.meltano.com/extractors/google-analytics.html'
   repo: https://gitlab.com/meltano/tap-google-analytics
   pip_url: 'git+https://gitlab.com/meltano/tap-google-analytics.git'
   capabilities:

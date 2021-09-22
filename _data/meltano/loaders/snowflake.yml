@@ -6,7 +6,7 @@ dialect: snowflake
 target_schema: $TARGET_SNOWFLAKE_SCHEMA
 variants:
 - name: datamill-co
-  docs: https://meltano.com/plugins/loaders/snowflake.html
+  docs: https://hub.meltano.com/loaders/snowflake.html
   repo: https://github.com/datamill-co/target-snowflake
   pip_url: target-snowflake
   settings_group_validation:
@@ -90,7 +90,7 @@ variants:
     - name: target_s3.aws_secret_access_key
       kind: password
 - name: transferwise
-  docs: https://meltano.com/plugins/loaders/snowflake--transferwise.html
+  docs: https://hub.meltano.com/loaders/snowflake--transferwise.html
   repo: https://github.com/transferwise/pipelinewise-target-snowflake
   pip_url: pipelinewise-target-snowflake
   settings_group_validation:
@@ -212,9 +212,9 @@ variants:
       description: Optional string to tag executed queries in Snowflake. Replaces tokens `schema` and `table` with the appropriate values. The tags are displayed in the output of the Snowflake `QUERY_HISTORY`, `QUERY_HISTORY_BY_*` functions.
 - name: meltano
   original: true
-  docs: https://meltano.com/plugins/loaders/snowflake--meltano.html
+  docs: https://hub.meltano.com/loaders/snowflake--meltano.html
   repo: https://gitlab.com/meltano/target-snowflake
-  pip_url: git+https://gitlab.com/meltano/target-snowflake.git
+  pip_url: 'git+https://gitlab.com/meltano/target-snowflake.git'
   settings_group_validation:
     - [account, username, password, role, database, warehouse, schema]
   settings:

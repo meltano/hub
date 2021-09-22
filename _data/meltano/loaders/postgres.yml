@@ -6,7 +6,7 @@ dialect: postgres
 target_schema: $TARGET_POSTGRES_SCHEMA
 variants:
 - name: datamill-co
-  docs: https://meltano.com/plugins/loaders/postgres.html
+  docs: https://hub.meltano.com/loaders/postgres.html
   repo: https://github.com/datamill-co/target-postgres
   pip_url: singer-target-postgres
   settings_group_validation:
@@ -112,7 +112,7 @@ variants:
     - name: after_run_sql
       description: Raw SQL statement(s) to execute as soon as the connection to Postgres is opened by the target. Useful for setup like `SET ROLE` or other connection state that is important.
 - name: transferwise
-  docs: https://meltano.com/plugins/loaders/postgres--transferwise.html
+  docs: https://hub.meltano.com/loaders/postgres--transferwise.html
   repo: https://github.com/transferwise/pipelinewise-target-postgres
   pip_url: pipelinewise-target-postgres
   settings_group_validation:
@@ -196,7 +196,7 @@ variants:
       description: "(Default: platform-dependent) Directory of temporary CSV files with RECORD messages."
 - name: meltano
   original: true
-  docs: 'https://meltano.com/plugins/loaders/postgres--meltano.html'
+  docs: 'https://hub.meltano.com/loaders/postgres--meltano.html'
   repo: https://github.com/meltano/target-postgres
   pip_url: 'git+https://github.com/meltano/target-postgres.git'
   settings_group_validation:

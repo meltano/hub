@@ -2,17 +2,15 @@ name: tap-jira
 description: Issue and Project Tracking Software
 label: Jira
 namespace: tap_jira
-type: tap
 variants:
 - name: singer-io
   docs: https://hub.meltano.com/extractors/jira
-  maintenance_status: Acive
-  pip_url: git+https://github.com/singer-io/tap-jira.git
+  pip_url: 'git+https://github.com/singer-io/tap-jira.git'
   repo: https://github.com/singer-io/tap-jira
   capabilities:
-    - properties
-    - catalog
-    - state
+      - discover
+      - properties
+      - state
   settings_group_validation:
     - ['username','password','base_url','start_date','user_agent']
     - ['oauth_client_secret','oauth_client_id','access_token','cloud_id','refresh_token','start_date','user_agent']
