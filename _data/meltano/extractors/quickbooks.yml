@@ -4,9 +4,9 @@ label: Quickbooks
 description: Accounting management platform
 variants:
 - name: hotgluexyz
-  docs: https://meltano.com/plugins/extractors/quickbooks.html
+  docs: https://hub.meltano.com/extractors/quickbooks.html
   repo: https://github.com/hotgluexyz/tap-quickbooks
-  pip_url: git+https://github.com/hotgluexyz/tap-quickbooks.git
+  pip_url: 'git+https://github.com/hotgluexyz/tap-quickbooks.git'
   capabilities:
   - catalog
   - discover

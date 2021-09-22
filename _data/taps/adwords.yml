@@ -95,12 +95,6 @@ variants:
     - start_date
 - default: false
   maintenance_status: Unknown
-  name: reachlocal
-  pip_url: git+https://github.com/reachlocal/tap-adwords.git
-  repo: https://github.com/reachlocal/tap-adwords
-  settings: []
-- default: false
-  maintenance_status: Unknown
   name: georgiyolovski
   pip_url: git+https://github.com/georgiyolovski/tap-adwords.git
   repo: https://github.com/georgiyolovski/tap-adwords

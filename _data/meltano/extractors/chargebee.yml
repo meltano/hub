@@ -4,9 +4,9 @@ label: Chargebee
 description: Subscription billing software
 variants:
 - name: hotgluexyz
-  docs: https://meltano.com/plugins/extractors/chargebee.html
+  docs: https://hub.meltano.com/extractors/chargebee.html
   repo: https://github.com/hotgluexyz/tap-chargebee
-  pip_url: git+https://github.com/hotgluexyz/tap-chargebee.git
+  pip_url: 'git+https://github.com/hotgluexyz/tap-chargebee.git'
   capabilities:
   - catalog
   - discover

@@ -1,7 +1,7 @@
 name: sqlfluff
 namespace: sqlfluff
-pip_url: sqlfluff
+pip_url: sqlfluff[dbt]
 commands:
-lint:
-  args: lint transform/models
-  description: Lint SQL in transform models
+  lint:
+    args: lint
+    description: Lint SQL in transform models

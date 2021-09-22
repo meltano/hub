@@ -4,7 +4,7 @@ description: Marketing automation for account-based marketing
 namespace: tap_marketo
 variants:
 - name: meltano
-  docs: 'https://meltano.com/plugins/extractors/marketo.html'
+  docs: 'https://hub.meltano.com/extractors/marketo.html'
   repo: https://gitlab.com/meltano/tap-marketo
   pip_url: 'git+https://gitlab.com/meltano/tap-marketo.git'
   capabilities: []

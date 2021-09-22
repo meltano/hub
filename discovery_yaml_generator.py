@@ -5,7 +5,7 @@ from ruamel.yaml import YAML
 
 yaml = YAML()
 
-DISCOVERY_VERSION = 18
+DISCOVERY_VERSION = 19
 MELTANO_DIR = "_data/meltano/"
 DISCOVERY_FILE = "discovery.yml"
 

@@ -4,7 +4,7 @@ description: JSONL loader
 namespace: target_jsonl
 variants:
 - name: andyh1203
-  docs: https://meltano.com/plugins/loaders/jsonl.html
+  docs: https://hub.meltano.com/loaders/jsonl.html
   repo: https://github.com/andyh1203/target-jsonl
   pip_url: target-jsonl
   settings:

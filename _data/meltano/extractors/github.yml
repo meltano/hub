@@ -1,13 +1,11 @@
 description: Code hosting platform
 label: GitHub
 name: tap-github
-namepsace: tap_github
+namespace: tap_github
 variants:
 - name: singer-io
-  default: true
-  maintenance_status: Active
   docs: https://hub.meltano.com/extractors/github
-  pip_url: git+https://github.com/singer-io/tap-github.git
+  pip_url: 'git+https://github.com/singer-io/tap-github.git'
   repo: https://github.com/singer-io/tap-github
   capabilities:
     - properties
@@ -29,9 +27,3 @@ variants:
       label: Start Date
       kind: date_iso8601
       description: Defines how far into the past to pull data for the provided repositories.
-- default: false
-  maintenance_status: Unknown
-  name: dataops-tk
-  pip_url: git+https://github.com/dataops-tk/tap-github.git
-  repo: https://github.com/dataops-tk/tap-github
-  settings: []

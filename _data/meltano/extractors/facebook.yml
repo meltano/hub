@@ -4,7 +4,7 @@ description: Advertising Platform
 namespace: tap_facebook
 variants:
 - name: meltano
-  docs: 'https://meltano.com/plugins/extractors/facebook.html'
+  docs: 'https://hub.meltano.com/extractors/facebook.html'
   repo: https://gitlab.com/meltano/tap-facebook
   pip_url: 'git+https://gitlab.com/meltano/tap-facebook.git'
   capabilities:
