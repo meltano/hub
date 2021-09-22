@@ -46,10 +46,10 @@ pages:
   - main
 
 ##########################
-# discovery.yml Generation
+# discovery.yml Validation
 ##########################
 
-discovery_gen:
+discovery_validation:
   image: python:3
   before_script:
     - pip install PyYAML
