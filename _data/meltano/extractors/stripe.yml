@@ -4,7 +4,7 @@ description: Online payment processing for internet businesses
 namespace: tap_stripe
 variants:
 - name: meltano
-  docs: 'https://meltano.com/plugins/extractors/stripe.html'
+  docs: 'https://hub.meltano.com/extractors/stripe.html'
   repo: https://github.com/meltano/tap-stripe
   pip_url: 'git+https://github.com/meltano/tap-stripe.git'
   capabilities:
