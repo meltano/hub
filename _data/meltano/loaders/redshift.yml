@@ -5,7 +5,7 @@ namespace: target_redshift
 variants:
 - name: transferwise
   repo: https://github.com/transferwise/pipelinewise-target-redshift
-  docs: https://meltano.com/plugins/loaders/redshift.html
+  docs: https://hub.meltano.com/loaders/redshift.html
   pip_url: pipelinewise-target-redshift
   executable: target-redshift
   capabilities:

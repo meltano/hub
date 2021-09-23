@@ -4,7 +4,7 @@ description: Ecommerce platform
 namespace: tap_shopify
 variants:
 - name: singer-io
-  docs: 'https://meltano.com/plugins/extractors/shopify.html'
+  docs: 'https://hub.meltano.com/extractors/shopify.html'
   repo: https://github.com/singer-io/tap-shopify
   pip_url: tap-shopify
   capabilities:

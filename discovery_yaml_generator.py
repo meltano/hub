@@ -2,7 +2,7 @@ import os
 import re
 import yaml
 
-DISCOVERY_VERSION = 18
+DISCOVERY_VERSION = 19
 MELTANO_DIR = "_data/meltano/"
 DISCOVERY_FILE = "discovery.yml"
 

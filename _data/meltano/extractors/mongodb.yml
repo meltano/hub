@@ -4,7 +4,7 @@ description: General purpose, document-based, distributed database
 namespace: tap_mongodb
 variants:
 - name: singer-io
-  docs: 'https://meltano.com/plugins/extractors/mongodb.html'
+  docs: 'https://hub.meltano.com/extractors/mongodb.html'
   repo: https://github.com/singer-io/tap-mongodb
   pip_url: tap-mongodb
   capabilities:

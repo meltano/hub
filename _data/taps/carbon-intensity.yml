@@ -1,0 +1,19 @@
+description: National Grid ESO's Carbon Emissions Intensity API
+domain:
+  description: National Grid ESO's Carbon Emissions Intensity API
+  name: UK Carbon Intensity API
+  type: api
+  url: https://api.carbonintensity.org.uk/
+name: tap-carbon-intensity
+singer_name: tap-carbon-intensity
+type: tap
+label: Carbon Emissions Intensity
+variants:
+- name: meltano
+  maintenance_status: Unknown
+  repo: https://gitlab.com/meltano/tap-carbon-intensity
+  pip_url: 'git+https://gitlab.com/meltano/tap-carbon-intensity.git'
+  capabilities:
+    - discover
+  settings: []
+  

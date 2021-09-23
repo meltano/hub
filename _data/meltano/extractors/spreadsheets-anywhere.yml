@@ -4,9 +4,9 @@ description: Data extractor for CSV and Excel files from any smart_open supporte
 namespace: tap_spreadsheets_anywhere
 variants:
 - name: ets
-  docs: 'https://meltano.com/plugins/extractors/spreadsheets-anywhere.html'
+  docs: 'https://hub.meltano.com/extractors/spreadsheets-anywhere.html'
   repo: https://github.com/ets/tap-spreadsheets-anywhere
-  pip_url: git+https://github.com/ets/tap-spreadsheets-anywhere.git
+  pip_url: 'git+https://github.com/ets/tap-spreadsheets-anywhere.git'
   capabilities:
     - catalog
     - discover
