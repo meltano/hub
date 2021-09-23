@@ -1,9 +1,9 @@
-from ruamel.yaml import YAML
 import json
 import os
 import sys
 
 from jsonschema import validate
+from ruamel.yaml import YAML
 
 yaml = YAML()
 
