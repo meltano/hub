@@ -10,9 +10,9 @@ label: Carbon Emissions Intensity
 namespace: tap_carbon
 variants:
 - name: meltano
-  hidden: true
   repo: https://gitlab.com/meltano/tap-carbon-intensity
   pip_url: 'git+https://gitlab.com/meltano/tap-carbon-intensity.git'
   capabilities:
     - discover
+  settings: []
   
