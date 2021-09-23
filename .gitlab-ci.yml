@@ -52,7 +52,7 @@ pages:
 discovery_validation:
   image: python:3
   before_script:
-    - pip install PyYAML
+    - pip install ruamel.yaml
     - pip install deepdiff
   stage: discovery
   script:
@@ -70,7 +70,7 @@ discovery_validation:
 jsonschema_validation:
   image: python:3
   before_script:
-    - pip install PyYAML
+    - pip install ruamel.yaml
     - pip install jsonschema
   stage: validate
   script:

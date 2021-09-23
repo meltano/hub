@@ -1,16 +1,18 @@
-import yaml
 import sys 
 
+from ruamel.yaml import YAML
 from deepdiff import DeepDiff
 from deepdiff.helper import CannotCompare
 
 from pprint import pprint
 
+yaml = YAML()
+
 with open("meltano.yml", "r") as meltano_file:
-    meltano = yaml.load(meltano_file, Loader=yaml.FullLoader)
+    meltano = yaml.load(meltano_file)
 
 with open("discovery.yml", "r") as hub_file:
-    hub = yaml.load(hub_file, Loader=yaml.FullLoader)
+    hub = yaml.load(hub_file)
 
 def compare_func(x, y):
     try:

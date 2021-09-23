@@ -15,8 +15,10 @@ Instructions:
 
 import csv
 from typing import Iterable
-import yaml
+from ruamel.yaml import YAML
 from pathlib import Path
+
+yaml = YAML()
 
 # Relative paths to meltano project folder:
 CSV_INFILE = "data/fact_repo_metrics-20210528.csv"
