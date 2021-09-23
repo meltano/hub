@@ -18,7 +18,6 @@
     height: $header-height;
     letter-spacing: -1px;
     margin-bottom: 0;
-    float: left;
 
     @include media-query($on-palm) {
         width: calc(100% - 36px - 15px);
