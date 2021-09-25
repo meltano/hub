@@ -14,7 +14,7 @@ plugins:
     - issue_comments.*
     - '!*.comments'
     - '!*.body'
-    - '!issues.reactions'  # Broken JSON Schema validator
+    - '!*.reactions'  # Broken JSON Schema validator for issues
   - name: tap-github-test
     # This invocation is used for testing and should run as quickly as possible.
     inherit_from: tap-github
@@ -24,7 +24,7 @@ plugins:
     - issue_comments.*
     - '!*.comments'
     - '!*.body'
-    - '!issues.reactions'  # Broken JSON Schema validator
+    - '!*.reactions'  # Broken JSON Schema validator for issues
     config:
       searches:
       - name: target forks
@@ -97,7 +97,7 @@ plugins:
     config:
       aws_region: us-east-2
       s3_bucket: prod-meltano-bucket-01
-      s3_staging_dir: s3://prod-meltano-bucket-01/data/raw/
+      s3_staging_dir: s3://prod-meltano-bucket-01/data/raw01/
       schema_name: ${DBT_OUTPUT_SCHEMA_NAME_PROD}
   - name: tap-athena-metrics
     inherit_from: tap-athena
@@ -144,16 +144,19 @@ plugins:
       kind: string
     - name: work_group
       kind: string
-    - name: compression
-      kind: string
+    - name: add_record_metadata
+      kind: boolean
+    - name: flatten_records
+      kind: boolean
     config:
       aws_region: us-east-2
       s3_bucket: prod-meltano-bucket-01
       athena_database: ${RAW_SCHEMA_NAME_PROD}
-      s3_staging_dir: s3://prod-meltano-bucket-01/data/raw/
-      compression: none
+      s3_staging_dir: s3://prod-meltano-bucket-01/data/raw01/
+      # compression: none # 'gzip' is default
       temp_dir: .output
       add_record_metadata: true
+      flatten_records: true
   - name: target-yaml
     namespace: target_yaml
     pip_url: git+https://github.com/MeltanoLabs/target-yaml.git
