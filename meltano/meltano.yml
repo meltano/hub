@@ -12,8 +12,9 @@ plugins:
     select:
     - issues.*
     - issue_comments.*
-    - "!*.comments"
-    - "!*.body"
+    - '!*.comments'
+    - '!*.body'
+    - '!issues.reactions'  # Broken JSON Schema validator
   - name: tap-github-test
     # This invocation is used for testing and should run as quickly as possible.
     inherit_from: tap-github
@@ -23,6 +24,7 @@ plugins:
     - issue_comments.*
     - '!*.comments'
     - '!*.body'
+    - '!issues.reactions'  # Broken JSON Schema validator
     config:
       searches:
       - name: target forks
@@ -95,9 +97,8 @@ plugins:
     config:
       aws_region: us-east-2
       s3_bucket: prod-meltano-bucket-01
-      athena_database: prod01
       s3_staging_dir: s3://prod-meltano-bucket-01/data/raw/
-      schema_name: dbt
+      schema_name: ${DBT_OUTPUT_SCHEMA_NAME_PROD}
   - name: tap-athena-metrics
     inherit_from: tap-athena
     select:
@@ -123,7 +124,7 @@ plugins:
   - name: target-athena-test
     inherit_from: target-athena
     config:
-      athena_database: test_localdev
+      athena_database: ${RAW_SCHEMA_NAME_DEV}
       s3_staging_dir: s3://devtest-meltano-bucket-01/test/localdev/
   - name: target-athena
     namespace: target_athena
@@ -148,7 +149,7 @@ plugins:
     config:
       aws_region: us-east-2
       s3_bucket: prod-meltano-bucket-01
-      athena_database: prod01
+      athena_database: ${RAW_SCHEMA_NAME_PROD}
       s3_staging_dir: s3://prod-meltano-bucket-01/data/raw/
       compression: none
       temp_dir: .output
@@ -171,17 +172,17 @@ plugins:
     - name: stream_maps
       kind: object
     config:
-      file_naming_scheme: "{stream_name}.yml"
+      file_naming_scheme: '{stream_name}.yml'
       timestamp_tz_offset: 0
-      overwrite_behavior: "replace_records"
+      overwrite_behavior: replace_records
   - name: target-yaml-metrics
     inherit_from: target-yaml
     config:
       # Note: Absolute path is needed if developing target-yaml locally:
       # file_naming_scheme: "/Users/aj/Source/hub/_data/metrics.yml"
-      file_naming_scheme: "../_data/metrics.yml"
-      overwrite_behavior: "replace_records"
-      record_insert_jsonpath: "$.metrics"
+      file_naming_scheme: ../_data/metrics.yml
+      overwrite_behavior: replace_records
+      record_insert_jsonpath: $.metrics
       record_key_property_name: repo_full_name
       record_sort_property_name: repo_full_name
       default_yaml_template: |
@@ -219,3 +220,5 @@ plugins:
   files:
   - name: dbt
     pip_url: git+https://gitlab.com/meltano/files-dbt.git
+    update:
+      transform/profile/profiles.yml: false

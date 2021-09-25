@@ -107,7 +107,7 @@ metrics-daily:
   variables:
     JOB_ID: GITHUB-METRICS-PROD
     TARGET_ATHENA_S3_BUCKET: prod-meltano-bucket-01
-    DBT_TARGET: athena
+    DBT_TARGET: athena-prod
     STAGE: prod
     TAP_REF: tap-github-metrics
   before_script:
