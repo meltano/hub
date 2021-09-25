@@ -4,7 +4,7 @@ description: Video conferencing software
 namespace: tap_zoom
 variants:
 - name: mashey
-  docs: 'https://meltano.com/plugins/extractors/zoom.html'
+  docs: 'https://hub.meltano.com/extractors/zoom.html'
   repo: https://github.com/mashey/tap-zoom
   pip_url: 'git+https://github.com/mashey/tap-zoom.git'
   capabilities:
@@ -25,4 +25,4 @@ variants:
       documentation: https://marketplace.zoom.us/docs/guides/auth/oauth
     - name: refresh_token
       kind: password
-      documentation: https://marketplace.zoom.us/docs/guides/auth/oaut
+      documentation: https://marketplace.zoom.us/docs/guides/auth/oauth

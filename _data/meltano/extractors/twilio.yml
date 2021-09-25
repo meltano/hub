@@ -1,13 +1,11 @@
 description: Cloud communications platform as a service
 label: Twilio
 name: tap-twilio
-namepsace: tap_twilio
-type: tap
+namespace: tap_twilio
 variants:
 - name: transferwise
-  maintenance_status: Active
   docs: https://hub.meltano.com/extractors/twilio
-  pip_url: git+https://github.com/transferwise/pipelinewise-tap-twilio.git
+  pip_url: 'git+https://github.com/transferwise/pipelinewise-tap-twilio.git'
   repo: https://github.com/transferwise/pipelinewise-tap-twilio
   capabilities:
     - discover
@@ -37,9 +35,3 @@ variants:
       value: tap-twilio via Meltano
       description: This is used to identify the process running the tap.
       placeholder: Ex. "tap-twilio <api_user_email@your_company.com>"
-- default: false
-  maintenance_status: Unknown
-  name: singer-io
-  pip_url: git+https://github.com/singer-io/tap-twilio.git
-  repo: https://github.com/singer-io/tap-twilio
-  settings: []

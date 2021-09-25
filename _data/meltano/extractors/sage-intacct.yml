@@ -4,9 +4,9 @@ label: Sage Intacct
 description: Financial management software
 variants:
 - name: hotgluexyz
-  docs: https://meltano.com/plugins/extractors/intacct.html
+  docs: https://hub.meltano.com/extractors/intacct.html
   repo: https://github.com/hotgluexyz/tap-intacct
-  pip_url: git+https://github.com/hotgluexyz/tap-intacct.git
+  pip_url: 'git+https://github.com/hotgluexyz/tap-intacct.git'
   capabilities:
   - catalog
   - discover

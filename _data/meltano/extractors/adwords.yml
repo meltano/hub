@@ -4,7 +4,7 @@ description: Advertising Platform
 namespace: tap_adwords
 variants:
 - name: meltano
-  docs: 'https://meltano.com/plugins/extractors/adwords.html'
+  docs: 'https://hub.meltano.com/extractors/adwords.html'
   repo: https://gitlab.com/meltano/tap-adwords
   pip_url: 'git+https://gitlab.com/meltano/tap-adwords.git'
   capabilities:

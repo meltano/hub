@@ -4,7 +4,7 @@ description: BigQuery data warehouse extractor
 namespace: tap_bigquery
 variants:
 - name: anelendata
-  docs: https://meltano.com/plugins/extractors/bigquery.html
+  docs: https://hub.meltano.com/extractors/bigquery.html
   repo: https://github.com/anelendata/tap-bigquery
   pip_url: tap-bigquery
   capabilities:

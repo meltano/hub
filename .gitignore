@@ -7,6 +7,9 @@ _site
 public/
 .ruby-version
 
+# ignore build artifacts
+/discovery.yml
+/test
 singer/taps.json
 singer/targets.json
 singer/api/v1/taps.json
@@ -15,4 +18,5 @@ singer/taps/
 singer/targets/
 .venv/
 *.env
+*.DS_Store
 .vscode/*

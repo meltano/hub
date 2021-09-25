@@ -1,10 +1,10 @@
 import json
 import os
-import yaml
-from copy import deepcopy
+from ruamel.yaml import YAML
 
-directory = '_data/taps/'
- 
+yaml = YAML()
+directory = "_data/taps/"
+
 name_list = set()
 
 for filename in os.listdir(directory):
@@ -12,7 +12,7 @@ for filename in os.listdir(directory):
     plugin_name = filename.split(".")[0]
 
     with open(f, "r") as plugin_file:
-        plugin_data = yaml.load(plugin_file, Loader=yaml.FullLoader)
+        plugin_data = yaml.load(plugin_file)
 
     variants = plugin_data.get("variants")
     for variant in variants:
@@ -20,4 +20,3 @@ for filename in os.listdir(directory):
         name_list.add(name)
 
 print(name_list)
-

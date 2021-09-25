@@ -21,7 +21,7 @@ jekyll_test:
   <<: *jekyll_template
   stage: test
   needs:
-    - job: discovery_gen
+    - job: discovery_validation
       artifacts: true
   script:
     - bundle exec jekyll build -d test
@@ -36,7 +36,7 @@ pages:
   <<: *jekyll_template
   stage: deploy
   needs:
-    - job: discovery_gen
+    - job: discovery_validation
       artifacts: true
   script:
     - bundle exec jekyll build -d public
@@ -146,16 +146,19 @@ transforms-daily:
   - schedule
 
 ##########################
-# discovery.yml Generation
+# discovery.yml Validation
 ##########################
 
-discovery_gen:
+discovery_validation:
   image: python:3
   before_script:
-    - pip install PyYAML
+    - pip install ruamel.yaml
+    - pip install deepdiff
   stage: discovery
   script:
+    - curl https://meltano.com/discovery.yml --output meltano.yml
     - python discovery_yaml_generator.py
+    - python yaml_diff.py
   artifacts:
     paths:
       - discovery.yml
@@ -167,7 +170,7 @@ discovery_gen:
 jsonschema_validation:
   image: python:3
   before_script:
-    - pip install PyYAML
+    - pip install ruamel.yaml
     - pip install jsonschema
   stage: validate
   script:

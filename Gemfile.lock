@@ -19,6 +19,8 @@ GEM
       safe_yaml (~> 1.0)
     jekyll-sass-converter (1.5.2)
       sass (~> 3.4)
+    jekyll-sitemap (1.2.0)
+      jekyll (~> 3.3)
     jekyll-watch (1.5.1)
       listen (~> 3.0)
     kramdown (1.17.0)
@@ -43,11 +45,13 @@ GEM
     webrick (1.7.0)
 
 PLATFORMS
+  -darwin-20
   x86_64-darwin-19
   x86_64-darwin-20
 
 DEPENDENCIES
   jekyll (= 3.4.0)
+  jekyll-sitemap
   tzinfo-data
   webrick
 
@@ -55,4 +59,4 @@ RUBY VERSION
    ruby 2.7.1p83
 
 BUNDLED WITH
-   2.2.16
+   2.2.26
