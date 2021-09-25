@@ -62,6 +62,7 @@ data-pipeline-test:
     DBT_TARGET: athena
     STAGE: test
     TAP_REF: tap-github-test
+    RAW_SCHEMA_NAME_DEV: prod01_dev
   before_script:
   - apt-get update && apt-get install -y jq
   script:
@@ -110,6 +111,7 @@ metrics-daily:
     DBT_TARGET: athena-prod
     STAGE: prod
     TAP_REF: tap-github-metrics
+    RAW_SCHEMA_NAME_PROD: prod01_raw
   before_script:
   - apt-get update && apt-get install -y jq
   script:
@@ -134,6 +136,7 @@ transforms-daily:
     DBT_TARGET: athena
     STAGE: prod
     TAP_REF: tap-github-repos
+    RAW_SCHEMA_NAME_PROD: prod01_raw
   before_script:
   - apt-get update && apt-get install -y jq
   script:
