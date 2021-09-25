@@ -121,8 +121,7 @@ plugins:
       s3_staging_dir: s3://devtest-meltano-bucket-01/test/localdev/
   - name: target-athena
     namespace: target_athena
-    # Testing pre-release branch:
-    pip_url: git+https://github.com/dataops-tk/target-athena@feature/improved-perf
+    pip_url: git+https://github.com/dataops-tk/target-athena.git
     # Comment or uncomment this line to use the local checkout
     # executable: //Users/aj/Source/target-athena/target-athena.sh
     settings:
