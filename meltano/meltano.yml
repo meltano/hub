@@ -151,8 +151,9 @@ plugins:
   - name: target-yaml
     namespace: target_yaml
     pip_url: git+https://github.com/MeltanoLabs/target-yaml.git
-    # executable: target-yaml
-    executable: /Users/aj/Source/target-yaml/target-yaml.sh
+    executable: target-yaml
+    # Uncomment when developing locally:
+    # executable: /Users/aj/Source/target-yaml/target-yaml.sh
     settings:
     - name: file_naming_scheme
       kind: string
@@ -171,8 +172,9 @@ plugins:
   - name: target-yaml-metrics
     inherit_from: target-yaml
     config:
-      # TODO: This should be a relative path:
-      file_naming_scheme: "/Users/aj/Source/hub/_data/metrics.yml"
+      # Note: Absolute path is needed if developing target-yaml locally:
+      # file_naming_scheme: "/Users/aj/Source/hub/_data/metrics.yml"
+      file_naming_scheme: "../_data/metrics.yml"
       overwrite_behavior: "replace_records"
       record_insert_jsonpath: "$.metrics"
       record_key_property_name: repo_full_name
