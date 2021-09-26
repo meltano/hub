@@ -3,18 +3,18 @@ send_anonymous_usage_stats: true
 project_id: 8a952b1e-ae69-40a9-9c71-19bafa3a96e7
 plugins:
   extractors:
-  - name: tap-github-repos
-    inherit_from: tap-github
-    select:
-    - repositories.*
-  - name: tap-github-metrics
-    inherit_from: tap-github
-    select:
-    - issues.*
-    - issue_comments.*
-    - '!*.comments'
-    - '!*.body'
-    - '!*.reactions'  # Broken JSON Schema validator for issues
+  # - name: tap-github-repos
+  #   inherit_from: tap-github
+  #   select:
+  #   - repositories.*
+  # - name: tap-github-metrics
+  #   inherit_from: tap-github
+  #   select:
+  #   - issues.*
+  #   - issue_comments.*
+  #   - '!*.comments'
+  #   - '!*.body'
+  #   - '!*.reactions'  # Broken JSON Schema validator for issues
   - name: tap-github-test
     # This invocation is used for testing and should run as quickly as possible.
     inherit_from: tap-github
@@ -73,6 +73,9 @@ plugins:
     - repositories.*
     - issues.*
     - issue_comments.*
+    - '!*.comments'
+    - '!*.body'
+    - '!*.reactions'  # Broken JSON Schema validator for issues
   - name: tap-athena
     namespace: tap_athena
     pip_url: git+https://github.com/MeltanoLabs/tap-athena.git

@@ -52,104 +52,97 @@ pages:
 # Daily data pipeline
 ##########################
 
-data-pipeline-test:
+.meltano-extracts-prod:
   image: python:3.8
-  stage: test
-  needs: []
   variables:
-    JOB_ID: ATHENA-CI-TEST
-    TARGET_ATHENA_S3_BUCKET: prod-meltano-bucket-01
-    DBT_TARGET: athena
+    STAGE: prod
+    JOB_ID: ATHENA-PROD
+    DBT_TARGET: athena-prod
+    TAP_REF: tap-github
+    TARGET_REF: target-athena-prod
+    RAW_SCHEMA_NAME_PROD: prod01_raw
+  before_script:
+  - apt-get update && apt-get install -y jq
+  - cd meltano/
+  - pip3 install meltano
+  - meltano install
+  - echo "Installing creds file from CI..." && cp $MELTANO_ENV_FILE .env
+  after_script:
+  - |
+    cd meltano
+    echo "Logging current state...\n" && \
+    meltano elt $TAP_REF $TARGET_REF --job_id=$JOB_ID --dump=state |  jq '.'     
+
+.meltano-project-test:
+  extends:
+  - .meltano-project-prod
+  variables:
     STAGE: test
+    JOB_ID: ATHENA-CI-TEST
+    DBT_TARGET: athena-test
     TAP_REF: tap-github-test
     TARGET_REF: target-athena-test
-    RAW_SCHEMA_NAME_DEV: prod01_dev
-  before_script:
-  - apt-get update && apt-get install -y jq
-  script:
-  - cd meltano/
-  - pip3 install meltano
-  - meltano install
-  - echo "Installing creds file from CI..." && cp $MELTANO_ENV_FILE .env
-  - meltano elt $TAP_REF $TARGET_REF --job_id=$JOB_ID
-  - |
-    echo "Logging current state...\n" && \
-    meltano elt $TAP_REF $TARGET_REF --job_id=$JOB_ID --dump=state |  jq '.'     
+    RAW_SCHEMA_NAME_DEV: test01_raw
+
+data-pipeline-test:
+  extends:
+  - .meltano-project-test
+  stage: test
   except:
   - schedule
+  needs: []
+  script:
+  - meltano elt $TAP_REF $TARGET_REF --job_id=$JOB_ID
 
 repos-daily:
-  image: python:3.8
+  extends:
+  - .meltano-project-prod
   stage: deploy
+  only:
+  - schedule
   needs: []
   variables:
     JOB_ID: GITHUB-REPOS-PROD
-    TARGET_ATHENA_S3_BUCKET: prod-meltano-bucket-01
-    DBT_TARGET: athena
-    STAGE: prod
-    TAP_REF: tap-github-repos
-    TARGET_REF: target-athena
-    RAW_SCHEMA_NAME_PROD: prod01_raw
-  before_script:
-  - apt-get update && apt-get install -y jq
+    TAP_REF: tap-github
   script:
-  - cd meltano/
-  - pip3 install meltano
-  - meltano install
-  - echo "Installing creds file from CI..." && cp $MELTANO_ENV_FILE .env
-  - meltano elt $TAP_REF $TARGET_REF --job_id=$JOB_ID
-  - |
-    echo "Logging current state...\n" && \
-    meltano elt $TAP_REF $TARGET_REF --job_id=$JOB_ID --dump=state |  jq '.'     
+  - meltano elt $TAP_REF $TARGET_REF --select repositories --job_id=$JOB_ID
+
+issues-daily:
+  extends:
+  - .meltano-project-prod
+  stage: deploy
   only:
   - schedule
-
-metrics-daily:
-  image: python:3.8
-  stage: deploy
   needs: [repos-daily]  # Sequenced to avoid rate limit
   variables:
-    JOB_ID: GITHUB-METRICS-PROD
-    TARGET_ATHENA_S3_BUCKET: prod-meltano-bucket-01
-    DBT_TARGET: athena-prod
-    STAGE: prod
-    TAP_REF: tap-github-metrics
-    TARGET_REF: target-athena
-    RAW_SCHEMA_NAME_PROD: prod01_raw
-  before_script:
-  - apt-get update && apt-get install -y jq
+    JOB_ID: GITHUB-ISSUES-PROD
+    TAP_REF: tap-github
   script:
-  - cd meltano/
-  - pip3 install meltano
-  - meltano install
-  - echo "Installing creds file from CI..." && cp $MELTANO_ENV_FILE .env
-  - meltano elt $TAP_REF $TARGET_REF --job_id=$JOB_ID
-  - |
-    echo "Logging current state...\n" && \
-    meltano elt $TAP_REF $TARGET_REF --job_id=$JOB_ID --dump=state |  jq '.'     
+  - meltano elt $TAP_REF $TARGET_REF --select issues --job_id=$JOB_ID
+
+issue-comments-daily:
+  extends:
+  - .meltano-project-prod
+  stage: deploy
   only:
   - schedule
+  needs: [issues-daily]  # Sequenced to avoid rate limit
+  variables:
+    JOB_ID: GITHUB-ISSUE-COMMENTS-PROD
+    TAP_REF: tap-github
+  script:
+  - meltano elt $TAP_REF $TARGET_REF --select issue_comments --job_id=$JOB_ID
 
 transforms-daily:
-  image: python:3.8
+  extends:
+  - .meltano-project-prod
   stage: deploy
-  needs: [repos-daily, metrics-daily]
-  variables:
-    JOB_ID: GITHUB-REPOS-PROD
-    TARGET_ATHENA_S3_BUCKET: prod-meltano-bucket-01
-    DBT_TARGET: athena
-    STAGE: prod
-    RAW_SCHEMA_NAME_PROD: prod01_raw
-  before_script:
-  - apt-get update && apt-get install -y jq
-  script:
-  - cd meltano/
-  - pip3 install meltano
-  - meltano install
-  - echo "Installing creds file from CI..." && cp $MELTANO_ENV_FILE .env
-  - meltano invoke dbt run
   only:
   - schedule
+  needs: [repos-daily, issues-daily, issue-comments-daily]
+  script:
+  - meltano invoke dbt run
+  after_script: []
 
 ##########################
 # discovery.yml Validation
