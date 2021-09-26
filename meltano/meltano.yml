@@ -31,10 +31,10 @@ plugins:
         query: target- fork:only language:Python singer in:readme
       stream_maps:
         repositories:
-          __filter__: full_name == 'dataops-tk/target-athena'
+          __filter__: full_name == 'MeltanoLabs/target-athena'
   - name: tap-github
     namespace: tap_github
-    pip_url: git+https://github.com/dataops-tk/tap-github@main
+    pip_url: git+https://github.com/MeltanoLabs/tap-github@main
     # Comment or uncomment this line to use the local checkout
     # executable: //Users/aj/Source/tap-github/tap-github.sh
     capabilities:
@@ -131,7 +131,7 @@ plugins:
       s3_staging_dir: s3://devtest-meltano-bucket-01/test/localdev/
   - name: target-athena
     namespace: target_athena
-    pip_url: git+https://github.com/dataops-tk/target-athena.git
+    pip_url: git+https://github.com/MeltanoLabs/target-athena.git
     # Comment or uncomment this line to use the local checkout
     # executable: //Users/aj/Source/target-athena/target-athena.sh
     settings:
