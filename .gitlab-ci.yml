@@ -60,7 +60,9 @@ pages:
     DBT_TARGET: athena-prod
     TAP_REF: tap-github
     TARGET_REF: target-athena
+    ATHENA_CATALOG: awsdatacatalog
     RAW_SCHEMA_NAME_PROD: prod01_raw
+    DBT_OUTPUT_SCHEMA_NAME_PROD: dbt_prod
   before_script:
   - apt-get update && apt-get install -y jq
   - cd meltano/
@@ -82,7 +84,9 @@ pages:
     DBT_TARGET: athena-test
     TAP_REF: tap-github-test
     TARGET_REF: target-athena-test
+    ATHENA_CATALOG: awsdatacatalog
     RAW_SCHEMA_NAME_DEV: test01_raw
+    DBT_OUTPUT_SCHEMA_NAME_DEV: dbt_dev
 
 data-pipeline-test:
   extends:
@@ -92,7 +96,10 @@ data-pipeline-test:
   - schedule
   needs: []
   script:
-  - meltano elt $TAP_REF $TARGET_REF --job_id=$JOB_ID
+  - meltano elt $TAP_REF $TARGET_REF --select repositories --job_id=$JOB_ID
+  - meltano elt $TAP_REF $TARGET_REF --select issues --job_id=$JOB_ID
+  - meltano elt $TAP_REF $TARGET_REF --select issue_comments --job_id=$JOB_ID
+  - meltano invoke dbt:run
 
 repos-daily:
   extends:
@@ -141,7 +148,7 @@ transforms-daily:
   - schedule
   needs: [repos-daily, issues-daily, issue-comments-daily]
   script:
-  - meltano invoke dbt run
+  - meltano invoke dbt:run
   after_script: []
 
 ##########################

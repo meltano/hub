@@ -15,23 +15,6 @@ plugins:
   #   - '!*.comments'
   #   - '!*.body'
   #   - '!*.reactions'  # Broken JSON Schema validator for issues
-  - name: tap-github-test
-    # This invocation is used for testing and should run as quickly as possible.
-    inherit_from: tap-github
-    select:
-    - repositories.*
-    - issues.*
-    - issue_comments.*
-    - '!*.comments'
-    - '!*.body'
-    - '!*.reactions'  # Broken JSON Schema validator for issues
-    config:
-      searches:
-      - name: target forks
-        query: target- fork:only language:Python singer in:readme
-      stream_maps:
-        repositories:
-          __filter__: full_name == 'MeltanoLabs/target-athena'
   - name: tap-github
     namespace: tap_github
     pip_url: git+https://github.com/MeltanoLabs/tap-github@main
@@ -76,6 +59,13 @@ plugins:
     - '!*.comments'
     - '!*.body'
     - '!*.reactions'  # Broken JSON Schema validator for issues
+  - name: tap-github-test
+    # This invocation is used for testing and should run as quickly as possible.
+    inherit_from: tap-github
+    config:
+      stream_maps:
+        repositories:
+          __filter__: full_name == 'MeltanoLabs/target-athena' or full_name == 'MeltanoLabs/tap-athena'
   - name: tap-athena
     namespace: tap_athena
     pip_url: git+https://github.com/MeltanoLabs/tap-athena.git
