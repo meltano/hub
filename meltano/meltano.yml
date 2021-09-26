@@ -151,12 +151,15 @@ plugins:
       kind: boolean
     - name: flatten_records
       kind: boolean
+    - name: object_format
+      kind: string
     config:
       aws_region: us-east-2
       s3_bucket: prod-meltano-bucket-01
       athena_database: ${RAW_SCHEMA_NAME_PROD}
       s3_staging_dir: s3://prod-meltano-bucket-01/data/raw01/
       # compression: none # 'gzip' is default
+      object_format: jsonl
       temp_dir: .output
       add_record_metadata: true
       flatten_records: true
