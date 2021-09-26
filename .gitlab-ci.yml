@@ -62,6 +62,7 @@ data-pipeline-test:
     DBT_TARGET: athena
     STAGE: test
     TAP_REF: tap-github-test
+    TARGET_REF: target-github-test
     RAW_SCHEMA_NAME_DEV: prod01_dev
   before_script:
   - apt-get update && apt-get install -y jq
@@ -70,10 +71,10 @@ data-pipeline-test:
   - pip3 install meltano
   - meltano install
   - echo "Installing creds file from CI..." && cp $MELTANO_ENV_FILE .env
-  - meltano elt $TAP_REF target-athena --job_id=$JOB_ID
+  - meltano elt $TAP_REF $TARGET_REF --job_id=$JOB_ID
   - |
     echo "Logging current state...\n" && \
-    meltano elt $TAP_REF target-athena-test --job_id=$JOB_ID --dump=state |  jq '.'     
+    meltano elt $TAP_REF $TARGET_REF --job_id=$JOB_ID --dump=state |  jq '.'     
   except:
   - schedule
 
@@ -87,6 +88,7 @@ repos-daily:
     DBT_TARGET: athena
     STAGE: prod
     TAP_REF: tap-github-repos
+    TARGET_REF: target-github
     RAW_SCHEMA_NAME_PROD: prod01_raw
   before_script:
   - apt-get update && apt-get install -y jq
@@ -95,10 +97,10 @@ repos-daily:
   - pip3 install meltano
   - meltano install
   - echo "Installing creds file from CI..." && cp $MELTANO_ENV_FILE .env
-  - meltano elt $TAP_REF target-athena --job_id=$JOB_ID
+  - meltano elt $TAP_REF $TARGET_REF --job_id=$JOB_ID
   - |
     echo "Logging current state...\n" && \
-    meltano elt $TAP_REF target-athena --job_id=$JOB_ID --dump=state |  jq '.'     
+    meltano elt $TAP_REF $TARGET_REF --job_id=$JOB_ID --dump=state |  jq '.'     
   only:
   - schedule
 
@@ -112,6 +114,7 @@ metrics-daily:
     DBT_TARGET: athena-prod
     STAGE: prod
     TAP_REF: tap-github-metrics
+    TARGET_REF: target-github
     RAW_SCHEMA_NAME_PROD: prod01_raw
   before_script:
   - apt-get update && apt-get install -y jq
@@ -120,10 +123,10 @@ metrics-daily:
   - pip3 install meltano
   - meltano install
   - echo "Installing creds file from CI..." && cp $MELTANO_ENV_FILE .env
-  - meltano elt $TAP_REF target-athena --job_id=$JOB_ID
+  - meltano elt $TAP_REF $TARGET_REF --job_id=$JOB_ID
   - |
     echo "Logging current state...\n" && \
-    meltano elt $TAP_REF target-athena --job_id=$JOB_ID --dump=state |  jq '.'     
+    meltano elt $TAP_REF $TARGET_REF --job_id=$JOB_ID --dump=state |  jq '.'     
   only:
   - schedule
 
@@ -136,7 +139,6 @@ transforms-daily:
     TARGET_ATHENA_S3_BUCKET: prod-meltano-bucket-01
     DBT_TARGET: athena
     STAGE: prod
-    TAP_REF: tap-github-repos
     RAW_SCHEMA_NAME_PROD: prod01_raw
   before_script:
   - apt-get update && apt-get install -y jq
