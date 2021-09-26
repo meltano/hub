@@ -73,9 +73,9 @@ pages:
     echo "Logging current state...\n" && \
     meltano elt $TAP_REF $TARGET_REF --job_id=$JOB_ID --dump=state |  jq '.'     
 
-.meltano-project-test:
+.meltano-extracts-test:
   extends:
-  - .meltano-project-prod
+  - .meltano-extracts-prod
   variables:
     STAGE: test
     JOB_ID: ATHENA-CI-TEST
@@ -86,7 +86,7 @@ pages:
 
 data-pipeline-test:
   extends:
-  - .meltano-project-test
+  - .meltano-extracts-test
   stage: test
   except:
   - schedule
@@ -96,7 +96,7 @@ data-pipeline-test:
 
 repos-daily:
   extends:
-  - .meltano-project-prod
+  - .meltano-extracts-prod
   stage: deploy
   only:
   - schedule
@@ -109,7 +109,7 @@ repos-daily:
 
 issues-daily:
   extends:
-  - .meltano-project-prod
+  - .meltano-extracts-prod
   stage: deploy
   only:
   - schedule
@@ -122,7 +122,7 @@ issues-daily:
 
 issue-comments-daily:
   extends:
-  - .meltano-project-prod
+  - .meltano-extracts-prod
   stage: deploy
   only:
   - schedule
@@ -135,7 +135,7 @@ issue-comments-daily:
 
 transforms-daily:
   extends:
-  - .meltano-project-prod
+  - .meltano-extracts-prod
   stage: deploy
   only:
   - schedule
