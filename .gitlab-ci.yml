@@ -107,7 +107,7 @@ repos-daily:
 metrics-daily:
   image: python:3.8
   stage: deploy
-  needs: []
+  needs: [repos-daily]  # Sequenced to avoid rate limit
   variables:
     JOB_ID: GITHUB-METRICS-PROD
     TARGET_ATHENA_S3_BUCKET: prod-meltano-bucket-01
