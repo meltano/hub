@@ -59,7 +59,7 @@ pages:
     JOB_ID: ATHENA-PROD
     DBT_TARGET: athena-prod
     TAP_REF: tap-github
-    TARGET_REF: target-athena-prod
+    TARGET_REF: target-athena
     RAW_SCHEMA_NAME_PROD: prod01_raw
   before_script:
   - apt-get update && apt-get install -y jq
