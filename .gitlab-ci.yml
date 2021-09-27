@@ -61,8 +61,8 @@ pages:
     TAP_REF: tap-github
     TARGET_REF: target-athena
     ATHENA_CATALOG: awsdatacatalog
-    RAW_SCHEMA_NAME_PROD: prod01_raw
-    DBT_OUTPUT_SCHEMA_NAME_PROD: dbt_prod
+    RAW_SCHEMA_NAME: prod01_raw
+    DBT_OUTPUT_SCHEMA_NAME: dbt_prod
   before_script:
   - apt-get update && apt-get install -y jq
   - cd meltano/
@@ -85,8 +85,8 @@ pages:
     TAP_REF: tap-github-test
     TARGET_REF: target-athena-test
     ATHENA_CATALOG: awsdatacatalog
-    RAW_SCHEMA_NAME_DEV: test01_raw
-    DBT_OUTPUT_SCHEMA_NAME_DEV: dbt_dev
+    RAW_SCHEMA_NAME: test01_raw
+    DBT_OUTPUT_SCHEMA_NAME: dbt_dev
 
 data-pipeline-test:
   extends:
