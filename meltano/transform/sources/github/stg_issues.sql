@@ -6,13 +6,13 @@ WITH cte_shifted AS (
         _sdc_deleted_at,
         _sdc_extracted_at,
         author_association,
-        body        AS created_at,
-        comments    AS id,
-        created_at  AS org,
-        id          AS repo,
-        org         AS state,
-        repo        AS title,
-        state       AS updated_at
+        id             AS id,
+        created_at     AS created_at,
+        repo           AS repo,
+        org            AS org,
+        state          AS state,
+        title          AS title,
+        updated_at     AS updated_at
     FROM {{ source('tap_github', 'issues') }}
 
 )
