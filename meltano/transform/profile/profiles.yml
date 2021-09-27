@@ -9,12 +9,12 @@ meltano:
     athena-test:
       type: athena
       database: "{{ env_var('ATHENA_CATALOG') }}"
-      schema: "{{ env_var('DBT_OUTPUT_SCHEMA_NAME_DEV') }}"
+      schema: "{{ env_var('DBT_OUTPUT_SCHEMA_NAME') }}"
       s3_staging_dir: s3://devtest-meltano-bucket-01/dbt/
       region_name: us-east-2
     athena-prod:
       type: athena
       database: "{{ env_var('ATHENA_CATALOG') }}"
-      schema: "{{ env_var('DBT_OUTPUT_SCHEMA_NAME_PROD') }}"
+      schema: "{{ env_var('DBT_OUTPUT_SCHEMA_NAME') }}"
       s3_staging_dir: s3://prod-meltano-bucket-01/dbt/
       region_name: us-east-2
