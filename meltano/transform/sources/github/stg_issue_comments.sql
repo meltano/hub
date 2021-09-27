@@ -1,3 +1,5 @@
+-- {{ config(enabled=false) }}
+
 WITH cte_shifted AS (
 
     -- The target-athena implementation has bug which left-shifts columns when others are omitted.

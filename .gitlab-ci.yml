@@ -98,7 +98,7 @@ data-pipeline-test:
   script:
   - meltano elt $TAP_REF $TARGET_REF --select repositories --job_id=$JOB_ID
   - meltano elt $TAP_REF $TARGET_REF --select issues --job_id=$JOB_ID
-  - meltano elt $TAP_REF $TARGET_REF --select issue_comments --job_id=$JOB_ID
+  # - meltano elt $TAP_REF $TARGET_REF --select issue_comments --job_id=$JOB_ID
   - meltano invoke dbt:run
 
 repos-daily:
@@ -127,18 +127,19 @@ issues-daily:
   script:
   - meltano elt $TAP_REF $TARGET_REF --select issues --job_id=$JOB_ID
 
-issue-comments-daily:
-  extends:
-  - .meltano-extracts-prod
-  stage: deploy
-  only:
-  - schedule
-  needs: [issues-daily]  # Sequenced to avoid rate limit
-  variables:
-    JOB_ID: GITHUB-ISSUE-COMMENTS-PROD
-    TAP_REF: tap-github
-  script:
-  - meltano elt $TAP_REF $TARGET_REF --select issue_comments --job_id=$JOB_ID
+# Hourly GitHub API rate limits appear to be causing failure
+# issue-comments-daily:
+#   extends:
+#   - .meltano-extracts-prod
+#   stage: deploy
+#   only:
+#   - schedule
+#   needs: [issues-daily]  # Sequenced to avoid rate limit
+#   variables:
+#     JOB_ID: GITHUB-ISSUE-COMMENTS-PROD
+#     TAP_REF: tap-github
+#   script:
+#   - meltano elt $TAP_REF $TARGET_REF --select issue_comments --job_id=$JOB_ID
 
 transforms-daily:
   extends:
@@ -146,7 +147,7 @@ transforms-daily:
   stage: deploy
   only:
   - schedule
-  needs: [repos-daily, issues-daily, issue-comments-daily]
+  needs: [repos-daily, issues-daily]
   script:
   - meltano invoke dbt:run
   after_script: []
