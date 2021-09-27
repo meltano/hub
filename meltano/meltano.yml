@@ -117,7 +117,7 @@ plugins:
   - name: target-athena-test
     inherit_from: target-athena
     config:
-      athena_database: ${RAW_SCHEMA_NAME_DEV}
+      athena_database: ${RAW_SCHEMA_NAME}
       s3_staging_dir: s3://devtest-meltano-bucket-01/test/localdev/
   - name: target-athena
     namespace: target_athena
@@ -146,7 +146,7 @@ plugins:
     config:
       aws_region: us-east-2
       s3_bucket: prod-meltano-bucket-01
-      athena_database: ${RAW_SCHEMA_NAME_PROD}
+      athena_database: ${RAW_SCHEMA_NAME}
       s3_staging_dir: s3://prod-meltano-bucket-01/data/raw01/
       # compression: none # 'gzip' is default
       object_format: jsonl
