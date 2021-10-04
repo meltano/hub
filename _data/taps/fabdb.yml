@@ -1,0 +1,22 @@
+description: FaB DB is an unofficial Flesh and Blood TCG community project, with various features such as Deck builder, Collection manager and more.
+domain:
+  description: FaB DB is an unofficial Flesh and Blood TCG community project.
+  name: FaB DB API
+  type: api
+  url: https://fabdb.net/resources/api
+label: FaB DB
+name: fabdb
+singer_name: tap-fabdb
+type: tap
+variants:
+- default: true
+  maintenance_status: Active
+  name: dwallace0723
+  pip_url: git+https://github.com/dwallace0723/tap-fabdb.git
+  repo: https://github.com/dwallace0723/tap-fabdb
+  settings:
+    - name: api_key
+      label: API Key
+      kind: password
+      documentation: https://fabdb.net/resources/api#requests
+      description: Optional API Key used for authentication.
