@@ -241,6 +241,7 @@ Putting this all together, a config file may look like:
 }
 ```
 
+<a id="statefiles"></a>
 #### State Files
 
 Taps can optionally use a state file to start replication from a previous point in a data stream. The structure of the state file and the state message described previously should be nearly identical. The `value` property in the state message will be the contents of any state.json file passed to a tap.
@@ -261,6 +262,7 @@ Using the previous example, a state file would look like this:
 }
 ```
 
+<a id="catalogfiles"></a>
 #### Catalog Files
 
 Catalog files define the structure of one or many data streams. Taps are capable of both using and generating catalog files.
@@ -315,6 +317,7 @@ An example catalog with a single stream and no metadata is as follows:
 }
 ```
 
+<a id="discoverymode"></a>
 ##### Discovery Mode
 
 Discovery mode is how taps can generate catalogs. When a tap is invoked with a `--discover` it will output the full catalog list of streams available for extraction to `stdout`. This can then be saved to a `catalog.json` file.
