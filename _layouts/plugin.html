@@ -32,14 +32,15 @@ layout: plugin_page
   </li>
   {% if variant.maintenance_status != "Unknown" %}
   <li><strong>Maintenance status</strong>: {{ variant.maintenance_status }}</li>
-  {% endif %} {% if variant.metrics %} {% assign metrics = variant.metrics %}
+  {% endif %} 
+  {% if variant.meltano_sdk %}
+  <li><strong>Built with <a href="https://sdk.meltano.com/en/latest/" target="_blank">Meltano SDK</a></strong>: Yes!</li>
+  {% endif %}
+  {% if variant.metrics %} {% assign metrics = variant.metrics %}
   <li>
     <strong>Last update at</strong>: {{ metrics.last_updated_timestamp |
     date_to_string }}
   </li>
-  {% if variant.meltano_sdk %}
-  <li><strong>Built with <a href="https://sdk.meltano.com/en/latest/" target="_blank">Meltano SDK</a></strong>: Yes!</li>
-  {% endif %}
   <li>
     <a href="{{variant.repo}}/issues" target="_blank">
       <strong>Open issues and PRs</strong> </a
