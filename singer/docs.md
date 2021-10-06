@@ -118,7 +118,28 @@ With this capability supported you can feel comfortable that exceptions will not
 
 #### Record Flattening
 
+It's common for taps to output nested json data which needs to be flattened by the target in order to be loaded into a columnar format destinations.
+For example, the following is a nested json record:
 
+```json
+{
+  "col_a": {
+    "subcol_1": 1,
+    "subcol_2": 2
+  }
+}
+```
+
+After flattening it would look like the like this:
+
+```json
+{
+  "col_a__subcol_1": 1,
+  "col_a__subcol_2": 2
+}
+```
+
+Targets that support this capability also usually accept a configurable `max_level` of flattening to limit iterations of very heavily nested records.
 
 ### Either Tap or Target
 
