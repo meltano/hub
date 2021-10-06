@@ -45,6 +45,18 @@ layout: plugin_page
   {% if metrics.num_stargazers > 0 %}
   <li><strong>Stars</strong>: {{ metrics.num_stargazers }}</li>
   {% endif %} {% endif %}
+    <li>
+      <img alt="GitHub - License"
+        src="https://img.shields.io/github/license/{{variant.name}}/{{plugin.singer_name}}?color=c0c0c4&label=License&style=flat-square"
+        href="{{variant.repo}}">
+    </li>
+  <li>
+      <img 
+        alt="PyPI - Downloads"
+        src="https://img.shields.io/pypi/dm/{{plugin.singer_name}}?color=3438BF&label=PyPI%20downloads&style=flat-square"
+        href="https://pypi.org/project/{{plugin.singer_name}}/">
+    </li>
+
 </ul>
 
 {% if plugin.variants.size > 1 %}
