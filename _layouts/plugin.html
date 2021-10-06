@@ -37,6 +37,9 @@ layout: plugin_page
     <strong>Last update at</strong>: {{ metrics.last_updated_timestamp |
     date_to_string }}
   </li>
+  {% if variant.meltano_sdk %}
+  <li><strong>Built with <a href="https://sdk.meltano.com/en/latest/" target="_blank">Meltano SDK</a></strong>: Yes!</li>
+  {% endif %}
   <li>
     <a href="{{variant.repo}}/issues" target="_blank">
       <strong>Open issues and PRs</strong> </a
@@ -45,17 +48,20 @@ layout: plugin_page
   {% if metrics.num_stargazers > 0 %}
   <li><strong>Stars</strong>: {{ metrics.num_stargazers }}</li>
   {% endif %} {% endif %}
-    <li>
-      <img alt="GitHub - License"
-        src="https://img.shields.io/github/license/{{variant.name}}/{{plugin.singer_name}}?color=c0c0c4&label=License&style=flat-square"
-        href="{{variant.repo}}">
-    </li>
+  <li>
+    <img alt="GitHub - License"
+      src="https://img.shields.io/github/license/{{variant.name}}/{{plugin.singer_name}}?color=c0c0c4&label=License&style=flat-square"
+      href="{{variant.repo}}">
+  </li>
+  {% if variant.pip_url contains '.git' %}
+  {% else %}
   <li>
       <img 
         alt="PyPI - Downloads"
         src="https://img.shields.io/pypi/dm/{{plugin.singer_name}}?color=3438BF&label=PyPI%20downloads&style=flat-square"
         href="https://pypi.org/project/{{plugin.singer_name}}/">
-    </li>
+  </li>
+  {% endif %}
 
 </ul>
 
@@ -212,6 +218,23 @@ layout: plugin_page
     >. {% endif %}
     </p>
     {% endif %}
+
+    <h2 id="capabilities">Capabilities</h2>
+    
+    {% if variant.capabilities.size == 0 %}
+    <p>
+      Check the
+      <a href="{{variant.repo}}#readme" target="_blank">README and code in the repository</a>
+      for more information on capabilities for this {{plugin.type}}.
+    </p>
+    {% else %} <ul> {% for capability in variant.capabilities %} 
+      <li>
+        <a href="/singer/docs#{{capability}}">
+          <code>{{capability}}</code>
+        </a>
+        {% if alt_variant.default %}(default){%endif%}
+      </li> {% endfor %} </ul> {% endif %}
+    
 
     <h2 id="settings">Settings</h2>
 
