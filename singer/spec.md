@@ -241,8 +241,6 @@ Putting this all together, a config file may look like:
 }
 ```
 
-<a id="statefiles"></a>
-
 #### State Files
 
 Taps can optionally use a state file to start replication from a previous point in a data stream. The structure of the state file and the state message described previously should be nearly identical. The `value` property in the state message will be the contents of any state.json file passed to a tap.
@@ -262,8 +260,6 @@ Using the previous example, a state file would look like this:
   }
 }
 ```
-
-<a id="catalogfiles"></a>
 
 #### Catalog Files
 
@@ -318,8 +314,6 @@ An example catalog with a single stream and no metadata is as follows:
   ]
 }
 ```
-
-<a id="discoverymode"></a>
 
 ##### Discovery Mode
 
