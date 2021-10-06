@@ -58,65 +58,96 @@ We've created a simplified version of the [Singer Specification](/singer/spec) w
 
 ## Singer Connector Capabilities
 
-The Singer Specification does a great job defining how taps and targets should communicate with each other at a high level but there's an additional layer of commonly used patterns and best practices that have emerged from the community which aren't documented in the spec that we're calling "capabilities". The following is our distilled list of the existing (and some future) capabilities that are commonly used by the Singer Community:
+The Singer Specification does a great job defining how taps and targets should communicate with each other at a high level but there's an additional layer of commonly used patterns and best practices that have emerged from the community which aren't documented in the spec that we're calling "capabilities".
+The following is our distilled list of the existing (and some future) capabilities that are commonly used by the Singer Community:
 
 ### Tap Specific
 
 #### Catalog
 
-The tap accepts a `--catalog` argument referencing a file that defines the structure of one or many data streams. For more details see the <a href="{{ "/singer/spec#catalog-files" | prepend: site.baseurl | prepend: site.url }}">Catalog Files section</a> in our Singer Spec interpretation.
+The tap accepts a `--catalog` argument referencing a file that defines the structure of one or many data streams.
+For more details see the <a href="{{ "/singer/spec#catalog-files" | prepend: site.baseurl | prepend: site.url }}">Catalog Files section</a> in our Singer Spec interpretation.
 
 #### Properties
 
-The tap accepts the legacy `--properties` argument referencing a file that defines the structure of one or many data streams. For more details see the <a href="{{ "/singer/spec#catalog-files" | prepend: site.baseurl | prepend: site.url }}">Catalog Files section</a> in our Singer Spec interpretation.
+The tap accepts the legacy `--properties` argument referencing a file that defines the structure of one or many data streams.
+For more details see the <a href="{{ "/singer/spec#catalog-files" | prepend: site.baseurl | prepend: site.url }}">Catalog Files section</a> in our Singer Spec interpretation.
 
-#### Discovery Mode
+#### Discovery
 
-The tap accepts a `--discovery` argument that is used to generate a catalog files. For more details see the <a href="{{ "/singer/spec#discovery-mode" | prepend: site.baseurl | prepend: site.url }}">Discovery mode section</a> section in our Singer Spec interpretation.
+The tap accepts a `--discovery` argument that is used to generate a catalog files.
+For more details see the <a href="{{ "/singer/spec#discovery-mode" | prepend: site.baseurl | prepend: site.url }}">Discovery mode section</a> section in our Singer Spec interpretation.
 
 #### State
 
-The tap accepts a `--state` argument and uses the input in order to run incremental syncs. For more details see the <a href="{{ "/singer/spec#state-files" | prepend: site.baseurl | prepend: site.url }}">State Files section</a> section in our Singer Spec interpretation.
+The tap accepts a `--state` argument and uses the input in order to run incremental syncs.
+For more details see the <a href="{{ "/singer/spec#state-files" | prepend: site.baseurl | prepend: site.url }}">State Files section</a> section in our Singer Spec interpretation.
 
-#### Log Based Replication
+#### Log Based
 
-This is a database source specific capability which supports reading the transaction logs of a database in order to identify incrementally changed data. The two common replication techniques are key-based or log-based replication. Key-based uses a timestamp or incrementing key to detect inserts and updates but not deletes. Whereas log-based replication uses the database’s binary log files to detect records that have been inserted, updated, or deleted. Supporting this capability, where applicable, means that targets have the information it needs to delete records in the destination.
+This is a database source specific capability which supports reading the transaction logs of a database in order to identify incrementally changed data.
+The two common replication techniques are key-based or log-based replication.
+Key-based uses a timestamp or incrementing key to detect inserts and updates but not deletes.
+Whereas log-based replication uses the database’s binary log files to detect records that have been inserted, updated, or deleted.
+Supporting this capability, where applicable, means that targets have the information it needs to delete records in the destination.
 
-#### Demo Mode
+#### Test
 
-This capability is still in development, but the goal is to make it easy for connector developers to test locally without having to make a connection to the source systems. This might be accomplished by implementing utilities that can generate and save test data or make saving and moving real HTTP requests for tests easier. Join the issue conversation [here](https://gitlab.com/meltano/sdk/-/issues/30)!
+This capability is still in development, but the goal is to make it easy for connector developers to test locally without having to make a connection to the source systems.
+This might be accomplished by implementing utilities that can generate and save test data or make saving and moving real HTTP requests for tests easier.
+Join the issue conversation [here](https://gitlab.com/meltano/sdk/-/issues/30)!
 
 ### Target Specific
 
-#### Soft Deletes
+#### Soft Delete
 
-Targets that support this capability implement logic that soft deletes records in the destination, usually by populating a `deleted_at` timestamp field. The two common techniques for handling deletes in Singer are by using the ACTIVATE_VERSION message or using log-based replication on a database that supports it. Targets commonly implement both soft and hard deletes, in which case the behavior is configurable in the target's config settings.
+Targets that support this capability implement logic that soft deletes records in the destination, usually by populating a `deleted_at` timestamp field.
+The two common techniques for handling deletes in Singer are by using the `ACTIVATE_VERSION` message or using log-based replication on a database that supports it.
+Targets commonly implement both soft and hard deletes, in which case the behavior is configurable in the target's config settings.
 
-#### Hard Deletes
+#### Hard Delete
 
-Similar to the Soft Deletes capability, targets that support the hard delete capability implement logic that removes records from the destination when they receive a notification (via ACTIVATE_VERSION or log-based replication) that a record was deleted from the source system. Targets commonly implement both soft and hard deletes, in which case the behavior is configurable in the target's config settings.
+Similar to the Soft Deletes capability, targets that support the hard delete capability implement logic that removes records from the destination when they receive a notification (via `ACTIVATE_VERSION` or log-based replication) that a record was deleted from the source system.
+Targets commonly implement both soft and hard deletes, in which case the behavior is configurable in the target's config settings.
 
-#### Complex Data Type Support
+#### Datatype Failsafe
 
-This capability means that the target has a failsafe data type (e.g. string) to ensure safe handling of unparsable or unforseen types. It's common to find targets in the Singer ecosystem that have a set list of supported types and will throw an exception if they receive anything unexpected. With this capability supported you can feel comfortable that exceptions will not be raised for unsupported types.
+This capability means that the target has a failsafe data type (e.g. string) to ensure safe handling of unparsable or unforseen types.
+It's common to find targets in the Singer ecosystem that have a set list of supported types and will throw an exception if they receive anything unexpected.
+With this capability supported you can feel comfortable that exceptions will not be raised for unsupported types.
+
+#### Record Flattening
+
+
 
 ### Either Tap or Target
 
-#### Activate Version Message
+#### Activate Version
 
-Managing hard deletes in the source system is difficult but the Singer community has developed a technique using a message type called ACTIVATE_VERSION. This isnt a standardized message type in the Singer Spec yet but its currently under review by the [Singer Working Group](https://github.com/MeltanoLabs/Singer-Spec-Working-Group) to be officially added. Join the issue conversation [here](https://github.com/MeltanoLabs/Singer-Spec-Working-Group/issues/9)!
+Managing hard deletes in the source system is difficult but the Singer community has developed a technique using a message type called `ACTIVATE_VERSION`.
+This isnt a standardized message type in the Singer Spec yet but its currently under review by the [Singer Working Group](https://github.com/MeltanoLabs/Singer-Spec-Working-Group) to be officially added.
+Join the issue conversation [here](https://github.com/MeltanoLabs/Singer-Spec-Working-Group/issues/9)!
 
-Imagine the scenario where a key-based incremental sync has completed its initial load and a state bookmark is saved to be used as a filter in the next incremental run. Then in the source system a record is hard deleted. On the next incremental sync the tap will have no way of knowing that record was deleted, resulting in stale records that only exist in the destination table.
+Imagine the scenario where a key-based incremental sync has completed its initial load and a state bookmark is saved to be used as a filter in the next incremental run.
+Then in the source system a record is hard deleted.
+On the next incremental sync the tap will have no way of knowing that record was deleted, resulting in stale records that only exist in the destination table.
 
-A simple solution could be to run a full sync everytime and have the target truncate any old records. But the other challenge is that targets have no way of knowing what sync mode the tap is running in: full table, incremental, or log based. If the target knew that the tap was running in full table sync mode then it would be able to effectively truncate the existing data and replace it with the newest full sync it receives.
+A simple solution could be to run a full sync everytime and have the target truncate any old records.
+But the other challenge is that targets have no way of knowing what sync mode the tap is running in: full table, incremental, or log based.
+If the target knew that the tap was running in full table sync mode then it would be able to effectively truncate the existing data and replace it with the newest full sync it receives.
 
-This is where the ACTIVATE_VERSION message comes in! The ACTIVATE_VERSION message type is a mechanism that is used in full table sync mode which tells the target to disregard all previously received records and only consider the current version as “active”. By using this mechanism the sync between the tap and target can properly delete inactive versions of the data in the destination to clean up any stale records that were hard deleted.
+This is where the `ACTIVATE_VERSION` message comes in!
+The `ACTIVATE_VERSION` message type is a mechanism that is used in full table sync mode which tells the target to disregard all previously received records and only consider the current version as “active”.
+By using this mechanism the sync between the tap and target can properly delete inactive versions of the data in the destination to clean up any stale records that were hard deleted.
 
-Taps that support this capability will send along and ACTIVATE_VERSION message (usually generated from the current timestamp) prior to sending the RECORD messages on the first full sync and then at the end of each subsequent successful full table sync thereafter. Targets that support this capability implement logic that removes all non-active records from the destination.
+Taps that support this capability will send along and `ACTIVATE_VERSION` message (usually generated from the current timestamp) prior to sending the `RECORD` messages on the first full sync and then at the end of each subsequent successful full table sync thereafter.
+Targets that support this capability implement logic that removes all non-active records from the destination.
 
 #### Stream Maps
 
-The ability to accept a mapping configuration can be used to do minor transformations to the data between the tap and target. The capability can be currently be implemented on the tap or target side but will soon be supported in Meltano itself. This includes things like:
+The ability to accept a mapping configuration can be used to do minor transformations to the data between the tap and target.
+The capability can be currently be implemented on the tap or target side but will soon be supported in Meltano itself.
+This includes things like:
 - stream and property aliasing
 - duplication and bifurcation of streams
 - hashing or anonymizing PII/PHI
@@ -124,7 +155,9 @@ The ability to accept a mapping configuration can be used to do minor transforma
 - suppression of streams or stream properties
 - and more…
 
-Taps and targets that support this capability have logic to accept the optional stream_maps config key and do light transformations like those listed above. This is a built-in capability for SDK-based (>=0.3.0) taps and targets. See the SDK documentation [here](https://sdk.meltano.com/en/latest/stream_maps.html) for more details and use cases.
+Taps and targets that support this capability have logic to accept the optional stream_maps config key and do light transformations like those listed above.
+This is a built-in capability for SDK-based (>=0.3.0) taps and targets.
+See the SDK documentation [here](https://sdk.meltano.com/en/latest/stream_maps.html) for more details and use cases.
 
 #### About
 
@@ -155,7 +188,11 @@ An example output in json format `--about --format=json` from [target-athena](ht
 
 #### Batch
 
-This capability is currently in development by the [Singer Working Group](https://github.com/MeltanoLabs/Singer-Spec-Working-Group) to align on a consistent approach for supporting batch sync messages in the Spec or as part of its officially supported patterns. The capability, which was inspired by [Wise’s Fast Sync feature](https://github.com/transferwise/pipelinewise/tree/e0a8ee15c05f019916f5400158b81de72cf33dc8/pipelinewise/fastsync), has the goal of bypassing some of the performance limitations inherent to the Singer Spec by using the optimized import/export features of modern data warehouses (Snowflake, Redshift, etc.). Taking this approach allows connectors to improve performance by both using the source and/or target’s most optimized technique for importing and exporting data while also avoiding the additional costs of serializing, deserializing, and piping each record. Join the issue conversation [here](https://gitlab.com/meltano/sdk/-/issues/9)!
+This capability is currently in development by the [Singer Working Group](https://github.com/MeltanoLabs/Singer-Spec-Working-Group) to align on a consistent approach for supporting batch sync messages in the Spec or as part of its officially supported patterns.
+The capability, which was inspired by [Wise’s Fast Sync feature](https://github.com/transferwise/pipelinewise/tree/e0a8ee15c05f019916f5400158b81de72cf33dc8/pipelinewise/fastsync), has the goal of bypassing some of the performance limitations inherent to the Singer Spec by using the optimized import/export features of modern data warehouses (Snowflake, Redshift, etc.).
+For example if a tap and target both had batch support the tap could theoretically know to directly write records to csv files somewhere (i.e. S3) in an ideal format for the target to import, ultimately skipping most of the piping step.
+Taking this approach allows connectors to improve performance by both using the source and/or target’s most optimized technique for importing and exporting data while also avoiding the additional costs of serializing, deserializing, and piping each record.
+Join the issue conversation [here](https://gitlab.com/meltano/sdk/-/issues/9)!
 
 ## Architecture
 
