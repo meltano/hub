@@ -46,7 +46,7 @@ class PluginEnricher < Jekyll::Generator
       repo_path_match = repo_url.match(%r{\Ahttps?://(?:www\.)?git(?:hub|lab)\.com/([^/]+/[^/.]+)}i)
       if repo_path_match
         repo_path = repo_path_match[1]
-        variant['metrics'] = site.data['metrics'][repo_path]
+        variant['metrics'] = site.data['metrics']['metrics'][repo_path]
       else
         puts("Unknown Git repo URL #{repo_url}")
       end

@@ -1,17 +1,20 @@
-# This file is managed by the 'dbt' file bundle and updated automatically when `meltano upgrade` is run.
-# To prevent any manual changes from being overwritten, remove the file bundle from `meltano.yml` or disable automatic updates:
-#     meltano config --plugin-type=files dbt set _update transform/profile/profiles.yml false
 config-version: 2
 version: 2
 config:
-  send_anonymous_usage_stats: False
+  send_anonymous_usage_stats: True
   use_colors: True
 meltano:
-  target: "{{ env_var('DBT_TARGET') }}"
+  target: athena-prod
   outputs:
-    athena:
+    athena-test:
       type: athena
-      database: awsdatacatalog
-      schema: dbt
-      region_name: us-east-2
+      database: "{{ env_var('ATHENA_CATALOG') }}"
+      schema: "{{ env_var('DBT_OUTPUT_SCHEMA_NAME') }}"
       s3_staging_dir: s3://devtest-meltano-bucket-01/dbt/
+      region_name: us-east-2
+    athena-prod:
+      type: athena
+      database: "{{ env_var('ATHENA_CATALOG') }}"
+      schema: "{{ env_var('DBT_OUTPUT_SCHEMA_NAME') }}"
+      s3_staging_dir: s3://prod-meltano-bucket-01/dbt/
+      region_name: us-east-2

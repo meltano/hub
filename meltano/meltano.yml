@@ -3,36 +3,21 @@ send_anonymous_usage_stats: true
 project_id: 8a952b1e-ae69-40a9-9c71-19bafa3a96e7
 plugins:
   extractors:
-  - name: tap-github-repos
-    inherit_from: tap-github
-    select:
-    - repositories.*
-  - name: tap-github-metrics
-    inherit_from: tap-github
-    select:
-    - issues.*
-    - issue_comments.*
-    - '!*.comments'
-    - '!*.body'
-  - name: tap-github-test
-    # This invocation is used for testing and should run as quickly as possible.
-    inherit_from: tap-github
-    select:
-    - repositories.*
-    - issues.*
-    - issue_comments.*
-    - '!*.comments'
-    - '!*.body'
-    config:
-      searches:
-      - name: target forks
-        query: target- fork:only language:Python singer in:readme
-      stream_maps:
-        repositories:
-          __filter__: full_name == 'dataops-tk/target-athena'
+  # - name: tap-github-repos
+  #   inherit_from: tap-github
+  #   select:
+  #   - repositories.*
+  # - name: tap-github-metrics
+  #   inherit_from: tap-github
+  #   select:
+  #   - issues.*
+  #   - issue_comments.*
+  #   - '!*.comments'
+  #   - '!*.body'
+  #   - '!*.reactions'  # Broken JSON Schema validator for issues
   - name: tap-github
     namespace: tap_github
-    pip_url: git+https://github.com/dataops-tk/tap-github.git
+    pip_url: git+https://github.com/MeltanoLabs/tap-github@main
     # Comment or uncomment this line to use the local checkout
     # executable: //Users/aj/Source/tap-github/tap-github.sh
     capabilities:
@@ -48,6 +33,8 @@ plugins:
       value: '2010-01-01T00:00:00Z'
     - name: metrics_log_level
       kind: string
+    - name: stream_maps
+      kind: object
     config:
       searches:
       - name: tap forks
@@ -59,10 +46,67 @@ plugins:
       - name: target non-forks
         query: target- fork:false language:Python singer in:readme
       metrics_log_level: DEBUG
+      stream_maps:
+        repositories:
+          __filter__: >
+            ('tap-' in name or 'target-' in full_name)
+            and name != 'singer-tap-template'
+            and name != 'singer-target-template'
     select:
     - repositories.*
     - issues.*
     - issue_comments.*
+    - '!*.comments'
+    - '!*.body'
+    - '!*.reactions'  # Broken JSON Schema validator for issues
+  - name: tap-github-test
+    # This invocation is used for testing and should run as quickly as possible.
+    inherit_from: tap-github
+    config:
+      stream_maps:
+        repositories:
+          __filter__: full_name == 'MeltanoLabs/target-athena' or full_name == 'MeltanoLabs/tap-athena'
+  - name: tap-athena
+    namespace: tap_athena
+    pip_url: git+https://github.com/MeltanoLabs/tap-athena.git
+    executable: tap-athena
+    capabilities:
+    - catalog
+    - discover
+    - state
+    settings:
+    - name: aws_access_key_id
+      kind: password
+    - name: aws_secret_access_key
+      kind: password
+    - name: s3_bucket
+      kind: string
+    - name: athena_database
+      kind: string
+    - name: s3_staging_dir
+      kind: string
+    - name: schema_name
+      kind: string
+    config:
+      aws_region: us-east-2
+      s3_bucket: prod-meltano-bucket-01
+      s3_staging_dir: s3://prod-meltano-bucket-01/data/raw01/
+      schema_name: ${DBT_OUTPUT_SCHEMA_NAME}
+  - name: tap-athena-metrics
+    inherit_from: tap-athena
+    select:
+    - fact_repo_metrics.repo_full_name
+    - fact_repo_metrics.created_at_timestamp
+    - fact_repo_metrics.last_push_timestamp
+    - fact_repo_metrics.last_updated_timestamp
+    - fact_repo_metrics.num_forks
+    - fact_repo_metrics.num_open_issues
+    - fact_repo_metrics.num_stargazers
+    - fact_repo_metrics.num_watchers
+  - name: tap-athena-audit
+    inherit_from: tap-athena
+    select:
+    - audit_view.*
   loaders:
   - name: target-jsonl
     variant: andyh1203
@@ -73,11 +117,11 @@ plugins:
   - name: target-athena-test
     inherit_from: target-athena
     config:
-      athena_database: test_localdev
+      athena_database: ${RAW_SCHEMA_NAME}
       s3_staging_dir: s3://devtest-meltano-bucket-01/test/localdev/
   - name: target-athena
     namespace: target_athena
-    pip_url: git+https://github.com/dataops-tk/target-athena.git
+    pip_url: git+https://github.com/MeltanoLabs/target-athena.git
     # Comment or uncomment this line to use the local checkout
     # executable: //Users/aj/Source/target-athena/target-athena.sh
     settings:
@@ -86,18 +130,87 @@ plugins:
     - name: aws_secret_access_key
       kind: password
     - name: s3_bucket
+      kind: string
     - name: athena_database
+      kind: string
     - name: s3_staging_dir
+      kind: string
     - name: work_group
-    - name: compression
+      kind: string
+    - name: add_record_metadata
+      kind: boolean
+    - name: flatten_records
+      kind: boolean
+    - name: object_format
+      kind: string
     config:
       aws_region: us-east-2
-      s3_bucket: devtest-meltano-bucket-01
-      athena_database: raw_ajdev
-      s3_staging_dir: s3://devtest-meltano-bucket-01/stage/ajdev/
-      compression: none
+      s3_bucket: prod-meltano-bucket-01
+      athena_database: ${RAW_SCHEMA_NAME}
+      s3_staging_dir: s3://prod-meltano-bucket-01/data/raw01/
+      # compression: none # 'gzip' is default
+      object_format: jsonl
       temp_dir: .output
-      add_record_metadata: True
+      add_record_metadata: true
+      flatten_records: true
+  - name: target-yaml
+    namespace: target_yaml
+    pip_url: git+https://github.com/MeltanoLabs/target-yaml.git
+    executable: target-yaml
+    # Uncomment when developing locally:
+    # executable: /Users/aj/Source/target-yaml/target-yaml.sh
+    settings:
+    - name: file_naming_scheme
+      kind: string
+    - name: timestamp_tz_offset
+      kind: string
+    - name: overwrite_behavior
+      kind: string
+    - name: record_insert_jsonpath
+      kind: string
+    - name: stream_maps
+      kind: object
+    config:
+      file_naming_scheme: '{stream_name}.yml'
+      timestamp_tz_offset: 0
+      overwrite_behavior: replace_records
+  - name: target-yaml-metrics
+    inherit_from: target-yaml
+    config:
+      # Note: Absolute path is needed if developing target-yaml locally:
+      # file_naming_scheme: "/Users/aj/Source/hub/_data/metrics.yml"
+      file_naming_scheme: ../_data/metrics.yml
+      overwrite_behavior: replace_records
+      record_insert_jsonpath: $.metrics
+      record_key_property_name: repo_full_name
+      record_sort_property_name: repo_full_name
+      default_yaml_template: |
+        # This file is auto-generated by running `meltano elt tap-athena-metrics target-yaml-metrics`
+        metrics: {}
+      stream_maps:
+        # __else__: null
+        fact_repo_metrics:
+          # repo_full_name: str(self)
+          # is_fork: "int(True if self == 'True' else False)"
+          # created_at_timestamp: str(self)
+          # last_push_timestamp: str(self)
+          # last_updated_timestamp: str(self)
+          num_forks: int(self)
+          num_open_issues: int(self)
+          num_stargazers: int(self)
+          num_watchers: int(self)
+          # Stream maps bug: removing `str()` wrapper results in: "TypeError: unhashable type: 'list'"
+          # SDK or Meltano bug: __else__: null does not remove undeclared properties
+          # __else__: null
+  - name: target-yaml-audit
+    inherit_from: target-yaml
+    config:
+      file_naming_scheme: "../_data/audit.yml"
+      overwrite_behavior: "append_records"
+      record_insert_jsonpath: "$.audit_log"
+      default_yaml_template: |
+        # This file is auto-generated by running `meltano elt tap-athena-audit target-yaml-audit`
+        audit_log: []
   transformers:
   - name: dbt
     pip_url: git+https://github.com/Tomme/dbt-athena.git
@@ -106,3 +219,5 @@ plugins:
   files:
   - name: dbt
     pip_url: git+https://gitlab.com/meltano/files-dbt.git
+    update:
+      transform/profile/profiles.yml: false
