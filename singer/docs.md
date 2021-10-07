@@ -182,9 +182,9 @@ See the SDK documentation [here](https://sdk.meltano.com/en/latest/stream_maps.h
 
 #### About
 
-The tap or target accepts an `--about` argument which outputs details about the connector including its capabilities and settings which can be used in programmatically generate UI forms.
+The tap or target accepts an `--about` argument which outputs details about the connector including its capabilities and settings which can be used in programmatically generate UI forms. This information can be output in JSON or Markdown format. 
 
-An example output in json format `--about --format=json` from [target-athena](https://github.com/MeltanoLabs/target-athena) built using the Meltano Singer SDK.
+An example output in json format `--about --format=json` from [target-athena](https://github.com/MeltanoLabs/target-athena) built using the Meltano SDK for Singer:
 
 ```json
 {
