@@ -15,4 +15,6 @@ variants:
   pip_url: git+https://gitlab.com/meltano/tap-carbon-intensity.git
   capabilities:
   - discover
+  - catalog
+  - state
   settings: []
