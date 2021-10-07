@@ -218,6 +218,13 @@
                         "description": "Defines whether the variant is a default or not",
                         "default": false
                     },
+                    "meltano_sdk": {
+                        "id": "#/properties/variants/items/properties/meltano_sdk",
+                        "type": "boolean",
+                        "title": "Build with Meltano SDK",
+                        "description": "Defines whether the variant was built with the Meltano SDK or not",
+                        "default": false
+                    },
                     "adoptable": {
                         "id": "#/properties/variants/items/properties/default",
                         "type": "boolean",
