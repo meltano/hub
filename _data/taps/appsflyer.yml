@@ -16,3 +16,6 @@ variants:
   pip_url: git+https://github.com/singer-io/tap-appsflyer.git
   repo: https://github.com/singer-io/tap-appsflyer
   settings: []
+  capabilities:
+  - catalog
+  - discover

@@ -15,9 +15,15 @@ variants:
   pip_url: git+https://github.com/singer-io/tap-autopilot.git
   repo: https://github.com/singer-io/tap-autopilot
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: wcjohnson11
   pip_url: git+https://github.com/wcjohnson11/tap-autopilot.git
   repo: https://github.com/wcjohnson11/tap-autopilot
   settings: []
+  capabilities:
+  - catalog
+  - discover

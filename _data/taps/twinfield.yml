@@ -15,3 +15,6 @@ variants:
   pip_url: git+https://github.com/Yoast/singer-tap-twinfield.git
   repo: https://github.com/Yoast/singer-tap-twinfield
   settings: []
+  capabilities:
+  - catalog
+  - discover

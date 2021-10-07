@@ -15,3 +15,6 @@ variants:
   pip_url: git+https://github.com/Radico/tap-gleantap.git
   repo: https://github.com/Radico/tap-gleantap
   settings: []
+  capabilities:
+  - catalog
+  - discover

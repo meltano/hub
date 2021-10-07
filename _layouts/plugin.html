@@ -3,6 +3,7 @@ layout: plugin_page
 ---
 
 {% assign plugin = page.plugin %} {% assign variant = page.variant %} {% assign language = variant.language | default: "python" %}
+{% assign repo_split = variant.repo | split: '/' %} {% assign repo_project = repo_split[-1] %}
 <p>
   {% if plugin.type == "tap" %} The <code>{{plugin.singer_name}}</code>
   <a href="/singer/taps">Singer tap</a>
@@ -49,11 +50,11 @@ layout: plugin_page
   {% if metrics.num_stargazers > 0 %}
   <li><strong>Stars</strong>: {{ metrics.num_stargazers }}</li>
   {% endif %} {% endif %}
-  <li>
-    <img alt="GitHub - License"
-      src="https://img.shields.io/github/license/{{variant.name}}/{{plugin.singer_name}}?color=c0c0c4&label=License&style=flat-square"
-      href="{{variant.repo}}">
-  </li>
+    <li>
+      <img alt="GitHub - License"
+        src="https://img.shields.io/github/license/{{variant.name}}/{{repo_project}}?color=c0c0c4&label=License&style=flat-square"
+        href="{{variant.repo}}">
+    </li>
   {% if variant.pip_url contains '.git' %}
   {% else %}
   <li>

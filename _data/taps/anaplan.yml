@@ -15,9 +15,15 @@ variants:
   pip_url: git+https://github.com/kdamodaran1/tap-anaplan.git
   repo: https://github.com/kdamodaran1/tap-anaplan
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: true
   maintenance_status: Active
   name: matthew-skinner
   pip_url: git+https://github.com/matthew-skinner/tap-anaplan.git
   repo: https://github.com/matthew-skinner/tap-anaplan
   settings: []
+  capabilities:
+  - catalog
+  - discover

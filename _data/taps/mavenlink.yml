@@ -15,3 +15,6 @@ variants:
   pip_url: git+https://github.com/fishtown-analytics/tap-mavenlink.git
   repo: https://github.com/fishtown-analytics/tap-mavenlink
   settings: []
+  capabilities:
+  - catalog
+  - discover

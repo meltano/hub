@@ -15,9 +15,15 @@ variants:
   pip_url: git+https://github.com/singer-io/tap-harvest-forecast.git
   repo: https://github.com/singer-io/tap-harvest-forecast
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: assembleinc
   pip_url: git+https://github.com/assembleinc/tap-harvest-forecast.git
   repo: https://github.com/assembleinc/tap-harvest-forecast
   settings: []
+  capabilities:
+  - catalog
+  - discover

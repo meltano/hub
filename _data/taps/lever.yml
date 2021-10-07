@@ -15,3 +15,6 @@ variants:
   pip_url: git+https://github.com/fishtown-analytics/tap-lever.git
   repo: https://github.com/fishtown-analytics/tap-lever
   settings: []
+  capabilities:
+  - catalog
+  - discover

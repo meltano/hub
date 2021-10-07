@@ -15,3 +15,6 @@ variants:
   pip_url: git+https://github.com/richpanel-company/tap-richpanel.git
   repo: https://github.com/richpanel-company/tap-richpanel
   settings: []
+  capabilities:
+  - catalog
+  - discover

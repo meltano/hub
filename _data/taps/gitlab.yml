@@ -79,3 +79,6 @@ variants:
   pip_url: git+https://github.com/singer-io/tap-gitlab.git
   repo: https://github.com/singer-io/tap-gitlab
   settings: []
+  capabilities:
+  - catalog
+  - discover

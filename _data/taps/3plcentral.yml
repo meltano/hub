@@ -18,6 +18,9 @@ variants:
   pip_url: git+https://github.com/bytecodeio/tap-3plcentral.git
   repo: https://github.com/bytecodeio/tap-3plcentral
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: true
   maintenance_status: Unknown
   name: singer-io
@@ -27,3 +30,6 @@ variants:
   pip_url: git+https://github.com/singer-io/tap-3plcentral.git
   repo: https://github.com/singer-io/tap-3plcentral
   settings: []
+  capabilities:
+  - catalog
+  - discover

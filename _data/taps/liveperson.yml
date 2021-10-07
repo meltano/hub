@@ -15,27 +15,42 @@ variants:
   pip_url: git+https://github.com/singer-io/tap-liveperson.git
   repo: https://github.com/singer-io/tap-liveperson
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: stvhanna
   pip_url: git+https://github.com/stvhanna/tap-liveperson.git
   repo: https://github.com/stvhanna/tap-liveperson
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: isabella232
   pip_url: git+https://github.com/isabella232/tap-liveperson.git
   repo: https://github.com/isabella232/tap-liveperson
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: tomekzbrozek
   pip_url: git+https://github.com/tomekzbrozek/tap-liveperson.git
   repo: https://github.com/tomekzbrozek/tap-liveperson
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: fishtown-analytics
   pip_url: git+https://github.com/fishtown-analytics/tap-liveperson.git
   repo: https://github.com/fishtown-analytics/tap-liveperson
   settings: []
+  capabilities:
+  - catalog
+  - discover

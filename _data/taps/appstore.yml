@@ -15,3 +15,6 @@ variants:
   pip_url: git+https://github.com/miroapp/tap-appstore.git
   repo: https://github.com/miroapp/tap-appstore
   settings: []
+  capabilities:
+  - catalog
+  - discover

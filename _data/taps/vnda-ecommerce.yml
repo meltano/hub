@@ -15,9 +15,15 @@ variants:
   pip_url: git+https://github.com/r4ir4/tap-vnda-ecommerce.git
   repo: https://github.com/r4ir4/tap-vnda-ecommerce
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: true
   maintenance_status: Unknown
   name: muriloo
   pip_url: git+https://github.com/Muriloo/tap-vnda-ecommerce.git
   repo: https://github.com/Muriloo/tap-vnda-ecommerce
   settings: []
+  capabilities:
+  - catalog
+  - discover

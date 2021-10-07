@@ -15,3 +15,6 @@ variants:
   pip_url: git+https://github.com/polar-analytics/tap-sklik.git
   repo: https://github.com/polar-analytics/tap-sklik
   settings: []
+  capabilities:
+  - catalog
+  - discover

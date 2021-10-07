@@ -15,3 +15,6 @@ variants:
   pip_url: git+https://github.com/dataops-tk/tap-parquet.git
   repo: https://github.com/dataops-tk/tap-parquet
   settings: []
+  capabilities:
+  - catalog
+  - discover
