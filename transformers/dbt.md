@@ -53,7 +53,7 @@ A minimal configuration of `dbt` in your [`meltano.yml` project file](https://me
 plugins:
   transformers:
   - name: dbt
-    pip_url: dbt==0.20.2
+    pip_url: dbt==0.21.0
 ```
 
 ### Project Directory
