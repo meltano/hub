@@ -29,6 +29,7 @@ variants:
 - capabilities:
   - catalog
   - discover
+  - state
   default: false
   maintenance_status: Unknown
   name: singer-io

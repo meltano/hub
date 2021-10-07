@@ -11,6 +11,7 @@ variants:
 - capabilities:
   - discover
   - state
+  - catalog
   default: true
   maintenance_status: Active
   name: meltano
