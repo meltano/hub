@@ -11,6 +11,7 @@ type: tap
 variants:
 - default: true
   maintenance_status: Unknown
+  meltano_sdk: true
   name: meltanolabs
   pip_url: git+https://github.com/MeltanoLabs/tap-github.git
   repo: https://github.com/MeltanoLabs/tap-github

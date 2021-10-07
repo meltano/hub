@@ -11,6 +11,7 @@ type: tap
 variants:
 - default: true
   maintenance_status: Active
+  meltano_sdk: true
   name: goes-funky
   pip_url: git+https://github.com/goes-funky/tap-facebook-pages.git
   repo: https://github.com/goes-funky/tap-facebook-pages
