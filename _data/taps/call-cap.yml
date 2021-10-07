@@ -15,3 +15,6 @@ variants:
   pip_url: git+https://github.com/LLazarovGannett/tap-call-cap.git
   repo: https://github.com/LLazarovGannett/tap-call-cap
   settings: []
+  capabilities:
+  - catalog
+  - discover

@@ -91,9 +91,15 @@ variants:
   pip_url: git+https://github.com/transferwise/pipelinewise-tap-zendesk.git
   repo: https://github.com/transferwise/pipelinewise-tap-zendesk
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: radico
   pip_url: git+https://github.com/Radico/tap-zendesk.git
   repo: https://github.com/Radico/tap-zendesk
   settings: []
+  capabilities:
+  - catalog
+  - discover

@@ -15,9 +15,15 @@ variants:
   pip_url: git+https://github.com/singer-io/tap-invoiced.git
   repo: https://github.com/singer-io/tap-invoiced
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: invoiced
   pip_url: git+https://github.com/Invoiced/tap-invoiced.git
   repo: https://github.com/Invoiced/tap-invoiced
   settings: []
+  capabilities:
+  - catalog
+  - discover

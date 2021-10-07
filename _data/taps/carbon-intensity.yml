@@ -12,8 +12,9 @@ variants:
 - name: meltano
   maintenance_status: Unknown
   repo: https://gitlab.com/meltano/tap-carbon-intensity
-  pip_url: 'git+https://gitlab.com/meltano/tap-carbon-intensity.git'
+  pip_url: git+https://gitlab.com/meltano/tap-carbon-intensity.git
   capabilities:
-    - discover
+  - discover
+  - catalog
+  - state
   settings: []
-  

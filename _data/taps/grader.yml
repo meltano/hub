@@ -15,3 +15,6 @@ variants:
   pip_url: git+https://github.com/reachlocal/tap-grader.git
   repo: https://github.com/reachlocal/tap-grader
   settings: []
+  capabilities:
+  - catalog
+  - discover

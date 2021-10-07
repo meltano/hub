@@ -15,9 +15,15 @@ variants:
   pip_url: git+https://github.com/jacksonh/tap-pagerduty.git
   repo: https://github.com/jacksonh/tap-pagerduty
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: true
   maintenance_status: Unknown
   name: goodeggs
   pip_url: git+https://github.com/goodeggs/tap-pagerduty.git
   repo: https://github.com/goodeggs/tap-pagerduty
   settings: []
+  capabilities:
+  - catalog
+  - discover

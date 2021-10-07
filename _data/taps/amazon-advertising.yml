@@ -15,3 +15,6 @@ variants:
   pip_url: git+https://github.com/fishtown-analytics/tap-amazon-advertising.git
   repo: https://github.com/fishtown-analytics/tap-amazon-advertising
   settings: []
+  capabilities:
+  - catalog
+  - discover

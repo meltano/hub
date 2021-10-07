@@ -14,3 +14,6 @@ variants:
   pip_url: git+https://github.com/transferwise/pipelinewise-tap-snowflake.git
   repo: https://github.com/transferwise/pipelinewise-tap-snowflake
   settings: []
+  capabilities:
+  - catalog
+  - discover

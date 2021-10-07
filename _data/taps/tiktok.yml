@@ -2,7 +2,7 @@ description: Social Media Marketing Platform
 domain:
   description: Social Media Marketing Platform
   name: TitTok Ads API
-  type: api 
+  type: api
   url: https://ads.tiktok.com/marketing_api/homepage
 label: TikTok Ads
 name: tiktok
@@ -15,3 +15,6 @@ variants:
   pip_url: git+https://github.com/uptilab2/tap-tiktok.git
   repo: https://github.com/uptilab2/tap-tiktok
   settings: []
+  capabilities:
+  - catalog
+  - discover

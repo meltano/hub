@@ -15,9 +15,15 @@ variants:
   pip_url: git+https://github.com/FostersData/tap-insightly.git
   repo: https://github.com/FostersData/tap-insightly
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: mrtns
   pip_url: git+https://github.com/mrtns/tap-insightly.git
   repo: https://github.com/mrtns/tap-insightly
   settings: []
+  capabilities:
+  - catalog
+  - discover

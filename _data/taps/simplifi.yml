@@ -15,9 +15,15 @@ variants:
   pip_url: git+https://github.com/georgiyolovski/tap-simplifi.git
   repo: https://github.com/georgiyolovski/tap-simplifi
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: reachlocal
   pip_url: git+https://github.com/reachlocal/tap-simplifi.git
   repo: https://github.com/reachlocal/tap-simplifi
   settings: []
+  capabilities:
+  - catalog
+  - discover

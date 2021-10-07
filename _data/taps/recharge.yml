@@ -39,3 +39,6 @@ variants:
   pip_url: git+https://github.com/bytecodeio/tap-recharge.git
   repo: https://github.com/bytecodeio/tap-recharge
   settings: []
+  capabilities:
+  - catalog
+  - discover

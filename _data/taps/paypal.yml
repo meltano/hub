@@ -15,9 +15,15 @@ variants:
   pip_url: git+https://github.com/milk-bar/tap-paypal.git
   repo: https://github.com/milk-bar/tap-paypal
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: true
   maintenance_status: Unknown
   name: yoast
   pip_url: git+https://github.com/Yoast/singer-tap-paypal.git
   repo: https://github.com/Yoast/singer-tap-paypal
   settings: []
+  capabilities:
+  - catalog
+  - discover

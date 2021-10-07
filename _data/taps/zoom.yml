@@ -40,9 +40,15 @@ variants:
   pip_url: git+https://github.com/karbonhq/singer-tap-zoom.git
   repo: https://github.com/karbonhq/singer-tap-zoom
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: singer-io
   pip_url: git+https://github.com/singer-io/tap-zoom.git
   repo: https://github.com/singer-io/tap-zoom
   settings: []
+  capabilities:
+  - catalog
+  - discover

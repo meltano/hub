@@ -15,3 +15,6 @@ variants:
   pip_url: git+https://github.com/fishtown-analytics/tap-outbrain.git
   repo: https://github.com/fishtown-analytics/tap-outbrain
   settings: []
+  capabilities:
+  - catalog
+  - discover

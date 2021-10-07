@@ -32,3 +32,7 @@ variants:
   pip_url: git+https://github.com/singer-io/tap-marketo.git
   repo: https://github.com/singer-io/tap-marketo
   settings: []
+  capabilities:
+  - catalog
+  - discover
+  - state

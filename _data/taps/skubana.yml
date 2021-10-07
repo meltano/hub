@@ -15,9 +15,15 @@ variants:
   pip_url: git+https://github.com/bytecodeio/tap-skubana.git
   repo: https://github.com/bytecodeio/tap-skubana
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: true
   maintenance_status: Unknown
   name: singer-io
   pip_url: git+https://github.com/singer-io/tap-skubana.git
   repo: https://github.com/singer-io/tap-skubana
   settings: []
+  capabilities:
+  - catalog
+  - discover

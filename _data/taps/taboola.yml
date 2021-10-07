@@ -15,9 +15,15 @@ variants:
   pip_url: git+https://github.com/singer-io/tap-taboola.git
   repo: https://github.com/singer-io/tap-taboola
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: fishtown-analytics
   pip_url: git+https://github.com/fishtown-analytics/tap-taboola.git
   repo: https://github.com/fishtown-analytics/tap-taboola
   settings: []
+  capabilities:
+  - catalog
+  - discover

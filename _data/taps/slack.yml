@@ -67,15 +67,24 @@ variants:
   pip_url: git+https://github.com/envoy/tap-slack.git
   repo: https://github.com/envoy/tap-slack
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: richard-clark
   pip_url: git+https://github.com/richard-clark/tap-slack.git
   repo: https://github.com/richard-clark/tap-slack
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Active
   name: transferwise
   pip_url: git+https://github.com/transferwise/pipelinewise-tap-slack.git
   repo: https://github.com/transferwise/pipelinewise-tap-slack
   settings: []
+  capabilities:
+  - catalog
+  - discover

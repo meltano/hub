@@ -15,15 +15,24 @@ variants:
   pip_url: git+https://github.com/transferwise/pipelinewise-tap-oracle.git
   repo: https://github.com/transferwise/pipelinewise-tap-oracle
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: mpcarter
   pip_url: git+https://github.com/mpcarter/pipelinewise-tap-oracle.git
   repo: https://github.com/mpcarter/pipelinewise-tap-oracle
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: visch
   pip_url: git+https://github.com/visch/pipelinewise-tap-oracle.git
   repo: https://github.com/visch/pipelinewise-tap-oracle
   settings: []
+  capabilities:
+  - catalog
+  - discover

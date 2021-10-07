@@ -15,3 +15,6 @@ variants:
   pip_url: git+https://github.com/LoopReturns/tap-loopreturns.git
   repo: https://github.com/LoopReturns/tap-loopreturns
   settings: []
+  capabilities:
+  - catalog
+  - discover
