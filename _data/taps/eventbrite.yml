@@ -15,3 +15,6 @@ variants:
   pip_url: git+https://github.com/phillymedia/tap-eventbrite.git
   repo: https://github.com/phillymedia/tap-eventbrite
   settings: []
+  capabilities:
+  - catalog
+  - discover

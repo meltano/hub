@@ -77,3 +77,6 @@ variants:
   pip_url: git+https://github.com/singer-io/tap-postgres.git
   repo: https://github.com/singer-io/tap-postgres
   settings: []
+  capabilities:
+  - catalog
+  - discover

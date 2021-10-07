@@ -15,3 +15,6 @@ variants:
   pip_url: git+https://github.com/edgarrmondragon/tap-dbt.git
   repo: https://github.com/edgarrmondragon/tap-dbt
   settings: []
+  capabilities:
+  - catalog
+  - discover

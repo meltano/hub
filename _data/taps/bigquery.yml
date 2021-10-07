@@ -60,3 +60,6 @@ variants:
   pip_url: git+https://github.com/fixdauto/tap-bigquery.git
   repo: https://github.com/fixdauto/tap-bigquery
   settings: []
+  capabilities:
+  - catalog
+  - discover

@@ -15,9 +15,15 @@ variants:
   pip_url: git+https://github.com/singer-io/tap-selligent.git
   repo: https://github.com/singer-io/tap-selligent
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: fishtown-analytics
   pip_url: git+https://github.com/fishtown-analytics/tap-selligent.git
   repo: https://github.com/fishtown-analytics/tap-selligent
   settings: []
+  capabilities:
+  - catalog
+  - discover

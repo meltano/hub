@@ -15,9 +15,15 @@ variants:
   pip_url: git+https://github.com/uptilab2/tap-sevenrooms.git
   repo: https://github.com/uptilab2/tap-sevenrooms
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: hugo4400
   pip_url: git+https://github.com/Hugo4400/tap-sevenrooms.git
   repo: https://github.com/Hugo4400/tap-sevenrooms
   settings: []
+  capabilities:
+  - catalog
+  - discover

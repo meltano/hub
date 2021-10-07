@@ -15,3 +15,6 @@ variants:
   pip_url: git+https://github.com/Horze-International/tap-daisycon.git
   repo: https://github.com/Horze-International/tap-daisycon
   settings: []
+  capabilities:
+  - catalog
+  - discover

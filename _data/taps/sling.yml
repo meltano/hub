@@ -15,15 +15,24 @@ variants:
   pip_url: git+https://github.com/singer-io/tap-sling.git
   repo: https://github.com/singer-io/tap-sling
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: rfdearborn
   pip_url: git+https://github.com/rfdearborn/tap-sling.git
   repo: https://github.com/rfdearborn/tap-sling
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: isabella232
   pip_url: git+https://github.com/isabella232/tap-sling.git
   repo: https://github.com/isabella232/tap-sling
   settings: []
+  capabilities:
+  - catalog
+  - discover

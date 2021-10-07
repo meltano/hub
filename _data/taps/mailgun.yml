@@ -15,3 +15,6 @@ variants:
   pip_url: git+https://github.com/streetteam/tap-mailgun.git
   repo: https://github.com/streetteam/tap-mailgun
   settings: []
+  capabilities:
+  - catalog
+  - discover

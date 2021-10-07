@@ -15,15 +15,15 @@ variants:
   pip_url: git+https://github.com/immuta/tap-udemy-for-business.git
   repo: https://github.com/immuta/tap-udemy-for-business
   capabilities:
-    - state
-    - catalog
-    - discover
+  - state
+  - catalog
+  - discover
   settings:
-    - name: client_id
-    - name: client_secret
-      kind: password
-    - name: organization_id
-      kind: integer
-    - name: organization_name
-    - name: start_date
-      kind: date_iso8601
+  - name: client_id
+  - name: client_secret
+    kind: password
+  - name: organization_id
+    kind: integer
+  - name: organization_name
+  - name: start_date
+    kind: date_iso8601

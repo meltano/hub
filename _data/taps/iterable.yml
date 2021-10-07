@@ -15,3 +15,6 @@ variants:
   pip_url: git+https://github.com/lambtron/tap-iterable.git
   repo: https://github.com/lambtron/tap-iterable
   settings: []
+  capabilities:
+  - catalog
+  - discover

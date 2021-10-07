@@ -15,3 +15,6 @@ variants:
   pip_url: git+https://github.com/MeowWolf/tap-appfigures.git
   repo: https://github.com/MeowWolf/tap-appfigures
   settings: []
+  capabilities:
+  - catalog
+  - discover

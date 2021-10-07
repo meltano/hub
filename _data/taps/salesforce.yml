@@ -81,9 +81,15 @@ variants:
   pip_url: git+https://github.com/singer-io/tap-salesforce.git
   repo: https://github.com/singer-io/tap-salesforce
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Active
   name: transferwise
   pip_url: git+https://github.com/transferwise/pipelinewise-tap-salesforce.git
   repo: https://github.com/transferwise/pipelinewise-tap-salesforce
   settings: []
+  capabilities:
+  - catalog
+  - discover

@@ -15,3 +15,6 @@ variants:
   pip_url: git+https://github.com/FostersData/tap-acuite.git
   repo: https://github.com/FostersData/tap-acuite
   settings: []
+  capabilities:
+  - catalog
+  - discover

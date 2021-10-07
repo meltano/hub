@@ -15,15 +15,24 @@ variants:
   pip_url: git+https://github.com/isabella232/tap-platformpurple.git
   repo: https://github.com/isabella232/tap-platformpurple
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: fishtown-analytics
   pip_url: git+https://github.com/fishtown-analytics/tap-platformpurple.git
   repo: https://github.com/fishtown-analytics/tap-platformpurple
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: true
   maintenance_status: Unknown
   name: singer-io
   pip_url: git+https://github.com/singer-io/tap-platformpurple.git
   repo: https://github.com/singer-io/tap-platformpurple
   settings: []
+  capabilities:
+  - catalog
+  - discover

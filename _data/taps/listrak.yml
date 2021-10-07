@@ -15,9 +15,15 @@ variants:
   pip_url: git+https://github.com/fishtown-analytics/tap-listrak.git
   repo: https://github.com/fishtown-analytics/tap-listrak
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: singer-io
   pip_url: git+https://github.com/singer-io/tap-listrak.git
   repo: https://github.com/singer-io/tap-listrak
   settings: []
+  capabilities:
+  - catalog
+  - discover

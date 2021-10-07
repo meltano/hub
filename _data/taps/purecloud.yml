@@ -15,45 +15,69 @@ variants:
   pip_url: git+https://github.com/EltonARodrigues/tap-purecloud.git
   repo: https://github.com/EltonARodrigues/tap-purecloud
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: drewbanin
   pip_url: git+https://github.com/drewbanin/tap-purecloud.git
   repo: https://github.com/drewbanin/tap-purecloud
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: falek-marcin
   pip_url: git+https://github.com/falek-marcin/tap-purecloud.git
   repo: https://github.com/falek-marcin/tap-purecloud
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: mynarskip
   pip_url: git+https://github.com/mynarskip/tap-purecloud.git
   repo: https://github.com/mynarskip/tap-purecloud
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: singer-io
   pip_url: git+https://github.com/singer-io/tap-purecloud.git
   repo: https://github.com/singer-io/tap-purecloud
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: fishtown-analytics
   pip_url: git+https://github.com/fishtown-analytics/tap-purecloud.git
   repo: https://github.com/fishtown-analytics/tap-purecloud
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: true
   maintenance_status: Unknown
   name: rumeau
   pip_url: git+https://github.com/rumeau/tap-purecloud.git
   repo: https://github.com/rumeau/tap-purecloud
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: isabella232
   pip_url: git+https://github.com/isabella232/tap-purecloud.git
   repo: https://github.com/isabella232/tap-purecloud
   settings: []
+  capabilities:
+  - catalog
+  - discover

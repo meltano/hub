@@ -15,21 +15,33 @@ variants:
   pip_url: git+https://github.com/singer-io/tap-ms-teams.git
   repo: https://github.com/singer-io/tap-ms-teams
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: mauricio87
   pip_url: git+https://github.com/mauricio87/tap-ms-teams.git
   repo: https://github.com/mauricio87/tap-ms-teams
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: isabella232
   pip_url: git+https://github.com/isabella232/tap-ms-teams.git
   repo: https://github.com/isabella232/tap-ms-teams
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: bytecodeio
   pip_url: git+https://github.com/bytecodeio/tap-ms-teams.git
   repo: https://github.com/bytecodeio/tap-ms-teams
   settings: []
+  capabilities:
+  - catalog
+  - discover

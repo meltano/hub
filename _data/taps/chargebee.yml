@@ -53,3 +53,6 @@ variants:
   pip_url: git+https://github.com/envoy/tap-chargebee.git
   repo: https://github.com/envoy/tap-chargebee
   settings: []
+  capabilities:
+  - catalog
+  - discover

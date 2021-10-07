@@ -15,15 +15,24 @@ variants:
   pip_url: git+https://github.com/singer-io/tap-exacttarget.git
   repo: https://github.com/singer-io/tap-exacttarget
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: estrategiahq
   pip_url: git+https://github.com/estrategiahq/tap-exacttarget.git
   repo: https://github.com/estrategiahq/tap-exacttarget
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: uptilab2
   pip_url: git+https://github.com/uptilab2/tap-exacttarget.git
   repo: https://github.com/uptilab2/tap-exacttarget
   settings: []
+  capabilities:
+  - catalog
+  - discover

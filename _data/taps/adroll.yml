@@ -15,3 +15,6 @@ variants:
   pip_url: git+https://github.com/dreamdata-io/tap-adroll.git
   repo: https://github.com/dreamdata-io/tap-adroll
   settings: []
+  capabilities:
+  - catalog
+  - discover

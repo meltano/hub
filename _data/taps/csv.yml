@@ -35,9 +35,15 @@ variants:
   pip_url: git+https://github.com/robertjmoore/tap-csv.git
   repo: https://github.com/robertjmoore/tap-csv
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: hotgluexyz
   pip_url: git+https://github.com/hotgluexyz/tap-csv.git
   repo: https://github.com/hotgluexyz/tap-csv
   settings: []
+  capabilities:
+  - catalog
+  - discover

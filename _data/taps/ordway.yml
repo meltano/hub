@@ -15,15 +15,24 @@ variants:
   pip_url: git+https://github.com/singer-io/tap-ordway.git
   repo: https://github.com/singer-io/tap-ordway
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: mozartdata
   pip_url: git+https://github.com/MozartData/tap-ordway.git
   repo: https://github.com/MozartData/tap-ordway
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: mubarakrocky
   pip_url: git+https://github.com/mubarakrocky/tap-ordway.git
   repo: https://github.com/mubarakrocky/tap-ordway
   settings: []
+  capabilities:
+  - catalog
+  - discover

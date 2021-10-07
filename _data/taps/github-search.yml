@@ -15,3 +15,6 @@ variants:
   pip_url: git+https://github.com/MeltanoLabs/tap-github.git
   repo: https://github.com/MeltanoLabs/tap-github
   settings: []
+  capabilities:
+  - catalog
+  - discover
