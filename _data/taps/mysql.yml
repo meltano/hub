@@ -55,3 +55,6 @@ variants:
   pip_url: git+https://github.com/singer-io/tap-mysql.git
   repo: https://github.com/singer-io/tap-mysql
   settings: []
+  capabilities:
+  - catalog
+  - discover

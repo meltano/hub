@@ -15,9 +15,15 @@ variants:
   pip_url: git+https://github.com/Muriloo/tap-bling-erp.git
   repo: https://github.com/Muriloo/tap-bling-erp
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: r4ir4
   pip_url: git+https://github.com/r4ir4/tap-bling-erp.git
   repo: https://github.com/r4ir4/tap-bling-erp
   settings: []
+  capabilities:
+  - catalog
+  - discover

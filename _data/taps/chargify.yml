@@ -15,33 +15,51 @@ variants:
   pip_url: git+https://github.com/chrishumphries/tap-chargify.git
   repo: https://github.com/chrishumphries/tap-chargify
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: lambtron
   pip_url: git+https://github.com/lambtron/tap-chargify.git
   repo: https://github.com/lambtron/tap-chargify
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: manatees-first
   pip_url: git+https://github.com/manatees-first/tap-chargify.git
   repo: https://github.com/manatees-first/tap-chargify
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: true
   maintenance_status: Unknown
   name: singer-io
   pip_url: git+https://github.com/singer-io/tap-chargify.git
   repo: https://github.com/singer-io/tap-chargify
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: andylu-test
   pip_url: git+https://github.com/andylu-test/tap-chargify.git
   repo: https://github.com/andylu-test/tap-chargify
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: angaza
   pip_url: git+https://github.com/angaza/tap-chargify.git
   repo: https://github.com/angaza/tap-chargify
   settings: []
+  capabilities:
+  - catalog
+  - discover

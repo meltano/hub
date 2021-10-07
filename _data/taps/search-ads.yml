@@ -15,3 +15,6 @@ variants:
   pip_url: git+https://github.com/uptilab2/tap-search-ads.git
   repo: https://github.com/uptilab2/tap-search-ads
   settings: []
+  capabilities:
+  - catalog
+  - discover

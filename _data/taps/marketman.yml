@@ -15,3 +15,6 @@ variants:
   pip_url: git+https://github.com/Mashey/tap-marketman.git
   repo: https://github.com/Mashey/tap-marketman
   settings: []
+  capabilities:
+  - catalog
+  - discover

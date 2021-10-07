@@ -15,39 +15,60 @@ variants:
   pip_url: git+https://github.com/transferwise/pipelinewise-tap-kafka.git
   repo: https://github.com/transferwise/pipelinewise-tap-kafka
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: gadget-inc
   pip_url: git+https://github.com/gadget-inc/tap-kafka.git
   repo: https://github.com/gadget-inc/tap-kafka
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: isabella232
   pip_url: git+https://github.com/isabella232/tap-kafka.git
   repo: https://github.com/isabella232/tap-kafka
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: pbegle
   pip_url: git+https://github.com/pbegle/tap-kafka.git
   repo: https://github.com/pbegle/tap-kafka
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: koszti
   pip_url: git+https://github.com/koszti/tap-kafka.git
   repo: https://github.com/koszti/tap-kafka
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: singer-io
   pip_url: git+https://github.com/singer-io/tap-kafka.git
   repo: https://github.com/singer-io/tap-kafka
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: stvhanna
   pip_url: git+https://github.com/stvhanna/tap-kafka.git
   repo: https://github.com/stvhanna/tap-kafka
   settings: []
+  capabilities:
+  - catalog
+  - discover

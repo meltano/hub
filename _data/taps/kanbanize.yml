@@ -15,9 +15,15 @@ variants:
   pip_url: git+https://github.com/ashalan/tap-kanbanize.git
   repo: https://github.com/ashalan/tap-kanbanize
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: true
   maintenance_status: Unknown
   name: n8sty
   pip_url: git+https://github.com/n8sty/tap-kanbanize.git
   repo: https://github.com/n8sty/tap-kanbanize
   settings: []
+  capabilities:
+  - catalog
+  - discover

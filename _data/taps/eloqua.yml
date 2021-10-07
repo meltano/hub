@@ -15,63 +15,96 @@ variants:
   pip_url: git+https://github.com/erikogan/tap-eloqua.git
   repo: https://github.com/erikogan/tap-eloqua
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: timvisher
   pip_url: git+https://github.com/timvisher/tap-eloqua.git
   repo: https://github.com/timvisher/tap-eloqua
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: flopotok
   pip_url: git+https://github.com/flopotok/tap-eloqua.git
   repo: https://github.com/flopotok/tap-eloqua
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: isabella232
   pip_url: git+https://github.com/isabella232/tap-eloqua.git
   repo: https://github.com/isabella232/tap-eloqua
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: gdm-analytics
   pip_url: git+https://github.com/gdm-analytics/tap-eloqua.git
   repo: https://github.com/gdm-analytics/tap-eloqua
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: true
   maintenance_status: Unknown
   name: singer-io
   pip_url: git+https://github.com/singer-io/tap-eloqua.git
   repo: https://github.com/singer-io/tap-eloqua
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: radico
   pip_url: git+https://github.com/Radico/tap-eloqua.git
   repo: https://github.com/Radico/tap-eloqua
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: onemedical
   pip_url: git+https://github.com/onemedical/tap-eloqua.git
   repo: https://github.com/onemedical/tap-eloqua
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: jjbarberio2
   pip_url: git+https://github.com/jjbarberio2/tap-eloqua.git
   repo: https://github.com/jjbarberio2/tap-eloqua
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: datamill-co
   pip_url: git+https://github.com/datamill-co/tap-eloqua.git
   repo: https://github.com/datamill-co/tap-eloqua
   settings: []
+  capabilities:
+  - catalog
+  - discover
 - default: false
   maintenance_status: Unknown
   name: fauxpasonics
   pip_url: git+https://github.com/fauxpasonics/tap-eloqua.git
   repo: https://github.com/fauxpasonics/tap-eloqua
   settings: []
+  capabilities:
+  - catalog
+  - discover

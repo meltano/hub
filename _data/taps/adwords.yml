@@ -99,3 +99,6 @@ variants:
   pip_url: git+https://github.com/georgiyolovski/tap-adwords.git
   repo: https://github.com/georgiyolovski/tap-adwords
   settings: []
+  capabilities:
+  - catalog
+  - discover

@@ -15,3 +15,6 @@ variants:
   pip_url: git+https://github.com/Mashey/tap-domo.git
   repo: https://github.com/Mashey/tap-domo
   settings: []
+  capabilities:
+  - catalog
+  - discover
