@@ -9,7 +9,10 @@ name: facebook-reviews
 singer_name: tap-facebook-reviews
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: packlane
   pip_url: git+https://github.com/Packlane/tap-facebook-reviews.git

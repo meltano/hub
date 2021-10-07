@@ -9,7 +9,10 @@ name: five9
 singer_name: tap-five9
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: pathlight
   pip_url: git+https://github.com/Pathlight/tap-five9.git

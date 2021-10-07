@@ -9,7 +9,10 @@ name: timebutler
 singer_name: tap-timebutler
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: taikonauten
   pip_url: git+https://github.com/taikonauten/tap-timebutler.git

@@ -9,7 +9,10 @@ name: webcrm
 singer_name: tap-webcrm
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: dreamdata-io
   pip_url: git+https://github.com/dreamdata-io/tap-webcrm.git

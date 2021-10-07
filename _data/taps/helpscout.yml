@@ -9,13 +9,19 @@ name: helpscout
 singer_name: tap-helpscout
 type: tap
 variants:
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: bytecodeio
   pip_url: git+https://github.com/bytecodeio/tap-helpscout.git
   repo: https://github.com/bytecodeio/tap-helpscout
   settings: []
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: singer-io
   pip_url: git+https://github.com/singer-io/tap-helpscout.git

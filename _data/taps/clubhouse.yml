@@ -9,7 +9,10 @@ name: clubhouse
 singer_name: tap-clubhouse
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: envoy
   pip_url: git+https://github.com/envoy/tap-clubhouse.git

@@ -9,7 +9,10 @@ name: mavenlink
 singer_name: tap-mavenlink
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: fishtown-analytics
   pip_url: git+https://github.com/fishtown-analytics/tap-mavenlink.git

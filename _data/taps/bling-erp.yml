@@ -9,13 +9,19 @@ name: bling-erp
 singer_name: tap-bling-erp
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: muriloo
   pip_url: git+https://github.com/Muriloo/tap-bling-erp.git
   repo: https://github.com/Muriloo/tap-bling-erp
   settings: []
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: r4ir4
   pip_url: git+https://github.com/r4ir4/tap-bling-erp.git

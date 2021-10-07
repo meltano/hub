@@ -9,19 +9,28 @@ name: sendgrid
 singer_name: tap-sendgrid
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: singer-io
   pip_url: git+https://github.com/singer-io/tap-sendgrid.git
   repo: https://github.com/singer-io/tap-sendgrid
   settings: []
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: codyss
   pip_url: git+https://github.com/codyss/tap-sendgrid.git
   repo: https://github.com/codyss/tap-sendgrid
   settings: []
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: isabella232
   pip_url: git+https://github.com/isabella232/singer-tap-sendgrid.git

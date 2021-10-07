@@ -4,16 +4,15 @@ domain:
   name: UK Carbon Intensity API
   type: api
   url: https://api.carbonintensity.org.uk/
+label: Carbon Emissions Intensity
 name: tap-carbon-intensity
 singer_name: tap-carbon-intensity
 type: tap
-label: Carbon Emissions Intensity
 variants:
-- name: meltano
+- capabilities:
+  - discover
   maintenance_status: Unknown
+  name: meltano
+  pip_url: git+https://gitlab.com/meltano/tap-carbon-intensity.git
   repo: https://gitlab.com/meltano/tap-carbon-intensity
-  pip_url: 'git+https://gitlab.com/meltano/tap-carbon-intensity.git'
-  capabilities:
-    - discover
   settings: []
-  

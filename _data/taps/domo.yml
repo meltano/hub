@@ -9,7 +9,10 @@ name: domo
 singer_name: tap-domo
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: mashey
   pip_url: git+https://github.com/Mashey/tap-domo.git

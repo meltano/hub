@@ -9,7 +9,10 @@ name: bold
 singer_name: tap-bold
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: oriskincare
   pip_url: git+https://github.com/oriskincare/tap-bold.git

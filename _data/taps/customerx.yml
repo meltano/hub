@@ -9,7 +9,10 @@ name: customerx
 singer_name: tap-customerx
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: rafaeljusi
   pip_url: git+https://github.com/rafaeljusi/tap-customerx.git

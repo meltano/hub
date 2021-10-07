@@ -9,7 +9,10 @@ name: brightpearl
 singer_name: tap-brightpearl
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: zookal
   pip_url: git+https://github.com/Zookal/tap-brightpearl.git

@@ -9,7 +9,10 @@ name: billwerk
 singer_name: tap-billwerk
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: bi-media
   pip_url: git+https://github.com/bi-media/tap-billwerk.git

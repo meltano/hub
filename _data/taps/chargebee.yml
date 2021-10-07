@@ -47,7 +47,10 @@ variants:
     - site
     - product_catalog
     - start_date
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: envoy
   pip_url: git+https://github.com/envoy/tap-chargebee.git

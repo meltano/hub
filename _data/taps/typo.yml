@@ -9,7 +9,10 @@ name: typo
 singer_name: tap-typo
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: typo-ai
   pip_url: git+https://github.com/typo-ai/tap-typo.git

@@ -9,7 +9,10 @@ name: recruitee
 singer_name: tap-recruitee
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: tahasadiki
   pip_url: git+https://github.com/Tahasadiki/tap-recruitee.git

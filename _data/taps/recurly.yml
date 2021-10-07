@@ -9,7 +9,10 @@ name: recurly
 singer_name: tap-recurly
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: lambtron
   pip_url: git+https://github.com/lambtron/tap-recurly.git

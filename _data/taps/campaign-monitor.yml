@@ -9,25 +9,37 @@ name: campaign-monitor
 singer_name: tap-campaign-monitor
 type: tap
 variants:
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: fishtown-analytics
   pip_url: git+https://github.com/fishtown-analytics/tap-campaign-monitor.git
   repo: https://github.com/fishtown-analytics/tap-campaign-monitor
   settings: []
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: singer-io
   pip_url: git+https://github.com/singer-io/tap-campaign-monitor.git
   repo: https://github.com/singer-io/tap-campaign-monitor
   settings: []
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: sbwheeler
   pip_url: git+https://github.com/sbwheeler/tap-campaignmonitor.git
   repo: https://github.com/sbwheeler/tap-campaignmonitor
   settings: []
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: radico
   pip_url: git+https://github.com/Radico/tap-campaignmonitor.git

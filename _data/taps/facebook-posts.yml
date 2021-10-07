@@ -9,7 +9,10 @@ name: facebook-posts
 singer_name: tap-facebook-posts
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: rowanv
   pip_url: git+https://github.com/rowanv/tap-facebook-posts.git

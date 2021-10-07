@@ -9,7 +9,10 @@ name: netsuite
 singer_name: tap-netsuite
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: hotgluexyz
   pip_url: git+https://github.com/hotgluexyz/tap-netsuite.git

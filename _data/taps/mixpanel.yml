@@ -9,13 +9,19 @@ name: mixpanel
 singer_name: tap-mixpanel
 type: tap
 variants:
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: bytecodeio
   pip_url: git+https://github.com/bytecodeio/tap-mixpanel.git
   repo: https://github.com/bytecodeio/tap-mixpanel
   settings: []
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Active
   name: transferwise
   pip_url: git+https://github.com/transferwise/pipelinewise-tap-mixpanel.git

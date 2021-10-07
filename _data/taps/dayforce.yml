@@ -9,7 +9,10 @@ name: dayforce
 singer_name: tap-dayforce
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: goodeggs
   pip_url: git+https://github.com/goodeggs/tap-dayforce.git

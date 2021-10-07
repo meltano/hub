@@ -9,13 +9,19 @@ name: kanbanize
 singer_name: tap-kanbanize
 type: tap
 variants:
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: ashalan
   pip_url: git+https://github.com/ashalan/tap-kanbanize.git
   repo: https://github.com/ashalan/tap-kanbanize
   settings: []
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: n8sty
   pip_url: git+https://github.com/n8sty/tap-kanbanize.git

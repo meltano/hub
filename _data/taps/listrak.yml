@@ -9,13 +9,19 @@ name: listrak
 singer_name: tap-listrak
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: fishtown-analytics
   pip_url: git+https://github.com/fishtown-analytics/tap-listrak.git
   repo: https://github.com/fishtown-analytics/tap-listrak
   settings: []
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: singer-io
   pip_url: git+https://github.com/singer-io/tap-listrak.git

@@ -9,7 +9,10 @@ name: wordpress-plugin-stats
 singer_name: tap-wordpress-plugin-stats
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: yoast
   pip_url: git+https://github.com/Yoast/singer-tap-wordpress-plugin-stats.git

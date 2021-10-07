@@ -9,7 +9,10 @@ name: greenhouse
 singer_name: tap-greenhouse
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: codyss
   pip_url: git+https://github.com/codyss/tap-greenhouse.git

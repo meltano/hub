@@ -9,7 +9,10 @@ name: auth0-logs-checkpoint
 singer_name: tap-auth0-logs-checkpoint
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: process-street
   pip_url: git+https://github.com/process-street/tap-auth0-logs-checkpoint.git

@@ -9,9 +9,12 @@ name: athena
 singer_name: target-athena
 type: tap
 variants:
-    - name: meltanolabs
-      repo: https://github.com/MeltanoLabs/tap-athena
-      pip_url: git+https://github.com/MeltanoLabs/tap-athena.git
-      default: true
-      maintenance_status: Active
-      settings: []
+- capabilities:
+  - catalog
+  - discover
+  default: true
+  maintenance_status: Active
+  name: meltanolabs
+  pip_url: git+https://github.com/MeltanoLabs/tap-athena.git
+  repo: https://github.com/MeltanoLabs/tap-athena
+  settings: []

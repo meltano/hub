@@ -9,13 +9,19 @@ name: simplifi
 singer_name: tap-simplifi
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: georgiyolovski
   pip_url: git+https://github.com/georgiyolovski/tap-simplifi.git
   repo: https://github.com/georgiyolovski/tap-simplifi
   settings: []
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: reachlocal
   pip_url: git+https://github.com/reachlocal/tap-simplifi.git

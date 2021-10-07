@@ -9,7 +9,10 @@ name: storetraffic
 singer_name: tap-sms
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: jboltron3000
   pip_url: git+https://github.com/jboltron3000/tap-SMS.git

@@ -9,7 +9,10 @@ name: open-library
 singer_name: tap-open-library
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: loeakaodas
   pip_url: git+https://github.com/loeakaodas/tap-open-library.git

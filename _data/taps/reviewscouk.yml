@@ -9,7 +9,10 @@ name: reviewscouk
 singer_name: tap-reviewscouk
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: ideavateltd
   pip_url: git+https://github.com/ideavateltd/tap-reviewscouk.git

@@ -9,7 +9,10 @@ name: gleantap
 singer_name: tap-gleantap
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: radico
   pip_url: git+https://github.com/Radico/tap-gleantap.git

@@ -9,7 +9,10 @@ name: wootric
 singer_name: tap-wootric
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: singer-io
   pip_url: git+https://github.com/singer-io/tap-wootric.git

@@ -9,7 +9,10 @@ name: outreach
 singer_name: tap-outreach
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: cmbramwell
   pip_url: git+https://github.com/cmbramwell/tap-outreach.git

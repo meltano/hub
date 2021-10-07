@@ -9,19 +9,28 @@ name: sling
 singer_name: tap-sling
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: singer-io
   pip_url: git+https://github.com/singer-io/tap-sling.git
   repo: https://github.com/singer-io/tap-sling
   settings: []
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: rfdearborn
   pip_url: git+https://github.com/rfdearborn/tap-sling.git
   repo: https://github.com/rfdearborn/tap-sling
   settings: []
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: isabella232
   pip_url: git+https://github.com/isabella232/tap-sling.git

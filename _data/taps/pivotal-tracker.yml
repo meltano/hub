@@ -9,7 +9,10 @@ name: pivotal-tracker
 singer_name: tap-pivotal-tracker
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: goodeggs
   pip_url: git+https://github.com/goodeggs/tap-pivotal-tracker.git

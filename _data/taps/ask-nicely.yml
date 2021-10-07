@@ -9,24 +9,25 @@ name: ask-nicely
 singer_name: tap-ask-nicely
 type: tap
 variants:
-- default: true
-  maintenance_status: Active
+- capabilities:
+  - catalog
+  - discover
+  - state
+  default: true
   docs: https://hub.meltano.com/extractors/ask-nicely
+  maintenance_status: Active
   name: mashey
   pip_url: git+https://github.com/Mashey/tap-ask-nicely.git
   repo: https://github.com/Mashey/tap-ask-nicely
-  capabilities:
-    - catalog
-    - discover
-    - state
+  settings:
+  - description: The subdomain of your Ask Nicely account.
+    label: Subdomain
+    name: subdomain
+  - description: The API Key generated via your Ask Nicely account.
+    documentation: https://asknicely.asknice.ly/help/apidocs/auth
+    kind: password
+    label: API Key
+    name: api_key
   settings_group_validation:
-    - ['subdomain', 'api_key']
-  settings: 
-    - name: subdomain
-      label: Subdomain
-      description: The subdomain of your Ask Nicely account.
-    - name: api_key
-      kind: password
-      label: API Key
-      documentation: https://asknicely.asknice.ly/help/apidocs/auth
-      description: The API Key generated via your Ask Nicely account.
+  - - subdomain
+    - api_key

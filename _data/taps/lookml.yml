@@ -9,13 +9,19 @@ name: lookml
 singer_name: tap-lookml
 type: tap
 variants:
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: bytecodeio
   pip_url: git+https://github.com/bytecodeio/tap-lookml.git
   repo: https://github.com/bytecodeio/tap-lookml
   settings: []
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: singer-io
   pip_url: git+https://github.com/singer-io/tap-lookml.git

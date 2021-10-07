@@ -9,7 +9,10 @@ name: sentry
 singer_name: tap-sentry
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: valulucchesi
   pip_url: git+https://github.com/valulucchesi/tap-sentry.git

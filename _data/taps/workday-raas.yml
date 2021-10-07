@@ -9,13 +9,19 @@ name: workday-raas
 singer_name: tap-workday-raas
 type: tap
 variants:
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: isabella232
   pip_url: git+https://github.com/isabella232/tap-workday-raas.git
   repo: https://github.com/isabella232/tap-workday-raas
   settings: []
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: singer-io
   pip_url: git+https://github.com/singer-io/tap-workday-raas.git

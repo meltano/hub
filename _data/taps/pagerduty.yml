@@ -9,13 +9,19 @@ name: pagerduty
 singer_name: tap-pagerduty
 type: tap
 variants:
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: jacksonh
   pip_url: git+https://github.com/jacksonh/tap-pagerduty.git
   repo: https://github.com/jacksonh/tap-pagerduty
   settings: []
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: goodeggs
   pip_url: git+https://github.com/goodeggs/tap-pagerduty.git

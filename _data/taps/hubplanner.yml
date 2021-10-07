@@ -9,7 +9,10 @@ name: hubplanner
 singer_name: tap-hubplanner
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: rangle
   pip_url: git+https://github.com/rangle/tap-hubplanner.git

@@ -9,19 +9,28 @@ name: ordway
 singer_name: tap-ordway
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: singer-io
   pip_url: git+https://github.com/singer-io/tap-ordway.git
   repo: https://github.com/singer-io/tap-ordway
   settings: []
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: mozartdata
   pip_url: git+https://github.com/MozartData/tap-ordway.git
   repo: https://github.com/MozartData/tap-ordway
   settings: []
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: mubarakrocky
   pip_url: git+https://github.com/mubarakrocky/tap-ordway.git

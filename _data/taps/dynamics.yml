@@ -9,43 +9,64 @@ name: dynamics
 singer_name: tap-dynamics
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: dreamdata-io
   pip_url: git+https://github.com/dreamdata-io/tap-dynamics.git
   repo: https://github.com/dreamdata-io/tap-dynamics
   settings: []
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: bytecodeio
   pip_url: git+https://github.com/bytecodeio/tap-dynamics.git
   repo: https://github.com/bytecodeio/tap-dynamics
   settings: []
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: integress-inc
   pip_url: git+https://github.com/integress-inc/tap-dynamics-crm.git
   repo: https://github.com/integress-inc/tap-dynamics-crm
   settings: []
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: datamill-co
   pip_url: git+https://github.com/datamill-co/tap-dynamics-crm.git
   repo: https://github.com/datamill-co/tap-dynamics-crm
   settings: []
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: jarobe42
   pip_url: git+https://github.com/jarobe42/tap-dynamics-crm.git
   repo: https://github.com/jarobe42/tap-dynamics-crm
   settings: []
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: zafar-toshpulatov
   pip_url: git+https://github.com/zafar-toshpulatov/tap-dynamics-crm.git
   repo: https://github.com/zafar-toshpulatov/tap-dynamics-crm
   settings: []
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: bellyfat
   pip_url: git+https://github.com/bellyfat/tap-dynamics-crm.git

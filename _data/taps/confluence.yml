@@ -9,7 +9,10 @@ name: confluence
 singer_name: tap-confluence
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: edgarrmondragon
   pip_url: git+https://github.com/edgarrmondragon/tap-confluence.git

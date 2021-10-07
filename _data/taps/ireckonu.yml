@@ -9,7 +9,10 @@ name: ireckonu
 singer_name: tap-ireckonu
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: mashey
   pip_url: git+https://github.com/Mashey/tap-ireckonu.git

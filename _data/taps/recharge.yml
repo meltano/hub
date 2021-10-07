@@ -33,7 +33,10 @@ variants:
     name: user_agent
     placeholder: Ex. tap-recharge via Meltano <user@example.com>
     value: tap-recharge via Meltano
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: bytecodeio
   pip_url: git+https://github.com/bytecodeio/tap-recharge.git

@@ -9,43 +9,64 @@ name: fixerio
 singer_name: tap-fixerio
 type: tap
 variants:
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: einartg
   pip_url: git+https://github.com/einartg/tap-fixerio.git
   repo: https://github.com/einartg/tap-fixerio
   settings: []
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: ebunt
   pip_url: git+https://github.com/ebunt/tap-fixerio.git
   repo: https://github.com/ebunt/tap-fixerio
   settings: []
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: lpillmann
   pip_url: git+https://github.com/lpillmann/tap-fixerio.git
   repo: https://github.com/lpillmann/tap-fixerio
   settings: []
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: angaza
   pip_url: git+https://github.com/angaza/tap-fixerio.git
   repo: https://github.com/angaza/tap-fixerio
   settings: []
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: haaspt
   pip_url: git+https://github.com/haaspt/tap-fixerio.git
   repo: https://github.com/haaspt/tap-fixerio
   settings: []
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: isabella232
   pip_url: git+https://github.com/isabella232/tap-fixerio.git
   repo: https://github.com/isabella232/tap-fixerio
   settings: []
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: singer-io
   pip_url: git+https://github.com/singer-io/tap-fixerio.git

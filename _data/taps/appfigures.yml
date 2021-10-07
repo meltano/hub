@@ -9,7 +9,10 @@ name: appfigures
 singer_name: tap-appfigures
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: meowwolf
   pip_url: git+https://github.com/MeowWolf/tap-appfigures.git

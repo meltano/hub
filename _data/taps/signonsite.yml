@@ -9,13 +9,19 @@ name: signonsite
 singer_name: tap-signonsite
 type: tap
 variants:
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: fostersdata
   pip_url: git+https://github.com/FostersData/tap-signonsite.git
   repo: https://github.com/FostersData/tap-signonsite
   settings: []
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: singer-io
   pip_url: git+https://github.com/singer-io/tap-signonsite.git

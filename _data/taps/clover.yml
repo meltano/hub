@@ -9,7 +9,10 @@ name: clover
 singer_name: tap-clover
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: kalai-wavicle
   pip_url: git+https://github.com/Kalai-Wavicle/tap-clover.git

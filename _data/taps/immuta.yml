@@ -9,7 +9,10 @@ name: immuta
 singer_name: tap-immuta
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: immuta
   pip_url: git+https://github.com/immuta/tap-immuta.git

@@ -9,7 +9,10 @@ name: rockgympro
 singer_name: tap-rockgympro
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Active
   name: cinchio
   pip_url: git+https://github.com/cinchio/tap-rockgympro.git

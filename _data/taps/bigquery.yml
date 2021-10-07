@@ -54,7 +54,10 @@ variants:
   - - streams
     - start_datetime
     - credentials_path
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: fixdauto
   pip_url: git+https://github.com/fixdauto/tap-bigquery.git

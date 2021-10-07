@@ -44,31 +44,46 @@ variants:
   - - account_id
     - access_token
     - start_date
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: singer-io
   pip_url: git+https://github.com/singer-io/tap-facebook.git
   repo: https://github.com/singer-io/tap-facebook
   settings: []
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: georgiyolovski
   pip_url: git+https://github.com/georgiyolovski/tap-facebook.git
   repo: https://github.com/georgiyolovski/tap-facebook
   settings: []
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: hbellala
   pip_url: git+https://github.com/hbellala/tap-facebook.git
   repo: https://github.com/hbellala/tap-facebook
   settings: []
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: reachlocal
   pip_url: git+https://github.com/reachlocal/tap-facebook.git
   repo: https://github.com/reachlocal/tap-facebook
   settings: []
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: primedata-ai
   pip_url: git+https://github.com/primedata-ai/tap-facebook.git

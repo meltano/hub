@@ -9,7 +9,10 @@ name: zenefits
 singer_name: tap-zenefits
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: mashey
   pip_url: git+https://github.com/Mashey/tap-zenefits.git

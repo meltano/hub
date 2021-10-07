@@ -49,37 +49,55 @@ variants:
     - user
     - password
     - database
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Active
   name: transferwise
   pip_url: git+https://github.com/transferwise/pipelinewise-tap-mongodb.git
   repo: https://github.com/transferwise/pipelinewise-tap-mongodb
   settings: []
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: luandy64
   pip_url: git+https://github.com/luandy64/tap-mongodb.git
   repo: https://github.com/luandy64/tap-mongodb
   settings: []
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: rudybear
   pip_url: git+https://github.com/rudybear/tap-mongodb.git
   repo: https://github.com/rudybear/tap-mongodb
   settings: []
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: checkr
   pip_url: git+https://github.com/checkr/tap-mongodb.git
   repo: https://github.com/checkr/tap-mongodb
   settings: []
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: stvhanna
   pip_url: git+https://github.com/stvhanna/tap-mongodb.git
   repo: https://github.com/stvhanna/tap-mongodb
   settings: []
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: madlittlemods
   pip_url: git+https://github.com/MadLittleMods/tap-mongodb.git

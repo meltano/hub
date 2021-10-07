@@ -9,7 +9,10 @@ name: telemetrics
 singer_name: tap-telemetrics
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: reachlocal
   pip_url: git+https://github.com/reachlocal/tap-telemetrics.git

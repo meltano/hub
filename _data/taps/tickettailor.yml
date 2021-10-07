@@ -9,7 +9,10 @@ name: tickettailor
 singer_name: tap-tickettailor
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: fishtown-analytics
   pip_url: git+https://github.com/fishtown-analytics/tap-tickettailor.git

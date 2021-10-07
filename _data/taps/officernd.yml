@@ -9,13 +9,19 @@ name: officernd
 singer_name: tap-officernd
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: cschouten
   pip_url: git+https://github.com/cschouten/tap-officernd.git
   repo: https://github.com/cschouten/tap-officernd
   settings: []
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: saltboxteam
   pip_url: git+https://github.com/saltboxteam/tap-officernd.git

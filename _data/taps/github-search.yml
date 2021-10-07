@@ -9,7 +9,10 @@ name: github-search
 singer_name: tap-github
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: meltanolabs
   pip_url: git+https://github.com/MeltanoLabs/tap-github.git

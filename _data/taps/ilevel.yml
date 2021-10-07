@@ -9,13 +9,19 @@ name: ilevel
 singer_name: tap-ilevel
 type: tap
 variants:
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: bytecodeio
   pip_url: git+https://github.com/bytecodeio/tap-ilevel.git
   repo: https://github.com/bytecodeio/tap-ilevel
   settings: []
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: singer-io
   pip_url: git+https://github.com/singer-io/tap-ilevel.git

@@ -3,23 +3,23 @@ domain:
   description: dbt Artifact Files
   name: JSON Lines file type
   type: file
-  url: "https://docs.getdbt.com/reference/artifacts/dbt-artifacts#when-are-artifacts-produced"
+  url: https://docs.getdbt.com/reference/artifacts/dbt-artifacts#when-are-artifacts-produced
 label: dbt Artifacts
 name: dbt-artifacts
 singer_name: tap-dbt-artifacts
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Active
   name: prratek
   pip_url: git+https://github.com/prratek/tap-dbt-artifacts.git
   repo: https://github.com/prratek/tap-dbt-artifacts
-  capabilities:
-    - catalog
-    - discover
   settings:
-    - name: dbt_target_dir
-      label: dbt Target Dir
-      kind: string
-      description: The full path to your dbt project's target directory.
-      placeholder: Ex. "/path/to/dbt/target"
+  - description: The full path to your dbt project's target directory.
+    kind: string
+    label: dbt Target Dir
+    name: dbt_target_dir
+    placeholder: Ex. "/path/to/dbt/target"

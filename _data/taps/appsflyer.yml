@@ -10,7 +10,10 @@ name: appsflyer
 singer_name: tap-appsflyer
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: singer-io
   pip_url: git+https://github.com/singer-io/tap-appsflyer.git

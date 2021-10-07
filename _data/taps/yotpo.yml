@@ -9,37 +9,55 @@ name: yotpo
 singer_name: tap-yotpo
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: singer-io
   pip_url: git+https://github.com/singer-io/tap-yotpo.git
   repo: https://github.com/singer-io/tap-yotpo
   settings: []
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: stvhanna
   pip_url: git+https://github.com/stvhanna/tap-yotpo.git
   repo: https://github.com/stvhanna/tap-yotpo
   settings: []
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: isabella232
   pip_url: git+https://github.com/isabella232/tap-yotpo.git
   repo: https://github.com/isabella232/tap-yotpo
   settings: []
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: flopotok
   pip_url: git+https://github.com/flopotok/tap-yotpo.git
   repo: https://github.com/flopotok/tap-yotpo
   settings: []
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: fishtown-analytics
   pip_url: git+https://github.com/fishtown-analytics/tap-yotpo.git
   repo: https://github.com/fishtown-analytics/tap-yotpo
   settings: []
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: bombas
   pip_url: git+https://github.com/bombas/tap-yotpo.git

@@ -29,13 +29,19 @@ variants:
   settings_group_validation:
   - - files
   - - csv_files_definition
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: robertjmoore
   pip_url: git+https://github.com/robertjmoore/tap-csv.git
   repo: https://github.com/robertjmoore/tap-csv
   settings: []
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: hotgluexyz
   pip_url: git+https://github.com/hotgluexyz/tap-csv.git

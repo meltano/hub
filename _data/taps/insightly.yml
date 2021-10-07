@@ -9,13 +9,19 @@ name: insightly
 singer_name: tap-insightly
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: fostersdata
   pip_url: git+https://github.com/FostersData/tap-insightly.git
   repo: https://github.com/FostersData/tap-insightly
   settings: []
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: mrtns
   pip_url: git+https://github.com/mrtns/tap-insightly.git

@@ -9,21 +9,21 @@ name: udemy-for-business
 singer_name: tap-udemy-for-business
 type: tap
 variants:
-- default: true
+- capabilities:
+  - state
+  - catalog
+  - discover
+  default: true
   maintenance_status: Active
   name: immuta
   pip_url: git+https://github.com/immuta/tap-udemy-for-business.git
   repo: https://github.com/immuta/tap-udemy-for-business
-  capabilities:
-    - state
-    - catalog
-    - discover
   settings:
-    - name: client_id
-    - name: client_secret
-      kind: password
-    - name: organization_id
-      kind: integer
-    - name: organization_name
-    - name: start_date
-      kind: date_iso8601
+  - name: client_id
+  - kind: password
+    name: client_secret
+  - kind: integer
+    name: organization_id
+  - name: organization_name
+  - kind: date_iso8601
+    name: start_date

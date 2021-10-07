@@ -49,7 +49,10 @@ variants:
     - port
     - user
     - password
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: singer-io
   pip_url: git+https://github.com/singer-io/tap-mysql.git

@@ -61,19 +61,28 @@ variants:
     label: Date Window Size
     name: date_window_size
     value: 7
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: envoy
   pip_url: git+https://github.com/envoy/tap-slack.git
   repo: https://github.com/envoy/tap-slack
   settings: []
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: richard-clark
   pip_url: git+https://github.com/richard-clark/tap-slack.git
   repo: https://github.com/richard-clark/tap-slack
   settings: []
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Active
   name: transferwise
   pip_url: git+https://github.com/transferwise/pipelinewise-tap-slack.git

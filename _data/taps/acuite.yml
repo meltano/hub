@@ -9,7 +9,10 @@ name: acuite
 singer_name: tap-acuite
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: fostersdata
   pip_url: git+https://github.com/FostersData/tap-acuite.git

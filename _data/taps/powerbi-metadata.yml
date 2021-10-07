@@ -9,7 +9,10 @@ name: powerbi-metadata
 singer_name: tap-powerbi-metadata
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: dataops-tk
   pip_url: git+https://github.com/dataops-tk/tap-powerbi-metadata.git

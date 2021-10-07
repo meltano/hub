@@ -9,7 +9,10 @@ name: apparel-magic
 singer_name: tap-apparel-magic
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: jamespotz
   pip_url: git+https://github.com/jamespotz/tap-apparel-magic.git

@@ -9,7 +9,10 @@ name: sklik
 singer_name: tap-sklik
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: polar-analytics
   pip_url: git+https://github.com/polar-analytics/tap-sklik.git

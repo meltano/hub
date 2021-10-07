@@ -9,13 +9,19 @@ name: square
 singer_name: tap-square
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: kalai-wavicle
   pip_url: git+https://github.com/Kalai-Wavicle/tap-square.git
   repo: https://github.com/Kalai-Wavicle/tap-square
   settings: []
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: pk-sakthivel
   pip_url: git+https://github.com/pk-sakthivel/tap-square.git

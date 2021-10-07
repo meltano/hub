@@ -57,19 +57,28 @@ variants:
     - oauth_credentials.refresh_token
     - view_id
     - start_date
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: zenkay
   pip_url: git+https://github.com/zenkay/tap-google-analytics.git
   repo: https://github.com/zenkay/tap-google-analytics
   settings: []
-- default: false
+- capabilities:
+  - catalog
+  - discover
+  default: false
   maintenance_status: Unknown
   name: saidtezel
   pip_url: git+https://github.com/saidtezel/tap-google-analytics.git
   repo: https://github.com/saidtezel/tap-google-analytics
   settings: []
-- maintenance_status: Active
+- capabilities:
+  - catalog
+  - discover
+  maintenance_status: Active
   name: transferwise
   pip_url: git+https://github.com/transferwise/pipelinewise-tap-google-analytics.git
   repo: https://github.com/transferwise/pipelinewise-tap-google-analytics

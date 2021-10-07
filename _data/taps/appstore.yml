@@ -9,7 +9,10 @@ name: appstore
 singer_name: tap-appstore
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: miroapp
   pip_url: git+https://github.com/miroapp/tap-appstore.git

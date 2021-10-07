@@ -9,7 +9,10 @@ name: process-street
 singer_name: tap-process-street
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: process-street
   pip_url: git+https://github.com/process-street/tap-process-street.git

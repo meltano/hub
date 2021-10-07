@@ -9,7 +9,10 @@ name: circle-ci
 singer_name: tap-circle-ci
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: sisudata
   pip_url: git+https://github.com/sisudata/tap-circle-ci.git

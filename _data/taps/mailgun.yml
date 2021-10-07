@@ -9,7 +9,10 @@ name: mailgun
 singer_name: tap-mailgun
 type: tap
 variants:
-- default: true
+- capabilities:
+  - catalog
+  - discover
+  default: true
   maintenance_status: Unknown
   name: streetteam
   pip_url: git+https://github.com/streetteam/tap-mailgun.git
