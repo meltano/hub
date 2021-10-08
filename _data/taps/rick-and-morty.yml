@@ -1,0 +1,27 @@
+description: Rick and Morty API
+domain:
+  description: Rick and Morty API
+  name: Rick and Morty API
+  type: api
+  url: https://rickandmortyapi.com/
+label: Rick and Morty API
+name: rickandmorty
+singer_name: tap-rickandmorty
+type: tap
+variants:
+- default: true
+  maintenance_status: Active
+  name: clrcrl
+  pip_url: git+https://github.com/clrcrl/tap-rickandmorty.git
+  repo: https://github.com/clrcrl/tap-rickandmorty
+  capabilities:
+    - about
+    - catalog
+    - discover
+  settings_group_validation:
+    - []
+  settings:
+    - name: start_date
+      label: Start Date
+      kind: date_iso8601 
+      description: The date to start syncing data from.
