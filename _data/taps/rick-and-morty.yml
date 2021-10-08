@@ -14,6 +14,10 @@ variants:
   name: clrcrl
   pip_url: git+https://github.com/clrcrl/tap-rickandmorty.git
   repo: https://github.com/clrcrl/tap-rickandmorty
+  capabilities:
+    - about
+    - catalog
+    - discover
   settings_group_validation:
     - []
   settings:
