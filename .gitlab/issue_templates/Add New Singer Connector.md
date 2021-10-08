@@ -38,12 +38,15 @@ name: The unique name of the connector
 singer_name: The Singer specific name of the connector. Typically tap-<name> or target-<name>
 type: tap or target
 variants: # an array of variant types
-- name: Name of the GitHub/GitLab namespace
-  repo: repo URL
-  pip_url: git+<git_url>.git or pip instal name
-  default: true or false
+- default: true or false
   maintenance_status: "Options: Active, Unresponsive, Unknown"
   meltano_sdk: true or false
+  name: Name of the GitHub/GitLab namespace
+  pip_url: git+<git_url>.git or pip instal name
+  repo: repo URL
+  capabilities:
+    - catalog
+    - discover
   settings:
     # Describe the list of supported settings, for example:
     - name: project_ids

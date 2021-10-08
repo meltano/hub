@@ -23,6 +23,9 @@ variants: # an array of variant types
   name: Name of the GitHub/GitLab namespace
   pip_url: git+<git_url>.git or pip instal name
   repo: repo URL
+  capabilities:
+    - catalog
+    - discover
   settings: [] # Can be an empty array if unknown
 ```
 
