@@ -19,9 +19,13 @@ type: tap or target
 variants: # an array of variant types
 - default: true or false
   maintenance_status: "Options: Active, Unresponsive, Unknown"
+  meltano_sdk: true or false
   name: Name of the GitHub/GitLab namespace
   pip_url: git+<git_url>.git or pip instal name
   repo: repo URL
+  capabilities:
+    - catalog
+    - discover
   settings: [] # Can be an empty array if unknown
 ```
 
@@ -29,8 +33,8 @@ variants: # an array of variant types
 ## Checklist
 
 - [ ] Add a file in the appropriate folder (/taps or /targets). The name of the file should match the name of the tap. If there is already one, add a descriptor to the name such as `-search`.
-- [ ] Add a png logo image in `/assets/<taps/targets>`. The image name must match the YAML file name.
-- [ ] Tag `@tayloramurphy` or `@aaronsteers` to flag it for review. Or post to the hub channel on Meltano slack.
+- [ ] Add a png logo image in `/assets/<taps or targets>`. The image name must match the YAML file name.
+- [ ] Tag `@tayloramurphy` or `@pnadolny13` to flag it for review. Or post to the hub channel on Meltano slack.
 
 ## Reviewer Checklist
 
