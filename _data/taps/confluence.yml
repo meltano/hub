@@ -11,6 +11,7 @@ type: tap
 variants:
 - default: true
   maintenance_status: Unknown
+  meltano_sdk: true
   name: edgarrmondragon
   pip_url: git+https://github.com/edgarrmondragon/tap-confluence.git
   repo: https://github.com/edgarrmondragon/tap-confluence

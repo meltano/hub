@@ -40,5 +40,5 @@ if job_fail:
     print("Schema validation failed.")
     sys.exit(1)
 else:
-    print("All taps and targest pass the JSON Schema.")
+    print("All taps and targets pass the JSON Schema.")
     sys.exit()
