@@ -221,7 +221,7 @@
                     "meltano_sdk": {
                         "id": "#/properties/variants/items/properties/meltano_sdk",
                         "type": "boolean",
-                        "title": "Build with Meltano SDK",
+                        "title": "Built with Meltano SDK",
                         "description": "Defines whether the variant was built with the Meltano SDK or not",
                         "default": false
                     },
