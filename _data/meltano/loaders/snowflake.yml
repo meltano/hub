@@ -10,7 +10,7 @@ variants:
   repo: https://github.com/datamill-co/target-snowflake
   pip_url: target-snowflake
   settings_group_validation:
-    - ['snowflake_account', 'snowflake_username', 'snowflake_password', 'snowflake_database', 'snowflake_warehouse', 'snowflake_schema']
+    - ['snowflake_account', 'snowflake_username', 'snowflake_password', 'snowflake_database', 'snowflake_warehouse']
   settings:
     - name: snowflake_account
       env: TARGET_SNOWFLAKE_ACCOUNT
@@ -39,11 +39,6 @@ variants:
     - name: snowflake_warehouse
       env: TARGET_SNOWFLAKE_WAREHOUSE
       env_aliases: [SF_WAREHOUSE]
-    - name: snowflake_schema
-      env: TARGET_SNOWFLAKE_SCHEMA
-      env_aliases: [SF_SCHEMA]
-      value: $MELTANO_EXTRACT__LOAD_SCHEMA
-      value_processor: upcase_string
 
     # Optional settings
     - name: invalid_records_detect
@@ -77,6 +72,11 @@ variants:
       kind: boolean
       value: false
       description: Whether the Target should create tables which have no records present in Remote.
+    - name: snowflake_schema
+      env: TARGET_SNOWFLAKE_SCHEMA
+      env_aliases: [SF_SCHEMA]
+      value: $MELTANO_EXTRACT__LOAD_SCHEMA
+      value_processor: upcase_string
     - name: state_support
       kind: boolean
       value: true
@@ -94,7 +94,7 @@ variants:
   repo: https://github.com/transferwise/pipelinewise-target-snowflake
   pip_url: pipelinewise-target-snowflake
   settings_group_validation:
-    - ['account', 'dbname', 'user', 'password', 'warehouse', 's3_bucket', 'stage', 'file_format', 'default_target_schema']
+    - ['account', 'dbname', 'user', 'password', 'warehouse', 'file_format', 'default_target_schema']
   settings:
     - name: account
       env_aliases: [SF_ACCOUNT]
@@ -115,10 +115,6 @@ variants:
     - name: warehouse
       env_aliases: [SF_WAREHOUSE]
       description: Snowflake virtual warehouse name
-    - name: s3_bucket
-      description: S3 Bucket name
-    - name: stage
-      description: Named external stage name created at pre-requirements section. Has to be a fully qualified name including the schema name
     - name: file_format
       description: Named file format name created at pre-requirements section. Has to be a fully qualified name including the schema name.
     - name: default_target_schema
@@ -140,6 +136,8 @@ variants:
       description: AWS Session token. If not provided, `AWS_SESSION_TOKEN` environment variable will be used
     - name: aws_profile
       description: AWS profile name for profile based authentication. If not provided, `AWS_PROFILE` environment variable will be used.
+    - name: s3_bucket
+      description: S3 Bucket name
     - name: s3_key_prefix
       description: A static prefix before the generated S3 key names. Using prefixes you can upload files into specific directories in the S3 bucket.
     - name: s3_endpoint_url
@@ -148,6 +146,8 @@ variants:
       description: Default region when creating new connections
     - name: s3_acl
       description: S3 ACL name to set on the uploaded files
+    - name: stage
+      description: Named external stage name created at pre-requirements section. Has to be a fully qualified name including the schema name
     - name: batch_size_rows
       kind: integer
       value: 100000
