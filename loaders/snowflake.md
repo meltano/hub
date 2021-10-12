@@ -6,16 +6,17 @@ description: Use Meltano to pull data from various sources and load it into Snow
 
 The `target-snowflake` [loader](https://meltano.com/plugins/loaders/) loads [extracted](https://meltano.com/plugins/extractors/) data into a [Snowflake](https://www.snowflake.com/) data warehouse.
 
-- **Repository**: <https://github.com/datamill-co/target-snowflake>
-- **Maintainer**: [Data Mill](https://datamill.co/)
+- **Repository**: <https://github.com/transferwise/pipelinewise-target-snowflake>
+- **Documentation**: <https://transferwise.github.io/pipelinewise/connectors/targets/snowflake.html>
+- **Maintainer**: [Wise](https://wise.com/)
 - **Maintenance status**: Active
 
 #### Alternative variants
 
 Multiple [variants](https://meltano.com/docs/plugins.html#variants) of `target-snowflake` are available.
-This document describes the default `datamill-co` variant, which is recommended for new users.
+This document describes the default `transferwise` variant, which is recommended for new users. This variant was originally built to be used with [PipelineWise](https://transferwise.github.io/pipelinewise/).
 
-Alternative options are [`transferwise`](./snowflake--transferwise.html) and [`meltano`](./snowflake--meltano.html).
+Alternative options are [`datamill-co`](./snowflake--datamill-co.html) and [`meltano`](./snowflake--meltano.html).
 
 ## Getting Started
 
@@ -27,13 +28,7 @@ If you haven't already, follow the initial steps of the [Getting Started guide](
 1. [Create your Meltano project](https://meltano.com/docs/getting-started.html#create-your-meltano-project)
 1. [Add an extractor to pull data from a source](https://meltano.com/docs/getting-started.html#add-an-extractor-to-pull-data-from-a-source)
 
-#### Dependencies
-
-`target-snowflake` [requires](https://www.psycopg.org/docs/install.html#runtime-requirements) the
-[`libpq` library](https://www.postgresql.org/docs/current/libpq.html) to be available on your system.
-If you've installed PostgreSQL, you should already have it, but you can also install it by itself using the
-[`libpq-dev` package](https://pkgs.org/download/libpq-dev) on Ubuntu/Debian or the
-[`libpq` Homebrew formula](https://formulae.brew.sh/formula/libpq) on macOS.
+Then, follow the steps in the ["Pre-requirements" section of the repository's README](https://github.com/transferwise/pipelinewise-target-snowflake/blob/master/README.md#pre-requirements).
 
 ### Installation and configuration
 
@@ -71,12 +66,13 @@ If you run into any issues, refer to the ["Troubleshooting" section](#troublesho
 
 `target-snowflake` requires the [configuration](https://meltano.com/docs/configuration.html) of the following settings:
 
-- [Snowflake Account](#snowflake-account)
-- [Snowflake Username](#snowflake-username)
-- [Snowflake Password](#snowflake-password)
-- [Snowflake Database](#snowflake-database)
-- [Snowflake Warehouse](#snowflake-warehouse)
-- [Snowflake Schema](#snowflake-schema)
+- [Account](#account)
+- [DBname](#dbname)
+- [User](#user)
+- [Password](#password)
+- [Warehouse](#warehouse)
+- [File Format](#file-format)
+- [Default Target Schema](#default-target-schema)
 
 These and other supported settings are documented below.
 To quickly find the setting you're looking for, use the Table of Contents in the sidebar.
@@ -85,17 +81,18 @@ To quickly find the setting you're looking for, use the Table of Contents in the
 
 A minimal configuration of `target-snowflake` in your [`meltano.yml` project file](https://meltano.com/docs/project.html#meltano-yml-project-file) will look like this:
 
-```yml{5-10}
+```yml{5-13}
 plugins:
   loaders:
   - name: target-snowflake
-    variant: datamill-co
+    variant: transferwise
     config:
-      snowflake_account: my_account
-      snowflake_username: MY_USER
-      snowflake_database: MY_DATABASE
-      snowflake_warehouse: MY_WAREHOUSE
-      # snowflake_schema: MY_SCHEMA     # override if default (see below) is not appropriate
+      account: rtxxxxx.eu-central-1
+      dbname: MY_DATABASE
+      user: my_user
+      warehouse: MY_WAREHOUSE
+      file_format: "<SCHEMA>.<FILE_FORMAT_OBJECT_NAME>"
+      # default_target_schema: MY_SCHEMA    # override if default (see below) is not appropriate
 ```
 
 Sensitive values are most appropriately stored in [the environment](https://meltano.com/docs/configuration.html#configuring-settings) or your project's [`.env` file](https://meltano.com/docs/project.html#env):
@@ -104,319 +101,631 @@ Sensitive values are most appropriately stored in [the environment](https://melt
 export TARGET_SNOWFLAKE_PASSWORD=my_password
 ```
 
-### Snowflake Account
+### Account
 
-- Name: `snowflake_account`
+- Name: `account`
 - [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_ACCOUNT`, alias: `SF_ACCOUNT`
 
-You can find your account name in your Snowflake URL: `https://<account>.snowflakecomputing.com`.
-
-It might require the `region` and `cloud` platform where your account is located, in the form of: `<your_account_name>.<region_id>.<cloud>` (e.g. `xy12345.east-us-2.azure`)
-
-See <https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name-and-url>.
+Snowflake account name (i.e. `rtXXXXX.eu-central-1`)
 
 #### How to use
 
 Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
 
 ```bash
-meltano config target-snowflake set snowflake_account <account>
+meltano config target-snowflake set account <account>
 
 export TARGET_SNOWFLAKE_ACCOUNT=<account>
 ```
 
-### Snowflake Username
+### DBname
 
-- Name: `snowflake_username`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_USERNAME`, alias: `TARGET_SNOWFLAKE_SNOWFLAKE_USERNAME`, `SF_USER`
+- Name: `dbname`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_DBNAME`, alias: `SF_DATABASE`
+
+Snowflake Database name
 
 #### How to use
 
 Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
 
 ```bash
-meltano config target-snowflake set snowflake_username <username>
+meltano config target-snowflake set dbname <dbname>
 
-export TARGET_SNOWFLAKE_USERNAME=<username>
+export TARGET_SNOWFLAKE_DBNAME=<dbname>
 ```
 
-### Snowflake Password
+### User
 
-- Name: `snowflake_password`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_PASSWORD`, alias: `TARGET_SNOWFLAKE_SNOWFLAKE_PASSWORD`, `SF_PASSWORD`
+- Name: `user`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_USER`, alias: `SF_USER`
+
+Snowflake User
 
 #### How to use
 
 Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
 
 ```bash
-meltano config target-snowflake set snowflake_password <password>
+meltano config target-snowflake set user <user>
+
+export TARGET_SNOWFLAKE_USER=<user>
+```
+
+### Password
+
+- Name: `password`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_PASSWORD`, alias: `SF_PASSWORD`
+
+Snowflake Password
+
+#### How to use
+
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+
+```bash
+meltano config target-snowflake set password <password>
 
 export TARGET_SNOWFLAKE_PASSWORD=<password>
 ```
 
-### Snowflake Role
+### Warehouse
 
-- Name: `snowflake_role`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_ROLE`, alias: `TARGET_SNOWFLAKE_SNOWFLAKE_ROLE`, `SF_ROLE`
-
-If not specified, Snowflake will use the user's default role.
-
-#### How to use
-
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
-
-```bash
-meltano config target-snowflake set snowflake_role <role>
-
-export TARGET_SNOWFLAKE_ROLE=<role>
-```
-
-### Snowflake Database
-
-- Name: `snowflake_database`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_DATABASE`, alias: `TARGET_SNOWFLAKE_SNOWFLAKE_DATABASE`, `SF_DATABASE`
-
-#### How to use
-
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
-
-```bash
-meltano config target-snowflake set snowflake_database <database>
-
-export TARGET_SNOWFLAKE_DATABASE=<database>
-```
-
-### Snowflake Authenticator
-
-- Name: `snowflake_authenticator`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_AUTHENTICATOR`
-- Default:`TARGET_SNOWFLAKE_SNOWFLAKE_AUTHENTICATOR`,  `snowflake`
-
-Specifies the authentication provider for snowflake to use. Valud options are the internal one (`snowflake`), a browser session (`externalbrowser`), or Okta (`https://<your_okta_account_name>.okta.com`). See the snowflake docs for more details.
-
-#### How to use
-
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
-
-```bash
-meltano config target-snowflake set snowflake_authenticator externalbrowser
-
-export TARGET_SNOWFLAKE_AUTHENTICATOR=externalbrowser
-```
-
-### Snowflake Warehouse
-
-- Name: `snowflake_warehouse`
+- Name: `warehouse`
 - [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_WAREHOUSE`, alias: `SF_WAREHOUSE`
 
+Snowflake virtual warehouse name
+
 #### How to use
 
 Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
 
 ```bash
-meltano config target-snowflake set snowflake_warehouse <warehouse>
+meltano config target-snowflake set warehouse <warehouse>
 
 export TARGET_SNOWFLAKE_WAREHOUSE=<warehouse>
 ```
 
-### Snowflake Schema
+### S3 Bucket
 
-- Name: `snowflake_schema`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_SCHEMA`, alias: `TARGET_SNOWFLAKE_SNOWFLAKE_SCHEMA`, `SF_SCHEMA`
+- Name: `s3_bucket`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_S3_BUCKET`
+
+S3 Bucket name
+
+#### How to use
+
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+
+```bash
+meltano config target-snowflake set s3_bucket <bucket_name>
+
+export TARGET_SNOWFLAKE_S3_BUCKET=<bucket_name>
+```
+
+### Stage
+
+- Name: `stage`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_STAGE`
+
+Named external stage name created at pre-requirements section. Has to be a fully qualified name including the schema name
+
+#### How to use
+
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+
+```bash
+meltano config target-snowflake set stage <snowflake_external_stage_object_name>
+
+export TARGET_SNOWFLAKE_STAGE=<snowflake_external_stage_object_name>
+```
+
+### File Format
+
+- Name: `file_format`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_FILE_FORMAT`
+
+Named file format name created at pre-requirements section. Has to be a fully qualified name including the schema name.
+
+#### How to use
+
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+
+```bash
+meltano config target-snowflake set file_format <snowflake_file_format_object_name>
+
+export TARGET_SNOWFLAKE_FILE_FORMAT=<snowflake_file_format_object_name>
+```
+
+### Default Target Schema
+
+- Name: `default_target_schema`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_DEFAULT_TARGET_SCHEMA`, alias: `TARGET_SNOWFLAKE_SCHEMA`, `SF_SCHEMA`
 - Default: `$MELTANO_EXTRACT__LOAD_SCHEMA`, which [will expand to](https://meltano.com/docs/configuration.html#expansion-in-setting-values) the value of the [`load_schema` extra](https://meltano.com/docs/plugins.html#load-schema-extra) for the extractor used in the pipeline, which defaults to the extractor's namespace, e.g. `tap_gitlab` for [`tap-gitlab`](https://meltano.com/plugins/extractors/gitlab.html). Values are automatically converted to uppercase before they're passed on to the plugin, so `tap_gitlab` becomes `TAP_GITLAB`.
 
-#### How to use
-
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
-
-```bash
-meltano config target-snowflake set snowflake_schema <schema>
-
-export TARGET_SNOWFLAKE_SCHEMA=<schema>
-```
-
-### Invalid Records Detect
-
-- Name: `invalid_records_detect`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_INVALID_RECORDS_DETECT`
-- Default: `true`
-
-Include `false` in your config to disable crashing on invalid records.
+Name of the schema where the tables will be created, without database prefix. If `schema_mapping` is not defined then every stream sent by the tap is loaded into this schema.
 
 #### How to use
 
 Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
 
 ```bash
-meltano config target-snowflake set invalid_records_detect false
+meltano config target-snowflake set default_target_schema <schema>
 
-export TARGET_SNOWFLAKE_INVALID_RECORDS_DETECT=false
+export TARGET_SNOWFLAKE_DEFAULT_TARGET_SCHEMA=<schema>
 ```
 
-### Invalid Records Threshold
+### AWS Access Key ID
 
-- Name: `invalid_records_threshold`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_INVALID_RECORDS_THRESHOLD`
+- Name: `aws_access_key_id`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_AWS_ACCESS_KEY_ID`
+
+S3 Access Key Id. If not provided, `AWS_ACCESS_KEY_ID` environment variable or IAM role will be used
+
+#### How to use
+
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+
+```bash
+meltano config target-snowflake set aws_access_key_id <key_id>
+
+export TARGET_SNOWFLAKE_AWS_ACCESS_KEY_ID=<key_id>
+```
+
+### AWS Secret Access Key
+
+- Name: `aws_secret_access_key`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_AWS_SECRET_ACCESS_KEY`
+
+S3 Secret Access Key. If not provided, `AWS_SECRET_ACCESS_KEY` environment variable or IAM role will be used
+
+#### How to use
+
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+
+```bash
+meltano config target-snowflake set aws_secret_access_key <key>
+
+export TARGET_SNOWFLAKE_AWS_SECRET_ACCESS_KEY=<key>
+```
+
+### AWS Session Token
+
+- Name: `aws_session_token`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_AWS_SESSION_TOKEN`
+
+AWS Session token. If not provided, `AWS_SESSION_TOKEN` environment variable will be used
+
+#### How to use
+
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+
+```bash
+meltano config target-snowflake set aws_session_token <token>
+
+export TARGET_SNOWFLAKE_AWS_SESSION_TOKEN=<key>
+```
+
+### AWS Profile
+
+- Name: `aws_profile`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_AWS_PROFILE`
+
+AWS profile name for profile based authentication. If not provided, `AWS_PROFILE` environment variable will be used.
+
+#### How to use
+
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+
+```bash
+meltano config target-snowflake set aws_profile <token>
+
+export TARGET_SNOWFLAKE_AWS_PROFILE=<key>
+```
+
+### S3 Key Prefix
+
+- Name: `s3_key_prefix`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_S3_KEY_PREFIX`
+
+A static prefix before the generated S3 key names. Using prefixes you can upload files into specific directories in the S3 bucket.
+
+#### How to use
+
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+
+```bash
+meltano config target-snowflake set s3_key_prefix <prefix>
+
+export TARGET_SNOWFLAKE_S3_KEY_PREFIX=<prefix>
+```
+
+### S3 Endpoint URL
+
+- Name: `s3_endpoint_url`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_S3_ENDPOINT_URL`
+
+The complete URL to use for the constructed client. This is allowing to use non-native s3 account.
+
+#### How to use
+
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+
+```bash
+meltano config target-snowflake set s3_endpoint_url <url>
+
+export TARGET_SNOWFLAKE_S3_ENDPOINT_URL=<url>
+```
+
+### S3 Region Name
+
+- Name: `s3_region_name`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_S3_REGION_NAME`
+
+Default region when creating new connections
+
+#### How to use
+
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+
+```bash
+meltano config target-snowflake set s3_region_name <region>
+
+export TARGET_SNOWFLAKE_S3_REGION_NAME=<region>
+```
+
+### S3 ACL
+
+- Name: `s3_acl`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_S3_ACL`
+
+S3 ACL name to set on the uploaded files
+
+#### How to use
+
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+
+```bash
+meltano config target-snowflake set s3_acl <acl>
+
+export TARGET_SNOWFLAKE_S3_ACL=<acl>
+```
+
+### Batch Size Rows
+
+- Name: `batch_size_rows`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_BATCH_SIZE_ROWS`
+- Default: `100000`
+
+Maximum number of rows in each batch. At the end of each batch, the rows in the batch are loaded into Snowflake.
+
+#### How to use
+
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+
+```bash
+meltano config target-snowflake set batch_size_rows 1000
+
+export TARGET_SNOWFLAKE_BATCH_SIZE_ROWS=1000
+```
+
+### Flush All Streams
+
+- Name: `flush_all_streams`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_FLUSH_ALL_STREAMS`
+- Default: `false`
+
+Flush and load every stream into Snowflake when one batch is full. Warning: This may trigger the COPY command to use files with low number of records, and may cause performance problems.
+
+#### How to use
+
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+
+```bash
+meltano config target-snowflake set flush_all_streams true
+
+export TARGET_SNOWFLAKE_FLUSH_ALL_STREAMS=true
+```
+
+### Parallelism
+
+- Name: `parallelism`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_PARALLELISM`
 - Default: `0`
 
-Include a positive value `n` in your config to allow at most `n` invalid records per stream before giving up.
+The number of threads used to flush tables. 0 will create a thread for each stream, up to parallelism_max. -1 will create a thread for each CPU core. Any other positive number will create that number of threads, up to parallelism_max.
 
 #### How to use
 
 Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
 
 ```bash
-meltano config target-snowflake set invalid_records_threshold 5
+meltano config target-snowflake set parallelism -1
 
-export TARGET_SNOWFLAKE_INVALID_RECORDS_THRESHOLD=5
+export TARGET_SNOWFLAKE_PARALLELISM=-1
 ```
 
-### Disable Collection
+### Parallelism Max
 
-- Name: `disable_collection`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_DISABLE_COLLECTION`
+- Name: `parallelism_max`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_PARALLELISM_MAX`
+- Default: `16`
+
+Max number of parallel threads to use when flushing tables.
+
+#### How to use
+
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+
+```bash
+meltano config target-snowflake set parallelism_max 8
+
+export TARGET_SNOWFLAKE_PARALLELISM_MAX=8
+```
+
+### Default Target Schema Select Permission
+
+- Name: `default_target_schema_select_permission`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_DEFAULT_TARGET_SCHEMA_SELECT_PERMISSION`
+
+Grant USAGE privilege on newly created schemas and grant SELECT privilege on newly created tables to a specific role or a list of roles. If `schema_mapping` is not defined then every stream sent by the tap is granted accordingly.
+
+#### How to use
+
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+
+```bash
+meltano config target-snowflake set default_target_schema_select_permission <roles>
+
+export TARGET_SNOWFLAKE_DEFAULT_TARGET_SCHEMA_SELECT_PERMISSION=<roles>
+```
+
+### Schema Mapping
+
+- Name: `schema_mapping`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_SCHEMA_MAPPING`
+
+Useful if you want to load multiple streams from one tap to multiple Snowflake schemas.
+
+If the tap sends the `stream_id` in `<schema_name>-<table_name>` format then this option overwrites the `default_target_schema` value.
+
+Note, that using `schema_mapping` you can overwrite the `default_target_schema_select_permission` value to grant SELECT permissions to different groups per schemas or optionally you can create indices automatically for the replicated tables.
+
+This setting can hold an object mapping source schema names to objects with `target_schema` and (optionally) `target_schema_select_permissions` keys.
+
+#### How to use
+
+Manage this setting directly in your [`meltano.yml` project file](https://meltano.com/docs/project.html#meltano-yml-project-file):
+
+```yml{5-15}
+plugins:
+  loaders:
+  - name: target-snowflake
+    variant: transferwise
+    config:
+      schema_mapping:
+        <source_schema>:
+          target_schema: <target_schema>
+          target_schema_select_permissions: [<role1>, <role2>] # Optional
+        # ...
+
+        # For example:
+        public:
+          target_schema: repl_sf_public
+          target_schema_select_permissions: [grp_stats]
+```
+
+Alternatively, manage this setting using [`meltano config`](https://meltano.com/docs/command-line-interface.html#config) or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+
+```bash
+meltano config target-snowflake set schema_mapping <source_schema> target_schema <target_schema>
+meltano config target-snowflake set schema_mapping <source_schema> target_schema_select_permissions '["<role>", ...]'
+
+export TARGET_SNOWFLAKE_SCHEMA_MAPPING='{"<source_schema>": {"target_schema": "<target_schema>", ...}, ...}'
+
+# Once a schema mapping has been set in `meltano.yml`, environment variables can be used
+# to override specific nested properties:
+export TARGET_SNOWFLAKE_SCHEMA_MAPPING_<SOURCE_SCHEMA>_TARGET_SCHEMA=<target_schema>
+export TARGET_SNOWFLAKE_SCHEMA_MAPPING_<SOURCE_SCHEMA>_TARGET_SCHEMA_SELECT_PERMISSIONS='["<role>", ...]'
+
+# For example:
+meltano config target-snowflake set schema_mapping public target_schema repl_sf_public
+meltano config target-snowflake set schema_mapping public target_schema_select_permissions '["grp_stats"]'
+
+export TARGET_SNOWFLAKE_SCHEMA_MAPPING_PUBLIC_TARGET_SCHEMA=new_repl_sf_public
+```
+
+### Disable Table Cache
+
+- Name: `disable_table_cache`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_DISABLE_TABLE_CACHE`
 - Default: `false`
 
-Include `true` in your config to disable [Singer Usage Logging](https://github.com/datamill-co/target-snowflake#usage-logging).
+By default the connector caches the available table structures in Snowflake at startup. In this way it doesn't need to run additional queries when ingesting data to check if altering the target tables is required. With `disable_table_cache` option you can turn off this caching. You will always see the most recent table structures but will cause an extra query runtime.
 
 #### How to use
 
 Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
 
 ```bash
-meltano config target-snowflake set disable_collection true
+meltano config target-snowflake set disable_table_cache true
 
-export TARGET_SNOWFLAKE_DISABLE_COLLECTION=true
+export TARGET_SNOWFLAKE_DISABLE_TABLE_CACHE=true
 ```
 
-### Logging Level
+### Client-Side Encryption Master Key
 
-- Name: `logging_level`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_LOGGING_LEVEL`
-- Options: `DEBUG`, `INFO`, `WARNING`, `ERROR`, `CRITICAL`
-- Default: `INFO`
+- Name: `client_side_encryption_master_key`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_CLIENT_SIDE_ENCRYPTION_MASTER_KEY`
 
-The level for logging. Set to `DEBUG` to get things like queries executed, timing of those queries, etc. See [Python's Logger Levels](https://docs.python.org/3/library/logging.html#levels) for information about valid values.
+When this is defined, Client-Side Encryption is enabled. The data in S3 will be encrypted, No third parties, including Amazon AWS and any ISPs, can see data in the clear. Snowflake COPY command will decrypt the data once it's in Snowflake. The master key must be 256-bit length and must be encoded as base64 string.
 
 #### How to use
 
 Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
 
 ```bash
-meltano config target-snowflake set logging_level DEBUG
+meltano config target-snowflake set client_side_encryption_master_key <key>
 
-export TARGET_SNOWFLAKE_LOGGING_LEVEL=DEBUG
+export TARGET_SNOWFLAKE_CLIENT_SIDE_ENCRYPTION_MASTER_KEY=<key>
 ```
 
-### Persist Empty Tables
+### Client-Side Encryption Stage Object
 
-- Name: `persist_empty_tables`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_PERSIST_EMPTY_TABLES`
+- Name: `client_side_encryption_stage_object`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_CLIENT_SIDE_ENCRYPTION_STAGE_OBJECT`
+
+Required when `client_side_encryption_master_key` is defined. The name of the encrypted stage object in Snowflake that created separately and using the same encryption master key.
+
+#### How to use
+
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+
+```bash
+meltano config target-snowflake set client_side_encryption_stage_object <stage_object>
+
+export TARGET_SNOWFLAKE_CLIENT_SIDE_ENCRYPTION_STAGE_OBJECT=<stage_object>
+```
+
+### Add Metadata Columns
+
+- Name: `add_metadata_columns`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_ADD_METADATA_COLUMNS`
 - Default: `false`
 
-Whether the Target should create tables which have no records present in Remote.
+Metadata columns add extra row level information about data ingestions, (i.e. when was the row read in source, when was inserted or deleted in snowflake etc.) Metadata columns are creating automatically by adding extra columns to the tables with a column prefix `_SDC_`. The column names are following the stitch naming conventions documented at <https://www.stitchdata.com/docs/data-structure/integration-schemas#sdc-columns>. Enabling metadata columns will flag the deleted rows by setting the `_SDC_DELETED_AT` metadata column. Without the `add_metadata_columns` option the deleted rows from singer taps will not be recongisable in Snowflake.
 
 #### How to use
 
 Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
 
 ```bash
-meltano config target-snowflake set persist_empty_tables true
+meltano config target-snowflake set add_metadata_columns true
 
-export TARGET_SNOWFLAKE_PERSIST_EMPTY_TABLES=true
+export TARGET_SNOWFLAKE_ADD_METADATA_COLUMNS=true
 ```
 
-### State Support
+### Hard Delete
 
-- Name: `state_support`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_STATE_SUPPORT`
+- Name: `hard_delete`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_HARD_DELETE`
+- Default: `false`
+
+When `hard_delete` option is true then DELETE SQL commands will be performed in Snowflake to delete rows in tables. It's achieved by continuously checking the `_SDC_DELETED_AT` metadata column sent by the singer tap. Due to deleting rows requires metadata columns, `hard_delete` option automatically enables the `add_metadata_columns` option as well.
+
+#### How to use
+
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+
+```bash
+meltano config target-snowflake set hard_delete true
+
+export TARGET_SNOWFLAKE_HARD_DELETE=true
+```
+
+### Data Flattening Max Level
+
+- Name: `data_flattening_max_level`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_DATA_FLATTENING_MAX_LEVEL`
+- Default: `0`
+
+Object type RECORD items from taps can be loaded into VARIANT columns as JSON (default) or we can flatten the schema by creating columns automatically. When value is 0 (default) then flattening functionality is turned off.
+
+#### How to use
+
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+
+```bash
+meltano config target-snowflake set data_flattening_max_level 2
+
+export TARGET_SNOWFLAKE_DATA_FLATTENING_MAX_LEVEL=2
+```
+
+### Primary Key Required
+
+- Name: `primary_key_required`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_PRIMARY_KEY_REQUIRED`
 - Default: `true`
 
-Whether the Target should emit `STATE` messages to stdout for further consumption.
-
-In this mode, which is on by default, STATE messages are buffered in memory until all the records that occurred before them are flushed according to the batch flushing schedule the target is configured with.
+Log based and Incremental replications on tables with no Primary Key cause duplicates when merging UPDATE events. When set to true, stop loading data if no Primary Key is defined.
 
 #### How to use
 
 Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
 
 ```bash
-meltano config target-snowflake set state_support false
+meltano config target-snowflake set primary_key_required false
 
-export TARGET_SNOWFLAKE_STATE_SUPPORT=false
+export TARGET_SNOWFLAKE_PRIMARY_KEY_REQUIRED=false
 ```
 
-### Target S3: Bucket
+### Validate Records
 
-- Name: `target_s3.bucket`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_TARGET_S3_BUCKET`
+- Name: `validate_records`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_VALIDATE_RECORDS`
+- Default: `false`
 
-When included, use S3 to stage files.
-
-Bucket where staging files should be uploaded to.
+Validate every single record message to the corresponding JSON schema. This option is disabled by default and invalid RECORD messages will fail only at load time by Snowflake. Enabling this option will detect invalid records earlier but could cause performance degradation.
 
 #### How to use
 
 Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
 
 ```bash
-meltano config target-snowflake set target_s3 bucket <bucket>
+meltano config target-snowflake set validate_records true
 
-export TARGET_SNOWFLAKE_TARGET_S3_BUCKET=<bucket>
+export TARGET_SNOWFLAKE_VALIDATE_RECORDS=true
 ```
 
-### Target S3: Key Prefix
+### Temp Dir
 
-- Name: `target_s3.key_prefix`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_TARGET_S3_KEY_PREFIX`
+- Name: `temp_dir`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_TEMP_DIR`
+- Default: platform-dependent
 
-Prefix for staging file uploads to allow for better delineation of tmp files.
+Directory of temporary CSV files with RECORD messages.
 
 #### How to use
 
 Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
 
 ```bash
-meltano config target-snowflake set target_s3 key_prefix <prefix>
+meltano config target-snowflake set temp_dir /tmp/dir
 
-export TARGET_SNOWFLAKE_TARGET_S3_KEY_PREFIX=<prefix>
+export TARGET_SNOWFLAKE_TEMP_DIR=/tmp/dir
 ```
 
-### Target S3: AWS Access Key ID
+### No Compression
 
-- Name: `target_s3.aws_access_key_id`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_TARGET_S3_AWS_ACCESS_KEY_ID`
+- Name: `no_compression`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_NO_COMPRESSION`
+- Default: `false`
+
+Generate uncompressed CSV files when loading to Snowflake. Normally, by default GZIP compressed files are generated.
 
 #### How to use
 
 Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
 
 ```bash
-meltano config target-snowflake set target_s3 aws_access_key_id <key_id>
+meltano config target-snowflake set no_compression true
 
-export TARGET_SNOWFLAKE_TARGET_S3_AWS_ACCESS_KEY_ID=<key_id>
+export TARGET_SNOWFLAKE_NO_COMPRESSION=true
 ```
 
-### Target S3: AWS Secret Access Key
+### Query Tag
 
-- Name: `target_s3.aws_secret_access_key`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_TARGET_S3_AWS_SECRET_ACCESS_KEY`
+- Name: `query_tag`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_QUERY_TAG`
+
+Optional string to tag executed queries in Snowflake. Replaces tokens `schema` and `table` with the appropriate values. The tags are displayed in the output of the Snowflake `QUERY_HISTORY`, `QUERY_HISTORY_BY_*` functions.
 
 #### How to use
 
 Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
 
 ```bash
-meltano config target-snowflake set target_s3 aws_secret_access_key <key>
+meltano config target-snowflake set query_tag <tag>
 
-export TARGET_SNOWFLAKE_TARGET_S3_AWS_SECRET_ACCESS_KEY=<key>
+export TARGET_SNOWFLAKE_QUERY_TAG=<tag>
 ```
-
-## Troubleshooting
-
-### Error: `pg_config executable not found` or `libpq-fe.h: No such file or directory`
-
-This error message indicates that the [`libpq`](https://www.postgresql.org/docs/current/libpq.html) dependency is missing.
-
-To resolve this, refer to the ["Dependencies" section](#dependencies) above.

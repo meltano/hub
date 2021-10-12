@@ -15,7 +15,7 @@ The `target-snowflake` [loader](https://meltano.com/plugins/loaders/) loads [ext
 Multiple [variants](https://meltano.com/docs/plugins.html#variants) of `target-snowflake` are available.
 This document describes the `meltano` variant.
 
-Alternative options are [`datamill-co`](./snowflake.html) (default) and [`transferwise`](./snowflake--transferwise.html).
+Alternative options are [`transferwise`](./snowflake.html) (default) and [`datamill-co`](./snowflake--datamill-co.html).
 
 ## Getting Started
 
