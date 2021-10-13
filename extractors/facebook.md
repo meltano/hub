@@ -72,7 +72,7 @@ A minimal configuration of `tap-facebook` in your [`meltano.yml` project file](h
 plugins:
   extractors:
   - name: tap-facebook
-    variant: meltano
+    variant: singer-io
     config:
       account_id: 791728544625001
       start_date: '2020-10-01T00:00:00Z'
