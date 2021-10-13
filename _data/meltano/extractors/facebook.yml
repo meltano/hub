@@ -3,10 +3,10 @@ label: Facebook Ads
 description: Advertising Platform
 namespace: tap_facebook
 variants:
-- name: meltano
+- name: singer-io
   docs: 'https://hub.meltano.com/extractors/facebook.html'
-  repo: https://gitlab.com/meltano/tap-facebook
-  pip_url: 'git+https://gitlab.com/meltano/tap-facebook.git'
+  repo: https://github.com/singer-io/tap-facebook
+  pip_url: 'git+https://github.com/singer-io/tap-facebook.git'
   capabilities:
     - properties
     - discover
@@ -36,3 +36,7 @@ variants:
       value: 0
       label: Ads Insights Buffer Days
       description: How many Days before the Start Date to fetch Ads Insights for
+    - name: include_deleted
+      kind: boolean
+      label: Include Deleted Objects
+      description: Determines if it should include deleted objects or not.
