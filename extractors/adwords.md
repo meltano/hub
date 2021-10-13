@@ -6,8 +6,8 @@ description: Use Meltano to pull data from the Google Ads (AdWords) API and load
 
 The `tap-adwords` [extractor](https://meltano.com/plugins/extractors/) pulls data from the [Google AdWords API](https://developers.google.com/adwords/api/).
 
-- **Repository**: <https://gitlab.com/meltano/tap-adwords>
-- **Maintainer**: Meltano community
+- **Repository**: <https://github.com/singer-io/tap-adwords>
+- **Maintainer**: [Stitch](https://www.stitchdata.com/)
 - **Maintenance status**: Active
 
 ## Getting Started
@@ -75,7 +75,7 @@ A minimal configuration of `tap-adwords` in your [`meltano.yml` project file](ht
 plugins:
   extractors:
   - name: tap-adwords
-    variant: meltano
+    variant: singer-io
     config:
       customer_ids: 1234567890,1234567891
       start_date: '2020-10-01T00:00:00Z'
@@ -300,7 +300,7 @@ Manage this setting directly in your [`meltano.yml` project file](https://meltan
 plugins:
   extractors:
   - name: tap-adwords
-    variant: meltano
+    variant: singer-io
     config:
       primary_keys:
         <REPORT_NAME>: [<key1>, <key2>]
