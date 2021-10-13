@@ -22,6 +22,7 @@ variants:
     kind: date_iso8601
     name: start_date
   - description: Your Trello Consumer Key
+    kind: password
     label: Consumer Key
     name: consumer_key
   - description: Your Trello Consumer Secret
