@@ -3,10 +3,10 @@ label: Google Ads
 description: Advertising Platform
 namespace: tap_adwords
 variants:
-- name: meltano
+- name: singer-io
   docs: 'https://hub.meltano.com/extractors/adwords.html'
-  repo: https://gitlab.com/meltano/tap-adwords
-  pip_url: 'git+https://gitlab.com/meltano/tap-adwords.git'
+  repo: https://github.com/singer-io/tap-adwords
+  pip_url: 'git+https://github.com/singer-io/tap-adwords.git'
   capabilities:
     - properties
     - discover
