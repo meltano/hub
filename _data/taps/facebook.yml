@@ -50,15 +50,6 @@ variants:
     - start_date
 - default: false
   maintenance_status: Unknown
-  name: meltano
-  pip_url: git+https://gitlab.com/meltano/tap-facebook.git
-  repo: https://gitlab.com/meltano/tap-facebook
-  settings: []
-  capabilities:
-  - catalog
-  - discover
-- default: false
-  maintenance_status: Unknown
   name: georgiyolovski
   pip_url: git+https://github.com/georgiyolovski/tap-facebook.git
   repo: https://github.com/georgiyolovski/tap-facebook
