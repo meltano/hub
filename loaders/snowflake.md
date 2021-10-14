@@ -30,6 +30,17 @@ If you haven't already, follow the initial steps of the [Getting Started guide](
 
 Then, follow the steps in the ["Pre-requirements" section of the repository's README](https://github.com/transferwise/pipelinewise-target-snowflake/blob/master/README.md#pre-requirements).
 
+#### Dependencies
+
+A Snowflake `FILE FORMAT` object must exist prior to execution and is a required config input. You can use the sample SQL provided below:
+
+```sql
+CREATE FILE FORMAT {database}.{schema}.{file_format_name}
+TYPE = 'CSV' ESCAPE='\\' FIELD_OPTIONALLY_ENCLOSED_BY='"';
+```
+
+See the documentation link above for more details on other optional objects and how to create them.
+
 ### Installation and configuration
 
 #### Using the Command Line Interface
