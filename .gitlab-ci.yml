@@ -28,9 +28,9 @@ jekyll_test:
   artifacts:
     paths:
     - test
-  except:
-  - main
-  - schedule
+  only: 
+    refs:
+      - merge_requests
 
 pages:
   <<: *jekyll_template
