@@ -15,9 +15,9 @@ variants:
   - state
   default: true
   maintenance_status: Active
-  name: meltano
-  pip_url: git+https://gitlab.com/meltano/tap-adwords.git
-  repo: https://gitlab.com/meltano/tap-adwords
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-adwords.git
+  repo: https://github.com/singer-io/tap-adwords
   settings:
   - description: Your Developer Token for Google AdWord Application
     kind: password
