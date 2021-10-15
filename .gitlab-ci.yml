@@ -185,5 +185,8 @@ jsonschema_validation:
   stage: validate
   script:
     - python yaml_validate.py
+  only: 
+    refs:
+      - merge_requests
   except:
   - schedule
