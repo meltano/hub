@@ -44,9 +44,9 @@ pages:
     paths:
     - public
   only:
-  - main
+    - main
   except:
-  - schedule
+    - schedule
 
 ##########################
 # Daily data pipeline
@@ -172,6 +172,9 @@ discovery_validation:
   artifacts:
     paths:
       - discovery.yml
+  only: 
+    refs:
+      - merge_requests
 
 ##########################
 # Validate taps and targets
@@ -189,4 +192,4 @@ jsonschema_validation:
     refs:
       - merge_requests
   except:
-  - schedule
+    - schedule
