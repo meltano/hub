@@ -6,8 +6,8 @@ description: Use Meltano to pull data from the Facebook Ads API and load it into
 
 The `tap-facebook` [extractor](https://meltano.com/plugins/extractors/) pulls data from the [Facebook Ads API](https://developers.facebook.com/docs/marketing-apis).
 
-- **Repository**: <https://gitlab.com/meltano/tap-facebook>
-- **Maintainer**: Meltano community
+- **Repository**: <https://github.com/singer-io/tap-facebook>
+- **Maintainer**: [Stitch](https://www.stitchdata.com/)
 - **Maintenance status**: Active
 
 ## Getting Started
@@ -72,7 +72,7 @@ A minimal configuration of `tap-facebook` in your [`meltano.yml` project file](h
 plugins:
   extractors:
   - name: tap-facebook
-    variant: meltano
+    variant: singer-io
     config:
       account_id: 791728544625001
       start_date: '2020-10-01T00:00:00Z'
@@ -257,6 +257,24 @@ export TAP_FACEBOOK_END_DATE=2020-10-01T00:00:00Z
 - Default: `0`
 
 How many Days before the Start Date to fetch Ads Insights for
+
+#### How to use
+
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+
+```bash
+meltano config tap-facebook set insights_buffer_days 7
+
+export TAP_FACEBOOK_INSIGHTS_BUFFER_DAYS=7
+```
+
+### Include Deleted
+
+- Name: `include_deleted`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_FACEBOOK_INCLUDE_DELETED`
+- Default: `false`
+
+Determines if it should include deleted objects or not.
 
 #### How to use
 
