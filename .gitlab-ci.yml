@@ -28,9 +28,9 @@ jekyll_test:
   artifacts:
     paths:
     - test
-  except:
-  - main
-  - schedule
+  only: 
+    refs:
+      - merge_requests
 
 pages:
   <<: *jekyll_template
@@ -44,9 +44,9 @@ pages:
     paths:
     - public
   only:
-  - main
+    - main
   except:
-  - schedule
+    - schedule
 
 ##########################
 # Daily data pipeline
@@ -92,6 +92,9 @@ data-pipeline-test:
   extends:
   - .meltano-extracts-test
   stage: test
+  only:
+    changes:
+      - "meltano/*"
   except:
   - schedule
   needs: []
@@ -163,12 +166,15 @@ discovery_validation:
     - pip install deepdiff
   stage: discovery
   script:
-    - curl https://meltano.com/discovery.yml --output meltano.yml
+    - curl https://gitlab.com/meltano/meltano/-/raw/master/src/meltano/core/bundle/discovery.yml --output meltano.yml
     - python discovery_yaml_generator.py
     - python yaml_diff.py
   artifacts:
     paths:
       - discovery.yml
+  only: 
+    refs:
+      - merge_requests
 
 ##########################
 # Validate taps and targets
@@ -182,5 +188,8 @@ jsonschema_validation:
   stage: validate
   script:
     - python yaml_validate.py
+  only: 
+    refs:
+      - merge_requests
   except:
-  - schedule
+    - schedule
