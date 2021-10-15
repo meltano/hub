@@ -11,8 +11,8 @@ variants:
   - name: datamill-co
     repo: https://github.com/datamill-co/target-snowflake
     pip_url: target-snowflake
-    maintenance_status: Active
-    default: true
+    maintenance_status: Unresponsive
+    default: false
     dependencies:
       - "`target-snowflake` [requires](https://www.psycopg.org/docs/install.html#runtime-requirements) the [`libpq` library](https://www.postgresql.org/docs/current/libpq.html) to be available on your system. If you've installed PostgreSQL, you should already have it, but you can also install it by itself using the [`libpq-dev` package](https://pkgs.org/download/libpq-dev) on Ubuntu/Debian or the [`libpq` Homebrew formula](https://formulae.brew.sh/formula/libpq) on macOS."
     settings_group_validation:
@@ -86,6 +86,7 @@ variants:
       - name: target_s3.aws_secret_access_key
         kind: password
   - name: transferwise
+    default: true
     docs: https://transferwise.github.io/pipelinewise/connectors/targets/snowflake.html
     repo: https://github.com/transferwise/pipelinewise-target-snowflake
     maintenance_status: Active
