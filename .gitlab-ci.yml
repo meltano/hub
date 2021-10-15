@@ -92,6 +92,9 @@ data-pipeline-test:
   extends:
   - .meltano-extracts-test
   stage: test
+  only:
+    changes:
+      - "meltano/*"
   except:
   - schedule
   needs: []
@@ -162,6 +165,9 @@ discovery_validation:
     - pip install ruamel.yaml
     - pip install deepdiff
   stage: discovery
+  only:
+    changes: # This will need to be removed once we're inheriting from the pure Singer definitions
+      - "_data/meltano/*"
   script:
     - curl https://meltano.com/discovery.yml --output meltano.yml
     - python discovery_yaml_generator.py
