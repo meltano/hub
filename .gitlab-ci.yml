@@ -165,8 +165,9 @@ discovery_validation:
     - pip install ruamel.yaml
     - pip install deepdiff
   stage: discovery
+  # The "only" flag will need to be removed once we're inheriting from the pure Singer definitions
   only:
-    changes: # This will need to be removed once we're inheriting from the pure Singer definitions
+    changes:
       - "_data/meltano/*"
   script:
     - curl https://meltano.com/discovery.yml --output meltano.yml
