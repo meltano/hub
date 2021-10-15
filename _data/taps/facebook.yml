@@ -14,9 +14,9 @@ variants:
   - state
   default: true
   maintenance_status: Active
-  name: meltano
-  pip_url: git+https://gitlab.com/meltano/tap-facebook.git
-  repo: https://gitlab.com/meltano/tap-facebook
+  name: singer-io
+  pip_url: git+https://github.com/singer-io/tap-facebook.git
+  repo: https://github.com/singer-io/tap-facebook
   settings:
   - description: Your Facebook Ads Account ID
     label: Account ID
@@ -40,19 +40,14 @@ variants:
     label: Ads Insights Buffer Days
     name: insights_buffer_days
     value: 0
+  - name: include_deleted
+    kind: boolean
+    label: Include Deleted Objects
+    description: Determines if it should include deleted objects or not.
   settings_group_validation:
   - - account_id
     - access_token
     - start_date
-- default: false
-  maintenance_status: Unknown
-  name: singer-io
-  pip_url: git+https://github.com/singer-io/tap-facebook.git
-  repo: https://github.com/singer-io/tap-facebook
-  settings: []
-  capabilities:
-  - catalog
-  - discover
 - default: false
   maintenance_status: Unknown
   name: georgiyolovski
