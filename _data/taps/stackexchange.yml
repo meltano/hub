@@ -28,7 +28,7 @@ variants:
       description: Key to receive a higher request quota.
     - name: start_date
       label: Start date
-      king: integer
+      kind: integer
       description: The earliest record date to sync
   capabilities:
     - catalog
