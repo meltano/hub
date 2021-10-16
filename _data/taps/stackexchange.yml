@@ -1,0 +1,37 @@
+description: The world’s largest programming community
+domain:
+  description: Software
+  name: StackExchange
+  type: api
+label: StackExchange
+name: stackexchange
+singer_name: tap-stackexchange
+type: tap
+variants:
+- default: true
+  maintenance_status: Active
+  name: meltanolabs
+  pip_url: 'git+https://github.com/edgarrmondragon/tap-stackexchange.git'
+  repo: https://github.com/edgarrmondragon/tap-stackexchange
+  settings_group_validation:
+    - ['tags', 'site']
+  settings: 
+    - name: tags
+      label: Question tags
+      description: Question tags to retrieve.
+    - name: site
+      label: Site
+      description: StackExchange site to look for questions.
+    - name: key
+      label: Stack App key
+      kind: password
+      description: Key to receive a higher request quota.
+    - name: start_date
+      label: Start date
+      king: integer
+      description: The earliest record date to sync
+  capabilities:
+    - catalog
+    - discover
+    - sync
+    - state
