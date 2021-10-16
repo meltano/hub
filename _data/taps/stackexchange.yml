@@ -11,8 +11,8 @@ variants:
 - default: true
   maintenance_status: Active
   name: meltanolabs
-  pip_url: 'git+https://github.com/edgarrmondragon/tap-stackexchange.git'
-  repo: https://github.com/edgarrmondragon/tap-stackexchange
+  pip_url: 'git+https://github.com/MeltanoLabs/tap-stackexchange.git'
+  repo: https://github.com/MeltanoLabs/tap-stackexchange
   settings_group_validation:
     - ['tags', 'site']
   settings: 
