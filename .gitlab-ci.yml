@@ -35,9 +35,6 @@ jekyll_test:
 pages:
   <<: *jekyll_template
   stage: deploy
-  needs:
-    - job: discovery_validation
-      artifacts: true
   script:
     - bundle exec jekyll build -d public
   artifacts:
