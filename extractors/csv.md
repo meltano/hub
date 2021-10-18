@@ -53,7 +53,7 @@ A minimal configuration of `tap-csv` in your [`meltano.yml` project file](https:
 plugins:
   extractors:
   - name: tap-csv
-    variant: MeltanoLabs
+    variant: meltanolabs
     config:
       files:
         - entity: things

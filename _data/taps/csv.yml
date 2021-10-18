@@ -14,7 +14,7 @@ variants:
   - catalog
   default: true
   maintenance_status: Active
-  name: MeltanoLabs
+  name: meltanolabs
   pip_url: git+https://github.com/MeltanoLabs/tap-csv.git
   repo: https://github.com/MeltanoLabs/tap-csv
   settings:
