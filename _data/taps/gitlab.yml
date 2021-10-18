@@ -14,9 +14,9 @@ variants:
   - state
   default: true
   maintenance_status: Active
-  name: meltano
-  pip_url: git+https://gitlab.com/meltano/tap-gitlab.git
-  repo: https://gitlab.com/meltano/tap-gitlab
+  name: meltanolabs
+  pip_url: git+https://github.com/MeltanoLabs/tap-gitlab.git
+  repo: https://github.com/MeltanoLabs/tap-gitlab
   settings:
   - description: GitLab API/instance URL. When an API path is omitted, `/api/v4/`
       is assumed.
