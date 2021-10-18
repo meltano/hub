@@ -18,10 +18,9 @@ variants:
   capabilities:
   - catalog
   - discover
-  - state
   settings_group_validation:
   - - api_key
   settings:
   - name: api_key
-    label: Client ID
+    label: API Key
     description: Access token obtained from the [account page](https://the-one-api.dev/account)
