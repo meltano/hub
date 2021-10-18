@@ -1,0 +1,26 @@
+description: Dummy / Test Data 
+domain:
+  name: The One API to rule them all
+  type: api
+  url: https://the-one-api.dev/
+label: LoTR
+name: the-one-api
+singer_name: tap-lotr
+type: tap
+variants:
+- default: true
+  maintenance_status: Active
+  meltano_sdk: true
+  name: mattarderne
+  pip_url: git+https://github.com/mattarderne/tap-lotr.git
+  repo: https://github.com/mattarderne/tap-lotr
+  capabilities:
+  - catalog
+  - discover
+  - state
+  settings_group_validation:
+  - - api_key
+  settings:
+  - name: api_key
+    label: Client ID
+    description: Access token obtained from the [account page](https://the-one-api.dev/account)
