@@ -6,8 +6,8 @@ description: Use Meltano to pull data from the GitLab API and load it into Snowf
 
 The `tap-gitlab` [extractor](https://meltano.com/plugins/extractors/) pulls data from the [GitLab API](https://docs.gitlab.com/ee/api/).
 
-- **Repository**: <https://gitlab.com/meltano/tap-gitlab>
-- **Maintainer**: Meltano community
+- **Repository**: <https://github.com/MeltanoLabs/tap-gitlab>
+- **Maintainer**: MeltanoLabs
 - **Maintenance status**: Active
 
 ## Getting Started
@@ -73,7 +73,7 @@ A minimal configuration of `tap-gitlab` in your [`meltano.yml` project file](htt
 plugins:
   extractors:
   - name: tap-gitlab
-    variant: meltano
+    variant: meltanolabs
     config:
       projects: meltano/meltano meltano/tap-gitlab
       start_date: '2020-10-01T00:00:00Z'
@@ -150,7 +150,7 @@ This property allows you to scope data that the extractor fetches to only the de
 
 Leave empty if you'd like to pull data from a project in a personal user namespace.
 
-For example, `https://www.gitlab.com/meltano/tap-gitlab` has a group of `meltano`.
+For example, `https://github.com/MeltanoLabs/tap-gitlab` has a group of `meltano`.
 
 Multiple group names can be separated using space characters.
 
