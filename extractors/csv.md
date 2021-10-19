@@ -6,8 +6,8 @@ description: Use Meltano to pull data from Comma Separated Values (CSV) files an
 
 The `tap-csv` [extractor](https://meltano.com/plugins/extractors/) pulls data from [Comma Separated Values (CSV)](https://en.wikipedia.org/wiki/Comma-separated_values) files.
 
-- **Repository**: <https://gitlab.com/meltano/tap-csv>
-- **Maintainer**: Meltano community
+- **Repository**: <https://github.com/MeltanoLabs/tap-csv>
+- **Maintainer**: MeltanoLabs
 - **Maintenance status**: Active
 
 ## Getting Started
@@ -53,14 +53,14 @@ A minimal configuration of `tap-csv` in your [`meltano.yml` project file](https:
 plugins:
   extractors:
   - name: tap-csv
-    variant: meltano
+    variant: meltanolabs
     config:
       files:
         - entity: things
-          file: extract/things.csv
+          path: extract/things.csv
           keys: [thing_id]
         - entity: widgets
-          file: extract/widgets.csv
+          path: extract/widgets.csv
           keys: [widget_id]
       # csv_files_definition: extract/csv_files.json    # if defining the files in a separate file is preferred
 ```
@@ -70,9 +70,9 @@ plugins:
 - Name: `files`
 - [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_CSV_FILES`
 
-Array of objects with `entity`, `file`, and `keys` keys:
+Array of objects with `entity`, `path`, and `keys` keys:
 - `entity`: The entity name, used as the table name for the data loaded from that CSV.
-- `file`: Local path (relative to the project's root) to the file to be ingested. Note that this may be a directory, in which case all files in that directory and any of its subdirectories will be recursively processed
+- `path`: Local path (relative to the project's root) to the file to be ingested. Note that this may be a directory, in which case all files in that directory and any of its subdirectories will be recursively processed
 - `keys`: The names of the columns that constitute the unique keys for that entity.
 
 Each input CSV file must be a traditionally-delimited CSV (comma separated columns, newlines indicate new rows, double quoted values).
@@ -99,7 +99,7 @@ plugins:
     config:
       files:
         - entity: <entity>
-          file: <path>
+          path: <path>
           keys: [<key>]
         # ...
 ```
@@ -107,9 +107,9 @@ plugins:
 Alternatively, manage this setting using [`meltano config`](https://meltano.com/docs/command-line-interface.html#config) or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
 
 ```bash
-meltano config tap-csv set files '[{"entity": "<entity>", "file": "<path>", "keys": ["<key>", ...]}, ...]'
+meltano config tap-csv set files '[{"entity": "<entity>", "path": "<path>", "keys": ["<key>", ...]}, ...]'
 
-export TAP_CSV_FILES='[{"entity": "<entity>", "file": "<file>", "keys": ["<key>", ...]}, ...]'
+export TAP_CSV_FILES='[{"entity": "<entity>", "path": "<path>", "keys": ["<key>", ...]}, ...]'
 ```
 
 ### CSV Files Definition
@@ -117,13 +117,13 @@ export TAP_CSV_FILES='[{"entity": "<entity>", "file": "<file>", "keys": ["<key>"
 - Name: `csv_files_definition`
 - [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_CSV_FILES_DEFINITION`, alias: `TAP_CSV_CSV_FILES_DEFINITION`
 
-Project-relative path to JSON file holding array of objects with `entity`, `file`, and `keys` keys, as ascribed under [Files](#files):
+Project-relative path to JSON file holding array of objects with `entity`, `path`, and `keys` keys, as ascribed under [Files](#files):
 
 ```json
 [
   {
     "entity": "<entity>",
-    "file": "<path>",
+    "path": "<path>",
     "keys": ["<key>"]
   },
   // ...
