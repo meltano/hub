@@ -1,0 +1,39 @@
+description: Generic tap for RSS and Atom feeds
+domain:
+  description: Web content syndication formats
+  name: RSS and Atom feeds
+  type: API
+  url: https://en.wikipedia.org/wiki/RSS
+label: Feed
+name: feed
+singer_name: tap-feed
+type: tap
+variants: # an array of variant types
+- default: true
+  maintenance_status: Active
+  meltano_sdk: true
+  name: jawats
+  pip_url: pip install tap-feed
+  repo: https://github.com/jawats/tap-feed
+  capabilities:
+    - catalog
+    - discover
+    - state
+    - config
+    - test
+  settings:
+    - name: feed_urls
+      kind: array
+      description: A list of one or more feed paths.
+    - name: feed_fields
+      kind: array
+      description: A list of feed level data fields to capture.
+    - name: feed_entry_fields
+      kind: array
+      description: A list of entry level data fields to capture.
+    - name: feed_entry_replication_key
+      kind: string
+      description: The field used to determine new records, typically 'published' or 'updated'.
+    - name: start_date
+      kind: datetime
+      description: The earliest record date to sync.
