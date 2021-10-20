@@ -48,3 +48,24 @@ variants:
   capabilities:
   - catalog
   - discover
+- default: false
+  capabilities:
+    - discover
+    - state
+    - catalog
+  maintenance_status: Unknown
+  name: meltano
+  pip_url: git+https://gitlab.com/meltano/tap-csv.git
+  repo: https://gitlab.com/meltano/tap-csv
+  settings:
+  - description: Array of objects with `entity`, `file`, and `keys` keys
+    kind: array
+    name: files
+  - description: Project-relative path to JSON file holding array of objects with
+      `entity`, `file`, and `keys` keys
+    label: CSV Files Definition
+    name: csv_files_definition
+    placeholder: Ex. files-def.json
+  settings_group_validation:
+  - - files
+  - - csv_files_definition
