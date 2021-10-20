@@ -1,0 +1,43 @@
+description: Amazon Web Services
+domain:
+  description: Cost Explorer is a tool that enables you to view and analyze your costs and usage.
+  name: AWS Cost Explorer
+  type: api
+  url: https://aws.amazon.com/aws-cost-management/aws-cost-explorer/
+label: AWS Cost Explorer
+name: aws-cost-explorer
+singer_name: tap-aws-cost-explorer
+type: tap
+variants:
+- default: true
+  maintenance_status: Active
+  meltano_sdk: true
+  name: albert-marrero
+  pip_url: 'git+https://github.com/albert-marrero/tap-aws-cost-explorer'
+  repo: https://github.com/albert-marrero/tap-aws-cost-explorer
+  settings: 
+    - name: access_key
+      label: Access Key
+      description: Your AWS Account Access Key.
+    - name: secret_key
+      label: Secret Key
+      description: Your AWS Account Secret Key.
+      kind: password
+    - name: start_date
+      label: Start Date
+      description: The start date for retrieving Amazon Web Services cost.
+    - name: end_date
+      label: End Date
+      description: The end date for retrieving Amazon Web Services cost.
+    - name: granularity
+      label: Granularity
+      description: Sets the Amazon Web Services cost granularity to MONTHLY or DAILY , or HOURLY.
+    - name: metrics
+      label: Metrics
+      kind: array
+      description: Which metrics are returned in the query. Valid values are AmortizedCost, BlendedCost, NetAmortizedCost, NetUnblendedCost, NormalizedUsageAmount, UnblendedCost, and UsageQuantity.
+  capabilities:
+    - catalog
+    - discover
+    - sync
+    - state
