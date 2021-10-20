@@ -37,7 +37,7 @@ variants: # an array of variant types
       label: Feed Entry Replication Key
       description: The field used to determine new records, typically 'published' or 'updated'.
     - name: start_date
-      kind: datetime
+      kind: date_iso8601
       label: Start Date
       description: The earliest record date to sync.
   settings_group_validation:
