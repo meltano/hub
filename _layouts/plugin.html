@@ -4,6 +4,8 @@ layout: plugin_page
 
 {% assign plugin = page.plugin %} {% assign variant = page.variant %} {% assign language = variant.language | default: "python" %}
 {% assign repo_split = variant.repo | split: '/' %} {% assign repo_project = repo_split[-1] %}
+{% assign has_hidden_variant = false %}
+{% for alt_variant in plugin.variants %} {% if alt_variant != variant and alt_variant.hidden%} {% assign has_hidden_variant = true %} {% endif %}{% endfor %}
 <p>
   {% if plugin.type == "tap" %} The <code>{{plugin.singer_name}}</code>
   <a href="/singer/taps">Singer tap</a>
@@ -67,7 +69,9 @@ layout: plugin_page
 
 </ul>
 
-{% if plugin.variants.size > 1 %}
+{% if has_hidden_variant == true and plugin.variants.size == 2 %}
+
+{% elsif plugin.variants.size > 2 %}
 
 <h2 id="variants">Alternative variants</h2>
 
@@ -86,7 +90,7 @@ layout: plugin_page
 <p>Alternative variants are:</p>
 
 <ul>
-  {% for alt_variant in plugin.variants %} {% if alt_variant != variant %}
+  {% for alt_variant in plugin.variants %} {% if alt_variant != variant and variant.hidden != true %}
   <li>
     <a href="{{ alt_variant.url | prepend: site.baseurl | prepend: site.url }}">
       <code>{{alt_variant.name}}</code>
