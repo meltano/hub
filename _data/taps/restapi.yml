@@ -5,7 +5,7 @@ domain:
   type: api
   url: https://docs.python-requests.org/en/latest/
 label: REST_API
-name: REST_API
+name: rest_api
 singer_name: tap-rest-api-msdk
 type: tap
 variants:
