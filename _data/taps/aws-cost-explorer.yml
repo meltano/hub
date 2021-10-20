@@ -17,6 +17,8 @@ variants:
   repo: https://github.com/albert-marrero/tap-aws-cost-explorer
   settings_group_validation:
     - ['access_key','secret_key','start_date','end_date','granularity','metrics']
+  settings_group_validation:
+    - ['access_key','secret_key','start_date','end_date','granularity','metrics']
   settings: 
     - name: access_key
       label: Access Key
