@@ -1,0 +1,43 @@
+description: |-
+  Solarvista Live is a Field Service Management platform to manage, plan, and mobilise your engineers.
+domain:
+  description: Field Service Management
+  name: Solarvista Live API
+  type: api
+  url: https://developer.solarvista.com/
+label: Solarvista Live
+name: solarvista
+singer_name: tap-solarvista
+type: tap
+variants:
+- default: true
+  maintenance_status: "Active"
+  meltano_sdk: false
+  name: matatika
+  repo: https://github.com/Matatika/tap-solarvista
+  pip_url: git+https://github.com/Matatika/tap-solarvista.git
+  capabilities:
+    - state
+  settings:
+    - name: datasources
+      env_aliases:
+        - TAP_SOLARVISTA_DATASOURCES
+      label: Datasources
+    - name: account
+      env_aliases:
+        - TAP_SOLARVISTA_ACCOUNT
+      label: Account
+    - name: clientId
+      env_aliases:
+        - TAP_SOLARVISTA_CLIENTID
+      label: Client ID
+    - name: code
+      env_aliases:
+        - TAP_SOLARVISTA_CODE
+      label: Code
+    - name: start_date
+      env_aliases:
+        - TAP_SOLARVISTA_START_DATE
+      label: Start Date
+      kind: date_iso8601
+
