@@ -2,7 +2,7 @@ description: Generic tap for RSS and Atom feeds
 domain:
   description: Web content syndication formats
   name: RSS and Atom feeds
-  type: API
+  type: api
   url: https://en.wikipedia.org/wiki/RSS
 label: Feed
 name: feed
