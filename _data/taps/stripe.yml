@@ -39,3 +39,20 @@ variants:
   capabilities:
   - catalog
   - discover
+- default: false
+  maintenance_status: Active
+  meltano_sdk: true
+  name: prratek
+  pip_url: git+https://github.com/prratek/tap-stripe.git
+  repo: https://github.com/prratek/tap-stripe.git
+  settings:
+    - name: api_token
+      kind: password
+      description: "Stripe API token"
+    - name: start_date
+      kind: date_iso8601
+      description: "Start Date"
+  capabilities:
+  - catalog
+  - discover
+  - state
