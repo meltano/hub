@@ -19,13 +19,17 @@ variants:
     - ['api_key', 'current_weather_city_name', 'forecast_weather_longitude', 'forecast_weather_lattitude']
   settings:
   - name: api_key
+    label: API Key
     kind: password
     description: App API Key
   - name: current_weather_city_name
+    label: Current Weather City Name
     description: City name to get current weather for
   - name: forecast_weather_longitude
+    label: Forecast Weather Longitude
     description: City longtitude to get forecast data
   - name: forecast_weather_lattitude
+    label: Forecast Weather Latitude
     description: City lattitude to get forecast data
   capabilities:
   - catalog
