@@ -1,0 +1,34 @@
+description: Audio Streaming and Media Services
+domain:
+  description: Audio Streaming and Media Services
+  name: Web API 
+  type: api
+  url: https://developer.spotify.com/documentation/web-api/
+label: Spotify
+name: spotify
+singer_name: tap-spotify
+type: tap
+variants:
+- default: true
+  meltano_sdk: true
+  maintenance_status: Active
+  name: matatika
+  pip_url: git+https://github.com/Matatika/tap-spotify.git
+  repo: https://github.com/Matatika/tap-spotify
+  settings_group_validation:
+    - ['client_id','client_secret','refresh_token']
+  settings:
+  - name: client_id
+    kind: password
+    description: App client ID
+  - name: client_secret
+    kind: password
+    description: App client secret
+  - name: refresh_token
+    kind: password
+    description: Refresh token
+  capabilities:
+  - catalog
+  - discover
+  - state
+  - sync
