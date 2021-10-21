@@ -12,9 +12,9 @@ variants:
 - default: true
   meltano_sdk: true
   maintenance_status: Active
-  name: dwalker
-  pip_url: git+https://github.com/DanielPDWalker/tap-openweathermap.git
-  repo: https://github.com/DanielPDWalker/tap-openweathermap
+  name: matatika
+  pip_url: git+https://github.com/Matatika/tap-openweathermap.git
+  repo: https://github.com/Matatika/tap-openweathermap
   settings_group_validataion:
     - ['api_key', 'current_weather_city_name', 'forecast_weather_longitude', 'forecast_weather_lattitude']
   settings:
