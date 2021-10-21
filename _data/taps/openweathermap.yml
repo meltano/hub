@@ -1,0 +1,33 @@
+description: Current and Forecast Weather Data Collection
+domain:
+  description: Current and Forecast Weather Data Collection
+  name: Web API 
+  type: api
+  url: https://openweathermap.org/api
+label: OpenWeatherMap
+name: openweathermap
+singer_name: tap-openweathermap
+type: tap
+variants:
+- default: true
+  meltano_sdk: true
+  maintenance_status: Active
+  name: dwalker
+  pip_url: git+https://github.com/DanielPDWalker/tap-openweathermap.git
+  repo: https://github.com/DanielPDWalker/tap-openweathermap
+  settings_group_validataion:
+    - ['api_key', 'current_weather_city_name', 'forecast_weather_longitude', 'forecast_weather_lattitude']
+  settings:
+  - name: api_key
+    kind: password
+    description: App API Key
+  - name: current_weather_city_name
+    description: City name to get current weather for
+  - name: forecast_weather_longitude
+    description: City longtitude to get forecast data for
+  - name: forecast_weather_lattitude
+    description: City lattitude to get forecast datafor
+  capabilities:
+  - catalog
+  - discover
+  - state
