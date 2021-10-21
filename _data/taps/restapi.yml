@@ -11,7 +11,7 @@ type: tap
 variants:
   - default: true
     maintenance_status: Active
-    name: jlloyd-widen
+    name: widen
     pip_url: tap-rest-api-msdk
     repo: https://github.com/Widen/tap-rest-api-msdk
     capabilities:
