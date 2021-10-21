@@ -24,9 +24,9 @@ variants:
   - name: current_weather_city_name
     description: City name to get current weather for
   - name: forecast_weather_longitude
-    description: City longtitude to get forecast data for
+    description: City longtitude to get forecast data
   - name: forecast_weather_lattitude
-    description: City lattitude to get forecast datafor
+    description: City lattitude to get forecast data
   capabilities:
   - catalog
   - discover
