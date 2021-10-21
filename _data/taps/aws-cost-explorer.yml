@@ -13,7 +13,7 @@ variants:
   maintenance_status: Active
   meltano_sdk: true
   name: albert-marrero
-  pip_url: 'git+https://github.com/albert-marrero/tap-aws-cost-explorer'
+  pip_url: 'git+https://github.com/albert-marrero/tap-aws-cost-explorer.git'
   repo: https://github.com/albert-marrero/tap-aws-cost-explorer
   settings_group_validation:
     - ['access_key','secret_key','start_date','end_date','granularity','metrics']

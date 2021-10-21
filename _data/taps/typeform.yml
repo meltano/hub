@@ -31,7 +31,7 @@ variants:
   maintenance_status: Active
   meltano_sdk: true
   name: albert-marrero
-  pip_url: 'git+https://github.com/albert-marrero/tap-typeform'
+  pip_url: 'git+https://github.com/albert-marrero/tap-typeform.git'
   repo: https://github.com/albert-marrero/tap-typeform
   settings_group_validation:
     - ['personal_access_token']
