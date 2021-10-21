@@ -7,8 +7,8 @@ description: Use Meltano to pull data from the Salesforce API and load it into S
 
 The `tap-salesforce` [extractor](https://meltano.com/plugins/extractors/) pulls data from the [Salesforce API](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_what_is_rest_api.htm).
 
-- **Repository**: <https://gitlab.com/meltano/tap-salesforce>
-- **Maintainer**: Meltano community
+- **Repository**: <https://github.com/singer-io/tap-salesforce>
+- **Maintainer**: [Stitch](https://www.stitchdata.com/)
 - **Maintenance status**: Active
 
 ## Getting Started
@@ -58,21 +58,12 @@ If you run into any issues, [learn how to get help](https://meltano.com/docs/get
 
 `tap-salesforce` requires the [configuration](https://meltano.com/docs/configuration.html) of the following settings:
 
-In case of username/password authentication:
-
-- [Username](#username)
-- [Password](#password)
-- [Security Token](#security-token)
-
-In case of OAuth authentication:
-
 - [Client ID](#client-id)
 - [Client Secret](#client-secret)
 - [Refresh Token](#refresh-token)
-
-Always:
-
 - [Start Date](#start-date)
+- [API Type](#api-type)
+- [Select Fields By Default](#select-fields-by-default)
 
 These and other supported settings are documented below.
 To quickly find the setting you're looking for, use the Table of Contents in the sidebar.
@@ -85,108 +76,19 @@ A minimal configuration of `tap-salesforce` in your [`meltano.yml` project file]
 plugins:
   extractors:
   - name: tap-salesforce
-    variant: meltano
+    variant: singer-io
     config:
-      username: user@example.com
+      client_id: your_client_id
       start_date: '2020-10-01T00:00:00Z'
+      api_type: BULK
+      select_fields_by_default: true
 ```
 
 Sensitive values are most appropriately stored in [the environment](https://meltano.com/docs/configuration.html#configuring-settings) or your project's [`.env` file](https://meltano.com/docs/project.html#env):
 
 ```bash
-export TAP_SALESFORCE_PASSWORD=my_password
-export TAP_SALESFORCE_SECURITY_TOKEN=my_token
-```
-
-### Username
-
-- Name: `username`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_SALESFORCE_USERNAME`
-
-The username (or email address) used to sign in to your Salesforce account
-
-#### How to use
-
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
-
-```bash
-meltano config tap-salesforce set username <username>
-
-export TAP_SALESFORCE_USERNAME=<username>
-```
-
-### Password
-
-- Name: `password`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_SALESFORCE_PASSWORD`
-
-The password used to sign in to your Salesforce account
-
-#### How to use
-
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
-
-```bash
-meltano config tap-salesforce set password <password>
-
-export TAP_SALESFORCE_PASSWORD=<password>
-```
-
-### Security Token
-
-- Name: `security_token`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_SALESFORCE_SECURITY_TOKEN`
-
-Access to Salesforce's API requires a security token that will authenticate you with the server.
-
-#### How to get
-
-If you don't already have a Salesforce Security Token for your account, you can generate one through the following steps:
-
-1. Sign in to your [Salesforce Account](https://login.salesforce.com/).
-
-1. Go to your Account Settings (top right on the header bar)
-
-1. Click `Reset My Security Token` (Under the `My Personal Information` section)
-
-1. Click `Reset Security Token`
-
-An email with the Security Token will be sent to your email.
-
-![Screenshot of Salesforce Security Token Reset](/assets/images/salesforce/01-salesforce-reset-security-token.png)
-
-::: tip
-
-**Why is my "Reset Security Token" option missing?**
-
-If a user’s profile is configured such that there is a restriction on the IP ranges that can access Salesforce, then that user will not have the ability to access/reset their security token.
-
-In order to give access to the security token, either remove the user from the profile that contains the IP range restriction, or update the user’s profile by removing the IP range restriction.
-
-In rare cases where the user’s profile doesn’t contain IP range restriction and they still can’t access the security token reset option, edit the user’s profile and save (without making any actual changes to the profile).
-
-:::
-
-::: tip
-
-When you reset your Salesforce password, your security token resets as well. If that security token is used to integrate Meltano with Salesforce, that integration will break as well. Each time you reset an account password used to connect Meltano or other applications to Salesforce, you will need to re-enter your new security token into that application.
-
-:::
-
-::: warning
-
-If you have other third-party applications integrated with Salesforce and you reset your security token, that integration will break. Try to use your existing Security Token instead of resetting your existing one. Otherwise, you will need to re-enter your new security token into all the connected applications.
-
-:::
-
-#### How to use
-
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
-
-```bash
-meltano config tap-salesfroce set security_token <token>
-
-export TAP_SALESFORCE_SECURITY_TOKEN=<token>
+export TAP_SALESFORCE_CLIENT_SECRET=your_client_secret
+export TAP_SALESFORCE_REFRESH_TOKEN=your_refresh_token
 ```
 
 ### Client ID
@@ -319,40 +221,44 @@ meltano config tap-salesforce set select_fields_by_default false
 export TAP_SALESFORCE_SELECT_FIELDS_BY_DEFAULT=false
 ```
 
-### State Message Threshold
+### Quota Percent Total
 
-- Name: `state_message_threshold`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_SALESFORCE_STATE_MESSAGE_THRESHOLD`
-- Default: `1000`
+- Name: `quota_percent_total`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_SALESFORCE_QUOTA_PERCENT_TOTAL`
+- Default: `80`
 
-Used to throttle how often STATE messages are generated when the tap is using the "REST" API.
+Maximum percentage of total REST quota used across all Salesforce Applications.
 
-This is a balance between not slowing down execution due to too many STATE messages produced and how many records must be fetched again if a tap fails unexpectedly. Defaults to 1000 (generate a STATE message every 1000 records).
+The API returns a total REST quota used across all Salesforce Applications, this settings allows for capping the usage of the tap so that it doesnt interfer with other operations (i.e. dont exceed 80% of our total Salesforce API quota).
+An Exception is thrown if the quota percentage is exceeded.
 
 #### How to use
 
 Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
 
 ```bash
-meltano config tap-salesforce set state_message_threshold 500
+meltano config tap-salesforce set quota_percent_total 80
 
-export TAP_SALESFORCE_STATE_MESSAGE_THRESHOLD=500
+export TAP_SALESFORCE_QUOTA_PERCENT_TOTAL=80
 ```
 
-### Max Workers
+### Quota Percent Per Run
 
-- Name: `max_workers`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_SALESFORCE_MAX_WORKERS`
-- Default: `8`
+- Name: `quota_percent_per_run`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_SALESFORCE_QUOTA_PERCENT_PER_RUN`
+- Default: `25`
 
-Maximum number of threads to use
+Maximum percentage of total REST quota used across all Salesforce Applications, per run.
+
+Similar to `quota_percent_total`, the API returns a total REST quota used across all Salesforce Applications, this settings allows for capping the usage of the on a per run basis (i.e. dont exceed 25% of our total Salesforce API quota in a single sync).
+An Exception is thrown if the quota percentage is exceeded.
 
 #### How to use
 
 Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
 
 ```bash
-meltano config tap-salesforce set max_workers 16
+meltano config tap-salesforce set quota_percent_per_run 25
 
-export TAP_SALESFORCE_MAX_WORKERS=16
+export TAP_SALESFORCE_QUOTA_PERCENT_PER_RUN=25
 ```

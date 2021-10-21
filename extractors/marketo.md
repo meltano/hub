@@ -7,8 +7,8 @@ description: Use Meltano to pull data from the Marketo API and load it into Snow
 
 The `tap-marketo` [extractor](https://meltano.com/plugins/extractors/) pulls data from the [Marketo API](https://developers.marketo.com/rest-api/).
 
-- **Repository**: <https://gitlab.com/meltano/tap-marketo>
-- **Maintainer**: Meltano community
+- **Repository**: <https://github.com/singer-io/tap-marketo>
+- **Maintainer**: [Stitch](https://www.stitchdata.com/)
 - **Maintenance status**: Active
 
 ## Getting Started
@@ -59,7 +59,6 @@ If you run into any issues, [learn how to get help](https://meltano.com/docs/get
 `tap-marketo` requires the [configuration](https://meltano.com/docs/configuration.html) of the following settings:
 
 - [Endpoint](#endpoint)
-- [Identity](#identity)
 - [Client ID](#client-id)
 - [Client Secret](#client-secret)
 - [Start Date](#start-date)
@@ -75,10 +74,9 @@ A minimal configuration of `tap-marketo` in your [`meltano.yml` project file](ht
 plugins:
   extractors:
   - name: tap-marketo
-    variant: meltano
+    variant: singer-io
     config:
       endpoint: https://284-RPR-133.mktorest.com/rest
-      identity: https://284-RPR-133.mktorest.com/identity
       client_id: 70ee92a1-603f-44a8-97a3-e0e55d758d1b
       start_date: '2020-10-01T00:00:00Z'
 ```
@@ -106,25 +104,6 @@ Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](ht
 meltano config tap-marketo set endpoint <endpoint_url>
 
 export TAP_MARKETO_ENDPOINT=<endpoint_url>
-```
-
-### Identity
-
-- Name: `identity`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_MARKETO_IDENTITY`
-
-Identity URL
-
-See <https://developers.marketo.com/rest-api/base-url/>.
-
-#### How to use
-
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
-
-```bash
-meltano config tap-marketo set identity <identity_url>
-
-export TAP_MARKETO_IDENTITY=<identity_url>
 ```
 
 ### Client ID
