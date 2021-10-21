@@ -15,7 +15,7 @@ variants:
   name: matatika
   pip_url: git+https://github.com/Matatika/tap-openweathermap.git
   repo: https://github.com/Matatika/tap-openweathermap
-  settings_group_validataion:
+  settings_group_validation:
     - ['api_key', 'current_weather_city_name', 'forecast_weather_longitude', 'forecast_weather_lattitude']
   settings:
   - name: api_key
