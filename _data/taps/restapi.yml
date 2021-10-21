@@ -19,7 +19,7 @@ variants:
       - catalog
       - discover
     settings_group_validation:
-      - []
+      - ['name','api_url','primary_keys']
     settings:
       - name: name
         label: Name
