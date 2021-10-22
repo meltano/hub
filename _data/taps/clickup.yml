@@ -1,0 +1,31 @@
+description: All your work in one place. Tasks, docs, chat, goals, & more.
+domain:
+  description: Project Management System
+  name: Clickup API
+  type: api
+  url: https://clickup.com/api
+label: Clickup
+name: clickup
+singer_name: tap-clickup
+type: tap
+variants: # an array of variant types
+- default: true
+  maintenance_status: Active
+  meltano_sdk: true
+  name: autoidm
+  pip_url: tap-clickup
+  repo: https://github.com/AutoIDM/tap-clickup
+  capabilities:
+    - catalog
+    - discover
+    - state
+    - sync
+  settings:
+    - name: api_token
+      label: API Token
+      kind: password
+      description: "Example: pk_12345"
+    - name: start_date
+      label: Start Date
+      kind: date_iso8601
+      description: "Start Date only impacts tasks, recommendation is to not use a start date sycns are realtivly fast. Example: 2010-01-01T00:00:00Z"
