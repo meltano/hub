@@ -85,13 +85,6 @@ variants:
     - properties
     - discover
     - state
-  select:
-    - Lead.*
-    - Contact.*
-    - User.*
-    - OpportunityHistory.*
-    - Account.*
-    - Opportunity.*
   settings_group_validation:
     - ['client_id', 'client_secret', 'refresh_token', 'start_date', 'api_type', 'select_fields_by_default']
   settings:
