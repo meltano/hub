@@ -13,7 +13,6 @@ variants:
       maintenance_status: Active
       default: true
       pip_url: 'git+https://github.com/MeltanoLabs/target-sqlite.git'
-      dialect: sqlite
       settings_group_validation:
         - ['batch_size']
       settings:
