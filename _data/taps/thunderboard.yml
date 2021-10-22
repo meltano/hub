@@ -1,0 +1,32 @@
+description: Silicon Labs Thunderboard tap that collect environmental data - temperature, uv, ambient light - from a physical device.
+domain:
+  description: Sensors
+  name: Silicon Labs Thunderboard
+  type: file
+  url: https://www.silabs.com/community/projects.entry.html/2017/03/08/thunderboard_sensew-Scqr
+label: Thunderboard
+name: thunderboard
+singer_name: tap-thunderboard
+type: tap
+variants:
+- default: true
+  meltano_sdk: true
+  maintenance_status: Active
+  name: matatika
+  pip_url: git+https://github.com/Matatika/tap-thunderboard
+  repo: https://github.com/Matatika/tap-thunderboard
+  capabilities:
+    - catalog
+    - discover
+  settings:
+    - name: mode
+      description: dump | file - 'dump' mode scans for devices and dumps measurements continuously.
+    - name: dataDirectory
+      description: The local directory where thunderboard data can be found
+    - name: filename
+      description: The name of the file in the data directory to be processed
+    - name: cleanup
+      description: Cleanup of the file contents after processing (Default - 'True')
+    - name: deviceId
+      description: An optional device id to limit output from discovered thunderboards
+
