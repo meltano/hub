@@ -28,4 +28,4 @@ variants: # an array of variant types
     - name: start_date
       label: Start Date
       kind: date_iso8601
-      description: "Example: 2010-01-01T00:00:00Z"
+      description: "Start Date only impacts tasks, recommendation is to not use a start date sycns are realtivly fast. Example: 2010-01-01T00:00:00Z"
