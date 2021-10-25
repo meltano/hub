@@ -22,6 +22,7 @@ variants:
     - name: mode
       description: dump | file - 'dump' mode scans for devices and dumps measurements continuously.
     - name: dataDirectory
+      label: Data Directory
       description: The local directory where thunderboard data can be found
     - name: filename
       label: Filename
