@@ -18,6 +18,8 @@ variants:
   pip_url: git+https://github.com/Matatika/tap-solarvista.git
   capabilities:
     - state
+    - catalog
+    - discover
   settings:
     - name: datasources
       env_aliases:
