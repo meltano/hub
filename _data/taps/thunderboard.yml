@@ -21,16 +21,22 @@ variants:
   settings:
     - name: mode
       label: Mode
-      description: dump | file - 'dump' mode scans for devices and dumps measurements continuously.
+      description: |-
+        'dump' mode scans for devices and dumps measurements continuously
+        
+        'file' mode processes the `filename` in the `dataDirectory`
     - name: dataDirectory
       label: Data Directory
-      description: The local directory where thunderboard data can be found
+      description: The local directory where thunderboard data can be found (Required for 'file' `mode`)
     - name: filename
       label: Filename
-      description: The name of the file in the data directory to be processed
-    - name: cleanup
-      description: Cleanup of the file contents after processing (Default - 'True')
+      description: The name of the file in the `dataDirectory` to be processed (Required for 'file' `mode`)
+    - name: truncate
+      label: Truncate
+      description: Remove file contents after processing (Optional. Default - true)
+      default: true
+      kind: boolean
     - name: deviceId
       label: Device ID
-      description: An optional device id to limit output from discovered thunderboards
+      description: Limit output from discovered thunderboards to a specific `deviceId` (Optional)
 
