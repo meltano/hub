@@ -30,5 +30,6 @@ variants:
     - name: cleanup
       description: Cleanup of the file contents after processing (Default - 'True')
     - name: deviceId
+      label: Device ID
       description: An optional device id to limit output from discovered thunderboards
 
