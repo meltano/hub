@@ -40,4 +40,9 @@ variants:
         - TAP_SOLARVISTA_START_DATE
       label: Start Date
       kind: date_iso8601
+  settings_group_validation:
+  - - start_date
+    - clientId
+    - code
+    - account
 
