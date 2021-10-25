@@ -24,6 +24,7 @@ variants:
     - name: dataDirectory
       description: The local directory where thunderboard data can be found
     - name: filename
+      label: Filename
       description: The name of the file in the data directory to be processed
     - name: cleanup
       description: Cleanup of the file contents after processing (Default - 'True')
