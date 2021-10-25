@@ -20,6 +20,7 @@ variants:
     - discover
   settings:
     - name: mode
+      label: Mode
       description: dump | file - 'dump' mode scans for devices and dumps measurements continuously.
     - name: dataDirectory
       label: Data Directory
