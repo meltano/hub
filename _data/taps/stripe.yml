@@ -53,7 +53,7 @@ variants:
     - name: start_date
       label: Start Date
       kind: date_iso8601
-      description: "Start Date"
+      description: "Date to start pulling data from."
   capabilities:
   - catalog
   - discover
