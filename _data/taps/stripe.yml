@@ -47,6 +47,7 @@ variants:
   repo: https://github.com/prratek/tap-stripe.git
   settings:
     - name: api_token
+      label: API Token
       kind: password
       description: "Stripe API token"
     - name: start_date
