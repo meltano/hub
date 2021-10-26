@@ -20,24 +20,15 @@ variants:
     - state
   settings:
     - name: datasources
-      env_aliases:
-        - TAP_SOLARVISTA_DATASOURCES
       label: Datasources
     - name: account
-      env_aliases:
-        - TAP_SOLARVISTA_ACCOUNT
       label: Account
     - name: clientId
-      env_aliases:
-        - TAP_SOLARVISTA_CLIENTID
       label: Client ID
     - name: code
-      env_aliases:
-        - TAP_SOLARVISTA_CODE
       label: Code
+      kind: password
     - name: start_date
-      env_aliases:
-        - TAP_SOLARVISTA_START_DATE
       label: Start Date
       kind: date_iso8601
 
