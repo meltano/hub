@@ -6,7 +6,7 @@ domain:
   url: https://aws.amazon.com/athena/
 label: Athena
 name: athena
-singer_name: target-athena
+singer_name: tap-athena
 type: tap
 variants:
 - name: meltanolabs
