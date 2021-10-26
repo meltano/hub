@@ -51,6 +51,7 @@ variants:
       kind: password
       description: "Stripe API token"
     - name: start_date
+      label: Start Date
       kind: date_iso8601
       description: "Start Date"
   capabilities:
