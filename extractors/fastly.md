@@ -8,7 +8,7 @@ description: Use Meltano to pull data from the Fastly API and load it into Snowf
 The `tap-fastly` [extractor](https://meltano.com/plugins/extractors/) pulls data from the [Fastly API](https://developer.fastly.com/reference/api/).
 
 - **Repository**: <https://gitlab.com/meltano/tap-fastly>
-- **Maintainer**: Meltano community
+- **Maintainer**: Meltano Community
 - **Maintenance status**: Active
 
 ## Getting Started

@@ -7,8 +7,8 @@ description: Use Meltano to pull data from the Stripe API and load it into Snowf
 
 The `tap-stripe` [extractor](https://meltano.com/plugins/extractors/) pulls data from the [Stripe API](https://stripe.com/docs/api).
 
-- **Repository**: <https://github.com/meltano/tap-stripe>
-- **Maintainer**: Meltano community
+- **Repository**: <https://github.com/singer-io/tap-stripe>
+- **Maintainer**: [Stitch](https://www.stitchdata.com/)
 - **Maintenance status**: Active
 
 ## Getting Started
@@ -73,7 +73,7 @@ A minimal configuration of `tap-stripe` in your [`meltano.yml` project file](htt
 plugins:
   extractors:
   - name: tap-stripe
-    variant: meltano
+    variant: singer-io
     config:
       account_id: acct_1a2b3c4d5e
       start_date: '2020-10-01T00:00:00Z'
