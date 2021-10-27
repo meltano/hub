@@ -11,6 +11,10 @@ variants:
     - catalog
     - discover
     - state
+  settings_group_validation:
+  - - account_id
+    - client_secret
+    - start_date
   settings:
     - name: account_id
       env_aliases: [STRIPE_ACCOUNT_ID]
@@ -22,6 +26,7 @@ variants:
       label: Secret API Key
       placeholder: Ex. sk_live_1a2b3c4d5e
     - name: start_date
+      label: Start Date
       kind: date_iso8601
       description: Determines how much historical data will be extracted. Please be aware that the larger the time period and amount of data, the longer the initial extraction can be expected to take.
 - name: prratek
@@ -31,6 +36,9 @@ variants:
     - catalog
     - discover
     - state
+  settings_group_validation:
+    - - api_key
+      - start_date
   settings:
     - name: api_key
       env_aliases: [STRIPE_API_KEY]
@@ -38,7 +46,6 @@ variants:
       label: Secret API Key
       placeholder: Ex. sk_live_1a2b3c4d5e
     - name: start_date
-      label: Start Date
       kind: date_iso8601
       description: Determines how much historical data will be extracted. Please be aware that the larger the time period and amount of data, the longer the initial extraction can be expected to take.
     # Optional
