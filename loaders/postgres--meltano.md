@@ -7,7 +7,7 @@ description: Use Meltano to pull data from various sources and load it into Post
 The `target-postgres` [loader](https://meltano.com/plugins/loaders/) loads [extracted](https://meltano.com/plugins/extractors/) data into a [PostgreSQL](https://www.postgresql.org/) database.
 
 - **Repository**: <https://github.com/meltano/target-postgres>
-- **Maintainer**: Meltano community
+- **Maintainer**: Meltano Community
 - **Maintenance status**: Active
 
 #### Alternative variants

@@ -9,14 +9,13 @@ singer_name: tap-marketo
 type: tap
 variants:
 - capabilities: []
-  default: true
+  default: false
   maintenance_status: Active
   name: meltano
   pip_url: git+https://gitlab.com/meltano/tap-marketo.git
   repo: https://gitlab.com/meltano/tap-marketo
   settings:
   - name: endpoint
-  - name: identity
   - label: Client ID
     name: client_id
   - kind: password
@@ -26,13 +25,24 @@ variants:
       extraction can be expected to take.
     kind: date_iso8601
     name: start_date
-- default: false
-  maintenance_status: Unknown
+- default: true
+  maintenance_status: Active
   name: singer-io
   pip_url: git+https://github.com/singer-io/tap-marketo.git
   repo: https://github.com/singer-io/tap-marketo
-  settings: []
   capabilities:
   - catalog
   - discover
   - state
+  settings:
+  - name: endpoint
+    label: Endpoint
+  - name: client_id
+    label: Client ID
+  - name: client_secret
+    kind: password
+    label: Client Secret
+  - name: start_date
+    label: Start Date
+    description: Determines how much historical data will be extracted. Please be aware that the larger the time period and amount of data, the longer the initial extraction can be expected to take.
+    kind: date_iso8601

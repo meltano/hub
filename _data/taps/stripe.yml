@@ -12,7 +12,7 @@ variants:
   - catalog
   - discover
   - state
-  default: true
+  default: false
   maintenance_status: Active
   name: meltano
   pip_url: git+https://github.com/meltano/tap-stripe.git
@@ -30,31 +30,53 @@ variants:
       extraction can be expected to take.
     kind: date_iso8601
     name: start_date
-- default: false
-  maintenance_status: Unknown
+- default: true
+  maintenance_status: Active
   name: singer-io
+  docs: 'https://hub.meltano.com/extractors/stripe.html'
   pip_url: git+https://github.com/singer-io/tap-stripe.git
   repo: https://github.com/singer-io/tap-stripe
-  settings: []
   capabilities:
-  - catalog
-  - discover
-- default: false
-  maintenance_status: Active
-  meltano_sdk: true
-  name: prratek
-  pip_url: git+https://github.com/prratek/tap-stripe.git
-  repo: https://github.com/prratek/tap-stripe.git
+    - catalog
+    - discover
+    - state
+  settings_group_validation:
+  - - account_id
+    - client_secret
+    - start_date
   settings:
-    - name: api_token
-      label: API Token
+    - name: account_id
+      label: Account ID
+      placeholder: Ex. acct_1a2b3c4d5e
+    - name: client_secret
       kind: password
-      description: "Stripe API token"
+      label: Secret API Key
+      placeholder: Ex. sk_live_1a2b3c4d5e
     - name: start_date
       label: Start Date
       kind: date_iso8601
-      description: "Date to start pulling data from."
+      description: Determines how much historical data will be extracted. Please be aware that the larger the time period and amount of data, the longer the initial extraction can be expected to take.
+- default: false
+  maintenance_status: Active
+  name: prratek
+  repo: https://github.com/prratek/tap-stripe
+  pip_url: 'git+https://github.com/prratek/tap-stripe.git'
   capabilities:
-  - catalog
-  - discover
-  - state
+    - catalog
+    - discover
+    - state
+  settings_group_validation:
+  - - api_key
+    - start_date
+  settings:
+    - name: api_key
+      kind: password
+      label: Secret API Key
+      placeholder: Ex. sk_live_1a2b3c4d5e
+    - name: start_date
+      kind: date_iso8601
+      description: Determines how much historical data will be extracted. Please be aware that the larger the time period and amount of data, the longer the initial extraction can be expected to take.
+    # Optional
+    - name: account_id
+      label: Account ID
+      placeholder: Ex. acct_1a2b3c4d5e
