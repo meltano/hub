@@ -35,23 +35,44 @@ layout: plugin_page
   </li>
   {% if variant.maintenance_status != "Unknown" %}
   <li><strong>Maintenance status</strong>: {{ variant.maintenance_status }}</li>
-  {% endif %} 
-  {% if variant.meltano_sdk %}
-  <li><strong>Built with <a href="https://sdk.meltano.com/en/latest/" target="_blank">Meltano SDK</a></strong>: Yes!</li>
   {% endif %}
+
   {% if variant.metrics %} {% assign metrics = variant.metrics %}
-  <li>
-    <strong>Last update at</strong>: {{ metrics.last_updated_timestamp |
-    date_to_string }}
-  </li>
-  <li>
-    <a href="{{variant.repo}}/issues" target="_blank">
-      <strong>Open issues and PRs</strong> </a
-    >: {{ metrics.num_open_issues }}
-  </li>
-  {% if metrics.num_stargazers > 0 %}
-  <li><strong>Stars</strong>: {{ metrics.num_stargazers }}</li>
-  {% endif %} {% endif %}
+
+
+  {% if variant.metrics or metrics.num_stargazers > 0 %}
+  <li><strong>Repo Stats:</strong></li>
+  <ul>
+      <li>
+        <strong>Last update at</strong>: {{ metrics.last_updated_timestamp |
+        date_to_string }}
+      </li>
+      <li>
+        <a href="{{variant.repo}}/issues" target="_blank">
+          <strong>Open issues and PRs</strong> </a
+        >: {{ metrics.num_open_issues }}
+      </li>
+      {% if metrics.num_stargazers > 0 %}
+      <li><strong>Stars</strong>: {{ metrics.num_stargazers }}</li>
+      {% endif %}
+  </ul>
+  {% endif %}
+
+  {% if metrics.meltano_exec_count_3m > 0 or metrics.meltano_project_id_count_3m > 0 or variant.meltano_sdk %}
+  <li><strong>Meltano Stats:</strong></li>
+  <ul>
+    {% if variant.meltano_sdk %}
+    <li><strong>Built with <a href="https://sdk.meltano.com/en/latest/" target="_blank">Meltano SDK</a></strong>: &#10004;</li>
+    {% endif %}
+    {% if metrics.meltano_exec_count_3m > 0 %}
+    <li><strong>Executions (Last 3 Months)</strong>: {{ metrics.meltano_exec_count_3m }}</li>
+    {% endif %}
+    {% if metrics.meltano_project_id_count_3m > 0 %}
+    <li><strong>Projects (Last 3 Months)</strong>: {{ metrics.meltano_project_id_count_3m }}</li>
+    {% endif %}
+  </ul>
+  {% endif %}
+  {% endif %}
     <li>
       <img alt="GitHub - License"
         src="https://img.shields.io/github/license/{{variant.name}}/{{repo_project}}?color=c0c0c4&label=License&style=flat-square"
