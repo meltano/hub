@@ -6,6 +6,7 @@ layout: plugin_page
 {% assign repo_split = variant.repo | split: '/' %} {% assign repo_project = repo_split[-1] %}
 {% assign has_hidden_variant = false %}
 {% for alt_variant in plugin.variants %} {% if alt_variant != variant and alt_variant.hidden%} {% assign has_hidden_variant = true %} {% endif %}{% endfor %}
+{% if variant.metrics %} {% assign metrics = variant.metrics %}{% endif %}
 <p>
   {% if plugin.type == "tap" %} The <code>{{plugin.singer_name}}</code>
   <a href="/singer/taps">Singer tap</a>
@@ -26,6 +27,27 @@ layout: plugin_page
     <strong>Repository</strong>:
     <a href="{{variant.repo}}" target="_blank">{{ variant.repo }}</a>
   </li>
+
+  <ul>
+    <li>
+      <img alt="GitHub - License"
+        src="https://img.shields.io/github/license/{{variant.name}}/{{repo_project}}?color=c0c0c4&label=License&style=flat-square"
+        href="{{variant.repo}}">
+    </li>
+    {% if metrics or metrics.num_stargazers > 0 %}
+      <li>
+        <strong>Last update at</strong>: {{ metrics.last_updated_timestamp |
+        date_to_string }}
+      </li>
+      <li>
+        <a href="{{variant.repo}}/issues" target="_blank">
+          <strong>Open issues and PRs</strong> </a>: {{ metrics.num_open_issues }}
+      </li>
+      {% if metrics.num_stargazers > 0 %}
+      <li><strong>Stars</strong>: {{ metrics.num_stargazers }}</li>
+      {% endif %}
+    {% endif %}
+    </ul>
   <li>
     {% assign maintainer = variant.maintainer %}
     <a href="/singer/maintainers"><strong>Maintainer</strong></a
@@ -34,28 +56,7 @@ layout: plugin_page
     {% else %} {{ maintainer.label }} {% endif %}
   </li>
   {% if variant.maintenance_status != "Unknown" %}
-  <li><strong>Maintenance status</strong>: {{ variant.maintenance_status }}</li>
-  {% endif %}
-
-  {% if variant.metrics %} {% assign metrics = variant.metrics %}
-
-
-  {% if variant.metrics or metrics.num_stargazers > 0 %}
-  <li><strong>Repo Stats:</strong></li>
-  <ul>
-      <li>
-        <strong>Last update at</strong>: {{ metrics.last_updated_timestamp |
-        date_to_string }}
-      </li>
-      <li>
-        <a href="{{variant.repo}}/issues" target="_blank">
-          <strong>Open issues and PRs</strong> </a
-        >: {{ metrics.num_open_issues }}
-      </li>
-      {% if metrics.num_stargazers > 0 %}
-      <li><strong>Stars</strong>: {{ metrics.num_stargazers }}</li>
-      {% endif %}
-  </ul>
+  <li><strong>Maintenance Status</strong>: {{ variant.maintenance_status }}</li>
   {% endif %}
 
   {% if metrics.meltano_exec_count_3m > 0 or metrics.meltano_project_id_count_3m > 0 or variant.meltano_sdk %}
@@ -72,12 +73,7 @@ layout: plugin_page
     {% endif %}
   </ul>
   {% endif %}
-  {% endif %}
-    <li>
-      <img alt="GitHub - License"
-        src="https://img.shields.io/github/license/{{variant.name}}/{{repo_project}}?color=c0c0c4&label=License&style=flat-square"
-        href="{{variant.repo}}">
-    </li>
+
   {% if variant.pip_url contains '.git' %}
   {% else %}
   <li>
