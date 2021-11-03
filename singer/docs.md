@@ -224,3 +224,28 @@ We use Meltano itself to pull data from GitHub. View the Meltano project for thi
 Using the SDK, we built a [custom GitHub tap](/singer/taps/github-search) and a [custom Athena target](/singer/targets/target-athena).
 
 We're using dbt to [manage transformations](https://gitlab.com/meltano/hub/-/tree/main/meltano/transform/transforms/marts/singer) with Athena to aid in curating the data.
+
+## Meltano Usage Metrics
+
+Meltano collects [anonymous usage stats](https://meltano.com/docs/settings.html#send-anonymous-usage-stats) using Google Analytics. 
+We use this data to learn about the size of our user base and overal feature usage.
+This helps us determine the highest impact improvements we can make to Meltano and the Singer ecosystem.
+
+To better support the Meltano and Singer communities, we have started aggregating metrics about the usage of taps and targets within Meltano. 
+In line with our value of [Transparency](https://meltano.com/docs/#transparency), we are sharing this data with the communithy to help everyone better understand the overall quality of Singer connectors.
+
+<u>Current Metrics:</u>
+
+- Executions (Last 3 Months): The sum of executions via [`meltano elt`](https://meltano.com/docs/command-line-interface.html#elt) or [`meltano invoke`](https://meltano.com/docs/command-line-interface.html#invoke)) that used the plugin.
+
+- Projects (Last 3 Months): The distinct count of [project IDs](https://meltano.com/docs/settings.html#project-id) that have executed the plugin at least once in the last 3 months.
+
+Note that metrics will only show up on a plugin page if they're non-zero. 
+
+Currently these metrics do not take into account the specific variant of the plugin but rather an aggregation of all variants used under that plugin's namespace. 
+This is a limitation of the event data that's being collected. 
+For example, [tap-gitlab](/taps/gitlab) has multiple variants ([MeltanoLabs](https://github.com/MeltanoLabs/tap-gitlab), [singer-io](https://github.com/singer-io/tap-gitlab), etc.) which are all rolled up into the parent tap-gitlab namespace.
+
+Since Meltano makes it easy for users to [opt out](https://meltano.com/docs/settings.html#send-anonymous-usage-stats) of sending usage stats we assume that metrics are undercounted.
+
+Checkout the [Meltano Squared](https://gitlab.com/meltano/squared) repository to see how we're using Meltano to extract and aggregate these metrics.

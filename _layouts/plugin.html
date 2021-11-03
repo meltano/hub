@@ -60,7 +60,7 @@ layout: plugin_page
   {% endif %}
 
   {% if metrics.meltano_exec_count_3m > 0 or metrics.meltano_project_id_count_3m > 0 or variant.meltano_sdk %}
-  <li><strong>Meltano Stats:</strong></li>
+  <li><a href="/singer/docs#meltano-usage-metrics"><strong>Meltano Stats:</strong></a></li>
   <ul>
     {% if variant.meltano_sdk %}
     <li><strong>Built with <a href="https://sdk.meltano.com/en/latest/" target="_blank">Meltano SDK</a></strong>: &#10004;</li>
