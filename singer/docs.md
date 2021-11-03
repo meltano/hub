@@ -224,3 +224,21 @@ We use Meltano itself to pull data from GitHub. View the Meltano project for thi
 Using the SDK, we built a [custom GitHub tap](/singer/taps/github-search) and a [custom Athena target](/singer/targets/target-athena).
 
 We're using dbt to [manage transformations](https://gitlab.com/meltano/hub/-/tree/main/meltano/transform/transforms/marts/singer) with Athena to aid in curating the data.
+
+## Meltano Usage Metrics
+
+Meltano shares [anonymous usage stats](https://meltano.com/docs/settings.html#send-anonymous-usage-stats) with the Meltano team using Google Analytics. We use this data to learn about the size of our user base and the specific Meltano features they are (or not yet) using, which helps us determine the highest impact changes we can make to both the Meltano itself and the ecosystem more broadly.
+
+As a way to share these findings with the community we started aggregating some metrics about the usage of taps and targets from within Meltano. Our hope is that by giving our community more data points about usage, it will allow us all to make more informed decisions about the suitability of a tap or target for our specific use cases. Metrics will only show up on a plugin page if they're non-zero. 
+
+<u>Current Metrics:</u>
+
+- Executions (Last 3 Months): The sum of executions (elt or invoke) that used the plugin.
+
+- Projects (Last 3 Months): The distinct count of project GUIDs that have executed the plugin at least once in the last 3 months.
+
+Currently these metrics do not take into account the specific variant of the plugin but rather an aggregation of all variants used under that plugin's namespace. This is a limitation of the event data that's being collected. For example tap-gitlab has multiple variants ([MeltanoLabs](https://github.com/MeltanoLabs/tap-gitlab), [singer-io](https://github.com/singer-io/tap-gitlab), etc.) which are all rolled up into the parent tap-gitlab namespace.
+
+Of course another important caveat is that Meltano makes it easy for users to opt out of sending usage stats so we can logically assume that the metrics will be undercounted, although its difficult to estimate by how much.
+
+Checkout the [Meltano Squared](https://gitlab.com/meltano/squared) repository to see how we're using Meltano to extract and aggregate these metrics.
