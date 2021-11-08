@@ -47,9 +47,11 @@ pages:
     - public
   rules:
   - if: $CI_COMMIT_BRANCH == "main"
+    when: always
   # scheduled and a custom env var is set in the schedule
   - if: $CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_NAME == "daily_build"
-
+    when: always
+  - when: never
 
 ##########################
 # Daily data pipeline
@@ -113,6 +115,8 @@ repos-daily:
   stage: deploy
   rules:
   - if: $CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_NAME == "daily_pipeline"
+    when: always
+  - when: never
   needs: []
   variables:
     JOB_ID: GITHUB-REPOS-PROD
@@ -126,6 +130,8 @@ issues-daily:
   stage: deploy
   rules:
   - if: $CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_NAME == "daily_pipeline"
+    when: always
+  - when: never
   needs: [repos-daily]  # Sequenced to avoid rate limit
   variables:
     JOB_ID: GITHUB-ISSUES-PROD
@@ -140,6 +146,8 @@ issues-daily:
 #   stage: deploy
 #   rules:
 #   - if: $CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_NAME == "daily_pipeline"
+#     when: always
+#   - when: never
 #   needs: [issues-daily]  # Sequenced to avoid rate limit
 #   variables:
 #     JOB_ID: GITHUB-ISSUE-COMMENTS-PROD
@@ -153,6 +161,8 @@ transforms-daily:
   stage: deploy
   rules:
   - if: $CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_NAME == "daily_pipeline"
+    when: always
+  - when: never
   needs: [repos-daily, issues-daily]
   script:
   - meltano invoke dbt:run
