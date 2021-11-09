@@ -57,6 +57,7 @@ variants:
       kind: date_iso8601
       description: Determines how much historical data will be extracted. Please be aware that the larger the time period and amount of data, the longer the initial extraction can be expected to take.
 - name: meltano
+  hidden: true
   repo: https://gitlab.com/meltano/tap-gitlab
   pip_url: 'git+https://gitlab.com/meltano/tap-gitlab.git'
   capabilities:

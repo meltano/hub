@@ -41,6 +41,7 @@ variants:
       label: Include Deleted Objects
       description: Determines if it should include deleted objects or not.
 - name: meltano
+  hidden: true
   repo: https://gitlab.com/meltano/tap-facebook
   pip_url: 'git+https://gitlab.com/meltano/tap-facebook.git'
   capabilities:
