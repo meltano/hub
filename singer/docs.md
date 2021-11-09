@@ -249,3 +249,9 @@ For example, [tap-gitlab](/taps/gitlab) has multiple variants ([MeltanoLabs](htt
 Since Meltano makes it easy for users to [opt out](https://meltano.com/docs/settings.html#send-anonymous-usage-stats) of sending usage stats we assume that metrics are undercounted.
 
 Checkout the [Meltano Squared](https://gitlab.com/meltano/squared) repository to see how we're using Meltano to extract and aggregate these metrics.
+
+<u>Last Updated:</u>
+
+Github Metrics = `{{ site.data['audit']['audit_log']['github_metrics']['updated_date'] }}`
+
+Meltano Metrics = `{{ site.data['audit']['audit_log']['meltano_metrics']['updated_date'] }}`
