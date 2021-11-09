@@ -26,6 +26,7 @@ variants:
       value: '__loaded_at'
       description: Name of the column used for recording the timestamp when Data are loaded to SQLite.
 - name: meltano
+  hidden: true
   repo: https://gitlab.com/meltano/target-sqlite
   pip_url: 'git+https://gitlab.com/meltano/target-sqlite.git'
   dialect: sqlite

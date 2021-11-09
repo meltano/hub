@@ -25,6 +25,7 @@ variants:
       placeholder: Ex. files-def.json
       documentation: https://github.com/MeltanoLabs/tap-csv#settings
 - name: meltano
+  hidden: true
   repo: https://gitlab.com/meltano/tap-csv
   pip_url: 'git+https://gitlab.com/meltano/tap-csv.git'
   capabilities:

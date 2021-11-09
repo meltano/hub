@@ -54,6 +54,7 @@ variants:
       label: Account ID
       placeholder: Ex. acct_1a2b3c4d5e
 - name: meltano
+  hidden: true
   repo: https://github.com/meltano/tap-stripe
   pip_url: 'git+https://github.com/meltano/tap-stripe.git'
   capabilities:
