@@ -265,6 +265,7 @@ variants:
       label: Primary Keys
       description: Primary Keys for the selected Entities (Streams)
 - name: meltano
+  hidden: true
   repo: https://gitlab.com/meltano/tap-adwords
   pip_url: 'git+https://gitlab.com/meltano/tap-adwords.git'
   capabilities:
