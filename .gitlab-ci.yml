@@ -41,6 +41,9 @@ pages:
     - ./aws/install
     - aws s3 cp s3://prod-meltano-bucket-01/hub_metrics/metrics.yml ./_data/metrics.yml
     - aws s3 cp s3://prod-meltano-bucket-01/hub_metrics/audit.yml ./_data/audit.yml
+    - apt-get update && apt-get install -y pip
+    - pip install PyYAML && pip install requests
+    - python3 discovery_splitter.py
     - bundle exec jekyll build -d public
   artifacts:
     paths:
