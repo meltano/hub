@@ -1,14 +1,22 @@
 import os
+from shutil import rmtree
 
 import requests
 import yaml
 
 MELTANO_DIR = "_data/meltano"
-MELTANO_DISCOVERY_URL = "https://gitlab.com/meltano/meltano/-/raw/master/src/meltano/core/bundle/discovery.yml"
+MELTANO_DISCOVERY_URL = "https://gitlab.com/meltano/meltano/-/raw/\
+    master/src/meltano/core/bundle/discovery.yml"
+
+
+def clear_existing_files():
+    if os.path.isdir(MELTANO_DIR):
+        rmtree(MELTANO_DIR)
 
 
 def get_discover_yaml():
     resp = requests.get(MELTANO_DISCOVERY_URL)
+    resp.raise_for_status()
     data = resp.content
     return yaml.safe_load(data)
 
@@ -21,10 +29,12 @@ def get_file_name(plugin_name, plugin_type):
     else:
         return plugin_name
 
+
 def write_file(plugin_def, file_path, file_name):
     os.makedirs(file_path, exist_ok=True)
     with open(f"{file_path}/{file_name}.yml", "w") as f:
         yaml.dump(plugin_def, f, sort_keys=False, default_flow_style=False)
+
 
 def split_yaml(yaml_obj):
     for plugin_type in yaml_obj:
@@ -35,6 +45,8 @@ def split_yaml(yaml_obj):
                 file_path = f"{MELTANO_DIR}/{plugin_type}"
                 write_file(plugin_def, file_path, file_name)
 
+
 if __name__ == "__main__":
     yml_obj = get_discover_yaml()
+    clear_existing_files()
     split_yaml(yml_obj)
