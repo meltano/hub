@@ -38,7 +38,7 @@ class SingerPluginPageGenerator < Jekyll::Generator
 
       description =
         if plugin['type'] == 'tap'
-          "The open source #{plugin['name']} Singer tap pulls data from the #{plugin['label']} that can then be sent to a destination using a Singer target."
+          "The open source #{plugin['name']} Singer tap pulls data from #{plugin['label']} that can then be sent to a destination using a Singer target."
         else
           "The open source #{plugin['name']} Singer target sends data into #{plugin['label']} after it was pulled from a source using a Singer tap."
         end

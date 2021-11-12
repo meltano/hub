@@ -44,7 +44,7 @@ class MeltanoPluginPageGenerator < Jekyll::Generator
 
       description =
         if plugin_type == 'extractor'
-          "The open source Meltano extractor pulls data from the #{plugin['label']} that can then be sent to a destination using a loader."
+          "The open source Meltano extractor pulls data from #{plugin['label']} that can then be sent to a destination using a loader."
         else
           "The open source Meltano loader sends data into  #{plugin['label']} after it was pulled from a source using an extractor."
         end
