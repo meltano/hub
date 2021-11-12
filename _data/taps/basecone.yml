@@ -1,9 +1,4 @@
 description: Digital Document Processing Software
-domain:
-  description: Digital Document Processing Software
-  name: Basecone API
-  type: api
-  url: https://developers.basecone.com/ApiReference/General
 label: Basecone
 name: basecone
 singer_name: tap-basecone
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://developers.basecone.com/ApiReference/General
+entity_type: api

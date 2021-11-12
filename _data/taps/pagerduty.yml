@@ -1,9 +1,4 @@
 description: SaaS Incident Response Platform
-domain:
-  description: SaaS Incident Response Platform
-  name: PagerDuty API
-  type: api
-  url: https://developer.pagerduty.com/docs/rest-api-v2/rest-api/
 label: PagerDuty
 name: pagerduty
 singer_name: tap-pagerduty
@@ -27,3 +22,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://developer.pagerduty.com/docs/rest-api-v2/rest-api/
+entity_type: api

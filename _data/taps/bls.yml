@@ -1,9 +1,4 @@
 description: US Government Labor Statistics
-domain:
-  description: US Government Labor Statistics
-  name: Bureau of Labor Statistics API
-  type: api
-  url: https://www.bls.gov
 label: Bureau of Labor Statistics
 name: bls
 singer_name: tap-bls
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.bls.gov
+entity_type: api

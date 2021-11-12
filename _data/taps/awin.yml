@@ -1,9 +1,4 @@
 description: Affiliate Marketing Network
-domain:
-  description: Affiliate Marketing Network
-  name: Awin SOAP API
-  type: api
-  url: https://www.awin.com/us
 label: Awin
 name: awin
 singer_name: tap-awin
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.awin.com/us
+entity_type: api

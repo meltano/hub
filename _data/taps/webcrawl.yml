@@ -1,9 +1,4 @@
 description: Export XLS Files from sites
-domain:
-  description: Export XLS Files from sites
-  name: Selenium Webcrawler Files
-  type: file
-  url: https://www.selenium.dev/
 label: Selenium Webcrawl
 name: webcrawl
 singer_name: tap-webcrawl
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.selenium.dev/
+entity_type: file

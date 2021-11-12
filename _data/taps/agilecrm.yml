@@ -1,9 +1,4 @@
 description: Customer Relationship Management System
-domain:
-  description: Customer Relationship Management System
-  name: Agile CRM API
-  type: api
-  url: https://www.agilecrm.com/
 label: Agile CRM
 name: agilecrm
 singer_name: tap-agilecrm
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.agilecrm.com/
+entity_type: api

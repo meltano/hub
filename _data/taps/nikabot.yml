@@ -1,9 +1,4 @@
 description: Time Tracking Software
-domain:
-  description: Time Tracking Software
-  name: Nikabot API
-  type: api
-  url: https://api.nikabot.com/swagger-ui.html#/
 label: Nikabot
 name: nikabot
 singer_name: tap-nikabot
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://api.nikabot.com/swagger-ui.html#/
+entity_type: api

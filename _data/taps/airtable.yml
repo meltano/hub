@@ -1,9 +1,4 @@
 description: Cloud collaboration service
-domain:
-  description: Cloud collaboration service
-  name: Airtable API
-  type: api
-  url: https://airtable.com/api
 label: Airtable
 name: airtable
 singer_name: tap-airtable
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://airtable.com/api
+entity_type: api

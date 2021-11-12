@@ -1,9 +1,4 @@
 description: Subscription Billing Platform
-domain:
-  description: Subscription Billing Platform
-  name: Recurly API
-  type: api
-  url: https://recurly.com/
 label: Recurly
 name: recurly
 singer_name: tap-recurly
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://recurly.com/
+entity_type: api

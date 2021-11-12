@@ -1,9 +1,4 @@
 description: Columnar Storage Format
-domain:
-  description: Columnar Storage Format
-  name: Parquet Files
-  type: file
-  url: https://parquet.apache.org/
 label: Parquet
 name: parquet
 singer_name: tap-parquet
@@ -19,3 +14,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://parquet.apache.org/
+entity_type: file

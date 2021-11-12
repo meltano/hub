@@ -1,9 +1,4 @@
 description: Content Management System
-domain:
-  description: Content Management System
-  name: Wordpress API for Plugin Stats
-  type: api
-  url: https://developer.wordpress.org/rest-api/
 label: Wordpress.org Plugin Stats
 name: wordpress-plugin-stats
 singer_name: tap-wordpress-plugin-stats
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://developer.wordpress.org/rest-api/
+entity_type: api

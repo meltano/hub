@@ -1,9 +1,4 @@
 description: Project Management Software
-domain:
-  description: Project Management Software
-  name: Asana API
-  type: api
-  url: https://asana.com/
 label: Asana
 name: asana
 singer_name: tap-asana
@@ -27,3 +22,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://asana.com/
+entity_type: api

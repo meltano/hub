@@ -1,9 +1,4 @@
 description: CI/CD Platfrom
-domain:
-  description: CI/CD Platfrom
-  name: CircleCI API
-  type: api
-  url: https://circleci.com/
 label: CircleCI
 name: circle-ci
 singer_name: tap-circle-ci
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://circleci.com/
+entity_type: api

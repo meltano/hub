@@ -1,9 +1,4 @@
 description: eCommerce Marketing Platform
-domain:
-  description: eCommerce Marketing Platform
-  name: Yotpo API
-  type: api
-  url: https://apidocs.yotpo.com/reference
 label: Yotpo
 name: yotpo
 singer_name: tap-yotpo
@@ -63,3 +58,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://apidocs.yotpo.com/reference
+entity_type: api

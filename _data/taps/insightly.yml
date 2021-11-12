@@ -1,9 +1,4 @@
 description: CRM Platform
-domain:
-  description: CRM Platform
-  name: Insightly API
-  type: api
-  url: https://api.insightly.com/v3.1/Help
 label: Insightly
 name: insightly
 singer_name: tap-insightly
@@ -27,3 +22,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://api.insightly.com/v3.1/Help
+entity_type: api

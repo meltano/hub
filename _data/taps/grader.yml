@@ -1,9 +1,4 @@
 description: Digital Marketing Presence Tool
-domain:
-  description: Digital Marketing Presence Tool
-  name: LOCALiQ Grader API
-  type: api
-  url: https://localiq.com/website-grader/
 label: LOCALiQ Grader
 name: grader
 singer_name: tap-grader
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://localiq.com/website-grader/
+entity_type: api

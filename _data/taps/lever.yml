@@ -1,9 +1,4 @@
 description: Recruiting Software
-domain:
-  description: Recruiting Software
-  name: Lever API
-  type: api
-  url: https://hire.lever.co/developer/documentation
 label: Lever
 name: lever
 singer_name: tap-lever
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://hire.lever.co/developer/documentation
+entity_type: api

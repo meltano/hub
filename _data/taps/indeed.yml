@@ -1,9 +1,4 @@
 description: Job Search Software
-domain:
-  description: Job Search Software
-  name: Indeed API
-  type: api
-  url: https://opensource.indeedeng.io/api-documentation/
 label: Indeed
 name: indeed
 singer_name: tap-indeed
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://opensource.indeedeng.io/api-documentation/
+entity_type: api

@@ -1,9 +1,4 @@
 description: Agile Project Management Software
-domain:
-  description: Agile Project Management Software
-  name: PivotalTracker API
-  type: api
-  url: https://www.pivotaltracker.com/help/api/rest/v5#top
 label: PivotalTracker
 name: pivotal-tracker
 singer_name: tap-pivotal-tracker
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.pivotaltracker.com/help/api/rest/v5#top
+entity_type: api

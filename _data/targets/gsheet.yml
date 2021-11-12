@@ -1,9 +1,4 @@
 description: Cloud Spreadsheet Software
-domain:
-  description: Cloud Spreadsheet Software
-  name: Google Sheets
-  type: file
-  url: https://developers.google.com/sheets/api/quickstart/python
 label: Google Sheets
 name: target-gsheet
 singer_name: target-gsheet
@@ -33,3 +28,5 @@ variants:
   pip_url: git+https://github.com/IDme/target-gsheet.git
   repo: https://github.com/IDme/target-gsheet
   settings: []
+entity_url: https://developers.google.com/sheets/api/quickstart/python
+entity_type: file

@@ -1,9 +1,4 @@
 description: Gym & Fitness CRM
-domain:
-  description: Gym & Fitness CRM
-  name: Gleantap API
-  type: api
-  url: https://app.gleantap.com/docs/
 label: Gleantap
 name: gleantap
 singer_name: tap-gleantap
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://app.gleantap.com/docs/
+entity_type: api

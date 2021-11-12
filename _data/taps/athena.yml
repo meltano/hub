@@ -1,9 +1,4 @@
 description: Serverless S3 Database
-domain:
-  description: Serverless S3 Database
-  name: AWS Athena
-  type: file
-  url: https://aws.amazon.com/athena/
 label: Athena
 name: athena
 singer_name: tap-athena
@@ -19,3 +14,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://aws.amazon.com/athena/
+entity_type: file

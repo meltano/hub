@@ -1,9 +1,4 @@
 description: Social Media Platform
-domain:
-  description: Social Media Platform
-  name: Snapchat Ads API
-  type: api
-  url: https://developers.snapchat.com/docs/
 label: Snapchat Ads
 name: snapchat-ads
 singer_name: tap-snapchat-ads
@@ -27,3 +22,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://developers.snapchat.com/docs/
+entity_type: api

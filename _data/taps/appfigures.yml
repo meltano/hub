@@ -1,9 +1,4 @@
 description: Reporting platform for mobile app developers
-domain:
-  description: Reporting platform for mobile app developers
-  name: AppFigures API
-  type: api
-  url: https://appfigures.com/
 label: AppFigures
 name: appfigures
 singer_name: tap-appfigures
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://appfigures.com/
+entity_type: api

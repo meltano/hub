@@ -1,9 +1,4 @@
 description: Project management software
-domain:
-  description: Project management software
-  name: Clubhouse API
-  type: api
-  url: https://clubhouse.io/
 label: Clubhouse
 name: clubhouse
 singer_name: tap-clubhouse
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://clubhouse.io/
+entity_type: api

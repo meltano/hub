@@ -1,9 +1,4 @@
 description: Learning Management System
-domain:
-  description: Learning Management System
-  name: Workramp API
-  type: api
-  url: https://www.workramp.com/products/enterprise/integrations/
 label: Workramp
 name: workramp
 singer_name: tap-workramp
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.workramp.com/products/enterprise/integrations/
+entity_type: api

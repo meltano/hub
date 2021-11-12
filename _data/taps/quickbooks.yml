@@ -1,8 +1,4 @@
 description: Accounting management platform
-domain:
-  name: Quickbooks Online API
-  type: api
-  url: https://developer.intuit.com/app/developer/qbo/docs/develop
 label: Quickbooks
 name: quickbooks
 singer_name: tap-quickbooks
@@ -54,3 +50,5 @@ variants:
     - refresh_token
     - realmId
     - start_date
+entity_url: https://developer.intuit.com/app/developer/qbo/docs/develop
+entity_type: api

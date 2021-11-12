@@ -1,9 +1,4 @@
 description: Marketing Automation Software
-domain:
-  description: Marketing Automation Software
-  name: Sailthru API
-  type: api
-  url: https://getstarted.sailthru.com/developers/api-basics/introduction/
 label: Sailthru
 name: sailthru
 singer_name: tap-sailthru
@@ -27,3 +22,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://getstarted.sailthru.com/developers/api-basics/introduction/
+entity_type: api

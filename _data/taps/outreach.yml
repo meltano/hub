@@ -1,9 +1,4 @@
 description: Sales Engagement Platform
-domain:
-  description: Sales Engagement Platform
-  name: Outreach API
-  type: api
-  url: https://api.outreach.io/api/v2/docs
 label: Outreach
 name: outreach
 singer_name: tap-outreach
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://api.outreach.io/api/v2/docs
+entity_type: api

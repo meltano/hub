@@ -1,9 +1,4 @@
 description: SaaS cloud banking platform
-domain:
-  description: SaaS cloud banking platform
-  name: Mambu API
-  type: api
-  url: https://api.mambu.com/?shell
 label: Mambu
 name: mambu
 singer_name: tap-mambu
@@ -27,3 +22,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://api.mambu.com/?shell
+entity_type: api

@@ -1,9 +1,4 @@
 description: Online Ticketing Platform
-domain:
-  description: Online Ticketing Platform
-  name: Ticket Tailor API
-  type: api
-  url: https://developers.tickettailor.com/#ticket-tailor-api
 label: Ticket Tailor
 name: tickettailor
 singer_name: tap-tickettailor
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://developers.tickettailor.com/#ticket-tailor-api
+entity_type: api

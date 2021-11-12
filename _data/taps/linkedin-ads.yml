@@ -1,9 +1,4 @@
 description: LinkedIn Ad Platform
-domain:
-  description: LinkedIn Ad Platform
-  name: LinkedIn Ads API
-  type: api
-  url: https://docs.microsoft.com/en-us/linkedin/marketing/
 label: LinkedIn Ads
 name: linkedin-ads
 singer_name: tap-linkedin-ads
@@ -45,3 +40,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://docs.microsoft.com/en-us/linkedin/marketing/
+entity_type: api

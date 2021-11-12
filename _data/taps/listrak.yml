@@ -1,9 +1,4 @@
 description: Digital Marketing Platform
-domain:
-  description: Digital Marketing Platform
-  name: Listrak API
-  type: api
-  url: https://webservices.listrak.com/SoapWSDL.aspx
 label: Listrak
 name: listrak
 singer_name: tap-listrak
@@ -27,3 +22,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://webservices.listrak.com/SoapWSDL.aspx
+entity_type: api

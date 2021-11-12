@@ -1,9 +1,4 @@
 description: Real-time Streaming Platform
-domain:
-  description: Real-time Streaming Platform
-  name: Amazon Kinesis Stream
-  type: api
-  url: https://aws.amazon.com/kinesis/
 label: Kinesis
 name: target-kinesis
 singer_name: target-kinesis
@@ -27,3 +22,5 @@ variants:
   pip_url: git+https://github.com/ProntoPro/target-kinesis.git
   repo: https://github.com/ProntoPro/target-kinesis
   settings: []
+entity_url: https://aws.amazon.com/kinesis/
+entity_type: api

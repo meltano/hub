@@ -1,9 +1,4 @@
 description: Shipping Software for Ecommerce Fulfillment
-domain:
-  description: Shipping Software for Ecommerce Fulfillment
-  name: ShipStation API
-  type: api
-  url: https://www.shipstation.com/developer-api/
 label: ShipStation
 name: shipstation
 singer_name: tap-shipstation
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.shipstation.com/developer-api/
+entity_type: api

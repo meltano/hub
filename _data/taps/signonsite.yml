@@ -1,9 +1,4 @@
 description: Connected Worker Platform for Construction
-domain:
-  description: Connected Worker Platform for Construction
-  name: SignOnSite API
-  type: api
-  url: https://support.signonsite.com.au/hc/en-us/articles/360003319376-API
 label: SignOnSite
 name: signonsite
 singer_name: tap-signonsite
@@ -27,3 +22,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://support.signonsite.com.au/hc/en-us/articles/360003319376-API
+entity_type: api

@@ -1,9 +1,4 @@
 description: Restaurant Management Software
-domain:
-  description: Restaurant Management Software
-  name: MarketMan API
-  type: api
-  url: https://api-doc.marketman.com/?version=latest#intro
 label: MarketMan
 name: marketman
 singer_name: tap-marketman
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://api-doc.marketman.com/?version=latest#intro
+entity_type: api

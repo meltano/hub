@@ -1,9 +1,4 @@
 description: CRM Platform
-domain:
-  description: CRM Platform
-  name: Dynamics API
-  type: api
-  url: https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/use-microsoft-dynamics-365-web-api
 label: Dynamics
 name: dynamics
 singer_name: tap-dynamics
@@ -72,3 +67,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/use-microsoft-dynamics-365-web-api
+entity_type: api

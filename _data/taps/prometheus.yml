@@ -1,9 +1,4 @@
 description: Monitoring System and Time Series Database
-domain:
-  description: Monitoring System and Time Series Database
-  name: Prometheus Database
-  type: database
-  url: https://prometheus.io/
 label: Prometheus
 name: prometheus
 singer_name: tap-prometheus
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://prometheus.io/
+entity_type: database

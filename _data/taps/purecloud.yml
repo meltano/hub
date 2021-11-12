@@ -1,9 +1,4 @@
 description: Contact Center Management Platform
-domain:
-  description: Contact Center Management Platform
-  name: Genesys Cloud API
-  type: api
-  url: https://developer.genesys.cloud/api/rest/v2/
 label: Genesys Cloud
 name: purecloud
 singer_name: tap-purecloud
@@ -81,3 +76,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://developer.genesys.cloud/api/rest/v2/
+entity_type: api

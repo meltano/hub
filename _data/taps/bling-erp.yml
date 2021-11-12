@@ -1,9 +1,4 @@
 description: ERP Software
-domain:
-  description: ERP Software
-  name: Bling ERP API
-  type: api
-  url: https://ajuda.bling.com.br/hc/pt-br/categories/360002186394-API-para-Desenvolvedores
 label: Bling ERP
 name: bling-erp
 singer_name: tap-bling-erp
@@ -27,3 +22,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://ajuda.bling.com.br/hc/pt-br/categories/360002186394-API-para-Desenvolvedores
+entity_type: api

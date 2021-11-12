@@ -1,9 +1,4 @@
 description: Marketing Platform
-domain:
-  description: Marketing Platform
-  name: Pepperjam API
-  type: api
-  url: https://support.pepperjam.com/s/advertiser-api-documentation
 label: Pepperjam
 name: pepperjam
 singer_name: tap-pepperjam
@@ -27,3 +22,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://support.pepperjam.com/s/advertiser-api-documentation
+entity_type: api

@@ -1,9 +1,4 @@
 description: IMB Db2 Relational Database
-domain:
-  description: IMB Db2 Relational Database
-  name: Db2 Database
-  type: database
-  url: https://www.ibm.com/analytics/db2
 label: IBM Db2
 name: db2
 singer_name: tap-db2
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.ibm.com/analytics/db2
+entity_type: database

@@ -1,9 +1,4 @@
 description: Review Website
-domain:
-  description: Review Website
-  name: Reviews.io API
-  type: api
-  url: https://www.reviews.co.uk/
 label: Reviews.io
 name: reviewscouk
 singer_name: tap-reviewscouk
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.reviews.co.uk/
+entity_type: api

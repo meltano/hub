@@ -1,8 +1,4 @@
 description: Generic data extractor of CSV (comma separated value) files
-domain:
-  name: Comma Separated Values (CSV) file
-  type: file
-  url: https://en.wikipedia.org/wiki/Comma-separated_values
 label: CSV
 name: csv
 singer_name: tap-csv
@@ -51,9 +47,9 @@ variants:
   - discover
 - default: false
   capabilities:
-    - discover
-    - state
-    - catalog
+  - discover
+  - state
+  - catalog
   maintenance_status: Unknown
   name: meltano
   pip_url: git+https://gitlab.com/meltano/tap-csv.git
@@ -70,3 +66,5 @@ variants:
   settings_group_validation:
   - - files
   - - csv_files_definition
+entity_url: https://en.wikipedia.org/wiki/Comma-separated_values
+entity_type: file

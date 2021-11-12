@@ -1,9 +1,4 @@
 description: Code hosting Platform
-domain:
-  description: Code hosting Platform
-  name: GitHub Org scope API
-  type: api
-  url: https://docs.github.com/en/rest
 label: GitHub Org
 name: github-org-projects
 singer_name: tap-github-org-projects
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://docs.github.com/en/rest
+entity_type: api

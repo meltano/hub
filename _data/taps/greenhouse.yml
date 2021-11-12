@@ -1,9 +1,4 @@
 description: Recruiting Management Tool
-domain:
-  description: Recruiting Management Tool
-  name: Greenhouse Harvest API
-  type: api
-  url: https://developers.greenhouse.io/harvest.html
 label: Greenhouse
 name: greenhouse
 singer_name: tap-greenhouse
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://developers.greenhouse.io/harvest.html
+entity_type: api

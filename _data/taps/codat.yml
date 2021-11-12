@@ -1,9 +1,4 @@
 description: Financial Integration Software
-domain:
-  description: Financial Integration Software
-  name: Codat API
-  type: api
-  url: https://www.codat.io/
 label: Codat
 name: codat
 singer_name: tap-codat
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.codat.io/
+entity_type: api

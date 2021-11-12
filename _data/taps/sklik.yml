@@ -1,9 +1,4 @@
 description: Marketing Platform
-domain:
-  description: Marketing Platform
-  name: Sklik API
-  type: api
-  url: https://api.sklik.cz/drak/
 label: Sklik
 name: sklik
 singer_name: tap-sklik
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://api.sklik.cz/drak/
+entity_type: api

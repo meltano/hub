@@ -1,9 +1,4 @@
 description: Digital Asset Management Platform
-domain:
-  description: Digital Asset Management Platform
-  name: Bynder API
-  type: api
-  url: https://www.bynder.com/en/
 label: Bynder
 name: bynder
 singer_name: tap-bynder
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.bynder.com/en/
+entity_type: api

@@ -1,9 +1,4 @@
 description: Time Tracking Software
-domain:
-  description: Time Tracking Software
-  name: Clockify API
-  type: api
-  url: https://clockify.me/
 label: Clockify
 name: clockify
 singer_name: tap-clockify
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://clockify.me/
+entity_type: api

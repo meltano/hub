@@ -1,9 +1,4 @@
 description: Digital Library
-domain:
-  description: Digital Library
-  name: Open Library API
-  type: api
-  url: https://openlibrary.org/developers/api
 label: Open Library
 name: open-library
 singer_name: tap-open-library
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://openlibrary.org/developers/api
+entity_type: api

@@ -1,18 +1,15 @@
 description: For loading data into [YAML](https://yaml.org/)
-domain:
-  description: Serverless S3 Database
-  name: YAML File
-  type: file
-  url: https://yaml.org/
 label: YAML
 name: yaml
 singer_name: target-yaml
 type: target
 variants:
-    - name: meltanolabs
-      repo: https://github.com/MeltanoLabs/target-yaml
-      pip_url: git+https://github.com/MeltanoLabs/target-yaml.git
-      default: true
-      maintenance_status: Active
-      meltano_sdk: true
-      settings: []
+- name: meltanolabs
+  repo: https://github.com/MeltanoLabs/target-yaml
+  pip_url: git+https://github.com/MeltanoLabs/target-yaml.git
+  default: true
+  maintenance_status: Active
+  meltano_sdk: true
+  settings: []
+entity_url: https://yaml.org/
+entity_type: file

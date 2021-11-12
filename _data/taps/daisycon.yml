@@ -1,9 +1,4 @@
 description: Affiliate Marketing Platform
-domain:
-  description: Affiliate Marketing Platform
-  name: Daisycon API
-  type: api
-  url: https://www.daisycon.com/en/developers/api/
 label: Daisycon
 name: daisycon
 singer_name: tap-daisycon
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.daisycon.com/en/developers/api/
+entity_type: api

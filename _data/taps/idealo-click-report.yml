@@ -1,9 +1,4 @@
 description: Flight Comparison Tool
-domain:
-  description: Flight Comparison Tool
-  name: Idealo API
-  type: api
-  url: https://business.idealo.com/de/assets/api/click-report.html#_general
 label: Idealo
 name: idealo-click-report
 singer_name: tap-idealo-click-report
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://business.idealo.com/de/assets/api/click-report.html#_general
+entity_type: api

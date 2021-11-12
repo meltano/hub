@@ -1,9 +1,4 @@
 description: B2B SaaS Billing Software
-domain:
-  description: B2B SaaS Billing Software
-  name: Chargify API
-  type: api
-  url: https://reference.chargify.com/v1/basics/introduction
 label: Chargify
 name: chargify
 singer_name: tap-chargify
@@ -63,3 +58,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://reference.chargify.com/v1/basics/introduction
+entity_type: api

@@ -1,9 +1,4 @@
 description: Automated Accounts Receivable Software Solution
-domain:
-  description: Automated Accounts Receivable Software Solution
-  name: Invoiced API
-  type: api
-  url: https://www.invoiced.com/
 label: Invoiced
 name: invoiced
 singer_name: tap-invoiced
@@ -27,3 +22,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.invoiced.com/
+entity_type: api

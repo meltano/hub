@@ -1,9 +1,4 @@
 description: E-Commerce Logistics Platform
-domain:
-  description: E-Commerce Logistics Platform
-  name: Estoca API
-  type: api
-  url: https://estoca.com.br/
 label: Estoca
 name: estoca
 singer_name: tap-estoca
@@ -27,3 +22,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://estoca.com.br/
+entity_type: api

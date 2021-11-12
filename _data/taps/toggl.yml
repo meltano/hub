@@ -1,9 +1,4 @@
 description: Time Tracking Software
-domain:
-  description: Time Tracking Software
-  name: Toggl API
-  type: api
-  url: https://www.toggl.com/
 label: Toggl
 name: toggl
 singer_name: tap-toggl
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.toggl.com/
+entity_type: api

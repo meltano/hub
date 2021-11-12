@@ -1,9 +1,4 @@
 description: Restaurant Point of Sale and Management System
-domain:
-  description: Restaurant Point of Sale and Management System
-  name: Toast API
-  type: api
-  url: https://pos.toasttab.com/
 label: Toast
 name: toast
 singer_name: tap-toast
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://pos.toasttab.com/
+entity_type: api

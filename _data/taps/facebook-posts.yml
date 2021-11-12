@@ -1,9 +1,4 @@
 description: Facebook Posts Graph API
-domain:
-  description: Facebook Posts Graph API
-  name: Facebook Posts API
-  type: api
-  url: https://developers.facebook.com/docs/graph-api
 label: Facebook Posts
 name: facebook-posts
 singer_name: tap-facebook-posts
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://developers.facebook.com/docs/graph-api
+entity_type: api

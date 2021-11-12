@@ -1,9 +1,4 @@
 description: Project Management Software
-domain:
-  description: Project Management Software
-  name: Teamwork API
-  type: api
-  url: https://developer.teamwork.com/
 label: Teamwork
 name: teamwork
 singer_name: tap-teamwork
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://developer.teamwork.com/
+entity_type: api

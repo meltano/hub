@@ -1,9 +1,4 @@
 description: Identity Provider
-domain:
-  description: Identity Provider
-  name: Okta API
-  type: api
-  url: https://developer.okta.com/docs/reference/
 label: Okta
 name: okta
 singer_name: tap-okta
@@ -27,3 +22,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://developer.okta.com/docs/reference/
+entity_type: api

@@ -1,9 +1,4 @@
 description: Fulfillment Automation
-domain:
-  description: Fulfillment Automation
-  name: Starshipit API
-  type: api
-  url: https://github.com/Zookal/tap-starshipit
 label: Starshipit
 name: starshipit
 singer_name: tap-starshipit
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://github.com/Zookal/tap-starshipit
+entity_type: api

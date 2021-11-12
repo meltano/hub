@@ -1,9 +1,4 @@
 description: Event Management and Ticketing Platform
-domain:
-  description: Event Management and Ticketing Platform
-  name: Eventbrite API
-  type: api
-  url: https://www.eventbrite.com/
 label: Eventbrite
 name: eventbrite
 singer_name: tap-eventbrite
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.eventbrite.com/
+entity_type: api

@@ -1,9 +1,4 @@
 description: B2B Marketing Automation Software
-domain:
-  description: B2B Marketing Automation Software
-  name: Pardot API
-  type: api
-  url: https://developer.pardot.com/kb/api-version-3/import/
 label: Pardot
 name: target-pardot
 singer_name: target-pardot
@@ -15,3 +10,5 @@ variants:
   pip_url: git+https://github.com/anelendata/target-pardot.git
   repo: https://github.com/anelendata/target-pardot
   settings: []
+entity_url: https://developer.pardot.com/kb/api-version-3/import/
+entity_type: api

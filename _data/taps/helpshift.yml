@@ -1,9 +1,4 @@
 description: Customer Service Platform
-domain:
-  description: Customer Service Platform
-  name: Helpshift API
-  type: api
-  url: https://apidocs.helpshift.com/
 label: Helpshift
 name: helpshift
 singer_name: tap-helpshift
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://apidocs.helpshift.com/
+entity_type: api

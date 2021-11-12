@@ -1,8 +1,4 @@
 description: Subscription payments platform
-domain:
-  name: ReCharge API
-  type: api
-  url: https://rechargepayments.com/developers/
 label: ReCharge
 name: recharge
 singer_name: tap-recharge
@@ -42,3 +38,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://rechargepayments.com/developers/
+entity_type: api

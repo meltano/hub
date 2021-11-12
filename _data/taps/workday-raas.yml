@@ -1,9 +1,4 @@
 description: Enterprise Management Software
-domain:
-  description: Enterprise Management Software
-  name: Workday API
-  type: api
-  url: https://community.workday.com/api
 label: Workday
 name: workday-raas
 singer_name: tap-workday-raas
@@ -27,3 +22,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://community.workday.com/api
+entity_type: api

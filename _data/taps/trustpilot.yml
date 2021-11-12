@@ -1,9 +1,4 @@
 description: Customer Review Website
-domain:
-  description: Customer Review Website
-  name: TrustPilot API
-  type: api
-  url: https://developers.trustpilot.com/
 label: TrustPilot
 name: trustpilot
 singer_name: tap-trustpilot
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://developers.trustpilot.com/
+entity_type: api

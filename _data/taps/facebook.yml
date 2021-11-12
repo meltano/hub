@@ -1,8 +1,4 @@
 description: Advertising Platform
-domain:
-  name: Facebook Ads API
-  type: api
-  url: https://developers.facebook.com/docs/marketing-apis
 label: Facebook Ads
 name: facebook
 singer_name: tap-facebook
@@ -124,3 +120,5 @@ variants:
   - - account_id
     - access_token
     - start_date
+entity_url: https://developers.facebook.com/docs/marketing-apis
+entity_type: api

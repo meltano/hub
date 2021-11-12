@@ -1,9 +1,4 @@
 description: Social Fitness
-domain:
-  description: Social Fitness 
-  name: Peloton API
-  type: api
-  url: https://www.onepeloton.com/
 label: Peloton
 name: peloton
 singer_name: tap-peloton
@@ -13,25 +8,29 @@ variants:
   maintenance_status: Active
   meltano_sdk: true
   name: meltanolabs
-  pip_url: 'git+https://github.com/MeltanoLabs/tap-peloton.git'
+  pip_url: git+https://github.com/MeltanoLabs/tap-peloton.git
   repo: https://github.com/MeltanoLabs/tap-peloton
   settings_group_validation:
-    - ['username','password']
-  settings: 
-    - name: username
-      label: Username
-      description: The email you use to log into Peloton.
-    - name: password
-      label: Password
-      description: Your Peloton password.
-      kind: password
-    - name: recent_workouts_number
-      label: Number of Workouts to Fetch
-      default: 5
-      kind: integer
-      description: The number of workouts to fetch. This is an integer that defaults to 5.
+  - - username
+    - password
+  settings:
+  - name: username
+    label: Username
+    description: The email you use to log into Peloton.
+  - name: password
+    label: Password
+    description: Your Peloton password.
+    kind: password
+  - name: recent_workouts_number
+    label: Number of Workouts to Fetch
+    default: 5
+    kind: integer
+    description: The number of workouts to fetch. This is an integer that defaults
+      to 5.
   capabilities:
-    - catalog
-    - discover
-    - sync
-    - state
+  - catalog
+  - discover
+  - sync
+  - state
+entity_url: https://www.onepeloton.com/
+entity_type: api

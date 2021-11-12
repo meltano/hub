@@ -1,9 +1,4 @@
-description: Lord of the Rings API 
-domain:
-  description: Lord of the Rings API
-  name: The One API to rule them all 
-  type: api
-  url: https://the-one-api.dev/
+description: Lord of the Rings API
 label: The One API
 name: lotr
 singer_name: tap-lotr
@@ -24,3 +19,5 @@ variants:
   - name: api_key
     label: API Key
     description: Access token obtained from the [account page](https://the-one-api.dev/account)
+entity_url: https://the-one-api.dev/
+entity_type: api

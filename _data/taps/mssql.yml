@@ -1,9 +1,4 @@
 description: Microsoft SQL Server
-domain:
-  description: Microsoft SQL Server
-  name: Microsoft SQL Server Database
-  type: database
-  url: https://www.microsoft.com/en-us/sql-server/sql-server-2019
 label: Microsoft SQL Server
 name: mssql
 singer_name: tap-mssql
@@ -37,3 +32,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.microsoft.com/en-us/sql-server/sql-server-2019
+entity_type: database

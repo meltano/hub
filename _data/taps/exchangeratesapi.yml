@@ -1,9 +1,4 @@
 description: Exchange Rates API
-domain:
-  description: Exchange Rates API
-  name: Exchangeratesapi.io API
-  type: api
-  url: https://exchangeratesapi.io/
 label: Exchangeratesapi.io
 name: exchangeratesapi
 singer_name: tap-exchangeratesapi
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://exchangeratesapi.io/
+entity_type: api

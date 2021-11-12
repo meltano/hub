@@ -1,9 +1,4 @@
 description: Recruiting Workflow Software
-domain:
-  description: Recruiting Workflow Software
-  name: Process Street API
-  type: api
-  url: https://developer.process.st/
 label: Process Street
 name: process-street
 singer_name: tap-process-street
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://developer.process.st/
+entity_type: api

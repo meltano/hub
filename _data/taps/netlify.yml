@@ -1,9 +1,4 @@
 description: Web Hosting Platform
-domain:
-  description: Web Hosting Platform
-  name: Netlify API
-  type: api
-  url: https://open-api.netlify.com/
 label: Netlify
 name: netlify
 singer_name: tap-netlify
@@ -31,3 +26,5 @@ variants:
     label: User Agent
     description: The name of your app and a contact email address should the API provider
       need to contact you for any reason.
+entity_url: https://open-api.netlify.com/
+entity_type: api

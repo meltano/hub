@@ -1,9 +1,4 @@
 description: Affiliate Marketing Network
-domain:
-  description: Affiliate Marketing Network
-  name: Awin Advertiser API
-  type: api
-  url: https://wiki.awin.com/index.php/Advertiser_API
 label: Awin Advertiser
 name: awin-advertiser
 singer_name: tap-awin-advertiser
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://wiki.awin.com/index.php/Advertiser_API
+entity_type: api

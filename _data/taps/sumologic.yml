@@ -1,9 +1,4 @@
 description: Cloud Log Management, Monitoring, SIEM Tools
-domain:
-  description: Cloud Log Management, Monitoring, SIEM Tools
-  name: Sumologic API
-  type: api
-  url: https://www.sumologic.com/
 label: Sumo Logic
 name: sumologic
 singer_name: tap-sumologic
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.sumologic.com/
+entity_type: api

@@ -1,9 +1,4 @@
 description: Partnership Automation Software
-domain:
-  description: Partnership Automation Software
-  name: Impact API
-  type: api
-  url: https://developer.impact.com/default
 label: Impact
 name: impact
 singer_name: tap-impact
@@ -27,3 +22,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://developer.impact.com/default
+entity_type: api

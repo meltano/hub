@@ -1,8 +1,4 @@
 description: MySQL / MariaDB database extractor
-domain:
-  name: MySQL or MariaDB database
-  type: database
-  url: https://www.mysql.com/
 label: MySQL / MariaDB
 name: mysql
 singer_name: tap-mysql
@@ -58,3 +54,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.mysql.com/
+entity_type: database

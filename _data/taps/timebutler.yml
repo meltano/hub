@@ -1,9 +1,4 @@
 description: Time Management Software
-domain:
-  description: Time Management Software
-  name: Timebutler API
-  type: api
-  url: https://timebutler.de/
 label: Timebutler
 name: timebutler
 singer_name: tap-timebutler
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://timebutler.de/
+entity_type: api
