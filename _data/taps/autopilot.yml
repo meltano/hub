@@ -7,7 +7,7 @@ variants:
 - default: true
   maintenance_status: Unknown
   name: singer-io
-  pip_url: git+https://github.com/singer-io/tap-autopilot.git
+  pip_url: tap-autopilot
   repo: https://github.com/singer-io/tap-autopilot
   settings: []
   capabilities:

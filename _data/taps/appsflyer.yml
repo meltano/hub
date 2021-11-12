@@ -8,7 +8,7 @@ variants:
 - default: true
   maintenance_status: Unknown
   name: singer-io
-  pip_url: git+https://github.com/singer-io/tap-appsflyer.git
+  pip_url: tap-appsflyer
   repo: https://github.com/singer-io/tap-appsflyer
   settings: []
   capabilities:

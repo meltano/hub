@@ -43,7 +43,7 @@ variants:
 - default: true
   maintenance_status: Unknown
   name: singer-io
-  pip_url: git+https://github.com/singer-io/tap-dynamodb.git
+  pip_url: tap-dynamodb
   repo: https://github.com/singer-io/tap-dynamodb
   settings: []
   capabilities:

@@ -7,7 +7,7 @@ variants:
 - default: true
   maintenance_status: Unknown
   name: singer-io
-  pip_url: git+https://github.com/singer-io/tap-zendesk-chat.git
+  pip_url: tap-zendesk-chat
   repo: https://github.com/singer-io/tap-zendesk-chat
   settings: []
   capabilities:

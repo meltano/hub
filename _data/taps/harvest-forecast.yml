@@ -7,7 +7,7 @@ variants:
 - default: true
   maintenance_status: Unknown
   name: singer-io
-  pip_url: git+https://github.com/singer-io/tap-harvest-forecast.git
+  pip_url: tap-harvest-forecast
   repo: https://github.com/singer-io/tap-harvest-forecast
   settings: []
   capabilities:

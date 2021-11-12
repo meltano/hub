@@ -61,7 +61,7 @@ variants:
 - default: true
   maintenance_status: Unknown
   name: singer-io
-  pip_url: git+https://github.com/singer-io/tap-kustomer.git
+  pip_url: tap-kustomer
   repo: https://github.com/singer-io/tap-kustomer
   settings: []
   capabilities:

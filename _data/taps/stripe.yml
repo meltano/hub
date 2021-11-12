@@ -30,7 +30,7 @@ variants:
   maintenance_status: Active
   name: singer-io
   docs: https://hub.meltano.com/extractors/stripe.html
-  pip_url: git+https://github.com/singer-io/tap-stripe.git
+  pip_url: tap-stripe
   repo: https://github.com/singer-io/tap-stripe
   capabilities:
   - catalog

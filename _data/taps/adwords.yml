@@ -12,7 +12,7 @@ variants:
   default: true
   maintenance_status: Active
   name: singer-io
-  pip_url: git+https://github.com/singer-io/tap-adwords.git
+  pip_url: tap-adwords
   repo: https://github.com/singer-io/tap-adwords
   settings:
   - description: Your Developer Token for Google AdWord Application

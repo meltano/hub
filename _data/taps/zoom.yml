@@ -42,7 +42,7 @@ variants:
 - default: false
   maintenance_status: Unknown
   name: singer-io
-  pip_url: git+https://github.com/singer-io/tap-zoom.git
+  pip_url: tap-zoom
   repo: https://github.com/singer-io/tap-zoom
   settings: []
   capabilities:
