@@ -1,9 +1,4 @@
 description: Hotel CRM and Email Marketing Software
-domain:
-  description: Hotel CRM and Email Marketing Software
-  name: Revinate API
-  type: api
-  url: https://porter.revinate.com/documentation
 label: Revinate
 name: revinate
 singer_name: tap-revinate
@@ -27,3 +22,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://porter.revinate.com/documentation
+entity_type: api

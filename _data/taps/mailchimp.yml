@@ -1,9 +1,4 @@
 description: Integrated Marketing Platform
-domain:
-  description: Integrated Marketing Platform
-  name: Mailchimp API
-  type: api
-  url: https://mailchimp.com/developer/marketing/api/
 label: Mailchimp
 name: mailchimp
 singer_name: tap-mailchimp
@@ -27,3 +22,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://mailchimp.com/developer/marketing/api/
+entity_type: api

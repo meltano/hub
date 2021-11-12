@@ -1,9 +1,4 @@
 description: Space Analytics Platform
-domain:
-  description: Space Analytics Platform
-  name: Density API
-  type: api
-  url: https://www.density.io/
 label: Density
 name: density
 singer_name: tap-density
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.density.io/
+entity_type: api

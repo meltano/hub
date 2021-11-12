@@ -1,9 +1,4 @@
 description: Construction Management Software
-domain:
-  description: Construction Management Software
-  name: Aconex API
-  type: api
-  url: https://help.aconex.com/aconex/aconex-apis
 label: Aconex
 name: aconex
 singer_name: tap-aconex
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://help.aconex.com/aconex/aconex-apis
+entity_type: api

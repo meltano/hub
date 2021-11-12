@@ -1,9 +1,4 @@
 description: B2C Marketing Automation Platform
-domain:
-  description: B2C Marketing Automation Platform
-  name: Selligent API
-  type: api
-  url: https://www.selligent.com/
 label: Selligent
 name: selligent
 singer_name: tap-selligent
@@ -27,3 +22,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.selligent.com/
+entity_type: api

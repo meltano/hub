@@ -1,9 +1,4 @@
 description: Customer Communication Platform
-domain:
-  description: Customer Communication Platform
-  name: FrontApp API
-  type: api
-  url: https://frontapp.com/
 label: FrontApp
 name: frontapp
 singer_name: tap-frontapp
@@ -27,3 +22,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://frontapp.com/
+entity_type: api

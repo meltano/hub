@@ -1,9 +1,4 @@
 description: Billing and Revenue Automation Platform
-domain:
-  description: Billing and Revenue Automation Platform
-  name: Ordway API
-  type: api
-  url: https://www.ordwaylabs.com/
 label: Ordway
 name: ordway
 singer_name: tap-ordway
@@ -36,3 +31,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.ordwaylabs.com/
+entity_type: api

@@ -1,9 +1,4 @@
 description: Search Campaign Management
-domain:
-  description: Search Campaign Management
-  name: Google Search Ads 360 API
-  type: api
-  url: https://developers.google.com/search-ads/v2/reference
 label: Google Search Ads 360
 name: search-ads
 singer_name: tap-search-ads
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://developers.google.com/search-ads/v2/reference
+entity_type: api

@@ -1,8 +1,4 @@
 description: PostgreSQL database extractor
-domain:
-  name: PostgreSQL
-  type: database
-  url: https://www.postgresql.org/
 label: PostgreSQL
 name: postgres
 singer_name: tap-postgres
@@ -80,3 +76,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.postgresql.org/
+entity_type: database

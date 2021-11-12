@@ -1,9 +1,4 @@
 description: Walkability Services
-domain:
-  description: Walkability Services
-  name: Walk Score API
-  type: api
-  url: https://www.walkscore.com/professional/api.php
 label: Walk Score
 name: walkscore
 singer_name: tap-walkscore
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.walkscore.com/professional/api.php
+entity_type: api

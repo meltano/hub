@@ -1,9 +1,4 @@
 description: Digital Marketing and Growth Marketing Platform
-domain:
-  description: Digital Marketing and Growth Marketing Platform
-  name: AdRoll API
-  type: api
-  url: https://www.adroll.com/
 label: AdRoll
 name: adroll
 singer_name: tap-adroll
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.adroll.com/
+entity_type: api

@@ -1,8 +1,4 @@
 description: App and website analytics platform hosted by Google
-domain:
-  name: Google Analytics Reporting API
-  type: api
-  url: https://developers.google.com/analytics/devguides/reporting/core/v4/
 label: Google Analytics
 name: google-analytics
 singer_name: tap-google-analytics
@@ -83,3 +79,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://developers.google.com/analytics/devguides/reporting/core/v4/
+entity_type: api

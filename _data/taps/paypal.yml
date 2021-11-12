@@ -1,9 +1,4 @@
 description: Online Payments System
-domain:
-  description: Online Payments System
-  name: PayPal API
-  type: api
-  url: https://www.paypal.com/us/home
 label: PayPal
 name: paypal
 singer_name: tap-paypal
@@ -27,3 +22,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.paypal.com/us/home
+entity_type: api

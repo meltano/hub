@@ -7,11 +7,8 @@ All Singer definitions are stored in `/_data/taps/` or `/_data/targets`. The min
 
 ```yaml
 description: General description of what the company behind the API does
-domain:
-  description: Cloud-based Warehouse Management System (WMS)
-  name: Name of the API e.g. Marketo API
-  type: Review the JSON Schema for latest options. Currently api, file, database.
-  url: URL of the developer documentation or website
+entity_type: Review the JSON Schema for latest options. Currently api, file, database.
+entity_url: URL of the developer documentation or website
 label: Properly formatted label of the connector
 name: The unique name of the connector
 singer_name: The Singer specific name of the connector. Typically tap-<name> or target-<name>

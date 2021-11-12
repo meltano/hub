@@ -1,9 +1,4 @@
 description: Object Storage
-domain:
-  description: Object Storage
-  name: Azure Blob Storage
-  type: file
-  url: https://azure.microsoft.com/en-us/services/storage/blobs/
 label: Azure Blob Storage
 name: target-azureblobstorage
 singer_name: target-azureblobstorage
@@ -33,3 +28,5 @@ variants:
   pip_url: git+https://github.com/olehegi/target-azureblobstorage.git
   repo: https://github.com/olehegi/target-azureblobstorage
   settings: []
+entity_url: https://azure.microsoft.com/en-us/services/storage/blobs/
+entity_type: file

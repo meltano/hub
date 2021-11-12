@@ -1,9 +1,4 @@
 description: Management API for Apple Apps
-domain:
-  description: Management API for Apple Apps
-  name: Apple App Store Connect API
-  type: api
-  url: https://developer.apple.com/app-store-connect/api/
 label: Apple AppStore
 name: appstore
 singer_name: tap-appstore
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://developer.apple.com/app-store-connect/api/
+entity_type: api

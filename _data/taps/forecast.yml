@@ -1,9 +1,4 @@
 description: Project Management Software
-domain:
-  description: Project Management Software
-  name: Forecast App API
-  type: api
-  url: https://www.forecast.app/
 label: Forecast
 name: forecast
 singer_name: tap-forecast
@@ -27,3 +22,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.forecast.app/
+entity_type: api

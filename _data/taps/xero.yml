@@ -1,9 +1,4 @@
 description: Accounting Software
-domain:
-  description: Accounting Software
-  name: Xero API
-  type: api
-  url: https://developer.xero.com/documentation/
 label: Xero
 name: xero
 singer_name: tap-xero
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://developer.xero.com/documentation/
+entity_type: api

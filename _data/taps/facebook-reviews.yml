@@ -1,9 +1,4 @@
 description: Advertising Platform
-domain:
-  description: Advertising Platform
-  name: Facebook Reviews API
-  type: api
-  url: https://developers.facebook.com/docs/graph-api/
 label: Facebook Reviews
 name: facebook-reviews
 singer_name: tap-facebook-reviews
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://developers.facebook.com/docs/graph-api/
+entity_type: api

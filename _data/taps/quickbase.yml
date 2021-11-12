@@ -1,9 +1,4 @@
 description: Low-code Platform
-domain:
-  description: Low-code Platform
-  name: Quickbase API
-  type: api
-  url: https://help.quickbase.com/api-guide/intro.html
 label: Quickbase
 name: quickbase
 singer_name: tap-quickbase
@@ -27,3 +22,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://help.quickbase.com/api-guide/intro.html
+entity_type: api

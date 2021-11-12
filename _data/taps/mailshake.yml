@@ -1,9 +1,4 @@
 description: Sales Engagement & Automation Software
-domain:
-  description: Sales Engagement & Automation Software
-  name: Mailshake API
-  type: api
-  url: https://api-docs.mailshake.com/
 label: Mailshake
 name: mailshake
 singer_name: tap-mailshake
@@ -27,3 +22,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://api-docs.mailshake.com/
+entity_type: api

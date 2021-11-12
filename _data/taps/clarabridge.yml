@@ -1,9 +1,4 @@
 description: Customer Experience Management Platform
-domain:
-  description: Customer Experience Management Platform
-  name: Clarabridge API
-  type: api
-  url: https://www.programmableweb.com/api/clarabridge
 label: Clarabridge
 name: clarabridge
 singer_name: tap-clarabridge
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.programmableweb.com/api/clarabridge
+entity_type: api

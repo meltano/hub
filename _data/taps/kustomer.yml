@@ -1,9 +1,4 @@
 description: Customer Service CRM
-domain:
-  description: Customer Service CRM
-  name: Kustomer API
-  type: api
-  url: https://api.kustomerapp.com/
 label: Kustomer
 name: kustomer
 singer_name: tap-kustomer
@@ -99,3 +94,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://api.kustomerapp.com/
+entity_type: api

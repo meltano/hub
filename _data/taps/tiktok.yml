@@ -1,9 +1,4 @@
 description: Social Media Marketing Platform
-domain:
-  description: Social Media Marketing Platform
-  name: TitTok Ads API
-  type: api
-  url: https://ads.tiktok.com/marketing_api/homepage
 label: TikTok Ads
 name: tiktok
 singer_name: tap-tiktok
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://ads.tiktok.com/marketing_api/homepage
+entity_type: api

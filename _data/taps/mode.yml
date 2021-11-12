@@ -1,9 +1,4 @@
 description: Data Science Platform
-domain:
-  description: Data Science Platform
-  name: Mode API
-  type: api
-  url: https://mode.com/developer/api-reference/
 label: Mode
 name: mode
 singer_name: tap-mode
@@ -35,3 +30,5 @@ variants:
     label: User Agent
     description: The name of your app and a contact email address should the API provider
       need to contact you for any reason.
+entity_url: https://mode.com/developer/api-reference/
+entity_type: api

@@ -1,9 +1,4 @@
 description: Customer Experience Management Software
-domain:
-  description: Customer Experience Management Software
-  name: Wootric API
-  type: api
-  url: https://docs.wootric.com/api/
 label: Wootric
 name: wootric
 singer_name: tap-wootric
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://docs.wootric.com/api/
+entity_type: api

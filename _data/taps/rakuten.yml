@@ -1,9 +1,4 @@
 description: Affiliate Marketing Service Provider
-domain:
-  description: Affiliate Marketing Service Provider
-  name: Rakuten Advertising API
-  type: api
-  url: https://advhelp.rakutenmarketing.com/hc/en-us/articles/206630745-Create-a-Custom-Reporting-API
 label: Rakuten Advertising
 name: rakuten
 singer_name: tap-rakuten
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://advhelp.rakutenmarketing.com/hc/en-us/articles/206630745-Create-a-Custom-Reporting-API
+entity_type: api

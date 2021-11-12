@@ -1,9 +1,4 @@
 description: Project Management Software
-domain:
-  description: Project Management Software
-  name: Trello API
-  type: api
-  url: https://developer.atlassian.com/cloud/trello/rest/
 label: Trello
 name: trello
 singer_name: tap-trello
@@ -46,3 +41,5 @@ variants:
     - consumer_secret
     - access_token
     - access_token_secret
+entity_url: https://developer.atlassian.com/cloud/trello/rest/
+entity_type: api

@@ -1,9 +1,4 @@
 description: Remote Support Software
-domain:
-  description: Remote Support Software
-  name: LogMeIn Rescue API
-  type: api
-  url: https://secure.logmeinrescue.com/welcome/webhelp/EN/RescueAPI/API/API_Rescue_Overview.html
 label: LogMeIn Rescue
 name: logmeinrescue
 singer_name: tap-logmeinrescue
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://secure.logmeinrescue.com/welcome/webhelp/EN/RescueAPI/API/API_Rescue_Overview.html
+entity_type: api

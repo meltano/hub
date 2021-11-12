@@ -1,9 +1,4 @@
 description: Extract CSV files from S3
-domain:
-  description: Extract CSV files from S3
-  name: AWS S3 CSV File Extract
-  type: api
-  url: https://aws.amazon.com/s3/
 label: AWS S3 CSV
 name: s3-csv
 singer_name: tap-s3-csv
@@ -36,3 +31,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://aws.amazon.com/s3/
+entity_type: api

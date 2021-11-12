@@ -1,8 +1,4 @@
 description: Video conferencing software
-domain:
-  name: Zoom API
-  type: api
-  url: https://marketplace.zoom.us/docs/api-reference/introduction
 label: Zoom
 name: zoom
 singer_name: tap-zoom
@@ -52,3 +48,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://marketplace.zoom.us/docs/api-reference/introduction
+entity_type: api

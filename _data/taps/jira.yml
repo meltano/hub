@@ -1,9 +1,4 @@
 description: Issue and Project Tracking Software
-domain:
-  description: Issue and Project Tracking Software
-  name: Jira Cloud API
-  type: api
-  url: https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/
 label: Jira
 name: jira
 singer_name: tap-jira
@@ -70,3 +65,5 @@ variants:
   - name: user_agent
     label: User Agent
     value: tap-jira via Meltano
+entity_url: https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/
+entity_type: api

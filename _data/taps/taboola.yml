@@ -1,9 +1,4 @@
 description: Mobile Campaign Manager
-domain:
-  description: Mobile Campaign Manager
-  name: Taboola Backstage API
-  type: api
-  url: https://developers.taboola.com/backstage-api/reference
 label: Taboola Backstage
 name: taboola
 singer_name: tap-taboola
@@ -27,3 +22,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://developers.taboola.com/backstage-api/reference
+entity_type: api

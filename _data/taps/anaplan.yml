@@ -1,9 +1,4 @@
 description: Cloud-based Business-planning Software
-domain:
-  description: Cloud-based Business-planning Software
-  name: Anaplan API
-  type: api
-  url: https://www.anaplan.com/
 label: Anaplan
 name: anaplan
 singer_name: tap-anaplan
@@ -27,3 +22,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.anaplan.com/
+entity_type: api

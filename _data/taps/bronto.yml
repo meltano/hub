@@ -1,9 +1,4 @@
 description: Marketing Platform
-domain:
-  description: Marketing Platform
-  name: Bronto API
-  type: api
-  url: https://bronto.com/
 label: Bronto
 name: bronto
 singer_name: tap-bronto
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://bronto.com/
+entity_type: api

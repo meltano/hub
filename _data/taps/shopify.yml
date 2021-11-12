@@ -1,8 +1,4 @@
 description: Ecommerce platform
-domain:
-  name: Shopify API
-  type: api
-  url: https://shopify.dev/docs/admin-api/rest/reference
 label: Shopify
 name: shopify
 singer_name: tap-shopify
@@ -30,3 +26,5 @@ variants:
       extraction can be expected to take.
     kind: date_iso8601
     name: start_date
+entity_url: https://shopify.dev/docs/admin-api/rest/reference
+entity_type: api

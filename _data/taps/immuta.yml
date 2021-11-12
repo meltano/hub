@@ -1,9 +1,4 @@
 description: Data Governance Solutions
-domain:
-  description: Data Governance Solutions
-  name: Immuta API
-  type: api
-  url: https://www.immuta.com/
 label: Immuta
 name: immuta
 singer_name: tap-immuta
@@ -19,3 +14,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.immuta.com/
+entity_type: api

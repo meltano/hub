@@ -1,9 +1,4 @@
 description: Ecommerce Platform
-domain:
-  description: Ecommerce Platform
-  name: BigCommerce API
-  type: api
-  url: https://www.bigcommerce.com/
 label: BigCommerce
 name: bigcommerce
 singer_name: tap-bigcommerce
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.bigcommerce.com/
+entity_type: api

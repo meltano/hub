@@ -1,8 +1,4 @@
 description: BigQuery data warehouse
-domain:
-  name: Google BigQuery data warehouse
-  type: database
-  url: https://cloud.google.com/bigquery
 label: BigQuery
 name: bigquery
 singer_name: tap-bigquery
@@ -63,3 +59,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://cloud.google.com/bigquery
+entity_type: database

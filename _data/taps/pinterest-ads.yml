@@ -1,8 +1,4 @@
 description: Advertising Platform
-domain:
-  name: Pinterest Ads API
-  type: api
-  url: https://developers.pinterest.com/docs/api/v5/
 label: Pinterest Ads
 name: pinterest
 singer_name: tap-pinterest-ads
@@ -37,3 +33,5 @@ variants:
   - name: start_date
     label: Start Date
     description: Start date to collect ad analytics from
+entity_url: https://developers.pinterest.com/docs/api/v5/
+entity_type: api

@@ -1,9 +1,4 @@
 description: Fitness Social Network
-domain:
-  description: Fitness Social Network
-  name: Strava API
-  type: api
-  url: https://developers.strava.com/docs/reference/#api-models-DetailedAthlete
 label: Strava
 name: strava
 singer_name: tap-strava
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://developers.strava.com/docs/reference/#api-models-DetailedAthlete
+entity_type: api

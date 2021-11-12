@@ -1,9 +1,4 @@
 description: Payments Platform
-domain:
-  description: Payments Platform
-  name: Adyen API
-  type: api
-  url: https://docs.adyen.com/reporting
 label: Adyen
 name: adyen
 singer_name: tap-adyen
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://docs.adyen.com/reporting
+entity_type: api

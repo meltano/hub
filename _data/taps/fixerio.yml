@@ -1,9 +1,4 @@
 description: Foreign Exchnage Rates API
-domain:
-  description: Foreign Exchnage Rates API
-  name: Fixer API
-  type: api
-  url: https://fixer.io/documentation
 label: Fixer
 name: fixerio
 singer_name: tap-fixerio
@@ -72,3 +67,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://fixer.io/documentation
+entity_type: api

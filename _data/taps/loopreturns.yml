@@ -1,9 +1,4 @@
 description: Refund platform
-domain:
-  description: Refund platform
-  name: Loop Returns api
-  type: api
-  url: https://docs.loopreturns.com/
 label: Loop Returns
 name: loopreturns
 singer_name: tap-loopreturns
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://docs.loopreturns.com/
+entity_type: api

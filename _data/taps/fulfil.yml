@@ -1,9 +1,4 @@
 description: Enterprise Resource Planning Platform
-domain:
-  description: Enterprise Resource Planning Platform
-  name: Fulfil API
-  type: api
-  url: https://www.fulfil.io/
 label: Fulfil
 name: fulfil
 singer_name: tap-fulfil
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.fulfil.io/
+entity_type: api

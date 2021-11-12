@@ -1,9 +1,4 @@
 description: Open-source distributed event streaming platform
-domain:
-  description: Open-source distributed event streaming platform
-  name: Apache Kafka
-  type: database
-  url: https://kafka.apache.org/
 label: Apache Kafka
 name: kafka
 singer_name: tap-kafka
@@ -72,3 +67,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://kafka.apache.org/
+entity_type: database

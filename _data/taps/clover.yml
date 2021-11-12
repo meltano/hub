@@ -1,9 +1,4 @@
 description: POS System & Credit Card Readers
-domain:
-  description: POS System & Credit Card Readers
-  name: Clover API
-  type: api
-  url: https://docs.clover.com/docs/making-rest-api-calls
 label: Clover
 name: clover
 singer_name: tap-clover
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://docs.clover.com/docs/making-rest-api-calls
+entity_type: api

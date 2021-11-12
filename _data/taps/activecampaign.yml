@@ -1,9 +1,4 @@
 description: Customer Experience Automation Platform
-domain:
-  description: Customer Experience Automation Platform
-  name: ActiveCampaign API
-  type: api
-  url: https://www.activecampaign.com/
 label: ActiveCampaign
 name: activecampaign
 singer_name: tap-activecampaign
@@ -27,3 +22,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.activecampaign.com/
+entity_type: api

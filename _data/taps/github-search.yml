@@ -1,9 +1,4 @@
 description: Code hosting platform
-domain:
-  description: Code hosting platform
-  name: GitHub Repository Search API
-  type: api
-  url: https://docs.github.com/en/rest
 label: GitHub Search
 name: github-search
 singer_name: tap-github
@@ -19,3 +14,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://docs.github.com/en/rest
+entity_type: api

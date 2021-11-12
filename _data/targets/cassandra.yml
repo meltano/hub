@@ -1,9 +1,4 @@
 description: NoSQL Database
-domain:
-  description: NoSQL Database
-  name: Cassandra Database
-  type: database
-  url: https://cassandra.apache.org/
 label: Cassandra
 name: target-cassandra
 singer_name: target-cassandra
@@ -15,3 +10,5 @@ variants:
   pip_url: git+https://github.com/coeff/target-cassandra.git
   repo: https://github.com/coeff/target-cassandra
   settings: []
+entity_url: https://cassandra.apache.org/
+entity_type: database

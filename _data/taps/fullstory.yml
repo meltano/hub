@@ -1,9 +1,4 @@
 description: Digital Experience Platform
-domain:
-  description: Digital Experience Platform
-  name: Fullstory API
-  type: api
-  url: https://www.fullstory.com/
 label: Fullstory
 name: fullstory
 singer_name: tap-fullstory
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.fullstory.com/
+entity_type: api

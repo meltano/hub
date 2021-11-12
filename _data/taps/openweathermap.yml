@@ -1,9 +1,4 @@
 description: Current and Forecast Weather Data Collection
-domain:
-  description: Current and Forecast Weather Data Collection
-  name: Web API 
-  type: api
-  url: https://openweathermap.org/api
 label: OpenWeatherMap
 name: openweathermap
 singer_name: tap-openweathermap
@@ -16,7 +11,10 @@ variants:
   pip_url: git+https://github.com/Matatika/tap-openweathermap.git
   repo: https://github.com/Matatika/tap-openweathermap
   settings_group_validation:
-    - ['api_key', 'current_weather_city_name', 'forecast_weather_longitude', 'forecast_weather_lattitude']
+  - - api_key
+    - current_weather_city_name
+    - forecast_weather_longitude
+    - forecast_weather_lattitude
   settings:
   - name: api_key
     label: API Key
@@ -35,3 +33,5 @@ variants:
   - catalog
   - discover
   - state
+entity_url: https://openweathermap.org/api
+entity_type: api

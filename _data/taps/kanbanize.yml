@@ -1,9 +1,4 @@
 description: Kanban Tracking Software
-domain:
-  description: Kanban Tracking Software
-  name: Kanbanize API
-  type: api
-  url: https://knowledgebase.kanbanize.com/hc/en-us/articles/360012393692-Kanbanize-REST-API-
 label: Kanbanize
 name: kanbanize
 singer_name: tap-kanbanize
@@ -27,3 +22,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://knowledgebase.kanbanize.com/hc/en-us/articles/360012393692-Kanbanize-REST-API-
+entity_type: api

@@ -1,9 +1,4 @@
 description: Support ticketing system & customer service platform
-domain:
-  description: Support ticketing system & customer service platform
-  name: Zendesk API
-  type: api
-  url: https://developer.zendesk.com/rest_api/docs/chat/introduction
 label: Zendesk Chat
 name: zendesk-chat
 singer_name: tap-zendesk-chat
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://developer.zendesk.com/rest_api/docs/chat/introduction
+entity_type: api

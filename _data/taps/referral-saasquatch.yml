@@ -1,9 +1,4 @@
 description: Referral Program Software
-domain:
-  description: Referral Program Software
-  name: Referral SaasQuatch API
-  type: api
-  url: https://docs.saasquatch.com/api/
 label: Referral SaasQuatch
 name: referral-saasquatch
 singer_name: tap-referral-saasquatch
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://docs.saasquatch.com/api/
+entity_type: api

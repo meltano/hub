@@ -1,9 +1,4 @@
 description: Resource Management and Timesheet software
-domain:
-  description: Resource Management and Timesheet software
-  name: Hub Planner API
-  type: api
-  url: https://hubplanner.com/
 label: Hub Planner
 name: hubplanner
 singer_name: tap-hubplanner
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://hubplanner.com/
+entity_type: api

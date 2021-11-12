@@ -1,8 +1,4 @@
 description: For extracting data from Snowflake
-domain:
-  name: Snowflake data warehouse
-  type: database
-  url: https://www.snowflake.com/
 label: Snowflake
 name: snowflake
 singer_name: tap-snowflake
@@ -17,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.snowflake.com/
+entity_type: database

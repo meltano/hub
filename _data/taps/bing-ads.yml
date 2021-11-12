@@ -1,8 +1,4 @@
 description: Advertising Platform
-domain:
-  name: Bing Ads API
-  type: api
-  url: https://docs.microsoft.com/en-us/advertising/guides/
 label: Bing Ads
 name: bing-ads
 singer_name: tap-bing-ads
@@ -45,3 +41,5 @@ variants:
     - refresh_token
     - developer_token
     - start_date
+entity_url: https://docs.microsoft.com/en-us/advertising/guides/
+entity_type: api

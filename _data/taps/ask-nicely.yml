@@ -1,9 +1,4 @@
 description: Customer Experience Platform
-domain:
-  description: Customer Experience Platform
-  name: AskNicely API
-  type: api
-  url: https://asknicely.asknice.ly/help/apidocs/auth
 label: AskNicely
 name: ask-nicely
 singer_name: tap-ask-nicely
@@ -31,3 +26,5 @@ variants:
     label: API Key
     documentation: https://asknicely.asknice.ly/help/apidocs/auth
     description: The API Key generated via your Ask Nicely account.
+entity_url: https://asknicely.asknice.ly/help/apidocs/auth
+entity_type: api

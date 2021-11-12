@@ -1,9 +1,4 @@
 description: Enterprise Call Analytics
-domain:
-  description: Enterprise Call Analytics
-  name: Telemetrics API
-  type: api
-  url: https://telmetrics.com/telmetrics-api
 label: Telemetrics
 name: telemetrics
 singer_name: tap-telemetrics
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://telmetrics.com/telmetrics-api
+entity_type: api

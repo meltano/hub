@@ -1,8 +1,4 @@
 description: Customer-relationship management & customer success platform
-domain:
-  name: Salesforce API
-  type: api
-  url: https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_what_is_rest_api.htm
 label: Salesforce
 name: salesforce
 singer_name: tap-salesforce
@@ -93,3 +89,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_what_is_rest_api.htm
+entity_type: api

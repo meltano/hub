@@ -1,9 +1,4 @@
 description: Financial and Merchant Services
-domain:
-  description: Financial and Merchant Services
-  name: Square API
-  type: api
-  url: https://developer.squareup.com/us/en
 label: Square
 name: square
 singer_name: tap-square
@@ -27,3 +22,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://developer.squareup.com/us/en
+entity_type: api

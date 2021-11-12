@@ -1,9 +1,4 @@
 description: Ecommerce platform
-domain:
-  description: Ecommerce platform
-  name: VNDA Ecommerce API
-  type: api
-  url: https://demo.vnda.com.br/api/v2/docs/index.html
 label: VNDA Ecommerce
 name: vnda-ecommerce
 singer_name: tap-vnda-ecommerce
@@ -27,3 +22,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://demo.vnda.com.br/api/v2/docs/index.html
+entity_type: api

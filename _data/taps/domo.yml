@@ -1,9 +1,4 @@
 description: BI Platform
-domain:
-  description: BI Platform
-  name: Domo API
-  type: api
-  url: https://developer.domo.com/docs/api-overview/api-overview
 label: Domo
 name: domo
 singer_name: tap-domo
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://developer.domo.com/docs/api-overview/api-overview
+entity_type: api

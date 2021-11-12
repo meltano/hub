@@ -8,7 +8,6 @@
         "name",
         "label",
         "type",
-        "domain",
         "variants"
     ],
     "properties": {
@@ -50,48 +49,23 @@
             "title": "Specifies the YAML file to reference",
             "description": "This key indentifies the other YAML file used to build the current file. In the context of the clean Singer files, this can point to scraped/<plugin>. For Meltano it would point to singer/<plugin>."
         },
-        "domain": {
-            "id": "#/properties/domain",
-            "type": "object",
-            "title": "The domain where the data is coming from or going to.",
-            "description": "This identifies whether the data source or destination is of a specified type.",
-            "required": [
-                "type"
+        "entity_type": {
+            "id": "#/properties/entity_type",
+            "type": "string",
+            "enum": [
+                "api",
+                "database",
+                "file"
             ],
-            "properties": {
-                "type": {
-                    "id": "#/properties/domain/properties/type",
-                    "type": "string",
-                    "enum": [
-                        "api",
-                        "database",
-                        "file"
-                    ],
-                    "title": "The domain type of the tap/target",
-                    "description": "An explanation about the purpose of this instance."
-                },
-                "name": {
-                    "id": "#/properties/domain/properties/name",
-                    "type": "string",
-                    "title": "The name schema",
-                    "description": "An explanation about the purpose of this instance."
-                },
-                "url": {
-                    "id": "#/properties/domain/properties/url",
-                    "type": "string",
-                    "format": "uri",
-                    "title": "The url of the data domain.",
-                    "description": "Links to the website represnting the database, api, etc."
-                },
-                "description": {
-                    "id": "#/properties/domain/description",
-                    "type": "string",
-                    "title": "The description schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": ""
-                }
-            },
-            "additionalProperties": false
+            "title": "The entity type of the tap/target",
+            "description": "An explanation about the purpose of this instance."
+        },
+        "entity_url": {
+            "id": "#/properties/entity_url",
+            "type": "string",
+            "format": "uri",
+            "title": "The url of the data entity.",
+            "description": "Links to the website represnting the database, api, etc."
         },
         "singer_name": {
             "id": "#/properties/singer_name",

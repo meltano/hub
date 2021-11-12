@@ -1,9 +1,4 @@
 description: Email Marketing and SMS Marketing Platform
-domain:
-  description: Email Marketing and SMS Marketing Platform
-  name: Klaviyo Metrics API
-  type: api
-  url: https://apidocs.klaviyo.com/reference/metrics
 label: Klaviyo
 name: klaviyo
 singer_name: tap-klaviyo
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://apidocs.klaviyo.com/reference/metrics
+entity_type: api

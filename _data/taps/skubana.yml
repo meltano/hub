@@ -1,9 +1,4 @@
 description: Ecommerce Operations Platform
-domain:
-  description: Ecommerce Operations Platform
-  name: Skubana API
-  type: api
-  url: https://documentation.skubana.com/
 label: Skubana
 name: skubana
 singer_name: tap-skubana
@@ -27,3 +22,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://documentation.skubana.com/
+entity_type: api

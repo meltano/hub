@@ -1,9 +1,4 @@
 description: Cloud Data Catalog
-domain:
-  description: Cloud Data Catalog
-  name: Data.world API
-  type: api
-  url: https://apidocs.data.world/toolkit/api
 label: Data.world
 name: target-datadotworld
 singer_name: target-datadotworld
@@ -15,3 +10,5 @@ variants:
   pip_url: git+https://github.com/datadotworld/target-datadotworld.git
   repo: https://github.com/datadotworld/target-datadotworld
   settings: []
+entity_url: https://apidocs.data.world/toolkit/api
+entity_type: api

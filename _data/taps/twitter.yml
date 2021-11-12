@@ -1,9 +1,4 @@
 description: Social Networking Website
-domain:
-  description: Social Networking Website
-  name: Twitter API
-  type: api
-  url: https://developer.twitter.com
 label: Twitter
 name: twitter
 singer_name: tap-twitter
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://developer.twitter.com
+entity_type: api

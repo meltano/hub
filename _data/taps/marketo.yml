@@ -1,8 +1,4 @@
 description: Marketing automation for account-based marketing
-domain:
-  name: Marketo API
-  type: api
-  url: https://developers.marketo.com/rest-api/
 label: Marketo
 name: marketo
 singer_name: tap-marketo
@@ -44,5 +40,9 @@ variants:
     label: Client Secret
   - name: start_date
     label: Start Date
-    description: Determines how much historical data will be extracted. Please be aware that the larger the time period and amount of data, the longer the initial extraction can be expected to take.
+    description: Determines how much historical data will be extracted. Please be
+      aware that the larger the time period and amount of data, the longer the initial
+      extraction can be expected to take.
     kind: date_iso8601
+entity_url: https://developers.marketo.com/rest-api/
+entity_type: api

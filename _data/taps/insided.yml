@@ -1,9 +1,4 @@
 description: Online Community Platform
-domain:
-  description: Online Community Platform
-  name: inSided API
-  type: api
-  url: https://www.insided.com/
 label: inSided
 name: insided
 singer_name: tap-insided
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.insided.com/
+entity_type: api

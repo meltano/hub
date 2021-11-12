@@ -1,9 +1,4 @@
 description: Software Obseravibility
-domain:
-  description: Software Obseravibility
-  name: NewRelic API
-  type: api
-  url: https://docs.newrelic.com/docs/apis/nerdgraph/get-started/introduction-new-relic-nerdgraph/
 label: New Relic
 name: newrelic
 singer_name: tap-newrelic
@@ -19,3 +14,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://docs.newrelic.com/docs/apis/nerdgraph/get-started/introduction-new-relic-nerdgraph/
+entity_type: api

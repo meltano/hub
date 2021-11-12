@@ -1,9 +1,4 @@
 description: NoSQL Database
-domain:
-  description: NoSQL Database
-  name: DynamoDB Database
-  type: database
-  url: https://aws.amazon.com/dynamodb/
 label: DynamoDB
 name: dynamodb
 singer_name: tap-dynamodb
@@ -99,3 +94,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://aws.amazon.com/dynamodb/
+entity_type: database

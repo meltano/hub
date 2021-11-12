@@ -1,8 +1,4 @@
 description: Support ticketing system & customer service platform
-domain:
-  name: Zendesk API
-  type: api
-  url: https://developer.zendesk.com/rest_api
 label: Zendesk
 name: zendesk
 singer_name: tap-zendesk
@@ -103,3 +99,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://developer.zendesk.com/rest_api
+entity_type: api

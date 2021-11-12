@@ -1,9 +1,4 @@
 description: Email Client
-domain:
-  description: Email Client
-  name: GMail Workplace API
-  type: api
-  url: https://www.google.com/gmail/about/
 label: GMail
 name: gmail
 singer_name: tap-gmail
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.google.com/gmail/about/
+entity_type: api

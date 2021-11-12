@@ -1,9 +1,4 @@
 description: x
-domain:
-  description: Customer Service CRM
-  name: Richpanel API
-  type: api
-  url: https://richpanel.com/
 label: Richpanel
 name: richpanel
 singer_name: tap-richpanel
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://richpanel.com/
+entity_type: api

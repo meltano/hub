@@ -1,9 +1,4 @@
 description: Venue Management Software
-domain:
-  description: Venue Management Software
-  name: Clubspeed API
-  type: api
-  url: https://clubspeed.com/
 label: Clubspeed
 name: clubspeed
 singer_name: tap-clubspeed
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://clubspeed.com/
+entity_type: api

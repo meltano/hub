@@ -1,9 +1,4 @@
 description: Partner Ecosystem Platform
-domain:
-  description: Partner Ecosystem Platform
-  name: Crossbeam API
-  type: api
-  url: https://developers.crossbeam.com/
 label: Crossbeam
 name: crossbeam
 singer_name: tap-crossbeam
@@ -27,3 +22,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://developers.crossbeam.com/
+entity_type: api

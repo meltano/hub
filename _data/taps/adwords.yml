@@ -1,8 +1,4 @@
 description: Advertising Platform
-domain:
-  name: Google Adwords API
-  type: api
-  url: https://developers.google.com/adwords/api/
 include: scraped/adwords
 label: Google Ads
 name: adwords
@@ -104,9 +100,9 @@ variants:
   - discover
 - default: false
   capabilities:
-    - properties
-    - discover
-    - state
+  - properties
+  - discover
+  - state
   maintenance_status: Active
   name: meltano
   pip_url: git+https://gitlab.com/meltano/tap-adwords.git
@@ -186,3 +182,5 @@ variants:
     - user_agent
     - customer_ids
     - start_date
+entity_url: https://developers.google.com/adwords/api/
+entity_type: api

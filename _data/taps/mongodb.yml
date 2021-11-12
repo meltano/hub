@@ -1,8 +1,4 @@
 description: General purpose, document-based, distributed database
-domain:
-  name: MongoDB database
-  type: database
-  url: https://www.mongodb.com/
 label: MongoDB
 name: mongodb
 singer_name: tap-mongodb
@@ -103,3 +99,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.mongodb.com/
+entity_type: database

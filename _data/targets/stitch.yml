@@ -1,9 +1,4 @@
 description: Extract and Load Platform
-domain:
-  description: Extract and Load Platform
-  name: Stitch API
-  type: api
-  url: https://www.stitchdata.com/docs/developers/import-api/
 label: Stitch
 name: target-stitch
 singer_name: target-stitch
@@ -15,3 +10,5 @@ variants:
   pip_url: git+https://github.com/singer-io/target-stitch.git
   repo: https://github.com/singer-io/target-stitch
   settings: []
+entity_url: https://www.stitchdata.com/docs/developers/import-api/
+entity_type: api

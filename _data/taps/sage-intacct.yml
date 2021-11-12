@@ -1,8 +1,4 @@
 description: Financial management software
-domain:
-  name: Sage Intacct API
-  type: api
-  url: https://developer.intacct.com/api/
 label: Sage Intacct
 name: intacct
 singer_name: tap-intacct
@@ -54,3 +50,5 @@ variants:
     - user_id
     - user_password
     - start_date
+entity_url: https://developer.intacct.com/api/
+entity_type: api

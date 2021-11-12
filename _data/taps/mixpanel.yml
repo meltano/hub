@@ -1,9 +1,4 @@
 description: Product Analytics Tool
-domain:
-  description: Product Analytics Tool
-  name: Mixpanel API
-  type: api
-  url: https://mixpanel.com/
 label: Mixpanel
 name: mixpanel
 singer_name: tap-mixpanel
@@ -27,3 +22,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://mixpanel.com/
+entity_type: api

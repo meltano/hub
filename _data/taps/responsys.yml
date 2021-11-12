@@ -1,9 +1,4 @@
 description: Campaign Management Software
-domain:
-  description: Campaign Management Software
-  name: Responsys Connect CSV Exporter
-  type: file
-  url: https://www.oracle.com/cx/marketing/campaign-management/
 label: Responsys
 name: responsys
 singer_name: tap-responsys
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.oracle.com/cx/marketing/campaign-management/
+entity_type: file

@@ -1,9 +1,4 @@
 description: Public Holiday and Observance API
-domain:
-  description: Public Holiday and Observance API
-  name: Holiday API
-  type: api
-  url: https://holidayapi.com/docs
 label: Holiday API
 name: holidays
 singer_name: tap-holidays
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://holidayapi.com/docs
+entity_type: api

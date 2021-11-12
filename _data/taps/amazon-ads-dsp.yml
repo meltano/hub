@@ -1,9 +1,4 @@
 description: Advertising Demand Side Platform
-domain:
-  description: Advertising Demand Side Platform
-  name: Amazon Advertising DSP API
-  type: api
-  url: https://advertising.amazon.com/API/docs/en-us/dsp-reports-beta-3p/#/Reports
 label: Amazon Advertising DSP
 name: amazon-ads-dsp
 singer_name: tap-amazon-ads-dsp
@@ -45,3 +40,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://advertising.amazon.com/API/docs/en-us/dsp-reports-beta-3p/#/Reports
+entity_type: api

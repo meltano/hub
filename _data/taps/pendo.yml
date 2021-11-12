@@ -1,9 +1,4 @@
 description: Product Experience and Digital Adoption Solutions
-domain:
-  description: Product Experience and Digital Adoption Solutions
-  name: Pendo API
-  type: api
-  url: https://developers.pendo.io/docs/?bash#overview
 label: Pendo
 name: pendo
 singer_name: tap-pendo
@@ -108,3 +103,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://developers.pendo.io/docs/?bash#overview
+entity_type: api

@@ -1,9 +1,4 @@
 description: Communication API Platform
-domain:
-  description: Communication API Platform
-  name: Stringee API
-  type: api
-  url: https://developer.stringee.com/docs/api-stringeex
 label: Stringee
 name: stringee
 singer_name: tap-stringee
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://developer.stringee.com/docs/api-stringeex
+entity_type: api

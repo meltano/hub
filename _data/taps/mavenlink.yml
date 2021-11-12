@@ -1,9 +1,4 @@
 description: Project and Resource Management Software
-domain:
-  description: Project and Resource Management Software
-  name: Mavenlink API
-  type: api
-  url: http://developer.mavenlink.com/
 label: Mavenlink
 name: mavenlink
 singer_name: tap-mavenlink
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: http://developer.mavenlink.com/
+entity_type: api

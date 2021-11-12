@@ -1,9 +1,4 @@
 description: On-Demand Staffing Solution
-domain:
-  description: On-Demand Staffing Solution
-  name: Wonolo API
-  type: api
-  url: https://wonolo.readme.io/docs/getting-started
 label: Wonolo
 name: wonolo
 singer_name: tap-wonolo
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://wonolo.readme.io/docs/getting-started
+entity_type: api

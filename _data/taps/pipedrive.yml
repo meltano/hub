@@ -1,9 +1,4 @@
 description: Sales CRM and Pipeline Management Software
-domain:
-  description: Sales CRM and Pipeline Management Software
-  name: Pipedrive API
-  type: api
-  url: https://developers.pipedrive.com/docs/api/v1
 label: Pipedrive
 name: pipedrive
 singer_name: tap-pipedrive
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://developers.pipedrive.com/docs/api/v1
+entity_type: api

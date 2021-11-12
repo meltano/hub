@@ -1,9 +1,4 @@
 description: Data Quality Service
-domain:
-  description: Data Quality Service
-  name: Typo API
-  type: api
-  url: https://www.typo.ai/
 label: Typo
 name: typo
 singer_name: tap-typo
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.typo.ai/
+entity_type: api

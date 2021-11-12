@@ -1,9 +1,4 @@
 description: Agile Project Management for GitHub
-domain:
-  description: Agile Project Management for GitHub
-  name: ZenHub API
-  type: api
-  url: https://github.com/ZenHubIO/API
 label: ZenHub
 name: zenhub
 singer_name: singer-tap-zenhub
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://github.com/ZenHubIO/API
+entity_type: api
