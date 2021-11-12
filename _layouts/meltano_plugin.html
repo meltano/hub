@@ -5,6 +5,8 @@ layout: plugin_page
 {% assign plugin_type = page.plugin_type %} {% assign plugin = page.plugin %} {%
 assign singer_plugin = plugin.singer_plugin %} {% assign variant = page.variant
 %}
+{% assign repo_singer_name = variant.repo | split: "/" | last %}
+
 <p>
   {% if plugin_type == "extractor" %} The <code>{{plugin.name}}</code>
   <a href="https://meltano.com/docs/plugins.html#extractors" target="_blank"
@@ -66,17 +68,19 @@ assign singer_plugin = plugin.singer_plugin %} {% assign variant = page.variant
   {% if metrics.num_stargazers > 0 %}
   <li><strong>Stars</strong>: {{ metrics.num_stargazers }}</li>
   {% endif %} {% endif %}
+  {% if variant.repo contains 'github' %}
   <li>
     <img alt="GitHub - License"
-      src="https://img.shields.io/github/license/{{variant.name}}/{{plugin.singer_name}}?color=c0c0c4&label=License&style=flat-square"
+      src="https://img.shields.io/github/license/{{variant.name}}/{{repo_singer_name}}?color=c0c0c4&label=License&style=flat-square"
       href="{{variant.repo}}">
   </li>
+  {% endif %}
   {% if variant.pip_url contains '.git' %}
   {% else %}
   <li>
     <img alt="PyPI - Downloads"
-      src="https://img.shields.io/pypi/dm/{{plugin.singer_name}}?color=3438BF&label=PyPI%20downloads&style=flat-square"
-      href="https://pypi.org/project/{{plugin.singer_name}}/">
+      src="https://img.shields.io/pypi/dm/{{repo_singer_name}}?color=3438BF&label=PyPI%20downloads&style=flat-square"
+      href="https://pypi.org/project/{{singer_plugin.singer_name}}/">
   </li>
   {% endif %}
 </ul>

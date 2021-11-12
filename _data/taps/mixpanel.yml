@@ -16,7 +16,7 @@ variants:
 - default: true
   maintenance_status: Active
   name: transferwise
-  pip_url: git+https://github.com/transferwise/pipelinewise-tap-mixpanel.git
+  pip_url: pipelinewise-tap-mixpanel
   repo: https://github.com/transferwise/pipelinewise-tap-mixpanel
   settings: []
   capabilities:

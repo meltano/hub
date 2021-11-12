@@ -8,7 +8,7 @@ variants:
   default: true
   maintenance_status: Active
   docs: https://hub.meltano.com/extractors/github
-  pip_url: git+https://github.com/singer-io/tap-github.git
+  pip_url: tap-github
   repo: https://github.com/singer-io/tap-github
   capabilities:
   - catalog

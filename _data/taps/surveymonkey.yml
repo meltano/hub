@@ -63,7 +63,7 @@ variants:
 - default: true
   maintenance_status: Unknown
   name: singer-io
-  pip_url: git+https://github.com/singer-io/tap-surveymonkey.git
+  pip_url: tap-surveymonkey
   repo: https://github.com/singer-io/tap-surveymonkey
   settings: []
   capabilities:

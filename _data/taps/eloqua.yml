@@ -52,7 +52,7 @@ variants:
 - default: true
   maintenance_status: Unknown
   name: singer-io
-  pip_url: git+https://github.com/singer-io/tap-eloqua.git
+  pip_url: tap-eloqua
   repo: https://github.com/singer-io/tap-eloqua
   settings: []
   capabilities:

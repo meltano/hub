@@ -34,7 +34,7 @@ variants:
 - default: true
   maintenance_status: Unknown
   name: singer-io
-  pip_url: git+https://github.com/singer-io/tap-chargify.git
+  pip_url: tap-chargify
   repo: https://github.com/singer-io/tap-chargify
   settings: []
   capabilities:
