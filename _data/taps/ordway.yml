@@ -7,7 +7,7 @@ variants:
 - default: true
   maintenance_status: Unknown
   name: singer-io
-  pip_url: git+https://github.com/singer-io/tap-ordway.git
+  pip_url: tap-ordway
   repo: https://github.com/singer-io/tap-ordway
   settings: []
   capabilities:

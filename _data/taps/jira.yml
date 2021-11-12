@@ -8,7 +8,7 @@ variants:
   maintenance_status: Active
   name: singer-io
   docs: https://hub.meltano.com/extractors/jira
-  pip_url: git+https://github.com/singer-io/tap-jira.git
+  pip_url: tap-jira
   repo: https://github.com/singer-io/tap-jira
   capabilities:
   - discover

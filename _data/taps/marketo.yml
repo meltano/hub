@@ -24,7 +24,7 @@ variants:
 - default: true
   maintenance_status: Active
   name: singer-io
-  pip_url: git+https://github.com/singer-io/tap-marketo.git
+  pip_url: tap-marketo
   repo: https://github.com/singer-io/tap-marketo
   capabilities:
   - catalog

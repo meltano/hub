@@ -19,7 +19,7 @@ variants:
 - default: true
   maintenance_status: Unknown
   name: singer-io
-  pip_url: git+https://github.com/singer-io/target-magentobi.git
+  pip_url: target-magentobi
   repo: https://github.com/singer-io/target-magentobi
   settings: []
 - default: false

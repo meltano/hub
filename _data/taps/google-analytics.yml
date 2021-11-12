@@ -73,7 +73,7 @@ variants:
   - discover
 - maintenance_status: Active
   name: transferwise
-  pip_url: git+https://github.com/transferwise/pipelinewise-tap-google-analytics.git
+  pip_url: pipelinewise-tap-google-analytics
   repo: https://github.com/transferwise/pipelinewise-tap-google-analytics
   settings: []
   capabilities:

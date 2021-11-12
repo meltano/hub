@@ -37,11 +37,13 @@ layout: plugin_page
   </li>
 
   <ul>
+    {% if variant.repo contains 'github' %}
     <li>
       <img alt="GitHub - License"
         src="https://img.shields.io/github/license/{{variant.name}}/{{repo_project}}?color=c0c0c4&label=License&style=flat-square"
         href="{{variant.repo}}">
     </li>
+    {% endif %}
     {% if metrics or metrics.num_stargazers > 0 %}
       <li>
         <strong>Last update at</strong>: {{ metrics.last_updated_timestamp |
@@ -87,8 +89,8 @@ layout: plugin_page
   <li>
       <img   
         alt="PyPI - Downloads"
-        src="https://img.shields.io/pypi/dm/{{plugin.singer_name}}?color=3438BF&label=PyPI%20downloads&style=flat-square"
-        href="https://pypi.org/project/{{plugin.singer_name}}/">
+        src="https://img.shields.io/pypi/dm/{{repo_project}}?color=3438BF&label=PyPI%20downloads&style=flat-square"
+        href="https://pypi.org/project/{{repo_project}}/">
   </li>
   {% endif %}
 

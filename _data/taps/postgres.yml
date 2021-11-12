@@ -70,7 +70,7 @@ variants:
 - default: false
   maintenance_status: Unknown
   name: singer-io
-  pip_url: git+https://github.com/singer-io/tap-postgres.git
+  pip_url: tap-postgres
   repo: https://github.com/singer-io/tap-postgres
   settings: []
   capabilities:

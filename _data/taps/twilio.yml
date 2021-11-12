@@ -17,7 +17,7 @@ variants:
   maintenance_status: Active
   name: transferwise
   docs: https://hub.meltano.com/extractors/twilio
-  pip_url: git+https://github.com/transferwise/pipelinewise-tap-twilio.git
+  pip_url: pipelinewise-tap-twilio
   repo: https://github.com/transferwise/pipelinewise-tap-twilio
   capabilities:
   - discover
@@ -57,7 +57,7 @@ variants:
 - default: false
   maintenance_status: Unknown
   name: singer-io
-  pip_url: git+https://github.com/singer-io/tap-twilio.git
+  pip_url: tap-twilio
   repo: https://github.com/singer-io/tap-twilio
   settings: []
   capabilities:

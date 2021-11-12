@@ -16,7 +16,7 @@ variants:
 - default: true
   maintenance_status: Unknown
   name: singer-io
-  pip_url: git+https://github.com/singer-io/tap-skubana.git
+  pip_url: tap-skubana
   repo: https://github.com/singer-io/tap-skubana
   settings: []
   capabilities:

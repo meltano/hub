@@ -11,7 +11,7 @@ variants:
   default: true
   maintenance_status: Active
   name: singer-io
-  pip_url: git+https://github.com/singer-io/tap-facebook.git
+  pip_url: tap-facebook
   repo: https://github.com/singer-io/tap-facebook
   settings:
   - description: Your Facebook Ads Account ID

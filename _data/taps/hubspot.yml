@@ -8,7 +8,7 @@ variants:
   maintenance_status: Active
   docs: https://hub.meltano.com/extractors/hubspot
   name: singer-io
-  pip_url: git+https://github.com/singer-io/tap-hubspot.git
+  pip_url: tap-hubspot
   repo: https://github.com/singer-io/tap-hubspot
   capabilities:
   - discover

@@ -84,7 +84,7 @@ variants:
 - default: false
   maintenance_status: Active
   name: transferwise
-  pip_url: git+https://github.com/transferwise/pipelinewise-tap-zendesk.git
+  pip_url: pipelinewise-tap-zendesk
   repo: https://github.com/transferwise/pipelinewise-tap-zendesk
   settings: []
   capabilities:

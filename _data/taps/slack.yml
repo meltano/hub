@@ -78,7 +78,7 @@ variants:
 - default: false
   maintenance_status: Active
   name: transferwise
-  pip_url: git+https://github.com/transferwise/pipelinewise-tap-slack.git
+  pip_url: pipelinewise-tap-slack
   repo: https://github.com/transferwise/pipelinewise-tap-slack
   settings: []
   capabilities:
