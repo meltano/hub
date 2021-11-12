@@ -1,9 +1,4 @@
 description: Customer Support Software
-domain:
-  description: Customer Support Software
-  name: Freshdesk API
-  type: api
-  url: https://developer.freshdesk.com/api/
 label: Freshdesk
 name: freshdesk
 singer_name: tap-freshdesk
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://developer.freshdesk.com/api/
+entity_type: api

@@ -1,9 +1,4 @@
 description: Business Communication Platform
-domain:
-  description: Business Communication Platform
-  name: Microsoft Teams API
-  type: api
-  url: https://docs.microsoft.com/en-us/graph/
 label: Microsoft Teams
 name: ms-teams
 singer_name: tap-ms-teams
@@ -45,3 +40,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://docs.microsoft.com/en-us/graph/
+entity_type: api

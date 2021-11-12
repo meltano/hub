@@ -1,9 +1,4 @@
 description: File Transfer Protocl
-domain:
-  description: File Transfer Protocl
-  name: SSH File Transfer Protocl (SFTP)
-  type: file
-  url: https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol
 label: SFTP
 name: sftp
 singer_name: tap-sftp
@@ -27,3 +22,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol
+entity_type: file

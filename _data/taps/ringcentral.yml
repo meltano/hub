@@ -1,9 +1,4 @@
 description: Cloud Communication Software
-domain:
-  description: Cloud Communication Software
-  name: RingCentral API
-  type: api
-  url: https://developers.ringcentral.com/api-reference/
 label: RingCentral
 name: ringcentral
 singer_name: tap-ringcentral
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://developers.ringcentral.com/api-reference/
+entity_type: api

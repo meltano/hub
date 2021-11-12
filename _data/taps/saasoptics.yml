@@ -1,9 +1,4 @@
 description: SaaS Metrics and Analytics Platform
-domain:
-  description: SaaS Metrics and Analytics Platform
-  name: SaasOptics API
-  type: api
-  url: https://saasoptics.com/
 label: SaasOptics
 name: saasoptics
 singer_name: tap-saasoptics
@@ -36,3 +31,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://saasoptics.com/
+entity_type: api

@@ -1,9 +1,4 @@
 description: Fulfillment Software for D2C Brands
-domain:
-  description: Fulfillment Software for D2C Brands
-  name: ShipHero API
-  type: api
-  url: https://developer.shiphero.com/
 label: ShipHero
 name: shiphero
 singer_name: tap-shiphero
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://developer.shiphero.com/
+entity_type: api

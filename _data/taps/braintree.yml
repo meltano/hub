@@ -1,9 +1,4 @@
 description: Online Payment Solutions
-domain:
-  description: Online Payment Solutions
-  name: Braintree API
-  type: api
-  url: https://developer.paypal.com/braintree/docs/start/overview
 label: Braintree
 name: braintree
 singer_name: tap-braintree
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://developer.paypal.com/braintree/docs/start/overview
+entity_type: api

@@ -1,9 +1,4 @@
 description: Amazon API for Selling Automation
-domain:
-  description: Legacy Amazon API for Selling Automation
-  name: Amazon Marketplace Web Service API
-  type: api
-  url: https://developer.amazonservices.com/
 label: Amazon MWS
 name: amazon-mws
 singer_name: tap-amazon-mws
@@ -54,3 +49,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://developer.amazonservices.com/
+entity_type: api

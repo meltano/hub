@@ -1,9 +1,4 @@
 description: People Counting Solutions for Retail Stores
-domain:
-  description: People Counting Solutions for Retail Stores
-  name: SMS Store Traffic API
-  type: api
-  url: https://storetraffic.com/
 label: SMS Store Traffic
 name: storetraffic
 singer_name: tap-sms
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://storetraffic.com/
+entity_type: api

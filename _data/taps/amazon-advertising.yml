@@ -1,9 +1,4 @@
 description: Online Advertising Platform
-domain:
-  description: Online Advertising Platform
-  name: Amazon Advertising API
-  type: api
-  url: https://advertising.amazon.com/
 label: Amazon Advertising
 name: amazon-advertising
 singer_name: tap-amazon-advertising
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://advertising.amazon.com/
+entity_type: api

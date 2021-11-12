@@ -1,9 +1,4 @@
 description: Reservation and Guest Experience Platform
-domain:
-  description: Reservation and Guest Experience Platform
-  name: SevenRooms API
-  type: api
-  url: https://api-docs.sevenrooms.com/_/login
 label: SevenRooms
 name: sevenrooms
 singer_name: tap-sevenrooms
@@ -27,3 +22,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://api-docs.sevenrooms.com/_/login
+entity_type: api

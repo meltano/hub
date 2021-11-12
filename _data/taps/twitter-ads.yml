@@ -1,9 +1,4 @@
 description: Social Networking Website
-domain:
-  description: Social Networking Website
-  name: Twitter Ads API
-  type: api
-  url: https://developer.twitter.com
 label: Twitter Ads
 name: twitter-ads
 singer_name: tap-twitter-ads
@@ -36,3 +31,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://developer.twitter.com
+entity_type: api

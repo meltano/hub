@@ -1,9 +1,4 @@
 description: Email Marketing and Automation Tools
-domain:
-  description: Email Marketing and Automation Tools
-  name: Campaign Monitor API
-  type: api
-  url: https://www.campaignmonitor.com/
 label: Campaign Monitor
 name: campaign-monitor
 singer_name: tap-campaign-monitor
@@ -45,3 +40,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.campaignmonitor.com/
+entity_type: api

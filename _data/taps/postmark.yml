@@ -1,9 +1,4 @@
 description: Application Email Service
-domain:
-  description: Application Email Service
-  name: Postmark API
-  type: api
-  url: https://postmarkapp.com/developer
 label: Postmark
 name: postmark
 singer_name: tap-postmark
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://postmarkapp.com/developer
+entity_type: api

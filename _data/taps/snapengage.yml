@@ -1,9 +1,4 @@
 description: Customer Engagement Platform
-domain:
-  description: Customer Engagement Platform
-  name: SnapEngage API
-  type: api
-  url: https://developer.snapengage.com/
 label: SnapEngage
 name: snapengage
 singer_name: tap-snapengage
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://developer.snapengage.com/
+entity_type: api

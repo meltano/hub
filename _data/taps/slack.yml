@@ -1,8 +1,4 @@
 description: Team communication tool
-domain:
-  name: Slack API
-  type: api
-  url: https://api.slack.com/
 label: Slack
 name: slack
 singer_name: tap-slack
@@ -88,3 +84,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://api.slack.com/
+entity_type: api

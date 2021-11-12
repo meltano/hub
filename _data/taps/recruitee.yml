@@ -1,9 +1,4 @@
 description: Talent Acquisition Platform
-domain:
-  description: Talent Acquisition Platform
-  name: Recruitee API
-  type: api
-  url: https://recruitee.com/
 label: Recruitee
 name: recruitee
 singer_name: tap-recruitee
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://recruitee.com/
+entity_type: api

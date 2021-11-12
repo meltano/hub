@@ -1,9 +1,4 @@
 description: eCommerce Plugin for Wordpress
-domain:
-  description: eCommerce Plugin for Wordpress
-  name: WooCommerce API
-  type: api
-  url: http://woocommerce.github.io/woocommerce-rest-api-docs/
 label: WooCommerce
 name: woocommerce
 singer_name: tap-woocommerce
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: http://woocommerce.github.io/woocommerce-rest-api-docs/
+entity_type: api

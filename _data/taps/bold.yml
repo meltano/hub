@@ -1,9 +1,4 @@
 description: Ecommerce tools and integration
-domain:
-  description: Ecommerce tools and integration
-  name: Bold Commerce API
-  type: api
-  url: https://boldcommerce.com/
 label: Bold Commerce
 name: bold
 singer_name: tap-bold
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://boldcommerce.com/
+entity_type: api

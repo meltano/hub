@@ -1,9 +1,4 @@
 description: Cross-Channel Marketing Platform
-domain:
-  description: Cross-Channel Marketing Platform
-  name: Iterable API
-  type: api
-  url: https://api.iterable.com/api/docs
 label: Iterable
 name: iterable
 singer_name: tap-iterable
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://api.iterable.com/api/docs
+entity_type: api

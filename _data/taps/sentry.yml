@@ -1,9 +1,4 @@
 description: Commercial and Small Business Insurance
-domain:
-  description: Commercial and Small Business Insurance
-  name: Sentry API
-  type: api
-  url: https://sentry.io/api
 label: Sentry
 name: sentry
 singer_name: tap-sentry
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://sentry.io/api
+entity_type: api

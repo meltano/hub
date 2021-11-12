@@ -1,9 +1,4 @@
 description: Digital Marketing Platform
-domain:
-  description: Digital Marketing Platform
-  name: SalesForce Marketing Cloud API
-  type: api
-  url: https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/index-api.htm
 label: SalesForce Marketing Cloud
 name: exacttarget
 singer_name: tap-exacttarget
@@ -36,3 +31,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/index-api.htm
+entity_type: api

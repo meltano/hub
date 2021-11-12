@@ -1,9 +1,4 @@
 description: Corporate Wiki Software
-domain:
-  description: Corporate Wiki Software
-  name: Confluence API
-  type: api
-  url: https://www.atlassian.com/software/confluence
 label: Confluence
 name: confluence
 singer_name: tap-confluence
@@ -19,3 +14,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.atlassian.com/software/confluence
+entity_type: api

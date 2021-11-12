@@ -1,9 +1,4 @@
 description: Employee Scheduling
-domain:
-  description: Employee Scheduling
-  name: Sling API
-  type: api
-  url: https://api.sling.is/#/
 label: Sling
 name: sling
 singer_name: tap-sling
@@ -36,3 +31,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://api.sling.is/#/
+entity_type: api

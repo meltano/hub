@@ -1,9 +1,4 @@
 description: Business Management Software
-domain:
-  description: Business Management Software
-  name: NetSuite API
-  type: api
-  url: https://www.netsuite.com/
 label: NetSuite
 name: netsuite
 singer_name: tap-netsuite
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.netsuite.com/
+entity_type: api

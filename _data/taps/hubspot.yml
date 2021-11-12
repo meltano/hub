@@ -1,9 +1,4 @@
 description: Inbound Marketing software
-domain:
-  description: Inbound Marketing software
-  name: Hubspot API
-  type: api
-  url: https://legacydocs.hubspot.com/docs/overview
 label: Hubspot
 name: hubspot
 singer_name: tap-hubspot
@@ -110,3 +105,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://legacydocs.hubspot.com/docs/overview
+entity_type: api

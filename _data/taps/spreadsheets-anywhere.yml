@@ -1,8 +1,5 @@
 description: Data extractor for CSV and Excel files from any smart_open supported
   transport (S3, SFTP, localhost, etc...)
-domain:
-  name: CSV and Excel spreadsheets on cloud or local storage
-  type: file
 label: Spreadsheets Anywhere
 name: spreadsheets-anywhere
 singer_name: tap-spreadsheets-anywhere
@@ -94,3 +91,4 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_type: file

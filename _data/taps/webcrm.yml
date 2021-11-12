@@ -1,9 +1,4 @@
 description: Customer Relationship Management Software
-domain:
-  description: Customer Relationship Management Software
-  name: webCRM API
-  type: api
-  url: https://webcrm.com/
 label: webCRM
 name: webcrm
 singer_name: tap-webcrm
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://webcrm.com/
+entity_type: api

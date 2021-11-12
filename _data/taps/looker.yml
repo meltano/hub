@@ -1,9 +1,4 @@
 description: Business Intelligence (BI) & Data Analytics Platform
-domain:
-  description: Business Intelligence (BI) & Data Analytics Platform
-  name: Looker API
-  type: api
-  url: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1
 label: Looker
 name: looker
 singer_name: tap-looker
@@ -27,3 +22,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1
+entity_type: api

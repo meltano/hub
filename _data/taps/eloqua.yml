@@ -1,9 +1,4 @@
 description: Marketing Automation Software
-domain:
-  description: Marketing Automation Software
-  name: Eloqua API
-  type: api
-  url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-develop/Developers/BulkAPI/Tutorials/Export.htm
 label: Eloqua
 name: eloqua
 singer_name: tap-eloqua
@@ -108,3 +103,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-develop/Developers/BulkAPI/Tutorials/Export.htm
+entity_type: api

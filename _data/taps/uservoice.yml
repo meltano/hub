@@ -1,9 +1,4 @@
 description: Customer Engagement Tool
-domain:
-  description: Customer Engagement Tool
-  name: UserVoice API
-  type: api
-  url: https://www.uservoice.com/
 label: UserVoice
 name: uservoice
 singer_name: tap-uservoice
@@ -27,3 +22,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.uservoice.com/
+entity_type: api

@@ -1,9 +1,4 @@
 description: Construction Management Software
-domain:
-  description: Construction Management Software
-  name: Procore API
-  type: api
-  url: https://www.procore.com/
 label: Procore
 name: procore
 singer_name: tap-procore
@@ -19,3 +14,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.procore.com/
+entity_type: api

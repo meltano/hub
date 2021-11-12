@@ -1,9 +1,4 @@
 description: SaaS solution for club management
-domain:
-  description: SaaS solution for club management
-  name: ABC Financial API
-  type: api
-  url: https://abcfinancial.3scale.net
 label: ABC Fitness Solutions
 name: abcfinancial
 singer_name: tap-abcfinancial
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://abcfinancial.3scale.net
+entity_type: api

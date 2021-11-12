@@ -1,9 +1,4 @@
 description: Video Delivery Software
-domain:
-  description: Video Delivery Software
-  name: Platform Purple API
-  type: api
-  url: https://www.platformpurple.com/
 label: Platform Purple
 name: platformpurple
 singer_name: tap-platformpurple
@@ -36,3 +31,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.platformpurple.com/
+entity_type: api

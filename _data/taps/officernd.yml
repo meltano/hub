@@ -1,9 +1,4 @@
 description: Workspace Management Platform
-domain:
-  description: Workspace Management Platform
-  name: OfficeRnD API
-  type: api
-  url: https://developer.officernd.com/
 label: OfficeRnD
 name: officernd
 singer_name: tap-officernd
@@ -27,3 +22,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://developer.officernd.com/
+entity_type: api

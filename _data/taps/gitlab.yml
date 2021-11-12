@@ -1,8 +1,4 @@
 description: Single application for the entire DevOps lifecycle
-domain:
-  name: GitLab API
-  type: api
-  url: https://docs.gitlab.com/ee/api/
 label: GitLab
 name: gitlab
 singer_name: tap-gitlab
@@ -147,3 +143,5 @@ variants:
   - - api_url
     - projects
     - start_date
+entity_url: https://docs.gitlab.com/ee/api/
+entity_type: api

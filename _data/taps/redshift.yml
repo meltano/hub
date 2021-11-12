@@ -1,9 +1,4 @@
 description: Amazon Redshift Data Warehouse
-domain:
-  description: Amazon Redshift Data Warehouse
-  name: Redshift Data Warehouse
-  type: database
-  url: https://aws.amazon.com/redshift/
 label: Redshift
 name: redshift
 singer_name: tap-redshift
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://aws.amazon.com/redshift/
+entity_type: database

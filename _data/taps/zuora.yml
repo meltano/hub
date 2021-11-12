@@ -1,9 +1,4 @@
 description: Subscription Management Platform
-domain:
-  description: Subscription Management Platform
-  name: Zuora API
-  type: api
-  url: https://www.zuora.com/
 label: Zuora
 name: zuora
 singer_name: tap-zuora
@@ -36,3 +31,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.zuora.com/
+entity_type: api

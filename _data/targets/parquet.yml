@@ -1,9 +1,4 @@
 description: Columnar Storage Format
-domain:
-  description: Columnar Storage Format
-  name: Apache Parquet Files
-  type: file
-  url: https://parquet.apache.org/
 label: Parquet
 name: target-parquet
 singer_name: target-parquet
@@ -27,3 +22,5 @@ variants:
   pip_url: git+https://github.com/estrategiahq/target-parquet.git
   repo: https://github.com/estrategiahq/target-parquet
   settings: []
+entity_url: https://parquet.apache.org/
+entity_type: file

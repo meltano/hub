@@ -1,9 +1,4 @@
 description: Advertising Platform
-domain:
-  description: Advertising Platform
-  name: Criteo API
-  type: api
-  url: https://www.criteo.com/
 label: Criteo
 name: criteo
 singer_name: tap-criteo
@@ -27,3 +22,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.criteo.com/
+entity_type: api

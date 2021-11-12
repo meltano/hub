@@ -1,9 +1,4 @@
 description: Retail Management Software
-domain:
-  description: Retail Management Software
-  name: BrightPearl API
-  type: api
-  url: https://www.brightpearl.com/
 label: BrightPearl
 name: brightpearl
 singer_name: tap-brightpearl
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.brightpearl.com/
+entity_type: api

@@ -1,9 +1,4 @@
 description: Tax and Accounting Software
-domain:
-  description: Tax and Accounting Software
-  name: Twinfield API
-  type: api
-  url: https://accounting2.twinfield.com/webservices/documentation/#/ApiReference/Request/BrowseData
 label: Twinfield
 name: twinfield
 singer_name: tap-twinfield
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://accounting2.twinfield.com/webservices/documentation/#/ApiReference/Request/BrowseData
+entity_type: api

@@ -1,9 +1,4 @@
 description: Mobile Messaging Platform
-domain:
-  description: Mobile Messaging Platform
-  name: Chatitive API
-  type: api
-  url: https://chatitive.com/
 label: Chatitive
 name: chatitive
 singer_name: tap-chatitive
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://chatitive.com/
+entity_type: api

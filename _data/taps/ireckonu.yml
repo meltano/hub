@@ -1,9 +1,4 @@
 description: Hotel Middleware Software
-domain:
-  description: Hotel Middleware Software
-  name: Ireckonu API
-  type: api
-  url: https://ireckonu.com/Content/Product/IRECKONU%20CORE
 label: Ireckonu
 name: ireckonu
 singer_name: tap-ireckonu
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://ireckonu.com/Content/Product/IRECKONU%20CORE
+entity_type: api

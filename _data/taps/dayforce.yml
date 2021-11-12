@@ -1,9 +1,4 @@
 description: Human Capital Management Software
-domain:
-  description: Human Capital Management Software
-  name: Dayforce API
-  type: api
-  url: https://www.ceridian.com/products/dayforce
 label: Dayforce
 name: dayforce
 singer_name: tap-dayforce
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.ceridian.com/products/dayforce
+entity_type: api

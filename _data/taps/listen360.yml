@@ -1,9 +1,4 @@
 description: Customer Engagement Software
-domain:
-  description: Customer Engagement Software
-  name: Listen360 API
-  type: api
-  url: https://www.listen360.com/
 label: Listen360
 name: listen360
 singer_name: tap-listen360
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.listen360.com/
+entity_type: api

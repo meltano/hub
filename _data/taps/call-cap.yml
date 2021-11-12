@@ -1,9 +1,4 @@
 description: Call Tracking and Monitoring Software
-domain:
-  description: Call Tracking and Monitoring Software
-  name: Callcap API
-  type: api
-  url: https://callcap.com/support/api-documentation/
 label: Callcap
 name: call-cap
 singer_name: tap-call-cap
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://callcap.com/support/api-documentation/
+entity_type: api

@@ -1,9 +1,4 @@
 description: Business Intelligence Tool
-domain:
-  description: Business Intelligence Tool
-  name: Magento BI Import API
-  type: api
-  url: https://developers.rjmetrics.com/cloudbi/iapi.html
 label: Magento BI
 name: target-magentobi
 singer_name: target-magentobi
@@ -33,3 +28,5 @@ variants:
   pip_url: git+https://github.com/robertjmoore/target-magentobi.git
   repo: https://github.com/robertjmoore/target-magentobi
   settings: []
+entity_url: https://developers.rjmetrics.com/cloudbi/iapi.html
+entity_type: api

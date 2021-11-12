@@ -1,8 +1,4 @@
 description: Subscription billing software
-domain:
-  name: Chargebee API
-  type: api
-  url: https://apidocs.chargebee.com/docs/api
 label: Chargebee
 name: chargebee
 singer_name: tap-chargebee
@@ -56,3 +52,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://apidocs.chargebee.com/docs/api
+entity_type: api

@@ -1,9 +1,4 @@
 description: Code hosting platform
-domain:
-  description: Code hosting platform
-  name: GitHub API
-  type: api
-  url: https://docs.github.com/en/rest
 label: GitHub
 name: github
 singer_name: tap-github
@@ -39,3 +34,5 @@ variants:
     label: Start Date
     kind: date_iso8601
     description: Defines how far into the past to pull data for the provided repositories.
+entity_url: https://docs.github.com/en/rest
+entity_type: api

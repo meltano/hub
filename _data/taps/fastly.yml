@@ -1,8 +1,4 @@
 description: Edge cloud computing services provider
-domain:
-  name: Fastly API
-  type: api
-  url: https://developer.fastly.com/reference/api/
 label: Fastly
 name: fastly
 singer_name: tap-fastly
@@ -25,3 +21,5 @@ variants:
   - kind: date_iso8601
     label: Start Date
     name: start_date
+entity_url: https://developer.fastly.com/reference/api/
+entity_type: api

@@ -1,9 +1,4 @@
 description: Content Management Platform
-domain:
-  description: Content Management Platform
-  name: Contentful API
-  type: api
-  url: https://www.contentful.com/
 label: Contentful
 name: contentful
 singer_name: tap-contentful
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.contentful.com/
+entity_type: api

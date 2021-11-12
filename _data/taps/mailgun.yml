@@ -1,9 +1,4 @@
 description: Transactional Email API Service
-domain:
-  description: Transactional Email API Service
-  name: Mailgun API
-  type: api
-  url: https://documentation.mailgun.com/en/latest/api_reference.html
 label: Mailgun
 name: mailgun
 singer_name: tap-mailgun
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://documentation.mailgun.com/en/latest/api_reference.html
+entity_type: api

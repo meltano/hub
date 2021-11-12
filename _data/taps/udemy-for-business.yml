@@ -1,9 +1,4 @@
 description: Online Learning Platform
-domain:
-  description: Online Learning Platform
-  name: Udemy for Business API
-  type: api
-  url: https://business-support.udemy.com/hc/en-us/articles/360005792753-Udemy-Business-API-Reference
 label: Udemy for Business
 name: udemy-for-business
 singer_name: tap-udemy-for-business
@@ -28,3 +23,5 @@ variants:
   - name: organization_name
   - name: start_date
     kind: date_iso8601
+entity_url: https://business-support.udemy.com/hc/en-us/articles/360005792753-Udemy-Business-API-Reference
+entity_type: api

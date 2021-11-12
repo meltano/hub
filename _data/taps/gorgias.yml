@@ -1,9 +1,4 @@
 description: Ecommerce Helpdesk
-domain:
-  description: Ecommerce Helpdesk
-  name: Gorgias API
-  type: api
-  url: https://developers.gorgias.com/reference
 label: Gorgias
 name: gorgias
 singer_name: tap-gorgias
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://developers.gorgias.com/reference
+entity_type: api

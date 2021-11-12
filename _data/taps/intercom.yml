@@ -1,9 +1,4 @@
 description: Conversational Relationship Platform
-domain:
-  description: Conversational Relationship Platform
-  name: Intercom API
-  type: api
-  url: https://developers.intercom.com/intercom-api-reference/v1.4/reference
 label: Intercom
 name: intercom
 singer_name: tap-intercom
@@ -27,3 +22,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://developers.intercom.com/intercom-api-reference/v1.4/reference
+entity_type: api

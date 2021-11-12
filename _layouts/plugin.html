@@ -10,14 +10,22 @@ layout: plugin_page
 <p>
   {% if plugin.type == "tap" %} The <code>{{plugin.singer_name}}</code>
   <a href="/singer/taps">Singer tap</a>
-  pulls data from the
-  <a href="{{plugin.domain.url}}" target="_blank">{{plugin.domain.name}}</a>
+  pulls data from 
+  {% if plugin.entity_url %}
+    <a href="{{plugin.entity_url}}" target="_blank">{{plugin.label}}</a>
+  {% else %}
+    the {{ plugin.label }} {{ plugin.entity_type }}
+  {% endif %}
   that can then be sent to a destination using a
   <a href="/singer/targets">Singer target</a>. {% else %} The
   <code>{{plugin.singer_name}}</code>
   <a href="/singer/targets">Singer target</a>
   sends data into
-  <a href="{{plugin.domain.url}}" target="_blank">{{plugin.domain.name}}</a>
+  {% if plugin.entity_url %}
+    <a href="{{plugin.entity_url}}" target="_blank">{{plugin.label}}</a>
+  {% else %}
+    the {{ plugin.label }} {{ plugin.entity_type }}
+  {% endif %}
   after it was pulled from a source using a
   <a href="/singer/taps">Singer tap</a>. {% endif %}
 </p>

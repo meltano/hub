@@ -1,9 +1,4 @@
 description: Customer Service Agent Platform
-domain:
-  description: Customer Service Agent Platform
-  name: Stella Connect API
-  type: api
-  url: https://stellaconnect.com/
 label: Stella Connect
 name: stella
 singer_name: tap-stella
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://stellaconnect.com/
+entity_type: api

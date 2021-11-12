@@ -1,9 +1,4 @@
 description: Enterprise Software Platform for Retailers in the Cannabis space
-domain:
-  description: Enterprise Software Platform for Retailers in the Cannabis space
-  name: Treez API
-  type: api
-  url: https://code.treez.io/
 label: Treez
 name: treez
 singer_name: tap-treez
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://code.treez.io/
+entity_type: api

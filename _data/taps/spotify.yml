@@ -1,9 +1,4 @@
 description: Audio Streaming and Media Services
-domain:
-  description: Audio Streaming and Media Services
-  name: Web API 
-  type: api
-  url: https://developer.spotify.com/documentation/web-api/
 label: Spotify
 name: spotify
 singer_name: tap-spotify
@@ -16,7 +11,9 @@ variants:
   pip_url: git+https://github.com/Matatika/tap-spotify.git
   repo: https://github.com/Matatika/tap-spotify
   settings_group_validation:
-    - ['client_id','client_secret','refresh_token']
+  - - client_id
+    - client_secret
+    - refresh_token
   settings:
   - name: client_id
     kind: password
@@ -32,3 +29,5 @@ variants:
   - discover
   - state
   - sync
+entity_url: https://developer.spotify.com/documentation/web-api/
+entity_type: api

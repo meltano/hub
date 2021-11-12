@@ -1,9 +1,4 @@
 description: Customer Success Software
-domain:
-  description: Customer Success Software
-  name: CustomerX API
-  type: api
-  url: https://doc.api.customerx.com.br/?version=latest
 label: CustomerX
 name: customerx
 singer_name: tap-customerx
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://doc.api.customerx.com.br/?version=latest
+entity_type: api

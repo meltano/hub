@@ -1,9 +1,4 @@
 description: Exchange Rate API
-domain:
-  description: Exchange Rate API
-  name: Exchangerate Host API
-  type: api
-  url: https://exchangerate.host/#/
 label: exchangerate.host
 name: exchangeratehost
 singer_name: tap-exchangeratehost
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://exchangerate.host/#/
+entity_type: api

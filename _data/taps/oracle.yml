@@ -1,9 +1,4 @@
 description: Cloud Database
-domain:
-  description: Cloud Database
-  name: Oracle Database
-  type: database
-  url: https://www.oracle.com/database/
 label: Oracle DB
 name: oracle
 singer_name: tap-oracle
@@ -36,3 +31,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.oracle.com/database/
+entity_type: database

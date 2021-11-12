@@ -1,9 +1,4 @@
 description: Customer Engagement Platform
-domain:
-  description: Customer Engagement Platform
-  name: Airship API
-  type: api
-  url: https://docs.airship.com/api/ua/
 label: Airship
 name: urban-airship
 singer_name: tap-urban-airship
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://docs.airship.com/api/ua/
+entity_type: api

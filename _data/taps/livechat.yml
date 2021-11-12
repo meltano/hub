@@ -1,9 +1,4 @@
 description: Chat Support Software
-domain:
-  description: Chat Support Software
-  name: LiveChat API
-  type: api
-  url: https://developers.livechat.com/docs/
 label: LiveChat
 name: livechat
 singer_name: tap-livechat
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://developers.livechat.com/docs/
+entity_type: api

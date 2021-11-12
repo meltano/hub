@@ -1,9 +1,4 @@
 description: Community Experience Platform
-domain:
-  description: Community Experience Platform
-  name: Orbit API
-  type: api
-  url: https://docs.orbit.love/reference
 label: Orbit
 name: orbit
 singer_name: tap-orbit
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://docs.orbit.love/reference
+entity_type: api

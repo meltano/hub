@@ -1,9 +1,4 @@
 description: Member Management Software
-domain:
-  description: Member Management Software
-  name: Rock Gym Pro API
-  type: api
-  url: https://api.rockgympro.com/
 label: Rock Gym Pro
 name: rockgympro
 singer_name: tap-rockgympro
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://api.rockgympro.com/
+entity_type: api

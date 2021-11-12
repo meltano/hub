@@ -1,9 +1,4 @@
 description: Online Survey Tool
-domain:
-  description: Online Survey Tool
-  name: SurveyMonkey API
-  type: api
-  url: https://developer.surveymonkey.com/api/v3/
 label: SurveyMonkey
 name: surveymonkey
 singer_name: tap-surveymonkey
@@ -101,3 +96,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://developer.surveymonkey.com/api/v3/
+entity_type: api

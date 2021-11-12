@@ -1,9 +1,4 @@
 description: BI and Visualizaztion Tool
-domain:
-  description: BI and Visualizaztion Tool
-  name: Redash API
-  type: api
-  url: https://redash.io/
 label: Redash
 name: redash
 singer_name: tap-redash
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://redash.io/
+entity_type: api

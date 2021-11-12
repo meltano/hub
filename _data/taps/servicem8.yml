@@ -1,9 +1,4 @@
 description: Field Service Software
-domain:
-  description: Field Service Software
-  name: ServiceM8 API
-  type: api
-  url: https://developer.servicem8.com/docs
 label: ServiceM8
 name: servicem8
 singer_name: tap-servicem8
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://developer.servicem8.com/docs
+entity_type: api

@@ -1,9 +1,4 @@
 description: Facebook Pages API
-domain:
-  description: Facebook Pages API
-  name: Facebook Pages API
-  type: api
-  url: https://developers.facebook.com/docs/pages/
 label: Facebook Pages
 name: facebook-pages
 singer_name: tap-facebook-pages
@@ -37,3 +32,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://developers.facebook.com/docs/pages/
+entity_type: api

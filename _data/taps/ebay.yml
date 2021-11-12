@@ -1,9 +1,4 @@
 description: Order Data from Ebay Fulfillment
-domain:
-  description: Order Data from Ebay Fulfillment
-  name: eBay Fulfillment API
-  type: api
-  url: https://www.ebay.com/
 label: eBay
 name: ebay
 singer_name: tap-ebay
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.ebay.com/
+entity_type: api

@@ -1,9 +1,4 @@
 description: Customer Service Software
-domain:
-  description: Customer Service Software
-  name: Helpscout API
-  type: api
-  url: https://developer.helpscout.com/mailbox-api/
 label: Helpscout
 name: helpscout
 singer_name: tap-helpscout
@@ -27,3 +22,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://developer.helpscout.com/mailbox-api/
+entity_type: api

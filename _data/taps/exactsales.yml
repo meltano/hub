@@ -1,9 +1,4 @@
 description: B2B Sales Acceleration Software
-domain:
-  description: B2B Sales Acceleration Software
-  name: Exact Sales API
-  type: api
-  url: https://exactdev.docs.apiary.io/
 label: Exact Sales
 name: exactsales
 singer_name: tap-exactsales
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://exactdev.docs.apiary.io/
+entity_type: api

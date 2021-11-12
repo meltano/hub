@@ -1,9 +1,4 @@
 description: Customer Relationship Management Platform
-domain:
-  description: Customer Relationship Management Platform
-  name: Close API
-  type: api
-  url: https://close.com/
 label: Close
 name: closeio
 singer_name: tap-closeio
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://close.com/
+entity_type: api

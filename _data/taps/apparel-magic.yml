@@ -1,9 +1,4 @@
 description: Business Solution Software for Apparel Industry
-domain:
-  description: Business Solution Software for Apparel Industry
-  name: ApparelMagic API
-  type: api
-  url: https://apparelmagic.com/integrations/
 label: ApparelMagic
 name: apparel-magic
 singer_name: tap-apparel-magic
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://apparelmagic.com/integrations/
+entity_type: api

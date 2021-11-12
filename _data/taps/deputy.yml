@@ -1,9 +1,4 @@
 description: Scheduling, Timesheet & Time Clock Software
-domain:
-  description: Scheduling, Timesheet & Time Clock Software
-  name: Deputy API
-  type: api
-  url: https://www.deputy.com/api-doc/API/Getting_Started
 label: Deputy
 name: deputy
 singer_name: tap-deputy
@@ -36,3 +31,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.deputy.com/api-doc/API/Getting_Started
+entity_type: api

@@ -1,9 +1,4 @@
 description: Marketing and Advertising Platform
-domain:
-  description: Marketing and Advertising Platform
-  name: Simpli.fi API
-  type: api
-  url: https://simpli.fi/home/
 label: Simpli.fi
 name: simplifi
 singer_name: tap-simplifi
@@ -27,3 +22,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://simpli.fi/home/
+entity_type: api

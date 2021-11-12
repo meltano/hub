@@ -1,9 +1,4 @@
 description: Cloud Spreadsheets
-domain:
-  description: Cloud Spreadsheets
-  name: Google Sheets API v4
-  type: api
-  url: https://developers.google.com/webmaster-tools/search-console-api-original/v3/how-tos/search_analytics
 label: Google Sheets
 name: google-sheets
 singer_name: tap-google-sheets
@@ -75,3 +70,5 @@ variants:
     value: tap-google-sheets via Meltano
     description: Used to identify the tap in the Google Remote API logs.
     placeholder: Ex. "tap-google-search-console <api_user_email@example.com>"
+entity_url: https://developers.google.com/webmaster-tools/search-console-api-original/v3/how-tos/search_analytics
+entity_type: api

@@ -1,9 +1,4 @@
 description: Subscription Management Software
-domain:
-  description: Subscription Management Software
-  name: billwerk API
-  type: api
-  url: https://billwerk.io/
 label: billwerk
 name: billwerk
 singer_name: tap-billwerk
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://billwerk.io/
+entity_type: api

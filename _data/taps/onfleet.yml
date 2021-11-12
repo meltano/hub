@@ -1,9 +1,4 @@
 description: Logistics Management Software
-domain:
-  description: Logistics Management Software
-  name: Onfleet API
-  type: api
-  url: https://docs.onfleet.com/
 label: Onfleet
 name: onfleet
 singer_name: tap-onfleet
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://docs.onfleet.com/
+entity_type: api

@@ -1,9 +1,4 @@
 description: Social Media Management Platform
-domain:
-  description: Social Media Management Platform
-  name: Coosto API
-  type: api
-  url: https://www.coosto.com/en
 label: Coosto
 name: coosto
 singer_name: tap-coosto
@@ -18,3 +13,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://www.coosto.com/en
+entity_type: api

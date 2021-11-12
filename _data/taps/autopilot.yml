@@ -1,9 +1,4 @@
 description: Marketing Automation Software
-domain:
-  description: Marketing Automation Software
-  name: Autopilot API
-  type: api
-  url: https://autopilotapp.com/
 label: Autopilot
 name: autopilot
 singer_name: tap-autopilot
@@ -27,3 +22,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://autopilotapp.com/
+entity_type: api

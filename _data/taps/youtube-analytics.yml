@@ -1,9 +1,4 @@
 description: Video Streaming Platform
-domain:
-  description: Video Streaming Platform
-  name: YouTube Reporting and Data API
-  type: api
-  url: https://developers.google.com/youtube/
 label: YouTube Analytics
 name: youtube-analytics
 singer_name: tap-youtube-analytics
@@ -27,3 +22,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://developers.google.com/youtube/
+entity_type: api

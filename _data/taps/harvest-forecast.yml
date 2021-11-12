@@ -1,9 +1,4 @@
 description: Time Tracking Software
-domain:
-  description: Time Tracking Software
-  name: Harvest Forecast API
-  type: api
-  url: https://help.getharvest.com/api-v2/
 label: Harvest Forecast
 name: harvest-forecast
 singer_name: tap-harvest-forecast
@@ -27,3 +22,5 @@ variants:
   capabilities:
   - catalog
   - discover
+entity_url: https://help.getharvest.com/api-v2/
+entity_type: api
