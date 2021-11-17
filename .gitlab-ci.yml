@@ -45,6 +45,7 @@ pages:
     - pip install PyYAML && pip install requests
     - python3 discovery_splitter.py
     - bundle exec jekyll build -d public
+    - cp _redirects ./public
   artifacts:
     paths:
     - public
