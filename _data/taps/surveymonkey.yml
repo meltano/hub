@@ -5,7 +5,7 @@ singer_name: tap-surveymonkey
 type: tap
 variants:
 - default: false
-  maintenance_status: Active
+  maintenance_status: Active (Stable)
   meltano_sdk: true
   name: danladd
   pip_url: git+https://gitlab.com/danladd/tap-surveymonkey.git

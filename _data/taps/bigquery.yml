@@ -9,7 +9,7 @@ variants:
   - discover
   - state
   default: true
-  maintenance_status: Active
+  maintenance_status: Active (Stable)
   name: anelendata
   pip_url: tap-bigquery
   repo: https://github.com/anelendata/tap-bigquery

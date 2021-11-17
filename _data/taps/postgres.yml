@@ -9,7 +9,7 @@ variants:
   - discover
   - state
   default: true
-  maintenance_status: Active
+  maintenance_status: Active (Stable)
   name: transferwise
   pip_url: pipelinewise-tap-postgres
   repo: https://github.com/transferwise/pipelinewise-tap-postgres

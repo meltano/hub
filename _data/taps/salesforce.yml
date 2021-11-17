@@ -9,7 +9,7 @@ variants:
   - discover
   - state
   default: true
-  maintenance_status: Active
+  maintenance_status: Active (Stable)
   name: meltano
   pip_url: git+https://gitlab.com/meltano/tap-salesforce.git
   repo: https://gitlab.com/meltano/tap-salesforce
@@ -81,7 +81,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Active
+  maintenance_status: Active (Stable)
   name: transferwise
   pip_url: pipelinewise-tap-salesforce
   repo: https://github.com/transferwise/pipelinewise-tap-salesforce

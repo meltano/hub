@@ -9,7 +9,7 @@ variants:
   - discover
   - state
   default: true
-  maintenance_status: Unresponsive
+  maintenance_status: Inactive or Stale
   name: singer-io
   pip_url: tap-mongodb
   repo: https://github.com/singer-io/tap-mongodb
@@ -46,7 +46,7 @@ variants:
     - password
     - database
 - default: false
-  maintenance_status: Active
+  maintenance_status: Active (Stable)
   name: transferwise
   pip_url: pipelinewise-tap-mongodb
   repo: https://github.com/transferwise/pipelinewise-tap-mongodb

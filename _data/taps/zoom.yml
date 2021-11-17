@@ -8,7 +8,7 @@ variants:
   - catalog
   - discover
   default: true
-  maintenance_status: Active
+  maintenance_status: Active (Stable)
   name: mashey
   pip_url: git+https://github.com/mashey/tap-zoom.git
   repo: https://github.com/mashey/tap-zoom

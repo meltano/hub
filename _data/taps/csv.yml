@@ -9,7 +9,7 @@ variants:
   - state
   - catalog
   default: true
-  maintenance_status: Active
+  maintenance_status: Active (Stable)
   name: meltanolabs
   meltano_sdk: true
   pip_url: git+https://github.com/MeltanoLabs/tap-csv.git

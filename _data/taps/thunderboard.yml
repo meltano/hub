@@ -7,7 +7,7 @@ type: tap
 variants:
 - default: true
   meltano_sdk: true
-  maintenance_status: Active
+  maintenance_status: Active (Stable)
   name: matatika
   pip_url: git+https://github.com/Matatika/tap-thunderboard
   repo: https://github.com/Matatika/tap-thunderboard

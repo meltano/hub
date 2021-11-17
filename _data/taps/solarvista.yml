@@ -6,7 +6,7 @@ singer_name: tap-solarvista
 type: tap
 variants:
 - default: true
-  maintenance_status: Active
+  maintenance_status: Active (Stable)
   meltano_sdk: false
   name: matatika
   repo: https://github.com/Matatika/tap-solarvista

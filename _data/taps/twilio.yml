@@ -14,7 +14,7 @@ variants:
   - catalog
   - discover
 - default: true
-  maintenance_status: Active
+  maintenance_status: Active (Stable)
   name: transferwise
   docs: https://hub.meltano.com/extractors/twilio
   pip_url: pipelinewise-tap-twilio

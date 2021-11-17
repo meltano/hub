@@ -7,7 +7,7 @@ singer_name: target-csv
 variants:
 - name: hotgluexyz
   default: true
-  maintenance_status: Active
+  maintenance_status: Active (Stable)
   docs: https://hub.meltano.com/loaders/csv.html
   repo: https://github.com/hotgluexyz/target-csv
   pip_url: git+https://github.com/hotgluexyz/target-csv.git@0.3.3
@@ -47,7 +47,7 @@ variants:
   repo: https://github.com/singer-io/target-csv
   repo_forks: https://github.com/singer-io/target-csv/network
   pip_url: target-csv
-  maintenance_status: Unresponsive
+  maintenance_status: Inactive or Stale
   adoptable: true
   settings:
   - name: destination_path

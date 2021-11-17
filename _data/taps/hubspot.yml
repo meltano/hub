@@ -5,7 +5,7 @@ singer_name: tap-hubspot
 type: tap
 variants:
 - default: true
-  maintenance_status: Active
+  maintenance_status: Active (Stable)
   docs: https://hub.meltano.com/extractors/hubspot
   name: singer-io
   pip_url: tap-hubspot

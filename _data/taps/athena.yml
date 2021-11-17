@@ -8,7 +8,7 @@ variants:
   repo: https://github.com/MeltanoLabs/tap-athena
   pip_url: git+https://github.com/MeltanoLabs/tap-athena.git
   default: true
-  maintenance_status: Active
+  maintenance_status: Active (Stable)
   meltano_sdk: true
   settings: []
   capabilities:

@@ -8,7 +8,7 @@ variants:
   - catalog
   - discover
   default: true
-  maintenance_status: Active
+  maintenance_status: Active (Stable)
   name: meltano
   pip_url: git+https://gitlab.com/meltano/tap-google-analytics.git
   repo: https://gitlab.com/meltano/tap-google-analytics
@@ -71,7 +71,7 @@ variants:
   capabilities:
   - catalog
   - discover
-- maintenance_status: Active
+- maintenance_status: Active (Stable)
   name: transferwise
   pip_url: pipelinewise-tap-google-analytics
   repo: https://github.com/transferwise/pipelinewise-tap-google-analytics

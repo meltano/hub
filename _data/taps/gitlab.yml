@@ -9,7 +9,7 @@ variants:
   - discover
   - state
   default: true
-  maintenance_status: Active
+  maintenance_status: Active (Stable)
   name: meltanolabs
   pip_url: git+https://github.com/MeltanoLabs/tap-gitlab.git
   repo: https://github.com/MeltanoLabs/tap-gitlab
@@ -83,7 +83,7 @@ variants:
   - discover
   - state
   default: false
-  maintenance_status: Active
+  maintenance_status: Active (Stable)
   name: meltano
   pip_url: git+https://gitlab.com/meltano/tap-gitlab.git
   repo: https://gitlab.com/meltano/tap-gitlab

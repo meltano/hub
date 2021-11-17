@@ -24,7 +24,7 @@ variants:
   - catalog
   - discover
 - default: true
-  maintenance_status: Active
+  maintenance_status: Active (Stable)
   name: wintersrd
   pip_url: git+https://github.com/wintersrd/pipelinewise-tap-mssql.git
   repo: https://github.com/wintersrd/pipelinewise-tap-mssql

@@ -23,7 +23,7 @@ variants:
   - catalog
   - discover
 - default: true
-  maintenance_status: Active
+  maintenance_status: Active (Stable)
   meltano_sdk: true
   name: albert-marrero
   pip_url: git+https://github.com/albert-marrero/tap-typeform.git

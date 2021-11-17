@@ -7,7 +7,7 @@ variants:
 - name: datamill-co
   repo: https://github.com/datamill-co/target-snowflake
   pip_url: target-snowflake
-  maintenance_status: Unresponsive
+  maintenance_status: Inactive or Stale
   default: false
   dependencies:
   - '`target-snowflake` [requires](https://www.psycopg.org/docs/install.html#runtime-requirements)
@@ -101,7 +101,7 @@ variants:
   default: true
   docs: https://transferwise.github.io/pipelinewise/connectors/targets/snowflake.html
   repo: https://github.com/transferwise/pipelinewise-target-snowflake
-  maintenance_status: Active
+  maintenance_status: Active (Stable)
   pip_url: pipelinewise-target-snowflake
   settings_group_validation:
   - - account
@@ -271,7 +271,7 @@ variants:
 - name: meltano
   repo: https://gitlab.com/meltano/target-snowflake
   pip_url: git+https://gitlab.com/meltano/target-snowflake.git
-  maintenance_status: Active
+  maintenance_status: Active (Stable)
   settings_group_validation:
   - - account
     - username

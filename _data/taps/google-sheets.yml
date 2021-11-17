@@ -25,7 +25,7 @@ variants:
 - name: singer-io
   default: true
   docs: https://hub.meltano.com/extractors/google-sheets
-  maintenance_status: Active
+  maintenance_status: Active (Stable)
   pip_url: tap-google-sheets
   repo: https://github.com/singer-io/tap-google-sheets
   capabilities:

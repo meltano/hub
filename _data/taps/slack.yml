@@ -9,7 +9,7 @@ variants:
   - discover
   - state
   default: true
-  maintenance_status: Active
+  maintenance_status: Active (Stable)
   name: mashey
   pip_url: git+https://github.com/Mashey/tap-slack.git
   repo: https://github.com/Mashey/tap-slack
@@ -76,7 +76,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Active
+  maintenance_status: Active (Stable)
   name: transferwise
   pip_url: pipelinewise-tap-slack
   repo: https://github.com/transferwise/pipelinewise-tap-slack

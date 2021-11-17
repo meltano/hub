@@ -9,7 +9,7 @@ variants:
   - discover
   - state
   default: true
-  maintenance_status: Active
+  maintenance_status: Active (Stable)
   name: singer-io
   pip_url: tap-facebook
   repo: https://github.com/singer-io/tap-facebook
@@ -85,7 +85,7 @@ variants:
   - properties
   - discover
   - state
-  maintenance_status: Active
+  maintenance_status: Active (Stable)
   name: meltano
   pip_url: git+https://gitlab.com/meltano/tap-facebook.git
   repo: https://gitlab.com/meltano/tap-facebook

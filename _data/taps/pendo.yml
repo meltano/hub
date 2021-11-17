@@ -6,7 +6,7 @@ type: tap
 variants:
 - name: singer-io
   default: true
-  maintenance_status: Active
+  maintenance_status: Active (Stable)
   docs: https://hub.meltano.com/extractors/pendo
   pip_url: tap-pendo
   repo: https://github.com/singer-io/tap-pendo

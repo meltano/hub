@@ -10,7 +10,7 @@ variants:
   - discover
   - state
   default: true
-  maintenance_status: Active
+  maintenance_status: Active (Stable)
   name: ets
   pip_url: git+https://github.com/ets/tap-spreadsheets-anywhere.git
   repo: https://github.com/ets/tap-spreadsheets-anywhere
