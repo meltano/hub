@@ -5,7 +5,7 @@ singer_name: tap-domo
 type: tap
 variants:
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: mashey
   pip_url: git+https://github.com/Mashey/tap-domo.git
   repo: https://github.com/Mashey/tap-domo

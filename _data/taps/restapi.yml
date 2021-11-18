@@ -5,7 +5,7 @@ singer_name: tap-rest-api-msdk
 type: tap
 variants:
 - default: true
-  maintenance_status: Active
+  maintenance_status: active
   meltano_sdk: true
   name: widen
   pip_url: tap-rest-api-msdk

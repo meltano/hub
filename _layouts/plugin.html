@@ -31,6 +31,17 @@ layout: plugin_page
 </p>
 
 <ul>
+  {% if variant.maintenance_status == "unknown" %} {% assign maintenance_status_label = "Unknown" %} {% assign maintenance_status_color = "lightgrey" %} {% endif %}
+  {% if variant.maintenance_status == "development" %} {% assign maintenance_status_label = "Development (Under Construction)" %} {% assign maintenance_status_color = "orange" %} {% endif %}
+  {% if variant.maintenance_status == "beta" %} {% assign maintenance_status_label = "Prerelease (Beta)" %} {% assign maintenance_status_color = "yellow" %} {% endif %}
+  {% if variant.maintenance_status == "active" %} {% assign maintenance_status_label = "Active (Stable)" %} {% assign maintenance_status_color = "brightgreen" %} {% endif %}
+  {% if variant.maintenance_status == "inactive" %} {% assign maintenance_status_label = "Inactive or Stale" %} {% assign maintenance_status_color = "red" %} {% endif %}
+  <li>
+    <img   
+      alt="Maintenance Status"
+      src="https://img.shields.io/badge/Maintenance%20Status-{{ maintenance_status_label | replace: " ", "%20" }}-{{ maintenance_status_color }}">
+  </li>
+
   <li>
     <strong>Repository</strong>:
     <a href="{{variant.repo}}" target="_blank">{{ variant.repo }}</a>
@@ -39,23 +50,43 @@ layout: plugin_page
   <ul>
     {% if variant.repo contains 'github' %}
     <li>
+      <img
+        alt="GitHub - Stars"
+        src="https://img.shields.io/github/stars/{{variant.name}}/{{repo_project}}?style=flat-square&label=Stars">
+    </li>
+    <li>
+      <img
+        alt="GitHub - Forks"
+        src="https://img.shields.io/github/forks/{{variant.name}}/{{repo_project}}?style=flat-square&label=Forks">
+    </li>
+    <li>
+      <img
+        alt="GitHub - Open Issues"
+        src="https://img.shields.io/github/issues-raw/{{variant.name}}/{{repo_project}}?label=Open%20Issues">
+    </li>
+    <li>
+      <img
+        alt="GitHub - Open PRs"
+        src="https://img.shields.io/github/issues-pr-raw/{{variant.name}}/{{repo_project}}?label=Open%20Pull%20Requests">
+    </li>
+    <li>
+      <img
+        alt="GitHub - Contributors"
+        src="https://img.shields.io/github/contributors/{{variant.name}}/{{repo_project}}?label=Contributors">
+    </li>
+    <li>
       <img alt="GitHub - License"
         src="https://img.shields.io/github/license/{{variant.name}}/{{repo_project}}?color=c0c0c4&label=License&style=flat-square"
         href="{{variant.repo}}">
     </li>
+
     {% endif %}
-    {% if metrics or metrics.num_stargazers > 0 %}
+    {% if metrics or metrics.last_updated_timestamp > 0 %}
       <li>
-        <strong>Last update at</strong>: {{ metrics.last_updated_timestamp |
-        date_to_string }}
+        <img
+          alt="Last Updated At"
+          src="https://img.shields.io/badge/Last%20Updated%20At-{{ metrics.last_updated_timestamp | date_to_string }}-c0c0c4">
       </li>
-      <li>
-        <a href="{{variant.repo}}/issues" target="_blank">
-          <strong>Open issues and PRs</strong> </a>: {{ metrics.num_open_issues }}
-      </li>
-      {% if metrics.num_stargazers > 0 %}
-      <li><strong>Stars</strong>: {{ metrics.num_stargazers }}</li>
-      {% endif %}
     {% endif %}
     </ul>
   <li>
@@ -65,23 +96,28 @@ layout: plugin_page
     <a href="{{maintainer.url}}" target="_blank">{{ maintainer.label }}</a>
     {% else %} {{ maintainer.label }} {% endif %}
   </li>
-  {% if variant.maintenance_status != "Unknown" %}
-  <li><strong>Maintenance Status</strong>: {{ variant.maintenance_status }}</li>
-  {% endif %}
-
   {% if metrics.meltano_exec_count_3m > 0 or metrics.meltano_project_id_count_3m > 0 or variant.meltano_sdk %}
   <li><a href="/singer/docs#meltano-usage-metrics"><strong>Meltano Stats:</strong></a></li>
   <ul>
-    {% if variant.meltano_sdk %}
-    <li><strong>Built with <a href="https://sdk.meltano.com/en/latest/" target="_blank">Meltano SDK</a></strong>: &#10004;</li>
-    {% endif %}
     {% if metrics.meltano_exec_count_3m > 0 %}
-    <li><strong>Executions (Last 3 Months)</strong>: {{ metrics.meltano_exec_count_3m }}</li>
+    <li>
+      <img   
+        alt="Executions (Last 3 Months)"
+        src="https://img.shields.io/badge/Executions%20(Last%203%20Months)-{{ metrics.meltano_exec_count_3m }}-c0c0c4">
+    </li>
     {% endif %}
     {% if metrics.meltano_project_id_count_3m > 0 %}
-    <li><strong>Projects (Last 3 Months)</strong>: {{ metrics.meltano_project_id_count_3m }}</li>
+    <li>
+      <img   
+        alt="Projects (Last 3 Months)"
+        src="https://img.shields.io/badge/Projects%20(Last%203%20Months)-{{ metrics.meltano_project_id_count_3m }}-c0c0c4">
+    </li>
     {% endif %}
   </ul>
+  {% endif %}
+
+  {% if variant.meltano_sdk %}
+  <li><strong>Built with <a href="https://sdk.meltano.com/en/latest/" target="_blank">Meltano SDK</a></strong>: &#10004;</li>
   {% endif %}
 
   {% if variant.pip_url contains '.git' %}
@@ -91,6 +127,12 @@ layout: plugin_page
         alt="PyPI - Downloads"
         src="https://img.shields.io/pypi/dm/{{repo_project}}?color=3438BF&label=PyPI%20downloads&style=flat-square"
         href="https://pypi.org/project/{{repo_project}}/">
+  </li>
+  <li>
+    <img   
+      alt="PyPI - Version"
+      src="https://img.shields.io/pypi/v/{{repo_project}}?color=3438BF&label=PyPI%20package&style=flat-square"
+      href="https://pypi.org/project/{{repo_project}}/">
   </li>
   {% endif %}
 

@@ -5,7 +5,7 @@ singer_name: tap-idealo-click-report
 type: tap
 variants:
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: horze-international
   pip_url: git+https://github.com/Horze-International/tap-idealo-click-report.git
   repo: https://github.com/Horze-International/tap-idealo-click-report

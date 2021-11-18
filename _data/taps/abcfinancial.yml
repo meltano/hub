@@ -5,7 +5,7 @@ singer_name: tap-abcfinancial
 type: tap
 variants:
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: dmzobel
   pip_url: git+https://github.com/dmzobel/tap-abcfinancial.git
   repo: https://github.com/dmzobel/tap-abcfinancial

@@ -5,7 +5,7 @@ singer_name: tap-chargify
 type: tap
 variants:
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: chrishumphries
   pip_url: git+https://github.com/chrishumphries/tap-chargify.git
   repo: https://github.com/chrishumphries/tap-chargify
@@ -14,7 +14,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: lambtron
   pip_url: git+https://github.com/lambtron/tap-chargify.git
   repo: https://github.com/lambtron/tap-chargify
@@ -23,7 +23,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: manatees-first
   pip_url: git+https://github.com/manatees-first/tap-chargify.git
   repo: https://github.com/manatees-first/tap-chargify
@@ -32,7 +32,7 @@ variants:
   - catalog
   - discover
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: singer-io
   pip_url: tap-chargify
   repo: https://github.com/singer-io/tap-chargify
@@ -41,7 +41,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: andylu-test
   pip_url: git+https://github.com/andylu-test/tap-chargify.git
   repo: https://github.com/andylu-test/tap-chargify
@@ -50,7 +50,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: angaza
   pip_url: git+https://github.com/angaza/tap-chargify.git
   repo: https://github.com/angaza/tap-chargify

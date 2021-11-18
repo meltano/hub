@@ -5,7 +5,7 @@ singer_name: tap-coosto
 type: tap
 variants:
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: yoast
   pip_url: git+https://github.com/Yoast/singer-tap-coosto.git
   repo: https://github.com/Yoast/singer-tap-coosto

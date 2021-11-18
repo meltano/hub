@@ -6,7 +6,7 @@ type: tap
 variants:
 - default: true
   meltano_sdk: true
-  maintenance_status: Active
+  maintenance_status: active
   name: matatika
   pip_url: git+https://github.com/Matatika/tap-openweathermap.git
   repo: https://github.com/Matatika/tap-openweathermap

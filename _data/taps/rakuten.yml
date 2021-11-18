@@ -5,7 +5,7 @@ singer_name: tap-rakuten
 type: tap
 variants:
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: chrisgoddard
   pip_url: git+https://github.com/chrisgoddard/tap-rakuten.git
   repo: https://github.com/chrisgoddard/tap-rakuten

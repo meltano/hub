@@ -8,7 +8,7 @@ variants:
   repo: https://github.com/transferwise/pipelinewise-target-redshift
   docs: https://transferwise.github.io/pipelinewise/connectors/targets/redshift.html
   default: true
-  maintenance_status: Active
+  maintenance_status: active
   pip_url: pipelinewise-target-redshift
   capabilities:
   - catalog

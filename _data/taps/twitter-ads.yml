@@ -5,7 +5,7 @@ singer_name: tap-twitter-ads
 type: tap
 variants:
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: dreamdata-io
   pip_url: git+https://github.com/dreamdata-io/tap-twitter-ads.git
   repo: https://github.com/dreamdata-io/tap-twitter-ads
@@ -14,7 +14,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: bytecodeio
   pip_url: git+https://github.com/bytecodeio/tap-twitter-ads.git
   repo: https://github.com/bytecodeio/tap-twitter-ads
@@ -23,7 +23,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: singer-io
   pip_url: tap-twitter-ads
   repo: https://github.com/singer-io/tap-twitter-ads

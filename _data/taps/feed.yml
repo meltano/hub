@@ -5,7 +5,7 @@ singer_name: tap-feed
 type: tap
 variants:
 - default: true
-  maintenance_status: Active
+  maintenance_status: active
   meltano_sdk: true
   name: jawats
   pip_url: tap-feed

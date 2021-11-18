@@ -5,7 +5,7 @@ singer_name: tap-sentry
 type: tap
 variants:
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: valulucchesi
   pip_url: git+https://github.com/valulucchesi/tap-sentry.git
   repo: https://github.com/valulucchesi/tap-sentry

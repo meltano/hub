@@ -5,7 +5,7 @@ singer_name: tap-clockify
 type: tap
 variants:
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: immuta
   pip_url: git+https://github.com/immuta/tap-clockify.git
   repo: https://github.com/immuta/tap-clockify

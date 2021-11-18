@@ -5,7 +5,7 @@ singer_name: tap-reviewscouk
 type: tap
 variants:
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: ideavateltd
   pip_url: git+https://github.com/ideavateltd/tap-reviewscouk.git
   repo: https://github.com/ideavateltd/tap-reviewscouk

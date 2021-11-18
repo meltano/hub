@@ -5,7 +5,7 @@ singer_name: tap-ebay
 type: tap
 variants:
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: fishtown-analytics
   pip_url: git+https://github.com/fishtown-analytics/tap-ebay.git
   repo: https://github.com/fishtown-analytics/tap-ebay

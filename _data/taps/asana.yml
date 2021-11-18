@@ -5,7 +5,7 @@ singer_name: tap-asana
 type: tap
 variants:
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: lambtron
   pip_url: git+https://github.com/lambtron/tap-asana.git
   repo: https://github.com/lambtron/tap-asana
@@ -14,7 +14,7 @@ variants:
   - catalog
   - discover
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: singer-io
   pip_url: tap-asana
   repo: https://github.com/singer-io/tap-asana

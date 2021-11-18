@@ -5,7 +5,7 @@ singer_name: tap-tiktok
 type: tap
 variants:
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: uptilab2
   pip_url: git+https://github.com/uptilab2/tap-tiktok.git
   repo: https://github.com/uptilab2/tap-tiktok

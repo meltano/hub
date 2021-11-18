@@ -5,7 +5,7 @@ singer_name: tap-snapchat-ads
 type: tap
 variants:
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: bytecodeio
   pip_url: git+https://github.com/bytecodeio/tap-snapchat-ads.git
   repo: https://github.com/bytecodeio/tap-snapchat-ads
@@ -14,7 +14,7 @@ variants:
   - catalog
   - discover
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: singer-io
   pip_url: tap-snapchat-ads
   repo: https://github.com/singer-io/tap-snapchat-ads

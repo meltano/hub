@@ -8,7 +8,7 @@ variants:
   repo: https://github.com/andyh1203/target-jsonl
   pip_url: target-jsonl
   default: true
-  maintenance_status: Active
+  maintenance_status: active
   settings:
   - name: destination_path
     description: 'Sets the destination path the JSONL files are written to, relative

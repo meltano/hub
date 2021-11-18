@@ -5,7 +5,7 @@ singer_name: tap-zuora
 type: tap
 variants:
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: transferwise
   pip_url: pipelinewise-tap-zuora
   repo: https://github.com/transferwise/pipelinewise-tap-zuora
@@ -14,7 +14,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: isabella232
   pip_url: git+https://github.com/isabella232/tap-zuora.git
   repo: https://github.com/isabella232/tap-zuora
@@ -23,7 +23,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: ota-insight
   pip_url: git+https://github.com/OTA-Insight/tap-zuora.git
   repo: https://github.com/OTA-Insight/tap-zuora

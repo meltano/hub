@@ -5,7 +5,7 @@ singer_name: tap-servicem8
 type: tap
 variants:
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: fostersdata
   pip_url: git+https://github.com/FostersData/tap-servicem8.git
   repo: https://github.com/FostersData/tap-servicem8

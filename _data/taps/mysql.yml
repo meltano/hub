@@ -9,7 +9,7 @@ variants:
   - discover
   - state
   default: true
-  maintenance_status: Active
+  maintenance_status: active
   name: transferwise
   pip_url: pipelinewise-tap-mysql
   repo: https://github.com/transferwise/pipelinewise-tap-mysql
@@ -46,7 +46,7 @@ variants:
     - user
     - password
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: singer-io
   pip_url: git+https://github.com/singer-io/tap-mssql.git
   repo: https://github.com/singer-io/tap-mysql

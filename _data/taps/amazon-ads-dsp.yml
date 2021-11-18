@@ -5,7 +5,7 @@ singer_name: tap-amazon-ads-dsp
 type: tap
 variants:
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: goes-funky
   pip_url: git+https://github.com/goes-funky/tap-amazon-ads-dsp.git
   repo: https://github.com/goes-funky/tap-amazon-ads-dsp
@@ -14,7 +14,7 @@ variants:
   - catalog
   - discover
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: singer-io
   pip_url: tap-amazon-ads-dsp
   repo: https://github.com/singer-io/tap-amazon-ads-dsp
@@ -23,7 +23,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: isabella232
   pip_url: git+https://github.com/isabella232/tap-amazon-ads-dsp.git
   repo: https://github.com/isabella232/tap-amazon-ads-dsp
@@ -32,7 +32,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: schonfeld
   pip_url: git+https://github.com/schonfeld/tap-amazon-ads-dsp.git
   repo: https://github.com/schonfeld/tap-amazon-ads-dsp

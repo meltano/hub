@@ -5,7 +5,7 @@ singer_name: tap-dynamodb
 type: tap
 variants:
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: krillw
   pip_url: git+https://github.com/krillw/tap-dynamodb.git
   repo: https://github.com/krillw/tap-dynamodb
@@ -14,7 +14,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: srjonemed
   pip_url: git+https://github.com/srjonemed/tap-dynamodb.git
   repo: https://github.com/srjonemed/tap-dynamodb
@@ -23,7 +23,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: onemedical
   pip_url: git+https://github.com/onemedical/tap-dynamodb.git
   repo: https://github.com/onemedical/tap-dynamodb
@@ -32,7 +32,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: rpaterson
   pip_url: git+https://github.com/rpaterson/tap-dynamodb.git
   repo: https://github.com/rpaterson/tap-dynamodb
@@ -41,7 +41,7 @@ variants:
   - catalog
   - discover
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: singer-io
   pip_url: tap-dynamodb
   repo: https://github.com/singer-io/tap-dynamodb
@@ -50,7 +50,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: henriblancke
   pip_url: git+https://github.com/henriblancke/tap-dynamodb.git
   repo: https://github.com/henriblancke/tap-dynamodb
@@ -59,7 +59,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: ahuynh3
   pip_url: git+https://github.com/ahuynh3/tap-dynamodb.git
   repo: https://github.com/ahuynh3/tap-dynamodb
@@ -68,7 +68,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: fixdauto
   pip_url: git+https://github.com/fixdauto/tap-dynamodb.git
   repo: https://github.com/fixdauto/tap-dynamodb
@@ -77,7 +77,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: cosimon
   pip_url: git+https://github.com/cosimon/tap-dynamodb.git
   repo: https://github.com/cosimon/tap-dynamodb
@@ -86,7 +86,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: jannikweichert
   pip_url: git+https://github.com/jannikweichert/tap-dynamodb.git
   repo: https://github.com/jannikweichert/tap-dynamodb

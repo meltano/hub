@@ -5,19 +5,19 @@ singer_name: target-kinesis
 type: target
 variants:
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: marouane-tradelab
   pip_url: git+https://github.com/marouane-tradelab/target-kinesis.git
   repo: https://github.com/marouane-tradelab/target-kinesis
   settings: []
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: aaimtt
   pip_url: git+https://github.com/aaimtt/target-kinesis.git
   repo: https://github.com/aaimtt/target-kinesis
   settings: []
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: prontopro
   pip_url: git+https://github.com/ProntoPro/target-kinesis.git
   repo: https://github.com/ProntoPro/target-kinesis

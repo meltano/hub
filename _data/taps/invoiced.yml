@@ -5,7 +5,7 @@ singer_name: tap-invoiced
 type: tap
 variants:
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: singer-io
   pip_url: tap-invoiced
   repo: https://github.com/singer-io/tap-invoiced
@@ -14,7 +14,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: invoiced
   pip_url: git+https://github.com/Invoiced/tap-invoiced.git
   repo: https://github.com/Invoiced/tap-invoiced

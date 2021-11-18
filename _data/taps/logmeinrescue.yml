@@ -5,7 +5,7 @@ singer_name: tap-logmeinrescue
 type: tap
 variants:
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: isabella232
   pip_url: git+https://github.com/isabella232/tap-logmeinrescue.git
   repo: https://github.com/isabella232/tap-logmeinrescue

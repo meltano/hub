@@ -5,7 +5,7 @@ singer_name: tap-listrak
 type: tap
 variants:
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: fishtown-analytics
   pip_url: git+https://github.com/fishtown-analytics/tap-listrak.git
   repo: https://github.com/fishtown-analytics/tap-listrak
@@ -14,7 +14,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: singer-io
   pip_url: tap-listrak
   repo: https://github.com/singer-io/tap-listrak

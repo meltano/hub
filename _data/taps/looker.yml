@@ -5,7 +5,7 @@ singer_name: tap-looker
 type: tap
 variants:
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: bytecodeio
   pip_url: git+https://github.com/bytecodeio/tap-looker.git
   repo: https://github.com/bytecodeio/tap-looker
@@ -14,7 +14,7 @@ variants:
   - catalog
   - discover
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: singer-io
   pip_url: tap-looker
   repo: https://github.com/singer-io/tap-looker

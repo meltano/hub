@@ -5,7 +5,7 @@ singer_name: tap-deputy
 type: tap
 variants:
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: jordanrburger
   pip_url: git+https://github.com/jordanrburger/tap-deputy.git
   repo: https://github.com/jordanrburger/tap-deputy
@@ -14,7 +14,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: isabella232
   pip_url: git+https://github.com/isabella232/tap-deputy.git
   repo: https://github.com/isabella232/tap-deputy
@@ -23,7 +23,7 @@ variants:
   - catalog
   - discover
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: singer-io
   pip_url: tap-deputy
   repo: https://github.com/singer-io/tap-deputy

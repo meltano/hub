@@ -5,7 +5,7 @@ singer_name: tap-kanbanize
 type: tap
 variants:
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: ashalan
   pip_url: git+https://github.com/ashalan/tap-kanbanize.git
   repo: https://github.com/ashalan/tap-kanbanize
@@ -14,7 +14,7 @@ variants:
   - catalog
   - discover
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: n8sty
   pip_url: git+https://github.com/n8sty/tap-kanbanize.git
   repo: https://github.com/n8sty/tap-kanbanize

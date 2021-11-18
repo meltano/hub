@@ -5,19 +5,19 @@ singer_name: target-parquet
 type: target
 variants:
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: mrtns
   pip_url: git+https://github.com/mrtns/target-parquet.git
   repo: https://github.com/mrtns/target-parquet
   settings: []
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: mirelagrigoras
   pip_url: git+https://github.com/mirelagrigoras/target-parquet.git
   repo: https://github.com/mirelagrigoras/target-parquet
   settings: []
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: estrategiahq
   pip_url: git+https://github.com/estrategiahq/target-parquet.git
   repo: https://github.com/estrategiahq/target-parquet

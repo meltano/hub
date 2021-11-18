@@ -5,7 +5,7 @@ singer_name: tap-gmail-csv
 type: tap
 variants:
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: food-spotter
   pip_url: git+https://github.com/food-spotter/tap-gmail-csv.git
   repo: https://github.com/food-spotter/tap-gmail-csv
