@@ -5,7 +5,7 @@ singer_name: tap-vnda-ecommerce
 type: tap
 variants:
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: r4ir4
   pip_url: git+https://github.com/r4ir4/tap-vnda-ecommerce.git
   repo: https://github.com/r4ir4/tap-vnda-ecommerce
@@ -14,7 +14,7 @@ variants:
   - catalog
   - discover
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: muriloo
   pip_url: git+https://github.com/Muriloo/tap-vnda-ecommerce.git
   repo: https://github.com/Muriloo/tap-vnda-ecommerce

@@ -10,7 +10,7 @@ variants:
   - discover
   - state
   default: true
-  maintenance_status: Active
+  maintenance_status: active
   name: singer-io
   pip_url: tap-adwords
   repo: https://github.com/singer-io/tap-adwords
@@ -90,7 +90,7 @@ variants:
     - customer_ids
     - start_date
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: georgiyolovski
   pip_url: git+https://github.com/georgiyolovski/tap-adwords.git
   repo: https://github.com/georgiyolovski/tap-adwords
@@ -103,7 +103,7 @@ variants:
   - properties
   - discover
   - state
-  maintenance_status: Active
+  maintenance_status: active
   name: meltano
   pip_url: git+https://gitlab.com/meltano/tap-adwords.git
   repo: https://gitlab.com/meltano/tap-adwords

@@ -5,7 +5,7 @@ singer_name: tap-platformpurple
 type: tap
 variants:
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: isabella232
   pip_url: git+https://github.com/isabella232/tap-platformpurple.git
   repo: https://github.com/isabella232/tap-platformpurple
@@ -14,7 +14,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: fishtown-analytics
   pip_url: git+https://github.com/fishtown-analytics/tap-platformpurple.git
   repo: https://github.com/fishtown-analytics/tap-platformpurple
@@ -23,7 +23,7 @@ variants:
   - catalog
   - discover
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: singer-io
   pip_url: tap-platformpurple
   repo: https://github.com/singer-io/tap-platformpurple

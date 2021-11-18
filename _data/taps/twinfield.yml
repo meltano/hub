@@ -5,7 +5,7 @@ singer_name: tap-twinfield
 type: tap
 variants:
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: yoast
   pip_url: git+https://github.com/Yoast/singer-tap-twinfield.git
   repo: https://github.com/Yoast/singer-tap-twinfield

@@ -5,7 +5,7 @@ description: For loading data into PostgreSQL
 singer_name: target-postgres
 variants:
 - name: datamill-co
-  maintenance_status: Active
+  maintenance_status: active
   default: true
   repo: https://github.com/datamill-co/target-postgres
   pip_url: singer-target-postgres
@@ -127,7 +127,7 @@ variants:
 - name: transferwise
   docs: https://transferwise.github.io/pipelinewise/connectors/targets/postgres.html
   repo: https://github.com/transferwise/pipelinewise-target-postgres
-  maintenance_status: Active
+  maintenance_status: active
   pip_url: pipelinewise-target-postgres
   settings_group_validation:
   - - host
@@ -234,7 +234,7 @@ variants:
       RECORD messages.'
 - name: meltano
   repo: https://github.com/meltano/target-postgres
-  maintenance_status: Active
+  maintenance_status: active
   pip_url: git+https://github.com/meltano/target-postgres.git
   settings_group_validation:
   - - url

@@ -5,7 +5,7 @@ singer_name: tap-typeform
 type: tap
 variants:
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: singer-io
   pip_url: tap-typeform
   repo: https://github.com/singer-io/tap-typeform
@@ -14,7 +14,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: bytecodeio
   pip_url: git+https://github.com/bytecodeio/tap-typeform.git
   repo: https://github.com/bytecodeio/tap-typeform
@@ -23,7 +23,7 @@ variants:
   - catalog
   - discover
 - default: true
-  maintenance_status: Active
+  maintenance_status: active
   meltano_sdk: true
   name: albert-marrero
   pip_url: git+https://github.com/albert-marrero/tap-typeform.git

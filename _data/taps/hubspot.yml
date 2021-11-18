@@ -5,7 +5,7 @@ singer_name: tap-hubspot
 type: tap
 variants:
 - default: true
-  maintenance_status: Active
+  maintenance_status: active
   docs: https://hub.meltano.com/extractors/hubspot
   name: singer-io
   pip_url: tap-hubspot
@@ -43,7 +43,7 @@ variants:
     kind: date_iso8601
     description: This is the cutoff date for syncing historical data.
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: thoughtchad
   pip_url: git+https://github.com/thoughtchad/tap-hubspot.git
   repo: https://github.com/thoughtchad/tap-hubspot
@@ -52,7 +52,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: cdchan
   pip_url: git+https://github.com/cdchan/tap-hubspot.git
   repo: https://github.com/cdchan/tap-hubspot
@@ -61,7 +61,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: uniquelyhonest
   pip_url: git+https://github.com/uniquelyhonest/tap-hubspot.git
   repo: https://github.com/uniquelyhonest/tap-hubspot
@@ -70,7 +70,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: wcjohnson11
   pip_url: git+https://github.com/wcjohnson11/tap-hubspot.git
   repo: https://github.com/wcjohnson11/tap-hubspot
@@ -79,7 +79,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: mvaerle
   pip_url: git+https://github.com/mvaerle/tap-hubspot.git
   repo: https://github.com/mvaerle/tap-hubspot
@@ -88,7 +88,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: anthonyp
   pip_url: git+https://github.com/anthonyp/tap-hubspot.git
   repo: https://github.com/anthonyp/tap-hubspot
@@ -97,7 +97,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: ragbadaskar
   pip_url: git+https://github.com/ragbadaskar/tap-hubspot.git
   repo: https://github.com/ragbadaskar/tap-hubspot

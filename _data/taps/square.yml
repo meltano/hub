@@ -5,7 +5,7 @@ singer_name: tap-square
 type: tap
 variants:
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: kalai-wavicle
   pip_url: git+https://github.com/Kalai-Wavicle/tap-square.git
   repo: https://github.com/Kalai-Wavicle/tap-square
@@ -14,7 +14,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: pk-sakthivel
   pip_url: git+https://github.com/pk-sakthivel/tap-square.git
   repo: https://github.com/pk-sakthivel/tap-square

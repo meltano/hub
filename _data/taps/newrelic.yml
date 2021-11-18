@@ -5,7 +5,7 @@ singer_name: tap-newrelic
 type: tap
 variants:
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   meltano_sdk: true
   name: fixdauto
   pip_url: git+https://github.com/fixdauto/tap-newrelic.git

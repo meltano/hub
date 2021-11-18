@@ -5,7 +5,7 @@ singer_name: tap-indeed
 type: tap
 variants:
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: aroder
   pip_url: git+https://github.com/aroder/tap-indeed.git
   repo: https://github.com/aroder/tap-indeed

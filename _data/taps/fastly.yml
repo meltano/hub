@@ -9,7 +9,7 @@ variants:
   - discover
   - state
   default: true
-  maintenance_status: Active
+  maintenance_status: active
   name: meltano
   pip_url: git+https://gitlab.com/meltano/tap-fastly.git
   repo: https://gitlab.com/meltano/tap-fastly

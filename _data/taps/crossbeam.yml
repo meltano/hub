@@ -5,7 +5,7 @@ singer_name: tap-crossbeam
 type: tap
 variants:
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: singer-io
   pip_url: git+https://github.com/singer-io/tap-crossbeam.git
   repo: https://github.com/singer-io/tap-crossbeam
@@ -14,7 +14,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: b-ryan
   pip_url: git+https://github.com/b-ryan/tap-crossbeam.git
   repo: https://github.com/b-ryan/tap-crossbeam

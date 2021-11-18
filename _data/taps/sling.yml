@@ -5,7 +5,7 @@ singer_name: tap-sling
 type: tap
 variants:
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: singer-io
   pip_url: tap-sling
   repo: https://github.com/singer-io/tap-sling
@@ -14,7 +14,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: rfdearborn
   pip_url: git+https://github.com/rfdearborn/tap-sling.git
   repo: https://github.com/rfdearborn/tap-sling
@@ -23,7 +23,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: isabella232
   pip_url: git+https://github.com/isabella232/tap-sling.git
   repo: https://github.com/isabella232/tap-sling

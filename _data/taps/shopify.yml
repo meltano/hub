@@ -9,7 +9,7 @@ variants:
   - discover
   - state
   default: true
-  maintenance_status: Unresponsive
+  maintenance_status: inactive
   name: singer-io
   pip_url: tap-shopify
   repo: https://github.com/singer-io/tap-shopify

@@ -5,7 +5,7 @@ singer_name: tap-basecone
 type: tap
 variants:
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: yoast
   pip_url: git+https://github.com/Yoast/singer-tap-basecone.git
   repo: https://github.com/Yoast/singer-tap-basecone

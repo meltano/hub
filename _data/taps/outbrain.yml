@@ -5,7 +5,7 @@ singer_name: tap-outbrain
 type: tap
 variants:
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: fishtown-analytics
   pip_url: git+https://github.com/fishtown-analytics/tap-outbrain.git
   repo: https://github.com/fishtown-analytics/tap-outbrain

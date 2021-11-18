@@ -5,7 +5,7 @@ singer_name: tap-agilecrm
 type: tap
 variants:
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: dreamdata-io
   pip_url: git+https://github.com/dreamdata-io/tap-agilecrm.git
   repo: https://github.com/dreamdata-io/tap-agilecrm

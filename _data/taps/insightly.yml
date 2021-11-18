@@ -5,7 +5,7 @@ singer_name: tap-insightly
 type: tap
 variants:
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: fostersdata
   pip_url: git+https://github.com/FostersData/tap-insightly.git
   repo: https://github.com/FostersData/tap-insightly
@@ -14,7 +14,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: mrtns
   pip_url: git+https://github.com/mrtns/tap-insightly.git
   repo: https://github.com/mrtns/tap-insightly

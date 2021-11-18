@@ -9,7 +9,7 @@ variants:
   - discover
   - state
   default: true
-  maintenance_status: Unresponsive
+  maintenance_status: inactive
   name: singer-io
   pip_url: tap-mongodb
   repo: https://github.com/singer-io/tap-mongodb
@@ -46,7 +46,7 @@ variants:
     - password
     - database
 - default: false
-  maintenance_status: Active
+  maintenance_status: active
   name: transferwise
   pip_url: pipelinewise-tap-mongodb
   repo: https://github.com/transferwise/pipelinewise-tap-mongodb
@@ -55,7 +55,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: luandy64
   pip_url: git+https://github.com/luandy64/tap-mongodb.git
   repo: https://github.com/luandy64/tap-mongodb
@@ -64,7 +64,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: rudybear
   pip_url: git+https://github.com/rudybear/tap-mongodb.git
   repo: https://github.com/rudybear/tap-mongodb
@@ -73,7 +73,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: checkr
   pip_url: git+https://github.com/checkr/tap-mongodb.git
   repo: https://github.com/checkr/tap-mongodb
@@ -82,7 +82,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: stvhanna
   pip_url: git+https://github.com/stvhanna/tap-mongodb.git
   repo: https://github.com/stvhanna/tap-mongodb
@@ -91,7 +91,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: madlittlemods
   pip_url: git+https://github.com/MadLittleMods/tap-mongodb.git
   repo: https://github.com/MadLittleMods/tap-mongodb

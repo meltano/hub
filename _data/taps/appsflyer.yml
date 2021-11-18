@@ -6,7 +6,7 @@ singer_name: tap-appsflyer
 type: tap
 variants:
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: singer-io
   pip_url: tap-appsflyer
   repo: https://github.com/singer-io/tap-appsflyer

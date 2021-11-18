@@ -5,7 +5,7 @@ singer_name: tap-oracle
 type: tap
 variants:
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: transferwise
   pip_url: pipelinewise-tap-oracle
   repo: https://github.com/transferwise/pipelinewise-tap-oracle
@@ -14,7 +14,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: mpcarter
   pip_url: git+https://github.com/mpcarter/pipelinewise-tap-oracle.git
   repo: https://github.com/mpcarter/pipelinewise-tap-oracle
@@ -23,7 +23,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: visch
   pip_url: git+https://github.com/visch/pipelinewise-tap-oracle.git
   repo: https://github.com/visch/pipelinewise-tap-oracle

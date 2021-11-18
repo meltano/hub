@@ -5,7 +5,7 @@ singer_name: tap-fullstory
 type: tap
 variants:
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: singer-io
   pip_url: tap-fullstory
   repo: https://github.com/singer-io/tap-fullstory
