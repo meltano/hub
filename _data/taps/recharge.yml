@@ -10,7 +10,7 @@ variants:
   - state
   default: true
   docs: https://meltano.com/plugins/extractors/recharge.html
-  maintenance_status: Inactive or Stale
+  maintenance_status: inactive
   name: singer-io
   pip_url: tap-recharge
   repo: https://github.com/singer-io/tap-recharge
@@ -30,7 +30,7 @@ variants:
     placeholder: Ex. tap-recharge via Meltano <user@example.com>
     value: tap-recharge via Meltano
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: bytecodeio
   pip_url: git+https://github.com/bytecodeio/tap-recharge.git
   repo: https://github.com/bytecodeio/tap-recharge

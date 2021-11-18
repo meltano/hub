@@ -5,7 +5,7 @@ singer_name: tap-netlify
 type: tap
 variants:
 - default: true
-  maintenance_status: Active (Stable)
+  maintenance_status: active
   meltano_sdk: true
   name: franloza
   pip_url: git+https://github.com/franloza/tap-netlify.git

@@ -9,7 +9,7 @@ variants:
   - discover
   - state
   default: true
-  maintenance_status: Active (Stable)
+  maintenance_status: active
   name: meltanolabs
   pip_url: git+https://github.com/MeltanoLabs/tap-gitlab.git
   repo: https://github.com/MeltanoLabs/tap-gitlab
@@ -70,7 +70,7 @@ variants:
     - projects
     - start_date
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: singer-io
   pip_url: tap-gitlab
   repo: https://github.com/singer-io/tap-gitlab
@@ -83,7 +83,7 @@ variants:
   - discover
   - state
   default: false
-  maintenance_status: Active (Stable)
+  maintenance_status: active
   name: meltano
   pip_url: git+https://gitlab.com/meltano/tap-gitlab.git
   repo: https://gitlab.com/meltano/tap-gitlab

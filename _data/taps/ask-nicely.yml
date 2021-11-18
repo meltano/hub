@@ -5,7 +5,7 @@ singer_name: tap-ask-nicely
 type: tap
 variants:
 - default: true
-  maintenance_status: Active (Stable)
+  maintenance_status: active
   docs: https://hub.meltano.com/extractors/ask-nicely
   name: mashey
   pip_url: git+https://github.com/Mashey/tap-ask-nicely.git

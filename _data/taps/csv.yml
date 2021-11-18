@@ -9,7 +9,7 @@ variants:
   - state
   - catalog
   default: true
-  maintenance_status: Active (Stable)
+  maintenance_status: active
   name: meltanolabs
   meltano_sdk: true
   pip_url: git+https://github.com/MeltanoLabs/tap-csv.git
@@ -28,7 +28,7 @@ variants:
   - - files
   - - csv_files_definition
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: robertjmoore
   pip_url: git+https://github.com/robertjmoore/tap-csv.git
   repo: https://github.com/robertjmoore/tap-csv
@@ -37,7 +37,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: hotgluexyz
   pip_url: git+https://github.com/hotgluexyz/tap-csv.git
   repo: https://github.com/hotgluexyz/tap-csv
@@ -50,7 +50,7 @@ variants:
   - discover
   - state
   - catalog
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: meltano
   pip_url: git+https://gitlab.com/meltano/tap-csv.git
   repo: https://gitlab.com/meltano/tap-csv

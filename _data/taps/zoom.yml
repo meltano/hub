@@ -8,7 +8,7 @@ variants:
   - catalog
   - discover
   default: true
-  maintenance_status: Active (Stable)
+  maintenance_status: active
   name: mashey
   pip_url: git+https://github.com/mashey/tap-zoom.git
   repo: https://github.com/mashey/tap-zoom
@@ -31,7 +31,7 @@ variants:
     - client_secret
     - refresh_token
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: karbonhq
   pip_url: git+https://github.com/karbonhq/singer-tap-zoom.git
   repo: https://github.com/karbonhq/singer-tap-zoom
@@ -40,7 +40,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: singer-io
   pip_url: tap-zoom
   repo: https://github.com/singer-io/tap-zoom

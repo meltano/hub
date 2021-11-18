@@ -5,7 +5,7 @@ singer_name: tap-signonsite
 type: tap
 variants:
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: fostersdata
   pip_url: git+https://github.com/FostersData/tap-signonsite.git
   repo: https://github.com/FostersData/tap-signonsite
@@ -14,7 +14,7 @@ variants:
   - catalog
   - discover
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: singer-io
   pip_url: tap-signonsite
   repo: https://github.com/singer-io/tap-signonsite

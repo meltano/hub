@@ -5,7 +5,7 @@ singer_name: tap-mssql
 type: tap
 variants:
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: singer-io
   language: clojure
   pip_url: tap-mssql
@@ -15,7 +15,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: cmoresid
   pip_url: git+https://github.com/cmoresid/tap-mssql.git
   repo: https://github.com/cmoresid/tap-mssql
@@ -24,7 +24,7 @@ variants:
   - catalog
   - discover
 - default: true
-  maintenance_status: Active (Stable)
+  maintenance_status: active
   name: wintersrd
   pip_url: git+https://github.com/wintersrd/pipelinewise-tap-mssql.git
   repo: https://github.com/wintersrd/pipelinewise-tap-mssql

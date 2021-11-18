@@ -5,7 +5,7 @@ singer_name: tap-sftp
 type: tap
 variants:
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: bonobos
   pip_url: git+https://github.com/bonobos/tap-sftp.git
   repo: https://github.com/bonobos/tap-sftp
@@ -14,7 +14,7 @@ variants:
   - catalog
   - discover
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: singer-io
   pip_url: tap-sftp
   repo: https://github.com/singer-io/tap-sftp

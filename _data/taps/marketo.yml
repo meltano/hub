@@ -6,7 +6,7 @@ type: tap
 variants:
 - capabilities: []
   default: false
-  maintenance_status: Active (Stable)
+  maintenance_status: active
   name: meltano
   pip_url: git+https://gitlab.com/meltano/tap-marketo.git
   repo: https://gitlab.com/meltano/tap-marketo
@@ -22,7 +22,7 @@ variants:
     kind: date_iso8601
     name: start_date
 - default: true
-  maintenance_status: Active (Stable)
+  maintenance_status: active
   name: singer-io
   pip_url: tap-marketo
   repo: https://github.com/singer-io/tap-marketo

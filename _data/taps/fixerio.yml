@@ -5,7 +5,7 @@ singer_name: tap-fixerio
 type: tap
 variants:
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: einartg
   pip_url: git+https://github.com/einartg/tap-fixerio.git
   repo: https://github.com/einartg/tap-fixerio
@@ -14,7 +14,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: ebunt
   pip_url: git+https://github.com/ebunt/tap-fixerio.git
   repo: https://github.com/ebunt/tap-fixerio
@@ -23,7 +23,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: lpillmann
   pip_url: git+https://github.com/lpillmann/tap-fixerio.git
   repo: https://github.com/lpillmann/tap-fixerio
@@ -32,7 +32,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: angaza
   pip_url: git+https://github.com/angaza/tap-fixerio.git
   repo: https://github.com/angaza/tap-fixerio
@@ -41,7 +41,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: haaspt
   pip_url: git+https://github.com/haaspt/tap-fixerio.git
   repo: https://github.com/haaspt/tap-fixerio
@@ -50,7 +50,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: isabella232
   pip_url: git+https://github.com/isabella232/tap-fixerio.git
   repo: https://github.com/isabella232/tap-fixerio
@@ -59,7 +59,7 @@ variants:
   - catalog
   - discover
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: singer-io
   pip_url: tap-fixerio
   repo: https://github.com/singer-io/tap-fixerio

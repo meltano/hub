@@ -5,7 +5,7 @@ singer_name: tap-estoca
 type: tap
 variants:
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: muriloo
   pip_url: git+https://github.com/Muriloo/tap-estoca.git
   repo: https://github.com/Muriloo/tap-estoca
@@ -14,7 +14,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: r4ir4
   pip_url: git+https://github.com/r4ir4/tap-estoca.git
   repo: https://github.com/r4ir4/tap-estoca

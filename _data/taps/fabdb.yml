@@ -6,7 +6,7 @@ singer_name: tap-fabdb
 type: tap
 variants:
 - default: true
-  maintenance_status: Active (Stable)
+  maintenance_status: active
   name: dwallace0723
   pip_url: git+https://github.com/dwallace0723/tap-fabdb.git
   repo: https://github.com/dwallace0723/tap-fabdb

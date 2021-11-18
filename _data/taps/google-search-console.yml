@@ -5,7 +5,7 @@ singer_name: tap-google-search-console
 type: tap
 variants:
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: bytecodeio
   pip_url: git+https://github.com/bytecodeio/tap-google-search-console.git
   repo: https://github.com/bytecodeio/tap-google-search-console
@@ -14,7 +14,7 @@ variants:
   - catalog
   - discover
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: singer-io
   pip_url: tap-google-search-console
   repo: https://github.com/singer-io/tap-google-search-console

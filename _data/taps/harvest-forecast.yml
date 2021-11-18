@@ -5,7 +5,7 @@ singer_name: tap-harvest-forecast
 type: tap
 variants:
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: singer-io
   pip_url: tap-harvest-forecast
   repo: https://github.com/singer-io/tap-harvest-forecast
@@ -14,7 +14,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: assembleinc
   pip_url: git+https://github.com/assembleinc/tap-harvest-forecast.git
   repo: https://github.com/assembleinc/tap-harvest-forecast

@@ -5,7 +5,7 @@ singer_name: target-cassandra
 type: target
 variants:
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: coeff
   pip_url: git+https://github.com/coeff/target-cassandra.git
   repo: https://github.com/coeff/target-cassandra

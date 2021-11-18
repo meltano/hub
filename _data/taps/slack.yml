@@ -9,7 +9,7 @@ variants:
   - discover
   - state
   default: true
-  maintenance_status: Active (Stable)
+  maintenance_status: active
   name: mashey
   pip_url: git+https://github.com/Mashey/tap-slack.git
   repo: https://github.com/Mashey/tap-slack
@@ -58,7 +58,7 @@ variants:
     name: date_window_size
     value: 7
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: envoy
   pip_url: git+https://github.com/envoy/tap-slack.git
   repo: https://github.com/envoy/tap-slack
@@ -67,7 +67,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: richard-clark
   pip_url: git+https://github.com/richard-clark/tap-slack.git
   repo: https://github.com/richard-clark/tap-slack
@@ -76,7 +76,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Active (Stable)
+  maintenance_status: active
   name: transferwise
   pip_url: pipelinewise-tap-slack
   repo: https://github.com/transferwise/pipelinewise-tap-slack

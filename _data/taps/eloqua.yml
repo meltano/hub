@@ -5,7 +5,7 @@ singer_name: tap-eloqua
 type: tap
 variants:
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: erikogan
   pip_url: git+https://github.com/erikogan/tap-eloqua.git
   repo: https://github.com/erikogan/tap-eloqua
@@ -14,7 +14,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: timvisher
   pip_url: git+https://github.com/timvisher/tap-eloqua.git
   repo: https://github.com/timvisher/tap-eloqua
@@ -23,7 +23,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: flopotok
   pip_url: git+https://github.com/flopotok/tap-eloqua.git
   repo: https://github.com/flopotok/tap-eloqua
@@ -32,7 +32,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: isabella232
   pip_url: git+https://github.com/isabella232/tap-eloqua.git
   repo: https://github.com/isabella232/tap-eloqua
@@ -41,7 +41,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: gdm-analytics
   pip_url: git+https://github.com/gdm-analytics/tap-eloqua.git
   repo: https://github.com/gdm-analytics/tap-eloqua
@@ -50,7 +50,7 @@ variants:
   - catalog
   - discover
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: singer-io
   pip_url: tap-eloqua
   repo: https://github.com/singer-io/tap-eloqua
@@ -59,7 +59,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: radico
   pip_url: git+https://github.com/Radico/tap-eloqua.git
   repo: https://github.com/Radico/tap-eloqua
@@ -68,7 +68,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: onemedical
   pip_url: git+https://github.com/onemedical/tap-eloqua.git
   repo: https://github.com/onemedical/tap-eloqua
@@ -77,7 +77,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: jjbarberio2
   pip_url: git+https://github.com/jjbarberio2/tap-eloqua.git
   repo: https://github.com/jjbarberio2/tap-eloqua
@@ -86,7 +86,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: datamill-co
   pip_url: git+https://github.com/datamill-co/tap-eloqua.git
   repo: https://github.com/datamill-co/tap-eloqua
@@ -95,7 +95,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: fauxpasonics
   pip_url: git+https://github.com/fauxpasonics/tap-eloqua.git
   repo: https://github.com/fauxpasonics/tap-eloqua

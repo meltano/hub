@@ -5,7 +5,7 @@ singer_name: tap-auth0-logs-checkpoint
 type: tap
 variants:
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: process-street
   pip_url: git+https://github.com/process-street/tap-auth0-logs-checkpoint.git
   repo: https://github.com/process-street/tap-auth0-logs-checkpoint

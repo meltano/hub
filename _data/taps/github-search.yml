@@ -5,7 +5,7 @@ singer_name: tap-github
 type: tap
 variants:
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   meltano_sdk: true
   name: meltanolabs
   pip_url: git+https://github.com/MeltanoLabs/tap-github.git

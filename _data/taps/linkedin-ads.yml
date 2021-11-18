@@ -5,7 +5,7 @@ singer_name: tap-linkedin-ads
 type: tap
 variants:
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: bytecodeio
   pip_url: git+https://github.com/bytecodeio/tap-linkedin-ads.git
   repo: https://github.com/bytecodeio/tap-linkedin-ads
@@ -14,7 +14,7 @@ variants:
   - catalog
   - discover
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: singer-io
   pip_url: tap-linkedin-ads
   repo: https://github.com/singer-io/tap-linkedin-ads
@@ -23,7 +23,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: radico
   pip_url: git+https://github.com/Radico/tap-linkedin-marketing.git
   repo: https://github.com/Radico/tap-linkedin-marketing
@@ -32,7 +32,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: dedicatedtodata
   pip_url: git+https://github.com/DedicatedToData/tap-linkedin-marketing.git
   repo: https://github.com/DedicatedToData/tap-linkedin-marketing

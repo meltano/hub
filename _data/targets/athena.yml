@@ -8,7 +8,7 @@ variants:
   repo: https://github.com/dataops-tk/target-athena
   pip_url: git+https://github.com/dataops-tk/target-athena.git
   default: true
-  maintenance_status: Active (Stable)
+  maintenance_status: active
   settings: []
 entity_url: https://aws.amazon.com/athena/
 entity_type: file

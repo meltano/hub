@@ -5,7 +5,7 @@ singer_name: tap-aws-cost-explorer
 type: tap
 variants:
 - default: true
-  maintenance_status: Active (Stable)
+  maintenance_status: active
   meltano_sdk: true
   name: albert-marrero
   pip_url: git+https://github.com/albert-marrero/tap-aws-cost-explorer.git

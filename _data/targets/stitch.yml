@@ -5,7 +5,7 @@ singer_name: target-stitch
 type: target
 variants:
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: singer-io
   pip_url: target-stitch
   repo: https://github.com/singer-io/target-stitch

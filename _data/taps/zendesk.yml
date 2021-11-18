@@ -9,7 +9,7 @@ variants:
   - discover
   - state
   default: true
-  maintenance_status: Active (Stable)
+  maintenance_status: active
   name: twilio-labs
   pip_url: twilio-tap-zendesk
   repo: https://github.com/twilio-labs/twilio-tap-zendesk
@@ -47,7 +47,7 @@ variants:
   - catalog
   - discover
   - state
-  maintenance_status: Inactive or Stale
+  maintenance_status: inactive
   name: singer-io
   pip_url: tap-zendesk
   repo: https://github.com/singer-io/tap-zendesk
@@ -82,7 +82,7 @@ variants:
     - subdomain
     - start_date
 - default: false
-  maintenance_status: Active (Stable)
+  maintenance_status: active
   name: transferwise
   pip_url: pipelinewise-tap-zendesk
   repo: https://github.com/transferwise/pipelinewise-tap-zendesk
@@ -91,7 +91,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: radico
   pip_url: git+https://github.com/Radico/tap-zendesk.git
   repo: https://github.com/Radico/tap-zendesk

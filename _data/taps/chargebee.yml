@@ -9,7 +9,7 @@ variants:
   - discover
   - state
   default: true
-  maintenance_status: Active (Stable)
+  maintenance_status: active
   name: hotgluexyz
   pip_url: git+https://github.com/hotgluexyz/tap-chargebee.git
   repo: https://github.com/hotgluexyz/tap-chargebee
@@ -44,7 +44,7 @@ variants:
     - product_catalog
     - start_date
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: envoy
   pip_url: git+https://github.com/envoy/tap-chargebee.git
   repo: https://github.com/envoy/tap-chargebee

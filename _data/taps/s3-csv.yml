@@ -5,7 +5,7 @@ singer_name: tap-s3-csv
 type: tap
 variants:
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: valulucchesi
   pip_url: git+https://github.com/valulucchesi/tap-s3-csv.git
   repo: https://github.com/valulucchesi/tap-s3-csv
@@ -14,7 +14,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: fishtown-analytics
   pip_url: git+https://github.com/fishtown-analytics/tap-s3-csv.git
   repo: https://github.com/fishtown-analytics/tap-s3-csv
@@ -23,7 +23,7 @@ variants:
   - catalog
   - discover
 - default: true
-  maintenance_status: Active (Stable)
+  maintenance_status: active
   name: transferwise
   pip_url: pipelinewise-tap-s3-csv
   repo: https://github.com/transferwise/pipelinewise-tap-s3-csv

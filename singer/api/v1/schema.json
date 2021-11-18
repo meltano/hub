@@ -181,11 +181,11 @@
                         "type": "string",
                         "title": "Variant Maintenance Status",
                         "enum": [
-                            "Active (Stable)",
-                            "Prerelease (Beta)",
-                            "Under Construction",
-                            "Inactive or Stale",
-                            "Unknown"
+                            "active",
+                            "beta",
+                            "development",
+                            "inactive",
+                            "unknown"
                         ],
                         "description": "The maintenance_status of the variant."
                     },

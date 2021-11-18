@@ -5,7 +5,7 @@ singer_name: tap-twilio
 type: tap
 variants:
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: bytecodeio
   pip_url: git+https://github.com/bytecodeio/tap-twilio.git
   repo: https://github.com/bytecodeio/tap-twilio
@@ -14,7 +14,7 @@ variants:
   - catalog
   - discover
 - default: true
-  maintenance_status: Active (Stable)
+  maintenance_status: active
   name: transferwise
   docs: https://hub.meltano.com/extractors/twilio
   pip_url: pipelinewise-tap-twilio
@@ -55,7 +55,7 @@ variants:
     description: This is used to identify the process running the tap.
     placeholder: Ex. "tap-twilio <api_user_email@your_company.com>"
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: singer-io
   pip_url: tap-twilio
   repo: https://github.com/singer-io/tap-twilio

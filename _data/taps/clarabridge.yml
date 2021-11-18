@@ -5,7 +5,7 @@ singer_name: tap-clarabridge
 type: tap
 variants:
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: pathlight
   pip_url: git+https://github.com/Pathlight/tap-clarabridge.git
   repo: https://github.com/Pathlight/tap-clarabridge

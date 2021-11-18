@@ -5,7 +5,7 @@ singer_name: tap-sumologic
 type: tap
 variants:
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: splitio
   pip_url: git+https://github.com/splitio/tap-sumologic.git
   repo: https://github.com/splitio/tap-sumologic

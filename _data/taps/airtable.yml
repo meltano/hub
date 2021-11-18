@@ -5,7 +5,7 @@ singer_name: tap-airtable
 type: tap
 variants:
 - default: true
-  maintenance_status: Active (Stable)
+  maintenance_status: active
   name: goes-funky
   pip_url: git+https://github.com/goes-funky/tap-airtable.git
   repo: https://github.com/goes-funky/tap-airtable

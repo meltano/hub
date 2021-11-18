@@ -5,7 +5,7 @@ singer_name: tap-call-cap
 type: tap
 variants:
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: llazarovgannett
   pip_url: git+https://github.com/LLazarovGannett/tap-call-cap.git
   repo: https://github.com/LLazarovGannett/tap-call-cap

@@ -10,7 +10,7 @@ variants:
   - discover
   - state
   default: true
-  maintenance_status: Active (Stable)
+  maintenance_status: active
   name: ets
   pip_url: git+https://github.com/ets/tap-spreadsheets-anywhere.git
   repo: https://github.com/ets/tap-spreadsheets-anywhere
@@ -20,7 +20,7 @@ variants:
     kind: array
     name: tables
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: andrewcstewart
   pip_url: git+https://github.com/andrewcstewart/tap-spreadsheets-anywhere.git
   repo: https://github.com/andrewcstewart/tap-spreadsheets-anywhere
@@ -29,7 +29,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: laurents
   pip_url: git+https://github.com/laurentS/tap-spreadsheets-anywhere.git
   repo: https://github.com/laurentS/tap-spreadsheets-anywhere
@@ -38,7 +38,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: mmeyer
   pip_url: git+https://github.com/mmeyer/tap-spreadsheets-anywhere.git
   repo: https://github.com/mmeyer/tap-spreadsheets-anywhere
@@ -47,7 +47,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: rfainc
   pip_url: git+https://github.com/RFAInc/tap-spreadsheets-anywhere.git
   repo: https://github.com/RFAInc/tap-spreadsheets-anywhere
@@ -56,7 +56,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: quickbi
   pip_url: git+https://github.com/quickbi/tap-spreadsheets-anywhere.git
   repo: https://github.com/quickbi/tap-spreadsheets-anywhere
@@ -65,7 +65,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: williamqliu
   pip_url: git+https://github.com/WilliamQLiu/tap-spreadsheets-anywhere.git
   repo: https://github.com/WilliamQLiu/tap-spreadsheets-anywhere
@@ -74,7 +74,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: mashey
   pip_url: git+https://github.com/Mashey/tap-spreadsheets-anywhere.git
   repo: https://github.com/Mashey/tap-spreadsheets-anywhere
@@ -83,7 +83,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: juleshuisman
   pip_url: git+https://github.com/JulesHuisman/tap-spreadsheets-anywhere.git
   repo: https://github.com/JulesHuisman/tap-spreadsheets-anywhere

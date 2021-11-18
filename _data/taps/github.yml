@@ -6,7 +6,7 @@ type: tap
 variants:
 - name: singer-io
   default: true
-  maintenance_status: Active (Stable)
+  maintenance_status: active
   docs: https://hub.meltano.com/extractors/github
   pip_url: tap-github
   repo: https://github.com/singer-io/tap-github

@@ -5,7 +5,7 @@ singer_name: tap-google-sheets
 type: tap
 variants:
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: bytecodeio
   pip_url: git+https://github.com/bytecodeio/tap-google-sheets.git
   repo: https://github.com/bytecodeio/tap-google-sheets
@@ -14,7 +14,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: dcaribou
   pip_url: git+https://github.com/dcaribou/tap-gsheets.git
   repo: https://github.com/dcaribou/tap-gsheets
@@ -25,7 +25,7 @@ variants:
 - name: singer-io
   default: true
   docs: https://hub.meltano.com/extractors/google-sheets
-  maintenance_status: Active (Stable)
+  maintenance_status: active
   pip_url: tap-google-sheets
   repo: https://github.com/singer-io/tap-google-sheets
   capabilities:

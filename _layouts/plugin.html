@@ -31,15 +31,15 @@ layout: plugin_page
 </p>
 
 <ul>
-  {% if variant.maintenance_status == "Unknown" %} {% assign maintenance_status_color = "lightgrey" %} {% endif %}
-  {% if variant.maintenance_status == "Under Construction" %} {% assign maintenance_status_color = "orange" %} {% endif %}
-  {% if variant.maintenance_status == "Prerelease (Beta)" %} {% assign maintenance_status_color = "yellow" %} {% endif %}
-  {% if variant.maintenance_status == "Active (Stable)" %} {% assign maintenance_status_color = "brightgreen" %} {% endif %}
-  {% if variant.maintenance_status == "Stale or inactive" %} {% assign maintenance_status_color = "red" %} {% endif %}
+  {% if variant.maintenance_status == "unknown" %} {% assign maintenance_status_label = "Unknown" %} {% assign maintenance_status_color = "lightgrey" %} {% endif %}
+  {% if variant.maintenance_status == "development" %} {% assign maintenance_status_label = "Development (Under Construction)" %} {% assign maintenance_status_color = "orange" %} {% endif %}
+  {% if variant.maintenance_status == "beta" %} {% assign maintenance_status_label = "Prerelease (Beta)" %} {% assign maintenance_status_color = "yellow" %} {% endif %}
+  {% if variant.maintenance_status == "active" %} {% assign maintenance_status_label = "Active (Stable)" %} {% assign maintenance_status_color = "brightgreen" %} {% endif %}
+  {% if variant.maintenance_status == "inactive" %} {% assign maintenance_status_label = "Inactive or Stale" %} {% assign maintenance_status_color = "red" %} {% endif %}
   <li>
     <img   
       alt="Maintenance Status"
-      src="https://img.shields.io/badge/Maintenance%20Status-{{ variant.maintenance_status | replace: " ", "%20" }}-{{ maintenance_status_color }}">
+      src="https://img.shields.io/badge/Maintenance%20Status-{{ maintenance_status_label | replace: " ", "%20" }}-{{ maintenance_status_color }}">
   </li>
 
   <li>

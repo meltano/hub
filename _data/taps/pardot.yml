@@ -5,7 +5,7 @@ singer_name: tap-pardot
 type: tap
 variants:
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: singer-io
   pip_url: tap-pardot
   repo: https://github.com/singer-io/tap-pardot

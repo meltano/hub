@@ -6,7 +6,7 @@ type: tap
 variants:
 - name: singer-io
   default: true
-  maintenance_status: Active (Stable)
+  maintenance_status: active
   docs: https://hub.meltano.com/extractors/pendo
   pip_url: tap-pendo
   repo: https://github.com/singer-io/tap-pendo
@@ -50,7 +50,7 @@ variants:
     description: This is the default start date value to use if no bookmark is present.
     kind: date_iso8601
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: jwalterclark
   pip_url: git+https://github.com/jwalterclark/tap-pendo.git
   repo: https://github.com/jwalterclark/tap-pendo
@@ -59,7 +59,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: diegobatt
   pip_url: git+https://github.com/diegobatt/tap-pendo.git
   repo: https://github.com/diegobatt/tap-pendo
@@ -68,7 +68,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: jeffhuth-bytecode
   pip_url: git+https://github.com/jeffhuth-bytecode/tap-pendo.git
   repo: https://github.com/jeffhuth-bytecode/tap-pendo
@@ -77,7 +77,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: isabella232
   pip_url: git+https://github.com/isabella232/tap-pendo.git
   repo: https://github.com/isabella232/tap-pendo
@@ -86,7 +86,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: alisa-aylward-toast
   pip_url: git+https://github.com/alisa-aylward-toast/tap-pendo.git
   repo: https://github.com/alisa-aylward-toast/tap-pendo
@@ -95,7 +95,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: bytecodeio
   pip_url: git+https://github.com/bytecodeio/tap-pendo.git
   repo: https://github.com/bytecodeio/tap-pendo

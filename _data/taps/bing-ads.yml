@@ -9,7 +9,7 @@ variants:
   - discover
   - state
   default: true
-  maintenance_status: Inactive or Stale
+  maintenance_status: inactive
   name: singer-io
   pip_url: tap-bing-ads
   repo: https://github.com/singer-io/tap-bing-ads

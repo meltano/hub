@@ -5,7 +5,7 @@ singer_name: tap-surveymonkey
 type: tap
 variants:
 - default: false
-  maintenance_status: Active (Stable)
+  maintenance_status: active
   meltano_sdk: true
   name: danladd
   pip_url: git+https://gitlab.com/danladd/tap-surveymonkey.git
@@ -34,7 +34,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: mikedillion
   pip_url: git+https://github.com/mikedillion/tap-surveymonkey.git
   repo: https://github.com/mikedillion/tap-surveymonkey
@@ -43,7 +43,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: isabella232
   pip_url: git+https://github.com/isabella232/tap-surveymonkey.git
   repo: https://github.com/isabella232/tap-surveymonkey
@@ -52,7 +52,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: rahimnathwani
   pip_url: git+https://github.com/rahimnathwani/tap-surveymonkey.git
   repo: https://github.com/rahimnathwani/tap-surveymonkey
@@ -61,7 +61,7 @@ variants:
   - catalog
   - discover
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: singer-io
   pip_url: tap-surveymonkey
   repo: https://github.com/singer-io/tap-surveymonkey
@@ -70,7 +70,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: ichensvmk
   pip_url: git+https://github.com/ichensvmk/tap-surveymonkey.git
   repo: https://github.com/ichensvmk/tap-surveymonkey
@@ -79,7 +79,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: abij
   pip_url: git+https://github.com/abij/tap-surveymonkey.git
   repo: https://github.com/abij/tap-surveymonkey
@@ -88,7 +88,7 @@ variants:
   - catalog
   - discover
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: horze-international
   pip_url: git+https://github.com/Horze-International/tap-surveymonkey.git
   repo: https://github.com/Horze-International/tap-surveymonkey

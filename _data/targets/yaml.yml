@@ -8,7 +8,7 @@ variants:
   repo: https://github.com/MeltanoLabs/target-yaml
   pip_url: git+https://github.com/MeltanoLabs/target-yaml.git
   default: true
-  maintenance_status: Active (Stable)
+  maintenance_status: active
   meltano_sdk: true
   settings: []
 entity_url: https://yaml.org/

@@ -6,7 +6,7 @@ singer_name: target-sqlite
 variants:
 - name: meltanolabs
   repo: https://github.com/MeltanoLabs/target-sqlite
-  maintenance_status: Active (Stable)
+  maintenance_status: active
   default: true
   pip_url: git+https://github.com/MeltanoLabs/target-sqlite.git
   settings_group_validation:
@@ -30,7 +30,7 @@ variants:
       loaded to SQLite.
 - name: meltano
   repo: https://gitlab.com/meltano/target-sqlite
-  maintenance_status: Active (Stable)
+  maintenance_status: active
   default: false
   pip_url: git+https://gitlab.com/meltano/target-sqlite.git
   settings_group_validation:

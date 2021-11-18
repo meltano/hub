@@ -5,7 +5,7 @@ singer_name: tap-acuite
 type: tap
 variants:
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: fostersdata
   pip_url: git+https://github.com/FostersData/tap-acuite.git
   repo: https://github.com/FostersData/tap-acuite

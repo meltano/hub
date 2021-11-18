@@ -5,7 +5,7 @@ singer_name: tap-stringee
 type: tap
 variants:
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: lamlephamngoc
   pip_url: git+https://github.com/lamlephamngoc/tap-stringee.git
   repo: https://github.com/lamlephamngoc/tap-stringee

@@ -5,7 +5,7 @@ singer_name: tap-paypal
 type: tap
 variants:
 - default: false
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: milk-bar
   pip_url: git+https://github.com/milk-bar/tap-paypal.git
   repo: https://github.com/milk-bar/tap-paypal
@@ -14,7 +14,7 @@ variants:
   - catalog
   - discover
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: yoast
   pip_url: git+https://github.com/Yoast/singer-tap-paypal.git
   repo: https://github.com/Yoast/singer-tap-paypal

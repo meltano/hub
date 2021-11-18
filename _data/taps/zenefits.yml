@@ -5,7 +5,7 @@ singer_name: tap-zenefits
 type: tap
 variants:
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: unknown
   name: mashey
   pip_url: git+https://github.com/Mashey/tap-zenefits.git
   repo: https://github.com/Mashey/tap-zenefits
