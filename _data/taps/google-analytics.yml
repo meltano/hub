@@ -7,8 +7,75 @@ variants:
 - capabilities:
   - catalog
   - discover
+  - state
   default: true
   maintenance_status: active
+  meltano_sdk: true
+  name: meltanolabs
+  pip_url: git+https://github.com/MeltanoLabs/tap-google-analytics.git
+  repo: https://github.com/MeltanoLabs/tap-google-analytics
+  settings:
+  - description: A file that contains the Google Analytics client secrets json.
+    kind: file
+    label: Client Secrets File Location
+    name: key_file_location
+    placeholder: Ex. client_secrets.json
+  - description: An object that contains the Google Analytics client secrets.
+    kind: object
+    label: Client Secrets JSON
+    name: client_secrets
+  - description: The Google Analytics oauth client ID.
+    kind: password
+    label: OAuth Client ID
+    name: oauth_credentials.client_id
+  - description: The Google Analytics oauth client secret.
+    kind: password
+    label: OAuth Client Secret
+    name: oauth_credentials.client_secret
+  - description: The Google Analytics oauth access token.
+    kind: password
+    label: OAuth Access Token
+    name: oauth_credentials.access_token
+  - description: The Google Analytics oauth refresh token.
+    kind: password
+    label: OAuth Refresh Token
+    name: oauth_credentials.refresh_token
+  - description: The ID for the view to fetch data from.
+    label: View ID
+    name: view_id
+    placeholder: Ex. 198343027
+  - description: The reports definition of which fields to retrieve from the view.
+    label: Reports
+    name: reports
+    placeholder: Ex. my_report_definition.json
+  - description: This property determines how much historical data will be extracted.
+      Please be aware that the larger the time period and amount of data, the longer
+      the initial extraction can be expected to take.
+    kind: date_iso8601
+    label: Start Date
+    name: start_date
+  - description: Date up to when historical data will be extracted.
+    kind: date_iso8601
+    label: End Date
+    name: end_date
+  settings_group_validation:
+  - - key_file_location
+    - view_id
+    - start_date
+  - - client_secrets
+    - view_id
+    - start_date
+  - - oauth_credentials.client_id
+    - oauth_credentials.client_secret
+    - oauth_credentials.access_token
+    - oauth_credentials.refresh_token
+    - view_id
+    - start_date
+- capabilities:
+  - catalog
+  - discover
+  default: false
+  maintenance_status: inactive
   name: meltano
   pip_url: git+https://gitlab.com/meltano/tap-google-analytics.git
   repo: https://gitlab.com/meltano/tap-google-analytics
