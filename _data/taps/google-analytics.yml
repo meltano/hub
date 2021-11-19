@@ -52,9 +52,11 @@ variants:
       Please be aware that the larger the time period and amount of data, the longer
       the initial extraction can be expected to take.
     kind: date_iso8601
+    label: Start Date
     name: start_date
   - description: Date up to when historical data will be extracted.
     kind: date_iso8601
+    label: End Date
     name: end_date
   settings_group_validation:
   - - key_file_location
