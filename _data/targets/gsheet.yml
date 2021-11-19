@@ -4,7 +4,7 @@ name: target-gsheet
 singer_name: target-gsheet
 type: target
 variants:
-- default: false
+- default: true
   maintenance_status: unknown
   name: singer-io
   pip_url: target-gsheet
@@ -21,12 +21,6 @@ variants:
   name: dmnpignaud
   pip_url: git+https://github.com/dmnpignaud/target-gsheet.git
   repo: https://github.com/dmnpignaud/target-gsheet
-  settings: []
-- default: true
-  maintenance_status: unknown
-  name: idme
-  pip_url: git+https://github.com/IDme/target-gsheet.git
-  repo: https://github.com/IDme/target-gsheet
   settings: []
 entity_url: https://developers.google.com/sheets/api/quickstart/python
 entity_type: file
