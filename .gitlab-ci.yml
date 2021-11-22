@@ -4,7 +4,6 @@ variables:
 
 stages:
   - validate
-  - discovery
   - test
   - deploy
 
@@ -20,9 +19,6 @@ stages:
 jekyll_test:
   <<: *jekyll_template
   stage: test
-  needs:
-    - job: discovery_validation
-      artifacts: true
   script:
     - bundle exec jekyll build -d test
   artifacts:
@@ -171,27 +167,6 @@ transforms-daily:
   script:
   - meltano invoke dbt:run
   after_script: []
-
-##########################
-# discovery.yml Validation
-##########################
-
-discovery_validation:
-  image: python:3
-  before_script:
-    - pip install ruamel.yaml
-    - pip install deepdiff
-  stage: discovery
-  script:
-    - curl https://gitlab.com/meltano/meltano/-/raw/master/src/meltano/core/bundle/discovery.yml --output meltano.yml
-    - python discovery_yaml_generator.py
-    - python yaml_diff.py
-  artifacts:
-    paths:
-      - discovery.yml
-  only: 
-    refs:
-      - merge_requests
 
 ##########################
 # Validate taps and targets
