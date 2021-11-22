@@ -136,6 +136,7 @@ variants:
     description: Raw SQL statement(s) to execute as soon as the connection to Postgres
       is opened by the target. Useful for setup like `SET ROLE` or other connection
       state that is important.
+    value: CREATE SCHEMA IF NOT EXISTS ${MELTANO_EXTRACT__LOAD_SCHEMA};
   - name: after_run_sql
     description: Raw SQL statement(s) to execute as soon as the connection to Postgres
       is opened by the target. Useful for setup like `SET ROLE` or other connection
