@@ -6,7 +6,7 @@ description: Use Meltano to pull data from the Google Analytics API and load it 
 
 The `tap-google-analytics` [extractor](https://meltano.com/plugins/extractors/) pulls data from the [Google Analytics Reporting API](https://developers.google.com/analytics/devguides/reporting/core/v4/).
 
-- **Repository**: <https://gitlab.com/meltano/tap-google-analytics>
+- **Repository**: <https://github.com/MeltanoLabs/tap-google-analytics>
 - **Maintainer**: Meltano Community
 - **Maintenance status**: Active
 
@@ -61,6 +61,10 @@ In case of service account authentication:
 
 - [Key File Location](#key-file-location)
 
+or
+
+- [Client Secrets](#client-secrets)
+
 In case of OAuth authentication:
 
 - [OAuth Credentials: Client ID](#oauth-credentials-client-id)
@@ -84,7 +88,7 @@ A minimal configuration of `tap-google-analytics` in your [`meltano.yml` project
 plugins:
   extractors:
   - name: tap-google-analytics
-    variant: meltano
+    variant: meltanolabs
     config:
       view_id: '188274549'
       start_date: '2020-10-01T00:00:00Z'
@@ -168,6 +172,19 @@ Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](ht
 meltano config tap-google-analytics set key_file_location /home/user/Downloads/client_secrets.json
 
 export TAP_GOOGLE_ANALYTICS_KEY_FILE_LOCATION=/home/user/Downloads/client_secrets.json
+```
+### Client Secrets
+
+Follow the above steps for [Key File Location](#key-file-location) but instead of providing a path you can provide the serialized json directly. This can be useful for ephemeral runtime environments where its easier to provide an environment variable instead of a file.
+
+#### How to use
+
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+
+```bash
+meltano config tap-google-analytics set client_secrets {"foo": "bar"}
+
+export TAP_GOOGLE_ANALYTICS_CLIENT_SECRETS="{\"foo\": \"bar\"}"
 ```
 
 ### OAuth Credentials: Client ID
