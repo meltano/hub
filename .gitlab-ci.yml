@@ -4,7 +4,6 @@ variables:
 
 stages:
   - validate
-  - discovery
   - test
   - deploy
 
@@ -20,9 +19,6 @@ stages:
 jekyll_test:
   <<: *jekyll_template
   stage: test
-  needs:
-    - job: discovery_validation
-      artifacts: true
   script:
     - bundle exec jekyll build -d test
   artifacts:
