@@ -7,8 +7,8 @@ description: Use Meltano to pull data from the Fastly API and load it into Snowf
 
 The `tap-fastly` [extractor](https://meltano.com/plugins/extractors/) pulls data from the [Fastly API](https://developer.fastly.com/reference/api/).
 
-- **Repository**: <https://gitlab.com/meltano/tap-fastly>
-- **Maintainer**: Meltano Community
+- **Repository**: <https://github.com/splitio/tap-fastly>
+- **Maintainer**: Split Software
 - **Maintenance status**: Active
 
 ## Getting Started
@@ -72,7 +72,7 @@ A minimal configuration of `tap-fastly` in your [`meltano.yml` project file](htt
 plugins:
   extractors:
   - name: tap-fastly
-    variant: meltano
+    variant: splitio
     config:
       start_date: '2020-10-01T00:00:00Z'
 ```
