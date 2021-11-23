@@ -13,7 +13,7 @@ The `target-postgres` [loader](https://meltano.com/plugins/loaders/) loads [extr
 #### Alternative variants
 
 Multiple [variants](https://meltano.com/docs/plugins.html#variants) of `target-postgres` are available.
-This document describes the default `datamill-co` variant, which is recommended for new users.
+This document describes the `datamill-co` variant.
 
 Alternative options are [`transferwise`](./postgres.html) (default) and [`meltano`](./postgres--meltano.html).
 

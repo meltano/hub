@@ -14,9 +14,9 @@ The `target-postgres` [loader](https://meltano.com/plugins/loaders/) loads [extr
 #### Alternative variants
 
 Multiple [variants](https://meltano.com/docs/plugins.html#variants) of `target-postgres` are available.
-This document describes the default `transferwise` variant, which was originally built to be used with [PipelineWise](https://transferwise.github.io/pipelinewise/). This variant is recommended for new users. 
+This document describes the default `transferwise` variant, which is recommended for new users. This variant was originally built to be used with [PipelineWise](https://transferwise.github.io/pipelinewise/).  
 
-Alternative options are [`datamill-co`](./postgres--datamill-co.html) (default) and [`meltano`](./postgres--meltano.html).
+Alternative options are [`datamill-co`](./postgres--datamill-co.html) and [`meltano`](./postgres--meltano.html).
 
 ## Getting Started
 
