@@ -1,0 +1,26 @@
+description: Cloud Spreadsheet-Database Hybrid Software
+label: Airtable
+name: target-airtable
+singer_name: target-airtable
+type: target
+variants:
+- default: true
+  maintenance_status: active
+  name: hotgluexyz
+  pip_url: git+https://github.com/hotgluexyz/target-airtable.git
+  repo: https://github.com/hotgluexyz/target-airtable
+  settings:
+    - name: token
+      kind: password
+      label: API Token
+      description: Airtable API Token
+    - name: base_id
+      kind: string
+      label: Base ID
+      description: Airtable Base ID
+    - name: records_url
+      kind: string
+      label: Records URL
+      description: Airtable Records URL, defaults to https://api.airtable.com/v0
+entity_url: https://www.airtable.com/
+entity_type: file
