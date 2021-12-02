@@ -6,16 +6,17 @@ description: Use Meltano to pull data from various sources and load it into Post
 
 The `target-postgres` [loader](https://meltano.com/plugins/loaders/) loads [extracted](https://meltano.com/plugins/extractors/) data into a [PostgreSQL](https://www.postgresql.org/) database.
 
-- **Repository**: <https://github.com/datamill-co/target-postgres>
-- **Maintainer**: [Data Mill](https://datamill.co/)
+- **Repository**: <https://github.com/transferwise/pipelinewise-target-postgres>
+- **Documentation**: <https://transferwise.github.io/pipelinewise/connectors/targets/postgres.html>
+- **Maintainer**: [Wise](https://wise.com/)
 - **Maintenance status**: Active
 
 #### Alternative variants
 
 Multiple [variants](https://meltano.com/docs/plugins.html#variants) of `target-postgres` are available.
-This document describes the default `datamill-co` variant, which is recommended for new users.
+This document describes the default `transferwise` variant, which is recommended for new users. This variant was originally built to be used with [PipelineWise](https://transferwise.github.io/pipelinewise/).  
 
-Alternative options are [`transferwise`](./postgres--transferwise.html) and [`meltano`](./postgres--meltano.html).
+Alternative options are [`datamill-co`](./postgres--datamill-co.html) and [`meltano`](./postgres--meltano.html).
 
 ## Getting Started
 
@@ -26,14 +27,6 @@ If you haven't already, follow the initial steps of the [Getting Started guide](
 1. [Install Meltano](https://meltano.com/docs/getting-started.html#install-meltano)
 1. [Create your Meltano project](https://meltano.com/docs/getting-started.html#create-your-meltano-project)
 1. [Add an extractor to pull data from a source](https://meltano.com/docs/getting-started.html#add-an-extractor-to-pull-data-from-a-source)
-
-#### Dependencies
-
-`target-postgres` [requires](https://www.psycopg.org/docs/install.html#runtime-requirements) the
-[`libpq` library](https://www.postgresql.org/docs/current/libpq.html) to be available on your system.
-If you've installed PostgreSQL, you should already have it, but you can also install it by itself using the
-[`libpq-dev` package](https://pkgs.org/download/libpq-dev) on Ubuntu/Debian or the
-[`libpq` Homebrew formula](https://formulae.brew.sh/formula/libpq) on macOS.
 
 ### Installation and configuration
 
@@ -71,12 +64,12 @@ If you run into any issues, refer to the ["Troubleshooting" section](#troublesho
 
 `target-postgres` requires the [configuration](https://meltano.com/docs/configuration.html) of the following settings:
 
-- [Postgres Host](#postgres-host)
-- [Postgres Port](#postgres-port)
-- [Postgres Database](#postgres-database)
-- [Postgres Username](#postgres-username)
-- [Postgres Password](#postgres-password)
-- [Postgres Schema](#postgres-schema)
+- [Host](#host)
+- [Port](#port)
+- [User](#user)
+- [Password](#password)
+- [DBname](#dbname)
+- [Default Target Schema](#default-target-schema)
 
 These and other supported settings are documented below.
 To quickly find the setting you're looking for, use the Table of Contents in the sidebar.
@@ -85,17 +78,17 @@ To quickly find the setting you're looking for, use the Table of Contents in the
 
 A minimal configuration of `target-postgres` in your [`meltano.yml` project file](https://meltano.com/docs/project.html#meltano-yml-project-file) will look like this:
 
-```yml{5-10}
+```yml{5-13}
 plugins:
   loaders:
   - name: target-postgres
-    variant: datamill-co
+    variant: transferwise
     config:
-      postgres_host: postgres.example.com
-      postgres_port: 5432
-      postgres_username: my_user
-      postgres_database: my_database
-      # postgres_schema: my_schema   # override if default (see below) is not appropriate
+      host: postgres.example.com
+      port: 5432
+      user: my_user
+      dbname: my_database
+      # default_target_schema: my_schema   # override if default (see below) is not appropriate
 ```
 
 Sensitive values are most appropriately stored in [the environment](https://meltano.com/docs/configuration.html#configuring-settings) or your project's [`.env` file](https://meltano.com/docs/project.html#env):
@@ -104,10 +97,10 @@ Sensitive values are most appropriately stored in [the environment](https://melt
 export TARGET_POSTGRES_PASSWORD=my_password
 ```
 
-### Postgres Host
+### Host
 
-- Name: `postgres_host`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_HOST`, alias: `TARGET_POSTGRES_POSTGRES_HOST`, `PG_ADDRESS`
+- Name: `host`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_HOST`, alias: `PG_ADDRESS`
 - Default: `localhost`
 
 #### How to use
@@ -115,15 +108,15 @@ export TARGET_POSTGRES_PASSWORD=my_password
 Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
 
 ```bash
-meltano config target-postgres set postgres_host <host>
+meltano config target-postgres set host <host>
 
 export TARGET_POSTGRES_HOST=<host>
 ```
 
-### Postgres Port
+### Port
 
-- Name: `postgres_port`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_PORT`, alias: `TARGET_POSTGRES_POSTGRES_PORT`, `PG_PORT`
+- Name: `port`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_PORT`, alias: `PG_PORT`
 - Default: `5432`
 
 #### How to use
@@ -131,398 +124,349 @@ export TARGET_POSTGRES_HOST=<host>
 Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
 
 ```bash
-meltano config target-postgres set postgres_port 5502
+meltano config target-postgres set port 5502
 
 export TARGET_POSTGRES_PORT=5502
 ```
 
-### Postgres Database
+### User
 
-- Name: `postgres_database`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_DATABASE`, alias: `TARGET_POSTGRES_POSTGRES_DATABASE`, `PG_DATABASE`
+- Name: `user`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_USER`, alias: `PG_USERNAME`
 
 #### How to use
 
 Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
 
 ```bash
-meltano config target-postgres set postgres_database <database>
+meltano config target-postgres set user <user>
 
-export TARGET_POSTGRES_DATABASE=<database>
+export TARGET_POSTGRES_USER=<user>
 ```
 
-### Postgres Username
+### Password
 
-- Name: `postgres_username`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_USERNAME`, alias: `TARGET_POSTGRES_POSTGRES_USERNAME`, `PG_USERNAME`
-
-#### How to use
-
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
-
-```bash
-meltano config target-postgres set postgres_username <username>
-
-export TARGET_POSTGRES_USERNAME=<username>
-```
-
-### Postgres Password
-
-- Name: `postgres_password`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_PASSWORD`, alias: `TARGET_POSTGRES_POSTGRES_PASSWORD`, `PG_PASSWORD`
+- Name: `password`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_PASSWORD`, alias: `PG_PASSWORD`
 
 #### How to use
 
 Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
 
 ```bash
-meltano config target-postgres set postgres_password <password>
+meltano config target-postgres set password <password>
 
 export TARGET_POSTGRES_PASSWORD=<password>
 ```
 
-### Postgres Schema
+### DBname
 
-- Name: `postgres_schema`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_SCHEMA`, alias: `TARGET_POSTGRES_POSTGRES_SCHEMA`
+- Name: `dbname`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_DBNAME`, alias: `PG_DATABASE`
+
+PostgreSQL database name
+
+#### How to use
+
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+
+```bash
+meltano config target-postgres set dbname <dbname>
+
+export TARGET_POSTGRES_DBNAME=<dbname>
+```
+
+### SSL
+
+- Name: `ssl`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_SSL`
+- Default: `false`
+
+Using SSL via postgres `sslmode='require'` option.
+
+If the server does not accept SSL connections or the client certificate is not recognized the connection will fail.
+
+#### How to use
+
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+
+```bash
+meltano config target-postgres set ssl true
+
+export TARGET_POSTGRES_SSL=true
+```
+
+### Default Target Schema
+
+- Name: `default_target_schema`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_DEFAULT_TARGET_SCHEMA`, alias: `TARGET_POSTGRES_SCHEMA`, `PG_SCHEMA`
 - Default: `$MELTANO_EXTRACT__LOAD_SCHEMA`, which [will expand to](https://meltano.com/docs/configuration.html#expansion-in-setting-values) the value of the [`load_schema` extra](https://meltano.com/docs/plugins.html#load-schema-extra) for the extractor used in the pipeline, which defaults to the extractor's namespace, e.g. `tap_gitlab` for [`tap-gitlab`](https://meltano.com/plugins/extractors/gitlab.html).
 
-#### How to use
-
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
-
-```bash
-meltano config target-postgres set postgres_schema <schema>
-
-export TARGET_POSTGRES_POSTGRES_SCHEMA=<schema>
-```
-
-### Postgres SSLmode
-
-- Name: `postgres_sslmode`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_SSLMODE`, alias: `TARGET_POSTGRES_POSTGRES_SSLMODE`
-- Default: `prefer`
-
-Refer to the [libpq docs](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-PARAMKEYWORDS) for more information about SSL.
+Name of the schema where the tables will be created. If `schema_mapping` is not defined then every stream sent by the tap is loaded into this schema.
 
 #### How to use
 
 Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
 
 ```bash
-meltano config target-postgres set postgres_sslmode <mode>
+meltano config target-postgres set default_target_schema <schema>
 
-export TARGET_POSTGRES_SSLMODE=<mode>
+export TARGET_POSTGRES_DEFAULT_TARGET_SCHEMA=<schema>
 ```
 
-### Postgres SSLcert
+### Batch Size Rows
 
-- Name: `postgres_sslcert`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_SSLCERT`, alias: `TARGET_POSTGRES_POSTGRES_SSLCERT`
-- Default: `~/.postgresql/postgresql.crt`
+- Name: `batch_size_rows`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_BATCH_SIZE_ROWS`
+- Default: `100000`
 
-Only used if a SSL request w/ a client certificate is being made
+Maximum number of rows in each batch. At the end of each batch, the rows in the batch are loaded into Postgres.
 
 #### How to use
 
 Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
 
 ```bash
-meltano config target-postgres set postgres_sslcert <path>
+meltano config target-postgres set batch_size_rows 1000
 
-export TARGET_POSTGRES_SSLCERT=<path>
+export TARGET_POSTGRES_BATCH_SIZE_ROWS=1000
 ```
 
-### Postgres SSLkey
+### Flush All Streams
 
-- Name: `postgres_sslkey`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_SSLKEY`, alias: `TARGET_POSTGRES_POSTGRES_SSLKEY`
-- Default: `~/.postgresql/postgresql.key`
+- Name: `flush_all_streams`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_FLUSH_ALL_STREAMS`
+- Default: `false`
 
-Only used if a SSL request w/ a client certificate is being made
+Flush and load every stream into Postgres when one batch is full. Warning: This may trigger the COPY command to use files with low number of records.
 
 #### How to use
 
 Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
 
 ```bash
-meltano config target-postgres set postgres_sslkey <path>
+meltano config target-postgres set flush_all_streams true
 
-export TARGET_POSTGRES_SSLKEY=<path>
+export TARGET_POSTGRES_FLUSH_ALL_STREAMS=true
 ```
 
-### Postgres SSLrootcert
+### Parallelism
 
-- Name: `postgres_sslrootcert`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_SSLROOTCERT`, alias: `TARGET_POSTGRES_POSTGRES_SSLROOTCERT`
-- Default: `~/.postgresql/root.crt`
-
-Used for authentication of a server SSL certificate
-
-#### How to use
-
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
-
-```bash
-meltano config target-postgres set postgres_sslrootcert <path>
-
-export TARGET_POSTGRES_SSLROOTCERT=<path>
-```
-
-### Postgres SSLcrl
-
-- Name: `postgres_sslcrl`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_SSLCRL`, alias: `TARGET_POSTGRES_POSTGRES_SSLCRL`
-- Default: `~/.postgresql/root.crl`
-
-Used for authentication of a server SSL certificate
-
-#### How to use
-
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
-
-```bash
-meltano config target-postgres set postgres_sslcrl <path>
-
-export TARGET_POSTGRES_SSLCRL=<path>
-```
-
-### Invalid Records Detect
-
-- Name: `invalid_records_detect`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_INVALID_RECORDS_DETECT`
-- Default: `true`
-
-Include `false` in your config to disable `target-postgres` from crashing on invalid records
-
-#### How to use
-
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
-
-```bash
-meltano config target-postgres set invalid_records_detect false
-
-export TARGET_POSTGRES_INVALID_RECORDS_DETECT=false
-```
-
-### Invalid Records Threshold
-
-- Name: `invalid_records_threshold`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_INVALID_RECORDS_THRESHOLD`
+- Name: `parallelism`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_PARALLELISM`
 - Default: `0`
 
-Include a positive value `n` in your config to allow for `target-postgres` to encounter at most `n` invalid records per stream before giving up.
+The number of threads used to flush tables. 0 will create a thread for each stream, up to parallelism_max. -1 will create a thread for each CPU core. Any other positive number will create that number of threads, up to parallelism_max.
 
 #### How to use
 
 Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
 
 ```bash
-meltano config target-postgres set invalid_records_threshold 5
+meltano config target-postgres set parallelism -1
 
-export TARGET_POSTGRES_INVALID_RECORDS_THRESHOLD=5
+export TARGET_POSTGRES_PARALLELISM=-1
 ```
 
-### Disable Collection
+### Parallelism Max
 
-- Name: `disable_collection`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_DISABLE_COLLECTION`
+- Name: `parallelism_max`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_PARALLELISM_MAX`
+- Default: `16`
+
+Max number of parallel threads to use when flushing tables.
+
+#### How to use
+
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+
+```bash
+meltano config target-postgres set parallelism_max 8
+
+export TARGET_POSTGRES_PARALLELISM_MAX=8
+```
+
+### Default Target Schema Select Permission
+
+- Name: `default_target_schema_select_permission`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_DEFAULT_TARGET_SCHEMA_SELECT_PERMISSION`
+
+Grant USAGE privilege on newly created schemas and grant SELECT privilege on newly created tables to a specific role or a list of roles. If `schema_mapping` is not defined then every stream sent by the tap is granted accordingly.
+
+#### How to use
+
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+
+```bash
+meltano config target-snowflake set default_target_schema_select_permission <roles>
+
+export TARGET_POSTGRES_DEFAULT_TARGET_SCHEMA_SELECT_PERMISSION=<roles>
+```
+
+### Schema Mapping
+
+- Name: `schema_mapping`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_SCHEMA_MAPPING`
+
+Useful if you want to load multiple streams from one tap to multiple Postgres schemas.
+
+If the tap sends the `stream_id` in `<schema_name>-<table_name>` format then this option overwrites the `default_target_schema` value.
+
+Note, that using `schema_mapping` you can overwrite the `default_target_schema_select_permission` value to grant SELECT permissions to different groups per schemas or optionally you can create indices automatically for the replicated tables.
+
+This setting can hold an object mapping source schema names to objects with `target_schema` and (optionally) `target_schema_select_permissions` keys.
+
+#### How to use
+
+Manage this setting directly in your [`meltano.yml` project file](https://meltano.com/docs/project.html#meltano-yml-project-file):
+
+```yml{5-15}
+plugins:
+  loaders:
+  - name: target-postgres
+    variant: transferwise
+    config:
+      schema_mapping:
+        <source_schema>:
+          target_schema: <target_schema>
+          target_schema_select_permissions: [<role1>, <role2>] # Optional
+        # ...
+
+        # For example:
+        public:
+          target_schema: repl_pg_public
+          target_schema_select_permissions: [grp_stats]
+```
+
+Alternatively, manage this setting using [`meltano config`](https://meltano.com/docs/command-line-interface.html#config) or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+
+```bash
+meltano config target-postgres set schema_mapping <source_schema> target_schema <target_schema>
+meltano config target-postgres set schema_mapping <source_schema> target_schema_select_permissions '["<role>", ...]'
+
+export TARGET_POSTGRES_SCHEMA_MAPPING='{"<source_schema>": {"target_schema": "<target_schema>", ...}, ...}'
+
+# Once a schema mapping has been set in `meltano.yml`, environment variables can be used
+# to override specific nested properties:
+export TARGET_POSTGRES_SCHEMA_MAPPING_<SOURCE_SCHEMA>_TARGET_SCHEMA=<target_schema>
+export TARGET_POSTGRES_SCHEMA_MAPPING_<SOURCE_SCHEMA>_TARGET_SCHEMA_SELECT_PERMISSIONS='["<role>", ...]'
+
+# For example:
+meltano config target-postgres set schema_mapping public target_schema repl_pg_public
+meltano config target-postgres set schema_mapping public target_schema_select_permissions '["grp_stats"]'
+
+export TARGET_POSTGRES_SCHEMA_MAPPING_PUBLIC_TARGET_SCHEMA=new_repl_pg_public
+```
+
+### Add Metadata Columns
+
+- Name: `add_metadata_columns`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_ADD_METADATA_COLUMNS`
 - Default: `false`
 
-Include `true` in your config to disable [Singer Usage Logging](https://github.com/datamill-co/target-postgres#usage-logging).
+Metadata columns add extra row level information about data ingestions, (i.e. when was the row read in source, when was inserted or deleted in postgres etc.) Metadata columns are creating automatically by adding extra columns to the tables with a column prefix `_SDC_`. The column names are following the stitch naming conventions documented at <https://www.stitchdata.com/docs/data-structure/integration-schemas#sdc-columns>. Enabling metadata columns will flag the deleted rows by setting the `_SDC_DELETED_AT` metadata column. Without the `add_metadata_columns` option the deleted rows from singer taps will not be recongisable in Postgres.
 
 #### How to use
 
 Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
 
 ```bash
-meltano config target-postgres set disable_collection true
+meltano config target-postgres set add_metadata_columns true
 
-export TARGET_POSTGRES_DISABLE_COLLECTION=true
+export TARGET_POSTGRES_ADD_METADATA_COLUMNS=true
 ```
 
-### Logging Level
+### Hard Delete
 
-- Name: `logging_level`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_LOGGING_LEVEL`
-- Options: `DEBUG`, `INFO`, `WARNING`, `ERROR`, `CRITICAL`
-- Default: `INFO`
-
-The level for logging. Set to `DEBUG` to get things like queries executed, timing of those queries, etc. See [Python's Logger Levels](https://docs.python.org/3/library/logging.html#levels) for information about valid values.
-
-#### How to use
-
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
-
-```bash
-meltano config target-postgres set logging_level DEBUG
-
-export TARGET_POSTGRES_LOGGING_LEVEL=DEBUG
-```
-
-### Persist Empty Tables
-
-- Name: `persist_empty_tables`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_PERSIST_EMPTY_TABLES`
+- Name: `hard_delete`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_HARD_DELETE`
 - Default: `false`
 
-Whether the Target should create tables which have no records present in Remote.
+When `hard_delete` option is true then DELETE SQL commands will be performed in Postgres to delete rows in tables. It's achieved by continuously checking the `_SDC_DELETED_AT` metadata column sent by the singer tap. Due to deleting rows requires metadata columns, `hard_delete` option automatically enables the `add_metadata_columns` option as well.
 
 #### How to use
 
 Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
 
 ```bash
-meltano config target-postgres set persist_empty_tables true
+meltano config target-postgres set hard_delete true
 
-export TARGET_POSTGRES_PERSIST_EMPTY_TABLES=true
+export TARGET_POSTGRES_HARD_DELETE=true
 ```
 
-### Max Batch Rows
+### Data Flattening Max Level
 
-- Name: `max_batch_rows`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_MAX_BATCH_ROWS`
-- Default: `200000`
+- Name: `data_flattening_max_level`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_DATA_FLATTENING_MAX_LEVEL`
+- Default: `0`
 
-The maximum number of rows to buffer in memory before writing to the destination table in Postgres
+Object type RECORD items from taps can be transformed to flattened columns by creating columns automatically. When value is 0 (default) then flattening functionality is turned off.
 
 #### How to use
 
 Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
 
 ```bash
-meltano config target-postgres set max_batch_rows 100000
+meltano config target-postgres set data_flattening_max_level 2
 
-export TARGET_POSTGRES_MAX_BATCH_ROWS=100000
+export TARGET_POSTGRES_DATA_FLATTENING_MAX_LEVEL=2
 ```
 
-### Max Buffer Size
+### Primary Key Required
 
-- Name: `max_buffer_size`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_MAX_BUFFER_SIZE`
-- Default: `104857600` (100MB in bytes)
-
-The maximum number of bytes to buffer in memory before writing to the destination table in Postgres.
-
-#### How to use
-
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
-
-```bash
-meltano config target-postgres set max_buffer_size 52428800 # 50MB in bytes
-
-export TARGET_POSTGRES_MAX_BUFFER_SIZE=52428800
-```
-
-### Batch Detection Threshold
-
-- Name: `batch_detection_threshold`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_BATCH_DETECTION_THRESHOLD`
-- Default: 1/40th of [Max Batch Rows](#max-batch-rows), usually `5000`
-
-How often, in rows received, to count the buffered rows and bytes to check if a flush is necessary.
-
-There's a slight performance penalty to checking the buffered records count or bytesize, so this controls how often this is polled in order to mitigate the penalty. This value is usually not necessary to set as the default is dynamically adjusted to check reasonably often.
-
-#### How to use
-
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
-
-```bash
-meltano config target-postgres set batch_detection_threshold 1000
-
-export TARGET_POSTGRES_BATCH_DETECTION_THRESHOLD=100
-```
-
-### State Support
-
-- Name: `state_support`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_STATE_SUPPORT`
+- Name: `primary_key_required`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_PRIMARY_KEY_REQUIRED`
 - Default: `true`
 
-Whether the Target should emit `STATE` messages to stdout for further consumption.
-
-In this mode, which is on by default, STATE messages are buffered in memory until all the records that occurred before them are flushed according to the batch flushing schedule the target is configured with.
+Log based and Incremental replications on tables with no Primary Key cause duplicates when merging UPDATE events. When set to true, stop loading data if no Primary Key is defined.
 
 #### How to use
 
 Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
 
 ```bash
-meltano config target-postgres set state_support false
+meltano config target-postgres set primary_key_required false
 
-export TARGET_POSTGRES_STATE_SUPPORT=false
+export TARGET_POSTGRES_PRIMARY_KEY_REQUIRED=false
 ```
 
-### Add Upsert Indexes
+### Validate Records
 
-- Name: `add_upsert_indexes`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_ADD_UPSERT_INDEXES`
-- Default: `true`
+- Name: `validate_records`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_VALIDATE_RECORDS`
+- Default: `false`
 
-Whether the Target should create column indexes on the important columns used during data loading.
-
-These indexes will make data loading slightly slower but the deduplication phase much faster. Defaults to on for better baseline performance.
+Validate every single record message to the corresponding JSON schema. This option is disabled by default and invalid RECORD messages will fail only at load time by Postgres. Enabling this option will detect invalid records earlier but could cause performance degradation.
 
 #### How to use
 
 Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
 
 ```bash
-meltano config target-postgres set add_upsert_indexes false
+meltano config target-postgres set validate_records true
 
-export TARGET_POSTGRES_ADD_UPSERT_INDEXES=false
+export TARGET_POSTGRES_VALIDATE_RECORDS=true
 ```
 
-### Before Run SQL
+### Temp Dir
 
-- Name: `before_run_sql`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_BEFORE_RUN_SQL`
+- Name: `temp_dir`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_TEMP_DIR`
+- Default: platform-dependent
 
-Raw SQL statement(s) to execute as soon as the connection to Postgres is opened by the target. Useful for setup like `SET ROLE` or other connection state that is important.
-
-#### How to use
-
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
-
-```bash
-meltano config target-postgres set before_run_sql <sql>
-
-export TARGET_POSTGRES_BEFORE_RUN_SQL=<sql>
-```
-
-### After Run SQL
-
-- Name: `after_run_sql`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_AFTER_RUN_SQL`
-
-Raw SQL statement(s) to execute as soon as the connection to Postgres is opened by the target. Useful for setup like `SET ROLE` or other connection state that is important.
+Directory of temporary CSV files with RECORD messages.
 
 #### How to use
 
 Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
 
 ```bash
-meltano config target-postgres set after_run_sql <sql>
+meltano config target-postgres set temp_dir /tmp/dir
 
-export TARGET_POSTGRES_AFTER_RUN_SQL=<sql>
+export TARGET_POSTGRES_TEMP_DIR=/tmp/dir
 ```
 
 ## Troubleshooting
-
-### Error: `psycopg2.ProgrammingError: syntax error at or near "-"`
-
-This error message indicates that the extractor you are using this loader with generates
-stream names that include the source database schema in addition to the table name: `<schema>-<table>`, e.g. `public-accounts`.
-This is not supported by [this variant](#alternative-variants) of `target-postgres`.
-
-Instead, use the [`transferwise` variant](https://meltano.com/plugins/loaders/postgres--transferwise.html) which was made to be used with extractors that behave this way.
-
-### Error: `pg_config executable not found` or `libpq-fe.h: No such file or directory`
-
-This error message indicates that the [`libpq`](https://www.postgresql.org/docs/current/libpq.html) dependency is missing.
-
-To resolve this, refer to the ["Dependencies" section](#dependencies) above.
 
 ### Error: `ld: library not found for -lssl` or `clang: error: linker command failed with exit code 1` or `error: command 'clang' failed with exit status 1`
 
