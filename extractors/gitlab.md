@@ -115,10 +115,10 @@ GitLab personal access token or other API token.
 The process for getting the private token or personal access token is very simple:
 
 <video controls style="max-width: 100%">
-  <source src="/screenshots/personal-access-token.mov">
+  <source src="/assets/screenshots/personal-access-token.mov">
 </video>
 
-1. Navigate to your [profile's access tokens](https://gitlab.com/profile/personal_access_tokens).
+1. Navigate to your [profile's access tokens](https://gitlab.com/-/profile/personal_access_tokens).
 
 2. Fill out the personal access token form with the following properties:
 
@@ -182,8 +182,8 @@ Leave empty if you've specified one or more [groups](#groups) and would like to 
 
 The format for it is `namespace/project`, where namespace can be a username or group name. Here are a couple examples:
 
-- `meltano/meltano` - The core [Meltano project](https://gitlab.com/meltano/)
-- `meltano/tap-gitlab` - The project for the [GitLab Extractor](https://gitlab.com/meltano/tap-gitlab)
+- `meltano/meltano` - The core [Meltano project](https://gitlab.com/meltano/meltano)
+- `meltano/sdk` - The project for the [Meltano SDK for Singer Taps and Targets ](https://gitlab.com/meltano/sdk)
 
 Multiple group paths can be separated using space characters.
 
