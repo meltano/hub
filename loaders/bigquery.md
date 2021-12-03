@@ -264,3 +264,37 @@ meltano config target-bigquery set max_cache 100
 
 export TARGET_BIGQUERY_MAX_CACHE=100
 ```
+
+### Table Config
+
+- Name: `table_config`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_BIGQUERY_TABLE_CONFIG`
+
+A path to a file containing the definition of partitioning and clustering.
+
+#### How to use
+
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+
+```bash
+meltano config target-bigquery set table_config table_config.json
+
+export TARGET_BIGQUERY_TABLE_CONFIG=table_config.json
+```
+
+### Merge State Messages
+
+- Name: `merge_state_messages`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_BIGQUERY_MERGE_STATE_MESSAGES`
+- Default: `false`
+
+Whether to merge multiple state messages from the tap into the state file or uses the last state message as the state file.
+#### How to use
+
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+
+```bash
+meltano config target-bigquery set merge_state_messages true
+
+export TARGET_BIGQUERY_MERGE_STATE_MESSAGES=true
+```
