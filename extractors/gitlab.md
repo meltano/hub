@@ -115,7 +115,7 @@ GitLab personal access token or other API token.
 The process for getting the private token or personal access token is very simple:
 
 <video controls style="max-width: 100%">
-  <source src="/assets/screenshots/personal-access-token.mov">
+  <source src="/assets/videos/tap-gitlab/personal-access-token.mov">
 </video>
 
 1. Navigate to your [profile's access tokens](https://gitlab.com/-/profile/personal_access_tokens).
