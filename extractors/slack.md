@@ -78,13 +78,13 @@ plugins:
 Sensitive values are most appropriately stored in [the environment](https://meltano.com/docs/configuration.html#configuring-settings) or your project's [`.env` file](https://meltano.com/docs/project.html#env):
 
 ```bash
-export TAP_SLACK_API_TOKEN=my_api_token
+export TAP_SLACK_TOKEN=my_api_token
 ```
 
 ### API Token
 
-- Name: `api_token`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_SLACK_API_TOKEN`
+- Name: `token`
+- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_SLACK_TOKEN`
 
 Your Slack API Token. To obtain a token for a single workspace you will need to create a [Slack App](https://api.slack.com/apps?new_app=1) in your workspace and assigning it the relevant scopes. The minimum required scopes for the tap are:
 
@@ -107,9 +107,9 @@ Your Slack API Token. To obtain a token for a single workspace you will need to 
 Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
 
 ```bash
-meltano config tap-slack set api_token <api_token>
+meltano config tap-slack set token <token>
 
-export TAP_SLACK_API_TOKEN=<api_token>
+export TAP_SLACK_TOKEN=<token>
 ```
 
 ### Channels

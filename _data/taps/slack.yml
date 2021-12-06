@@ -17,7 +17,7 @@ variants:
   - documentation: https://support.zendesk.com/hc/en-us/articles/226022787-Generating-a-new-API-token-
     kind: password
     label: API Token
-    name: api_token
+    name: token
   - description: Determines how much historical data will be extracted. Please be
       aware that the larger the time period and amount of data, the longer the initial
       extraction can be expected to take.
