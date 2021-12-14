@@ -44,7 +44,6 @@ variants:
   capabilities:
   - catalog
   - discover
-  - sync
   - state
 entity_url: https://aws.amazon.com/aws-cost-management/aws-cost-explorer/
 entity_type: api

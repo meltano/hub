@@ -38,7 +38,6 @@ variants:
   capabilities:
   - catalog
   - discover
-  - sync
   - state
 entity_url: https://developer.typeform.com/
 entity_type: api

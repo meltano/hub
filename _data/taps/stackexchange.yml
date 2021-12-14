@@ -31,6 +31,5 @@ variants:
   capabilities:
   - catalog
   - discover
-  - sync
   - state
 entity_type: api
