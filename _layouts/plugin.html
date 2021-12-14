@@ -96,7 +96,7 @@ layout: plugin_page
     <a href="{{maintainer.url}}" target="_blank">{{ maintainer.label }}</a>
     {% else %} {{ maintainer.label }} {% endif %}
   </li>
-  {% if metrics.meltano_exec_count_3m > 0 or metrics.meltano_project_id_count_3m > 0 or variant.meltano_sdk %}
+  {% if metrics.meltano_exec_count_3m > 0 or metrics.meltano_project_id_count_3m > 0 %}
   <li><a href="/singer/docs#meltano-usage-metrics"><strong>Meltano Stats:</strong></a></li>
   <ul>
     {% if metrics.meltano_exec_count_3m > 0 %}
