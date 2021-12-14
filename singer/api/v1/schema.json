@@ -150,7 +150,15 @@
                                 "properties",
                                 "state",
                                 "about",
-                                "sync"
+                                "stream-maps",
+                                "activate-version",
+                                "batch",
+                                "test",
+                                "log-based",
+                                "soft-delete",
+                                "hard-delete",
+                                "datatype-failsafe",
+                                "record-flattening"
                             ]
                         }
                     },

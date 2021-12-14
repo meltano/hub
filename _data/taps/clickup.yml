@@ -14,7 +14,6 @@ variants:
   - catalog
   - discover
   - state
-  - sync
   settings:
   - name: api_token
     label: API Token
