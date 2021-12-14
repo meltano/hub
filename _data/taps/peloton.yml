@@ -30,7 +30,6 @@ variants:
   capabilities:
   - catalog
   - discover
-  - sync
   - state
 entity_url: https://www.onepeloton.com/
 entity_type: api
