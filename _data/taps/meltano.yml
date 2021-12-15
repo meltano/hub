@@ -1,0 +1,22 @@
+description: Meltano job information
+entity_type: database
+entity_url: https://meltano.com/docs/
+label: Meltano
+name: meltano
+singer_name: tap-meltano
+type: tap
+variants:
+- default: true
+  maintenance_status: active
+  meltano_sdk: true
+  name: matatika
+  pip_url: git+https://github.com/Matatika/tap-meltano.git
+  repo: https://github.com/Matatika/tap-meltano
+  capabilities:
+    - catalog
+    - discover
+  settings:
+  - name: meltano_database_uri
+    label: Meltano Database URI
+    kind: password
+    description: The target Meltano project's database URI
