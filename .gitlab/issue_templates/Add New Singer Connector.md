@@ -51,7 +51,6 @@ variants: # an array of variant types
       label: Project IDs
       description: Array of project IDs.
     - name: username
-      kind: string
       label: Username
       description: Credentials used when for connecting to the source.
     - name: password
