@@ -11,7 +11,6 @@ variants:
   repo: https://github.com/singer-io/tap-exchangeratesapi
   settings: []
   capabilities:
-  - catalog
-  - discover
+  - state
 entity_url: https://exchangeratesapi.io/
 entity_type: api
