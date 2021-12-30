@@ -19,10 +19,5 @@ variants:
     label: API Token
     kind: password
     description: 'Example: pk_12345'
-  - name: start_date
-    label: Start Date
-    kind: date_iso8601
-    description: 'Start Date only impacts tasks, recommendation is to not use a start
-      date sycns are realtivly fast. Example: 2010-01-01T00:00:00Z'
 entity_url: https://clickup.com/api
 entity_type: api
