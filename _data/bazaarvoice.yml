@@ -1,8 +1,6 @@
 description: E-commerce User Content Platform
-domain:
-  name: Bazaarvoice Conversations API
-  type: api
-  url: https://developer.bazaarvoice.com/conversations-api/home
+entity_type: api
+entity_url: https://developer.bazaarvoice.com/conversations-api/home
 label: Bazaarvoice
 name: bazaarvoice
 singer_name: tap-bazaarvoice
