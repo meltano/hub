@@ -11,7 +11,6 @@ variants:
   repo: https://github.com/anelendata/tap-exchangeratehost
   settings: []
   capabilities:
-  - catalog
-  - discover
+  - state
 entity_url: https://exchangerate.host/#/
 entity_type: api
