@@ -16,13 +16,30 @@ $base-line-height: 1.5;
 $header-height: 56px;
 $spacing-unit: 30px;
 
-$text-color: #2c3e50;
-$background-color: #fff;
-$brand-color: #464acb;
+// Brand colors
 
-$grey-color: #828282;
-$grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark: darken($grey-color, 25%);
+// Primary - When taking into account specific scenarios and applications, the balance of color should always lean towards Meltano Blue.
+$meltano-blue: #3438bf;
+
+// Secondary - The secondary color should be used sparingly to highlight the most important items in a layout, such as CTAs.
+$flame-red: #d9042b;
+
+// Accent Colors - Accent colors can be used to highlight important areas and add variety and depth to layouts. In the majority of uses, strong contrast between colors is preferred.
+$meltano-blue-2: #031d4d;
+$meltano-blue-3: #000e29;
+$ash: #2e2e33;
+$turqoise: #02a5a5;
+$jade: #b0e3c1;
+$moonstone: #fae6be;
+$gold: #fbbf52;
+
+// Neutrals - Utility colors whose main role is to support the primary, secondary and accent colors.
+$steel: #62626e;
+$armor: #c0c0c4;
+$silver: #f1f1f2;
+$dragons-egg: #e8f0ff;
+$ice: #f5f7fa;
+$white: #fff;
 
 // Width of the content area
 $content-width: 800px;
@@ -70,7 +87,7 @@ ul.button-grid {
 
       &:hover {
         text-decoration: none;
-        border-color: $brand-color;
+        border-color: $meltano-blue;
       }
 
       .logo-well {
@@ -101,7 +118,7 @@ ul.button-grid {
           position: relative;
           bottom: 2px;
           margin-left: 5px;
-          border: 1px solid $brand-color;
+          border: 1px solid $meltano-blue;
           border-radius: 5px;
           font-size: 0.6em;
         }
@@ -113,7 +130,7 @@ ul.button-grid {
       }
 
       p {
-        color: $text-color;
+        color: $steel;
         margin-bottom: 0;
       }
     }
@@ -125,16 +142,16 @@ ul.button-grid {
       width: 30px;
       height: 30px;
 
-      border: 1px solid $brand-color;
+      border: 1px solid $meltano-blue;
       border-radius: 30px;
-      background-color: white;
+      background-color: $white;
       background-image: url(https://meltano.com/Meltano-Melty-logo-stacked.svg);
       background-repeat: no-repeat;
       background-position: center;
       background-size: 24px 24px;
 
       &:hover {
-        background-color: $brand-color;
+        background-color: $meltano-blue;
         background-image: url(https://meltano.com/Meltano-Melty-logo-stacked-white.svg);
       }
     }
@@ -199,16 +216,16 @@ input.grid-search {
   display: block;
   margin: 0 auto 15px;
   padding: 10px 20px;
-  border: 1px solid $brand-color;
+  border: 1px solid $meltano-blue;
   border-radius: 40px;
   outline: none;
   font-size: 1.1rem;
   text-align: center;
-  color: $brand-color;
+  color: $meltano-blue;
   width: 50%;
 
   &:disabled {
-    background-color: white;
+    background-color: $white;
     border-color: #ccc;
   }
 }

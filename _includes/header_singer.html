@@ -1,4 +1,4 @@
-<header class="site-header">
+<header class="site-header singer-header">
 
   <div class="wrapper">
 
@@ -22,9 +22,8 @@
     </nav>
 
     <a class="site-title" href="{{ "/singer" | prepend: site.baseurl | prepend: site.url }}">
-      <img class="logo" src="https://meltano.com/meltano-logo-with-text-white.svg" alt="Meltano">
-      Hub
-      <small>for Singer</small>
+      {% include icon-meltano.svg %}
+      <span>Hub for Singer</span>
     </a>
 
   </div>
