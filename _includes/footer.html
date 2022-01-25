@@ -4,13 +4,15 @@
 
     <div class="footer-col-wrapper">
       <div class="footer-col footer-col-1">
-        <ul class="contact-list">
+        <!-- <ul class="contact-list">
           <li>{{ site.title }}</li>
           <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col footer-col-2">
+        </ul> -->
+        <!-- {% include icon-meltano-purple.html %} -->
+        <div class="footer-icon-meltano">
+          {% include icon-meltano-purple.html %}
+          <span>Hub</span>
+        </div>
         <ul class="social-media-list">
           {% if site.gitlab_username %}
           <li>{% include icon-gitlab.html username=site.gitlab_username %}</li>
@@ -29,10 +31,14 @@
             {% include icon-youtube.html username=site.youtube_username %}
         </li>
         {% endif %}
-        </ul>
+        </ul>   
       </div>
 
-      <div class="footer-col footer-col-3">
+      <!-- <div class="footer-col footer-col-2">
+
+      </div> -->
+
+      <div class="footer-col footer-col-2">
         {{ site.description | markdownify }}
       </div>
     </div>

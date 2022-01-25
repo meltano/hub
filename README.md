@@ -11,11 +11,13 @@ Source of MeltanoHub <https://hub.meltano.com/>.
 To work locally with this project, you'll have to follow the steps below:
 
 1. Fork this project
-1. Download dependencies: `bundle`
-1. Build and preview: `bundle exec jekyll serve`
-1. Add content
-1. Push the commit(s) you made
-1. Make an MR
+2. Download dependencies: `bundle install`
+3. Build and preview: `bundle exec jekyll serve --livereload`
+4. Add content
+5. Push the commit(s) you made
+6. Make an MR
+
+Step 3 may fail if you are running Ruby 3.0.0 or above. It is best to set the local version of Ruby to 2.7.5 via `rbenv` to avoid this.
 
 The above commands should be executed from the root directory of this project.
 
