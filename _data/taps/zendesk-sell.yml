@@ -16,6 +16,8 @@ variants:
   - catalog
   - discover
   - state
+  - about
+  - stream-maps
   settings_group_validation:
   - - access_token
     - device_uuid
