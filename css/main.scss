@@ -139,20 +139,16 @@ ul.button-grid {
       position: absolute;
       top: -5px;
       right: -5px;
-      width: 30px;
-      height: 30px;
-
-      border: 1px solid $meltano-blue;
+      width: 100px;
+      height: 15px;
+      border: 1px solid #3438bf;
       border-radius: 30px;
-      background-color: $white;
-      background-image: url(https://meltano.com/Meltano-Melty-logo-stacked.svg);
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: 24px 24px;
+      background-color: #fff;
+      font-size: 10px;
 
       &:hover {
         background-color: $meltano-blue;
-        background-image: url(https://meltano.com/Meltano-Melty-logo-stacked-white.svg);
+        color: $white;
       }
     }
   }
