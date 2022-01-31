@@ -16,6 +16,9 @@ variants:
   capabilities:
     - catalog
     - discover
+    - state
+    - about
+    - stream-maps
   settings:
     # Describe the list of supported settings, for example:
     - name: company
