@@ -10,7 +10,7 @@ singer_name: tap-clickcast
 type: tap
 variants:
 - default: true
-  maintenance_status: Unknown
+  maintenance_status: Active
   name: Datateer
   pip_url: git+https://github.com/datateer/tap-clickcast.git
   repo: https://github.com/datateer/tap-clickcast
