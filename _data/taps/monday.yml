@@ -2,7 +2,7 @@ description: Work operating platform for projects and workflows
 entity_type: api
 entity_url: https://api.developer.monday.com/docs
 label: Monday.com
-name: monday.com
+name: monday
 singer_name: tap-monday
 type: tap
 variants:
