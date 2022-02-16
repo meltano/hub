@@ -6,9 +6,16 @@ type: tap
 variants:
 - default: true
   maintenance_status: active
+  meltano_sdk: true
   name: brooklyn-data
   pip_url: git+https://github.com/brooklyn-data/tap-gorgias.git
   repo: https://github.com/brooklyn-data/tap-gorgias
+  capabilities:
+  - catalog
+  - discover
+  - state
+  - about
+  - stream-maps
   settings:
   - name: subdomain
     kind: string
@@ -32,12 +39,6 @@ variants:
     kind: integer
     label: Ticket View Page Size
     description: The page size for each list view items call. Default is 100, the maximum.
-  capabilities:
-  - catalog
-  - discover
-  - state
-  - about
-  - stream-maps
 - default: false
   maintenance_status: unknown
   name: pathlight
