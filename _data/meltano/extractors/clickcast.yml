@@ -4,7 +4,7 @@ description: Job Advertising Platform
 namespace: tap_clickcast
 variants:
 - name: datateer
-  docs: 'https://github.com/datateer/tap-clickcast'
+  docs: 'https://hub.meltano.com/extractors/clickcast.html'
   repo: https://github.com/datateer/tap-clickcast
   pip_url: 'git+https://github.com/datateer/tap-clickcast.git'
   capabilities:
