@@ -1,0 +1,29 @@
+description: Work operating platform for projects and workflows
+entity_type: api
+entity_url: https://api.developer.monday.com/docs
+label: Monday.com
+name: monday.com
+singer_name: tap-monday
+type: tap
+variants:
+- default: true
+  maintenance_status: active
+  meltano_sdk: true
+  name: gthesheep
+  pip_url: git+https://github.com/gthesheep/tap-monday.git
+  repo: https://github.com/gthesheep/tap-monday
+  capabilities:
+  - catalog
+  - discover
+  - state
+  settings_group_validation:
+  - - auth_token
+    - board_limit
+  settings:
+  - name: auth_token
+    label: API Token
+    kind: password
+    description: API Token gained from Monday.com authorisation process
+  - name: board_limit
+    label: Board Limit
+    description: Number of boards to retrieve per page
