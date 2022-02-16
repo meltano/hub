@@ -1,9 +1,9 @@
 <!---
-Use this template when adding a new Singer tap or target to the hub. 
+Use this template when adding a new Singer tap or target to the hub.
 --->
 
 
-All Singer definitions are stored in `/_data/taps/` or `/_data/targets`. The minimial requirement for adding a tap or target will match the following format:
+All Singer definitions are stored in `/_data/taps/` or `/_data/targets`. The minimal requirement for adding a tap or target will match the following format:
 
 ```yaml
 description: General description of what the company behind the API does
