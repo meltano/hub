@@ -1,11 +1,11 @@
+name: tap-clickcast
 description: Clickcast
+label: Clickcast
 domain:
   description: Job ad platform
   name: Clickcast API by Appcast
   type: api
   url: https://www.appcast.io
-label: Clickcast
-name: clickcast
 singer_name: tap-clickcast
 type: tap
 variants:
@@ -17,4 +17,5 @@ variants:
   settings:
   - kind: password
     name: partner_token
+  - name: api_url_base
 
