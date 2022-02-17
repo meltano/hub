@@ -1,9 +1,9 @@
 <!---
-Use this template when adding a new Singer tap or target to the hub. 
+Use this template when adding a new Singer tap or target to the hub.
 --->
 
 
-All Singer definitions are stored in `/_data/taps/` or `/_data/targets` and logo images are in `/assets/logos/<taps or targets>`. The minimial steps for adding a tap or target are the following:
+All Singer definitions are stored in `/_data/taps/` or `/_data/targets` and logo images are in `/assets/logos/<taps or targets>`. The minimal steps for adding a tap or target are the following:
 
 
 ## Checklist
