@@ -1,5 +1,5 @@
 <!---
-Use this template when adding a new Singer tap or target to the hub. 
+Use this template when adding a new Singer tap or target to the hub.
 --->
 
 
@@ -43,7 +43,7 @@ variants: # an array of variant types
 ## Checklist
 
 - [ ] Add a file in the appropriate folder (/taps or /targets). The name of the file should match the name of the tap. If there is already one, add a descriptor to the name such as `-search`.
-- [ ] Add a png logo image in `/assets/<taps or targets>`. The image name must match the YAML file name.
+- [ ] Add a png logo image in `/assets/logos/<taps or targets>`. The image name must match the YAML file name.
 - [ ] Tag `@tayloramurphy` or `@pnadolny13` to flag it for review. Or post to the hub channel on Meltano slack.
 
 ## Reviewer Checklist

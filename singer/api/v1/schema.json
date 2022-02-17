@@ -158,7 +158,8 @@
                                 "soft-delete",
                                 "hard-delete",
                                 "datatype-failsafe",
-                                "record-flattening"
+                                "record-flattening",
+                                "schema-flattening"
                             ]
                         }
                     },
@@ -210,7 +211,7 @@
                         "title": "Hidden variant",
                         "description": "Indicates whether a variant is hidden from view",
                         "default": false
-                    },                    
+                    },
                     "meltano_sdk": {
                         "id": "#/properties/variants/items/properties/meltano_sdk",
                         "type": "boolean",
