@@ -7,7 +7,7 @@ variants:
 - default: true
   maintenance_status: active
   meltano_sdk: true
-  name: alejandro-rusi
+  name: a-rusi
   pip_url: git+https://github.com/a-rusi/tap-mercadopago.git
   repo: https://github.com/a-rusi/tap-mercadopago
   capabilities:
