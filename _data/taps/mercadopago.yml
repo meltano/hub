@@ -24,19 +24,19 @@ variants:
   settings:
   - name: auth_token
     label: Auth Token
-    kind: Token
-    description: API authorization token. You can find more info on how to obtain it [here](https://www.mercadopago.com.ar/developers/en/guides/overview).
+    kind: password
+    description: API authorization token. You can find more info on how to obtain it [here](https://www.mercadopago.com.ar/developers/en/guides/overview)
   - name: start_date
     label: Start Date
-    kind: Date
+    kind: date_iso8601
     description: The earliest record date to sync (default is yesterday).
   - name: end_date
     label: End Date
-    kind: Date
+    kind: date_iso8601
     description: The latest record date to sync (default is the current date)
   - name: base_url
     label: Base Url
-    kind: Url
+    kind: string
     description: URL of the Mercado Pago API (default is https://api.mercadopago.com/v1")
 entity_url: https://www.mercadopago.com.ar/developers/en/guides
 entity_type: api
