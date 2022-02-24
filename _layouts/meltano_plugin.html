@@ -55,7 +55,7 @@ assign singer_plugin = plugin.singer_plugin %} {% assign variant = page.variant
   <li><strong>Maintenance status</strong>: {{ variant.maintenance_status }}</li>
   {% endif %} {% if variant.metrics %} {% assign metrics = variant.metrics %}
   <li>
-    <strong>Last update at</strong>: {{ metrics.last_updated_timestamp |
+    <strong>Last update at</strong>: {{ metrics.LAST_UPDATED_TIMESTAMP |
     date_to_string }}
   </li>
   {% if variant.meltano_sdk %}
@@ -63,10 +63,10 @@ assign singer_plugin = plugin.singer_plugin %} {% assign variant = page.variant
   {% endif %}
   <li>
     <a href="{{variant.repo}}/issues" target="_blank">
-      <strong>Open issues and PRs</strong> </a>: {{ metrics.num_open_issues }}
+      <strong>Open issues and PRs</strong> </a>: {{ metrics.NUM_OPEN_ISSUES }}
   </li>
-  {% if metrics.num_stargazers > 0 %}
-  <li><strong>Stars</strong>: {{ metrics.num_stargazers }}</li>
+  {% if metrics.NUM_STARGAZERS > 0 %}
+  <li><strong>Stars</strong>: {{ metrics.NUM_STARGAZERS }}</li>
   {% endif %} {% endif %}
   {% if variant.repo contains 'github' %}
   <li>
