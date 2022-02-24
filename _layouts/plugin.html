@@ -81,11 +81,11 @@ layout: plugin_page
     </li>
 
     {% endif %}
-    {% if metrics or metrics.last_updated_timestamp > 0 %}
+    {% if metrics or metrics.LAST_UPDATED_TIMESTAMP > 0 %}
       <li>
         <img
           alt="Last Updated At"
-          src="https://img.shields.io/badge/Last%20Updated%20At-{{ metrics.last_updated_timestamp | date_to_string }}-c0c0c4">
+          src="https://img.shields.io/badge/Last%20Updated%20At-{{ metrics.LAST_UPDATED_TIMESTAMP | date_to_string }}-c0c0c4">
       </li>
     {% endif %}
     </ul>
@@ -96,21 +96,21 @@ layout: plugin_page
     <a href="{{maintainer.url}}" target="_blank">{{ maintainer.label }}</a>
     {% else %} {{ maintainer.label }} {% endif %}
   </li>
-  {% if metrics.meltano_exec_count_3m > 0 or metrics.meltano_project_id_count_3m > 0 %}
+  {% if metrics.MELTANO_EXEC_COUNT_3M > 0 or metrics.MELTANO_PROJECT_ID_COUNT_3M > 0 %}
   <li><a href="/singer/docs#meltano-usage-metrics"><strong>Meltano Stats:</strong></a></li>
   <ul>
-    {% if metrics.meltano_exec_count_3m > 0 %}
+    {% if metrics.MELTANO_EXEC_COUNT_3M > 0 %}
     <li>
       <img   
         alt="Executions (Last 3 Months)"
-        src="https://img.shields.io/badge/Executions%20(Last%203%20Months)-{{ metrics.meltano_exec_count_3m }}-c0c0c4">
+        src="https://img.shields.io/badge/Executions%20(Last%203%20Months)-{{ metrics.MELTANO_EXEC_COUNT_3M }}-c0c0c4">
     </li>
     {% endif %}
-    {% if metrics.meltano_project_id_count_3m > 0 %}
+    {% if metrics.MELTANO_PROJECT_ID_COUNT_3M > 0 %}
     <li>
       <img   
         alt="Projects (Last 3 Months)"
-        src="https://img.shields.io/badge/Projects%20(Last%203%20Months)-{{ metrics.meltano_project_id_count_3m }}-c0c0c4">
+        src="https://img.shields.io/badge/Projects%20(Last%203%20Months)-{{ metrics.MELTANO_PROJECT_ID_COUNT_3M }}-c0c0c4">
     </li>
     {% endif %}
   </ul>
