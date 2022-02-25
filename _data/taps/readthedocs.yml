@@ -15,6 +15,10 @@ variants:
   capabilities:
     - catalog
     - discover
+    - state
+    - about
+    - stream-maps
+    - schema-flattening
   settings:
     - name: token
       kind: password
