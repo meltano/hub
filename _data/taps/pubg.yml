@@ -1,0 +1,31 @@
+description: PlayerUnknown's Battlegrounds API 
+label: Player Unknown's Battlegrounds API
+name: pubg
+singer_name: tap-pubg
+type: tap
+variants:
+- default: true
+  maintenance_status: development
+  meltano_sdk: true
+  name: autoidm
+  pip_url: git+https://github.com/AutoIDM/tap-pubg.git
+  repo: https://github.com/AutoIDM/tap-pubg
+  capabilities:
+    - catalog
+    - state
+    - about
+    - stream-maps
+    - schema-flattening
+    - discover
+  settings:
+    - name: api_key
+      kind: password
+      description: The token to authenticate against the API service
+    - name: player_names
+      kind: array
+      description: Array of player names to pull
+    - name: platform
+      kind: string
+      description: platform, ie steam
+entity_url: https://developer.pubg.com
+entity_type: api
