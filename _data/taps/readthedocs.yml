@@ -1,0 +1,26 @@
+description: Read the Docs simplifies software documentation by automating building, versioning, and hosting of your docs for you. 
+entity_type: api
+entity_url: https://docs.readthedocs.io/en/stable/api/index.html
+label: Read the Docs
+name: readthedocs
+singer_name: tap-readthedocs
+type: tap
+variants:
+- default: true
+  maintenance_status: development
+  meltano_sdk: true
+  name: edgarrmondragon
+  pip_url: git+https://github.com/edgarrmondragon/tap-readthedocs.git
+  repo: https://github.com/edgarrmondragon/tap-readthedocs
+  capabilities:
+    - catalog
+    - discover
+    - state
+    - about
+    - stream-maps
+    - schema-flattening
+  settings:
+    - name: token
+      kind: password
+      label: API Token
+      description: Personal Access Token that allows you to use the Read the Docs APIv3 being authenticated as yourself
