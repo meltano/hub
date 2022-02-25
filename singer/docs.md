@@ -252,6 +252,6 @@ Checkout the [Meltano Squared](https://gitlab.com/meltano/squared) repository to
 
 <u>Last Updated:</u>
 
-Github Metrics = `{{ site.data['audit']['audit_log']['github_metrics']['updated_date'] }}`
+Github Metrics = `{{ site.data['audit']['audit_log']['github_metrics']['UPDATED_DATE'] }}`
 
-Meltano Metrics = `{{ site.data['audit']['audit_log']['meltano_metrics']['updated_date'] }}`
+Meltano Metrics = `{{ site.data['audit']['audit_log']['meltano_metrics']['UPDATED_DATE'] }}`
