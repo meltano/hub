@@ -288,7 +288,8 @@ export TARGET_BIGQUERY_TABLE_CONFIG=table_config.json
 - [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_BIGQUERY_MERGE_STATE_MESSAGES`
 - Default: `false`
 
-Whether to merge multiple state messages from the tap into the state file or uses the last state message as the state file.
+Whether to merge multiple state messages from the tap into the state file or uses the last state message as the state file. Note that it is not recommended to set this to `true` when using with Meltano as the merge behavior conflicts with Meltano's merge process.
+
 #### How to use
 
 Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
