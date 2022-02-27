@@ -25,7 +25,7 @@ variants:
   settings:
   - name: client_id
     kind: password
-    lavel: Client ID
+    label: Client ID
     description: App client ID
   - name: client_secret
     kind: password
