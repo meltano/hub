@@ -13,5 +13,30 @@ variants:
   capabilities:
   - catalog
   - discover
+- meltano_sdk: true
+  maintenance_status: active
+  name: matatika
+  pip_url: git+https://github.com/Matatika/tap-auth0.git
+  repo: https://github.com/Matatika/tap-auth0
+  settings_group_validation:
+  - - client_id
+    - client_secret
+    - domain
+  settings:
+  - name: client_id
+    kind: password
+    lavel: Client ID
+    description: App client ID
+  - name: client_secret
+    kind: password
+    label: Client secret
+    description: App client secret
+  - name: domain
+    label: Domain
+    description: Tenant domain
+  capabilities:
+  - catalog
+  - discover
+  - state
 entity_url: https://auth0.com/
 entity_type: api
