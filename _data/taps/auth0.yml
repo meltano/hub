@@ -4,18 +4,18 @@ name: auth0
 singer_name: tap-auth0
 type: tap
 variants:
-- default: true
+- name: nickhould
   maintenance_status: unknown
-  name: nickhould
   pip_url: git+https://github.com/nickhould/tap-auth0.git
   repo: https://github.com/nickhould/tap-auth0
   settings: []
   capabilities:
   - catalog
   - discover
-- meltano_sdk: true
+- name: matatika
+  default: true
+  meltano_sdk: true
   maintenance_status: active
-  name: matatika
   pip_url: git+https://github.com/Matatika/tap-auth0.git
   repo: https://github.com/Matatika/tap-auth0
   settings_group_validation:
