@@ -5,6 +5,7 @@ Use this template when adding a new Singer tap or target to the hub.
 
 All Singer definitions are stored in `/_data/taps/` or `/_data/targets` and logo images are in `/assets/logos/<taps or targets>`. The minimal steps for adding a tap or target are the following:
 
+Reference "How to Submit a Singer Connector to MeltanoHub" [YouTube video](https://www.youtube.com/watch?v=hKbHB3LHbEA).
 
 ## Checklist
 
@@ -42,8 +43,30 @@ variants: # an array of variant types
   pip_url: git+<git_url>.git or pip install name
   repo: repo URL
   capabilities:
+    # Chose the capabilities that the connector supports
+    # Checkout for a list and details - https://hub.meltano.com/singer/docs#singer-connector-capabilities
+    # Tap Capability Options
+    - about
+    - activate-version
+    - batch
+    - stream-maps
+    - schema-flattening
     - catalog
+    - properties
     - discover
+    - state
+    - test
+    - log-based
+    # Target Capability Options
+    - about
+    - activate-version
+    - batch
+    - stream-maps
+    - schema-flattening
+    - soft-delete
+    - hard-delete
+    - datatype-failsafe
+    - record-flattening
   settings:
     # Describe the list of supported settings, for example:
     - name: project_ids
