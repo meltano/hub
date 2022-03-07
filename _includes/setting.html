@@ -7,9 +7,9 @@
   {% endif %}
 </h3>
 
-{% if plugin_name %} {% capture env_var %}{{plugin_name | replace: "-", "_" |
-upcase}}_{{setting.name | upcase}}{% endcapture %}
 <ul>
+  {% if plugin_name %} {% capture env_var %}{{plugin_name | replace: "-", "_" |
+  upcase}}_{{setting.name | upcase}}{% endcapture %}
   <li>
     <a
       href="https://meltano.com/docs/configuration.html#configuring-settings"
@@ -29,11 +29,13 @@ upcase}}_{{setting.name | upcase}}{% endcapture %}
     Options: {% for option in setting.options %}
     <code>{{option.value}}</code> {% endfor %}
   </li>
-  {% endif %} {% if setting.value != nil %}
+  {% endif %}
+  {% endif %}
+  {% if setting.value != nil %}
   <li>Default: <code>{{setting.value}}</code></li>
   {% endif %}
 </ul>
-{% endif %} {{ setting.description | markdownify }} {% if setting.documentation
+{{ setting.description | markdownify }} {% if setting.documentation
 %}
 <p>
   See
