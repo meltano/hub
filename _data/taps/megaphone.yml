@@ -16,6 +16,8 @@ variants:
       - catalog
       - discover
       - state
+      - about
+      - stream-maps
     settings:
       - name: auth_token
         label: Access Token
