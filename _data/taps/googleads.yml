@@ -20,27 +20,22 @@ variants:
       - name: oauth_credentials.client_id
         kind: password
         label: Client ID
-        description: OAuth Client ID  - [Obtain your credentials](https://developers.google.com/adwords/api/docs/guides/authentication)
-        required: true
+        description: OAuth Client ID (Required)  - [Obtain your credentials](https://developers.google.com/adwords/api/docs/guides/authentication)
       - name: oauth_credentials.client_secret
         kind: password
         label: Client Secret
-        description: OAuth Client Secret - [Obtain your credentials](https://developers.google.com/adwords/api/docs/guides/authentication)
-        required: true
+        description: OAuth Client Secret (Required) - [Obtain your credentials](https://developers.google.com/adwords/api/docs/guides/authentication)
       - name: oauth_credentials.refresh_token
         kind: password
         label: Refresh Token
-        description: OAuth Refresh Token - [Obtain your credentials](https://developers.google.com/adwords/api/docs/guides/authentication)
-        required: true
+        description: OAuth Refresh Token (Required) - [Obtain your credentials](https://developers.google.com/adwords/api/docs/guides/authentication)
       - name: developer_token
         kind: password
         label: Developer Token
-        description: Developer Token - [Obtain your developer token](https://developers.google.com/google-ads/api/docs/first-call/dev-token)
-        required: true
+        description: Developer Token (Required) - [Obtain your developer token](https://developers.google.com/google-ads/api/docs/first-call/dev-token)
       - name: customer_id
         label: Customer ID
-        description: The Customer ID of the google ads account you want to sync data from.
-        required: true
+        description: Customer ID (Required) of the google ads account you want to sync data from.
       - name: start_date
         kind: date_iso8601
         label: Start Date
