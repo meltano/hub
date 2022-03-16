@@ -1,0 +1,73 @@
+description: Google Advertising Platform
+entity_type: api
+entity_url: https://ads.google.com
+label: Google Ads
+name: googleads
+singer_name: tap-googleads
+type: tap
+variants:
+  - default: true
+    maintenance_status: active
+    meltano_sdk: true
+    name: matatika
+    pip_url: git+https://github.com/Matatika/tap-googleads.git
+    repo: https://github.com/Matatika/tap-googleads.git
+    capabilities:
+      - catalog
+      - discover
+      - state
+    settings:
+      - name: oauth_credentials.client_id
+        kind: password
+        label: Client ID
+        description: OAuth Client ID  - [Obtain your credentials](https://developers.google.com/adwords/api/docs/guides/authentication)
+        required: true
+      - name: oauth_credentials.client_secret
+        kind: password
+        label: Client Secret
+        description: OAuth Client Secret - [Obtain your credentials](https://developers.google.com/adwords/api/docs/guides/authentication)
+        required: true
+      - name: oauth_credentials.refresh_token
+        kind: password
+        label: Refresh Token
+        description: OAuth Refresh Token - [Obtain your credentials](https://developers.google.com/adwords/api/docs/guides/authentication)
+        required: true
+      - name: developer_token
+        kind: password
+        label: Developer Token
+        description: Developer Token - [Obtain your developer token](https://developers.google.com/google-ads/api/docs/first-call/dev-token)
+        required: true
+      - name: customer_id
+        label: Customer ID
+        description: The Customer ID of the google ads account you want to sync data from.
+        required: true
+      - name: start_date
+        kind: date_iso8601
+        label: Start Date
+        description: Optional date to start sycning data from.
+      - name: end_date
+        kind: date_iso8601
+        label: End Date
+        description: Optional date to sync data until.
+      - name: oauth_credentials.authorization_url
+        kind: hidden
+        label: OAuth Credentials Authorization URL
+        description: This setting only matters if you plan on doing proxy OAuth. OAuth identity provider authorization endpoint used create and refresh tokens.
+        value: https://oauth2.googleapis.com/token
+      - name: oauth_credentials.scope
+        kind: hidden
+        label: OAuth Credentials Scope
+        description: This setting only matters if you plan on doing proxy OAuth. OAuth scopes we need to request access to.
+        value: https://www.googleapis.com/auth/adwords
+      - name: oauth_credentials.access_token
+        kind: hidden
+        label: OAuth Credentials Access Token
+        description: This setting only matters if you plan on doing proxy OAuth.
+      - name: oauth_credentials.refresh_proxy_url
+        kind: hidden
+        label: OAuth Credentials Refresh Proxy URL
+        description: This setting only matters if you plan on doing proxy OAuth. Will be called with 'oauth_credentials.refresh_token' to refresh the access token
+      - name: oauth_credentials.refresh_proxy_url_auth
+        kind: hidden
+        label: OAuth Credentials Refresh Proxy URL Auth
+        description: This setting only matters if you plan on doing proxy OAuth. Sets Authorization header on 'oauth_credentials.refresh_url' request
