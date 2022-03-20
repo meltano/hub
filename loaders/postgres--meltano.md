@@ -12,7 +12,7 @@ The `target-postgres` [loader](https://meltano.com/plugins/loaders/) loads [extr
 
 #### Alternative variants
 
-Multiple [variants](https://meltano.com/docs/plugins.html#variants) of `target-postgres` are available.
+Multiple [variants](https://docs.meltano.com/plugins.html#variants) of `target-postgres` are available.
 This document describes the `meltano` variant.
 
 Alternative options are [`transferwise`](./postgres.html) (default) and [`datamill-co`](./postgres--datamill-co.html).
@@ -21,27 +21,27 @@ Alternative options are [`transferwise`](./postgres.html) (default) and [`datami
 
 ### Prerequisites
 
-If you haven't already, follow the initial steps of the [Getting Started guide](https://meltano.com/docs/getting-started.html):
+If you haven't already, follow the initial steps of the [Getting Started guide](https://docs.meltano.com/getting-started.html):
 
-1. [Install Meltano](https://meltano.com/docs/getting-started.html#install-meltano)
-1. [Create your Meltano project](https://meltano.com/docs/getting-started.html#create-your-meltano-project)
-1. [Add an extractor to pull data from a source](https://meltano.com/docs/getting-started.html#add-an-extractor-to-pull-data-from-a-source)
+1. [Install Meltano](https://docs.meltano.com/getting-started.html#install-meltano)
+1. [Create your Meltano project](https://docs.meltano.com/getting-started.html#create-your-meltano-project)
+1. [Add an extractor to pull data from a source](https://docs.meltano.com/getting-started.html#add-an-extractor-to-pull-data-from-a-source)
 
 ### Installation and configuration
 
 #### Using the Command Line Interface
 
-1. Add the `meltano` variant of the `target-postgres` loader to your project using [`meltano add`](https://meltano.com/docs/command-line-interface.html#add):
+1. Add the `meltano` variant of the `target-postgres` loader to your project using [`meltano add`](https://docs.meltano.com/command-line-interface.html#add):
 
     ```bash
     meltano add loader target-postgres --variant meltano
     ```
 
-1. Configure the [settings](#settings) below using [`meltano config`](https://meltano.com/docs/command-line-interface.html#config).
+1. Configure the [settings](#settings) below using [`meltano config`](https://docs.meltano.com/command-line-interface.html#config).
 
 #### Using Meltano UI
 
-1. Start [Meltano UI](https://meltano.com/docs/ui.html) using [`meltano ui`](https://meltano.com/docs/command-line-interface.html#ui):
+1. Start [Meltano UI](https://docs.meltano.com/ui.html) using [`meltano ui`](https://docs.meltano.com/command-line-interface.html#ui):
 
     ```bash
     meltano ui
@@ -54,15 +54,15 @@ If you haven't already, follow the initial steps of the [Getting Started guide](
 
 ### Next steps
 
-Follow the remaining step of the [Getting Started guide](https://meltano.com/docs/getting-started.html):
+Follow the remaining step of the [Getting Started guide](https://docs.meltano.com/getting-started.html):
 
-1. [Run a data integration (EL) pipeline](https://meltano.com/docs/getting-started.html#run-a-data-integration-el-pipeline)
+1. [Run a data integration (EL) pipeline](https://docs.meltano.com/getting-started.html#run-a-data-integration-el-pipeline)
 
-If you run into any issues, refer to the ["Troubleshooting" section](#troubleshooting) below or [learn how to get help](https://meltano.com/docs/getting-help.html).
+If you run into any issues, refer to the ["Troubleshooting" section](#troubleshooting) below or [learn how to get help](https://docs.meltano.com/getting-help.html).
 
 ## Settings
 
-`target-postgres` requires the [configuration](https://meltano.com/docs/configuration.html) of the following settings:
+`target-postgres` requires the [configuration](https://docs.meltano.com/configuration.html) of the following settings:
 
 - [User](#user)
 - [Password](#password)
@@ -78,7 +78,7 @@ To quickly find the setting you're looking for, use the Table of Contents in the
 
 #### Minimal configuration
 
-A minimal configuration of `target-postgres` in your [`meltano.yml` project file](https://meltano.com/docs/project.html#meltano-yml-project-file) will look like this:
+A minimal configuration of `target-postgres` in your [`meltano.yml` project file](https://docs.meltano.com/project.html#meltano-yml-project-file) will look like this:
 
 ```yml{5-10}
 plugins:
@@ -93,7 +93,7 @@ plugins:
       # schema: my_schema   # override if default (see below) is not appropriate
 ```
 
-Sensitive values are most appropriately stored in [the environment](https://meltano.com/docs/configuration.html#configuring-settings) or your project's [`.env` file](https://meltano.com/docs/project.html#env):
+Sensitive values are most appropriately stored in [the environment](https://docs.meltano.com/configuration.html#configuring-settings) or your project's [`.env` file](https://docs.meltano.com/project.html#env):
 
 ```bash
 export TARGET_POSTGRES_PASSWORD=my_password
@@ -102,12 +102,12 @@ export TARGET_POSTGRES_PASSWORD=my_password
 ### User
 
 - Name: `user`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_USER`, alias: `PG_USERNAME`, `POSTGRES_USER`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TARGET_POSTGRES_USER`, alias: `PG_USERNAME`, `POSTGRES_USER`
 - Default: `warehouse`
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config target-postgres set user <user>
@@ -118,12 +118,12 @@ export TARGET_POSTGRES_USER=<user>
 ### Password
 
 - Name: `password`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_PASSWORD`, alias: `PG_PASSWORD`, `POSTGRES_PASSWORD`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TARGET_POSTGRES_PASSWORD`, alias: `PG_PASSWORD`, `POSTGRES_PASSWORD`
 - Default: `warehouse`
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config target-postgres set password <password>
@@ -134,12 +134,12 @@ export TARGET_POSTGRES_PASSWORD=<password>
 ### Host
 
 - Name: `host`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_HOST`, alias: `PG_ADDRESS`, `POSTGRES_HOST`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TARGET_POSTGRES_HOST`, alias: `PG_ADDRESS`, `POSTGRES_HOST`
 - Default: `localhost`
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config target-postgres set host <host>
@@ -150,12 +150,12 @@ export TARGET_POSTGRES_HOST=<host>
 ### Port
 
 - Name: `port`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_PORT`, alias: `PG_PORT`, `POSTGRES_PORT`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TARGET_POSTGRES_PORT`, alias: `PG_PORT`, `POSTGRES_PORT`
 - Default: `5502`
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config target-postgres set port 5432
@@ -166,12 +166,12 @@ export TARGET_POSTGRES_PORT=5432
 ### DBname
 
 - Name: `dbname`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_DBNAME`, alias: `PG_DATABASE`, `POSTGRES_DBNAME`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TARGET_POSTGRES_DBNAME`, alias: `PG_DATABASE`, `POSTGRES_DBNAME`
 - Default: `warehouse`
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config target-postgres set dbname <database>
@@ -182,7 +182,7 @@ export TARGET_POSTGRES_DBNAME=<database>
 ### URL
 
 - Name: `url`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_URL`, alias: `PG_URL`, `POSTGRES_URL`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TARGET_POSTGRES_URL`, alias: `PG_URL`, `POSTGRES_URL`
 
 Lets you set [User](#user), [Password](#password), [Host](#host), [Port](#port), and [DBname](#dbname) in one go using a [`postgresql://` URI](https://docs.sqlalchemy.org/en/13/core/engines.html#postgresql).
 
@@ -190,7 +190,7 @@ Takes precedence over the other settings when set.
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config target-postgres set url postgresql://<username>:<password>@<host>:<port>/<database>
@@ -201,12 +201,12 @@ export TARGET_POSTGRES_URL=postgresql://<username>:<password>@<host>:<port>/<dat
 ### Schema
 
 - Name: `schema`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_POSTGRES_SCHEMA`, alias: `PG_SCHEMA`, `POSTGRES_SCHEMA`
-- Default: `$MELTANO_EXTRACT__LOAD_SCHEMA`, which [will expand to](https://meltano.com/docs/configuration.html#expansion-in-setting-values) the value of the [`load_schema` extra](https://meltano.com/docs/plugins.html#load-schema-extra) for the extractor used in the pipeline, which defaults to the extractor's namespace, e.g. `tap_gitlab` for [`tap-gitlab`](https://meltano.com/plugins/extractors/gitlab.html).
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TARGET_POSTGRES_SCHEMA`, alias: `PG_SCHEMA`, `POSTGRES_SCHEMA`
+- Default: `$MELTANO_EXTRACT__LOAD_SCHEMA`, which [will expand to](https://docs.meltano.com/configuration.html#expansion-in-setting-values) the value of the [`load_schema` extra](https://docs.meltano.com/plugins.html#load-schema-extra) for the extractor used in the pipeline, which defaults to the extractor's namespace, e.g. `tap_gitlab` for [`tap-gitlab`](https://meltano.com/plugins/extractors/gitlab.html).
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config target-postgres set schema <schema>

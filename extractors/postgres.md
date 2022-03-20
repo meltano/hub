@@ -16,14 +16,14 @@ The `tap-postgres` [extractor](https://meltano.com/plugins/extractors/) pulls da
 
 ### Prerequisites
 
-If you haven't already, follow the initial steps of the [Getting Started guide](https://meltano.com/docs/getting-started.html):
+If you haven't already, follow the initial steps of the [Getting Started guide](https://docs.meltano.com/getting-started.html):
 
-1. [Install Meltano](https://meltano.com/docs/getting-started.html#install-meltano)
-1. [Create your Meltano project](https://meltano.com/docs/getting-started.html#create-your-meltano-project)
+1. [Install Meltano](https://docs.meltano.com/getting-started.html#install-meltano)
+1. [Create your Meltano project](https://docs.meltano.com/getting-started.html#create-your-meltano-project)
 
 Then, follow the steps in the ["Setup requirements" section of the documentation](https://transferwise.github.io/pipelinewise/connectors/taps/postgres.html#postgresql-setup-requirements).
 
-If you'd like to use [log-based incremental replication](https://meltano.com/docs/integration.html#log-based-incremental-replication), also follow the ["Existing replication slot" step in the repository's README](https://github.com/transferwise/pipelinewise-tap-postgres#log-based-replication-requirements), since Meltano does not create a replication slot automatically.
+If you'd like to use [log-based incremental replication](https://docs.meltano.com/integration.html#log-based-incremental-replication), also follow the ["Existing replication slot" step in the repository's README](https://github.com/transferwise/pipelinewise-tap-postgres#log-based-replication-requirements), since Meltano does not create a replication slot automatically.
 
 #### Dependencies
 
@@ -37,17 +37,17 @@ If you've installed PostgreSQL, you should already have it, but you can also ins
 
 #### Using the Command Line Interface
 
-1. Add the `tap-postgres` extractor to your project using [`meltano add`](https://meltano.com/docs/command-line-interface.html#add):
+1. Add the `tap-postgres` extractor to your project using [`meltano add`](https://docs.meltano.com/command-line-interface.html#add):
 
     ```bash
     meltano add extractor tap-postgres
     ```
 
-1. Configure the [settings](#settings) below using [`meltano config`](https://meltano.com/docs/command-line-interface.html#config).
+1. Configure the [settings](#settings) below using [`meltano config`](https://docs.meltano.com/command-line-interface.html#config).
 
 #### Using Meltano UI
 
-1. Start [Meltano UI](https://meltano.com/docs/ui.html) using [`meltano ui`](https://meltano.com/docs/command-line-interface.html#ui):
+1. Start [Meltano UI](https://docs.meltano.com/ui.html) using [`meltano ui`](https://docs.meltano.com/command-line-interface.html#ui):
 
     ```bash
     meltano ui
@@ -59,32 +59,32 @@ If you've installed PostgreSQL, you should already have it, but you can also ins
 
 ### Next steps
 
-Follow the remaining steps of the [Getting Started guide](https://meltano.com/docs/getting-started.html):
+Follow the remaining steps of the [Getting Started guide](https://docs.meltano.com/getting-started.html):
 
-1. [Select entities and attributes to extract](https://meltano.com/docs/getting-started.html#select-entities-and-attributes-to-extract)
-1. [Choose how to replicate each entity](https://meltano.com/docs/getting-started.html#choose-how-to-replicate-each-entity)
+1. [Select entities and attributes to extract](https://docs.meltano.com/getting-started.html#select-entities-and-attributes-to-extract)
+1. [Choose how to replicate each entity](https://docs.meltano.com/getting-started.html#choose-how-to-replicate-each-entity)
 
-    Supported [replication methods](https://meltano.com/docs/integration.html#replication-methods):
-    [`LOG_BASED`](https://meltano.com/docs/integration.html#log-based-incremental-replication),
-    [`INCREMENTAL`](https://meltano.com/docs/integration.html#key-based-incremental-replication),
-    [`FULL_TABLE`](https://meltano.com/docs/integration.html#full-table-replication)
+    Supported [replication methods](https://docs.meltano.com/integration.html#replication-methods):
+    [`LOG_BASED`](https://docs.meltano.com/integration.html#log-based-incremental-replication),
+    [`INCREMENTAL`](https://docs.meltano.com/integration.html#key-based-incremental-replication),
+    [`FULL_TABLE`](https://docs.meltano.com/integration.html#full-table-replication)
 
-1. [Add a loader to send data to a destination](https://meltano.com/docs/getting-started.html#add-a-loader-to-send-data-to-a-destination)
+1. [Add a loader to send data to a destination](https://docs.meltano.com/getting-started.html#add-a-loader-to-send-data-to-a-destination)
 
-    Note that this extractor is incompatible with the default `datamill-co` [variants](https://meltano.com/docs/plugins.html#variants)
+    Note that this extractor is incompatible with the default `datamill-co` [variants](https://docs.meltano.com/plugins.html#variants)
     of [`target-postgres`](https://meltano.com/plugins/loaders/postgres.html) and [`target-snowflake`](https://meltano.com/plugins/loaders/snowflake.html),
     because they don't support stream names that include the source schema in addition to the table name: `<schema>-<table>`, e.g. `public-accounts`.
 
     Instead, use the `transferwise` variants that were made to be used with this extractor:
     [`target-postgres`](https://meltano.com/plugins/loaders/postgres--transferwise.html) and [`target-snowflake`](https://meltano.com/plugins/loaders/snowflake--transferwise.html).
 
-1. [Run a data integration (EL) pipeline](https://meltano.com/docs/getting-started.html#run-a-data-integration-el-pipeline)
+1. [Run a data integration (EL) pipeline](https://docs.meltano.com/getting-started.html#run-a-data-integration-el-pipeline)
 
-If you run into any issues, refer to the ["Troubleshooting" section](#troubleshooting) below or [learn how to get help](https://meltano.com/docs/getting-help.html).
+If you run into any issues, refer to the ["Troubleshooting" section](#troubleshooting) below or [learn how to get help](https://docs.meltano.com/getting-help.html).
 
 ## Settings
 
-`tap-postgres` requires the [configuration](https://meltano.com/docs/configuration.html) of the following settings:
+`tap-postgres` requires the [configuration](https://docs.meltano.com/configuration.html) of the following settings:
 
 - [Host](#host)
 - [Port](#port)
@@ -97,7 +97,7 @@ To quickly find the setting you're looking for, use the Table of Contents in the
 
 #### Minimal configuration
 
-A minimal configuration of `tap-postgres` in your [`meltano.yml` project file](https://meltano.com/docs/project.html#meltano-yml-project-file) will look like this:
+A minimal configuration of `tap-postgres` in your [`meltano.yml` project file](https://docs.meltano.com/project.html#meltano-yml-project-file) will look like this:
 
 ```yml{5-9}
 plugins:
@@ -111,7 +111,7 @@ plugins:
       dbname: my_database
 ```
 
-Sensitive values are most appropriately stored in [the environment](https://meltano.com/docs/configuration.html#configuring-settings) or your project's [`.env` file](https://meltano.com/docs/project.html#env):
+Sensitive values are most appropriately stored in [the environment](https://docs.meltano.com/configuration.html#configuring-settings) or your project's [`.env` file](https://docs.meltano.com/project.html#env):
 
 ```bash
 export TAP_POSTGRES_PASSWORD=my_password
@@ -120,12 +120,12 @@ export TAP_POSTGRES_PASSWORD=my_password
 ### Host
 
 - Name: `host`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_POSTGRES_HOST`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_POSTGRES_HOST`
 - Default: `localhost`
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-postgres set host <host>
@@ -136,12 +136,12 @@ export TAP_POSTGRES_HOST=<host>
 ### Port
 
 - Name: `port`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_POSTGRES_PORT`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_POSTGRES_PORT`
 - Default: `5432`
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-postgres set port 5502
@@ -152,11 +152,11 @@ export TAP_POSTGRES_PORT=5502
 ### User
 
 - Name: `user`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_POSTGRES_USER`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_POSTGRES_USER`
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-postgres set user <user>
@@ -167,11 +167,11 @@ export TAP_POSTGRES_USER=<user>
 ### Password
 
 - Name: `password`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_POSTGRES_PASSWORD`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_POSTGRES_PASSWORD`
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-postgres set password <password>
@@ -182,11 +182,11 @@ export TAP_POSTGRES_PASSWORD=<password>
 ### DBname
 
 - Name: `dbname`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_POSTGRES_DBNAME`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_POSTGRES_DBNAME`
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-postgres set dbname <database>
@@ -197,7 +197,7 @@ export TAP_POSTGRES_DBNAME=<database>
 ### SSL
 
 - Name: `ssl`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_POSTGRES_SSL`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_POSTGRES_SSL`
 - Default: `false`
 
 Using SSL via postgres `sslmode='require'` option.
@@ -206,7 +206,7 @@ If the server does not accept SSL connections or the client certificate is not r
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-postgres set ssl true
@@ -217,13 +217,13 @@ export TAP_POSTGRES_SSL=true
 ### Filter Schemas
 
 - Name: `filter_schemas`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_POSTGRES_FILTER_SCHEMAS`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_POSTGRES_FILTER_SCHEMAS`
 
 Scan only the specified comma-separated schemas to improve the performance of data extraction
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-postgres set filter_schemas <schema1>,<schema2>
@@ -234,14 +234,14 @@ export TAP_POSTGRES_FILTER_SCHEMAS=<schema1>,<schema2>
 ### Default Replication Method
 
 - Name: `default_replication_method`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_POSTGRES_DEFAULT_REPLICATION_METHOD`
-- Options: [`LOG_BASED`](https://meltano.com/docs/integration.html#log-based-incremental-replication), [`INCREMENTAL`](https://meltano.com/docs/integration.html#key-based-incremental-replication), [`FULL_TABLE`](https://meltano.com/docs/integration.html#full-table-replication)
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_POSTGRES_DEFAULT_REPLICATION_METHOD`
+- Options: [`LOG_BASED`](https://docs.meltano.com/integration.html#log-based-incremental-replication), [`INCREMENTAL`](https://docs.meltano.com/integration.html#key-based-incremental-replication), [`FULL_TABLE`](https://docs.meltano.com/integration.html#full-table-replication)
 
-Default [replication method](https://meltano.com/docs/integration.html#replication-methods) to use for tables that don't have `replication-method` [stream metadata](https://meltano.com/docs/integration.html#setting-metadata) specified.
+Default [replication method](https://docs.meltano.com/integration.html#replication-methods) to use for tables that don't have `replication-method` [stream metadata](https://docs.meltano.com/integration.html#setting-metadata) specified.
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-postgres set default_replication_method <LOG_BASED|INCREMENTAL|FULL_TABLE>
@@ -252,14 +252,14 @@ export TAP_POSTGRES_DEFAULT_REPLICATION_METHOD=<LOG_BASED|INCREMENTAL|FULL_TABLE
 ### Max Run Seconds
 
 - Name: `max_run_seconds`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_POSTGRES_MAX_RUN_SECONDS`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_POSTGRES_MAX_RUN_SECONDS`
 - Default: `43200`
 
 Stop running the tap after certain number of seconds
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-postgres set max_run_seconds 100000
@@ -270,14 +270,14 @@ export TAP_POSTGRES_MAX_RUN_SECONDS=100000
 ### Logical Poll Total Seconds
 
 - Name: `logical_poll_total_seconds`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_POSTGRES_LOGICAL_POLL_TOTAL_SECONDS`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_POSTGRES_LOGICAL_POLL_TOTAL_SECONDS`
 - Default: `10800`
 
 Stop running the tap when no data received from wal after certain number of seconds
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-postgres set logical_poll_total_seconds 100000
@@ -288,14 +288,14 @@ export TAP_POSTGRES_LOGICAL_POLL_TOTAL_SECONDS=100000
 ### Break At End LSN
 
 - Name: `break_at_end_lsn`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_POSTGRES_BREAK_AT_END_LSN`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_POSTGRES_BREAK_AT_END_LSN`
 - Default: `true`
 
 Stop running the tap if the newly received lsn is after the max lsn that was detected when the tap started
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-postgres set break_at_end_lsn false

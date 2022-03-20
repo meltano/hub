@@ -15,26 +15,26 @@ The `tap-intacct` [extractor](https://meltano.com/plugins/extractors/) pulls dat
 
 ### Prerequisites
 
-If you haven't already, follow the initial steps of the [Getting Started guide](https://meltano.com/docs/getting-started.html):
+If you haven't already, follow the initial steps of the [Getting Started guide](https://docs.meltano.com/getting-started.html):
 
-1. [Install Meltano](https://meltano.com/docs/getting-started.html#install-meltano)
-1. [Create your Meltano project](https://meltano.com/docs/getting-started.html#create-your-meltano-project)
+1. [Install Meltano](https://docs.meltano.com/getting-started.html#install-meltano)
+1. [Create your Meltano project](https://docs.meltano.com/getting-started.html#create-your-meltano-project)
 
 ### Installation and configuration
 
 #### Using the Command Line Interface
 
-1. Add the `tap-intacct` extractor to your project using [`meltano add`](https://meltano.com/docs/command-line-interface.html#add):
+1. Add the `tap-intacct` extractor to your project using [`meltano add`](https://docs.meltano.com/command-line-interface.html#add):
 
     ```bash
     meltano add extractor tap-intacct
     ```
 
-1. Configure the [settings](#settings) below using [`meltano config`](https://meltano.com/docs/command-line-interface.html#config).
+1. Configure the [settings](#settings) below using [`meltano config`](https://docs.meltano.com/command-line-interface.html#config).
 
 #### Using Meltano UI
 
-1. Start [Meltano UI](https://meltano.com/docs/ui.html) using [`meltano ui`](https://meltano.com/docs/command-line-interface.html#ui):
+1. Start [Meltano UI](https://docs.meltano.com/ui.html) using [`meltano ui`](https://docs.meltano.com/command-line-interface.html#ui):
 
     ```bash
     meltano ui
@@ -46,17 +46,17 @@ If you haven't already, follow the initial steps of the [Getting Started guide](
 
 ### Next steps
 
-Follow the remaining steps of the [Getting Started guide](https://meltano.com/docs/getting-started.html):
+Follow the remaining steps of the [Getting Started guide](https://docs.meltano.com/getting-started.html):
 
-1. [Select entities and attributes to extract](https://meltano.com/docs/getting-started.html#select-entities-and-attributes-to-extract)
-1. [Add a loader to send data to a destination](https://meltano.com/docs/getting-started.html#add-a-loader-to-send-data-to-a-destination)
-1. [Run a data integration (EL) pipeline](https://meltano.com/docs/getting-started.html#run-a-data-integration-el-pipeline)
+1. [Select entities and attributes to extract](https://docs.meltano.com/getting-started.html#select-entities-and-attributes-to-extract)
+1. [Add a loader to send data to a destination](https://docs.meltano.com/getting-started.html#add-a-loader-to-send-data-to-a-destination)
+1. [Run a data integration (EL) pipeline](https://docs.meltano.com/getting-started.html#run-a-data-integration-el-pipeline)
 
-If you run into any issues, [learn how to get help](https://meltano.com/docs/getting-help.html).
+If you run into any issues, [learn how to get help](https://docs.meltano.com/getting-help.html).
 
 ## Settings
 
-`tap-intacct` requires the [configuration](https://meltano.com/docs/configuration.html) of the following settings:
+`tap-intacct` requires the [configuration](https://docs.meltano.com/configuration.html) of the following settings:
 
 - [Company Id](#company-id)
 - [Sender Id](#sender-id)
@@ -70,7 +70,7 @@ To quickly find the setting you're looking for, use the Table of Contents in the
 
 #### Minimal configuration
 
-A minimal configuration of `tap-intacct` in your [`meltano.yml` project file](https://meltano.com/docs/project.html#meltano-yml-project-file) will look like this:
+A minimal configuration of `tap-intacct` in your [`meltano.yml` project file](https://docs.meltano.com/project.html#meltano-yml-project-file) will look like this:
 
 ```yml{5-7}
 plugins:
@@ -84,7 +84,7 @@ plugins:
       start_date: '2020-10-01T00:00:00Z'
 ```
 
-Sensitive values are most appropriately stored in [the environment](https://meltano.com/docs/configuration.html#configuring-settings) or your project's [`.env` file](https://meltano.com/docs/project.html#env):
+Sensitive values are most appropriately stored in [the environment](https://docs.meltano.com/configuration.html#configuring-settings) or your project's [`.env` file](https://docs.meltano.com/project.html#env):
 
 ```bash
 export TAP_INTACCT_SENDER_PASSWORD=my_sender_password
@@ -94,13 +94,13 @@ export TAP_INTACCT_USER_PASSWORD=my_user_password
 ### Company Id
 
 - Name: `company_id`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_INTACCT_COMPANY_ID`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_INTACCT_COMPANY_ID`
 
 Your Intacct Company Id
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-intacct set company_id <company id>
@@ -111,13 +111,13 @@ export TAP_INTACCT_COMPANY_ID=<company id>
 ### Sender Id
 
 - Name: `sender_id`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_INTACCT_SENDER_ID`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_INTACCT_SENDER_ID`
 
 Your Intacct Sender Id
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-intacct set sender_id <sender id>
@@ -128,13 +128,13 @@ export TAP_INTACCT_SENDER_ID=<sender id>
 ### Sender Password
 
 - Name: `sender_password`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_INTACCT_SENDER_PASSWORD`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_INTACCT_SENDER_PASSWORD`
 
 Your Intacct Sender Password
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-intacct set sender_password <sender password>
@@ -145,13 +145,13 @@ export TAP_INTACCT_SENDER_PASSWORD=<sender password>
 ### User Id
 
 - Name: `user_id`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_INTACCT_USER_ID`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_INTACCT_USER_ID`
 
 Your Intacct User Id
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-intacct set user_id <user id>
@@ -162,13 +162,13 @@ export TAP_INTACCT_USER_ID=<user id>
 ### User Password
 
 - Name: `user_password`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_INTACCT_USER_PASSWORD`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_INTACCT_USER_PASSWORD`
 
 Your Intacct User Password
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-intacct set user_password <user password>
@@ -179,7 +179,7 @@ export TAP_INTACCT_USER_PASSWORD=<user password>
 ### Start Date
 
 - Name: `start_date`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_INTACCT_START_DATE`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_INTACCT_START_DATE`
 
 This property determines how much historical data will be extracted.
 
@@ -187,7 +187,7 @@ Please be aware that the larger the time period and amount of data, the longer t
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-intacct set start_date YYYY-MM-DDTHH:MM:SSZ
@@ -203,14 +203,14 @@ export TAP_INTACCT_START_DATE=2020-10-01T00:00:00Z
 ### Select Fields By Default
 
 - Name: `select_fields_by_default`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_INTACCT_SELECT_FIELDS_BY_DEFAULT`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_INTACCT_SELECT_FIELDS_BY_DEFAULT`
 - Default: `true`
 
 Select by default any new fields discovered in Intacct objects
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-intacct set select_fields_by_default false
@@ -221,7 +221,7 @@ export TAP_INTACCT_SELECT_FIELDS_BY_DEFAULT=false
 ### State Message Threshold
 
 - Name: `state_message_threshold`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_INTACCT_STATE_MESSAGE_THRESHOLD`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_INTACCT_STATE_MESSAGE_THRESHOLD`
 - Default: `1000`
 
 Used to throttle how often STATE messages are generated when the tap is using the "REST" API.
@@ -230,7 +230,7 @@ This is a balance between not slowing down execution due to too many STATE messa
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-intacct set state_message_threshold 500
@@ -241,14 +241,14 @@ export TAP_INTACCT_STATE_MESSAGE_THRESHOLD=500
 ### Max Workers
 
 - Name: `max_workers`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_INTACCT_MAX_WORKERS`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_INTACCT_MAX_WORKERS`
 - Default: `8`
 
 Maximum number of threads to use
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-intacct set max_workers 16

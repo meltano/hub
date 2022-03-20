@@ -15,26 +15,26 @@ The `tap-salesforce` [extractor](https://meltano.com/plugins/extractors/) pulls 
 
 ### Prerequisites
 
-If you haven't already, follow the initial steps of the [Getting Started guide](https://meltano.com/docs/getting-started.html):
+If you haven't already, follow the initial steps of the [Getting Started guide](https://docs.meltano.com/getting-started.html):
 
-1. [Install Meltano](https://meltano.com/docs/getting-started.html#install-meltano)
-1. [Create your Meltano project](https://meltano.com/docs/getting-started.html#create-your-meltano-project)
+1. [Install Meltano](https://docs.meltano.com/getting-started.html#install-meltano)
+1. [Create your Meltano project](https://docs.meltano.com/getting-started.html#create-your-meltano-project)
 
 ### Installation and configuration
 
 #### Using the Command Line Interface
 
-1. Add the `tap-salesforce` extractor to your project using [`meltano add`](https://meltano.com/docs/command-line-interface.html#add):
+1. Add the `tap-salesforce` extractor to your project using [`meltano add`](https://docs.meltano.com/command-line-interface.html#add):
 
     ```bash
     meltano add extractor tap-salesforce
     ```
 
-1. Configure the [settings](#settings) below using [`meltano config`](https://meltano.com/docs/command-line-interface.html#config).
+1. Configure the [settings](#settings) below using [`meltano config`](https://docs.meltano.com/command-line-interface.html#config).
 
 #### Using Meltano UI
 
-1. Start [Meltano UI](https://meltano.com/docs/ui.html) using [`meltano ui`](https://meltano.com/docs/command-line-interface.html#ui):
+1. Start [Meltano UI](https://docs.meltano.com/ui.html) using [`meltano ui`](https://docs.meltano.com/command-line-interface.html#ui):
 
     ```bash
     meltano ui
@@ -46,17 +46,17 @@ If you haven't already, follow the initial steps of the [Getting Started guide](
 
 ### Next steps
 
-Follow the remaining steps of the [Getting Started guide](https://meltano.com/docs/getting-started.html):
+Follow the remaining steps of the [Getting Started guide](https://docs.meltano.com/getting-started.html):
 
-1. [Select entities and attributes to extract](https://meltano.com/docs/getting-started.html#select-entities-and-attributes-to-extract)
-1. [Add a loader to send data to a destination](https://meltano.com/docs/getting-started.html#add-a-loader-to-send-data-to-a-destination)
-1. [Run a data integration (EL) pipeline](https://meltano.com/docs/getting-started.html#run-a-data-integration-el-pipeline)
+1. [Select entities and attributes to extract](https://docs.meltano.com/getting-started.html#select-entities-and-attributes-to-extract)
+1. [Add a loader to send data to a destination](https://docs.meltano.com/getting-started.html#add-a-loader-to-send-data-to-a-destination)
+1. [Run a data integration (EL) pipeline](https://docs.meltano.com/getting-started.html#run-a-data-integration-el-pipeline)
 
-If you run into any issues, [learn how to get help](https://meltano.com/docs/getting-help.html).
+If you run into any issues, [learn how to get help](https://docs.meltano.com/getting-help.html).
 
 ## Settings
 
-`tap-salesforce` requires the [configuration](https://meltano.com/docs/configuration.html) of the following settings:
+`tap-salesforce` requires the [configuration](https://docs.meltano.com/configuration.html) of the following settings:
 
 In case of username/password authentication:
 
@@ -79,7 +79,7 @@ To quickly find the setting you're looking for, use the Table of Contents in the
 
 #### Minimal configuration
 
-A minimal configuration of `tap-salesforce` in your [`meltano.yml` project file](https://meltano.com/docs/project.html#meltano-yml-project-file) will look like this:
+A minimal configuration of `tap-salesforce` in your [`meltano.yml` project file](https://docs.meltano.com/project.html#meltano-yml-project-file) will look like this:
 
 ```yml{5-7}
 plugins:
@@ -91,7 +91,7 @@ plugins:
       start_date: '2020-10-01T00:00:00Z'
 ```
 
-Sensitive values are most appropriately stored in [the environment](https://meltano.com/docs/configuration.html#configuring-settings) or your project's [`.env` file](https://meltano.com/docs/project.html#env):
+Sensitive values are most appropriately stored in [the environment](https://docs.meltano.com/configuration.html#configuring-settings) or your project's [`.env` file](https://docs.meltano.com/project.html#env):
 
 ```bash
 export TAP_SALESFORCE_PASSWORD=my_password
@@ -101,13 +101,13 @@ export TAP_SALESFORCE_SECURITY_TOKEN=my_token
 ### Username
 
 - Name: `username`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_SALESFORCE_USERNAME`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_SALESFORCE_USERNAME`
 
 The username (or email address) used to sign in to your Salesforce account
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-salesforce set username <username>
@@ -118,13 +118,13 @@ export TAP_SALESFORCE_USERNAME=<username>
 ### Password
 
 - Name: `password`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_SALESFORCE_PASSWORD`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_SALESFORCE_PASSWORD`
 
 The password used to sign in to your Salesforce account
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-salesforce set password <password>
@@ -135,7 +135,7 @@ export TAP_SALESFORCE_PASSWORD=<password>
 ### Security Token
 
 - Name: `security_token`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_SALESFORCE_SECURITY_TOKEN`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_SALESFORCE_SECURITY_TOKEN`
 
 Access to Salesforce's API requires a security token that will authenticate you with the server.
 
@@ -181,7 +181,7 @@ If you have other third-party applications integrated with Salesforce and you re
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-salesfroce set security_token <token>
@@ -192,13 +192,13 @@ export TAP_SALESFORCE_SECURITY_TOKEN=<token>
 ### Client ID
 
 - Name: `client_id`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_SALESFORCE_CLIENT_ID`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_SALESFORCE_CLIENT_ID`
 
 See <https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm>.
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-salesforce set client_id <client_id>
@@ -209,13 +209,13 @@ export TAP_SALESFORCE_CLIENT_ID=<client_id>
 ### Client Secret
 
 - Name: `client_secret`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_SALESFORCE_CLIENT_SECRET`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_SALESFORCE_CLIENT_SECRET`
 
 See <https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm>.
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-salesforce set client_secret <client_secret>
@@ -226,13 +226,13 @@ export TAP_SALESFORCE_CLIENT_SECRET=<client_secret>
 ### Refresh Token
 
 - Name: `refresh_token`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_SALESFORCE_REFRESH_TOKEN`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_SALESFORCE_REFRESH_TOKEN`
 
 See <https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm>.
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-salesforce set refresh_token <token>
@@ -243,7 +243,7 @@ export TAP_SALESFORCE_REFRESH_TOKEN=<token>
 ### Start Date
 
 - Name: `start_date`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_SALESFORCE_START_DATE`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_SALESFORCE_START_DATE`
 
 This property determines how much historical data will be extracted.
 
@@ -251,7 +251,7 @@ Please be aware that the larger the time period and amount of data, the longer t
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-salesforce set start_date YYYY-MM-DDTHH:MM:SSZ
@@ -267,14 +267,14 @@ export TAP_SALESFORCE_START_DATE=2020-10-01T00:00:00Z
 ### Is Sandbox
 
 - Name: `is_sandbox`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_SALESFORCE_IS_SANDBOX`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_SALESFORCE_IS_SANDBOX`
 - Default: `false`
 
 Use Salesforce Sandbox
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-salesforce set is_sandbox true
@@ -285,7 +285,7 @@ export TAP_SALESFORCE_IS_SANDBOX=true
 ### API Type
 
 - Name: `api_type`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_SALESFORCE_API_TYPE`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_SALESFORCE_API_TYPE`
 - Options: `REST`, `BULK`
 - Default: `REST`
 
@@ -293,7 +293,7 @@ Used to switch the behavior of the tap between using Salesforce's "REST" and "BU
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-salesforce set api_type BULK
@@ -304,14 +304,14 @@ export TAP_SALESFORCE_API_TYPE=BULK
 ### Select Fields By Default
 
 - Name: `select_fields_by_default`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_SALESFORCE_SELECT_FIELDS_BY_DEFAULT`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_SALESFORCE_SELECT_FIELDS_BY_DEFAULT`
 - Default: `true`
 
 Select by default any new fields discovered in Salesforce objects
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-salesforce set select_fields_by_default false
@@ -322,7 +322,7 @@ export TAP_SALESFORCE_SELECT_FIELDS_BY_DEFAULT=false
 ### State Message Threshold
 
 - Name: `state_message_threshold`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_SALESFORCE_STATE_MESSAGE_THRESHOLD`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_SALESFORCE_STATE_MESSAGE_THRESHOLD`
 - Default: `1000`
 
 Used to throttle how often STATE messages are generated when the tap is using the "REST" API.
@@ -331,7 +331,7 @@ This is a balance between not slowing down execution due to too many STATE messa
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-salesforce set state_message_threshold 500
@@ -342,14 +342,14 @@ export TAP_SALESFORCE_STATE_MESSAGE_THRESHOLD=500
 ### Max Workers
 
 - Name: `max_workers`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_SALESFORCE_MAX_WORKERS`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_SALESFORCE_MAX_WORKERS`
 - Default: `8`
 
 Maximum number of threads to use
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-salesforce set max_workers 16

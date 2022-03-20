@@ -14,26 +14,26 @@ The `tap-gitlab` [extractor](https://meltano.com/plugins/extractors/) pulls data
 
 ### Prerequisites
 
-If you haven't already, follow the initial steps of the [Getting Started guide](https://meltano.com/docs/getting-started.html):
+If you haven't already, follow the initial steps of the [Getting Started guide](https://docs.meltano.com/getting-started.html):
 
-1. [Install Meltano](https://meltano.com/docs/getting-started.html#install-meltano)
-1. [Create your Meltano project](https://meltano.com/docs/getting-started.html#create-your-meltano-project)
+1. [Install Meltano](https://docs.meltano.com/getting-started.html#install-meltano)
+1. [Create your Meltano project](https://docs.meltano.com/getting-started.html#create-your-meltano-project)
 
 ### Installation and configuration
 
 #### Using the Command Line Interface
 
-1. Add the `tap-gitlab` extractor to your project using [`meltano add`](https://meltano.com/docs/command-line-interface.html#add):
+1. Add the `tap-gitlab` extractor to your project using [`meltano add`](https://docs.meltano.com/command-line-interface.html#add):
 
     ```bash
     meltano add extractor tap-gitlab
     ```
 
-1. Configure the [settings](#settings) below using [`meltano config`](https://meltano.com/docs/command-line-interface.html#config).
+1. Configure the [settings](#settings) below using [`meltano config`](https://docs.meltano.com/command-line-interface.html#config).
 
 #### Using Meltano UI
 
-1. Start [Meltano UI](https://meltano.com/docs/ui.html) using [`meltano ui`](https://meltano.com/docs/command-line-interface.html#ui):
+1. Start [Meltano UI](https://docs.meltano.com/ui.html) using [`meltano ui`](https://docs.meltano.com/command-line-interface.html#ui):
 
     ```bash
     meltano ui
@@ -45,17 +45,17 @@ If you haven't already, follow the initial steps of the [Getting Started guide](
 
 ### Next steps
 
-Follow the remaining steps of the [Getting Started guide](https://meltano.com/docs/getting-started.html):
+Follow the remaining steps of the [Getting Started guide](https://docs.meltano.com/getting-started.html):
 
-1. [Select entities and attributes to extract](https://meltano.com/docs/getting-started.html#select-entities-and-attributes-to-extract)
-1. [Add a loader to send data to a destination](https://meltano.com/docs/getting-started.html#add-a-loader-to-send-data-to-a-destination)
-1. [Run a data integration (EL) pipeline](https://meltano.com/docs/getting-started.html#run-a-data-integration-el-pipeline)
+1. [Select entities and attributes to extract](https://docs.meltano.com/getting-started.html#select-entities-and-attributes-to-extract)
+1. [Add a loader to send data to a destination](https://docs.meltano.com/getting-started.html#add-a-loader-to-send-data-to-a-destination)
+1. [Run a data integration (EL) pipeline](https://docs.meltano.com/getting-started.html#run-a-data-integration-el-pipeline)
 
-If you run into any issues, [learn how to get help](https://meltano.com/docs/getting-help.html).
+If you run into any issues, [learn how to get help](https://docs.meltano.com/getting-help.html).
 
 ## Settings
 
-`tap-gitlab` requires the [configuration](https://meltano.com/docs/configuration.html) of the following settings:
+`tap-gitlab` requires the [configuration](https://docs.meltano.com/configuration.html) of the following settings:
 
 - [API URL](#api-url)
 - [Private Token](#private-token), unless groups and projects are public
@@ -67,7 +67,7 @@ To quickly find the setting you're looking for, use the Table of Contents in the
 
 #### Minimal configuration
 
-A minimal configuration of `tap-gitlab` in your [`meltano.yml` project file](https://meltano.com/docs/project.html#meltano-yml-project-file) will look like this:
+A minimal configuration of `tap-gitlab` in your [`meltano.yml` project file](https://docs.meltano.com/project.html#meltano-yml-project-file) will look like this:
 
 ```yml{5-7}
 plugins:
@@ -79,7 +79,7 @@ plugins:
       start_date: '2020-10-01T00:00:00Z'
 ```
 
-Sensitive values are most appropriately stored in [the environment](https://meltano.com/docs/configuration.html#configuring-settings) or your project's [`.env` file](https://meltano.com/docs/project.html#env):
+Sensitive values are most appropriately stored in [the environment](https://docs.meltano.com/configuration.html#configuring-settings) or your project's [`.env` file](https://docs.meltano.com/project.html#env):
 
 ```bash
 export TAP_GITLAB_PRIVATE_TOKEN=my_private_token
@@ -88,14 +88,14 @@ export TAP_GITLAB_PRIVATE_TOKEN=my_private_token
 ### API URL
 
 - Name: `api_url`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_GITLAB_API_URL`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_GITLAB_API_URL`
 - Default: `https://gitlab.com`
 
 GitLab API/instance URL. When an API path is omitted, `/api/v4/` is assumed.
 
 #### How to use
 
-Manage this setting using [`meltano config`](https://meltano.com/docs/command-line-interface.html#config) or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [`meltano config`](https://docs.meltano.com/command-line-interface.html#config) or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-gitlab set api_url https://gitlab.example.com
@@ -106,7 +106,7 @@ export TAP_GITLAB_API_URL=https://gitlab.example.com
 ### Private Token
 
 - Name: `private_token`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_GITLAB_PRIVATE_TOKEN`, alias: `GITLAB_API_TOKEN`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_GITLAB_PRIVATE_TOKEN`, alias: `GITLAB_API_TOKEN`
 
 GitLab personal access token or other API token.
 
@@ -133,7 +133,7 @@ The process for getting the private token or personal access token is very simpl
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-gitlab set private_token <token>
@@ -144,7 +144,7 @@ export TAP_GITLAB_PRIVATE_TOKEN=<token>
 ### Groups
 
 - Name: `groups`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_GITLAB_GROUPS`, alias: `GITLAB_API_GROUPS`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_GITLAB_GROUPS`, alias: `GITLAB_API_GROUPS`
 
 This property allows you to scope data that the extractor fetches to only the desired group. The group name can generally be found at the root of a repository's URL. If this is left blank, you have to at least provide a [project](#projects).
 
@@ -156,7 +156,7 @@ Multiple group names can be separated using space characters.
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-gitlab set groups "<group1> <group2>"
@@ -174,7 +174,7 @@ export TAP_GITLAB_GROUPS="meltano gitlab"
 ### Projects
 
 - Name: `projects`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_GITLAB_PROJECTS`, alias: `GITLAB_API_PROJECTS`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_GITLAB_PROJECTS`, alias: `GITLAB_API_PROJECTS`
 
 This property allows you to scope the project(s) that the extractor fetches.
 
@@ -189,7 +189,7 @@ Multiple group paths can be separated using space characters.
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-gitlab set projects "<namespace1/project1> <namespace2/project2>"
@@ -207,16 +207,16 @@ export TAP_GITLAB_PROJECTS="meltano/meltano meltano/tap-gitlab"
 ### Ultimate License
 
 - Name: `ultimate_license`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_GITLAB_ULTIMATE_LICENSE`, alias: `GITLAB_API_ULTIMATE_LICENSE`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_GITLAB_ULTIMATE_LICENSE`, alias: `GITLAB_API_ULTIMATE_LICENSE`
 - Default: `false`
 
 Enable to pull in extra data (like Epics, Epic Issues and other entities) only available to GitLab Ultimate and GitLab.com Gold accounts.
 
-The `epics` and `epic_issues` entities cannot be [selected](https://meltano.com/docs/integration.html#selecting-entities-and-attributes-for-extraction) unless this setting is enabled.
+The `epics` and `epic_issues` entities cannot be [selected](https://docs.meltano.com/integration.html#selecting-entities-and-attributes-for-extraction) unless this setting is enabled.
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-gitlab set ultimate_license true
@@ -227,18 +227,18 @@ export TAP_GITLAB_ULTIMATE_LICENSE=true
 ### Fetch Merge Request Commits
 
 - Name: `fetch_merge_request_commits`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_GITLAB_FETCH_MERGE_REQUEST_COMMITS`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_GITLAB_FETCH_MERGE_REQUEST_COMMITS`
 - Default: `false`
 
 For each Merge Request, also fetch the MR's commits and create the join table `merge_request_commits` with the Merge Request and related Commit IDs.
 
 This can slow down extraction considerably because of the many API calls required.
 
-The `merge_request_commits` entity cannot be [selected](https://meltano.com/docs/integration.html#selecting-entities-and-attributes-for-extraction) unless this setting is enabled.
+The `merge_request_commits` entity cannot be [selected](https://docs.meltano.com/integration.html#selecting-entities-and-attributes-for-extraction) unless this setting is enabled.
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-gitlab set fetch_merge_request_commits true
@@ -249,18 +249,18 @@ export TAP_GITLAB_FETCH_MERGE_REQUEST_COMMITS=true
 ### Fetch Pipelines Extended
 
 - Name: `fetch_pipelines_extended`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_GITLAB_FETCH_PIPELINES_EXTENDED`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_GITLAB_FETCH_PIPELINES_EXTENDED`
 - Default: `false`
 
 For every Pipeline, also fetch extended details of each of these pipelines.
 
 This can slow down extraction considerably because of the many API calls required.
 
-The `pipelines_extended` entity cannot be [selected](https://meltano.com/docs/integration.html#selecting-entities-and-attributes-for-extraction) unless this setting is enabled.
+The `pipelines_extended` entity cannot be [selected](https://docs.meltano.com/integration.html#selecting-entities-and-attributes-for-extraction) unless this setting is enabled.
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-gitlab set fetch_pipelines_extended true
@@ -271,7 +271,7 @@ export TAP_GITLAB_FETCH_PIPELINES_EXTENDED=true
 ### Start Date
 
 - Name: `start_date`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_GITLAB_START_DATE`, alias: `GITLAB_API_START_DATE`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_GITLAB_START_DATE`, alias: `GITLAB_API_START_DATE`
 
 This property determines how much historical data will be extracted.
 
@@ -279,7 +279,7 @@ Please be aware that the larger the time period and amount of data, the longer t
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-gitlab set start_date YYYY-MM-DDTHH:MM:SSZ
