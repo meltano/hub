@@ -9,7 +9,7 @@ assign singer_plugin = plugin.singer_plugin %} {% assign variant = page.variant
 
 <p>
   {% if plugin_type == "extractor" %} The <code>{{plugin.name}}</code>
-  <a href="https://meltano.com/docs/plugins.html#extractors" target="_blank"
+  <a href="https://docs.meltano.com/plugins.html#extractors" target="_blank"
     >Meltano extractor</a
   >
   pulls data from 
@@ -19,11 +19,11 @@ assign singer_plugin = plugin.singer_plugin %} {% assign variant = page.variant
     the {{ singer_plugin.label }} {{ singer_plugin.entity_type }}
   {% endif %}
   that can then be sent to a destination using a
-  <a href="https://meltano.com/docs/plugins.html#loaders" target="_blank"
+  <a href="https://docs.meltano.com/plugins.html#loaders" target="_blank"
     >loader</a
   >. {% else %} The
   <code>{{plugin.name}}</code>
-  <a href="https://meltano.com/docs/plugins.html#loaders" target="_blank"
+  <a href="https://docs.meltano.com/plugins.html#loaders" target="_blank"
     >Meltano loader</a
   >
   sends data into
@@ -33,7 +33,7 @@ assign singer_plugin = plugin.singer_plugin %} {% assign variant = page.variant
     the {{ singer_plugin.label }} {{ singer_plugin.entity_type }}
   {% endif %}
   after it was pulled from a source using an
-  <a href="https://meltano.com/docs/plugins.html#extractors" target="_blank"
+  <a href="https://docs.meltano.com/plugins.html#extractors" target="_blank"
     >extractor</a
   >. {% endif %}
 </p>
@@ -91,7 +91,7 @@ assign singer_plugin = plugin.singer_plugin %} {% assign variant = page.variant
 
 <p>
   Multiple
-  <a href="https://meltano.com/docs/plugins.html#variants" target="_blank"
+  <a href="https://docs.meltano.com/plugins.html#variants" target="_blank"
     >variants</a
   >
   of <code>{{plugin.name}}</code> are available. {% if page.variant_specific %}
@@ -121,7 +121,7 @@ assign singer_plugin = plugin.singer_plugin %} {% assign variant = page.variant
 
 <p>
   If you haven't already, follow the initial steps of the
-  <a href="https://meltano.com/docs/getting-started.html" target="_blank"
+  <a href="https://docs.meltano.com/getting-started.html" target="_blank"
     >Getting Started guide</a
   >:
 </p>
@@ -129,7 +129,7 @@ assign singer_plugin = plugin.singer_plugin %} {% assign variant = page.variant
 <ol>
   <li>
     <a
-      href="https://meltano.com/docs/getting-started.html#install-meltano"
+      href="https://docs.meltano.com/getting-started.html#install-meltano"
       target="_blank"
     >
       Install Meltano
@@ -137,7 +137,7 @@ assign singer_plugin = plugin.singer_plugin %} {% assign variant = page.variant
   </li>
   <li>
     <a
-      href="https://meltano.com/docs/getting-started.html#create-your-meltano-project"
+      href="https://docs.meltano.com/getting-started.html#create-your-meltano-project"
       target="_blank"
     >
       Create your Meltano project
@@ -146,7 +146,7 @@ assign singer_plugin = plugin.singer_plugin %} {% assign variant = page.variant
   {% if plugin_type == "loader" %}
   <li>
     <a
-      href="https://meltano.com/docs/getting-started.html#add-an-extractor-to-pull-data-from-a-source"
+      href="https://docs.meltano.com/getting-started.html#add-an-extractor-to-pull-data-from-a-source"
       target="_blank"
     >
       Add an extractor to pull data from a source
@@ -164,7 +164,7 @@ assign singer_plugin = plugin.singer_plugin %} {% assign variant = page.variant
     <p>
       Add the <code>{{plugin.name}}</code> {{plugin_type}} to your project using
       <a
-        href="https://meltano.com/docs/command-line-interface.html#add"
+        href="https://docs.meltano.com/command-line-interface.html#add"
         target="_blank"
       >
         <code>meltano add</code> </a
@@ -177,7 +177,7 @@ assign singer_plugin = plugin.singer_plugin %} {% assign variant = page.variant
   <li>
     Configure the <a href="#settings">settings</a> below using
     <a
-      href="https://meltano.com/docs/command-line-interface.html#config"
+      href="https://docs.meltano.com/command-line-interface.html#config"
       target="_blank"
     >
       <code>meltano config</code> </a
@@ -192,10 +192,10 @@ assign singer_plugin = plugin.singer_plugin %} {% assign variant = page.variant
   <li>
     <p>
       Start
-      <a href="https://meltano.com/docs/ui.html" target="_blank">Meltano UI</a>
+      <a href="https://docs.meltano.com/ui.html" target="_blank">Meltano UI</a>
       using
       <a
-        href="https://meltano.com/docs/command-line-interface.html#ui"
+        href="https://docs.meltano.com/command-line-interface.html#ui"
         target="_blank"
         ><code>meltano ui</code></a
       >:
@@ -224,7 +224,7 @@ assign singer_plugin = plugin.singer_plugin %} {% assign variant = page.variant
 
 <p>
   Follow the remaining steps of the
-  <a href="https://meltano.com/docs/getting-started.html" target="_blank">
+  <a href="https://docs.meltano.com/getting-started.html" target="_blank">
     Getting Started guide</a
   >:
 </p>
@@ -233,7 +233,7 @@ assign singer_plugin = plugin.singer_plugin %} {% assign variant = page.variant
   {% if plugin_type == "extractor" %}
   <li>
     <a
-      href="https://meltano.com/docs/getting-started.html#select-entities-and-attributes-to-extract"
+      href="https://docs.meltano.com/getting-started.html#select-entities-and-attributes-to-extract"
       target="_blank"
     >
       Select entities and attributes to extract
@@ -241,7 +241,7 @@ assign singer_plugin = plugin.singer_plugin %} {% assign variant = page.variant
   </li>
   <li>
     <a
-      href="https://meltano.com/docs/getting-started.html#add-a-loader-to-send-data-to-a-destination"
+      href="https://docs.meltano.com/getting-started.html#add-a-loader-to-send-data-to-a-destination"
       target="_blank"
     >
       Add a loader to send data to a destination
@@ -250,7 +250,7 @@ assign singer_plugin = plugin.singer_plugin %} {% assign variant = page.variant
   {% endif %}
   <li>
     <a
-      href="https://meltano.com/docs/getting-started.html#run-a-data-integration-el-pipeline"
+      href="https://docs.meltano.com/getting-started.html#run-a-data-integration-el-pipeline"
       target="_blank"
     >
       Run a data integration (EL) pipeline
@@ -269,7 +269,7 @@ assign singer_plugin = plugin.singer_plugin %} {% assign variant = page.variant
 {% if variant.settings_group_validation.size == 1 %}
 <p>
   <code>{{plugin.name}}</code> requires the
-  <a href="https://meltano.com/docs/configuration.html" target="_blank">
+  <a href="https://docs.meltano.com/configuration.html" target="_blank">
     configuration
   </a>
   of the following settings:
@@ -287,7 +287,7 @@ assign singer_plugin = plugin.singer_plugin %} {% assign variant = page.variant
 {% elsif variant.settings_group_validation.size > 1 %}
 <p>
   <code>{{plugin.name}}</code> requires the
-  <a href="https://meltano.com/docs/configuration.html" target="_blank">
+  <a href="https://docs.meltano.com/configuration.html" target="_blank">
     configuration
   </a>
   of one of the following groups of settings:

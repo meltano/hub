@@ -14,26 +14,26 @@ The `tap-chargebee` [extractor](https://meltano.com/plugins/extractors/) pulls d
 
 ### Prerequisites
 
-If you haven't already, follow the initial steps of the [Getting Started guide](https://meltano.com/docs/getting-started.html):
+If you haven't already, follow the initial steps of the [Getting Started guide](https://docs.meltano.com/getting-started.html):
 
-1. [Install Meltano](https://meltano.com/docs/getting-started.html#install-meltano)
-1. [Create your Meltano project](https://meltano.com/docs/getting-started.html#create-your-meltano-project)
+1. [Install Meltano](https://docs.meltano.com/getting-started.html#install-meltano)
+1. [Create your Meltano project](https://docs.meltano.com/getting-started.html#create-your-meltano-project)
 
 ### Installation and configuration
 
 #### Using the Command Line Interface
 
-1. Add the `tap-chargebee` extractor to your project using [`meltano add`](https://meltano.com/docs/command-line-interface.html#add):
+1. Add the `tap-chargebee` extractor to your project using [`meltano add`](https://docs.meltano.com/command-line-interface.html#add):
 
     ```bash
     meltano add extractor tap-chargebee
     ```
 
-1. Configure the [settings](#settings) below using [`meltano config`](https://meltano.com/docs/command-line-interface.html#config).
+1. Configure the [settings](#settings) below using [`meltano config`](https://docs.meltano.com/command-line-interface.html#config).
 
 #### Using Meltano UI
 
-1. Start [Meltano UI](https://meltano.com/docs/ui.html) using [`meltano ui`](https://meltano.com/docs/command-line-interface.html#ui):
+1. Start [Meltano UI](https://docs.meltano.com/ui.html) using [`meltano ui`](https://docs.meltano.com/command-line-interface.html#ui):
 
     ```bash
     meltano ui
@@ -45,17 +45,17 @@ If you haven't already, follow the initial steps of the [Getting Started guide](
 
 ### Next steps
 
-Follow the remaining steps of the [Getting Started guide](https://meltano.com/docs/getting-started.html):
+Follow the remaining steps of the [Getting Started guide](https://docs.meltano.com/getting-started.html):
 
-1. [Select entities and attributes to extract](https://meltano.com/docs/getting-started.html#select-entities-and-attributes-to-extract)
-1. [Add a loader to send data to a destination](https://meltano.com/docs/getting-started.html#add-a-loader-to-send-data-to-a-destination)
-1. [Run a data integration (EL) pipeline](https://meltano.com/docs/getting-started.html#run-a-data-integration-el-pipeline)
+1. [Select entities and attributes to extract](https://docs.meltano.com/getting-started.html#select-entities-and-attributes-to-extract)
+1. [Add a loader to send data to a destination](https://docs.meltano.com/getting-started.html#add-a-loader-to-send-data-to-a-destination)
+1. [Run a data integration (EL) pipeline](https://docs.meltano.com/getting-started.html#run-a-data-integration-el-pipeline)
 
-If you run into any issues, [learn how to get help](https://meltano.com/docs/getting-help.html).
+If you run into any issues, [learn how to get help](https://docs.meltano.com/getting-help.html).
 
 ## Settings
 
-`tap-chargebee` requires the [configuration](https://meltano.com/docs/configuration.html) of the following settings:
+`tap-chargebee` requires the [configuration](https://docs.meltano.com/configuration.html) of the following settings:
 
 - [API Key](#api-key)
 - [Site](#site)
@@ -67,7 +67,7 @@ To quickly find the setting you're looking for, use the Table of Contents in the
 
 #### Minimal configuration
 
-A minimal configuration of `tap-chargebee` in your [`meltano.yml` project file](https://meltano.com/docs/project.html#meltano-yml-project-file) will look like this:
+A minimal configuration of `tap-chargebee` in your [`meltano.yml` project file](https://docs.meltano.com/project.html#meltano-yml-project-file) will look like this:
 
 ```yml{5-7}
 plugins:
@@ -80,7 +80,7 @@ plugins:
       start_date: '2020-10-01T00:00:00Z'
 ```
 
-Sensitive values are most appropriately stored in [the environment](https://meltano.com/docs/configuration.html#configuring-settings) or your project's [`.env` file](https://meltano.com/docs/project.html#env):
+Sensitive values are most appropriately stored in [the environment](https://docs.meltano.com/configuration.html#configuring-settings) or your project's [`.env` file](https://docs.meltano.com/project.html#env):
 
 ```bash
 export TAP_CHARGEBEE_API_KEY=my_client_id
@@ -89,13 +89,13 @@ export TAP_CHARGEBEE_API_KEY=my_client_id
 ### API Key
 
 - Name: `api_key`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_CHARGEBEE_API_KEY`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_CHARGEBEE_API_KEY`
 
 Your Chargebee API Key
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-chargebee set api_key <api key>
@@ -106,13 +106,13 @@ export TAP_CHARGEBEE_API_KEY=<api key>
 ### Site
 
 - Name: `site`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_CHARGEBEE_SITE`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_CHARGEBEE_SITE`
 
 Your Chargebee site `{site}.chargebee.com`
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-chargebee set chargebee_site <site>
@@ -123,13 +123,13 @@ export TAP_CHARGEBEE_SITE=<site>
 ### Product Catalog
 
 - Name: `product_catalog`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_CHARGEBEE_PRODUCT_CATALOG`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_CHARGEBEE_PRODUCT_CATALOG`
 
 The Chargebee product catalog you wish to use. Valid values are `1.0` or `2.0`.
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-chargebee set product_catalog <product catalog>
@@ -140,7 +140,7 @@ export TAP_CHARGEBEE_PRODUCT_CATALOG=<product catalog>
 ### Start Date
 
 - Name: `start_date`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_CHARGEBEE_START_DATE`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_CHARGEBEE_START_DATE`
 
 This property determines how much historical data will be extracted.
 
@@ -148,7 +148,7 @@ Please be aware that the larger the time period and amount of data, the longer t
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-chargebee set start_date YYYY-MM-DDTHH:MM:SSZ
@@ -164,14 +164,14 @@ export TAP_CHARGEBEE_START_DATE=2020-10-01T00:00:00Z
 ### Select Fields By Default
 
 - Name: `select_fields_by_default`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_CHARGEBEE_SELECT_FIELDS_BY_DEFAULT`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_CHARGEBEE_SELECT_FIELDS_BY_DEFAULT`
 - Default: `true`
 
 Select by default any new fields discovered in Chargebee objects
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-chargebee set select_fields_by_default false
@@ -182,7 +182,7 @@ export TAP_CHARGEBEE_SELECT_FIELDS_BY_DEFAULT=false
 ### State Message Threshold
 
 - Name: `state_message_threshold`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_CHARGEBEE_STATE_MESSAGE_THRESHOLD`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_CHARGEBEE_STATE_MESSAGE_THRESHOLD`
 - Default: `1000`
 
 Used to throttle how often STATE messages are generated when the tap is using the "REST" API.
@@ -191,7 +191,7 @@ This is a balance between not slowing down execution due to too many STATE messa
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-chargebee set state_message_threshold 500
@@ -202,14 +202,14 @@ export TAP_CHARGEBEE_STATE_MESSAGE_THRESHOLD=500
 ### Max Workers
 
 - Name: `max_workers`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_CHARGEBEE_MAX_WORKERS`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_CHARGEBEE_MAX_WORKERS`
 - Default: `8`
 
 Maximum number of threads to use
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-chargebee set max_workers 16

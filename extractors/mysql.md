@@ -16,10 +16,10 @@ The `tap-mysql` [extractor](https://meltano.com/plugins/extractors/) pulls data 
 
 ### Prerequisites
 
-If you haven't already, follow the initial steps of the [Getting Started guide](https://meltano.com/docs/getting-started.html):
+If you haven't already, follow the initial steps of the [Getting Started guide](https://docs.meltano.com/getting-started.html):
 
-1. [Install Meltano](https://meltano.com/docs/getting-started.html#install-meltano)
-1. [Create your Meltano project](https://meltano.com/docs/getting-started.html#create-your-meltano-project)
+1. [Install Meltano](https://docs.meltano.com/getting-started.html#install-meltano)
+1. [Create your Meltano project](https://docs.meltano.com/getting-started.html#create-your-meltano-project)
 
 Then, follow the steps in the ["Setup requirements" section of the documentation](https://transferwise.github.io/pipelinewise/connectors/taps/mysql.html#mysql-setup-requirements).
 
@@ -27,17 +27,17 @@ Then, follow the steps in the ["Setup requirements" section of the documentation
 
 #### Using the Command Line Interface
 
-1. Add the `tap-mysql` extractor to your project using [`meltano add`](https://meltano.com/docs/command-line-interface.html#add):
+1. Add the `tap-mysql` extractor to your project using [`meltano add`](https://docs.meltano.com/command-line-interface.html#add):
 
     ```bash
     meltano add extractor tap-mysql
     ```
 
-1. Configure the [settings](#settings) below using [`meltano config`](https://meltano.com/docs/command-line-interface.html#config).
+1. Configure the [settings](#settings) below using [`meltano config`](https://docs.meltano.com/command-line-interface.html#config).
 
 #### Using Meltano UI
 
-1. Start [Meltano UI](https://meltano.com/docs/ui.html) using [`meltano ui`](https://meltano.com/docs/command-line-interface.html#ui):
+1. Start [Meltano UI](https://docs.meltano.com/ui.html) using [`meltano ui`](https://docs.meltano.com/command-line-interface.html#ui):
 
     ```bash
     meltano ui
@@ -49,32 +49,32 @@ Then, follow the steps in the ["Setup requirements" section of the documentation
 
 ### Next steps
 
-Follow the remaining steps of the [Getting Started guide](https://meltano.com/docs/getting-started.html):
+Follow the remaining steps of the [Getting Started guide](https://docs.meltano.com/getting-started.html):
 
-1. [Select entities and attributes to extract](https://meltano.com/docs/getting-started.html#select-entities-and-attributes-to-extract)
-1. [Choose how to replicate each entity](https://meltano.com/docs/getting-started.html#choose-how-to-replicate-each-entity)
+1. [Select entities and attributes to extract](https://docs.meltano.com/getting-started.html#select-entities-and-attributes-to-extract)
+1. [Choose how to replicate each entity](https://docs.meltano.com/getting-started.html#choose-how-to-replicate-each-entity)
 
-    Supported [replication methods](https://meltano.com/docs/integration.html#replication-methods):
-    [`LOG_BASED`](https://meltano.com/docs/integration.html#log-based-incremental-replication),
-    [`INCREMENTAL`](https://meltano.com/docs/integration.html#key-based-incremental-replication),
-    [`FULL_TABLE`](https://meltano.com/docs/integration.html#full-table-replication)
+    Supported [replication methods](https://docs.meltano.com/integration.html#replication-methods):
+    [`LOG_BASED`](https://docs.meltano.com/integration.html#log-based-incremental-replication),
+    [`INCREMENTAL`](https://docs.meltano.com/integration.html#key-based-incremental-replication),
+    [`FULL_TABLE`](https://docs.meltano.com/integration.html#full-table-replication)
 
-1. [Add a loader to send data to a destination](https://meltano.com/docs/getting-started.html#add-a-loader-to-send-data-to-a-destination)
+1. [Add a loader to send data to a destination](https://docs.meltano.com/getting-started.html#add-a-loader-to-send-data-to-a-destination)
 
-    Note that this extractor is incompatible with the default `datamill-co` [variants](https://meltano.com/docs/plugins.html#variants)
+    Note that this extractor is incompatible with the default `datamill-co` [variants](https://docs.meltano.com/plugins.html#variants)
     of [`target-postgres`](https://meltano.com/plugins/loaders/postgres.html) and [`target-snowflake`](https://meltano.com/plugins/loaders/snowflake.html),
     because they don't support stream names that include the source schema in addition to the table name: `<schema>-<table>`, e.g. `public-accounts`.
 
     Instead, use the `transferwise` variants that were made to be used with this extractor:
     [`target-postgres`](https://meltano.com/plugins/loaders/postgres--transferwise.html) and [`target-snowflake`](https://meltano.com/plugins/loaders/snowflake--transferwise.html).
 
-1. [Run a data integration (EL) pipeline](https://meltano.com/docs/getting-started.html#run-a-data-integration-el-pipeline)
+1. [Run a data integration (EL) pipeline](https://docs.meltano.com/getting-started.html#run-a-data-integration-el-pipeline)
 
-If you run into any issues, [learn how to get help](https://meltano.com/docs/getting-help.html).
+If you run into any issues, [learn how to get help](https://docs.meltano.com/getting-help.html).
 
 ## Settings
 
-`tap-mysql` requires the [configuration](https://meltano.com/docs/configuration.html) of the following settings:
+`tap-mysql` requires the [configuration](https://docs.meltano.com/configuration.html) of the following settings:
 
 - [Host](#host)
 - [Port](#port)
@@ -86,7 +86,7 @@ To quickly find the setting you're looking for, use the Table of Contents in the
 
 #### Minimal configuration
 
-A minimal configuration of `tap-mysql` in your [`meltano.yml` project file](https://meltano.com/docs/project.html#meltano-yml-project-file) will look like this:
+A minimal configuration of `tap-mysql` in your [`meltano.yml` project file](https://docs.meltano.com/project.html#meltano-yml-project-file) will look like this:
 
 ```yml{5-8}
 plugins:
@@ -99,7 +99,7 @@ plugins:
       user: my_user
 ```
 
-Sensitive values are most appropriately stored in [the environment](https://meltano.com/docs/configuration.html#configuring-settings) or your project's [`.env` file](https://meltano.com/docs/project.html#env):
+Sensitive values are most appropriately stored in [the environment](https://docs.meltano.com/configuration.html#configuring-settings) or your project's [`.env` file](https://docs.meltano.com/project.html#env):
 
 ```bash
 export TAP_MYSQL_PASSWORD=my_password
@@ -108,12 +108,12 @@ export TAP_MYSQL_PASSWORD=my_password
 ### Host
 
 - Name: `host`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_MYSQL_HOST`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_MYSQL_HOST`
 - Default: `localhost`
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-mysql set host <host>
@@ -124,12 +124,12 @@ export TAP_MYSQL_HOST=<host>
 ### Port
 
 - Name: `port`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_MYSQL_PORT`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_MYSQL_PORT`
 - Default: `3306`
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-mysql set port 3307
@@ -140,11 +140,11 @@ export TAP_MYSQL_PORT=3307
 ### User
 
 - Name: `user`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_MYSQL_USER`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_MYSQL_USER`
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-mysql set user <user>
@@ -155,11 +155,11 @@ export TAP_MYSQL_USER=<user>
 ### Password
 
 - Name: `password`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_MYSQL_PASSWORD`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_MYSQL_PASSWORD`
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-mysql set password <password>
@@ -170,11 +170,11 @@ export TAP_MYSQL_PASSWORD=<password>
 ### Database
 
 - Name: `database`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_MYSQL_DATABASE`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_MYSQL_DATABASE`
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-mysql set database <database>
@@ -185,12 +185,12 @@ export TAP_MYSQL_DATABASE=<database>
 ### SSL
 
 - Name: `ssl`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_MYSQL_SSL`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_MYSQL_SSL`
 - Default: `false`
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-mysql set ssl true
@@ -201,13 +201,13 @@ export TAP_MYSQL_SSL=true
 ### Filter DBs
 
 - Name: `filter_dbs`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_MYSQL_FILTER_DBS`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_MYSQL_FILTER_DBS`
 
 Comma separated list of schemas to extract tables only from particular schemas and to improve data extraction performance
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-mysql set filter_dbs <schema1>,<schema2>
@@ -218,7 +218,7 @@ export TAP_MYSQL_FILTER_DBS=<schema1>,<schema2>
 ### Session SQLs
 
 - Name: `session_sqls`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_MYSQL_SESSION_SQLS`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_MYSQL_SESSION_SQLS`
 - Default:
 
   ```json
@@ -234,7 +234,7 @@ List of SQL commands to run when a connection made. This allows to set session v
 
 #### How to use
 
-Manage this setting directly in your [`meltano.yml` project file](https://meltano.com/docs/project.html#meltano-yml-project-file):
+Manage this setting directly in your [`meltano.yml` project file](https://docs.meltano.com/project.html#meltano-yml-project-file):
 
 ```yml{5-8}
 plugins:
@@ -247,7 +247,7 @@ plugins:
         # ...
 ```
 
-Alternatively, manage this setting using [`meltano config`](https://meltano.com/docs/command-line-interface.html#config) or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Alternatively, manage this setting using [`meltano config`](https://docs.meltano.com/command-line-interface.html#config) or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-mysql set session_sqls '["SET @@session.<variable>=<value>", ...]'

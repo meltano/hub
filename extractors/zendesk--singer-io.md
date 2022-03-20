@@ -14,7 +14,7 @@ The `tap-zendesk` [extractor](https://meltano.com/plugins/extractors/) pulls dat
 
 #### Alternative variants
 
-Multiple [variants](https://meltano.com/docs/plugins.html#variants) of `tap-zendesk` are available.
+Multiple [variants](https://docs.meltano.com/plugins.html#variants) of `tap-zendesk` are available.
 This document describes the `singer-io` variant.
 
 Alternative option is [`twilio-labs`](./zendesk.html) (default).
@@ -23,26 +23,26 @@ Alternative option is [`twilio-labs`](./zendesk.html) (default).
 
 ### Prerequisites
 
-If you haven't already, follow the initial steps of the [Getting Started guide](https://meltano.com/docs/getting-started.html):
+If you haven't already, follow the initial steps of the [Getting Started guide](https://docs.meltano.com/getting-started.html):
 
-1. [Install Meltano](https://meltano.com/docs/getting-started.html#install-meltano)
-1. [Create your Meltano project](https://meltano.com/docs/getting-started.html#create-your-meltano-project)
+1. [Install Meltano](https://docs.meltano.com/getting-started.html#install-meltano)
+1. [Create your Meltano project](https://docs.meltano.com/getting-started.html#create-your-meltano-project)
 
 ### Installation and configuration
 
 #### Using the Command Line Interface
 
-1. Add the `singer-io` variant of `tap-zendesk` extractor to your project using [`meltano add`](https://meltano.com/docs/command-line-interface.html#add):
+1. Add the `singer-io` variant of `tap-zendesk` extractor to your project using [`meltano add`](https://docs.meltano.com/command-line-interface.html#add):
 
     ```bash
     meltano add extractor tap-zendesk --variant singer-io
     ```
 
-1. Configure the [settings](#settings) below using [`meltano config`](https://meltano.com/docs/command-line-interface.html#config).
+1. Configure the [settings](#settings) below using [`meltano config`](https://docs.meltano.com/command-line-interface.html#config).
 
 #### Using Meltano UI
 
-1. Start [Meltano UI](https://meltano.com/docs/ui.html) using [`meltano ui`](https://meltano.com/docs/command-line-interface.html#ui):
+1. Start [Meltano UI](https://docs.meltano.com/ui.html) using [`meltano ui`](https://docs.meltano.com/command-line-interface.html#ui):
 
     ```bash
     meltano ui
@@ -55,17 +55,17 @@ If you haven't already, follow the initial steps of the [Getting Started guide](
 
 ### Next steps
 
-Follow the remaining steps of the [Getting Started guide](https://meltano.com/docs/getting-started.html):
+Follow the remaining steps of the [Getting Started guide](https://docs.meltano.com/getting-started.html):
 
-1. [Select entities and attributes to extract](https://meltano.com/docs/getting-started.html#select-entities-and-attributes-to-extract)
-1. [Add a loader to send data to a destination](https://meltano.com/docs/getting-started.html#add-a-loader-to-send-data-to-a-destination)
-1. [Run a data integration (EL) pipeline](https://meltano.com/docs/getting-started.html#run-a-data-integration-el-pipeline)
+1. [Select entities and attributes to extract](https://docs.meltano.com/getting-started.html#select-entities-and-attributes-to-extract)
+1. [Add a loader to send data to a destination](https://docs.meltano.com/getting-started.html#add-a-loader-to-send-data-to-a-destination)
+1. [Run a data integration (EL) pipeline](https://docs.meltano.com/getting-started.html#run-a-data-integration-el-pipeline)
 
-If you run into any issues, [learn how to get help](https://meltano.com/docs/getting-help.html).
+If you run into any issues, [learn how to get help](https://docs.meltano.com/getting-help.html).
 
 ## Settings
 
-`tap-zendesk` requires the [configuration](https://meltano.com/docs/configuration.html) of the following settings:
+`tap-zendesk` requires the [configuration](https://docs.meltano.com/configuration.html) of the following settings:
 
 In case of API token authentication:
 
@@ -86,7 +86,7 @@ To quickly find the setting you're looking for, use the Table of Contents in the
 
 #### Minimal configuration
 
-A minimal configuration of `tap-zendesk` in your [`meltano.yml` project file](https://meltano.com/docs/project.html#meltano-yml-project-file) will look like this:
+A minimal configuration of `tap-zendesk` in your [`meltano.yml` project file](https://docs.meltano.com/project.html#meltano-yml-project-file) will look like this:
 
 ```yml{5-8}
 plugins:
@@ -99,7 +99,7 @@ plugins:
       start_date: '2020-10-01T00:00:00Z'
 ```
 
-Sensitive values are most appropriately stored in [the environment](https://meltano.com/docs/configuration.html#configuring-settings) or your project's [`.env` file](https://meltano.com/docs/project.html#env):
+Sensitive values are most appropriately stored in [the environment](https://docs.meltano.com/configuration.html#configuring-settings) or your project's [`.env` file](https://docs.meltano.com/project.html#env):
 
 ```bash
 export TAP_ZENDESK_API_TOKEN=my_api_token
@@ -108,7 +108,7 @@ export TAP_ZENDESK_API_TOKEN=my_api_token
 ### Email
 
 - Name: `email`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_ZENDESK_EMAIL`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_ZENDESK_EMAIL`
 
 This is the email you use to login to your Zendesk dashboard.
 
@@ -116,7 +116,7 @@ Not necessary when using OAuth authentication and setting [Access Token](#access
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-zendesk set email <email>
@@ -127,7 +127,7 @@ export TAP_ZENDESK_EMAIL=<email>
 ### API Token
 
 - Name: `api_token`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_ZENDESK_API_TOKEN`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_ZENDESK_API_TOKEN`
 
 You can use the API Token authentication which can be generated from the Zendesk Admin page.
 
@@ -157,7 +157,7 @@ See <https://support.zendesk.com/hc/en-us/articles/226022787-Generating-a-new-AP
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-zendesk set api_token <token>
@@ -168,7 +168,7 @@ export TAP_ZENDESK_API_TOKEN=<token>
 ### Access Token
 
 - Name: `access_token`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_ZENDESK_ACCESS_TOKEN`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_ZENDESK_ACCESS_TOKEN`
 
 To use OAuth, you will need to fetch an `access_token` from a configured Zendesk integration.
 
@@ -176,7 +176,7 @@ See <https://support.zendesk.com/hc/en-us/articles/203663836>.
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-zendesk set access_token <token>
@@ -187,7 +187,7 @@ export TAP_ZENDESK_ACCESS_TOKEN=<token>
 ### Subdomain
 
 - Name: `subdomain`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_ZENDESK_SUBDOMAIN`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_ZENDESK_SUBDOMAIN`
 
 When visiting your Zendesk instance, the URL is structured as follows: `SUBDOMAIN.zendesk.com`.
 
@@ -197,7 +197,7 @@ For example, if the URL is `meltano.zendesk.com`, then the subdomain is `meltano
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-zendesk set subdomain <subdomain>
@@ -208,7 +208,7 @@ export TAP_ZENDESK_SUBDOMAIN=<subdomain>
 ### Start Date
 
 - Name: `start_date`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_ZENDESK_START_DATE`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_ZENDESK_START_DATE`
 
 This property determines how much historical data will be extracted.
 
@@ -216,7 +216,7 @@ Please be aware that the larger the time period and amount of data, the longer t
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-zendesk set start_date YYYY-MM-DDTHH:MM:SSZ

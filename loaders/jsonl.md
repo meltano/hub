@@ -14,27 +14,27 @@ The `target-jsonl` [loader](https://meltano.com/plugins/loaders/) loads [extract
 
 ### Prerequisites
 
-If you haven't already, follow the initial steps of the [Getting Started guide](https://meltano.com/docs/getting-started.html):
+If you haven't already, follow the initial steps of the [Getting Started guide](https://docs.meltano.com/getting-started.html):
 
-1. [Install Meltano](https://meltano.com/docs/getting-started.html#install-meltano)
-1. [Create your Meltano project](https://meltano.com/docs/getting-started.html#create-your-meltano-project)
-1. [Add an extractor to pull data from a source](https://meltano.com/docs/getting-started.html#add-an-extractor-to-pull-data-from-a-source)
+1. [Install Meltano](https://docs.meltano.com/getting-started.html#install-meltano)
+1. [Create your Meltano project](https://docs.meltano.com/getting-started.html#create-your-meltano-project)
+1. [Add an extractor to pull data from a source](https://docs.meltano.com/getting-started.html#add-an-extractor-to-pull-data-from-a-source)
 
 ### Installation and configuration
 
 #### Using the Command Line Interface
 
-1. Add the `target-jsonl` loader to your project using [`meltano add`](https://meltano.com/docs/command-line-interface.html#add):
+1. Add the `target-jsonl` loader to your project using [`meltano add`](https://docs.meltano.com/command-line-interface.html#add):
 
     ```bash
     meltano add loader target-jsonl
     ```
 
-1. Configure the [settings](#settings) below using [`meltano config`](https://meltano.com/docs/command-line-interface.html#config).
+1. Configure the [settings](#settings) below using [`meltano config`](https://docs.meltano.com/command-line-interface.html#config).
 
 #### Using Meltano UI
 
-1. Start [Meltano UI](https://meltano.com/docs/ui.html) using [`meltano ui`](https://meltano.com/docs/command-line-interface.html#ui):
+1. Start [Meltano UI](https://docs.meltano.com/ui.html) using [`meltano ui`](https://docs.meltano.com/command-line-interface.html#ui):
 
     ```bash
     meltano ui
@@ -46,15 +46,15 @@ If you haven't already, follow the initial steps of the [Getting Started guide](
 
 ### Next steps
 
-Follow the remaining step of the [Getting Started guide](https://meltano.com/docs/getting-started.html):
+Follow the remaining step of the [Getting Started guide](https://docs.meltano.com/getting-started.html):
 
-1. [Run a data integration (EL) pipeline](https://meltano.com/docs/getting-started.html#run-a-data-integration-el-pipeline)
+1. [Run a data integration (EL) pipeline](https://docs.meltano.com/getting-started.html#run-a-data-integration-el-pipeline)
 
-If you run into any issues, [learn how to get help](https://meltano.com/docs/getting-help.html).
+If you run into any issues, [learn how to get help](https://docs.meltano.com/getting-help.html).
 
 ## Settings
 
-`target-jsonl` requires the [configuration](https://meltano.com/docs/configuration.html) of the following settings:
+`target-jsonl` requires the [configuration](https://docs.meltano.com/configuration.html) of the following settings:
 
 - [Destination Path](#destination-path)
 
@@ -63,7 +63,7 @@ To quickly find the setting you're looking for, use the Table of Contents in the
 
 #### Minimal configuration
 
-A minimal configuration of `target-jsonl` in your [`meltano.yml` project file](https://meltano.com/docs/project.html#meltano-yml-project-file) will look like this:
+A minimal configuration of `target-jsonl` in your [`meltano.yml` project file](https://docs.meltano.com/project.html#meltano-yml-project-file) will look like this:
 
 ```yml{5-6}
 plugins:
@@ -77,7 +77,7 @@ plugins:
 ### Destination Path
 
 - Name: `destination_path`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_JSONL_DESTINATION_PATH`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TARGET_JSONL_DESTINATION_PATH`
 - Default: `output`
 
 Sets the destination path the JSONL files are written to, relative to the project root.
@@ -88,7 +88,7 @@ To write JSONL files to the project root, set an empty string (`""`).
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config target-jsonl set destination_path <path>
@@ -99,7 +99,7 @@ export TARGET_JSONL_DESTINATION_PATH=<path>
 ### Do Timestamp File
 
 - Name: `do_timestamp_file`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_JSONL_DO_TIMESTAMP_FILE`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TARGET_JSONL_DO_TIMESTAMP_FILE`
 - Default: `false`
 
 Specifies if the files should get timestamped.
@@ -110,7 +110,7 @@ If this option gets set to `true`, the resulting file will have a timestamp asso
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config target-jsonl set do_timestamp_file true
