@@ -1,6 +1,6 @@
 name: dbt
 namespace: dbt
-docs: https://meltano.com/docs/transforms.html
+docs: https://docs.meltano.com/transforms.html
 repo: https://github.com/fishtown-analytics/dbt
 pip_url: dbt==0.21.0
 settings:

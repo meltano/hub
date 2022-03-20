@@ -15,26 +15,26 @@ The `tap-zoom` [extractor](https://meltano.com/plugins/extractors/) pulls data f
 
 ### Prerequisites
 
-If you haven't already, follow the initial steps of the [Getting Started guide](https://meltano.com/docs/getting-started.html):
+If you haven't already, follow the initial steps of the [Getting Started guide](https://docs.meltano.com/getting-started.html):
 
-1. [Install Meltano](https://meltano.com/docs/getting-started.html#install-meltano)
-1. [Create your Meltano project](https://meltano.com/docs/getting-started.html#create-your-meltano-project)
+1. [Install Meltano](https://docs.meltano.com/getting-started.html#install-meltano)
+1. [Create your Meltano project](https://docs.meltano.com/getting-started.html#create-your-meltano-project)
 
 ### Installation and configuration
 
 #### Using the Command Line Interface
 
-1. Add the `tap-zoom` extractor to your project using [`meltano add`](https://meltano.com/docs/command-line-interface.html#add):
+1. Add the `tap-zoom` extractor to your project using [`meltano add`](https://docs.meltano.com/command-line-interface.html#add):
 
     ```bash
     meltano add extractor tap-zoom
     ```
 
-1. Configure the [settings](#settings) below using [`meltano config`](https://meltano.com/docs/command-line-interface.html#config).
+1. Configure the [settings](#settings) below using [`meltano config`](https://docs.meltano.com/command-line-interface.html#config).
 
 #### Using Meltano UI
 
-1. Start [Meltano UI](https://meltano.com/docs/ui.html) using [`meltano ui`](https://meltano.com/docs/command-line-interface.html#ui):
+1. Start [Meltano UI](https://docs.meltano.com/ui.html) using [`meltano ui`](https://docs.meltano.com/command-line-interface.html#ui):
 
     ```bash
     meltano ui
@@ -46,17 +46,17 @@ If you haven't already, follow the initial steps of the [Getting Started guide](
 
 ### Next steps
 
-Follow the remaining steps of the [Getting Started guide](https://meltano.com/docs/getting-started.html):
+Follow the remaining steps of the [Getting Started guide](https://docs.meltano.com/getting-started.html):
 
-1. [Select entities and attributes to extract](https://meltano.com/docs/getting-started.html#select-entities-and-attributes-to-extract)
-1. [Add a loader to send data to a destination](https://meltano.com/docs/getting-started.html#add-a-loader-to-send-data-to-a-destination)
-1. [Run a data integration (EL) pipeline](https://meltano.com/docs/getting-started.html#run-a-data-integration-el-pipeline)
+1. [Select entities and attributes to extract](https://docs.meltano.com/getting-started.html#select-entities-and-attributes-to-extract)
+1. [Add a loader to send data to a destination](https://docs.meltano.com/getting-started.html#add-a-loader-to-send-data-to-a-destination)
+1. [Run a data integration (EL) pipeline](https://docs.meltano.com/getting-started.html#run-a-data-integration-el-pipeline)
 
-If you run into any issues, [learn how to get help](https://meltano.com/docs/getting-help.html).
+If you run into any issues, [learn how to get help](https://docs.meltano.com/getting-help.html).
 
 ## Settings
 
-`tap-zoom` requires the [configuration](https://meltano.com/docs/configuration.html) of the following settings:
+`tap-zoom` requires the [configuration](https://docs.meltano.com/configuration.html) of the following settings:
 
 In case of JSON Web Token authentication:
 
@@ -76,7 +76,7 @@ Zoom also appears to "expire" meetings and webinars over time, making them unava
 
 #### Minimal configuration
 
-A minimal configuration of `tap-zoom` in your [`meltano.yml` project file](https://meltano.com/docs/project.html#meltano-yml-project-file) will look like this:
+A minimal configuration of `tap-zoom` in your [`meltano.yml` project file](https://docs.meltano.com/project.html#meltano-yml-project-file) will look like this:
 
 ```yml
 plugins:
@@ -85,7 +85,7 @@ plugins:
     variant: mashey
 ```
 
-Sensitive values are most appropriately stored in [the environment](https://meltano.com/docs/configuration.html#configuring-settings) or your project's [`.env` file](https://meltano.com/docs/project.html#env):
+Sensitive values are most appropriately stored in [the environment](https://docs.meltano.com/configuration.html#configuring-settings) or your project's [`.env` file](https://docs.meltano.com/project.html#env):
 
 ```bash
 export TAP_ZOOM_JWT=my_jwt
@@ -94,13 +94,13 @@ export TAP_ZOOM_JWT=my_jwt
 ### JSON Web Token
 
 - Name: `jwt`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_ZOOM_JWT`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_ZOOM_JWT`
 
 Your Zoom JSON Web Token. The JWT is likely the easiest option for tap users. Configure the JWT with a very long expiry so it does not expire.
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-zoom set jwt <jwt>
@@ -111,13 +111,13 @@ export TAP_ZOOM_JWT=<jwt>
 ### Client ID
 
 - Name: `client_id`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_ZOOM_CLIENT_ID`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_ZOOM_CLIENT_ID`
 
 Your Zoom Client ID - example from docs: `7lstjK9NTyett_oeXtFiEQ`. See the [Zoom OAuth App Credentials documentation](https://marketplace.zoom.us/docs/guides/build/oauth-app#app-credentials) for more information.
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-zoom set zoom_client_id <client_id>
@@ -128,13 +128,13 @@ export TAP_ZOOM_CLIENT_ID=<client_id>
 ### Client Secret
 
 - Name: `client_secret`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_ZOOM_CLIENT_SECRET`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_ZOOM_CLIENT_SECRET`
 
 The Zoom Client Secret that is generated when app credentials are created. See the [Zoom OAuth App Credentials documentation](https://marketplace.zoom.us/docs/guides/build/oauth-app#app-credentials) for more information.
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-zoom set client_secret <client secret>
@@ -145,13 +145,13 @@ export TAP_ZOOM_CLIENT_SECRET=<client secret>
 ### Refresh Token
 
 - Name: `refresh_token`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_ZOOM_REFRESH_TOKEN`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_ZOOM_REFRESH_TOKEN`
 
 The Zoom Refresh Token that is provided after successfully authenticating with Zoom. See the [Zoom OAuth Access Token Request documentation](https://marketplace.zoom.us/docs/guides/auth/oauth#step-2-request-access-token) for more information.
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-zoom set refresh_token <refresh token>

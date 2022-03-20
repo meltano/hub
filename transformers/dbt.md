@@ -4,7 +4,7 @@ layout: plugin_page
 description: Use Meltano to transform data in your warehouse using dbt
 ---
 
-The [`dbt`](https://www.getdbt.com) [transformer](https://meltano.com/docs/transforms.html) uses SQL to transform data stored in your warehouse.
+The [`dbt`](https://www.getdbt.com) [transformer](https://docs.meltano.com/transforms.html) uses SQL to transform data stored in your warehouse.
 
 - **Repository**: <https://github.com/dbt-labs/dbt>
 - **Documentation**: <https://docs.getdbt.com/>
@@ -15,31 +15,31 @@ The [`dbt`](https://www.getdbt.com) [transformer](https://meltano.com/docs/trans
 
 ### Prerequisites
 
-If you haven't already, follow the [Getting Started guide](https://meltano.com/docs/getting-started.html):
+If you haven't already, follow the [Getting Started guide](https://docs.meltano.com/getting-started.html):
 
-1. [Install Meltano](https://meltano.com/docs/getting-started.html#install-meltano)
-1. [Create your Meltano project](https://meltano.com/docs/getting-started.html#create-your-meltano-project)
-1. Load data into your warehouse by following the rest of the [Getting Started guide](https://meltano.com/docs/getting-started.html).
+1. [Install Meltano](https://docs.meltano.com/getting-started.html#install-meltano)
+1. [Create your Meltano project](https://docs.meltano.com/getting-started.html#create-your-meltano-project)
+1. Load data into your warehouse by following the rest of the [Getting Started guide](https://docs.meltano.com/getting-started.html).
 
 ### Installation and configuration
 
-1. Add the `dbt` transformer to your project using [`meltano add`](https://meltano.com/docs/command-line-interface.html#add):
+1. Add the `dbt` transformer to your project using [`meltano add`](https://docs.meltano.com/command-line-interface.html#add):
 
     ```bash
     meltano add transformer dbt
     ```
 
-1. Configure the [settings](#settings) below using [`meltano config`](https://meltano.com/docs/command-line-interface.html#config).
+1. Configure the [settings](#settings) below using [`meltano config`](https://docs.meltano.com/command-line-interface.html#config).
 
 ### Next steps
 
-1. [Transform loaded data for analysis](https://meltano.com/docs/getting-started.html#transform-loaded-data-for-analysis)
+1. [Transform loaded data for analysis](https://docs.meltano.com/getting-started.html#transform-loaded-data-for-analysis)
 
-If you run into any issues, [learn how to get help](https://meltano.com/docs/getting-help.html).
+If you run into any issues, [learn how to get help](https://docs.meltano.com/getting-help.html).
 
 ## Settings
 
-Meltano automatically sets default values for all `dbt` settings that can be [overridden](https://meltano.com/docs/configuration.html) if needed. 
+Meltano automatically sets default values for all `dbt` settings that can be [overridden](https://docs.meltano.com/configuration.html) if needed. 
 These settings are documented below.
 To quickly find the setting you're looking for, use the Table of Contents at the top of the page.
 
@@ -47,7 +47,7 @@ Settings for `dbt` itself can be configured through [`dbt_project.yml`](https://
 
 #### Minimal configuration
 
-A minimal configuration of `dbt` in your [`meltano.yml` project file](https://meltano.com/docs/project.html#meltano-yml-project-file) will look like this:
+A minimal configuration of `dbt` in your [`meltano.yml` project file](https://docs.meltano.com/project.html#meltano-yml-project-file) will look like this:
 
 ```yml{5-7}
 plugins:
@@ -59,14 +59,14 @@ plugins:
 ### Project Directory
 
 - Name: `project_dir`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `DBT_PROJECT_DIR`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `DBT_PROJECT_DIR`
 - Default: `$MELTANO_PROJECT_ROOT/transform`
 
 The directory where the dbt project is stored. The default value is the `/transform` directory in the Meltano project root directory.
 
 #### How to use
 
-Manage this setting using [`meltano config`](https://meltano.com/docs/command-line-interface.html#config) or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [`meltano config`](https://docs.meltano.com/command-line-interface.html#config) or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config dbt set project_dir <project_dir>
@@ -77,7 +77,7 @@ export DBT_PROJECT_DIR=<project_dir>
 ### Profiles Directory
 
 - Name: `profiles_dir`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `DBT_PROFILES_DIR`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `DBT_PROFILES_DIR`
 - Default: `$MELTANO_PROJECT_ROOT/transform/profile`
 
 The directory where the dbt `profiles.yml` file is stored.
@@ -86,7 +86,7 @@ This setting corresponds to [dbt's `--profiles-dir` option](https://docs.getdbt.
 
 #### How to use
 
-Manage this setting using [`meltano config`](https://meltano.com/docs/command-line-interface.html#config) or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [`meltano config`](https://docs.meltano.com/command-line-interface.html#config) or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config dbt set profiles_dir <profiles_dir>
@@ -97,14 +97,14 @@ export DBT_PROFILES_DIR=<profiles_dir>
 ### Target
 
 - Name: `target`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `DBT_TARGET`
-- Default: `$MELTANO_LOAD__DIALECT`, which [will expand to](https://meltano.com/docs/integration.html#pipeline-environment-variables) the value of the [`dialect` extra](https://meltano.com/docs/plugins.html#dialect-extra) for the loader used in the pipeline, e.g. `postgres` for `target-postgres` and `snowflake` for `target-snowflake`.
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `DBT_TARGET`
+- Default: `$MELTANO_LOAD__DIALECT`, which [will expand to](https://docs.meltano.com/integration.html#pipeline-environment-variables) the value of the [`dialect` extra](https://docs.meltano.com/plugins.html#dialect-extra) for the loader used in the pipeline, e.g. `postgres` for `target-postgres` and `snowflake` for `target-snowflake`.
 
 This is the dialect of your warehouse where data is stored. It maps to the [`target:` value](https://gitlab.com/meltano/files-dbt/-/blob/master/bundle/transform/profile/profiles.yml#L5) in the dbt [`profiles.yml` file](https://docs.getdbt.com/dbt-cli/configure-your-profile).
 
 #### How to use
 
-This setting is managed by the loader and is not recommended to be changed via the transformer. You can, if needed, overwrite this setting using [`meltano config`](https://meltano.com/docs/command-line-interface.html#config) or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+This setting is managed by the loader and is not recommended to be changed via the transformer. You can, if needed, overwrite this setting using [`meltano config`](https://docs.meltano.com/command-line-interface.html#config) or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config dbt set target <target>
@@ -115,14 +115,14 @@ export DBT_TARGET=<target>
 ### Source Schema
 
 - Name: `source_schema`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `DBT_SOURCE_SCHEMA`
-- Default: `$MELTANO_LOAD__TARGET_SCHEMA`, which [will expand to](https://meltano.com/docs/integration.html#pipeline-environment-variables) the value of the schema setting for the loader used in the pipeline.
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `DBT_SOURCE_SCHEMA`
+- Default: `$MELTANO_LOAD__TARGET_SCHEMA`, which [will expand to](https://docs.meltano.com/integration.html#pipeline-environment-variables) the value of the schema setting for the loader used in the pipeline.
 
 This defines the schema were dbt will read data from.
 
 #### How to use
 
-This setting is managed by the loader and is not recommended to be changed via the transformer. You can, if needed, overwrite this setting using [`meltano config`](https://meltano.com/docs/command-line-interface.html#config) or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+This setting is managed by the loader and is not recommended to be changed via the transformer. You can, if needed, overwrite this setting using [`meltano config`](https://docs.meltano.com/command-line-interface.html#config) or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config dbt set source_schema <source_schema>
@@ -133,14 +133,14 @@ export DBT_SOURCE_SCHEMA=<source_schema>
 ### Target Schema
 
 - Name: `target_schema`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `DBT_TARGET_SCHEMA`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `DBT_TARGET_SCHEMA`
 - Default: `analytics`
 
 This is the schema dbt writes transformation results to.
 
 #### How to use
 
-Manage this setting using [`meltano config`](https://meltano.com/docs/command-line-interface.html#config) or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [`meltano config`](https://docs.meltano.com/command-line-interface.html#config) or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config dbt set target_schema <schema>
@@ -151,8 +151,8 @@ export DBT_TARGET_SCHEMA=<schema>
 ### Models
 
 - Name: `models`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `DBT_MODELS`
-- Default: `$MELTANO_TRANSFORM__PACKAGE_NAME $MELTANO_EXTRACTOR_NAMESPACE my_meltano_project`, which [will expand to](https://meltano.com/docs/integration.html#pipeline-environment-variables) the value of the [`package_name` extra](https://meltano.com/docs/plugins.html#package-name-extra) for any [transform](https://meltano.com/docs/plugins.html#transforms) used in the pipeline, followed by the namespace of the extractor used in the pipeline (e.g. `tap_gitlab` for [`tap-gitlab`](https://meltano.com/plugins/extractors/gitlab.html), followed by `my_meltano_project` (referring to all models local to your dbt project).
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `DBT_MODELS`
+- Default: `$MELTANO_TRANSFORM__PACKAGE_NAME $MELTANO_EXTRACTOR_NAMESPACE my_meltano_project`, which [will expand to](https://docs.meltano.com/integration.html#pipeline-environment-variables) the value of the [`package_name` extra](https://docs.meltano.com/plugins.html#package-name-extra) for any [transform](https://docs.meltano.com/plugins.html#transforms) used in the pipeline, followed by the namespace of the extractor used in the pipeline (e.g. `tap_gitlab` for [`tap-gitlab`](https://meltano.com/plugins/extractors/gitlab.html), followed by `my_meltano_project` (referring to all models local to your dbt project).
 
 This defines the list of models which dbt will run during a transformation.
 
@@ -160,7 +160,7 @@ This setting corresponds to [dbt's `--models` option](https://docs.getdbt.com/re
 
 #### How to use
 
-Manage this setting using [`meltano config`](https://meltano.com/docs/command-line-interface.html#config) or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [`meltano config`](https://docs.meltano.com/command-line-interface.html#config) or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config dbt set models <models>
@@ -170,7 +170,7 @@ export DBT_MODELS=<models>
 
 ## Commands
 
-[Meltano commands](https://meltano.com/docs/command-line-interface.html#commands) are shortcuts for combinations of arguments used with [`meltano invoke`](https://meltano.com/docs/command-line-interface.html#invoke). 
+[Meltano commands](https://docs.meltano.com/command-line-interface.html#commands) are shortcuts for combinations of arguments used with [`meltano invoke`](https://docs.meltano.com/command-line-interface.html#invoke). 
 The command specified will use the defined arguments and pass along any specified environment variables.
 The commands for `dbt` are documented below.
 
@@ -278,9 +278,9 @@ meltano invoke dbt:test
 
 ### No Models Running
 
-If no models are running, consider overriding the [`models` setting](#models) using a [pipeline-specific configuration](https://meltano.com/docs/integration.html#pipeline-specific-configuration). 
+If no models are running, consider overriding the [`models` setting](#models) using a [pipeline-specific configuration](https://docs.meltano.com/integration.html#pipeline-specific-configuration). 
 
-You can also add a [custom](https://meltano.com/docs/configuration.html#custom-settings) [extra](https://meltano.com/docs/configuration.html#plugin-extras) to your extractor definition in your [`meltano.yml` project file](https://meltano.com/docs/project.html#meltano-yml-project-file), that can then be [referenced](https://meltano.com/docs/integration.html#pipeline-environment-variables) from `dbt`'s `models` setting using an [environment variable](https://meltano.com/docs/configuration.html#expansion-in-setting-values):
+You can also add a [custom](https://docs.meltano.com/configuration.html#custom-settings) [extra](https://docs.meltano.com/configuration.html#plugin-extras) to your extractor definition in your [`meltano.yml` project file](https://docs.meltano.com/project.html#meltano-yml-project-file), that can then be [referenced](https://docs.meltano.com/integration.html#pipeline-environment-variables) from `dbt`'s `models` setting using an [environment variable](https://docs.meltano.com/configuration.html#expansion-in-setting-values):
 
 ```bash
 # meltano.yml

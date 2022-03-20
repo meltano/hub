@@ -14,35 +14,35 @@ The `tap-bigquery` [extractor](https://meltano.com/plugins/extractors/) pulls da
 
 ### Prerequisites
 
-If you haven't already, follow the initial steps of the [Getting Started guide](https://meltano.com/docs/getting-started.html):
+If you haven't already, follow the initial steps of the [Getting Started guide](https://docs.meltano.com/getting-started.html):
 
-1. [Install Meltano](https://meltano.com/docs/getting-started.html#install-meltano)
-1. [Create your Meltano project](https://meltano.com/docs/getting-started.html#create-your-meltano-project)
+1. [Install Meltano](https://docs.meltano.com/getting-started.html#install-meltano)
+1. [Create your Meltano project](https://docs.meltano.com/getting-started.html#create-your-meltano-project)
 
 Then, follow the steps in the ["Activate the Google BigQuery API" section of the repository's README](https://github.com/anelendata/tap-bigquery#step-1-activate-the-google-bigquery-api).
 
 ### Installation and configuration
 
-1. Add the `tap-bigquery` extractor to your project using [`meltano add`](https://meltano.com/docs/command-line-interface.html#add):
+1. Add the `tap-bigquery` extractor to your project using [`meltano add`](https://docs.meltano.com/command-line-interface.html#add):
 
     ```bash
     meltano add extractor tap-bigquery
     ```
 
-1. Configure the [settings](#settings) below using [`meltano config`](https://meltano.com/docs/command-line-interface.html#config).
+1. Configure the [settings](#settings) below using [`meltano config`](https://docs.meltano.com/command-line-interface.html#config).
 
 ### Next steps
 
-Follow the remaining step of the [Getting Started guide](https://meltano.com/docs/getting-started.html):
+Follow the remaining step of the [Getting Started guide](https://docs.meltano.com/getting-started.html):
 
-1. [Add a loader to send data to a destination](https://meltano.com/docs/getting-started.html#add-a-loader-to-send-data-to-a-destination)
-1. [Run a data integration (EL) pipeline](https://meltano.com/docs/getting-started.html#run-a-data-integration-el-pipeline)
+1. [Add a loader to send data to a destination](https://docs.meltano.com/getting-started.html#add-a-loader-to-send-data-to-a-destination)
+1. [Run a data integration (EL) pipeline](https://docs.meltano.com/getting-started.html#run-a-data-integration-el-pipeline)
 
-If you run into any issues, [learn how to get help](https://meltano.com/docs/getting-help.html).
+If you run into any issues, [learn how to get help](https://docs.meltano.com/getting-help.html).
 
 ## Settings
 
-`tap-bigquery` requires the [configuration](https://meltano.com/docs/configuration.html) of the following settings:
+`tap-bigquery` requires the [configuration](https://docs.meltano.com/configuration.html) of the following settings:
 
 - [Streams](#streams)
 - [Credentials Path](#credentials-path)
@@ -53,7 +53,7 @@ To quickly find the setting you're looking for, use the Table of Contents in the
 
 **Minimal configuration**
 
-A minimal configuration of `tap-bigquery` in your [`meltano.yml` project file](https://meltano.com/docs/project.html#meltano-yml-project-file) will look like this:
+A minimal configuration of `tap-bigquery` in your [`meltano.yml` project file](https://docs.meltano.com/project.html#meltano-yml-project-file) will look like this:
 
 ```yml{5-15}
 plugins:
@@ -76,19 +76,19 @@ plugins:
 ### Streams
 
 - Name: `streams`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_BIGQUERY_STREAMS`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_BIGQUERY_STREAMS`
 
 Array of objects with `name`, `table`, `columns`, `datetime_key`, and `filters` keys:
 
 - `name`: The entity name, used by most loaders as the name of the table to be created.
 - `table`: Fully qualified table name in BigQuery, with format `` `<project>.<dataset>.<table>` ``. Since backticks have special meaning in YAML, values in `meltano.yml` should be wrapped in double quotes.
 - `columns`: Array of column names to select. Using `["*"]` is not recommended as it can become very expensive for a table with a large number of columns.
-- `datetime_key`: Name of datetime column to use as [replication key](https://meltano.com/docs/integration.html#replication-key).
+- `datetime_key`: Name of datetime column to use as [replication key](https://docs.meltano.com/integration.html#replication-key).
 - `filters`: Optional array of `WHERE` clauses to filter extracted data, e.g. `"column='value'"`.
 
 #### How to use
 
-Manage this setting directly in your [`meltano.yml` project file](https://meltano.com/docs/project.html#meltano-yml-project-file):
+Manage this setting directly in your [`meltano.yml` project file](https://docs.meltano.com/project.html#meltano-yml-project-file):
 
 ```yml{5-14}
 plugins:
@@ -107,7 +107,7 @@ plugins:
         # ...
 ```
 
-Alternatively, manage this setting using [`meltano config`](https://meltano.com/docs/command-line-interface.html#config) or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Alternatively, manage this setting using [`meltano config`](https://docs.meltano.com/command-line-interface.html#config) or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-bigquery set streams '[{"name": "<stream_name>", "table": "`<project>.<dataset>.<table>`", "columns": ["<column>", ...], "date_time_key": "<datetime_column>", "filters": [...]}, ...]'
@@ -118,7 +118,7 @@ export TAP_BIGQUERY_STREAMS='[{"name": "<stream_name>", "table": "`<project>.<da
 ### Credentials Path
 
 - Name: `credentials_path`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_BIGQUERY_CREDENTIALS_PATH`, alias: `GOOGLE_APPLICATION_CREDENTIALS`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_BIGQUERY_CREDENTIALS_PATH`, alias: `GOOGLE_APPLICATION_CREDENTIALS`
 - Default: `$MELTANO_PROJECT_ROOT/client_secrets.json`
 
 Fully qualified path to `client_secrets.json` for your service account.
@@ -129,7 +129,7 @@ By default, this file is expected to be at the root of your project directory.
 
 #### How to use
 
-Manage this setting using [`meltano config`](https://meltano.com/docs/command-line-interface.html#config) or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [`meltano config`](https://docs.meltano.com/command-line-interface.html#config) or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-bigquery set credentials_path /home/user/Downloads/client_secrets.json
@@ -140,7 +140,7 @@ export TAP_BIGQUERY_CREDENTIALS_PATH=/home/user/Downloads/client_secrets.json
 ### Start Datetime
 
 - Name: `start_datetime`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_BIGQUERY_START_DATETIME`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_BIGQUERY_START_DATETIME`
 
 This property determines how much historical data will be extracted.
 
@@ -148,7 +148,7 @@ Please be aware that the larger the time period and amount of data, the longer t
 
 #### How to use
 
-Manage this setting using [`meltano config`](https://meltano.com/docs/command-line-interface.html#config) or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [`meltano config`](https://docs.meltano.com/command-line-interface.html#config) or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-bigquery set start_datetime YYYY-MM-DDTHH:MM:SSZ
@@ -164,13 +164,13 @@ export TAP_BIGQUERY_START_DATETIME=2020-10-01T00:00:00Z
 ### End Datetime
 
 - Name: `end_datetime`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_BIGQUERY_END_DATETIME`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_BIGQUERY_END_DATETIME`
 
 Date up to when historical data will be extracted.
 
 #### How to use
 
-Manage this setting using [`meltano config`](https://meltano.com/docs/command-line-interface.html#config) or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [`meltano config`](https://docs.meltano.com/command-line-interface.html#config) or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-bigquery set end_datetime YYYY-MM-DDTHH:MM:SSZ
@@ -186,13 +186,13 @@ export TAP_BIGQUERY_END_DATETIME=2020-10-01T00:00:00Z
 ### Limit
 
 - Name: `limit`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_BIGQUERY_LIMIT`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_BIGQUERY_LIMIT`
 
 Limits the number of records returned in each stream, applied as a limit in the query.
 
 #### How to use
 
-Manage this setting using [`meltano config`](https://meltano.com/docs/command-line-interface.html#config) or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [`meltano config`](https://docs.meltano.com/command-line-interface.html#config) or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-bigquery set limit 100
@@ -203,7 +203,7 @@ export TAP_BIGQUERY_LIMIT=100
 ### Start Always Inclusive
 
 - Name: `start_always_inclusive`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_BIGQUERY_START_ALWAYS_INCLUSIVE`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_BIGQUERY_START_ALWAYS_INCLUSIVE`
 - Default: `true`
 
 When replicating incrementally, disable to only select records whose `datetime_key` is greater than the maximum value replicated in the last run, by excluding records whose timestamps match exactly.
@@ -212,7 +212,7 @@ This could cause records to be missed that were created after the last run finis
 
 #### How to use
 
-Manage this setting using [`meltano config`](https://meltano.com/docs/command-line-interface.html#config) or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [`meltano config`](https://docs.meltano.com/command-line-interface.html#config) or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-bigquery set start_always_inclusive false

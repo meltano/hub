@@ -14,26 +14,26 @@ The `tap-google-analytics` [extractor](https://meltano.com/plugins/extractors/) 
 
 ### Prerequisites
 
-If you haven't already, follow the initial steps of the [Getting Started guide](https://meltano.com/docs/getting-started.html):
+If you haven't already, follow the initial steps of the [Getting Started guide](https://docs.meltano.com/getting-started.html):
 
-1. [Install Meltano](https://meltano.com/docs/getting-started.html#install-meltano)
-1. [Create your Meltano project](https://meltano.com/docs/getting-started.html#create-your-meltano-project)
+1. [Install Meltano](https://docs.meltano.com/getting-started.html#install-meltano)
+1. [Create your Meltano project](https://docs.meltano.com/getting-started.html#create-your-meltano-project)
 
 ### Installation and configuration
 
 #### Using the Command Line Interface
 
-1. Add the `tap-google-analytics` extractor to your project using [`meltano add`](https://meltano.com/docs/command-line-interface.html#add):
+1. Add the `tap-google-analytics` extractor to your project using [`meltano add`](https://docs.meltano.com/command-line-interface.html#add):
 
     ```bash
     meltano add extractor tap-google-analytics
     ```
 
-1. Configure the [settings](#settings) below using [`meltano config`](https://meltano.com/docs/command-line-interface.html#config).
+1. Configure the [settings](#settings) below using [`meltano config`](https://docs.meltano.com/command-line-interface.html#config).
 
 #### Using Meltano UI
 
-1. Start [Meltano UI](https://meltano.com/docs/ui.html) using [`meltano ui`](https://meltano.com/docs/command-line-interface.html#ui):
+1. Start [Meltano UI](https://docs.meltano.com/ui.html) using [`meltano ui`](https://docs.meltano.com/command-line-interface.html#ui):
 
     ```bash
     meltano ui
@@ -45,17 +45,17 @@ If you haven't already, follow the initial steps of the [Getting Started guide](
 
 ### Next steps
 
-Follow the remaining steps of the [Getting Started guide](https://meltano.com/docs/getting-started.html):
+Follow the remaining steps of the [Getting Started guide](https://docs.meltano.com/getting-started.html):
 
-1. [Select entities and attributes to extract](https://meltano.com/docs/getting-started.html#select-entities-and-attributes-to-extract)
-1. [Add a loader to send data to a destination](https://meltano.com/docs/getting-started.html#add-a-loader-to-send-data-to-a-destination)
-1. [Run a data integration (EL) pipeline](https://meltano.com/docs/getting-started.html#run-a-data-integration-el-pipeline)
+1. [Select entities and attributes to extract](https://docs.meltano.com/getting-started.html#select-entities-and-attributes-to-extract)
+1. [Add a loader to send data to a destination](https://docs.meltano.com/getting-started.html#add-a-loader-to-send-data-to-a-destination)
+1. [Run a data integration (EL) pipeline](https://docs.meltano.com/getting-started.html#run-a-data-integration-el-pipeline)
 
-If you run into any issues, [learn how to get help](https://meltano.com/docs/getting-help.html).
+If you run into any issues, [learn how to get help](https://docs.meltano.com/getting-help.html).
 
 ## Settings
 
-`tap-google-analytics` requires the [configuration](https://meltano.com/docs/configuration.html) of the following settings:
+`tap-google-analytics` requires the [configuration](https://docs.meltano.com/configuration.html) of the following settings:
 
 In case of service account authentication:
 
@@ -82,7 +82,7 @@ To quickly find the setting you're looking for, use the Table of Contents in the
 
 #### Minimal configuration
 
-A minimal configuration of `tap-google-analytics` in your [`meltano.yml` project file](https://meltano.com/docs/project.html#meltano-yml-project-file) will look like this:
+A minimal configuration of `tap-google-analytics` in your [`meltano.yml` project file](https://docs.meltano.com/project.html#meltano-yml-project-file) will look like this:
 
 ```yml{5-7}
 plugins:
@@ -97,7 +97,7 @@ plugins:
 ### Key File Location
 
 - Name: `key_file_location`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_GOOGLE_ANALYTICS_KEY_FILE_LOCATION`, alias: `GOOGLE_ANALYTICS_API_CLIENT_SECRETS`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_GOOGLE_ANALYTICS_KEY_FILE_LOCATION`, alias: `GOOGLE_ANALYTICS_API_CLIENT_SECRETS`
 - Default: `$MELTANO_PROJECT_ROOT/client_secrets.json`
 
 Fully qualified path to `client_secrets.json` for your service account.
@@ -166,7 +166,7 @@ Only the [Read & Analyze permissions](https://support.google.com/analytics/answe
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-google-analytics set key_file_location /home/user/Downloads/client_secrets.json
@@ -179,7 +179,7 @@ Follow the above steps for [Key File Location](#key-file-location) but instead o
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-google-analytics set client_secrets {"foo": "bar"}
@@ -190,7 +190,7 @@ export TAP_GOOGLE_ANALYTICS_CLIENT_SECRETS="{\"foo\": \"bar\"}"
 ### OAuth Credentials: Client ID
 
 - Name: `oauth_credentials.client_id`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_GOOGLE_ANALYTICS_OAUTH_CREDENTIALS_CLIENT_ID`, alias: `GOOGLE_ANALYTICS_API_OAUTH_CLIENT_ID`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_GOOGLE_ANALYTICS_OAUTH_CREDENTIALS_CLIENT_ID`, alias: `GOOGLE_ANALYTICS_API_OAUTH_CLIENT_ID`
 
 See <https://developers.google.com/analytics/devguides/reporting/core/v4/authorization#OAuth2Authorizing>.
 
@@ -198,7 +198,7 @@ Takes precedence over [Key File Location](#key-file-location) if both are specif
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-google-analytics set oauth_credentials client_id <client_id>
@@ -209,13 +209,13 @@ export TAP_GOOGLE_ANALYTICS_OAUTH_CREDENTIALS_CLIENT_ID=<client_id>
 ### OAuth Credentials: Client Secret
 
 - Name: `oauth_credentials.client_secret`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_GOOGLE_ANALYTICS_OAUTH_CREDENTIALS_CLIENT_SECRET`, alias: `GOOGLE_ANALYTICS_API_OAUTH_CLIENT_SECRET`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_GOOGLE_ANALYTICS_OAUTH_CREDENTIALS_CLIENT_SECRET`, alias: `GOOGLE_ANALYTICS_API_OAUTH_CLIENT_SECRET`
 
 See <https://developers.google.com/analytics/devguides/reporting/core/v4/authorization#OAuth2Authorizing>.
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-google-analytics set oauth_credentials client_secret <client_secret>
@@ -226,13 +226,13 @@ export TAP_GOOGLE_ANALYTICS_OAUTH_CREDENTIALS_CLIENT_SECRET=<client_secret>
 ### OAuth Credentials: Access Token
 
 - Name: `oauth_credentials.access_token`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_GOOGLE_ANALYTICS_OAUTH_CREDENTIALS_ACCESS_TOKEN`, alias: `GOOGLE_ANALYTICS_API_OAUTH_ACCESS_TOKEN`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_GOOGLE_ANALYTICS_OAUTH_CREDENTIALS_ACCESS_TOKEN`, alias: `GOOGLE_ANALYTICS_API_OAUTH_ACCESS_TOKEN`
 
 See <https://developers.google.com/analytics/devguides/reporting/core/v4/authorization#OAuth2Authorizing>.
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-google-analytics set oauth_credentials access_token <token>
@@ -243,13 +243,13 @@ export TAP_GOOGLE_ANALYTICS_OAUTH_CREDENTIALS_ACCESS_TOKEN=<token>
 ### OAuth Credentials: Refresh Token
 
 - Name: `oauth_credentials.refresh_token`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_GOOGLE_ANALYTICS_OAUTH_CREDENTIALS_REFRESH_TOKEN`, alias: `GOOGLE_ANALYTICS_API_OAUTH_REFRESH_TOKEN`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_GOOGLE_ANALYTICS_OAUTH_CREDENTIALS_REFRESH_TOKEN`, alias: `GOOGLE_ANALYTICS_API_OAUTH_REFRESH_TOKEN`
 
 See <https://developers.google.com/analytics/devguides/reporting/core/v4/authorization#OAuth2Authorizing>.
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-google-analytics set oauth_credentials refresh_token <token>
@@ -260,7 +260,7 @@ export TAP_GOOGLE_ANALYTICS_OAUTH_CREDENTIALS_REFRESH_TOKEN=<token>
 ### View ID
 
 - Name: `view_id`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_GOOGLE_ANALYTICS_VIEW_ID`, alias: `GOOGLE_ANALYTICS_API_VIEW_ID`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_GOOGLE_ANALYTICS_VIEW_ID`, alias: `GOOGLE_ANALYTICS_API_VIEW_ID`
 
 Google Analytics View ID
 
@@ -282,7 +282,7 @@ To get your View ID:
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-google-analytics set view_id <id>
@@ -293,7 +293,7 @@ export TAP_GOOGLE_ANALYTICS_VIEW_ID=<ids>
 ### Reports
 
 - Name: `reports`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_GOOGLE_ANALYTICS_REPORTS`, alias: `GOOGLE_ANALYTICS_API_REPORTS`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_GOOGLE_ANALYTICS_REPORTS`, alias: `GOOGLE_ANALYTICS_API_REPORTS`
 - Default: Bundled [`defaults/default_report_definition.json`](https://gitlab.com/meltano/tap-google-analytics/blob/master/tap_google_analytics/defaults/default_report_definition.json)
 
 Project-relative path to JSON file with the definition of the reports to be generated.
@@ -355,7 +355,7 @@ For example, if you want to extract user stats per day in a `users_per_day` stre
 
 ### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-google-analytics set reports <path>
@@ -366,7 +366,7 @@ export TAP_GOOGLE_ANALYTICS_REPORTS=<path>
 ### Start Date
 
 - Name: `start_date`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_GOOGLE_ANALYTICS_START_DATE`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_GOOGLE_ANALYTICS_START_DATE`
 
 This property determines how much historical data will be extracted.
 
@@ -374,7 +374,7 @@ Please be aware that the larger the time period and amount of data, the longer t
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-google-analytics set start_date YYYY-MM-DDTHH:MM:SSZ
@@ -390,13 +390,13 @@ export TAP_GOOGLE_ANALYTICS_START_DATE=2020-10-01T00:00:00Z
 ### End Date
 
 - Name: `end_date`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TAP_GOOGLE_ANALYTICS_END_DATE`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_GOOGLE_ANALYTICS_END_DATE`
 
 Date up to when historical data will be extracted.
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config tap-google-analytics set end_date YYYY-MM-DDTHH:MM:SSZ

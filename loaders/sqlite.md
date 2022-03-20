@@ -14,27 +14,27 @@ The `target-sqlite` [loader](https://meltano.com/plugins/loaders/) loads [extrac
 
 ### Prerequisites
 
-If you haven't already, follow the initial steps of the [Getting Started guide](https://meltano.com/docs/getting-started.html):
+If you haven't already, follow the initial steps of the [Getting Started guide](https://docs.meltano.com/getting-started.html):
 
-1. [Install Meltano](https://meltano.com/docs/getting-started.html#install-meltano)
-1. [Create your Meltano project](https://meltano.com/docs/getting-started.html#create-your-meltano-project)
-1. [Add an extractor to pull data from a source](https://meltano.com/docs/getting-started.html#add-an-extractor-to-pull-data-from-a-source)
+1. [Install Meltano](https://docs.meltano.com/getting-started.html#install-meltano)
+1. [Create your Meltano project](https://docs.meltano.com/getting-started.html#create-your-meltano-project)
+1. [Add an extractor to pull data from a source](https://docs.meltano.com/getting-started.html#add-an-extractor-to-pull-data-from-a-source)
 
 ### Installation and configuration
 
 #### Using the Command Line Interface
 
-1. Add the `target-sqlite` loader to your project using [`meltano add`](https://meltano.com/docs/command-line-interface.html#add):
+1. Add the `target-sqlite` loader to your project using [`meltano add`](https://docs.meltano.com/command-line-interface.html#add):
 
     ```bash
     meltano add loader target-sqlite
     ```
 
-1. Configure the [settings](#settings) below using [`meltano config`](https://meltano.com/docs/command-line-interface.html#config).
+1. Configure the [settings](#settings) below using [`meltano config`](https://docs.meltano.com/command-line-interface.html#config).
 
 #### Using Meltano UI
 
-1. Start [Meltano UI](https://meltano.com/docs/ui.html) using [`meltano ui`](https://meltano.com/docs/command-line-interface.html#ui):
+1. Start [Meltano UI](https://docs.meltano.com/ui.html) using [`meltano ui`](https://docs.meltano.com/command-line-interface.html#ui):
 
     ```bash
     meltano ui
@@ -46,15 +46,15 @@ If you haven't already, follow the initial steps of the [Getting Started guide](
 
 ### Next steps
 
-Follow the remaining step of the [Getting Started guide](https://meltano.com/docs/getting-started.html):
+Follow the remaining step of the [Getting Started guide](https://docs.meltano.com/getting-started.html):
 
-1. [Run a data integration (EL) pipeline](https://meltano.com/docs/getting-started.html#run-a-data-integration-el-pipeline)
+1. [Run a data integration (EL) pipeline](https://docs.meltano.com/getting-started.html#run-a-data-integration-el-pipeline)
 
-If you run into any issues, [learn how to get help](https://meltano.com/docs/getting-help.html).
+If you run into any issues, [learn how to get help](https://docs.meltano.com/getting-help.html).
 
 ## Settings
 
-`target-sqlite` requires the [configuration](https://meltano.com/docs/configuration.html) of the following settings:
+`target-sqlite` requires the [configuration](https://docs.meltano.com/configuration.html) of the following settings:
 
 - [Database](#database)
 
@@ -63,7 +63,7 @@ To quickly find the setting you're looking for, use the Table of Contents in the
 
 #### Minimal configuration
 
-A minimal configuration of `target-sqlite` in your [`meltano.yml` project file](https://meltano.com/docs/project.html#meltano-yml-project-file) will look like this:
+A minimal configuration of `target-sqlite` in your [`meltano.yml` project file](https://docs.meltano.com/project.html#meltano-yml-project-file) will look like this:
 
 ```yml{5-6}
 plugins:
@@ -77,7 +77,7 @@ plugins:
 ### Database
 
 - Name: `database`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SQLITE_DATABASE`, alias: `SQLITE_DATABASE`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TARGET_SQLITE_DATABASE`, alias: `SQLITE_DATABASE`
 - Default: `warehouse`
 
 Name of the SQLite database file to be used or created, relative to the project root.
@@ -86,7 +86,7 @@ The `.db` extension is optional and will be added automatically when omitted.
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config target-sqlite set database <database>
@@ -97,14 +97,14 @@ export TARGET_SQLITE_DATABASE=<database>
 ### Batch Size
 
 - Name: `batch_size`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SQLITE_BATCH_SIZE`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TARGET_SQLITE_BATCH_SIZE`
 - Default: `50`
 
 How many records are sent to SQLite at a time?
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config target-sqlite set batch_size 100
@@ -115,14 +115,14 @@ export TARGET_SQLITE_BATCH_SIZE=100
 ### Timestamp Column
 
 - Name: `timestamp_column`
-- [Environment variable](https://meltano.com/docs/configuration.html#configuring-settings): `TARGET_SQLITE_TIMESTAMP_COLUMN`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TARGET_SQLITE_TIMESTAMP_COLUMN`
 - Default: `__loaded_at`
 
 Name of the column used for recording the timestamp when Data are loaded to SQLite.
 
 #### How to use
 
-Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://meltano.com/docs/command-line-interface.html#config), or an [environment variable](https://meltano.com/docs/configuration.html#configuring-settings):
+Manage this setting using [Meltano UI](#using-meltano-ui), [`meltano config`](https://docs.meltano.com/command-line-interface.html#config), or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
 meltano config target-sqlite set timestamp_column <column>
