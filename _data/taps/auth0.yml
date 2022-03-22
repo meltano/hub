@@ -51,5 +51,13 @@ variants:
   - state
   - about
   - stream-maps
+- name: process-street
+  maintenance_status: unknown
+  pip_url: git+https://github.com/process-street/tap-auth0-logs-checkpoint.git
+  repo: https://github.com/process-street/tap-auth0-logs-checkpoint
+  settings: []
+  capabilities:
+  - catalog
+  - discover
 entity_url: https://auth0.com/
 entity_type: api
