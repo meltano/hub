@@ -11,11 +11,13 @@ variants:
     meltano_sdk: true
     name: matatika
     pip_url: git+https://github.com/Matatika/tap-googleads.git
-    repo: https://github.com/Matatika/tap-googleads.git
+    repo: https://github.com/Matatika/tap-googleads
     capabilities:
       - catalog
       - discover
       - state
+      - about
+      - stream-maps
     settings:
       - name: oauth_credentials.client_id
         kind: password
