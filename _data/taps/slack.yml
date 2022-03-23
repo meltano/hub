@@ -4,6 +4,53 @@ name: slack
 singer_name: tap-slack
 type: tap
 variants:
+- default: false
+  capabilities:
+  - catalog
+  - state
+  - discover
+  - about
+  - stream-maps
+  maintenance_status: active
+  meltano_sdk: true
+  name: meltanolabs
+  pip_url: git+https://github.com/MeltanoLabs/tap-slack.git
+  repo: https://github.com/MeltanoLabs/tap-slack
+  settings_group_validation:
+  - - api_key
+  settings:
+  - kind: password
+    label: API Key
+    name: api_key
+  - description: Determines how much historical data will be extracted. Please be
+      aware that the larger the time period and amount of data, the longer the initial
+      extraction can be expected to take.
+    kind: date_iso8601
+    label: Start Date
+    name: start_date
+  - description: The number of days to look in the past for new thread replies to existing messages
+    kind: integer
+    label: Thread Lookback Days
+    name: thread_lookback_days
+  - description: The types of conversations the tap will attempt to extract data from.
+      Must be one of 'public_channel', 'mpim', 'private_channel', or 'im'. Note that the
+      Slack app must have the appropriate privileges and be a member of the conversations to sync messages.
+    kind: array
+    label: Channel Types
+    name: channel_types
+  - description: Whether the bot user should attempt to join channels that it has not yet joined. The bot
+      user must be a member of the channel to retrieve messages.
+    kind: boolean
+    label: Auto Join Channels
+    name: auto_join_channels
+  - description: A list of channel IDs that should be retrieved. If not defined then all are selected.
+    kind: array
+    label: Selected Channels
+    name: selected_channels
+  - description: A list of channel IDs that should not be retrieved. Excluding overrides a selected setting, so if a channel is included in both selected and excluded, it will be excluded.
+    kind: array
+    label: Excluded Channels
+    name: excluded_channels
 - capabilities:
   - catalog
   - discover
@@ -14,7 +61,7 @@ variants:
   pip_url: git+https://github.com/Mashey/tap-slack.git
   repo: https://github.com/Mashey/tap-slack
   settings:
-  - documentation: https://support.zendesk.com/hc/en-us/articles/226022787-Generating-a-new-API-token-
+  - documentation: https://slack.com/help/articles/215770388-Create-and-regenerate-API-tokens
     kind: password
     label: API Token
     name: token
