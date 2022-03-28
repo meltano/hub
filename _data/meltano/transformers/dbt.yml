@@ -1,8 +1,11 @@
 name: dbt
 namespace: dbt
-docs: https://docs.meltano.com/transforms.html
-repo: https://github.com/fishtown-analytics/dbt
-pip_url: dbt==0.21.0
+docs: https://docs.meltano.com/guide/transformation
+repo: https://github.com/dbt-labs/dbt-core
+pip_url: 'dbt-core~=1.0.0 dbt-postgres~=1.0.0 dbt-redshift~=1.0.0 dbt-snowflake~=1.0.0
+  dbt-bigquery~=1.0.0
+
+  '
 settings:
 - name: project_dir
   value: $MELTANO_PROJECT_ROOT/transform

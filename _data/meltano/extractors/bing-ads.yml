@@ -144,14 +144,17 @@ variants:
     - start_date
   settings:
   - name: developer_token
-    env: OAUTH_BING_ADS_DEVELOPER_TOKEN
+    env_aliases:
+    - OAUTH_BING_ADS_DEVELOPER_TOKEN
     kind: password
   - name: oauth_client_id
-    env: OAUTH_BING_ADS_CLIENT_ID
+    env_aliases:
+    - OAUTH_BING_ADS_CLIENT_ID
     label: OAuth Client ID
     kind: password
   - name: oauth_client_secret
-    env: OAUTH_BING_ADS_CLIENT_SECRET
+    env_aliases:
+    - OAUTH_BING_ADS_CLIENT_SECRET
     label: OAuth Client Secret
     kind: password
   - name: refresh_token
