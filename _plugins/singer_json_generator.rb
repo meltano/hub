@@ -29,7 +29,6 @@ class SingerJsonGenerator < Jekyll::Generator
       plugin_variant_def.delete("variants")
       plugin_variant_def.delete("singer_plugin")
       plugin_variant_def.delete("url")
-      plugin_variant_def.delete("logo_url")
 
       if plugin.key?("variants")        
         plugin["variants"].each do |variant|
@@ -40,7 +39,6 @@ class SingerJsonGenerator < Jekyll::Generator
           plugin_variant_def["capabilities"] = variant["capabilities"]
           plugin_variant_def["settings_group_validation"] = variant["settings_group_validation"]
           plugin_variant_def["settings"] = variant["settings"]
-          plugin_variant_def["default"] = variant["default"]
 
           generate_file(site, "/meltano/api/v1/#{collection}", "#{plugin['name']}--#{variant['name']}.json", JSON.generate(plugin_variant_def))
         end
@@ -61,23 +59,29 @@ class SingerJsonGenerator < Jekyll::Generator
       end
       plugin_type_index = {}
       plugin_defs.each do |plugin, plugin_def|
-        variants_list = []
+        variants_detail = {}
         plugin_index = {}
         if plugin_def.key?("variants")
           plugin_def["variants"].each do |variant|
             if variant["default"]
-              plugin_index["default"] = variant["name"]
+              plugin_index["default_variant"] = variant["name"]
             end
-            variants_list.append(variant["name"])
+            variants_detail[variant["name"]] = {
+              "logo_url": plugin_def["logo_url"],
+              "ref": "/meltano/api/v1/#{plugin_type}/#{plugin_def["name"]}--#{variant["name"]}.json"
+            }
 
           end
         elsif plugin_def.key?("variant")
-          plugin_index["default"] = plugin_def["variant"]
-          variants_list = [plugin_def["variant"]]
+          plugin_index["default_variant"] = plugin_def["variant"]
+          variants_detail[plugin_def["variant"]] = {
+            "logo_url": plugin_def["logo_url"],
+            "ref": "/meltano/api/v1/#{plugin_type}/#{plugin_def["name"]}--#{plugin_def["variant"]}.json"
+          }
         else
-          variants_list = []
+          variants_detail = {}
         end
-        plugin_index["variants"] = variants_list
+        plugin_index["variants"] = variants_detail
         plugin_type_index[plugin_def["name"]] = plugin_index
       end
       index[plugin_type] = plugin_type_index
