@@ -65,17 +65,17 @@ class SingerJsonGenerator < Jekyll::Generator
           plugin_def["variants"].each do |variant|
             if variant["default"]
               plugin_index["default_variant"] = variant["name"]
+              plugin_index["logo_url"] = plugin_def["logo_url"]
             end
             variants_detail[variant["name"]] = {
-              "logo_url": plugin_def["logo_url"],
               "ref": "/meltano/api/v1/#{plugin_type}/#{plugin_def["name"]}--#{variant["name"]}.json"
             }
 
           end
         elsif plugin_def.key?("variant")
           plugin_index["default_variant"] = plugin_def["variant"]
+          plugin_index["logo_url"] = plugin_def["logo_url"]
           variants_detail[plugin_def["variant"]] = {
-            "logo_url": plugin_def["logo_url"],
             "ref": "/meltano/api/v1/#{plugin_type}/#{plugin_def["name"]}--#{plugin_def["variant"]}.json"
           }
         else
