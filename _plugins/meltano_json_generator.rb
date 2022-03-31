@@ -5,12 +5,10 @@ class MeltanoJsonGenerator < Jekyll::Generator
     @site = site
     generate_json_index(site)
     plugin_types = [
-      'dashboards',
       'extractors',
       'files',
       'loaders',
       'mappers',
-      'models',
       'orchestrators',
       'transformers',
       'utilities'
