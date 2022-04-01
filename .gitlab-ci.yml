@@ -70,3 +70,22 @@ jsonschema_validation:
       - merge_requests
   except:
     - schedule
+
+##########################
+# Validate API schema
+##########################
+
+api_schema_test:
+  image: python:3
+  before_script:
+    - pip install ruamel.yaml
+    - pip install jsonschema
+  stage: validate
+  script:
+    - python api_schema_validate.py
+  needs: ["jekyll_test"]
+  only: 
+    refs:
+      - merge_requests
+  except:
+    - schedule

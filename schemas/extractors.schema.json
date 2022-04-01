@@ -1,0 +1,95 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "extractor.schema.json",
+    "title": "JSON Schema for discovery.yml",
+    "description": "https://docs.meltano.com/concepts/plugins#extractors",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "common.schema.json"
+        },
+        {
+            "$ref": "#/definitions/extractor_specific"
+        },
+        {
+            "additionalProperties": false,
+            "type": "object",
+            "properties": {
+                "name": {},
+                "pip_url": {},
+                "variant": {},
+                "namespace": {},
+                "label": {},
+                "description": {},
+                "executable": {},
+                "settings": {},
+                "docs": {},
+                "repo": {},
+                "logo_url": {},
+                "hidden": {},
+                "settings_group_validation": {},
+                "commands": {},
+                "variants": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "allOf": [
+                            {
+                                "$ref": "#/definitions/extractor_specific"
+                            }
+                        ]
+                    }
+                },
+                "capabilities": {},
+                "metadata": {},
+                "schema": {},
+                "select": {}
+            }
+        }
+    ],
+    "definitions": {
+        "extractor_specific": {
+            "type": "object",
+            "properties": {
+                "capabilities": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "enum": [
+                            "properties",
+                            "catalog",
+                            "discover",
+                            "state",
+                            "about",
+                            "stream-maps",
+                            "activate-version",
+                            "batch",
+                            "test",
+                            "log-based"
+                        ]
+                    }
+                },
+                "metadata": {
+                    "type": "object",
+                    "description": "An object containing Singer stream and property metadata",
+                    "default": {}
+                },
+                "schema": {
+                    "type": "object",
+                    "description": "An object representing override rules for a Singer stream schema",
+                    "default": {}
+                },
+                "select": {
+                    "type": "array",
+                    "default": [
+                        "*.*"
+                    ],
+                    "description": "An array of entity selection rules in the form '<entity|*>.<attribute|*>'",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}
