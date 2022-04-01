@@ -71,7 +71,7 @@ Follow the remaining steps of the [Getting Started guide](https://docs.meltano.c
 
 1. [Add a loader to send data to a destination](https://docs.meltano.com/getting-started.html#add-a-loader-to-send-data-to-a-destination)
 
-    Note that this extractor is incompatible with the default `datamill-co` [variants](https://docs.meltano.com/plugins.html#variants)
+    Note that this extractor is incompatible with the default `datamill-co` [variants](https://docs.meltano.com/concepts/plugins#variants)
     of [`target-postgres`](https://meltano.com/plugins/loaders/postgres.html) and [`target-snowflake`](https://meltano.com/plugins/loaders/snowflake.html),
     because they don't support stream names that include the source schema in addition to the table name: `<schema>-<table>`, e.g. `public-accounts`.
 
@@ -97,7 +97,7 @@ To quickly find the setting you're looking for, use the Table of Contents in the
 
 #### Minimal configuration
 
-A minimal configuration of `tap-postgres` in your [`meltano.yml` project file](https://docs.meltano.com/project.html#meltano-yml-project-file) will look like this:
+A minimal configuration of `tap-postgres` in your [`meltano.yml` project file](https://docs.meltano.com/concepts/project#meltano-yml-project-file) will look like this:
 
 ```yml{5-9}
 plugins:
@@ -111,7 +111,7 @@ plugins:
       dbname: my_database
 ```
 
-Sensitive values are most appropriately stored in [the environment](https://docs.meltano.com/configuration.html#configuring-settings) or your project's [`.env` file](https://docs.meltano.com/project.html#env):
+Sensitive values are most appropriately stored in [the environment](https://docs.meltano.com/configuration.html#configuring-settings) or your project's [`.env` file](https://docs.meltano.com/concepts/project#env):
 
 ```bash
 export TAP_POSTGRES_PASSWORD=my_password
