@@ -68,7 +68,7 @@ To quickly find the setting you're looking for, use the Table of Contents in the
 
 #### Minimal configuration
 
-A minimal configuration of `target-bigquery` in your [`meltano.yml` project file](https://docs.meltano.com/project.html#meltano-yml-project-file) will look like this:
+A minimal configuration of `target-bigquery` in your [`meltano.yml` project file](https://docs.meltano.com/concepts/project#meltano-yml-project-file) will look like this:
 
 ```yml{5-8}
 plugins:
@@ -102,7 +102,7 @@ export TARGET_BIGQUERY_PROJECT_ID=<id>
 
 - Name: `dataset_id`
 - [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TARGET_BIGQUERY_DATASET_ID`
-- Default: `$MELTANO_EXTRACT__LOAD_SCHEMA`, which [will expand to](https://docs.meltano.com/configuration.html#expansion-in-setting-values) the value of the [`load_schema` extra](https://docs.meltano.com/plugins.html#load-schema-extra) for the extractor used in the pipeline, which defaults to the extractor's namespace, e.g. `tap_gitlab` for [`tap-gitlab`](https://meltano.com/plugins/extractors/gitlab.html).
+- Default: `$MELTANO_EXTRACT__LOAD_SCHEMA`, which [will expand to](https://docs.meltano.com/configuration.html#expansion-in-setting-values) the value of the [`load_schema` extra](https://docs.meltano.com/concepts/plugins#load-schema-extra) for the extractor used in the pipeline, which defaults to the extractor's namespace, e.g. `tap_gitlab` for [`tap-gitlab`](https://meltano.com/plugins/extractors/gitlab.html).
 
 BigQuery dataset
 

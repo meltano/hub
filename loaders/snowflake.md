@@ -13,7 +13,7 @@ The `target-snowflake` [loader](https://meltano.com/plugins/loaders/) loads [ext
 
 #### Alternative variants
 
-Multiple [variants](https://docs.meltano.com/plugins.html#variants) of `target-snowflake` are available.
+Multiple [variants](https://docs.meltano.com/concepts/plugins#variants) of `target-snowflake` are available.
 This document describes the default `transferwise` variant, which is recommended for new users. This variant was originally built to be used with [PipelineWise](https://transferwise.github.io/pipelinewise/).
 
 Alternative options are [`datamill-co`](./snowflake--datamill-co.html) and [`meltano`](./snowflake--meltano.html).
@@ -90,7 +90,7 @@ To quickly find the setting you're looking for, use the Table of Contents in the
 
 #### Minimal configuration
 
-A minimal configuration of `target-snowflake` in your [`meltano.yml` project file](https://docs.meltano.com/project.html#meltano-yml-project-file) will look like this:
+A minimal configuration of `target-snowflake` in your [`meltano.yml` project file](https://docs.meltano.com/concepts/project#meltano-yml-project-file) will look like this:
 
 ```yml{5-13}
 plugins:
@@ -106,7 +106,7 @@ plugins:
       # default_target_schema: MY_SCHEMA    # override if default (see below) is not appropriate
 ```
 
-Sensitive values are most appropriately stored in [the environment](https://docs.meltano.com/configuration.html#configuring-settings) or your project's [`.env` file](https://docs.meltano.com/project.html#env):
+Sensitive values are most appropriately stored in [the environment](https://docs.meltano.com/configuration.html#configuring-settings) or your project's [`.env` file](https://docs.meltano.com/concepts/project#env):
 
 ```bash
 export TARGET_SNOWFLAKE_PASSWORD=my_password
@@ -252,7 +252,7 @@ export TARGET_SNOWFLAKE_FILE_FORMAT=<snowflake_file_format_object_name>
 
 - Name: `default_target_schema`
 - [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_DEFAULT_TARGET_SCHEMA`, alias: `TARGET_SNOWFLAKE_SCHEMA`, `SF_SCHEMA`
-- Default: `$MELTANO_EXTRACT__LOAD_SCHEMA`, which [will expand to](https://docs.meltano.com/configuration.html#expansion-in-setting-values) the value of the [`load_schema` extra](https://docs.meltano.com/plugins.html#load-schema-extra) for the extractor used in the pipeline, which defaults to the extractor's namespace, e.g. `tap_gitlab` for [`tap-gitlab`](https://meltano.com/plugins/extractors/gitlab.html). Values are automatically converted to uppercase before they're passed on to the plugin, so `tap_gitlab` becomes `TAP_GITLAB`.
+- Default: `$MELTANO_EXTRACT__LOAD_SCHEMA`, which [will expand to](https://docs.meltano.com/configuration.html#expansion-in-setting-values) the value of the [`load_schema` extra](https://docs.meltano.com/concepts/plugins#load-schema-extra) for the extractor used in the pipeline, which defaults to the extractor's namespace, e.g. `tap_gitlab` for [`tap-gitlab`](https://meltano.com/plugins/extractors/gitlab.html). Values are automatically converted to uppercase before they're passed on to the plugin, so `tap_gitlab` becomes `TAP_GITLAB`.
 
 Name of the schema where the tables will be created, without database prefix. If `schema_mapping` is not defined then every stream sent by the tap is loaded into this schema.
 
@@ -506,7 +506,7 @@ This setting can hold an object mapping source schema names to objects with `tar
 
 #### How to use
 
-Manage this setting directly in your [`meltano.yml` project file](https://docs.meltano.com/project.html#meltano-yml-project-file):
+Manage this setting directly in your [`meltano.yml` project file](https://docs.meltano.com/concepts/project#meltano-yml-project-file):
 
 ```yml{5-15}
 plugins:

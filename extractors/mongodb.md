@@ -74,7 +74,7 @@ If you run into any issues, [learn how to get help](https://docs.meltano.com/get
 
 #### Minimal configuration
 
-A minimal configuration of `tap-mongodb` in your [`meltano.yml` project file](https://docs.meltano.com/project.html#meltano-yml-project-file) will look like this:
+A minimal configuration of `tap-mongodb` in your [`meltano.yml` project file](https://docs.meltano.com/concepts/project#meltano-yml-project-file) will look like this:
 
 ```yml{5-9}
 plugins:
@@ -88,7 +88,7 @@ plugins:
       database: my_database
 ```
 
-Sensitive values are most appropriately stored in [the environment](https://docs.meltano.com/configuration.html#configuring-settings) or your project's [`.env` file](https://docs.meltano.com/project.html#env):
+Sensitive values are most appropriately stored in [the environment](https://docs.meltano.com/configuration.html#configuring-settings) or your project's [`.env` file](https://docs.meltano.com/concepts/project#env):
 
 ```bash
 export TAP_MONGODB_PASSWORD=my_password

@@ -47,7 +47,7 @@ Settings for `dbt` itself can be configured through [`dbt_project.yml`](https://
 
 #### Minimal configuration
 
-A minimal configuration of `dbt` in your [`meltano.yml` project file](https://docs.meltano.com/project.html#meltano-yml-project-file) will look like this:
+A minimal configuration of `dbt` in your [`meltano.yml` project file](https://docs.meltano.com/concepts/project#meltano-yml-project-file) will look like this:
 
 ```yml{5-7}
 plugins:
@@ -98,7 +98,7 @@ export DBT_PROFILES_DIR=<profiles_dir>
 
 - Name: `target`
 - [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `DBT_TARGET`
-- Default: `$MELTANO_LOAD__DIALECT`, which [will expand to](https://docs.meltano.com/integration.html#pipeline-environment-variables) the value of the [`dialect` extra](https://docs.meltano.com/plugins.html#dialect-extra) for the loader used in the pipeline, e.g. `postgres` for `target-postgres` and `snowflake` for `target-snowflake`.
+- Default: `$MELTANO_LOAD__DIALECT`, which [will expand to](https://docs.meltano.com/integration.html#pipeline-environment-variables) the value of the [`dialect` extra](https://docs.meltano.com/concepts/plugins#dialect-extra) for the loader used in the pipeline, e.g. `postgres` for `target-postgres` and `snowflake` for `target-snowflake`.
 
 This is the dialect of your warehouse where data is stored. It maps to the [`target:` value](https://gitlab.com/meltano/files-dbt/-/blob/master/bundle/transform/profile/profiles.yml#L5) in the dbt [`profiles.yml` file](https://docs.getdbt.com/dbt-cli/configure-your-profile).
 
@@ -152,7 +152,7 @@ export DBT_TARGET_SCHEMA=<schema>
 
 - Name: `models`
 - [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `DBT_MODELS`
-- Default: `$MELTANO_TRANSFORM__PACKAGE_NAME $MELTANO_EXTRACTOR_NAMESPACE my_meltano_project`, which [will expand to](https://docs.meltano.com/integration.html#pipeline-environment-variables) the value of the [`package_name` extra](https://docs.meltano.com/plugins.html#package-name-extra) for any [transform](https://docs.meltano.com/plugins.html#transforms) used in the pipeline, followed by the namespace of the extractor used in the pipeline (e.g. `tap_gitlab` for [`tap-gitlab`](https://meltano.com/plugins/extractors/gitlab.html), followed by `my_meltano_project` (referring to all models local to your dbt project).
+- Default: `$MELTANO_TRANSFORM__PACKAGE_NAME $MELTANO_EXTRACTOR_NAMESPACE my_meltano_project`, which [will expand to](https://docs.meltano.com/integration.html#pipeline-environment-variables) the value of the [`package_name` extra](https://docs.meltano.com/concepts/plugins#package-name-extra) for any [transform](https://docs.meltano.com/concepts/plugins#transforms) used in the pipeline, followed by the namespace of the extractor used in the pipeline (e.g. `tap_gitlab` for [`tap-gitlab`](https://meltano.com/plugins/extractors/gitlab.html), followed by `my_meltano_project` (referring to all models local to your dbt project).
 
 This defines the list of models which dbt will run during a transformation.
 
@@ -280,7 +280,7 @@ meltano invoke dbt:test
 
 If no models are running, consider overriding the [`models` setting](#models) using a [pipeline-specific configuration](https://docs.meltano.com/integration.html#pipeline-specific-configuration). 
 
-You can also add a [custom](https://docs.meltano.com/configuration.html#custom-settings) [extra](https://docs.meltano.com/configuration.html#plugin-extras) to your extractor definition in your [`meltano.yml` project file](https://docs.meltano.com/project.html#meltano-yml-project-file), that can then be [referenced](https://docs.meltano.com/integration.html#pipeline-environment-variables) from `dbt`'s `models` setting using an [environment variable](https://docs.meltano.com/configuration.html#expansion-in-setting-values):
+You can also add a [custom](https://docs.meltano.com/configuration.html#custom-settings) [extra](https://docs.meltano.com/configuration.html#plugin-extras) to your extractor definition in your [`meltano.yml` project file](https://docs.meltano.com/concepts/project#meltano-yml-project-file), that can then be [referenced](https://docs.meltano.com/integration.html#pipeline-environment-variables) from `dbt`'s `models` setting using an [environment variable](https://docs.meltano.com/configuration.html#expansion-in-setting-values):
 
 ```bash
 # meltano.yml

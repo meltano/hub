@@ -9,7 +9,7 @@ assign singer_plugin = plugin.singer_plugin %} {% assign variant = page.variant
 
 <p>
   {% if plugin_type == "extractor" %} The <code>{{plugin.name}}</code>
-  <a href="https://docs.meltano.com/plugins.html#extractors" target="_blank"
+  <a href="https://docs.meltano.com/concepts/plugins#extractors" target="_blank"
     >Meltano extractor</a
   >
   pulls data from 
@@ -19,11 +19,11 @@ assign singer_plugin = plugin.singer_plugin %} {% assign variant = page.variant
     the {{ singer_plugin.label }} {{ singer_plugin.entity_type }}
   {% endif %}
   that can then be sent to a destination using a
-  <a href="https://docs.meltano.com/plugins.html#loaders" target="_blank"
+  <a href="https://docs.meltano.com/concepts/plugins#loaders" target="_blank"
     >loader</a
   >. {% else %} The
   <code>{{plugin.name}}</code>
-  <a href="https://docs.meltano.com/plugins.html#loaders" target="_blank"
+  <a href="https://docs.meltano.com/concepts/plugins#loaders" target="_blank"
     >Meltano loader</a
   >
   sends data into
@@ -33,7 +33,7 @@ assign singer_plugin = plugin.singer_plugin %} {% assign variant = page.variant
     the {{ singer_plugin.label }} {{ singer_plugin.entity_type }}
   {% endif %}
   after it was pulled from a source using an
-  <a href="https://docs.meltano.com/plugins.html#extractors" target="_blank"
+  <a href="https://docs.meltano.com/concepts/plugins#extractors" target="_blank"
     >extractor</a
   >. {% endif %}
 </p>
@@ -91,7 +91,7 @@ assign singer_plugin = plugin.singer_plugin %} {% assign variant = page.variant
 
 <p>
   Multiple
-  <a href="https://docs.meltano.com/plugins.html#variants" target="_blank"
+  <a href="https://docs.meltano.com/concepts/plugins#variants" target="_blank"
     >variants</a
   >
   of <code>{{plugin.name}}</code> are available. {% if page.variant_specific %}

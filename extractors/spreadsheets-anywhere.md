@@ -48,7 +48,7 @@ If you run into any issues, [learn how to get help](https://docs.meltano.com/get
 
 #### Minimal configuration
 
-A minimal configuration of `tap-spreadsheets-anywhere` in your [`meltano.yml` project file](https://docs.meltano.com/project.html#meltano-yml-project-file) will look like this:
+A minimal configuration of `tap-spreadsheets-anywhere` in your [`meltano.yml` project file](https://docs.meltano.com/concepts/project#meltano-yml-project-file) will look like this:
 
 ```yml{5-19}
 plugins:
@@ -83,7 +83,7 @@ See <https://github.com/ets/tap-spreadsheets-anywhere#configuration>.
 
 #### How to use
 
-Manage this setting directly in your [`meltano.yml` project file](https://docs.meltano.com/project.html#meltano-yml-project-file):
+Manage this setting directly in your [`meltano.yml` project file](https://docs.meltano.com/concepts/project#meltano-yml-project-file):
 
 ```yml{5-13}
 plugins:

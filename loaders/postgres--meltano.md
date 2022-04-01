@@ -12,7 +12,7 @@ The `target-postgres` [loader](https://meltano.com/plugins/loaders/) loads [extr
 
 #### Alternative variants
 
-Multiple [variants](https://docs.meltano.com/plugins.html#variants) of `target-postgres` are available.
+Multiple [variants](https://docs.meltano.com/concepts/plugins#variants) of `target-postgres` are available.
 This document describes the `meltano` variant.
 
 Alternative options are [`transferwise`](./postgres.html) (default) and [`datamill-co`](./postgres--datamill-co.html).
@@ -78,7 +78,7 @@ To quickly find the setting you're looking for, use the Table of Contents in the
 
 #### Minimal configuration
 
-A minimal configuration of `target-postgres` in your [`meltano.yml` project file](https://docs.meltano.com/project.html#meltano-yml-project-file) will look like this:
+A minimal configuration of `target-postgres` in your [`meltano.yml` project file](https://docs.meltano.com/concepts/project#meltano-yml-project-file) will look like this:
 
 ```yml{5-10}
 plugins:
@@ -93,7 +93,7 @@ plugins:
       # schema: my_schema   # override if default (see below) is not appropriate
 ```
 
-Sensitive values are most appropriately stored in [the environment](https://docs.meltano.com/configuration.html#configuring-settings) or your project's [`.env` file](https://docs.meltano.com/project.html#env):
+Sensitive values are most appropriately stored in [the environment](https://docs.meltano.com/configuration.html#configuring-settings) or your project's [`.env` file](https://docs.meltano.com/concepts/project#env):
 
 ```bash
 export TARGET_POSTGRES_PASSWORD=my_password
@@ -202,7 +202,7 @@ export TARGET_POSTGRES_URL=postgresql://<username>:<password>@<host>:<port>/<dat
 
 - Name: `schema`
 - [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TARGET_POSTGRES_SCHEMA`, alias: `PG_SCHEMA`, `POSTGRES_SCHEMA`
-- Default: `$MELTANO_EXTRACT__LOAD_SCHEMA`, which [will expand to](https://docs.meltano.com/configuration.html#expansion-in-setting-values) the value of the [`load_schema` extra](https://docs.meltano.com/plugins.html#load-schema-extra) for the extractor used in the pipeline, which defaults to the extractor's namespace, e.g. `tap_gitlab` for [`tap-gitlab`](https://meltano.com/plugins/extractors/gitlab.html).
+- Default: `$MELTANO_EXTRACT__LOAD_SCHEMA`, which [will expand to](https://docs.meltano.com/configuration.html#expansion-in-setting-values) the value of the [`load_schema` extra](https://docs.meltano.com/concepts/plugins#load-schema-extra) for the extractor used in the pipeline, which defaults to the extractor's namespace, e.g. `tap_gitlab` for [`tap-gitlab`](https://meltano.com/plugins/extractors/gitlab.html).
 
 #### How to use
 

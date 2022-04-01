@@ -5,13 +5,13 @@ permalink: /loaders/
 description: Use Meltano to easily load extracted data into arbitrary destinations (databases, SaaS APIs, and file formats) using Singer targets.
 ---
 
-Meltano lets you easily load [extracted](/extractors/) data into arbitrary destinations (databases, SaaS APIs, and file formats) using [Singer targets](/singer/targets/), which take the role of [your project](https://docs.meltano.com/project.html)'s [loader plugins](https://docs.meltano.com/plugins.html#loaders).
+Meltano lets you easily load [extracted](/extractors/) data into arbitrary destinations (databases, SaaS APIs, and file formats) using [Singer targets](/singer/targets/), which take the role of [your project](https://docs.meltano.com/concepts/project)'s [loader plugins](https://docs.meltano.com/concepts/plugins#loaders).
 To learn more about [extracting](/loaders/) and loading data using Meltano, refer to the [Data Integration (EL) guide](https://docs.meltano.com/integration.html).
 
 {% assign targets_count = site.data.targets.size %}
 {% assign plugins = site.data.meltano.sorted_loaders %}
 Meltano supports Singer targets for [{{targets_count}} different destinations](/singer/targets/) and
-supports the following {{plugins.size}} [out of the box](https://docs.meltano.com/plugins.html#discoverable-plugins):
+supports the following {{plugins.size}} [out of the box](https://docs.meltano.com/concepts/plugins#discoverable-plugins):
 
 {% assign custom_targets_count = targets_count | minus: plugins.size %}
 {% if custom_targets_count > 0 %}
