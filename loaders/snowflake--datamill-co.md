@@ -12,7 +12,7 @@ The `target-snowflake` [loader](https://meltano.com/plugins/loaders/) loads [ext
 
 #### Alternative variants
 
-Multiple [variants](https://docs.meltano.com/plugins.html#variants) of `target-snowflake` are available.
+Multiple [variants](https://docs.meltano.com/concepts/plugins#variants) of `target-snowflake` are available.
 This document describes the `datamill-co` variant.
 
 Alternative options are [`transferwise`](./snowflake.html) (default) and [`meltano`](./snowflake--meltano.html).
@@ -83,7 +83,7 @@ To quickly find the setting you're looking for, use the Table of Contents in the
 
 #### Minimal configuration
 
-A minimal configuration of `target-snowflake` in your [`meltano.yml` project file](https://docs.meltano.com/project.html#meltano-yml-project-file) will look like this:
+A minimal configuration of `target-snowflake` in your [`meltano.yml` project file](https://docs.meltano.com/concepts/project#meltano-yml-project-file) will look like this:
 
 ```yml{5-13}
 plugins:
@@ -98,7 +98,7 @@ plugins:
       # snowflake_schema: MY_SCHEMA     # override if default (see below) is not appropriate
 ```
 
-Sensitive values are most appropriately stored in [the environment](https://docs.meltano.com/configuration.html#configuring-settings) or your project's [`.env` file](https://docs.meltano.com/project.html#env):
+Sensitive values are most appropriately stored in [the environment](https://docs.meltano.com/configuration.html#configuring-settings) or your project's [`.env` file](https://docs.meltano.com/concepts/project#env):
 
 ```bash
 export TARGET_SNOWFLAKE_PASSWORD=my_password
@@ -224,7 +224,7 @@ export TARGET_SNOWFLAKE_WAREHOUSE=<warehouse>
 
 - Name: `snowflake_schema`
 - [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TARGET_SNOWFLAKE_SCHEMA`, alias: `TARGET_SNOWFLAKE_SNOWFLAKE_SCHEMA`, `SF_SCHEMA`
-- Default: `$MELTANO_EXTRACT__LOAD_SCHEMA`, which [will expand to](https://docs.meltano.com/configuration.html#expansion-in-setting-values) the value of the [`load_schema` extra](https://docs.meltano.com/plugins.html#load-schema-extra) for the extractor used in the pipeline, which defaults to the extractor's namespace, e.g. `tap_gitlab` for [`tap-gitlab`](https://meltano.com/plugins/extractors/gitlab.html). Values are automatically converted to uppercase before they're passed on to the plugin, so `tap_gitlab` becomes `TAP_GITLAB`.
+- Default: `$MELTANO_EXTRACT__LOAD_SCHEMA`, which [will expand to](https://docs.meltano.com/configuration.html#expansion-in-setting-values) the value of the [`load_schema` extra](https://docs.meltano.com/concepts/plugins#load-schema-extra) for the extractor used in the pipeline, which defaults to the extractor's namespace, e.g. `tap_gitlab` for [`tap-gitlab`](https://meltano.com/plugins/extractors/gitlab.html). Values are automatically converted to uppercase before they're passed on to the plugin, so `tap_gitlab` becomes `TAP_GITLAB`.
 
 #### How to use
 

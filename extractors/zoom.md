@@ -76,7 +76,7 @@ Zoom also appears to "expire" meetings and webinars over time, making them unava
 
 #### Minimal configuration
 
-A minimal configuration of `tap-zoom` in your [`meltano.yml` project file](https://docs.meltano.com/project.html#meltano-yml-project-file) will look like this:
+A minimal configuration of `tap-zoom` in your [`meltano.yml` project file](https://docs.meltano.com/concepts/project#meltano-yml-project-file) will look like this:
 
 ```yml
 plugins:
@@ -85,7 +85,7 @@ plugins:
     variant: mashey
 ```
 
-Sensitive values are most appropriately stored in [the environment](https://docs.meltano.com/configuration.html#configuring-settings) or your project's [`.env` file](https://docs.meltano.com/project.html#env):
+Sensitive values are most appropriately stored in [the environment](https://docs.meltano.com/configuration.html#configuring-settings) or your project's [`.env` file](https://docs.meltano.com/concepts/project#env):
 
 ```bash
 export TAP_ZOOM_JWT=my_jwt
