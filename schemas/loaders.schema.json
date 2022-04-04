@@ -9,50 +9,8 @@
             "$ref": "common.schema.json"
         },
         {
-            "$ref": "#/definitions/loader_specific"
-        },
-        {
             "additionalProperties": false,
             "properties": {
-                "capabilities": {},
-                "name": {},
-                "pip_url": {},
-                "variant": {},
-                "description": {},
-                "executable": {},
-                "repo": {},
-                "namespace": {},
-                "label": {},
-                "settings": {},
-                "docs": {},
-                "settings_group_validation": {},
-                "commands": {},
-                "variants": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "allOf": [
-                            {
-                                "$ref": "#/definitions/loader_specific"
-                            }
-                        ]
-                    }
-                },
-                "dialect": {},
-                "target_schema": {}
-            }
-        }
-    ],
-    "definitions": {
-        "loader_specific": {
-            "type": "object",
-            "properties": {
-                "dialect": {
-                    "description": "The name of the dialect of the target database, so that transformers in the same pipeline and Meltano UI's Analysis feature can determine the type of database to connect to."
-                },
-                "target_schema": {
-                    "description": "The name of the database schema the loader has been configured to load data into (assuming the destination supports schemas), so that transformers in the same pipeline can determine the database schema to load data from."
-                },
                 "capabilities": {
                     "type": "array",
                     "items": {
@@ -68,8 +26,27 @@
                             "record-flattening"
                         ]
                     }
+                },
+                "name": {},
+                "pip_url": {},
+                "variant": {},
+                "description": {},
+                "executable": {},
+                "repo": {},
+                "namespace": {},
+                "logo_url": {},
+                "label": {},
+                "settings": {},
+                "docs": {},
+                "settings_group_validation": {},
+                "commands": {},
+                "dialect": {
+                    "description": "The name of the dialect of the target database, so that transformers in the same pipeline and Meltano UI's Analysis feature can determine the type of database to connect to."
+                },
+                "target_schema": {
+                    "description": "The name of the database schema the loader has been configured to load data into (assuming the destination supports schemas), so that transformers in the same pipeline can determine the database schema to load data from."
                 }
             }
         }
-    }
+    ]
 }

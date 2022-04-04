@@ -25,15 +25,32 @@ class MeltanoJsonGenerator < Jekyll::Generator
     return plugin_variant_def
   end
 
+  def _clean_variant(variant)
+    remove_list = [
+      "maintainer",
+      "hidden",
+      "metrics",
+      "original",
+      "url",
+      "default"
+    ]
+    remove_list.each do |key|
+      variant.delete(key)
+    end
+    return variant
+  end
+
   def _definition_from_multi_variant(plugin, variant)
     plugin_variant_def = _remove_extras(plugin.clone)
-    plugin_variant_def["variant"] = variant["name"]
-    plugin_variant_def["docs"] = variant["docs"]
-    plugin_variant_def["pip_url"] = variant["pip_url"]
-    plugin_variant_def["repo"] = variant["repo"]
-    plugin_variant_def["capabilities"] = variant["capabilities"]
-    plugin_variant_def["settings_group_validation"] = variant["settings_group_validation"]
-    plugin_variant_def["settings"] = variant["settings"]
+    variant = _clean_variant(variant)
+    
+    variant.each_key do |key|
+      if key == "name"
+        plugin_variant_def["variant"] = variant["name"]
+      else
+        plugin_variant_def[key] = variant[key]
+      end
+    end
     return plugin_variant_def
   end
 

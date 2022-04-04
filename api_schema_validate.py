@@ -36,5 +36,5 @@ if job_fail:
     print("Schema validation failed.")
     sys.exit(1)
 else:
-    print("All taps and targets pass the JSON Schema.")
+    print("All plugins pass the JSON Schema.")
     sys.exit()

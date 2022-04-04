@@ -9,9 +9,6 @@
             "$ref": "common.schema.json"
         },
         {
-            "$ref": "#/definitions/extractor_specific"
-        },
-        {
             "additionalProperties": false,
             "type": "object",
             "properties": {
@@ -29,28 +26,6 @@
                 "hidden": {},
                 "settings_group_validation": {},
                 "commands": {},
-                "variants": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "allOf": [
-                            {
-                                "$ref": "#/definitions/extractor_specific"
-                            }
-                        ]
-                    }
-                },
-                "capabilities": {},
-                "metadata": {},
-                "schema": {},
-                "select": {}
-            }
-        }
-    ],
-    "definitions": {
-        "extractor_specific": {
-            "type": "object",
-            "properties": {
                 "capabilities": {
                     "type": "array",
                     "items": {
@@ -91,5 +66,5 @@
                 }
             }
         }
-    }
+    ]
 }

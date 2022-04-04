@@ -27,7 +27,8 @@
                     "additionalProperties": {
                         "type": "boolean"
                     }
-                }
+                },
+                "variant": {}
             }
         }
     ]
