@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "$id": "loaders.schema.json",
-    "title": "JSON Schema for discovery.yml",
+    "title": "JSON Schema for loader plugins.",
     "description": "https://docs.meltano.com/concepts/plugins#loaders",
     "type": "object",
     "allOf": [
