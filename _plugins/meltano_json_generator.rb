@@ -2,8 +2,7 @@ class MeltanoJsonGenerator < Jekyll::Generator
   safe true
 
   def generate(site)
-    @site = site
-    generate_json_index(site)
+    @url = site.config["url"]
     plugin_types = [
       'extractors',
       'files',
@@ -13,8 +12,10 @@ class MeltanoJsonGenerator < Jekyll::Generator
       'transformers',
       'utilities'
     ]
+    plugin_index = generate_json_index(site, plugin_types)
     plugin_types.each do |plugin_type|
       generate_json(site, plugin_type)
+      generate_file(site, "/meltano/api/v1/plugins/#{plugin_type}", "index", JSON.generate(plugin_index[plugin_type]))
     end
   end
 
@@ -42,8 +43,8 @@ class MeltanoJsonGenerator < Jekyll::Generator
 
   def _definition_from_multi_variant(plugin, variant)
     plugin_variant_def = _remove_extras(plugin.clone)
+    plugin_variant_def["logo_url"] = _get_logo_url(plugin)
     variant = _clean_variant(variant)
-    
     variant.each_key do |key|
       if key == "name"
         plugin_variant_def["variant"] = variant["name"]
@@ -55,7 +56,9 @@ class MeltanoJsonGenerator < Jekyll::Generator
   end
 
   def _definition_from_single_variant(plugin)
-    return _remove_extras(plugin.clone)
+    clean_plugin = _remove_extras(plugin.clone)
+    clean_plugin["logo_url"] = _get_logo_url(plugin)
+    return clean_plugin
   end
 
   def _get_multi_variant_default(variants)
@@ -72,7 +75,7 @@ class MeltanoJsonGenerator < Jekyll::Generator
     variants_detail = {}
     plugin_def["variants"].each do |variant|
       variants_detail[variant["name"]] = {
-        "ref": "#{@site.config["url"]}/meltano/api/v1/#{plugin_type}/#{plugin_name}--#{variant["name"]}.json"
+        "ref": "#{@url}/meltano/api/v1/plugins/#{plugin_type}/#{plugin_name}--#{variant["name"]}"
       }
     end
     return variants_detail
@@ -80,7 +83,7 @@ class MeltanoJsonGenerator < Jekyll::Generator
 
   def _get_logo_url(plugin_def)
     if plugin_def["logo_url"]
-      return "#{@site.config["url"]}#{plugin_def["logo_url"]}"
+      return "#{@url}#{plugin_def["logo_url"]}"
     end
   end
 
@@ -100,7 +103,7 @@ class MeltanoJsonGenerator < Jekyll::Generator
         variant_name = plugin_def["variant"]
         plugin_index["variants"] = {
           variant_name: {
-            "ref": "#{@site.config["url"]}/meltano/api/v1/#{plugin_type}/#{plugin_name}--#{variant_name}.json"
+            "ref": "#{@url}/meltano/api/v1/plugins/#{plugin_type}/#{plugin_name}--#{variant_name}"
           }
         }
       else
@@ -113,14 +116,12 @@ class MeltanoJsonGenerator < Jekyll::Generator
     return plugin_type_index
   end
 
-  def _build_index(plugins)
+  def _build_index(plugins, plugin_types)
     index = {}
     plugins.each do |plugin_type, plugin_defs|
-      if plugin_type.start_with?("sorted_")
-        next
+      if plugin_types.include? plugin_type
+        index[plugin_type] = _build_plugin_type_index(plugin_type, plugin_defs)
       end
-
-      index[plugin_type] = _build_plugin_type_index(plugin_type, plugin_defs)
     end
     return index
   end
@@ -132,22 +133,23 @@ class MeltanoJsonGenerator < Jekyll::Generator
       if plugin.key?("variants")        
         plugin["variants"].each do |variant|
           plugin_variant_def = _definition_from_multi_variant(plugin, variant)
-          generate_file(site, "/meltano/api/v1/#{collection}", "#{plugin['name']}--#{variant['name']}.json", JSON.generate(plugin_variant_def))
+          generate_file(site, "/meltano/api/v1/plugins/#{collection}", "#{plugin['name']}--#{variant['name']}", JSON.generate(plugin_variant_def))
         end
       else
         plugin_variant_def = _definition_from_single_variant(plugin)
-        generate_file(site, "/meltano/api/v1/#{collection}", "#{plugin['name']}--#{plugin['variant']}.json", JSON.generate(plugin_variant_def))
+        generate_file(site, "/meltano/api/v1/plugins/#{collection}", "#{plugin['name']}--#{plugin['variant']}", JSON.generate(plugin_variant_def))
       end
     end
 
   end
 
-  def generate_json_index(site)
+  def generate_json_index(site, plugin_types)
     plugins = site.data["meltano"]
 
-    index = _build_index(plugins)
+    index = _build_index(plugins, plugin_types)
 
-    generate_file(site, "/meltano/api/v1", "plugin_index.json", JSON.generate(index))
+    generate_file(site, "/meltano/api/v1/plugins", "index", JSON.generate(index))
+    return index
   end
 
   def generate_file(site, dir, name, content)
