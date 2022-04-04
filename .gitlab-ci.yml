@@ -80,10 +80,10 @@ api_schema_test:
   before_script:
     - pip install ruamel.yaml
     - pip install jsonschema
-  stage: validate
+  stage: test
   script:
     - python api_schema_validate.py
-  needs: ["jekyll_test"]
+  needs: [jekyll_test]
   only: 
     refs:
       - merge_requests
