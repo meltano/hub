@@ -37,7 +37,12 @@ def connector_validate(connector_dir):
     return job_fail, validation_results
 
 
-job_fail, validation_results = connector_validate("meltano/api/v1/")
+file_path = "meltano/api/v1/"
+# accept file path as optional argument
+if len(sys.argv):
+    file_path = sys.argv[1]
+
+job_fail, validation_results = connector_validate(file_path)
 
 if job_fail:
     print("Schema validation failed.")
