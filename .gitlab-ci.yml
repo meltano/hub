@@ -82,7 +82,7 @@ api_schema_test:
     - pip install jsonschema
   stage: test
   script:
-    - python api_schema_validate.py "test/meltano/api/v1"
+    - python api_schema_validate.py "test/meltano/api/v1/plugins"
   needs: [jekyll_test]
   only: 
     refs:

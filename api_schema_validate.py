@@ -22,24 +22,26 @@ def connector_validate(connector_dir):
                 schema = json.load(open(f"schemas/{plugin_dir}.schema.json"))
                 count = 0
                 for file in files:
+                    if file == "index":
+                        continue
                     with open(os.path.join(root, plugin_dir, file), "r") as plugin_file:
                         plugin_data = yaml.load(plugin_file)
                     try:
                         resolver = RefResolver.from_schema(schema, store=schema_store)
                         validator = Draft7Validator(schema, resolver=resolver)
                         validator.validate(plugin_data)
+                        count += 1
                     except Exception as e:
                         job_fail = True
                         print(f"Validation error for {file} with message {str(e)}")
-                    count += 1
             validation_results[plugin_dir] = count
     print("API schema validation complete.")
     return job_fail, validation_results
 
 
-file_path = "meltano/api/v1/"
+file_path = "meltano/api/v1/plugins/"
 # accept file path as optional argument
-if len(sys.argv):
+if len(sys.argv) > 1:
     file_path = sys.argv[1]
 
 job_fail, validation_results = connector_validate(file_path)

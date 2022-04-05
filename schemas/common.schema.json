@@ -11,7 +11,7 @@
     ],
     "properties": {
         "logo_url": {
-            "type": "string",
+            "type": ["string", "null"],
             "description": "The url to retrieve the logo for this plugin."
         },
         "pip_url": {
