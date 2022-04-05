@@ -11,7 +11,7 @@ variants:
   meltano_sdk: true
   name: gthesheep
   pip_url: git+https://github.com/gthesheep/tap-awin-publisher.git
-  repo: https://github.com/gthesheep/tap-awin-publisher.git
+  repo: https://github.com/gthesheep/tap-awin-publisher
   settings_group_validation:
   - - api_token
     - lookback_days
