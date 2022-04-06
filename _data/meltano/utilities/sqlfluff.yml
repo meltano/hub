@@ -1,6 +1,7 @@
 name: sqlfluff
 namespace: sqlfluff
 pip_url: sqlfluff[dbt]
+variant: sqlfluff
 commands:
   lint:
     args: lint

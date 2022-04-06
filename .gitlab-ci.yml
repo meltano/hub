@@ -70,3 +70,22 @@ jsonschema_validation:
       - merge_requests
   except:
     - schedule
+
+##########################
+# Validate API schema
+##########################
+
+api_schema_test:
+  image: python:3
+  before_script:
+    - pip install ruamel.yaml
+    - pip install jsonschema
+  stage: test
+  script:
+    - python api_schema_validate.py "test/meltano/api/v1/plugins"
+  needs: [jekyll_test]
+  only: 
+    refs:
+      - merge_requests
+  except:
+    - schedule

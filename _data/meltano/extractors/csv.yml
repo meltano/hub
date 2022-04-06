@@ -19,7 +19,8 @@ variants:
     kind: array
     description: Array of objects with `entity`, `path`, and `keys` keys
   - name: csv_files_definition
-    env: TAP_CSV_FILES_DEFINITION
+    env_aliases:
+    - TAP_CSV_FILES_DEFINITION
     label: CSV Files Definition
     description: Project-relative path to JSON file holding array of objects with
       `entity`, `path`, and `keys` keys
@@ -41,7 +42,8 @@ variants:
     kind: array
     description: Array of objects with `entity`, `file`, and `keys` keys
   - name: csv_files_definition
-    env: TAP_CSV_FILES_DEFINITION
+    env_aliases:
+    - TAP_CSV_FILES_DEFINITION
     label: CSV Files Definition
     description: Project-relative path to JSON file holding array of objects with
       `entity`, `file`, and `keys` keys

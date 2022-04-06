@@ -1,0 +1,36 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "files.schema.json",
+    "title": "JSON Schema for file bundle plugins.",
+    "description": "https://docs.meltano.com/concepts/plugins#file-bundles",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "common.schema.json"
+        },
+        {
+            "additionalProperties": false,
+            "properties": {
+                "name": {},
+                "pip_url": {},
+                "repo": {},
+                "namespace": {},
+                "label": {},
+                "description": {},
+                "executable": {},
+                "settings": {},
+                "docs": {},
+                "settings_group_validation": {},
+                "commands": {},
+                "update": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "boolean"
+                    }
+                },
+                "variant": {},
+                "logo_url": {}
+            }
+        }
+    ]
+}
