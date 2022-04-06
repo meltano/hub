@@ -9,7 +9,8 @@ from jsonschema import Draft7Validator, RefResolver
 from ruamel.yaml import YAML
 
 
-logger = logging.getLogger(__name__)
+logging.basicConfig(level=logging.INFO, stream=sys.stdout)
+logger = logging.getLogger(os.path.basename(__file__))
 
 
 class APIValidator:
@@ -90,20 +91,21 @@ class APIValidator:
             self.validation_results[plugin_dir] = count
 
 
-# accept file path as optional argument
-if len(sys.argv) > 1:
-    file_path = sys.argv[1]
-    validate = APIValidator(file_path=file_path)
-else:
-    validate = APIValidator()
-validate.plugins_validate()
+if __name__ == "__main__":
+    # accept file path as optional argument
+    if len(sys.argv) > 1:
+        file_path = sys.argv[1]
+        validate = APIValidator(file_path=file_path)
+    else:
+        validate = APIValidator()
+    validate.plugins_validate()
 
-logger.info("API schema validation complete.")
-if validate.all_valid:
-    logger.info("All plugins pass the JSON Schema.")
-    logger.info(json.dumps(validate.validation_results, indent=4, sort_keys=True))
-    sys.exit()
-else:
-    logger.info("Schema validation failed.")
-    logger.info(validate.validation_results)
-    sys.exit(1)
+    logger.info("API schema validation complete.")
+    if validate.all_valid:
+        logger.info("All plugins pass the JSON Schema.")
+        logger.info(json.dumps(validate.validation_results, indent=4, sort_keys=True))
+        sys.exit()
+    else:
+        logger.info("Schema validation failed.")
+        logger.info(validate.validation_results)
+        sys.exit(1)
