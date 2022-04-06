@@ -1,4 +1,6 @@
+"""APIValidator class."""
 import json
+import logging
 import os
 import sys
 from pathlib import Path
@@ -7,13 +9,19 @@ from jsonschema import Draft7Validator, RefResolver
 from ruamel.yaml import YAML
 
 
-class APIValidator:
+logger = logging.getLogger(__name__)
 
-    def __init__(self):
-        self.file_path = "meltano/api/v1/plugins/"
-        # accept file path as optional argument
-        if len(sys.argv) > 1:
-            self.file_path = sys.argv[1]
+
+class APIValidator:
+    """Validates the Meltano plugin API content."""
+
+    def __init__(self, file_path="meltano/api/v1/plugins/"):
+        """Initialize APIValidator.
+
+        Args:
+            file_path: Path to Meltano API files. Defaults to "meltano/api/v1/plugins/".
+        """
+        self.file_path = file_path
         self._set_schema_store()
         self.yaml = YAML()
         self.all_valid = True
@@ -27,20 +35,25 @@ class APIValidator:
                 self.schema_store[schema["$id"]] = schema
 
     def _validate_plugin(self, schema, plugin_dir, file_name):
-        with open(os.path.join(self.file_path, plugin_dir, file_name), "r") as plugin_file:
+        with open(
+            os.path.join(self.file_path, plugin_dir, file_name), "r"
+        ) as plugin_file:
             plugin_data = self.yaml.load(plugin_file)
             resolver = RefResolver.from_schema(schema, store=self.schema_store)
             validator = Draft7Validator(schema, resolver=resolver)
             try:
                 validator.validate(plugin_data)
             except Exception as ex:
-                print(
-                    f"Validation error for {file_name} with message {str(ex)}")
+                logger.info(f"Validation error for {file_name} with message {str(ex)}")
                 self.all_valid = False
             return True
 
+    def _read_json_schema(self, schema_name):
+        with open(f"schemas/{schema_name}") as schema:
+            return json.load(schema)
+
     def _validate_index(self, file_path, schema_name):
-        schema = json.load(open(f"schemas/{schema_name}"))
+        schema = self._read_json_schema(schema_name)
         with open(os.path.join(file_path, "index"), "r") as type_index:
             type_index_data = self.yaml.load(type_index)
         resolver = RefResolver.from_schema(schema, store=self.schema_store)
@@ -48,28 +61,26 @@ class APIValidator:
         try:
             validator.validate(type_index_data)
         except Exception as ex:
-            print(
+            logger.info(
                 f"Validation error for {file_path}/index with message {str(ex)}"
             )
             self.all_valid = False
 
     def plugins_validate(self):
-        print("API schema validation started...")
+        """Iterate API generated plugins and validate against JSON schemas."""
+        logger.info("API schema validation started...")
         for plugin_dir in os.listdir(self.file_path):
             if plugin_dir == "index":
-                self._validate_index(
-                    self.file_path,
-                    "plugins_index.schema.json"
-                )
+                self._validate_index(self.file_path, "plugins_index.schema.json")
                 continue
-            print(f"Validating API schema for plugin type: {plugin_dir}")
-            schema = json.load(open(f"schemas/{plugin_dir}.schema.json"))
+            logger.info(f"Validating API schema for plugin type: {plugin_dir}")
+            schema = self._read_json_schema(f"{plugin_dir}.schema.json")
             count = 0
             for file_name in os.listdir(os.path.join(self.file_path, plugin_dir)):
                 if file_name == "index":
                     self._validate_index(
                         os.path.join(self.file_path, plugin_dir),
-                        "plugin_type_index.schema.json"
+                        "plugin_type_index.schema.json",
                     )
                     continue
                 if not self._validate_plugin(schema, plugin_dir, file_name):
@@ -79,15 +90,20 @@ class APIValidator:
             self.validation_results[plugin_dir] = count
 
 
-validate = APIValidator()
+# accept file path as optional argument
+if len(sys.argv) > 1:
+    file_path = sys.argv[1]
+    validate = APIValidator(file_path=file_path)
+else:
+    validate = APIValidator()
 validate.plugins_validate()
 
-print("API schema validation complete.")
+logger.info("API schema validation complete.")
 if validate.all_valid:
-    print("All plugins pass the JSON Schema.")
-    print(json.dumps(validate.validation_results, indent=4, sort_keys=True))
+    logger.info("All plugins pass the JSON Schema.")
+    logger.info(json.dumps(validate.validation_results, indent=4, sort_keys=True))
     sys.exit()
 else:
-    print("Schema validation failed.")
-    print(validate.validation_results)
+    logger.info("Schema validation failed.")
+    logger.info(validate.validation_results)
     sys.exit(1)
