@@ -9,9 +9,11 @@ variants:
   pip_url: pipelinewise-target-redshift
   executable: target-redshift
   capabilities:
-  - catalog
-  - discover
-  - state
+  - activate-version
+  - soft-delete
+  - hard-delete
+  - datatype-failsafe
+  - record-flattening
   dialect: redshift
   target_schema: $TARGET_REDSHIFT_SCHEMA
   settings_group_validation:

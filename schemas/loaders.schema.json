@@ -1,0 +1,52 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "loaders.schema.json",
+    "title": "JSON Schema for loader plugins.",
+    "description": "https://docs.meltano.com/concepts/plugins#loaders",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "common.schema.json"
+        },
+        {
+            "additionalProperties": false,
+            "properties": {
+                "capabilities": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "enum": [
+                            "about",
+                            "stream-maps",
+                            "activate-version",
+                            "batch",
+                            "soft-delete",
+                            "hard-delete",
+                            "datatype-failsafe",
+                            "record-flattening"
+                        ]
+                    }
+                },
+                "name": {},
+                "pip_url": {},
+                "variant": {},
+                "description": {},
+                "executable": {},
+                "repo": {},
+                "namespace": {},
+                "logo_url": {},
+                "label": {},
+                "settings": {},
+                "docs": {},
+                "settings_group_validation": {},
+                "commands": {},
+                "dialect": {
+                    "description": "The name of the dialect of the target database, so that transformers in the same pipeline and Meltano UI's Analysis feature can determine the type of database to connect to."
+                },
+                "target_schema": {
+                    "description": "The name of the database schema the loader has been configured to load data into (assuming the destination supports schemas), so that transformers in the same pipeline can determine the database schema to load data from."
+                }
+            }
+        }
+    ]
+}

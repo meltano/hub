@@ -269,9 +269,9 @@ variants:
   settings:
   - name: snowflake_account
     label: Snowflake Account
-    env: TARGET_SNOWFLAKE_ACCOUNT
     env_aliases:
     - SF_ACCOUNT
+    - TARGET_SNOWFLAKE_ACCOUNT
     description: '`ACCOUNT` might require the `region` and `cloud` platform where
       your account is located, in the form of: `<your_account_name>.<region_id>.<cloud>`
       (e.g. `xy12345.east-us-2.azure`)
@@ -281,26 +281,26 @@ variants:
       '
   - name: snowflake_username
     label: Snowflake Username
-    env: TARGET_SNOWFLAKE_USERNAME
     env_aliases:
     - SF_USER
+    - TARGET_SNOWFLAKE_USERNAME
   - name: snowflake_password
     label: Snowflake Password
-    env: TARGET_SNOWFLAKE_PASSWORD
     env_aliases:
     - SF_PASSWORD
+    - TARGET_SNOWFLAKE_PASSWORD
     kind: password
   - name: snowflake_role
     label: Snowflake Role
-    env: TARGET_SNOWFLAKE_ROLE
     env_aliases:
     - SF_ROLE
+    - TARGET_SNOWFLAKE_ROLE
     description: If not specified, Snowflake will use the user's default role.
   - name: snowflake_database
     label: Snowflake Database
-    env: TARGET_SNOWFLAKE_DATABASE
     env_aliases:
     - SF_DATABASE
+    - TARGET_SNOWFLAKE_DATABASE
   - name: snowflake_authenticator
     label: Snowflake Authenticator
     value: snowflake
@@ -310,9 +310,9 @@ variants:
       for more details.
   - name: snowflake_warehouse
     label: Snowflake Warehouse
-    env: TARGET_SNOWFLAKE_WAREHOUSE
     env_aliases:
     - SF_WAREHOUSE
+    - TARGET_SNOWFLAKE_WAREHOUSE
   - name: invalid_records_detect
     label: Invalid Records Detect
     kind: boolean
@@ -354,9 +354,9 @@ variants:
       in Remote.
   - name: snowflake_schema
     label: Snowflake Schema
-    env: TARGET_SNOWFLAKE_SCHEMA
     env_aliases:
     - SF_SCHEMA
+    - TARGET_SNOWFLAKE_SCHEMA
     value: $MELTANO_EXTRACT__LOAD_SCHEMA
     value_processor: upcase_string
   - name: state_support
