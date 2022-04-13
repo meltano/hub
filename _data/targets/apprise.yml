@@ -1,6 +1,6 @@
-description: Apprise allows you to send a notification to almost all of the most popular notification services available to us today such as: Telegram, Discord, Slack, Amazon SNS, Gotify, etc
-entity_type: api
-entity_url: https://github.com/caronc/apprise
+description: "Apprise allows you to send a notification to almost all of the most popular notification services available to us today such as: Telegram, Discord, Slack, Amazon SNS, Gotify, etc"
+entity_type: "api"
+entity_url: "https://github.com/caronc/apprise"
 label: Apprise
 name: target-apprise
 singer_name: target-apprise
