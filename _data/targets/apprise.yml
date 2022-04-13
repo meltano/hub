@@ -17,7 +17,6 @@ variants:
     - stream-maps
     - schema-flattening
   settings:
-    # Describe the list of supported settings, for example:
     - name: uris
       kind: array
       label: URIs
