@@ -171,34 +171,27 @@ class MeltanoJsonGenerator < Jekyll::Generator
     return index
   end
 
+  def _add_custom_to_list(plugins_list, plugin_data, plugin_type)
+    # TODO: when an extractor/loader exists we skip the custom variants
+    plugin_data.each do |tap_name, definition|
+      if !plugins_list[plugin_type].key?(tap_name)
+        singer_name = definition["singer_name"].clone()
+        singer_name.gsub! '-', '_'
+        definition["namespace"] = singer_name
+        definition["name"] = definition["singer_name"]
+        plugins_list[plugin_type][definition["singer_name"]] = definition
+      end
+    end
+  end
+
   def _compile_plugins_list(site)
     plugins_list = site.data["meltano"].clone()
-
-    # only add plugins that arent included by meltano
-    # TODO: this doesnt skip the existing Meltano optimized
     taps = site.data["taps"].clone()
-    taps.each do |tap_name, definition|
-      if !plugins_list["extractors"].key?(tap_name) 
-        singer_name = definition["singer_name"].clone()
-        singer_name.gsub! '-', '_'
-        definition["namespace"] = singer_name
-        definition["name"] = definition["singer_name"]
-        plugins_list["extractors"][definition["singer_name"]] = definition
-      end
-    end
-
-    # TODO: make this dry
+    _add_custom_to_list(plugins_list, taps, "extractors")
+    
     targets = site.data["targets"].clone()
-    targets.each do |target_name, definition|
-      if !plugins_list["loaders"].key?(target_name) 
-        singer_name = definition["singer_name"].clone()
-        singer_name.gsub! '-', '_'
-        definition["namespace"] = singer_name
-        definition["name"] = definition["singer_name"]
-        plugins_list["loaders"][definition["singer_name"]] = definition
-      end
-    end
-
+    _add_custom_to_list(plugins_list, targets, "loaders")
+    
     return plugins_list
   end
 
