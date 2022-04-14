@@ -9,13 +9,15 @@ variants:
 - default: true
   maintenance_status: "active"
   meltano_sdk: true
-  name: target-apprise
+  name: AutoIDM
   pip_url: target-apprise
   repo: https://github.com/AutoIDM/target-apprise
   capabilities:
     - about
     - stream-maps
     - schema-flattening
+  settings_group_validation:
+    - - uris
   settings:
     - name: uris
       kind: array
