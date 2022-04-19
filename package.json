@@ -1,0 +1,16 @@
+{
+  "name": "meltano-hub-v2.0",
+  "private": true,
+  "scripts": {
+    "build": "gridsome build",
+    "develop": "gridsome develop",
+    "explore": "gridsome explore"
+  },
+  "dependencies": {
+    "gridsome": "^0.7.0"
+  },
+  "devDependencies": {
+    "sass": "^1.50.0",
+    "sass-loader": "^10.1.1"
+  }
+}
