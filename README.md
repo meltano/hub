@@ -1,26 +1,14 @@
-[![Build Status](https://gitlab.com/meltano/hub/badges/main/pipeline.svg)](https://gitlab.com/meltano/hub/-/pipelines?ref=main)
+# Default starter for Gridsome
 
----
+This is the project you get when you run `gridsome create new-project`.
 
-## MeltanoHub
+### 1. Install Gridsome CLI tool if you don't have
 
-Source of MeltanoHub <https://hub.meltano.com/>.
+`npm install --global @gridsome/cli`
 
-## Development
+### 2. Create a Gridsome project
 
-To work locally with this project, you'll have to follow the steps below:
-
-1. Fork this project
-2. Download dependencies: `bundle install`
-3. Build and preview: `bundle exec jekyll serve --livereload`
-4. Add content
-5. Push the commit(s) you made
-6. Make an MR
-
-Step 3 may fail if you are running Ruby 3.0.0 or above. It is best to set the local version of Ruby to 2.7.5 via `rbenv` to avoid this.
-
-The above commands should be executed from the root directory of this project.
-
-Read more at Jekyll's [documentation][].
-
-[documentation]: https://jekyllrb.com/docs/home/
+1. `gridsome create my-gridsome-site` to install default starter
+2. `cd my-gridsome-site` to open the folder
+3. `gridsome develop` to start a local dev server at `http://localhost:8080`
+4. Happy coding 🎉🙌

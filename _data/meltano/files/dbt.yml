@@ -1,7 +1,0 @@
-name: dbt
-namespace: dbt
-repo: https://gitlab.com/meltano/files-dbt
-pip_url: git+https://gitlab.com/meltano/files-dbt.git@config-version-2
-variant: meltano
-update:
-  transform/profile/profiles.yml: true
