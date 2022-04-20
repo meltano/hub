@@ -32,7 +32,7 @@ variants:
   - name: truncate
     label: Truncate
     description: Remove file contents after processing (Optional. Default - true)
-    default: true
+    value: true
     kind: boolean
   - name: deviceId
     label: Device ID
