@@ -43,7 +43,7 @@ variants:
     label: Include Anonymous Visitors
     description: Defines whether or not to include anonymous visitors in the results.
     kind: boolean
-    default: false
+    value: false
     value_post_processor: stringify
   - name: start_date
     label: Start Date
