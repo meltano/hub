@@ -13,5 +13,6 @@ variants:
   capabilities:
   - catalog
   - discover
+  - state
 entity_url: https://developers.strava.com/docs/reference/#api-models-DetailedAthlete
 entity_type: api
