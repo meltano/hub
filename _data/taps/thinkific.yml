@@ -23,7 +23,6 @@ variants:
     description: Subdomain of the Thinkific site.
   - name: start_date
     label: Start Date
-    value: '2022-01-01T00:00:00Z'
     description: Only course enrollments created or updated after this date will be downloaded.
   capabilities:
     - state
