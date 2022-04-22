@@ -20,7 +20,7 @@ variants:
     kind: password
   - name: subdomain
     label: Subdomain
-    description: Subdomain of the Thinkific site
+    description: Subdomain of the Thinkific site.
   - name: start_date
     value: '2022-01-01T00:00:00Z'
     description: Only course enrollments created or updated after this date will be downloaded.
