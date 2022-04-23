@@ -12,82 +12,37 @@ class MeltanoJsonGenerator < Jekyll::Generator
       'transformers',
       'utilities'
     ]
-    plugins_list = _compile_plugins_list(site)
-    plugin_index = generate_json_index(site, plugin_types, plugins_list)
+    plugin_index = generate_json_index(site, plugin_types)
     plugin_types.each do |plugin_type|
-      generate_json(site, plugin_type, plugins_list)
+      generate_json(site, plugin_type)
       generate_file(site, "/meltano/api/v1/plugins/#{plugin_type}", "index", JSON.generate(plugin_index[plugin_type]))
     end
   end
 
-  def _clean_top(plugin_variant_def)
-    accepted_list = [
-      "name",
-      "pip_url",
-      "variant",
-      "namespace",
-      "label",
-      "description",
-      "executable",
-      "settings",
-      "docs",
-      "repo",
-      "logo_url",
-      "hidden",
-      "settings_group_validation",
-      "commands",
-      "capabilities",
-      "metadata",
-      "schema",
-      "select",
-      "update",
-      "dialect",
-      "target_schema",
-      "mappings"
-    ]
-    plugin_variant_def.each do |key, value|
-      if !accepted_list.include? key
-        plugin_variant_def.delete(key)
-      end
-    end
+  def _remove_extras(plugin_variant_def)
+    plugin_variant_def.delete("variants")
+    plugin_variant_def.delete("singer_plugin")
+    plugin_variant_def.delete("url")
     return plugin_variant_def
   end
 
   def _clean_variant(variant)
-    accepted_list = [
-      "name",
-      "pip_url",
-      "variant",
-      "namespace",
-      "label",
-      "description",
-      "executable",
-      "settings",
-      "docs",
-      "repo",
-      "logo_url",
+    remove_list = [
+      "maintainer",
       "hidden",
-      "settings_group_validation",
-      "commands",
-      "capabilities",
-      "metadata",
-      "schema",
-      "select",
-      "update",
-      "dialect",
-      "target_schema",
-      "mappings"
+      "metrics",
+      "original",
+      "url",
+      "default"
     ]
-    variant.each do |key, value|
-      if !accepted_list.include? key
-        variant.delete(key)
-      end
+    remove_list.each do |key|
+      variant.delete(key)
     end
     return variant
   end
 
   def _definition_from_multi_variant(plugin, variant)
-    plugin_variant_def = _clean_top(plugin.clone)
+    plugin_variant_def = _remove_extras(plugin.clone)
     plugin_variant_def["logo_url"] = _get_logo_url(plugin)
     variant = _clean_variant(variant)
     variant.each_key do |key|
@@ -101,7 +56,7 @@ class MeltanoJsonGenerator < Jekyll::Generator
   end
 
   def _definition_from_single_variant(plugin)
-    clean_plugin = _clean_top(plugin.clone)
+    clean_plugin = _remove_extras(plugin.clone)
     clean_plugin["logo_url"] = _get_logo_url(plugin)
     return clean_plugin
   end
@@ -171,32 +126,8 @@ class MeltanoJsonGenerator < Jekyll::Generator
     return index
   end
 
-  def _add_custom_to_list(plugins_list, plugin_data, plugin_type)
-    # TODO: when an extractor/loader exists we skip the custom variants
-    plugin_data.each do |tap_name, definition|
-      if !plugins_list[plugin_type].key?(tap_name)
-        singer_name = definition["singer_name"].clone()
-        singer_name.gsub! '-', '_'
-        definition["namespace"] = singer_name
-        definition["name"] = definition["singer_name"]
-        plugins_list[plugin_type][definition["singer_name"]] = definition
-      end
-    end
-  end
-
-  def _compile_plugins_list(site)
-    plugins_list = site.data["meltano"].clone()
-    taps = site.data["taps"].clone()
-    _add_custom_to_list(plugins_list, taps, "extractors")
-    
-    targets = site.data["targets"].clone()
-    _add_custom_to_list(plugins_list, targets, "loaders")
-    
-    return plugins_list
-  end
-
-  def generate_json(site, collection, plugins_list)
-    plugins = plugins_list[collection].values
+  def generate_json(site, collection)
+    plugins = site.data["meltano"][collection].values
 
     plugins.each do |plugin|
       if plugin.key?("variants")        
@@ -212,8 +143,10 @@ class MeltanoJsonGenerator < Jekyll::Generator
 
   end
 
-  def generate_json_index(site, plugin_types, plugins_list)
-    index = _build_index(plugins_list, plugin_types)
+  def generate_json_index(site, plugin_types)
+    plugins = site.data["meltano"]
+
+    index = _build_index(plugins, plugin_types)
 
     generate_file(site, "/meltano/api/v1/plugins", "index", JSON.generate(index))
     return index

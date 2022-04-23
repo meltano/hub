@@ -23,7 +23,7 @@ variants:
     kind: password
   - name: recent_workouts_number
     label: Number of Workouts to Fetch
-    value: 5
+    default: 5
     kind: integer
     description: The number of workouts to fetch. This is an integer that defaults
       to 5.
