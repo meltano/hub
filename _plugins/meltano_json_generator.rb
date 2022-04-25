@@ -12,7 +12,12 @@ class MeltanoJsonGenerator < Jekyll::Generator
       'transformers',
       'utilities'
     ]
-    plugins_list = _compile_plugins_list(site)
+    # Deep copy site data for API purposes
+    meltano_data = Marshal.load(Marshal.dump(site.data["meltano"]))
+    taps_data = Marshal.load(Marshal.dump(site.data["taps"]))
+    targets_data = Marshal.load(Marshal.dump(site.data["targets"]))
+    plugins_list = _compile_plugins_list(meltano_data, taps_data, targets_data)
+
     plugin_index = generate_json_index(site, plugin_types, plugins_list)
     plugin_types.each do |plugin_type|
       generate_json(site, plugin_type, plugins_list)
@@ -184,13 +189,9 @@ class MeltanoJsonGenerator < Jekyll::Generator
     end
   end
 
-  def _compile_plugins_list(site)
-    plugins_list = site.data["meltano"].clone()
-    taps = site.data["taps"].clone()
-    _add_custom_to_list(plugins_list, taps, "extractors")
-    
-    targets = site.data["targets"].clone()
-    _add_custom_to_list(plugins_list, targets, "loaders")
+  def _compile_plugins_list(plugins_list, taps_data, targets_data)
+    _add_custom_to_list(plugins_list, taps_data, "extractors")
+    _add_custom_to_list(plugins_list, targets_data, "loaders")
     
     return plugins_list
   end
