@@ -1,0 +1,34 @@
+description: Online courses and membership sites.
+entity_type: api
+entity_url: https://developers.thinkific.com/api/using-the-api
+label: Thinkific
+name: thinkific
+singer_name: tap-thinkific
+type: tap
+variants:
+- default: true
+  maintenance_status: active
+  meltano_sdk: true
+  name: birdiecare
+  pip_url: git+https://github.com/birdiecare/tap-thinkific.git
+  repo: https://github.com/birdiecare/tap-thinkific
+  settings_group_validation:
+  - - api_key
+    - subdomain
+  settings:
+  - name: api_key
+    label: API Key
+    description: Thinkific API key - see https://developers.thinkific.com/api/api-key-auth/ for details.
+    kind: password
+  - name: subdomain
+    label: Subdomain
+    description: Subdomain of the Thinkific site.
+  - name: start_date
+    label: Start Date
+    description: Only course enrollments created or updated after this date will be downloaded.
+  capabilities:
+    - state
+    - catalog
+    - discover
+    - about
+    - stream-maps
