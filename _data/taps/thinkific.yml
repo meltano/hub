@@ -12,6 +12,9 @@ variants:
   name: birdiecare
   pip_url: git+https://github.com/birdiecare/tap-thinkific.git
   repo: https://github.com/birdiecare/tap-thinkific
+  settings_group_validation:
+  - - api_key
+    - subdomain
   settings:
   - name: api_key
     label: API Key
