@@ -349,28 +349,6 @@
                                     "title": "The value schema",
                                     "description": "An explanation about the purpose of this instance."
                                 },
-                                "default": {
-                                    "id": "#/properties/variants/items/properties/settings/items/properties/default",
-                                    "oneOf": [
-                                        {
-                                            "type": "string"
-                                        },
-                                        {
-                                            "type": "boolean"
-                                        },
-                                        {
-                                            "type": "integer"
-                                        },
-                                        {
-                                            "type": "object"
-                                        },
-                                        {
-                                            "type": "array"
-                                        }
-                                    ],
-                                    "title": "The default value schema",
-                                    "description": "An explanation about the purpose of this instance."
-                                },
                                 "value_post_processor": {
                                     "id": "#/properties/variants/items/properties/settings/items/properties/value_post_processor",
                                     "type": "string",
