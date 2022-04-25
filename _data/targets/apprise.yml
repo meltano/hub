@@ -15,7 +15,7 @@ variants:
   capabilities:
     - about
     - stream-maps
-    - schema-flattening
+    - record-flattening
   settings_group_validation:
     - - uris
   settings:
