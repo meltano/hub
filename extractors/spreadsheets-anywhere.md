@@ -54,7 +54,7 @@ A minimal configuration of `tap-spreadsheets-anywhere` in your [`meltano.yml` pr
 plugins:
   extractors:
   - name: tap-spreadsheets-anywhere
-    variant: etc
+    variant: ets
     config:
       tables:
         - path: s3://my-s3-bucket
@@ -89,7 +89,7 @@ Manage this setting directly in your [`meltano.yml` project file](https://docs.m
 plugins:
   extractors:
   - name: tap-spreadsheets-anywhere
-    variant: etc
+    variant: ets
     config:
       tables:
         - path: <path>
