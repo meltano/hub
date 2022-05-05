@@ -26,7 +26,10 @@ variants:
   hidden: true
   repo: https://gitlab.com/meltano/tap-marketo
   pip_url: git+https://gitlab.com/meltano/tap-marketo.git
-  capabilities: []
+  capabilities:
+  - properties
+  - discover
+  - state
   settings:
   - name: endpoint
   - name: identity
