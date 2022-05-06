@@ -12,34 +12,48 @@ variants:
   maintenance_status: active
   name: transferwise
   pip_url: pipelinewise-tap-mysql
+  executable: tap-mysql
   repo: https://github.com/transferwise/pipelinewise-tap-mysql
   settings:
   - name: host
     value: localhost
-  - kind: integer
-    name: port
+    label: Host
+    description: The MySQL hostname.
+  - name: port
+    label: Port
+    kind: integer
     value: 3306
+    description: The MySQL port.
   - name: user
-  - kind: password
-    name: password
+    label: User
+    description: The MySQL username.
+  - name: password
+    kind: password
+    label: Password
+    description: The MySQL password.
   - name: database
-  - description: The tap requires a stringified version of the boolean values, i.e.
-      "true" or "false" with quotes.
+    label: Database
+    description: The MySQL database name.
+  - name: ssl
     kind: boolean
-    name: ssl
+    label: SSL
+    description: Whether the MySQL connection should use SSL. 
     value: false
-  - description: Comma separated list of schemas to extract tables only from particular
+    value_post_processor: stringify
+  - name: filter_dbs
+    label: Filter DBs
+    description: Comma separated list of schemas to extract tables only from particular
       schemas and to improve data extraction performance
-    name: filter_dbs
-  - description: List of SQL commands to run when a connection made. This allows to
-      set session variables dynamically, like timeouts.
+  - name: session_sqls
     kind: array
-    name: session_sqls
+    label: Session SQLs
     value:
     - SET @@session.time_zone="+0:00"
     - SET @@session.wait_timeout=28800
     - SET @@session.net_read_timeout=3600
     - SET @@session.innodb_lock_wait_timeout=3600
+    description: List of SQL commands to run when a connection made. This allows to
+      set session variables dynamically, like timeouts.
   settings_group_validation:
   - - host
     - port

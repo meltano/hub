@@ -14,6 +14,8 @@ variants:
   - state
   - catalog
   - discover
+  - about
+  - stream-maps
   settings_group_validation:
   - - name
     - api_url

@@ -8,6 +8,7 @@ variants:
   maintenance_status: unknown
   name: transferwise
   pip_url: pipelinewise-tap-zuora
+  executable: tap-zuora
   repo: https://github.com/transferwise/pipelinewise-tap-zuora
   settings: []
   capabilities:

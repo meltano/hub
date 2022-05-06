@@ -18,6 +18,7 @@ variants:
   name: transferwise
   docs: https://hub.meltano.com/extractors/twilio
   pip_url: pipelinewise-tap-twilio
+  executable: tap-twilio
   repo: https://github.com/transferwise/pipelinewise-tap-twilio
   capabilities:
   - discover

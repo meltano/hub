@@ -65,5 +65,6 @@ variants:
   - name: user_agent
     label: User Agent
     value: tap-jira via Meltano
+    description: The user agent.
 entity_url: https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/
 entity_type: api

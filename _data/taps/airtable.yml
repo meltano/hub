@@ -9,9 +9,30 @@ variants:
   name: goes-funky
   pip_url: git+https://github.com/goes-funky/tap-airtable.git
   repo: https://github.com/goes-funky/tap-airtable
-  settings: []
+  settings_group_validation:
+  - ['token']
+  settings:
+  - name: token
+    kind: password
+    label: Token
+    description: Airtable Token
+  - name: metadata_url
+    label: Metadata URL
+    description: Airtable metadata URL, at the time of the update - "https://api.airtable.com/v2/meta/"
+  - name: records_url
+    label: Records URL
+    description: Airtable content URL, at the time of the update - "https://api.airtable.com/v0/"
+  - name: base_id
+    label: Base ID
+    description: Airtable base ID to export
+  - name: selected_by_default
+    label: Selected By Default
+    description: Default for every table in the base. If set to true, all of the tables in the schema will be syncronized
+  - name: remove_emojis
+    label: Remove Emojis
+    description: Filter out emojis from the scyncronization
   capabilities:
-  - catalog
+  - properties
   - discover
 entity_url: https://airtable.com/api
 entity_type: api

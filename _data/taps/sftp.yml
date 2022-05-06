@@ -18,9 +18,44 @@ variants:
   name: singer-io
   pip_url: tap-sftp
   repo: https://github.com/singer-io/tap-sftp
-  settings: []
+  settings_group_validation:
+  - ["username", "port", "private_key_file", "host", "tables", "start_date", "username"]
+  settings:
+  - name: host
+    label: Host
+    description: The SFTP server hostname.
+  - name: port
+    kind: integer
+    label: Port
+    description: The SFTP server port.
+  - name: username
+    label: Username
+    description: The username for connecting the the SFTP server.
+  - name: password
+    kind: password
+    label: Password
+    description: The pass for connecting the the SFTP server.
+  - name: private_key_file
+    label: Private Key File
+    description: A path to the private key file for connecting the the SFTP server.
+  - name: tables
+    kind: array
+    label: Tables
+    description: An array that consists of one or more objects that describe how to
+      find files and emit records. Required in each table object - `table_name`, `search_pattern`,`search_prefix`, `key_properties`, `delimiter`.
+  - name: start_date
+    kind: date_iso8601
+    label: Start Date
+    description: Determines how much historical data will be extracted. Please be
+      aware that the larger the time period and amount of data, the longer the initial
+      extraction can be expected to take.
+  - name: request_timeout
+    kind: integer
+    label: Request Timeout
+    description: The SFTP connection timeout in seconds. Defaults to 300.
   capabilities:
   - catalog
   - discover
+  - state
 entity_url: https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol
 entity_type: file

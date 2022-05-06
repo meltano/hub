@@ -12,6 +12,7 @@ variants:
   maintenance_status: active
   name: transferwise
   pip_url: pipelinewise-tap-postgres
+  executable: tap-postgres
   repo: https://github.com/transferwise/pipelinewise-tap-postgres
   settings:
   - description: PostgreSQL host

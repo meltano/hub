@@ -8,11 +8,39 @@ variants:
   maintenance_status: unknown
   name: transferwise
   pip_url: pipelinewise-tap-oracle
+  executable: tap-oracle
   repo: https://github.com/transferwise/pipelinewise-tap-oracle
-  settings: []
+  settings_group_validation:
+  - ['sid', 'host', 'port', 'user', 'password']
+  settings:
+  - name: sid
+    kind: SID
+    label: SID
+    description: Your Oracle SID.
+  - name: host
+    label: Host
+    description: Your Oracle host.
+  - name: port
+    label: Port
+    description: Your Oracle port.
+  - name: user
+    label: User
+    description: Your Oracle user.
+  - name: password
+    kind: password
+    label: Password
+    description: Your Oracle password.
+  - name: default_replication_method
+    label: Default Replication Method
+    description: The default replication method to use if one is not automatically set on the stream. Options - 'LOG_BASED', 'FULL_TABLE', 'INCREMENTAL'.
+  - name: filter_schemas
+    label: Filter Schemas
+    description: A comma separated list of schema names to scan. Used to improve the performance of data extraction.
+    placeholder: SCHEMA1,SCHEMA2
   capabilities:
   - catalog
   - discover
+  - state
 - default: false
   maintenance_status: unknown
   name: mpcarter

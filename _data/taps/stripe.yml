@@ -43,10 +43,12 @@ variants:
   settings:
   - name: account_id
     label: Account ID
+    description: Your Stripe account ID.
     placeholder: Ex. acct_1a2b3c4d5e
   - name: client_secret
     kind: password
     label: Secret API Key
+    description: Your Stripe Secret API Key.
     placeholder: Ex. sk_live_1a2b3c4d5e
   - name: start_date
     label: Start Date

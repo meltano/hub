@@ -8,6 +8,7 @@ variants:
   maintenance_status: active
   name: transferwise
   pip_url: pipelinewise-tap-snowflake
+  executable: tap-snowflake
   repo: https://github.com/transferwise/pipelinewise-tap-snowflake
   settings: []
   capabilities:

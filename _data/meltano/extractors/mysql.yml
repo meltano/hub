@@ -19,22 +19,36 @@ variants:
   settings:
   - name: host
     value: localhost
+    label: Host
+    description: The MySQL hostname.
   - name: port
+    label: Port
     kind: integer
     value: 3306
+    description: The MySQL port.
   - name: user
+    label: User
+    description: The MySQL username.
   - name: password
     kind: password
+    label: Password
+    description: The MySQL password.
   - name: database
+    label: Database
+    description: The MySQL database name.
   - name: ssl
     kind: boolean
+    label: SSL
+    description: Whether the MySQL connection should use SSL. 
     value: false
     value_post_processor: stringify
   - name: filter_dbs
+    label: Filter DBs
     description: Comma separated list of schemas to extract tables only from particular
       schemas and to improve data extraction performance
   - name: session_sqls
     kind: array
+    label: Session SQLs
     value:
     - SET @@session.time_zone="+0:00"
     - SET @@session.wait_timeout=28800
