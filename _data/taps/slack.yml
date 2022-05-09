@@ -126,6 +126,7 @@ variants:
   maintenance_status: active
   name: transferwise
   pip_url: pipelinewise-tap-slack
+  executable: tap-slack
   repo: https://github.com/transferwise/pipelinewise-tap-slack
   settings: []
   capabilities:
