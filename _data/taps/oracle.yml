@@ -14,7 +14,6 @@ variants:
   - ['sid', 'host', 'port', 'user', 'password']
   settings:
   - name: sid
-    kind: SID
     label: SID
     description: Your Oracle SID.
   - name: host
