@@ -28,8 +28,8 @@ variants:
     label: Port
     description: The MongoDB port.
   - name: user
-    label: The MongoDB user.
-    description: 
+    label: User
+    description: The MongoDB user.
   - name: password
     kind: password
     label: Password
