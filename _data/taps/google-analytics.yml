@@ -143,7 +143,6 @@ variants:
 - maintenance_status: active
   name: transferwise
   pip_url: pipelinewise-tap-google-analytics
-  executable: tap-google-analytics
   repo: https://github.com/transferwise/pipelinewise-tap-google-analytics
   settings: []
   capabilities:

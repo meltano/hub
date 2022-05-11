@@ -11,7 +11,6 @@ variants:
   default: true
   maintenance_status: active
   name: twilio-labs
-  executable: tap-zendesk
   pip_url: twilio-tap-zendesk
   repo: https://github.com/twilio-labs/twilio-tap-zendesk
   settings:
@@ -86,7 +85,6 @@ variants:
   maintenance_status: active
   name: transferwise
   pip_url: pipelinewise-tap-zendesk
-  executable: tap-zendesk
   repo: https://github.com/transferwise/pipelinewise-tap-zendesk
   settings: []
   capabilities:

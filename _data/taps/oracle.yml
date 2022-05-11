@@ -8,7 +8,6 @@ variants:
   maintenance_status: unknown
   name: transferwise
   pip_url: pipelinewise-tap-oracle
-  executable: tap-oracle
   repo: https://github.com/transferwise/pipelinewise-tap-oracle
   settings_group_validation:
   - ['sid', 'host', 'port', 'user', 'password']

@@ -12,7 +12,6 @@ variants:
   maintenance_status: active
   name: transferwise
   pip_url: pipelinewise-tap-mysql
-  executable: tap-mysql
   repo: https://github.com/transferwise/pipelinewise-tap-mysql
   settings:
   - name: host

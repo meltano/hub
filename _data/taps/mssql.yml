@@ -28,7 +28,6 @@ variants:
   name: wintersrd
   pip_url: git+https://github.com/wintersrd/pipelinewise-tap-mssql.git
   repo: https://github.com/wintersrd/pipelinewise-tap-mssql
-  executable: tap-mssql
   settings_group_validation:
   - ["host", "database", "user", "password"]
   settings:

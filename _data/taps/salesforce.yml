@@ -98,7 +98,6 @@ variants:
   maintenance_status: active
   name: transferwise
   pip_url: pipelinewise-tap-salesforce
-  executable: tap-salesforce
   repo: https://github.com/transferwise/pipelinewise-tap-salesforce
   settings: []
   capabilities:

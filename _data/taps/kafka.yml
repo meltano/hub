@@ -8,7 +8,6 @@ variants:
   maintenance_status: active
   name: transferwise
   pip_url: pipelinewise-tap-kafka
-  executable: tap-kafka
   repo: https://github.com/transferwise/pipelinewise-tap-kafka
   settings_group_validation:
   - ['topic', 'group_id', 'bootstrap_servers']

@@ -61,7 +61,6 @@ variants:
   maintenance_status: active
   name: transferwise
   pip_url: pipelinewise-tap-mixpanel
-  executable: tap-mixpanel
   repo: https://github.com/transferwise/pipelinewise-tap-mixpanel
   settings: []
   capabilities:
