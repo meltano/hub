@@ -11,6 +11,8 @@ variants:
   - catalog
   - discover
   - state
+  - about
+  - stream-maps
   settings_group_validation:
   - - key_file_location
     - view_id

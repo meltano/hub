@@ -9,7 +9,12 @@ variants:
   name: singer-io
   pip_url: target-gsheet
   repo: https://github.com/singer-io/target-gsheet
-  settings: []
+  settings_group_validation:
+  - ['spreadsheet_id']
+  settings:
+  - name: spreadsheet_id
+    label: Spreadsheet ID
+    description: The unique identifier for a spreadsheet.
 - default: false
   maintenance_status: unknown
   name: tmonks

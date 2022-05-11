@@ -25,7 +25,6 @@ variants:
 - default: true
   maintenance_status: active
   name: transferwise
-  executable: tap-s3-csv
   pip_url: pipelinewise-tap-s3-csv
   repo: https://github.com/transferwise/pipelinewise-tap-s3-csv
   settings_group_validation:

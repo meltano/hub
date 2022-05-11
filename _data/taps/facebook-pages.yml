@@ -32,5 +32,8 @@ variants:
   capabilities:
   - catalog
   - discover
+  - state
+  - about
+  - stream-maps
 entity_url: https://developers.facebook.com/docs/pages/
 entity_type: api

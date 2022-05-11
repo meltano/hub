@@ -61,4 +61,5 @@ variants:
       works only for the streams taht suppport it.
   - name: user_agent
     label: User Agent
+    description: The user agent.
     value: tap-jira via Meltano
