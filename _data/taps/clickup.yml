@@ -14,6 +14,11 @@ variants:
   - catalog
   - discover
   - state
+  - about
+  - stream-maps
+  - schema-flattening
+  settings_group_validation:
+  - ['api_token']
   settings:
   - name: api_token
     label: API Token

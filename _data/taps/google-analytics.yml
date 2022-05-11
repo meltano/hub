@@ -8,6 +8,8 @@ variants:
   - catalog
   - discover
   - state
+  - about
+  - stream-maps
   default: true
   maintenance_status: active
   meltano_sdk: true

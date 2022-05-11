@@ -24,13 +24,35 @@ variants:
   - catalog
   - discover
 - default: true
-  maintenance_status: active
+  maintenance_status: inactive
   name: wintersrd
   pip_url: git+https://github.com/wintersrd/pipelinewise-tap-mssql.git
   repo: https://github.com/wintersrd/pipelinewise-tap-mssql
-  settings: []
+  settings_group_validation:
+  - ["host", "database", "user", "password"]
+  settings:
+  - name: host
+    label: Host
+    description: Your MSSQL server host.
+  - name: database
+    label: Database
+    description: Your MSSQL database name.
+  - name: user
+    label: User
+    description: Your MSSQL username.
+  - name: password
+    kind: password
+    label: Password
+    description: Your MSSQL password.
+  - name: filter_dbs
+    label: Filter Databases
+    description: A comma separated list of databases to filter for.
+  - name: port
+    label: Port
+    description: The MSSQL port, defaulted to 1433.
   capabilities:
   - catalog
   - discover
+  - state
 entity_url: https://www.microsoft.com/en-us/sql-server/sql-server-2019
 entity_type: database

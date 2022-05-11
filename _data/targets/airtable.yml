@@ -6,18 +6,24 @@ type: target
 variants:
 - default: true
   maintenance_status: active
+  meltano_sdk: true
   name: hotgluexyz
   pip_url: git+https://github.com/hotgluexyz/target-airtable.git
   repo: https://github.com/hotgluexyz/target-airtable
+  capabilities:
+  - about
+  - stream-maps
+  settings_group_validation:
+  - ['token', 'base_id']
   settings:
     - name: token
       kind: password
       label: API Token
-      description: Airtable API Token
+      description: Your Airtable API token.
     - name: base_id
       kind: string
       label: Base ID
-      description: Airtable Base ID
+      description: The Airtable base ID. Airtable base IDs begin with "app".
     - name: records_url
       kind: string
       label: Records URL

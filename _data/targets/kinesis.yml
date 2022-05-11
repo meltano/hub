@@ -21,6 +21,37 @@ variants:
   name: prontopro
   pip_url: git+https://github.com/ProntoPro/target-kinesis.git
   repo: https://github.com/ProntoPro/target-kinesis
-  settings: []
+  settings_group_validation:
+  - ['aws_access_key_id', 'aws_secret_access_key']
+  settings:
+  - name: stream_name
+    label: Stream Name
+    description: The name of the Kinesis stream to write to.
+  - name: aws_access_key_id
+    kind: password
+    label: AWS S3 Access Key ID
+    description: S3 Access Key Id. If not provided, aws_profile or AWS_ACCESS_KEY_ID environment variable will be used.
+  - name: aws_secret_access_key
+    label: AWS S3 Secret Access Key
+    kind: password
+    description: S3 Secret Access Key. If not provided, aws_profile or AWS_ACCESS_KEY_ID environment variable will be used.
+  - name: region
+    label: AWS Region
+    description: The AWS region to use i.e. us-east-2.
+  - name: is_firehose
+    kind: boolean
+    label: Is Firehouse
+    description: (Default False) Whether to user a Firehouse client or not.
+  - name: record_chunks
+    kind: integer
+    label: Record Chunks
+    description: (Default - 10) The max number of records per chunk.
+  - name: data_chunks
+    kind: integer
+    label: Data Chunks
+    description: (Default - 1000) The max size of data per chunk.
+  - name: partition_key
+    label: Partition Key
+    description: (Default - `id`) The partition key to use when writing to Kinesis.
 entity_url: https://aws.amazon.com/kinesis/
 entity_type: api

@@ -29,10 +29,13 @@ variants:
     - start_date
   settings:
   - name: username
+    label: username
+    description: The username (or email address) used to sign in to your Salesforce account.
     placeholder: Ex. me@my-organization.com
   - name: password
     kind: password
     label: Password
+    description: The password used to sign in to your Salesforce account.
     placeholder: Ex. *****************
   - name: security_token
     kind: password
@@ -42,18 +45,25 @@ variants:
     documentation: https://hub.meltano.com/extractors/salesforce.html#salesforce-setup
   - name: client_id
     label: Client ID
+    description: Salesforce client ID. See https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.html.
   - name: client_secret
     kind: password
+    label: Client Secret
+    description: Salesforce client secret. See https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.html.
   - name: refresh_token
     kind: password
+    label: Refresh Token
+    description: Salesforce refresh token. See https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.html.
   - name: start_date
     kind: date_iso8601
+    label: Start Date
     description: Determines how much historical data will be extracted. Please be
       aware that the larger the time period and amount of data, the longer the initial
       extraction can be expected to take.
   - name: is_sandbox
     kind: boolean
     value: false
+    label: Is Sandbox
     description: Use Salesforce Sandbox
   - name: api_type
     value: REST
@@ -64,15 +74,19 @@ variants:
     - label: BULK
       value: BULK
     label: API Type
+    description: Used to switch the behavior of the tap between using Salesforce’s “REST” and “BULK” APIs.
   - name: select_fields_by_default
     kind: boolean
     value: true
     description: Select by default any new fields discovered in Salesforce objects
+    label: Select Fields By Default
   - name: state_message_threshold
     kind: integer
     value: 1000
     description: Generate a STATE message every N records
+    label: State Message Threshold
   - name: max_workers
     kind: integer
     value: 8
     label: Maximum number of threads to use
+    description: Maximum number of threads to use.
