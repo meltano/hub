@@ -295,18 +295,18 @@ An example catalog with a single stream and no metadata is as follows:
           "id": {
             "type": [
               "string"
-            ],
+            ]
           },
           "name": {
             "type": [
               "string"
-            ],
+            ]
           },
           "updated_at": {
             "type": [
               "string"
             ],
-            "format": "date-time",
+            "format": "date-time"
           }
         }
       }
