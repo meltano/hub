@@ -152,7 +152,7 @@ class MeltanoJsonGenerator < Jekyll::Generator
       elsif plugin_def.key?("variant")
         variant_name = plugin_def["variant"]
         plugin_index["variants"] = {
-          variant_name: {
+          "#{variant_name}": {
             "ref": "#{@url}/meltano/api/v1/plugins/#{plugin_type}/#{plugin_name}--#{variant_name}"
           }
         }
