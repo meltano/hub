@@ -314,7 +314,7 @@ If the tap sends the `stream_id` in `<schema_name>-<table_name>` format then thi
 
 Note, that using `schema_mapping` you can overwrite the `default_target_schema_select_permission` value to grant SELECT permissions to different groups per schemas or optionally you can create indices automatically for the replicated tables.
 
-This setting can hold an object mapping source schema names to objects with `target_schema` and (optionally) `target_schema_select_permissions` keys.
+This setting can hold an object mapping source schema names to objects with `target_schema` and (optionally) `target_schema_select_permissions` and `indices` keys.
 
 #### How to use
 
@@ -330,12 +330,16 @@ plugins:
         <source_schema>:
           target_schema: <target_schema>
           target_schema_select_permissions: [<role1>, <role2>] # Optional
+          indices: # Optional
+            <table_name>: [<column1>, <column2>]
         # ...
 
         # For example:
         public:
           target_schema: repl_pg_public
           target_schema_select_permissions: [grp_stats]
+          indices:
+            orders: [customer_id]
 ```
 
 Alternatively, manage this setting using [`meltano config`](https://docs.meltano.com/command-line-interface.html#config) or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
