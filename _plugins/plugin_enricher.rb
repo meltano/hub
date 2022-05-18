@@ -5,6 +5,10 @@ class PluginEnricher < Jekyll::Generator
   def generate(site)
     enrich_plugins(site, "extractor", "tap")
     enrich_plugins(site, "loader", "target")
+    enrich_plugins(site, "file", nil)
+    enrich_plugins(site, "utilitie", nil)
+    enrich_plugins(site, "transformer", nil)
+    enrich_plugins(site, "orchestrator", nil)
   end
 
   def enrich_plugins(site, meltano_type, singer_type)
@@ -15,23 +19,34 @@ class PluginEnricher < Jekyll::Generator
       plugin['logo_url'] = "/assets/logos/#{singer_type_plural}/#{plugin_name}.png"
       plugin['url'] = "/#{meltano_type_plural}/#{plugin_name}"
 
-      enrich_variants(site, plugin['variants'])
-    end
-
-    site.data[singer_type_plural].each do |plugin_name, plugin|
-      plugin['logo_url'] = "/assets/logos/#{singer_type_plural}/#{plugin_name}.png"
-
-      meltano_plugin = site.data['meltano'][meltano_type_plural][plugin_name]
-      if meltano_plugin
-        plugin['meltano_url'] = meltano_plugin['url']
-        meltano_plugin['singer_plugin'] = plugin
+      if plugin['variants']
+        enrich_variants(site, plugin['variants'])
       end
-
-      enrich_variants(site, plugin['variants'])
     end
 
-    site.data['meltano']["sorted_#{meltano_type_plural}"] = site.data['meltano'][meltano_type_plural].values.sort_by { |p| p['label'].downcase }
-    site.data["sorted_#{singer_type_plural}"] = site.data[singer_type_plural].values.sort_by { |p| p['label'].downcase }
+    if site.data[singer_type_plural]
+      site.data[singer_type_plural].each do |plugin_name, plugin|
+        plugin['logo_url'] = "/assets/logos/#{singer_type_plural}/#{plugin_name}.png"
+  
+        meltano_plugin = site.data['meltano'][meltano_type_plural][plugin_name]
+        if meltano_plugin
+          plugin['meltano_url'] = meltano_plugin['url']
+          meltano_plugin['singer_plugin'] = plugin
+        end
+  
+        if plugin['variants']
+          enrich_variants(site, plugin['variants'])
+        end
+      end
+    end
+
+
+    if meltano_type_plural === 'extractors' or meltano_type_plural === 'loaders'
+      site.data["meltano"]["sorted_#{meltano_type_plural}"] = site.data["meltano"][meltano_type_plural].values.sort_by { |p| p['label'].downcase }
+      site.data["sorted_#{singer_type_plural}"] = site.data[singer_type_plural].values.sort_by { |p| p['label'].downcase }
+    elsif meltano_type_plural === 'utilities' or meltano_type_plural === 'files'
+      site.data['meltano']["sorted_#{meltano_type_plural}"] = site.data['meltano'][meltano_type_plural].values.sort_by { |p| p['name'].downcase }
+    end
   end
 
   def enrich_variants(site, variants)
