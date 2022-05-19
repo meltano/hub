@@ -26,7 +26,7 @@ variants:
 - default: true
   maintenance_status: active
   name: wintersrd
-  pip_url: git+https://github.com/wintersrd/pipelinewise-tap-mssql.git
+  pip_url: tap-mssql
   repo: https://github.com/wintersrd/pipelinewise-tap-mssql
   settings_group_validation:
   - ["host", "database", "user", "password"]
