@@ -2,15 +2,15 @@
 layout: page
 title: Transformers
 permalink: /transformers/
-description: Use Meltano to easily extract data out of arbitrary sources (databases, SaaS APIs, and file formats) using Singer taps.
+description: Use Meltano to easily transform and shape your data for maximum insight.
 ---
 
-Replace this text with something about files
+Meltano transformer plugins allow you to create new derived transformations from raw data sources.
 
-<!-- {% assign plugins = site.data.meltano.sorted_files %} -->
+{% assign plugins = site.data.meltano.sorted_transformers %}
 
 
 
-{% include plugin_grid.html plugins=site.data.meltano.transformers search="transformers" %}
+{% include plugin_grid.html plugins=plugins search="transformers" %}
 
 

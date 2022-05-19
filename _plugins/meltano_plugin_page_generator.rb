@@ -46,7 +46,11 @@ class MeltanoPluginPageGenerator < Jekyll::Generator
       @dir  = "#{plugin_type}s"
 
       basename = plugin_name
-      title = "#{plugin['name']} Meltano #{plugin_type}"
+      if plugin['name'] != nil
+        title = "#{plugin['name']} Meltano #{plugin_type}"
+      else
+        title = "#{plugin['label']} Meltano #{plugin_type}"
+      end
 
       description =
         if plugin_type == 'file'

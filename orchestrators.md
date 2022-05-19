@@ -2,15 +2,15 @@
 layout: page
 title: Orchestrators
 permalink: /orchestrators/
-description: Use Meltano to easily extract data out of arbitrary sources (databases, SaaS APIs, and file formats) using Singer taps.
+description: Use Meltano to schedule and perform project orchestration.
 ---
 
-Replace this text with something about files
+Meltano orchestrator plugins provide advanced scheduling and workflow execution capabilities.
 
-<!-- {% assign plugins = site.data.meltano.sorted_files %} -->
+{% assign plugins = site.data.meltano.sorted_orchestrators %}
 
 
 
-{% include plugin_grid.html plugins=site.data.meltano.orchestrators search="orchestrators" %}
+{% include plugin_grid.html plugins=plugins search="orchestrators" %}
 
 

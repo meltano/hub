@@ -2,15 +2,15 @@
 layout: page
 title: Files
 permalink: /files/
-description: Use Meltano to easily extract data out of arbitrary sources (databases, SaaS APIs, and file formats) using Singer taps.
+description: Use Meltano to add file resources to your data project.
 ---
 
-Replace this text with something about files
+Meltano file plugins allow you to easily add new file resources to your data project. For example, Meltano utilities and other plugins can define file plugins that provide tool-specific scaffolding, templates, and applicable readme resources. 
 
-<!-- {% assign plugins = site.data.meltano.sorted_files %} -->
+{% assign plugins = site.data.meltano.sorted_files %}
 
 
 
-{% include plugin_grid.html plugins=site.data.meltano.files search="files" %}
+{% include plugin_grid.html plugins=plugins search="files" %}
 
 
