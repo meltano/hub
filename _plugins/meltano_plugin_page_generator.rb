@@ -55,8 +55,12 @@ class MeltanoPluginPageGenerator < Jekyll::Generator
       description =
         if plugin_type == 'file'
           "The open source Meltano file does something."
-        else
+        elsif plugin_type == 'utilitie'
           "The open source Meltano utility does something."
+        elsif plugin_type == 'orchestrator'
+          "The open source Meltano orchestrator does something."
+        else
+          "The open source Meltano transformer does something."
         end
 
       @basename = basename

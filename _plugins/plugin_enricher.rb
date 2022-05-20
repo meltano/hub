@@ -41,7 +41,6 @@ class PluginEnricher < Jekyll::Generator
     end
 
     site.data['meltano'][meltano_type_plural].each do |plugin_name, plugin|
-      p "plugin_name: #{plugin_name}"
       if singer_type == nil
         plugin['logo_url'] = "/assets/logos/#{meltano_type_plural}/#{plugin_name}.png"
       else
