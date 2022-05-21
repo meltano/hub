@@ -30,6 +30,7 @@ class MeltanoPluginPageGenerator < Jekyll::Generator
           variant['url'] = page.url
         end
       else
+        p "#{plugin_type} #{plugin_name}"
         page = PluginPage.new(site, plugin_type, plugin_name, plugin)
         unless site.pages.map(&:path).include?(page.path.sub(".html", ".md"))
           site.pages << page
