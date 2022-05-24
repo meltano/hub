@@ -22,6 +22,32 @@ variants:
   capabilities:
   - catalog
   - discover
+- name: matatika
+  default: false
+  meltano_sdk: true
+  maintenance_status: active
+  pip_url: git+https://github.com/Matatika/tap-google-sheets.git
+  repo: https://github.com/Matatika/tap-google-sheets
+  capabilities:
+  - about
+  - catalog
+  - discover
+  settings:
+  - name: oauth_credentials.client_id
+    label: Client ID
+    kind: password
+    description: Google OAuth Client ID
+  - name: oauth_credentials.client_secret
+    label: Client Secret
+    kind: password
+    description: Google OAuth Client Secret
+  - name: oauth_credentials.refresh_token
+    label: Refresh Token
+    kind: password
+    description: Google OAuth Refresh Token
+  - name: sheet_id
+    label: Sheet ID
+    description: Google Sheet ID
 - name: singer-io
   default: true
   docs: https://hub.meltano.com/extractors/google-sheets
