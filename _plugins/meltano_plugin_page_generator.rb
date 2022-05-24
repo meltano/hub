@@ -30,7 +30,6 @@ class MeltanoPluginPageGenerator < Jekyll::Generator
           variant['url'] = page.url
         end
       else
-        p "#{plugin_type} #{plugin_name}"
         page = PluginPage.new(site, plugin_type, plugin_name, plugin)
         unless site.pages.map(&:path).include?(page.path.sub(".html", ".md"))
           site.pages << page
@@ -53,15 +52,21 @@ class MeltanoPluginPageGenerator < Jekyll::Generator
         title = "#{plugin['label']} Meltano #{plugin_type}"
       end
 
+      if plugin_type == 'utilitie'
+        plugin_type = 'utility'
+      end
+
       description =
         if plugin_type == 'file'
-          "The open source Meltano file does something."
-        elsif plugin_type == 'utilitie'
-          "The open source Meltano utility does something."
+          "Use Meltano to allow you to easily add new file resources such as #{plugin['name']} to your data project."
+        elsif plugin_type == 'utility'
+          "Use Meltano utilities plugins such as #{plugin['name']} to allow virtually any open source data tool to be integrated with your data project."
         elsif plugin_type == 'orchestrator'
-          "The open source Meltano orchestrator does something."
+          "Use Meltano orchestrator plugins like #{plugin['name']} to provide advanced scheduling and workflow execution capabilities."
+        elsif plugin_type == 'transformer'
+          "Use Meltano transformer plugins like #{plugin['name']} to allow you to create new derived transformations from raw data sources."
         else
-          "The open source Meltano transformer does something."
+          "Use Meltano plugins to better your DataOps experience."
         end
 
       @basename = basename
