@@ -43,7 +43,14 @@ collections:
     output: true
   loaders:
     output: true
-
+  files:
+    output: true
+  utilities:
+    output: true
+  orchestrators:
+    output: true
+  transformers:
+    output: true
 # Outputting
 permalink: /:categories/:year/:month/:day/:title
 

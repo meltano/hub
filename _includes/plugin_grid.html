@@ -9,7 +9,7 @@
 
 <ul class="button-grid">
   {% for plugin in include.plugins %}
-  <li data-search-terms="{{plugin.label}} {{plugin.name}}">
+  <li data-search-terms="{{plugin.label}} {{plugin.name}} {{plugin.namespace}}">
     <a href="{{ plugin.url | prepend: site.baseurl | prepend: site.url }}">
       <div class="logo-well">
         <img
@@ -17,7 +17,11 @@
           class="logo"
         />
       </div>
-      <span class="label"> {{ plugin.label }} </span>
+      {% if plugin.label %}
+        <span class="label"> {{ plugin.label }} </span>
+      {% else %}
+        <span class="label"> {{ plugin.name }} </span>
+      {% endif %}
     </a>
     {% if plugin.meltano_url %}
     <a
