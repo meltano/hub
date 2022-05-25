@@ -1,10 +1,10 @@
 ---
 title: dbt-snowflake - data build tool
 layout: plugin_page
-description: Use Meltano to transform data in your warehouse using dbt
+description: Use Meltano to transform data in your warehouse using the dbt Snowflake specific adapter
 ---
 
-The [`dbt`](https://www.getdbt.com) [transformer](https://docs.meltano.com/transforms.html) uses SQL to transform data stored in your warehouse.
+The [`dbt-snowflake`](https://www.getdbt.com) [transformer](https://docs.meltano.com/transforms.html) uses SQL to transform data stored in your warehouse.
 
 - **Repository**: <https://github.com/dbt-labs/dbt>
 - **Documentation**: <https://docs.getdbt.com/>
@@ -23,10 +23,10 @@ If you haven't already, follow the [Getting Started guide](https://docs.meltano.
 
 ### Installation and configuration
 
-1. Add the `dbt` transformer to your project using [`meltano add`](https://docs.meltano.com/command-line-interface.html#add):
+1. Add the `dbt-snowflake` transformer to your project using [`meltano add`](https://docs.meltano.com/command-line-interface.html#add):
 
     ```bash
-    meltano add transformer dbt
+    meltano add transformer dbt-snowflake
     ```
 
 1. Configure the [settings](#settings) below using [`meltano config`](https://docs.meltano.com/command-line-interface.html#config).
@@ -35,11 +35,11 @@ If you haven't already, follow the [Getting Started guide](https://docs.meltano.
 
 1. [Transform loaded data for analysis](https://docs.meltano.com/getting-started.html#transform-loaded-data-for-analysis)
 
-If you run into any issues, [learn how to get help](https://docs.meltano.com/getting-help.html).
+If you run into any issues, chat with us in [#troubleshooting](https://meltano.slack.com/archives/C01TCRBBJD7) on [Slack](https://meltano.com/slack).
 
 ## Settings
 
-Meltano automatically sets default values for all `dbt` settings that can be [overridden](https://docs.meltano.com/configuration.html) if needed. 
+Meltano automatically sets default values for all `dbt-snowflake` settings that can be [overridden](https://docs.meltano.com/configuration.html) if needed. 
 These settings are documented below.
 To quickly find the setting you're looking for, use the Table of Contents at the top of the page.
 
@@ -52,8 +52,8 @@ A minimal configuration of `dbt` in your [`meltano.yml` project file](https://do
 ```yml{5-7}
 plugins:
   transformers:
-  - name: dbt
-    pip_url: dbt==0.21.0
+  - name: dbt-snowflake
+    pip_url: dbt-core~=1.0.0 dbt-snowflake~=1.0.0
 ```
 
 ### Project Directory
@@ -69,15 +69,15 @@ The directory where the dbt project is stored. The default value is the `/transf
 Manage this setting using [`meltano config`](https://docs.meltano.com/command-line-interface.html#config) or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
-meltano config dbt set project_dir <project_dir>
+meltano config dbt-snowflake set project_dir <project_dir>
 
-export DBT_PROJECT_DIR=<project_dir>
+export DBT_SNOWFLAKE_PROJECT_DIR=<project_dir>
 ```
 
 ### Profiles Directory
 
 - Name: `profiles_dir`
-- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `DBT_PROFILES_DIR`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `DBT_SNOWFLAKE_PROFILES_DIR`
 - Default: `$MELTANO_PROJECT_ROOT/transform/profile`
 
 The directory where the dbt `profiles.yml` file is stored.
@@ -91,13 +91,13 @@ Manage this setting using [`meltano config`](https://docs.meltano.com/command-li
 ```bash
 meltano config dbt set profiles_dir <profiles_dir>
 
-export DBT_PROFILES_DIR=<profiles_dir>
+export DBT_SNOWFLAKE_PROFILES_DIR=<profiles_dir>
 ```
 
 ### Target
 
 - Name: `target`
-- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `DBT_TARGET`
+- [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `DBT_SNOWFLAKE_TARGET`
 - Default: `$MELTANO_LOAD__DIALECT`, which [will expand to](https://docs.meltano.com/integration.html#pipeline-environment-variables) the value of the [`dialect` extra](https://docs.meltano.com/concepts/plugins#dialect-extra) for the loader used in the pipeline, e.g. `postgres` for `target-postgres` and `snowflake` for `target-snowflake`.
 
 This is the dialect of your warehouse where data is stored. It maps to the [`target:` value](https://gitlab.com/meltano/files-dbt/-/blob/master/bundle/transform/profile/profiles.yml#L5) in the dbt [`profiles.yml` file](https://docs.getdbt.com/dbt-cli/configure-your-profile).
@@ -107,9 +107,9 @@ This is the dialect of your warehouse where data is stored. It maps to the [`tar
 This setting is managed by the loader and is not recommended to be changed via the transformer. You can, if needed, overwrite this setting using [`meltano config`](https://docs.meltano.com/command-line-interface.html#config) or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
 
 ```bash
-meltano config dbt set target <target>
+meltano config dbt-snwoflake set target <target>
 
-export DBT_TARGET=<target>
+export DBT_SNOWFLAKE_TARGET=<target>
 ```
 
 ### Source Schema

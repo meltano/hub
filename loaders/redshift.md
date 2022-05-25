@@ -51,7 +51,7 @@ Follow the remaining step of the [Getting Started guide](https://docs.meltano.co
 
 1. [Run a data integration (EL) pipeline](https://docs.meltano.com/getting-started.html#run-a-data-integration-el-pipeline)
 
-If you run into any issues, [learn how to get help](https://docs.meltano.com/getting-help.html).
+If you run into any issues, chat with us in [#troubleshooting](https://meltano.slack.com/archives/C01TCRBBJD7) on [Slack](https://meltano.com/slack).
 
 ## Settings
 
