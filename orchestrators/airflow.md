@@ -1,14 +1,14 @@
 ---
-title: airflow
+title: Airflow
 layout: plugin_page
-description: something about airflow
+description: Use Meltano to orchestrate and schedule your data pipelines using Airflow.
 ---
 
-The [`airflow`](https://airflow.apache.org/) [orchestrator](https://docs.meltano.com/orchestration.html) allows for workflows to be programmatically authored, scheduled, and monitored.
+The [`Airflow`](https://airflow.apache.org/) [orchestrator](https://docs.meltano.com/concepts/plugins#orchestrators) allows for workflows to be programmatically authored, scheduled, and monitored.
 
 - **Repository**: <https://github.com/apache/airflow/>
 - **Documentation**: <https://airflow.apache.org/docs/>
-- **Maintainer**: ???
+- **Maintainer**: [Apache Foundation](https://www.apache.org/)
 - **Maintenance status**: Active
 
 ## Getting Started
@@ -19,11 +19,10 @@ If you haven't already, follow the [Getting Started guide](https://docs.meltano.
 
 1. [Install Meltano](https://docs.meltano.com/getting-started.html#install-meltano)
 1. [Create your Meltano project](https://docs.meltano.com/getting-started.html#create-your-meltano-project)
-1. Load data into your warehouse by following the rest of the [Getting Started guide](https://docs.meltano.com/getting-started.html).
 
 ### Installation and configuration
 
-1. Add the `airflow` orchestrator to your project using [`meltano add`](https://docs.meltano.com/command-line-interface.html#add):
+1. Add the `Airflow` orchestrator to your project using [`meltano add`](https://docs.meltano.com/command-line-interface.html#add):
 
     ```bash
     meltano add orchestrator airflow
@@ -33,6 +32,7 @@ If you haven't already, follow the [Getting Started guide](https://docs.meltano.
 
 ### Next steps
 
-1. ???
+1. Use the [`meltano schedule`](https://docs.meltano.com/reference/command-line-interface#schedule) command to create pipeline schedules in your project, to be run by Airflow.
+1. Start Scheduler and Webserver or execute Airflow commands directly using the instructions in [the Meltano docs](https://docs.meltano.com/guide/orchestration#starting-the-airflow-scheduler).
 
-If you run into any issues, [learn how to get help](https://docs.meltano.com/getting-help.html).
+If you run into any issues, chat with us in [#troubleshooting](https://meltano.slack.com/archives/C01TCRBBJD7) on [Slack](https://meltano.com/slack).
