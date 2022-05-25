@@ -24,9 +24,9 @@ variants:
   - catalog
   - discover
 - default: true
-  maintenance_status: inactive
+  maintenance_status: active
   name: wintersrd
-  pip_url: git+https://github.com/wintersrd/pipelinewise-tap-mssql.git
+  pip_url: tap-mssql
   repo: https://github.com/wintersrd/pipelinewise-tap-mssql
   settings_group_validation:
   - ["host", "database", "user", "password"]
@@ -50,6 +50,9 @@ variants:
   - name: port
     label: Port
     description: The MSSQL port, defaulted to 1433.
+  - name: tds_version
+    label: tds_version
+    description: The TDS version of the connection. Defaults to 8.0, connecting to older databases (ex MS SQL 2005) requires 7.0 or earlier
   capabilities:
   - catalog
   - discover

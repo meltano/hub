@@ -35,7 +35,7 @@ If you haven't already, follow the [Getting Started guide](https://docs.meltano.
 
 1. [Transform loaded data for analysis](https://docs.meltano.com/getting-started.html#transform-loaded-data-for-analysis)
 
-If you run into any issues, [learn how to get help](https://docs.meltano.com/getting-help.html).
+If you run into any issues, chat with us in [#troubleshooting](https://meltano.slack.com/archives/C01TCRBBJD7) on [Slack](https://meltano.com/slack).
 
 ## Settings
 

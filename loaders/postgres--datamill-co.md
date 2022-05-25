@@ -66,9 +66,8 @@ Follow the remaining step of the [Getting Started guide](https://docs.meltano.co
 
 1. [Run a data integration (EL) pipeline](https://docs.meltano.com/getting-started.html#run-a-data-integration-el-pipeline)
 
-If you run into any issues, refer to the ["Troubleshooting" section](#troubleshooting) below or [learn how to get help](https://docs.meltano.com/getting-help.html).
+If you run into any issues, refer to the ["Troubleshooting" section](#troubleshooting) below or chat with us in [#troubleshooting](https://meltano.slack.com/archives/C01TCRBBJD7) on [Slack](https://meltano.com/slack).
 
-## Settings
 
 `target-postgres` requires the [configuration](https://docs.meltano.com/configuration.html) of the following settings:
 
