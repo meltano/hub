@@ -7,7 +7,7 @@
     include header.html %} {% endif %}
 
     <div class="page-content">
-      <div class="wrapper">{{ content }}</div>
+      <div class="wrapper">{% include anchor_headings.html html=content anchorBody="#" %}</div>
     </div>
 
     {% include footer.html %}
