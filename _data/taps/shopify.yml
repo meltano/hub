@@ -36,11 +36,11 @@ variants:
   - - access_token
     - store
   capabilities:
-  - stream-maps
   - about
   - catalog
   - discover
   - state
+  - stream-maps
   settings:
   - name: access_token
     label: Access Token
