@@ -28,10 +28,16 @@ variants:
   maintenance_status: active
   pip_url: git+https://github.com/Matatika/tap-google-sheets.git
   repo: https://github.com/Matatika/tap-google-sheets
+  settings_group_validation:
+  - - oauth_credentials.client_id
+    - oauth_credentials.client_secret
+    - oauth_credentials.refresh_token
+    - sheet_id
   capabilities:
   - about
   - catalog
   - discover
+  - stream-maps
   settings:
   - name: oauth_credentials.client_id
     label: Client ID
