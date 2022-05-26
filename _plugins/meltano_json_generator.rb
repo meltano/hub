@@ -10,7 +10,8 @@ class MeltanoJsonGenerator < Jekyll::Generator
       'mappers',
       'orchestrators',
       'transformers',
-      'utilities'
+      'utilities',
+      'transforms'
     ]
     # Deep copy site data for API purposes
     meltano_data = Marshal.load(Marshal.dump(site.data["meltano"]))
@@ -48,7 +49,10 @@ class MeltanoJsonGenerator < Jekyll::Generator
       "update",
       "dialect",
       "target_schema",
-      "mappings"
+      "mappings",
+      "requires",
+      "vars",
+      "package_name"
     ]
     plugin_variant_def.each do |key, value|
       if !accepted_list.include? key
