@@ -11,7 +11,8 @@
         "mappers",
         "orchestrators",
         "transformers",
-        "utilities"
+        "utilities",
+        "transforms"
     ],
     "additionalProperties": false,
     "properties": {
@@ -34,6 +35,9 @@
             "$ref": "plugin_type_index.schema.json"
         },
         "utilities": {
+            "$ref": "plugin_type_index.schema.json"
+        },
+        "transforms": {
             "$ref": "plugin_type_index.schema.json"
         }
     }
