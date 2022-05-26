@@ -32,7 +32,11 @@ variants:
   maintenance_status: active
   pip_url: git+https://github.com/Matatika/tap-shopify.git
   repo: https://github.com/Matatika/tap-shopify
+  settings_group_validation:
+  - - access_token
+    - store
   capabilities:
+  - stream-maps
   - about
   - catalog
   - discover
