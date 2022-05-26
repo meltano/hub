@@ -1,0 +1,173 @@
+---
+layout: default
+header: api-docs
+permalink: /api-docs/
+title: MeltanoHub Discovery API
+description: API Resources for Meltano and Singer
+---
+
+<h1 style="text-align: center">MeltanoHub Discovery API</h1>
+
+<p>
+  The MeltanoHub API allows programmatic discovery of all Meltano plugins on the Hub,
+  including hundreds of Singer taps and targets.
+</p>
+
+<ul class="button-grid three-columns">
+  <li>
+    <a href="/meltano/api/v1/plugins/index">
+      <strong
+        >Extractors <small>{{site.data.meltano.extractors.size}}</small></strong
+      >
+      <p>
+        API endpoint with all MeltanoHub plugins, listed by type
+      </p>
+    </a>
+    <a href="/meltano/api/v1/extractors/index">
+      <strong
+        >Extractors <small>{{site.data.meltano.extractors.size}}</small></strong
+      >
+      <p>
+        API endpoint with all Singer taps (extractors) on MeltanoHub
+      </p>
+    </a>
+  </li>
+  <li>
+    <a href="/meltano/api/v1/loaders/index">
+      <strong>Loaders <small>{{site.data.meltano.loaders.size}}</small></strong>
+      <p>
+        API endpoint with all Singer targets (loaders) on MeltanoHub
+      </p>
+    </a>
+  </li>
+  <li>
+    <a href="/meltano/api/v1/transformers/index">
+      <strong>Transformers <small>{{site.data.meltano.transformers.size}}</small></strong>
+      <p>
+        API endpoint with all transformer plugins on MeltanoHub
+      </p>
+    </a>
+  </li>
+  <li>
+    <a href="/meltano/api/v1/orchestrators/index">
+      <strong>Orchestrators<small>{{site.data.meltano.orchestrators.size}}</small></strong>
+      <p>
+        API endpoint with all orchestrator plugins on MeltanoHub
+      </p>
+    </a>
+  </li>
+  <li>
+    <a href="/meltano/api/v1/utilities/index">
+      <strong>Utilities<small>{{site.data.meltano.utilities.size}}</small></strong>
+      <p>
+        API endpoint with all utilities plugins on MeltanoHub
+      </p>
+    </a>
+  </li>
+  <li>
+    <a href="/meltano/api/v1/files/index">
+      <strong>Files<small>{{site.data.meltano.files.size}}</small></strong>
+      <p>
+        API endpoint with all files plugins on MeltanoHub
+      </p>
+    </a>
+  </li>
+</ul>
+
+
+<h1 style="text-align: center">MeltanoHub JSON Schemas</h1>
+
+<p>
+  These JSON Schemas can be used for MeltanoHub API validation and parsing.
+</p>
+
+<ul class="button-grid three-columns">
+  <li>
+    <a href="/schemas/base_setting.schema.json">
+      <strong>Base Settings</strong>
+      <p>
+        JSON Schema for setting plugin definitions.
+      </p>
+    </a>
+  </li>
+  <li>
+    <a href="/schemas/common.schema.json">
+      <strong>Common</strong>
+      <p>
+        Common definitions.
+      </p>
+    </a>
+  </li>
+  <li>
+    <a href="/schemas/extractors.schema.json">
+      <strong>Extractors</strong>
+      <p>
+        JSON Schema for extractor plugin definitions.
+      </p>
+    </a>
+  </li>
+  <li>
+    <a href="/schemas/loaders.schema.json">
+      <strong>Loaders</strong>
+      <p>
+        JSON Schema for loader plugin definitions.
+      </p>
+    </a>
+  </li>
+  <li>
+    <a href="/schemas/mappers.schema.json">
+      <strong>Mappers</strong>
+      <p>
+        JSON Schema for mapper plugin definitions.
+      </p>
+    </a>
+  </li>
+  <li>
+    <a href="/schemas/transformers.schema.json">
+      <strong>Transformers</strong>
+      <p>
+        JSON Schema for transformer plugin definitions.
+      </p>
+    </a>
+  </li>
+  <li>
+    <a href="/schemas/utilities.schema.json">
+      <strong>Utilities</strong>
+      <p>
+        JSON Schema for utility plugin definitions.
+      </p>
+    </a>
+  </li>
+  <li>
+    <a href="/schemas/orchestrators.schema.json">
+      <strong>Orchestrators</strong>
+      <p>
+        JSON Schema for orchestrator definitions.
+      </p>
+    </a>
+  </li>
+  <li>
+    <a href="/schemas/files.schema.json">
+      <strong>Files</strong>
+      <p>
+        JSON Schema for files plugin definitions.
+      </p>
+    </a>
+  </li>
+  <li>
+    <a href="/schemas/plugin_type_index.schema.json">
+      <strong>Plugin Type Index</strong>
+      <p>
+        JSON Schema for the plugin type index.
+      </p>
+    </a>
+  </li>
+  <li>
+    <a href="/schemas/plugins_index.schema.json">
+      <strong>Plugins Index</strong>
+      <p>
+        JSON Schema for the plugin index.
+      </p>
+    </a>
+  </li>
+</ul>
