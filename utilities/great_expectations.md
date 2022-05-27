@@ -25,7 +25,7 @@ If you haven't already, follow the [Getting Started guide](https://docs.meltano.
 1. Add the `great-expectations` utility to your project using [`meltano add`](https://docs.meltano.com/command-line-interface.html#add):
 
     ```bash
-    meltano add utility great-expectations
+    meltano add utility great_expectations
     ```
 
 1. Configure the [settings](#settings) below using [`meltano config`](https://docs.meltano.com/command-line-interface.html#config).
