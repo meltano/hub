@@ -5,6 +5,10 @@ docs: https://docs.meltano.com/guide/transformation
 repo: https://github.com/dbt-labs/dbt-core
 pip_url: dbt-core~=1.0.0 dbt-snowflake~=1.0.0
 variant: dbt-labs
+requires:
+  files:
+  - name: files-dbt-snowflake
+    variant: meltanolabs
 settings:
 - name: project_dir
   value: $MELTANO_PROJECT_ROOT/transform
