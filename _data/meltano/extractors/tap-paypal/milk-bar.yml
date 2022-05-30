@@ -1,0 +1,16 @@
+description: Online Payments System
+label: PayPal
+name: tap-paypal
+logo_url: https://hub.meltano.com/assets/logos/taps/paypal.png
+namespace: tap_paypal
+variant: milk-bar
+pip_url: git+https://github.com/milk-bar/tap-paypal.git
+repo: https://github.com/milk-bar/tap-paypal
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://www.paypal.com/us/home
+maintenance_status: unknown
+keywords:
+- api

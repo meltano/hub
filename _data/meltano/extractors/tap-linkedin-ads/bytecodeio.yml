@@ -1,0 +1,16 @@
+description: LinkedIn Ad Platform
+label: LinkedIn Ads
+name: tap-linkedin-ads
+logo_url: https://hub.meltano.com/assets/logos/taps/linkedin-ads.png
+namespace: tap_linkedin_ads
+variant: bytecodeio
+pip_url: git+https://github.com/bytecodeio/tap-linkedin-ads.git
+repo: https://github.com/bytecodeio/tap-linkedin-ads
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://docs.microsoft.com/en-us/linkedin/marketing/
+maintenance_status: unknown
+keywords:
+- api

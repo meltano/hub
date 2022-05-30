@@ -1,0 +1,16 @@
+description: Reservation and Guest Experience Platform
+label: SevenRooms
+name: tap-sevenrooms
+logo_url: https://hub.meltano.com/assets/logos/taps/sevenrooms.png
+namespace: tap_sevenrooms
+variant: uptilab2
+pip_url: git+https://github.com/uptilab2/tap-sevenrooms.git
+repo: https://github.com/uptilab2/tap-sevenrooms
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://api-docs.sevenrooms.com/_/login
+maintenance_status: unknown
+keywords:
+- api

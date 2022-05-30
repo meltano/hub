@@ -1,0 +1,16 @@
+description: Subscription Billing Platform
+label: Recurly
+name: tap-recurly
+logo_url: https://hub.meltano.com/assets/logos/taps/recurly.png
+namespace: tap_recurly
+variant: lambtron
+pip_url: git+https://github.com/lambtron/tap-recurly.git
+repo: https://github.com/lambtron/tap-recurly
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://recurly.com/
+maintenance_status: unknown
+keywords:
+- api

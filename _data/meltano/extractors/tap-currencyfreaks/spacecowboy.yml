@@ -1,0 +1,31 @@
+description: Exchange rates of 229 currencies worldwide
+label: CurrencyFreaks
+name: tap-currencyfreaks
+logo_url: https://hub.meltano.com/assets/logos/taps/currencyfreaks.png
+namespace: tap_currencyfreaks
+docs: https://hub.meltano.com/extractors/currencyfreaks
+variant: spacecowboy
+pip_url: git+https://gitlab.com/spacecowboy/tap-currencyfreaks.git
+repo: https://gitlab.com/spacecowboy/tap-currencyfreaks
+capabilities:
+- discover
+- catalog
+- state
+- about
+- stream-maps
+settings_group_validation:
+- - api_key
+settings:
+- name: api_key
+  label: API key
+  kind: password
+  documentation: https://currencyfreaks.com/documentation.html
+  description: The API key for your account.
+- name: symbols
+  label: Symbols
+  description: Optional list of currencies to fetch
+  documentation: https://currencyfreaks.com/documentation.html#SupportedCurrencies
+domain_url: https://currencyfreaks.com/documentation.html
+maintenance_status: active
+keywords:
+- api

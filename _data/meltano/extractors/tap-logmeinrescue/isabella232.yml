@@ -1,0 +1,16 @@
+description: Remote Support Software
+label: LogMeIn Rescue
+name: tap-logmeinrescue
+logo_url: https://hub.meltano.com/assets/logos/taps/logmeinrescue.png
+namespace: tap_logmeinrescue
+variant: isabella232
+pip_url: git+https://github.com/isabella232/tap-logmeinrescue.git
+repo: https://github.com/isabella232/tap-logmeinrescue
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://secure.logmeinrescue.com/welcome/webhelp/EN/RescueAPI/API/API_Rescue_Overview.html
+maintenance_status: unknown
+keywords:
+- api

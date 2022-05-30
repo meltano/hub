@@ -1,0 +1,16 @@
+description: Email Client
+label: GMail
+name: tap-gmail
+logo_url: https://hub.meltano.com/assets/logos/taps/gmail.png
+namespace: tap_gmail
+variant: mashey
+pip_url: git+https://github.com/Mashey/tap-gmail.git
+repo: https://github.com/Mashey/tap-gmail
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://www.google.com/gmail/about/
+maintenance_status: unknown
+keywords:
+- api

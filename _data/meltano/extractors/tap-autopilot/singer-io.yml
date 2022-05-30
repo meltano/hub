@@ -1,0 +1,16 @@
+description: Marketing Automation Software
+label: Autopilot
+name: tap-autopilot
+logo_url: https://hub.meltano.com/assets/logos/taps/autopilot.png
+namespace: tap_autopilot
+variant: singer-io
+pip_url: tap-autopilot
+repo: https://github.com/singer-io/tap-autopilot
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://autopilotapp.com/
+maintenance_status: unknown
+keywords:
+- api

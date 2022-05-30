@@ -1,0 +1,16 @@
+description: Time Tracking Software
+label: Nikabot
+name: tap-nikabot
+logo_url: https://hub.meltano.com/assets/logos/taps/nikabot.png
+namespace: tap_nikabot
+variant: phdesign
+pip_url: git+https://github.com/phdesign/tap-nikabot.git
+repo: https://github.com/phdesign/tap-nikabot
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://api.nikabot.com/swagger-ui.html#/
+maintenance_status: unknown
+keywords:
+- api

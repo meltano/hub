@@ -1,0 +1,16 @@
+description: B2B SaaS Billing Software
+label: Chargify
+name: tap-chargify
+logo_url: https://hub.meltano.com/assets/logos/taps/chargify.png
+namespace: tap_chargify
+variant: lambtron
+pip_url: git+https://github.com/lambtron/tap-chargify.git
+repo: https://github.com/lambtron/tap-chargify
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://reference.chargify.com/v1/basics/introduction
+maintenance_status: unknown
+keywords:
+- api

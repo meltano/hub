@@ -1,0 +1,16 @@
+description: Online Survey Tool
+label: SurveyMonkey
+name: tap-surveymonkey
+logo_url: https://hub.meltano.com/assets/logos/taps/surveymonkey.png
+namespace: tap_surveymonkey
+variant: horze-international
+pip_url: git+https://github.com/Horze-International/tap-surveymonkey.git
+repo: https://github.com/Horze-International/tap-surveymonkey
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://developer.surveymonkey.com/api/v3/
+maintenance_status: unknown
+keywords:
+- api

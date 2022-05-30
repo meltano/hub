@@ -1,0 +1,16 @@
+description: B2B Marketing Automation Software
+label: Pardot
+name: tap-pardot
+logo_url: https://hub.meltano.com/assets/logos/taps/pardot.png
+namespace: tap_pardot
+variant: singer-io
+pip_url: tap-pardot
+repo: https://github.com/singer-io/tap-pardot
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://www.pardot.com/
+maintenance_status: unknown
+keywords:
+- api

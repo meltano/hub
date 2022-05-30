@@ -1,0 +1,17 @@
+description: Serverless S3 Database
+label: Athena
+name: tap-athena
+logo_url: https://hub.meltano.com/assets/logos/taps/athena.png
+namespace: tap_athena
+variant: meltanolabs
+repo: https://github.com/MeltanoLabs/tap-athena
+pip_url: git+https://github.com/MeltanoLabs/tap-athena.git
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://aws.amazon.com/athena/
+maintenance_status: active
+keywords:
+- file
+- meltano_sdk

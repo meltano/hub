@@ -1,0 +1,16 @@
+description: Billing and Revenue Automation Platform
+label: Ordway
+name: tap-ordway
+logo_url: https://hub.meltano.com/assets/logos/taps/ordway.png
+namespace: tap_ordway
+variant: mubarakrocky
+pip_url: git+https://github.com/mubarakrocky/tap-ordway.git
+repo: https://github.com/mubarakrocky/tap-ordway
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://www.ordwaylabs.com/
+maintenance_status: unknown
+keywords:
+- api

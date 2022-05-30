@@ -1,0 +1,16 @@
+description: Authentication and Authorization Platform
+label: Auth0
+name: tap-auth0
+logo_url: https://hub.meltano.com/assets/logos/taps/auth0.png
+namespace: tap_auth0
+variant: process-street
+pip_url: git+https://github.com/process-street/tap-auth0-logs-checkpoint.git
+repo: https://github.com/process-street/tap-auth0-logs-checkpoint
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://auth0.com/
+maintenance_status: unknown
+keywords:
+- api

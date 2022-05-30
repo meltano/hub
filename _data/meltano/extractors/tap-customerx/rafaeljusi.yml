@@ -1,0 +1,16 @@
+description: Customer Success Software
+label: CustomerX
+name: tap-customerx
+logo_url: https://hub.meltano.com/assets/logos/taps/customerx.png
+namespace: tap_customerx
+variant: rafaeljusi
+pip_url: git+https://github.com/rafaeljusi/tap-customerx.git
+repo: https://github.com/rafaeljusi/tap-customerx
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://doc.api.customerx.com.br/?version=latest
+maintenance_status: unknown
+keywords:
+- api

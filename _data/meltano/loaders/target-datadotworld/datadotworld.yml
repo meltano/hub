@@ -1,0 +1,13 @@
+description: Cloud Data Catalog
+label: Data.world
+name: target-datadotworld
+logo_url: https://hub.meltano.com/assets/logos/targets/datadotworld.png
+namespace: target_datadotworld
+variant: datadotworld
+pip_url: git+https://github.com/datadotworld/target-datadotworld.git
+repo: https://github.com/datadotworld/target-datadotworld
+settings: []
+domain_url: https://apidocs.data.world/toolkit/api
+maintenance_status: unknown
+keywords:
+- api

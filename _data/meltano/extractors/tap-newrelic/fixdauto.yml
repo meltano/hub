@@ -1,0 +1,17 @@
+description: Software Obseravibility
+label: New Relic
+name: tap-newrelic
+logo_url: https://hub.meltano.com/assets/logos/taps/newrelic.png
+namespace: tap_newrelic
+variant: fixdauto
+pip_url: git+https://github.com/fixdauto/tap-newrelic.git
+repo: https://github.com/fixdauto/tap-newrelic
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://docs.newrelic.com/docs/apis/nerdgraph/get-started/introduction-new-relic-nerdgraph/
+maintenance_status: unknown
+keywords:
+- api
+- meltano_sdk

@@ -1,0 +1,30 @@
+description: Sales CRM Software & All-in-One Sales Platform
+label: Zendesk Sell
+name: tap-zendesk-sell
+logo_url: https://hub.meltano.com/assets/logos/taps/zendesk-sell.png
+namespace: tap_zendesk_sell
+variant: leag
+pip_url: git+https://github.com/leag/tap-zendesk-sell.git
+repo: https://github.com/leag/tap-zendesk-sell
+capabilities:
+- catalog
+- discover
+- state
+- about
+- stream-maps
+settings_group_validation:
+- - access_token
+  - device_uuid
+settings:
+- name: access_token
+  label: Access Token
+  kind: password
+  description: Token to authenticate against the API service
+- name: device_uuid
+  label: Device UUID
+  description: The device's universally unique identifier (UUID)
+domain_url: https://developers.getbase.com/
+maintenance_status: active
+keywords:
+- api
+- meltano_sdk

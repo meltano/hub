@@ -1,0 +1,16 @@
+description: Enterprise Management Software
+label: Workday
+name: tap-workday-raas
+logo_url: https://hub.meltano.com/assets/logos/taps/workday-raas.png
+namespace: tap_workday_raas
+variant: singer-io
+pip_url: tap-workday-raas
+repo: https://github.com/singer-io/tap-workday-raas
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://community.workday.com/api
+maintenance_status: unknown
+keywords:
+- api

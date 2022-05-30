@@ -1,0 +1,16 @@
+description: Ecommerce Platform
+label: BigCommerce
+name: tap-bigcommerce
+logo_url: https://hub.meltano.com/assets/logos/taps/bigcommerce.png
+namespace: tap_bigcommerce
+variant: singer-io
+pip_url: tap-bigcommerce
+repo: https://github.com/singer-io/tap-bigcommerce
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://www.bigcommerce.com/
+maintenance_status: unknown
+keywords:
+- api

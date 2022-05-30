@@ -1,0 +1,33 @@
+name: tap-csv
+label: Comma Separated Values (CSV)
+description: Generic data extractor of CSV (comma separated value) files
+namespace: tap_csv
+logo_url: https://hub.meltano.com/assets/logos/taps/csv.png
+variant: meltanolabs
+docs: https://hub.meltano.com/extractors/csv.html
+repo: https://github.com/MeltanoLabs/tap-csv
+pip_url: git+https://github.com/MeltanoLabs/tap-csv.git
+capabilities:
+- discover
+- catalog
+- state
+settings_group_validation:
+- - files
+- - csv_files_definition
+settings:
+- name: files
+  kind: array
+  description: Array of objects with `entity`, `path`, and `keys` keys
+- name: csv_files_definition
+  env_aliases:
+  - TAP_CSV_FILES_DEFINITION
+  label: CSV Files Definition
+  description: Project-relative path to JSON file holding array of objects with `entity`,
+    `path`, and `keys` keys
+  placeholder: Ex. files-def.json
+  documentation: https://github.com/MeltanoLabs/tap-csv#settings
+domain_url: https://en.wikipedia.org/wiki/Comma-separated_values
+maintenance_status: active
+keywords:
+- file
+- meltano_sdk

@@ -1,0 +1,16 @@
+description: Portfolio Monitoring Software
+label: iLevel Portfolio Monitoring Software
+name: tap-ilevel
+logo_url: https://hub.meltano.com/assets/logos/taps/ilevel.png
+namespace: tap_ilevel
+variant: singer-io
+pip_url: tap-ilevel
+repo: https://github.com/singer-io/tap-ilevel
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://ihsmarkit.com/products/ilevel.html
+maintenance_status: unknown
+keywords:
+- api

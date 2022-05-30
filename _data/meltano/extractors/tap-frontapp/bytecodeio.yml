@@ -1,0 +1,16 @@
+description: Customer Communication Platform
+label: FrontApp
+name: tap-frontapp
+logo_url: https://hub.meltano.com/assets/logos/taps/frontapp.png
+namespace: tap_frontapp
+variant: bytecodeio
+pip_url: git+https://github.com/bytecodeio/tap-frontapp.git
+repo: https://github.com/bytecodeio/tap-frontapp
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://frontapp.com/
+maintenance_status: unknown
+keywords:
+- api

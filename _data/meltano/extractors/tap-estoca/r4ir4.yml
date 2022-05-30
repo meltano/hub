@@ -1,0 +1,16 @@
+description: E-Commerce Logistics Platform
+label: Estoca
+name: tap-estoca
+logo_url: https://hub.meltano.com/assets/logos/taps/estoca.png
+namespace: tap_estoca
+variant: r4ir4
+pip_url: git+https://github.com/r4ir4/tap-estoca.git
+repo: https://github.com/r4ir4/tap-estoca
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://estoca.com.br/
+maintenance_status: unknown
+keywords:
+- api

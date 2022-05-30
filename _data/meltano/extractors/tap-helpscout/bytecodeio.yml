@@ -1,0 +1,16 @@
+description: Customer Service Software
+label: Helpscout
+name: tap-helpscout
+logo_url: https://hub.meltano.com/assets/logos/taps/helpscout.png
+namespace: tap_helpscout
+variant: bytecodeio
+pip_url: git+https://github.com/bytecodeio/tap-helpscout.git
+repo: https://github.com/bytecodeio/tap-helpscout
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://developer.helpscout.com/mailbox-api/
+maintenance_status: unknown
+keywords:
+- api

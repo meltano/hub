@@ -1,0 +1,16 @@
+description: Business Communication Platform
+label: Microsoft Teams
+name: tap-ms-teams
+logo_url: https://hub.meltano.com/assets/logos/taps/ms-teams.png
+namespace: tap_ms_teams
+variant: bytecodeio
+pip_url: git+https://github.com/bytecodeio/tap-ms-teams.git
+repo: https://github.com/bytecodeio/tap-ms-teams
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://docs.microsoft.com/en-us/graph/
+maintenance_status: unknown
+keywords:
+- api

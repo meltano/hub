@@ -1,0 +1,16 @@
+description: Video Streaming Platform
+label: YouTube Analytics
+name: tap-youtube-analytics
+logo_url: https://hub.meltano.com/assets/logos/taps/youtube-analytics.png
+namespace: tap_youtube_analytics
+variant: bytecodeio
+pip_url: git+https://github.com/bytecodeio/tap-youtube-analytics.git
+repo: https://github.com/bytecodeio/tap-youtube-analytics
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://developers.google.com/youtube/
+maintenance_status: unknown
+keywords:
+- api

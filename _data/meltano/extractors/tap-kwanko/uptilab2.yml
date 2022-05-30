@@ -1,0 +1,16 @@
+description: Performance Marketing Platform
+label: Kwanko
+name: tap-kwanko
+logo_url: https://hub.meltano.com/assets/logos/taps/kwanko.png
+namespace: tap_kwanko
+variant: uptilab2
+pip_url: git+https://github.com/uptilab2/tap-kwanko.git
+repo: https://github.com/uptilab2/tap-kwanko
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://platform.kwanko.com/
+maintenance_status: unknown
+keywords:
+- api

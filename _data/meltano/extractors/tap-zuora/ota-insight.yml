@@ -1,0 +1,16 @@
+description: Subscription Management Platform
+label: Zuora
+name: tap-zuora
+logo_url: https://hub.meltano.com/assets/logos/taps/zuora.png
+namespace: tap_zuora
+variant: ota-insight
+pip_url: git+https://github.com/OTA-Insight/tap-zuora.git
+repo: https://github.com/OTA-Insight/tap-zuora
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://www.zuora.com/
+maintenance_status: unknown
+keywords:
+- api

@@ -1,0 +1,16 @@
+description: Digital Marketing Platform
+label: Listrak
+name: tap-listrak
+logo_url: https://hub.meltano.com/assets/logos/taps/listrak.png
+namespace: tap_listrak
+variant: singer-io
+pip_url: tap-listrak
+repo: https://github.com/singer-io/tap-listrak
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://webservices.listrak.com/SoapWSDL.aspx
+maintenance_status: unknown
+keywords:
+- api

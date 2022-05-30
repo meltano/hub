@@ -1,0 +1,16 @@
+description: Public Holiday and Observance API
+label: Holiday API
+name: tap-holidays
+logo_url: https://hub.meltano.com/assets/logos/taps/holidays.png
+namespace: tap_holidays
+variant: goodeggs
+pip_url: git+https://github.com/goodeggs/tap-holidays.git
+repo: https://github.com/goodeggs/tap-holidays
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://holidayapi.com/docs
+maintenance_status: unknown
+keywords:
+- api

@@ -1,0 +1,16 @@
+description: SaaS Metrics and Analytics Platform
+label: SaasOptics
+name: tap-saasoptics
+logo_url: https://hub.meltano.com/assets/logos/taps/saasoptics.png
+namespace: tap_saasoptics
+variant: singer-io
+pip_url: tap-saasoptics
+repo: https://github.com/singer-io/tap-saasoptics
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://saasoptics.com/
+maintenance_status: unknown
+keywords:
+- api

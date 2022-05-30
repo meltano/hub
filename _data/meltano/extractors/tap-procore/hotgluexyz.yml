@@ -1,0 +1,17 @@
+description: Construction Management Software
+label: Procore
+name: tap-procore
+logo_url: https://hub.meltano.com/assets/logos/taps/procore.png
+namespace: tap_procore
+variant: hotgluexyz
+pip_url: git+https://github.com/hotgluexyz/tap-procore.git
+repo: https://github.com/hotgluexyz/tap-procore
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://www.procore.com/
+maintenance_status: unknown
+keywords:
+- api
+- meltano_sdk

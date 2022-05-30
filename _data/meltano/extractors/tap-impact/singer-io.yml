@@ -1,0 +1,16 @@
+description: Partnership Automation Software
+label: Impact
+name: tap-impact
+logo_url: https://hub.meltano.com/assets/logos/taps/impact.png
+namespace: tap_impact
+variant: singer-io
+pip_url: tap-impact
+repo: https://github.com/singer-io/tap-impact
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://developer.impact.com/default
+maintenance_status: unknown
+keywords:
+- api

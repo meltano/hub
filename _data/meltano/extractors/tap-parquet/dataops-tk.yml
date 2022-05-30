@@ -1,0 +1,17 @@
+description: Columnar Storage Format
+label: Parquet
+name: tap-parquet
+logo_url: https://hub.meltano.com/assets/logos/taps/parquet.png
+namespace: tap_parquet
+variant: dataops-tk
+pip_url: git+https://github.com/dataops-tk/tap-parquet.git
+repo: https://github.com/dataops-tk/tap-parquet
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://parquet.apache.org/
+maintenance_status: unknown
+keywords:
+- file
+- meltano_sdk

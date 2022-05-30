@@ -1,0 +1,16 @@
+description: SaaS Incident Response Platform
+label: PagerDuty
+name: tap-pagerduty
+logo_url: https://hub.meltano.com/assets/logos/taps/pagerduty.png
+namespace: tap_pagerduty
+variant: jacksonh
+pip_url: git+https://github.com/jacksonh/tap-pagerduty.git
+repo: https://github.com/jacksonh/tap-pagerduty
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://developer.pagerduty.com/docs/rest-api-v2/rest-api/
+maintenance_status: unknown
+keywords:
+- api

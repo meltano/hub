@@ -1,0 +1,16 @@
+description: POS System & Credit Card Readers
+label: Clover
+name: tap-clover
+logo_url: https://hub.meltano.com/assets/logos/taps/clover.png
+namespace: tap_clover
+variant: kalai-wavicle
+pip_url: git+https://github.com/Kalai-Wavicle/tap-clover.git
+repo: https://github.com/Kalai-Wavicle/tap-clover
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://docs.clover.com/docs/making-rest-api-calls
+maintenance_status: unknown
+keywords:
+- api

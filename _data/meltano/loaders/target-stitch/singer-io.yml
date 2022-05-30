@@ -1,0 +1,13 @@
+description: Extract and Load Platform
+label: Stitch
+name: target-stitch
+logo_url: https://hub.meltano.com/assets/logos/targets/stitch.png
+namespace: target_stitch
+variant: singer-io
+pip_url: target-stitch
+repo: https://github.com/singer-io/target-stitch
+settings: []
+domain_url: https://www.stitchdata.com/docs/developers/import-api/
+maintenance_status: unknown
+keywords:
+- api

@@ -1,0 +1,16 @@
+description: Customer Experience Management Platform
+label: Clarabridge
+name: tap-clarabridge
+logo_url: https://hub.meltano.com/assets/logos/taps/clarabridge.png
+namespace: tap_clarabridge
+variant: pathlight
+pip_url: git+https://github.com/Pathlight/tap-clarabridge.git
+repo: https://github.com/Pathlight/tap-clarabridge
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://www.programmableweb.com/api/clarabridge
+maintenance_status: unknown
+keywords:
+- api

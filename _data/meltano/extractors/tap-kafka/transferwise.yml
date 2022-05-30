@@ -1,0 +1,98 @@
+description: Open-source distributed event streaming platform
+label: Apache Kafka
+name: tap-kafka
+logo_url: https://hub.meltano.com/assets/logos/taps/kafka.png
+namespace: tap_kafka
+variant: transferwise
+pip_url: pipelinewise-tap-kafka
+repo: https://github.com/transferwise/pipelinewise-tap-kafka
+settings_group_validation:
+- - topic
+  - group_id
+  - bootstrap_servers
+settings:
+- name: topic
+  label: Topic
+  description: Name of kafka topics to subscribe to
+- name: group_id
+  label: Group ID
+  description: The name of the consumer group to join for dynamic partition assignment
+    (if enabled), and to use for fetching and committing offsets.
+- name: bootstrap_servers
+  label: Bootstrap Servers
+  description: host[:port] string (or list of comma separated host[:port] strings)
+    that the consumer should contact to bootstrap initial cluster metadata.
+- name: primary_keys
+  kind: object
+  label: Primary Keys
+  description: Optionally you can define primary key for the consumed messages. It
+    requires a column name and /slashed/paths ala xpath selector to extract the value
+    from the kafka messages. The extracted column will be added to every output singer
+    message.
+- name: use_message_key
+  kind: boolean
+  label: Use Message Key
+  description: (Default true) Defines whether to use Kafka message key as a primary
+    key for the record. Note - custom primary key(s) takes precedence if such defined
+    and use_message_key is set to true.
+- name: initial_start_time
+  label: Initial Start Time
+  description: (Default latest) Start time reference of the message consumption if
+    no bookmarked position in state.sjon. One of - latest, earliest or an ISO-8601
+    formatted timestamp string.
+- name: max_runtime_ms
+  kind: integer
+  label: Max Runtime (ms)
+  description: (Default 300000) The maximum time for the tap to collect new messages
+    from Kafka topic. If this time exceeds it will flush the batch and close kafka
+    connection.
+- name: commit_interval_ms
+  kind: integer
+  label: Commit Internal (ms)
+  description: (Default 5000) Number of milliseconds between two commits. This is
+    different than the kafka auto commit feature. Tap-kafka sends commit messages
+    automatically but only when the data consumed successfully and persisted to local
+    store.
+- name: consumer_timeout_ms
+  kind: integer
+  label: Consumer Timeout (ms)
+  description: (Default 10000) KafkaConsumer setting. Number of milliseconds to block
+    during message iteration before raising StopIteration
+- name: session_timeout_ms
+  kind: integer
+  label: Session Timeout (ms)
+  description: (Default 30000) KafkaConsumer setting. The timeout used to detect failures
+    when using Kafka’s group management facilities.
+- name: heartbeat_interval_ms
+  kind: integer
+  label: Heartbeat Interval (ms)
+  description: (Default 10000) KafkaConsumer setting. The expected time in milliseconds
+    between heartbeats to the consumer coordinator when using Kafka’s group management
+    facilities.
+- name: max_poll_records
+  kind: integer
+  label: Max Poll Records
+  description: (Default 500) KafkaConsumer setting. Maximum number of records to poll.
+- name: max_poll_interval_ms
+  kind: integer
+  label: Max Poll Interval (ms)
+  description: (Default 300000) KafkaConsumer setting. The maximum delay between invocations
+    of poll() when using consumer group management.
+- name: message_format
+  label: Message Format
+  description: (Default json) Supported message formats are json and protobuf.
+- name: proto_schema
+  label: Protobuf Schema
+  description: Protobuf message format in .proto syntax. Required if the message_format
+    is protobuf.
+- name: proto_classes_dir
+  label: Protobuf Classes Directory
+  description: (Default current working dir)
+capabilities:
+- properties
+- discover
+- state
+domain_url: https://kafka.apache.org/
+maintenance_status: active
+keywords:
+- database

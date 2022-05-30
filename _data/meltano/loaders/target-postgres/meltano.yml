@@ -1,0 +1,72 @@
+name: target-postgres
+label: PostgreSQL
+description: PostgreSQL database loader
+namespace: target_postgres
+dialect: postgres
+target_schema: $TARGET_POSTGRES_SCHEMA
+logo_url: https://hub.meltano.com/assets/logos/targets/postgres.png
+variant: meltano
+docs: https://hub.meltano.com/loaders/postgres--meltano.html
+repo: https://github.com/meltano/target-postgres
+pip_url: git+https://github.com/meltano/target-postgres.git
+settings_group_validation:
+- - url
+  - schema
+- - user
+  - password
+  - host
+  - port
+  - dbname
+  - schema
+settings:
+- name: user
+  aliases:
+  - username
+  env_aliases:
+  - PG_USERNAME
+  - POSTGRES_USER
+  value: warehouse
+- name: password
+  kind: password
+  env_aliases:
+  - PG_PASSWORD
+  - POSTGRES_PASSWORD
+  value: warehouse
+- name: host
+  aliases:
+  - address
+  env_aliases:
+  - PG_ADDRESS
+  - POSTGRES_HOST
+  value: localhost
+- name: port
+  kind: integer
+  env_aliases:
+  - PG_PORT
+  - POSTGRES_PORT
+  value: 5502
+- name: dbname
+  aliases:
+  - database
+  label: Database Name
+  env_aliases:
+  - PG_DATABASE
+  - POSTGRES_DBNAME
+  value: warehouse
+- name: url
+  env_aliases:
+  - PG_URL
+  - POSTGRES_URL
+  label: URL
+  description: Lets you set `user`, `password`, `host`, `port`, and `dbname` in one
+    go using a `postgresql://` URI. Takes precedence over the other settings when
+    set.
+- name: schema
+  env_aliases:
+  - PG_SCHEMA
+  - POSTGRES_SCHEMA
+  value: $MELTANO_EXTRACT__LOAD_SCHEMA
+domain_url: https://www.postgresql.org/
+maintenance_status: active
+keywords:
+- database

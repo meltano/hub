@@ -1,0 +1,16 @@
+description: Customer Relationship Management Software
+label: webCRM
+name: tap-webcrm
+logo_url: https://hub.meltano.com/assets/logos/taps/webcrm.png
+namespace: tap_webcrm
+variant: dreamdata-io
+pip_url: git+https://github.com/dreamdata-io/tap-webcrm.git
+repo: https://github.com/dreamdata-io/tap-webcrm
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://webcrm.com/
+maintenance_status: unknown
+keywords:
+- api

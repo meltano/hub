@@ -1,0 +1,29 @@
+name: tap-marketo
+label: Marketo
+description: Marketing automation for account-based marketing
+namespace: tap_marketo
+logo_url: https://hub.meltano.com/assets/logos/taps/marketo.png
+variant: meltano
+hidden: true
+repo: https://gitlab.com/meltano/tap-marketo
+pip_url: git+https://gitlab.com/meltano/tap-marketo.git
+capabilities:
+- properties
+- discover
+- state
+settings:
+- name: endpoint
+- name: identity
+- name: client_id
+  label: Client ID
+- name: client_secret
+  kind: password
+- name: start_date
+  description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
+  kind: date_iso8601
+domain_url: https://developers.marketo.com/rest-api/
+maintenance_status: active
+keywords:
+- api

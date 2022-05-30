@@ -1,0 +1,13 @@
+description: Real-time Streaming Platform
+label: Kinesis
+name: target-kinesis
+logo_url: https://hub.meltano.com/assets/logos/targets/kinesis.png
+namespace: target_kinesis
+variant: aaimtt
+pip_url: git+https://github.com/aaimtt/target-kinesis.git
+repo: https://github.com/aaimtt/target-kinesis
+settings: []
+domain_url: https://aws.amazon.com/kinesis/
+maintenance_status: unknown
+keywords:
+- api

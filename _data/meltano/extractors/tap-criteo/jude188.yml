@@ -1,0 +1,16 @@
+description: Advertising Platform
+label: Criteo
+name: tap-criteo
+logo_url: https://hub.meltano.com/assets/logos/taps/criteo.png
+namespace: tap_criteo
+variant: jude188
+pip_url: git+https://github.com/Jude188/tap-criteo.git
+repo: https://github.com/Jude188/tap-criteo
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://www.criteo.com/
+maintenance_status: unknown
+keywords:
+- api

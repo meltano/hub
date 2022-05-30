@@ -1,0 +1,16 @@
+description: Financial and Merchant Services
+label: Square
+name: tap-square
+logo_url: https://hub.meltano.com/assets/logos/taps/square.png
+namespace: tap_square
+variant: kalai-wavicle
+pip_url: git+https://github.com/Kalai-Wavicle/tap-square.git
+repo: https://github.com/Kalai-Wavicle/tap-square
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://developer.squareup.com/us/en
+maintenance_status: unknown
+keywords:
+- api

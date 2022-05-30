@@ -1,0 +1,16 @@
+description: Enterprise Resource Planning Platform
+label: Fulfil
+name: tap-fulfil
+logo_url: https://hub.meltano.com/assets/logos/taps/fulfil.png
+namespace: tap_fulfil
+variant: fulfilio
+pip_url: git+https://github.com/fulfilio/tap-fulfil.git
+repo: https://github.com/fulfilio/tap-fulfil
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://www.fulfil.io/
+maintenance_status: unknown
+keywords:
+- api

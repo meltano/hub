@@ -1,0 +1,16 @@
+description: Kanban Tracking Software
+label: Kanbanize
+name: tap-kanbanize
+logo_url: https://hub.meltano.com/assets/logos/taps/kanbanize.png
+namespace: tap_kanbanize
+variant: ashalan
+pip_url: git+https://github.com/ashalan/tap-kanbanize.git
+repo: https://github.com/ashalan/tap-kanbanize
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://knowledgebase.kanbanize.com/hc/en-us/articles/360012393692-Kanbanize-REST-API-
+maintenance_status: unknown
+keywords:
+- api

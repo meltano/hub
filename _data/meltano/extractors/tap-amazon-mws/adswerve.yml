@@ -1,0 +1,16 @@
+description: Amazon API for Selling Automation
+label: Amazon MWS
+name: tap-amazon-mws
+logo_url: https://hub.meltano.com/assets/logos/taps/amazon-mws.png
+namespace: tap_amazon_mws
+variant: adswerve
+pip_url: git+https://github.com/adswerve/singer-tap-amazon-mws.git
+repo: https://github.com/adswerve/singer-tap-amazon-mws
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://developer.amazonservices.com/
+maintenance_status: unknown
+keywords:
+- api

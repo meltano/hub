@@ -1,0 +1,16 @@
+description: Email Marketing and Automation Tools
+label: Campaign Monitor
+name: tap-campaign-monitor
+logo_url: https://hub.meltano.com/assets/logos/taps/campaign-monitor.png
+namespace: tap_campaign_monitor
+variant: fishtown-analytics
+pip_url: git+https://github.com/fishtown-analytics/tap-campaign-monitor.git
+repo: https://github.com/fishtown-analytics/tap-campaign-monitor
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://www.campaignmonitor.com/
+maintenance_status: unknown
+keywords:
+- api

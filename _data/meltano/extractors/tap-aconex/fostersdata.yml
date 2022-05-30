@@ -1,0 +1,16 @@
+description: Construction Management Software
+label: Aconex
+name: tap-aconex
+logo_url: https://hub.meltano.com/assets/logos/taps/aconex.png
+namespace: tap_aconex
+variant: fostersdata
+pip_url: git+https://github.com/FostersData/tap-aconex.git
+repo: https://github.com/FostersData/tap-aconex
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://help.aconex.com/aconex/aconex-apis
+maintenance_status: unknown
+keywords:
+- api

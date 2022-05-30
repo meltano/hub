@@ -1,0 +1,13 @@
+description: Columnar Storage Format
+label: Parquet
+name: target-parquet
+logo_url: https://hub.meltano.com/assets/logos/targets/parquet.png
+namespace: target_parquet
+variant: mirelagrigoras
+pip_url: git+https://github.com/mirelagrigoras/target-parquet.git
+repo: https://github.com/mirelagrigoras/target-parquet
+settings: []
+domain_url: https://parquet.apache.org/
+maintenance_status: unknown
+keywords:
+- file

@@ -1,0 +1,13 @@
+description: Object Storage
+label: Azure Blob Storage
+name: target-azureblobstorage
+logo_url: https://hub.meltano.com/assets/logos/targets/azureblobstorage.png
+namespace: target_azureblobstorage
+variant: shrutikaponde-vc
+pip_url: git+https://github.com/shrutikaponde-vc/target-azureblobstorage.git
+repo: https://github.com/shrutikaponde-vc/target-azureblobstorage
+settings: []
+domain_url: https://azure.microsoft.com/en-us/services/storage/blobs/
+maintenance_status: unknown
+keywords:
+- file

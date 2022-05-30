@@ -1,0 +1,16 @@
+description: Fulfillment Automation
+label: Starshipit
+name: tap-starshipit
+logo_url: https://hub.meltano.com/assets/logos/taps/starshipit.png
+namespace: tap_starshipit
+variant: zookal
+pip_url: git+https://github.com/Zookal/tap-starshipit.git
+repo: https://github.com/Zookal/tap-starshipit
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://github.com/Zookal/tap-starshipit
+maintenance_status: unknown
+keywords:
+- api

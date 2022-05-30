@@ -1,0 +1,16 @@
+description: Agile Project Management for GitHub
+label: ZenHub
+name: singer-tap-zenhub
+logo_url: https://hub.meltano.com/assets/logos/taps/zenhub.png
+namespace: singer_tap_zenhub
+variant: chillu
+pip_url: git+https://github.com/chillu/singer-tap-zenhub.git
+repo: https://github.com/chillu/singer-tap-zenhub
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://github.com/ZenHubIO/API
+maintenance_status: unknown
+keywords:
+- api

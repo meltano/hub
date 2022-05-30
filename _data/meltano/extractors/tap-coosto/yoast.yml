@@ -1,0 +1,16 @@
+description: Social Media Management Platform
+label: Coosto
+name: tap-coosto
+logo_url: https://hub.meltano.com/assets/logos/taps/coosto.png
+namespace: tap_coosto
+variant: yoast
+pip_url: git+https://github.com/Yoast/singer-tap-coosto.git
+repo: https://github.com/Yoast/singer-tap-coosto
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://www.coosto.com/en
+maintenance_status: unknown
+keywords:
+- api

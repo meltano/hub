@@ -1,0 +1,43 @@
+description: Generic tap for RSS and Atom feeds
+label: Feed
+name: tap-feed
+logo_url: https://hub.meltano.com/assets/logos/taps/feed.png
+namespace: tap_feed
+variant: jawats
+pip_url: tap-feed
+repo: https://github.com/jawats/tap-feed
+capabilities:
+- catalog
+- discover
+- state
+settings:
+- name: feed_urls
+  kind: array
+  label: Feed Urls
+  description: A list of one or more feed paths.
+- name: feed_fields
+  kind: array
+  label: Feed Fields
+  description: A list of feed level data fields to capture.
+- name: feed_entry_fields
+  kind: array
+  label: Feed Entry Fields
+  description: A list of entry level data fields to capture.
+- name: feed_entry_replication_key
+  kind: string
+  label: Feed Entry Replication Key
+  description: The field used to determine new records, typically 'published' or 'updated'.
+- name: start_date
+  kind: date_iso8601
+  label: Start Date
+  description: The earliest record date to sync.
+settings_group_validation:
+- - feed_urls
+  - feed_fields
+  - feed_entry_fields
+  - feed_entry_replication_key
+domain_url: https://en.wikipedia.org/wiki/RSS
+maintenance_status: active
+keywords:
+- api
+- meltano_sdk

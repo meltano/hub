@@ -1,0 +1,16 @@
+description: Sales Engagement Platform
+label: Outreach
+name: tap-outreach
+logo_url: https://hub.meltano.com/assets/logos/taps/outreach.png
+namespace: tap_outreach
+variant: cmbramwell
+pip_url: git+https://github.com/cmbramwell/tap-outreach.git
+repo: https://github.com/cmbramwell/tap-outreach
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://api.outreach.io/api/v2/docs
+maintenance_status: unknown
+keywords:
+- api

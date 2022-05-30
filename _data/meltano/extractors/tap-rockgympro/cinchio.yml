@@ -1,0 +1,16 @@
+description: Member Management Software
+label: Rock Gym Pro
+name: tap-rockgympro
+logo_url: https://hub.meltano.com/assets/logos/taps/rockgympro.png
+namespace: tap_rockgympro
+variant: cinchio
+pip_url: git+https://github.com/cinchio/tap-rockgympro.git
+repo: https://github.com/cinchio/tap-rockgympro
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://api.rockgympro.com/
+maintenance_status: active
+keywords:
+- api

@@ -1,0 +1,16 @@
+description: NoSQL Database
+label: DynamoDB
+name: tap-dynamodb
+logo_url: https://hub.meltano.com/assets/logos/taps/dynamodb.png
+namespace: tap_dynamodb
+variant: jannikweichert
+pip_url: git+https://github.com/jannikweichert/tap-dynamodb.git
+repo: https://github.com/jannikweichert/tap-dynamodb
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://aws.amazon.com/dynamodb/
+maintenance_status: unknown
+keywords:
+- database

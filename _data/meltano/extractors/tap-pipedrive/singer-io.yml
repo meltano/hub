@@ -1,0 +1,16 @@
+description: Sales CRM and Pipeline Management Software
+label: Pipedrive
+name: tap-pipedrive
+logo_url: https://hub.meltano.com/assets/logos/taps/pipedrive.png
+namespace: tap_pipedrive
+variant: singer-io
+pip_url: tap-pipedrive
+repo: https://github.com/singer-io/tap-pipedrive
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://developers.pipedrive.com/docs/api/v1
+maintenance_status: unknown
+keywords:
+- api

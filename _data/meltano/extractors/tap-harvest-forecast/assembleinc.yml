@@ -1,0 +1,16 @@
+description: Time Tracking Software
+label: Harvest Forecast
+name: tap-harvest-forecast
+logo_url: https://hub.meltano.com/assets/logos/taps/harvest-forecast.png
+namespace: tap_harvest_forecast
+variant: assembleinc
+pip_url: git+https://github.com/assembleinc/tap-harvest-forecast.git
+repo: https://github.com/assembleinc/tap-harvest-forecast
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://help.getharvest.com/api-v2/
+maintenance_status: unknown
+keywords:
+- api

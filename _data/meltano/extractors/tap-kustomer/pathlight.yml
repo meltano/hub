@@ -1,0 +1,16 @@
+description: Customer Service CRM
+label: Kustomer
+name: tap-kustomer
+logo_url: https://hub.meltano.com/assets/logos/taps/kustomer.png
+namespace: tap_kustomer
+variant: pathlight
+pip_url: git+https://github.com/Pathlight/tap-kustomer.git
+repo: https://github.com/Pathlight/tap-kustomer
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://api.kustomerapp.com/
+maintenance_status: unknown
+keywords:
+- api

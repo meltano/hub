@@ -1,0 +1,16 @@
+description: Open-source distributed event streaming platform
+label: Apache Kafka
+name: tap-kafka
+logo_url: https://hub.meltano.com/assets/logos/taps/kafka.png
+namespace: tap_kafka
+variant: stvhanna
+pip_url: git+https://github.com/stvhanna/tap-kafka.git
+repo: https://github.com/stvhanna/tap-kafka
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://kafka.apache.org/
+maintenance_status: unknown
+keywords:
+- database

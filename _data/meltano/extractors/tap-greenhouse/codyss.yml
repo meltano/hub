@@ -1,0 +1,16 @@
+description: Recruiting Management Tool
+label: Greenhouse
+name: tap-greenhouse
+logo_url: https://hub.meltano.com/assets/logos/taps/greenhouse.png
+namespace: tap_greenhouse
+variant: codyss
+pip_url: git+https://github.com/codyss/tap-greenhouse.git
+repo: https://github.com/codyss/tap-greenhouse
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://developers.greenhouse.io/harvest.html
+maintenance_status: unknown
+keywords:
+- api

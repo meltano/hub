@@ -1,0 +1,16 @@
+description: Search platform
+label: Google Search Console
+name: tap-google-search-console
+logo_url: https://hub.meltano.com/assets/logos/taps/google-search-console.png
+namespace: tap_google_search_console
+variant: bytecodeio
+pip_url: git+https://github.com/bytecodeio/tap-google-search-console.git
+repo: https://github.com/bytecodeio/tap-google-search-console
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://developers.google.com/webmaster-tools/search-console-api-original/v3/how-tos/search_analytics
+maintenance_status: unknown
+keywords:
+- api

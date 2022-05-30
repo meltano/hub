@@ -1,0 +1,16 @@
+description: Marketing and Advertising Platform
+label: Simpli.fi
+name: tap-simplifi
+logo_url: https://hub.meltano.com/assets/logos/taps/simplifi.png
+namespace: tap_simplifi
+variant: georgiyolovski
+pip_url: git+https://github.com/georgiyolovski/tap-simplifi.git
+repo: https://github.com/georgiyolovski/tap-simplifi
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://simpli.fi/home/
+maintenance_status: unknown
+keywords:
+- api
