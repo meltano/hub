@@ -7,11 +7,13 @@
     "additionalProperties": true,
     "required": [
         "name",
-        "namespace"
+        "namespace",
+        "pip_url",
+        "variant"
     ],
     "properties": {
         "logo_url": {
-            "type": ["string", "null"],
+            "type": "string",
             "description": "The url to retrieve the logo for this plugin."
         },
         "pip_url": {
@@ -92,6 +94,31 @@
             "examples": [
                 "singer-io"
             ]
+        },
+        "maintenance_status": {
+            "type": "string",
+            "title": "Variant Maintenance Status",
+            "enum": [
+                "active",
+                "beta",
+                "development",
+                "inactive",
+                "unknown"
+            ],
+            "description": "The maintenance_status of the variant."
+        },
+        "domain_url": {
+            "type": "string",
+            "format": "uri",
+            "title": "The url of the data entity.",
+            "description": "Links to the website represnting the database, api, etc."
+        },
+        "keywords": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "An array of keywords that be used in searches."
         }
     }
 }
