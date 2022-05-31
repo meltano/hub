@@ -1,0 +1,15 @@
+name: tap-adwords
+label: Google Ads
+description: Advertising Platform
+namespace: tap_adwords
+logo_url: /assets/logos/extractors/adwords.png
+variant: georgiyolovski
+docs: https://hub.meltano.com/extractors/adwords.html
+repo: https://github.com/georgiyolovski/tap-adwords
+pip_url: git+https://github.com/georgiyolovski/tap-adwords.git
+maintenance_status: unknown
+settings: []
+settings_group_validation: []
+capabilities:
+- catalog
+- discover

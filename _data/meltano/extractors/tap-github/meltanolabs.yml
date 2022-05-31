@@ -1,7 +1,7 @@
 description: Code hosting platform
-label: GitHub Search
+label: GitHub
 name: tap-github
-logo_url: /assets/logos/extractors/github-search.png
+logo_url: /assets/logos/extractors/github.png
 namespace: tap_github
 variant: meltanolabs
 pip_url: git+https://github.com/MeltanoLabs/tap-github.git
