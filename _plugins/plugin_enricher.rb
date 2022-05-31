@@ -3,6 +3,7 @@ class PluginEnricher < Jekyll::Generator
   priority :highest
 
   def generate(site)
+    site.data['meltano_original'] = Marshal.load(Marshal.dump(site.data['meltano'] ))
     enrich_plugins(site, "extractor")
     enrich_plugins(site, "loader")
     enrich_plugins(site, "file")
@@ -41,9 +42,9 @@ class PluginEnricher < Jekyll::Generator
       image_name.sub! "target-", ""
 
       if variant_definition.key?("logo_url")
-        variant_definition['logo_url'] = "#{@url}#{variant_definition["logo_url"]}"
+        variant_definition['logo_url'] = "#{site.config["url"]}#{variant_definition["logo_url"]}"
       else
-        variant_definition['logo_url'] = "#{@url}/assets/logos/#{meltano_type_plural}/#{variant_definition["name"]}.png"
+        variant_definition['logo_url'] = "#{site.config["url"]}/assets/logos/#{meltano_type_plural}/#{variant_definition["name"]}.png"
       end
 
       variant_definition['url'] = "/#{meltano_type_plural}/#{variant_definition["name"]}--#{variant_name}"
