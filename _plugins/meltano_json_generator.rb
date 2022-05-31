@@ -65,7 +65,7 @@ class MeltanoJsonGenerator < Jekyll::Generator
   end
 
   def transform_definition(variant_definition)
-    to_delete_list = ['keywords', 'maintenance_status']
+    to_delete_list = ['keywords', 'maintenance_status', 'domain_url']
     clean_copy = Marshal.load(Marshal.dump(variant_definition))
     to_delete_list.each do |attrb|
       clean_copy.delete(attrb)
