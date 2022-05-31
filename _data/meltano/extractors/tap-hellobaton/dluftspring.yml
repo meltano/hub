@@ -1,0 +1,32 @@
+description: Customer onboarding software for managing software implementations
+label: Baton
+name: tap-hellobaton
+logo_url: /assets/logos/extractors/hellobaton.png
+namespace: tap_hellobaton
+variant: dluftspring
+pip_url: git+https://github.com/dluftspring/tap-hellobaton.git
+repo: https://github.com/dluftspring/tap-hellobaton
+capabilities:
+- catalog
+- discover
+- state
+- about
+- stream-maps
+settings:
+- name: company
+  kind: string
+  label: Company
+  description: Company name used in the api url
+- name: api_key
+  label: API Key
+  kind: string
+  description: Credentials used to connect to the source
+- name: user_agent
+  label: User Agent
+  kind: string
+  description: Optional user agent string to use during api calls
+domain_url: https://app.hellobaton.com/api/redoc/
+maintenance_status: active
+keywords:
+- api
+- meltano_sdk

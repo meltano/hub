@@ -1,0 +1,16 @@
+description: Foreign Exchnage Rates API
+label: Fixer
+name: tap-fixerio
+logo_url: /assets/logos/extractors/fixerio.png
+namespace: tap_fixerio
+variant: einartg
+pip_url: git+https://github.com/einartg/tap-fixerio.git
+repo: https://github.com/einartg/tap-fixerio
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://fixer.io/documentation
+maintenance_status: unknown
+keywords:
+- api

@@ -1,0 +1,16 @@
+description: Customer Experience Platform
+label: UJET
+name: tap-ujet
+logo_url: /assets/logos/extractors/ujet.png
+namespace: tap_ujet
+variant: singer-io
+pip_url: tap-ujet
+repo: https://github.com/singer-io/tap-ujet
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://ujet.cx/
+maintenance_status: unknown
+keywords:
+- api

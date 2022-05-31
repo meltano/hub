@@ -1,0 +1,10 @@
+name: great_expectations
+namespace: great_expectations
+pip_url: great_expectations
+executable: great_expectations
+variant: great-expectations
+settings:
+- name: ge_home
+  value: $MELTANO_PROJECT_ROOT/utilities/great_expectations
+  env: GE_HOME
+logo_url: /assets/logos/utilities/great_expectations.png

@@ -1,0 +1,16 @@
+description: Marketing Automation Software
+label: Sailthru
+name: tap-sailthru
+logo_url: /assets/logos/extractors/sailthru.png
+namespace: tap_sailthru
+variant: singer-io
+pip_url: tap-sailthru
+repo: https://github.com/singer-io/tap-sailthru
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://getstarted.sailthru.com/developers/api-basics/introduction/
+maintenance_status: unknown
+keywords:
+- api

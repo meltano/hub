@@ -1,0 +1,16 @@
+description: Project Management Software
+label: Asana
+name: tap-asana
+logo_url: /assets/logos/extractors/asana.png
+namespace: tap_asana
+variant: lambtron
+pip_url: git+https://github.com/lambtron/tap-asana.git
+repo: https://github.com/lambtron/tap-asana
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://asana.com/
+maintenance_status: unknown
+keywords:
+- api

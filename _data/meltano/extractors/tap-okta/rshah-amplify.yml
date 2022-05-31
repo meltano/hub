@@ -1,0 +1,16 @@
+description: Identity Provider
+label: Okta
+name: tap-okta
+logo_url: /assets/logos/extractors/okta.png
+namespace: tap_okta
+variant: rshah-amplify
+pip_url: git+https://github.com/rshah-amplify/tap-okta.git
+repo: https://github.com/rshah-amplify/tap-okta
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://developer.okta.com/docs/reference/
+maintenance_status: unknown
+keywords:
+- api

@@ -1,0 +1,63 @@
+description: REST API
+label: REST API
+name: tap-rest-api-msdk
+logo_url: /assets/logos/extractors/restapi.png
+namespace: tap_rest_api_msdk
+variant: widen
+pip_url: tap-rest-api-msdk
+repo: https://github.com/Widen/tap-rest-api-msdk
+capabilities:
+- state
+- catalog
+- discover
+- about
+- stream-maps
+settings_group_validation:
+- - name
+  - api_url
+  - primary_keys
+settings:
+- name: name
+  label: Name
+  description: (required) name of the stream.
+- name: api_url
+  label: API Base URL
+  description: (required) the base url/endpoint for the desired api.
+- name: path
+  label: Path
+  description: (optional) the path appeneded to the `api_url`.
+- name: params
+  label: Params
+  description: (optional) an object of objects that provide the `params` in a `requests.get`
+    method.
+- name: headers
+  label: Headers
+  description: (optional) an object of headers to pass into the api calls.
+- name: records_path
+  label: Records Path
+  description: (optional) a jsonpath string representing the path in the requests
+    response that contains the records to process. Defaults to `$[*]`.
+- name: primary_keys
+  label: Primary Keys
+  description: (required) a list of the json keys of the primary key for the stream.
+- name: replication_key
+  label: Replication Key
+  description: (optional) the json key of the replication key. Note that this should
+    be an incrementing integer or datetime object.
+- name: except_keys
+  label: Except Keys
+  description: This tap automatically flattens the entire json structure and builds
+    keys based on the corresponding paths. Keys, whether composite or otherwise, listed
+    in this dictionary will not be recursively flattened, but instead their values
+    will be turned into a json string and processed in that format. This is also automatically
+    done for any lists within the records; therefore, records are not duplicated for
+    each item in lists.
+- name: num_inference_records
+  label: Number Inference Records
+  description: (optional) number of records used to infer the stream's schema. Defaults
+    to 50.
+domain_url: https://docs.python-requests.org/en/latest/
+maintenance_status: active
+keywords:
+- api
+- meltano_sdk

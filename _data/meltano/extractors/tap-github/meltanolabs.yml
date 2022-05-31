@@ -1,0 +1,15 @@
+description: Code hosting platform
+label: GitHub Search
+name: tap-github
+logo_url: /assets/logos/extractors/github-search.png
+namespace: tap_github
+variant: meltanolabs
+pip_url: git+https://github.com/MeltanoLabs/tap-github.git
+repo: https://github.com/MeltanoLabs/tap-github
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://docs.github.com/en/rest
+keywords:
+- api

@@ -1,0 +1,51 @@
+description: Product Analytics Tool
+label: Mixpanel
+name: tap-mixpanel
+logo_url: /assets/logos/extractors/mixpanel.png
+namespace: tap_mixpanel
+variant: hotgluexyz
+pip_url: git+https://github.com/hotgluexyz/tap-mixpanel.git
+repo: https://github.com/hotgluexyz/tap-mixpanel
+capabilities:
+- catalog
+- discover
+- state
+settings:
+- name: api_secret
+  kind: password
+  label: API Secret
+  description: Mixpanel Project API Secret
+- name: project_timezone
+  kind: string
+  label: Project Time Zone
+  description: Mixpanel Project time zone
+- name: user_agent
+  kind: string
+  label: User Agent
+  description: Mixpanel user agent
+- name: date_window_size
+  kind: integer
+  label: Date Window Size
+  description: Number of days to use for date window
+- name: attribution_window
+  kind: integer
+  label: Attribution Window
+  description: Minimum number of days to look-back to
+- name: select_properties_by_default
+  kind: boolean
+  label: Select Properties by Default
+  description: Automatically select all props during discovery
+- name: denest_properties
+  kind: boolean
+  label: Denest Properties
+  description: Denest nested JSON responses from Mixpanel API
+- name: start_date
+  kind: date_iso8601
+  label: Start Date
+  description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
+domain_url: https://mixpanel.com/
+maintenance_status: active
+keywords:
+- api

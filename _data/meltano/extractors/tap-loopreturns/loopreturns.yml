@@ -1,0 +1,16 @@
+description: Refund platform
+label: Loop Returns
+name: tap-loopreturns
+logo_url: /assets/logos/extractors/loopreturns.png
+namespace: tap_loopreturns
+variant: loopreturns
+pip_url: git+https://github.com/LoopReturns/tap-loopreturns.git
+repo: https://github.com/LoopReturns/tap-loopreturns
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://docs.loopreturns.com/
+maintenance_status: unknown
+keywords:
+- api

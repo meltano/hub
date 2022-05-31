@@ -1,0 +1,32 @@
+description: Cloud Spreadsheet-Database Hybrid Software
+label: Airtable
+name: target-airtable
+logo_url: /assets/logos/loaders/airtable.png
+namespace: target_airtable
+variant: hotgluexyz
+pip_url: git+https://github.com/hotgluexyz/target-airtable.git
+repo: https://github.com/hotgluexyz/target-airtable
+capabilities:
+- about
+- stream-maps
+settings_group_validation:
+- - token
+  - base_id
+settings:
+- name: token
+  kind: password
+  label: API Token
+  description: Your Airtable API token.
+- name: base_id
+  kind: string
+  label: Base ID
+  description: The Airtable base ID. Airtable base IDs begin with "app".
+- name: records_url
+  kind: string
+  label: Records URL
+  description: Airtable Records URL, defaults to https://api.airtable.com/v0
+domain_url: https://www.airtable.com/
+maintenance_status: active
+keywords:
+- file
+- meltano_sdk

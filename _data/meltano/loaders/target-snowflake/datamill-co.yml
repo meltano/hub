@@ -1,0 +1,133 @@
+name: target-snowflake
+label: Snowflake
+description: Snowflake database loader
+namespace: target_snowflake
+dialect: snowflake
+target_schema: $TARGET_SNOWFLAKE_SCHEMA
+logo_url: /assets/logos/loaders/snowflake.png
+variant: datamill-co
+docs: https://hub.meltano.com/loaders/snowflake--datamill-co.html
+repo: https://github.com/datamill-co/target-snowflake
+pip_url: target-snowflake
+settings_group_validation:
+- - snowflake_account
+  - snowflake_username
+  - snowflake_password
+  - snowflake_database
+  - snowflake_warehouse
+settings:
+- name: snowflake_account
+  label: Snowflake Account
+  env_aliases:
+  - SF_ACCOUNT
+  - TARGET_SNOWFLAKE_ACCOUNT
+  description: "`ACCOUNT` might require the `region` and `cloud` platform where your\
+    \ account is located, in the form of: `<your_account_name>.<region_id>.<cloud>`\
+    \ (e.g. `xy12345.east-us-2.azure`)\nRefer to Snowflake's documentation about Account:\
+    \ https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name-and-url\n"
+- name: snowflake_username
+  label: Snowflake Username
+  env_aliases:
+  - SF_USER
+  - TARGET_SNOWFLAKE_USERNAME
+- name: snowflake_password
+  label: Snowflake Password
+  env_aliases:
+  - SF_PASSWORD
+  - TARGET_SNOWFLAKE_PASSWORD
+  kind: password
+- name: snowflake_role
+  label: Snowflake Role
+  env_aliases:
+  - SF_ROLE
+  - TARGET_SNOWFLAKE_ROLE
+  description: If not specified, Snowflake will use the user's default role.
+- name: snowflake_database
+  label: Snowflake Database
+  env_aliases:
+  - SF_DATABASE
+  - TARGET_SNOWFLAKE_DATABASE
+- name: snowflake_authenticator
+  label: Snowflake Authenticator
+  value: snowflake
+  description: Specifies the authentication provider for snowflake to use. Valud options
+    are the internal one ("snowflake"), a browser session ("externalbrowser"), or
+    Okta ("https://<your_okta_account_name>.okta.com"). See the snowflake docs for
+    more details.
+- name: snowflake_warehouse
+  label: Snowflake Warehouse
+  env_aliases:
+  - SF_WAREHOUSE
+  - TARGET_SNOWFLAKE_WAREHOUSE
+- name: invalid_records_detect
+  label: Invalid Records Detect
+  kind: boolean
+  value: true
+  description: Include `false` in your config to disable crashing on invalid records
+- name: invalid_records_threshold
+  label: Invalid Records Threshold
+  kind: integer
+  value: 0
+  description: Include a positive value `n` in your config to allow at most `n` invalid
+    records per stream before giving up.
+- name: disable_collection
+  label: Disable Collection
+  kind: boolean
+  value: false
+  description: 'Include `true` in your config to disable Singer Usage Logging: https://github.com/datamill-co/target-snowflake#usage-logging'
+- name: logging_level
+  label: Logging Level
+  kind: options
+  value: INFO
+  options:
+  - label: Debug
+    value: DEBUG
+  - label: Info
+    value: INFO
+  - label: Warning
+    value: WARNING
+  - label: Error
+    value: ERROR
+  - label: Critical
+    value: CRITICAL
+  description: The level for logging. Set to `DEBUG` to get things like queries executed,
+    timing of those queries, etc.
+- name: persist_empty_tables
+  label: Persist Empty Tables
+  kind: boolean
+  value: false
+  description: Whether the Target should create tables which have no records present
+    in Remote.
+- name: snowflake_schema
+  label: Snowflake Schema
+  env_aliases:
+  - SF_SCHEMA
+  - TARGET_SNOWFLAKE_SCHEMA
+  value: $MELTANO_EXTRACT__LOAD_SCHEMA
+  value_processor: upcase_string
+- name: state_support
+  label: State Support
+  kind: boolean
+  value: true
+  description: Whether the Target should emit `STATE` messages to stdout for further
+    consumption. In this mode, which is on by default, STATE messages are buffered
+    in memory until all the records that occurred before them are flushed according
+    to the batch flushing schedule the target is configured with.
+- name: target_s3.bucket
+  label: Target S3 Bucket
+  description: When included, use S3 to stage files. Bucket where staging files should
+    be uploaded to.
+- name: target_s3.key_prefix
+  label: Target S3 Key Prefix
+  description: Prefix for staging file uploads to allow for better delineation of
+    tmp files
+- name: target_s3.aws_access_key_id
+  label: Target S3 AWS Access Key ID
+  kind: password
+- name: target_s3.aws_secret_access_key
+  label: Target S3 AWS Secret Access Key
+  kind: password
+domain_url: https://www.snowflake.com/
+maintenance_status: inactive
+keywords:
+- database
