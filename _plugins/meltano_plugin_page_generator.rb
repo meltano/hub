@@ -16,27 +16,50 @@ class MeltanoPluginPageGenerator < Jekyll::Generator
     site.data['meltano']["#{plugin_type}s"].each do |plugin_name, variants|
       variants.each do |variant_name, variant_definition|
         if variant_name = defaults[plugin_name]
-          page = PluginVariantPage.new(site, plugin_type, plugin_name, variant_definition, variant_specific: false)
-          unless site.pages.map(&:path).include?(page.path.sub(".html", ".md"))
-            site.pages << page
-          end
+          page = register_pages(site, plugin_type, plugin_name, variant_definition, false)
           variant_definition['url'] = page.url
         end
 
-        page = PluginVariantPage.new(site, plugin_type, plugin_name, variant_definition)
-        unless site.pages.map(&:path).include?(page.path.sub(".html", ".md"))
-          site.pages << page
-        end
+        page = register_pages(site, plugin_type, plugin_name, variant_definition, true)
       end
     end
   end
 
+  def register_pages(site, plugin_type, plugin_name, variant_definition, variant_specific)
+    if plugin_type == 'extractor'
+      page = PluginVariantPage.new(site, 'tap', plugin_name.delete_prefix('tap-'), variant_definition, variant_specific)
+      unless site.pages.map(&:path).include?(page.path.sub(".html", ".md"))
+        site.pages << page
+      end
+    elsif plugin_type == 'loader'
+      page = PluginVariantPage.new(site, 'target', plugin_name.delete_prefix('target-'), variant_definition, variant_specific)
+      unless site.pages.map(&:path).include?(page.path.sub(".html", ".md"))
+        site.pages << page
+      end
+    end
+
+    page = PluginVariantPage.new(site, plugin_type, plugin_name, variant_definition, variant_specific)
+    unless site.pages.map(&:path).include?(page.path.sub(".html", ".md"))
+      site.pages << page
+    end
+    return page
+  end
 
   class PluginVariantPage < Jekyll::Page
-    def initialize(site, plugin_type, plugin_name, variant_definition, variant_specific: true)
+    def initialize(site, plugin_type, plugin_name, variant_definition, variant_specific)
       @site = site
       @base = site.source
-      @dir  = "#{plugin_type}s"
+      if plugin_type == 'tap'
+        @dir  = "taps"
+        plugin_type = 'extractor'
+        variant_definition['url'] = "/taps/#{plugin_name}"
+      elsif plugin_type == 'target'
+        @dir  = "targets"
+        plugin_type = 'loader'
+        variant_definition['url'] = "/targets/#{plugin_name}"
+      else
+        @dir  = "#{plugin_type}s"
+      end   
 
       basename = plugin_name
       title = "#{variant_definition['label']} Meltano #{plugin_type}"

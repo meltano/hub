@@ -324,6 +324,21 @@ layout: plugin_page
   <a href="#looking-for-help">learn how to get help</a>.
 </p>
 
+<h2 id="capabilities">Capabilities</h2>
+    
+{% if variant.capabilities.size == 0 %}
+<p>
+  Check the
+  <a href="{{variant.repo}}#readme" target="_blank">README and code in the repository</a>
+  for more information on capabilities for this {{plugin_type}}.
+</p>
+{% else %} <ul> {% for capability in plugin.capabilities %} 
+  <li>
+    <a href="/singer/docs#{{capability}}">
+      <code>{{capability}}</code>
+    </a>
+  </li> {% endfor %} </ul> {% endif %}
+
 {% if plugin.settings.size > 0 %}
 <h2 id="settings">Settings</h2>
 
