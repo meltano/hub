@@ -3,3 +3,4 @@ namespace: dbt
 repo: https://gitlab.com/meltano/files-dbt
 pip_url: git+https://gitlab.com/meltano/files-dbt.git@config-version-2
 variant: meltano
+logo_url: /assets/logos/files/dbt.png

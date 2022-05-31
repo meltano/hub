@@ -7,3 +7,4 @@ settings:
 - name: ge_home
   value: $MELTANO_PROJECT_ROOT/utilities/great_expectations
   env: GE_HOME
+logo_url: /assets/logos/utilities/great_expectations.png

@@ -3,3 +3,4 @@ namespace: docker_compose
 repo: https://gitlab.com/meltano/files-docker-compose
 pip_url: git+https://gitlab.com/meltano/files-docker-compose.git
 variant: meltano
+logo_url: /assets/logos/files/docker-compose.png

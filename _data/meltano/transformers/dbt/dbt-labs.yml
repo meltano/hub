@@ -43,3 +43,4 @@ commands:
   test:
     args: test
     description: Runs tests on data in deployed models.
+logo_url: /assets/logos/transformers/dbt.png

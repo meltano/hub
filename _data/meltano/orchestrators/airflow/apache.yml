@@ -20,3 +20,4 @@ settings:
 - name: core.dags_are_paused_at_creation
   env: AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION
   value: false
+logo_url: /assets/logos/orchestrators/airflow.png

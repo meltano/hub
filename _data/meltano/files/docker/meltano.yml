@@ -3,3 +3,4 @@ namespace: docker
 repo: https://gitlab.com/meltano/files-docker
 pip_url: git+https://gitlab.com/meltano/files-docker.git
 variant: meltano
+logo_url: /assets/logos/files/docker.png

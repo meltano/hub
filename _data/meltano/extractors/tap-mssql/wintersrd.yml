@@ -4,7 +4,7 @@ name: tap-mssql
 logo_url: /assets/logos/extractors/mssql.png
 namespace: tap_mssql
 variant: wintersrd
-pip_url: git+https://github.com/wintersrd/pipelinewise-tap-mssql.git
+pip_url: tap-mssql
 repo: https://github.com/wintersrd/pipelinewise-tap-mssql
 settings_group_validation:
 - - host
@@ -31,11 +31,15 @@ settings:
 - name: port
   label: Port
   description: The MSSQL port, defaulted to 1433.
+- name: tds_version
+  label: tds_version
+  description: The TDS version of the connection. Defaults to 8.0, connecting to older
+    databases (ex MS SQL 2005) requires 7.0 or earlier
 capabilities:
 - catalog
 - discover
 - state
 domain_url: https://www.microsoft.com/en-us/sql-server/sql-server-2019
-maintenance_status: inactive
+maintenance_status: active
 keywords:
 - database

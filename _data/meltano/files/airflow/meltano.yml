@@ -5,3 +5,4 @@ pip_url: git+https://gitlab.com/meltano/files-airflow.git
 variant: meltano
 update:
   orchestrate/dags/meltano.py: true
+logo_url: /assets/logos/files/airflow.png
