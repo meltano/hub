@@ -1,7 +1,7 @@
 description: Social Fitness
 label: Peloton
 name: tap-peloton
-logo_url: https://hub.meltano.com/assets/logos/taps/peloton.png
+logo_url: /assets/logos/extractors/peloton.png
 namespace: tap_peloton
 variant: meltanolabs
 pip_url: git+https://github.com/MeltanoLabs/tap-peloton.git

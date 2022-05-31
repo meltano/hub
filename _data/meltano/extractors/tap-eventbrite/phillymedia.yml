@@ -1,7 +1,7 @@
 description: Event Management and Ticketing Platform
 label: Eventbrite
 name: tap-eventbrite
-logo_url: https://hub.meltano.com/assets/logos/taps/eventbrite.png
+logo_url: /assets/logos/extractors/eventbrite.png
 namespace: tap_eventbrite
 variant: phillymedia
 pip_url: git+https://github.com/phillymedia/tap-eventbrite.git

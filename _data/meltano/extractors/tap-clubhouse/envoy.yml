@@ -1,7 +1,7 @@
 description: Project management software
 label: Clubhouse
 name: tap-clubhouse
-logo_url: https://hub.meltano.com/assets/logos/taps/clubhouse.png
+logo_url: /assets/logos/extractors/clubhouse.png
 namespace: tap_clubhouse
 variant: envoy
 pip_url: git+https://github.com/envoy/tap-clubhouse.git

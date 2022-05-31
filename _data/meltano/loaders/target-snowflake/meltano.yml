@@ -4,7 +4,7 @@ description: Snowflake database loader
 namespace: target_snowflake
 dialect: snowflake
 target_schema: $TARGET_SNOWFLAKE_SCHEMA
-logo_url: https://hub.meltano.com/assets/logos/targets/snowflake.png
+logo_url: /assets/logos/loaders/snowflake.png
 variant: meltano
 hidden: true
 docs: https://hub.meltano.com/loaders/snowflake--meltano.html

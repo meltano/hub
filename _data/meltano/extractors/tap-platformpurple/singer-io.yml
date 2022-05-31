@@ -1,7 +1,7 @@
 description: Video Delivery Software
 label: Platform Purple
 name: tap-platformpurple
-logo_url: https://hub.meltano.com/assets/logos/taps/platformpurple.png
+logo_url: /assets/logos/extractors/platformpurple.png
 namespace: tap_platformpurple
 variant: singer-io
 pip_url: tap-platformpurple

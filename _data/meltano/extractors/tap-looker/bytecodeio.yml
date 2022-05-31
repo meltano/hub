@@ -1,7 +1,7 @@
 description: Business Intelligence (BI) & Data Analytics Platform
 label: Looker
 name: tap-looker
-logo_url: https://hub.meltano.com/assets/logos/taps/looker.png
+logo_url: /assets/logos/extractors/looker.png
 namespace: tap_looker
 variant: bytecodeio
 pip_url: git+https://github.com/bytecodeio/tap-looker.git

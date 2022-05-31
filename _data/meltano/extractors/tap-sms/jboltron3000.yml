@@ -1,7 +1,7 @@
 description: People Counting Solutions for Retail Stores
 label: SMS Store Traffic
 name: tap-sms
-logo_url: https://hub.meltano.com/assets/logos/taps/storetraffic.png
+logo_url: /assets/logos/extractors/storetraffic.png
 namespace: tap_sms
 variant: jboltron3000
 pip_url: git+https://github.com/jboltron3000/tap-SMS.git

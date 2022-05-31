@@ -1,7 +1,7 @@
 description: B2B Marketing Automation Software
 label: Pardot
 name: target-pardot
-logo_url: https://hub.meltano.com/assets/logos/targets/pardot.png
+logo_url: /assets/logos/loaders/pardot.png
 namespace: target_pardot
 variant: anelendata
 pip_url: git+https://github.com/anelendata/target-pardot.git

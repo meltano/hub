@@ -1,7 +1,7 @@
 description: Human Capital Management Software
 label: Dayforce
 name: tap-dayforce
-logo_url: https://hub.meltano.com/assets/logos/taps/dayforce.png
+logo_url: /assets/logos/extractors/dayforce.png
 namespace: tap_dayforce
 variant: goodeggs
 pip_url: git+https://github.com/goodeggs/tap-dayforce.git

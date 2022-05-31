@@ -1,7 +1,7 @@
 description: Human Capital Management Software
 label: Zenefits
 name: tap-zenefits
-logo_url: https://hub.meltano.com/assets/logos/taps/zenefits.png
+logo_url: /assets/logos/extractors/zenefits.png
 namespace: tap_zenefits
 variant: mashey
 pip_url: git+https://github.com/Mashey/tap-zenefits.git

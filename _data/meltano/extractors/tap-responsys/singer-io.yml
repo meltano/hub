@@ -1,7 +1,7 @@
 description: Campaign Management Software
 label: Responsys
 name: tap-responsys
-logo_url: https://hub.meltano.com/assets/logos/taps/responsys.png
+logo_url: /assets/logos/extractors/responsys.png
 namespace: tap_responsys
 variant: singer-io
 pip_url: tap-responsys

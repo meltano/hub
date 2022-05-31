@@ -1,7 +1,7 @@
 description: Online Survey Tool
 label: SurveyMonkey
 name: tap-surveymonkey
-logo_url: https://hub.meltano.com/assets/logos/taps/surveymonkey.png
+logo_url: /assets/logos/extractors/surveymonkey.png
 namespace: tap_surveymonkey
 variant: rahimnathwani
 pip_url: git+https://github.com/rahimnathwani/tap-surveymonkey.git

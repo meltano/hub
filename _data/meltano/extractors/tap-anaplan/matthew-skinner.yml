@@ -1,7 +1,7 @@
 description: Cloud-based Business-planning Software
 label: Anaplan
 name: tap-anaplan
-logo_url: https://hub.meltano.com/assets/logos/taps/anaplan.png
+logo_url: /assets/logos/extractors/anaplan.png
 namespace: tap_anaplan
 variant: matthew-skinner
 pip_url: git+https://github.com/matthew-skinner/tap-anaplan.git

@@ -1,7 +1,7 @@
 description: Exchange Rates API
 label: Exchangeratesapi.io
 name: tap-exchangeratesapi
-logo_url: https://hub.meltano.com/assets/logos/taps/exchangeratesapi.png
+logo_url: /assets/logos/extractors/exchangeratesapi.png
 namespace: tap_exchangeratesapi
 variant: singer-io
 pip_url: tap-exchangeratesapi

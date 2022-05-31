@@ -1,7 +1,7 @@
 description: The world’s largest programming community
 label: StackExchange
 name: tap-stackexchange
-logo_url: https://hub.meltano.com/assets/logos/taps/stackexchange.png
+logo_url: /assets/logos/extractors/stackexchange.png
 namespace: tap_stackexchange
 variant: meltanolabs
 pip_url: git+https://github.com/MeltanoLabs/tap-stackexchange.git

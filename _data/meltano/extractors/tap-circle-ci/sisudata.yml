@@ -1,7 +1,7 @@
 description: CI/CD Platfrom
 label: CircleCI
 name: tap-circle-ci
-logo_url: https://hub.meltano.com/assets/logos/taps/circle-ci.png
+logo_url: /assets/logos/extractors/circle-ci.png
 namespace: tap_circle_ci
 variant: sisudata
 pip_url: git+https://github.com/sisudata/tap-circle-ci.git

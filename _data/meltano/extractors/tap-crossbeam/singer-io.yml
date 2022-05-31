@@ -1,7 +1,7 @@
 description: Partner Ecosystem Platform
 label: Crossbeam
 name: tap-crossbeam
-logo_url: https://hub.meltano.com/assets/logos/taps/crossbeam.png
+logo_url: /assets/logos/extractors/crossbeam.png
 namespace: tap_crossbeam
 variant: singer-io
 pip_url: git+https://github.com/singer-io/tap-crossbeam.git

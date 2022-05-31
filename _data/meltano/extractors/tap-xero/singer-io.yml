@@ -1,7 +1,7 @@
 description: Accounting Software
 label: Xero
 name: tap-xero
-logo_url: https://hub.meltano.com/assets/logos/taps/xero.png
+logo_url: /assets/logos/extractors/xero.png
 namespace: tap_xero
 variant: singer-io
 pip_url: tap-xero

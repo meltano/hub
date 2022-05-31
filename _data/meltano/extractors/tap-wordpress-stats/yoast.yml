@@ -1,7 +1,7 @@
 description: Content Management System
 label: Wordpress.org Stats
 name: tap-wordpress-stats
-logo_url: https://hub.meltano.com/assets/logos/taps/wordpress-stats.png
+logo_url: /assets/logos/extractors/wordpress-stats.png
 namespace: tap_wordpress_stats
 variant: yoast
 pip_url: git+https://github.com/Yoast/singer-tap-wordpress-stats.git

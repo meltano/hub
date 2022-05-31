@@ -1,7 +1,7 @@
 description: Employee Scheduling
 label: Sling
 name: tap-sling
-logo_url: https://hub.meltano.com/assets/logos/taps/sling.png
+logo_url: /assets/logos/extractors/sling.png
 namespace: tap_sling
 variant: isabella232
 pip_url: git+https://github.com/isabella232/tap-sling.git

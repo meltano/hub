@@ -1,7 +1,7 @@
 description: Digital Document Processing Software
 label: Basecone
 name: tap-basecone
-logo_url: https://hub.meltano.com/assets/logos/taps/basecone.png
+logo_url: /assets/logos/extractors/basecone.png
 namespace: tap_basecone
 variant: yoast
 pip_url: git+https://github.com/Yoast/singer-tap-basecone.git

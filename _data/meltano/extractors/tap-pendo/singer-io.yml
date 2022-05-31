@@ -2,7 +2,7 @@ name: tap-pendo
 description: Product Experience and Digital Adoption Solutions
 label: Pendo
 namespace: tap_pendo
-logo_url: https://hub.meltano.com/assets/logos/taps/pendo.png
+logo_url: /assets/logos/extractors/pendo.png
 variant: singer-io
 docs: https://hub.meltano.com/extractors/pendo
 pip_url: git+https://github.com/singer-io/tap-pendo.git

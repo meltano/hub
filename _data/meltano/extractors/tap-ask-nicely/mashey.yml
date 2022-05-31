@@ -2,7 +2,7 @@ name: tap-ask-nicely
 description: Customer Experience Platform
 label: AskNicely
 namespace: tap_ask_nicely
-logo_url: https://hub.meltano.com/assets/logos/taps/ask-nicely.png
+logo_url: /assets/logos/extractors/ask-nicely.png
 variant: mashey
 docs: https://hub.meltano.com/extractors/ask-nicely
 pip_url: git+https://github.com/Mashey/tap-ask-nicely.git

@@ -1,7 +1,7 @@
 description: Digital Experience Platform
 label: Fullstory
 name: tap-fullstory
-logo_url: https://hub.meltano.com/assets/logos/taps/fullstory.png
+logo_url: /assets/logos/extractors/fullstory.png
 namespace: tap_fullstory
 variant: singer-io
 pip_url: tap-fullstory

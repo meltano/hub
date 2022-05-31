@@ -1,7 +1,7 @@
 description: Enterprise Management Software
 label: Workday
 name: tap-workday-raas
-logo_url: https://hub.meltano.com/assets/logos/taps/workday-raas.png
+logo_url: /assets/logos/extractors/workday-raas.png
 namespace: tap_workday_raas
 variant: isabella232
 pip_url: git+https://github.com/isabella232/tap-workday-raas.git

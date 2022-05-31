@@ -1,7 +1,7 @@
 description: Corporate Wiki Software
 label: Confluence
 name: tap-confluence
-logo_url: https://hub.meltano.com/assets/logos/taps/confluence.png
+logo_url: /assets/logos/extractors/confluence.png
 namespace: tap_confluence
 variant: edgarrmondragon
 pip_url: git+https://github.com/edgarrmondragon/tap-confluence.git

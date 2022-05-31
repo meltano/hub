@@ -1,7 +1,7 @@
 description: Ecommerce tools and integration
 label: Bold Commerce
 name: tap-bold
-logo_url: https://hub.meltano.com/assets/logos/taps/bold.png
+logo_url: /assets/logos/extractors/bold.png
 namespace: tap_bold
 variant: oriskincare
 pip_url: git+https://github.com/oriskincare/tap-bold.git

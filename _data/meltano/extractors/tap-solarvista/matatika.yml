@@ -3,7 +3,7 @@ label: Solarvista Live
 description: Solarvista Live is a Field Service Management platform to manage, plan,
   and mobilise your engineers.
 namespace: tap_solarvista
-logo_url: https://hub.meltano.com/assets/logos/taps/solarvista.png
+logo_url: /assets/logos/extractors/solarvista.png
 variant: matatika
 docs: https://hub.meltano.com/extractors/solarvista.html
 repo: https://github.com/Matatika/tap-solarvista

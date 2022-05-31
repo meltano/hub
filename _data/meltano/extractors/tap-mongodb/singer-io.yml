@@ -2,7 +2,7 @@ name: tap-mongodb
 label: MongoDB
 description: General purpose, document-based, distributed database
 namespace: tap_mongodb
-logo_url: https://hub.meltano.com/assets/logos/taps/mongodb.png
+logo_url: /assets/logos/extractors/mongodb.png
 variant: singer-io
 docs: https://hub.meltano.com/extractors/mongodb.html
 repo: https://github.com/singer-io/tap-mongodb

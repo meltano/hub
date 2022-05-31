@@ -1,7 +1,7 @@
 description: Cloud Database
 label: Oracle DB
 name: tap-oracle
-logo_url: https://hub.meltano.com/assets/logos/taps/oracle.png
+logo_url: /assets/logos/extractors/oracle.png
 namespace: tap_oracle
 variant: transferwise
 pip_url: pipelinewise-tap-oracle

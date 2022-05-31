@@ -1,7 +1,7 @@
 description: Audio Streaming and Media Services
 label: Spotify
 name: tap-spotify
-logo_url: https://hub.meltano.com/assets/logos/taps/spotify.png
+logo_url: /assets/logos/extractors/spotify.png
 namespace: tap_spotify
 variant: matatika
 pip_url: git+https://github.com/Matatika/tap-spotify.git

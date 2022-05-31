@@ -1,7 +1,7 @@
 description: Social Networking Website
 label: Twitter Ads
 name: tap-twitter-ads
-logo_url: https://hub.meltano.com/assets/logos/taps/twitter-ads.png
+logo_url: /assets/logos/extractors/twitter-ads.png
 namespace: tap_twitter_ads
 variant: dreamdata-io
 pip_url: git+https://github.com/dreamdata-io/tap-twitter-ads.git

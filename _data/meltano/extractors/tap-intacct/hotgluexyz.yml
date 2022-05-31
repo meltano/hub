@@ -2,7 +2,7 @@ name: tap-intacct
 namespace: tap_intacct
 label: Sage Intacct
 description: Financial management software
-logo_url: https://hub.meltano.com/assets/logos/taps/intacct.png
+logo_url: /assets/logos/extractors/intacct.png
 variant: hotgluexyz
 docs: https://hub.meltano.com/extractors/intacct.html
 repo: https://github.com/hotgluexyz/tap-intacct

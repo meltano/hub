@@ -1,7 +1,7 @@
 description: Project Management Software
 label: Forecast
 name: tap-forecast
-logo_url: https://hub.meltano.com/assets/logos/taps/forecast.png
+logo_url: /assets/logos/extractors/forecast.png
 namespace: tap_forecast
 variant: cguimont
 pip_url: git+https://github.com/cguimont/tap-forecastapp.git

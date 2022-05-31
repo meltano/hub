@@ -1,7 +1,7 @@
 description: Cloud Spreadsheet Software
 label: Google Sheets
 name: target-gsheet
-logo_url: https://hub.meltano.com/assets/logos/targets/gsheet.png
+logo_url: /assets/logos/loaders/gsheet.png
 namespace: target_gsheet
 variant: tmonks
 pip_url: git+https://github.com/tmonks/target-gsheet.git

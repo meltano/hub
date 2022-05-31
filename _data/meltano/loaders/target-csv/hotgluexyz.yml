@@ -2,7 +2,7 @@ name: target-csv
 label: Comma Separated Values (CSV)
 description: CSV loader
 namespace: target_csv
-logo_url: https://hub.meltano.com/assets/logos/targets/csv.png
+logo_url: /assets/logos/loaders/csv.png
 variant: hotgluexyz
 docs: https://hub.meltano.com/loaders/csv.html
 repo: https://github.com/hotgluexyz/target-csv

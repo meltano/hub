@@ -1,7 +1,7 @@
 description: CRM Platform
 label: Dynamics
 name: tap-dynamics
-logo_url: https://hub.meltano.com/assets/logos/taps/dynamics.png
+logo_url: /assets/logos/extractors/dynamics.png
 namespace: tap_dynamics
 variant: zafar-toshpulatov
 pip_url: git+https://github.com/zafar-toshpulatov/tap-dynamics-crm.git

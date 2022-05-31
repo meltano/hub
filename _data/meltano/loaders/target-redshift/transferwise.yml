@@ -2,7 +2,7 @@ name: target-redshift
 label: Amazon Redshift
 description: Amazon Redshift loader
 namespace: target_redshift
-logo_url: https://hub.meltano.com/assets/logos/targets/redshift.png
+logo_url: /assets/logos/loaders/redshift.png
 variant: transferwise
 repo: https://github.com/transferwise/pipelinewise-target-redshift
 docs: https://hub.meltano.com/loaders/redshift.html

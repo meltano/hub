@@ -1,7 +1,7 @@
 description: Customer Communication Platform
 label: FrontApp
 name: tap-frontapp
-logo_url: https://hub.meltano.com/assets/logos/taps/frontapp.png
+logo_url: /assets/logos/extractors/frontapp.png
 namespace: tap_frontapp
 variant: singer-io
 pip_url: tap-frontapp

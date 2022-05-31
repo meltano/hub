@@ -1,7 +1,7 @@
 description: Marketing Automation Software
 label: Autopilot
 name: tap-autopilot
-logo_url: https://hub.meltano.com/assets/logos/taps/autopilot.png
+logo_url: /assets/logos/extractors/autopilot.png
 namespace: tap_autopilot
 variant: singer-io
 pip_url: tap-autopilot

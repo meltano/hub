@@ -2,7 +2,7 @@ name: tap-adwords
 label: Google Ads
 description: Advertising Platform
 namespace: tap_adwords
-logo_url: https://hub.meltano.com/assets/logos/taps/adwords.png
+logo_url: /assets/logos/extractors/adwords.png
 variant: meltano
 hidden: true
 repo: https://gitlab.com/meltano/tap-adwords

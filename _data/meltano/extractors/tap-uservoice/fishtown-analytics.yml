@@ -1,7 +1,7 @@
 description: Customer Engagement Tool
 label: UserVoice
 name: tap-uservoice
-logo_url: https://hub.meltano.com/assets/logos/taps/uservoice.png
+logo_url: /assets/logos/extractors/uservoice.png
 namespace: tap_uservoice
 variant: fishtown-analytics
 pip_url: git+https://github.com/fishtown-analytics/tap-uservoice.git

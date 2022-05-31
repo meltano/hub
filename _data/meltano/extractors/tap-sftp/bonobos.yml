@@ -1,7 +1,7 @@
 description: File Transfer Protocl
 label: SFTP
 name: tap-sftp
-logo_url: https://hub.meltano.com/assets/logos/taps/sftp.png
+logo_url: /assets/logos/extractors/sftp.png
 namespace: tap_sftp
 variant: bonobos
 pip_url: git+https://github.com/bonobos/tap-sftp.git

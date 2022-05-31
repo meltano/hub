@@ -1,7 +1,7 @@
 name: tap-clickcast
 description: Clickcast Job ad platform by Appcast
 label: Clickcast
-logo_url: https://hub.meltano.com/assets/logos/taps/clickcast.png
+logo_url: /assets/logos/extractors/clickcast.png
 namespace: tap_clickcast
 variant: datateer
 pip_url: git+https://github.com/datateer/tap-clickcast.git

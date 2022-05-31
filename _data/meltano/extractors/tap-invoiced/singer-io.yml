@@ -1,7 +1,7 @@
 description: Automated Accounts Receivable Software Solution
 label: Invoiced
 name: tap-invoiced
-logo_url: https://hub.meltano.com/assets/logos/taps/invoiced.png
+logo_url: /assets/logos/extractors/invoiced.png
 namespace: tap_invoiced
 variant: singer-io
 pip_url: tap-invoiced

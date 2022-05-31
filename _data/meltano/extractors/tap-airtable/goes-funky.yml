@@ -1,7 +1,7 @@
 description: Cloud collaboration service
 label: Airtable
 name: tap-airtable
-logo_url: https://hub.meltano.com/assets/logos/taps/airtable.png
+logo_url: /assets/logos/extractors/airtable.png
 namespace: tap_airtable
 variant: goes-funky
 pip_url: git+https://github.com/goes-funky/tap-airtable.git

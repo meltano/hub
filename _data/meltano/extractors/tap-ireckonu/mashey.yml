@@ -1,7 +1,7 @@
 description: Hotel Middleware Software
 label: Ireckonu
 name: tap-ireckonu
-logo_url: https://hub.meltano.com/assets/logos/taps/ireckonu.png
+logo_url: /assets/logos/extractors/ireckonu.png
 namespace: tap_ireckonu
 variant: mashey
 pip_url: git+https://github.com/Mashey/tap-ireckonu.git

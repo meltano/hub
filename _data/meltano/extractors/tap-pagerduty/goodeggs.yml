@@ -1,7 +1,7 @@
 description: SaaS Incident Response Platform
 label: PagerDuty
 name: tap-pagerduty
-logo_url: https://hub.meltano.com/assets/logos/taps/pagerduty.png
+logo_url: /assets/logos/extractors/pagerduty.png
 namespace: tap_pagerduty
 variant: goodeggs
 pip_url: git+https://github.com/goodeggs/tap-pagerduty.git

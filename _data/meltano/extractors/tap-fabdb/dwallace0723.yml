@@ -2,7 +2,7 @@ description: FaB DB is an unofficial Flesh and Blood TCG community project, with
   features such as Deck builder, Collection manager and more.
 label: FaB DB
 name: tap-fabdb
-logo_url: https://hub.meltano.com/assets/logos/taps/fabdb.png
+logo_url: /assets/logos/extractors/fabdb.png
 namespace: tap_fabdb
 variant: dwallace0723
 pip_url: git+https://github.com/dwallace0723/tap-fabdb.git

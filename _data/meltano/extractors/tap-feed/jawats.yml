@@ -1,7 +1,7 @@
 description: Generic tap for RSS and Atom feeds
 label: Feed
 name: tap-feed
-logo_url: https://hub.meltano.com/assets/logos/taps/feed.png
+logo_url: /assets/logos/extractors/feed.png
 namespace: tap_feed
 variant: jawats
 pip_url: tap-feed

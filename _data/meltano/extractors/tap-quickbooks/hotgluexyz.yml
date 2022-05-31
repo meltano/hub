@@ -2,7 +2,7 @@ name: tap-quickbooks
 namespace: tap_quickbooks
 label: Quickbooks
 description: Accounting management platform
-logo_url: https://hub.meltano.com/assets/logos/taps/quickbooks.png
+logo_url: /assets/logos/extractors/quickbooks.png
 variant: hotgluexyz
 docs: https://hub.meltano.com/extractors/quickbooks.html
 repo: https://github.com/hotgluexyz/tap-quickbooks

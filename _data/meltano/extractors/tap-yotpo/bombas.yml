@@ -1,7 +1,7 @@
 description: eCommerce Marketing Platform
 label: Yotpo
 name: tap-yotpo
-logo_url: https://hub.meltano.com/assets/logos/taps/yotpo.png
+logo_url: /assets/logos/extractors/yotpo.png
 namespace: tap_yotpo
 variant: bombas
 pip_url: git+https://github.com/bombas/tap-yotpo.git

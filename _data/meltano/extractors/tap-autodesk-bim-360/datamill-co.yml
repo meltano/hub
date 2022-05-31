@@ -1,7 +1,7 @@
 description: Construction Management Software
 label: AutoDesk Forge BIM 360
 name: tap-autodesk-bim-360
-logo_url: https://hub.meltano.com/assets/logos/taps/autodesk-bim-360.png
+logo_url: /assets/logos/extractors/autodesk-bim-360.png
 namespace: tap_autodesk_bim_360
 variant: datamill-co
 pip_url: git+https://github.com/datamill-co/tap-autodesk-bim-360.git

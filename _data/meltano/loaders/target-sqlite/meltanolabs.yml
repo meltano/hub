@@ -2,7 +2,7 @@ name: target-sqlite
 label: SQLite
 description: SQLite database loader
 namespace: target_sqlite
-logo_url: https://hub.meltano.com/assets/logos/targets/sqlite.png
+logo_url: /assets/logos/loaders/sqlite.png
 variant: meltanolabs
 docs: https://hub.meltano.com/loaders/sqlite.html
 repo: https://github.com/MeltanoLabs/target-sqlite

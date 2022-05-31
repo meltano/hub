@@ -2,7 +2,7 @@ name: tap-postgres
 label: PostgreSQL
 description: PostgreSQL database extractor
 namespace: tap_postgres
-logo_url: https://hub.meltano.com/assets/logos/taps/postgres.png
+logo_url: /assets/logos/extractors/postgres.png
 variant: transferwise
 docs: https://hub.meltano.com/extractors/postgres.html
 repo: https://github.com/transferwise/pipelinewise-tap-postgres

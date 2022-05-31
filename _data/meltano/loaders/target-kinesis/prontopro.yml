@@ -1,7 +1,7 @@
 description: Real-time Streaming Platform
 label: Kinesis
 name: target-kinesis
-logo_url: https://hub.meltano.com/assets/logos/targets/kinesis.png
+logo_url: /assets/logos/loaders/kinesis.png
 namespace: target_kinesis
 variant: prontopro
 pip_url: git+https://github.com/ProntoPro/target-kinesis.git

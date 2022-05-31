@@ -1,7 +1,7 @@
 description: CRM Platform
 label: Insightly
 name: tap-insightly
-logo_url: https://hub.meltano.com/assets/logos/taps/insightly.png
+logo_url: /assets/logos/extractors/insightly.png
 namespace: tap_insightly
 variant: fostersdata
 pip_url: git+https://github.com/FostersData/tap-insightly.git

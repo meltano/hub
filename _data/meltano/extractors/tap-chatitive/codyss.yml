@@ -1,7 +1,7 @@
 description: Mobile Messaging Platform
 label: Chatitive
 name: tap-chatitive
-logo_url: https://hub.meltano.com/assets/logos/taps/chatitive.png
+logo_url: /assets/logos/extractors/chatitive.png
 namespace: tap_chatitive
 variant: codyss
 pip_url: git+https://github.com/codyss/tap-chatitive.git

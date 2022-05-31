@@ -1,7 +1,7 @@
 description: BI Platform
 label: Domo
 name: tap-domo
-logo_url: https://hub.meltano.com/assets/logos/taps/domo.png
+logo_url: /assets/logos/extractors/domo.png
 namespace: tap_domo
 variant: mashey
 pip_url: git+https://github.com/Mashey/tap-domo.git

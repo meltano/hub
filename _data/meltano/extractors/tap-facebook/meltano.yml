@@ -2,7 +2,7 @@ name: tap-facebook
 label: Facebook Ads
 description: Advertising Platform
 namespace: tap_facebook
-logo_url: https://hub.meltano.com/assets/logos/taps/facebook.png
+logo_url: /assets/logos/extractors/facebook.png
 variant: meltano
 hidden: true
 repo: https://gitlab.com/meltano/tap-facebook

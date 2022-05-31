@@ -1,7 +1,7 @@
 description: Sales Engagement & Automation Software
 label: Mailshake
 name: tap-mailshake
-logo_url: https://hub.meltano.com/assets/logos/taps/mailshake.png
+logo_url: /assets/logos/extractors/mailshake.png
 namespace: tap_mailshake
 variant: singer-io
 pip_url: tap-mailshake

@@ -1,7 +1,7 @@
 description: Social Networking Website
 label: Twitter
 name: tap-twitter
-logo_url: https://hub.meltano.com/assets/logos/taps/twitter.png
+logo_url: /assets/logos/extractors/twitter.png
 namespace: tap_twitter
 variant: bernietai
 pip_url: git+https://github.com/bernietai/tap-twitter.git

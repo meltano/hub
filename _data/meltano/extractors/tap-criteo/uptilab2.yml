@@ -1,7 +1,7 @@
 description: Advertising Platform
 label: Criteo
 name: tap-criteo
-logo_url: https://hub.meltano.com/assets/logos/taps/criteo.png
+logo_url: /assets/logos/extractors/criteo.png
 namespace: tap_criteo
 variant: uptilab2
 pip_url: git+https://github.com/uptilab2/tap-criteo.git

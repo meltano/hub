@@ -1,7 +1,7 @@
 description: PlayerUnknown's Battlegrounds API
 label: Player Unknown's Battlegrounds API
 name: tap-pubg
-logo_url: https://hub.meltano.com/assets/logos/taps/pubg.png
+logo_url: /assets/logos/extractors/pubg.png
 namespace: tap_pubg
 variant: autoidm
 pip_url: git+https://github.com/AutoIDM/tap-pubg.git

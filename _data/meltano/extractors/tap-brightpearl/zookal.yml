@@ -1,7 +1,7 @@
 description: Retail Management Software
 label: BrightPearl
 name: tap-brightpearl
-logo_url: https://hub.meltano.com/assets/logos/taps/brightpearl.png
+logo_url: /assets/logos/extractors/brightpearl.png
 namespace: tap_brightpearl
 variant: zookal
 pip_url: git+https://github.com/Zookal/tap-brightpearl.git

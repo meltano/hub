@@ -1,7 +1,7 @@
 description: Project Management Software
 label: Trello
 name: tap-trello
-logo_url: https://hub.meltano.com/assets/logos/taps/trello.png
+logo_url: /assets/logos/extractors/trello.png
 namespace: tap_trello
 variant: matatika
 pip_url: git+https://github.com/Matatika/tap-trello.git

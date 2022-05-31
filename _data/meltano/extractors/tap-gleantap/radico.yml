@@ -1,7 +1,7 @@
 description: Gym & Fitness CRM
 label: Gleantap
 name: tap-gleantap
-logo_url: https://hub.meltano.com/assets/logos/taps/gleantap.png
+logo_url: /assets/logos/extractors/gleantap.png
 namespace: tap_gleantap
 variant: radico
 pip_url: git+https://github.com/Radico/tap-gleantap.git

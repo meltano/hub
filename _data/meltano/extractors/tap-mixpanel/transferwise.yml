@@ -1,7 +1,7 @@
 description: Product Analytics Tool
 label: Mixpanel
 name: tap-mixpanel
-logo_url: https://hub.meltano.com/assets/logos/taps/mixpanel.png
+logo_url: /assets/logos/extractors/mixpanel.png
 namespace: tap_mixpanel
 variant: transferwise
 pip_url: pipelinewise-tap-mixpanel

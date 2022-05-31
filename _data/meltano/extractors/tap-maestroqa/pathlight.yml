@@ -1,7 +1,7 @@
 description: Customer Service Quality Assurance Software
 label: MaestroQA
 name: tap-maestroqa
-logo_url: https://hub.meltano.com/assets/logos/taps/maestroqa.png
+logo_url: /assets/logos/extractors/maestroqa.png
 namespace: tap_maestroqa
 variant: pathlight
 pip_url: git+https://github.com/Pathlight/tap-maestroqa.git

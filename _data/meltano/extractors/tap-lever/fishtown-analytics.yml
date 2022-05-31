@@ -1,7 +1,7 @@
 description: Recruiting Software
 label: Lever
 name: tap-lever
-logo_url: https://hub.meltano.com/assets/logos/taps/lever.png
+logo_url: /assets/logos/extractors/lever.png
 namespace: tap_lever
 variant: fishtown-analytics
 pip_url: git+https://github.com/fishtown-analytics/tap-lever.git

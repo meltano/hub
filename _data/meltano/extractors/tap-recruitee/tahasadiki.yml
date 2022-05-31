@@ -1,7 +1,7 @@
 description: Talent Acquisition Platform
 label: Recruitee
 name: tap-recruitee
-logo_url: https://hub.meltano.com/assets/logos/taps/recruitee.png
+logo_url: /assets/logos/extractors/recruitee.png
 namespace: tap_recruitee
 variant: tahasadiki
 pip_url: git+https://github.com/Tahasadiki/tap-recruitee.git

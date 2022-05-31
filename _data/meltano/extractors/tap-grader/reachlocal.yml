@@ -1,7 +1,7 @@
 description: Digital Marketing Presence Tool
 label: LOCALiQ Grader
 name: tap-grader
-logo_url: https://hub.meltano.com/assets/logos/taps/grader.png
+logo_url: /assets/logos/extractors/grader.png
 namespace: tap_grader
 variant: reachlocal
 pip_url: git+https://github.com/reachlocal/tap-grader.git

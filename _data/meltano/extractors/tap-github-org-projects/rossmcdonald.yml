@@ -1,7 +1,7 @@
 description: Code hosting Platform
 label: GitHub Org
 name: tap-github-org-projects
-logo_url: https://hub.meltano.com/assets/logos/taps/github-org-projects.png
+logo_url: /assets/logos/extractors/github-org-projects.png
 namespace: tap_github_org_projects
 variant: rossmcdonald
 pip_url: git+https://github.com/rossmcdonald/tap-github-org-projects.git

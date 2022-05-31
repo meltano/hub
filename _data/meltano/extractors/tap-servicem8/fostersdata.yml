@@ -1,7 +1,7 @@
 description: Field Service Software
 label: ServiceM8
 name: tap-servicem8
-logo_url: https://hub.meltano.com/assets/logos/taps/servicem8.png
+logo_url: /assets/logos/extractors/servicem8.png
 namespace: tap_servicem8
 variant: fostersdata
 pip_url: git+https://github.com/FostersData/tap-servicem8.git

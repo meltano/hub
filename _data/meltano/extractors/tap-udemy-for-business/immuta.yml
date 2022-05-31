@@ -1,7 +1,7 @@
 description: Online Learning Platform
 label: Udemy for Business
 name: tap-udemy-for-business
-logo_url: https://hub.meltano.com/assets/logos/taps/udemy-for-business.png
+logo_url: /assets/logos/extractors/udemy-for-business.png
 namespace: tap_udemy_for_business
 variant: immuta
 pip_url: git+https://github.com/immuta/tap-udemy-for-business.git

@@ -1,7 +1,7 @@
 description: Extract and Load Platform
 label: Stitch
 name: target-stitch
-logo_url: https://hub.meltano.com/assets/logos/targets/stitch.png
+logo_url: /assets/logos/loaders/stitch.png
 namespace: target_stitch
 variant: singer-io
 pip_url: target-stitch

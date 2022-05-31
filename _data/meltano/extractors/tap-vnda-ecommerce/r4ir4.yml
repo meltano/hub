@@ -1,7 +1,7 @@
 description: Ecommerce platform
 label: VNDA Ecommerce
 name: tap-vnda-ecommerce
-logo_url: https://hub.meltano.com/assets/logos/taps/vnda-ecommerce.png
+logo_url: /assets/logos/extractors/vnda-ecommerce.png
 namespace: tap_vnda_ecommerce
 variant: r4ir4
 pip_url: git+https://github.com/r4ir4/tap-vnda-ecommerce.git

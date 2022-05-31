@@ -1,7 +1,7 @@
 description: Columnar Storage Format
 label: Parquet
 name: target-parquet
-logo_url: https://hub.meltano.com/assets/logos/targets/parquet.png
+logo_url: /assets/logos/loaders/parquet.png
 namespace: target_parquet
 variant: mrtns
 pip_url: git+https://github.com/mrtns/target-parquet.git

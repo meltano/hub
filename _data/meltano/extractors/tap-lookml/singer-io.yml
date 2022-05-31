@@ -1,7 +1,7 @@
 description: Business Intelligence (BI) & Data Analytics Platform
 label: LookML
 name: tap-lookml
-logo_url: https://hub.meltano.com/assets/logos/taps/lookml.png
+logo_url: /assets/logos/extractors/lookml.png
 namespace: tap_lookml
 variant: singer-io
 pip_url: tap-lookml

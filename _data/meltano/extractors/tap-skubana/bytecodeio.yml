@@ -1,7 +1,7 @@
 description: Ecommerce Operations Platform
 label: Skubana
 name: tap-skubana
-logo_url: https://hub.meltano.com/assets/logos/taps/skubana.png
+logo_url: /assets/logos/extractors/skubana.png
 namespace: tap_skubana
 variant: bytecodeio
 pip_url: git+https://github.com/bytecodeio/tap-skubana.git

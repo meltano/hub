@@ -1,7 +1,7 @@
 description: Cloud Communication Software
 label: RingCentral
 name: tap-ringcentral
-logo_url: https://hub.meltano.com/assets/logos/taps/ringcentral.png
+logo_url: /assets/logos/extractors/ringcentral.png
 namespace: tap_ringcentral
 variant: fishtown-analytics
 pip_url: git+https://github.com/fishtown-analytics/tap-ringcentral.git

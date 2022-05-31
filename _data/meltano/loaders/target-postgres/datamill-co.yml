@@ -4,7 +4,7 @@ description: PostgreSQL database loader
 namespace: target_postgres
 dialect: postgres
 target_schema: $TARGET_POSTGRES_SCHEMA
-logo_url: https://hub.meltano.com/assets/logos/targets/postgres.png
+logo_url: /assets/logos/loaders/postgres.png
 variant: datamill-co
 docs: https://hub.meltano.com/loaders/postgres--datamill-co.html
 repo: https://github.com/datamill-co/target-postgres

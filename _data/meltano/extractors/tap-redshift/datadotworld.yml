@@ -1,7 +1,7 @@
 description: Amazon Redshift Data Warehouse
 label: Redshift
 name: tap-redshift
-logo_url: https://hub.meltano.com/assets/logos/taps/redshift.png
+logo_url: /assets/logos/extractors/redshift.png
 namespace: tap_redshift
 variant: datadotworld
 pip_url: git+https://github.com/datadotworld/tap-redshift.git

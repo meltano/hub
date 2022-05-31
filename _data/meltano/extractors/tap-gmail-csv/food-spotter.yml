@@ -1,7 +1,7 @@
 description: x
 label: GMail CSV/Excel Attachments
 name: tap-gmail-csv
-logo_url: https://hub.meltano.com/assets/logos/taps/gmail-csv.png
+logo_url: /assets/logos/extractors/gmail-csv.png
 namespace: tap_gmail_csv
 variant: food-spotter
 pip_url: git+https://github.com/food-spotter/tap-gmail-csv.git

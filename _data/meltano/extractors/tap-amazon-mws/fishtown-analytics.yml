@@ -1,7 +1,7 @@
 description: Amazon API for Selling Automation
 label: Amazon MWS
 name: tap-amazon-mws
-logo_url: https://hub.meltano.com/assets/logos/taps/amazon-mws.png
+logo_url: /assets/logos/extractors/amazon-mws.png
 namespace: tap_amazon_mws
 variant: fishtown-analytics
 pip_url: git+https://github.com/fishtown-analytics/tap-amazon-mws.git

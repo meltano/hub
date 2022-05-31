@@ -1,7 +1,7 @@
 description: Recruiting Workflow Software
 label: Process Street
 name: tap-process-street
-logo_url: https://hub.meltano.com/assets/logos/taps/process-street.png
+logo_url: /assets/logos/extractors/process-street.png
 namespace: tap_process_street
 variant: process-street
 pip_url: git+https://github.com/process-street/tap-process-street.git

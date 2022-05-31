@@ -1,7 +1,7 @@
 description: Relationship Marketing Platform
 label: Sendinblue
 name: tap-sendinblue
-logo_url: https://hub.meltano.com/assets/logos/taps/sendinblue.png
+logo_url: /assets/logos/extractors/sendinblue.png
 namespace: tap_sendinblue
 variant: hotgluexyz
 pip_url: git+https://github.com/hotgluexyz/tap-sendinblue.git

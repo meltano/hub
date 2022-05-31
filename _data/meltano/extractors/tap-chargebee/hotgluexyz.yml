@@ -2,7 +2,7 @@ name: tap-chargebee
 namespace: tap_chargebee
 label: Chargebee
 description: Subscription billing software
-logo_url: https://hub.meltano.com/assets/logos/taps/chargebee.png
+logo_url: /assets/logos/extractors/chargebee.png
 variant: hotgluexyz
 docs: https://hub.meltano.com/extractors/chargebee.html
 repo: https://github.com/hotgluexyz/tap-chargebee

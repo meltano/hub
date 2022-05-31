@@ -1,7 +1,7 @@
 description: Support ticketing system & customer service platform
 label: Zendesk Chat
 name: tap-zendesk-chat
-logo_url: https://hub.meltano.com/assets/logos/taps/zendesk-chat.png
+logo_url: /assets/logos/extractors/zendesk-chat.png
 namespace: tap_zendesk_chat
 variant: singer-io
 pip_url: tap-zendesk-chat

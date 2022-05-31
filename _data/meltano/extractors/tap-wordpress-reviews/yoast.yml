@@ -1,7 +1,7 @@
 description: Content Management System
 label: Wordpress.org Reviews
 name: tap-wordpress-reviews
-logo_url: https://hub.meltano.com/assets/logos/taps/wordpress-reviews.png
+logo_url: /assets/logos/extractors/wordpress-reviews.png
 namespace: tap_wordpress_reviews
 variant: yoast
 pip_url: git+https://github.com/Yoast/singer-tap-wordpress-reviews.git

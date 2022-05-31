@@ -1,7 +1,7 @@
 description: Virtual wallet and payments platform
 label: Mercado Pago
 name: tap-mercadopago
-logo_url: https://hub.meltano.com/assets/logos/taps/mercadopago.png
+logo_url: /assets/logos/extractors/mercadopago.png
 namespace: tap_mercadopago
 variant: a-rusi
 pip_url: git+https://github.com/a-rusi/tap-mercadopago.git

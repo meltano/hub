@@ -1,7 +1,7 @@
 description: Customer Experience Management Software
 label: Wootric
 name: tap-wootric
-logo_url: https://hub.meltano.com/assets/logos/taps/wootric.png
+logo_url: /assets/logos/extractors/wootric.png
 namespace: tap_wootric
 variant: singer-io
 pip_url: tap-wootric

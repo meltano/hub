@@ -1,7 +1,7 @@
 description: Customer onboarding software for managing software implementations
 label: Baton
 name: tap-hellobaton
-logo_url: https://hub.meltano.com/assets/logos/taps/hellobaton.png
+logo_url: /assets/logos/extractors/hellobaton.png
 namespace: tap_hellobaton
 variant: dluftspring
 pip_url: git+https://github.com/dluftspring/tap-hellobaton.git

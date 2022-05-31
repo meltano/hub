@@ -2,7 +2,7 @@ name: tap-google-sheets
 description: Cloud Spreadsheets
 label: Google Sheets
 namespace: tap_google_sheets
-logo_url: https://hub.meltano.com/assets/logos/taps/google-sheets.png
+logo_url: /assets/logos/extractors/google-sheets.png
 variant: singer-io
 docs: https://hub.meltano.com/extractors/google-sheets
 pip_url: git+https://github.com/singer-io/tap-google-sheets.git

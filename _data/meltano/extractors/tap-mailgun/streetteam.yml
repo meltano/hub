@@ -1,7 +1,7 @@
 description: Transactional Email API Service
 label: Mailgun
 name: tap-mailgun
-logo_url: https://hub.meltano.com/assets/logos/taps/mailgun.png
+logo_url: /assets/logos/extractors/mailgun.png
 namespace: tap_mailgun
 variant: streetteam
 pip_url: git+https://github.com/streetteam/tap-mailgun.git

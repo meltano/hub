@@ -1,7 +1,7 @@
 description: Online courses and membership sites.
 label: Thinkific
 name: tap-thinkific
-logo_url: https://hub.meltano.com/assets/logos/taps/thinkific.png
+logo_url: /assets/logos/extractors/thinkific.png
 namespace: tap_thinkific
 variant: birdiecare
 pip_url: git+https://github.com/birdiecare/tap-thinkific.git

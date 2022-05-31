@@ -1,7 +1,7 @@
 description: Contact Center Management Platform
 label: Genesys Cloud
 name: tap-purecloud
-logo_url: https://hub.meltano.com/assets/logos/taps/purecloud.png
+logo_url: /assets/logos/extractors/purecloud.png
 namespace: tap_purecloud
 variant: eltonarodrigues
 pip_url: git+https://github.com/EltonARodrigues/tap-purecloud.git

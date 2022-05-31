@@ -1,7 +1,7 @@
 description: Application Email Service
 label: Postmark
 name: tap-postmark
-logo_url: https://hub.meltano.com/assets/logos/taps/postmark.png
+logo_url: /assets/logos/extractors/postmark.png
 namespace: tap_postmark
 variant: yoast
 pip_url: git+https://github.com/Yoast/singer-tap-postmark.git

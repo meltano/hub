@@ -1,7 +1,7 @@
 description: Sales Email Automation
 label: PersistIQ
 name: tap-persistiq
-logo_url: https://hub.meltano.com/assets/logos/taps/persistiq.png
+logo_url: /assets/logos/extractors/persistiq.png
 namespace: tap_persistiq
 variant: nickleomartin
 pip_url: git+https://github.com/NickLeoMartin/tap-persistiq.git

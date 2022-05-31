@@ -1,7 +1,7 @@
 description: Monitoring System and Time Series Database
 label: Prometheus
 name: tap-prometheus
-logo_url: https://hub.meltano.com/assets/logos/taps/prometheus.png
+logo_url: /assets/logos/extractors/prometheus.png
 namespace: tap_prometheus
 variant: miroapp
 pip_url: git+https://github.com/miroapp/tap-prometheus.git

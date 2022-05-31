@@ -1,7 +1,7 @@
 description: Time Management Software
 label: Timebutler
 name: tap-timebutler
-logo_url: https://hub.meltano.com/assets/logos/taps/timebutler.png
+logo_url: /assets/logos/extractors/timebutler.png
 namespace: tap_timebutler
 variant: taikonauten
 pip_url: git+https://github.com/taikonauten/tap-timebutler.git

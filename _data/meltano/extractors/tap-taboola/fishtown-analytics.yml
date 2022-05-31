@@ -1,7 +1,7 @@
 description: Mobile Campaign Manager
 label: Taboola Backstage
 name: tap-taboola
-logo_url: https://hub.meltano.com/assets/logos/taps/taboola.png
+logo_url: /assets/logos/extractors/taboola.png
 namespace: tap_taboola
 variant: fishtown-analytics
 pip_url: git+https://github.com/fishtown-analytics/tap-taboola.git

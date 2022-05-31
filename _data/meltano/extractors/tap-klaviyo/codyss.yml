@@ -1,7 +1,7 @@
 description: Email Marketing and SMS Marketing Platform
 label: Klaviyo
 name: tap-klaviyo
-logo_url: https://hub.meltano.com/assets/logos/taps/klaviyo.png
+logo_url: /assets/logos/extractors/klaviyo.png
 namespace: tap_klaviyo
 variant: codyss
 pip_url: git+https://github.com/codyss/tap-klaviyo.git

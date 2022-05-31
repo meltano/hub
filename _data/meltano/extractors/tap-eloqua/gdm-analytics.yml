@@ -1,7 +1,7 @@
 description: Marketing Automation Software
 label: Eloqua
 name: tap-eloqua
-logo_url: https://hub.meltano.com/assets/logos/taps/eloqua.png
+logo_url: /assets/logos/extractors/eloqua.png
 namespace: tap_eloqua
 variant: gdm-analytics
 pip_url: git+https://github.com/gdm-analytics/tap-eloqua.git

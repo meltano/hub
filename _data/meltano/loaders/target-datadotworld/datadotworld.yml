@@ -1,7 +1,7 @@
 description: Cloud Data Catalog
 label: Data.world
 name: target-datadotworld
-logo_url: https://hub.meltano.com/assets/logos/targets/datadotworld.png
+logo_url: /assets/logos/loaders/datadotworld.png
 namespace: target_datadotworld
 variant: datadotworld
 pip_url: git+https://github.com/datadotworld/target-datadotworld.git

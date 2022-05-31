@@ -1,7 +1,7 @@
 description: BI Data Visuialization Tool
 label: PowerBI
 name: tap-powerbi-metadata
-logo_url: https://hub.meltano.com/assets/logos/taps/powerbi-metadata.png
+logo_url: /assets/logos/extractors/powerbi-metadata.png
 namespace: tap_powerbi_metadata
 variant: dataops-tk
 pip_url: git+https://github.com/dataops-tk/tap-powerbi-metadata.git

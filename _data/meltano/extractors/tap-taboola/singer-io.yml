@@ -1,7 +1,7 @@
 description: Mobile Campaign Manager
 label: Taboola Backstage
 name: tap-taboola
-logo_url: https://hub.meltano.com/assets/logos/taps/taboola.png
+logo_url: /assets/logos/extractors/taboola.png
 namespace: tap_taboola
 variant: singer-io
 pip_url: tap-taboola

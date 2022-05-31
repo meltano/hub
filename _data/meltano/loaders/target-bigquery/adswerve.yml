@@ -2,7 +2,7 @@ name: target-bigquery
 label: BigQuery
 description: BigQuery loader
 namespace: target_bigquery
-logo_url: https://hub.meltano.com/assets/logos/targets/bigquery.png
+logo_url: /assets/logos/loaders/bigquery.png
 variant: adswerve
 docs: https://hub.meltano.com/loaders/bigquery.html
 repo: https://github.com/adswerve/target-bigquery

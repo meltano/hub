@@ -1,7 +1,7 @@
 description: Advertising Platform
 label: Pinterest Ads
 name: tap-pinterest-ads
-logo_url: https://hub.meltano.com/assets/logos/taps/pinterest-ads.png
+logo_url: /assets/logos/extractors/pinterest-ads.png
 namespace: tap_pinterest_ads
 variant: gthesheep
 pip_url: git+https://github.com/gthesheep/tap-pinterest-ads.git

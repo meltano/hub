@@ -1,7 +1,7 @@
 description: Foreign Exchnage Rates API
 label: Fixer
 name: tap-fixerio
-logo_url: https://hub.meltano.com/assets/logos/taps/fixerio.png
+logo_url: /assets/logos/extractors/fixerio.png
 namespace: tap_fixerio
 variant: lpillmann
 pip_url: git+https://github.com/lpillmann/tap-fixerio.git

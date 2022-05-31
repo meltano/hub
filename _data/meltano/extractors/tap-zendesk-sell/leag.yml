@@ -1,7 +1,7 @@
 description: Sales CRM Software & All-in-One Sales Platform
 label: Zendesk Sell
 name: tap-zendesk-sell
-logo_url: https://hub.meltano.com/assets/logos/taps/zendesk-sell.png
+logo_url: /assets/logos/extractors/zendesk-sell.png
 namespace: tap_zendesk_sell
 variant: leag
 pip_url: git+https://github.com/leag/tap-zendesk-sell.git

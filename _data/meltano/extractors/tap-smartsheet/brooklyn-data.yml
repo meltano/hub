@@ -3,7 +3,7 @@ description: From task management to complex portfolio management, Smartsheet en
   more.
 label: Smartsheet
 name: tap-smartsheet
-logo_url: https://hub.meltano.com/assets/logos/taps/smartsheet.png
+logo_url: /assets/logos/extractors/smartsheet.png
 namespace: tap_smartsheet
 variant: brooklyn-data
 pip_url: git+https://github.com/brooklyn-data/tap-smartsheet.git

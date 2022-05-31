@@ -1,7 +1,7 @@
 description: Digital Marketing and Growth Marketing Platform
 label: AdRoll
 name: tap-adroll
-logo_url: https://hub.meltano.com/assets/logos/taps/adroll.png
+logo_url: /assets/logos/extractors/adroll.png
 namespace: tap_adroll
 variant: singer-io
 pip_url: git+https://github.com/singer-io/tap-adroll.git

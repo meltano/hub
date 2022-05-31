@@ -1,7 +1,7 @@
 description: Conversational Commerce Software
 label: LivePerson
 name: tap-liveperson
-logo_url: https://hub.meltano.com/assets/logos/taps/liveperson.png
+logo_url: /assets/logos/extractors/liveperson.png
 namespace: tap_liveperson
 variant: tomekzbrozek
 pip_url: git+https://github.com/tomekzbrozek/tap-liveperson.git

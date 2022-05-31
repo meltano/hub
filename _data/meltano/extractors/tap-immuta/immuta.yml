@@ -1,7 +1,7 @@
 description: Data Governance Solutions
 label: Immuta
 name: tap-immuta
-logo_url: https://hub.meltano.com/assets/logos/taps/immuta.png
+logo_url: /assets/logos/extractors/immuta.png
 namespace: tap_immuta
 variant: immuta
 pip_url: git+https://github.com/immuta/tap-immuta.git

@@ -1,7 +1,7 @@
 description: Customer Relationship Management Platform
 label: Close
 name: tap-closeio
-logo_url: https://hub.meltano.com/assets/logos/taps/closeio.png
+logo_url: /assets/logos/extractors/closeio.png
 namespace: tap_closeio
 variant: singer-io
 pip_url: tap-closeio

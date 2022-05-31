@@ -1,7 +1,7 @@
 description: Online Payments System
 label: PayPal
 name: tap-paypal
-logo_url: https://hub.meltano.com/assets/logos/taps/paypal.png
+logo_url: /assets/logos/extractors/paypal.png
 namespace: tap_paypal
 variant: yoast
 pip_url: git+https://github.com/Yoast/singer-tap-paypal.git

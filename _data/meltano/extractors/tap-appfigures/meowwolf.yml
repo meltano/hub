@@ -1,7 +1,7 @@
 description: Reporting platform for mobile app developers
 label: AppFigures
 name: tap-appfigures
-logo_url: https://hub.meltano.com/assets/logos/taps/appfigures.png
+logo_url: /assets/logos/extractors/appfigures.png
 namespace: tap_appfigures
 variant: meowwolf
 pip_url: git+https://github.com/MeowWolf/tap-appfigures.git

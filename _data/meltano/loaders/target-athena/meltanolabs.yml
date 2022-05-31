@@ -1,7 +1,7 @@
 description: Serverless S3 Database
 label: Athena
 name: target-athena
-logo_url: https://hub.meltano.com/assets/logos/targets/athena.png
+logo_url: /assets/logos/loaders/athena.png
 namespace: target_athena
 variant: meltanolabs
 repo: https://github.com/MeltanoLabs/target-athena

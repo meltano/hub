@@ -1,7 +1,7 @@
 description: Digital Marketing Platform
 label: SalesForce Marketing Cloud
 name: tap-exacttarget
-logo_url: https://hub.meltano.com/assets/logos/taps/exacttarget.png
+logo_url: /assets/logos/extractors/exacttarget.png
 namespace: tap_exacttarget
 variant: singer-io
 pip_url: tap-exacttarget

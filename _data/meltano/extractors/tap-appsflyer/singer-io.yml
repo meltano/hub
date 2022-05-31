@@ -1,7 +1,7 @@
 description: SaaS mobile marketing analytics and attribution platform
 label: AppsFlyer
 name: tap-appsflyer
-logo_url: https://hub.meltano.com/assets/logos/taps/appsflyer.png
+logo_url: /assets/logos/extractors/appsflyer.png
 namespace: tap_appsflyer
 variant: singer-io
 pip_url: tap-appsflyer

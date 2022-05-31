@@ -1,7 +1,7 @@
 description: Agile Project Management Software
 label: PivotalTracker
 name: tap-pivotal-tracker
-logo_url: https://hub.meltano.com/assets/logos/taps/pivotal-tracker.png
+logo_url: /assets/logos/extractors/pivotal-tracker.png
 namespace: tap_pivotal_tracker
 variant: goodeggs
 pip_url: git+https://github.com/goodeggs/tap-pivotal-tracker.git

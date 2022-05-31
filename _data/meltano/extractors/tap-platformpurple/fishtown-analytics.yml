@@ -1,7 +1,7 @@
 description: Video Delivery Software
 label: Platform Purple
 name: tap-platformpurple
-logo_url: https://hub.meltano.com/assets/logos/taps/platformpurple.png
+logo_url: /assets/logos/extractors/platformpurple.png
 namespace: tap_platformpurple
 variant: fishtown-analytics
 pip_url: git+https://github.com/fishtown-analytics/tap-platformpurple.git

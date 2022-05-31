@@ -1,7 +1,7 @@
 description: Project Management Software
 label: Teamwork
 name: tap-teamwork
-logo_url: https://hub.meltano.com/assets/logos/taps/teamwork.png
+logo_url: /assets/logos/extractors/teamwork.png
 namespace: tap_teamwork
 variant: immuta
 pip_url: git+https://github.com/immuta/tap-teamwork.git

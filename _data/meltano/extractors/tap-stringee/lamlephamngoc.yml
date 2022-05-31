@@ -1,7 +1,7 @@
 description: Communication API Platform
 label: Stringee
 name: tap-stringee
-logo_url: https://hub.meltano.com/assets/logos/taps/stringee.png
+logo_url: /assets/logos/extractors/stringee.png
 namespace: tap_stringee
 variant: lamlephamngoc
 pip_url: git+https://github.com/lamlephamngoc/tap-stringee.git

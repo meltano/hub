@@ -1,7 +1,7 @@
 description: Advertising Platform
 label: Facebook Reviews
 name: tap-facebook-reviews
-logo_url: https://hub.meltano.com/assets/logos/taps/facebook-reviews.png
+logo_url: /assets/logos/extractors/facebook-reviews.png
 namespace: tap_facebook_reviews
 variant: packlane
 pip_url: git+https://github.com/Packlane/tap-facebook-reviews.git

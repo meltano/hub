@@ -1,7 +1,7 @@
 description: Billing and Revenue Automation Platform
 label: Ordway
 name: tap-ordway
-logo_url: https://hub.meltano.com/assets/logos/taps/ordway.png
+logo_url: /assets/logos/extractors/ordway.png
 namespace: tap_ordway
 variant: singer-io
 pip_url: tap-ordway

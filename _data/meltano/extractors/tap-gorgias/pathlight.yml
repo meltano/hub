@@ -1,7 +1,7 @@
 description: Ecommerce Helpdesk
 label: Gorgias
 name: tap-gorgias
-logo_url: https://hub.meltano.com/assets/logos/taps/gorgias.png
+logo_url: /assets/logos/extractors/gorgias.png
 namespace: tap_gorgias
 variant: pathlight
 pip_url: git+https://github.com/Pathlight/tap-gorgias.git

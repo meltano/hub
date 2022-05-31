@@ -1,7 +1,7 @@
 description: Amazon Web Services
 label: AWS Cost Explorer
 name: tap-aws-cost-explorer
-logo_url: https://hub.meltano.com/assets/logos/taps/aws-cost-explorer.png
+logo_url: /assets/logos/extractors/aws-cost-explorer.png
 namespace: tap_aws_cost_explorer
 variant: albert-marrero
 pip_url: git+https://github.com/albert-marrero/tap-aws-cost-explorer.git

@@ -3,7 +3,7 @@ description: 'Apprise allows you to send a notification to almost all of the mos
   Slack, Amazon SNS, Gotify, etc'
 label: Apprise
 name: target-apprise
-logo_url: https://hub.meltano.com/assets/logos/targets/apprise.png
+logo_url: /assets/logos/loaders/apprise.png
 namespace: target_apprise
 variant: AutoIDM
 pip_url: target-apprise

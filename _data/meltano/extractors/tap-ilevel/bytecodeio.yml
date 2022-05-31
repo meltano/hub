@@ -1,7 +1,7 @@
 description: Portfolio Monitoring Software
 label: iLevel Portfolio Monitoring Software
 name: tap-ilevel
-logo_url: https://hub.meltano.com/assets/logos/taps/ilevel.png
+logo_url: /assets/logos/extractors/ilevel.png
 namespace: tap_ilevel
 variant: bytecodeio
 pip_url: git+https://github.com/bytecodeio/tap-ilevel.git

@@ -1,7 +1,7 @@
 description: Search Campaign Management
 label: Google Search Ads 360
 name: tap-search-ads
-logo_url: https://hub.meltano.com/assets/logos/taps/search-ads.png
+logo_url: /assets/logos/extractors/search-ads.png
 namespace: tap_search_ads
 variant: uptilab2
 pip_url: git+https://github.com/uptilab2/tap-search-ads.git

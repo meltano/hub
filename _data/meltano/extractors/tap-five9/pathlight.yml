@@ -1,7 +1,7 @@
 description: Cloud Contact Center Platform
 label: Five9
 name: tap-five9
-logo_url: https://hub.meltano.com/assets/logos/taps/five9.png
+logo_url: /assets/logos/extractors/five9.png
 namespace: tap_five9
 variant: pathlight
 pip_url: git+https://github.com/Pathlight/tap-five9.git

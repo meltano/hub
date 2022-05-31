@@ -1,7 +1,7 @@
 description: Current and Forecast Weather Data Collection
 label: OpenWeatherMap
 name: tap-openweathermap
-logo_url: https://hub.meltano.com/assets/logos/taps/openweathermap.png
+logo_url: /assets/logos/extractors/openweathermap.png
 namespace: tap_openweathermap
 variant: matatika
 pip_url: git+https://github.com/Matatika/tap-openweathermap.git

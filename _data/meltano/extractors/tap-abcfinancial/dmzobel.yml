@@ -1,7 +1,7 @@
 description: SaaS solution for club management
 label: ABC Fitness Solutions
 name: tap-abcfinancial
-logo_url: https://hub.meltano.com/assets/logos/taps/abcfinancial.png
+logo_url: /assets/logos/extractors/abcfinancial.png
 namespace: tap_abcfinancial
 variant: dmzobel
 pip_url: git+https://github.com/dmzobel/tap-abcfinancial.git

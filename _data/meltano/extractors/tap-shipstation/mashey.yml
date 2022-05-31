@@ -1,7 +1,7 @@
 description: Shipping Software for Ecommerce Fulfillment
 label: ShipStation
 name: tap-shipstation
-logo_url: https://hub.meltano.com/assets/logos/taps/shipstation.png
+logo_url: /assets/logos/extractors/shipstation.png
 namespace: tap_shipstation
 variant: mashey
 pip_url: git+https://github.com/Mashey/tap-shipstation.git

@@ -1,7 +1,7 @@
 description: Sales CRM and Pipeline Management Software
 label: Pipedrive
 name: tap-pipedrive
-logo_url: https://hub.meltano.com/assets/logos/taps/pipedrive.png
+logo_url: /assets/logos/extractors/pipedrive.png
 namespace: tap_pipedrive
 variant: singer-io
 pip_url: tap-pipedrive

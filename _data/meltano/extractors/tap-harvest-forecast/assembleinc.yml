@@ -1,7 +1,7 @@
 description: Time Tracking Software
 label: Harvest Forecast
 name: tap-harvest-forecast
-logo_url: https://hub.meltano.com/assets/logos/taps/harvest-forecast.png
+logo_url: /assets/logos/extractors/harvest-forecast.png
 namespace: tap_harvest_forecast
 variant: assembleinc
 pip_url: git+https://github.com/assembleinc/tap-harvest-forecast.git

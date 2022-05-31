@@ -1,7 +1,7 @@
 description: Work operating platform for projects and workflows
 label: Monday.com
 name: tap-monday
-logo_url: https://hub.meltano.com/assets/logos/taps/monday.png
+logo_url: /assets/logos/extractors/monday.png
 namespace: tap_monday
 variant: gthesheep
 pip_url: git+https://github.com/gthesheep/tap-monday.git

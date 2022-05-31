@@ -1,7 +1,7 @@
 description: B2B Sales Acceleration Software
 label: Exact Sales
 name: tap-exactsales
-logo_url: https://hub.meltano.com/assets/logos/taps/exactsales.png
+logo_url: /assets/logos/extractors/exactsales.png
 namespace: tap_exactsales
 variant: rafaeljusi
 pip_url: git+https://github.com/rafaeljusi/tap-exactsales.git

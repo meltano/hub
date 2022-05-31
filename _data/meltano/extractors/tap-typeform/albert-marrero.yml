@@ -1,7 +1,7 @@
 description: Survey and Form Software
 label: Typeform
 name: tap-typeform
-logo_url: https://hub.meltano.com/assets/logos/taps/typeform.png
+logo_url: /assets/logos/extractors/typeform.png
 namespace: tap_typeform
 variant: albert-marrero
 pip_url: git+https://github.com/albert-marrero/tap-typeform.git

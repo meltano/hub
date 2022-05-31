@@ -2,7 +2,7 @@ description: Silicon Labs Thunderboard tap that collect environmental data - tem
   uv, ambient light - from a physical device.
 label: Thunderboard
 name: tap-thunderboard
-logo_url: https://hub.meltano.com/assets/logos/taps/thunderboard.png
+logo_url: /assets/logos/extractors/thunderboard.png
 namespace: tap_thunderboard
 variant: matatika
 pip_url: git+https://github.com/Matatika/tap-thunderboard

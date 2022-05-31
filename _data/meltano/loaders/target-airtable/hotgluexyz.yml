@@ -1,7 +1,7 @@
 description: Cloud Spreadsheet-Database Hybrid Software
 label: Airtable
 name: target-airtable
-logo_url: https://hub.meltano.com/assets/logos/targets/airtable.png
+logo_url: /assets/logos/loaders/airtable.png
 namespace: target_airtable
 variant: hotgluexyz
 pip_url: git+https://github.com/hotgluexyz/target-airtable.git

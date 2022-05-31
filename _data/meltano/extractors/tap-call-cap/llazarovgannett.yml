@@ -1,7 +1,7 @@
 description: Call Tracking and Monitoring Software
 label: Callcap
 name: tap-call-cap
-logo_url: https://hub.meltano.com/assets/logos/taps/call-cap.png
+logo_url: /assets/logos/extractors/call-cap.png
 namespace: tap_call_cap
 variant: llazarovgannett
 pip_url: git+https://github.com/LLazarovGannett/tap-call-cap.git

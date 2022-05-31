@@ -1,7 +1,7 @@
 description: B2C Marketing Automation Platform
 label: Selligent
 name: tap-selligent
-logo_url: https://hub.meltano.com/assets/logos/taps/selligent.png
+logo_url: /assets/logos/extractors/selligent.png
 namespace: tap_selligent
 variant: fishtown-analytics
 pip_url: git+https://github.com/fishtown-analytics/tap-selligent.git

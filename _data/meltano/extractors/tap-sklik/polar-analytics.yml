@@ -1,7 +1,7 @@
 description: Marketing Platform
 label: Sklik
 name: tap-sklik
-logo_url: https://hub.meltano.com/assets/logos/taps/sklik.png
+logo_url: /assets/logos/extractors/sklik.png
 namespace: tap_sklik
 variant: polar-analytics
 pip_url: git+https://github.com/polar-analytics/tap-sklik.git

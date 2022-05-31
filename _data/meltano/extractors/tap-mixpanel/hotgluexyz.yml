@@ -1,7 +1,7 @@
 description: Product Analytics Tool
 label: Mixpanel
 name: tap-mixpanel
-logo_url: https://hub.meltano.com/assets/logos/taps/mixpanel.png
+logo_url: /assets/logos/extractors/mixpanel.png
 namespace: tap_mixpanel
 variant: hotgluexyz
 pip_url: git+https://github.com/hotgluexyz/tap-mixpanel.git

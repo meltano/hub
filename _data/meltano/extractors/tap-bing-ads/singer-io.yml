@@ -2,7 +2,7 @@ name: tap-bing-ads
 label: Bing Ads
 description: Advertising Platform
 namespace: tap_bing_ads
-logo_url: https://hub.meltano.com/assets/logos/taps/bing-ads.png
+logo_url: /assets/logos/extractors/bing-ads.png
 variant: singer-io
 docs: https://hub.meltano.com/extractors/bing-ads.html
 repo: https://github.com/singer-io/tap-bing-ads

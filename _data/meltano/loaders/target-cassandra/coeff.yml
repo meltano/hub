@@ -1,7 +1,7 @@
 description: NoSQL Database
 label: Cassandra
 name: target-cassandra
-logo_url: https://hub.meltano.com/assets/logos/targets/cassandra.png
+logo_url: /assets/logos/loaders/cassandra.png
 namespace: target_cassandra
 variant: coeff
 pip_url: git+https://github.com/coeff/target-cassandra.git

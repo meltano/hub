@@ -1,7 +1,7 @@
 description: Customer Engagement Platform
 label: SnapEngage
 name: tap-snapengage
-logo_url: https://hub.meltano.com/assets/logos/taps/snapengage.png
+logo_url: /assets/logos/extractors/snapengage.png
 namespace: tap_snapengage
 variant: pathlight
 pip_url: git+https://github.com/Pathlight/tap-snapengage.git

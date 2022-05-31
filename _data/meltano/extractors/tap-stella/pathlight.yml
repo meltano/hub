@@ -1,7 +1,7 @@
 description: Customer Service Agent Platform
 label: Stella Connect
 name: tap-stella
-logo_url: https://hub.meltano.com/assets/logos/taps/stella.png
+logo_url: /assets/logos/extractors/stella.png
 namespace: tap_stella
 variant: pathlight
 pip_url: git+https://github.com/Pathlight/tap-stella.git

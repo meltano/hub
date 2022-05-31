@@ -2,7 +2,7 @@ name: tap-bigquery
 label: BigQuery
 description: BigQuery data warehouse extractor
 namespace: tap_bigquery
-logo_url: https://hub.meltano.com/assets/logos/taps/bigquery.png
+logo_url: /assets/logos/extractors/bigquery.png
 variant: anelendata
 docs: https://hub.meltano.com/extractors/bigquery.html
 repo: https://github.com/anelendata/tap-bigquery

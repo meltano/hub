@@ -1,7 +1,7 @@
 description: Time Tracking Software
 label: Harvest
 name: tap-harvest
-logo_url: https://hub.meltano.com/assets/logos/taps/harvest.png
+logo_url: /assets/logos/extractors/harvest.png
 namespace: tap_harvest
 variant: singer-io
 pip_url: tap-harvest

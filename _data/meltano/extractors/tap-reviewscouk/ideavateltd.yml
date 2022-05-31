@@ -1,7 +1,7 @@
 description: Review Website
 label: Reviews.io
 name: tap-reviewscouk
-logo_url: https://hub.meltano.com/assets/logos/taps/reviewscouk.png
+logo_url: /assets/logos/extractors/reviewscouk.png
 namespace: tap_reviewscouk
 variant: ideavateltd
 pip_url: git+https://github.com/ideavateltd/tap-reviewscouk.git

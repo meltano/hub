@@ -1,7 +1,7 @@
 description: SaaS Metrics and Analytics Platform
 label: SaasOptics
 name: tap-saasoptics
-logo_url: https://hub.meltano.com/assets/logos/taps/saasoptics.png
+logo_url: /assets/logos/extractors/saasoptics.png
 namespace: tap_saasoptics
 variant: bytecodeio
 pip_url: git+https://github.com/bytecodeio/tap-saasoptics.git

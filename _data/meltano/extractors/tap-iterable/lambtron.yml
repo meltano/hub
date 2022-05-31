@@ -1,7 +1,7 @@
 description: Cross-Channel Marketing Platform
 label: Iterable
 name: tap-iterable
-logo_url: https://hub.meltano.com/assets/logos/taps/iterable.png
+logo_url: /assets/logos/extractors/iterable.png
 namespace: tap_iterable
 variant: lambtron
 pip_url: git+https://github.com/lambtron/tap-iterable.git

@@ -1,7 +1,7 @@
 description: Conversational Relationship Platform
 label: Intercom
 name: tap-intercom
-logo_url: https://hub.meltano.com/assets/logos/taps/intercom.png
+logo_url: /assets/logos/extractors/intercom.png
 namespace: tap_intercom
 variant: singer-io
 pip_url: tap-intercom

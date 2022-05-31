@@ -1,7 +1,7 @@
 description: Fulfillment Software for D2C Brands
 label: ShipHero
 name: tap-shiphero
-logo_url: https://hub.meltano.com/assets/logos/taps/shiphero.png
+logo_url: /assets/logos/extractors/shiphero.png
 namespace: tap_shiphero
 variant: singer-io
 pip_url: tap-shiphero

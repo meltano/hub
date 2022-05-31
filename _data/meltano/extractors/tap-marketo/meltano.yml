@@ -2,7 +2,7 @@ name: tap-marketo
 label: Marketo
 description: Marketing automation for account-based marketing
 namespace: tap_marketo
-logo_url: https://hub.meltano.com/assets/logos/taps/marketo.png
+logo_url: /assets/logos/extractors/marketo.png
 variant: meltano
 hidden: true
 repo: https://gitlab.com/meltano/tap-marketo

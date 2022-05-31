@@ -1,7 +1,7 @@
 description: Commercial and Small Business Insurance
 label: Sentry
 name: tap-sentry
-logo_url: https://hub.meltano.com/assets/logos/taps/sentry.png
+logo_url: /assets/logos/extractors/sentry.png
 namespace: tap_sentry
 variant: valulucchesi
 pip_url: git+https://github.com/valulucchesi/tap-sentry.git

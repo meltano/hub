@@ -1,7 +1,7 @@
 description: Member Management Software
 label: Rock Gym Pro
 name: tap-rockgympro
-logo_url: https://hub.meltano.com/assets/logos/taps/rockgympro.png
+logo_url: /assets/logos/extractors/rockgympro.png
 namespace: tap_rockgympro
 variant: cinchio
 pip_url: git+https://github.com/cinchio/tap-rockgympro.git

@@ -1,7 +1,7 @@
 description: Space Analytics Platform
 label: Density
 name: tap-density
-logo_url: https://hub.meltano.com/assets/logos/taps/density.png
+logo_url: /assets/logos/extractors/density.png
 namespace: tap_density
 variant: envoy
 pip_url: git+https://github.com/envoy/tap-density.git

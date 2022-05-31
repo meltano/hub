@@ -1,7 +1,7 @@
 description: POS System & Credit Card Readers
 label: Clover
 name: tap-clover
-logo_url: https://hub.meltano.com/assets/logos/taps/clover.png
+logo_url: /assets/logos/extractors/clover.png
 namespace: tap_clover
 variant: kalai-wavicle
 pip_url: git+https://github.com/Kalai-Wavicle/tap-clover.git

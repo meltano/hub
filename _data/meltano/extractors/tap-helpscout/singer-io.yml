@@ -1,7 +1,7 @@
 description: Customer Service Software
 label: Helpscout
 name: tap-helpscout
-logo_url: https://hub.meltano.com/assets/logos/taps/helpscout.png
+logo_url: /assets/logos/extractors/helpscout.png
 namespace: tap_helpscout
 variant: singer-io
 pip_url: tap-helpscout

@@ -1,7 +1,7 @@
 description: Software Obseravibility
 label: New Relic
 name: tap-newrelic
-logo_url: https://hub.meltano.com/assets/logos/taps/newrelic.png
+logo_url: /assets/logos/extractors/newrelic.png
 namespace: tap_newrelic
 variant: fixdauto
 pip_url: git+https://github.com/fixdauto/tap-newrelic.git

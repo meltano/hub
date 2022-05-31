@@ -1,7 +1,7 @@
 description: All your work in one place. Tasks, docs, chat, goals, & more.
 label: Clickup
 name: tap-clickup
-logo_url: https://hub.meltano.com/assets/logos/taps/clickup.png
+logo_url: /assets/logos/extractors/clickup.png
 namespace: tap_clickup
 variant: autoidm
 pip_url: tap-clickup

@@ -1,7 +1,7 @@
 description: Business Intelligence Platform
 label: Tableau
 name: tap-tableau
-logo_url: https://hub.meltano.com/assets/logos/taps/tableau.png
+logo_url: /assets/logos/extractors/tableau.png
 namespace: tap_tableau
 variant: gthesheep
 pip_url: git+https://github.com/gthesheep/tap-tableau.git

@@ -1,7 +1,7 @@
 description: Extract CSV files from S3
 label: AWS S3 CSV
 name: tap-s3-csv
-logo_url: https://hub.meltano.com/assets/logos/taps/s3-csv.png
+logo_url: /assets/logos/extractors/s3-csv.png
 namespace: tap_s3_csv
 variant: fishtown-analytics
 pip_url: git+https://github.com/fishtown-analytics/tap-s3-csv.git

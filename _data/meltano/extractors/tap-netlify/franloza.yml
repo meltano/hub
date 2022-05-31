@@ -1,7 +1,7 @@
 description: Web Hosting Platform
 label: Netlify
 name: tap-netlify
-logo_url: https://hub.meltano.com/assets/logos/taps/netlify.png
+logo_url: /assets/logos/extractors/netlify.png
 namespace: tap_netlify
 variant: franloza
 pip_url: git+https://github.com/franloza/tap-netlify.git

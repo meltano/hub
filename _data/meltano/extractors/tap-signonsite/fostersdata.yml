@@ -1,7 +1,7 @@
 description: Connected Worker Platform for Construction
 label: SignOnSite
 name: tap-signonsite
-logo_url: https://hub.meltano.com/assets/logos/taps/signonsite.png
+logo_url: /assets/logos/extractors/signonsite.png
 namespace: tap_signonsite
 variant: fostersdata
 pip_url: git+https://github.com/FostersData/tap-signonsite.git

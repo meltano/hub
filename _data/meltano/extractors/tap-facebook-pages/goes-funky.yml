@@ -1,7 +1,7 @@
 description: Facebook Pages API
 label: Facebook Pages
 name: tap-facebook-pages
-logo_url: https://hub.meltano.com/assets/logos/taps/facebook-pages.png
+logo_url: /assets/logos/extractors/facebook-pages.png
 namespace: tap_facebook_pages
 variant: goes-funky
 pip_url: git+https://github.com/goes-funky/tap-facebook-pages.git

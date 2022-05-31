@@ -1,7 +1,7 @@
 description: Business Solution Software for Apparel Industry
 label: ApparelMagic
 name: tap-apparel-magic
-logo_url: https://hub.meltano.com/assets/logos/taps/apparel-magic.png
+logo_url: /assets/logos/extractors/apparel-magic.png
 namespace: tap_apparel_magic
 variant: jamespotz
 pip_url: git+https://github.com/jamespotz/tap-apparel-magic.git

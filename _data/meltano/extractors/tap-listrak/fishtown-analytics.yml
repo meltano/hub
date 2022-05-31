@@ -1,7 +1,7 @@
 description: Digital Marketing Platform
 label: Listrak
 name: tap-listrak
-logo_url: https://hub.meltano.com/assets/logos/taps/listrak.png
+logo_url: /assets/logos/extractors/listrak.png
 namespace: tap_listrak
 variant: fishtown-analytics
 pip_url: git+https://github.com/fishtown-analytics/tap-listrak.git

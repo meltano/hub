@@ -1,7 +1,7 @@
 description: Ecommerce Platform
 label: Centra
 name: tap-centra
-logo_url: https://hub.meltano.com/assets/logos/taps/centra.png
+logo_url: /assets/logos/extractors/centra.png
 namespace: tap_centra
 variant: icebug
 pip_url: git+https://github.com/icebug/tap-centra.git

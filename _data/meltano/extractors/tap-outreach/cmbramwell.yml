@@ -1,7 +1,7 @@
 description: Sales Engagement Platform
 label: Outreach
 name: tap-outreach
-logo_url: https://hub.meltano.com/assets/logos/taps/outreach.png
+logo_url: /assets/logos/extractors/outreach.png
 namespace: tap_outreach
 variant: cmbramwell
 pip_url: git+https://github.com/cmbramwell/tap-outreach.git

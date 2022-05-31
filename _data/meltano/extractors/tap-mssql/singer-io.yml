@@ -1,7 +1,7 @@
 description: Microsoft SQL Server
 label: Microsoft SQL Server
 name: tap-mssql
-logo_url: https://hub.meltano.com/assets/logos/taps/mssql.png
+logo_url: /assets/logos/extractors/mssql.png
 namespace: tap_mssql
 variant: singer-io
 pip_url: tap-mssql

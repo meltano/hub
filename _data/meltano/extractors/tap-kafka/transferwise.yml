@@ -1,7 +1,7 @@
 description: Open-source distributed event streaming platform
 label: Apache Kafka
 name: tap-kafka
-logo_url: https://hub.meltano.com/assets/logos/taps/kafka.png
+logo_url: /assets/logos/extractors/kafka.png
 namespace: tap_kafka
 variant: transferwise
 pip_url: pipelinewise-tap-kafka

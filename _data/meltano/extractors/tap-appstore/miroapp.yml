@@ -1,7 +1,7 @@
 description: Management API for Apple Apps
 label: Apple AppStore
 name: tap-appstore
-logo_url: https://hub.meltano.com/assets/logos/taps/appstore.png
+logo_url: /assets/logos/extractors/appstore.png
 namespace: tap_appstore
 variant: miroapp
 pip_url: git+https://github.com/miroapp/tap-appstore.git

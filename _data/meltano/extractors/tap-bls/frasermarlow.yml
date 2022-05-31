@@ -1,7 +1,7 @@
 description: US Government Labor Statistics
 label: Bureau of Labor Statistics
 name: tap-bls
-logo_url: https://hub.meltano.com/assets/logos/taps/bls.png
+logo_url: /assets/logos/extractors/bls.png
 namespace: tap_bls
 variant: frasermarlow
 pip_url: git+https://github.com/frasermarlow/tap-bls.git

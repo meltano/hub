@@ -1,7 +1,7 @@
 description: Affiliate Marketing Network
 label: Awin
 name: tap-awin
-logo_url: https://hub.meltano.com/assets/logos/taps/awin.png
+logo_url: /assets/logos/extractors/awin.png
 namespace: tap_awin
 variant: horze-international
 pip_url: git+https://github.com/Horze-International/tap-awin-advertiser.git

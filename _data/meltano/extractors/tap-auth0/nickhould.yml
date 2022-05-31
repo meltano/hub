@@ -1,7 +1,7 @@
 description: Authentication and Authorization Platform
 label: Auth0
 name: tap-auth0
-logo_url: https://hub.meltano.com/assets/logos/taps/auth0.png
+logo_url: /assets/logos/extractors/auth0.png
 namespace: tap_auth0
 variant: nickhould
 pip_url: git+https://github.com/nickhould/tap-auth0.git

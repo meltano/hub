@@ -1,7 +1,7 @@
 description: Customer Experience Automation Platform
 label: ActiveCampaign
 name: tap-activecampaign
-logo_url: https://hub.meltano.com/assets/logos/taps/activecampaign.png
+logo_url: /assets/logos/extractors/activecampaign.png
 namespace: tap_activecampaign
 variant: bytecodeio
 pip_url: git+https://github.com/bytecodeio/tap-activecampaign.git

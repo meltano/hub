@@ -1,7 +1,7 @@
 description: x
 label: Richpanel
 name: tap-richpanel
-logo_url: https://hub.meltano.com/assets/logos/taps/richpanel.png
+logo_url: /assets/logos/extractors/richpanel.png
 namespace: tap_richpanel
 variant: richpanel-company
 pip_url: git+https://github.com/richpanel-company/tap-richpanel.git

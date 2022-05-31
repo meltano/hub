@@ -2,7 +2,7 @@ name: tap-zendesk
 label: Zendesk
 description: Support ticketing system & customer service platform
 namespace: tap_zendesk
-logo_url: https://hub.meltano.com/assets/logos/taps/zendesk.png
+logo_url: /assets/logos/extractors/zendesk.png
 variant: twilio-labs
 docs: https://hub.meltano.com/extractors/zendesk.html
 repo: https://github.com/twilio-labs/twilio-tap-zendesk

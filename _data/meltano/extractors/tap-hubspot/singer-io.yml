@@ -2,7 +2,7 @@ name: tap-hubspot
 description: Inbound Marketing software
 label: Hubspot
 namespace: tap_hubspot
-logo_url: https://hub.meltano.com/assets/logos/taps/hubspot.png
+logo_url: /assets/logos/extractors/hubspot.png
 variant: singer-io
 docs: https://hub.meltano.com/extractors/hubspot
 pip_url: git+https://github.com/singer-io/tap-hubspot.git

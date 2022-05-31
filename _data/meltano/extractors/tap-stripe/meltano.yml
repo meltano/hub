@@ -2,7 +2,7 @@ name: tap-stripe
 label: Stripe
 description: Online payment processing for internet businesses
 namespace: tap_stripe
-logo_url: https://hub.meltano.com/assets/logos/taps/stripe.png
+logo_url: /assets/logos/extractors/stripe.png
 variant: meltano
 hidden: true
 repo: https://github.com/meltano/tap-stripe

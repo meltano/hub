@@ -1,7 +1,7 @@
 description: Sales Engagement & Automation Software
 label: Mailshake
 name: tap-mailshake
-logo_url: https://hub.meltano.com/assets/logos/taps/mailshake.png
+logo_url: /assets/logos/extractors/mailshake.png
 namespace: tap_mailshake
 variant: bytecodeio
 pip_url: git+https://github.com/bytecodeio/tap-mailshake.git

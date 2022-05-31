@@ -2,7 +2,7 @@ description: Read the Docs simplifies software documentation by automating build
   versioning, and hosting of your docs for you.
 label: Read the Docs
 name: tap-readthedocs
-logo_url: https://hub.meltano.com/assets/logos/taps/readthedocs.png
+logo_url: /assets/logos/extractors/readthedocs.png
 namespace: tap_readthedocs
 variant: edgarrmondragon
 pip_url: git+https://github.com/edgarrmondragon/tap-readthedocs.git

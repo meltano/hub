@@ -1,7 +1,7 @@
 description: Meltano job information
 label: Meltano
 name: tap-meltano
-logo_url: https://hub.meltano.com/assets/logos/taps/meltano.png
+logo_url: /assets/logos/extractors/meltano.png
 namespace: tap_meltano
 variant: matatika
 pip_url: git+https://github.com/Matatika/tap-meltano.git

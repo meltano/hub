@@ -1,7 +1,7 @@
 description: Integrated Marketing Platform
 label: Mailchimp
 name: tap-mailchimp
-logo_url: https://hub.meltano.com/assets/logos/taps/mailchimp.png
+logo_url: /assets/logos/extractors/mailchimp.png
 namespace: tap_mailchimp
 variant: lovepopcards
 pip_url: git+https://github.com/lovepopcards/tap-mailchimp.git

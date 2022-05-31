@@ -1,7 +1,7 @@
 description: Customer Service CRM
 label: Kustomer
 name: tap-kustomer
-logo_url: https://hub.meltano.com/assets/logos/taps/kustomer.png
+logo_url: /assets/logos/extractors/kustomer.png
 namespace: tap_kustomer
 variant: cdolan-summersalt
 pip_url: git+https://github.com/cdolan-summersalt/tap-kustomer.git

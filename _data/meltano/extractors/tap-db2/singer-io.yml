@@ -1,7 +1,7 @@
 description: IMB Db2 Relational Database
 label: IBM Db2
 name: tap-db2
-logo_url: https://hub.meltano.com/assets/logos/taps/db2.png
+logo_url: /assets/logos/extractors/db2.png
 namespace: tap_db2
 variant: singer-io
 pip_url: git+https://github.com/singer-io/tap-db2.git

@@ -3,7 +3,7 @@ description: Fantasy Football app, whose api also serves the latest player news,
   platform.
 label: Sleeper
 name: tap-sleeper
-logo_url: https://hub.meltano.com/assets/logos/taps/sleeper.png
+logo_url: /assets/logos/extractors/sleeper.png
 namespace: tap_sleeper
 variant: collinprather
 pip_url: tap-sleeper

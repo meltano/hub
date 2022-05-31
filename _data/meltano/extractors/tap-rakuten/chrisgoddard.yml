@@ -1,7 +1,7 @@
 description: Affiliate Marketing Service Provider
 label: Rakuten Advertising
 name: tap-rakuten
-logo_url: https://hub.meltano.com/assets/logos/taps/rakuten.png
+logo_url: /assets/logos/extractors/rakuten.png
 namespace: tap_rakuten
 variant: chrisgoddard
 pip_url: git+https://github.com/chrisgoddard/tap-rakuten.git

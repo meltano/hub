@@ -1,7 +1,7 @@
 description: Marketing Platform
 label: Bronto
 name: tap-bronto
-logo_url: https://hub.meltano.com/assets/logos/taps/bronto.png
+logo_url: /assets/logos/extractors/bronto.png
 namespace: tap_bronto
 variant: fishtown-analytics
 pip_url: git+https://github.com/fishtown-analytics/tap-bronto.git

@@ -23,7 +23,7 @@ class PluginEnricher < Jekyll::Generator
       unsorted_hash[plugin_name] = variants[default_variant]
 
     end
-    site.data["meltano"]["sorted_#{meltano_type_plural}"] = unsorted_hash.values.sort_by { |p| p['name'].downcase }
+    site.data["meltano"]["sorted_#{meltano_type_plural}"] = unsorted_hash.values.sort_by { |p| p.fetch('label', p.fetch('name')).downcase }
 
   end
 
@@ -40,8 +40,12 @@ class PluginEnricher < Jekyll::Generator
       image_name.sub! "tap-", ""
       image_name.sub! "target-", ""
 
-      variant_definition['logo_url'] = "/assets/logos/#{meltano_type_plural}/#{image_name}.png"
-  
+      if variant_definition.key?("logo_url")
+        variant_definition['logo_url'] = "#{@url}#{variant_definition["logo_url"]}"
+      else
+        variant_definition['logo_url'] = "#{@url}/assets/logos/#{meltano_type_plural}/#{variant_definition["name"]}.png"
+      end
+
       variant_definition['url'] = "/#{meltano_type_plural}/#{variant_definition["name"]}--#{variant_name}"
 
       if variant_definition['variant'] == default_variant

@@ -1,7 +1,7 @@
 description: Social Networking Website
 label: Twitter Filtered Stream
 name: tap-twitter-streams
-logo_url: https://hub.meltano.com/assets/logos/taps/twitter-streams.png
+logo_url: /assets/logos/extractors/twitter-streams.png
 namespace: tap_twitter_streams
 variant: pbegle
 pip_url: git+https://github.com/pbegle/tap-twitter-streams.git

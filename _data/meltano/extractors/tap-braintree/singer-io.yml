@@ -1,7 +1,7 @@
 description: Online Payment Solutions
 label: Braintree
 name: tap-braintree
-logo_url: https://hub.meltano.com/assets/logos/taps/braintree.png
+logo_url: /assets/logos/extractors/braintree.png
 namespace: tap_braintree
 variant: singer-io
 pip_url: tap-braintree

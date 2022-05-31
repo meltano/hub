@@ -1,7 +1,7 @@
 description: Fulfillment Automation
 label: Starshipit
 name: tap-starshipit
-logo_url: https://hub.meltano.com/assets/logos/taps/starshipit.png
+logo_url: /assets/logos/extractors/starshipit.png
 namespace: tap_starshipit
 variant: zookal
 pip_url: git+https://github.com/Zookal/tap-starshipit.git

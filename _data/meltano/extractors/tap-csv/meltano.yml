@@ -2,7 +2,7 @@ name: tap-csv
 label: Comma Separated Values (CSV)
 description: Generic data extractor of CSV (comma separated value) files
 namespace: tap_csv
-logo_url: https://hub.meltano.com/assets/logos/taps/csv.png
+logo_url: /assets/logos/extractors/csv.png
 variant: meltano
 hidden: true
 repo: https://gitlab.com/meltano/tap-csv

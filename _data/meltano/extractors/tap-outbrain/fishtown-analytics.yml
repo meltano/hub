@@ -1,7 +1,7 @@
 description: Web Advertising Platform
 label: Outbrain
 name: tap-outbrain
-logo_url: https://hub.meltano.com/assets/logos/taps/outbrain.png
+logo_url: /assets/logos/extractors/outbrain.png
 namespace: tap_outbrain
 variant: fishtown-analytics
 pip_url: git+https://github.com/fishtown-analytics/tap-outbrain.git

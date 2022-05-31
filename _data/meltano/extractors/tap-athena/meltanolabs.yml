@@ -1,7 +1,7 @@
 description: Serverless S3 Database
 label: Athena
 name: tap-athena
-logo_url: https://hub.meltano.com/assets/logos/taps/athena.png
+logo_url: /assets/logos/extractors/athena.png
 namespace: tap_athena
 variant: meltanolabs
 repo: https://github.com/MeltanoLabs/tap-athena

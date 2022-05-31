@@ -1,7 +1,7 @@
 description: Flight Comparison Tool
 label: Idealo
 name: tap-idealo-click-report
-logo_url: https://hub.meltano.com/assets/logos/taps/idealo-click-report.png
+logo_url: /assets/logos/extractors/idealo-click-report.png
 namespace: tap_idealo_click_report
 variant: horze-international
 pip_url: git+https://github.com/Horze-International/tap-idealo-click-report.git

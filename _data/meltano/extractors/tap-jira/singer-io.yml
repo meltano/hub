@@ -2,7 +2,7 @@ name: tap-jira
 description: Issue and Project Tracking Software
 label: Jira
 namespace: tap_jira
-logo_url: https://hub.meltano.com/assets/logos/taps/jira.png
+logo_url: /assets/logos/extractors/jira.png
 variant: singer-io
 docs: https://hub.meltano.com/extractors/jira
 pip_url: git+https://github.com/singer-io/tap-jira.git

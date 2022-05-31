@@ -1,7 +1,7 @@
 description: Object Storage
 label: Azure Blob Storage
 name: target-azureblobstorage
-logo_url: https://hub.meltano.com/assets/logos/targets/azureblobstorage.png
+logo_url: /assets/logos/loaders/azureblobstorage.png
 namespace: target_azureblobstorage
 variant: opencolleges
 pip_url: git+https://github.com/opencolleges/target-azureblobstorage.git

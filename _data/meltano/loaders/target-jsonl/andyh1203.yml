@@ -2,7 +2,7 @@ name: target-jsonl
 label: JSON Lines (JSONL)
 description: JSONL loader
 namespace: target_jsonl
-logo_url: https://hub.meltano.com/assets/logos/targets/jsonl.png
+logo_url: /assets/logos/loaders/jsonl.png
 variant: andyh1203
 docs: https://hub.meltano.com/loaders/jsonl.html
 repo: https://github.com/andyh1203/target-jsonl

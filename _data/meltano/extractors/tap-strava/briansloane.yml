@@ -1,7 +1,7 @@
 description: Fitness Social Network
 label: Strava
 name: tap-strava
-logo_url: https://hub.meltano.com/assets/logos/taps/strava.png
+logo_url: /assets/logos/extractors/strava.png
 namespace: tap_strava
 variant: briansloane
 pip_url: git+https://github.com/briansloane/tap-strava.git

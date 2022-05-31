@@ -2,7 +2,7 @@ name: tap-shopify
 label: Shopify
 description: Ecommerce platform
 namespace: tap_shopify
-logo_url: https://hub.meltano.com/assets/logos/taps/shopify.png
+logo_url: /assets/logos/extractors/shopify.png
 variant: singer-io
 docs: https://hub.meltano.com/extractors/shopify.html
 repo: https://github.com/singer-io/tap-shopify

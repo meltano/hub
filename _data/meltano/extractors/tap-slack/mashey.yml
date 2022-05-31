@@ -2,7 +2,7 @@ name: tap-slack
 label: Slack
 description: Team communication tool
 namespace: tap_slack
-logo_url: https://hub.meltano.com/assets/logos/taps/slack.png
+logo_url: /assets/logos/extractors/slack.png
 variant: mashey
 docs: https://hub.meltano.com/extractors/slack.html
 repo: https://github.com/Mashey/tap-slack

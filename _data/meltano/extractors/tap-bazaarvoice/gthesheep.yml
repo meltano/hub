@@ -1,7 +1,7 @@
 description: E-commerce User Content Platform
 label: Bazaarvoice
 name: tap-bazaarvoice
-logo_url: https://hub.meltano.com/assets/logos/taps/bazaarvoice.png
+logo_url: /assets/logos/extractors/bazaarvoice.png
 namespace: tap_bazaarvoice
 variant: gthesheep
 pip_url: git+https://github.com/gthesheep/tap-bazaarvoice.git

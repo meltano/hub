@@ -1,7 +1,7 @@
 description: Time Tracking Software
 label: Clockify
 name: tap-clockify
-logo_url: https://hub.meltano.com/assets/logos/taps/clockify.png
+logo_url: /assets/logos/extractors/clockify.png
 namespace: tap_clockify
 variant: immuta
 pip_url: git+https://github.com/immuta/tap-clockify.git

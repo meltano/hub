@@ -1,7 +1,7 @@
 description: dbt Artifact Files
 label: dbt Artifacts
 name: tap-dbt-artifacts
-logo_url: https://hub.meltano.com/assets/logos/taps/dbt-artifacts.png
+logo_url: /assets/logos/extractors/dbt-artifacts.png
 namespace: tap_dbt_artifacts
 variant: prratek
 pip_url: git+https://github.com/prratek/tap-dbt-artifacts.git
