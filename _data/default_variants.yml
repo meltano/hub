@@ -42,7 +42,7 @@ extractors:
   tap-marketo: singer-io
   tap-google-analytics: meltanolabs
   tap-hubspot: singer-io
-  tap-github: singer-io
+  tap-github: meltanolabs
   tap-postgres: transferwise
   tap-gitlab: meltanolabs
   tap-carbon-intensity: meltano
