@@ -23,13 +23,6 @@
         <span class="label"> {{ plugin.name }} </span>
       {% endif %}
     </a>
-    {% if plugin.meltano_url %}
-    <a
-      href="{{plugin.meltano_url}}"
-      class="meltano-badge"
-      title="Meltano Optimized"
-    >Meltano Optimized</a>
-    {% endif %}
   </li>
   {% endfor %} {% if include.more_url %}
   <li>
