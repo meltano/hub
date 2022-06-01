@@ -1,0 +1,16 @@
+name: zendesk
+label: Zendesk
+description: Support ticketing system & customer service platform
+namespace: tap_zendesk
+logo_url: /assets/logos/extractors/zendesk.png
+variant: transferwise
+capabilities:
+- catalog
+- discover
+settings: []
+settings_group_validation: []
+pip_url: pipelinewise-tap-zendesk
+repo: https://github.com/transferwise/pipelinewise-tap-zendesk
+domain_url:
+maintenance_status: active
+keywords: []
