@@ -63,6 +63,21 @@ $on-laptop: 800px;
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import "base", "layout", "syntax-highlighting";
 
+html,
+body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+.page-content {
+  flex: 1 0 auto;
+}
+.site-footer {
+  flex-shrink: 0;
+}
+
 ul.button-grid {
   padding: 0;
   margin-left: 0;
