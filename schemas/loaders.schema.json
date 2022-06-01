@@ -40,6 +40,9 @@
                 "docs": {},
                 "settings_group_validation": {},
                 "commands": {},
+                "maintenance_status": {},
+                "domain_url": {},
+                "keywords": {},
                 "dialect": {
                     "description": "The name of the dialect of the target database, so that transformers in the same pipeline and Meltano UI's Analysis feature can determine the type of database to connect to."
                 },
