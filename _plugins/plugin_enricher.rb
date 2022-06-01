@@ -45,11 +45,19 @@ class PluginEnricher < Jekyll::Generator
         variant_definition['logo_url'] = "/assets/logos/#{meltano_type_plural}/#{variant_definition["name"]}.png"
       end
 
-      variant_definition['url'] = "/#{meltano_type_plural}/#{variant_definition["name"]}--#{variant_name}"
-
+      url_suffix = "#{variant_definition["name"]}--#{variant_name}"
       if variant_definition['variant'] == default_variant
         variant_definition['default'] = true
-        variant_definition['url'] = "/#{meltano_type_plural}/#{variant_definition["name"]}"
+        url_suffix = "#{variant_definition["name"]}"
+      end
+
+      variant_definition['url'] = "/#{meltano_type_plural}/#{url_suffix}"
+      if meltano_type_plural == "extractors"
+        url_suffix = url_suffix.delete_prefix('tap-')
+        variant_definition['singer_url'] = "/taps/#{url_suffix}"
+      elsif meltano_type_plural == "loaders"
+        url_suffix = url_suffix.delete_prefix('target-')
+        variant_definition['singer_url'] = "/targets/#{url_suffix}"
       end
 
       variant_definition['maintainer'] ||= site.data['maintainers'][variant_definition['variant'].downcase]
