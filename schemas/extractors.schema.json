@@ -26,6 +26,9 @@
                 "hidden": {},
                 "settings_group_validation": {},
                 "commands": {},
+                "maintenance_status": {},
+                "domain_url": {},
+                "keywords": {},
                 "capabilities": {
                     "type": "array",
                     "items": {
@@ -64,7 +67,8 @@
                     "items": {
                         "type": "string"
                     }
-                }
+                },
+                "requires": {}
             }
         }
     ]

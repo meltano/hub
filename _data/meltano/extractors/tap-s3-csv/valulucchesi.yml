@@ -1,0 +1,16 @@
+description: Extract CSV files from S3
+label: AWS S3 CSV
+name: tap-s3-csv
+logo_url: /assets/logos/extractors/s3-csv.png
+namespace: tap_s3_csv
+variant: valulucchesi
+pip_url: git+https://github.com/valulucchesi/tap-s3-csv.git
+repo: https://github.com/valulucchesi/tap-s3-csv
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://aws.amazon.com/s3/
+maintenance_status: unknown
+keywords:
+- api

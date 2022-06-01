@@ -2,17 +2,17 @@ class MaintainerPageGenerator < Jekyll::Generator
   safe true
 
   def generate(site)
-    taps = site.data['taps'].values
-    targets = site.data['targets'].values
-    plugins = taps + targets
+    extractors = site.data['meltano']["extractors"].values
+    loaders = site.data['meltano']["loaders"].values
+    plugins = extractors + loaders
 
     plugins_by_variant_name = Hash.new { |h, k| h[k] = [] }
-    plugins.each do |plugin|
-      plugin['variants'].each do |variant|
-        plugins_by_variant_name[variant['name']] << {
-          'url' => variant['url'],
-          'logo_url' => plugin['logo_url'],
-          'label' => plugin['label']
+    site.data['meltano']["extractors"].each do |plugin_name, variants|
+      variants.each do |variant_name, variant_definition|
+        plugins_by_variant_name[variant_name] << {
+          'url' => variant_definition['url'],
+          'logo_url' => variant_definition['logo_url'],
+          'label' => variant_definition['label']
         }
       end
     end
@@ -33,7 +33,7 @@ class MaintainerPageGenerator < Jekyll::Generator
     def initialize(site, variant_name, maintainer)
       @site = site
       @base = site.source
-      @dir  = "singer/maintainers"
+      @dir  = "maintainers"
 
       basename = variant_name
 
@@ -42,10 +42,9 @@ class MaintainerPageGenerator < Jekyll::Generator
       @name     = @basename + @ext
 
       @data = {
-        'title' => "Connectors by #{maintainer['label']}",
-        'description' => "Open source Singer taps and targets maintained by #{maintainer['label']}",
-        'maintainer' => maintainer,
-        'header' => 'singer'
+        'title' => "Plugins by #{maintainer['label']}",
+        'description' => "Open source plugins maintained by #{maintainer['label']}",
+        'maintainer' => maintainer
       }
 
       data.default_proc = proc do |_, key|

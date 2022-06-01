@@ -1,0 +1,16 @@
+description: Social Networking Website
+label: Twitter
+name: tap-twitter
+logo_url: /assets/logos/extractors/twitter.png
+namespace: tap_twitter
+variant: bernietai
+pip_url: git+https://github.com/bernietai/tap-twitter.git
+repo: https://github.com/bernietai/tap-twitter
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://developer.twitter.com
+maintenance_status: unknown
+keywords:
+- api

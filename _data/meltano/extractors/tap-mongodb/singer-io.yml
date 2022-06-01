@@ -1,0 +1,66 @@
+name: tap-mongodb
+label: MongoDB
+description: General purpose, document-based, distributed database
+namespace: tap_mongodb
+logo_url: /assets/logos/extractors/mongodb.png
+variant: singer-io
+docs: https://hub.meltano.com/extractors/mongodb.html
+repo: https://github.com/singer-io/tap-mongodb
+pip_url: tap-mongodb
+capabilities:
+- catalog
+- discover
+- state
+settings_group_validation:
+- - host
+  - port
+  - user
+  - password
+  - database
+settings:
+- name: host
+  label: Host URL
+  value: localhost
+  description: The MongoDB host URL.
+- name: port
+  kind: integer
+  value: 27017
+  label: Port
+  description: The MongoDB port.
+- name: user
+  label: User
+  description: The MongoDB user.
+- name: password
+  kind: password
+  label: Password
+  description: The MongoDB password.
+- name: database
+  label: Database Name
+  description: This is the database used for authentication, not the database used
+    for extraction. The data extracted is determined by following the selecting entities
+    and attributes instructions.
+- name: replica_set
+  label: Replica Set
+  description: The name of the replica set.
+- name: ssl
+  kind: boolean
+  value: false
+  value_post_processor: stringify
+  label: SSL
+  description: Whether to use SSL connection or not.
+- name: verify_mode
+  kind: boolean
+  value: true
+  value_post_processor: stringify
+  description: SSL Verify Mode
+  label: Verify Mode
+- name: include_schemas_in_destination_stream_name
+  kind: boolean
+  value: false
+  description: Forces the stream names to take the form `<database_name>_<collection_name>`
+    instead of `<collection_name>`
+  label: Include Schemas In Destination Stream Name
+domain_url: https://www.mongodb.com/
+maintenance_status: inactive
+keywords:
+- database

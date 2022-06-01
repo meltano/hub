@@ -1,0 +1,18 @@
+description: Cloud Spreadsheet Software
+label: Google Sheets
+name: target-gsheet
+logo_url: /assets/logos/loaders/gsheet.png
+namespace: target_gsheet
+variant: singer-io
+pip_url: target-gsheet
+repo: https://github.com/singer-io/target-gsheet
+settings_group_validation:
+- - spreadsheet_id
+settings:
+- name: spreadsheet_id
+  label: Spreadsheet ID
+  description: The unique identifier for a spreadsheet.
+domain_url: https://developers.google.com/sheets/api/quickstart/python
+maintenance_status: unknown
+keywords:
+- file

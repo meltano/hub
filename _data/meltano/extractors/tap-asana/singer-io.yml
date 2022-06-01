@@ -1,0 +1,16 @@
+description: Project Management Software
+label: Asana
+name: tap-asana
+logo_url: /assets/logos/extractors/asana.png
+namespace: tap_asana
+variant: singer-io
+pip_url: tap-asana
+repo: https://github.com/singer-io/tap-asana
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://asana.com/
+maintenance_status: unknown
+keywords:
+- api

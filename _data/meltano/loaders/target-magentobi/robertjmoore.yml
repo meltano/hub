@@ -1,0 +1,13 @@
+description: Business Intelligence Tool
+label: Magento BI
+name: target-magentobi
+logo_url: /assets/logos/loaders/magentobi.png
+namespace: target_magentobi
+variant: robertjmoore
+pip_url: git+https://github.com/robertjmoore/target-magentobi.git
+repo: https://github.com/robertjmoore/target-magentobi
+settings: []
+domain_url: https://developers.rjmetrics.com/cloudbi/iapi.html
+maintenance_status: unknown
+keywords:
+- api

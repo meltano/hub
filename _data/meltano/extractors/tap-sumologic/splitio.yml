@@ -1,0 +1,16 @@
+description: Cloud Log Management, Monitoring, SIEM Tools
+label: Sumo Logic
+name: tap-sumologic
+logo_url: /assets/logos/extractors/sumologic.png
+namespace: tap_sumologic
+variant: splitio
+pip_url: git+https://github.com/splitio/tap-sumologic.git
+repo: https://github.com/splitio/tap-sumologic
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://www.sumologic.com/
+maintenance_status: unknown
+keywords:
+- api

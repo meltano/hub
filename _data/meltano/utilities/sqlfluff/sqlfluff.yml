@@ -1,0 +1,9 @@
+name: sqlfluff
+namespace: sqlfluff
+pip_url: sqlfluff[dbt]
+variant: sqlfluff
+commands:
+  lint:
+    args: lint
+    description: Lint SQL in transform models
+logo_url: /assets/logos/utilities/sqlfluff.png

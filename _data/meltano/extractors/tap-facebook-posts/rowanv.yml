@@ -1,0 +1,16 @@
+description: Facebook Posts Graph API
+label: Facebook Posts
+name: tap-facebook-posts
+logo_url: /assets/logos/extractors/facebook-posts.png
+namespace: tap_facebook_posts
+variant: rowanv
+pip_url: git+https://github.com/rowanv/tap-facebook-posts.git
+repo: https://github.com/rowanv/tap-facebook-posts
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://developers.facebook.com/docs/graph-api
+maintenance_status: unknown
+keywords:
+- api

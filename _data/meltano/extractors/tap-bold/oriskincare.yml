@@ -1,0 +1,16 @@
+description: Ecommerce tools and integration
+label: Bold Commerce
+name: tap-bold
+logo_url: /assets/logos/extractors/bold.png
+namespace: tap_bold
+variant: oriskincare
+pip_url: git+https://github.com/oriskincare/tap-bold.git
+repo: https://github.com/oriskincare/tap-bold
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://boldcommerce.com/
+maintenance_status: unknown
+keywords:
+- api

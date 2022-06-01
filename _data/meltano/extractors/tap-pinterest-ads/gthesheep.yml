@@ -1,0 +1,36 @@
+description: Advertising Platform
+label: Pinterest Ads
+name: tap-pinterest-ads
+logo_url: /assets/logos/extractors/pinterest-ads.png
+namespace: tap_pinterest_ads
+variant: gthesheep
+pip_url: git+https://github.com/gthesheep/tap-pinterest-ads.git
+repo: https://github.com/gthesheep/tap-pinterest-ads
+capabilities:
+- catalog
+- discover
+- state
+settings_group_validation:
+- - client_id
+  - client_secret
+  - refresh_token
+  - start_date
+settings:
+- name: client_id
+  label: Client ID
+  description: App ID for your Pinterest App
+- name: client_secret
+  label: Client Secret
+  description: App secret key
+- name: refresh_token
+  label: Refresh Token
+  kind: password
+  description: Refresh token obtained from the OAuth user flow, described [here](https://developers.pinterest.com/docs/api/v5/#tag/Authentication)
+- name: start_date
+  label: Start Date
+  description: Start date to collect ad analytics from
+domain_url: https://developers.pinterest.com/docs/api/v5/
+maintenance_status: active
+keywords:
+- api
+- meltano_sdk

@@ -1,0 +1,16 @@
+description: Talent Acquisition Platform
+label: Recruitee
+name: tap-recruitee
+logo_url: /assets/logos/extractors/recruitee.png
+namespace: tap_recruitee
+variant: tahasadiki
+pip_url: git+https://github.com/Tahasadiki/tap-recruitee.git
+repo: https://github.com/Tahasadiki/tap-recruitee
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://recruitee.com/
+maintenance_status: unknown
+keywords:
+- api

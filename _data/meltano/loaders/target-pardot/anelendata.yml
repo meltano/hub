@@ -1,0 +1,13 @@
+description: B2B Marketing Automation Software
+label: Pardot
+name: target-pardot
+logo_url: /assets/logos/loaders/pardot.png
+namespace: target_pardot
+variant: anelendata
+pip_url: git+https://github.com/anelendata/target-pardot.git
+repo: https://github.com/anelendata/target-pardot
+settings: []
+domain_url: https://developer.pardot.com/kb/api-version-3/import/
+maintenance_status: unknown
+keywords:
+- api
