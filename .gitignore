@@ -10,12 +10,6 @@ public/
 # ignore build artifacts
 /discovery.yml
 /test
-singer/taps.json
-singer/targets.json
-singer/api/v1/taps.json
-singer/api/v1/targets.json
-singer/taps/
-singer/targets/
 meltano/api/*
 .venv/
 *.env
