@@ -51,7 +51,6 @@ class PluginEnricher < Jekyll::Generator
         url_suffix = "#{variant_definition["name"]}"
       end
 
-      variant_definition['url'] = "/#{meltano_type_plural}/#{url_suffix}"
       if meltano_type_plural == "extractors"
         url_suffix = url_suffix.delete_prefix('tap-')
         variant_definition['singer_url'] = "/taps/#{url_suffix}"
@@ -59,6 +58,7 @@ class PluginEnricher < Jekyll::Generator
         url_suffix = url_suffix.delete_prefix('target-')
         variant_definition['singer_url'] = "/targets/#{url_suffix}"
       end
+      variant_definition['url'] = "/#{meltano_type_plural}/#{url_suffix}"
 
       variant_definition['maintainer'] ||= site.data['maintainers'][variant_definition['variant'].downcase]
     
