@@ -92,6 +92,34 @@
             "examples": [
                 "singer-io"
             ]
+        },
+        "requires": {
+            "type": "object",
+            "required": [
+                "files"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "files": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                            "name",
+                            "variant"
+                        ],
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "variant": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
