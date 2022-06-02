@@ -2,7 +2,7 @@
 
   <div class="wrapper nav-wrapper">
 
-    <nav class="site-nav">
+    <nav class="site-nav homepage-nav">
       <a href="#" class="menu-icon">
         <svg viewBox="0 0 18 15">
           <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
@@ -11,15 +11,22 @@
         </svg>
       </a>
 
-      <div class="trigger">
-        <a class="page-link" href="{{ "/extractors" | prepend: site.baseurl | prepend: site.url }}">Extractors</a>
-        <a class="page-link" href="{{ "/loaders" | prepend: site.baseurl | prepend: site.url }}">Loaders</a>
-        <a class="page-link" href="{{ "/transformers/" | prepend: site.baseurl | prepend: site.url }}">Transformers</a>
-        <a class="page-link" href="{{ "/orchestrators/" | prepend: site.baseurl | prepend: site.url }}">Orchestrators</a>
-        <a class="page-link" href="{{ "/utilities" | prepend: site.baseurl | prepend: site.url }}">Utilities</a>
-        <a class="page-link" href="{{ "/files" | prepend: site.baseurl | prepend: site.url }}">Files</a>
-        <a class="page-link button" href="{{ "/singer" | prepend: site.baseurl | prepend: site.url }}">Hub for Singer</a>
+      {% include search.html %}
+
+      <div class="dropdown">
+        <a class="page-link" href="">Plugins</a>
+        <div class="dropdown-content">
+          <a href="{{ "/extractors" | prepend: site.baseurl | prepend: site.url }}">Extractors</a>
+          <a href="{{ "/loaders" | prepend: site.baseurl | prepend: site.url }}">Loaders</a>
+          <a href="{{ "/transformers/" | prepend: site.baseurl | prepend: site.url }}">Transformers</a>
+          <a href="{{ "/orchestrators/" | prepend: site.baseurl | prepend: site.url }}">Orchestrators</a>
+          <a href="{{ "/utilities" | prepend: site.baseurl | prepend: site.url }}">Utilities</a>
+          <!-- <a href="{{ "/data-quality" | prepend: site.baseurl | prepend: site.url }}">Data Quality</a> -->
+          <a href="{{ "/files" | prepend: site.baseurl | prepend: site.url }}">Files</a>
+        </div>
       </div>
+      <a class="page-link" href="{{ "/singer" | prepend: site.baseurl | prepend: site.url }}">Singer</a> 
+      <a class="page-link button" href="https://docs.meltano.com">Docs</a> 
     </nav>
 
     <a class="site-title" href="{{site.url}}">

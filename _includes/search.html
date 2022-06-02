@@ -1,0 +1,40 @@
+<div class="dropdown">
+  <form class="homepage-search-form">
+    <input class="homepage-search-input" type="search" placeholder="Search...{{include.search}}">{% include icon-search.html %}</input>
+  </form>
+  <div class="dropdown-content">
+    <ul class="navbar-search-results">
+      {% for plugin in include.plugins %}
+      <li data-search-terms="{{plugin.label}} {{plugin.name}} {{plugin.namespace}}">
+        {% if include.search == "taps" or include.search == "targets" %}
+        <a href="{{ plugin.singer_url | prepend: site.baseurl | prepend: site.url }}">
+        {% else %}
+        <a href="{{ plugin.url | prepend: site.baseurl | prepend: site.url }}">
+        {% endif %}
+          <div class="logo-well">
+            <img
+              src="{{ plugin.logo_url | prepend: site.baseurl | prepend: site.url }}"
+              class="logo"
+            />
+          </div>
+          {% if plugin.label %}
+            <span class="label"> {{ plugin.label }} </span>
+          {% else %}
+            <span class="label"> {{ plugin.name }} </span>
+          {% endif %}
+        </a>
+      </li>
+      {% endfor %} {% if include.more_url %}
+      <li>
+        <a href="{{ include.more_url }}">
+          <strong>{{ include.more_title }}</strong>
+          <p>{{ include.more_description }}</p>
+        </a>
+      </li>
+      {% endif %}
+    </ul>
+  </div>
+</div>
+
+
+
