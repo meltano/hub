@@ -23,8 +23,7 @@ For example:
 - One Account ID: `1234567890`
 - Multiple Account IDs: `1234567890,1234567891,1234567892`
 
-
-#### How to use Primary Keys
+### How to use Primary Keys
 
 Manage this setting directly in your [`meltano.yml` project file](https://docs.meltano.com/concepts/project#meltano-yml-project-file):
 
