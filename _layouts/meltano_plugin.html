@@ -8,6 +8,35 @@ layout: plugin_page
 https://github.com/meltano/hub/tree/develop/_data/meltano/{{plugin_type}}s/{{plugin.name}}/{{plugin.variant}}.yml
 {% endcapture %}
 {% if plugin.metrics %} {% assign metrics = plugin.metrics %}{% endif %}
+{% assign is_singer = false %}
+{% if plugin_type == "tap" or plugin_type == "target" %} {% assign is_singer =  true %} {% endif %}
+
+{% if is_singer == true %}
+
+<p>
+  {% if plugin_type == "tap" %} The <code>{{plugin.name}}</code>
+  <a href="/singer/taps">Singer tap</a>
+  pulls data from
+  {% if plugin.entity_url %}
+  <a href="{{plugin.entity_url}}" target="_blank">{{plugin.label}}</a>
+  {% else %}
+  the {{ plugin.label }} {{ plugin.entity_type }}
+  {% endif %}
+  that can then be sent to a destination using a
+  <a href="/singer/targets">Singer target</a>. {% else %} The
+  <code>{{plugin.name}}</code>
+  <a href="/singer/targets">Singer target</a>
+  sends data into
+  {% if plugin.entity_url %}
+  <a href="{{plugin.entity_url}}" target="_blank">{{plugin.label}}</a>
+  {% else %}
+  the {{ plugin.label }} {{ plugin.entity_type }}
+  {% endif %}
+  after it was pulled from a source using a
+  <a href="/singer/taps">Singer tap</a>. {% endif %}
+</p>
+
+{% else %}
 
 <p>
   {% if plugin_type == "extractor" %} The <code>{{plugin.name}}</code>
@@ -39,6 +68,8 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{plugin_type}}s/{{plu
     >extractor</a
   >. {% endif %}
 </p>
+
+{% endif %}
 
 <ul>
   {% if plugin.maintenance_status == "unknown" %} {% assign maintenance_status_label = "Unknown" %} {% assign maintenance_status_color = "lightgrey" %} {% endif %}
@@ -126,7 +157,7 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{plugin_type}}s/{{plu
   </ul>
   {% endif %}
 
-  {% if plugin.meltano_sdk %}
+  {% if plugin.keywords contains "meltano_sdk" %}
   <li><strong>Built with <a href="https://sdk.meltano.com/en/latest/" target="_blank">Meltano SDK</a></strong>: &#10004;</li>
   {% endif %}
 
@@ -178,6 +209,49 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{plugin_type}}s/{{plu
 </ul>
 
 {% endif %}
+
+{% if is_singer == true %}
+
+    <h2 id="standalone-usage">Standalone usage</h2>
+    
+    <p>
+      Install the package using
+      <a href="https://pip.pypa.io/" target="_blank">pip</a>:
+    </p>
+    
+    <pre><code>pip install {{plugin.pip_url}}</code></pre>
+    
+    <p>
+      For additional instructions, refer to the
+      <a href="{{plugin.repo}}#readme" target="_blank">README in the repository</a>.
+    </p>
+    
+    <h2 id="usage-with-meltano">
+      Usage with <a href="https://meltano.com" target="_blank">Meltano</a>
+    </h2>
+
+    {% if plugin_type == "tap" %} 
+      {% assign meltano_plugins = site.data.meltano.extractors %} 
+      {% assign meltano_type_article = "an" %} 
+      {% assign meltano_type = "extractor" %} 
+      {% capture meltano_url %}
+      {{meltano_type}}/{{plugin.name}}--{{plugin.variant}}
+      {% endcapture %} 
+    {% else %} 
+      {% assign meltano_plugins = site.data.meltano.loaders %} 
+      {% assign meltano_type_article = "a" %} 
+      {% assign meltano_type = "loader" %} 
+      {% capture meltano_url %}
+      {{meltano_type}}/{{plugin.name}}--{{plugin.variant}}
+      {% endcapture %}
+    {% endif %} 
+
+    <p>
+      To use with Meltano, view the <a href="{{meltano_url}}">{{plugin.name}} {{meltano_type}} page</a>.
+    </p>
+
+
+{% else %}
 
 <h2 id="getting-started">Getting Started</h2>
 
@@ -293,7 +367,9 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{plugin_type}}s/{{plu
   <a href="#looking-for-help">learn how to get help</a>.
 </p>
 
-{% unless plugin_type contains ["extractor","loader","tap","target"] %}
+{% endif %}
+
+{% if plugin_type == "extractor" or plugin_type == "loader" or plugin_type == "tap" or plugin_type == "target"] %}
 <h2 id="capabilities">Capabilities</h2>
     
 {% if plugin.capabilities.size == 0 %}
@@ -329,7 +405,7 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{plugin_type}}s/{{plu
 
   {% endif %}
 
-{% endunless %}
+{% endif %}
 
 <h2 id="settings">Settings</h2>
   

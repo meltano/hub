@@ -61,12 +61,10 @@ class MeltanoPluginPageGenerator < Jekyll::Generator
       @base = site.source
       if plugin_type == 'tap'
         @dir  = "taps"
-        plugin_type = 'extractor'
         variant_definition = Marshal.load(Marshal.dump(variant_definition))
         variant_definition['url'] = "/taps/#{plugin_name}"
       elsif plugin_type == 'target'
         @dir  = "targets"
-        plugin_type = 'loader'
         variant_definition = Marshal.load(Marshal.dump(variant_definition))
         variant_definition['url'] = "/targets/#{plugin_name}"
       else
