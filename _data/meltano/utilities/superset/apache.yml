@@ -7,8 +7,7 @@ repo: https://github.com/apache/superset
 variant: apache
 pip_url: apache-superset==1.5.0 markupsafe==2.0.1
 settings:
-- name: superset_home
-  env: SUPERSET_HOME
+- name: home
   value: $MELTANO_PROJECT_ROOT/.meltano/run/superset
   description: The home directory where Superset will store data.
 - name: additional_dependencies
