@@ -169,7 +169,7 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{plugin_type}}s/{{plu
 <ul>
   {% for alt_variant in plugin.alt_variants %} {% if alt_variant.name != plugin.variant %}
   <li>
-    <a href="{{ alt_variant.url | prepend: site.baseurl | prepend: site.url }}">
+    <a href="{{ alt_variant.url }}">
       <code>{{alt_variant.variant}}</code>
     </a>
     {% if alt_variant.default %}(default){%endif%}
@@ -402,7 +402,7 @@ plugin_name=plugin.name %} {% endfor %}
   >, file a <a href="{{plugin.repo}}/issues/new" target="_blank">new issue</a>,
   or
   <a
-    href="https://join.slack.com/t/meltano/shared_invite/zt-obgpdeba-7yrqKhwyMBfdHDXsZY8G7Q"
+    href="https://meltano.com/slack"
     target="_blank"
     >join the Meltano Slack community</a
   >
@@ -413,9 +413,7 @@ plugin_name=plugin.name %} {% endfor %}
 
 <p>
   This page is generated from a
-  <a
-    href="{{yaml_file}}"
-    >YAML file</a
+  <a href="{{yaml_file}}">YAML file</a
   >
   that you can contribute changes to!
 </p>
