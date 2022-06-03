@@ -100,7 +100,7 @@ export DBT_PROFILES_DIR=<profiles_dir>
 - [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `DBT_TARGET`
 - Default: `$MELTANO_LOAD__DIALECT`, which [will expand to](https://docs.meltano.com/integration.html#pipeline-environment-variables) the value of the [`dialect` extra](https://docs.meltano.com/concepts/plugins#dialect-extra) for the loader used in the pipeline, e.g. `postgres` for `target-postgres` and `snowflake` for `target-snowflake`.
 
-This is the dialect of your warehouse where data is stored. It maps to the [`target:` value](https://gitlab.com/meltano/files-dbt/-/blob/master/bundle/transform/profile/profiles.yml#L5) in the dbt [`profiles.yml` file](https://docs.getdbt.com/dbt-cli/configure-your-profile).
+This is the dialect of your warehouse where data is stored. It maps to the [`target:` value](https://github.com/meltano/files-dbt/blob/ca1d0c5395e01a00a8174323301fb94a9910b92a/bundle/transform/profile/profiles.yml#L5) in the dbt [`profiles.yml` file](https://docs.getdbt.com/dbt-cli/configure-your-profile).
 
 #### How to use
 

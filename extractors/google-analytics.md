@@ -294,7 +294,7 @@ export TAP_GOOGLE_ANALYTICS_VIEW_ID=<ids>
 
 - Name: `reports`
 - [Environment variable](https://docs.meltano.com/configuration.html#configuring-settings): `TAP_GOOGLE_ANALYTICS_REPORTS`, alias: `GOOGLE_ANALYTICS_API_REPORTS`
-- Default: Bundled [`defaults/default_report_definition.json`](https://gitlab.com/meltano/tap-google-analytics/blob/master/tap_google_analytics/defaults/default_report_definition.json)
+- Default: Bundled [`defaults/default_report_definition.json`](https://github.com/MeltanoLabs/tap-google-analytics/blob/main/tap_google_analytics/defaults/default_report_definition.json)
 
 Project-relative path to JSON file with the definition of the reports to be generated.
 

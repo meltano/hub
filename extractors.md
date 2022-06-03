@@ -17,4 +17,4 @@ To learn more about extracting and [loading](/loaders/) data using Meltano, refe
 Any [Singer tap](/singer/taps/) can easily be [added to your Meltano project as a custom extractor](https://docs.meltano.com/plugin-management.html#custom-plugins).
 
 If a tap for your source doesn't exist yet, you can learn how to [create your own from scratch](https://meltano.com/tutorials/create-a-custom-extractor.html). Once you've got the new extractor working in your project, you can
-[add it to the Hub](https://gitlab.com/meltano/hub/-/tree/main/_data/taps).
+[add it to the Hub](https://github.com/meltano/hub/tree/main/_data/meltano/extractors).

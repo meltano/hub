@@ -7,7 +7,7 @@ description: GitLab CI file bundle with configuration to manage CICD using GitLa
 The [`gitlab-ci`](https://docs.gitlab.com/ee/ci/) [file bundle](https://docs.meltano.com/concepts/plugins#file-bundles) installs files into your Meltano project to accelerate onboarding and integrating the plugin into your project.
 This file bundle installs GitLab CI configuration files used as a starting place for your CICD pipelines.
 
-- **Repository**: <https://gitlab.com/meltano/files-gitlab-ci>
+- **Repository**: <https://github.com/meltano/files-gitlab-ci>
 - **Documentation**: <https://docs.gitlab.com/ee/ci/>
 - **Maintainer**: Meltano community
 - **Maintenance status**: Active
