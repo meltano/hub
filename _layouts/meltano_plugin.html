@@ -336,9 +336,7 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{plugin_type}}s/{{plu
   that defines the settings for this {{plugin_type}}.
 </p>
 
-{% endif %}
-
-{% if plugin.settings.size > 0 %}
+{% else plugin.settings.size > 0 %}
 
 {% if plugin.settings_group_validation.size == 1 %}
 <p>
