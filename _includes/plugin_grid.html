@@ -1,8 +1,8 @@
-{% if include.search %}
+{% if include.search == "extractors" or include.search == "loaders" or include.search == "taps" or include.search == "targets"%}
 <input
   type="search"
   class="grid-search"
-  placeholder="Search all {{include.search}}..."
+  placeholder="Filter {{include.search}}..."
   disabled="disabled"
 />
 {% endif %}
