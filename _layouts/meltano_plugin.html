@@ -298,7 +298,7 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{plugin_type}}s/{{plu
 {% if plugin.capabilities.size == 0 %}
 <p>
   <code>{{plugin.name}}</code> does not have any capabilities defined in its metadata.
-  Please considering adding them by making a PR to the
+  Please considering adding them by making a pull request to the
   <a href="{{yaml_file}}">YAML file</a>
   that defines the capabilities for this {{plugin_type}}.
 </p>
@@ -307,8 +307,8 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{plugin_type}}s/{{plu
 
   {% if plugin.capabilities.size < 3 %}
     <p>
-      <code>{{plugin.name}}</code> may not have the full set of capabilities defined in its metadata.
-      Please considering adding them by making a PR to the
+      <code>{{plugin.name}}</code> may not have its full set of capabilities defined in its metadata.
+      Please considering adding them by making a pull request to the
       <a href="{{yaml_file}}">YAML file</a>
       that defines the capabilities for this {{plugin_type}}.
     </p>
@@ -328,7 +328,7 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{plugin_type}}s/{{plu
 {% if plugin.settings.size == 0 %}
 <p>
   <code>{{plugin.name}}</code> does not have any settings defined in its metadata. 
-  Please considering adding them by making a PR to the 
+  Please considering adding them by making a pull request to the 
   <a href="{{yaml_file}}">YAML file</a>
   that defines the settings for this {{plugin_type}}.
 </p>
