@@ -66,22 +66,22 @@ The following is our distilled list of the existing (and some future) capabiliti
 #### Catalog
 
 The tap accepts a `--catalog` argument referencing a file that defines the structure of one or many data streams.
-For more details see the <a href="{{ "/singer/spec#catalog-files" | prepend: site.baseurl | prepend: site.url }}">Catalog Files section</a> in our Singer Spec interpretation.
+For more details see the <a href="{{ "/singer/spec#catalog-files" }}">Catalog Files section</a> in our Singer Spec interpretation.
 
 #### Properties
 
 The tap accepts the legacy `--properties` argument referencing a file that defines the structure of one or many data streams.
-For more details see the <a href="{{ "/singer/spec#catalog-files" | prepend: site.baseurl | prepend: site.url }}">Catalog Files section</a> in our Singer Spec interpretation.
+For more details see the <a href="{{ "/singer/spec#catalog-files" }}">Catalog Files section</a> in our Singer Spec interpretation.
 
 #### Discovery
 
 The tap accepts a `--discovery` argument that is used to generate a catalog files.
-For more details see the <a href="{{ "/singer/spec#discovery-mode" | prepend: site.baseurl | prepend: site.url }}">Discovery mode section</a> section in our Singer Spec interpretation.
+For more details see the <a href="{{ "/singer/spec#discovery-mode" }}">Discovery mode section</a> section in our Singer Spec interpretation.
 
 #### State
 
 The tap accepts a `--state` argument and uses the input in order to run incremental syncs.
-For more details see the <a href="{{ "/singer/spec#state-files" | prepend: site.baseurl | prepend: site.url }}">State Files section</a> section in our Singer Spec interpretation.
+For more details see the <a href="{{ "/singer/spec#state-files" }}">State Files section</a> section in our Singer Spec interpretation.
 
 #### Log Based
 

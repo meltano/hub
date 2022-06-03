@@ -11,13 +11,13 @@
   {% for plugin in include.plugins %}
   <li data-search-terms="{{plugin.label}} {{plugin.name}} {{plugin.namespace}}">
     {% if include.search == "taps" or include.search == "targets" %}
-    <a href="{{ plugin.singer_url | prepend: site.baseurl | prepend: site.url }}">
+    <a href="{{ plugin.singer_url }}">
     {% else %}
-    <a href="{{ plugin.url | prepend: site.baseurl | prepend: site.url }}">
+    <a href="{{ plugin.url }}">
     {% endif %}
       <div class="logo-well">
         <img
-          src="{{ plugin.logo_url | prepend: site.baseurl | prepend: site.url }}"
+          src="{{ plugin.logo_url }}"
           class="logo"
         />
       </div>
