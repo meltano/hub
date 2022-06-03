@@ -5,7 +5,7 @@
 
   {% capture title %}{% if page.title %}{{ page.title | escape }} | MeltanoHub{% else %}{{ site.title | escape }}{% endif %}{% endcapture %}
   {% capture description %}{% if page.description %}{{ page.description }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description | markdownify | strip_html }}{% endif %}{% endcapture %}
-  {% capture url %}{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}{% endcapture %}
+  {% capture url %}{{ page.url | replace:'index.html','' }}{% endcapture %}
 
   <title>{{title}}</title>
   <meta property="og:title" content="{{title}}">
@@ -15,7 +15,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="{{url}}" />
   {% if page.image_url %}
-  <meta property="og:image" content="{{page.image_url | prepend: site.baseurl | prepend: site.url}}" />
+  <meta property="og:image" content="{{page.image_url}}" />
   {% endif %}
   <meta property="og:site_name" content="MeltanoHub" />
 
@@ -23,7 +23,7 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="{{url}}" />
   {% if page.image_url %}
-  <meta name="twitter:image" content="{{page.image_url | prepend: site.baseurl | prepend: site.url}}" />
+  <meta name="twitter:image" content="{{page.image_url}}" />
   {% endif %}
 
   <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">

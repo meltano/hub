@@ -166,7 +166,7 @@ layout: plugin_page
 <ul>
   {% for alt_variant in plugin.alt_variants %} {% if alt_variant.name != plugin.variant %}
   <li>
-    <a href="{{ alt_variant.url | prepend: site.baseurl | prepend: site.url }}">
+    <a href="{{ alt_variant.url }}">
       <code>{{alt_variant.variant}}</code>
     </a>
     {% if alt_variant.default %}(default){%endif%}
