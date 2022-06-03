@@ -6,6 +6,10 @@ docs: https://docs.meltano.com/guide/orchestration
 repo: https://github.com/apache/superset
 variant: apache
 pip_url: apache-superset==1.5.0 markupsafe==2.0.1
+requires:
+  files:
+  - name: files-superset
+    variant: meltano
 settings:
 - name: home
   value: $MELTANO_PROJECT_ROOT/.meltano/run/superset
