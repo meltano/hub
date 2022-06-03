@@ -1,0 +1,29 @@
+name: superset
+namespace: superset
+label: Apache Superset
+description: A modern, enterprise-ready business intelligence web application.
+docs: https://docs.meltano.com/guide/orchestration
+repo: https://github.com/apache/superset
+variant: apache
+pip_url: apache-superset==1.5.0 markupsafe==2.0.1
+settings:
+- name: superset_home
+  env: SUPERSET_HOME
+  value: $MELTANO_PROJECT_ROOT/.meltano/run/superset
+  description: The home directory where Superset will store data.
+- name: additional_dependencies
+  description: An space separated list of python dependencies to include as part of startup.
+    A list of database driver dependencies can be found here https://superset.apache.org/docs/databases/installing-database-drivers
+- name: load_examples
+  kind: boolean
+  value: false
+  description: A boolean whether to load Superset's example datasets and dashboards. Warning, this takes a few mins to load.
+- name: config_path
+  value: $MELTANO_PROJECT_ROOT/analyze/superset/superset_config.py
+  description: The path to the superset_config.py file used to override config settings.
+    See https://superset.apache.org/docs/installation/configuring-superset for more details on configuration options.
+commands:
+  ui:
+    args: analyze/superset/superset-init.sh
+    executable: /bin/bash
+logo_url: /assets/logos/utilities/superset.png

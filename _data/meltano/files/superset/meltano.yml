@@ -1,0 +1,8 @@
+name: superset
+namespace: superset
+label: Apache Superset
+description: A modern, enterprise-ready business intelligence web application.
+repo: https://github.com/meltano/files-superset
+pip_url: git+https://github.com/meltano/files-superset.git
+variant: meltano
+logo_url: /assets/logos/files/superset.png
