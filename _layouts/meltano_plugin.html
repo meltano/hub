@@ -246,40 +246,6 @@ layout: plugin_page
   </li>
   {% endif %}
 </ol>
- 
-<h4 id="using-meltano-ui">Using Meltano UI</h4>
-
-<ol>
-  <li>
-    <p>
-      Start
-      <a href="https://docs.meltano.com/reference/ui" target="_blank">Meltano UI</a>
-      using
-      <a
-        href="https://docs.meltano.com/reference/command-line-interface#ui"
-        target="_blank"
-        ><code>meltano ui</code></a
-      >:
-    </p>
-
-    <pre><code>meltano ui</code></pre>
-  </li>
-  <li>
-    Open the {{plugin_type | capitalize}}s interface at
-    <a href="http://localhost:5000/{{plugin_type}}s" target="_blank"
-      >http://localhost:5000/{{plugin_type}}s</a
-    >.
-  </li>
-  <li>Click the “Add to project” button for “{{plugin.name}}”.</li>
-  {% if page.variant_specific %}
-  <li>Choose "Add variant '{{plugin.name}}'".</li>
-  {% endif %} {% if plugin.settings.size > 0 %}
-  <li>
-    Configure the <a href="#settings">settings</a> below in the “Configuration”
-    interface that opens automatically.
-  </li>
-  {% endif %}
-</ol>
 
 <h3 id="next-steps">Next steps</h3>
 
