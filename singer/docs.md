@@ -73,7 +73,7 @@ For more details see the <a href="{{ "/singer/spec#catalog-files" | prepend: sit
 The tap accepts the legacy `--properties` argument referencing a file that defines the structure of one or many data streams.
 For more details see the <a href="{{ "/singer/spec#catalog-files" | prepend: site.baseurl | prepend: site.url }}">Catalog Files section</a> in our Singer Spec interpretation.
 
-#### Discovery
+#### Discover
 
 The tap accepts a `--discovery` argument that is used to generate a catalog files.
 For more details see the <a href="{{ "/singer/spec#discovery-mode" | prepend: site.baseurl | prepend: site.url }}">Discovery mode section</a> section in our Singer Spec interpretation.
