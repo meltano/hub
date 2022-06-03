@@ -292,21 +292,47 @@ layout: plugin_page
 
 <h2 id="capabilities">Capabilities</h2>
     
-{% if variant.capabilities.size == 0 %}
+{% if plugin.capabilities.size == 0 %}
 <p>
-  Check the
-  <a href="{{variant.repo}}#readme" target="_blank">README and code in the repository</a>
-  for more information on capabilities for this {{plugin_type}}.
+  <code>{{plugin.name}}</code> does not have any capabilities defined in its metadata.
+  Please considering adding them by making a PR to the
+  <a href="{{yaml_file}}">YAML file</a>
+  that defines the capabilities for this {{plugin_type}}.
 </p>
-{% else %} <ul> {% for capability in plugin.capabilities %} 
+
+{% else %} 
+
+  {% if plugin.capabilities.size < 3 %}
+    <p>
+      <code>{{plugin.name}}</code> may not have the full set of capabilities defined in its metadata.
+      Please considering adding them by making a PR to the
+      <a href="{{yaml_file}}">YAML file</a>
+      that defines the capabilities for this {{plugin_type}}.
+    </p>
+  {% endif %}
+
+<ul> {% for capability in plugin.capabilities %} 
   <li>
     <a href="/singer/docs#{{capability}}">
       <code>{{capability}}</code>
     </a>
-  </li> {% endfor %} </ul> {% endif %}
+  </li> {% endfor %} </ul> 
+
+  {% endif %}
+
+<h2 id="settings">Settings</h2>
+  
+{% if plugin.settings.size == 0 %}
+<p>
+  <code>{{plugin.name}}</code> does not have any settings defined in its metadata. 
+  Please considering adding them by making a PR to the 
+  <a href="{{yaml_file}}">YAML file</a>
+  that defines the settings for this {{plugin_type}}.
+</p>
+
+{% endif %}
 
 {% if plugin.settings.size > 0 %}
-<h2 id="settings">Settings</h2>
 
 {% if plugin.settings_group_validation.size == 1 %}
 <p>
@@ -347,7 +373,6 @@ layout: plugin_page
   {% endfor %}
 </ul>
 {% endif %}
-
 <p>
   These and other supported settings are documented below. To quickly find the
   setting you're looking for, use the <a href="#toc">Table of Contents</a> at
@@ -355,7 +380,8 @@ layout: plugin_page
 </p>
 
 {% for setting in plugin.settings %} {% include setting.html setting=setting
-plugin_name=plugin.name %} {% endfor %} {% endif %}
+plugin_name=plugin.name %} {% endfor %} 
+{% endif %}
 
 <h2 id="looking-for-help">Looking for help?</h2>
 
@@ -379,7 +405,7 @@ plugin_name=plugin.name %} {% endfor %} {% endif %}
 <p>
   This page is generated from a
   <a
-    href="https://gitlab.com/meltano/hub/-/tree/main/_data/meltano/{{plugin_type}}s/{{ plugin.name }}.yml"
+    href="{{yaml_file}}"
     >YAML file</a
   >
   that you can contribute changes to!
