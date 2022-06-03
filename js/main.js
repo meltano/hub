@@ -2,54 +2,67 @@ function escapeRegex(string) {
   return string.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&");
 }
 
-window.addEventListener("DOMContentLoaded", () => {
-  var field = document.querySelector("input.grid-search");
-  if (!field) {
-    return;
-  }
+function searchGrid() {
+  window.addEventListener("DOMContentLoaded", () => {
+    const field = document.querySelector("input.grid-search");
+    if (!field) {
+      return;
+    }
 
-  var grid = document.querySelector("ul.button-grid");
-  var items = grid.querySelectorAll("li[data-search-terms]");
+    const grid = document.querySelector("ul.button-grid");
+    const items = grid.querySelectorAll("li[data-search-terms]");
 
-  field.addEventListener("input", (e) => {
-    var query = e.target.value.trim().toLowerCase();
+    field.addEventListener("input", (e) => {
+      let query = e.target.value.trim().toLowerCase();
 
-    items.forEach((item) => {
-      var terms = item.getAttribute("data-search-terms");
+      items.forEach((item) => {
+        let terms = item.getAttribute("data-search-terms");
 
-      if (!query || terms.toLowerCase().indexOf(query) > -1) {
-        item.style.display = "block";
-      } else {
-        item.style.display = "none";
-      }
+        if (!query || terms.toLowerCase().indexOf(query) > -1) {
+          item.style.display = "block";
+        } else {
+          item.style.display = "none";
+        }
+      });
     });
+
+    field.disabled = false;
   });
+}
 
-  field.disabled = false;
-});
+searchGrid();
 
-window.addEventListener("DOMContentLoaded", () => {
-  var field = document.querySelector("input.homepage-search-input");
-  if (!field) {
-    return;
-  }
+function navbarSearch() {
+  window.addEventListener("DOMContentLoaded", () => {
+    const searchInput = document.querySelector("input.homepage-search-input");
+    if (!searchInput) {
+      return;
+    }
 
-  var grid = document.querySelector("ul.navbar-search-results");
-  var items = grid.querySelectorAll("li[data-search-terms]");
+    const searchResults = document.querySelector("ul.navbar-search-results");
+    const searchResultsItems = searchResults.querySelectorAll(
+      "li[data-search-terms]"
+    );
 
-  field.addEventListener("input", (e) => {
-    var query = e.target.value.trim().toLowerCase();
+    searchInput.addEventListener("input", (e) => {
+      let searchQuery = e.target.value.trim().toLowerCase();
 
-    items.forEach((item) => {
-      var terms = item.getAttribute("data-search-terms");
+      searchResultsItems.forEach((item) => {
+        let searchTerms = item.getAttribute("data-search-terms");
 
-      if (!query || terms.toLowerCase().indexOf(query) > -1) {
-        item.style.display = "block";
-      } else {
-        item.style.display = "none";
-      }
+        if (
+          !searchQuery ||
+          searchTerms.toLowerCase().indexOf(searchQuery) > -1
+        ) {
+          item.style.display = "block";
+        } else {
+          item.style.display = "none";
+        }
+      });
     });
-  });
 
-  field.disabled = false;
-});
+    searchInput.disabled = false;
+  });
+}
+
+navbarSearch();

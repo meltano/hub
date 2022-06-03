@@ -384,7 +384,14 @@ input.grid-search {
 }
 
 .navbar-search-results {
-  height: 100px;
-  width: 50px;
-  background: grey;
+  height: 200px;
+  width: 300%;
+  background: $white;
+  right: 20px;
+}
+
+.navbar-search-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
