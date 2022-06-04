@@ -293,7 +293,7 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{plugin_type}}s/{{plu
   <a href="#looking-for-help">learn how to get help</a>.
 </p>
 
-{% unless plugin_type contains ["extractor","loader","tap","target"] %}
+{% if plugin_type == "extractor" or plugin_type == "loader" or plugin_type == "tap" or plugin_type == "target" %}
 <h2 id="capabilities">Capabilities</h2>
     
 {% if plugin.capabilities.size == 0 %}
@@ -329,7 +329,7 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{plugin_type}}s/{{plu
 
   {% endif %}
 
-{% endunless %}
+{% endif %}
 
 <h2 id="settings">Settings</h2>
   
