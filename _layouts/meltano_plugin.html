@@ -8,8 +8,17 @@ layout: plugin_page
 https://github.com/meltano/hub/tree/develop/_data/meltano/{{plugin_type}}s/{{plugin.name}}/{{plugin.variant}}.yml
 {% endcapture %}
 {% if plugin.metrics %} {% assign metrics = plugin.metrics %}{% endif %}
+
+<!-- To determine if the current plugin is pure Singer or not -->
 {% assign is_singer = false %}
 {% if plugin_type == "tap" or plugin_type == "target" %} {% assign is_singer =  true %} {% endif %}
+{% if plugin_type == "tap" %}
+  {% assign meltano_type = "extractors" %}
+  {% assign plugin_name_no_prefix = plugin.name | replace: "tap-", "" %}
+{% else %}
+  {% assign meltano_type = "loaders" %}
+  {% assign plugin_name_no_prefix = plugin.name | replace: "target-", "" %}
+{% endif %}
 
 {% if is_singer == true %}
 
@@ -201,7 +210,9 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{plugin_type}}s/{{plu
   {% for alt_variant in plugin.alt_variants %} {% if alt_variant.name != plugin.variant %}
   <li>
     {% if is_singer == true %}
-      {%assign variant_url = alt_variant.url | replace: "extractors", "taps" | replace: "loaders", "targets" %} 
+      {% assign variant_url = alt_variant.url | replace: "extractors", "taps" | replace: "loaders", "targets" %} 
+    {% else %}
+      {% assign variant_url = alt_variant.url %}
     {% endif %}
     <a href="{{ variant_url }}">
       <code>{{alt_variant.variant}}</code>
@@ -233,26 +244,15 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{plugin_type}}s/{{plu
       Usage with <a href="https://meltano.com" target="_blank">Meltano</a>
     </h2>
 
-    {% if plugin_type == "tap" %} 
-      {% assign meltano_plugins = site.data.meltano.extractors %} 
-      {% assign meltano_type_article = "an" %} 
-      {% assign meltano_type = "extractor" %} 
-      {% capture meltano_url %}
-      {{meltano_type}}/{{plugin.name}}--{{plugin.variant}}
-      {% endcapture %} 
-    {% else %} 
-      {% assign meltano_plugins = site.data.meltano.loaders %} 
-      {% assign meltano_type_article = "a" %} 
-      {% assign meltano_type = "loader" %} 
-      {% capture meltano_url %}
-      {{meltano_type}}/{{plugin.name}}--{{plugin.variant}}
-      {% endcapture %}
-    {% endif %} 
+    {% if page.variant_specific %}
+      {% capture meltano_url %}{{meltano_type}}/{{plugin_name_no_prefix}}--{{plugin.variant}}{% endcapture %}
+    {% else %}
+      {% capture meltano_url %}{{meltano_type}}/{{plugin_name_no_prefix}}{% endcapture %}
+    {% endif %}
 
     <p>
-      To use with Meltano, view the <a href="{{meltano_url}}">{{plugin.name}} {{meltano_type}} page</a>.
+      To use with Meltano, view the <a href="/{{meltano_url}}"><code>{{plugin.name}}</code> {{meltano_type}} page</a>.
     </p>
-
 
 {% else %}
 
