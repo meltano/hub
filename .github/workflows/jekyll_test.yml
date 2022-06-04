@@ -54,10 +54,6 @@ jobs:
       run: |
         bundle exec jekyll build -d test
 
-    - name: Yaml schema validate
-      run: |
-        python yaml_validate.py
-
-    - name: API schema validate
+    - name: Validate generated API schema
       run: |
         python api_schema_validate.py "test/meltano/api/v1/plugins"

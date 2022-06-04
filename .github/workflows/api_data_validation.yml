@@ -1,4 +1,4 @@
-name: API and Yaml validation
+name: Yaml validation
 
 on:
   pull_request: {}
@@ -35,7 +35,3 @@ jobs:
     - name: Yaml schema validate
       run: |
         python yaml_validate.py
-
-    - name: API schema validate
-      run: |
-        python api_schema_validate.py "test/meltano/api/v1/plugins"
