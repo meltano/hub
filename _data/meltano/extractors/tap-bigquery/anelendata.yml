@@ -16,14 +16,7 @@ settings_group_validation:
   - start_datetime
   - credentials_path
 prereq: |
-  Then, follow the steps in the ["Activate the Google BigQuery API" section of the repository's README](https://github.com/anelendata/tap-bigquery#step-1-activate-the-google-bigquery-api).
-usage: |
-    ### Additional Usage Instructions
-    Fully qualified path to `client_secrets.json` for your service account.
-
-    See the ["Activate the Google BigQuery API" section of the repository's README](https://github.com/anelendata/tap-bigquery#step-1-activate-the-google-bigquery-api) and <https://cloud.google.com/docs/authentication/production>.
-
-    By default, this file is expected to be at the root of your project directory.
+  Additionally you should follow the steps in the ["Activate the Google BigQuery API" section](https://github.com/anelendata/tap-bigquery#step-1-activate-the-google-bigquery-api) of the repository's README.
 settings:
 - name: streams
   label: Streams
