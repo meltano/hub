@@ -372,7 +372,7 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{plugin_type}}s/{{plu
 
 {% endif %}
 
-{% if plugin_type == "extractor" or plugin_type == "loader" or plugin_type == "tap" or plugin_type == "target"] %}
+{% if plugin_type == "extractor" or plugin_type == "loader" or plugin_type == "tap" or plugin_type == "target" %}
 <h2 id="capabilities">Capabilities</h2>
     
 {% if plugin.capabilities.size == 0 %}
@@ -414,7 +414,7 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{plugin_type}}s/{{plu
   
 {% if plugin.settings.size == 0 %}
 <p>
-  <code>{{plugin.name}}</code> does not have any <a href="https://docs.meltano.com/contribute/plugins#setting-definitions">settings</a> defined in its metadata. 
+  The {{plugin_type}} <code>{{plugin.name}}</code> does not have any <a href="https://docs.meltano.com/contribute/plugins#setting-definitions">settings</a> defined in its metadata. 
   Please considering adding them by making a pull request to the 
   <a href="{{yaml_file}}">YAML file</a>
   that defines the <a href="https://docs.meltano.com/contribute/plugins#setting-definitions">settings</a> for this {{plugin_type}}.
