@@ -1,3 +1,8 @@
+def pluralize_plugin_type(plugin_type)
+  return "utilities" if plugin_type == "utility"
+  return "#{plugin_type}s"
+end
+
 class MeltanoPluginPageGenerator < Jekyll::Generator
   safe true
   priority :high
@@ -6,14 +11,15 @@ class MeltanoPluginPageGenerator < Jekyll::Generator
     generate_pages(site, 'extractor')
     generate_pages(site, 'loader')
     generate_pages(site, 'file')
-    generate_pages(site, 'utilitie')
+    generate_pages(site, 'utility')
     generate_pages(site, 'transformer')
     generate_pages(site, 'orchestrator')
   end
 
   def generate_pages(site, plugin_type)
-    defaults = site.data['default_variants']["#{plugin_type}s"]
-    site.data['meltano']["#{plugin_type}s"].each do |plugin_name, variants|
+    plural_plugin_type = pluralize_plugin_type(plugin_type)
+    defaults = site.data['default_variants'][plural_plugin_type]
+    site.data['meltano'][plural_plugin_type].each do |plugin_name, variants|
       variants.each do |variant_name, variant_definition|
         if variant_name == defaults[plugin_name]
           page = register_pages(site, plugin_type, plugin_name, variant_definition, false)
@@ -59,34 +65,25 @@ class MeltanoPluginPageGenerator < Jekyll::Generator
     def initialize(site, plugin_type, plugin_name, variant_definition, variant_specific)
       @site = site
       @base = site.source
+
+      plural_plugin_type = pluralize_plugin_type(plugin_type)
+
+      @dir  = plural_plugin_type
+
       if plugin_type == 'tap'
-        singular_plugin_type = plugin_type
-        plural_plugin_type = "taps"
-        @dir  = plural_plugin_type
         variant_definition = Marshal.load(Marshal.dump(variant_definition))
         variant_definition['url'] = "/taps/#{plugin_name}"
         title = "#{variant_definition['label']} Singer #{plugin_type}"
         is_singer = true
         meltano_type = "extractors"
       elsif plugin_type == 'target'
-        singular_plugin_type = plugin_type
-        plural_plugin_type   = "targets"
-        @dir  = plural_plugin_type
         variant_definition = Marshal.load(Marshal.dump(variant_definition))
         variant_definition['url'] = "/targets/#{plugin_name}"
         title = "#{variant_definition['label']} Singer #{plugin_type}"
         is_singer = true
         meltano_type = "loaders"
       else
-        singular_plugin_type = plugin_type
-
-        plural_plugin_type = "#{plugin_type}s"
-        @dir  = plural_plugin_type
         title = "#{variant_definition['label']} Meltano #{plugin_type}"
-        if plugin_type == "utilitie"
-          singular_plugin_type = "utility"
-          title = "#{variant_definition['label']} Meltano #{singular_plugin_type}"
-        end
         is_singer = false
         meltano_type = plural_plugin_type
       end
@@ -151,7 +148,6 @@ If you run into any issues, [learn how to get help](#looking-for-help).
         'image_url' => variant_definition['logo_url'],
         'variant_specific' => variant_specific,
         'plugin_type' => plugin_type,
-        'singular_plugin_type' => singular_plugin_type,
         'plural_plugin_type' => plural_plugin_type,
         'plugin' => variant_definition,
         'plugin_name_no_prefix' => plugin_name,
