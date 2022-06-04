@@ -239,6 +239,13 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{plugin_type}}s/{{plu
       For additional instructions, refer to the
       <a href="{{plugin.repo}}#readme" target="_blank">README in the repository</a>.
     </p>
+
+    {% if plugin.prereq %}
+    <h4 id="prerequisites">Prerequisites</h4>
+    
+    {{ plugin.prereq | markdownify }}
+    
+    {% endif %}
     
     <h2 id="usage-with-meltano">
       Usage with <a href="https://meltano.com" target="_blank">Meltano</a>
@@ -295,6 +302,10 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{plugin_type}}s/{{plu
   </li>
   {% endif %}
 </ol>
+
+{% if plugin.prereq.size > 0 and is_singer == false%} 
+{{ plugin.prereq | markdownify }}
+{% endif %}
 
 <h3 id="installation-and-configuration">Installation and configuration</h3>
 
@@ -469,6 +480,12 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{plugin_type}}s/{{plu
 
 {% for setting in plugin.settings %} {% include setting.html setting=setting
 plugin_name=plugin.name %} {% endfor %} 
+{% endif %}
+
+{% if plugin.usage %}
+
+{{ plugin.usage | markdownify }}
+
 {% endif %}
 
 <h2 id="looking-for-help">Looking for help?</h2>
