@@ -1,0 +1,80 @@
+name: target-snowflake
+label: Snowflake
+description: Snowflake database loader
+namespace: target_snowflake
+dialect: snowflake
+target_schema: $TARGET_SNOWFLAKE_SCHEMA
+logo_url: /assets/logos/loaders/snowflake.png
+variant: meltano
+hidden: true
+docs: https://hub.meltano.com/loaders/snowflake--meltano.html
+repo: https://gitlab.com/meltano/target-snowflake
+pip_url: git+https://gitlab.com/meltano/target-snowflake.git
+settings_group_validation:
+- - account
+  - username
+  - password
+  - role
+  - database
+  - warehouse
+  - schema
+settings:
+- name: account
+  label: Account
+  env_aliases:
+  - SF_ACCOUNT
+  - SNOWFLAKE_ACCOUNT
+  description: Account Name in Snowflake (https://XXXXX.snowflakecomputing.com)
+- name: username
+  label: Username
+  env_aliases:
+  - SF_USER
+  - SNOWFLAKE_USERNAME
+  description: The username you use for logging in
+- name: password
+  label: Password
+  env_aliases:
+  - SF_PASSWORD
+  - SNOWFLAKE_PASSWORD
+  kind: password
+  description: The password you use for logging in
+- name: role
+  label: Role
+  env_aliases:
+  - SF_ROLE
+  - SNOWFLAKE_ROLE
+  description: Role to be used for loading the data, e.g. `LOADER`. Also this role
+    is GRANTed usage to all tables and schemas created
+- name: database
+  label: Database
+  env_aliases:
+  - SF_DATABASE
+  - SNOWFLAKE_DATABASE
+  description: The name of the Snowflake database you want to use
+- name: warehouse
+  label: Warehouse
+  env_aliases:
+  - SF_WAREHOUSE
+  - SNOWFLAKE_WAREHOUSE
+  description: The name of the Snowflake warehouse you want to use
+- name: schema
+  label: Schema
+  env_aliases:
+  - SF_SCHEMA
+  - SNOWFLAKE_SCHEMA
+  value: $MELTANO_EXTRACT__LOAD_SCHEMA
+  value_processor: upcase_string
+- name: batch_size
+  label: Batch Size
+  kind: integer
+  value: 5000
+  description: How many records are sent to Snowflake at a time?
+- name: timestamp_column
+  label: Timestamp Column
+  value: __loaded_at
+  description: Name of the column used for recording the timestamp when Data are uploaded
+    to Snowflake.
+domain_url: https://www.snowflake.com/
+maintenance_status: active
+keywords:
+- database

@@ -1,0 +1,16 @@
+name: zoom
+label: Zoom
+description: Video conferencing software
+namespace: tap_zoom
+logo_url: /assets/logos/extractors/zoom.png
+variant: karbonhq
+capabilities:
+- catalog
+- discover
+settings: []
+settings_group_validation: []
+pip_url: git+https://github.com/karbonhq/singer-tap-zoom.git
+repo: https://github.com/karbonhq/singer-tap-zoom
+domain_url:
+maintenance_status: unknown
+keywords: []

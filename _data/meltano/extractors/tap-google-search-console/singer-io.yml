@@ -1,0 +1,16 @@
+description: Search platform
+label: Google Search Console
+name: tap-google-search-console
+logo_url: /assets/logos/extractors/google-search-console.png
+namespace: tap_google_search_console
+variant: singer-io
+pip_url: tap-google-search-console
+repo: https://github.com/singer-io/tap-google-search-console
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://developers.google.com/webmaster-tools/search-console-api-original/v3/how-tos/search_analytics
+maintenance_status: unknown
+keywords:
+- api

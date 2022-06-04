@@ -1,0 +1,16 @@
+description: US Government Labor Statistics
+label: Bureau of Labor Statistics
+name: tap-bls
+logo_url: /assets/logos/extractors/bls.png
+namespace: tap_bls
+variant: frasermarlow
+pip_url: git+https://github.com/frasermarlow/tap-bls.git
+repo: https://github.com/frasermarlow/tap-bls
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://www.bls.gov
+maintenance_status: unknown
+keywords:
+- api

@@ -1,0 +1,16 @@
+description: Digital Library
+label: Open Library
+name: tap-open-library
+logo_url: /assets/logos/extractors/open-library.png
+namespace: tap_open_library
+variant: loeakaodas
+pip_url: git+https://github.com/loeakaodas/tap-open-library.git
+repo: https://github.com/loeakaodas/tap-open-library
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://openlibrary.org/developers/api
+maintenance_status: unknown
+keywords:
+- api

@@ -7,7 +7,7 @@ description: dbt file bundle
 The [`dbt`](https://www.getdbt.com) [file bundle](https://docs.meltano.com/concepts/plugins#file-bundles) installs files into your Meltano project to accelerate onboarding and integrating the plugin into your project.
 This file bundle installs your dbt project directory including configuration files like `dbt_projects.yml` and `profiles.yml` with defaults in place to allow you to connect to you warehouse easily.
 
-- **Repository**: <https://gitlab.com/meltano/files-dbt>
+- **Repository**: <https://github.com/meltano/files-dbt>
 - **Documentation**: <https://docs.getdbt.com/>
 - **Maintainer**: Meltano community
 - **Maintenance status**: Active

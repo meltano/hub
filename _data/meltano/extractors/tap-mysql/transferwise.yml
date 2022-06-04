@@ -1,0 +1,62 @@
+name: tap-mysql
+label: MySQL / MariaDB
+description: MySQL / MariaDB database extractor
+namespace: tap_mysql
+logo_url: /assets/logos/extractors/mysql.png
+variant: transferwise
+docs: https://hub.meltano.com/extractors/mysql.html
+repo: https://github.com/transferwise/pipelinewise-tap-mysql
+pip_url: pipelinewise-tap-mysql
+capabilities:
+- catalog
+- discover
+- state
+settings_group_validation:
+- - host
+  - port
+  - user
+  - password
+settings:
+- name: host
+  value: localhost
+  label: Host
+  description: The MySQL hostname.
+- name: port
+  label: Port
+  kind: integer
+  value: 3306
+  description: The MySQL port.
+- name: user
+  label: User
+  description: The MySQL username.
+- name: password
+  kind: password
+  label: Password
+  description: The MySQL password.
+- name: database
+  label: Database
+  description: The MySQL database name.
+- name: ssl
+  kind: boolean
+  label: SSL
+  description: Whether the MySQL connection should use SSL.
+  value: false
+  value_post_processor: stringify
+- name: filter_dbs
+  label: Filter DBs
+  description: Comma separated list of schemas to extract tables only from particular
+    schemas and to improve data extraction performance
+- name: session_sqls
+  kind: array
+  label: Session SQLs
+  value:
+  - SET @@session.time_zone="+0:00"
+  - SET @@session.wait_timeout=28800
+  - SET @@session.net_read_timeout=3600
+  - SET @@session.innodb_lock_wait_timeout=3600
+  description: List of SQL commands to run when a connection made. This allows to
+    set session variables dynamically, like timeouts.
+domain_url: https://www.mysql.com/
+maintenance_status: active
+keywords:
+- database

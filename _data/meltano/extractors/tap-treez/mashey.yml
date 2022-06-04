@@ -1,0 +1,16 @@
+description: Enterprise Software Platform for Retailers in the Cannabis space
+label: Treez
+name: tap-treez
+logo_url: /assets/logos/extractors/treez.png
+namespace: tap_treez
+variant: mashey
+pip_url: git+https://github.com/Mashey/tap-treez.git
+repo: https://github.com/Mashey/tap-treez
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://code.treez.io/
+maintenance_status: unknown
+keywords:
+- api

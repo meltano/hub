@@ -1,0 +1,16 @@
+description: B2C Marketing Automation Platform
+label: Selligent
+name: tap-selligent
+logo_url: /assets/logos/extractors/selligent.png
+namespace: tap_selligent
+variant: singer-io
+pip_url: tap-selligent
+repo: https://github.com/singer-io/tap-selligent
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://www.selligent.com/
+maintenance_status: unknown
+keywords:
+- api

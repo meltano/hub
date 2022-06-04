@@ -1,0 +1,16 @@
+description: Email Marketing and Automation Tools
+label: Campaign Monitor
+name: tap-campaign-monitor
+logo_url: /assets/logos/extractors/campaign-monitor.png
+namespace: tap_campaign_monitor
+variant: sbwheeler
+pip_url: git+https://github.com/sbwheeler/tap-campaignmonitor.git
+repo: https://github.com/sbwheeler/tap-campaignmonitor
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://www.campaignmonitor.com/
+maintenance_status: unknown
+keywords:
+- api

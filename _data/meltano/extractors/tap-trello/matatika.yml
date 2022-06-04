@@ -1,0 +1,31 @@
+description: Project Management Software
+label: Trello
+name: tap-trello
+logo_url: /assets/logos/extractors/trello.png
+namespace: tap_trello
+variant: matatika
+pip_url: git+https://github.com/Matatika/tap-trello.git
+repo: https://github.com/Matatika/tap-trello
+settings:
+- name: developer_api_key
+  description: Your Trello developer API key. [How to get your developer API key](https://github.com/Matatika/tap-trello#source-authentication-and-authorization)
+  label: Developer API Key
+  kind: password
+- name: access_token
+  description: Your Trello access token. [How to get your access token](https://github.com/Matatika/tap-trello#source-authentication-and-authorization)
+  label: Access Token
+  kind: password
+- name: start_date
+  description: Optional date to sync card and actions data from. If not supplied,
+    the tap will try to sync all your data.
+  label: Start Date
+  kind: date_iso8601
+capabilities:
+- catalog
+- discover
+- state
+domain_url: https://developer.atlassian.com/cloud/trello/rest/
+maintenance_status: active
+keywords:
+- api
+- meltano_sdk

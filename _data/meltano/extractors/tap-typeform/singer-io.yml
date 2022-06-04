@@ -1,0 +1,16 @@
+description: Survey and Form Software
+label: Typeform
+name: tap-typeform
+logo_url: /assets/logos/extractors/typeform.png
+namespace: tap_typeform
+variant: singer-io
+pip_url: tap-typeform
+repo: https://github.com/singer-io/tap-typeform
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://developer.typeform.com/
+maintenance_status: unknown
+keywords:
+- api

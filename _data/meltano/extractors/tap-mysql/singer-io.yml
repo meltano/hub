@@ -1,0 +1,17 @@
+name: tap-mysql
+label: MySQL / MariaDB
+description: MySQL / MariaDB database extractor
+namespace: tap_mysql
+logo_url: /assets/logos/extractors/mysql.png
+variant: singer-io
+pip_url: git+https://github.com/singer-io/tap-mssql.git
+repo: https://github.com/singer-io/tap-mysql
+capabilities:
+- catalog
+- discover
+settings_group_validation: []
+settings: []
+domain_url: https://www.mysql.com/
+maintenance_status: unknown
+keywords:
+- database

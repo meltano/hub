@@ -1,0 +1,17 @@
+description: Analytics Engineering Platform
+label: dbt Cloud
+name: tap-dbt
+logo_url: /assets/logos/extractors/dbt.png
+namespace: tap_dbt
+variant: meltanolabs
+pip_url: git+https://github.com/meltanolabs/tap-dbt.git
+repo: https://github.com/meltanolabs/tap-dbt
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://www.getdbt.com/product/
+maintenance_status: active
+keywords:
+- api
+- meltano_sdk

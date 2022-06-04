@@ -1,0 +1,16 @@
+description: CRM Platform
+label: Insightly
+name: tap-insightly
+logo_url: /assets/logos/extractors/insightly.png
+namespace: tap_insightly
+variant: mrtns
+pip_url: git+https://github.com/mrtns/tap-insightly.git
+repo: https://github.com/mrtns/tap-insightly
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://api.insightly.com/v3.1/Help
+maintenance_status: unknown
+keywords:
+- api

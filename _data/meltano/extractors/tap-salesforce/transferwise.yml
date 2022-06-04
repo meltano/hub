@@ -1,0 +1,16 @@
+name: salesforce
+label: Salesforce
+description: Customer-relationship management & customer success platform
+namespace: tap_salesforce
+logo_url: /assets/logos/extractors/salesforce.png
+variant: transferwise
+capabilities:
+- catalog
+- discover
+settings: []
+settings_group_validation: []
+pip_url: pipelinewise-tap-salesforce
+repo: https://github.com/transferwise/pipelinewise-tap-salesforce
+domain_url:
+maintenance_status: active
+keywords: []
