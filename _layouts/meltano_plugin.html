@@ -9,6 +9,44 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{plugin_type}}s/{{plu
 {% endcapture %}
 {% if plugin.metrics %} {% assign metrics = plugin.metrics %}{% endif %}
 
+<!-- To determine if the current plugin is pure Singer or not -->
+{% assign is_singer = false %}
+{% if plugin_type == "tap" or plugin_type == "target" %} {% assign is_singer =  true %} {% endif %}
+{% if plugin_type == "tap" %}
+  {% assign meltano_type = "extractors" %}
+  {% assign plugin_name_no_prefix = plugin.name | replace: "tap-", "" %}
+{% else %}
+  {% assign meltano_type = "loaders" %}
+  {% assign plugin_name_no_prefix = plugin.name | replace: "target-", "" %}
+{% endif %}
+
+{% if is_singer == true %}
+
+<p>
+  {% if plugin_type == "tap" %} The <code>{{plugin.name}}</code>
+  <a href="/singer/taps">Singer tap</a>
+  pulls data from
+  {% if plugin.entity_url %}
+  <a href="{{plugin.entity_url}}" target="_blank">{{plugin.label}}</a>
+  {% else %}
+  the {{ plugin.label }} {{ plugin.entity_type }}
+  {% endif %}
+  that can then be sent to a destination using a
+  <a href="/singer/targets">Singer target</a>. {% else %} The
+  <code>{{plugin.name}}</code>
+  <a href="/singer/targets">Singer target</a>
+  sends data into
+  {% if plugin.entity_url %}
+  <a href="{{plugin.entity_url}}" target="_blank">{{plugin.label}}</a>
+  {% else %}
+  the {{ plugin.label }} {{ plugin.entity_type }}
+  {% endif %}
+  after it was pulled from a source using a
+  <a href="/singer/taps">Singer tap</a>. {% endif %}
+</p>
+
+{% else %}
+
 <p>
   {% if plugin_type == "extractor" %} The <code>{{plugin.name}}</code>
   <a href="https://docs.meltano.com/concepts/plugins#extractors" target="_blank"
@@ -39,6 +77,8 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{plugin_type}}s/{{plu
     >extractor</a
   >. {% endif %}
 </p>
+
+{% endif %}
 
 <ul>
   {% if plugin.maintenance_status == "unknown" %} {% assign maintenance_status_label = "Unknown" %} {% assign maintenance_status_color = "lightgrey" %} {% endif %}
@@ -126,7 +166,7 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{plugin_type}}s/{{plu
   </ul>
   {% endif %}
 
-  {% if plugin.meltano_sdk %}
+  {% if plugin.keywords contains "meltano_sdk" %}
   <li><strong>Built with <a href="https://sdk.meltano.com/en/latest/" target="_blank">Meltano SDK</a></strong>: &#10004;</li>
   {% endif %}
 
@@ -159,8 +199,8 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{plugin_type}}s/{{plu
     >variants</a
   >
   of <code>{{plugin.name}}</code> are available. {% if page.variant_specific %}
-  This document describes the <code>{{plugin.name}}</code> variant. {% else %}
-  This document describes the default <code>{{plugin.name}}</code> variant,
+  This document describes the <code>{{plugin.variant}}</code> variant. {% else %}
+  This document describes the default <code>{{plugin.variant}}</code> variant,
   which is recommended for new users. {% endif %}
 </p>
 
@@ -169,7 +209,12 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{plugin_type}}s/{{plu
 <ul>
   {% for alt_variant in plugin.alt_variants %} {% if alt_variant.name != plugin.variant %}
   <li>
-    <a href="{{ alt_variant.url }}">
+    {% if is_singer == true %}
+      {% assign variant_url = alt_variant.url | replace: "extractors", "taps" | replace: "loaders", "targets" %} 
+    {% else %}
+      {% assign variant_url = alt_variant.url %}
+    {% endif %}
+    <a href="{{ variant_url }}">
       <code>{{alt_variant.variant}}</code>
     </a>
     {% if alt_variant.default %}(default){%endif%}
@@ -178,6 +223,38 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{plugin_type}}s/{{plu
 </ul>
 
 {% endif %}
+
+{% if is_singer == true %}
+
+    <h2 id="standalone-usage">Standalone usage</h2>
+    
+    <p>
+      Install the package using
+      <a href="https://pip.pypa.io/" target="_blank">pip</a>:
+    </p>
+    
+    <pre><code>pip install {{plugin.pip_url}}</code></pre>
+    
+    <p>
+      For additional instructions, refer to the
+      <a href="{{plugin.repo}}#readme" target="_blank">README in the repository</a>.
+    </p>
+    
+    <h2 id="usage-with-meltano">
+      Usage with <a href="https://meltano.com" target="_blank">Meltano</a>
+    </h2>
+
+    {% if page.variant_specific %}
+      {% capture meltano_url %}{{meltano_type}}/{{plugin_name_no_prefix}}--{{plugin.variant}}{% endcapture %}
+    {% else %}
+      {% capture meltano_url %}{{meltano_type}}/{{plugin_name_no_prefix}}{% endcapture %}
+    {% endif %}
+
+    <p>
+      To use with Meltano, view the <a href="/{{meltano_url}}"><code>{{plugin.name}}</code> {{meltano_type}} page</a>.
+    </p>
+
+{% else %}
 
 <h2 id="getting-started">Getting Started</h2>
 
@@ -293,6 +370,8 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{plugin_type}}s/{{plu
   <a href="#looking-for-help">learn how to get help</a>.
 </p>
 
+{% endif %}
+
 {% if plugin_type == "extractor" or plugin_type == "loader" or plugin_type == "tap" or plugin_type == "target" %}
 <h2 id="capabilities">Capabilities</h2>
     
@@ -335,7 +414,7 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{plugin_type}}s/{{plu
   
 {% if plugin.settings.size == 0 %}
 <p>
-  <code>{{plugin.name}}</code> does not have any <a href="https://docs.meltano.com/contribute/plugins#setting-definitions">settings</a> defined in its metadata. 
+  The {{plugin_type}} <code>{{plugin.name}}</code> does not have any <a href="https://docs.meltano.com/contribute/plugins#setting-definitions">settings</a> defined in its metadata. 
   Please considering adding them by making a pull request to the 
   <a href="{{yaml_file}}">YAML file</a>
   that defines the <a href="https://docs.meltano.com/contribute/plugins#setting-definitions">settings</a> for this {{plugin_type}}.
