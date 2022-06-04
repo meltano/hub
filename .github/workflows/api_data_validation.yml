@@ -21,7 +21,7 @@ jobs:
       with:
         python-version: 3.9
         architecture: x64
-        cache: 'poetry'
+        cache: 'pip'
 
     - name: Upgrade pip
       run: |
