@@ -1,0 +1,42 @@
+name: API and Yaml validation
+
+on:
+  pull_request: {}
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs: {}
+
+jobs:
+  tests:
+    name: JSON Schema Validation
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out the repository
+      uses: actions/checkout@v3.0.2
+
+    - name: Setup Python
+      uses: actions/setup-python@v3.1.2
+      with:
+        python-version: 3.9
+        architecture: x64
+        cache: 'poetry'
+
+    - name: Upgrade pip
+      run: |
+        pip install pip
+        pip --version
+
+    - name: Pip installs
+      run: |
+        pip install ruamel.yaml
+        pip install jsonschema
+
+    - name: Yaml schema validate
+      run: |
+        python yaml_validate.py
+
+    - name: API schema validate
+      run: |
+        python api_schema_validate.py "test/meltano/api/v1/plugins"
