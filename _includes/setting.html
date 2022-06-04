@@ -65,7 +65,7 @@
 setting.value %}{{setting.value}}{% else %}1234{% endif %}{% when "boolean" %}{%
 if setting.value == true %}false{% else %}true{% endif %}{% when "date_iso8601"
 %}YYYY-MM-DDTHH:MM:SSZ{% when "array" %}'[...]'{% when "object" %}'{...}'{% when
-"options" %}{{setting.options[0].value}}{% else %}&lt;{{setting.name}}&gt;{%
+"options" %}{{setting.options[0].value}}{% else %}{%raw%}<{%endraw%}{{setting.name}}{%raw%}>{%endraw%}{%
 endcase %}{% endcapture %}
 
 {% highlight bash %}
