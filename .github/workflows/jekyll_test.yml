@@ -1,4 +1,4 @@
-name: Jekkyll test
+name: Jekyll test
 
 on:
   pull_request: {}
@@ -9,7 +9,7 @@ on:
 
 jobs:
   tests:
-    name: Jekkyll build test
+    name: Jekyll build test
     runs-on: ubuntu-latest
     env:
       JEKYLL_ENV: production
