@@ -8,7 +8,7 @@ The [`docker-compose`](https://docs.docker.com/compose/) [file bundle](https://d
 This file bundle installs docker-compose files used for spinning up your Meltano project service using docker containers.
 
 
-- **Repository**: <https://gitlab.com/meltano/files-docker-compose>
+- **Repository**: <https://github.com/meltano/files-docker-compose>
 - **Documentation**: <https://docs.docker.com/compose/>
 - **Maintainer**: Meltano community
 - **Maintenance status**: Active
@@ -32,6 +32,6 @@ If you haven't already, follow the [Getting Started guide](https://docs.meltano.
 
 ### Next steps
 
-1. Follow the advanced instructions to uncomment the services you want to run and spin them up using [`docker-compose up -d`](https://gitlab.com/meltano/files-docker-compose/-/blob/master/bundle/README.md)
+1. Follow the advanced instructions to uncomment the services you want to run and spin them up using [`docker-compose up -d`](https://github.com/meltano/files-docker-compose/blob/main/bundle/README.md)
 
 If you run into any issues, chat with us in [#troubleshooting](https://meltano.slack.com/archives/C01TCRBBJD7) on [Slack](https://meltano.com/slack).
