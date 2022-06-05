@@ -5,28 +5,25 @@ description: A modern, enterprise-ready business intelligence web application.
 docs: https://docs.meltano.com/guide/analysis
 repo: https://github.com/apache/superset
 variant: apache
-pip_url: apache-superset==1.5.0 markupsafe==2.0.1 # `markupsafe` is listed explicitly to resolve https://github.com/apache/superset/issues/19150 
-requires:
-  files:
-  - name: files-superset
-    variant: meltano
+pip_url: apache-superset==1.5.0 markupsafe==2.0.1 # `markupsafe` is listed explicitly to resolve https://github.com/apache/superset/issues/19150
 settings:
-- name: home
-  value: $MELTANO_PROJECT_ROOT/.meltano/run/superset
-  description: The home directory where Superset will store data.
-- name: additional_dependencies
-  description: An space separated list of python dependencies to include as part of startup.
-    A list of database driver dependencies can be found here https://superset.apache.org/docs/databases/installing-database-drivers
-- name: load_examples
-  kind: boolean
-  value: false
-  description: A boolean whether to load Superset's example datasets and dashboards. Warning, this takes a few mins to load.
-- name: config_path
-  value: $MELTANO_PROJECT_ROOT/analyze/superset/superset_config.py
-  description: The path to the superset_config.py file used to override config settings.
-    See https://superset.apache.org/docs/installation/configuring-superset for more details on configuration options.
+- name: ui.bind_host
+  value: "0.0.0.0"
+- name: ui.port
+  value: 8088
+- name: ui.timeout
+  value: 60
+- name: ui.workers
+  value: 4
+- name: SQLALCHEMY_DATABASE_URI
+  value: sqlite:///$MELTANO_PROJECT_ROOT/.meltano/utilities/superset/superset.db
+- name: SECRET_KEY
+  kind: password
+  value: thisisnotapropersecretkey
 commands:
   ui:
-    args: analyze/superset/superset-init.sh
-    executable: /bin/bash
+    executable: gunicorn
+    args: --bind $SUPERSET_UI_BIND_HOST:$SUPERSET_UI_PORT --timeout $SUPERSET_UI_TIMEOUT --workers $SUPERSET_UI_WORKERS superset.app:create_app()
+  create-admin: fab create-admin
+  load_examples: load_examples
 logo_url: /assets/logos/utilities/superset.png
