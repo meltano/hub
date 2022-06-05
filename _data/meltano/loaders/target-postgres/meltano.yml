@@ -28,7 +28,8 @@ settings:
   - POSTGRES_USER
   value: warehouse
 - name: password
-  kind: Password
+  label: Password
+  kind: password
   env_aliases:
   - PG_PASSWORD
   - POSTGRES_PASSWORD
