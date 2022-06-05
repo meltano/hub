@@ -22,10 +22,10 @@ settings:
   label: Account
   env_aliases:
   - SF_ACCOUNT
-  description: Snowflake account name (i.e. rtXXXXX.eu-central-1)
+  description: Snowflake account name (i.e. `rtXXXXX.eu-central-1`)
   placeholder: E.g. rtXXXXX.eu-central-1
 - name: dbname
-  label: DB Name
+  label: Database Name
   aliases:
   - database
   env_aliases:
@@ -54,8 +54,8 @@ settings:
 - name: file_format
   label: File Format
   description: The Snowflake file format object name which needs to be manually created
-    as part of the pre-requirements section of the docs. Has to be the fully qualified
-    name including the schema. Refer to the docs for more details https://github.com/transferwise/pipelinewise-target-snowflake#pre-requirements.
+    as part of the [requirements](#requirements) section of the docs. Has to be the fully qualified
+    name including the schema. Refer to the [Snowflake docs](https://github.com/transferwise/pipelinewise-target-snowflake#pre-requirements) for more details.
 - name: role
   label: Role
   description: Snowflake role to use. If not defined then the user's default role
@@ -88,7 +88,10 @@ settings:
   - SF_SCHEMA
   value: $MELTANO_EXTRACT__LOAD_SCHEMA
   value_processor: upcase_string
-  description: Name of the schema where the tables will be created, without database
+  description: |
+    Note `$MELTANO_EXTRACT__LOAD_SCHEMA` [will expand to](https://docs.meltano.com/configuration.html#expansion-in-setting-values) the value of the [`load_schema` extra](https://docs.meltano.com/concepts/plugins#load-schema-extra) for the extractor used in the pipeline, which defaults to the extractor's namespace, e.g. `tap_gitlab` for [`tap-gitlab`](/extractors/gitlab). Values are automatically converted to uppercase before they're passed on to the plugin, so `tap_gitlab` becomes `TAP_GITLAB`.
+    
+    Name of the schema where the tables will be created, without database
     prefix. If `schema_mapping` is not defined then every stream sent by the tap is
     loaded into this schema.
 - name: s3_bucket
@@ -149,12 +152,12 @@ settings:
 - name: schema_mapping
   label: Schema Mapping
   kind: object
-  description: "Useful if you want to load multiple streams from one tap to multiple\
-    \ Snowflake schemas.\nIf the tap sends the `stream_id` in `<schema_name>-<table_name>`\
-    \ format then this option overwrites the `default_target_schema` value. Note,\
-    \ that using `schema_mapping` you can overwrite the `default_target_schema_select_permission`\
-    \ value to grant SELECT permissions to different groups per schemas or optionally\
-    \ you can create indices automatically for the replicated tables.\n"
+  description: |
+    Useful if you want to load multiple streams from one tap to multiple Snowflake schemas.
+    
+    If the tap sends the `stream_id` in `<schema_name>-<table_name>` format then this option overwrites the `default_target_schema` value.
+    
+    Note, that using `schema_mapping` you can overwrite the `default_target_schema_select_permission` value to grant SELECT permissions to different groups per schemas or optionally you can create indices automatically for the replicated tables.
 - name: disable_table_cache
   label: Disable Table Cache
   kind: boolean
@@ -232,27 +235,41 @@ settings:
     by default GZIP compressed files are generated.
 - name: query_tag
   label: Query Tag
-  description: Optional string to tag executed queries in Snowflake. Replaces tokens
+  description: |
+    Optional string to tag executed queries in Snowflake. Replaces tokens
+    
     `schema` and `table` with the appropriate values. The tags are displayed in the
     output of the Snowflake `QUERY_HISTORY`, `QUERY_HISTORY_BY_*` functions.
 - name: archive_load_files
   label: Archive Load Files
   kind: boolean
   value: false
-  description: When enabled, the files loaded to Snowflake will also be stored in
-    archive_load_files_s3_bucket under the key /{archive_load_files_s3_prefix}/{schema_name}/{table_name}/.
-    All archived files will have tap, schema, table and archived-by as S3 metadata
-    keys. When incremental replication is used, the archived files will also have
+  description: |
+    When enabled, the files loaded to Snowflake will also be stored in
+    `archive_load_files_s3_bucket` under the key /{archive_load_files_s3_prefix}/{schema_name}/{table_name}/.
+    
+    All archived files will have tap, schema, table and archived-by as S3 metadata keys. 
+    
+    When incremental replication is used, the archived files will also have
     the following S3 metadata keys - incremental-key, incremental-key-min and incremental-key-max.
 - name: archive_load_files_s3_prefix
   label: Archive Load Files S3 Prefix
-  description: When archive_load_files is enabled, the archived files will be placed
-    in the archive S3 bucket under this prefix.
+  description: When `archive_load_files` is enabled, the archived files will be placed in the archive S3 bucket under this prefix.
 - name: archive_load_files_s3_bucket
   label: Archive Load Files S3 Bucket
-  description: When archive_load_files is enabled, the archived files will be placed
-    in this bucket.
+  description: When archive_load_files is enabled, the archived files will be placed in this bucket.
 domain_url: https://www.snowflake.com/
 maintenance_status: active
 keywords:
 - database
+prereq: |
+  #### Dependencies
+
+  A Snowflake `FILE FORMAT` object must exist prior to execution and is a required config input. You can use the sample SQL provided below:
+
+  ```sql
+  CREATE FILE FORMAT {database}.{schema}.{file_format_name}
+  TYPE = 'CSV' ESCAPE='\\' FIELD_OPTIONALLY_ENCLOSED_BY='"';
+  ```
+
+  See the documentation link above for more details on other optional objects and how to create them.
