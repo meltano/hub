@@ -65,7 +65,7 @@ settings:
   label: S3 Bucket name
   description: AWS S3 bucket name
 - name: default_target_schema
-  lable: Default Target Schema
+  label: Default Target Schema
   env_aliases:
   - TARGET_REDSHIFT_SCHEMA
   value: $MELTANO_EXTRACT__LOAD_SCHEMA
