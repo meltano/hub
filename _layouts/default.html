@@ -3,8 +3,16 @@
   {% include head.html %}
 
   <body>
-    {% if page.header %} {% include header_{{page.header}}.html %} {% else %} {%
-    include header.html %} {% endif %}
+    {% assign plugin_type = page.plugin_type %}
+    {% assign is_singer = false %}
+    {% if plugin_type == "tap" or plugin_type == "target" %} {% assign is_singer =  true %} {% endif %}
+    {% if page.header %} 
+      {% include header_{{page.header}}.html %} 
+    {% elsif is_singer == true%} 
+      {% include header_singer.html %}
+    {% else %}  
+      {% include header.html %} 
+    {% endif %}
 
     <div class="page-content">
       <div class="wrapper">{% include anchor_headings.html html=content anchorBody="#" %}</div>
