@@ -241,9 +241,9 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{plugin_type}}s/{{plu
     </p>
 
     {% if page.variant_specific %}
-      {% capture meltano_url %}{{page.plural_plugin_type}}/{{page.plugin_name_no_prefix}}--{{plugin.variant}}#getting-started{% endcapture %}
+      {% capture meltano_url %}{{page.meltano_type}}/{{page.plugin_name_no_prefix}}--{{plugin.variant}}#getting-started{% endcapture %}
     {% else %}
-      {% capture meltano_url %}{{page.plural_plugin_type}}/{{page.plugin_name_no_prefix}}#getting-started{% endcapture %}
+      {% capture meltano_url %}{{page.meltano_type}}/{{page.plugin_name_no_prefix}}#getting-started{% endcapture %}
     {% endif %}
 
     <p>
