@@ -9,8 +9,6 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{page.meltano_type}}/
 {% endcapture %}
 {% if plugin.metrics %} {% assign metrics = plugin.metrics %}{% endif %}
 
-<!-- To determine if the current plugin is pure Singer or not -->
-
 {% if page.is_singer == true %}
 
 <p>
@@ -504,14 +502,6 @@ plugin_name=plugin.name %} {% endfor %}
 <h3>Found an issue on this page?</h3>
 
 <p>
-  This page is generated from a
-  <a href="{{yaml_file}}">YAML file</a
-  >
-  that you can contribute changes to!
+  This page is generated from a YAML file that you can contribute changes to. <a href="{{yaml_file}}">Edit it on
+  GitHub!</a> <span class="icon icon--github">{% include icon-github.svg%}</span>
 </p>
-
-<br>
-<p><span class="icon icon--github">{% include icon-github.svg%}</span>
-
-<a href="https://github.com/meltano/hub/blob/main/_layouts/meltano_plugin.html">Edit this page on
-  GitHub!</a></p>
