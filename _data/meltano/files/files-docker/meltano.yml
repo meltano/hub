@@ -6,3 +6,4 @@ pip_url: git+https://github.com/meltano/files-docker.git
 variant: meltano
 logo_url: /assets/logos/files/docker.png
 definition: are standalone files useful for containerizing your Meltano project.
+maintenance_status: active

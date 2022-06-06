@@ -6,3 +6,4 @@ pip_url: git+https://github.com/meltano/files-gitlab-ci.git
 variant: meltano
 logo_url: /assets/logos/files/gitlab-ci.png
 definition: are useful for running your project in GitLab CI.
+maintenance_status: active
