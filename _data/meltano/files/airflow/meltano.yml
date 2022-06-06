@@ -1,4 +1,5 @@
 name: airflow
+label: Airflow
 namespace: airflow
 repo: https://github.com/meltano/files-airflow
 pip_url: git+https://github.com/meltano/files-airflow.git

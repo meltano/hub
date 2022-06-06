@@ -1,4 +1,5 @@
 name: dbt-snowflake
+label: dbt Snowflake
 executable: dbt
 namespace: dbt_snowflake
 docs: https://docs.meltano.com/guide/transformation

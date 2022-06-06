@@ -1,4 +1,5 @@
 name: sqlfluff
+label: SQLFluff
 namespace: sqlfluff
 pip_url: sqlfluff[dbt]
 variant: sqlfluff

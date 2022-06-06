@@ -1,4 +1,5 @@
 name: docker-compose
+label: Docker Compose
 namespace: docker_compose
 repo: https://github.com/meltano/files-docker-compose
 pip_url: git+https://github.com/meltano/files-docker-compose.git
