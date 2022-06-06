@@ -8,6 +8,10 @@ requires:
   files:
   - name: files-airflow
     variant: meltano
+commands:
+  ui:
+    args: webserver
+    description: Start the Airflow webserver.
 settings:
 - name: core.dags_folder
   value: $MELTANO_PROJECT_ROOT/orchestrate/dags

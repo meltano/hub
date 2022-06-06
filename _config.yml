@@ -58,5 +58,5 @@ permalink: /:categories/:year/:month/:day/:title
 markdown: kramdown
 exclude: ["README.md"]
 
-gems:
+plugins:
   - jekyll-sitemap
