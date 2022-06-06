@@ -1,7 +1,8 @@
 name: files-dbt
-label: dbt
+label: dbt Files
 namespace: files_dbt
 repo: https://github.com/meltano/files-dbt
 pip_url: git+https://github.com/meltano/files-dbt.git@config-version-2
 variant: meltano
 logo_url: /assets/logos/files/dbt.png
+definition: are bundled with the dbt transformer.
