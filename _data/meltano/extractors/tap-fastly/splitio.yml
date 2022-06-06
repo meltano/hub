@@ -11,6 +11,9 @@ capabilities:
 - catalog
 - discover
 - state
+settings_group_validation:
+- - api_token
+  - start_date
 settings:
 - name: api_token
   label: API Token

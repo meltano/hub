@@ -16,14 +16,35 @@ settings_group_validation:
 - - csv_files_definition
 settings:
 - name: files
+  label: Files
   kind: array
-  description: Array of objects with `entity`, `path`, and `keys` keys
+  description: |
+    Array of objects with `entity`, `path`, and `keys` keys:
+
+    * `entity`: The entity name, used as the table name for the data loaded from that CSV.
+    * `path`: Local path (relative to the project's root) to the file to be ingested. Note that this may be a directory, in which case all files in that directory and any of its subdirectories will be recursively processed
+    * `keys`: The names of the columns that constitute the unique keys for that entity.
+
+    Each input CSV file must be a traditionally-delimited CSV (comma separated columns, newlines indicate new rows, double quoted values).
+
+    The first row is the header defining the attribute name for that column and will result to a column of the same name in the database. It must have a valid format with no spaces or special characters (like for example `!` or `@`, etc).
 - name: csv_files_definition
+  label: CSV Files Definition
   env_aliases:
   - TAP_CSV_FILES_DEFINITION
-  label: CSV Files Definition
-  description: Project-relative path to JSON file holding array of objects with `entity`,
-    `path`, and `keys` keys
+  description: |
+    Project-relative path to JSON file holding array of objects with `entity`, `path`, and `keys` keys, as ascribed under [Files](#files):
+
+    ```json
+    [
+      {
+        "entity": "<entity>",
+        "path": "<path>",
+        "keys": ["<key>"]
+      },
+      // ...
+    ]
+    ```
   placeholder: Ex. files-def.json
   documentation: https://github.com/MeltanoLabs/tap-csv#settings
 domain_url: https://en.wikipedia.org/wiki/Comma-separated_values

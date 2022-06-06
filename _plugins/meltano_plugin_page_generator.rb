@@ -15,7 +15,7 @@ class MeltanoPluginPageGenerator < Jekyll::Generator
     defaults = site.data['default_variants']["#{plugin_type}s"]
     site.data['meltano']["#{plugin_type}s"].each do |plugin_name, variants|
       variants.each do |variant_name, variant_definition|
-        if variant_name = defaults[plugin_name]
+        if variant_name == defaults[plugin_name]
           page = register_pages(site, plugin_type, plugin_name, variant_definition, false)
           variant_definition['url'] = page.url
         end
@@ -61,12 +61,10 @@ class MeltanoPluginPageGenerator < Jekyll::Generator
       @base = site.source
       if plugin_type == 'tap'
         @dir  = "taps"
-        plugin_type = 'extractor'
         variant_definition = Marshal.load(Marshal.dump(variant_definition))
         variant_definition['url'] = "/taps/#{plugin_name}"
       elsif plugin_type == 'target'
         @dir  = "targets"
-        plugin_type = 'loader'
         variant_definition = Marshal.load(Marshal.dump(variant_definition))
         variant_definition['url'] = "/targets/#{plugin_name}"
       else
