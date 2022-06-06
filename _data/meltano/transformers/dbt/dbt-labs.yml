@@ -8,17 +8,23 @@ pip_url: dbt-core~=1.0.0 dbt-postgres~=1.0.0 dbt-redshift~=1.0.0 dbt-snowflake~=
 variant: dbt-labs
 settings:
 - name: project_dir
+  label: Project Directory
   value: $MELTANO_PROJECT_ROOT/transform
 - name: profiles_dir
+  label: Profiles Directory
   env: DBT_PROFILES_DIR
   value: $MELTANO_PROJECT_ROOT/transform/profile
 - name: target
+  label: Target
   value: $MELTANO_LOAD__DIALECT
 - name: source_schema
+  label: Source Schema
   value: $MELTANO_LOAD__TARGET_SCHEMA
 - name: target_schema
+  label: Target Schema
   value: analytics
 - name: models
+  label: Models
   value: $MELTANO_TRANSFORM__PACKAGE_NAME $MELTANO_EXTRACTOR_NAMESPACE my_meltano_project
 commands:
   clean:

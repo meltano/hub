@@ -12,30 +12,39 @@ requires:
     variant: meltano
 settings:
 - name: project_dir
+  label: Projects Directory
   value: $MELTANO_PROJECT_ROOT/transform
 - name: profiles_dir
+  label: Profiles Directory
   value: $MELTANO_PROJECT_ROOT/transform/profiles/snowflake
   env_aliases:
   - DBT_PROFILES_DIR
 - name: account
+  label: Account
   kind: string
   description: The snowflake account to connect to.
 - name: user
+  label: User
   kind: string
   description: The user to connect as.
 - name: password
+  label: Password
   kind: password
   description: The user password to authenticate with.
 - name: role
+  label: Role
   kind: string
   description: The user role to assume.
 - name: warehouse
+  label: Warehouse
   kind: string
   description: The compute warehouse to use when building models.
 - name: database
+  label: Database
   kind: string
   description: The database to create models in.
 - name: schema
+  label: Schema
   kind: string
   description: The schema to build models into by default.
 commands:
