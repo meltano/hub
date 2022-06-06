@@ -11,11 +11,14 @@ capabilities: []
 settings:
 - name: endpoint
   label: Endpoint
+  description: Endpoint URL. See https://developers.marketo.com/rest-api/base-url/.
 - name: client_id
   label: Client ID
+  description: See https://developers.marketo.com/rest-api/authentication/.
 - name: client_secret
   kind: password
   label: Client Secret
+  description: See https://developers.marketo.com/rest-api/authentication/.
 - name: start_date
   label: Start Date
   description: Determines how much historical data will be extracted. Please be aware

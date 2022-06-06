@@ -12,7 +12,7 @@ We're fully [embracing Singer](https://docs.meltano.com/#embracing-singer) and M
 
 ## Development
 
-MeltanoHub is under active development by Meltano. Check out the [main development epic](https://gitlab.com/groups/meltano/-/epics/83) for our roadmap or [view the issues](https://gitlab.com/meltano/hub/-/issues) to understand progress on a specific feature.
+MeltanoHub is under active development by Meltano. Check out the [main development epic](https://gitlab.com/groups/meltano/-/epics/83) for our roadmap or [view the issues](https://github.com/meltano/hub/-/issues) to understand progress on a specific feature.
 
 ## Standardized Connectors
 
@@ -40,7 +40,7 @@ The latest version of these files will always be available at these endpoints:
 
 These files will also be versioned when changes are made in a backwards-incompatible way.
 The versioned files will be available through the [API](/singer/api/v1/).
-Individual YAML files are also available through the individual connector pages or on the [repository](https://gitlab.com/meltano/hub/) building MeltanoHub.
+Individual YAML files are also available through the individual connector pages or on the [repository](https://github.com/meltano/hub/) building MeltanoHub.
 
 Our expectation is that other tools, including Meltano, will utilize the data available via the API to build their own library of Singer taps and targets.
 
@@ -66,22 +66,22 @@ The following is our distilled list of the existing (and some future) capabiliti
 #### Catalog
 
 The tap accepts a `--catalog` argument referencing a file that defines the structure of one or many data streams.
-For more details see the <a href="{{ "/singer/spec#catalog-files" | prepend: site.baseurl | prepend: site.url }}">Catalog Files section</a> in our Singer Spec interpretation.
+For more details see the <a href="{{ "/singer/spec#catalog-files" }}">Catalog Files section</a> in our Singer Spec interpretation.
 
 #### Properties
 
 The tap accepts the legacy `--properties` argument referencing a file that defines the structure of one or many data streams.
-For more details see the <a href="{{ "/singer/spec#catalog-files" | prepend: site.baseurl | prepend: site.url }}">Catalog Files section</a> in our Singer Spec interpretation.
+For more details see the <a href="{{ "/singer/spec#catalog-files" }}">Catalog Files section</a> in our Singer Spec interpretation.
 
-#### Discovery
+#### Discover
 
-The tap accepts a `--discovery` argument that is used to generate a catalog files.
-For more details see the <a href="{{ "/singer/spec#discovery-mode" | prepend: site.baseurl | prepend: site.url }}">Discovery mode section</a> section in our Singer Spec interpretation.
+The tap accepts a `--discover` argument that is used to generate a catalog files.
+For more details see the <a href="{{ "/singer/spec#discovery-mode" }}">Discovery mode section</a> section in our Singer Spec interpretation.
 
 #### State
 
 The tap accepts a `--state` argument and uses the input in order to run incremental syncs.
-For more details see the <a href="{{ "/singer/spec#state-files" | prepend: site.baseurl | prepend: site.url }}">State Files section</a> section in our Singer Spec interpretation.
+For more details see the <a href="{{ "/singer/spec#state-files" }}">State Files section</a> section in our Singer Spec interpretation.
 
 #### Log Based
 
@@ -95,7 +95,7 @@ Supporting this capability, where applicable, means that targets have the inform
 
 This capability is still in development, but the goal is to make it easy for connector developers to test locally without having to make a connection to the source systems.
 This might be accomplished by implementing utilities that can generate and save test data or make saving and moving real HTTP requests for tests easier.
-Join the issue conversation [here](https://gitlab.com/meltano/sdk/-/issues/30)!
+Join the issue conversation [here](https://github.com/meltano/sdk/issues/30)!
 
 ### Target Specific
 
@@ -219,11 +219,11 @@ Join the issue conversation [here](https://gitlab.com/meltano/sdk/-/issues/9)!
 
 MeltanoHub is built with every part of the Singer ecosystem and Meltano product family. This is a completely open source, end-to-end, production example of Meltano using full-featured Singer connectors.
 
-We use Meltano itself to pull data from GitHub. View the Meltano project for this effort in the [Hub repository](https://gitlab.com/meltano/hub/-/tree/main/meltano).
+We use Meltano itself to pull data from GitHub. View the Meltano project for this effort in the [Meltano Squared repository](https://github.com/meltano/squared/).
 
-Using the SDK, we built a [custom GitHub tap](/singer/taps/github-search) and a [custom Athena target](/singer/targets/target-athena).
+We're using Singer taps and targets to extract and load into a Snowflake warehouse.
 
-We're using dbt to [manage transformations](https://gitlab.com/meltano/hub/-/tree/main/meltano/transform/transforms/marts/singer) with Athena to aid in curating the data.
+We're using dbt to [manage transformations](https://github.com/meltano/squared/tree/main/data/transform/models/publish/meltano_hub) with Athena to aid in curating the data.
 
 ## Meltano Usage Metrics
 
@@ -248,7 +248,7 @@ For example, [tap-gitlab](/taps/gitlab) has multiple variants ([MeltanoLabs](htt
 
 Since Meltano makes it easy for users to [opt out](https://docs.meltano.com/settings.html#send-anonymous-usage-stats) of sending usage stats we assume that metrics are undercounted.
 
-Checkout the [Meltano Squared](https://gitlab.com/meltano/squared) repository to see how we're using Meltano to extract and aggregate these metrics.
+Checkout the [Meltano Squared](https://github.com/meltano/squared) repository to see how we're using Meltano to extract and aggregate these metrics.
 
 <u>Last Updated:</u>
 

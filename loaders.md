@@ -17,4 +17,4 @@ To learn more about [extracting](/loaders/) and loading data using Meltano, refe
 Any [Singer target](/singer/targets) can easily be [added to your Meltano project as a custom loader](https://docs.meltano.com/plugin-management.html#custom-plugins).
 
 If a target for your destination doesn't exist yet, you can learn how to [create your own from scratch](https://github.com/singer-io/getting-started/blob/master/docs/RUNNING_AND_DEVELOPING.md#developing-a-target). Once you've got the new loader working in your project, you can
-[add it to the Hub](https://gitlab.com/meltano/hub/-/tree/main/_data/targets).
+[add it to the Hub](https://github.com/meltano/hub/tree/main/_data/meltano/loaders).

@@ -1,0 +1,6 @@
+name: files-docker
+namespace: files_docker
+repo: https://github.com/meltano/files-docker
+pip_url: git+https://github.com/meltano/files-docker.git
+variant: meltano
+logo_url: /assets/logos/files/docker.png

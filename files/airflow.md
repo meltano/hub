@@ -7,7 +7,7 @@ description: Airflow file bundle
 The [`airflow`](https://airflow.apache.org/) [file bundle](https://docs.meltano.com/concepts/plugins#file-bundles) installs files into your Meltano project to accelerate onboarding and integrating the plugin into your project.
 This file bundle installs a DAG generator that works together with Meltano schedules to auto generate Airflow DAGs based on Meltano configurations.
 
-- **Repository**: <https://gitlab.com/meltano/files-airflow>
+- **Repository**: <https://github.com/meltano/files-airflow>
 - **Documentation**: <https://airflow.apache.org/docs/>
 - **Maintainer**: Meltano community
 - **Maintenance status**: Active

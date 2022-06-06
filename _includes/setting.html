@@ -7,6 +7,8 @@
   {% endif %}
 </h3>
 
+{% if page.is_singer == false %}
+
 <ul>
   {% if plugin_name %} {% capture env_var %}{{plugin_name | replace: "-", "_" |
   upcase}}_{{setting.name | upcase}}{% endcapture %}
@@ -35,8 +37,7 @@
   <li>Default: <code>{{setting.value}}</code></li>
   {% endif %}
 </ul>
-{{ setting.description | markdownify }} {% if setting.documentation
-%}
+{{ setting.description | markdownify }} {% if setting.documentation%}
 <p>
   See
   <a href="{{setting.documentation}}" target="_blank"
@@ -47,12 +48,12 @@
 <h4 id="how-to-use-{{ setting.name | slugify }}">How to use</h4>
 
 <p>
-  Manage this setting using <a href="#using-meltano-ui">Meltano UI</a>,
+  Manage this setting using 
   <a
     href="https://docs.meltano.com/command-line-interface.html#config"
     taregt="_blank"
     ><code>meltano config</code></a
-  >, or an
+  > or an
   <a
     href="https://docs.meltano.com/configuration.html#configuring-settings"
     target="_blank"
@@ -64,10 +65,23 @@
 setting.value %}{{setting.value}}{% else %}1234{% endif %}{% when "boolean" %}{%
 if setting.value == true %}false{% else %}true{% endif %}{% when "date_iso8601"
 %}YYYY-MM-DDTHH:MM:SSZ{% when "array" %}'[...]'{% when "object" %}'{...}'{% when
-"options" %}{{setting.options[0].value}}{% else %}&lt;{{setting.name}}&gt;{%
+"options" %}{% if setting.options[0].value == '"'%}'{{setting.options[0].value}}'{%else%}{{setting.options[0].value}}{%endif%}{% else %}{%raw%}<{%endraw%}{{setting.name}}{%raw%}>{%endraw%}{%
 endcase %}{% endcapture %}
 
-<pre><code>meltano config {{plugin_name}} set {{setting.name}} {{example_value}}
+{% highlight bash %}
+meltano config {{plugin_name}} set {{setting.name}} {{example_value}}
 
-export {{env_var}}={{example_value}}</code></pre>
+export {{env_var}}={{example_value}}
+{% endhighlight %}
+{% endif %}
+
+{% else %}
+
+<ul>
+  {% if setting.value != nil %}
+  <li>Default: <code>{{setting.value}}</code></li>
+  {% endif %}
+</ul>
+{{ setting.description | markdownify }}
+
 {% endif %}
