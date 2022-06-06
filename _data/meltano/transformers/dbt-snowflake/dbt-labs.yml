@@ -3,7 +3,7 @@ label: dbt Snowflake
 executable: dbt
 namespace: dbt_snowflake
 docs: https://docs.meltano.com/guide/transformation
-repo: https://github.com/dbt-labs/dbt-core
+repo: https://github.com/dbt-labs/dbt-snowflake
 pip_url: dbt-core~=1.0.0 dbt-snowflake~=1.0.0
 variant: dbt-labs
 maintenance_status: active
@@ -12,7 +12,7 @@ requires:
   - name: files-dbt-snowflake
     variant: meltano
 settings_preamble: |
-  Settings for dbt itself can be configured through [dbt_project.yml](https://docs.getdbt.com/reference/dbt_project.yml) as usual, which can be found at transform/dbt_project.yml in your Meltano project.
+  Settings for dbt itself can be configured through [dbt_project.yml](https://docs.getdbt.com/reference/dbt_project.yml) as usual, which can be found at transform/dbt_project.yml in your Meltano project. dbt also has [adapter-specific documentation for Snowflake](https://docs.getdbt.com/reference/resource-configs/snowflake-configs).
 settings:
 - name: project_dir
   label: Projects Directory

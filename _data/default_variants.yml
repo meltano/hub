@@ -14,6 +14,9 @@ transforms:
   tap-stripe: meltano
   tap-zendesk: meltano
 transformers:
+  dbt-bigquery: dbt-labs
+  dbt-postgres: dbt-labs
+  dbt-redshift: dbt-labs
   dbt-snowflake: dbt-labs
   dbt: dbt-labs
 files:
