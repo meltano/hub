@@ -3,6 +3,10 @@ namespace: great_expectations
 pip_url: great_expectations
 executable: great_expectations
 variant: great-expectations
+requires:
+  files:
+  - name: files-great-expectations
+    variant: meltano
 settings:
 - name: ge_home
   value: $MELTANO_PROJECT_ROOT/utilities/great_expectations

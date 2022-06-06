@@ -17,13 +17,13 @@ transformers:
   dbt-snowflake: dbt-labs
   dbt: dbt-labs
 files:
-  airflow: meltano
-  dbt-snowflake: meltano
-  dbt: meltano
-  docker-compose: meltano
-  docker: meltano
-  gitlab-ci: meltano
-  great_expectations: meltano
+  files-great-expectations: meltano
+  files-dbt-snowflake: meltano
+  files-gitlab-ci: meltano
+  files-airflow: meltano
+  files-docker-compose: meltano
+  files-dbt: meltano
+  files-docker: meltano
 mappers:
   meltano-map-transformer: meltano
   transform-field: transferwise
