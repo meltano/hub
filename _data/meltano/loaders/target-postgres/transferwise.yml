@@ -18,32 +18,22 @@ settings_group_validation:
   - default_target_schema
 settings:
 - name: host
-  env_aliases:
-  - PG_ADDRESS
   value: localhost
   description: PostgreSQL host
   label: Host
 - name: port
-  env_aliases:
-  - PG_PORT
   kind: integer
   value: 5432
   description: PostgreSQL port
   label: Port
 - name: user
-  env_aliases:
-  - PG_USERNAME
   description: PostgreSQL user
   label: User
 - name: password
-  env_aliases:
-  - PG_PASSWORD
   kind: password
   description: PostgreSQL password
   label: Password
 - name: dbname
-  env_aliases:
-  - PG_DATABASE
   description: PostgreSQL database name
   label: Database Name
 - name: ssl
@@ -56,9 +46,7 @@ settings:
 
     If the server does not accept SSL connections or the client certificate is not recognized the connection will fail.
 - name: default_target_schema
-  env_aliases:
-  - TARGET_POSTGRES_SCHEMA
-  - PG_SCHEMA
+  aliases: [schema]
   value: $MELTANO_EXTRACT__LOAD_SCHEMA
   description: |
     Note that `$MELTANO_EXTRACT__LOAD_SCHEMA` [will expand to](https://docs.meltano.com/configuration.html#expansion-in-setting-values) the value of the [`load_schema` extra](https://docs.meltano.com/concepts/plugins#load-schema-extra) for the extractor used in the pipeline, which defaults to the extractor's namespace, e.g. `tap_gitlab` for [`tap-gitlab`](/extractors/gitlab).

@@ -30,8 +30,6 @@ settings:
     The first row is the header defining the attribute name for that column and will result to a column of the same name in the database. It must have a valid format with no spaces or special characters (like for example `!` or `@`, etc).
 - name: csv_files_definition
   label: CSV Files Definition
-  env_aliases:
-  - TAP_CSV_FILES_DEFINITION
   description: |
     Project-relative path to JSON file holding array of objects with `entity`, `path`, and `keys` keys, as ascribed under [Files](#files):
 

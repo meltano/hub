@@ -17,8 +17,6 @@ settings_group_validation:
   - start_date
 settings:
 - name: account_id
-  env_aliases:
-  - STRIPE_ACCOUNT_ID
   label: Account ID
   description: |
     #### How to get
@@ -38,8 +36,6 @@ settings:
     3. Copy and paste it somewhere you can refer later on when configuring the tap.
   placeholder: Ex. acct_1a2b3c4d5e
 - name: client_secret
-  env_aliases:
-  - STRIPE_API_KEY
   kind: password
   label: Secret API Key
   placeholder: Ex. sk_live_1a2b3c4d5e

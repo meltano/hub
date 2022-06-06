@@ -19,9 +19,8 @@ settings:
   value: $MELTANO_PROJECT_ROOT/transform
 - name: profiles_dir
   label: Profiles Directory
+  env: DBT_PROFILES_DIR
   value: $MELTANO_PROJECT_ROOT/transform/profiles/snowflake
-  env_aliases:
-  - DBT_PROFILES_DIR
 - name: account
   label: Account
   kind: string

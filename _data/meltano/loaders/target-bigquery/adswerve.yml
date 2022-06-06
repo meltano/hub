@@ -30,8 +30,6 @@ settings:
   value: US
   label: Location
 - name: credentials_path
-  env_aliases:
-  - GOOGLE_APPLICATION_CREDENTIALS
   value: $MELTANO_PROJECT_ROOT/client_secrets.json
   label: Credentials Path
   description: |

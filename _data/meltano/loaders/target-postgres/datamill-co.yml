@@ -19,38 +19,21 @@ settings_group_validation:
 settings:
 - name: postgres_host
   label: Host
-  env_aliases:
-  - PG_ADDRESS
-  - TARGET_POSTGRES_HOST
   value: localhost
 - name: postgres_port
   label: Port
-  env_aliases:
-  - PG_PORT
-  - TARGET_POSTGRES_PORT
   kind: integer
   value: 5432
 - name: postgres_database
   label: Database
-  env_aliases:
-  - PG_DATABASE
-  - TARGET_POSTGRES_DATABASE
 - name: postgres_username
   label: Username
-  env_aliases:
-  - PG_USERNAME
-  - TARGET_POSTGRES_USERNAME
 - name: postgres_password
   label: Password
-  env_aliases:
-  - PG_PASSWORD
-  - TARGET_POSTGRES_PASSWORD
   kind: password
 - name: postgres_schema
   label: Schema
-  env_aliases:
-  - PG_SCHEMA
-  - TARGET_POSTGRES_SCHEMA
+  aliases: [schema]
   value: $MELTANO_EXTRACT__LOAD_SCHEMA
   description: |
     Note that `$MELTANO_EXTRACT__LOAD_SCHEMA` [will expand to](https://docs.meltano.com/configuration.html#expansion-in-setting-values) the value of the [`load_schema` extra](https://docs.meltano.com/concepts/plugins#load-schema-extra) for the extractor used in the pipeline, which defaults to the extractor's namespace, e.g. `tap_gitlab` for [`tap-gitlab`](/extractors/gitlab).
@@ -59,31 +42,21 @@ settings:
     is not defined then every stream sent by the tap is loaded into this schema.
 - name: postgres_sslmode
   label: SSL Mode
-  env_aliases:
-  - TARGET_POSTGRES_SSLMODE
   value: prefer
   description: Refer to the [libpq docs](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-PARAMKEYWORDS) for more information about SSL.
 - name: postgres_sslcert
   label: SSL Cert
-  env_aliases:
-  - TARGET_POSTGRES_SSLCERT
   value: ~/.postgresql/postgresql.crt
   description: Only used if a SSL request w/ a client certificate is being made
 - name: postgres_sslkey
   label: SSL Key
-  env_aliases:
-  - TARGET_POSTGRES_SSLKEY
   value: ~/.postgresql/postgresql.key
   description: Only used if a SSL request w/ a client certificate is being made
 - name: postgres_sslrootcert
-  env_aliases:
-  - TARGET_POSTGRES_SSLROOTCERT
   value: ~/.postgresql/root.crt
   description: Used for authentication of a server SSL certificate
 - name: postgres_sslcrl
   label: SSL CRL
-  env_aliases:
-  - TARGET_POSTGRES_SSLCRL
   value: ~/.postgresql/root.crl
   description: Used for authentication of a server SSL certificate
 - name: invalid_records_detect
