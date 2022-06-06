@@ -13,9 +13,10 @@ settings_group_validation:
 settings:
 - name: database
   label: Database Name
-  description: Name of the SQLite database file to be used or created, relative to
-    the project root. The `.db` extension is optional and will be added automatically
-    when omitted.
+  description: |
+    Name of the SQLite database file to be used or created, relative to the project root. 
+    
+    The `.db` extension is optional and will be added automatically when omitted.
   value: warehouse
   env_aliases:
   - SQLITE_DATABASE
@@ -23,11 +24,11 @@ settings:
   label: Batch Size
   kind: integer
   value: 50
-  description: How many records are sent to SQLite at a time?
+  description: How many records are sent to SQLite at a time.
 - name: timestamp_column
   label: Timestamp Column
   value: __loaded_at
-  description: Name of the column used for recording the timestamp when Data are loaded
+  description: Name of the column used for recording the timestamp when data are loaded
     to SQLite.
 domain_url: https://sqlite.org/index.html
 maintenance_status: active

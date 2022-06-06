@@ -17,27 +17,27 @@ settings_group_validation:
   - snowflake_warehouse
 settings:
 - name: snowflake_account
-  label: Snowflake Account
+  label: Account
   env_aliases:
   - SF_ACCOUNT
   - TARGET_SNOWFLAKE_ACCOUNT
-  description: "`ACCOUNT` might require the `region` and `cloud` platform where your\
-    \ account is located, in the form of: `<your_account_name>.<region_id>.<cloud>`\
-    \ (e.g. `xy12345.east-us-2.azure`)\nRefer to Snowflake's documentation about Account:\
-    \ https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name-and-url\n"
+  description: |
+    `ACCOUNT` might require the `region` and `cloud` platform where your account is located, in the form of: `<your_account_name>.<region_id>.<cloud>` (e.g. `xy12345.east-us-2.azure`)
+    
+    Refer to [Snowflake's documentation](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name-and-url) about Accounts.
 - name: snowflake_username
-  label: Snowflake Username
+  label: Username
   env_aliases:
   - SF_USER
   - TARGET_SNOWFLAKE_USERNAME
 - name: snowflake_password
-  label: Snowflake Password
+  label: Password
   env_aliases:
   - SF_PASSWORD
   - TARGET_SNOWFLAKE_PASSWORD
   kind: password
 - name: snowflake_role
-  label: Snowflake Role
+  label: Role
   env_aliases:
   - SF_ROLE
   - TARGET_SNOWFLAKE_ROLE
@@ -50,12 +50,10 @@ settings:
 - name: snowflake_authenticator
   label: Snowflake Authenticator
   value: snowflake
-  description: Specifies the authentication provider for snowflake to use. Valud options
-    are the internal one ("snowflake"), a browser session ("externalbrowser"), or
-    Okta ("https://<your_okta_account_name>.okta.com"). See the snowflake docs for
-    more details.
+  description: |
+    Specifies the authentication provider for snowflake to use. Valud options are the internal one ("snowflake"), a browser session ("externalbrowser"), or Okta ("https://<your_okta_account_name>.okta.com"). See the snowflake docs for more details.
 - name: snowflake_warehouse
-  label: Snowflake Warehouse
+  label: Warehouse
   env_aliases:
   - SF_WAREHOUSE
   - TARGET_SNOWFLAKE_WAREHOUSE
@@ -90,8 +88,7 @@ settings:
     value: ERROR
   - label: Critical
     value: CRITICAL
-  description: The level for logging. Set to `DEBUG` to get things like queries executed,
-    timing of those queries, etc.
+  description: The level for logging. Set to `DEBUG` to get things like queries executed, timing of those queries, etc. See [Python's Logger Levels](https://docs.python.org/3/library/logging.html#levels) for information about valid values.
 - name: persist_empty_tables
   label: Persist Empty Tables
   kind: boolean
@@ -105,6 +102,8 @@ settings:
   - TARGET_SNOWFLAKE_SCHEMA
   value: $MELTANO_EXTRACT__LOAD_SCHEMA
   value_processor: upcase_string
+  description: |
+    Note `$MELTANO_EXTRACT__LOAD_SCHEMA` [will expand to](https://docs.meltano.com/configuration.html#expansion-in-setting-values) the value of the [`load_schema` extra](https://docs.meltano.com/concepts/plugins#load-schema-extra) for the extractor used in the pipeline, which defaults to the extractor's namespace, e.g. `tap_gitlab` for [`tap-gitlab`](/extractors/gitlab). Values are automatically converted to uppercase before they're passed on to the plugin, so `tap_gitlab` becomes `TAP_GITLAB`.
 - name: state_support
   label: State Support
   kind: boolean
@@ -131,3 +130,19 @@ domain_url: https://www.snowflake.com/
 maintenance_status: inactive
 keywords:
 - database
+prereq: |
+  #### Dependencies
+
+  `target-snowflake` [requires](https://www.psycopg.org/docs/install.html#runtime-requirements) the
+  [`libpq` library](https://www.postgresql.org/docs/current/libpq.html) to be available on your system.
+  If you've installed PostgreSQL, you should already have it, but you can also install it by itself using the
+  [`libpq-dev` package](https://pkgs.org/download/libpq-dev) on Ubuntu/Debian or the
+  [`libpq` Homebrew formula](https://formulae.brew.sh/formula/libpq) on macOS.
+usage: |
+  ## Troubleshooting
+
+  ### Error: `pg_config executable not found` or `libpq-fe.h: No such file or directory`
+
+  This error message indicates that the [`libpq`](https://www.postgresql.org/docs/current/libpq.html) dependency is missing.
+
+  To resolve this, refer to the ["Dependencies" section](#dependencies) above.

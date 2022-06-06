@@ -16,6 +16,23 @@ settings:
   kind: password
   label: API Token
   documentation: https://slack.com/help/articles/215770388-Create-and-regenerate-API-tokens
+  description: |
+    Your Slack API Token. To obtain a token for a single workspace you will need to create a [Slack App](https://api.slack.com/apps?new_app=1) in your workspace and assigning it the relevant scopes. The minimum required scopes for the tap are:
+
+    * `channels:history`
+    * `channels:join`
+    * `channels:read`
+    * `files:read`
+    * `groups:read`
+    * `links:read`
+    * `reactions:read`
+    * `remote_files:read`
+    * `remote_files:write`
+    * `team:read`
+    * `usergroups:read`
+    * `users.profile:read`
+    * `users:read`
+
 - name: start_date
   kind: date_iso8601
   label: Sync Start Date
@@ -25,7 +42,7 @@ settings:
 - name: channels
   label: Channels to Sync
   kind: array
-  description: By default the tap will sync all channels it has been invited to, but
+  description: Optionally specify specific channels to sync. By default the tap will sync all channels it has been invited to, but
     this can be overriden to limit it ot specific channels. Note this needs to be
     channel ID, not the name, as recommended by the Slack API. To get the ID for a
     channel, either use the Slack API or find it in the URL.

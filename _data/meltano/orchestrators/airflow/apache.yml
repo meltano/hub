@@ -5,6 +5,10 @@ docs: https://docs.meltano.com/guide/orchestration
 repo: https://github.com/apache/airflow
 pip_url: apache-airflow==2.1.2 --constraint https://raw.githubusercontent.com/apache/airflow/constraints-2.1.2/constraints-${MELTANO__PYTHON_VERSION}.txt
 variant: apache
+commands:
+  ui:
+    args: webserver
+    description: Start the Airflow webserver.
 settings:
 - name: core.dags_folder
   label: DAGs Folder
