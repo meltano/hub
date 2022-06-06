@@ -10,17 +10,8 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{plugin_type}}s/{{plu
 {% if plugin.metrics %} {% assign metrics = plugin.metrics %}{% endif %}
 
 <!-- To determine if the current plugin is pure Singer or not -->
-{% assign is_singer = false %}
-{% if plugin_type == "tap" or plugin_type == "target" %} {% assign is_singer =  true %} {% endif %}
-{% if plugin_type == "tap" %}
-  {% assign meltano_type = "extractors" %}
-  {% assign plugin_name_no_prefix = plugin.name | replace: "tap-", "" %}
-{% else %}
-  {% assign meltano_type = "loaders" %}
-  {% assign plugin_name_no_prefix = plugin.name | replace: "target-", "" %}
-{% endif %}
 
-{% if is_singer == true %}
+{% if page.is_singer == true %}
 
 <p>
   {% if plugin_type == "tap" %} The <code>{{plugin.name}}</code>
@@ -209,7 +200,7 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{plugin_type}}s/{{plu
 <ul>
   {% for alt_variant in plugin.alt_variants %} {% if alt_variant.name != plugin.variant %}
   <li>
-    {% if is_singer == true %}
+    {% if page.is_singer == true %}
       {% assign variant_url = alt_variant.url | replace: "extractors", "taps" | replace: "loaders", "targets" %} 
     {% else %}
       {% assign variant_url = alt_variant.url %}
@@ -224,7 +215,7 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{plugin_type}}s/{{plu
 
 {% endif %}
 
-{% if is_singer == true %}
+{% if page.is_singer == true %}
 
     <h2 id="standalone-usage">Standalone usage</h2>
     
@@ -250,9 +241,9 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{plugin_type}}s/{{plu
     </p>
 
     {% if page.variant_specific %}
-      {% capture meltano_url %}{{meltano_type}}/{{plugin_name_no_prefix}}--{{plugin.variant}}#getting-started{% endcapture %}
+      {% capture meltano_url %}{{page.plural_plugin_type}}/{{page.plugin_name_no_prefix}}--{{plugin.variant}}#getting-started{% endcapture %}
     {% else %}
-      {% capture meltano_url %}{{meltano_type}}/{{plugin_name_no_prefix}}#getting-started{% endcapture %}
+      {% capture meltano_url %}{{page.plural_plugin_type}}/{{page.plugin_name_no_prefix}}#getting-started{% endcapture %}
     {% endif %}
 
     <p>

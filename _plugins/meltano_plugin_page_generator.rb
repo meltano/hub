@@ -60,18 +60,24 @@ class MeltanoPluginPageGenerator < Jekyll::Generator
       @site = site
       @base = site.source
       if plugin_type == 'tap'
-        @dir  = "taps"
+        plural_plugin_type = "taps"
+        @dir  = plural_plugin_type 
         variant_definition = Marshal.load(Marshal.dump(variant_definition))
         variant_definition['url'] = "/taps/#{plugin_name}"
         title = "#{variant_definition['label']} Singer #{plugin_type}"
+        is_singer = true
       elsif plugin_type == 'target'
-        @dir  = "targets"
+        plural_plugin_type   = "targets"
+        @dir  = plural_plugin_type 
         variant_definition = Marshal.load(Marshal.dump(variant_definition))
         variant_definition['url'] = "/targets/#{plugin_name}"
         title = "#{variant_definition['label']} Singer #{plugin_type}"
+        is_singer = true
       else
-        @dir  = "#{plugin_type}s"
+        plural_plugin_type = "#{plugin_type}s"
+        @dir  = plural_plugin_type
         title = "#{variant_definition['label']} Meltano #{plugin_type}"
+        is_singer = false
       end   
 
       basename = plugin_name
@@ -97,7 +103,10 @@ class MeltanoPluginPageGenerator < Jekyll::Generator
         'image_url' => variant_definition['logo_url'],
         'variant_specific' => variant_specific,
         'plugin_type' => plugin_type,
-        'plugin' => variant_definition
+        'plural_plugin_type' => plural_plugin_type,
+        'plugin' => variant_definition,
+        'plugin_name_no_prefix' => plugin_name,
+        'is_singer' => is_singer
       }
 
       data.default_proc = proc do |_, key|

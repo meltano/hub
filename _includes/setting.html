@@ -7,7 +7,7 @@
   {% endif %}
 </h3>
 
-{% if is_singer == false %}
+{% if page.is_singer == false %}
 
 <ul>
   {% if plugin_name %} {% capture env_var %}{{plugin_name | replace: "-", "_" |
