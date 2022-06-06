@@ -1,6 +1,6 @@
-name: airflow
+name: files-airflow
 label: Airflow
-namespace: airflow
+namespace: files_airflow
 repo: https://github.com/meltano/files-airflow
 pip_url: git+https://github.com/meltano/files-airflow.git
 variant: meltano
