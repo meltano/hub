@@ -15,8 +15,6 @@ settings_group_validation:
   - start_date
 settings:
 - name: api_key
-  env_aliases:
-  - STRIPE_API_KEY
   kind: password
   label: Secret API Key
   placeholder: Ex. sk_live_1a2b3c4d5e
@@ -26,8 +24,6 @@ settings:
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.
 - name: account_id
-  env_aliases:
-  - STRIPE_ACCOUNT_ID
   label: Account ID
   placeholder: Ex. acct_1a2b3c4d5e
 domain_url: https://stripe.com/docs/api

@@ -31,8 +31,6 @@ settings:
     - `filters`: Optional array of `WHERE` clauses to filter extracted data, e.g. `"column='value'"`.
 - name: credentials_path
   label: Credentials Path
-  env_aliases:
-  - GOOGLE_APPLICATION_CREDENTIALS
   value: $MELTANO_PROJECT_ROOT/client_secrets.json
   description: |
     Fully qualified path to `client_secrets.json` for your service account.

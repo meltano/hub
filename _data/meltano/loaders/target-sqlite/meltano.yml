@@ -17,8 +17,6 @@ settings:
     the project root. The `.db` extension is optional and will be added automatically
     when omitted.
   value: warehouse
-  env_aliases:
-  - SQLITE_DATABASE
 - name: batch_size
   kind: integer
   value: 50

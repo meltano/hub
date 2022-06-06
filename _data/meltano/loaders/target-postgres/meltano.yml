@@ -23,44 +23,26 @@ settings:
   label: User
   aliases:
   - username
-  env_aliases:
-  - PG_USERNAME
-  - POSTGRES_USER
   value: warehouse
 - name: password
   label: Password
   kind: password
-  env_aliases:
-  - PG_PASSWORD
-  - POSTGRES_PASSWORD
   value: warehouse
 - name: host
   label: Host
   aliases:
   - address
-  env_aliases:
-  - PG_ADDRESS
-  - POSTGRES_HOST
   value: localhost
 - name: port
   label: Port
   kind: integer
-  env_aliases:
-  - PG_PORT
-  - POSTGRES_PORT
   value: 5502
 - name: dbname
   aliases:
   - database
   label: Database Name
-  env_aliases:
-  - PG_DATABASE
-  - POSTGRES_DBNAME
   value: warehouse
 - name: url
-  env_aliases:
-  - PG_URL
-  - POSTGRES_URL
   label: URL
   description: |
     Lets you set `user`, `password`, `host`, `port`, and `dbname` in one
@@ -69,9 +51,6 @@ settings:
     Takes precedence over the other settings when set.
 - name: schema
   label: Schema
-  env_aliases:
-  - PG_SCHEMA
-  - POSTGRES_SCHEMA
   value: $MELTANO_EXTRACT__LOAD_SCHEMA
   description: |
     Note that `$MELTANO_EXTRACT__LOAD_SCHEMA` [will expand to](https://docs.meltano.com/configuration.html#expansion-in-setting-values) the value of the [`load_schema` extra](https://docs.meltano.com/concepts/plugins#load-schema-extra) for the extractor used in the pipeline, which defaults to the extractor's namespace, e.g. `tap_gitlab` for [`tap-gitlab`](/extractors/gitlab).

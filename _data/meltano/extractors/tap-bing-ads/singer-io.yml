@@ -145,20 +145,14 @@ settings_group_validation:
 settings:
 - name: developer_token
   label: Developer Token
-  env_aliases:
-  - OAUTH_BING_ADS_DEVELOPER_TOKEN
   kind: password
   description: See https://docs.microsoft.com/en-us/advertising/guides/get-started#get-developer-token.
 - name: oauth_client_id
   label: OAuth Client ID
-  env_aliases:
-  - OAUTH_BING_ADS_CLIENT_ID
   kind: password
   description: See https://docs.microsoft.com/en-us/advertising/guides/get-started#quick-start-production.
 - name: oauth_client_secret
   description: See https://docs.microsoft.com/en-us/advertising/guides/get-started#quick-start-production.
-  env_aliases:
-  - OAUTH_BING_ADS_CLIENT_SECRET
   label: OAuth Client Secret
   kind: password
 - name: refresh_token

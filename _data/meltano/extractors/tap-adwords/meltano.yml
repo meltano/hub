@@ -201,22 +201,16 @@ settings_group_validation:
   - start_date
 settings:
 - name: developer_token
-  env_aliases:
-  - OAUTH_GOOGLE_ADWORDS_DEVELOPER_TOKEN
   kind: password
   label: Developer Token
   description: Your Developer Token for Google AdWord Application
   placeholder: Ex. *****************
 - name: oauth_client_id
-  env_aliases:
-  - OAUTH_GOOGLE_ADWORDS_CLIENT_ID
   kind: password
   label: OAuth Client ID
   description: Your Google OAuth Client ID
   placeholder: Ex. 123456789012345.apps.googleusercontent.com
 - name: oauth_client_secret
-  env_aliases:
-  - OAUTH_GOOGLE_ADWORDS_CLIENT_SECRET
   kind: password
   label: OAuth Client Secret
   description: Your Google OAuth Client Secret
