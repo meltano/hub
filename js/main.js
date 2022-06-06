@@ -39,7 +39,7 @@ function navbarSearch() {
       return;
     }
 
-    const searchResults = document.querySelector("ul.navbar-search-results");
+    const searchResults = document.querySelector("ul.navbar-search-list");
     const searchResultsItems = searchResults.querySelectorAll(
       "li[data-search-terms]"
     );

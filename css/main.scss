@@ -267,8 +267,27 @@ input.grid-search {
 }
 
 .dropdown {
-  display: inline-block;
+  display: none;
   position: relative;
+}
+
+@media (max-width: 991px) {
+  .desktop-only {
+    display: none !important;
+  }
+
+  .homepage-nav {
+    width: auto;
+  }
+}
+
+@media (min-width: 992px) {
+  .dropdown {
+    display: inline-block;
+  }
+  .trigger {
+    display: none;
+  }
 }
 
 .dropdown-content {
@@ -347,6 +366,8 @@ input.grid-search {
   color: inherit;
   border: 1px solid transparent;
   border-radius: inherit;
+  transition-delay: 1s;
+  transition-property: display;
 }
 
 .homepage-search-input::placeholder {
@@ -390,7 +411,6 @@ input.grid-search {
   background: $white;
   right: 20px;
   margin-top: 9px;
-  display: block;
 }
 
 .navbar-search-list {
@@ -408,6 +428,14 @@ input.grid-search {
   margin: 0;
   padding: 0;
   list-style-type: none;
+}
+
+[class^="navbar-search-label"] li {
+  text-align: left;
+}
+
+[class^="navbar-search-label"] li a {
+  padding: 0;
 }
 
 .navbar-search-label-posts,

@@ -5,22 +5,40 @@
   <div class="dropdown-content navbar-search-results">
     <ul class="navbar-search-list">
       {% for collection in site.collections %}
+      {% capture collection_name %}sorted_{{collection.label}}{% endcapture %}
       <h2 class="navbar-search-label-{{collection.label}}">{{ collection.label }}</h2>
       <ul class="navbar-search-label-{{collection.label}}-list">
-        {% for subfolder in site.data.meltano.[collection.label] %}
-          {% for item in subfolder %}
-            {% if item.label %}
-              <li data-search-terms="{{item.label}} {{item.name}} {{item.namespace}}"><a href="#">{{item.label}} LABEL</a></li>
-            {% else %}
-              <li data-search-terms="{{item.label}} {{item.name}} {{item.namespace}}"><a href="#">{{item.name}} NAME</a></li>
-            {% endif %}
-          {% endfor %}
+        {% for item in site.data.meltano.[collection_name] %}
+          {% if item.label %}
+            <li data-search-terms="{{item.label}} {{item.name}} {{item.namespace}}">
+              {% if collection.label == "extractors" %}
+                <a href="{{site.url}}/{{collection.label}}/{{item.name | remove: "tap-"}}">{{item.label}}</a>
+              {% elsif collection.label == "loaders" %}
+                <a href="{{site.url}}/{{collection.label}}/{{item.name | remove: "target-"}}">{{item.label}}</a>
+              {% else %}
+                <a href="{{site.url}}/{{collection.label}}/{{item.name}}">{{item.label}}</a>
+              {% endif %}
+            </li>
+          {% else %}
+            <li data-search-terms="{{item.label}} {{item.name}} {{item.namespace}}">
+              {% if collection.label == "extractors" %}
+                <a href="{{site.url}}/{{collection.label}}/{{item.name | remove: "tap-"}}">{{item.name}}</a>
+              {% elsif collection.label == "loaders" %}
+                <a href="{{site.url}}/{{collection.label}}/{{item.name | remove: "target-"}}">{{item.name}}</a>
+              {% else %}
+                <a href="{{site.url}}/{{collection.label}}/{{item.name}}">{{item.name}}</a>
+              {% endif %}
+            </li>
+          {% endif %}
         {% endfor %}
       </ul>
     {% endfor %}
     </ul>
   </div>
 </div>
+
+
+
 
 
 

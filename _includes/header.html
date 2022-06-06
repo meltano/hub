@@ -24,7 +24,7 @@
           <a href="{{ "/files" | prepend: site.baseurl | prepend: site.url }}">Files</a>
         </div>
       </div>
-      <a class="page-link" href="{{ "/maintainers" | prepend: site.baseurl | prepend: site.url }}">Maintainers</a> 
+      <a class="page-link desktop-only" href="{{ "/maintainers" | prepend: site.baseurl | prepend: site.url }}">Maintainers</a> 
       <div class="dropdown">
         <a class="page-link" href="">Singer</a>
         <div class="dropdown-content">
@@ -36,6 +36,7 @@
           <a href="{{ "/singer/docs" | prepend: site.baseurl | prepend: site.url }}">Docs</a>
         </div>
       </div>
+      <a class="page-link button desktop-only" href="https://www.meltano.com">Meltano</a> 
       <div class="trigger">
         <a class="page-link" href="{{ "/extractors" }}">Extractors</a>
         <a class="page-link" href="{{ "/loaders" }}">Loaders</a>
@@ -45,7 +46,6 @@
         <a class="page-link" href="{{ "/files" }}">Files</a>
         <a class="page-link button" href="{{ "/singer" }}">Hub for Singer</a>
       </div>
-      <a class="page-link button" href="https://www.meltano.com">Meltano</a> 
     </nav>
 
     <a class="site-title" href="{{site.url}}">
