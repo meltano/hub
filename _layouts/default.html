@@ -3,8 +3,13 @@
   {% include head.html %}
 
   <body>
-    {% if page.header %} {% include header_{{page.header}}.html %} {% else %} {%
-    include header.html %} {% endif %}
+    {% if page.header %} 
+      {% include header_{{page.header}}.html %} 
+    {% elsif page.is_singer == true%} 
+      {% include header_singer.html %}
+    {% else %}  
+      {% include header.html %} 
+    {% endif %}
 
     <div class="page-content">
       <div class="wrapper">{% include anchor_headings.html html=content anchorBody="#" %}</div>
