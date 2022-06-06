@@ -21,6 +21,9 @@ transformers:
   dbt: dbt-labs
 files:
   files-great-expectations: meltano
+  files-dbt-bigquery: meltano
+  files-dbt-postgres: meltano
+  files-dbt-redshift: meltano
   files-dbt-snowflake: meltano
   files-gitlab-ci: meltano
   files-airflow: meltano
