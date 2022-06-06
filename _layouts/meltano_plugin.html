@@ -9,64 +9,10 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{page.meltano_type}}/
 {% endcapture %}
 {% if plugin.metrics %} {% assign metrics = plugin.metrics %}{% endif %}
 
-{% if page.is_singer == true %}
-
-<p>
-  {% if plugin_type == "tap" %} The <code>{{plugin.name}}</code>
-  <a href="/singer/taps">Singer tap</a>
-  pulls data from
-  {% if plugin.domain_url %}
-  <a href="{{plugin.domain_url}}" target="_blank">{{plugin.label}}</a>
-  {% else %}
-  {{ plugin.label }}
-  {% endif %}
-  that can then be sent to a destination using a
-  <a href="/singer/targets">Singer target</a>. {% else %} The
-  <code>{{plugin.name}}</code>
-  <a href="/singer/targets">Singer target</a>
-  sends data into
-  {% if plugin.domain_url %}
-  <a href="{{plugin.domain_url}}" target="_blank">{{plugin.label}}</a>
-  {% else %}
-  {{ plugin.label }}
-  {% endif %}
-  after it was pulled from a source using a
-  <a href="/singer/taps">Singer tap</a>. {% endif %}
-</p>
-
+{% if page.page_topic %} 
+{{ page.page_topic | markdownify}}
 {% else %}
-
-<p>
-  {% if plugin_type == "extractor" %} The <code>{{plugin.name}}</code>
-  <a href="https://docs.meltano.com/concepts/plugins#extractors" target="_blank"
-    >Meltano extractor</a
-  >
-  pulls data from 
-  {% if plugin.domain_url %}
-    <a href="{{plugin.domain_url}}" target="_blank">{{plugin.label}}</a>
-  {% else %}
-    {{ plugin.label }}
-  {% endif %}
-  that can then be sent to a destination using a
-  <a href="https://docs.meltano.com/concepts/plugins#loaders" target="_blank"
-    >loader</a
-  >. {% else %} The
-  <code>{{plugin.name}}</code>
-  <a href="https://docs.meltano.com/concepts/plugins#loaders" target="_blank"
-    >Meltano loader</a
-  >
-  sends data into
-  {% if plugin.domain_url %}
-  <a href="{{plugin.domain_url}}" target="_blank">{{plugin.label}}</a>
-  {% else %}
-    {{ plugin.label }}
-  {% endif %}
-  after it was pulled from a source using an
-  <a href="https://docs.meltano.com/concepts/plugins#extractors" target="_blank"
-    >extractor</a
-  >. {% endif %}
-</p>
-
+  {{ plugin.label }}
 {% endif %}
 
 <ul>
@@ -317,7 +263,7 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{page.meltano_type}}/
       >:
     </p>
 
-    <pre><code>meltano add {{plugin_type}} {{plugin.name}}{% if page.variant_specific %} --variant {{plugin.name}}{% endif %}</code></pre>
+    <pre><code>meltano add {{page.singular_plugin_type}} {{plugin.name}}{% if page.variant_specific %} --variant {{plugin.name}}{% endif %}</code></pre>
   </li>
   {% if plugin.settings.size > 0 %}
   <li>
@@ -332,48 +278,11 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{page.meltano_type}}/
   {% endif %}
 </ol>
 
+{% if page.next_steps.size > 0 %}
 <h3 id="next-steps">Next steps</h3>
 
-<p>
-  Follow the remaining steps of the
-  <a href="https://docs.meltano.com/getting-started.html" target="_blank">
-    Getting Started guide</a
-  >:
-</p>
-
-<ol>
-  {% if plugin_type == "extractor" %}
-  <li>
-    <a
-      href="https://docs.meltano.com/getting-started.html#select-entities-and-attributes-to-extract"
-      target="_blank"
-    >
-      Select entities and attributes to extract
-    </a>
-  </li>
-  <li>
-    <a
-      href="https://docs.meltano.com/getting-started.html#add-a-loader-to-send-data-to-a-destination"
-      target="_blank"
-    >
-      Add a loader to send data to a destination
-    </a>
-  </li>
-  {% endif %}
-  <li>
-    <a
-      href="https://docs.meltano.com/getting-started.html#run-a-data-integration-el-pipeline"
-      target="_blank"
-    >
-      Run a data integration (EL) pipeline
-    </a>
-  </li>
-</ol>
-
-<p>
-  If you run into any issues,
-  <a href="#looking-for-help">learn how to get help</a>.
-</p>
+{{ page.next_steps | markdownify }}
+{% endif %}
 
 {% endif %}
 
