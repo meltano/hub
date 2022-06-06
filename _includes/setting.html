@@ -85,14 +85,3 @@ export {{env_var}}={{example_value}}
 {{ setting.description | markdownify }}
 
 {% endif %}
-
-{% else %}
-
-<ul>
-  {% if setting.value != nil %}
-  <li>Default: <code>{{setting.value}}</code></li>
-  {% endif %}
-</ul>
-{{ setting.description | markdownify }}
-
-{% endif %}
