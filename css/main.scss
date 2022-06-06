@@ -329,6 +329,7 @@ input.grid-search {
 
   .dropdown:hover .dropdown-content {
     display: block;
+    background: $white;
   }
 
   .dropdown-content a:hover {
@@ -384,14 +385,32 @@ input.grid-search {
 }
 
 .navbar-search-results {
-  height: 200px;
   width: 300%;
+  height: 300px;
   background: $white;
   right: 20px;
+  margin-top: 9px;
+  display: block;
 }
 
 .navbar-search-list {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
+
+.navbar-search-list h2 {
+  text-transform: capitalize;
+  border-bottom: 2px solid $meltano-blue;
+}
+
+[class^="navbar-search-label"] {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.navbar-search-label-posts,
+.navbar-search-label-posts-list {
+  display: none;
 }

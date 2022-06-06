@@ -4,6 +4,20 @@
   </form>
   <div class="dropdown-content navbar-search-results">
     <ul class="navbar-search-list">
+      {% for collection in site.collections %}
+      <h2 class="navbar-search-label-{{collection.label}}">{{ collection.label }}</h2>
+      <ul class="navbar-search-label-{{collection.label}}-list">
+        {% for item in site.data.meltano[collection.label] %}
+          <li><a href="#">item</a></li>
+          {% if item.label %}
+            <li data-search-terms="{{plugin.label}} {{plugin.name}} {{plugin.namespace}}"><a href="#">{{item.label}}</a></li>
+          {% endif %}
+          {% if item.name %}
+          <li data-search-terms="{{plugin.label}} {{plugin.name}} {{plugin.namespace}}"><a href="#">{{item.name}}</a></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    {% endfor %}
     </ul>
   </div>
 </div>
