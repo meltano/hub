@@ -7,14 +7,14 @@
       {% for collection in site.collections %}
       <h2 class="navbar-search-label-{{collection.label}}">{{ collection.label }}</h2>
       <ul class="navbar-search-label-{{collection.label}}-list">
-        {% for item in site.data.meltano[collection.label] %}
-          <li><a href="#">item</a></li>
-          {% if item.label %}
-            <li data-search-terms="{{plugin.label}} {{plugin.name}} {{plugin.namespace}}"><a href="#">{{item.label}}</a></li>
-          {% endif %}
-          {% if item.name %}
-          <li data-search-terms="{{plugin.label}} {{plugin.name}} {{plugin.namespace}}"><a href="#">{{item.name}}</a></li>
-          {% endif %}
+        {% for subfolder in site.data.meltano.[collection.label] %}
+          {% for item in subfolder %}
+            {% if item.label %}
+              <li data-search-terms="{{item.label}} {{item.name}} {{item.namespace}}"><a href="#">{{item.label}} LABEL</a></li>
+            {% else %}
+              <li data-search-terms="{{item.label}} {{item.name}} {{item.namespace}}"><a href="#">{{item.name}} NAME</a></li>
+            {% endif %}
+          {% endfor %}
         {% endfor %}
       </ul>
     {% endfor %}
