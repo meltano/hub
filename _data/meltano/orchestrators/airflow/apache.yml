@@ -6,7 +6,7 @@ pip_url: apache-airflow==2.1.2 --constraint https://raw.githubusercontent.com/ap
 variant: apache
 requires:
   files:
-  - name: airflow
+  - name: files-airflow
     variant: meltano
 settings:
 - name: core.dags_folder

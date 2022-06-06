@@ -7,7 +7,7 @@ pip_url: dbt-core~=1.0.0 dbt-postgres~=1.0.0 dbt-redshift~=1.0.0 dbt-snowflake~=
 variant: dbt-labs
 requires:
   files:
-  - name: dbt
+  - name: files-dbt
     variant: meltano
 settings:
 - name: project_dir

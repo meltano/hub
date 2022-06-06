@@ -5,7 +5,7 @@ executable: great_expectations
 variant: great-expectations
 requires:
   files:
-  - name: great-expectations
+  - name: files-great-expectations
     variant: meltano
 settings:
 - name: ge_home

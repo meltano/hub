@@ -1,5 +1,5 @@
-name: great_expectations
-namespace: great_expectations
+name: files-great-expectations
+namespace: files_great_expectations
 repo: https://github.com/meltano/files-great-expectations
 pip_url: git+https://github.com/meltano/files-great-expectations
 variant: meltano

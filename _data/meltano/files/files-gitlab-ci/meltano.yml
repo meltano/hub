@@ -1,5 +1,5 @@
-name: gitlab-ci
-namespace: gitlab_ci
+name: files-gitlab-ci
+namespace: files_gitlab_ci
 repo: https://github.com/meltano/files-gitlab-ci
 pip_url: git+https://github.com/meltano/files-gitlab-ci.git
 variant: meltano

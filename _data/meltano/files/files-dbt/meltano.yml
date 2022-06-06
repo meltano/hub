@@ -1,5 +1,5 @@
-name: dbt
-namespace: dbt
+name: files-dbt
+namespace: files_dbt
 repo: https://github.com/meltano/files-dbt
 pip_url: git+https://github.com/meltano/files-dbt.git@config-version-2
 variant: meltano
