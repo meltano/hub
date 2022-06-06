@@ -62,7 +62,7 @@ class MeltanoPluginPageGenerator < Jekyll::Generator
       if plugin_type == 'tap'
         singular_plugin_type = plugin_type
         plural_plugin_type = "taps"
-        @dir  = plural_plugin_type 
+        @dir  = plural_plugin_type
         variant_definition = Marshal.load(Marshal.dump(variant_definition))
         variant_definition['url'] = "/taps/#{plugin_name}"
         title = "#{variant_definition['label']} Singer #{plugin_type}"
@@ -71,7 +71,7 @@ class MeltanoPluginPageGenerator < Jekyll::Generator
       elsif plugin_type == 'target'
         singular_plugin_type = plugin_type
         plural_plugin_type   = "targets"
-        @dir  = plural_plugin_type 
+        @dir  = plural_plugin_type
         variant_definition = Marshal.load(Marshal.dump(variant_definition))
         variant_definition['url'] = "/targets/#{plugin_name}"
         title = "#{variant_definition['label']} Singer #{plugin_type}"
@@ -79,7 +79,7 @@ class MeltanoPluginPageGenerator < Jekyll::Generator
         meltano_type = "loaders"
       else
         singular_plugin_type = plugin_type
-      
+
         plural_plugin_type = "#{plugin_type}s"
         @dir  = plural_plugin_type
         title = "#{variant_definition['label']} Meltano #{plugin_type}"
@@ -89,7 +89,7 @@ class MeltanoPluginPageGenerator < Jekyll::Generator
         end
         is_singer = false
         meltano_type = plural_plugin_type
-      end   
+      end
 
       basename = plugin_name
       if variant_specific
@@ -98,7 +98,7 @@ class MeltanoPluginPageGenerator < Jekyll::Generator
       end
 
       if plugin_type == 'extractor'
-        page_topic = "The `#{variant_definition['name']}` [Meltano extractor](https://docs.meltano.com/concepts/plugins#extractors) pulls data from [#{variant_definition['label']}](#{variant_definition['domain_url']}) that can then be sent to a destination using a [Meltano loader](https://docs.meltano.com/concepts/plugins#loaders)."
+        page_topic = "The `#{variant_definition['name']}` [Meltano extractor](https://docs.meltano.com/concepts/plugins#extractors) pulls data from [#{variant_definition['label']}](#{variant_definition['domain_url']}) that can then be sent to a destination using a [loader](/loaders)."
         next_steps = """Follow the remaining steps of the [Getting Started guide](https://docs.meltano.com/getting-started.html):
 
 1. [Select entities and attributes to extract](https://docs.meltano.com/getting-started.html#select-entities-and-attributes-to-extract)
@@ -107,16 +107,16 @@ class MeltanoPluginPageGenerator < Jekyll::Generator
 
 If you run into any issues, [learn how to get help](#looking-for-help)."""
       elsif plugin_type == 'loader'
-        page_topic = "The `#{variant_definition['name']}` [Meltano loader](https://docs.meltano.com/concepts/plugins#loaders) send data into [#{variant_definition['label']}](#{variant_definition['domain_url']}) after it was pulled from a source using a [Meltano extractor](https://docs.meltano.com/concepts/plugins#extractors)."
+        page_topic = "The `#{variant_definition['name']}` [Meltano loader](https://docs.meltano.com/concepts/plugins#loaders) sends data into [#{variant_definition['label']}](#{variant_definition['domain_url']}) after it was pulled from a source using an [extractor](/extractors)."
         next_steps = """Follow the remaining steps of the [Getting Started guide](https://docs.meltano.com/getting-started.html):
 
 1. [Run a data integration (EL) pipeline](https://docs.meltano.com/getting-started.html#run-a-data-integration-el-pipeline)
 
 If you run into any issues, [learn how to get help](#looking-for-help)."""
       elsif plugin_type == 'tap'
-        page_topic = "The `#{variant_definition['name']}` [Singer tap](https://hub.meltano.com/singer/target) send data into [#{variant_definition['label']}](#{variant_definition['domain_url']}) after it was pulled from a source using a [Singer tap](https://hub.meltano.com/singer/taps)."
+        page_topic = "The `#{variant_definition['name']}` [Singer tap](/singer/taps) pulls data from [#{variant_definition['label']}](#{variant_definition['domain_url']}) that can then be sent to a destination using a [Singer target](/singer/targets)."
       elsif plugin_type == 'target'
-        page_topic = "The `#{variant_definition['name']}` [Singer target](https://hub.meltano.com/singer/taps) pulls data from [#{variant_definition['label']}](#{variant_definition['domain_url']}) that can then be sent to a destination using a [Singer target](https://hub.meltano.com/singer/targets)."
+        page_topic = "The `#{variant_definition['name']}` [Singer target](/singer/targets) sends data into [#{variant_definition['label']}](#{variant_definition['domain_url']}) after it was pulled from a source using a [Singer tap](/singer/taps)."
       elsif plugin_type == 'transformer'
         page_topic = "The `#{variant_definition['name']}` [transformer](https://docs.meltano.com/guide/transformation) uses SQL to transform data stored in your warehouse."
         next_steps = """Follow the remaining steps of the [Getting Started guide](https://docs.meltano.com/getting-started.html):
@@ -130,7 +130,7 @@ If you run into any issues, [learn how to get help](#looking-for-help)."""
 2. Start Scheduler and Webserver or execute Airflow commands directly using the instructions in [the Meltano docs](https://docs.meltano.com/guide/orchestration#starting-the-airflow-scheduler).
 
 If you run into any issues, [learn how to get help](#looking-for-help).
-"""        
+"""
       elsif plugin_type == 'file'
         page_topic = "The `#{variant_definition['name']}` [file bundle](https://docs.meltano.com/concepts/plugins#file-bundles) #{variant_definition['definition']}"
         next_steps = "#{variant_definition['next_steps']}"
