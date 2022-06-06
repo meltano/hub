@@ -18,35 +18,20 @@ settings_group_validation:
 settings:
 - name: snowflake_account
   label: Account
-  env_aliases:
-  - SF_ACCOUNT
-  - TARGET_SNOWFLAKE_ACCOUNT
   description: |
     `ACCOUNT` might require the `region` and `cloud` platform where your account is located, in the form of: `<your_account_name>.<region_id>.<cloud>` (e.g. `xy12345.east-us-2.azure`)
     
     Refer to [Snowflake's documentation](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name-and-url) about Accounts.
 - name: snowflake_username
   label: Username
-  env_aliases:
-  - SF_USER
-  - TARGET_SNOWFLAKE_USERNAME
 - name: snowflake_password
   label: Password
-  env_aliases:
-  - SF_PASSWORD
-  - TARGET_SNOWFLAKE_PASSWORD
   kind: password
 - name: snowflake_role
   label: Role
-  env_aliases:
-  - SF_ROLE
-  - TARGET_SNOWFLAKE_ROLE
   description: If not specified, Snowflake will use the user's default role.
 - name: snowflake_database
   label: Snowflake Database
-  env_aliases:
-  - SF_DATABASE
-  - TARGET_SNOWFLAKE_DATABASE
 - name: snowflake_authenticator
   label: Snowflake Authenticator
   value: snowflake
@@ -54,9 +39,6 @@ settings:
     Specifies the authentication provider for snowflake to use. Valud options are the internal one ("snowflake"), a browser session ("externalbrowser"), or Okta ("https://<your_okta_account_name>.okta.com"). See the snowflake docs for more details.
 - name: snowflake_warehouse
   label: Warehouse
-  env_aliases:
-  - SF_WAREHOUSE
-  - TARGET_SNOWFLAKE_WAREHOUSE
 - name: invalid_records_detect
   label: Invalid Records Detect
   kind: boolean
@@ -96,10 +78,8 @@ settings:
   description: Whether the Target should create tables which have no records present
     in Remote.
 - name: snowflake_schema
+  aliases: [schema]
   label: Snowflake Schema
-  env_aliases:
-  - SF_SCHEMA
-  - TARGET_SNOWFLAKE_SCHEMA
   value: $MELTANO_EXTRACT__LOAD_SCHEMA
   value_processor: upcase_string
   description: |

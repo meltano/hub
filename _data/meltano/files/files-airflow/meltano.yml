@@ -1,4 +1,5 @@
 name: files-airflow
+label: Airflow Files
 namespace: files_airflow
 repo: https://github.com/meltano/files-airflow
 pip_url: git+https://github.com/meltano/files-airflow.git
@@ -6,3 +7,5 @@ variant: meltano
 update:
   orchestrate/dags/meltano.py: true
 logo_url: /assets/logos/files/airflow.png
+definition: are bundled with the Airflow orchestrator.
+maintenance_status: active

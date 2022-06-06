@@ -26,8 +26,6 @@ settings:
     assumed.
   protected: true
 - name: private_token
-  env_aliases:
-  - GITLAB_API_TOKEN
   kind: password
   value: ''
   label: Access Token
@@ -56,8 +54,6 @@ settings:
 
     4. You should see your token appear at the top of your screen. It should look something like this: `I8vxHsiVAaDnAX3hA`
 - name: groups
-  env_aliases:
-  - GITLAB_API_GROUPS
   value: ''
   label: Groups
   description: |
@@ -70,8 +66,6 @@ settings:
     Multiple group names can be separated using space characters.
   placeholder: Ex. my-organization
 - name: projects
-  env_aliases:
-  - GITLAB_API_PROJECTS
   value: ''
   label: Project
   description: |
@@ -88,8 +82,6 @@ settings:
   placeholder: Ex. my-organization/project-1
 - name: ultimate_license
   label: Ultimate License
-  env_aliases:
-  - GITLAB_API_ULTIMATE_LICENSE
   kind: boolean
   value: false
   description: |
@@ -119,8 +111,6 @@ settings:
     The `pipelines_extended` entity cannot be [selected](https://docs.meltano.com/integration.html#selecting-entities-and-attributes-for-extraction) unless this setting is enabled.
 - name: start_date
   label: Start Date
-  env_aliases:
-  - GITLAB_API_START_DATE
   kind: date_iso8601
   description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction

@@ -19,12 +19,9 @@
       >Environment variable</a
     >: {% if setting.env %} <code>{{setting.env}}</code>, alias:
     <code>{{env_var}}</code>
-    {% assign env_var = setting.env %} {% elsif setting.env_aliases %}
-    <code>{{env_var}}</code>, alias: {% else %}
+    {% assign env_var = setting.env %} {% else %}
     <code>{{env_var}}</code>
-    {% endif %} {% for env_alias in setting.env_aliases %}
-    <code>{{env_alias}}</code>
-    {% endfor %}
+    {% endif %} 
   </li>
   {% if setting.options %}
   <li>

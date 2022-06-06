@@ -66,8 +66,6 @@ settings:
   description: AWS S3 bucket name
 - name: default_target_schema
   label: Default Target Schema
-  env_aliases:
-  - TARGET_REDSHIFT_SCHEMA
   value: $MELTANO_EXTRACT__LOAD_SCHEMA
   description: |
     Note `$MELTANO_EXTRACT__LOAD_SCHEMA` [will expand to](https://docs.meltano.com/configuration.html#expansion-in-setting-values) the value of the [`load_schema` extra](https://docs.meltano.com/concepts/plugins#load-schema-extra) for the extractor used in the pipeline, which defaults to the extractor's namespace, e.g. `tap_gitlab` for [`tap-gitlab`](/extractors/gitlab).
@@ -76,29 +74,21 @@ settings:
     is not defined then every stream sent by the tap is loaded into this schema.
 - name: aws_profile
   label: AWS Profile Name
-  env_aliases:
-  - AWS_PROFILE
   description: AWS profile name for profile based authentication. If not provided,
     `AWS_PROFILE` environment variable will be used.
 - name: aws_access_key_id
   kind: password
   label: AWS S3 Access Key ID
-  env_aliases:
-  - AWS_ACCESS_KEY_ID
   description: S3 Access Key Id. Used for S3 and Redshift copy operations. If not
     provided, `AWS_ACCESS_KEY_ID` environment variable will be used.
 - name: aws_secret_access_key
   label: AWS S3 Secret Access Key
   kind: password
-  env_aliases:
-  - AWS_SECRET_ACCESS_KEY
   description: S3 Secret Access Key. Used for S3 and Redshift copy operations. If
     not provided, `AWS_SECRET_ACCESS_KEY` environment variable will be used.
 - name: aws_session_token
   label: AWS S3 Session Token
   kind: password
-  env_aliases:
-  - AWS_SESSION_TOKEN
   description: S3 AWS STS token for temporary credentials. If not provided, `AWS_SESSION_TOKEN`
     environment variable will be used.
 - name: aws_redshift_copy_role_arn

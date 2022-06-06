@@ -20,36 +20,24 @@ settings_group_validation:
 settings:
 - name: account
   label: Account
-  env_aliases:
-  - SF_ACCOUNT
   description: Snowflake account name (i.e. `rtXXXXX.eu-central-1`)
   placeholder: E.g. rtXXXXX.eu-central-1
 - name: dbname
   label: Database Name
   aliases:
   - database
-  env_aliases:
-  - TARGET_SNOWFLAKE_DATABASE
-  - SF_DATABASE
   description: Snowflake Database name
 - name: user
   label: User
   aliases:
   - username
-  env_aliases:
-  - TARGET_SNOWFLAKE_USERNAME
-  - SF_USER
   description: Snowflake User
 - name: password
   label: Password
-  env_aliases:
-  - SF_PASSWORD
   kind: password
   description: Snowflake Password
 - name: warehouse
   label: Warehouse
-  env_aliases:
-  - SF_WAREHOUSE
   description: Snowflake virtual warehouse name
 - name: file_format
   label: File Format
@@ -83,9 +71,6 @@ settings:
   label: Default Target Schema
   aliases:
   - schema
-  env_aliases:
-  - TARGET_SNOWFLAKE_SCHEMA
-  - SF_SCHEMA
   value: $MELTANO_EXTRACT__LOAD_SCHEMA
   value_processor: upcase_string
   description: |
