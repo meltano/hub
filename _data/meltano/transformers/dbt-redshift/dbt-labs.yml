@@ -15,7 +15,7 @@ settings_preamble: |
   Settings for dbt itself can be configured through [dbt_project.yml](https://docs.getdbt.com/reference/dbt_project.yml) as usual, which can be found at transform/dbt_project.yml in your Meltano project. dbt also has [adapter-specific documentation for Redshift](https://docs.getdbt.com/reference/resource-configs/redshift-configs).
 settings:
 - name: project_dir
-  lable: Project Directory
+  label: Project Directory
   value: $MELTANO_PROJECT_ROOT/transform
 - name: profiles_dir
   label: Profiles Directory

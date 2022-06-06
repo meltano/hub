@@ -35,7 +35,7 @@ settings:
     The BigQuery project ID.
 - name: dataset
   kind: string
-  alias: schema
+  aliases: ["schema"]
   description: |
     The dataset to use.
 - name: refresh_token
