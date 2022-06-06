@@ -14,10 +14,16 @@ transforms:
   tap-stripe: meltano
   tap-zendesk: meltano
 transformers:
+  dbt-bigquery: dbt-labs
+  dbt-postgres: dbt-labs
+  dbt-redshift: dbt-labs
   dbt-snowflake: dbt-labs
   dbt: dbt-labs
 files:
   files-great-expectations: meltano
+  files-dbt-bigquery: meltano
+  files-dbt-postgres: meltano
+  files-dbt-redshift: meltano
   files-dbt-snowflake: meltano
   files-gitlab-ci: meltano
   files-airflow: meltano
