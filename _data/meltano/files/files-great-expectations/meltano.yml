@@ -1,7 +1,6 @@
 name: files-great-expectations
 label: Great Expectations
 namespace: files_great_expectations
->>>>>>> develop:_data/meltano/files/files-great-expectations/meltano.yml
 repo: https://github.com/meltano/files-great-expectations
 pip_url: git+https://github.com/meltano/files-great-expectations
 variant: meltano
