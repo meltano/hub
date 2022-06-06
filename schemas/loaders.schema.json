@@ -43,6 +43,8 @@
                 "maintenance_status": {},
                 "domain_url": {},
                 "keywords": {},
+                "usage": {},
+                "prereq": {},
                 "dialect": {
                     "description": "The name of the dialect of the target database, so that transformers in the same pipeline and Meltano UI's Analysis feature can determine the type of database to connect to."
                 },
