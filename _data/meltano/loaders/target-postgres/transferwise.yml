@@ -3,7 +3,7 @@ label: PostgreSQL
 description: PostgreSQL database loader
 namespace: target_postgres
 dialect: postgres
-target_schema: $TARGET_POSTGRES_SCHEMA
+target_schema: $TARGET_POSTGRES_DEFAULT_TARGET_SCHEMA
 logo_url: /assets/logos/loaders/postgres.png
 variant: transferwise
 docs: https://hub.meltano.com/loaders/postgres.html
@@ -147,15 +147,15 @@ usage: |
   ## Troubleshooting
 
   ### `ld`, `clang`, `lssl`, or `linker` Errors
-  
+
   If you have an error message like:
-    
+
     * `ld: library not found for -lssl`
     * `clang: error: linker command failed with exit code 1`
     * `error: command 'clang' failed with exit status 1`
 
-  These error messages indicates that there is a problem installing OpenSSL. 
-  
+  These error messages indicates that there is a problem installing OpenSSL.
+
   This [Stack Overflow answer](https://stackoverflow.com/questions/26288042/error-installing-psycopg2-library-not-found-for-lssl)
   has specific recommendations on setting the `LDFLAGS` and/or `CPPFLAGS` environment variables.
   Set those prior to running `meltano add loader target-postgres`.
