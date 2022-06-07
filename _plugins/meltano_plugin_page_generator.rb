@@ -31,7 +31,7 @@ class MeltanoPluginPageGenerator < Jekyll::Generator
       unless site.pages.map(&:path).include?(page.path.sub(".html", ".md"))
         site.pages << page
       end
-      page = PluginVariantPage.new(site, plugin_type, plugin_name.delete_prefix('tap-'), variant_definition, variant_specific)
+      page = PluginVariantPage.new(site, plugin_type, plugin_name, variant_definition, variant_specific)
       unless site.pages.map(&:path).include?(page.path.sub(".html", ".md"))
         site.pages << page
       end
@@ -40,7 +40,7 @@ class MeltanoPluginPageGenerator < Jekyll::Generator
       unless site.pages.map(&:path).include?(page.path.sub(".html", ".md"))
         site.pages << page
       end
-      page = PluginVariantPage.new(site, plugin_type, plugin_name.delete_prefix('target-'), variant_definition, variant_specific)
+      page = PluginVariantPage.new(site, plugin_type, plugin_name, variant_definition, variant_specific)
       unless site.pages.map(&:path).include?(page.path.sub(".html", ".md"))
         site.pages << page
       end
