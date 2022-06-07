@@ -3,7 +3,7 @@ label: PostgreSQL
 description: PostgreSQL database loader
 namespace: target_postgres
 dialect: postgres
-target_schema: $TARGET_POSTGRES_SCHEMA
+target_schema: $TARGET_POSTGRES_POSTGRES_SCHEMA
 logo_url: /assets/logos/loaders/postgres.png
 variant: datamill-co
 docs: https://hub.meltano.com/loaders/postgres--datamill-co.html
@@ -116,8 +116,8 @@ settings:
   kind: integer
   description: |
     How often, in rows received, to count the buffered rows and bytes to
-    check if a flush is necessary. 
-    
+    check if a flush is necessary.
+
     There's a slight performance penalty to checking
     the buffered records count or bytesize, so this controls how often this is polled
     in order to mitigate the penalty. This value is usually not necessary to set as
@@ -128,8 +128,8 @@ settings:
   value: true
   description: |
     Whether the Target should emit `STATE` messages to stdout for further
-    consumption. 
-    
+    consumption.
+
     In this mode, which is on by default, STATE messages are buffered
     in memory until all the records that occurred before them are flushed according
     to the batch flushing schedule the target is configured with.
@@ -139,8 +139,8 @@ settings:
   value: true
   description: |
     Whether the Target should create column indexes on the important columns
-    used during data loading. 
-    
+    used during data loading.
+
     These indexes will make data loading slightly slower
     but the deduplication phase much faster. Defaults to on for better baseline performance.
 - name: before_run_sql
@@ -183,15 +183,15 @@ usage: |
   To resolve this, refer to the ["Dependencies" section](#dependencies) above.
 
   ### `ld`, `clang`, `lssl`, or `linker` Errors
-  
+
   If you have an error message like:
-    
+
     * `ld: library not found for -lssl`
     * `clang: error: linker command failed with exit code 1`
     * `error: command 'clang' failed with exit status 1`
 
-  These error messages indicates that there is a problem installing OpenSSL. 
-  
+  These error messages indicates that there is a problem installing OpenSSL.
+
   This [Stack Overflow answer](https://stackoverflow.com/questions/26288042/error-installing-psycopg2-library-not-found-for-lssl)
   has specific recommendations on setting the `LDFLAGS` and/or `CPPFLAGS` environment variables.
   Set those prior to running `meltano add loader target-postgres`.
