@@ -32,3 +32,6 @@ commands:
     args: load_examples
     description: Load examples.
 logo_url: /assets/logos/utilities/superset.png
+definition: is a modern, enterprise-ready business intelligence web application. It requires Meltano version 2.0.
+prereq: |
+  The Superset plugin requires Meltano version 2.0.

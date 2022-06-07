@@ -243,13 +243,11 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{page.meltano_type}}/
   {% endif %}
 </ol>
 
-{% if plugin.prereq.size > 0 and is_singer == false%}
+{% if plugin.prereq %}
 {{ plugin.prereq | markdownify }}
 {% endif %}
 
 <h3 id="installation-and-configuration">Installation and configuration</h3>
-
-<h4 id="using-the-command-line-interface">Using the Command Line Interface</h4>
 
 <ol>
   <li>
@@ -326,6 +324,10 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{page.meltano_type}}/
 
 <h2 id="settings">Settings</h2>
 
+{% if plugin.settings_preamble %}
+{{ plugin.settings_preamble | markdownify }}
+{% endif %}
+
 {% if plugin.settings.size == 0 or plugin.settings == nil %}
 <p>
   The {{plugin_type}} <code>{{plugin.name}}</code> does not have any <a href="https://docs.meltano.com/contribute/plugins#setting-definitions">settings</a> defined in its metadata.
@@ -334,11 +336,7 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{page.meltano_type}}/
   that defines the <a href="https://docs.meltano.com/contribute/plugins#setting-definitions">settings</a> for this {{plugin_type}}.
 </p>
 
-{% else plugin.settings.size > 0 %}
-
-{% if plugin.settings_preamble %}
-{{ plugin.settings_preamble | markdownify }}
-{% endif %}
+{% else %}
 
 {% if plugin.settings_group_validation.size == 1 %}
 <p>
