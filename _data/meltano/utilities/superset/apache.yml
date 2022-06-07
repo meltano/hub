@@ -24,6 +24,11 @@ commands:
   ui:
     executable: gunicorn
     args: --bind $SUPERSET_UI_BIND_HOST:$SUPERSET_UI_PORT --timeout $SUPERSET_UI_TIMEOUT --workers $SUPERSET_UI_WORKERS superset.app:create_app()
-  create-admin: fab create-admin
-  load_examples: load_examples
+    description: Start the Superset UI. Will be available on the configured `ui.bind_host` and `ui.port`, which default to `http://localhost:4000`
+  create-admin:
+    args: fab create-admin
+    description: Create an admin user.
+  load_examples:
+    args: load_examples
+    description: Load examples.
 logo_url: /assets/logos/utilities/superset.png
