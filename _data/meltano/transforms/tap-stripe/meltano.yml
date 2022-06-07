@@ -5,4 +5,4 @@ repo: https://gitlab.com/meltano/dbt-tap-stripe
 pip_url: https://gitlab.com/meltano/dbt-tap-stripe.git@config-version-2
 vars:
   livemode: false
-  schema: "{{ env_var('DBT_SOURCE_SCHEMA') }}"
+  schema: "{{ env_var('DBT_SOURCE_SCHEMA','tap_stripe') }}"

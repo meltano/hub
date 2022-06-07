@@ -1,7 +1,7 @@
 name: tap-carbon-intensity
 label: Carbon Emissions Intensity
 description: National Grid ESO's Carbon Emissions Intensity API
-namespace: tap_carbon
+namespace: tap_carbon_intensity
 logo_url: /assets/logos/extractors/carbon-intensity.png
 variant: meltano
 hidden: true
