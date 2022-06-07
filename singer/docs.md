@@ -12,7 +12,7 @@ We're fully [embracing Singer](https://docs.meltano.com/#embracing-singer) and M
 
 ## Development
 
-MeltanoHub is under active development by Meltano. Check out the [main development epic](https://gitlab.com/groups/meltano/-/epics/83) for our roadmap or [view the issues](https://github.com/meltano/hub/-/issues) to understand progress on a specific feature.
+MeltanoHub is under active development by Meltano. Check out our [issue tracker](https://github.com/meltano/hub/-/issues) to understand progress on a specific feature.
 
 ## Standardized Connectors
 
@@ -46,8 +46,7 @@ Our expectation is that other tools, including Meltano, will utilize the data av
 
 ## Tap and Target SDKs
 
-We've also created an [SDK for Taps](https://sdk.meltano.com) that is the best way to build and maintain Singer taps.
-We're actively working on an [SDK for Targets](https://gitlab.com/groups/meltano/-/epics/91) due to be launched in June 2021.
+We've also created an [SDK for Taps and Targets](https://sdk.meltano.com) that is the best way to build and maintain Singer Taps and Targets.
 
 Read more about the [launch of the SDK on the Meltano blog](https://meltano.com/blog/2021/04/05/meltano-launches-v0-1-0-of-the-singer-tap-sdk/).
 
@@ -213,7 +212,7 @@ This capability is currently in development by the [Singer Working Group](https:
 The capability, which was inspired by [Wise’s Fast Sync feature](https://github.com/transferwise/pipelinewise/tree/e0a8ee15c05f019916f5400158b81de72cf33dc8/pipelinewise/fastsync), has the goal of bypassing some of the performance limitations inherent to the Singer Spec by using the optimized import/export features of modern data warehouses (Snowflake, Redshift, etc.).
 For example if a tap and target both had batch support the tap could theoretically know to directly write records to csv files somewhere (i.e. S3) in an ideal format for the target to import, ultimately skipping most of the piping step.
 Taking this approach allows connectors to improve performance by both using the source and/or target’s most optimized technique for importing and exporting data while also avoiding the additional costs of serializing, deserializing, and piping each record.
-Join the issue conversation [here](https://gitlab.com/meltano/sdk/-/issues/9)!
+Join the issue conversation [here](https://github.com/meltano/sdk/issues/9)!
 
 ## Architecture
 
@@ -252,6 +251,6 @@ Checkout the [Meltano Squared](https://github.com/meltano/squared) repository to
 
 <u>Last Updated:</u>
 
-Github Metrics = `{{ site.data['audit']['audit_log']['github_metrics']['UPDATED_DATE'] }}`
+GitHub Metrics = `{{ site.data['audit']['audit_log']['github_metrics']['UPDATED_DATE'] }}`
 
 Meltano Metrics = `{{ site.data['audit']['audit_log']['meltano_metrics']['UPDATED_DATE'] }}`
