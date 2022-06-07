@@ -6,7 +6,6 @@ dialect: snowflake
 target_schema: $TARGET_SNOWFLAKE_SNOWFLAKE_SCHEMA
 logo_url: /assets/logos/loaders/snowflake.png
 variant: datamill-co
-docs: https://hub.meltano.com/loaders/snowflake--datamill-co.html
 repo: https://github.com/datamill-co/target-snowflake
 pip_url: target-snowflake
 settings_group_validation:

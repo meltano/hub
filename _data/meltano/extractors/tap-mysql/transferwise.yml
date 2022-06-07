@@ -4,7 +4,6 @@ description: MySQL / MariaDB database extractor
 namespace: tap_mysql
 logo_url: /assets/logos/extractors/mysql.png
 variant: transferwise
-docs: https://hub.meltano.com/extractors/mysql.html
 repo: https://github.com/transferwise/pipelinewise-tap-mysql
 pip_url: pipelinewise-tap-mysql
 capabilities:

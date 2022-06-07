@@ -6,7 +6,6 @@ dialect: postgres
 target_schema: $TARGET_POSTGRES_DEFAULT_TARGET_SCHEMA
 logo_url: /assets/logos/loaders/postgres.png
 variant: transferwise
-docs: https://hub.meltano.com/loaders/postgres.html
 repo: https://github.com/transferwise/pipelinewise-target-postgres
 pip_url: pipelinewise-target-postgres
 settings_group_validation:

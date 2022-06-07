@@ -4,7 +4,6 @@ description: Subscription payments platform
 namespace: tap_recharge
 logo_url: /assets/logos/extractors/recharge.png
 variant: singer-io
-docs: https://hub.meltano.com/extractors/recharge.html
 repo: https://github.com/singer-io/tap-recharge
 pip_url: tap-recharge==1.0.3
 capabilities:

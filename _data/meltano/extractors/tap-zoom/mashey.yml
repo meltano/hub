@@ -4,7 +4,6 @@ description: Video conferencing software
 namespace: tap_zoom
 logo_url: /assets/logos/extractors/zoom.png
 variant: mashey
-docs: https://hub.meltano.com/extractors/zoom.html
 repo: https://github.com/mashey/tap-zoom
 pip_url: git+https://github.com/mashey/tap-zoom.git
 capabilities:
@@ -42,5 +41,5 @@ keywords:
 - api
 prereq: |
   Note that the Start Date is not available as the API does not support incremental replication.
-  
+
   Zoom also appears to "expire" meetings and webinars over time, making them unavailable to the API. Make sure your data lands in a trusted destination, as it may be the only place it eventually becomes available.

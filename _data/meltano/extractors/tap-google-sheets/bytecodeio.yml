@@ -4,7 +4,6 @@ label: Google Sheets
 namespace: tap_google_sheets
 logo_url: /assets/logos/extractors/google-sheets.png
 variant: bytecodeio
-docs: https://hub.meltano.com/extractors/google-sheets
 pip_url: git+https://github.com/bytecodeio/tap-google-sheets.git
 repo: https://github.com/bytecodeio/tap-google-sheets
 capabilities:

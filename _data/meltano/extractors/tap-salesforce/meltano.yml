@@ -4,7 +4,6 @@ description: Customer-relationship management & customer success platform
 namespace: tap_salesforce
 logo_url: /assets/logos/extractors/salesforce.png
 variant: meltano
-docs: https://hub.meltano.com/extractors/salesforce.html
 repo: https://gitlab.com/meltano/tap-salesforce
 pip_url: git+https://gitlab.com/meltano/tap-salesforce.git@v1.5.0
 capabilities:
