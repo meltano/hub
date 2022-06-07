@@ -7,7 +7,10 @@ variant: singer-io
 docs: https://hub.meltano.com/extractors/marketo.html
 repo: https://github.com/singer-io/tap-marketo
 pip_url: git+https://github.com/singer-io/tap-marketo.git
-capabilities: []
+capabilities: 
+  - discover
+  - properties
+  - state
 settings:
 - name: endpoint
   label: Endpoint
