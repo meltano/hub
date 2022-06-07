@@ -5,7 +5,6 @@ namespace: target_redshift
 logo_url: /assets/logos/loaders/redshift.png
 variant: transferwise
 repo: https://github.com/transferwise/pipelinewise-target-redshift
-docs: https://hub.meltano.com/loaders/target-redshift.html
 pip_url: pipelinewise-target-redshift
 executable: target-redshift
 capabilities:

@@ -5,7 +5,6 @@ namespace: tap_google_analytics
 logo_url: /assets/logos/extractors/google-analytics.png
 variant: meltano
 hidden: true
-docs: https://hub.meltano.com/extractors/tap-google-analytics.html
 repo: https://gitlab.com/meltano/tap-google-analytics
 pip_url: git+https://gitlab.com/meltano/tap-google-analytics.git
 capabilities:

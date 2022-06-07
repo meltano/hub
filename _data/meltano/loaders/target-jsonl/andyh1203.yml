@@ -4,7 +4,6 @@ description: JSONL loader
 namespace: target_jsonl
 logo_url: /assets/logos/loaders/jsonl.png
 variant: andyh1203
-docs: https://hub.meltano.com/loaders/target-jsonl.html
 repo: https://github.com/andyh1203/target-jsonl
 pip_url: target-jsonl
 settings:

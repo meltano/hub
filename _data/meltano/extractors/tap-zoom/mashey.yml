@@ -4,7 +4,6 @@ description: Video conferencing software
 namespace: tap_zoom
 logo_url: /assets/logos/extractors/zoom.png
 variant: mashey
-docs: https://hub.meltano.com/extractors/tap-zoom.html
 repo: https://github.com/mashey/tap-zoom
 pip_url: git+https://github.com/mashey/tap-zoom.git
 capabilities:

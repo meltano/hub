@@ -4,7 +4,6 @@ description: Generic data extractor of CSV (comma separated value) files
 namespace: tap_csv
 logo_url: /assets/logos/extractors/csv.png
 variant: meltanolabs
-docs: https://hub.meltano.com/extractors/tap-csv.html
 repo: https://github.com/MeltanoLabs/tap-csv
 pip_url: git+https://github.com/MeltanoLabs/tap-csv.git
 capabilities:

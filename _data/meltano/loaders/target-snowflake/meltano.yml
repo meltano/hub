@@ -7,7 +7,6 @@ target_schema: $TARGET_SNOWFLAKE_SCHEMA
 logo_url: /assets/logos/loaders/snowflake.png
 variant: meltano
 hidden: true
-docs: https://hub.meltano.com/loaders/target-snowflake--meltano.html
 repo: https://gitlab.com/meltano/target-snowflake
 pip_url: git+https://gitlab.com/meltano/target-snowflake.git
 settings_group_validation:

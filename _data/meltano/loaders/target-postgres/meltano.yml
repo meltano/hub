@@ -6,7 +6,6 @@ dialect: postgres
 target_schema: $TARGET_POSTGRES_SCHEMA
 logo_url: /assets/logos/loaders/postgres.png
 variant: meltano
-docs: https://hub.meltano.com/loaders/target-postgres--meltano.html
 repo: https://github.com/meltano/target-postgres
 pip_url: git+https://github.com/meltano/target-postgres.git
 settings_group_validation:

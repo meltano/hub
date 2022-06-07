@@ -4,7 +4,6 @@ label: Twilio
 namespace: tap_twilio
 logo_url: /assets/logos/extractors/twilio.png
 variant: transferwise
-docs: https://hub.meltano.com/extractors/tap-twilio
 pip_url: git+https://github.com/transferwise/pipelinewise-tap-twilio.git
 repo: https://github.com/transferwise/pipelinewise-tap-twilio
 capabilities:

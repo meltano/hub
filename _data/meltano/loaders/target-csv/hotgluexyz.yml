@@ -4,7 +4,6 @@ description: CSV loader
 namespace: target_csv
 logo_url: /assets/logos/loaders/csv.png
 variant: hotgluexyz
-docs: https://hub.meltano.com/loaders/target-csv.html
 repo: https://github.com/hotgluexyz/target-csv
 pip_url: git+https://github.com/hotgluexyz/target-csv.git@0.3.3
 settings:

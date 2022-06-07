@@ -4,7 +4,6 @@ label: Hubspot
 namespace: tap_hubspot
 logo_url: /assets/logos/extractors/hubspot.png
 variant: singer-io
-docs: https://hub.meltano.com/extractors/tap-hubspot
 pip_url: git+https://github.com/singer-io/tap-hubspot.git
 repo: https://github.com/singer-io/tap-hubspot
 capabilities:

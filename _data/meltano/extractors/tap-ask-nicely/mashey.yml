@@ -4,7 +4,6 @@ label: AskNicely
 namespace: tap_ask_nicely
 logo_url: /assets/logos/extractors/ask-nicely.png
 variant: mashey
-docs: https://hub.meltano.com/extractors/tap-ask-nicely
 pip_url: git+https://github.com/Mashey/tap-ask-nicely.git
 repo: https://github.com/Mashey/tap-ask-nicely
 capabilities:

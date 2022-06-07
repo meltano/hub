@@ -4,7 +4,6 @@ label: Chargebee
 description: Subscription billing software
 logo_url: /assets/logos/extractors/chargebee.png
 variant: envoy
-docs: https://hub.meltano.com/extractors/tap-chargebee.html
 pip_url: git+https://github.com/envoy/tap-chargebee.git
 repo: https://github.com/envoy/tap-chargebee
 capabilities:

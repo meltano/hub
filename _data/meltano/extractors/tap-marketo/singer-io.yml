@@ -4,7 +4,6 @@ description: Marketing automation for account-based marketing
 namespace: tap_marketo
 logo_url: /assets/logos/extractors/marketo.png
 variant: singer-io
-docs: https://hub.meltano.com/extractors/tap-marketo.html
 repo: https://github.com/singer-io/tap-marketo
 pip_url: git+https://github.com/singer-io/tap-marketo.git
 capabilities:

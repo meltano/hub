@@ -4,7 +4,6 @@ description: Online payment processing for internet businesses
 namespace: tap_stripe
 logo_url: /assets/logos/extractors/stripe.png
 variant: singer-io
-docs: https://hub.meltano.com/extractors/tap-stripe.html
 repo: https://github.com/singer-io/tap-stripe
 pip_url: git+https://github.com/singer-io/tap-stripe.git
 capabilities:

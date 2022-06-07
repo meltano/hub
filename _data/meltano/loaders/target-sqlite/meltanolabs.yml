@@ -4,7 +4,6 @@ description: SQLite database loader
 namespace: target_sqlite
 logo_url: /assets/logos/loaders/sqlite.png
 variant: meltanolabs
-docs: https://hub.meltano.com/loaders/target-sqlite.html
 repo: https://github.com/MeltanoLabs/target-sqlite
 pip_url: git+https://github.com/MeltanoLabs/target-sqlite.git
 dialect: sqlite

@@ -4,7 +4,6 @@ description: Edge cloud computing services provider
 namespace: tap_fastly
 logo_url: /assets/logos/extractors/fastly.png
 variant: meltano
-docs: https://hub.meltano.com/extractors/tap-fastly.html
 repo: https://gitlab.com/meltano/tap-fastly
 pip_url: git+https://gitlab.com/meltano/tap-fastly.git
 capabilities:

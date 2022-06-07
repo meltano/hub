@@ -4,7 +4,6 @@ description: PostgreSQL database extractor
 namespace: tap_postgres
 logo_url: /assets/logos/extractors/postgres.png
 variant: transferwise
-docs: https://hub.meltano.com/extractors/tap-postgres.html
 repo: https://github.com/transferwise/pipelinewise-tap-postgres
 pip_url: pipelinewise-tap-postgres
 capabilities:

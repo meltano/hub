@@ -4,7 +4,6 @@ description: Single application for the entire DevOps lifecycle
 namespace: tap_gitlab
 logo_url: /assets/logos/extractors/gitlab.png
 variant: meltanolabs
-docs: https://hub.meltano.com/extractors/tap-gitlab.html
 repo: https://github.com/MeltanoLabs/tap-gitlab
 pip_url: git+https://github.com/MeltanoLabs/tap-gitlab.git
 capabilities:
