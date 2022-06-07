@@ -4,7 +4,7 @@ description: CSV loader
 namespace: target_csv
 logo_url: /assets/logos/loaders/csv.png
 variant: singer-io
-docs: https://hub.meltano.com/loaders/csv.html
+docs: https://hub.meltano.com/loaders/target-csv.html
 repo: https://github.com/singer-io/target-csv
 pip_url: target-csv
 settings:

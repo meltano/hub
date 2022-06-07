@@ -4,7 +4,7 @@ description: JSONL loader
 namespace: target_jsonl
 logo_url: /assets/logos/loaders/jsonl.png
 variant: andyh1203
-docs: https://hub.meltano.com/loaders/jsonl.html
+docs: https://hub.meltano.com/loaders/target-jsonl.html
 repo: https://github.com/andyh1203/target-jsonl
 pip_url: target-jsonl
 settings:
@@ -12,11 +12,11 @@ settings:
   label: Destination Path
   description: |
     Sets the destination path the JSONL files are written to, relative
-    to the project root. 
-    
+    to the project root.
+
     The directory needs to exist already, it will not be created
-    automatically. 
-    
+    automatically.
+
     To write JSONL files to the project root, set an empty string (`""`).
   value: output
 - name: do_timestamp_file

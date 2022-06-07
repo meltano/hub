@@ -4,7 +4,7 @@ description: SQLite database loader
 namespace: target_sqlite
 logo_url: /assets/logos/loaders/sqlite.png
 variant: meltanolabs
-docs: https://hub.meltano.com/loaders/sqlite.html
+docs: https://hub.meltano.com/loaders/target-sqlite.html
 repo: https://github.com/MeltanoLabs/target-sqlite
 pip_url: git+https://github.com/MeltanoLabs/target-sqlite.git
 dialect: sqlite
@@ -14,8 +14,8 @@ settings:
 - name: database
   label: Database Name
   description: |
-    Name of the SQLite database file to be used or created, relative to the project root. 
-    
+    Name of the SQLite database file to be used or created, relative to the project root.
+
     The `.db` extension is optional and will be added automatically when omitted.
   value: warehouse
 - name: batch_size

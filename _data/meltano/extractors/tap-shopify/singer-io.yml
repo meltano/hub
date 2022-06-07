@@ -4,7 +4,7 @@ description: Ecommerce platform
 namespace: tap_shopify
 logo_url: /assets/logos/extractors/shopify.png
 variant: singer-io
-docs: https://hub.meltano.com/extractors/shopify.html
+docs: https://hub.meltano.com/extractors/tap-shopify.html
 repo: https://github.com/singer-io/tap-shopify
 pip_url: tap-shopify
 capabilities:
@@ -26,7 +26,7 @@ settings:
   placeholder: Ex. my-first-store
   description: |
     The store subdomain, which can be derived from your Shopify admin URL.
-    
+
     If your admin URL starts with `https://my-first-store.myshopify.com/`, your store subdomain is `my-first-store`.
 - name: api_key
   kind: password

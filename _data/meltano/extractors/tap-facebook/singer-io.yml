@@ -4,7 +4,7 @@ description: Advertising Platform
 namespace: tap_facebook
 logo_url: /assets/logos/extractors/facebook.png
 variant: singer-io
-docs: https://hub.meltano.com/extractors/facebook.html
+docs: https://hub.meltano.com/extractors/tap-facebook.html
 repo: https://github.com/singer-io/tap-facebook
 pip_url: git+https://github.com/singer-io/tap-facebook.git
 capabilities:

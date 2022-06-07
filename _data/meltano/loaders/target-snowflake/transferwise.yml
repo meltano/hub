@@ -6,7 +6,7 @@ dialect: snowflake
 target_schema: $TARGET_SNOWFLAKE_DEFAULT_TARGET_SCHEMA
 logo_url: /assets/logos/loaders/snowflake.png
 variant: transferwise
-docs: https://hub.meltano.com/loaders/snowflake.html
+docs: https://hub.meltano.com/loaders/target-snowflake.html
 repo: https://github.com/transferwise/pipelinewise-target-snowflake
 pip_url: pipelinewise-target-snowflake
 settings_group_validation:

@@ -4,7 +4,7 @@ description: Single application for the entire DevOps lifecycle
 namespace: tap_gitlab
 logo_url: /assets/logos/extractors/gitlab.png
 variant: meltanolabs
-docs: https://hub.meltano.com/extractors/gitlab.html
+docs: https://hub.meltano.com/extractors/tap-gitlab.html
 repo: https://github.com/MeltanoLabs/tap-gitlab
 pip_url: git+https://github.com/MeltanoLabs/tap-gitlab.git
 capabilities:
@@ -32,7 +32,7 @@ settings:
   placeholder: Ex. *****************
   description: |
     GitLab personal access token or other API token.
-    
+
     #### How to get
 
     The process for getting the private token or personal access token is very simple:

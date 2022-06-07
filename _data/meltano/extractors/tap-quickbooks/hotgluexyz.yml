@@ -4,7 +4,7 @@ label: Quickbooks
 description: Accounting management platform
 logo_url: /assets/logos/extractors/quickbooks.png
 variant: hotgluexyz
-docs: https://hub.meltano.com/extractors/quickbooks.html
+docs: https://hub.meltano.com/extractors/tap-quickbooks.html
 repo: https://github.com/hotgluexyz/tap-quickbooks
 pip_url: git+https://github.com/hotgluexyz/tap-quickbooks.git
 capabilities:

@@ -4,7 +4,7 @@ label: Google Sheets
 namespace: tap_google_sheets
 logo_url: /assets/logos/extractors/google-sheets.png
 variant: matatika
-docs: https://hub.meltano.com/extractors/google-sheets
+docs: https://hub.meltano.com/extractors/tap-google-sheets
 pip_url: git+https://github.com/Matatika/tap-google-sheets.git
 repo: https://github.com/Matatika/tap-google-sheets
 settings_group_validation:
