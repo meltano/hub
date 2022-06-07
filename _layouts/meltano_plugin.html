@@ -145,7 +145,7 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{page.meltano_type}}/
   {% for alt_variant in plugin.alt_variants %} {% if alt_variant.name != plugin.variant %}
   <li>
     {% if page.is_singer == true %}
-      {% assign variant_url = alt_variant.url | replace: "extractors", "taps" | replace: "loaders", "targets" %} 
+      {% assign variant_url = alt_variant.singer_url %} 
     {% else %}
       {% assign variant_url = alt_variant.url %}
     {% endif %}
@@ -192,9 +192,9 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{page.meltano_type}}/
     </p>
 
     {% if page.variant_specific %}
-      {% capture meltano_url %}{{page.meltano_type}}/{{page.plugin_name_no_prefix}}--{{plugin.variant}}#getting-started{% endcapture %}
+      {% capture meltano_url %}{{page.meltano_type}}/{{page.name}}--{{plugin.variant}}#getting-started{% endcapture %}
     {% else %}
-      {% capture meltano_url %}{{page.meltano_type}}/{{page.plugin_name_no_prefix}}#getting-started{% endcapture %}
+      {% capture meltano_url %}{{page.meltano_type}}/{{page.name}}#getting-started{% endcapture %}
     {% endif %}
 
     <p>
