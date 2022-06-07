@@ -263,7 +263,7 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{page.meltano_type}}/
       >:
     </p>
 
-    <pre><code>meltano add {{page.singular_plugin_type}} {{plugin.name}}{% if page.variant_specific %} --variant {{plugin.name}}{% endif %}</code></pre>
+    <pre><code>meltano add {{page.singular_plugin_type}} {{plugin.name}}{% if page.variant_specific %} --variant {{plugin.variant}}{% endif %}</code></pre>
   </li>
   {% if plugin.settings.size > 0 %}
   <li>
