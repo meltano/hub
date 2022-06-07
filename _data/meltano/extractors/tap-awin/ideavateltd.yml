@@ -1,0 +1,16 @@
+description: Affiliate Marketing Network
+label: Awin
+name: tap-awin
+logo_url: /assets/logos/extractors/awin.png
+namespace: tap_awin
+variant: ideavateltd
+pip_url: git+https://github.com/ideavateltd/tap-awin.git
+repo: https://github.com/ideavateltd/tap-awin
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://wiki.awin.com/index.php/API
+maintenance_status: unknown
+keywords:
+- api

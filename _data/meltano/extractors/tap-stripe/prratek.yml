@@ -1,0 +1,32 @@
+name: tap-stripe
+label: Stripe
+description: Online payment processing for internet businesses
+namespace: tap_stripe
+logo_url: /assets/logos/extractors/stripe.png
+variant: prratek
+repo: https://github.com/prratek/tap-stripe
+pip_url: git+https://github.com/prratek/tap-stripe.git
+capabilities:
+- catalog
+- discover
+- state
+settings_group_validation:
+- - api_key
+  - start_date
+settings:
+- name: api_key
+  kind: password
+  label: Secret API Key
+  placeholder: Ex. sk_live_1a2b3c4d5e
+- name: start_date
+  kind: date_iso8601
+  description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
+- name: account_id
+  label: Account ID
+  placeholder: Ex. acct_1a2b3c4d5e
+domain_url: https://stripe.com/docs/api
+maintenance_status: active
+keywords:
+- api

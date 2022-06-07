@@ -7,7 +7,7 @@ description: Docker file bundle to build a Docker image containing your Meltano 
 The [`docker`](https://docs.docker.com/) [file bundle](https://docs.meltano.com/concepts/plugins#file-bundles) installs files into your Meltano project to accelerate onboarding and integrating the plugin into your project.
 This file bundle installs a DockerFile to package your Meltano project as a Docker image.
 
-- **Repository**: <https://gitlab.com/meltano/files-docker>
+- **Repository**: <https://github.com/meltano/files-docker>
 - **Documentation**: <https://docs.docker.com/>
 - **Maintainer**: Meltano community
 - **Maintenance status**: Active
@@ -31,6 +31,6 @@ If you haven't already, follow the [Getting Started guide](https://docs.meltano.
 
 ### Next steps
 
-1. Follow the advanced instructions to uncomment the services you want to run and spin them up using [`docker-compose up -d`](https://gitlab.com/meltano/files-docker-compose/-/blob/master/bundle/README.md)
+1. Follow the advanced instructions to uncomment the services you want to run and spin them up using [`docker-compose up -d`](https://github.com/meltano/files-docker-compose/blob/main/bundle/README.md)
 
 If you run into any issues, chat with us in [#troubleshooting](https://meltano.slack.com/archives/C01TCRBBJD7) on [Slack](https://meltano.com/slack).

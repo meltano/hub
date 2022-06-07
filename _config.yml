@@ -57,6 +57,9 @@ permalink: /:categories/:year/:month/:day/:title
 # Build settings
 markdown: kramdown
 exclude: ["README.md"]
+highlighter: rouge
 
-gems:
+plugins:
   - jekyll-sitemap
+
+include: [_redirects]

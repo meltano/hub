@@ -1,0 +1,91 @@
+name: tap-postgres
+label: PostgreSQL
+description: PostgreSQL database extractor
+namespace: tap_postgres
+logo_url: /assets/logos/extractors/postgres.png
+variant: transferwise
+docs: https://hub.meltano.com/extractors/postgres.html
+repo: https://github.com/transferwise/pipelinewise-tap-postgres
+pip_url: pipelinewise-tap-postgres
+capabilities:
+- catalog
+- discover
+- state
+settings_group_validation:
+- - host
+  - port
+  - user
+  - password
+  - dbname
+settings:
+- name: host
+  label: Host
+  value: localhost
+  description: PostgreSQL host
+- name: port
+  label: Port
+  kind: integer
+  value: 5432
+  description: PostgreSQL port
+- name: user
+  label: User
+  description: PostgreSQL user
+- name: password
+  label: Password
+  kind: password
+  description: PostgreSQL password
+- name: dbname
+  label: Database Name
+  description: PostgreSQL database name
+- name: ssl
+  label: SSL
+  kind: boolean
+  value: false
+  value_post_processor: stringify
+  description: Using SSL via postgres `sslmode='require'` option. If the server does
+    not accept SSL connections or the client certificate is not recognized the connection
+    will fail
+- name: filter_schemas
+  label: Filter Schemas
+  description: Scan only the specified comma-separated schemas to improve the performance
+    of data extraction
+- name: default_replication_method
+  label: Default Replication Method
+  kind: options
+  options:
+  - label: Log-based Incremental Replication
+    value: LOG_BASED
+  - label: Key-based Incremental Replication
+    value: INCREMENTAL
+  - label: Full Table Replication
+    value: FULL_TABLE
+- name: max_run_seconds
+  label: Max Run Seconds
+  kind: integer
+  value: 43200
+  description: Stop running the tap after certain number of seconds
+- name: logical_poll_total_seconds
+  label: Logical Poll Total Seconds
+  kind: integer
+  value: 10800
+  description: Stop running the tap when no data received from wal after certain number
+    of seconds
+- name: break_at_end_lsn
+  label: Break At End LSN
+  kind: boolean
+  value: true
+  description: Stop running the tap if the newly received lsn is after the max lsn
+    that was detected when the tap started
+domain_url: https://www.postgresql.org/
+maintenance_status: active
+keywords:
+- database
+usage: |
+  ## Troubleshooting
+
+  ### Error: `pg_config executable not found` or `libpq-fe.h: No such file or directory`
+
+  This error message indicates that the [`libpq`](https://www.postgresql.org/docs/current/libpq.html) dependency is missing.
+
+  To resolve this, refer to the ["Dependencies" section](#dependencies) above.
+  

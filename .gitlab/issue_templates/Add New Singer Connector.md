@@ -15,12 +15,12 @@ Reference "How to Submit a Singer Connector to MeltanoHub" [YouTube video](https
 - [ ] Create a Merge Request to `main` from the new branch in your fork and select the template "Add a New Singer Connector".
 - [ ] Tag `@tayloramurphy` or `@pnadolny13` to flag it for review. Or post to the hub channel on Meltano slack.
 
-## Detailed Steps (GitLab Web Editor)
+## Detailed Steps (Git Web Editor)
 
-- Click Web IDE on the [MeltanoHub repo](https://gitlab.com/meltano/hub)
+- Click Web IDE on the [MeltanoHub repo](https://github.com/meltano/hub)
 - You'll be prompted to create a fork since you dont have access to edit directly. This automatically create a fork in your project and land you in the web editor.
-- Add your yaml config file in `/_data/taps/` by clicking "New File". You can use the sample below to get started.
-- Upload your png image in `/assets/logos/<taps or targets>` by clicking "Upload File".
+- Add your yaml config file in `/_data/meltano/extractors` by clicking "New File". You can use the sample below to get started.
+- Upload your png image in `/assets/logos/<extractors or loaders>` by clicking "Upload File".
 - Click the commit, write a write a message, then commit again (keep "Create new branch" and "Start a new merge request selected")
 - Choose the "Add new Singer Connector" template in the merge request
 - Tag `@tayloramurphy` or `@pnadolny13`

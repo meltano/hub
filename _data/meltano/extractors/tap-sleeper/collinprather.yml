@@ -1,0 +1,35 @@
+description: Fantasy Football app, whose api also serves the latest player news, statuses,
+  practice updates, and aggregate stats about which players are trending on their
+  platform.
+label: Sleeper
+name: tap-sleeper
+logo_url: /assets/logos/extractors/sleeper.png
+namespace: tap_sleeper
+variant: collinprather
+pip_url: tap-sleeper
+repo: https://github.com/collinprather/tap-sleeper
+capabilities:
+- catalog
+- discover
+- state
+- about
+- stream-maps
+settings:
+- name: sport
+  label: Sport
+  description: Professional sport league, ie nfl, nba, etc
+- name: league_id
+  label: League ID
+  description: Unique identifier for the sleeper league
+- name: trending_players_lookback_hours
+  label: Trending Player Lookback Hours
+  description: Total hours to lookback when requesting the current trending players
+- name: trending_players_limit
+  label: Trending Players Limit
+  description: Total number of players to return when requesting the current trending
+    players
+domain_url: https://sleeper.app
+maintenance_status: active
+keywords:
+- api
+- meltano_sdk

@@ -1,0 +1,16 @@
+description: Contact Center Management Platform
+label: Genesys Cloud
+name: tap-purecloud
+logo_url: /assets/logos/extractors/purecloud.png
+namespace: tap_purecloud
+variant: isabella232
+pip_url: git+https://github.com/isabella232/tap-purecloud.git
+repo: https://github.com/isabella232/tap-purecloud
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://developer.genesys.cloud/api/rest/v2/
+maintenance_status: unknown
+keywords:
+- api

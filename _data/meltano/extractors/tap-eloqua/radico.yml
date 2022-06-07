@@ -1,0 +1,16 @@
+description: Marketing Automation Software
+label: Eloqua
+name: tap-eloqua
+logo_url: /assets/logos/extractors/eloqua.png
+namespace: tap_eloqua
+variant: radico
+pip_url: git+https://github.com/Radico/tap-eloqua.git
+repo: https://github.com/Radico/tap-eloqua
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-develop/Developers/BulkAPI/Tutorials/Export.htm
+maintenance_status: unknown
+keywords:
+- api

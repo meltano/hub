@@ -1,0 +1,39 @@
+description: Columnar Storage Format
+label: Parquet
+name: target-parquet
+logo_url: /assets/logos/loaders/parquet.png
+namespace: target_parquet
+variant: estrategiahq
+pip_url: git+https://github.com/estrategiahq/target-parquet.git
+repo: https://github.com/estrategiahq/target-parquet
+settings_group_validation: []
+capabilities: []
+settings:
+- name: disable_collection
+  kind: boolean
+  label: Disable Collection
+  description: A boolean of whether to disable Singer anonymous tracking.
+- name: logging_level
+  label: Logging Level
+  description: (Default - INFO) The log level. Can also be set using environment variables.
+- name: destination_path
+  label: Destination Path
+  description: (Default - '.') The path to write files out to.
+- name: compression_method
+  label: Compression Method
+  description: Compression methods have to be supported by Pyarrow, and currently
+    the compression modes available are - snappy (recommended), zstd, brotli and gzip.
+- name: streams_in_separate_folder
+  kind: boolean
+  label: Streams In Separate Folder
+  description: (Default - False) The option to create each stream in a different folder,
+    as these are expected to come in different schema.
+- name: file_size
+  kind: integer
+  label: File Size
+  description: The number of rows to write per file. The default is to write to a
+    single file.
+domain_url: https://parquet.apache.org/
+maintenance_status: unknown
+keywords:
+- file

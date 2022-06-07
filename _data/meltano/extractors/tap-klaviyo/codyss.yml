@@ -1,0 +1,16 @@
+description: Email Marketing and SMS Marketing Platform
+label: Klaviyo
+name: tap-klaviyo
+logo_url: /assets/logos/extractors/klaviyo.png
+namespace: tap_klaviyo
+variant: codyss
+pip_url: git+https://github.com/codyss/tap-klaviyo.git
+repo: https://github.com/codyss/tap-klaviyo
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://apidocs.klaviyo.com/reference/metrics
+maintenance_status: unknown
+keywords:
+- api

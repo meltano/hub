@@ -1,0 +1,51 @@
+name: target-csv
+label: Comma Separated Values (CSV)
+description: CSV loader
+namespace: target_csv
+logo_url: /assets/logos/loaders/csv.png
+variant: hotgluexyz
+docs: https://hub.meltano.com/loaders/csv.html
+repo: https://github.com/hotgluexyz/target-csv
+pip_url: git+https://github.com/hotgluexyz/target-csv.git@0.3.3
+settings:
+- name: destination_path
+  label: Destination Path
+  description: |
+    Sets the destination path the CSV files are written to, relative to
+    the project root. 
+    
+    The directory needs to exist already, it will not be created
+    automatically. 
+    
+    To write CSV files to the project root, set an empty string (`""`).
+  value: output
+- name: delimiter
+  label: Delimiter
+  kind: options
+  options:
+  - label: Comma (,)
+    value: ','
+  - label: Tab (  )
+    value: \t
+  - label: Semi-colon (;)
+    value: ;
+  - label: Pipe (|)
+    value: '|'
+  value: ','
+  description: A one-character string used to separate fields. It defaults to a comma
+    (,).
+- name: quotechar
+  label: Quote Character
+  kind: options
+  options:
+  - label: Double Quote (")
+    value: '"'
+  - label: Single Quote (')
+    value: "'"
+  value: "'"
+  description: A one-character string used to quote fields containing special characters,
+    such as the delimiter or quotechar, or which contain new-line characters. It defaults
+    to single quote (').
+maintenance_status: active
+keywords:
+- file

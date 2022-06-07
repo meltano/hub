@@ -9,7 +9,7 @@ layout: default
       {% if plugin %}
       <img class="logo" src="{{plugin.logo_url}}" />
       {{ plugin.label }} {% if page.variant_specific %} (<code
-        >{{variant.name}}</code
+        >{{plugin.variant}}</code
       >
       variant) {% endif %} {% else %} {{ page.title}} {% endif %}
     </h1>

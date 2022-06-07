@@ -1,0 +1,34 @@
+name: target-jsonl
+label: JSON Lines (JSONL)
+description: JSONL loader
+namespace: target_jsonl
+logo_url: /assets/logos/loaders/jsonl.png
+variant: andyh1203
+docs: https://hub.meltano.com/loaders/jsonl.html
+repo: https://github.com/andyh1203/target-jsonl
+pip_url: target-jsonl
+settings:
+- name: destination_path
+  label: Destination Path
+  description: |
+    Sets the destination path the JSONL files are written to, relative
+    to the project root. 
+    
+    The directory needs to exist already, it will not be created
+    automatically. 
+    
+    To write JSONL files to the project root, set an empty string (`""`).
+  value: output
+- name: do_timestamp_file
+  kind: boolean
+  label: Include Timestamp in File Names
+  description: |
+    Specifies if the files should get timestamped.
+
+    By default, the resulting file will not have a timestamp in the file name (i.e. `exchange_rate.jsonl`).
+
+    If this option gets set to `true`, the resulting file will have a timestamp associated with it (i.e. `exchange_rate-{timestamp}.jsonl`).
+  value: false
+maintenance_status: active
+keywords:
+- file

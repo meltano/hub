@@ -1,0 +1,16 @@
+description: Enterprise Call Analytics
+label: Telemetrics
+name: tap-telemetrics
+logo_url: /assets/logos/extractors/telemetrics.png
+namespace: tap_telemetrics
+variant: reachlocal
+pip_url: git+https://github.com/reachlocal/tap-telemetrics.git
+repo: https://github.com/reachlocal/tap-telemetrics
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://telmetrics.com/telmetrics-api
+maintenance_status: unknown
+keywords:
+- api

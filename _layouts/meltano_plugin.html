@@ -2,92 +2,131 @@
 layout: plugin_page
 ---
 
-{% assign plugin_type = page.plugin_type %} {% assign plugin = page.plugin %} {%
-assign singer_plugin = plugin.singer_plugin %} {% assign variant = page.variant
-%}
-{% assign repo_singer_name = variant.repo | split: "/" | last %}
+{% assign plugin_type = page.plugin_type %} {% assign plugin = page.plugin %} 
+{% assign repo_package_name = plugin.repo | split: "/" | last %}
+{% capture yaml_file %}
+https://github.com/meltano/hub/tree/develop/_data/meltano/{{page.meltano_type}}/{{plugin.name}}/{{plugin.variant}}.yml
+{% endcapture %}
+{% if plugin.metrics %} {% assign metrics = plugin.metrics %}{% endif %}
 
-<p>
-  {% if plugin_type == "extractor" %} The <code>{{plugin.name}}</code>
-  <a href="https://docs.meltano.com/concepts/plugins#extractors" target="_blank"
-    >Meltano extractor</a
-  >
-  pulls data from 
-  {% if singer_plugin.entity_url %}
-    <a href="{{plugin.entity_url}}" target="_blank">{{singer_plugin.label}}</a>
-  {% else %}
-    the {{ singer_plugin.label }} {{ singer_plugin.entity_type }}
-  {% endif %}
-  that can then be sent to a destination using a
-  <a href="https://docs.meltano.com/concepts/plugins#loaders" target="_blank"
-    >loader</a
-  >. {% else %} The
-  <code>{{plugin.name}}</code>
-  <a href="https://docs.meltano.com/concepts/plugins#loaders" target="_blank"
-    >Meltano loader</a
-  >
-  sends data into
-  {% if singer_plugin.entity_url %}
-  <a href="{{plugin.entity_url}}" target="_blank">{{singer_plugin.label}}</a>
-  {% else %}
-    the {{ singer_plugin.label }} {{ singer_plugin.entity_type }}
-  {% endif %}
-  after it was pulled from a source using an
-  <a href="https://docs.meltano.com/concepts/plugins#extractors" target="_blank"
-    >extractor</a
-  >. {% endif %}
-</p>
+{% if page.page_topic %} 
+{{ page.page_topic | markdownify}}
+{% else %}
+  {{ plugin.label }}
+{% endif %}
 
 <ul>
+  {% if plugin.maintenance_status == "unknown" %} {% assign maintenance_status_label = "Unknown" %} {% assign maintenance_status_color = "lightgrey" %} {% endif %}
+  {% if plugin.maintenance_status == "development" %} {% assign maintenance_status_label = "Development (Under Construction)" %} {% assign maintenance_status_color = "orange" %} {% endif %}
+  {% if plugin.maintenance_status == "beta" %} {% assign maintenance_status_label = "Prerelease (Beta)" %} {% assign maintenance_status_color = "yellow" %} {% endif %}
+  {% if plugin.maintenance_status == "active" %} {% assign maintenance_status_label = "Active (Stable)" %} {% assign maintenance_status_color = "brightgreen" %} {% endif %}
+  {% if plugin.maintenance_status == "inactive" %} {% assign maintenance_status_label = "Inactive or Stale" %} {% assign maintenance_status_color = "red" %} {% endif %}
+  <li>
+    <img   
+      alt="Maintenance Status"
+      src="https://img.shields.io/badge/Maintenance%20Status-{{ maintenance_status_label | replace: " ", "%20" }}-{{ maintenance_status_color }}">
+  </li>
+
   <li>
     <strong>Repository</strong>:
-    <a href="{{variant.repo}}" target="_blank">{{ variant.repo }}</a>
+    <a href="{{plugin.repo}}" target="_blank">{{ plugin.repo }}</a>
   </li>
+
+  <ul>
+    {% if plugin.repo contains 'github' %}
+    <li>
+      <img
+        alt="GitHub - Stars"
+        src="https://img.shields.io/github/stars/{{plugin.variant}}/{{repo_package_name}}?style=flat-square&label=Stars">
+    </li>
+    <li>
+      <img
+        alt="GitHub - Forks"
+        src="https://img.shields.io/github/forks/{{plugin.variant}}/{{repo_package_name}}?style=flat-square&label=Forks">
+    </li>
+    <li>
+      <img
+        alt="GitHub - Open Issues"
+        src="https://img.shields.io/github/issues-raw/{{plugin.variant}}/{{repo_package_name}}?label=Open%20Issues">
+    </li>
+    <li>
+      <img
+        alt="GitHub - Open PRs"
+        src="https://img.shields.io/github/issues-pr-raw/{{plugin.variant}}/{{repo_package_name}}?label=Open%20Pull%20Requests">
+    </li>
+    <li>
+      <img
+        alt="GitHub - Contributors"
+        src="https://img.shields.io/github/contributors/{{plugin.variant}}/{{repo_package_name}}?label=Contributors">
+    </li>
+    <li>
+      <img alt="GitHub - License"
+        src="https://img.shields.io/github/license/{{plugin.variant}}/{{repo_package_name}}?color=c0c0c4&label=License&style=flat-square"
+        href="{{plugin.repo}}">
+    </li>
+
+    {% endif %}
+    {% if metrics or metrics.LAST_UPDATED_TIMESTAMP > 0 %}
+      <li>
+        <img
+          alt="Last Updated At"
+          src="https://img.shields.io/badge/Last%20Updated%20At-{{ metrics.LAST_UPDATED_TIMESTAMP | date_to_string }}-c0c0c4">
+      </li>
+    {% endif %}
+    </ul>
   <li>
-    {% assign maintainer = variant.maintainer %}
-    <a href="/singer/maintainers"><strong>Maintainer</strong></a
+    {% assign maintainer = plugin.maintainer %}
+    <a href="/maintainers"><strong>Maintainer</strong></a
     >: {% if maintainer.url %}
     <a href="{{maintainer.url}}" target="_blank">{{ maintainer.label }}</a>
     {% else %} {{ maintainer.label }} {% endif %}
   </li>
-  {% if variant.maintenance_status and variant.maintenance_status != "Unknown"
-  %}
-  <li><strong>Maintenance status</strong>: {{ variant.maintenance_status }}</li>
-  {% endif %} {% if variant.metrics %} {% assign metrics = variant.metrics %}
-  <li>
-    <strong>Last update at</strong>: {{ metrics.LAST_UPDATED_TIMESTAMP |
-    date_to_string }}
-  </li>
-  {% if variant.meltano_sdk %}
-  <li><strong>Built with <a href="https://sdk.meltano.com/en/latest/" target="_blank">Meltano SDK</a></strong>: Yes!</li>
+  {% if metrics.MELTANO_EXEC_COUNT_3M > 0 or metrics.MELTANO_PROJECT_ID_COUNT_3M > 0 %}
+  <li><a href="/singer/docs#meltano-usage-metrics"><strong>Meltano Stats:</strong></a></li>
+  <ul>
+    {% if metrics.MELTANO_EXEC_COUNT_3M > 0 %}
+    <li>
+      <img   
+        alt="Executions (Last 3 Months)"
+        src="https://img.shields.io/badge/Executions%20(Last%203%20Months)-{{ metrics.MELTANO_EXEC_COUNT_3M }}-c0c0c4">
+    </li>
+    {% endif %}
+    {% if metrics.MELTANO_PROJECT_ID_COUNT_3M > 0 %}
+    <li>
+      <img   
+        alt="Projects (Last 3 Months)"
+        src="https://img.shields.io/badge/Projects%20(Last%203%20Months)-{{ metrics.MELTANO_PROJECT_ID_COUNT_3M }}-c0c0c4">
+    </li>
+    {% endif %}
+  </ul>
   {% endif %}
-  <li>
-    <a href="{{variant.repo}}/issues" target="_blank">
-      <strong>Open issues and PRs</strong> </a>: {{ metrics.NUM_OPEN_ISSUES }}
-  </li>
-  {% if metrics.NUM_STARGAZERS > 0 %}
-  <li><strong>Stars</strong>: {{ metrics.NUM_STARGAZERS }}</li>
-  {% endif %} {% endif %}
-  {% if variant.repo contains 'github' %}
-  <li>
-    <img alt="GitHub - License"
-      src="https://img.shields.io/github/license/{{variant.name}}/{{repo_singer_name}}?color=c0c0c4&label=License&style=flat-square"
-      href="{{variant.repo}}">
-  </li>
+
+  {% if plugin.keywords contains "meltano_sdk" %}
+  <li><strong>Built with <a href="https://sdk.meltano.com/en/latest/" target="_blank">Meltano SDK</a></strong>: &#10004;</li>
   {% endif %}
-  {% if variant.pip_url contains '.git' %}
+
+  {% if plugin.pip_url contains '.git' %}
   {% else %}
   <li>
-    <img alt="PyPI - Downloads"
-      src="https://img.shields.io/pypi/dm/{{repo_singer_name}}?color=3438BF&label=PyPI%20downloads&style=flat-square"
-      href="https://pypi.org/project/{{singer_plugin.singer_name}}/">
+      <img   
+        alt="PyPI - Downloads"
+        src="https://img.shields.io/pypi/dm/{{repo_package_name}}?color=3438BF&label=PyPI%20downloads&style=flat-square"
+        href="https://pypi.org/project/{{repo_package_name}}/">
+  </li>
+  <li>
+    <img   
+      alt="PyPI - Version"
+      src="https://img.shields.io/pypi/v/{{repo_package_name}}?color=3438BF&label=PyPI%20package&style=flat-square"
+      href="https://pypi.org/project/{{repo_package_name}}/">
   </li>
   {% endif %}
+
 </ul>
 
-{% if plugin.variants.size > 1 %}
 
-<h2 id="variants">Alternative variants</h2>
+{% if plugin.alt_variants.size > 1 %}
+
+<h2 id="plugins">Alternative variants</h2>
 
 <p>
   Multiple
@@ -95,18 +134,23 @@ assign singer_plugin = plugin.singer_plugin %} {% assign variant = page.variant
     >variants</a
   >
   of <code>{{plugin.name}}</code> are available. {% if page.variant_specific %}
-  This document describes the <code>{{variant.name}}</code> variant. {% else %}
-  This document describes the default <code>{{variant.name}}</code> variant,
+  This document describes the <code>{{plugin.variant}}</code> variant. {% else %}
+  This document describes the default <code>{{plugin.variant}}</code> variant,
   which is recommended for new users. {% endif %}
 </p>
 
 <p>Alternative variants are:</p>
 
 <ul>
-  {% for alt_variant in plugin.variants %} {% if alt_variant != variant %}
+  {% for alt_variant in plugin.alt_variants %} {% if alt_variant.name != plugin.variant %}
   <li>
-    <a href="{{ alt_variant.url | prepend: site.baseurl | prepend: site.url }}">
-      <code>{{alt_variant.name}}</code>
+    {% if page.is_singer == true %}
+      {% assign variant_url = alt_variant.singer_url %} 
+    {% else %}
+      {% assign variant_url = alt_variant.url %}
+    {% endif %}
+    <a href="{{ variant_url }}">
+      <code>{{alt_variant.variant}}</code>
     </a>
     {% if alt_variant.default %}(default){%endif%}
   </li>
@@ -114,6 +158,50 @@ assign singer_plugin = plugin.singer_plugin %} {% assign variant = page.variant
 </ul>
 
 {% endif %}
+
+{% if page.is_singer == true %}
+
+    <h2 id="standalone-usage">Standalone usage</h2>
+    
+    <p>
+      Install the package using
+      <a href="https://pip.pypa.io/" target="_blank">pip</a>:
+    </p>
+    
+    <pre><code>pip install {{plugin.pip_url}}</code></pre>
+    
+    <p>
+      For additional instructions, refer to the
+      <a href="{{plugin.repo}}#readme" target="_blank">README in the repository</a>.
+    </p>
+
+    {% if plugin.prereq %}
+    <h3 id="prerequisites">Prerequisites</h3>
+    
+    {{ plugin.prereq | markdownify }}
+    
+    {% endif %}
+    
+    <h2 id="usage-with-meltano">
+      Usage with <a href="https://meltano.com" target="_blank">Meltano</a>
+    </h2>
+    <p>
+    <a href="https://meltano.com">Meltano</a> helps you manage your <a href="https://docs.meltano.com/guide/configuration">configuration</a>,
+    <a href="https://docs.meltano.com/guide/integration#incremental-replication-state">incremental replication</a>, 
+    and <a href="https://docs.meltano.com/guide/orchestration#create-a-schedule">scheduled</a> pipelines.
+    </p>
+
+    {% if page.variant_specific %}
+      {% capture meltano_url %}{{page.meltano_type}}/{{page.name}}--{{plugin.variant}}#getting-started{% endcapture %}
+    {% else %}
+      {% capture meltano_url %}{{page.meltano_type}}/{{page.name}}#getting-started{% endcapture %}
+    {% endif %}
+
+    <p>
+      View the <a href="/{{meltano_url}}">Meltano-specific <code>{{plugin.name}}</code> instructions</a> to learn more.
+    </p>
+
+{% else %}
 
 <h2 id="getting-started">Getting Started</h2>
 
@@ -155,6 +243,10 @@ assign singer_plugin = plugin.singer_plugin %} {% assign variant = page.variant
   {% endif %}
 </ol>
 
+{% if plugin.prereq.size > 0 and is_singer == false%} 
+{{ plugin.prereq | markdownify }}
+{% endif %}
+
 <h3 id="installation-and-configuration">Installation and configuration</h3>
 
 <h4 id="using-the-command-line-interface">Using the Command Line Interface</h4>
@@ -171,9 +263,9 @@ assign singer_plugin = plugin.singer_plugin %} {% assign variant = page.variant
       >:
     </p>
 
-    <pre><code>meltano add {{plugin_type}} {{plugin.name}}{% if page.variant_specific %} --variant {{variant.name}}{% endif %}</code></pre>
+    <pre><code>meltano add {{page.singular_plugin_type}} {{plugin.name}}{% if page.variant_specific %} --variant {{plugin.variant}}{% endif %}</code></pre>
   </li>
-  {% if variant.settings.size > 0 %}
+  {% if plugin.settings.size > 0 %}
   <li>
     Configure the <a href="#settings">settings</a> below using
     <a
@@ -185,88 +277,70 @@ assign singer_plugin = plugin.singer_plugin %} {% assign variant = page.variant
   </li>
   {% endif %}
 </ol>
- 
-<h4 id="using-meltano-ui">Using Meltano UI</h4>
 
-<ol>
-  <li>
-    <p>
-      Start
-      <a href="https://docs.meltano.com/ui.html" target="_blank">Meltano UI</a>
-      using
-      <a
-        href="https://docs.meltano.com/command-line-interface.html#ui"
-        target="_blank"
-        ><code>meltano ui</code></a
-      >:
-    </p>
-
-    <pre><code>meltano ui</code></pre>
-  </li>
-  <li>
-    Open the {{plugin_type | capitalize}}s interface at
-    <a href="http://localhost:5000/{{plugin_type}}s" target="_blank"
-      >http://localhost:5000/{{plugin_type}}s</a
-    >.
-  </li>
-  <li>Click the “Add to project” button for “{{plugin.label}}”.</li>
-  {% if page.variant_specific %}
-  <li>Choose "Add variant '{{variant.name}}'".</li>
-  {% endif %} {% if variant.settings.size > 0 %}
-  <li>
-    Configure the <a href="#settings">settings</a> below in the “Configuration”
-    interface that opens automatically.
-  </li>
-  {% endif %}
-</ol>
-
+{% if page.next_steps.size > 0 %}
 <h3 id="next-steps">Next steps</h3>
 
+{{ page.next_steps | markdownify }}
+{% endif %}
+
+{% endif %}
+
+{% if plugin_type == "extractor" or plugin_type == "loader" or plugin_type == "tap" or plugin_type == "target" %}
+<h2 id="capabilities">Capabilities</h2>
+    
+{% if plugin.capabilities.size == 0 %}
 <p>
-  Follow the remaining steps of the
-  <a href="https://docs.meltano.com/getting-started.html" target="_blank">
-    Getting Started guide</a
-  >:
+  <code>{{plugin.name}}</code> does not have any <a href="/singer/docs#singer-connector-capabilities">capabilities</a> defined in its metadata.
+  Please consider adding them by making a pull request to the
+  <a href="{{yaml_file}}">YAML file</a>
+  that defines the <a href="/singer/docs#singer-connector-capabilities">capabilities</a> for this {{plugin_type}}.
 </p>
 
-<ol>
-  {% if plugin_type == "extractor" %}
-  <li>
-    <a
-      href="https://docs.meltano.com/getting-started.html#select-entities-and-attributes-to-extract"
-      target="_blank"
-    >
-      Select entities and attributes to extract
-    </a>
-  </li>
-  <li>
-    <a
-      href="https://docs.meltano.com/getting-started.html#add-a-loader-to-send-data-to-a-destination"
-      target="_blank"
-    >
-      Add a loader to send data to a destination
-    </a>
-  </li>
+{% else %} 
+
+  {% if plugin.capabilities.size == 2 
+    and plugin.capabilities contains "catalog" 
+    and plugin.capabilities contains "discover" 
+    and plugin.settings.size == 0
+  %}
+    <p>
+      The current <a href="/singer/docs#singer-connector-capabilities">capabilities</a> for <code>{{plugin.name}}</code> 
+      may have been automatically set when originally added to the Hub.
+      Please review the capabilities when using this {{plugin_type}}.
+      If you find they are out of date, please consider updating them by making a pull request to the <a href="{{yaml_file}}">YAML file</a>
+      that defines the <a href="/singer/docs#singer-connector-capabilities">capabilities</a> for this {{plugin_type}}.
+    </p>
   {% endif %}
-  <li>
-    <a
-      href="https://docs.meltano.com/getting-started.html#run-a-data-integration-el-pipeline"
-      target="_blank"
-    >
-      Run a data integration (EL) pipeline
-    </a>
-  </li>
-</ol>
 
+<ul> {% for capability in plugin.capabilities %} 
+  <li>
+    <a href="/singer/docs#{{capability}}">
+      <code>{{capability}}</code>
+    </a>
+  </li> {% endfor %} </ul> 
+
+  {% endif %}
+
+{% endif %}
+
+<h2 id="settings">Settings</h2>
+  
+{% if plugin.settings.size == 0 or plugin.settings == nil %}
 <p>
-  If you run into any issues,
-  <a href="#looking-for-help">learn how to get help</a>.
+  The {{plugin_type}} <code>{{plugin.name}}</code> does not have any <a href="https://docs.meltano.com/contribute/plugins#setting-definitions">settings</a> defined in its metadata. 
+  Please considering adding them by making a pull request to the 
+  <a href="{{yaml_file}}">YAML file</a>
+  that defines the <a href="https://docs.meltano.com/contribute/plugins#setting-definitions">settings</a> for this {{plugin_type}}.
 </p>
 
-{% if variant.settings.size > 0 %}
-<h2 id="settings">Settings</h2>
+{% else plugin.settings.size > 0 %}
 
-{% if variant.settings_group_validation.size == 1 %}
+{% if plugin.settings_preamble %}
+{{ plugin.settings_preamble | markdownify }}
+{% endif %}
+
+{% if plugin.settings_group_validation.size == 1 %}
 <p>
   <code>{{plugin.name}}</code> requires the
   <a href="https://docs.meltano.com/configuration.html" target="_blank">
@@ -276,7 +350,7 @@ assign singer_plugin = plugin.singer_plugin %} {% assign variant = page.variant
 </p>
 
 <ul>
-  {% for setting_name in variant.settings_group_validation[0] %}
+  {% for setting_name in plugin.settings_group_validation[0] %}
   <li>
     <a href="#{{setting_name | slugify}}">
       <code>{{setting_name}}</code>
@@ -284,7 +358,7 @@ assign singer_plugin = plugin.singer_plugin %} {% assign variant = page.variant
   </li>
   {% endfor %}
 </ul>
-{% elsif variant.settings_group_validation.size > 1 %}
+{% elsif plugin.settings_group_validation.size > 1 %}
 <p>
   <code>{{plugin.name}}</code> requires the
   <a href="https://docs.meltano.com/configuration.html" target="_blank">
@@ -294,7 +368,7 @@ assign singer_plugin = plugin.singer_plugin %} {% assign variant = page.variant
 </p>
 
 <ul>
-  {% for setting_group in variant.settings_group_validation %}
+  {% for setting_group in plugin.settings_group_validation %}
   <li>
     {% for setting_name in setting_group %}
     <a href="#{{setting_name | slugify}}">
@@ -305,27 +379,33 @@ assign singer_plugin = plugin.singer_plugin %} {% assign variant = page.variant
   {% endfor %}
 </ul>
 {% endif %}
-
 <p>
-  These and other supported settings are documented below. To quickly find the
+  These and other supported <a href="https://docs.meltano.com/contribute/plugins#setting-definitions">settings</a> are documented below. To quickly find the
   setting you're looking for, use the <a href="#toc">Table of Contents</a> at
   the top of the page.
 </p>
 
-{% for setting in variant.settings %} {% include setting.html setting=setting
-plugin_name=plugin.name %} {% endfor %} {% endif %}
+{% for setting in plugin.settings %} {% include setting.html setting=setting
+plugin_name=plugin.name %} {% endfor %} 
+{% endif %}
+
+{% if plugin.usage %}
+
+{{ plugin.usage | markdownify }}
+
+{% endif %}
 
 <h2 id="looking-for-help">Looking for help?</h2>
 
 <p>
   If you're having trouble getting the
   <code>{{plugin.name}}</code> {{plugin_type}} to work, look for an
-  <a href="{{variant.repo}}/issues" target="_blank"
+  <a href="{{plugin.repo}}/issues" target="_blank"
     >existing issue in its repository</a
-  >, file a <a href="{{variant.repo}}/issues/new" target="_blank">new issue</a>,
+  >, file a <a href="{{plugin.repo}}/issues/new" target="_blank">new issue</a>,
   or
   <a
-    href="https://join.slack.com/t/meltano/shared_invite/zt-obgpdeba-7yrqKhwyMBfdHDXsZY8G7Q"
+    href="https://meltano.com/slack"
     target="_blank"
     >join the Meltano Slack community</a
   >
@@ -335,10 +415,6 @@ plugin_name=plugin.name %} {% endfor %} {% endif %}
 <h3>Found an issue on this page?</h3>
 
 <p>
-  This page is generated from a
-  <a
-    href="https://gitlab.com/meltano/hub/-/tree/main/_data/meltano/{{plugin_type}}s/{{ plugin.name }}.yml"
-    >YAML file</a
-  >
-  that you can contribute changes to!
+  This page is generated from a YAML file that you can contribute changes to. <a href="{{yaml_file}}">Edit it on
+  GitHub!</a> <span class="icon icon--github">{% include icon-github.svg%}</span>
 </p>

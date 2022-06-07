@@ -1,0 +1,214 @@
+name: tap-google-analytics
+label: Google Analytics
+description: App and website analytics platform hosted by Google
+namespace: tap_google_analytics
+logo_url: /assets/logos/extractors/google-analytics.png
+variant: meltanolabs
+docs: https://hub.meltano.com/extractors/google-analytics.html
+repo: https://github.com/MeltanoLabs/tap-google-analytics
+pip_url: git+https://github.com/MeltanoLabs/tap-google-analytics.git
+capabilities:
+- catalog
+- discover
+- state
+- about
+- stream-maps
+settings_group_validation:
+- - key_file_location
+  - view_id
+  - start_date
+- - client_secrets
+  - view_id
+  - start_date
+- - oauth_credentials.client_id
+  - oauth_credentials.client_secret
+  - oauth_credentials.access_token
+  - oauth_credentials.refresh_token
+  - view_id
+  - start_date
+settings:
+- name: key_file_location
+  kind: file
+  value: $MELTANO_PROJECT_ROOT/client_secrets.json
+  label: Client Secrets File Location
+  placeholder: Ex. client_secrets.json
+  description: |
+    #### How to get
+
+    Follow the steps below if you don't already have a valid `client_secrets.json` to upload. The process below can take over 10 minutes, but it's a one-time setup that's well worth it.
+
+    This extractor supports service account based authorization, where an administrator manually creates a service account with the appropriate permissions to view the account, property, and view you wish to fetch data from.
+
+    To access your Google Analytics data, the "Analytics Reporting API" and "Analytics API" both need to be enabled. These need to be enabled for a project inside the same organization as your Google Analytics account.
+
+    ##### Step 1: Creating Service Account Credentials
+
+    As a first step, you need to create a new project in Google Cloud Platform or use an existing one:
+
+    1. Sign in to the Google Account you are using for managing Google Analytics (you must have Manage Users permission at the account, property, or view level).
+
+    2. Open the [Service accounts page](https://console.developers.google.com/iam-admin/serviceaccounts). If prompted, select a project or create a new one to use for accessing Google Analytics.
+
+      ![Screenshot of Google Service Accounts page](/assets/images/tap-google-analytics/02-ga-service-account-configuration-create-new-account.png)
+
+    3. Click "Create service account"
+
+      In the Create service account window, type a name for the service account, and click `Create`.
+
+      We do not need to provide any additional permissions for this account, so click `Continue` in the `Service account permissions` configuration page.
+
+      We also do not need to grant access to any users for this service account, as we only need the key.
+
+      ![Screenshot of Google Service Account Configuration for new Account](/assets/images/tap-google-analytics/02-ga-service-account-configuration-new-account.png)
+
+      Click `Create Key`, select `JSON` as the key type and create a new private key. Then click `Save` and store it locally as `client_secrets.json`.
+
+    Meltano will use the private key in this `client_secrets.json` file to connect with the Google Analytics API.
+
+    ##### Step 2: Linking Credentials to Google Analytics
+
+    The newly created service account will have an email address that looks similar to:
+
+    ```
+    service-account-name@PROJECT-ID.iam.gserviceaccount.com
+    ```
+
+    To grant this service account access to your Google Analytics data, add the email address as a [new user](https://support.google.com/analytics/answer/1009702) to your Google Analytics account, property or view through the "Admin > User Management" page.
+
+    Only the [Read & Analyze permissions](https://support.google.com/analytics/answer/2884495) are needed as Meltano only extracts data to generate reports.
+
+    ![Screenshot of Google Analytics Add User](/assets/images/tap-google-analytics/03-ga-add-user.png)
+
+    ##### Step 3: Enabling the APIs
+
+    1. Visit the [Google Analytics Reporting API](https://console.developers.google.com/apis/api/analyticsreporting.googleapis.com/overview) dashboard and make sure that the project you used in the previous step is selected.
+
+      Now enable the API using the button at the top, so that the button will say "Disable API" instead:
+
+      ![Screenshot of Google Analytics Reporting API](/assets/images/tap-google-analytics/04-ga-reporting-api.png)
+
+    2. Next, visit the [Google Analytics API](https://console.developers.google.com/apis/api/analytics.googleapis.com/overview) dashboard, make sure that the project you used in the previous step is selected, and enable this API as well.
+
+      ![Screenshot of Google Analytics API](/assets/images/tap-google-analytics/05-ga-api.png)
+
+- name: client_secrets
+  label: Client Secrets JSON
+  kind: object
+  placeholder: Ex. client_secrets.json
+  description: |
+    Follow the above steps for [Key File Location](#key-file-location) but instead of providing a path you can provide the serialized json directly. This can be useful for ephemeral runtime environments where its easier to provide an environment variable instead of a file.
+- name: oauth_credentials.client_id
+  label: OAuth Client ID
+  kind: password
+  description: |
+    See <https://developers.google.com/analytics/devguides/reporting/core/v4/authorization#OAuth2Authorizing>.
+
+    Takes precedence over [Key File Location](#key-file-location) if both are specified.
+- name: oauth_credentials.client_secret
+  description: See https://developers.google.com/analytics/devguides/reporting/core/v4/authorization#OAuth2Authorizing.
+  kind: password
+  label: OAuth Client Secret
+- name: oauth_credentials.access_token
+  description: See https://developers.google.com/analytics/devguides/reporting/core/v4/authorization#OAuth2Authorizing.
+  kind: password
+  label: OAuth Access Token
+- name: oauth_credentials.refresh_token
+  kind: password
+  description: See https://developers.google.com/analytics/devguides/reporting/core/v4/authorization#OAuth2Authorizing.
+  label: OAuth Refresh Token
+- name: view_id
+  label: View ID
+  placeholder: Ex. 198343027
+  description: |
+    The ID for the view to fetch data from.
+
+    #### How to get
+
+    To get your View ID:
+
+    1. Visit Google Analytics: <https://analytics.google.com/>
+    2. Log in if you haven't already.
+    3. Open the account/property/view selector in the top left corner
+
+    ![Screenshot of closed account selector](/assets/images/tap-google-analytics/account-selector-closed.png)
+
+    3. Select the account, property, and view that you would like to connect with Meltano
+
+    ![Screenshot of open account selector](/assets/images/tap-google-analytics/account-selector-open.png)
+
+    4. You will see the View ID displayed inside the selector below the name of the view (e.g. "All Web Site Data"): `188274549`
+- name: reports
+  label: Reports
+  placeholder: Ex. my_report_definition.json
+  description: |
+    Project-relative path to JSON file with the definition of the reports to be generated.
+
+    See <https://ga-dev-tools.appspot.com/dimensions-metrics-explorer/> for valid dimensions and metrics.
+
+    The JSON structure expected is as follows:
+
+    ```json
+    [
+      { "name" : "name of stream to be used",
+        "dimensions" :
+        [
+          "Google Analytics Dimension",
+          "Another Google Analytics Dimension",
+          // ... up to 7 dimensions per stream ...
+        ],
+        "metrics" :
+        [
+          "Google Analytics Metric",
+          "Another Google Analytics Metric",
+          // ... up to 10 metrics per stream ...
+        ]
+      },
+      // ... as many streams / reports as the user wants ...
+    ]
+    ```
+
+    For example, if you want to extract user stats per day in a `users_per_day` stream and session stats per day and country in a `sessions_per_country_day` stream:
+
+    ```json
+    [
+      { "name" : "users_per_day",
+        "dimensions" :
+        [
+          "ga:date"
+        ],
+        "metrics" :
+        [
+          "ga:users",
+          "ga:newUsers"
+        ]
+      },
+      { "name" : "sessions_per_country_day",
+        "dimensions" :
+        [
+          "ga:date",
+          "ga:country"
+        ],
+        "metrics" :
+        [
+          "ga:sessions",
+          "ga:sessionsPerUser",
+          "ga:avgSessionDuration"
+        ]
+      }
+    ]
+    ```
+- name: start_date
+  label: Start Date
+  kind: date_iso8601
+  description: This property determines how much historical data will be extracted.
+    Please be aware that the larger the time period and amount of data, the longer
+    the initial extraction can be expected to take.
+- name: end_date
+  label: End Date
+  kind: date_iso8601
+  description: Date up to when historical data will be extracted.
+domain_url: https://developers.google.com/analytics/devguides/reporting/core/v4/
+maintenance_status: active
+keywords:
+- api
+- meltano_sdk

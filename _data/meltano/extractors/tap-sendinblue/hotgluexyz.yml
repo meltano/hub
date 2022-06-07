@@ -1,0 +1,27 @@
+description: Relationship Marketing Platform
+label: Sendinblue
+name: tap-sendinblue
+logo_url: /assets/logos/extractors/sendinblue.png
+namespace: tap_sendinblue
+variant: hotgluexyz
+pip_url: git+https://github.com/hotgluexyz/tap-sendinblue.git
+repo: https://github.com/hotgluexyz/tap-sendinblue
+capabilities:
+- catalog
+- discover
+settings:
+- name: api_key
+  kind: password
+  label: API Key
+  description: Sendinblue API Key
+- name: start_date
+  kind: date_iso8601
+  label: Start Date
+  description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
+domain_url: https://www.sendinblue.com/
+maintenance_status: active
+keywords:
+- api
+- meltano_sdk

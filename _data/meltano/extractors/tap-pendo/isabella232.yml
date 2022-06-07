@@ -1,0 +1,16 @@
+name: pendo
+label: Pendo
+description: Product Experience and Digital Adoption Solutions
+namespace: tap_pendo
+logo_url: /assets/logos/extractors/pendo.png
+variant: isabella232
+capabilities:
+- catalog
+- discover
+settings: []
+settings_group_validation: []
+pip_url: git+https://github.com/isabella232/tap-pendo.git
+repo: https://github.com/isabella232/tap-pendo
+domain_url:
+maintenance_status: unknown
+keywords: []

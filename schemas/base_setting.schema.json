@@ -96,17 +96,6 @@
                 "GE_HOME"
             ]
         },
-        "env_aliases": {
-            "type": "array",
-            "description": "Deprecated. Use to delegate alternative environment variables for overriding this setting's value",
-            "examples": [
-                "TAP_ACCOUNT_ID",
-                "TAP_ACCOUNT_IDENTIFIER"
-            ],
-            "items": {
-                "type": "string"
-            }
-        },
         "value_processor": {
             "description": "Used with `kind: object` to process the keys in a particular way.",
             "type": "string",

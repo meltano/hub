@@ -3,10 +3,9 @@ class PluginEnricher < Jekyll::Generator
   priority :highest
 
   def generate(site)
+    site.data['meltano_original'] = Marshal.load(Marshal.dump(site.data['meltano']))
     enrich_plugins(site, "extractor")
     enrich_plugins(site, "loader")
-    enrich_plugins(site, "target")
-    enrich_plugins(site, "tap")
     enrich_plugins(site, "file")
     enrich_plugins(site, "utilitie")
     enrich_plugins(site, "transformer")
@@ -14,89 +13,77 @@ class PluginEnricher < Jekyll::Generator
   end
 
   def enrich_plugins(site, type_of_plugin)
-    if type_of_plugin == 'extractor'
-      singer_type = 'tap'
-      meltano_type = 'extractor'
-    elsif type_of_plugin == 'loader'
-      singer_type = 'target'
-      meltano_type = 'loader'
-    elsif type_of_plugin == 'tap'
-      singer_type = 'tap'
-      meltano_type = 'extractor'
-    elsif type_of_plugin == 'target'
-      singer_type = 'target'
-      meltano_type = 'loader'
-    else     
-      singer_type = nil
-      meltano_type = type_of_plugin
-    end  
 
-    if singer_type != nil
-      singer_type_plural = "#{singer_type}s"
+    meltano_type_plural = "#{type_of_plugin}s"
+
+    defaults = site.data['default_variants']["#{type_of_plugin}s"]
+    unsorted_hash = {}
+    site.data['meltano'][meltano_type_plural].each do |plugin_name, variants|
+      default_variant = defaults[plugin_name]
+      enrich_variants(site, variants, default_variant, meltano_type_plural)
+      unsorted_hash[plugin_name] = variants[default_variant]
+
     end
-    meltano_type_plural = "#{meltano_type}s"
+    site.data["meltano"]["sorted_#{meltano_type_plural}"] = unsorted_hash.values.sort_by { |p| p.fetch('label', p.fetch('name')).downcase }
 
-    if type_of_plugin == 'utiiltie'
-      type_of_plugin = 'utility'
-    end
+  end
 
-    site.data['meltano'][meltano_type_plural].each do |plugin_name, plugin|
-      if singer_type == nil
-        plugin['logo_url'] = "/assets/logos/#{meltano_type_plural}/#{plugin_name}.png"
-      else
-        plugin['logo_url'] = "/assets/logos/#{singer_type_plural}/#{plugin_name}.png"
-      end
-
-      plugin['url'] = "/#{meltano_type_plural}/#{plugin_name}"
-
-      if plugin['variants']
-        enrich_variants(site, plugin['variants'])
-      end
-    end
-
-    if site.data[singer_type_plural]
-      site.data[singer_type_plural].each do |plugin_name, plugin|
-        plugin['logo_url'] = "/assets/logos/#{singer_type_plural}/#{plugin_name}.png"
-  
-        meltano_plugin = site.data['meltano'][meltano_type_plural][plugin_name]
-        if meltano_plugin
-          plugin['meltano_url'] = meltano_plugin['url']
-          meltano_plugin['singer_plugin'] = plugin
-        end
-  
-        if plugin['variants']
-          enrich_variants(site, plugin['variants'])
-        end
-      end
-    end
-
-    if meltano_type_plural == 'extractors'
-      site.data["meltano"]["sorted_#{meltano_type_plural}"] = site.data["meltano"][meltano_type_plural].values.sort_by { |p| p['label'].downcase }
-      site.data["sorted_#{singer_type_plural}"] = site.data[singer_type_plural].values.sort_by { |p| p['label'].downcase }
-    elsif meltano_type_plural == 'loaders'
-        site.data["meltano"]["sorted_#{meltano_type_plural}"] = site.data["meltano"][meltano_type_plural].values.sort_by { |p| p['label'].downcase }
-        site.data["sorted_#{singer_type_plural}"] = site.data[singer_type_plural].values.sort_by { |p| p['label'].downcase }
-    else
-      site.data['meltano']["sorted_#{meltano_type_plural}"] = site.data['meltano'][meltano_type_plural].values.sort_by { |p| p['name'].downcase }
+  def add_alt_variants(variants, alt_variants)
+    variants.each do |variant_name, variant_definition|
+      variant_definition['alt_variants'] = alt_variants
     end
   end
 
-  def enrich_variants(site, variants)
-    variants.each_with_index do |variant, i|
-      if variant['default'].nil? && i == 0
-        variant['default'] = true
+  def enrich_variants(site, variants, default_variant, meltano_type_plural)
+    alt_variants = []
+    variants.each do |variant_name, variant_definition|
+      image_name = variant_definition["name"].dup
+      image_name.sub! "tap-", ""
+      image_name.sub! "target-", ""
+
+      if not variant_definition.key?("logo_url")
+        variant_definition['logo_url'] = "/assets/logos/#{meltano_type_plural}/#{variant_definition["name"]}.png"
       end
 
-      variant['maintainer'] ||= site.data['maintainers'][variant['name']]
-
-      repo_url = variant['repo']
-      repo_path_match = repo_url.match(%r{\Ahttps?://(?:www\.)?git(?:hub|lab)\.com/([^/]+/[^/.]+)}i)
-      if repo_path_match
-        repo_path = repo_path_match[1]
-        variant['metrics'] = site.data['metrics']['metrics'][repo_path]
-      else
-        puts("Unknown Git repo URL #{repo_url}")
+      url_suffix = "#{variant_definition["name"]}--#{variant_name}"
+      if variant_definition['variant'] == default_variant
+        variant_definition['default'] = true
+        url_suffix = "#{variant_definition["name"]}"
       end
+
+      if meltano_type_plural == "extractors"
+        singer_url_suffix = url_suffix.delete_prefix('tap-')
+        variant_definition['singer_url'] = "/taps/#{singer_url_suffix}"
+      elsif meltano_type_plural == "loaders"
+        singer_url_suffix = url_suffix.delete_prefix('target-')
+        variant_definition['singer_url'] = "/targets/#{singer_url_suffix}"
+      end
+      variant_definition['url'] = "/#{meltano_type_plural}/#{url_suffix}"
+
+      variant_definition['maintainer'] ||= site.data['maintainers'][variant_definition['variant'].downcase]
+    
+      if variant_definition.key?("repo")
+        repo_url = variant_definition['repo']
+        repo_path_match = repo_url.match(%r{\Ahttps?://(?:www\.)?git(?:hub|lab)\.com/([^/]+/[^/.]+)}i)
+        if repo_path_match
+          repo_path = repo_path_match[1]
+          variant_definition['metrics'] = site.data['metrics']['metrics'][repo_path]
+        else
+          puts("Unknown Git repo URL #{repo_url}")
+        end
+      end
+
+      alt_variants.append(
+        {
+          "name" => variant_name,
+          "url" => variant_definition['url'],
+          "variant" => variant_definition['variant'],
+          "default" => variant_definition['default'],
+          "singer_url" => variant_definition['singer_url']
+        }
+      )
     end
+    add_alt_variants(variants, alt_variants)
+
   end
 end

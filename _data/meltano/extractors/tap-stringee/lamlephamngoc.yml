@@ -1,0 +1,16 @@
+description: Communication API Platform
+label: Stringee
+name: tap-stringee
+logo_url: /assets/logos/extractors/stringee.png
+namespace: tap_stringee
+variant: lamlephamngoc
+pip_url: git+https://github.com/lamlephamngoc/tap-stringee.git
+repo: https://github.com/lamlephamngoc/tap-stringee
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://developer.stringee.com/docs/api-stringeex
+maintenance_status: unknown
+keywords:
+- api

@@ -22,6 +22,9 @@
                 "docs": {},
                 "settings_group_validation": {},
                 "commands": {},
+                "maintenance_status": {},
+                "domain_url": {},
+                "keywords": {},
                 "update": {
                     "type": "object",
                     "additionalProperties": {
@@ -29,7 +32,12 @@
                     }
                 },
                 "variant": {},
-                "logo_url": {}
+                "logo_url": {},
+                "definition": {},
+                "next_steps": {},
+                "settings_preamble": {},
+                "usage": {},
+                "prereq": {}
             }
         }
     ]

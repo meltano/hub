@@ -1,0 +1,16 @@
+description: Cloud Contact Center Platform
+label: Five9
+name: tap-five9
+logo_url: /assets/logos/extractors/five9.png
+namespace: tap_five9
+variant: pathlight
+pip_url: git+https://github.com/Pathlight/tap-five9.git
+repo: https://github.com/Pathlight/tap-five9
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://www.five9.com/products/capabilities/apis-and-sdks
+maintenance_status: unknown
+keywords:
+- api

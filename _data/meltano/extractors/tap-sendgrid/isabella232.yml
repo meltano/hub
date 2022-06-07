@@ -1,0 +1,16 @@
+description: Customer Communication Platform
+label: SendGrid
+name: tap-sendgrid
+logo_url: /assets/logos/extractors/sendgrid.png
+namespace: tap_sendgrid
+variant: isabella232
+pip_url: git+https://github.com/isabella232/singer-tap-sendgrid.git
+repo: https://github.com/isabella232/singer-tap-sendgrid
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://docs.sendgrid.com/docs/for-developers/sending-email/api-getting-started/
+maintenance_status: unknown
+keywords:
+- api

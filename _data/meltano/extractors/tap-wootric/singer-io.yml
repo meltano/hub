@@ -1,0 +1,16 @@
+description: Customer Experience Management Software
+label: Wootric
+name: tap-wootric
+logo_url: /assets/logos/extractors/wootric.png
+namespace: tap_wootric
+variant: singer-io
+pip_url: tap-wootric
+repo: https://github.com/singer-io/tap-wootric
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://docs.wootric.com/api/
+maintenance_status: unknown
+keywords:
+- api

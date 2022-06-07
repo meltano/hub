@@ -1,0 +1,17 @@
+name: tap-hubspot
+description: Inbound Marketing software
+label: Hubspot
+namespace: tap_hubspot
+logo_url: /assets/logos/extractors/hubspot.png
+variant: cdchan
+pip_url: git+https://github.com/cdchan/tap-hubspot.git
+repo: https://github.com/cdchan/tap-hubspot
+capabilities:
+- discover
+- catalog
+settings_group_validation: []
+settings: []
+domain_url: https://legacydocs.hubspot.com/docs/overview
+maintenance_status: unknown
+keywords:
+- api

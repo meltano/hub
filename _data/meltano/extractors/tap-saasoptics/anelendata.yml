@@ -1,0 +1,16 @@
+description: SaaS Metrics and Analytics Platform
+label: SaasOptics
+name: tap-saasoptics
+logo_url: /assets/logos/extractors/saasoptics.png
+namespace: tap_saasoptics
+variant: anelendata
+pip_url: git+https://github.com/anelendata/tap-saasoptics.git
+repo: https://github.com/anelendata/tap-saasoptics
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://saasoptics.com/
+maintenance_status: unknown
+keywords:
+- api

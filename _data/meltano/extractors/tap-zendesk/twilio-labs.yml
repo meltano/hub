@@ -1,0 +1,84 @@
+name: tap-zendesk
+label: Zendesk
+description: Support ticketing system & customer service platform
+namespace: tap_zendesk
+logo_url: /assets/logos/extractors/zendesk.png
+variant: twilio-labs
+docs: https://hub.meltano.com/extractors/zendesk.html
+repo: https://github.com/twilio-labs/twilio-tap-zendesk
+pip_url: twilio-tap-zendesk
+capabilities:
+- catalog
+- discover
+- state
+settings_group_validation:
+- - email
+  - api_token
+  - subdomain
+  - start_date
+- - access_token
+  - subdomain
+  - start_date
+settings:
+- name: email
+  label: Email
+  kind: email
+  placeholder: Ex. me@my-organization.com
+  description: This is the email you use to login to your Zendesk dashboard. For API
+    Authentication, `/token` is automatically appended to the email address and is
+    not required in the configuration.
+- name: api_token
+  kind: password
+  label: API Token
+  placeholder: Ex. *****************
+  documentation: https://support.zendesk.com/hc/en-us/articles/226022787-Generating-a-new-API-token-
+  description: |
+    #### How to get
+
+    1. Login to your Zendesk dashboard.
+
+    ![Screenshot of sample Zendesk dashboard](/assets/images/tap-zendesk/01-zendesk-docs.png)
+
+    2. On the left navigation, scroll down to the `Channels` section to click on the `API` link. If you don't see this, your account does not have adequate permissions.
+
+    ![Screenshot of left nav with API link](/assets/images/tap-zendesk/02-zendesk-docs.png)
+
+    3. Ensure that `Token Access` is enabled
+
+    4. Click on the `+` button to create a new API token
+
+    ![Screenshot of new API token creation](/assets/images/tap-zendesk/03-zendesk-docs.png)
+
+    5. Add `Meltano` as the API Token Description
+
+    6. Copy the API token since it will not be shown again
+
+    7. Click `Save` button to complete API key creation
+- name: access_token
+  label: Access Token
+  kind: password
+  description: |
+    To use OAuth, you will need to fetch an `access_token` from a configured Zendesk integration.
+
+    See <https://support.zendesk.com/hc/en-us/articles/203663836>.
+  documentation: https://support.zendesk.com/hc/en-us/articles/203663836
+- name: subdomain
+  label: Zendesk Subdomain
+  placeholder: Ex. my-subdomain.zendesk.com
+  description: |
+    When visiting your Zendesk instance, the URL is structured as follows: `SUBDOMAIN.zendesk.com`.
+
+    You'll need this subdomain when configuring the extractor.
+
+    For example, if the URL is `meltano.zendesk.com`, then the subdomain is `meltano`.
+  documentation: https://support.zendesk.com/hc/en-us/articles/221682747-Where-can-I-find-my-Zendesk-subdomain-
+- name: start_date
+  label: Start Date
+  kind: date_iso8601
+  description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
+domain_url: https://developer.zendesk.com/rest_api
+maintenance_status: active
+keywords:
+- api

@@ -1,0 +1,59 @@
+name: tap-google-analytics
+label: Google Analytics
+description: App and website analytics platform hosted by Google
+namespace: tap_google_analytics
+logo_url: /assets/logos/extractors/google-analytics.png
+variant: meltano
+hidden: true
+docs: https://hub.meltano.com/extractors/google-analytics.html
+repo: https://gitlab.com/meltano/tap-google-analytics
+pip_url: git+https://gitlab.com/meltano/tap-google-analytics.git
+capabilities:
+- catalog
+- discover
+settings_group_validation:
+- - key_file_location
+  - view_id
+  - start_date
+- - oauth_credentials.client_id
+  - oauth_credentials.client_secret
+  - oauth_credentials.access_token
+  - oauth_credentials.refresh_token
+  - view_id
+  - start_date
+settings:
+- name: key_file_location
+  kind: file
+  value: $MELTANO_PROJECT_ROOT/client_secrets.json
+  label: Client Secrets
+  placeholder: Ex. client_secrets.json
+- name: oauth_credentials.client_id
+  kind: password
+  label: OAuth Client ID
+- name: oauth_credentials.client_secret
+  kind: password
+  label: OAuth Client Secret
+- name: oauth_credentials.access_token
+  kind: password
+  label: OAuth Access Token
+- name: oauth_credentials.refresh_token
+  kind: password
+  label: OAuth Refresh Token
+- name: view_id
+  label: View ID
+  placeholder: Ex. 198343027
+- name: reports
+  label: Reports
+  placeholder: Ex. my_report_definition.json
+- name: start_date
+  kind: date_iso8601
+  description: This property determines how much historical data will be extracted.
+    Please be aware that the larger the time period and amount of data, the longer
+    the initial extraction can be expected to take.
+- name: end_date
+  kind: date_iso8601
+  description: Date up to when historical data will be extracted.
+domain_url: https://developers.google.com/analytics/devguides/reporting/core/v4/
+maintenance_status: inactive
+keywords:
+- api

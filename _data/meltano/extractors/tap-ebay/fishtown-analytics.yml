@@ -1,0 +1,16 @@
+description: Order Data from Ebay Fulfillment
+label: eBay
+name: tap-ebay
+logo_url: /assets/logos/extractors/ebay.png
+namespace: tap_ebay
+variant: fishtown-analytics
+pip_url: git+https://github.com/fishtown-analytics/tap-ebay.git
+repo: https://github.com/fishtown-analytics/tap-ebay
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://www.ebay.com/
+maintenance_status: unknown
+keywords:
+- api

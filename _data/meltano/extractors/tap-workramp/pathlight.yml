@@ -1,0 +1,16 @@
+description: Learning Management System
+label: Workramp
+name: tap-workramp
+logo_url: /assets/logos/extractors/workramp.png
+namespace: tap_workramp
+variant: pathlight
+pip_url: git+https://github.com/Pathlight/tap-workramp.git
+repo: https://github.com/Pathlight/tap-workramp
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://www.workramp.com/products/enterprise/integrations/
+maintenance_status: unknown
+keywords:
+- api
