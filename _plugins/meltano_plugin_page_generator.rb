@@ -131,11 +131,11 @@ If you run into any issues, [learn how to get help](#looking-for-help).
       elsif plugin_type == 'file'
         page_topic = "The `#{variant_definition['name']}` [file bundle](https://docs.meltano.com/concepts/plugins#file-bundles) #{variant_definition['definition']}"
         next_steps = "#{variant_definition['next_steps']}"
-      elsif plugin_type == 'utilitie'
+      elsif plugin_type == 'utility'
         page_topic = "The `#{variant_definition['name']}` [utility](https://docs.meltano.com/concepts/plugins#utilities) #{variant_definition['definition']}"
         next_steps = "#{variant_definition['next_steps']}"
       else
-        page_topic = "This is the default text."
+        page_topic = "`#{variant_definition['name']}` #{variant_definition['definition']}"
       end
 
       @basename = basename
