@@ -391,7 +391,7 @@ input.grid-search {
   border: 1px solid $white;
   display: block;
   padding: 9px 4px 9px 40px;
-  background: transparent url("./search-solid.svg") no-repeat 13px center;
+  background: transparent url("./icon-search.svg") no-repeat 13px center;
 }
 
 .icon--search {
@@ -407,8 +407,8 @@ input.grid-search {
 }
 
 .navbar-search-results {
-  width: 300%;
-  height: 300px;
+  width: 200%;
+  height: 500px;
   background: $white;
   right: 20px;
 }
@@ -416,12 +416,18 @@ input.grid-search {
 .navbar-search-list {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  margin-left: 0;
 }
 
 .navbar-search-list h2 {
   text-transform: capitalize;
   border-bottom: 2px solid $meltano-blue;
+}
+
+.navbar-search-list .logo {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
 }
 
 [class^="navbar-search-label"] {
@@ -430,12 +436,11 @@ input.grid-search {
   list-style-type: none;
 }
 
-[class^="navbar-search-label"] li {
-  text-align: left;
-}
-
 [class^="navbar-search-label"] li a {
   padding: 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .navbar-search-label-posts,

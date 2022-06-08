@@ -55,10 +55,15 @@ function navbarSearch() {
           searchTerms.toLowerCase().indexOf(searchQuery) > -1
         ) {
           item.style.display = "block";
+          item.classList.add("active");
+          item.classList.remove("not-active");
         } else {
           item.style.display = "none";
+          item.classList.add("not-active");
+          item.classList.remove("active");
         }
       });
+      hideSearchListHeaders();
     });
 
     searchInput.disabled = false;
@@ -66,3 +71,18 @@ function navbarSearch() {
 }
 
 navbarSearch();
+
+function hideSearchListHeaders() {
+  const results = document.querySelector("ul.navbar-search-list");
+  const pluginItems = results.querySelectorAll("li");
+  const noneActive = Array.from(pluginItems).every((item) => {
+    return item.classList.contains("not-active");
+  });
+
+  const parent = results.parentElement;
+  if (noneActive) {
+    parent.style.display = "none";
+  } else {
+    parent.style.display = "block";
+  }
+}

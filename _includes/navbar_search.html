@@ -6,32 +6,47 @@
     <ul class="navbar-search-list">
       {% for collection in site.collections %}
       {% capture collection_name %}sorted_{{collection.label}}{% endcapture %}
-      <h2 class="navbar-search-label-{{collection.label}}">{{ collection.label }}</h2>
-      <ul class="navbar-search-label-{{collection.label}}-list">
         {% for item in site.data.meltano.[collection_name] %}
           {% if item.label %}
-            <li data-search-terms="{{item.label}} {{item.name}} {{item.namespace}}">
+            <li data-search-terms="{{item.label}} {{item.name}} {{item.namespace}} {{item.keywords}}">
               {% if collection.label == "extractors" %}
-                <a href="{{site.url}}/{{collection.label}}/{{item.name | remove: "tap-"}}">{{item.label}}</a>
+                <a href="{{site.url}}/{{collection.label}}/{{item.name | remove: "tap-"}}">
+                  <img class="logo" src="{{item.logo_url}}" />
+                  <p>{{item.label}}</p>
+                  </a>
               {% elsif collection.label == "loaders" %}
-                <a href="{{site.url}}/{{collection.label}}/{{item.name | remove: "target-"}}">{{item.label}}</a>
+                <a href="{{site.url}}/{{collection.label}}/{{item.name | remove: "target-"}}">
+                  <img class="logo" src="{{item.logo_url}}" />
+                  <p>{{item.label}}</p>
+                </a>
               {% else %}
-                <a href="{{site.url}}/{{collection.label}}/{{item.name}}">{{item.label}}</a>
+                <a href="{{site.url}}/{{collection.label}}/{{item.name}}">
+                  <img class="logo" src="{{item.logo_url}}" />
+                  <p>{{item.label}}</p>
+                </a>
               {% endif %}
             </li>
           {% else %}
-            <li data-search-terms="{{item.label}} {{item.name}} {{item.namespace}}">
+            <li data-search-terms="{{item.label}} {{item.name}} {{item.namespace}} {{item.keywords}}">
               {% if collection.label == "extractors" %}
-                <a href="{{site.url}}/{{collection.label}}/{{item.name | remove: "tap-"}}">{{item.name}}</a>
+                <a href="{{site.url}}/{{collection.label}}/{{item.name | remove: "tap-"}}">
+                  <img class="logo" src="{{item.logo_url}}" />
+                  <p>{{item.name}}</p>
+                </a>
               {% elsif collection.label == "loaders" %}
-                <a href="{{site.url}}/{{collection.label}}/{{item.name | remove: "target-"}}">{{item.name}}</a>
+                <a href="{{site.url}}/{{collection.label}}/{{item.name | remove: "target-"}}">
+                  <img class="logo" src="{{item.logo_url}}" />
+                  <p>{{item.name}}</p>
+                </a>
               {% else %}
-                <a href="{{site.url}}/{{collection.label}}/{{item.name}}">{{item.name}}</a>
+                <a href="{{site.url}}/{{collection.label}}/{{item.name}}">
+                  <img class="logo" src="{{item.logo_url}}" />
+                  <p>{{item.name}}</p>
+                </a>
               {% endif %}
             </li>
           {% endif %}
         {% endfor %}
-      </ul>
     {% endfor %}
     </ul>
   </div>
