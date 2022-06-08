@@ -8,7 +8,7 @@ description: Use Meltano to easily extract data out of arbitrary sources (databa
 Meltano lets you easily extract data out of arbitrary sources (databases, SaaS APIs, and file formats) using [Singer taps](/singer/taps/), which take the role of [your project](https://docs.meltano.com/concepts/project)'s [extractor plugins](https://docs.meltano.com/concepts/plugins#extractors).
 To learn more about extracting and [loading](/loaders/) data using Meltano, refer to the [Data Integration (EL) guide](https://docs.meltano.com/guide/integration).
 
-{% assign plugins = site.data.meltano.sorted_extractors %}
+{% assign plugins = site.data.meltano.sorted_extractors | where: "utility_type", "analyzer" %}
 
 {% include plugin_grid.html plugins=plugins search="extractors" %}
 

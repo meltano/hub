@@ -66,6 +66,9 @@ class PluginEnricher < Jekyll::Generator
 
       variant_definition['maintainer'] ||= site.data['maintainers'][variant_definition['variant'].downcase]
 
+      variant_definition["utility_type"] = "analyzer" if variant_definition.fetch("keywords", []).include?("analysis")
+      variant_definition["utility_type"] = "validator" if variant_definition.fetch("keywords", []).include?("quality")
+
       if variant_definition.key?("repo")
         repo_url = variant_definition['repo']
         repo_path_match = repo_url.match(%r{\Ahttps?://(?:www\.)?git(?:hub|lab)\.com/([^/]+/[^/.]+)}i)

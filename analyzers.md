@@ -7,10 +7,9 @@ description: Learn how to analyze your data using Meltano
 
 Meltano analyzers are utility plugins that enable you to analyze your data and build reports.
 
-{% assign plugins = site.data.meltano.sorted_utilities %}
+{% assign plugins = site.data.meltano.sorted_utilities | where: "utility_type", "analyzer" %}
 
-
-{% include plugin_grid.html plugins=plugins search="utilities" %}
+{% include plugin_grid.html plugins=plugins search="analyzers" %}
 
 ## Don't see your analyzer listed here?
 
