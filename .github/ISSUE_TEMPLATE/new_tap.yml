@@ -1,0 +1,40 @@
+name: 🚰 New Singer Tap
+description: Submit a new Singer tap to Meltano Hub
+title: "[Singer Tap] <title>"
+labels: []
+assignees: []
+
+body:
+- type: markdown
+  attributes:
+    value: |
+      All Singer definitions are stored in `/_data/taps/` or `/_data/targets` and logo images are in `/assets/logos/<taps or targets>`. The minimal steps for adding a tap or target are the following:
+      Reference "How to Submit a Singer Connector to MeltanoHub" [YouTube video](https://www.youtube.com/watch?v=hKbHB3LHbEA).
+
+- type: input
+  id: description
+  attributes:
+    label: Description
+    description: General description of what the company behind the API does
+  validations:
+    required: true
+
+- type: input
+  id: url
+  attributes:
+    label: Entity URL
+    description: URL of the developer documentation or website
+  validations:
+    required: true
+
+- type: input
+  id: name
+  attributes:
+    label: Name
+    description: The unique name of the connector
+
+- type: input
+  id: singer_name
+  attributes:
+    label: Singer Name
+    description: The Singer specific name of the connector. Typically tap-<name>
