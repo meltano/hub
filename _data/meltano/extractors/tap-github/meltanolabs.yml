@@ -6,6 +6,7 @@ namespace: tap_github
 variant: meltanolabs
 pip_url: git+https://github.com/MeltanoLabs/tap-github.git
 repo: https://github.com/MeltanoLabs/tap-github
+maintenance_status: active
 settings: []
 capabilities:
 - catalog

@@ -3,10 +3,9 @@ label: Snowflake
 description: Snowflake database loader
 namespace: target_snowflake
 dialect: snowflake
-target_schema: $TARGET_SNOWFLAKE_SCHEMA
+target_schema: $TARGET_SNOWFLAKE_DEFAULT_TARGET_SCHEMA
 logo_url: /assets/logos/loaders/snowflake.png
 variant: transferwise
-docs: https://hub.meltano.com/loaders/snowflake.html
 repo: https://github.com/transferwise/pipelinewise-target-snowflake
 pip_url: pipelinewise-target-snowflake
 settings_group_validation:
@@ -75,7 +74,7 @@ settings:
   value_processor: upcase_string
   description: |
     Note `$MELTANO_EXTRACT__LOAD_SCHEMA` [will expand to](https://docs.meltano.com/configuration.html#expansion-in-setting-values) the value of the [`load_schema` extra](https://docs.meltano.com/concepts/plugins#load-schema-extra) for the extractor used in the pipeline, which defaults to the extractor's namespace, e.g. `tap_gitlab` for [`tap-gitlab`](/extractors/gitlab). Values are automatically converted to uppercase before they're passed on to the plugin, so `tap_gitlab` becomes `TAP_GITLAB`.
-    
+
     Name of the schema where the tables will be created, without database
     prefix. If `schema_mapping` is not defined then every stream sent by the tap is
     loaded into this schema.
@@ -139,9 +138,9 @@ settings:
   kind: object
   description: |
     Useful if you want to load multiple streams from one tap to multiple Snowflake schemas.
-    
+
     If the tap sends the `stream_id` in `<schema_name>-<table_name>` format then this option overwrites the `default_target_schema` value.
-    
+
     Note, that using `schema_mapping` you can overwrite the `default_target_schema_select_permission` value to grant SELECT permissions to different groups per schemas or optionally you can create indices automatically for the replicated tables.
 - name: disable_table_cache
   label: Disable Table Cache
@@ -222,7 +221,7 @@ settings:
   label: Query Tag
   description: |
     Optional string to tag executed queries in Snowflake. Replaces tokens
-    
+
     `schema` and `table` with the appropriate values. The tags are displayed in the
     output of the Snowflake `QUERY_HISTORY`, `QUERY_HISTORY_BY_*` functions.
 - name: archive_load_files
@@ -232,9 +231,9 @@ settings:
   description: |
     When enabled, the files loaded to Snowflake will also be stored in
     `archive_load_files_s3_bucket` under the key /{archive_load_files_s3_prefix}/{schema_name}/{table_name}/.
-    
-    All archived files will have tap, schema, table and archived-by as S3 metadata keys. 
-    
+
+    All archived files will have tap, schema, table and archived-by as S3 metadata keys.
+
     When incremental replication is used, the archived files will also have
     the following S3 metadata keys - incremental-key, incremental-key-min and incremental-key-max.
 - name: archive_load_files_s3_prefix

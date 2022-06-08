@@ -6,7 +6,6 @@ dialect: postgres
 target_schema: $TARGET_POSTGRES_SCHEMA
 logo_url: /assets/logos/loaders/postgres.png
 variant: meltano
-docs: https://hub.meltano.com/loaders/postgres--meltano.html
 repo: https://github.com/meltano/target-postgres
 pip_url: git+https://github.com/meltano/target-postgres.git
 settings_group_validation:
@@ -46,8 +45,8 @@ settings:
   label: URL
   description: |
     Lets you set `user`, `password`, `host`, `port`, and `dbname` in one
-    go using a `postgresql://` URI. 
-    
+    go using a `postgresql://` URI.
+
     Takes precedence over the other settings when set.
 - name: schema
   label: Schema
@@ -65,15 +64,15 @@ usage: |
   ## Troubleshooting
 
   ### `ld`, `clang`, `lssl`, or `linker` Errors
-  
+
   If you have an error message like:
-    
+
     * `ld: library not found for -lssl`
     * `clang: error: linker command failed with exit code 1`
     * `error: command 'clang' failed with exit status 1`
 
-  These error messages indicates that there is a problem installing OpenSSL. 
-  
+  These error messages indicates that there is a problem installing OpenSSL.
+
   This [Stack Overflow answer](https://stackoverflow.com/questions/26288042/error-installing-psycopg2-library-not-found-for-lssl)
   has specific recommendations on setting the `LDFLAGS` and/or `CPPFLAGS` environment variables.
   Set those prior to running `meltano add loader target-postgres`.

@@ -2,14 +2,14 @@
 layout: plugin_page
 ---
 
-{% assign plugin_type = page.plugin_type %} {% assign plugin = page.plugin %} 
+{% assign plugin_type = page.plugin_type %} {% assign plugin = page.plugin %}
 {% assign repo_package_name = plugin.repo | split: "/" | last %}
 {% capture yaml_file %}
 https://github.com/meltano/hub/tree/develop/_data/meltano/{{page.meltano_type}}/{{plugin.name}}/{{plugin.variant}}.yml
 {% endcapture %}
 {% if plugin.metrics %} {% assign metrics = plugin.metrics %}{% endif %}
 
-{% if page.page_topic %} 
+{% if page.page_topic %}
 {{ page.page_topic | markdownify}}
 {% else %}
   {{ plugin.label }}
@@ -22,7 +22,7 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{page.meltano_type}}/
   {% if plugin.maintenance_status == "active" %} {% assign maintenance_status_label = "Active (Stable)" %} {% assign maintenance_status_color = "brightgreen" %} {% endif %}
   {% if plugin.maintenance_status == "inactive" %} {% assign maintenance_status_label = "Inactive or Stale" %} {% assign maintenance_status_color = "red" %} {% endif %}
   <li>
-    <img   
+    <img
       alt="Maintenance Status"
       src="https://img.shields.io/badge/Maintenance%20Status-{{ maintenance_status_label | replace: " ", "%20" }}-{{ maintenance_status_color }}">
   </li>
@@ -86,14 +86,14 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{page.meltano_type}}/
   <ul>
     {% if metrics.MELTANO_EXEC_COUNT_3M > 0 %}
     <li>
-      <img   
+      <img
         alt="Executions (Last 3 Months)"
         src="https://img.shields.io/badge/Executions%20(Last%203%20Months)-{{ metrics.MELTANO_EXEC_COUNT_3M }}-c0c0c4">
     </li>
     {% endif %}
     {% if metrics.MELTANO_PROJECT_ID_COUNT_3M > 0 %}
     <li>
-      <img   
+      <img
         alt="Projects (Last 3 Months)"
         src="https://img.shields.io/badge/Projects%20(Last%203%20Months)-{{ metrics.MELTANO_PROJECT_ID_COUNT_3M }}-c0c0c4">
     </li>
@@ -108,13 +108,13 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{page.meltano_type}}/
   {% if plugin.pip_url contains '.git' %}
   {% else %}
   <li>
-      <img   
+      <img
         alt="PyPI - Downloads"
         src="https://img.shields.io/pypi/dm/{{repo_package_name}}?color=3438BF&label=PyPI%20downloads&style=flat-square"
         href="https://pypi.org/project/{{repo_package_name}}/">
   </li>
   <li>
-    <img   
+    <img
       alt="PyPI - Version"
       src="https://img.shields.io/pypi/v/{{repo_package_name}}?color=3438BF&label=PyPI%20package&style=flat-square"
       href="https://pypi.org/project/{{repo_package_name}}/">
@@ -145,7 +145,7 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{page.meltano_type}}/
   {% for alt_variant in plugin.alt_variants %} {% if alt_variant.name != plugin.variant %}
   <li>
     {% if page.is_singer == true %}
-      {% assign variant_url = alt_variant.singer_url %} 
+      {% assign variant_url = alt_variant.singer_url %}
     {% else %}
       {% assign variant_url = alt_variant.url %}
     {% endif %}
@@ -162,14 +162,14 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{page.meltano_type}}/
 {% if page.is_singer == true %}
 
     <h2 id="standalone-usage">Standalone usage</h2>
-    
+
     <p>
       Install the package using
       <a href="https://pip.pypa.io/" target="_blank">pip</a>:
     </p>
-    
+
     <pre><code>pip install {{plugin.pip_url}}</code></pre>
-    
+
     <p>
       For additional instructions, refer to the
       <a href="{{plugin.repo}}#readme" target="_blank">README in the repository</a>.
@@ -177,17 +177,17 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{page.meltano_type}}/
 
     {% if plugin.prereq %}
     <h3 id="prerequisites">Prerequisites</h3>
-    
+
     {{ plugin.prereq | markdownify }}
-    
+
     {% endif %}
-    
+
     <h2 id="usage-with-meltano">
       Usage with <a href="https://meltano.com" target="_blank">Meltano</a>
     </h2>
     <p>
     <a href="https://meltano.com">Meltano</a> helps you manage your <a href="https://docs.meltano.com/guide/configuration">configuration</a>,
-    <a href="https://docs.meltano.com/guide/integration#incremental-replication-state">incremental replication</a>, 
+    <a href="https://docs.meltano.com/guide/integration#incremental-replication-state">incremental replication</a>,
     and <a href="https://docs.meltano.com/guide/orchestration#create-a-schedule">scheduled</a> pipelines.
     </p>
 
@@ -243,13 +243,11 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{page.meltano_type}}/
   {% endif %}
 </ol>
 
-{% if plugin.prereq.size > 0 and is_singer == false%} 
+{% if plugin.prereq %}
 {{ plugin.prereq | markdownify }}
 {% endif %}
 
 <h3 id="installation-and-configuration">Installation and configuration</h3>
-
-<h4 id="using-the-command-line-interface">Using the Command Line Interface</h4>
 
 <ol>
   <li>
@@ -263,7 +261,7 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{page.meltano_type}}/
       >:
     </p>
 
-    <pre><code>meltano add {{page.singular_plugin_type}} {{plugin.name}}{% if page.variant_specific %} --variant {{plugin.variant}}{% endif %}</code></pre>
+    <pre><code>meltano add {{page.plugin_type}} {{plugin.name}}{% if page.variant_specific %} --variant {{plugin.variant}}{% endif %}</code></pre>
   </li>
   {% if plugin.settings.size > 0 %}
   <li>
@@ -288,7 +286,7 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{page.meltano_type}}/
 
 {% if plugin_type == "extractor" or plugin_type == "loader" or plugin_type == "tap" or plugin_type == "target" %}
 <h2 id="capabilities">Capabilities</h2>
-    
+
 {% if plugin.capabilities.size == 0 %}
 <p>
   <code>{{plugin.name}}</code> does not have any <a href="/singer/docs#singer-connector-capabilities">capabilities</a> defined in its metadata.
@@ -297,15 +295,15 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{page.meltano_type}}/
   that defines the <a href="/singer/docs#singer-connector-capabilities">capabilities</a> for this {{plugin_type}}.
 </p>
 
-{% else %} 
+{% else %}
 
-  {% if plugin.capabilities.size == 2 
-    and plugin.capabilities contains "catalog" 
-    and plugin.capabilities contains "discover" 
+  {% if plugin.capabilities.size == 2
+    and plugin.capabilities contains "catalog"
+    and plugin.capabilities contains "discover"
     and plugin.settings.size == 0
   %}
     <p>
-      The current <a href="/singer/docs#singer-connector-capabilities">capabilities</a> for <code>{{plugin.name}}</code> 
+      The current <a href="/singer/docs#singer-connector-capabilities">capabilities</a> for <code>{{plugin.name}}</code>
       may have been automatically set when originally added to the Hub.
       Please review the capabilities when using this {{plugin_type}}.
       If you find they are out of date, please consider updating them by making a pull request to the <a href="{{yaml_file}}">YAML file</a>
@@ -313,32 +311,32 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{page.meltano_type}}/
     </p>
   {% endif %}
 
-<ul> {% for capability in plugin.capabilities %} 
+<ul> {% for capability in plugin.capabilities %}
   <li>
     <a href="/singer/docs#{{capability}}">
       <code>{{capability}}</code>
     </a>
-  </li> {% endfor %} </ul> 
+  </li> {% endfor %} </ul>
 
   {% endif %}
 
 {% endif %}
 
 <h2 id="settings">Settings</h2>
-  
-{% if plugin.settings.size == 0 or plugin.settings == nil %}
-<p>
-  The {{plugin_type}} <code>{{plugin.name}}</code> does not have any <a href="https://docs.meltano.com/contribute/plugins#setting-definitions">settings</a> defined in its metadata. 
-  Please considering adding them by making a pull request to the 
-  <a href="{{yaml_file}}">YAML file</a>
-  that defines the <a href="https://docs.meltano.com/contribute/plugins#setting-definitions">settings</a> for this {{plugin_type}}.
-</p>
-
-{% else plugin.settings.size > 0 %}
 
 {% if plugin.settings_preamble %}
 {{ plugin.settings_preamble | markdownify }}
 {% endif %}
+
+{% if plugin.settings.size == 0 or plugin.settings == nil %}
+<p>
+  The {{plugin_type}} <code>{{plugin.name}}</code> does not have any <a href="https://docs.meltano.com/contribute/plugins#setting-definitions">settings</a> defined in its metadata.
+  Please considering adding them by making a pull request to the
+  <a href="{{yaml_file}}">YAML file</a>
+  that defines the <a href="https://docs.meltano.com/contribute/plugins#setting-definitions">settings</a> for this {{plugin_type}}.
+</p>
+
+{% else %}
 
 {% if plugin.settings_group_validation.size == 1 %}
 <p>
@@ -386,7 +384,7 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{page.meltano_type}}/
 </p>
 
 {% for setting in plugin.settings %} {% include setting.html setting=setting
-plugin_name=plugin.name %} {% endfor %} 
+plugin_name=plugin.name %} {% endfor %}
 {% endif %}
 
 {% if plugin.usage %}
