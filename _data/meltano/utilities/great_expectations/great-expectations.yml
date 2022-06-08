@@ -16,6 +16,8 @@ settings:
   value: $MELTANO_PROJECT_ROOT/utilities/great_expectations
   env: GE_HOME
 logo_url: /assets/logos/utilities/great_expectations.png
+keywords:
+  - quality
 definition: helps data teams eliminate pipeline debt, through data testing, documentation, and profiling.
 usage: |
   ## Additional Configuration
