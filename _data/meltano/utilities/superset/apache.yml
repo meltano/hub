@@ -4,20 +4,28 @@ label: Superset
 description: A modern, enterprise-ready business intelligence web application.
 docs: https://docs.meltano.com/guide/analysis
 repo: https://github.com/apache/superset
+maintenance_status: active
 variant: apache
 pip_url: apache-superset==1.5.0 markupsafe==2.0.1 # `markupsafe` is listed explicitly to resolve https://github.com/apache/superset/issues/19150
 settings:
 - name: ui.bind_host
+  label: Host
   value: "0.0.0.0"
 - name: ui.port
+  label: Port
   value: 8088
 - name: ui.timeout
+  label: Timeout 
   value: 60
+  description: UI Timeout in seconds.
 - name: ui.workers
+  label: Workers
   value: 4
 - name: SQLALCHEMY_DATABASE_URI
+  label: SQLAlchemy Database URI
   value: sqlite:///$MELTANO_PROJECT_ROOT/.meltano/utilities/superset/superset.db
 - name: SECRET_KEY
+  label: Secret Key
   kind: password
   value: thisisnotapropersecretkey
 commands:
@@ -32,6 +40,6 @@ commands:
     args: load_examples
     description: Load examples.
 logo_url: /assets/logos/utilities/superset.png
-definition: is a modern, enterprise-ready business intelligence web application. It requires Meltano version 2.0.
+definition: is a modern, enterprise-ready business intelligence web application. **It requires Meltano version 2.0.**
 prereq: |
-  The Superset plugin requires Meltano version 2.0.
+  **The Superset plugin requires Meltano version 2.0.**
