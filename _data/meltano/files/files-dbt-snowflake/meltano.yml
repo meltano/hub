@@ -1,5 +1,5 @@
 name: files-dbt-snowflake
-label: dbt Snowflake Files
+label: dbt Snowflake
 namespace: files_dbt_snowflake
 repo: https://github.com/meltano/files-dbt-snowflake
 pip_url: git+https://github.com/meltano/files-dbt-snowflake

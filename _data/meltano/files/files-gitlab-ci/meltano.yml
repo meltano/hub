@@ -1,5 +1,5 @@
 name: files-gitlab-ci
-label: GitLab CI Files
+label: GitLab CI
 namespace: files_gitlab_ci
 repo: https://github.com/meltano/files-gitlab-ci
 pip_url: git+https://github.com/meltano/files-gitlab-ci.git
