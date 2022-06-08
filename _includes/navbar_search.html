@@ -60,6 +60,7 @@
               {% assign collection_label = "Files" %}
               {% elsif collection.label == "utilities"%}
               {% assign collection_label = "Utility" %}
+              {% endif %}
                 <a href="{{site.url}}/{{collection.label}}/{{item.name}}">
                   <img class="logo" src="{{item.logo_url}}" />
                   <p>{{item.name}} {{collection_label}}</p>
