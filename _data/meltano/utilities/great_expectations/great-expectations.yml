@@ -19,22 +19,29 @@ logo_url: /assets/logos/utilities/great_expectations.png
 keywords:
   - quality
 definition: helps data teams eliminate pipeline debt, through data testing, documentation, and profiling.
-usage: |
-  ## Additional Configuration
+next_steps: |
+  1. Create expectations suites and checkpoints!
+
+  #### Add additional database drivers
 
   If you are using Great Expectations to validate data in a database or warehouse, you
   might need to install the appropriate drivers. Common options are supported by Great Expectations
   as pip extras, and any additional packages you may want can be added too by configuring
   a custom `pip_url` for the `great_expectations` utility:
 
-  ```bash
-  # set the _pip_url extra setting
-  meltano config great_expectations set _pip_url "great_expectations[redshift]; awscli"
-  # re-install the great_expectations plugin for changes to take effect
-  meltano install utility great_expectations
-  ```
-next_steps: |
-  1. Refer to [the installation instructions](https://docs.meltano.com/concepts/plugins#great-expectations) for advanced configurations.
-  1. Create expectations suites and checkpoints!
+  1. Find the `great_expectations` plugin definition in your `meltano.yml` project file
+  2. Update the `pip_url` property to include the desired additional extras and packages:
 
-  If you run into any issues, [learn how to get help](#looking-for-help).
+     ```yaml
+     utilities:
+     - name: great_expectations
+       variant: great-expectations
+       pip_url: great_expectations[redshift] awscli
+     ```
+  3. Re-install the plugin:
+
+     ```sh
+     meltano install utility great_expectations
+     ```
+
+  The next time you run Great Expectations, you will be able to connect to a new type of database, like Redshift in the example.

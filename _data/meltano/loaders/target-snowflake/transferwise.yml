@@ -256,4 +256,4 @@ prereq: |
   TYPE = 'CSV' ESCAPE='\\' FIELD_OPTIONALLY_ENCLOSED_BY='"';
   ```
 
-  See the documentation link above for more details on other optional objects and how to create them.
+  See the [documentation](https://github.com/transferwise/pipelinewise-target-snowflake#pre-requirements) for more details on other optional objects and how to create them.

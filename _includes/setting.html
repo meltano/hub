@@ -11,7 +11,7 @@
 
 <ul>
   {% if plugin_name %} {% capture env_var %}{{plugin_name | replace: "-", "_" |
-  upcase}}_{{setting.name | upcase}}{% endcapture %}
+  upcase}}_{{setting.name | replace: ".", "_" | upcase}}{% endcapture %}
   <li>
     <a
       href="https://docs.meltano.com/configuration.html#configuring-settings"
@@ -21,7 +21,7 @@
     <code>{{env_var}}</code>
     {% assign env_var = setting.env %} {% else %}
     <code>{{env_var}}</code>
-    {% endif %} 
+    {% endif %}
   </li>
   {% if setting.options %}
   <li>
@@ -45,10 +45,10 @@
 <h4 id="how-to-use-{{ setting.name | slugify }}">How to use</h4>
 
 <p>
-  Manage this setting using 
+  Manage this setting using
   <a
     href="https://docs.meltano.com/command-line-interface.html#config"
-    taregt="_blank"
+    target="_blank"
     ><code>meltano config</code></a
   > or an
   <a

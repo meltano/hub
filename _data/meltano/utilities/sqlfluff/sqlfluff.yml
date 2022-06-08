@@ -12,8 +12,5 @@ commands:
 logo_url: /assets/logos/utilities/sqlfluff.png
 definition: is a linting tool for SQL files, often used with dbt to enforce SQL code standards.
 next_steps: |
-  1. Refer to [the installation instructions](https://docs.meltano.com/concepts/plugins#sqlfluff) for advanced configurations.
   1. Customize [the config files](https://docs.sqlfluff.com/en/stable/configuration.html) to match your team's style guide.
-  1. Run `meltano run sqlfluff:lint` to lint your SQL files.
-
-  If you run into any issues, [learn how to get help](#looking-for-help).
+  1. Run `meltano invoke sqlfluff:lint` to lint your SQL files.
