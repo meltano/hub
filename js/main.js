@@ -63,7 +63,7 @@ function navbarSearch() {
           item.classList.remove("active");
         }
       });
-      hideSearchListHeaders();
+      navbarSearchLogic();
     });
 
     searchInput.disabled = false;
@@ -72,7 +72,7 @@ function navbarSearch() {
 
 navbarSearch();
 
-function hideSearchListHeaders() {
+function navbarSearchLogic() {
   const results = document.querySelector("ul.navbar-search-list");
   const pluginItems = results.querySelectorAll("li");
   const noneActive = Array.from(pluginItems).every((item) => {
@@ -102,3 +102,25 @@ function hideSearchListHeaders() {
     parent.style.display = "block";
   });
 }
+
+function copyToClipBoard() {
+  const installHeader = document.getElementById(
+    "installation-and-configuration"
+  );
+  const orderedList = installHeader.nextSibling;
+  const nextOL = orderedList.nextSibling;
+  const codeBlock = nextOL.querySelector("li pre");
+  const codeInner = codeBlock.querySelector("code");
+  const copyButton = document.createElement("button");
+  copyButton.type = "button";
+  copyButton.ariaLabel = "Copy code to clipboard";
+  copyButton.classList.add("button");
+  codeBlock.append(copyButton);
+
+  copyButton.addEventListener("click", function () {
+    const code = codeInner.innerText.trim();
+    window.navigator.clipboard.writeText(code);
+  });
+}
+
+copyToClipBoard();
