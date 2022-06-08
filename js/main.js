@@ -93,4 +93,12 @@ function hideSearchListHeaders() {
   } else if (searchInput.activeElement) {
     parent.style.display = "block";
   }
+
+  results.addEventListener("mouseleave", (e) => {
+    parent.style.display = "none";
+  });
+  const searchInput = document.querySelector("input.homepage-search-input");
+  searchInput.addEventListener("mouseenter", (e) => {
+    parent.style.display = "block";
+  });
 }
