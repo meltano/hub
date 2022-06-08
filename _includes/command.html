@@ -1,0 +1,32 @@
+{% assign plugin_name=include.plugin_name%}
+{% assign executable=include.executable%}
+{% assign command_name=include.command_name %}
+{% assign command_info=include.command_info %}
+<h3 id="command-{{ command_name | slugify }}">
+  <code>{{ command_name }}</code>
+</h3>
+
+<ul>
+  {%assign exec = command_info.executable %}
+  {% unless exec %}{%assign exec = executable %}{% endunless %}
+  {% unless exec %}{%assign exec = plugin_name %}{% endunless %}
+
+  <li>Equivalent to: <code>{{exec}} {{command_info.args}}</code></li>
+</ul>
+
+{{ command_info.description | markdownify }}
+
+<h4 id="how-to-use-{{ command_name | slugify }}">How to use</h4>
+
+<p>
+  Run this command using
+  <a
+    href="https://docs.meltano.com/command-line-interface.html#invoke"
+    target="_blank"
+    ><code>meltano invoke</code></a
+  >:
+</p>
+
+{% highlight bash %}
+meltano invoke {{plugin_name}}:{{command_name}} [additional arguments...]
+{% endhighlight %}

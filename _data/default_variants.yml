@@ -1,6 +1,7 @@
 utilities:
   great_expectations: great-expectations
   sqlfluff: sqlfluff
+  superset: apache
 orchestrators:
   airflow: apache
 transforms:

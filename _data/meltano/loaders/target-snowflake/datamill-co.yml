@@ -3,10 +3,9 @@ label: Snowflake
 description: Snowflake database loader
 namespace: target_snowflake
 dialect: snowflake
-target_schema: $TARGET_SNOWFLAKE_SCHEMA
+target_schema: $TARGET_SNOWFLAKE_SNOWFLAKE_SCHEMA
 logo_url: /assets/logos/loaders/snowflake.png
 variant: datamill-co
-docs: https://hub.meltano.com/loaders/snowflake--datamill-co.html
 repo: https://github.com/datamill-co/target-snowflake
 pip_url: target-snowflake
 settings_group_validation:
@@ -20,7 +19,7 @@ settings:
   label: Account
   description: |
     `ACCOUNT` might require the `region` and `cloud` platform where your account is located, in the form of: `<your_account_name>.<region_id>.<cloud>` (e.g. `xy12345.east-us-2.azure`)
-    
+
     Refer to [Snowflake's documentation](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name-and-url) about Accounts.
 - name: snowflake_username
   label: Username

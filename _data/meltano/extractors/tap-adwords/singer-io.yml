@@ -4,7 +4,6 @@ description: Advertising Platform
 namespace: tap_adwords
 logo_url: /assets/logos/extractors/adwords.png
 variant: singer-io
-docs: https://hub.meltano.com/extractors/adwords.html
 repo: https://github.com/singer-io/tap-adwords
 pip_url: git+https://github.com/singer-io/tap-adwords.git
 capabilities:

@@ -22,6 +22,8 @@ class MeltanoJsonGenerator < Jekyll::Generator
       site.data['meltano_original'][plugin_type].each do |plugin_name, variants|
         variants.each do |variant_name, variant_definition|
           definition = transform_definition(variant_definition)
+          plugin_name = variant_definition['name']
+          definition["docs"] ||= "#{@url}/#{plugin_type}/#{plugin_name}--#{variant_name}"
           generate_file(site, "/meltano/api/v1/plugins/#{plugin_type}", "#{variant_definition['name']}--#{variant_name}", JSON.generate(definition))
         end
       end

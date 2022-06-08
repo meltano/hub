@@ -4,7 +4,6 @@ label: Pendo
 namespace: tap_pendo
 logo_url: /assets/logos/extractors/pendo.png
 variant: singer-io
-docs: https://hub.meltano.com/extractors/pendo
 pip_url: git+https://github.com/singer-io/tap-pendo.git
 repo: https://github.com/singer-io/tap-pendo
 capabilities:

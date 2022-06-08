@@ -10,38 +10,60 @@
           {% if item.label %}
             <li data-search-terms="{{item.label}} {{item.name}} {{item.namespace}} {{item.keywords}}">
               {% if collection.label == "extractors" %}
+              {% assign collection_label = "Extractor" %}
                 <a href="{{site.url}}/{{collection.label}}/{{item.name | remove: "tap-"}}">
                   <img class="logo" src="{{item.logo_url}}" />
-                  <p>{{item.label}}</p>
+                  <p>{{item.label}} {{collection_label}}</p>
                   </a>
               {% elsif collection.label == "loaders" %}
+              {% assign collection_label = "Loader" %}
                 <a href="{{site.url}}/{{collection.label}}/{{item.name | remove: "target-"}}">
                   <img class="logo" src="{{item.logo_url}}" />
-                  <p>{{item.label}}</p>
+                  <p>{{item.label}} {{collection_label}}</p>
                 </a>
               {% else %}
+              {% if collection.label == "transformers"%}
+              {% assign collection_label = "Transformer" %}
+              {% elsif collection.label == "orchestrators"%}
+              {% assign collection_label = "Orchestrator" %}
+              {% elsif collection.label == "files"%}
+              {% assign collection_label = "Files" %}
+              {% elsif collection.label == "utilities"%}
+              {% assign collection_label = "Utility" %}
+              {% endif %}
                 <a href="{{site.url}}/{{collection.label}}/{{item.name}}">
                   <img class="logo" src="{{item.logo_url}}" />
-                  <p>{{item.label}}</p>
+                  <p>{{item.label}} {{collection_label}}</p>
                 </a>
               {% endif %}
             </li>
           {% else %}
             <li data-search-terms="{{item.label}} {{item.name}} {{item.namespace}} {{item.keywords}}">
               {% if collection.label == "extractors" %}
+              {% assign collection_label = "Extractor" %}
                 <a href="{{site.url}}/{{collection.label}}/{{item.name | remove: "tap-"}}">
                   <img class="logo" src="{{item.logo_url}}" />
-                  <p>{{item.name}}</p>
+                  <p>{{item.name}} {{collection_label}}</p>
                 </a>
               {% elsif collection.label == "loaders" %}
+              {% assign collection_label = "Loader" %}
                 <a href="{{site.url}}/{{collection.label}}/{{item.name | remove: "target-"}}">
                   <img class="logo" src="{{item.logo_url}}" />
-                  <p>{{item.name}}</p>
+                  <p>{{item.name}} {{collection_label}}</p>
                 </a>
               {% else %}
+              {% if collection.label == "transformers"%}
+              {% assign collection_label = "Transformer" %}
+              {% elsif collection.label == "orchestrators"%}
+              {% assign collection_label = "Orchestrator" %}
+              {% elsif collection.label == "files"%}
+              {% assign collection_label = "Files" %}
+              {% elsif collection.label == "utilities"%}
+              {% assign collection_label = "Utility" %}
+              {% endif %}
                 <a href="{{site.url}}/{{collection.label}}/{{item.name}}">
                   <img class="logo" src="{{item.logo_url}}" />
-                  <p>{{item.name}}</p>
+                  <p>{{item.name}} {{collection_label}}</p>
                 </a>
               {% endif %}
             </li>

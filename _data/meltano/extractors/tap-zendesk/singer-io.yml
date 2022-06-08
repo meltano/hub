@@ -4,7 +4,6 @@ description: Support ticketing system & customer service platform
 namespace: tap_zendesk
 logo_url: /assets/logos/extractors/zendesk.png
 variant: singer-io
-docs: https://hub.meltano.com/extractors/zendesk.html
 repo: https://github.com/singer-io/tap-zendesk
 pip_url: tap-zendesk
 capabilities:

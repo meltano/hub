@@ -1,3 +1,8 @@
+def pluralize_plugin_type(plugin_type)
+  return "utilities" if plugin_type == "utility"
+  return "#{plugin_type}s"
+end
+
 class PluginEnricher < Jekyll::Generator
   safe true
   priority :highest
@@ -7,16 +12,15 @@ class PluginEnricher < Jekyll::Generator
     enrich_plugins(site, "extractor")
     enrich_plugins(site, "loader")
     enrich_plugins(site, "file")
-    enrich_plugins(site, "utilitie")
+    enrich_plugins(site, "utility")
     enrich_plugins(site, "transformer")
     enrich_plugins(site, "orchestrator")
   end
 
   def enrich_plugins(site, type_of_plugin)
+    meltano_type_plural = pluralize_plugin_type(type_of_plugin)
 
-    meltano_type_plural = "#{type_of_plugin}s"
-
-    defaults = site.data['default_variants']["#{type_of_plugin}s"]
+    defaults = site.data['default_variants'][pluralize_plugin_type(type_of_plugin)]
     unsorted_hash = {}
     site.data['meltano'][meltano_type_plural].each do |plugin_name, variants|
       default_variant = defaults[plugin_name]
@@ -61,7 +65,7 @@ class PluginEnricher < Jekyll::Generator
       variant_definition['url'] = "/#{meltano_type_plural}/#{url_suffix}"
 
       variant_definition['maintainer'] ||= site.data['maintainers'][variant_definition['variant'].downcase]
-    
+
       if variant_definition.key?("repo")
         repo_url = variant_definition['repo']
         repo_path_match = repo_url.match(%r{\Ahttps?://(?:www\.)?git(?:hub|lab)\.com/([^/]+/[^/.]+)}i)

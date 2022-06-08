@@ -4,7 +4,6 @@ description: PostgreSQL database extractor
 namespace: tap_postgres
 logo_url: /assets/logos/extractors/postgres.png
 variant: transferwise
-docs: https://hub.meltano.com/extractors/postgres.html
 repo: https://github.com/transferwise/pipelinewise-tap-postgres
 pip_url: pipelinewise-tap-postgres
 capabilities:
@@ -88,4 +87,4 @@ usage: |
   This error message indicates that the [`libpq`](https://www.postgresql.org/docs/current/libpq.html) dependency is missing.
 
   To resolve this, refer to the ["Dependencies" section](#dependencies) above.
-  
+
