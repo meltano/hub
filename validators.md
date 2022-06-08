@@ -7,7 +7,7 @@ description: Learn how to increase your data quality using Meltano
 
 Meltano validators are utility plugins that enable you to assess the overall quality of your data.
 
-{% assign plugins = site.data.meltano.sorted_utilities | where: "utility_type", "quality" %}
+{% assign plugins = site.data.meltano.sorted_utilities | where: "utility_type", "validator" %}
 
 {% include plugin_grid.html plugins=plugins search="validators" %}
 
