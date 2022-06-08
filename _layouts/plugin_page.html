@@ -8,7 +8,7 @@ layout: default
     <h1 class="post-title">
       {% if plugin %}
       <img class="logo" src="{{plugin.logo_url}}" />
-      {{ plugin.label }} {% if page.variant_specific %} (<code
+      {{ plugin.label }} {% if plugin.plugin_type == "files"%}File Bundle{% endif %}{% if page.variant_specific %} (<code
         >{{plugin.variant}}</code
       >
       variant) {% endif %} {% else %} {{ page.title}} {% endif %}

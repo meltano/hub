@@ -311,7 +311,7 @@ usage: |
           # ...
   ```
 
-  Alternatively, manage this setting using [`meltano config`](https://docs.meltano.com/command-line-interface.html#config) or an [environment variable](https://docs.meltano.com/configuration.html#configuring-settings):
+  Alternatively, manage this setting using [`meltano config`](https://docs.meltano.com/reference/command-line-interface#config) or an [environment variable](https://docs.meltano.com/guide/configuration#configuring-settings):
 
   ```bash
   meltano config tap-adwords set primary_keys <REPORT_NAME> '["<key>", ...]'

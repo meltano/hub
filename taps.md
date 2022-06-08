@@ -22,7 +22,7 @@ create one yourself using the
 [SDK](https://sdk.meltano.com) and then [click here](https://github.com/meltano/hub/issues/new) to submit
 your tap to be listed on MeltanoHub. 
 
-Any [Singer tap](/singer/targets) can easily be [added to your Meltano project as a custom extractor](https://docs.meltano.com/plugin-management.html#custom-plugins).
+Any [Singer tap](/singer/targets) can easily be [added to your Meltano project as a custom extractor](https://docs.meltano.com/guide/plugin-management#custom-plugins).
 If a tap for your source doesn't exist yet, you can learn how to [create your own from scratch](https://github.com/singer-io/getting-started/blob/master/docs/RUNNING_AND_DEVELOPING.md#developing-a-tap). Once you've got the new extractor working in your project, you can
 [add it to the Hub](https://github.com/meltano/hub/tree/main/_data/meltano/extractors).
 

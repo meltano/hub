@@ -1,5 +1,5 @@
 name: files-docker
-label: Docker Files
+label: Docker
 namespace: files_docker
 repo: https://github.com/meltano/files-docker
 pip_url: git+https://github.com/meltano/files-docker.git

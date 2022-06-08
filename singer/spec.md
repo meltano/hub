@@ -341,7 +341,7 @@ There are two kinds of metadata:
 |  Keyword                    |  Tap Type  |  Description  |
 | ----------------------------|:----------:|---------------|
 | `selected`                  | All        | Either `true` or `false`.  Indicates that this node in the schema has been selected by the user for replication. |
-| `replication-method`        | All        | Either `FULL_TABLE`, `INCREMENTAL`, or `LOG_BASED`. The replication method to use for a stream. <br> See [Data Integration](https://docs.meltano.com/integration.html#replication-methods) for more details on the replication type.|
+| `replication-method`        | All        | Either `FULL_TABLE`, `INCREMENTAL`, or `LOG_BASED`. The replication method to use for a stream. <br> See [Data Integration](https://docs.meltano.com/guide/integration#replication-methods) for more details on the replication type.|
 | `replication-key`           | All        | The name of a property in the source to use as a `bookmark`.  For example, this will often be an `updated_at` field or an auto-incrementing primary key (requires `replication-method`).|
 | `view-key-properties`       | Database   | List of key properties for a database view. |
 

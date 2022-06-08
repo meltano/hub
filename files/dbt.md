@@ -23,13 +23,13 @@ If you haven't already, follow the [Getting Started guide](https://docs.meltano.
 
 ### Installation and configuration
 
-1. Add the `dbt` file bundle to your project using [`meltano add`](https://docs.meltano.com/command-line-interface.html#add):
+1. Add the `dbt` file bundle to your project using [`meltano add`](https://docs.meltano.com/reference/command-line-interface.html#add):
 
     ```bash
     meltano add files dbt
     ```
 
-1. Configure the [settings](#settings) below using [`meltano config`](https://docs.meltano.com/command-line-interface.html#config).
+1. Configure the [settings](#settings) below using [`meltano config`](https://docs.meltano.com/reference/command-line-interface#config).
 
 ### Next steps
 

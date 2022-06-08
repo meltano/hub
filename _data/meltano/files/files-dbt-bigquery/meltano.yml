@@ -1,5 +1,5 @@
 name: files-dbt-bigquery
-label: dbt Bigquery Files
+label: dbt Bigquery
 namespace: files_dbt_bigquery
 repo: https://github.com/meltano/files-dbt-bigquery
 pip_url: git+https://github.com/meltano/files-dbt-bigquery

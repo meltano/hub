@@ -26,7 +26,7 @@ settings:
     - `name`: The entity name, used by most loaders as the name of the table to be created.
     - `table`: Fully qualified table name in BigQuery, with format `` `<project>.<dataset>.<table>` ``. Since backticks have special meaning in YAML, values in `meltano.yml` should be wrapped in double quotes.
     - `columns`: Array of column names to select. Using `["*"]` is not recommended as it can become very expensive for a table with a large number of columns.
-    - `datetime_key`: Name of datetime column to use as [replication key](https://docs.meltano.com/integration.html#replication-key).
+    - `datetime_key`: Name of datetime column to use as [replication key](https://docs.meltano.com/guide/integration#replication-key).
     - `filters`: Optional array of `WHERE` clauses to filter extracted data, e.g. `"column='value'"`.
 - name: credentials_path
   label: Credentials Path

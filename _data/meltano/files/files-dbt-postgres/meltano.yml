@@ -1,5 +1,5 @@
 name: files-dbt-postgres
-label: dbt Postgres Files
+label: dbt Postgres
 namespace: files_dbt_postgres
 repo: https://github.com/meltano/files-dbt-postgres
 pip_url: git+https://github.com/meltano/files-dbt-postgres

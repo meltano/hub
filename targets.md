@@ -22,7 +22,7 @@ create one yourself using the
 [SDK](https://sdk.meltano.com) and then [click here](https://github.com/meltano/hub/issues/new) to submit
 your target to be listed on MeltanoHub. 
 
-Any [Singer target](/singer/targets) can easily be [added to your Meltano project as a custom loader](https://docs.meltano.com/plugin-management.html#custom-plugins).
+Any [Singer target](/singer/targets) can easily be [added to your Meltano project as a custom loader](https://docs.meltano.com/guide/plugin-management#custom-plugins).
 If a target for your destination doesn't exist yet, you can learn how to [create your own from scratch](https://github.com/singer-io/getting-started/blob/master/docs/RUNNING_AND_DEVELOPING.md#developing-a-target). Once you've got the new loader working in your project, you can
 [add it to the Hub](https://github.com/meltano/hub/tree/main/_data/meltano/loaders).
 
