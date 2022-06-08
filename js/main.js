@@ -78,11 +78,58 @@ function hideSearchListHeaders() {
   const noneActive = Array.from(pluginItems).every((item) => {
     return item.classList.contains("not-active");
   });
+  const someActive = Array.from(pluginItems).some((item) => {
+    return item.classList.contains("active");
+  });
 
   const parent = results.parentElement;
-  if (noneActive) {
-    parent.style.display = "none";
+  const searchInput = document.querySelector("input.homepage-search-input");
+
+  // if none are active display none
+  // if some are active display block
+  // if all are not active or not active display none
+  // if input is focused display block
+  // if (noneActive) {
+  //   parent.style.display = "none";
+  // } else if (someActive) {
+  //   parent.style.display = "block";
+  // } else if (!noneActive && !someActive) {
+  //   parent.style.display = "none";
+  // } else if (searchInput.activeElement) {
+  //   parent.style.display = "block";
+  // }
+
+  if(noneActive) {
+    parent.style.display = "none"
   } else {
-    parent.style.display = "block";
+    parent.style.display = "block"
   }
+
+  searchInput.addEventListener('mouseleave', {
+    parent.style.display = "none"
+  })
+
+
+
+  // if (noneActive) {
+  //   parent.style.display = "none";
+  // } else if (someActive) {
+  //   parent.style.display = "block";
+  // } else {
+  //   parent.style.display = "inherit";
+  // }
+
+  // if (noneActive) {
+  //   parent.style.display = "none";
+  // } else if (someActive) {
+  //   parent.style.display = "block";
+  // } else if (searchInput.value === 0) {
+  //   parent.style.display = "none";
+  // }
+
+  // if (someActive) {
+  //   parent.display.style = "block";
+  // } else {
+  //   parent.style.display = "none";
+  // }
 }
