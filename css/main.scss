@@ -407,8 +407,8 @@ input.grid-search {
 }
 
 .navbar-search-results {
-  width: 200%;
-  height: 500px;
+  width: 175%;
+  height: 300px;
   background: $white;
   right: 20px;
 }
@@ -419,10 +419,16 @@ input.grid-search {
   margin-left: 0;
 }
 
-.navbar-search-list h2 {
-  text-transform: capitalize;
-  border-bottom: 2px solid $meltano-blue;
+.navbar-search-list li a {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
+
+// .navbar-search-list h2 {
+//   text-transform: capitalize;
+//   border-bottom: 2px solid $meltano-blue;
+// }
 
 .navbar-search-list .logo {
   width: 100px;
@@ -430,18 +436,18 @@ input.grid-search {
   object-fit: contain;
 }
 
-[class^="navbar-search-label"] {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-}
+// [class^="navbar-search-label"] {
+//   margin: 0;
+//   padding: 0;
+//   list-style-type: none;
+// }
 
-[class^="navbar-search-label"] li a {
-  padding: 0;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
+// [class^="navbar-search-label"] li a {
+//   padding: 0;
+//   display: flex;
+//   justify-content: space-evenly;
+//   align-items: center;
+// }
 
 .navbar-search-label-posts,
 .navbar-search-label-posts-list {
