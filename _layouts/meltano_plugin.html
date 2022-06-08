@@ -161,6 +161,13 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{page.meltano_type}}/
 
 {% if page.is_singer == true %}
 
+    {% if plugin.prereq %}
+    <h2 id="prerequisites">Prerequisites</h2>
+
+    {{ plugin.prereq | markdownify }}
+
+    {% endif %}
+
     <h2 id="standalone-usage">Standalone usage</h2>
 
     <p>
@@ -174,13 +181,6 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{page.meltano_type}}/
       For additional instructions, refer to the
       <a href="{{plugin.repo}}#readme" target="_blank">README in the repository</a>.
     </p>
-
-    {% if plugin.prereq %}
-    <h3 id="prerequisites">Prerequisites</h3>
-
-    {{ plugin.prereq | markdownify }}
-
-    {% endif %}
 
     <h2 id="usage-with-meltano">
       Usage with <a href="https://meltano.com" target="_blank">Meltano</a>
@@ -282,6 +282,8 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{page.meltano_type}}/
 {{ page.next_steps | markdownify }}
 {% endif %}
 
+If you run into any issues, <a href="#looking-for-help">learn how to get help</a>.
+
 {% endif %}
 
 {% if plugin_type == "extractor" or plugin_type == "loader" or plugin_type == "tap" or plugin_type == "target" %}
@@ -378,7 +380,8 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{page.meltano_type}}/
 </ul>
 {% endif %}
 <p>
-  These and other supported <a href="https://docs.meltano.com/contribute/plugins#setting-definitions">settings</a> are documented below. To quickly find the
+  The <a href="https://docs.meltano.com/contribute/plugins#setting-definitions">settings</a> for {{plugin_type}} <code>{{plugin.name}}</code> that are known to Meltano are documented below.
+  To quickly find the
   setting you're looking for, use the <a href="#toc">Table of Contents</a> at
   the top of the page.
 </p>
@@ -388,9 +391,7 @@ plugin_name=plugin.name %} {% endfor %}
 {% endif %}
 
 {% if plugin.usage %}
-
 {{ plugin.usage | markdownify }}
-
 {% endif %}
 
 <h2 id="looking-for-help">Looking for help?</h2>
