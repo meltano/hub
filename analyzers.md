@@ -5,7 +5,7 @@ permalink: /analyzers/
 description: Learn how to analyze your data using Meltano
 ---
 
-Meltano utilities plugins allow virtually any open source data tool to be integrated with your data project.
+Meltano analyzers are utility plugins that enable you to analyze your data and build reports.
 
 {% assign plugins = site.data.meltano.sorted_utilities %}
 

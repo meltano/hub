@@ -5,7 +5,7 @@ permalink: /validators/
 description: Learn how to increase your data quality using Meltano
 ---
 
-Meltano utilities plugins allow virtually any open source data tool to be integrated with your data project.
+Meltano validators are utility plugins that enable you to assess the overall quality of your data.
 
 {% assign plugins = site.data.meltano.sorted_utilities %}
 
