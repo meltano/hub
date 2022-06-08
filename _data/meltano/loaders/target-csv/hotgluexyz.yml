@@ -4,7 +4,6 @@ description: CSV loader
 namespace: target_csv
 logo_url: /assets/logos/loaders/csv.png
 variant: hotgluexyz
-docs: https://hub.meltano.com/loaders/csv.html
 repo: https://github.com/hotgluexyz/target-csv
 pip_url: git+https://github.com/hotgluexyz/target-csv.git@0.3.3
 settings:
@@ -12,11 +11,11 @@ settings:
   label: Destination Path
   description: |
     Sets the destination path the CSV files are written to, relative to
-    the project root. 
-    
+    the project root.
+
     The directory needs to exist already, it will not be created
-    automatically. 
-    
+    automatically.
+
     To write CSV files to the project root, set an empty string (`""`).
   value: output
 - name: delimiter

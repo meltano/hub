@@ -3,9 +3,10 @@ label: GitHub
 name: tap-github
 logo_url: /assets/logos/extractors/github.png
 namespace: tap_github
-variant: meltanolabs
+variant: singer-io
 pip_url: tap-github
 repo: https://github.com/singer-io/tap-github
+maintenance_status: active
 settings_group_validation:
   - - access_token
     - repository
