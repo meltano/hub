@@ -254,7 +254,7 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{page.meltano_type}}/
     <p>
       Add the <code>{{plugin.name}}</code> {{plugin_type}} to your project using
       <a
-        href="https://docs.meltano.com/command-line-interface.html#add"
+        href="https://docs.meltano.com/reference/command-line-interface.html#add"
         target="_blank"
       >
         <code>meltano add</code> </a
@@ -267,7 +267,7 @@ https://github.com/meltano/hub/tree/develop/_data/meltano/{{page.meltano_type}}/
   <li>
     Configure the <a href="#settings">settings</a> below using
     <a
-      href="https://docs.meltano.com/command-line-interface.html#config"
+      href="https://docs.meltano.com/reference/command-line-interface#config"
       target="_blank"
     >
       <code>meltano config</code> </a
@@ -343,7 +343,7 @@ If you run into any issues, <a href="#looking-for-help">learn how to get help</a
 {% if plugin.settings_group_validation.size == 1 %}
 <p>
   <code>{{plugin.name}}</code> requires the
-  <a href="https://docs.meltano.com/configuration.html" target="_blank">
+  <a href="https://docs.meltano.com/guide/configuration.html" target="_blank">
     configuration
   </a>
   of the following settings:
@@ -361,7 +361,7 @@ If you run into any issues, <a href="#looking-for-help">learn how to get help</a
 {% elsif plugin.settings_group_validation.size > 1 %}
 <p>
   <code>{{plugin.name}}</code> requires the
-  <a href="https://docs.meltano.com/configuration.html" target="_blank">
+  <a href="https://docs.meltano.com/guide/configuration.html" target="_blank">
     configuration
   </a>
   of one of the following groups of settings:
@@ -395,7 +395,7 @@ plugin_name=plugin.name %} {% endfor %}
 
 <p>
   The <code>{{plugin.name}}</code> {{plugin_type}} supports the following <a href="https://docs.meltano.com/reference/command-line-interface#commands" target="_blank">commands</a> that can be used with
-  <a href="https://docs.meltano.com/command-line-interface.html#invoke" target="_blank" ><code>meltano invoke</code> </a>:
+  <a href="https://docs.meltano.com/reference/command-line-interface.html#invoke" target="_blank" ><code>meltano invoke</code> </a>:
 </p>
 
 {% for command in plugin.commands %}

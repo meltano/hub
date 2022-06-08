@@ -87,7 +87,7 @@ settings:
     Enable to pull in extra data (like Epics, Epic Issues and other entities)
     only available to GitLab Ultimate and GitLab.com Gold accounts.
 
-    The `epics` and `epic_issues` entities cannot be [selected](https://docs.meltano.com/integration.html#selecting-entities-and-attributes-for-extraction) unless this setting is enabled.
+    The `epics` and `epic_issues` entities cannot be [selected](https://docs.meltano.com/guide/integration#selecting-entities-and-attributes-for-extraction) unless this setting is enabled.
 - name: fetch_merge_request_commits
   label: Fetch Merge Request Commits
   kind: boolean
@@ -97,7 +97,7 @@ settings:
 
     This can slow down extraction considerably because of the many API calls required.
 
-    The `merge_request_commits` entity cannot be [selected](https://docs.meltano.com/integration.html#selecting-entities-and-attributes-for-extraction) unless this setting is enabled.
+    The `merge_request_commits` entity cannot be [selected](https://docs.meltano.com/guide/integration#selecting-entities-and-attributes-for-extraction) unless this setting is enabled.
 - name: fetch_pipelines_extended
   label: Fetch Pipelines Extended
   kind: boolean
@@ -107,7 +107,7 @@ settings:
 
     This  can slow down extraction considerably because of the many API calls required.
 
-    The `pipelines_extended` entity cannot be [selected](https://docs.meltano.com/integration.html#selecting-entities-and-attributes-for-extraction) unless this setting is enabled.
+    The `pipelines_extended` entity cannot be [selected](https://docs.meltano.com/guide/integration#selecting-entities-and-attributes-for-extraction) unless this setting is enabled.
 - name: start_date
   label: Start Date
   kind: date_iso8601

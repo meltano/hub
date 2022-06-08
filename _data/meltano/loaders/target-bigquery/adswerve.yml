@@ -23,7 +23,7 @@ settings:
   description: |
     BigQuery dataset.
 
-    The default value [will expand to](https://docs.meltano.com/configuration.html#expansion-in-setting-values) the value of the [`load_schema` extra](https://docs.meltano.com/concepts/plugins#load-schema-extra) for the extractor used in the pipeline, which defaults to the extractor's namespace, e.g. `tap_gitlab` for [`tap-gitlab`](/extractors/gitlab).
+    The default value [will expand to](https://docs.meltano.com/guide/configuration.html#expansion-in-setting-values) the value of the [`load_schema` extra](https://docs.meltano.com/concepts/plugins#load-schema-extra) for the extractor used in the pipeline, which defaults to the extractor's namespace, e.g. `tap_gitlab` for [`tap-gitlab`](/extractors/gitlab).
 - name: location
   description: Dataset Location. See https://cloud.google.com/bigquery/docs/locations.
   value: US
