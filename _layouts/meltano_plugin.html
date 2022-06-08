@@ -380,7 +380,7 @@ If you run into any issues, <a href="#looking-for-help">learn how to get help</a
 </ul>
 {% endif %}
 <p>
-  The <a href="https://docs.meltano.com/contribute/plugins#setting-definitions">settings</a> for {{plugin_type}} <code>{{plugin.name}}</code> that are known to Meltano are documented below.
+  The <a href="https://docs.meltano.com/contribute/plugins#setting-definitions" target="_blank"> settings</a> for {{plugin_type}} <code>{{plugin.name}}</code> that are known to Meltano are documented below.
   To quickly find the
   setting you're looking for, use the <a href="#toc">Table of Contents</a> at
   the top of the page.
@@ -388,6 +388,22 @@ If you run into any issues, <a href="#looking-for-help">learn how to get help</a
 
 {% for setting in plugin.settings %} {% include setting.html setting=setting
 plugin_name=plugin.name %} {% endfor %}
+{% endif %}
+
+{% if plugin.commands.size > 0 %}
+<h2 id="commands">Commands</h2>
+
+<p>
+  The <code>{{plugin.name}}</code> {{plugin_type}} supports the following <a href="https://docs.meltano.com/reference/command-line-interface#commands" target="_blank">commands</a> that can be used with
+  <a href="https://docs.meltano.com/command-line-interface.html#invoke" target="_blank" ><code>meltano invoke</code> </a>:
+</p>
+
+{% for command in plugin.commands %}
+  {%assign command_name=command[0]%}
+  {%assign command_info=command[1]%}
+  {% include command.html command_name=command_name command_info=command_info plugin_name=plugin.name executable=plugin.executable %}
+{% endfor %}
+
 {% endif %}
 
 {% if plugin.usage %}

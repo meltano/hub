@@ -44,7 +44,7 @@ commands:
   create-admin:
     args: fab create-admin
     description: Create an admin user.
-  load_examples:
+  load-examples:
     args: load_examples
     description: Load examples.
 logo_url: /assets/logos/utilities/superset.png
@@ -95,7 +95,7 @@ next_steps: |
   1. Optionally, load some example data to play with:
 
      ```sh
-     meltano invoke superset:load_examples
+     meltano invoke superset:load-examples
      # This is equivalent to `superset load_examples` in the Superset documentation
      ```
   1. Launch the Superset UI and log in using the username/password you created:
