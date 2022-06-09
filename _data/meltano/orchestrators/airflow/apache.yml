@@ -17,6 +17,22 @@ commands:
   ui:
     args: webserver
     description: Start the Airflow webserver.
+next_steps: |
+  1. If you're running Airflow for the first time in a new environment, create an admin user:
+
+     ```sh
+     meltano invoke airflow:create-admin
+     # This is equivalent to `airflow users create` with some arguments in the Airflow documentation
+     ```
+
+  1. Launch the Airflow UI and log in using the username/password you created:
+
+     ```sh
+     meltano invoke airflow:ui
+     ```
+
+     By default, the UI will be available at at [`http://localhost:8080`](http://localhost:8080). You can change this using the `webserver.web_server_port` setting documented below.
+
 settings:
 - name: core.dags_folder
   label: DAGs Folder
@@ -38,6 +54,9 @@ settings:
   label: Pause DAGs at Creation
   env: AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION
   value: false
+- name: webserver.web_server_port
+  label: Webserver Port
+  env: AIRFLOW__WEBSERVER__WEB_SERVER_PORT
 logo_url: /assets/logos/orchestrators/airflow.png
 settings_preamble: |
   Meltano [centralizes the configuration](https://docs.meltano.com/guide/configuration) of all of the plugins in your project, including Airflow's. This means that if the [Airflow documentation](https://airflow.apache.org/docs/apache-airflow/stable/howto/set-config.html) tells you to put something in `airflow.cfg`, you can use `meltano config`, `meltano.yml`, or environment variables instead, and get the benefits of Meltano features like [environments](https://docs.meltano.com/concepts/environments).
