@@ -134,8 +134,16 @@ next_steps: |
 usage: |
   ## Troubleshooting
   
-  ### Secret Key Change
+  ### Invalid decryption key
   
-  Be aware that if you change your secret key, the metadata database will become unreadable. If this happens, you can delete it at `$MELTANO_PROJECT_ROOT/.meltano/utilities/superset/superset.db`. 
+  If you see a `ValueError: Invalid decryption key` warning or a message that `Superset default roles and permissions could not be created: 'superset init' failed` then it's likely that your encryption key is incorrect. 
   
-  Note that you will lose any users and reports stored in the database if you delete it.
+  
+  If you change your [`SECRET_KEY`](#secret-key), the metadata database containing your users and reports will become unreadable. If there was nothing valuable in there, you can delete it at `.meltano/utilities/superset/superset.db` inside your project. If you changed the secret key because the old one was leaked, you can [rotate the key](https://superset.apache.org/docs/installation/configuring-superset/#secret_key-rotation):
+  
+  ```bash
+  meltano config superset set SECRET_KEY <new_key>
+  meltano config superset set PREVIOUS_SECRET_KEY <original_key>
+  meltano invoke superset re-encrypt-secrets
+  ```
+  
