@@ -56,6 +56,7 @@ settings:
   value: false
 - name: webserver.web_server_port
   label: Webserver Port
+  value: 8080
   env: AIRFLOW__WEBSERVER__WEB_SERVER_PORT
 logo_url: /assets/logos/orchestrators/airflow.png
 settings_preamble: |
