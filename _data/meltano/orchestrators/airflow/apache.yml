@@ -11,6 +11,9 @@ requires:
   - name: files-airflow
     variant: meltano
 commands:
+  create-admin:
+    args: fab create-admin
+    description: Create an admin user.
   ui:
     args: webserver
     description: Start the Airflow webserver.
