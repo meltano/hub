@@ -131,3 +131,11 @@ next_steps: |
      ```
 
   Now when you (re)start Superset, you will be able to connect to a new type of database, like Snowflake in the example.
+usage: |
+  ## Troubleshooting
+  
+  ### Secret Key Change
+  
+  Be aware that if you change your secret key, the metadata database will become unreadable. If this happens, you can delete it at `$MELTANO_PROJECT_ROOT/.meltano/utilities/superset/superset.db`. 
+  
+  Note that you will lose any users and reports stored in the database if you delete it.
