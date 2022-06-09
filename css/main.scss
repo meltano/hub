@@ -436,7 +436,8 @@ input.grid-search {
   display: none;
 }
 
-#installation-and-configuration + ol li pre button {
+#installation-and-configuration + ol li pre button,
+.highlight pre button {
   opacity: 0.3;
   float: right;
   background: url("../assets/icons/icon-copy.svg") no-repeat;
@@ -447,6 +448,9 @@ input.grid-search {
 
 #installation-and-configuration + ol li pre > button:active,
 #installation-and-configuration + ol li pre > button:hover,
-#installation-and-configuration + ol li pre > button:focus {
+#installation-and-configuration + ol li pre > button:focus,
+.highlight pre > button:active,
+.highlight pre > button:hover,
+.highlight pre > button:focus {
   opacity: 1;
 }
