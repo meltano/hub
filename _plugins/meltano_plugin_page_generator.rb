@@ -117,9 +117,6 @@ class MeltanoPluginPageGenerator < Jekyll::Generator
 1. [Transform loaded data for analysis](https://docs.meltano.com/getting-started.html#transform-loaded-data-for-analysis)"""
       elsif plugin_type == 'orchestrator'
         page_topic = "The `#{variant_definition['name']}` [orchestrator](https://docs.meltano.com/concepts/plugins#orchestrators) allows for workflows to be programmatically authored, scheduled, and monitored."
-        next_steps = """1. Use the [meltano schedule](https://docs.meltano.com/reference/command-line-interface#schedule) command to create pipeline schedules in your project, to be run by Airflow.
-2. Start Scheduler and Webserver or execute Airflow commands directly using the instructions in [the Meltano docs](https://docs.meltano.com/guide/orchestration#starting-the-airflow-scheduler).
-"""
       elsif plugin_type == 'file'
         page_topic = "The `#{variant_definition['name']}` [file bundle](https://docs.meltano.com/concepts/plugins#file-bundles) #{variant_definition['definition']}"
         next_steps = variant_definition['next_steps']

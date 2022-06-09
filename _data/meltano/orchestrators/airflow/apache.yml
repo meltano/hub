@@ -18,6 +18,8 @@ commands:
     args: webserver
     description: Start the Airflow webserver.
 next_steps: |
+  1. Use the [meltano schedule](https://docs.meltano.com/reference/command-line-interface#schedule) command to create pipeline schedules in your project, to be run by Airflow.
+
   1. If you're running Airflow for the first time in a new environment, create an admin user:
 
      ```sh
@@ -32,6 +34,8 @@ next_steps: |
      ```
 
      By default, the UI will be available at at [`http://localhost:8080`](http://localhost:8080). You can change this using the `webserver.web_server_port` setting documented below.
+
+  1. Start Scheduler or execute Airflow commands directly using the instructions in [the Meltano docs](https://docs.meltano.com/guide/orchestration#starting-the-airflow-scheduler).
 
 settings:
 - name: core.dags_folder
