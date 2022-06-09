@@ -104,22 +104,31 @@ function navbarSearchLogic() {
 }
 
 function copyToClipBoard() {
-  const installHeader = document.getElementById(
-    "installation-and-configuration"
-  );
-  const orderedList = installHeader.nextSibling;
-  const nextOL = orderedList.nextSibling;
-  const codeBlock = nextOL.querySelector("li pre");
-  const codeInner = codeBlock.querySelector("code");
-  const copyButton = document.createElement("button");
-  copyButton.type = "button";
-  copyButton.ariaLabel = "Copy code to clipboard";
-  copyButton.classList.add("button");
-  codeBlock.append(copyButton);
+  const codeBlocks = document.querySelectorAll("ol li pre");
+  const codeBlocksHighlights = document.querySelectorAll(".highlight pre");
 
-  copyButton.addEventListener("click", function () {
-    const code = codeInner.innerText.trim();
-    window.navigator.clipboard.writeText(code);
+  codeBlocks.forEach((codeBlock) => {
+    const codeInner = codeBlock.querySelector("code");
+    const copyButton = document.createElement("button");
+    copyButton.type = "button";
+    copyButton.ariaLabel = "Copy code to clipboard";
+    codeBlock.append(copyButton);
+    copyButton.addEventListener("click", function () {
+      const code = codeInner.innerText.trim();
+      window.navigator.clipboard.writeText(code);
+    });
+  });
+
+  codeBlocksHighlights.forEach((codeBlock) => {
+    const codeInner = codeBlock.querySelector("code");
+    const copyButton = document.createElement("button");
+    copyButton.type = "button";
+    copyButton.ariaLabel = "Copy code to clipboard";
+    codeBlock.append(copyButton);
+    copyButton.addEventListener("click", function () {
+      const code = codeInner.innerText.trim();
+      window.navigator.clipboard.writeText(code);
+    });
   });
 }
 
