@@ -104,22 +104,12 @@ function navbarSearchLogic() {
 }
 
 function copyToClipBoard() {
-  const codeBlocks = document.querySelectorAll("ol li pre");
-  const codeBlocksHighlights = document.querySelectorAll(".highlight pre");
+  const pre = document.querySelectorAll("pre");
 
-  codeBlocks.forEach((codeBlock) => {
-    const codeInner = codeBlock.querySelector("code");
-    const copyButton = document.createElement("button");
-    copyButton.type = "button";
-    copyButton.ariaLabel = "Copy code to clipboard";
-    codeBlock.append(copyButton);
-    copyButton.addEventListener("click", function () {
-      const code = codeInner.innerText.trim();
-      window.navigator.clipboard.writeText(code);
-    });
-  });
-
-  codeBlocksHighlights.forEach((codeBlock) => {
+  pre.forEach((codeBlock) => {
+    codeBlock.style.display = "flex";
+    codeBlock.style.alignItems = "center";
+    codeBlock.style.justifyContent = "space-between";
     const codeInner = codeBlock.querySelector("code");
     const copyButton = document.createElement("button");
     copyButton.type = "button";
