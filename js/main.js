@@ -110,6 +110,7 @@ function copyToClipBoard() {
     codeBlock.style.display = "flex";
     codeBlock.style.alignItems = "center";
     codeBlock.style.justifyContent = "space-between";
+    codeBlock.style.cursor = "grab";
     const codeInner = codeBlock.querySelector("code");
     const copyButton = document.createElement("button");
     copyButton.type = "button";
