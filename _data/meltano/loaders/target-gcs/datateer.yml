@@ -1,0 +1,32 @@
+name: target-gcs
+label: Google Cloud Storage
+description: Google Cloud Storage loader
+namespace: target_gcs
+logo_url: /assets/logos/loaders/gcs.png
+variant: datateer
+repo: https://github.com/Datateer/target-gcs
+pip_url: git+https://github.com/Datateer/target-gcs.git@0.11.3
+settings_group_validation:
+  - - bucket_name
+    - credentials_file
+settings:
+  - name: bucket_name
+    kind: string
+  - name: credentials_file
+    kind: string
+    env: GOOGLE_APPLICATION_CREDENTIALS
+  - name: date_format
+    kind: string
+    value: "%Y-%m-%d"
+  - name: key_prefix
+    kind: string
+    value: tap/${MELTANO_EXTRACT__LOAD_SCHEMA}/
+  - name: key_naming_convention
+    kind: string
+    value: "{stream}/export_date={date}/{timestamp}.jsonl"
+domain_url: https://cloud.google.com/storage
+maintenance_status: active
+keywords:
+  - google
+  - cloud
+  - bucket
