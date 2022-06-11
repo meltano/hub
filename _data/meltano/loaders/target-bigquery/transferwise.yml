@@ -9,6 +9,17 @@ capabilities:
   - hard-delete
   - soft-delete
 settings:
+  - name: credentials_path
+    value: $MELTANO_PROJECT_ROOT/client_secrets.json
+    type: string
+    label: Credentials Path
+    description: |
+      Fully qualified path to `client_secrets.json` for your service account.
+
+      See the ["Activate the Google BigQuery API" section of the repository's README](https://github.com/adswerve/target-bigquery#step-1-activate-the-google-bigquery-api) and <https://cloud.google.com/docs/authentication/production>.
+
+      By default, this file is expected to be at the root of your project directory.
+    env: GOOGLE_APPLICATION_CREDENTIALS
   - name: dataset_id
     description: BigQuery dataset
     label: Dataset Id
