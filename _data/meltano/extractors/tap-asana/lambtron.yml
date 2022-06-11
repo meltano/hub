@@ -6,11 +6,30 @@ namespace: tap_asana
 variant: lambtron
 pip_url: git+https://github.com/lambtron/tap-asana.git
 repo: https://github.com/lambtron/tap-asana
-settings: []
+settings:
+  - name: client_id
+    kind: string
+  - name: client_secret
+    kind: password
+  - name: redirect_uri
+    kind: string
+    placeholder: Ex. urn:xxxx:xx:oauth:2.0:oob
+  - name: refresh_token
+    kind: oauth
+    description: |
+      Full instructions for how to generate client credentials
+      and subsequently the refresh token via curl or postman here
+      https://developers.asana.com/docs/oauth
+  - name: start_date
+    kind: date_iso8601
+  - name: request_timeout
+    kind: integer
+    value: 30
 capabilities:
-- catalog
-- discover
+  - catalog
+  - discover
+  - state
 domain_url: https://asana.com/
-maintenance_status: unknown
+maintenance_status: not maintained
 keywords:
-- api
+  - api
