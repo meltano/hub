@@ -51,10 +51,10 @@ settings:
   description: Replication method, `append` or `truncate`
   kind: options
   options:
-    - label: Append
-      value: append
-    - label: Truncate
-      value: truncate
+  - label: Append
+    value: append
+  - label: Truncate
+    value: truncate
   value: append
   label: Replication Method
 - name: table_prefix
