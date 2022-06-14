@@ -11,7 +11,6 @@ capabilities:
 settings:
 - name: credentials_path
   value: $MELTANO_PROJECT_ROOT/client_secrets.json
-  type: string
   label: Credentials Path
   description: |
     Fully qualified path to `client_secrets.json` for your service account.
