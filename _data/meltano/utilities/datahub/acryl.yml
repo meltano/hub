@@ -3,13 +3,13 @@ label: Datahub
 namespace: datahub
 pip_url: acryl-datahub[rest,dbt]
 maintenance_status: active
-repo: https://github.com/great-expectations/great_expectations
+repo: https://github.com/acryldata/datahub
 executable: datahub
 logo_url: /assets/logos/utilities/datahub.png
 variant: acryl
 requires:
   files:
-  - name: files-great-expectations
+  - name: files-datahub
     variant: z3z1ma
 settings:
 - name: gms_host
