@@ -17,9 +17,9 @@ settings:
     URL of DataHub GMS endpoint. Typically this is something like `your-server:8000`
     where `your-server` is the server IP or domain name. If using metadata service authentication enabled in the image env (recommended), 
     then this should instead point to your frontend which acts as a proxy for the GMS service. `datahub.yourdomain.com/api/gms`
-  type: string
+  kind: string
 - name: gms_token
-  type: password
+  kind: password
   description: Bearer token used for authentication. AKA Personal Access Token. Not needed if contacting GMS service directly.
 keywords:
 - metadata
