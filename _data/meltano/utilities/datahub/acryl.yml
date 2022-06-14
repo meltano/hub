@@ -1,0 +1,53 @@
+name: datahub
+label: Datahub
+namespace: datahub
+pip_url: acryl-datahub[rest,dbt]
+maintenance_status: active
+repo: https://github.com/great-expectations/great_expectations
+executable: datahub
+logo_url: /assets/logos/utilities/datahub.png
+variant: acryl
+requires:
+  files:
+  - name: files-great-expectations
+    variant: z3z1ma
+settings:
+- name: gms_host
+  label: 
+    URL of DataHub GMS endpoint. Typically this is something like `your-server:8000`
+    where `your-server` is the server IP or domain name. If using metadata service authentication enabled in the image env (recommended), 
+    then this should instead point to your frontend which acts as a proxy for the GMS service. `datahub.yourdomain.com/api/gms`
+  type: string
+- name: gms_token
+  type: password
+  description: Bearer token used for authentication. AKA Personal Access Token. Not needed if contacting GMS service directly.
+keywords:
+- metadata
+definition: Centrally track all your metadata assets pushing metadata to datahub.
+next_steps: |
+  1. Add a source and sink
+
+  #### Add additional database drivers
+
+  You should override the pip url in your meltano config to include each of the plugins
+  you want to use with the ingestion framework
+
+  1. Find the `datahub` plugin definition in your `meltano.yml` project file
+  2. Update the `pip_url` property to include the desired additional extras:
+
+     ```yaml
+     utilities:
+     - name: datahub
+       variant: acryl
+       pip_url: acryl-datahub[rest,mongodb,metabase,bigquery,bigquery-usage,dbt]
+     ```
+  3. Re-install the plugin:
+
+     ```sh
+     meltano install utility datahub
+     ```
+
+  The next time you run datahub cli, you will be able to ingest metadata with the appropriate source definition
+  as seen [here](https://datahubproject.io/docs/metadata-ingestion).
+
+  This plugin ships with a dbt ingestion recipe via its file-bundle.
