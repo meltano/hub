@@ -1,7 +1,8 @@
 import json
 import os
-from ruamel.yaml import YAML
 from copy import deepcopy
+
+from ruamel.yaml import YAML
 
 yaml = YAML()
 
