@@ -454,3 +454,7 @@ input.grid-search {
 .highlight pre > button:focus {
   opacity: 1;
 }
+
+pre > code {
+  white-space: pre-wrap;
+}
