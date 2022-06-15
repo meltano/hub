@@ -352,6 +352,7 @@ loaders:
   target-cassandra: coeff
   target-csv: hotgluexyz
   target-datadotworld: datadotworld
+  target-gcs: datateer
   target-gsheet: singer-io
   target-jsonl: andyh1203
   target-kinesis: prontopro
