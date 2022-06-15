@@ -24,14 +24,18 @@ jobs:
 
     - name: Upgrade pip
       run: |
-        pip install pip
+        pip install pip poetry
         pip --version
+        poetry --version
 
-    - name: Pip installs
+    - name: Poetry install
       run: |
-        pip install ruamel.yaml
-        pip install jsonschema
+        poetry install
 
     - name: Yaml schema validate
       run: |
-        python yaml_validate.py
+        poetry run python yaml_validate.py
+
+    - name: Yaml name validate
+      run: |
+        poetry run python yaml_check_names.py
