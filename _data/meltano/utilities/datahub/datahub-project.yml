@@ -44,7 +44,7 @@ next_steps: |
      ```yaml
      utilities:
      - name: datahub
-       variant: acryl
+       variant: datahub-project
        pip_url: acryl-datahub[rest,mongodb,metabase,bigquery,bigquery-usage,dbt]
      ```
   3. Re-install the plugin:
