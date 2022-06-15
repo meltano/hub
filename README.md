@@ -24,9 +24,9 @@ Read more at Jekyll's [documentation][].
 
 [documentation]: https://jekyllrb.com/docs/home/
 
-## API 2.0 (Alpha)
+## Meltano API
 
-In addition to the Singer API that serves metadata about Singer taps and targets, theres also an (Alpha) Meltano 2.0 API which serves all plugin types.
+In addition to the Singer API that serves metadata about Singer taps and targets, theres also a Meltano API which serves all plugin types that are discoverable by Meltano.
 This API will serve the front end client for the MeltanoHub 2.0 site and Meltano itself will use the API as a resource for discovering and installing plugin definitions, in exchange for the legacy discovery.yml file.
 
 The API has the following endpoints:

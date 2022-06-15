@@ -24,6 +24,9 @@ class PluginEnricher < Jekyll::Generator
     unsorted_hash = {}
     site.data['meltano'][meltano_type_plural].each do |plugin_name, variants|
       default_variant = defaults[plugin_name]
+      if default_variant.nil?
+        raise Exception.new "Default variant not defined for plugin: #{plugin_name}"
+      end
       enrich_variants(site, variants, default_variant, meltano_type_plural)
       unsorted_hash[plugin_name] = variants[default_variant]
 
