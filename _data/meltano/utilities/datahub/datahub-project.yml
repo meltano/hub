@@ -6,7 +6,7 @@ maintenance_status: active
 repo: https://github.com/datahub-project/datahub
 executable: datahub
 logo_url: /assets/logos/utilities/datahub.png
-variant: acryl
+variant: datahub-project
 requires:
   files:
   - name: files-datahub
