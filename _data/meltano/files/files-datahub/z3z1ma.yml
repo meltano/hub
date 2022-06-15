@@ -2,7 +2,7 @@ name: files-datahub
 label: Datahub
 namespace: files_datahub
 repo: https://github.com/z3z1ma/files-datahub
-pip_url: git+https://github.com/z3z1ma/files-datahub
+pip_url: git+https://github.com/z3z1ma/files-datahub.git
 variant: z3z1ma
 logo_url: /assets/logos/files/datahub.png
 definition: are bundled with the utility Datahub.
