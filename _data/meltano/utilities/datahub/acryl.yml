@@ -13,12 +13,14 @@ requires:
     variant: z3z1ma
 settings:
 - name: gms_host
-  label: 
+  label: GMS Host
+  description: 
     URL of DataHub GMS endpoint. Typically this is something like `your-server:8000`
     where `your-server` is the server IP or domain name. If using metadata service authentication enabled in the image env (recommended), 
     then this should instead point to your frontend which acts as a proxy for the GMS service. `datahub.yourdomain.com/api/gms`
   kind: string
 - name: gms_token
+  label: GMS Token
   kind: password
   description: Bearer token used for authentication. AKA Personal Access Token. Not needed if contacting GMS service directly.
 keywords:
@@ -27,13 +29,13 @@ definition: Centrally track all your metadata assets pushing metadata to datahub
 next_steps: |
   1. Add a source and sink
 
-  #### Add additional database drivers
+  #### Add additional metadata sources
 
   You should override the pip url in your meltano config to include each of the plugins
   you want to use with the ingestion framework
 
   1. Find the `datahub` plugin definition in your `meltano.yml` project file
-  2. Update the `pip_url` property to include the desired additional extras:
+  2. Update the `pip_url` property to include the desired extras (plugins):
 
      ```yaml
      utilities:
