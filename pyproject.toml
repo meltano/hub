@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "meltano-hub"
+version = "0.1.0"
+description = "Meltano hub contains the definition of all meltano taps, targets, utilities, etc."
+authors = ["Meltano Team"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+jsonschema = "^4.6.0"
+"ruamel.yaml" = "^0.17.21"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
