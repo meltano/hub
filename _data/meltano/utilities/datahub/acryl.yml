@@ -3,7 +3,7 @@ label: Datahub
 namespace: datahub
 pip_url: acryl-datahub[rest,dbt]
 maintenance_status: active
-repo: https://github.com/acryldata/datahub
+repo: https://github.com/datahub-project/datahub
 executable: datahub
 logo_url: /assets/logos/utilities/datahub.png
 variant: acryl
