@@ -8,7 +8,6 @@ from pathlib import Path
 from jsonschema import Draft7Validator, RefResolver
 from ruamel.yaml import YAML
 
-
 logging.basicConfig(level=logging.INFO, stream=sys.stdout)
 logger = logging.getLogger(os.path.basename(__file__))
 

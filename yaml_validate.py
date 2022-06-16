@@ -7,8 +7,8 @@ from ruamel.yaml import YAML
 
 yaml = YAML()
 
-TAP_DIR = "_data/taps/"
-TARGET_DIR = "_data/targets/"
+TAP_DIR = "_data/meltano/extractors/"
+TARGET_DIR = "_data/meltano/loaders/"
 SCHEMA_DIR = "singer/api/v1/schema.json"
 
 job_fail = False
@@ -19,7 +19,6 @@ with open(SCHEMA_DIR, "r") as json_schema_file:
 
 def connector_validate(connector_dir, job_fail):
     for root, subdir, files in os.walk(connector_dir):
-
         for file in files:
             with open(os.path.join(root, file), "r") as plugin_file:
                 plugin_data = yaml.load(plugin_file)

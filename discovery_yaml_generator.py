@@ -1,6 +1,7 @@
 import os
 import re
-from typing import Dict, Any
+from typing import Any, Dict
+
 from ruamel.yaml import YAML
 
 yaml = YAML()
