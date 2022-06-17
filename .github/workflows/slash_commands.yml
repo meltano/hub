@@ -11,7 +11,7 @@ on:
   issue_comment:
     types: [created]
 jobs:
-  publish_release:
+  slash_command_dispatch:
     runs-on: ubuntu-latest
     steps:
       - name: Slash Command Dispatch
