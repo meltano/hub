@@ -92,8 +92,12 @@ jobs:
       id: vars
       run: |
         echo "Usage info:"
-        cat help-output.txt
-        echo ::set-output name=help-text::$(cat help-output.txt)
+        HELP_OUTPUT=$(cat help-output.txt)
+        # Escape multiline string
+        HELP_OUTPUT="${HELP_OUTPUT//'%'/'%25'}"
+        HELP_OUTPUT="${HELP_OUTPUT//$'\n'/'%0A'}"
+        HELP_OUTPUT="${HELP_OUTPUT//$'\r'/'%0D'}"
+        echo ::set-output name=help-text::$HELP_OUTPUT
 
     - name: Append summary output
       uses: peter-evans/create-or-update-comment@v2
