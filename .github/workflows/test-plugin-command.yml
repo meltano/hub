@@ -68,7 +68,6 @@ jobs:
       with:
         token: ${{ secrets.ACTIONS_BOT_TOKEN }}
         repository: ${{ github.event.inputs.repository }}
-        comment-id: ${{ github.event.inputs.comment-id }}
         body: |
           [The requested test operation is now running.](https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}) :rocket:
 
@@ -77,7 +76,7 @@ jobs:
       with:
         comment-id: ${{ github.event.inputs.comment-id }}
         body: |
-          > Starting process...
+          > [Starting test job...](https://github.com/${{github.repository}}/actions/runs/${{github.run_id}})
 
     - name: Add reaction (failure)
       uses: peter-evans/create-or-update-comment@v2
