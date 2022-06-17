@@ -29,6 +29,7 @@ jobs:
           static-args: | # These first two are required for proper context
             repository=${{ github.repository }}
             comment-id=${{ github.event.comment.id }}
+            issue-number=${{ github.event.issue.number }}
 
       - name: Edit comment with error message
         if: steps.command-dispatch.outputs.error-message

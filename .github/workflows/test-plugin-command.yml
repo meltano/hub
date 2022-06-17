@@ -8,7 +8,10 @@ on:
         description: 'The repository from which the slash command was dispatched'
         required: true
       comment-id:
-        description: 'The comment-id of the slash command'
+        description: 'The comment ID of the originating slash command'
+        required: true
+      issue-number:
+        description: 'The issue number containing the slash command comment'
         required: true
 
 jobs:
@@ -33,6 +36,7 @@ jobs:
       with:
         token: ${{ secrets.ACTIONS_BOT_TOKEN }}
         repository: ${{ github.event.inputs.repository }}
+        issue-number: ${{ github.event.inputs.issue-number }}
         body: |
           [The requested test operation is now running.](https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}) :rocket:
 
