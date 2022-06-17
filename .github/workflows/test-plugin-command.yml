@@ -28,6 +28,21 @@ jobs:
     # # Skipped deliberately:
     # - uses: actions/checkout@v2
 
+    - name: Notify start event in new comment
+      uses: peter-evans/create-or-update-comment@v2
+      with:
+        token: ${{ secrets.ACTIONS_BOT_TOKEN }}
+        repository: ${{ github.event.inputs.repository }}
+        body: |
+          [The requested test operation is now running.](https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}) :rocket:
+
+    - name: Append 'starting' notification to comment
+      uses: peter-evans/create-or-update-comment@v2
+      with:
+        comment-id: ${{ github.event.inputs.comment-id }}
+        body: |
+          > [Starting test job...](https://github.com/${{github.repository}}/actions/runs/${{github.run_id}})
+
     - name: Set up Python
       uses: actions/setup-python@v3.1.2
       with:
@@ -63,20 +78,20 @@ jobs:
       run: |
         ${{ env.PLUGIN_NAME }} --about --format=markdown | tee markdown-result.md
 
-    - name: Add output as comment
-      uses: peter-evans/create-or-update-comment@v2
-      with:
-        token: ${{ secrets.ACTIONS_BOT_TOKEN }}
-        repository: ${{ github.event.inputs.repository }}
-        body: |
-          [The requested test operation is now running.](https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}) :rocket:
+    - name: Process job output
+      id: vars
+      run: echo ::set-output name=help-text::$(cat help-output.txt)
 
-    - name: Append 'starting' notification to comment
+    - name: Append summary output
+      if: ${{ failure() }}
       uses: peter-evans/create-or-update-comment@v2
       with:
         comment-id: ${{ github.event.inputs.comment-id }}
         body: |
-          > [Starting test job...](https://github.com/${{github.repository}}/actions/runs/${{github.run_id}})
+          > 
+          > Plugin usage info:
+          > ${{ steps.vars.outputs.run-url }}
+          >
 
     - name: Add reaction (failure)
       uses: peter-evans/create-or-update-comment@v2
