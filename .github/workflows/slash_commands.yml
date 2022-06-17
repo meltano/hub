@@ -21,6 +21,7 @@ jobs:
           # https://github.com/peter-evans/slash-command-dispatch
           token: ${{ secrets.ACTIONS_BOT_TOKEN }}
           dispatch-type: workflow
+          reactions: false  # Otherwise 👀 and 🚀 will immediately be posted to the comment.
           issue-type: "both"  # pull-requests and issues
           permission: # GitHub users need at least this permission level on the repo
             write
@@ -30,14 +31,6 @@ jobs:
             repository=${{ github.repository }}
             comment-id=${{ github.event.comment.id }}
             issue-number=${{ github.event.issue.number }}
-
-      - name: Edit comment with error message
-        if: steps.command-dispatch.outputs.error-message
-        uses: peter-evans/create-or-update-comment@v2
-        with:
-          comment-id: ${{ github.event.comment.id }}
-          body: |
-            > ${{ steps.scd.outputs.error-message }}
 
       - name: Edit comment with error message
         if: steps.command-dispatch.outputs.error-message

@@ -31,6 +31,12 @@ jobs:
     # # Skipped deliberately:
     # - uses: actions/checkout@v2
 
+    - name: Add 👀 reaction
+      uses: peter-evans/create-or-update-comment@v2
+      with:
+        comment-id: ${{ github.event.inputs.comment-id }}
+        reaction-type: eyes
+
     - name: Notify start event in new comment
       uses: peter-evans/create-or-update-comment@v2
       with:
@@ -96,7 +102,9 @@ jobs:
         body: |
           > 
           > Plugin usage info:
-          > ${{ steps.vars.outputs.run-url }}
+          > ```
+          > ${{ steps.vars.outputs.help-text }}
+          > ```
           >
 
     - name: Add reaction (success)
