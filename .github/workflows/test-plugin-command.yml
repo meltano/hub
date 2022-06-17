@@ -15,7 +15,7 @@ on:
         required: true
 
 jobs:
-  draft_release:
+  plugin_tests:
 
     runs-on: ubuntu-latest
     permissions:
@@ -68,7 +68,7 @@ jobs:
       id: plugin-version
       continue-on-error: true
       run: |
-        ${{ env.PLUGIN_NAME }} --version | tee help-output.txt
+        ${{ env.PLUGIN_NAME }} --version | tee version-output.txt
 
     - name: Print plugin about
       id: plugin-about
@@ -84,7 +84,10 @@ jobs:
 
     - name: Process job output
       id: vars
-      run: echo ::set-output name=help-text::$(cat help-output.txt)
+      run: |
+        echo "Usage info:"
+        cat help-output.txt
+        echo ::set-output name=help-text::$(cat help-output.txt)
 
     - name: Append summary output
       uses: peter-evans/create-or-update-comment@v2
