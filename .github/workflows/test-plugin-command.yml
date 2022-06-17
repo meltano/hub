@@ -87,7 +87,6 @@ jobs:
       run: echo ::set-output name=help-text::$(cat help-output.txt)
 
     - name: Append summary output
-      if: ${{ failure() }}
       uses: peter-evans/create-or-update-comment@v2
       with:
         comment-id: ${{ github.event.inputs.comment-id }}
@@ -96,6 +95,21 @@ jobs:
           > Plugin usage info:
           > ${{ steps.vars.outputs.run-url }}
           >
+
+    - name: Add reaction (success)
+      uses: peter-evans/create-or-update-comment@v2
+      with:
+        token: ${{ secrets.ACTIONS_BOT_TOKEN }}
+        repository: ${{ github.event.inputs.repository }}
+        comment-id: ${{ github.event.inputs.comment-id }}
+        reaction-type: hooray
+
+    - name: Append comment (success)
+      uses: peter-evans/create-or-update-comment@v2
+      with:
+        comment-id: ${{ github.event.inputs.comment-id }}
+        body: |
+          > Processing complete!
 
     - name: Add reaction (failure)
       uses: peter-evans/create-or-update-comment@v2
@@ -113,19 +127,3 @@ jobs:
         comment-id: ${{ github.event.inputs.comment-id }}
         body: |
           > Processing failed. :confused:
-
-    - name: Add reaction (succcess)
-      uses: peter-evans/create-or-update-comment@v2
-      with:
-        token: ${{ secrets.ACTIONS_BOT_TOKEN }}
-        repository: ${{ github.event.inputs.repository }}
-        comment-id: ${{ github.event.inputs.comment-id }}
-        reaction-type: hooray
-
-    - name: Append comment (success)
-      if: steps.command-dispatch.outputs.error-message
-      uses: peter-evans/create-or-update-comment@v2
-      with:
-        comment-id: ${{ github.event.inputs.comment-id }}
-        body: |
-          > Processing complete!
