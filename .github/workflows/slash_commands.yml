@@ -20,6 +20,7 @@ jobs:
         with:
           # https://github.com/peter-evans/slash-command-dispatch
           token: ${{ secrets.ACTIONS_BOT_TOKEN }}
+          repository: aaronsteers/hub-cicd-tests
           dispatch-type: workflow
           issue-type: "both"  # pull-requests and issues
           permission: # GitHub users need at least this permission level on the repo
