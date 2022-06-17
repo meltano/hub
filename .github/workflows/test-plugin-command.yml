@@ -38,30 +38,30 @@ jobs:
     - name: Install plugin
       id: plugin-install
       run: |
-        pipx install {{ env.PLUGIN_NAME }} 2>&1 | tee install-output.txt
+        pipx install ${{ env.PLUGIN_NAME }} 2>&1 | tee install-output.txt
 
     - name: Print plugin help
       id: plugin-help
       run: |
-        {{ env.PLUGIN_NAME }} --help | tee help-output.txt
+        ${{ env.PLUGIN_NAME }} --help | tee help-output.txt
 
     - name: Print plugin version
       id: plugin-version
       continue-on-error: true
       run: |
-        {{ env.PLUGIN_NAME }} --version | tee help-output.txt
+        ${{ env.PLUGIN_NAME }} --version | tee help-output.txt
 
     - name: Print plugin about
       id: plugin-about
       continue-on-error: true
       run: |
-        {{ env.PLUGIN_NAME }} --help | tee about-result.json
+        ${{ env.PLUGIN_NAME }} --help | tee about-result.json
 
     - name: Print plugin markdown
       id: plugin-markdown
       continue-on-error: true
       run: |
-        {{ env.PLUGIN_NAME }} --help | tee markdown-result.md
+        ${{ env.PLUGIN_NAME }} --help | tee markdown-result.md
 
     - name: Add output as comment
       uses: peter-evans/create-or-update-comment@v2
