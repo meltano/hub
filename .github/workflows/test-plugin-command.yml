@@ -145,12 +145,10 @@ jobs:
           echo "</details>" >> $GITHUB_ENV
         fi
         echo "<details><summary>Usage info</summary>" >> $GITHUB_ENV
-        echo -e "\n" >> $GITHUB_ENV
-        echo "\`\`\`" >> $GITHUB_ENV
+        echo -e "\n\`\`\`" >> $GITHUB_ENV
         echo "melty-bot % ${{ env.PLUGIN_NAME }} --help" >> $GITHUB_ENV
         cat help-output.txt >> $GITHUB_ENV
-        echo "\`\`\`" >> $GITHUB_ENV
-        echo -e "\n" >> $GITHUB_ENV
+        echo -e "\`\`\`\n" >> $GITHUB_ENV
         echo "</details>" >> $GITHUB_ENV
         echo "<details><summary>Detected capabilities</summary>" >> $GITHUB_ENV
         echo -e "\n" >> $GITHUB_ENV
