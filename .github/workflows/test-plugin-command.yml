@@ -102,8 +102,7 @@ jobs:
         HELP_OUTPUT="${HELP_OUTPUT//$'\r'/'%0D'}"
         echo ::set-output name=help-text::$HELP_OUTPUT
 
-    - name: Process job output
-      id: vars
+    - name: Test job output
       run: |
         echo "first test:"
         cat help-output.txt
