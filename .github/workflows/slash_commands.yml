@@ -38,4 +38,4 @@ jobs:
         with:
           comment-id: ${{ github.event.comment.id }}
           body: |
-            > ${{ steps.scd.outputs.error-message }}
+            > ${{ steps.command-dispatch.outputs.error-message }}
