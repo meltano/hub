@@ -112,6 +112,32 @@ jobs:
         echo "JOB_OUTPUT<<EOF" >> $GITHUB_ENV
         echo "melty-bot % ${{ env.PLUGIN_NAME }} --help" >> $GITHUB_ENV
         cat help-output.txt >> $GITHUB_ENV
+        echo "> Detected capabilities:"
+        if grep -q -e "--catalog" help-output.txt; then
+          echo "> - ✅ 'catalog'" >> $GITHUB_ENV
+        else if grep -q -e "--properties" help-output.txt; then
+          echo "> - ❌ 'catalog'" >> $GITHUB_ENV
+          echo "> - ✅ 'properties'"
+        else
+          echo "> - ❌ 'catalog'" >> $GITHUB_ENV
+          echo "> - ❌ 'properties'" >> $GITHUB_ENV
+        fi
+        if grep -q -e "--state" help-output.txt; then
+          echo "> - ✅ 'state'" >> $GITHUB_ENV
+        else
+          echo "> - ❌ 'state'" >> $GITHUB_ENV
+        fi
+        if grep -q -e "--about" help-output.txt; then
+          echo "> - ✅ 'about'" >> $GITHUB_ENV
+        else
+          echo "> - ❌ 'about'" >> $GITHUB_ENV
+        fi
+        if [ -s markdown-result.md ]; then
+          echo -e "\n-------\n" >> $GITHUB_ENV
+          echo "Auto-generated README text:\n------\n" >> $GITHUB_ENV
+          echo -e "\n------\n" >> $GITHUB_ENV
+          cat markdown-result.md >> $GITHUB_ENV
+        fi
         echo "EOF" >> $GITHUB_ENV
 
     - name: Append summary output
