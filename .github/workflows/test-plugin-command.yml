@@ -19,6 +19,7 @@ on:
       pip-url:
         description: The pip_url for the plugin
         required: false
+        default: ''
 
 jobs:
   plugin_tests:
