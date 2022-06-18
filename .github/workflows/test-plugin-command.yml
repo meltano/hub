@@ -175,7 +175,6 @@ jobs:
         fi
         echo -e "\n" >> $GITHUB_ENV
         echo "</details>" >> $GITHUB_ENV
-        fi
         echo "EOF" >> $GITHUB_ENV
 
     - name: Append summary output
