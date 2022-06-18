@@ -122,6 +122,12 @@ jobs:
       run: |
         ${{ env.PLUGIN_NAME }} --about --format=markdown | tee markdown-result.md
 
+    - name: Print discovery output
+      id: plugin-catalog
+      continue-on-error: true
+      run: |
+        ${{ env.PLUGIN_NAME }} --discover | tee catalog.json
+
     # Generates the JOB_OUTPUT env var, accessible via '${{ env.JOB_OUTPUT }}''
     # Ref: https://trstringer.com/github-actions-multiline-strings/
     - name: Process job output
@@ -172,6 +178,13 @@ jobs:
           echo "<details><summary>JSON Metadata</summary>" >> $GITHUB_ENV
           echo -e "\n\`\`\`json" >> $GITHUB_ENV
           cat about-result.json >> $GITHUB_ENV
+          echo -e "\`\`\`\n" >> $GITHUB_ENV
+          echo "</details>" >> $GITHUB_ENV
+        fi
+        if [ -s catalog.json ]; then
+          echo "<details><summary>JSON Catalog</summary>" >> $GITHUB_ENV
+          echo -e "\n\`\`\`json" >> $GITHUB_ENV
+          cat catalog.json >> $GITHUB_ENV
           echo -e "\`\`\`\n" >> $GITHUB_ENV
           echo "</details>" >> $GITHUB_ENV
         fi
