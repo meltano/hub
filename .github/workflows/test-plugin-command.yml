@@ -94,22 +94,25 @@ jobs:
       id: vars
       run: |
         echo "Usage info:"
-        echo cat help-output.txt
-        HELP_OUTPUT=$(cat help-output.txt)
-        # Escape multiline string
-        HELP_OUTPUT="${HELP_OUTPUT//'%'/'%25'}"
-        HELP_OUTPUT="${HELP_OUTPUT//$'\n'/'%0A'}"
-        HELP_OUTPUT="${HELP_OUTPUT//$'\r'/'%0D'}"
-        echo ::set-output name=help-text::$HELP_OUTPUT
+        echo "HELP_OUTPUT<<EOF" >> $GITHUB_ENV
+        cat help-output.txt >> $GITHUB_ENV
+        echo "EOF" >> $GITHUB_ENV
+
+      # HELP_OUTPUT=$(cat help-output.txt)
+      # # Escape multiline string
+      # HELP_OUTPUT="${HELP_OUTPUT//'%'/'%25'}"
+      # HELP_OUTPUT="${HELP_OUTPUT//$'\n'/'%0A'}"
+      # HELP_OUTPUT="${HELP_OUTPUT//$'\r'/'%0D'}"
+      # echo ::set-output name=help-text::$HELP_OUTPUT
 
     - name: Test job output
       run: |
         echo "first test:"
         cat help-output.txt
         echo "second test:"
-        echo -e "${{ steps.vars.outputs.help-text }}"
+        echo -e "${{ env.HELP_OUTPUT }}"
         echo "third test:"
-        echo "${{ steps.vars.outputs.help-text }}"
+        echo "${{ env.HELP_OUTPUT }}"
 
     - name: Append summary output
       uses: peter-evans/create-or-update-comment@v2
@@ -119,7 +122,7 @@ jobs:
           > 
           > Plugin usage info:
           ```
-          ${{ steps.vars.outputs.help-text }}
+          ${{ env.HELP_OUTPUT }}
           ```
 
     - name: Add reaction (success)
