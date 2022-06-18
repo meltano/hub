@@ -39,8 +39,8 @@ jobs:
     # - uses: actions/checkout@v2
 
     - name: Handle missing pip_url
-      if: event.inputs.name == ''
-      run: echo 'PIP_URL=${{ event.inputs.name }}' >> "$GITHUB_ENV"
+      if: github.event.inputs.name == ''
+      run: echo 'PIP_URL=${{ github.event.inputs.name }}' >> "$GITHUB_ENV"
 
     - name: Add 👀 reaction
       uses: peter-evans/create-or-update-comment@v2
