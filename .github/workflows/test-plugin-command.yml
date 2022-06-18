@@ -129,19 +129,15 @@ jobs:
       run: |
         echo "JOB_OUTPUT<<EOF" >> $GITHUB_ENV
         if [ -s markdown-result.md ]; then
-          echo "<details><summary>Auto-generated README.md</summary>" >> $GITHUB_ENV
-          echo -e "\n" >> $GITHUB_ENV
+          echo -e "<details><summary>Auto-generated README.md</summary>\n" >> $GITHUB_ENV
           cat markdown-result.md >> $GITHUB_ENV
-          echo -e "\n" >> $GITHUB_ENV
-          echo "</details>" >> $GITHUB_ENV
+          echo -e "\n</details>" >> $GITHUB_ENV
         fi
         if [ -s version-output.txt ]; then
           echo "<details><summary>Version info</summary>" >> $GITHUB_ENV
-          echo -e "\n" >> $GITHUB_ENV
-          echo "\`\`\`" >> $GITHUB_ENV
+          echo -e "\n\`\`\`" >> $GITHUB_ENV
           cat version-output.txt >> $GITHUB_ENV
-          echo "\`\`\`" >> $GITHUB_ENV
-          echo -e "\n" >> $GITHUB_ENV
+          echo -e "\`\`\`\n" >> $GITHUB_ENV
           echo "</details>" >> $GITHUB_ENV
         fi
         echo "<details><summary>Usage info</summary>" >> $GITHUB_ENV
@@ -171,9 +167,14 @@ jobs:
         else
           echo "> - ❌ 'about'" >> $GITHUB_ENV
         fi
-        echo -e "\n" >> $GITHUB_ENV
-        echo "</details>" >> $GITHUB_ENV
-        echo -e "\n" >> $GITHUB_ENV
+        if [ -s about-result.json ]; then
+          echo "<details><summary>Version info</summary>" >> $GITHUB_ENV
+          echo -e "\n\`\`\`json" >> $GITHUB_ENV
+          cat about-result.json >> $GITHUB_ENV
+          echo -e "\`\`\`\n" >> $GITHUB_ENV
+          echo "</details>" >> $GITHUB_ENV
+        fi
+        echo -e "\n</details>\n" >> $GITHUB_ENV
         echo "EOF" >> $GITHUB_ENV
 
     - name: Append summary output
