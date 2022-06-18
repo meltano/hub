@@ -200,8 +200,6 @@ jobs:
 
           ${{ env.JOB_OUTPUT }}
 
-          > Processing complete.
-
     - name: Add reaction (success)
       uses: peter-evans/create-or-update-comment@v2
       with:
