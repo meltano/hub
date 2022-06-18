@@ -167,14 +167,14 @@ jobs:
         else
           echo "> - ❌ 'about'" >> $GITHUB_ENV
         fi
+        echo -e "\n</details>\n" >> $GITHUB_ENV
         if [ -s about-result.json ]; then
-          echo "<details><summary>Version info</summary>" >> $GITHUB_ENV
+          echo "<details><summary>JSON Metadata</summary>" >> $GITHUB_ENV
           echo -e "\n\`\`\`json" >> $GITHUB_ENV
           cat about-result.json >> $GITHUB_ENV
           echo -e "\`\`\`\n" >> $GITHUB_ENV
           echo "</details>" >> $GITHUB_ENV
         fi
-        echo -e "\n</details>\n" >> $GITHUB_ENV
         echo "EOF" >> $GITHUB_ENV
 
     - name: Append summary output
