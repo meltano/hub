@@ -115,7 +115,7 @@ jobs:
         echo "> Detected capabilities:"
         if grep -q -e "--catalog" help-output.txt; then
           echo "> - ✅ 'catalog'" >> $GITHUB_ENV
-        else if grep -q -e "--properties" help-output.txt; then
+        elif grep -q -e "--properties" help-output.txt; then
           echo "> - ❌ 'catalog'" >> $GITHUB_ENV
           echo "> - ✅ 'properties'"
         else
