@@ -175,6 +175,7 @@ jobs:
         fi
         echo -e "\n" >> $GITHUB_ENV
         echo "</details>" >> $GITHUB_ENV
+        echo -e "\n" >> $GITHUB_ENV
         echo "EOF" >> $GITHUB_ENV
 
     - name: Append summary output
@@ -204,6 +205,7 @@ jobs:
       with:
         comment-id: ${{ github.event.inputs.comment-id }}
         body: |
+          
           > Processing complete!
 
     - name: Add reaction (failure)
