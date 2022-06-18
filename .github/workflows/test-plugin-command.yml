@@ -69,6 +69,8 @@ jobs:
           > [Starting test job...](https://github.com/${{github.repository}}/actions/runs/${{github.run_id}})
           > ...
 
+    - name: Create requirements.txt
+      run: echo '${{ env.PIP_URL }}' > requirements.txt
     - name: Set up Python
       uses: actions/setup-python@v3.1.2
       with:
