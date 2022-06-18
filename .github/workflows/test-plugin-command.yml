@@ -55,6 +55,7 @@ jobs:
         comment-id: ${{ github.event.inputs.comment-id }}
         body: |
           > [Starting test job...](https://github.com/${{github.repository}}/actions/runs/${{github.run_id}})
+          > ...
 
     - name: Set up Python
       uses: actions/setup-python@v3.1.2
@@ -107,8 +108,9 @@ jobs:
         comment-id: ${{ github.event.inputs.comment-id }}
         body: |
           > Job completed.
-          <p/>
+
           > Job output:
+
           ```
           ${{ env.JOB_OUTPUT }}
           ```
