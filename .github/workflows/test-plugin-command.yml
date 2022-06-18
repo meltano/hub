@@ -102,10 +102,6 @@ jobs:
         HELP_OUTPUT="${HELP_OUTPUT//$'\r'/'%0D'}"
         echo ::set-output name=help-text::$HELP_OUTPUT
 
-    - name: Test output
-      id: vars
-      run: |
-        echo 
     - name: Process job output
       id: vars
       run: |
@@ -113,6 +109,8 @@ jobs:
         cat help-output.txt
         echo "second test:"
         echo -e "${{ steps.vars.outputs.help-text }}"
+        echo "third test:"
+        echo "${{ steps.vars.outputs.help-text }}"
 
     - name: Append summary output
       uses: peter-evans/create-or-update-comment@v2
