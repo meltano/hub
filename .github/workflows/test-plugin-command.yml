@@ -128,9 +128,32 @@ jobs:
       if: steps.plugin-install.outputs.failed == '0'
       run: |
         echo "JOB_OUTPUT<<EOF" >> $GITHUB_ENV
+        if [ -s markdown-result.md ]; then
+          echo "<details><summary>Auto-generated README.md</summary>" >> $GITHUB_ENV
+          echo -e "\n" >> $GITHUB_ENV
+          cat markdown-result.md >> $GITHUB_ENV
+          echo -e "\n" >> $GITHUB_ENV
+          echo "</details>" >> $GITHUB_ENV
+        fi
+        if [ -s version-output.txt ]; then
+          echo "<details><summary>Version info</summary>" >> $GITHUB_ENV
+          echo -e "\n" >> $GITHUB_ENV
+          echo "\`\`\`" >> $GITHUB_ENV
+          cat version-output.txt >> $GITHUB_ENV
+          echo "\`\`\`" >> $GITHUB_ENV
+          echo -e "\n" >> $GITHUB_ENV
+          echo "</details>" >> $GITHUB_ENV
+        fi
+        echo "<details><summary>Usage info</summary>" >> $GITHUB_ENV
+        echo -e "\n" >> $GITHUB_ENV
+        echo "\`\`\`" >> $GITHUB_ENV
         echo "melty-bot % ${{ env.PLUGIN_NAME }} --help" >> $GITHUB_ENV
         cat help-output.txt >> $GITHUB_ENV
-        echo "> Detected capabilities:"
+        echo "\`\`\`" >> $GITHUB_ENV
+        echo -e "\n" >> $GITHUB_ENV
+        echo "</details>" >> $GITHUB_ENV
+        echo "<details><summary>Detected capabilities</summary>" >> $GITHUB_ENV
+        echo -e "\n" >> $GITHUB_ENV
         if grep -q -e "--catalog" help-output.txt; then
           echo "> - ✅ 'catalog'" >> $GITHUB_ENV
         elif grep -q -e "--properties" help-output.txt; then
@@ -150,11 +173,8 @@ jobs:
         else
           echo "> - ❌ 'about'" >> $GITHUB_ENV
         fi
-        if [ -s markdown-result.md ]; then
-          echo -e "\n-------\n" >> $GITHUB_ENV
-          echo "Auto-generated README text:\n------\n" >> $GITHUB_ENV
-          echo -e "\n------\n" >> $GITHUB_ENV
-          cat markdown-result.md >> $GITHUB_ENV
+        echo -e "\n" >> $GITHUB_ENV
+        echo "</details>" >> $GITHUB_ENV
         fi
         echo "EOF" >> $GITHUB_ENV
 
@@ -166,11 +186,11 @@ jobs:
         body: |
           > Job completed.
 
-          > Job output:
+          <details><summary>Job output</summary>
 
-          ```
           ${{ env.JOB_OUTPUT }}
-          ```
+
+          </details>
 
     - name: Add reaction (success)
       uses: peter-evans/create-or-update-comment@v2
