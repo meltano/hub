@@ -40,7 +40,7 @@ jobs:
     # - uses: actions/checkout@v2
 
     - name: Handle missing pip_url
-      if: github.event.inputs.name == ''
+      if: github.event.inputs.pip-url == ''
       run: echo 'PIP_URL=${{ github.event.inputs.name }}' >> "$GITHUB_ENV"
 
     - name: Add 👀 reaction
