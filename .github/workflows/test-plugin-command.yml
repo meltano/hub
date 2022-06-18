@@ -39,14 +39,15 @@ jobs:
         comment-id: ${{ github.event.inputs.comment-id }}
         reaction-type: eyes
 
-    - name: Notify start event in new comment
-      uses: peter-evans/create-or-update-comment@v2
-      with:
-        token: ${{ secrets.ACTIONS_BOT_TOKEN }}
-        repository: ${{ github.event.inputs.repository }}
-        issue-number: ${{ github.event.inputs.issue-number }}
-        body: |
-          [The requested test operation is now running.](https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}) :rocket:
+    # Not needed.
+    # - name: Notify start event in new comment
+    #   uses: peter-evans/create-or-update-comment@v2
+    #   with:
+    #     token: ${{ secrets.ACTIONS_BOT_TOKEN }}
+    #     repository: ${{ github.event.inputs.repository }}
+    #     issue-number: ${{ github.event.inputs.issue-number }}
+    #     body: |
+    #       [The requested test operation is now running.](https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}) :rocket:
 
     - name: Append 'starting' notification to comment
       uses: peter-evans/create-or-update-comment@v2
@@ -90,39 +91,26 @@ jobs:
       run: |
         ${{ env.PLUGIN_NAME }} --about --format=markdown | tee markdown-result.md
 
+    # Generates the JOB_OUTPUT env var, accessible via '${{ env.JOB_OUTPUT }}''
+    # Ref: https://trstringer.com/github-actions-multiline-strings/
     - name: Process job output
       id: vars
       run: |
-        echo "Usage info:"
-        echo "HELP_OUTPUT<<EOF" >> $GITHUB_ENV
+        echo "JOB_OUTPUT<<EOF" >> $GITHUB_ENV
+        echo "melty-bot % ${{ env.PLUGIN_NAME }} --help" >> $GITHUB_ENV
         cat help-output.txt >> $GITHUB_ENV
         echo "EOF" >> $GITHUB_ENV
-
-      # HELP_OUTPUT=$(cat help-output.txt)
-      # # Escape multiline string
-      # HELP_OUTPUT="${HELP_OUTPUT//'%'/'%25'}"
-      # HELP_OUTPUT="${HELP_OUTPUT//$'\n'/'%0A'}"
-      # HELP_OUTPUT="${HELP_OUTPUT//$'\r'/'%0D'}"
-      # echo ::set-output name=help-text::$HELP_OUTPUT
-
-    - name: Test job output
-      run: |
-        echo "first test:"
-        cat help-output.txt
-        echo "second test:"
-        echo -e "${{ env.HELP_OUTPUT }}"
-        echo "third test:"
-        echo "${{ env.HELP_OUTPUT }}"
 
     - name: Append summary output
       uses: peter-evans/create-or-update-comment@v2
       with:
         comment-id: ${{ github.event.inputs.comment-id }}
         body: |
-          > 
-          > Plugin usage info:
+          > Job completed.
+          <p/>
+          > Job output:
           ```
-          ${{ env.HELP_OUTPUT }}
+          ${{ env.JOB_OUTPUT }}
           ```
 
     - name: Add reaction (success)
