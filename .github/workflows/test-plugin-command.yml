@@ -186,11 +186,9 @@ jobs:
         body: |
           > Job completed.
 
-          <details><summary>Job output</summary>
-
           ${{ env.JOB_OUTPUT }}
 
-          </details>
+          > Processing complete.
 
     - name: Add reaction (success)
       uses: peter-evans/create-or-update-comment@v2
@@ -200,14 +198,6 @@ jobs:
         comment-id: ${{ github.event.inputs.comment-id }}
         reaction-type: hooray
 
-    - name: Append comment (success)
-      uses: peter-evans/create-or-update-comment@v2
-      with:
-        comment-id: ${{ github.event.inputs.comment-id }}
-        body: |
-          
-          > Processing complete!
-
     - name: Add reaction (failure)
       uses: peter-evans/create-or-update-comment@v2
       if: failure()
@@ -216,11 +206,3 @@ jobs:
         repository: ${{ github.event.inputs.repository }}
         comment-id: ${{ github.event.inputs.comment-id }}
         reaction-type: confused
-
-    - name: Append comment (failure)
-      if: ${{ failure() }}
-      uses: peter-evans/create-or-update-comment@v2
-      with:
-        comment-id: ${{ github.event.inputs.comment-id }}
-        body: |
-          > Processing failed. :confused:
