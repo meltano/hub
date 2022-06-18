@@ -34,6 +34,8 @@ jobs:
     - name: Add 👀 reaction
       uses: peter-evans/create-or-update-comment@v2
       with:
+        token: ${{ secrets.ACTIONS_BOT_TOKEN }}
+        repository: ${{ github.event.inputs.repository }}
         comment-id: ${{ github.event.inputs.comment-id }}
         reaction-type: eyes
 
@@ -106,10 +108,9 @@ jobs:
         body: |
           > 
           > Plugin usage info:
-          > ```
-          > ${{ steps.vars.outputs.help-text }}
-          > ```
-          >
+          ```
+          ${{ steps.vars.outputs.help-text }}
+          ```
 
     - name: Add reaction (success)
       uses: peter-evans/create-or-update-comment@v2
