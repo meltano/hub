@@ -1,0 +1,59 @@
+name: datahub
+label: Datahub
+namespace: datahub
+pip_url: acryl-datahub[rest,dbt]
+maintenance_status: active
+repo: https://github.com/datahub-project/datahub
+executable: datahub
+logo_url: /assets/logos/utilities/datahub.png
+variant: datahub-project
+commands:
+  ingest-dbt:
+    args: ingest run --config ${MELTANO_PROJECT_ROOT}/utilities/datahub/dbt.dhub.yml
+    description: Push dbt metadata to datahub
+requires:
+  files:
+  - name: files-datahub
+    variant: z3z1ma
+settings:
+- name: gms_host
+  label: GMS Host
+  description: 
+    URL of DataHub GMS endpoint. Typically this is something like `your-server:8000`
+    where `your-server` is the server IP or domain name. If using metadata service authentication enabled in the image env (recommended), 
+    then this should instead point to your frontend which acts as a proxy for the GMS service. `datahub.yourdomain.com/api/gms`
+  kind: string
+- name: gms_token
+  label: GMS Token
+  kind: password
+  description: Bearer token used for authentication. AKA Personal Access Token. Not needed if contacting GMS service directly.
+keywords:
+- metadata
+definition: Centrally track all your metadata assets pushing metadata to datahub.
+next_steps: |
+  1. Add a source and sink
+
+  #### Add additional metadata sources
+
+  You should override the pip url in your meltano config to include each of the plugins
+  you want to use with the ingestion framework
+
+  1. Find the `datahub` plugin definition in your `meltano.yml` project file
+  2. Update the `pip_url` property to include the desired extras (plugins):
+
+     ```yaml
+     utilities:
+     - name: datahub
+       variant: datahub-project
+       pip_url: acryl-datahub[rest,mongodb,metabase,bigquery,bigquery-usage,dbt]
+     ```
+  3. Re-install the plugin:
+
+     ```sh
+     meltano install utility datahub
+     ```
+
+  The next time you run datahub cli, you will be able to ingest metadata with the appropriate source definition
+  as seen [here](https://datahubproject.io/docs/metadata-ingestion).
+
+  This plugin ships with a dbt ingestion recipe via its file-bundle.

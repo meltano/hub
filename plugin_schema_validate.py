@@ -8,7 +8,6 @@ from pathlib import Path
 from jsonschema import Draft7Validator, RefResolver
 from ruamel.yaml import YAML
 
-
 logging.basicConfig(level=logging.INFO, stream=sys.stdout)
 logger = logging.getLogger(os.path.basename(__file__))
 
@@ -37,7 +36,8 @@ class PluginSchemaValidator:
 
     def _validate_plugin(self, schema, plugin_category, plugin_name, variant_name):
         with open(
-            os.path.join(self.file_path, plugin_category, plugin_name, variant_name), "r"
+            os.path.join(self.file_path, plugin_category, plugin_name, variant_name),
+            "r",
         ) as plugin_file:
             plugin_data = self.yaml.load(plugin_file)
             resolver = RefResolver.from_schema(schema, store=self.schema_store)
@@ -45,7 +45,9 @@ class PluginSchemaValidator:
             try:
                 validator.validate(plugin_data)
             except Exception as ex:
-                logger.info(f"Validation error for {plugin_name}.{variant_name} with message {str(ex)}")
+                logger.info(
+                    f"Validation error for {plugin_name}.{variant_name} with message {str(ex)}"
+                )
                 self.all_valid = False
             return True
 
@@ -61,14 +63,22 @@ class PluginSchemaValidator:
             schema = self._read_json_schema(f"{plugin_category}.schema.json")
             plugin_count = 0
             variant_count = 0
-            for plugin_name in os.listdir(os.path.join(self.file_path, plugin_category)):
-                for variant_name in os.listdir(os.path.join(self.file_path, plugin_category, plugin_name)):
-                    if not self._validate_plugin(schema, plugin_category, plugin_name, variant_name):
+            for plugin_name in os.listdir(
+                os.path.join(self.file_path, plugin_category)
+            ):
+                for variant_name in os.listdir(
+                    os.path.join(self.file_path, plugin_category, plugin_name)
+                ):
+                    if not self._validate_plugin(
+                        schema, plugin_category, plugin_name, variant_name
+                    ):
                         # dont increment count
                         continue
                     variant_count += 1
                 plugin_count += 1
-            self.validation_results[plugin_category] = f"Plugins: {plugin_count}, Variants: {variant_count}"
+            self.validation_results[
+                plugin_category
+            ] = f"Plugins: {plugin_count}, Variants: {variant_count}"
 
 
 if __name__ == "__main__":
