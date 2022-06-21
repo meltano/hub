@@ -2,7 +2,7 @@ name: 🚰 New Singer Tap
 description: Submit a new Singer tap to Meltano Hub
 title: "[Singer Tap] <title>"
 labels: []
-assignees: []
+assignees: [taylormurphy, pnadolny13]
 
 body:
 - type: markdown
@@ -38,3 +38,87 @@ body:
   attributes:
     label: Singer Name
     description: The Singer specific name of the connector. Typically tap-<name>
+
+- type: markdown
+  attributes:
+    value: |
+      ## Detailed Steps (GitHub web-based Editor)
+
+      - Open the web-based editor in
+        [MeltanoHub repo](https://github.dev/meltano/hub)
+
+      - Add your yaml config file in `/_data/meltano/<extractors or loaders>` by
+        clicking "New File" in the left sidebar Explorer view.
+
+        ![Explorer View](./images/add-new-file.png)
+        
+        You can use the sample below to get started.
+
+      - Upload your png image in `/assets/logos/<extractors or loaders>` by
+        dragging a file from your computer to the Explorer view.
+
+      - Commit your changes in the Source Control view
+
+        ![Source Control View](./images/commit.png)
+
+      - You'll be prompted to create a fork since you don't have access to edit
+        directly. This automatically create a fork under your
+        organization/username.
+
+- type: markdown
+  attributes:
+    value: |
+      ```yaml
+      description: General description of what the company behind the API does
+      entity_type: Review the JSON Schema for latest options. Currently api, file, database.
+      entity_url: URL of the developer documentation or website
+      label: Properly formatted label of the connector
+      name: The unique name of the connector
+      singer_name: The Singer specific name of the connector. Typically tap-<name> or target-<name>
+      type: tap or target
+      variants: # an array of variant types
+      - default: true or false
+        maintenance_status: "Options: active, beta, development, inactive, unknown"
+        meltano_sdk: true or false
+        name: Name of the GitHub/GitLab namespace
+        pip_url: git+<git_url>.git or pip install name
+        repo: repo URL
+        capabilities:
+          # Chose the capabilities that the connector supports
+          # Checkout for a list and details - https://hub.meltano.com/singer/docs#singer-connector-capabilities
+          # Tap Capability Options
+          - about
+          - activate-version
+          - batch
+          - stream-maps
+          - schema-flattening
+          - catalog
+          - properties
+          - discover
+          - state
+          - test
+          - log-based
+          # Target Capability Options
+          - about
+          - activate-version
+          - batch
+          - stream-maps
+          - schema-flattening
+          - soft-delete
+          - hard-delete
+          - datatype-failsafe
+          - record-flattening
+        settings:
+          # Describe the list of supported settings, for example:
+          - name: project_ids
+            kind: array
+            label: Project IDs
+            description: Array of project IDs.
+          - name: username
+            label: Username
+            description: Credentials used when for connecting to the source.
+          - name: password
+            kind: password
+            label: Password
+            description: Credentials used when for connecting to the source.
+      ```
