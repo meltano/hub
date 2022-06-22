@@ -1,0 +1,16 @@
+description: Enterprise Management Software
+label: Workday
+name: tap-workday-raas
+logo_url: /assets/logos/extractors/workday-raas.png
+namespace: tap_workday_raas
+variant: isabella232
+pip_url: git+https://github.com/isabella232/tap-workday-raas.git
+repo: https://github.com/isabella232/tap-workday-raas
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://community.workday.com/api
+maintenance_status: unknown
+keywords:
+- api

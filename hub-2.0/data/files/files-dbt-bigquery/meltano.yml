@@ -1,0 +1,9 @@
+name: files-dbt-bigquery
+label: dbt Bigquery
+namespace: files_dbt_bigquery
+repo: https://github.com/meltano/files-dbt-bigquery
+pip_url: git+https://github.com/meltano/files-dbt-bigquery
+variant: meltano
+logo_url: /assets/logos/files/dbt-bigquery.png
+definition: are bundled with the dbt-bigquery transformer.
+maintenance_status: active

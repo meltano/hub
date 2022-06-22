@@ -1,0 +1,16 @@
+name: tap-slack
+label: Slack
+description: Team communication tool
+namespace: tap_slack
+logo_url: /assets/logos/extractors/slack.png
+variant: envoy
+capabilities:
+- catalog
+- discover
+settings: []
+settings_group_validation: []
+pip_url: git+https://github.com/envoy/tap-slack.git
+repo: https://github.com/envoy/tap-slack
+domain_url:
+maintenance_status: unknown
+keywords: []

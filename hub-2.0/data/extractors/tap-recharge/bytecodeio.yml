@@ -1,0 +1,16 @@
+name: tap-recharge
+label: ReCharge
+description: Subscription payments platform
+namespace: tap_recharge
+logo_url: /assets/logos/extractors/recharge.png
+variant: bytecodeio
+capabilities:
+- catalog
+- discover
+settings: []
+settings_group_validation: []
+pip_url: git+https://github.com/bytecodeio/tap-recharge.git
+repo: https://github.com/bytecodeio/tap-recharge
+domain_url:
+maintenance_status: unknown
+keywords: []

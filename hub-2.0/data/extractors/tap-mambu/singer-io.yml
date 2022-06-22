@@ -1,0 +1,16 @@
+description: SaaS cloud banking platform
+label: Mambu
+name: tap-mambu
+logo_url: /assets/logos/extractors/mambu.png
+namespace: tap_mambu
+variant: singer-io
+pip_url: tap-mambu
+repo: https://github.com/singer-io/tap-mambu
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://api.mambu.com/?shell
+maintenance_status: unknown
+keywords:
+- api

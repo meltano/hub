@@ -1,0 +1,16 @@
+description: For extracting data from Snowflake
+label: Snowflake
+name: tap-snowflake
+logo_url: /assets/logos/extractors/snowflake.png
+namespace: tap_snowflake
+variant: transferwise
+pip_url: pipelinewise-tap-snowflake
+repo: https://github.com/transferwise/pipelinewise-tap-snowflake
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://www.snowflake.com/
+maintenance_status: active
+keywords:
+- database

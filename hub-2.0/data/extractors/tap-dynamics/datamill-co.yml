@@ -1,0 +1,16 @@
+description: CRM Platform
+label: Dynamics
+name: tap-dynamics
+logo_url: /assets/logos/extractors/dynamics.png
+namespace: tap_dynamics
+variant: datamill-co
+pip_url: git+https://github.com/datamill-co/tap-dynamics-crm.git
+repo: https://github.com/datamill-co/tap-dynamics-crm
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/use-microsoft-dynamics-365-web-api
+maintenance_status: unknown
+keywords:
+- api

@@ -1,0 +1,16 @@
+description: Customer Service CRM
+label: Kustomer
+name: tap-kustomer
+logo_url: /assets/logos/extractors/kustomer.png
+namespace: tap_kustomer
+variant: singer-io
+pip_url: tap-kustomer
+repo: https://github.com/singer-io/tap-kustomer
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://api.kustomerapp.com/
+maintenance_status: unknown
+keywords:
+- api

@@ -1,0 +1,16 @@
+description: Monitoring System and Time Series Database
+label: Prometheus
+name: tap-prometheus
+logo_url: /assets/logos/extractors/prometheus.png
+namespace: tap_prometheus
+variant: miroapp
+pip_url: git+https://github.com/miroapp/tap-prometheus.git
+repo: https://github.com/miroapp/tap-prometheus
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://prometheus.io/
+maintenance_status: unknown
+keywords:
+- database

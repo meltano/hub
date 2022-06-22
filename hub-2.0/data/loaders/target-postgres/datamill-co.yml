@@ -1,0 +1,196 @@
+name: target-postgres
+label: PostgreSQL
+description: PostgreSQL database loader
+namespace: target_postgres
+dialect: postgres
+target_schema: $TARGET_POSTGRES_POSTGRES_SCHEMA
+logo_url: /assets/logos/loaders/postgres.png
+variant: datamill-co
+repo: https://github.com/datamill-co/target-postgres
+pip_url: singer-target-postgres
+settings_group_validation:
+- - postgres_host
+  - postgres_port
+  - postgres_database
+  - postgres_username
+  - postgres_password
+  - postgres_schema
+settings:
+- name: postgres_host
+  label: Host
+  value: localhost
+- name: postgres_port
+  label: Port
+  kind: integer
+  value: 5432
+- name: postgres_database
+  label: Database
+- name: postgres_username
+  label: Username
+- name: postgres_password
+  label: Password
+  kind: password
+- name: postgres_schema
+  label: Schema
+  aliases: [schema]
+  value: $MELTANO_EXTRACT__LOAD_SCHEMA
+  description: |
+    Note that `$MELTANO_EXTRACT__LOAD_SCHEMA` [will expand to](https://docs.meltano.com/guide/configuration.html#expansion-in-setting-values) the value of the [`load_schema` extra](https://docs.meltano.com/concepts/plugins#load-schema-extra) for the extractor used in the pipeline, which defaults to the extractor's namespace, e.g. `tap_gitlab` for [`tap-gitlab`](/extractors/gitlab).
+
+    Name of the schema where the tables will be created. If `schema_mapping`
+    is not defined then every stream sent by the tap is loaded into this schema.
+- name: postgres_sslmode
+  label: SSL Mode
+  value: prefer
+  description: Refer to the [libpq docs](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-PARAMKEYWORDS) for more information about SSL.
+- name: postgres_sslcert
+  label: SSL Cert
+  value: ~/.postgresql/postgresql.crt
+  description: Only used if a SSL request w/ a client certificate is being made
+- name: postgres_sslkey
+  label: SSL Key
+  value: ~/.postgresql/postgresql.key
+  description: Only used if a SSL request w/ a client certificate is being made
+- name: postgres_sslrootcert
+  value: ~/.postgresql/root.crt
+  description: Used for authentication of a server SSL certificate
+- name: postgres_sslcrl
+  label: SSL CRL
+  value: ~/.postgresql/root.crl
+  description: Used for authentication of a server SSL certificate
+- name: invalid_records_detect
+  label: Invalid Records Detection
+  kind: boolean
+  value: true
+  description: Include `false` in your config to disable `target-postgres` from crashing
+    on invalid records
+- name: invalid_records_threshold
+  label: Invalid Records Threshold
+  kind: integer
+  value: 0
+  description: Include a positive value `n` in your config to allow for `target-postgres`
+    to encounter at most `n` invalid records per stream before giving up.
+- name: disable_collection
+  label: Disable Collection
+  kind: boolean
+  value: false
+  description: Include `true` in your config to disable [Singer Usage Logging](https://github.com/datamill-co/target-postgres#usage-logging).
+- name: logging_level
+  label: Logging Level
+  kind: options
+  value: INFO
+  options:
+  - label: Debug
+    value: DEBUG
+  - label: Info
+    value: INFO
+  - label: Warning
+    value: WARNING
+  - label: Error
+    value: ERROR
+  - label: Critical
+    value: CRITICAL
+  description: The level for logging. Set to `DEBUG` to get things like queries executed,
+    timing of those queries, etc.
+- name: persist_empty_tables
+  label: Persist Empty Tables
+  kind: boolean
+  value: false
+  description: Whether the Target should create tables which have no records present
+    in Remote.
+- name: max_batch_rows
+  label: Max Batch Rows
+  kind: integer
+  value: 200000
+  description: The maximum number of rows to buffer in memory before writing to the
+    destination table in Postgres
+- name: max_buffer_size
+  label: Max Buffer Size
+  kind: integer
+  value: 104857600
+  description: |
+    The maximum number of bytes to buffer in memory before writing to the destination table in Postgres. Default: 100MB in bytes
+- name: batch_detection_threshold
+  label: Batch Detection Threshold
+  kind: integer
+  description: |
+    How often, in rows received, to count the buffered rows and bytes to
+    check if a flush is necessary.
+
+    There's a slight performance penalty to checking
+    the buffered records count or bytesize, so this controls how often this is polled
+    in order to mitigate the penalty. This value is usually not necessary to set as
+    the default is dynamically adjusted to check reasonably often.
+- name: state_support
+  label: State Support
+  kind: boolean
+  value: true
+  description: |
+    Whether the Target should emit `STATE` messages to stdout for further
+    consumption.
+
+    In this mode, which is on by default, STATE messages are buffered
+    in memory until all the records that occurred before them are flushed according
+    to the batch flushing schedule the target is configured with.
+- name: add_upsert_indexes
+  label: Add Upsert Indexes
+  kind: boolean
+  value: true
+  description: |
+    Whether the Target should create column indexes on the important columns
+    used during data loading.
+
+    These indexes will make data loading slightly slower
+    but the deduplication phase much faster. Defaults to on for better baseline performance.
+- name: before_run_sql
+  label: Before Run SQL
+  description: Raw SQL statement(s) to execute as soon as the connection to Postgres
+    is opened by the target. Useful for setup like `SET ROLE` or other connection
+    state that is important.
+- name: after_run_sql
+  label: After Run SQL
+  description: Raw SQL statement(s) to execute as soon as the connection to Postgres
+    is opened by the target. Useful for setup like `SET ROLE` or other connection
+    state that is important.
+domain_url: https://www.postgresql.org/
+maintenance_status: active
+keywords:
+- database
+prereq: |
+  #### Dependencies
+
+  `target-postgres` [requires](https://www.psycopg.org/docs/install.html#runtime-requirements) the
+  [`libpq` library](https://www.postgresql.org/docs/current/libpq.html) to be available on your system.
+  If you've installed PostgreSQL, you should already have it, but you can also install it by itself using the
+  [`libpq-dev` package](https://pkgs.org/download/libpq-dev) on Ubuntu/Debian or the
+  [`libpq` Homebrew formula](https://formulae.brew.sh/formula/libpq) on macOS.
+usage: |
+  ## Troubleshooting
+
+  ### Error: `psycopg2.ProgrammingError: syntax error at or near "-"`
+
+  This error message indicates that the extractor you are using this loader with generates
+  stream names that include the source database schema in addition to the table name: `<schema>-<table>`, e.g. `public-accounts`.
+  This is not supported by [this variant](#alternative-variants) of `target-postgres`.
+
+  Instead, use the [`transferwise` variant](https://meltano.com/plugins/loaders/postgres--transferwise.html) which was made to be used with extractors that behave this way.
+
+  ### Error: `pg_config executable not found` or `libpq-fe.h: No such file or directory`
+
+  This error message indicates that the [`libpq`](https://www.postgresql.org/docs/current/libpq.html) dependency is missing.
+
+  To resolve this, refer to the ["Dependencies" section](#dependencies) above.
+
+  ### `ld`, `clang`, `lssl`, or `linker` Errors
+
+  If you have an error message like:
+
+    * `ld: library not found for -lssl`
+    * `clang: error: linker command failed with exit code 1`
+    * `error: command 'clang' failed with exit status 1`
+
+  These error messages indicates that there is a problem installing OpenSSL.
+
+  This [Stack Overflow answer](https://stackoverflow.com/questions/26288042/error-installing-psycopg2-library-not-found-for-lssl)
+  has specific recommendations on setting the `LDFLAGS` and/or `CPPFLAGS` environment variables.
+  Set those prior to running `meltano add loader target-postgres`.

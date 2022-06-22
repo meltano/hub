@@ -1,0 +1,16 @@
+description: Automated Sales Tax, VAT & GST Software
+label: Quaderno
+name: tap-quaderno
+logo_url: /assets/logos/extractors/quaderno.png
+namespace: tap_quaderno
+variant: nickleomartin
+pip_url: git+https://github.com/NickLeoMartin/tap-quaderno.git
+repo: https://github.com/NickLeoMartin/tap-quaderno
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://www.quaderno.io/
+maintenance_status: unknown
+keywords:
+- api

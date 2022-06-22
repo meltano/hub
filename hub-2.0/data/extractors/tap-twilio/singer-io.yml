@@ -1,0 +1,16 @@
+name: tap-twilio
+label: Twilio
+description: Cloud communications platform as a service
+namespace: tap_twilio
+logo_url: /assets/logos/extractors/twilio.png
+variant: singer-io
+capabilities:
+- catalog
+- discover
+settings: []
+settings_group_validation: []
+pip_url: tap-twilio
+repo: https://github.com/singer-io/tap-twilio
+domain_url:
+maintenance_status: unknown
+keywords: []

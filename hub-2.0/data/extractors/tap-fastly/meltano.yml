@@ -1,0 +1,24 @@
+name: tap-fastly
+label: Fastly
+description: Edge cloud computing services provider
+namespace: tap_fastly
+logo_url: /assets/logos/extractors/fastly.png
+variant: meltano
+repo: https://gitlab.com/meltano/tap-fastly
+pip_url: git+https://gitlab.com/meltano/tap-fastly.git
+capabilities:
+- catalog
+- discover
+- state
+settings:
+- name: api_token
+  label: API Token
+  kind: password
+  placeholder: Ex. *****************
+- name: start_date
+  label: Start Date
+  kind: date_iso8601
+domain_url: https://developer.fastly.com/reference/api/
+maintenance_status: active
+keywords:
+- api

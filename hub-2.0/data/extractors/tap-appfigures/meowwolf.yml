@@ -1,0 +1,16 @@
+description: Reporting platform for mobile app developers
+label: AppFigures
+name: tap-appfigures
+logo_url: /assets/logos/extractors/appfigures.png
+namespace: tap_appfigures
+variant: meowwolf
+pip_url: git+https://github.com/MeowWolf/tap-appfigures.git
+repo: https://github.com/MeowWolf/tap-appfigures
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://appfigures.com/
+maintenance_status: unknown
+keywords:
+- api

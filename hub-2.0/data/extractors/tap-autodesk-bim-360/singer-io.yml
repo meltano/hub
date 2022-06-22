@@ -1,0 +1,16 @@
+description: Construction Management Software
+label: AutoDesk Forge BIM 360
+name: tap-autodesk-bim-360
+logo_url: /assets/logos/extractors/autodesk-bim-360.png
+namespace: tap_autodesk_bim_360
+variant: singer-io
+pip_url: tap-autodesk-bim-360
+repo: https://github.com/singer-io/tap-autodesk-bim-360
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://forge.autodesk.com/en/docs/bim360/v1/reference/http/
+maintenance_status: unknown
+keywords:
+- api

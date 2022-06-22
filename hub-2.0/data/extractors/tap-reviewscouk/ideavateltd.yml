@@ -1,0 +1,16 @@
+description: Review Website
+label: Reviews.io
+name: tap-reviewscouk
+logo_url: /assets/logos/extractors/reviewscouk.png
+namespace: tap_reviewscouk
+variant: ideavateltd
+pip_url: git+https://github.com/ideavateltd/tap-reviewscouk.git
+repo: https://github.com/ideavateltd/tap-reviewscouk
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://www.reviews.co.uk/
+maintenance_status: unknown
+keywords:
+- api

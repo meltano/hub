@@ -1,0 +1,16 @@
+name: tap-slack
+label: Slack
+description: Team communication tool
+namespace: tap_slack
+logo_url: /assets/logos/extractors/slack.png
+variant: transferwise
+capabilities:
+- catalog
+- discover
+settings: []
+settings_group_validation: []
+pip_url: pipelinewise-tap-slack
+repo: https://github.com/transferwise/pipelinewise-tap-slack
+domain_url:
+maintenance_status: active
+keywords: []

@@ -1,0 +1,16 @@
+description: Customer Service CRM
+label: Kustomer
+name: tap-kustomer
+logo_url: /assets/logos/extractors/kustomer.png
+namespace: tap_kustomer
+variant: cdolan-summersalt
+pip_url: git+https://github.com/cdolan-summersalt/tap-kustomer.git
+repo: https://github.com/cdolan-summersalt/tap-kustomer
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://api.kustomerapp.com/
+maintenance_status: unknown
+keywords:
+- api
