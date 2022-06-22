@@ -2,23 +2,20 @@
   <footer class="footer">
       <div class="footer-item">
           <h3>Support</h3>
-          <g-link class="nav__link" to="/extractors">Join Us On Slack</g-link>
-          <g-link class="nav__link" to="/extractors">Documentation</g-link>
-          <g-link class="nav__link" to="/extractors">Status</g-link>
-          <g-link class="nav__link" to="/extractors">Contact</g-link>
+          <a class="nav__link" href="https://www.meltano.com/slack">Join Us On Slack</a>
+          <a class="nav__link" href="https://docs.meltano.com/">Documentation</a>
+          <a class="nav__link" href="https://www.meltano.com/contact">Contact</a>
       </div>
       <div class="footer-item">
           <h3>Company</h3>
-          <g-link class="nav__link" to="/extractors">About</g-link>
-          <g-link class="nav__link" to="/extractors">Blog</g-link>
-          <g-link class="nav__link" to="/extractors">Press</g-link>
+          <a class="nav__link" href="https://www.meltano.com/about">About</a>
+          <a class="nav__link" href="https://www.meltano.com/blog">Blog</a>
+          <a class="nav__link" href="https://www.meltano.com/press">Press</a>
       </div>
       <div class="footer-item">
           <h3>Terms & Policies</h3>
-          <g-link class="nav__link" to="/extractors">Policies</g-link>
-          <g-link class="nav__link" to="/extractors">Terms of Use</g-link>
-          <g-link class="nav__link" to="/extractors">Code of Conduct</g-link>
-          <g-link class="nav__link" to="/extractors">Privacy</g-link>
+          <a class="nav__link" href="https://www.meltano.com/privacy-policy">Privacy Policy</a>
+          <a class="nav__link" href="https://www.meltano.com/terms-of-use">Terms of Use</a>
       </div>
   </footer>
 </template>
@@ -35,6 +32,7 @@ export default {
         background: #f1f1f2;
         color: black;
         display: flex;
+        padding: 25px 0;
         .footer-item {
             display: flex;
             flex-direction: column;

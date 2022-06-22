@@ -2,10 +2,8 @@
   <Layout>
     <div class="home-details">
       <h1>Welcome to Meltano Hub</h1>
-      <h2>Meltano Hub is where you can find Meltano-supported, Singer-specific, and community-built extractors, loaders, utilities, and everything else.</h2>
-      <p>Tempore expedita, et iste tenetur suscipit explicabo! Dolores, aperiam non officia eos quod asperiores</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur excepturi labore tempore expedita, et iste tenetur</p>
-      <a href="/">Learn More</a>
+      <h2>MeltanoHub is a central place to find any Meltano plugin as well as Singer taps and targets. The Hub is lovingly curated by Meltano and the wider Singer community.</h2>
+      <a href="https://docs.meltano.com/concepts/plugins">Learn More</a>
     </div>
   </Layout>
 </template>
@@ -29,8 +27,13 @@ export default {
   h1 {
     font-size: 4.7rem;
     line-height: 1.25;
+    margin: 25px auto;
+  }
+  h2 {
+    margin: 25px auto;
   }
   a {
+    margin: 25px auto;
     background: #d9042b;
     color: #fff;
     border-radius: 38px;
