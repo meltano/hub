@@ -126,3 +126,18 @@ commands:
   test:
     args: test
     description: Runs tests on data in deployed models.
+  freshness:
+    args: source freshness
+    description: Check the freshness of your source data.
+  build:
+    args: build
+    description: Will run your models, tests, snapshots and seeds in DAG order.
+  docs-generate:
+    args: docs generate
+    description: Generate documentation for your project.
+  docs-serve:
+    args: docs serve
+    description: Serve documentation for your project. Make sure you ran `docs-generate` first.
+  debug:
+    args: debug
+    description: Debug your DBT project and warehouse connection.
