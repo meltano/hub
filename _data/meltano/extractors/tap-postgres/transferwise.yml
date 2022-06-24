@@ -7,7 +7,7 @@ variant: transferwise
 repo: https://github.com/transferwise/pipelinewise-tap-postgres
 pip_url: pipelinewise-tap-postgres
 capabilities:
-- catalog
+- properties
 - discover
 - state
 settings_group_validation:
