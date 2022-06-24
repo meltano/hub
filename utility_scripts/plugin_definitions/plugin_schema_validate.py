@@ -15,7 +15,7 @@ logger = logging.getLogger(os.path.basename(__file__))
 class PluginSchemaValidator:
     """Validates the Meltano plugin definition content."""
 
-    def __init__(self, file_path="plugins/"):
+    def __init__(self, file_path="_data/meltano/"):
         """Initialize PluginSchemaValidator.
 
         Args:

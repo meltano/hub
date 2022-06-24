@@ -26,12 +26,13 @@ jobs:
         architecture: x64
     - name: Upgrade pip
       run: |
-        pip install pip
+        pip install pip poetry
         pip --version
-    - name: Pip installs
+        poetry --version
+
+    - name: Poetry install
       run: |
-        pip install ruamel.yaml
-        pip install jsonschema
+        poetry install
 
     - name: Setup Ruby
       uses: actions/setup-ruby@v1
@@ -56,4 +57,4 @@ jobs:
 
     - name: Validate generated API schema
       run: |
-        python api_schema_validate.py "test/meltano/api/v1/plugins"
+        poetry run python utility_scripts/api/api_schema_validate.py "test/meltano/api/v1/plugins"

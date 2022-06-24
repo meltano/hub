@@ -1,8 +1,8 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "files.schema.json",
-    "title": "JSON Schema for file bundle plugins.",
-    "description": "https://docs.meltano.com/concepts/plugins#file-bundles",
+    "$id": "orchestrators.schema.json",
+    "title": "JSON Schema for orchestrator plugins.",
+    "description": "https://docs.meltano.com/concepts/plugins#orchestrators",
     "type": "object",
     "allOf": [
         {
@@ -25,19 +25,9 @@
                 "maintenance_status": {},
                 "domain_url": {},
                 "keywords": {},
-                "update": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "boolean"
-                    }
-                },
                 "variant": {},
                 "logo_url": {},
-                "definition": {},
-                "next_steps": {},
-                "settings_preamble": {},
-                "usage": {},
-                "prereq": {}
+                "requires": {}
             }
         }
     ]

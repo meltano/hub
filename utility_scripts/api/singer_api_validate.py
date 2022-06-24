@@ -7,7 +7,7 @@ from ruamel.yaml import YAML
 
 yaml = YAML()
 
-TAP_DIR = "_data/meltano/extractors/"
+TAP_DIR = "_site/singer/taps/"
 TARGET_DIR = "_data/meltano/loaders/"
 SCHEMA_DIR = "singer/api/v1/schema.json"
 
@@ -28,12 +28,12 @@ def connector_validate(connector_dir, job_fail):
             except Exception as e:
                 job_fail = True
                 print(f"Validation error for {file} with message {str(e)}")
-
+                raise e
     return job_fail
 
 
 job_fail = connector_validate(TAP_DIR, job_fail)
-job_fail = connector_validate(TARGET_DIR, job_fail)
+# job_fail = connector_validate(TARGET_DIR, job_fail)
 
 if job_fail:
     print("Schema validation failed.")

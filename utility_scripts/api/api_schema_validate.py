@@ -15,7 +15,7 @@ logger = logging.getLogger(os.path.basename(__file__))
 class APIValidator:
     """Validates the Meltano plugin API content."""
 
-    def __init__(self, file_path="meltano/api/v1/plugins/"):
+    def __init__(self, file_path="_site/meltano/api/v1/plugins/"):
         """Initialize APIValidator.
 
         Args:
@@ -30,6 +30,13 @@ class APIValidator:
     def _set_schema_store(self):
         self.schema_store = {}
         for source in Path("schemas").iterdir():
+            if source.is_dir():
+                continue
+            with open(source) as schema_file:
+                schema = json.load(schema_file)
+                self.schema_store[schema["$id"]] = schema
+        # TODO: load all common and API schemas
+        for source in Path("schemas/api").iterdir():
             with open(source) as schema_file:
                 schema = json.load(schema_file)
                 self.schema_store[schema["$id"]] = schema
@@ -48,8 +55,8 @@ class APIValidator:
                 self.all_valid = False
             return True
 
-    def _read_json_schema(self, schema_name):
-        with open(f"schemas/{schema_name}") as schema:
+    def _read_json_schema(self, schema_name, subdir=''):
+        with open(f"schemas/{subdir}/{schema_name}") as schema:
             return json.load(schema)
 
     def _validate_index(self, file_path, schema_name):
@@ -74,7 +81,7 @@ class APIValidator:
                 self._validate_index(self.file_path, "plugins_index.schema.json")
                 continue
             logger.info(f"Validating API schema for plugin type: {plugin_dir}")
-            schema = self._read_json_schema(f"{plugin_dir}.schema.json")
+            schema = self._read_json_schema(f"{plugin_dir}.schema.json", "api")
             count = 0
             for file_name in os.listdir(os.path.join(self.file_path, plugin_dir)):
                 if file_name == "index":
