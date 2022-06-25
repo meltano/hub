@@ -27,9 +27,13 @@ class PluginSchemaValidator:
         self.all_valid = True
         self.validation_results = {}
 
-    def _set_schema_store(self):
+    def _set_schema_store(self, schemas_dir='plugin_definitions'):
         self.schema_store = {}
-        for source in Path("schemas").iterdir():
+        for source in Path("schemas/common").iterdir():
+            with open(source) as schema_file:
+                schema = json.load(schema_file)
+                self.schema_store[schema["$id"]] = schema
+        for source in Path(f"schemas/{schemas_dir}").iterdir():
             with open(source) as schema_file:
                 schema = json.load(schema_file)
                 self.schema_store[schema["$id"]] = schema
@@ -51,8 +55,8 @@ class PluginSchemaValidator:
                 self.all_valid = False
             return True
 
-    def _read_json_schema(self, schema_name):
-        with open(f"schemas/{schema_name}") as schema:
+    def _read_json_schema(self, schema_name, schemas_dir='plugin_definitions'):
+        with open(f"schemas/{schemas_dir}/{schema_name}") as schema:
             return json.load(schema)
 
     def plugins_validate(self):

@@ -1,12 +1,15 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "orchestrators.schema.json",
-    "title": "JSON Schema for orchestrator plugins.",
-    "description": "https://docs.meltano.com/concepts/plugins#orchestrators",
+    "$id": "transformers.schema.json",
+    "title": "JSON Schema for transformer plugins.",
+    "description": "https://docs.meltano.com/concepts/plugins#transformers",
     "type": "object",
     "allOf": [
         {
             "$ref": "common.schema.json"
+        },
+        {
+            "$ref": "hub_metadata.schema.json"
         },
         {
             "additionalProperties": false,
@@ -24,7 +27,15 @@
                 "commands": {},
                 "variant": {},
                 "logo_url": {},
-                "requires": {}
+                "requires": {},
+                "maintenance_status": {},
+                "domain_url": {},
+                "keywords": {},
+                "definition": {},
+                "next_steps": {},
+                "settings_preamble": {},
+                "usage": {},
+                "prereq": {}
             }
         }
     ]

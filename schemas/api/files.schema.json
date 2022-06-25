@@ -9,6 +9,9 @@
             "$ref": "common.schema.json"
         },
         {
+            "$ref": "files_specific.schema.json"
+        },
+        {
             "additionalProperties": false,
             "properties": {
                 "name": {},
@@ -22,15 +25,7 @@
                 "docs": {},
                 "settings_group_validation": {},
                 "commands": {},
-                "maintenance_status": {},
-                "domain_url": {},
-                "keywords": {},
-                "update": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "boolean"
-                    }
-                },
+                "update": {},
                 "variant": {},
                 "logo_url": {}
             }

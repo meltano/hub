@@ -12,6 +12,9 @@
             "$ref": "loaders_specific.schema.json"
         },
         {
+            "$ref": "hub_metadata.schema.json"
+        },
+        {
             "additionalProperties": false,
             "properties": {
                 "capabilities": {},
@@ -31,7 +34,15 @@
                 "dialect": {},
                 "target_schema": {},
                 "hidden": {},
-                "requires": {}
+                "requires": {},
+                "maintenance_status": {},
+                "domain_url": {},
+                "keywords": {},
+                "definition": {},
+                "next_steps": {},
+                "settings_preamble": {},
+                "usage": {},
+                "prereq": {}
             }
         }
     ]

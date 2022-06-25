@@ -12,6 +12,9 @@
             "$ref": "mappers_specific.schema.json"
         },
         {
+            "$ref": "hub_metadata.schema.json"
+        },
+        {
             "additionalProperties": false,
             "properties": {
                 "name": {},
@@ -26,7 +29,15 @@
                 "variant": {},
                 "mappings": {},
                 "logo_url": {},
-                "requires": {}
+                "requires": {},
+                "maintenance_status": {},
+                "domain_url": {},
+                "keywords": {},
+                "definition": {},
+                "next_steps": {},
+                "settings_preamble": {},
+                "usage": {},
+                "prereq": {}
             }
         }
     ]

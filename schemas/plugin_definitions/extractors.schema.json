@@ -12,6 +12,9 @@
             "$ref": "extractors_specific.schema.json"
         },
         {
+            "$ref": "hub_metadata.schema.json"
+        },
+        {
             "additionalProperties": false,
             "type": "object",
             "properties": {
@@ -33,7 +36,15 @@
                 "metadata": {},
                 "schema": {},
                 "select": {},
-                "requires": {}
+                "maintenance_status": {},
+                "domain_url": {},
+                "keywords": {},
+                "requires": {},
+                "definition": {},
+                "next_steps": {},
+                "settings_preamble": {},
+                "usage": {},
+                "prereq": {}
             }
         }
     ]

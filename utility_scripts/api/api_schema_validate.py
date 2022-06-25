@@ -27,16 +27,14 @@ class APIValidator:
         self.all_valid = True
         self.validation_results = {}
 
-    def _set_schema_store(self):
+    def _set_schema_store(self, schemas_dir='api'):
         self.schema_store = {}
-        for source in Path("schemas").iterdir():
-            if source.is_dir():
-                continue
+        for source in Path("schemas/common").iterdir():
             with open(source) as schema_file:
                 schema = json.load(schema_file)
                 self.schema_store[schema["$id"]] = schema
         # TODO: load all common and API schemas
-        for source in Path("schemas/api").iterdir():
+        for source in Path(f"schemas/{schemas_dir}").iterdir():
             with open(source) as schema_file:
                 schema = json.load(schema_file)
                 self.schema_store[schema["$id"]] = schema
@@ -55,8 +53,8 @@ class APIValidator:
                 self.all_valid = False
             return True
 
-    def _read_json_schema(self, schema_name, subdir=''):
-        with open(f"schemas/{subdir}/{schema_name}") as schema:
+    def _read_json_schema(self, schema_name, schemas_dir='api'):
+        with open(f"schemas/{schemas_dir}/{schema_name}") as schema:
             return json.load(schema)
 
     def _validate_index(self, file_path, schema_name):
@@ -81,7 +79,7 @@ class APIValidator:
                 self._validate_index(self.file_path, "plugins_index.schema.json")
                 continue
             logger.info(f"Validating API schema for plugin type: {plugin_dir}")
-            schema = self._read_json_schema(f"{plugin_dir}.schema.json", "api")
+            schema = self._read_json_schema(f"{plugin_dir}.schema.json")
             count = 0
             for file_name in os.listdir(os.path.join(self.file_path, plugin_dir)):
                 if file_name == "index":
