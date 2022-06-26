@@ -1,8 +1,3 @@
-<!---
-Use this template when adding a new Singer tap or target to the hub.
---->
-
-
 All Singer definitions are stored in `/_data/taps/` or `/_data/targets`. The minimal requirement for adding a tap or target will match the following format:
 
 ```yaml
@@ -39,15 +34,13 @@ variants: # an array of variant types
       description: Credentials used when for connecting to the source.
 ```
 
-
 ## Checklist
 
-- [ ] Add a file in the appropriate folder (/taps or /targets). The name of the file should match the name of the tap. If there is already one, add a descriptor to the name such as `-search`.
-- [ ] Add a png logo image in `/assets/logos/<taps or targets>`. The image name must match the YAML file name.
-- [ ] Tag `@tayloramurphy` or `@pnadolny13` to flag it for review. Or post to the hub channel on Meltano slack.
+- [ ] Add/update the file in the appropriate folder (`/taps` or `/targets`). The name of the file should match the name of the tap. If there is already one, add a descriptor to the name such as `-search`.
+- [ ] Add/update the PNG logo image in `/assets/logos/<taps or targets>`. The image name must match the YAML file name.
+- [ ] Tag `@tayloramurphy` or `@pnadolny13` to flag it for review. Or post to the [#hub](https://meltano.slack.com/archives/C01UGBSJNG5) channel on Meltano slack.
 
 ## Reviewer Checklist
 
 - [ ] Validate file against JSON Schema. https://www.jsonschema.net/home is an option.
 - [ ] Build website locally and validate everything works.
-
