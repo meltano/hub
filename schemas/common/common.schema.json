@@ -40,7 +40,7 @@
         "settings": {
             "type": "array",
             "items": {
-                "$ref": "base_setting.schema.json"
+                "$ref": "../common/base_setting.schema.json"
             }
         },
         "settings_group_validation": {

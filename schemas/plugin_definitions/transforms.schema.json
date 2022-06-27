@@ -6,10 +6,10 @@
     "type": "object",
     "allOf": [
         {
-            "$ref": "common.schema.json"
+            "$ref": "../common/common.schema.json"
         },
         {
-            "$ref": "transforms_specific.schema.json"
+            "$ref": "../common/transforms_specific.schema.json"
         },
         {
             "$ref": "hub_metadata.schema.json"

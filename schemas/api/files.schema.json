@@ -6,10 +6,10 @@
     "type": "object",
     "allOf": [
         {
-            "$ref": "common.schema.json"
+            "$ref": "../common/common.schema.json"
         },
         {
-            "$ref": "files_specific.schema.json"
+            "$ref": "../common/files_specific.schema.json"
         },
         {
             "additionalProperties": false,
