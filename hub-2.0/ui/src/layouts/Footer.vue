@@ -15,7 +15,7 @@
       <div class="footer-item">
           <h3>Terms & Policies</h3>
           <a class="nav__link" href="https://www.meltano.com/privacy-policy">Privacy Policy</a>
-          <a class="nav__link" href="https://www.meltano.com/terms-of-use">Terms of Use</a>
+          <a class="nav__link" href="https://www.meltano.com/terms-of-service">Terms of Service</a>
       </div>
   </footer>
 </template>

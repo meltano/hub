@@ -1,34 +1,21 @@
 <script>
   import Search from '../components/Search.vue';
   import Footer from './Footer.vue';
+  import Header from './Header.vue';
   export default {
-    components: { Search, Footer }
+    components: { Search, Footer, Header }
   }
 </script>
 
 <template>
   <div class="layout">
     <div class="stripe" />
-    <header class="header">
-      <strong>
-        <g-link to="/"><g-image src="../images/meltano-logo-stacked-padded.svg" width="80" /></g-link>
-      </strong>
-      <nav class="nav">
-        <g-link class="nav__link" to="/extractors">Extractors</g-link>
-        <g-link class="nav__link" to="/loaders/">Loaders</g-link>
-        <g-link class="nav__link" to="/transformers/">Transformers</g-link>
-        <g-link class="nav__link" to="/orchestrators">Orchestrators</g-link>
-        <g-link class="nav__link" to="/validators/">Validators</g-link>
-        <g-link class="nav__link" to="/analyzers/">Analzyers</g-link>
-        <g-link class="nav__link" to="/utilities/">Utilities</g-link>
-        <g-link class="nav__link" to="/files/">Files</g-link>
-      </nav>
-    </header>
+    <Header />
     <main>
       <Search />
       <slot/>
     </main>
-  <Footer />
+    <Footer />
     <div class="stripe" />
   </div>
 </template>
