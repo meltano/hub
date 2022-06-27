@@ -4,4 +4,4 @@ bundle:
     ./aws/install && \
     aws s3 cp s3://prod-meltano-bucket-01/hub_metrics/metrics.yml ./_data/metrics.yml && \
     aws s3 cp s3://prod-meltano-bucket-01/hub_metrics/audit.yml ./_data/audit.yml
-	bundle exec jekyll build --config _config.yml
+	bundle exec jekyll build --config _config.yml,_config_netlify.yml

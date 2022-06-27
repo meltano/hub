@@ -1,5 +1,5 @@
 [context.deploy-preview]
-  command = "printf \"url: %s\" \"$DEPLOY_PRIME_URL\" > _config_netlify.yml; jekyll build --config _config.yml,_config_netlify.yml"
+  command = "printf \"url: %s\" \"$DEPLOY_PRIME_URL\" > _config_netlify.yml; make bundle"
 
 [build]
   command = "make bundle"
