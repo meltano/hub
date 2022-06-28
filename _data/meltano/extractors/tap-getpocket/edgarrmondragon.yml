@@ -1,0 +1,71 @@
+name: tap-getpocket
+variant: edgarrmondragon
+description: Your own private corner of the web to spend quality time with great articles.
+label: Pocket
+logo_url: /assets/logos/extractors/getpocket.svg
+capabilities:
+- catalog
+- discover
+- state
+- about
+- stream-maps
+- schema-flattening
+domain_url: https://getpocket.com/
+keywords:
+- api
+- meltano_sdk
+maintenance_status: active
+namespace: tap_getpocket
+pip_url: git+https://github.com/edgarrmondragon/tap-getpocket.git
+repo: https://github.com/edgarrmondragon/tap-getpocket
+settings_group_validation:
+- - consumer_key
+  - access_token
+settings:
+- name: consumer_key
+  kind: password
+  label: Consumer Key
+  description: Pocket application consumer key
+  documentation: https://getpocket.com/developer/docs/authentication
+- name: access_token
+  kind: password
+  label: Access Token
+  description: Pocket application access token
+  documentation: https://getpocket.com/developer/docs/authentication
+- name: start_date
+  kind: string
+  label: Start Date
+  description: Start date for data extraction
+- name: favorite
+  kind: boolean
+  label: Favorite
+  description: Extract favorite items
+- name: content_type
+  kind: options
+  label: Content Type
+  description: >
+    Extract items of a specific content type.
+    Leave out to sync all content types.
+  options:
+  - label: Article
+    value: article
+  - label: Video
+    value: video
+  - label: Image
+    value: image
+- name: state
+  kind: options
+  label: State
+  description: Extract items of a specific state
+  options:
+  - label: Unread
+    value: unread
+  - label: Archive
+    value: archive
+  - label: All
+    value: all
+- name: tag
+  kind: string
+  label: Tag
+  description: >
+    Extract items of a specific tag. Use `_untagged_` to extract items without tags
