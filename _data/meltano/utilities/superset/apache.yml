@@ -91,14 +91,18 @@ next_steps: |
 
      ```sh
      meltano invoke superset:create-admin
-     # This is equivalent to `superset fab create-admin` in the Superset documentation
      ```
+
+     This is equivalent to `superset fab create-admin` in the Superset documentation
+
   1. Optionally, load some example data to play with:
 
      ```sh
      meltano invoke superset:load-examples
-     # This is equivalent to `superset load_examples` in the Superset documentation
      ```
+
+     This is equivalent to `superset load_examples` in the Superset documentation
+
   1. Launch the Superset UI and log in using the username/password you created:
 
      ```sh
