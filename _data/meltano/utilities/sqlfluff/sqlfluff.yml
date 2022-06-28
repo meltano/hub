@@ -23,4 +23,4 @@ next_steps: |
   1. Run `meltano invoke sqlfluff:lint` to lint your SQL files.
   1. Optionally, if you're using dbt and your project is expecting environment variables to be set like `DBT_SNOWFLAKE_ACCOUNT`
     you can set the sqlfluff `namespace` setting in your meltano.yml to `dbt_<adapter_name>` (using your specific adapter i.e. `dbt_snowflake`)
-    so SQLFluff's settings are exported with the `DBT_<ADAPTER_NAME>` prefix properly.
+    and configure any required dbt setting under your SQLFluff utility so they're exported with the `DBT_<ADAPTER_NAME>` prefix properly.
