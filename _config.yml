@@ -63,4 +63,4 @@ highlighter: rouge
 plugins:
   - jekyll-sitemap
 
-include: [_redirects]
+include: [_redirects, _headers]

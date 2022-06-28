@@ -1,0 +1,49 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "common/extractors_specific.schema.json",
+    "title": "JSON Schema for extractor plugins.",
+    "description": "https://docs.meltano.com/concepts/plugins#extractors",
+    "type": "object",
+    "additionalProperties": true,
+    "properties": {
+        "capabilities": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "enum": [
+                    "properties",
+                    "catalog",
+                    "discover",
+                    "state",
+                    "about",
+                    "stream-maps",
+                    "schema-flattening",
+                    "activate-version",
+                    "batch",
+                    "test",
+                    "log-based"
+                ]
+            }
+        },
+        "metadata": {
+            "type": "object",
+            "description": "An object containing Singer stream and property metadata",
+            "default": {}
+        },
+        "schema": {
+            "type": "object",
+            "description": "An object representing override rules for a Singer stream schema",
+            "default": {}
+        },
+        "select": {
+            "type": "array",
+            "default": [
+                "*.*"
+            ],
+            "description": "An array of entity selection rules in the form '<entity|*>.<attribute|*>'",
+            "items": {
+                "type": "string"
+            }
+        }
+    }
+}

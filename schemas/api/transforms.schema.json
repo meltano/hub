@@ -6,7 +6,10 @@
     "type": "object",
     "allOf": [
         {
-            "$ref": "common.schema.json"
+            "$ref": "../common/common.schema.json"
+        },
+        {
+            "$ref": "../common/transforms_specific.schema.json"
         },
         {
             "additionalProperties": false,
@@ -20,17 +23,8 @@
                 "docs": {},
                 "variant": {},
                 "logo_url": {},
-                "maintenance_status": {},
-                "domain_url": {},
-                "keywords": {},
-                "package_name": {
-                    "type": "string",
-                    "description": "The name of the dbt packages internal dbt project: the value of name in dbt_project.yml"
-                },
-                "vars": {
-                    "type": "object",
-                    "description": "An object containing dbt model variables that can be referenced from a model using the var function."
-                }
+                "package_name": {},
+                "vars": {}
             }
         }
     ]

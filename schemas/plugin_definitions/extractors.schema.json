@@ -1,0 +1,51 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "extractors.schema.json",
+    "title": "JSON Schema for extractor plugins.",
+    "description": "https://docs.meltano.com/concepts/plugins#extractors",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "../common/common.schema.json"
+        },
+        {
+            "$ref": "../common/extractors_specific.schema.json"
+        },
+        {
+            "$ref": "hub_metadata.schema.json"
+        },
+        {
+            "additionalProperties": false,
+            "type": "object",
+            "properties": {
+                "name": {},
+                "pip_url": {},
+                "variant": {},
+                "namespace": {},
+                "label": {},
+                "description": {},
+                "executable": {},
+                "settings": {},
+                "docs": {},
+                "repo": {},
+                "logo_url": {},
+                "hidden": {},
+                "settings_group_validation": {},
+                "commands": {},
+                "capabilities": {},
+                "metadata": {},
+                "schema": {},
+                "select": {},
+                "maintenance_status": {},
+                "domain_url": {},
+                "keywords": {},
+                "requires": {},
+                "definition": {},
+                "next_steps": {},
+                "settings_preamble": {},
+                "usage": {},
+                "prereq": {}
+            }
+        }
+    ]
+}
