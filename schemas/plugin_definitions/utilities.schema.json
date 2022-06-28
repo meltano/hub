@@ -1,12 +1,15 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "files.schema.json",
-    "title": "JSON Schema for file bundle plugins.",
-    "description": "https://docs.meltano.com/concepts/plugins#file-bundles",
+    "$id": "utilities.schema.json",
+    "title": "JSON Schema for utility plugins.",
+    "description": "https://docs.meltano.com/concepts/plugins#utilities",
     "type": "object",
     "allOf": [
         {
-            "$ref": "common.schema.json"
+            "$ref": "../common/common.schema.json"
+        },
+        {
+            "$ref": "hub_metadata.schema.json"
         },
         {
             "additionalProperties": false,
@@ -22,17 +25,12 @@
                 "docs": {},
                 "settings_group_validation": {},
                 "commands": {},
+                "variant": {},
+                "logo_url": {},
+                "requires": {},
                 "maintenance_status": {},
                 "domain_url": {},
                 "keywords": {},
-                "update": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "boolean"
-                    }
-                },
-                "variant": {},
-                "logo_url": {},
                 "definition": {},
                 "next_steps": {},
                 "settings_preamble": {},

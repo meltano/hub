@@ -8,7 +8,13 @@ variant: sqlfluff
 commands:
   lint:
     args: lint
-    description: Lint SQL in transform models
+    description: Lint SQL in transform models.
+  fix:
+    args: fix
+    description: Automatically fix SQL files according to your defined rules.
+  fix-force:
+    args: fix --force
+    description: Automatically fix SQL files according to your defined rules (does not ask for confirmation).
 logo_url: /assets/logos/utilities/sqlfluff.png
 definition: is a linting tool for SQL files, often used with dbt to enforce SQL code standards.
 next_steps: |

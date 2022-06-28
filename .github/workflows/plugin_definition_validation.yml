@@ -1,4 +1,4 @@
-name: Yaml validation
+name: Plugin Definition Validation
 
 on:
   pull_request: {}
@@ -32,10 +32,10 @@ jobs:
       run: |
         poetry install
 
-    - name: Yaml schema validate
+    - name: Plugin definition schema validation
       run: |
-        poetry run python yaml_validate.py
+        poetry run python utility_scripts/plugin_definitions/plugin_schema_validate.py
 
-    - name: Yaml name validate
+    - name: Validate plugin names
       run: |
-        poetry run python yaml_check_names.py
+        poetry run python utility_scripts/plugin_definitions/yaml_check_names.py

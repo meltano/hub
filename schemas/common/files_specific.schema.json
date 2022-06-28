@@ -1,0 +1,16 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "common/files_specific.schema.json",
+    "title": "JSON Schema for file bundle plugins.",
+    "description": "https://docs.meltano.com/concepts/plugins#file-bundles",
+    "type": "object",
+    "additionalProperties": true,
+    "properties": {
+        "update": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "boolean"
+            }
+        }
+    }
+}
