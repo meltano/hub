@@ -1,0 +1,54 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "hub_metadata.schema.json",
+    "title": "JSON Schema for hub metadata in plugin definitions.",
+    "type": "object",
+    "additionalProperties": true,
+    "properties": {
+        "maintenance_status": {
+            "type": "string",
+            "title": "Variant Maintenance Status",
+            "enum": [
+                "active",
+                "beta",
+                "development",
+                "inactive",
+                "unknown"
+            ],
+            "description": "The maintenance_status of the variant."
+        },
+        "domain_url": {
+            "type": ["string", "null"],
+            "format": "uri",
+            "title": "The url of the data entity.",
+            "description": "Links to the website represnting the database, api, etc."
+        },
+        "keywords": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "An array of keywords that be used in searches."
+        },
+        "definition": {
+            "type": "string",
+            "description": "A string that introducing a plugin and defines what it does i.e. 'The plugin_x utility <definition>'"
+        },
+        "next_steps": {
+            "type": "string",
+            "description": "A markdown string that gets added after the auto generated installation section. Commonly used for next steps following installation/configuration i.e. how to turn on a service or init a system database."
+        },
+        "settings_preamble": {
+            "type": "string",
+            "description": "A markdown string that gets added to the beginning of the setting section on the plugin pages. Commonly used for adding notes on advanced settings."
+        },
+        "usage": {
+            "type": "string",
+            "description": "A markdown string that gets appended to the bottom of the plugin pages. Commonly used for troubleshooting notes or additional setup instructions."
+        },
+        "prereq": {
+            "type": "string",
+            "description": "A markdown string that included at the end of the auto generated `Prerequisites` section on the plugin page. Can be used to include custom prerequisites other than the default set."
+        }
+    }
+}

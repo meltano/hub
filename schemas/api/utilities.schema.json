@@ -6,7 +6,7 @@
     "type": "object",
     "allOf": [
         {
-            "$ref": "common.schema.json"
+            "$ref": "../common/common.schema.json"
         },
         {
             "additionalProperties": false,
@@ -22,17 +22,9 @@
                 "docs": {},
                 "settings_group_validation": {},
                 "commands": {},
-                "maintenance_status": {},
-                "domain_url": {},
-                "keywords": {},
                 "variant": {},
                 "logo_url": {},
-                "requires": {},
-                "definition": {},
-                "next_steps": {},
-                "settings_preamble": {},
-                "usage": {},
-                "prereq": {}
+                "requires": {}
             }
         }
     ]

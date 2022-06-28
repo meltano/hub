@@ -49,7 +49,6 @@ commands:
     description: Load examples.
 logo_url: /assets/logos/utilities/superset.png
 definition: is a modern, enterprise-ready business intelligence web application. **It requires Meltano version 2.0.**
-maintenance_status: active
 keywords:
 - analysis
 settings_preamble: |
