@@ -7,11 +7,13 @@
                 extracting and loading data using Meltano, refer to the Data Integration (EL) guide.</p>
             <ul class="plugins-list">
                 <li v-for="edge in $page.allLoaders.edges" :key="edge.node.id" class="page-single-plugin">
-                    <h2>{{ edge.node.label }}</h2>
-                    <!-- <g-image :src="require(`!!assets-loader!@/src${edge.node.logo_url}`)" /> -->
-                    <p>{{ edge.node.variant }}</p>
-                    <p>{{ edge.node.maintenance_status }}</p>
-                    <p>{{ edge.node.description }}</p>
+                    <g-link :to="edge.node.path">
+                        <h2>{{ edge.node.label }}</h2>
+                        <!-- <g-image :src="require(`!!assets-loader!@/src${edge.node.logo_url}`)" /> -->
+                        <p>{{ edge.node.variant }}</p>
+                        <p>{{ edge.node.maintenance_status }}</p>
+                        <p>{{ edge.node.description }}</p>
+                    </g-link>
                 </li>
                 <Pager :info="$page.allLoaders.pageInfo" class="pager-container" linkClass="pager-container__link" />
             </ul>
@@ -38,7 +40,8 @@ query ($page: Int) {
     }
 		edges {
       node {
-        id
+                id
+                path
 				description
 				label
 				name
@@ -82,7 +85,14 @@ query ($page: Int) {
         list-style-type: none;
         padding: 0;
         margin: 0;
-        flex-basis: 33.333333%
+        flex-basis: 33.333333%;
+        a {
+            color: #3438bf;
+            text-decoration: none;
+        }
+        a:hover {
+            background: #b0e3c1;
+        }
     }
 
     .pager-container {
