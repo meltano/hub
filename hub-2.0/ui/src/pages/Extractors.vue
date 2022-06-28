@@ -78,6 +78,9 @@ query ($page: Int) {
     display: flex;
     flex-wrap: wrap;
     margin-top: 40px;
+    padding-left: 0;
+    text-align: center;
+    margin: 40px auto 80px;
 
     .page-single-plugin {
         color: #000;
