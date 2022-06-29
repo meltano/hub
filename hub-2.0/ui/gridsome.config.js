@@ -6,6 +6,7 @@
 
 module.exports = {
   siteName: "MeltanoHub",
+  icon: "./src/meltano-favicon-192x192.png",
   plugins: [],
   templates: {
     Extractors: [

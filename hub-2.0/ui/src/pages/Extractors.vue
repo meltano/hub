@@ -10,9 +10,9 @@
                     <g-link :to="edge.node.path">
                         <h2>{{ edge.node.label }}</h2>
                         <!-- <g-image :src="require(`!!assets-loader!@/src${edge.node.logo_url}`)" /> -->
-                        <p>{{ edge.node.variant }}</p>
-                        <p>{{ edge.node.maintenance_status }}</p>
-                        <p>{{ edge.node.description }}</p>
+                        <p>Variant: {{ edge.node.variant }}</p>
+                        <p>Mainenance Status: {{ edge.node.maintenance_status }}</p>
+                        <p>Description: {{ edge.node.description }}</p>
                     </g-link>
                 </li>
                 <Pager :info="$page.allExtractors.pageInfo" class="pager-container" linkClass="pager-container__link" />
