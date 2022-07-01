@@ -5,7 +5,7 @@
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" 
 unzip -q awscliv2.zip 
 ./aws/install -i ~/aws-cli -b ~/aws-cli/bin 
-cat > ./aws <<EOL
+cat > ./aws/credentials <<EOL
 [default]
 region = $ENV_DEFAULT_REGION
 aws_secret_access_key = $ENV_SECRET_ACCESS_KEY
