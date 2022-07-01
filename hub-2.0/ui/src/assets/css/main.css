@@ -1,0 +1,75 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: IBM Plex Sans, "Helvetica Neue", sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  background: url('../images/meltano-background.jpeg');
+  color: #fff;
+}
+
+
+.info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 200px;
+}
+
+.info h1 {
+    font-size: 2.5em;
+}
+
+.plugins-list {
+    width: 100%;
+    height: auto;
+    background: #e8f0ff;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    padding-left: 0;
+    text-align: center;
+    margin: 40px auto 80px;
+}
+
+.plugins-list .page-single-plugin {
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    flex-basis: 33.333333%;
+}
+
+.plugins-list .page-single-plugin a {
+    color: #3438bf;
+    text-decoration: none;
+}
+
+.plugins-list .page-single-plugin a:hover {
+    background: #b0e3c1;
+}
+
+.plugins-list .pager-container {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    margin: 20px auto;
+}
+
+.plugins-list .pager-container .active {
+    background-color: #c0c0c4;
+}
+
+.plugins-list .pager-container__link {
+    text-align: center;
+    padding: 0.6rem 1.2rem;
+    color: #3438bf;
+    text-decoration: none;
+}

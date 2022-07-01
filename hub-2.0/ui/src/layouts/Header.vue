@@ -1,7 +1,7 @@
 <template>
     <header class="header">
       <strong>
-        <g-link to="/"><g-image src="../images/meltano-logo-stacked-padded.svg" width="80" /></g-link>
+        <g-link to="/"><g-image src="../assets/images/meltano-logo-stacked-padded.svg" width="80" /></g-link>
       </strong>
       <nav class="nav">
         <g-link class="nav__link" to="/extractors">Extractors</g-link>

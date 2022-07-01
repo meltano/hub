@@ -8,41 +8,44 @@ module.exports = {
   siteName: "MeltanoHub",
   icon: "./src/meltano-favicon-192x192.png",
   plugins: [],
+  chainWebpack: (config) => {
+    config.resolve.alias.set("@logos", "@assets/logos");
+  },
   templates: {
     Extractors: [
       {
         path: "/extractors/:name/:variant",
-        component: "./src/templates/Extractor.vue",
+        component: "./src/templates/Extractors.vue",
       },
     ],
     Loaders: [
       {
         path: "/loaders/:name/:variant",
-        component: "./src/templates/Loader.vue",
+        component: "./src/templates/Loaders.vue",
       },
     ],
     Orchestrators: [
       {
         path: "/orchestrators/:name/:variant",
-        component: "./src/templates/Orchestrator.vue",
+        component: "./src/templates/Orchestrators.vue",
       },
     ],
     Transformers: [
       {
         path: "/transformers/:name/:variant",
-        component: "./src/templates/Transformer.vue",
+        component: "./src/templates/Transformers.vue",
       },
     ],
     Utilities: [
       {
         path: "/utilities/:name/:variant",
-        component: "./src/templates/Utility.vue",
+        component: "./src/templates/Utilities.vue",
       },
     ],
     Files: [
       {
         path: "/files/:name/:variant",
-        component: "./src/templates/File.vue",
+        component: "./src/templates/Files.vue",
       },
     ],
   },

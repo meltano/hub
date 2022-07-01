@@ -1,10 +1,10 @@
 <script>
-  import Search from '../components/Search.vue';
-  import Footer from './Footer.vue';
-  import Header from './Header.vue';
-  export default {
-    components: { Search, Footer, Header }
-  }
+import Search from '../components/Search.vue';
+import Footer from './Footer.vue';
+import Header from './Header.vue';
+export default {
+  components: { Search, Footer, Header }
+}
 </script>
 
 <template>
@@ -13,7 +13,7 @@
     <Header />
     <main>
       <Search />
-      <slot/>
+      <slot />
     </main>
     <Footer />
     <div class="stripe" />
@@ -28,33 +28,13 @@ query {
 }
 </static-query>
 
-<style>
-html, body {
-  width: 100%;
-  height: 100%;
-}
-body {
-  /* font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; */
-  font-family: IBM Plex Sans;
-  margin:0;
-  padding:0;
-  line-height: 1.5;
-  background: #fff;
-  background: url('../images/meltano-background.jpeg');
-  /* background: #2126A4; */
-  color: #fff;
-  /* color: #2126A4; */
-}
-
+<style lang="scss">
 .layout {
-  /* max-width: 760px; */
   margin: 0 auto;
-  /* padding-left: 20px; */
-  /* padding-right: 20px; */
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 
 .stripe {
@@ -67,14 +47,11 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* margin-bottom: 20px; */
   border-bottom: 2px solid #f1f1f2;
   height: 80px;
-  /* background: #2126A4; */
   background: #fff;
-  padding-left: 20px; 
+  padding-left: 20px;
   padding-right: 20px;
-  /* color: #fff; */
 }
 
 .header a {
@@ -96,7 +73,9 @@ main {
   flex-grow: 1;
 }
 
-header, main, footer {
+header,
+main,
+footer {
   flex-shrink: 0;
 }
 </style>

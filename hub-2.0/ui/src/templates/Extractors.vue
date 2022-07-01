@@ -1,51 +1,36 @@
 <template>
     <Layout>
-        <!-- <p v-html="$page.extractor.node.description" />
-        <p v-html="$page.extractor.node.label" />
-        <p v-html="$page.extractor.node.name" />
-        <p v-html="$page.extractor.node.logo_url" />
-        <p v-html="$page.extractor.node.namespace" />
-        <p v-html="$page.extractor.node.variant" />
-        <p v-html="$page.extractor.node.pip_url" />
-        <p v-html="$page.extractor.node.repo" />
-        <p v-html="$page.extractor.node.capabilities" />
-        <p v-html="$page.extractor.node.domain_url" />
-        <p v-html="$page.extractor.node.maintenance_status" />
-        <p v-html="$page.extractor.node.keywords" /> -->
+      <div class="info">
+        <h1>{{$page.extractors.name}}</h1>
+        <p>{{$page.extractors.description}}</p>
+      </div>
     </Layout>
 </template>
 
 <script>
-export default {
-    name: 'Extractors'
-}
+// export default {
+//     name: 'Extractors'
+// }
 </script>
 
 <page-query>
-
+query Extractors ($path: String!) {
+  extractors: extractors (path: $path) {
+        id
+				description
+        path
+				label
+				name
+				logo_url
+				namespace
+				variant
+				pip_url
+				repo
+				maintenance_status
+				keywords
+  }
+}
 </page-query>
 
 <style>
 </style>
-
-<!-- query ($id: ID!) {
-  allExtractors(id: $id) {
-    edges {
-        node {
-description
-label
-name
-logo_url
-namespace
-variant
-pip_url
-repo
-capabilities
-domain_url
-maintenance_status
-keywords
-        }
-    }
-
-  }
-} -->

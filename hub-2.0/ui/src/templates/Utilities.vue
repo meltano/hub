@@ -1,40 +1,33 @@
 <template>
     <Layout>
-        <!-- <p>{{$page.node.name}}</p> -->
-        <!-- <p v-html="$page.extractor.node.description" />
-        <p v-html="$page.extractor.node.label" />
-        <p v-html="$page.extractor.node.name" />
-        <p v-html="$page.extractor.node.logo_url" />
-        <p v-html="$page.extractor.node.namespace" />
-        <p v-html="$page.extractor.node.variant" />
-        <p v-html="$page.extractor.node.pip_url" />
-        <p v-html="$page.extractor.node.repo" />
-        <p v-html="$page.extractor.node.capabilities" />
-        <p v-html="$page.extractor.node.domain_url" />
-        <p v-html="$page.extractor.node.maintenance_status" />
-        <p v-html="$page.extractor.node.keywords" /> -->
+      <div class="info">
+        <h1>{{$page.utilities.name}}</h1>
+        <p>{{$page.utilities.description}}</p>
+      </div>
     </Layout>
 </template>
 
 <script>
-export default {
-    name: 'Utilities'
-}
+// export default {
+//     name: 'Utilities'
+// }
 </script>
 
 <page-query>
-query {
-    utilities: allUtilities {
-        edges {
-            node {
-                id
-                name
-                label
-                namespace
-                maintenance_status
-            }
-        }
-    }
+query Utilities ($path: String!) {
+  utilities: utilities (path: $path) {
+        id
+		description
+        path
+		label
+		name
+		logo_url
+		namespace
+		variant
+		pip_url
+		repo
+		maintenance_status
+  }
 }
 </page-query>
 
