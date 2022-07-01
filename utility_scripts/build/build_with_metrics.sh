@@ -23,5 +23,10 @@ EOL
 ~/aws-cli/bin/aws s3 cp s3://prod-meltano-bucket-01/hub_metrics/metrics.yml ./_data/metrics.yml 
 ~/aws-cli/bin/aws s3 cp s3://prod-meltano-bucket-01/hub_metrics/audit.yml ./_data/audit.yml
 
-# Build site
-bundle exec jekyll build --config _config.yml,_config_netlify.yml
+# Build site (doing the correct thing if we are in a deploy-preview (see https://github.com/meltano/hub/pull/626))
+if [ -e _config_netlify.yml ]
+then
+    bundle exec jekyll build --config _config.yml,_config_netlify.yml
+else
+    bundle exec jekyll build --config _config.yml
+fi
