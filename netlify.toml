@@ -1,5 +1,5 @@
 [context.deploy-preview]
-  command = "printf \"url: %s\" \"$DEPLOY_PRIME_URL\" > _config_netlify.yml; make bundle"
+  command = "printf \"url: %s\" \"$DEPLOY_PRIME_URL\" > _config_netlify.yml; ./build_with_metrics.sh"
 
 [build]
-  command = "make bundle"
+  command = "./build_with_metrics.sh"
