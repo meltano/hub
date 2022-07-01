@@ -2,6 +2,9 @@
 
 # Run a jekyll build in netlify, but grab metrics stored in s3 first
 
+# Make errors fail the build
+set -euxo pipefail
+
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" 
 unzip -q awscliv2.zip 
 ./aws/install -i ~/aws-cli -b ~/aws-cli/bin
