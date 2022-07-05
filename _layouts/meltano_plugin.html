@@ -82,7 +82,7 @@ https://github.com/meltano/hub/blob/main/_data/meltano/{{page.meltano_type}}/{{p
     {% else %} {{ maintainer.label }} {% endif %}
   </li>
   {% if metrics.MELTANO_EXEC_COUNT_3M > 0 or metrics.MELTANO_PROJECT_ID_COUNT_3M > 0 %}
-  <li><a href="/singer/docs#meltano-usage-metrics"><strong>Meltano Stats</strong></a>(across all plugin variants):</li>
+  <li><a href="/singer/docs#meltano-usage-metrics"><strong>Meltano Stats</strong></a> (across all plugin variants):</li>
   <ul>
     {% if metrics.MELTANO_EXEC_COUNT_3M > 0 %}
     <li>
