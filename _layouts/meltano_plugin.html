@@ -192,9 +192,9 @@ https://github.com/meltano/hub/blob/main/_data/meltano/{{page.meltano_type}}/{{p
     </p>
 
     {% if page.variant_specific %}
-      {% capture meltano_url %}{{page.meltano_type}}/{{page.name}}--{{plugin.variant}}#getting-started{% endcapture %}
+      {% capture meltano_url %}{{page.meltano_type}}/{{plugin.name}}--{{plugin.variant}}#getting-started{% endcapture %}
     {% else %}
-      {% capture meltano_url %}{{page.meltano_type}}/{{page.name}}#getting-started{% endcapture %}
+      {% capture meltano_url %}{{page.meltano_type}}/{{plugin.name}}#getting-started{% endcapture %}
     {% endif %}
 
     <p>
