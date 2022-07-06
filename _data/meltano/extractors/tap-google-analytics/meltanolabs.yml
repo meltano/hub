@@ -28,9 +28,8 @@ settings_group_validation:
 settings:
 - name: key_file_location
   kind: file
-  value: $MELTANO_PROJECT_ROOT/client_secrets.json
   label: Client Secrets File Location
-  placeholder: Ex. client_secrets.json
+  placeholder: Ex. $MELTANO_PROJECT_ROOT/client_secrets.json
   description: |
     #### How to get
 
