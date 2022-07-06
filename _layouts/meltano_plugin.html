@@ -82,13 +82,13 @@ https://github.com/meltano/hub/blob/main/_data/meltano/{{page.meltano_type}}/{{p
     {% else %} {{ maintainer.label }} {% endif %}
   </li>
   {% if metrics.MELTANO_EXEC_COUNT_3M > 0 or metrics.MELTANO_PROJECT_ID_COUNT_3M > 0 %}
-  <li><a href="/singer/docs#meltano-usage-metrics"><strong>Meltano Stats:</strong></a></li>
+  <li><a href="/singer/docs#meltano-usage-metrics"><strong>Meltano Stats</strong></a> (across all plugin variants):</li>
   <ul>
     {% if metrics.MELTANO_EXEC_COUNT_3M > 0 %}
     <li>
       <img
-        alt="Executions (Last 3 Months)"
-        src="https://img.shields.io/badge/Executions%20(Last%203%20Months)-{{ metrics.MELTANO_EXEC_COUNT_3M }}-c0c0c4">
+        alt="Total Executions (Last 3 Months)"
+        src="https://img.shields.io/badge/Total%20Executions%20(Last%203%20Months)-{{ metrics.MELTANO_EXEC_COUNT_3M }}-c0c0c4">
     </li>
     {% endif %}
     {% if metrics.MELTANO_PROJECT_ID_COUNT_3M > 0 %}
