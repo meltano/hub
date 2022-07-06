@@ -73,3 +73,40 @@ body {
     color: #3438bf;
     text-decoration: none;
 }
+
+
+
+.single-plugin-detail {
+    width: 100%;
+    height: auto;
+    background: #e8f0ff;
+    color: #3438bf;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    padding-left: 0;
+    text-align: center;
+    margin: 40px auto 80px;
+}
+
+.single-plugin-detail .single-plugin-top-bar {
+    width: 100%;
+}
+
+.single-plugin-detail .single-plugin-main {
+    width: 65%;
+}
+
+.single-plugin-detail .single-plugin-aside {
+    width: 35%;
+    background: #f1f1f2;
+}
+
+.single-plugin-detail .single-plugin-aside .link-box {
+    display: flex;
+}
+
+.single-plugin-detail .single-plugin-aside .link-box .aside-icon {
+    width: 20px;
+    margin-right: 10px;
+}
