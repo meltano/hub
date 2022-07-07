@@ -53,12 +53,12 @@ module.exports = function(api) {
       typeName: "Utilities",
     });
 
-    buildData("../data/extractors", extractorsCollection);
-    buildData("../data/loaders", loadersCollection);
-    buildData("../data/files", filesCollection);
-    buildData("../data/orchestrators", orchestratorsCollection);
-    buildData("../data/transformers", transformersCollection);
-    buildData("../data/utilities", utilitiesCollection);
+    buildData("../../_data/meltano/extractors", extractorsCollection);
+    buildData("../../_data/meltano/loaders", loadersCollection);
+    buildData("../../_data/meltano/files", filesCollection);
+    buildData("../../_data/meltano/orchestrators", orchestratorsCollection);
+    buildData("../../_data/meltano/transformers", transformersCollection);
+    buildData("../../_data/meltano/utilities", utilitiesCollection);
   });
 
   api.createPages(({ createPage }) => {
