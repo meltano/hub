@@ -1,0 +1,45 @@
+description: Authentication and Authorization Platform
+label: Auth0
+name: tap-auth0
+logo_url: /assets/logos/extractors/auth0.png
+namespace: tap_auth0
+variant: matatika
+pip_url: git+https://github.com/Matatika/tap-auth0.git
+repo: https://github.com/Matatika/tap-auth0
+settings_group_validation:
+- - client_id
+  - client_secret
+  - domain
+settings:
+- name: client_id
+  label: Client ID
+  kind: password
+  description: App client ID
+- name: client_secret
+  label: Client secret
+  kind: password
+  description: App client secret
+- name: domain
+  label: Domain
+  description: Tenant domain
+- name: job_poll_interval_ms
+  label: Job poll interval
+  value: 2000
+  kind: integer
+  description: Job poll interval (ms)
+- name: job_poll_max_count
+  label: Maximum job poll count
+  value: 10
+  kind: integer
+  description: Maximum job poll count
+capabilities:
+- catalog
+- discover
+- state
+- about
+- stream-maps
+domain_url: https://auth0.com/
+maintenance_status: active
+keywords:
+- api
+- meltano_sdk

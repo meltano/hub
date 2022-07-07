@@ -1,0 +1,33 @@
+name: tap-marketo
+label: Marketo
+description: Marketing automation for account-based marketing
+namespace: tap_marketo
+logo_url: /assets/logos/extractors/marketo.png
+variant: singer-io
+repo: https://github.com/singer-io/tap-marketo
+pip_url: git+https://github.com/singer-io/tap-marketo.git
+capabilities:
+  - discover
+  - properties
+  - state
+settings:
+- name: endpoint
+  label: Endpoint
+  description: Endpoint URL. See https://developers.marketo.com/rest-api/base-url/.
+- name: client_id
+  label: Client ID
+  description: See https://developers.marketo.com/rest-api/authentication/.
+- name: client_secret
+  kind: password
+  label: Client Secret
+  description: See https://developers.marketo.com/rest-api/authentication/.
+- name: start_date
+  label: Start Date
+  description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
+  kind: date_iso8601
+domain_url: https://developers.marketo.com/rest-api/
+maintenance_status: active
+keywords:
+- api

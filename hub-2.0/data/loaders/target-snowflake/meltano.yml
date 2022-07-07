@@ -1,0 +1,60 @@
+name: target-snowflake
+label: Snowflake
+description: Snowflake database loader
+namespace: target_snowflake
+dialect: snowflake
+target_schema: $TARGET_SNOWFLAKE_SCHEMA
+logo_url: /assets/logos/loaders/snowflake.png
+variant: meltano
+hidden: true
+repo: https://gitlab.com/meltano/target-snowflake
+pip_url: git+https://gitlab.com/meltano/target-snowflake.git
+settings_group_validation:
+- - account
+  - username
+  - password
+  - role
+  - database
+  - warehouse
+  - schema
+settings:
+- name: account
+  label: Account
+  description: Account Name in Snowflake (https://XXXXX.snowflakecomputing.com)
+- name: username
+  label: Username
+  description: The username you use for logging in
+- name: password
+  label: Password
+  kind: password
+  description: The password you use for logging in
+- name: role
+  label: Role
+  description: Role to be used for loading the data, e.g. `LOADER`. Also this role
+    is GRANTed usage to all tables and schemas created
+- name: database
+  label: Database
+  description: The name of the Snowflake database you want to use
+- name: warehouse
+  label: Warehouse
+  description: The name of the Snowflake warehouse you want to use
+- name: schema
+  label: Schema
+  value: $MELTANO_EXTRACT__LOAD_SCHEMA
+  value_processor: upcase_string
+  description: |
+    Note `$MELTANO_EXTRACT__LOAD_SCHEMA` [will expand to](https://docs.meltano.com/guide/configuration.html#expansion-in-setting-values) the value of the [`load_schema` extra](https://docs.meltano.com/concepts/plugins#load-schema-extra) for the extractor used in the pipeline, which defaults to the extractor's namespace, e.g. `tap_gitlab` for [`tap-gitlab`](/extractors/gitlab). Values are automatically converted to uppercase before they're passed on to the plugin, so `tap_gitlab` becomes `TAP_GITLAB`.
+- name: batch_size
+  label: Batch Size
+  kind: integer
+  value: 5000
+  description: The number of records sent to Snowflake at a time.
+- name: timestamp_column
+  label: Timestamp Column
+  value: __loaded_at
+  description: Name of the column used for recording the timestamp when Data are uploaded
+    to Snowflake.
+domain_url: https://www.snowflake.com/
+maintenance_status: active
+keywords:
+- database

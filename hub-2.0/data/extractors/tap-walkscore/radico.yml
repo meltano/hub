@@ -1,0 +1,16 @@
+description: Walkability Services
+label: Walk Score
+name: tap-walkscore
+logo_url: /assets/logos/extractors/walkscore.png
+namespace: tap_walkscore
+variant: radico
+pip_url: git+https://github.com/Radico/tap-walkscore.git
+repo: https://github.com/Radico/tap-walkscore
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://www.walkscore.com/professional/api.php
+maintenance_status: unknown
+keywords:
+- api

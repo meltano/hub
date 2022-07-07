@@ -1,0 +1,16 @@
+description: Digital Experience Platform
+label: Fullstory
+name: tap-fullstory
+logo_url: /assets/logos/extractors/fullstory.png
+namespace: tap_fullstory
+variant: singer-io
+pip_url: tap-fullstory
+repo: https://github.com/singer-io/tap-fullstory
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://www.fullstory.com/
+maintenance_status: unknown
+keywords:
+- api

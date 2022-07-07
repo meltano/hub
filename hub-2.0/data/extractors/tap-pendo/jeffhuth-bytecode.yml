@@ -1,0 +1,16 @@
+name: tap-pendo
+label: Pendo
+description: Product Experience and Digital Adoption Solutions
+namespace: tap_pendo
+logo_url: /assets/logos/extractors/pendo.png
+variant: jeffhuth-bytecode
+capabilities:
+- catalog
+- discover
+settings: []
+settings_group_validation: []
+pip_url: git+https://github.com/jeffhuth-bytecode/tap-pendo.git
+repo: https://github.com/jeffhuth-bytecode/tap-pendo
+domain_url:
+maintenance_status: unknown
+keywords: []

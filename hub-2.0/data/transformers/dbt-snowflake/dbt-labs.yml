@@ -1,0 +1,76 @@
+name: dbt-snowflake
+label: dbt Snowflake
+executable: dbt
+namespace: dbt_snowflake
+docs: https://docs.meltano.com/guide/transformation
+repo: https://github.com/dbt-labs/dbt-snowflake
+pip_url: dbt-core~=1.0.0 dbt-snowflake~=1.0.0
+variant: dbt-labs
+maintenance_status: active
+requires:
+  files:
+  - name: files-dbt-snowflake
+    variant: meltano
+settings_preamble: |
+  Settings for dbt itself can be configured through [dbt_project.yml](https://docs.getdbt.com/reference/dbt_project.yml) as usual, which can be found at transform/dbt_project.yml in your Meltano project. dbt also has [adapter-specific documentation for Snowflake](https://docs.getdbt.com/reference/resource-configs/snowflake-configs).
+settings:
+- name: project_dir
+  label: Projects Directory
+  value: $MELTANO_PROJECT_ROOT/transform
+- name: profiles_dir
+  label: Profiles Directory
+  env: DBT_PROFILES_DIR
+  value: $MELTANO_PROJECT_ROOT/transform/profiles/snowflake
+- name: account
+  label: Account
+  kind: string
+  description: The snowflake account to connect to.
+- name: user
+  label: User
+  kind: string
+  description: The user to connect as.
+- name: password
+  label: Password
+  kind: password
+  description: The user password to authenticate with.
+- name: role
+  label: Role
+  kind: string
+  description: The user role to assume.
+- name: warehouse
+  label: Warehouse
+  kind: string
+  description: The compute warehouse to use when building models.
+- name: database
+  label: Database
+  kind: string
+  description: The database to create models in.
+- name: schema
+  label: Schema
+  kind: string
+  description: The schema to build models into by default.
+commands:
+  clean:
+    args: clean
+    description: Delete all folders in the clean-targets list (usually the dbt_modules
+      and target directories.)
+  compile:
+    args: compile
+    description: Generates executable SQL from source model, test, and analysis files.
+      Compiled SQL files are written to the target/ directory.
+  deps:
+    args: deps
+    description: Pull the most recent version of the dependencies listed in packages.yml
+  run:
+    args: run
+    description: Compile SQL and execute against the current target database.
+  seed:
+    args: seed
+    description: Load data from csv files into your data warehouse.
+  snapshot:
+    args: snapshot
+    description: Execute snapshots defined in your project.
+  test:
+    args: test
+    description: Runs tests on data in deployed models.
+logo_url: /assets/logos/transformers/dbt-snowflake.png

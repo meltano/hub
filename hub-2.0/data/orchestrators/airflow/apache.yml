@@ -1,0 +1,69 @@
+name: airflow
+namespace: airflow
+label: Airflow
+docs: https://docs.meltano.com/guide/orchestration
+repo: https://github.com/apache/airflow
+pip_url: apache-airflow==2.1.2 --constraint https://raw.githubusercontent.com/apache/airflow/constraints-2.1.2/constraints-${MELTANO__PYTHON_VERSION}.txt
+variant: apache
+maintenance_status: active
+requires:
+  files:
+  - name: files-airflow
+    variant: meltano
+commands:
+  create-admin:
+    args: "users create --username admin --firstname FIRST_NAME --lastname LAST_NAME --role Admin --email admin@example.org"
+    description: Create an admin user.
+  ui:
+    args: webserver
+    description: Start the Airflow webserver.
+next_steps: |
+  1. Use the [meltano schedule](https://docs.meltano.com/reference/command-line-interface#schedule) command to create pipeline schedules in your project, to be run by Airflow.
+
+  1. If you're running Airflow for the first time in a new environment, create an admin user:
+
+     ```sh
+     meltano invoke airflow:create-admin
+     # This is equivalent to `airflow users create` with some arguments in the Airflow documentation
+     ```
+
+  1. Launch the Airflow UI and log in using the username/password you created:
+
+     ```sh
+     meltano invoke airflow:ui
+     ```
+
+     By default, the UI will be available at at [`http://localhost:8080`](http://localhost:8080). You can change this using the `webserver.web_server_port` setting documented below.
+
+  1. Start Scheduler or execute Airflow commands directly using the instructions in [the Meltano docs](https://docs.meltano.com/guide/orchestration#starting-the-airflow-scheduler).
+
+settings:
+- name: core.dags_folder
+  label: DAGs Folder
+  value: $MELTANO_PROJECT_ROOT/orchestrate/dags
+  env: AIRFLOW__CORE__DAGS_FOLDER
+- name: core.plugins_folder
+  label: Plugins Folder
+  value: $MELTANO_PROJECT_ROOT/orchestrate/plugins
+  env: AIRFLOW__CORE__PLUGINS_FOLDER
+- name: core.sql_alchemy_conn
+  label: SQL Alchemy Connection
+  value: sqlite:///$MELTANO_PROJECT_ROOT/.meltano/orchestrators/airflow/airflow.db
+  env: AIRFLOW__CORE__SQL_ALCHEMY_CONN
+- name: core.load_examples
+  label: Load Examples
+  value: false
+  env: AIRFLOW__CORE__LOAD_EXAMPLES
+- name: core.dags_are_paused_at_creation
+  label: Pause DAGs at Creation
+  env: AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION
+  value: false
+- name: webserver.web_server_port
+  label: Webserver Port
+  value: 8080
+  env: AIRFLOW__WEBSERVER__WEB_SERVER_PORT
+logo_url: /assets/logos/orchestrators/airflow.png
+settings_preamble: |
+  Meltano [centralizes the configuration](https://docs.meltano.com/guide/configuration) of all of the plugins in your project, including Airflow's. This means that if the [Airflow documentation](https://airflow.apache.org/docs/apache-airflow/stable/howto/set-config.html) tells you to put something in `airflow.cfg`, you can use `meltano config`, `meltano.yml`, or environment variables instead, and get the benefits of Meltano features like [environments](https://docs.meltano.com/concepts/environments).
+
+  Any setting you can add to `airflow.cfg` can be added to `meltano.yml`, manually or using `meltano config`. For example, `[core] executor = SequentialExecutor` becomes `meltano config airflow set core executor SequentialExecutor` on the CLI, or `core.executor: SequentialExecutor` in `meltano.yml`. Config sections indicated by `[section]` in `airflow.cfg` become nested dictionaries in `meltano.yml`.

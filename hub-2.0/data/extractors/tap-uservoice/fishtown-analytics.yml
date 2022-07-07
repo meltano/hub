@@ -1,0 +1,16 @@
+description: Customer Engagement Tool
+label: UserVoice
+name: tap-uservoice
+logo_url: /assets/logos/extractors/uservoice.png
+namespace: tap_uservoice
+variant: fishtown-analytics
+pip_url: git+https://github.com/fishtown-analytics/tap-uservoice.git
+repo: https://github.com/fishtown-analytics/tap-uservoice
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://www.uservoice.com/
+maintenance_status: unknown
+keywords:
+- api

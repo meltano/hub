@@ -1,0 +1,16 @@
+name: sqlfluff
+label: SQLFluff
+namespace: sqlfluff
+pip_url: sqlfluff[dbt]
+maintenance_status: active
+repo: https://github.com/sqlfluff/sqlfluff
+variant: sqlfluff
+commands:
+  lint:
+    args: lint
+    description: Lint SQL in transform models
+logo_url: /assets/logos/utilities/sqlfluff.png
+definition: is a linting tool for SQL files, often used with dbt to enforce SQL code standards.
+next_steps: |
+  1. Customize [the config files](https://docs.sqlfluff.com/en/stable/configuration.html) to match your team's style guide.
+  1. Run `meltano invoke sqlfluff:lint` to lint your SQL files.

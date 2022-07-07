@@ -1,0 +1,16 @@
+description: Customer Experience Automation Platform
+label: ActiveCampaign
+name: tap-activecampaign
+logo_url: /assets/logos/extractors/activecampaign.png
+namespace: tap_activecampaign
+variant: singer-io
+pip_url: tap-activecampaign
+repo: https://github.com/singer-io/tap-activecampaign
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://www.activecampaign.com/
+maintenance_status: unknown
+keywords:
+- api

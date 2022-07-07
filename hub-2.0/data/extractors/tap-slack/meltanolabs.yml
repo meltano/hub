@@ -1,0 +1,58 @@
+name: tap-slack
+label: Slack
+description: Team communication tool
+namespace: tap_slack
+logo_url: /assets/logos/extractors/slack.png
+variant: meltanolabs
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+settings:
+- kind: password
+  label: API Key
+  name: api_key
+- description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: The number of days to look in the past for new thread replies to existing
+    messages
+  kind: integer
+  label: Thread Lookback Days
+  name: thread_lookback_days
+- description: The types of conversations the tap will attempt to extract data from.
+    Must be one of 'public_channel', 'mpim', 'private_channel', or 'im'. Note that
+    the Slack app must have the appropriate privileges and be a member of the conversations
+    to sync messages.
+  kind: array
+  label: Channel Types
+  name: channel_types
+- description: Whether the bot user should attempt to join channels that it has not
+    yet joined. The bot user must be a member of the channel to retrieve messages.
+  kind: boolean
+  label: Auto Join Channels
+  name: auto_join_channels
+- description: A list of channel IDs that should be retrieved. If not defined then
+    all are selected.
+  kind: array
+  label: Selected Channels
+  name: selected_channels
+- description: A list of channel IDs that should not be retrieved. Excluding overrides
+    a selected setting, so if a channel is included in both selected and excluded,
+    it will be excluded.
+  kind: array
+  label: Excluded Channels
+  name: excluded_channels
+settings_group_validation:
+- - api_key
+pip_url: git+https://github.com/MeltanoLabs/tap-slack.git
+repo: https://github.com/MeltanoLabs/tap-slack
+domain_url:
+maintenance_status: active
+keywords:
+- meltano_sdk

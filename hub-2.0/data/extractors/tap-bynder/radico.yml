@@ -1,0 +1,16 @@
+description: Digital Asset Management Platform
+label: Bynder
+name: tap-bynder
+logo_url: /assets/logos/extractors/bynder.png
+namespace: tap_bynder
+variant: radico
+pip_url: git+https://github.com/Radico/tap-bynder.git
+repo: https://github.com/Radico/tap-bynder
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://www.bynder.com/en/
+maintenance_status: unknown
+keywords:
+- api

@@ -1,0 +1,16 @@
+description: Export XLS Files from sites
+label: Selenium Webcrawl
+name: tap-webcrawl
+logo_url: /assets/logos/extractors/webcrawl.png
+namespace: tap_webcrawl
+variant: anelendata
+pip_url: git+https://github.com/anelendata/tap-webcrawl.git
+repo: https://github.com/anelendata/tap-webcrawl
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://www.selenium.dev/
+maintenance_status: unknown
+keywords:
+- file
