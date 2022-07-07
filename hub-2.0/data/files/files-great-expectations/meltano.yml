@@ -1,9 +1,0 @@
-name: files-great-expectations
-label: Great Expectations
-namespace: files_great_expectations
-repo: https://github.com/meltano/files-great-expectations
-pip_url: git+https://github.com/meltano/files-great-expectations
-variant: meltano
-logo_url: /assets/logos/files/great_expectations.png
-definition: are bundled with the utility Great Expectations.
-maintenance_status: active
