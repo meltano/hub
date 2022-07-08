@@ -7,10 +7,15 @@
 
 const fs = require("fs");
 const yaml = require("js-yaml");
+const path = require("path");
 
-function buildData(path, collection) {
-  let currentCollection = path;
-  let collectionFolder = fs.readdirSync(path);
+const dataRoot = "../../_data/"
+
+const defaultVariants = yaml.load(fs.readFileSync(path.join(dataRoot, "default_variants.yml")))
+
+function buildData(dataPath, collection) {
+  let currentCollection = dataPath;
+  let collectionFolder = fs.readdirSync(dataPath);
   collectionFolder = collectionFolder.filter(
     (item) => !/(^|\/)\.[^\/\.]/g.test(item)
   );
@@ -23,12 +28,14 @@ function buildData(path, collection) {
       );
       console.log(`${currentCollection}/${currentFolder}/${plugin}`);
       const readPlugin = yaml.load(fileContents);
+      readPlugin.isDefault = defaultVariants[path.basename(dataPath)][currentFolder] == readPlugin.variant
+      readPlugin.pluginType = path.basename(dataPath).slice(0, -1)
       collection.addNode(readPlugin);
     });
   });
 }
 
-module.exports = function(api) {
+module.exports = function (api) {
   // api.loadSource(({ addCollection }) => {
   //   // Use the Data Store API here: https://gridsome.org/docs/data-store-api/
   // });
@@ -53,12 +60,12 @@ module.exports = function(api) {
       typeName: "Utilities",
     });
 
-    buildData("../../_data/meltano/extractors", extractorsCollection);
-    buildData("../../_data/meltano/loaders", loadersCollection);
-    buildData("../../_data/meltano/files", filesCollection);
-    buildData("../../_data/meltano/orchestrators", orchestratorsCollection);
-    buildData("../../_data/meltano/transformers", transformersCollection);
-    buildData("../../_data/meltano/utilities", utilitiesCollection);
+    buildData(path.join(dataRoot, "meltano/extractors"), extractorsCollection);
+    buildData(path.join(dataRoot, "meltano/loaders"), loadersCollection);
+    buildData(path.join(dataRoot, "meltano/files"), filesCollection);
+    buildData(path.join(dataRoot, "meltano/orchestrators"), orchestratorsCollection);
+    buildData(path.join(dataRoot, "meltano/transformers"), transformersCollection);
+    buildData(path.join(dataRoot, "meltano/utilities"), utilitiesCollection);
   });
 
   api.createPages(({ createPage }) => {
