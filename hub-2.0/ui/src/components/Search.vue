@@ -72,77 +72,77 @@ export default {
 
 <static-query>
 query {
-	allExtractors (filter: {isDefault: {eq: true}}){
-		edges {
+  allExtractors (filter: {isDefault: {eq: true}}){
+    edges {
       node {
         id
-				description
+        description
         path
-				label
-				name
-				logo_url
+        label
+        name
+        logo_url
         pluginType
       }
     }
   }
   allLoaders (filter: {isDefault: {eq: true}}){
-		edges {
+    edges {
       node {
         id
-				description
+        description
         path
-				label
-				name
-				logo_url
+        label
+        name
+        logo_url
         pluginType
       }
     }
   }
   allOrchestrators (filter: {isDefault: {eq: true}}){
-		edges {
+    edges {
       node {
         id
         path
-				label
-				name
-				logo_url
+        label
+        name
+        logo_url
         pluginType
       }
     }
   }
   allTransformers (filter: {isDefault: {eq: true}}){
-		edges {
+    edges {
       node {
         id
         path
-				label
-				name
-				logo_url
+        label
+        name
+        logo_url
         pluginType
       }
     }
   }
   allUtilities (filter: {isDefault: {eq: true}}){
-		edges {
+    edges {
       node {
         id
-				description
+        description
         path
-				label
-				name
-				logo_url
+        label
+        name
+        logo_url
         pluginType
       }
     }
   }
   allFiles (filter: {isDefault: {eq: true}}){
-		edges {
+    edges {
       node {
         id
         path
-				label
-				name
-				logo_url
+        label
+        name
+        logo_url
         pluginType
       }
     }
