@@ -4,7 +4,11 @@
   "scripts": {
     "build": "gridsome build",
     "develop": "gridsome develop",
-    "explore": "gridsome explore"
+    "explore": "gridsome explore",
+    "lint:check": "eslint . --ext js,vue",
+    "lint:fix": "eslint . --fix --ext js,vue",
+    "format:check": "prettier --check .",
+    "format:write": "prettier --write ."
   },
   "dependencies": {
     "gridsome": "^0.7.0",
@@ -14,7 +18,13 @@
     "gridsome/sharp": "0.29.3"
   },
   "devDependencies": {
+    "eslint": "^7.32.0 || ^8.2.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-vue": "^9.2.0",
     "js-yaml": "^4.1.0",
+    "prettier": "2.7.1",
     "sass": "^1.52.3",
     "sass-loader": "^10"
   }
