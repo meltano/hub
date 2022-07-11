@@ -184,10 +184,14 @@ query {
     align-content: left;
     margin-top: 80px;
     background: white;
+    line-height: 1rem;
     .result-item {
       color: black;
       padding: 0.5rem;
       border-bottom: 2px solid black;
+      a {
+        text-decoration: none;
+      }
       .plugin-type {
         float: right;
       }
