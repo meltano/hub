@@ -14,7 +14,7 @@ body {
 }
 
 
-.info {
+/* .info {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,7 +23,7 @@ body {
 
 .info h1 {
     font-size: 2.5em;
-}
+} */
 
 .plugins-list {
     width: 100%;
@@ -77,7 +77,14 @@ body {
 
 
 .single-plugin-detail {
-    width: 100%;
+    background: #e8f0ff;
+    color: #3438bf;
+    display: flex;
+    flex-wrap: wrap;
+    word-wrap: break-word;
+    padding: 0 25px;
+
+    /* width: 100%;
     height: auto;
     background: #e8f0ff;
     color: #3438bf;
@@ -86,7 +93,7 @@ body {
     margin-top: 40px;
     padding-left: 0;
     text-align: center;
-    margin: 40px auto 80px;
+    margin: 40px auto 80px; */
 }
 
 .single-plugin-detail .single-plugin-top-bar {
@@ -94,11 +101,13 @@ body {
 }
 
 .single-plugin-detail .single-plugin-main {
-    width: 65%;
+    /* width: 65%; */
+    width: 100%;
 }
 
 .single-plugin-detail .single-plugin-aside {
-    width: 35%;
+    width: 100%;
+    /* width: 35%; */
     background: #f1f1f2;
 }
 

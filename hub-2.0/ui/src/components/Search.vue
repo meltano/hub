@@ -1,37 +1,24 @@
 <template>
-  <div>
-    <div class="search">
-      <input
-        type="text"
-        name="search"
-        id="search"
-        placeholder="Search for a plugin..."
-        class="search-bar"
-        v-model="search"
-      />
-      <button class="search-button">Search</button>
-      <div class="results" v-if="search != ''">
-        <div v-if="searchResults.length > 0">
-          <article
-            v-for="plugin in searchResults.slice(0, 10)"
-            :key="plugin.node.id"
-            class="result-item"
-          >
-            <g-link :to="plugin.node.path">
-              <h1>
-                {{ plugin.node.label }}
-              </h1>
+  <div class="search">
+    <input type="text" name="search" id="search" placeholder="Search for a plugin..." class="search-bar"
+      v-model="search" />
+    <div class="results" v-if="search != ''">
+      <div v-if="searchResults.length > 0">
+        <article v-for="plugin in searchResults.slice(0, 10)" :key="plugin.node.id" class="result-item">
+          <g-link :to="plugin.node.path">
+            <h1>
+              {{ plugin.node.label }}
+            </h1>
 
-              <span>{{ plugin.node.description || "No description" }}</span>
-              <span class="plugin-type">{{
+            <span>{{ plugin.node.description || "No description" }}</span>
+            <span class="plugin-type">{{
                 plugin.node.pluginType
-              }}</span></g-link
-            >
-          </article>
-        </div>
-        <div v-else>
-          <p>Your search didn't return any results. Please try again.</p>
-        </div>
+            }}</span>
+          </g-link>
+        </article>
+      </div>
+      <div v-else>
+        <p>Your search didn't return any results. Please try again.</p>
       </div>
     </div>
   </div>
@@ -161,23 +148,15 @@ query {
 
   .search-bar {
     border: 2px solid red;
-    width: calc(100% - 300px);
-    border-radius: none;
+    // width: calc(100% - 300px);
+    width: 90%;
+    border-radius: 0;
     font-size: 20px;
     background: #f1f1f2;
     padding-left: 20px;
   }
 
-  .search-button {
-    background: #d9042b;
-    border: none;
-    color: #fff;
-    padding: 20px;
-    font-size: 16px;
-  }
-
   .results {
-    // display: none;
     box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);
     position: absolute;
     width: 75%;
@@ -185,13 +164,16 @@ query {
     margin-top: 80px;
     background: white;
     line-height: 1rem;
+
     .result-item {
       color: black;
       padding: 0.5rem;
       border-bottom: 2px solid black;
+
       a {
         text-decoration: none;
       }
+
       .plugin-type {
         float: right;
       }
