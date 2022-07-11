@@ -39,4 +39,5 @@ jobs:
           node-version: 16.x
           cache: "yarn"
           cache-dependency-path: ./hub-2.0/ui/yarn.lock
+      - run: yarn install --frozen-lockfile
       - run: yarn format:check
