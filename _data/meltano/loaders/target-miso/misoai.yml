@@ -1,9 +1,9 @@
 description: Personalized Search & Recommendation Engine
 label: Miso
 name: target-miso
-logo_url: /assets/logos/loaders/miso.png
+logo_url: /assets/logos/loaders/misoai.png
 namespace: target_miso
-variant: miso
+variant: misoai
 pip_url: target-miso
 repo: https://github.com/MisoAI/target-miso
 settings_group_validation:
