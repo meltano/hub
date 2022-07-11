@@ -6,8 +6,8 @@ on:
     branches: [main]
 
 jobs:
-  tests:
-    name: Linting and Formatting
+  lint:
+    name: Linting
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -23,4 +23,20 @@ jobs:
           cache-dependency-path: ./hub-2.0/ui/yarn.lock
       - run: yarn install --frozen-lockfile
       - run: yarn lint:check
+
+  format:
+    name: Formatting
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./hub-2.0/ui
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js v16
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          cache: "yarn"
+          cache-dependency-path: ./hub-2.0/ui/yarn.lock
       - run: yarn format:check
