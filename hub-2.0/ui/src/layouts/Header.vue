@@ -1,6 +1,14 @@
 <script>
+import Dropdown from "../components/Dropdown.vue";
+import DropdownContent from "../components/DropdownContent.vue";
+import DropdownItem from "../components/DropdownItem.vue";
 export default {
-  name: "Header"
+  name: "Header",
+  components: {
+    Dropdown,
+    DropdownContent,
+    DropdownItem
+  }
 }
 </script>
 <template>
@@ -11,9 +19,61 @@ export default {
       </g-link>
     </strong>
     <nav class="nav">
-      <button class="hamburger"></button>
-      <button class="dropdown">Plugins</button>
-      <button class="dropdown">Singer</button>
+      <button class="hamburger">
+        <div class="dropdown">
+          <Dropdown>
+            <template slot="toggler">
+              <a class="nav__link">
+                Plugins
+              </a>
+            </template>
+            <DropdownContent>
+              <DropdownItem>Action 1</DropdownItem>
+              <DropdownItem>Action 2</DropdownItem>
+              <DropdownItem>Action 3</DropdownItem>
+            </DropdownContent>
+          </Dropdown>
+          <Dropdown>
+            <template slot="toggler">
+              <a class="nav__link">
+                Singer
+              </a>
+            </template>
+            <DropdownContent>
+              <DropdownItem>Action 1</DropdownItem>
+              <DropdownItem>Action 2</DropdownItem>
+              <DropdownItem>Action 3</DropdownItem>
+            </DropdownContent>
+          </Dropdown>
+        </div>
+      </button>
+      <div class="dropdown">
+        <Dropdown>
+          <template slot="toggler">
+            <a class="nav__link">
+              Plugins
+            </a>
+          </template>
+          <DropdownContent>
+            <DropdownItem>Action 1</DropdownItem>
+            <DropdownItem>Action 2</DropdownItem>
+            <DropdownItem>Action 3</DropdownItem>
+          </DropdownContent>
+        </Dropdown>
+        <Dropdown>
+          <template slot="toggler">
+            <a class="nav__link">
+              Singer
+            </a>
+          </template>
+          <DropdownContent>
+            <DropdownItem>Action 1</DropdownItem>
+            <DropdownItem>Action 2</DropdownItem>
+            <DropdownItem>Action 3</DropdownItem>
+          </DropdownContent>
+        </Dropdown>
+      </div>
+
       <!-- <g-link class="nav__link" to="/extractors">Extractors</g-link>
       <g-link class="nav__link" to="/loaders/">Loaders</g-link>
       <g-link class="nav__link" to="/transformers/">Transformers</g-link>
@@ -26,9 +86,20 @@ export default {
 
 <style lang="scss">
 .header {
-  // .nav__link {
-  //   display: none;
-  // }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #f1f1f2;
+  height: 80px;
+  background: #fff;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  a {
+    color: #3438bf;
+    text-decoration: none;
+  }
+
   .dropdown {
     display: none;
   }
@@ -45,8 +116,13 @@ export default {
 @media (min-width: 1000px) {
   .header {
     .dropdown {
-      display: block;
+      display: flex;
+
+      .nav__link {
+        margin: 0 10px;
+      }
     }
+
     .hamburger {
       display: none;
     }

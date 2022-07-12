@@ -4,7 +4,7 @@
       <h1>Welcome to Meltano Hub</h1>
       <h2>MeltanoHub is a central place to find any Meltano plugin as well as Singer taps and targets. The Hub is
         lovingly curated by Meltano and the wider Singer community.</h2>
-      <a href="https://docs.meltano.com/concepts/plugins">Learn More</a>
+      <a href="https://docs.meltano.com/concepts/plugins" class="primary-button">Learn More</a>
     </div>
   </Layout>
 </template>
@@ -36,17 +36,17 @@ export default {
     margin: 25px auto;
   }
 
-  a {
-    margin: 25px auto;
-    background: #d9042b;
-    color: #fff;
-    border-radius: 38px;
-    display: flex;
-    align-items: center;
-    padding: 1rem;
-    text-decoration: none;
-    text-transform: uppercase;
-  }
+  // a {
+  //   margin: 25px auto;
+  //   background: #d9042b;
+  //   color: #fff;
+  //   border-radius: 38px;
+  //   display: flex;
+  //   align-items: center;
+  //   padding: 1rem;
+  //   text-decoration: none;
+  //   text-transform: uppercase;
+  // }
 }
 
 @media (min-width: 1000px) {

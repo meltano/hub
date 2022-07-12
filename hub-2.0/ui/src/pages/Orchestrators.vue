@@ -1,6 +1,6 @@
 <template>
     <Layout>
-        <div class="info">
+        <div class="plugins-overview">
             <h1>Orchestrators</h1>
             <p>Meltano orchestrator plugins provide advanced scheduling and workflow execution capabilities.</p>
             <ul class="plugins-list">

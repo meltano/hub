@@ -1,6 +1,6 @@
 <template>
     <Layout>
-        <div class="info">
+        <div class="plugins-overview">
             <h1>Files</h1>
             <p>Meltano file plugins allow you to easily add new file resources to your data project. For example,
                 Meltano utilities and other plugins can define file plugins that provide tool-specific scaffolding,
