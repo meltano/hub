@@ -43,22 +43,22 @@
 query Extractors ($path: String!) {
   extractors: extractors (path: $path) {
         id
-				description
+		description
         path
-				label
-				name
-				logo_url
-				namespace
-				variant
-				pip_url
-				repo
-				maintenance_status
-				keywords
+		label
+		name
+		logo_url
+		namespace
+		variant
+		pip_url
+		repo
+		maintenance_status
+		keywords
         domain_url
         settings {
-          name
-          label
-          description
+            name
+            label
+            description
         }
         prereq
         usage

@@ -35,18 +35,6 @@ export default {
   h2 {
     margin: 25px auto;
   }
-
-  // a {
-  //   margin: 25px auto;
-  //   background: #d9042b;
-  //   color: #fff;
-  //   border-radius: 38px;
-  //   display: flex;
-  //   align-items: center;
-  //   padding: 1rem;
-  //   text-decoration: none;
-  //   text-transform: uppercase;
-  // }
 }
 
 @media (min-width: 1000px) {
