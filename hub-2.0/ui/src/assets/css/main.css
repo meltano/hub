@@ -101,18 +101,8 @@ body {
     display: flex;
     flex-wrap: wrap;
     word-wrap: break-word;
-    /* padding: 0 25px; */
-
-    /* width: 100%;
-    height: auto; */
-    /* background: #e8f0ff;
-    color: #3438bf;
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 40px;
-    padding-left: 0; */
+    width: 100%;
     text-align: center;
-    margin: 40px auto 80px;
 }
 
 .single-plugin-detail .single-plugin-top-bar {
@@ -176,12 +166,17 @@ body {
     .single-plugin-overview {
         padding: 0 70px;
     }
+
+    .single-plugin-detail {
+        margin: 40px auto 80px;
+    }
 }
 
 @media (min-width: 1000px) {
     .plugins-overview, .single-plugin-overview {
         padding: 0 200px;
     }
+
     .single-plugin-detail .single-plugin-main {
         width: 65%;
     }
