@@ -2,17 +2,20 @@
 import Dropdown from "../components/Dropdown.vue";
 import DropdownContent from "../components/DropdownContent.vue";
 import DropdownItem from "../components/DropdownItem.vue";
+import Search from "../components/Search.vue";
 export default {
   name: "Header",
   components: {
     Dropdown,
     DropdownContent,
-    DropdownItem
+    DropdownItem,
+    Search
   }
 }
 </script>
 <template>
   <header class="header">
+    <div class="top-nav">
     <strong>
       <g-link to="/">
         <g-image src="../assets/images/meltano-logo-stacked-padded.svg" width="80" />
@@ -81,19 +84,31 @@ export default {
       <g-link class="nav__link" to="/utilities/">Utilities</g-link>
       <g-link class="nav__link" to="/files/">Files</g-link> -->
     </nav>
+    </div>
+    <div class="bottom-search">
+    <Search />
+    </div>
   </header>
 </template>
 
 <style lang="scss">
 .header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 2px solid #f1f1f2;
-  height: 80px;
   background: #fff;
-  padding-left: 20px;
-  padding-right: 20px;
+  flex-wrap: wrap;
+
+  .top-nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    align-items: center;
+    border-bottom: 2px solid #f1f1f2;
+  }
+
+  .bottom-search {
+    width: 100%;
+  }
 
   a {
     color: #3438bf;

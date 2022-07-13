@@ -1,9 +1,8 @@
 <script>
-import Search from '../components/Search.vue';
 import Footer from './Footer.vue';
 import Header from './Header.vue';
 export default {
-  components: { Search, Footer, Header }
+  components: { Footer, Header }
 }
 </script>
 
@@ -12,7 +11,6 @@ export default {
     <div class="stripe" />
     <Header />
     <main>
-      <Search />
       <slot />
     </main>
     <Footer />
