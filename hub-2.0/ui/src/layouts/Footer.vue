@@ -23,13 +23,13 @@
                 <a class="nav__link" href="https://www.github.com/meltano">
                     <g-image src="../assets/images/github-brands.svg" width="25" />
                 </a>
-                <a class="nav__link" href="https://www.github.com/meltano">
+                <a class="nav__link" href="https://twitter.com/meltanodata">
                     <g-image src="../assets/images/twitter-brands.svg" width="25" />
                 </a>
-                <a class="nav__link" href="https://www.github.com/meltano">
+                <a class="nav__link" href="https://www.meltano.com/slack">
                     <g-image src="../assets/images/icon-slack.svg" width="25" />
                 </a>
-                <a class="nav__link" href="https://www.github.com/meltano">
+                <a class="nav__link" href="https://www.youtube.com/meltano">
                     <g-image src="../assets/images/icon-youtube.svg" width="25" />
                 </a>
             </div>
@@ -62,7 +62,10 @@ export default {
             display: flex;
             flex-direction: row;
             align-content: center;
-            justify-content: space-around;
+            justify-content: center;
+            .nav__link {
+                flex-basis: 20%;
+            }
         }
     }
 
@@ -75,6 +78,9 @@ export default {
     .footer {
         .footer-item {
             width: 25%;
+            .social-links .nav__link {
+                flex-basis: 15%;
+            }
         }
     }
 }
