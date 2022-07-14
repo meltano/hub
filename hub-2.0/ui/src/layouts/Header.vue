@@ -1,29 +1,32 @@
 <script>
-import Dropdown from "../components/Dropdown.vue";
-import DropdownContent from "../components/DropdownContent.vue";
-import DropdownItem from "../components/DropdownItem.vue";
+// import Dropdown from "../components/Dropdown.vue";
+// import DropdownContent from "../components/DropdownContent.vue";
+// import DropdownItem from "../components/DropdownItem.vue";
 import Search from "../components/Search.vue";
+
 export default {
-  name: "Header",
+  name: "HeaderLayout",
   components: {
-    Dropdown,
-    DropdownContent,
-    DropdownItem,
-    Search
-  }
-}
+    // Dropdown,
+    // DropdownContent,
+    // DropdownItem,
+    Search,
+  },
+};
 </script>
 <template>
   <header class="header">
     <div class="top-nav">
       <strong>
         <g-link to="/">
-          <g-image src="../assets/images/meltano-logo-stacked-padded.svg" width="80" />
+          <g-image
+            src="../assets/images/meltano-logo-stacked-padded.svg"
+            width="80"
+          />
         </g-link>
       </strong>
       <nav class="nav">
-        <button class="hamburger">
-        </button>
+        <button class="hamburger"></button>
         <div class="dropdown">
           <a class="page-link" href="#">Plugins</a>
           <div class="dropdown-content">
@@ -87,7 +90,6 @@ export default {
   }
 }
 
-
 .dropdown {
   display: inline-block;
   position: relative;
@@ -123,7 +125,6 @@ export default {
 @media (min-width: 1000px) {
   .header {
     .dropdown {
-
       .page-link {
         margin: 0 10px;
       }

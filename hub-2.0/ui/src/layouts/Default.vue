@@ -1,24 +1,26 @@
 <script>
-import Footer from './Footer.vue';
-import Header from './Header.vue';
+import FooterLayout from "./Footer.vue";
+import HeaderLayout from "./Header.vue";
+
 export default {
-  components: { Footer, Header }
-}
+  components: { FooterLayout, HeaderLayout },
+  name: "DefaultLayout",
+};
 </script>
 
 <template>
   <div class="layout">
     <div class="stripe" />
-    <Header />
+    <HeaderLayout />
     <main>
       <slot />
     </main>
-    <Footer />
+    <FooterLayout />
     <div class="stripe" />
   </div>
 </template>
 
-<static-query>
+<static-query lang="graphql">
 query {
   metadata {
     siteName
