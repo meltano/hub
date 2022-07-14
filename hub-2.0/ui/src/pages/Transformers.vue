@@ -1,6 +1,6 @@
 <template>
     <Layout>
-        <div class="info">
+        <div class="plugins-overview">
             <h1>Transformers</h1>
             <p>Meltano transformer plugins allow you to create new derived transformations from raw data sources.</p>
             <ul class="plugins-list">

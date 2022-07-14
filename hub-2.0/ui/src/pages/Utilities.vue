@@ -1,6 +1,6 @@
 <template>
     <Layout>
-        <div class="info">
+        <div class="plugins-overview">
             <h1>Utilities</h1>
             <p>Meltano utilities plugins allow virtually any open source data tool to be integrated with your data
                 project.</p>

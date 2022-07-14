@@ -56,9 +56,9 @@ query Loaders ($path: String!) {
 	keywords
     domain_url
     settings {
-      name
-      label
-      description
+        name
+        label
+        description
     }
     prereq
     usage
