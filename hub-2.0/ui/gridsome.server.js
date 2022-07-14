@@ -19,7 +19,7 @@ function buildData(dataPath, collection) {
   const currentCollection = dataPath;
   let collectionFolder = fs.readdirSync(dataPath);
   collectionFolder = collectionFolder.filter(
-    (item) => !/(^|\/)\.[^\/\.]/g.test(item)
+    (item) => !/(^|\/)\.[^/.]/g.test(item)
   );
   collectionFolder.forEach((folder) => {
     const currentFolder = folder;
@@ -28,10 +28,11 @@ function buildData(dataPath, collection) {
       const fileContents = fs.readFileSync(
         `${currentCollection}/${currentFolder}/${plugin}`
       );
+      // eslint-disable-next-line no-console
       console.log(`${currentCollection}/${currentFolder}/${plugin}`);
       const readPlugin = yaml.load(fileContents);
       readPlugin.isDefault =
-        defaultVariants[path.basename(dataPath)][currentFolder] ==
+        defaultVariants[path.basename(dataPath)][currentFolder] ===
         readPlugin.variant;
       readPlugin.pluginType = path.basename(dataPath).slice(0, -1);
       collection.addNode(readPlugin);
@@ -39,7 +40,7 @@ function buildData(dataPath, collection) {
   });
 }
 
-module.exports = function (api) {
+module.exports = function main(api) {
   // api.loadSource(({ addCollection }) => {
   //   // Use the Data Store API here: https://gridsome.org/docs/data-store-api/
   // });
@@ -76,9 +77,5 @@ module.exports = function (api) {
       transformersCollection
     );
     buildData(path.join(dataRoot, "meltano/utilities"), utilitiesCollection);
-  });
-
-  api.createPages(({ createPage }) => {
-    // Use the Pages API here: https://gridsome.org/docs/pages-api/
   });
 };

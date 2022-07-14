@@ -33,7 +33,7 @@
 
 <script>
 export default {
-  name: "Singer",
+  name: "SingerPage",
 };
 </script>
 

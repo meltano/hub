@@ -37,7 +37,7 @@
 import { Pager } from "gridsome";
 
 export default {
-  name: "Extractors",
+  name: "ExtractorsPage",
   components: {
     Pager,
   },

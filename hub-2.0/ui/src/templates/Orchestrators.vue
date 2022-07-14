@@ -35,7 +35,11 @@
   </Layout>
 </template>
 
-<script></script>
+<script>
+export default {
+  name: "OrchestratorsTemplate",
+};
+</script>
 
 <page-query>
 query Orchestrators ($path: String!) {

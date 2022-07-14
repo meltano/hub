@@ -11,7 +11,7 @@
 import { mixin as clickaway } from "vue-clickaway";
 
 export default {
-  name: "Dropdown",
+  name: "SearchDropdown",
   mixins: [clickaway],
   provide() {
     return {

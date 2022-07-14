@@ -36,7 +36,7 @@
 import { Pager } from "gridsome";
 
 export default {
-  name: "Files",
+  name: "FilesPage",
   components: {
     Pager,
   },

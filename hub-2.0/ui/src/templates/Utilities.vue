@@ -41,7 +41,11 @@
   </Layout>
 </template>
 
-<script></script>
+<script>
+export default {
+  name: "UtilitiesTemplate",
+};
+</script>
 
 <page-query>
 query Utilities ($path: String!) {

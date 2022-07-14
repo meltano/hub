@@ -34,7 +34,7 @@
 
 <script>
 export default {
-  name: "Search",
+  name: "SearchBar",
   data() {
     return {
       search: "",
@@ -50,7 +50,6 @@ export default {
         this.$static.allUtilities,
         this.$static.allTransformers,
       ];
-      console.log(pluginCollections);
       return pluginCollections.flatMap((coll) =>
         coll.edges.filter((plugin) => {
           const pluginText =

@@ -37,7 +37,7 @@
 import { Pager } from "gridsome";
 
 export default {
-  name: "Loaders",
+  name: "LoadersPage",
   components: {
     Pager,
   },

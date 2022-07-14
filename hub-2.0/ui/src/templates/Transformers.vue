@@ -35,7 +35,11 @@
   </Layout>
 </template>
 
-<script></script>
+<script>
+export default {
+  name: "TransformersTemplate",
+};
+</script>
 
 <page-query>
 query Transformers ($path: String!) {

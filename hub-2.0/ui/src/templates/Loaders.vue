@@ -41,7 +41,11 @@
   </Layout>
 </template>
 
-<script></script>
+<script>
+export default {
+  name: "LoadersTemplate",
+};
+</script>
 
 <page-query>
 query Loaders ($path: String!) {

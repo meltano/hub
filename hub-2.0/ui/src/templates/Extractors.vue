@@ -41,7 +41,11 @@
   </Layout>
 </template>
 
-<script></script>
+<script>
+export default {
+  name: "ExtractorsTemplate",
+};
+</script>
 
 <page-query>
 query Extractors ($path: String!) {

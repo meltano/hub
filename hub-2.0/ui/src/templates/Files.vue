@@ -35,7 +35,11 @@
   </Layout>
 </template>
 
-<script></script>
+<script>
+export default {
+  name: "FilesTemplate",
+};
+</script>
 
 <page-query>
 query Files ($path: String!) {
