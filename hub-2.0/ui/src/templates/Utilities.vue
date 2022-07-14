@@ -47,20 +47,20 @@ export default {
 };
 </script>
 
-<page-query>
-query Utilities ($path: String!) {
-  utilities: utilities (path: $path) {
+<page-query lang="graphql">
+query Utilities($path: String!) {
+  utilities: utilities(path: $path) {
     id
-		description
+    description
     path
-	  label
-		logo_url
-		namespace
-		variant
-		pip_url
-		repo
-		maintenance_status
-		keywords
+    label
+    logo_url
+    namespace
+    variant
+    pip_url
+    repo
+    maintenance_status
+    keywords
     settings {
       name
       label

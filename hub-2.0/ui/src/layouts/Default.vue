@@ -20,7 +20,7 @@ export default {
   </div>
 </template>
 
-<static-query>
+<static-query lang="graphql">
 query {
   metadata {
     siteName

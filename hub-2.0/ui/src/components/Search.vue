@@ -64,9 +64,9 @@ export default {
 };
 </script>
 
-<static-query>
+<static-query lang="graphql">
 query {
-  allExtractors (filter: {isDefault: {eq: true}}){
+  allExtractors(filter: { isDefault: { eq: true } }) {
     edges {
       node {
         id
@@ -79,7 +79,7 @@ query {
       }
     }
   }
-  allLoaders (filter: {isDefault: {eq: true}}){
+  allLoaders(filter: { isDefault: { eq: true } }) {
     edges {
       node {
         id
@@ -92,7 +92,7 @@ query {
       }
     }
   }
-  allOrchestrators (filter: {isDefault: {eq: true}}){
+  allOrchestrators(filter: { isDefault: { eq: true } }) {
     edges {
       node {
         id
@@ -104,7 +104,7 @@ query {
       }
     }
   }
-  allTransformers (filter: {isDefault: {eq: true}}){
+  allTransformers(filter: { isDefault: { eq: true } }) {
     edges {
       node {
         id
@@ -116,7 +116,7 @@ query {
       }
     }
   }
-  allUtilities (filter: {isDefault: {eq: true}}){
+  allUtilities(filter: { isDefault: { eq: true } }) {
     edges {
       node {
         id
@@ -129,7 +129,7 @@ query {
       }
     }
   }
-  allFiles (filter: {isDefault: {eq: true}}){
+  allFiles(filter: { isDefault: { eq: true } }) {
     edges {
       node {
         id
@@ -141,7 +141,6 @@ query {
       }
     }
   }
-  
 }
 </static-query>
 

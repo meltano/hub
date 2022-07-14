@@ -41,19 +41,19 @@ export default {
 };
 </script>
 
-<page-query>
-query Files ($path: String!) {
-  files: files (path: $path) {
+<page-query lang="graphql">
+query Files($path: String!) {
+  files: files(path: $path) {
     id
     path
-	label
-	name
-	logo_url
-	namespace
-	variant
-	pip_url
-	repo
-	maintenance_status
+    label
+    name
+    logo_url
+    namespace
+    variant
+    pip_url
+    repo
+    maintenance_status
   }
 }
 </page-query>

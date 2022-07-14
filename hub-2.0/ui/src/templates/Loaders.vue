@@ -47,26 +47,26 @@ export default {
 };
 </script>
 
-<page-query>
-query Loaders ($path: String!) {
-  loaders: loaders (path: $path) {
+<page-query lang="graphql">
+query Loaders($path: String!) {
+  loaders: loaders(path: $path) {
     id
-	description
+    description
     path
-	label
+    label
     name
-	logo_url
-	namespace
-	variant
-	pip_url
-	repo
-	maintenance_status
-	keywords
+    logo_url
+    namespace
+    variant
+    pip_url
+    repo
+    maintenance_status
+    keywords
     domain_url
     settings {
-        name
-        label
-        description
+      name
+      label
+      description
     }
     prereq
     usage

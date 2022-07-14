@@ -41,19 +41,19 @@ export default {
 };
 </script>
 
-<page-query>
-query Transformers ($path: String!) {
-  transformers: transformers (path: $path) {
+<page-query lang="graphql">
+query Transformers($path: String!) {
+  transformers: transformers(path: $path) {
     id
     path
-		label
-		name
-		logo_url
-		namespace
-		variant
-		pip_url
-		repo
-		maintenance_status
+    label
+    name
+    logo_url
+    namespace
+    variant
+    pip_url
+    repo
+    maintenance_status
     settings {
       name
       label

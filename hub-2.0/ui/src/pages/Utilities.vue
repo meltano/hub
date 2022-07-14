@@ -41,27 +41,28 @@ export default {
 };
 </script>
 
-<page-query>
+<page-query lang="graphql">
 query ($page: Int) {
-	allUtilities(perPage: 12, page: $page, sortBy: "label", order: DESC) @paginate {
+  allUtilities(perPage: 12, page: $page, sortBy: "label", order: DESC)
+    @paginate {
     pageInfo {
       totalPages
       currentPage
     }
-		edges {
+    edges {
       node {
         id
-				description
-                path
-				label
-				name
-				logo_url
-				namespace
-				variant
-				pip_url
-				repo
-				maintenance_status
-				keywords
+        description
+        path
+        label
+        name
+        logo_url
+        namespace
+        variant
+        pip_url
+        repo
+        maintenance_status
+        keywords
       }
     }
   }
