@@ -9,27 +9,31 @@ const fs = require("fs");
 const yaml = require("js-yaml");
 const path = require("path");
 
-const dataRoot = "../../_data/"
+const dataRoot = "../../_data/";
 
-const defaultVariants = yaml.load(fs.readFileSync(path.join(dataRoot, "default_variants.yml")))
+const defaultVariants = yaml.load(
+  fs.readFileSync(path.join(dataRoot, "default_variants.yml"))
+);
 
 function buildData(dataPath, collection) {
-  let currentCollection = dataPath;
+  const currentCollection = dataPath;
   let collectionFolder = fs.readdirSync(dataPath);
   collectionFolder = collectionFolder.filter(
     (item) => !/(^|\/)\.[^\/\.]/g.test(item)
   );
   collectionFolder.forEach((folder) => {
-    let currentFolder = folder;
-    let subfolderPlugins = fs.readdirSync(`${currentCollection}/${folder}`);
+    const currentFolder = folder;
+    const subfolderPlugins = fs.readdirSync(`${currentCollection}/${folder}`);
     subfolderPlugins.forEach((plugin) => {
       const fileContents = fs.readFileSync(
         `${currentCollection}/${currentFolder}/${plugin}`
       );
       console.log(`${currentCollection}/${currentFolder}/${plugin}`);
       const readPlugin = yaml.load(fileContents);
-      readPlugin.isDefault = defaultVariants[path.basename(dataPath)][currentFolder] == readPlugin.variant
-      readPlugin.pluginType = path.basename(dataPath).slice(0, -1)
+      readPlugin.isDefault =
+        defaultVariants[path.basename(dataPath)][currentFolder] ==
+        readPlugin.variant;
+      readPlugin.pluginType = path.basename(dataPath).slice(0, -1);
       collection.addNode(readPlugin);
     });
   });
@@ -63,8 +67,14 @@ module.exports = function (api) {
     buildData(path.join(dataRoot, "meltano/extractors"), extractorsCollection);
     buildData(path.join(dataRoot, "meltano/loaders"), loadersCollection);
     buildData(path.join(dataRoot, "meltano/files"), filesCollection);
-    buildData(path.join(dataRoot, "meltano/orchestrators"), orchestratorsCollection);
-    buildData(path.join(dataRoot, "meltano/transformers"), transformersCollection);
+    buildData(
+      path.join(dataRoot, "meltano/orchestrators"),
+      orchestratorsCollection
+    );
+    buildData(
+      path.join(dataRoot, "meltano/transformers"),
+      transformersCollection
+    );
     buildData(path.join(dataRoot, "meltano/utilities"), utilitiesCollection);
   });
 

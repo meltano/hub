@@ -4,7 +4,7 @@
       v-if="active"
       class="origin-top-right absolute right-0 mt-2 w-48 bg-white rounded-lg border py-2"
     >
-      <slot/>
+      <slot />
     </div>
   </transition>
 </template>
@@ -16,8 +16,8 @@ export default {
   computed: {
     active() {
       return this.sharedState.active;
-    }
-  }
+    },
+  },
 };
 </script>
 

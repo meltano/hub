@@ -1,19 +1,27 @@
 <template>
   <div class="search">
-    <input type="text" name="search" id="search" placeholder="Search for a plugin..." class="search-bar"
-      v-model="search" />
+    <input
+      type="text"
+      name="search"
+      id="search"
+      placeholder="Search for a plugin..."
+      class="search-bar"
+      v-model="search"
+    />
     <div class="results" v-if="search != ''">
       <div v-if="searchResults.length > 0">
-        <article v-for="plugin in searchResults.slice(0, 10)" :key="plugin.node.id" class="result-item">
+        <article
+          v-for="plugin in searchResults.slice(0, 10)"
+          :key="plugin.node.id"
+          class="result-item"
+        >
           <g-link :to="plugin.node.path">
             <h1>
               {{ plugin.node.label }}
             </h1>
 
             <span>{{ plugin.node.description || "No description" }}</span>
-            <span class="plugin-type">{{
-                plugin.node.pluginType
-            }}</span>
+            <span class="plugin-type">{{ plugin.node.pluginType }}</span>
           </g-link>
         </article>
       </div>
@@ -43,15 +51,15 @@ export default {
         this.$static.allTransformers,
       ];
       console.log(pluginCollections);
-      return pluginCollections.flatMap((coll) => {
-        return coll.edges.filter((plugin) => {
+      return pluginCollections.flatMap((coll) =>
+        coll.edges.filter((plugin) => {
           const pluginText =
             plugin.node.name + plugin.node.description + plugin.node.label;
           return pluginText
             .toLowerCase()
             .includes(this.search.toLowerCase().trim());
-        });
-      });
+        })
+      );
     },
   },
 };

@@ -1,16 +1,26 @@
-"""Add fields from field values."""
+"""
+Add fields from field values.
+"""
 directive @infer on OBJECT
 
-"""Add reference resolver."""
+"""
+Add reference resolver.
+"""
 directive @reference(
-  """Reference node by a custom field value."""
+  """
+  Reference node by a custom field value.
+  """
   by: String = "id"
 ) on FIELD_DEFINITION
 
-"""Return value from another field."""
+"""
+Return value from another field.
+"""
 directive @proxy(from: String) on FIELD_DEFINITION
 
-"""Paginate a connection in a query. Only supported in page-query."""
+"""
+Paginate a connection in a query. Only supported in page-query.
+"""
 directive @paginate on FIELD
 
 input BelongsToFilterInput {
@@ -28,7 +38,9 @@ type Extractors implements Node {
     sortBy: String = "date"
     order: SortOrder = DESC
 
-    """Defaults to 25 when page is provided."""
+    """
+    Defaults to 25 when page is provided.
+    """
     perPage: Int
     skip: Int = 0
     limit: Int
@@ -64,7 +76,9 @@ type Files implements Node {
     sortBy: String = "date"
     order: SortOrder = DESC
 
-    """Defaults to 25 when page is provided."""
+    """
+    Defaults to 25 when page is provided.
+    """
     perPage: Int
     skip: Int = 0
     limit: Int
@@ -92,16 +106,24 @@ input FilesFilterInput {
 }
 
 input IDQueryOperatorInput {
-  """Filter by property of (strict) equality."""
+  """
+  Filter by property of (strict) equality.
+  """
   eq: ID
 
-  """Filter by property not equal to provided value."""
+  """
+  Filter by property not equal to provided value.
+  """
   ne: ID
 
-  """Filter by property matching any of the provided values."""
+  """
+  Filter by property matching any of the provided values.
+  """
   in: [ID]
 
-  """Filter by property not matching any of the provided values."""
+  """
+  Filter by property not matching any of the provided values.
+  """
   nin: [ID]
 
   """
@@ -113,10 +135,14 @@ input IDQueryOperatorInput {
 scalar Image
 
 enum ImageFit {
-  """Crop to cover both provided dimensions."""
+  """
+  Crop to cover both provided dimensions.
+  """
   cover
 
-  """Embed within both provided dimensions."""
+  """
+  Embed within both provided dimensions.
+  """
   contain
 
   """
@@ -144,16 +170,24 @@ The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://
 scalar JSON
 
 input JSONQueryOperatorInput {
-  """Filter by property of (strict) equality."""
+  """
+  Filter by property of (strict) equality.
+  """
   eq: JSON
 
-  """Filter by property not equal to provided value."""
+  """
+  Filter by property not equal to provided value.
+  """
   ne: JSON
 
-  """Filter by property matching any of the provided values."""
+  """
+  Filter by property matching any of the provided values.
+  """
   in: [JSON]
 
-  """Filter by property not matching any of the provided values."""
+  """
+  Filter by property not matching any of the provided values.
+  """
   nin: [JSON]
 
   """
@@ -161,7 +195,9 @@ input JSONQueryOperatorInput {
   """
   exists: Boolean
 
-  """Filter by property matching provided regular expression."""
+  """
+  Filter by property matching provided regular expression.
+  """
   regex: String
 }
 
@@ -172,7 +208,9 @@ type Loaders implements Node {
     sortBy: String = "date"
     order: SortOrder = DESC
 
-    """Defaults to 25 when page is provided."""
+    """
+    Defaults to 25 when page is provided.
+    """
     perPage: Int
     skip: Int = 0
     limit: Int
@@ -241,7 +279,9 @@ type Orchestrators implements Node {
     sortBy: String = "date"
     order: SortOrder = DESC
 
-    """Defaults to 25 when page is provided."""
+    """
+    Defaults to 25 when page is provided.
+    """
     perPage: Int
     skip: Int = 0
     limit: Int
@@ -294,133 +334,171 @@ type Query {
     id: ID
     path: String
 
-    """Will return an error if not nullable."""
+    """
+    Will return an error if not nullable.
+    """
     nullable: Boolean = false
   ): Extractors
   allExtractors(
     sortBy: String = "date"
     order: SortOrder = DESC
 
-    """Defaults to 25 when page is provided."""
+    """
+    Defaults to 25 when page is provided.
+    """
     perPage: Int
     skip: Int = 0
     limit: Int
     page: Int
     sort: [SortArgument]
 
-    """Filter for Extractors nodes."""
+    """
+    Filter for Extractors nodes.
+    """
     filter: ExtractorsFilterInput
   ): ExtractorsConnection
   loaders(
     id: ID
     path: String
 
-    """Will return an error if not nullable."""
+    """
+    Will return an error if not nullable.
+    """
     nullable: Boolean = false
   ): Loaders
   allLoaders(
     sortBy: String = "date"
     order: SortOrder = DESC
 
-    """Defaults to 25 when page is provided."""
+    """
+    Defaults to 25 when page is provided.
+    """
     perPage: Int
     skip: Int = 0
     limit: Int
     page: Int
     sort: [SortArgument]
 
-    """Filter for Loaders nodes."""
+    """
+    Filter for Loaders nodes.
+    """
     filter: LoadersFilterInput
   ): LoadersConnection
   files(
     id: ID
     path: String
 
-    """Will return an error if not nullable."""
+    """
+    Will return an error if not nullable.
+    """
     nullable: Boolean = false
   ): Files
   allFiles(
     sortBy: String = "date"
     order: SortOrder = DESC
 
-    """Defaults to 25 when page is provided."""
+    """
+    Defaults to 25 when page is provided.
+    """
     perPage: Int
     skip: Int = 0
     limit: Int
     page: Int
     sort: [SortArgument]
 
-    """Filter for Files nodes."""
+    """
+    Filter for Files nodes.
+    """
     filter: FilesFilterInput
   ): FilesConnection
   orchestrators(
     id: ID
     path: String
 
-    """Will return an error if not nullable."""
+    """
+    Will return an error if not nullable.
+    """
     nullable: Boolean = false
   ): Orchestrators
   allOrchestrators(
     sortBy: String = "date"
     order: SortOrder = DESC
 
-    """Defaults to 25 when page is provided."""
+    """
+    Defaults to 25 when page is provided.
+    """
     perPage: Int
     skip: Int = 0
     limit: Int
     page: Int
     sort: [SortArgument]
 
-    """Filter for Orchestrators nodes."""
+    """
+    Filter for Orchestrators nodes.
+    """
     filter: OrchestratorsFilterInput
   ): OrchestratorsConnection
   transformers(
     id: ID
     path: String
 
-    """Will return an error if not nullable."""
+    """
+    Will return an error if not nullable.
+    """
     nullable: Boolean = false
   ): Transformers
   allTransformers(
     sortBy: String = "date"
     order: SortOrder = DESC
 
-    """Defaults to 25 when page is provided."""
+    """
+    Defaults to 25 when page is provided.
+    """
     perPage: Int
     skip: Int = 0
     limit: Int
     page: Int
     sort: [SortArgument]
 
-    """Filter for Transformers nodes."""
+    """
+    Filter for Transformers nodes.
+    """
     filter: TransformersFilterInput
   ): TransformersConnection
   utilities(
     id: ID
     path: String
 
-    """Will return an error if not nullable."""
+    """
+    Will return an error if not nullable.
+    """
     nullable: Boolean = false
   ): Utilities
   allUtilities(
     sortBy: String = "date"
     order: SortOrder = DESC
 
-    """Defaults to 25 when page is provided."""
+    """
+    Defaults to 25 when page is provided.
+    """
     perPage: Int
     skip: Int = 0
     limit: Int
     page: Int
     sort: [SortArgument]
 
-    """Filter for Utilities nodes."""
+    """
+    Filter for Utilities nodes.
+    """
     filter: UtilitiesFilterInput
   ): UtilitiesConnection
   metadata: Metadata
   metaData: Metadata @deprecated(reason: "Use Query.metadata instead.")
   page(path: String!): Page
   allPage(
-    """Filter pages."""
+    """
+    Filter pages.
+    """
     filter: PageFilterInput
   ): [Page]
 }
@@ -431,24 +509,36 @@ input SortArgument {
 }
 
 enum SortOrder {
-  """Sort ascending"""
+  """
+  Sort ascending
+  """
   ASC
 
-  """Sort descending"""
+  """
+  Sort descending
+  """
   DESC
 }
 
 input StringQueryOperatorInput {
-  """Filter by property of (strict) equality."""
+  """
+  Filter by property of (strict) equality.
+  """
   eq: String
 
-  """Filter by property not equal to provided value."""
+  """
+  Filter by property not equal to provided value.
+  """
   ne: String
 
-  """Filter by property matching any of the provided values."""
+  """
+  Filter by property matching any of the provided values.
+  """
   in: [String]
 
-  """Filter by property not matching any of the provided values."""
+  """
+  Filter by property not matching any of the provided values.
+  """
   nin: [String]
 
   """
@@ -456,7 +546,9 @@ input StringQueryOperatorInput {
   """
   exists: Boolean
 
-  """Filter by property matching provided regular expression."""
+  """
+  Filter by property matching provided regular expression.
+  """
   regex: String
 }
 
@@ -467,7 +559,9 @@ type Transformers implements Node {
     sortBy: String = "date"
     order: SortOrder = DESC
 
-    """Defaults to 25 when page is provided."""
+    """
+    Defaults to 25 when page is provided.
+    """
     perPage: Int
     skip: Int = 0
     limit: Int
@@ -504,16 +598,24 @@ enum TypeName {
 }
 
 input TypeNameQueryOperatorInput {
-  """Filter by property of (strict) equality."""
+  """
+  Filter by property of (strict) equality.
+  """
   eq: TypeName
 
-  """Filter by property not equal to provided value."""
+  """
+  Filter by property not equal to provided value.
+  """
   ne: TypeName
 
-  """Filter by property matching any of the provided values."""
+  """
+  Filter by property matching any of the provided values.
+  """
   in: [TypeName]
 
-  """Filter by property not matching any of the provided values."""
+  """
+  Filter by property not matching any of the provided values.
+  """
   nin: [TypeName]
 
   """
@@ -529,7 +631,9 @@ type Utilities implements Node {
     sortBy: String = "date"
     order: SortOrder = DESC
 
-    """Defaults to 25 when page is provided."""
+    """
+    Defaults to 25 when page is provided.
+    """
     perPage: Int
     skip: Int = 0
     limit: Int
@@ -555,4 +659,3 @@ input UtilitiesFilterInput {
   id: IDQueryOperatorInput
   path: StringQueryOperatorInput
 }
-
