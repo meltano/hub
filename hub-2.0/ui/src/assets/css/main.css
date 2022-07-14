@@ -30,6 +30,10 @@ body {
     flex-shrink: 0;
   }
 
+.plugins-overview {
+    min-width: 70%;
+}
+
 .plugins-overview h1, .plugins-overview p {
     margin-left: 25px;
     margin-right: 25px;

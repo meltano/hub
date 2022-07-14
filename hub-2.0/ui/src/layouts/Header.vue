@@ -16,77 +16,40 @@ export default {
 <template>
   <header class="header">
     <div class="top-nav">
-    <strong>
-      <g-link to="/">
-        <g-image src="../assets/images/meltano-logo-stacked-padded.svg" width="80" />
-      </g-link>
-    </strong>
-    <nav class="nav">
-      <button class="hamburger">
+      <strong>
+        <g-link to="/">
+          <g-image src="../assets/images/meltano-logo-stacked-padded.svg" width="80" />
+        </g-link>
+      </strong>
+      <nav class="nav">
+        <button class="hamburger">
+        </button>
         <div class="dropdown">
-          <Dropdown>
-            <template slot="toggler">
-              <a class="nav__link">
-                Plugins
-              </a>
-            </template>
-            <DropdownContent>
-              <DropdownItem>Action 1</DropdownItem>
-              <DropdownItem>Action 2</DropdownItem>
-              <DropdownItem>Action 3</DropdownItem>
-            </DropdownContent>
-          </Dropdown>
-          <Dropdown>
-            <template slot="toggler">
-              <a class="nav__link">
-                Singer
-              </a>
-            </template>
-            <DropdownContent>
-              <DropdownItem>Action 1</DropdownItem>
-              <DropdownItem>Action 2</DropdownItem>
-              <DropdownItem>Action 3</DropdownItem>
-            </DropdownContent>
-          </Dropdown>
+          <a class="page-link" href="#">Plugins</a>
+          <div class="dropdown-content">
+            <g-link class="nav__link" to="/extractors">Extractors</g-link>
+            <g-link class="nav__link" to="/loaders/">Loaders</g-link>
+            <g-link class="nav__link" to="/transformers/">Transformers</g-link>
+            <g-link class="nav__link" to="/orchestrators">Orchestrators</g-link>
+            <g-link class="nav__link" to="/utilities/">Utilities</g-link>
+            <g-link class="nav__link" to="/files/">Files</g-link>
+          </div>
         </div>
-      </button>
-      <div class="dropdown">
-        <Dropdown>
-          <template slot="toggler">
-            <a class="nav__link">
-              Plugins
-            </a>
-          </template>
-          <DropdownContent>
-            <DropdownItem>Action 1</DropdownItem>
-            <DropdownItem>Action 2</DropdownItem>
-            <DropdownItem>Action 3</DropdownItem>
-          </DropdownContent>
-        </Dropdown>
-        <Dropdown>
-          <template slot="toggler">
-            <a class="nav__link">
-              Singer
-            </a>
-          </template>
-          <DropdownContent>
-            <DropdownItem>Action 1</DropdownItem>
-            <DropdownItem>Action 2</DropdownItem>
-            <DropdownItem>Action 3</DropdownItem>
-          </DropdownContent>
-        </Dropdown>
-      </div>
-
-      <!-- <g-link class="nav__link" to="/extractors">Extractors</g-link>
-      <g-link class="nav__link" to="/loaders/">Loaders</g-link>
-      <g-link class="nav__link" to="/transformers/">Transformers</g-link>
-      <g-link class="nav__link" to="/orchestrators">Orchestrators</g-link>
-      <g-link class="nav__link" to="/utilities/">Utilities</g-link>
-      <g-link class="nav__link" to="/files/">Files</g-link> -->
-    </nav>
+        <div class="dropdown">
+          <a class="page-link" href="#">Singer</a>
+          <div class="dropdown-content">
+            <g-link class="nav__link" to="/extractors">Extractors</g-link>
+            <g-link class="nav__link" to="/loaders/">Loaders</g-link>
+            <g-link class="nav__link" to="/transformers/">Transformers</g-link>
+            <g-link class="nav__link" to="/orchestrators">Orchestrators</g-link>
+            <g-link class="nav__link" to="/utilities/">Utilities</g-link>
+            <g-link class="nav__link" to="/files/">Files</g-link>
+          </div>
+        </div>
+      </nav>
     </div>
     <div class="bottom-search">
-    <Search />
+      <Search />
     </div>
   </header>
 </template>
@@ -115,10 +78,6 @@ export default {
     text-decoration: none;
   }
 
-  .dropdown {
-    display: none;
-  }
-
   .hamburger {
     background: url("../assets/images/bars-solid.svg") no-repeat;
     width: 40px;
@@ -128,12 +87,44 @@ export default {
   }
 }
 
+
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: -60px;
+  width: 300%;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.dropdown-content a {
+  display: block;
+  color: #3438bf;
+  padding: 5px;
+  text-decoration: none;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  background: #fff;
+}
+
+.dropdown-content a:hover {
+  color: #fff;
+  background-color: #3438bf;
+}
+
 @media (min-width: 1000px) {
   .header {
     .dropdown {
-      display: flex;
 
-      .nav__link {
+      .page-link {
         margin: 0 10px;
       }
     }
