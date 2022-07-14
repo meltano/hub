@@ -93,6 +93,7 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-width: 75%;
 }
 
 .single-plugin-overview h1 {

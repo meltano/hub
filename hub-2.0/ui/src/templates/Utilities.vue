@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <div class="info">
+    <div class="single-plugin-overview">
       <div class="single-plugin-detail">
         <div class="single-plugin-top-bar">
           <h4>{{ $page.utilities.name }}</h4>
