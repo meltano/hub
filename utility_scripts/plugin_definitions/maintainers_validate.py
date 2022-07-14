@@ -23,7 +23,7 @@ def write_updated_maintainers(data):
 
 def build_maintainers():
     maintainers_set = set()
-    existing_maintainers = read_yaml(f"{data_dir}/maintainers.yml")
+    updated_maintainers = read_yaml(f"{data_dir}/maintainers.yml")
 
     for plugin_type in os.listdir(directory):
         for plugin_name in os.listdir(os.path.join(directory, plugin_type)):
@@ -34,29 +34,35 @@ def build_maintainers():
                     os.path.join(directory, plugin_type, plugin_name, variant_yml)
                 )
                 maintainers_set.add(plugin_data.get("variant").lower())
-                if plugin_data.get("variant").lower() not in existing_maintainers:
-                    existing_maintainers[plugin_data.get("variant").lower()] = {
+                if plugin_data.get("variant").lower() not in updated_maintainers:
+                    updated_maintainers[plugin_data.get("variant").lower()] = {
                         "label": "TODO: ADD LABEL",
                         "url": "/".join(plugin_data.get("repo").split("/")[:-1]),
                     }
 
-    return maintainers_set, existing_maintainers
+    return maintainers_set, updated_maintainers
+
+
+def remove_extras(updated_maintainers, extras):
+    for key in extras:
+        updated_maintainers.pop(key)
 
 
 if __name__ == "__main__":
     """
-        This script iterates all the plugin definition files and compiles a set
-        of maintainers. Then it compares it to what exists in the maintainers.yml file.
-        It overwrites the existing file with an updated dict with 'TODO's for name labels
-        to accelerate updates. It also exits with code 1 if there are extra or missing
-        maintainers so CICD can use it to validate.
+    This script iterates all the plugin definition files and compiles a set
+    of maintainers. Then it compares it to what exists in the maintainers.yml file.
+    It overwrites the existing file with an updated dict with 'TODO's for name labels
+    to accelerate updates. It also exits with code 1 if there are extra or missing
+    maintainers so CICD can use it to validate.
     """
-    maintainers_set, existing_maintainers = build_maintainers()
+    maintainers_set, updated_maintainers = build_maintainers()
 
-    extras = existing_maintainers.keys() - maintainers_set
-    missing = maintainers_set - existing_maintainers.keys()
+    extras = updated_maintainers.keys() - maintainers_set
+    missing = maintainers_set - updated_maintainers.keys()
 
-    write_updated_maintainers(existing_maintainers)
+    remove_extras(updated_maintainers, extras)
+    write_updated_maintainers(updated_maintainers)
 
     if extras or missing:
         print(f"Extra Maintainers: {extras}")
