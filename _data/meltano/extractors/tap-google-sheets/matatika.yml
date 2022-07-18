@@ -32,6 +32,12 @@ settings:
 - name: sheet_id
   label: Sheet ID
   description: Google Sheet ID
+- name: stream_name
+  label: Stream Name
+  description: Optionally change the name of the output file or table. By default that tap will use the file name of your Google Sheet.
+- name: child_sheet_name
+  label: Child Sheet Name
+  description: Optionally pick a different sheet within your Google Sheet to sync data from. By default the tap will sync data from the first visible sheet in your Google Sheet.
 domain_url: https://developers.google.com/webmaster-tools/search-console-api-original/v3/how-tos/search_analytics
 maintenance_status: active
 keywords:

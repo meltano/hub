@@ -357,6 +357,7 @@ loaders:
   target-jsonl: andyh1203
   target-kinesis: prontopro
   target-magentobi: singer-io
+  target-miso: misoai
   target-pardot: anelendata
   target-parquet: estrategiahq
   target-postgres: transferwise
