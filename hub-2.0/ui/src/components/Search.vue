@@ -50,11 +50,16 @@ export default {
         this.$static.allUtilities,
         this.$static.allTransformers,
       ];
-      return pluginCollections.flatMap((coll) => 
+      return pluginCollections.flatMap((coll) =>
         coll.edges.filter((plugin) => {
-          const pluginTextFields =
-            [plugin.node.name, plugin.node.description, plugin.node.label, plugin.node.keywords?.join(' ')]
-          return pluginTextFields.join(' ')
+          const pluginTextFields = [
+            plugin.node.name,
+            plugin.node.description,
+            plugin.node.label,
+            plugin.node.keywords?.join(" "),
+          ];
+          return pluginTextFields
+            .join(" ")
             .toLowerCase()
             .includes(this.search.toLowerCase().trim());
         })
