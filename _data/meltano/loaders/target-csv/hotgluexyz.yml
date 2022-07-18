@@ -5,7 +5,7 @@ namespace: target_csv
 logo_url: /assets/logos/loaders/csv.png
 variant: hotgluexyz
 repo: https://github.com/hotgluexyz/target-csv
-pip_url: git+https://github.com/hotgluexyz/target-csv.git@0.3.3
+pip_url: git+https://github.com/hotgluexyz/target-csv.git
 settings:
 - name: destination_path
   label: Destination Path
