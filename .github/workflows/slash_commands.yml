@@ -1,0 +1,41 @@
+# Usage
+# This generic dispatcher expects slash commands in an issue or PR comment whose first
+# line starts with `/`.
+#
+# The dispatcher will send commands to a separate workflow event, which will take the
+# repo ID and the comment ID as input variables.
+
+name: Slash commands dispatcher
+
+on:
+  issue_comment:
+    types: [created]
+jobs:
+  slash_command_dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Slash Command Dispatch
+        id: command-dispatch
+        uses: peter-evans/slash-command-dispatch@v3
+        with:
+          # https://github.com/peter-evans/slash-command-dispatch
+          token: ${{ secrets.ACTIONS_BOT_TOKEN }}
+          dispatch-type: workflow
+          reactions: false  # Otherwise 👀 and 🚀 will immediately be posted to the comment.
+          issue-type: "both"  # pull-requests and issues
+          permission: # GitHub users need at least this permission level on the repo
+            write
+          commands: | # What commands should be accepted
+            test-plugin
+          static-args: | # These first two are required for proper context
+            repository=${{ github.repository }}
+            comment-id=${{ github.event.comment.id }}
+            issue-number=${{ github.event.issue.number }}
+
+      - name: Edit comment with error message
+        if: steps.command-dispatch.outputs.error-message
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          comment-id: ${{ github.event.comment.id }}
+          body: |
+            > ${{ steps.command-dispatch.outputs.error-message }}
