@@ -52,9 +52,14 @@ export default {
       ];
       return pluginCollections.flatMap((coll) =>
         coll.edges.filter((plugin) => {
-          const pluginText =
-            plugin.node.name + plugin.node.description + plugin.node.label;
-          return pluginText
+          const pluginTextFields = [
+            plugin.node.name,
+            plugin.node.description,
+            plugin.node.label,
+            plugin.node.keywords?.join(" "),
+          ];
+          return pluginTextFields
+            .join(" ")
             .toLowerCase()
             .includes(this.search.toLowerCase().trim());
         })
@@ -76,6 +81,7 @@ query {
         name
         logo_url
         pluginType
+        keywords
       }
     }
   }
@@ -89,6 +95,7 @@ query {
         name
         logo_url
         pluginType
+        keywords
       }
     }
   }
@@ -126,6 +133,7 @@ query {
         name
         logo_url
         pluginType
+        keywords
       }
     }
   }
