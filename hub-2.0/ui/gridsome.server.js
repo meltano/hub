@@ -11,7 +11,7 @@ const path = require("path");
 
 const dataRoot = "../../_data/";
 
-const defaultVariants = yaml.load(
+const defaultVariantData = yaml.load(
   fs.readFileSync(path.join(dataRoot, "default_variants.yml"))
 );
 
@@ -34,7 +34,7 @@ function buildData(dataPath, collection) {
       );
       const readPlugin = yaml.load(fileContents);
       readPlugin.isDefault =
-        defaultVariants[path.basename(dataPath)][currentFolder] ===
+        defaultVariantData[path.basename(dataPath)][currentFolder] ===
         readPlugin.variant;
       readPlugin.pluginType = path.basename(dataPath).slice(0, -1);
       collection.addNode(readPlugin);
@@ -100,5 +100,83 @@ module.exports = function main(api) {
       transformersCollection
     );
     buildData(path.join(dataRoot, "meltano/utilities"), utilitiesCollection);
+  });
+
+  // Create defualt variant pages
+  api.createPages(async ({ createPage, graphql }) => {
+    const defaultPlugins = await graphql(`
+      {
+        allExtractors(filter: { isDefault: { eq: true } }) {
+          edges {
+            node {
+              id
+              path
+              name
+            }
+          }
+        }
+        allLoaders(filter: { isDefault: { eq: true } }) {
+          edges {
+            node {
+              id
+              path
+              name
+            }
+          }
+        }
+        allFiles(filter: { isDefault: { eq: true } }) {
+          edges {
+            node {
+              id
+              path
+              name
+            }
+          }
+        }
+        allOrchestrators(filter: { isDefault: { eq: true } }) {
+          edges {
+            node {
+              id
+              path
+              name
+            }
+          }
+        }
+        allTransformers(filter: { isDefault: { eq: true } }) {
+          edges {
+            node {
+              id
+              path
+              name
+            }
+          }
+        }
+        allUtilities(filter: { isDefault: { eq: true } }) {
+          edges {
+            node {
+              id
+              path
+              name
+            }
+          }
+        }
+      }
+    `);
+
+    Object.keys(defaultPlugins.data).forEach((query) => {
+      // For each default plugin we create an extra page one-level up
+      defaultPlugins.data[query].edges.forEach(({ node }) => {
+        createPage({
+          // Remove the variant part of the path
+          path: path.normalize(path.join(node.path, "..")),
+          // And send it to the same rendering template
+          component: `./src/templates/${query.substring(3)}.vue`,
+          context: {
+            id: node.id,
+            path: node.path,
+          },
+        });
+      });
+    });
   });
 };
