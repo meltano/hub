@@ -8,7 +8,7 @@
         <div class="single-plugin-main">
           <h1>
             {{ $page.loaders.name }} -
-            <p>{{ $page.loaders.variant }}</p>
+            <span>{{ $page.loaders.variant }}</span>
           </h1>
           <p>{{ $page.loaders.description }}</p>
           <p>{{ $page.loaders.namespace }}</p>

@@ -8,7 +8,7 @@
         <div class="single-plugin-main">
           <h1>
             {{ $page.transformers.name }} -
-            <p>{{ $page.transformers.variant }}</p>
+            <span>{{ $page.transformers.variant }}</span>
           </h1>
           <p>{{ $page.transformers.description }}</p>
           <p>{{ $page.transformers.namespace }}</p>

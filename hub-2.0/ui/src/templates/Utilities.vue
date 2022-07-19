@@ -8,7 +8,7 @@
         <div class="single-plugin-main">
           <h1>
             {{ $page.utilities.name }} -
-            <p>{{ $page.utilities.variant }}</p>
+            <span>{{ $page.utilities.variant }}</span>
           </h1>
           <p>{{ $page.utilities.description }}</p>
           <p>{{ $page.utilities.namespace }}</p>
