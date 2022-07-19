@@ -43,6 +43,16 @@ function navbarSearch() {
     const searchResultsItems = searchResults.querySelectorAll(
       "li[data-search-terms]"
     );
+    const pluginsArray = Array.from(searchResultsItems).sort((a, b) => {
+      if (a > b) {
+        return -1;
+      } else if (b > a) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
+    console.log(pluginsArray);
 
     searchInput.addEventListener("input", (e) => {
       let searchQuery = e.target.value.trim().toLowerCase();
