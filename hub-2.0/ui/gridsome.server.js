@@ -15,21 +15,23 @@ const defaultVariants = yaml.load(
   fs.readFileSync(path.join(dataRoot, "default_variants.yml"))
 );
 
+const readMaintainers = yaml.load(
+  fs.readFileSync(path.join(dataRoot, "maintainers.yml"))
+);
+
 function buildData(dataPath, collection) {
   const currentCollection = dataPath;
   let collectionFolder = fs.readdirSync(dataPath);
   collectionFolder = collectionFolder.filter(
-    (item) => !/(^|\/)\.[^/.]/g.test(item)
+    item => !/(^|\/)\.[^/.]/g.test(item)
   );
-  collectionFolder.forEach((folder) => {
+  collectionFolder.forEach(folder => {
     const currentFolder = folder;
     const subfolderPlugins = fs.readdirSync(`${currentCollection}/${folder}`);
-    subfolderPlugins.forEach((plugin) => {
+    subfolderPlugins.forEach(plugin => {
       const fileContents = fs.readFileSync(
         `${currentCollection}/${currentFolder}/${plugin}`
       );
-      // eslint-disable-next-line no-console
-      console.log(`${currentCollection}/${currentFolder}/${plugin}`);
       const readPlugin = yaml.load(fileContents);
       readPlugin.isDefault =
         defaultVariants[path.basename(dataPath)][currentFolder] ===
@@ -40,29 +42,50 @@ function buildData(dataPath, collection) {
   });
 }
 
-module.exports = function main(api) {
-  // api.loadSource(({ addCollection }) => {
-  //   // Use the Data Store API here: https://gridsome.org/docs/data-store-api/
-  // });
+function buildMaintainers(collection) {
+  // key value
+  //       key value, value
 
-  api.loadSource(async (actions) => {
+  for (const [key, value] of Object.entries(collection)) {
+    // console.log(`${key}: ${value}`);
+    // console.log(Object.values(value));
+    const val = Object.values(value);
+    const ent = Object.values(value);
+    console.log(ent);
+    // console.log(`${key}: ${val}`);
+    const arr = [key, val[0], val[1]];
+    // console.log(arr);
+    // console.log(`${key}: ${val[0]}, ${val[1]}`);
+    // for (const [k, v] of Object.entries(value)) {
+    //   console.log(`${key}: ${k} - ${v}`);
+    // }
+  }
+}
+
+buildMaintainers(readMaintainers);
+
+module.exports = function main(api) {
+  api.loadSource(async actions => {
     const extractorsCollection = actions.addCollection({
-      typeName: "Extractors",
+      typeName: "Extractors"
     });
     const loadersCollection = actions.addCollection({
-      typeName: "Loaders",
+      typeName: "Loaders"
     });
     const filesCollection = actions.addCollection({
-      typeName: "Files",
+      typeName: "Files"
     });
     const orchestratorsCollection = actions.addCollection({
-      typeName: "Orchestrators",
+      typeName: "Orchestrators"
     });
     const transformersCollection = actions.addCollection({
-      typeName: "Transformers",
+      typeName: "Transformers"
     });
     const utilitiesCollection = actions.addCollection({
-      typeName: "Utilities",
+      typeName: "Utilities"
+    });
+    const maintainersCollection = actions.addCollection({
+      typeName: "Maintainers"
     });
 
     buildData(path.join(dataRoot, "meltano/extractors"), extractorsCollection);
