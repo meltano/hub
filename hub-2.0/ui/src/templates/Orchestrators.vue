@@ -8,7 +8,7 @@
         <div class="single-plugin-main">
           <h1>
             {{ $page.orchestrators.name }} -
-            <p>{{ $page.orchestrators.variant }}</p>
+            <span>{{ $page.orchestrators.variant }}</span>
           </h1>
           <p>{{ $page.orchestrators.description }}</p>
           <p>{{ $page.orchestrators.namespace }}</p>
