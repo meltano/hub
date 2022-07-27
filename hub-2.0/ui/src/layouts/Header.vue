@@ -1,15 +1,9 @@
 <script>
-// import Dropdown from "../components/Dropdown.vue";
-// import DropdownContent from "../components/DropdownContent.vue";
-// import DropdownItem from "../components/DropdownItem.vue";
 import Search from "../components/Search.vue";
 
 export default {
   name: "HeaderLayout",
   components: {
-    // Dropdown,
-    // DropdownContent,
-    // DropdownItem,
     Search,
   },
 };
