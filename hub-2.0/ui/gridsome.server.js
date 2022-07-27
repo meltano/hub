@@ -42,27 +42,15 @@ function buildData(dataPath, collection) {
   });
 }
 
-function buildMaintainers(collection) {
-  // key value
-  //       key value, value
-
-  for (const [key, value] of Object.entries(collection)) {
-    // console.log(`${key}: ${value}`);
-    // console.log(Object.values(value));
-    const val = Object.values(value);
-    const ent = Object.values(value);
-    console.log(ent);
-    // console.log(`${key}: ${val}`);
-    const arr = [key, val[0], val[1]];
-    // console.log(arr);
-    // console.log(`${key}: ${val[0]}, ${val[1]}`);
-    // for (const [k, v] of Object.entries(value)) {
-    //   console.log(`${key}: ${k} - ${v}`);
-    // }
+function buildMaintainers(datapath, collection) {
+  for (const key in datapath) {
+    collection.addNode({
+      name: datapath[key].name,
+      label: datapath[key].label,
+      url: datapath[key].url
+    });
   }
 }
-
-buildMaintainers(readMaintainers);
 
 module.exports = function main(api) {
   api.loadSource(async actions => {
@@ -100,9 +88,10 @@ module.exports = function main(api) {
       transformersCollection
     );
     buildData(path.join(dataRoot, "meltano/utilities"), utilitiesCollection);
+    buildMaintainers(readMaintainers, maintainersCollection);
   });
 
-  // Create defualt variant pages
+  // Create default variant pages
   api.createPages(async ({ createPage, graphql }) => {
     const defaultPlugins = await graphql(`
       {
@@ -163,7 +152,7 @@ module.exports = function main(api) {
       }
     `);
 
-    Object.keys(defaultPlugins.data).forEach((query) => {
+    Object.keys(defaultPlugins.data).forEach(query => {
       // For each default plugin we create an extra page one-level up
       defaultPlugins.data[query].edges.forEach(({ node }) => {
         createPage({
@@ -173,8 +162,8 @@ module.exports = function main(api) {
           component: `./src/templates/${query.substring(3)}.vue`,
           context: {
             id: node.id,
-            path: node.path,
-          },
+            path: node.path
+          }
         });
       });
     });
