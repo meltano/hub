@@ -266,7 +266,7 @@
 
 <script>
 export default {
-  name: "Singer Docs"
+  name: "SingerDocs"
 }
 </script>
 
