@@ -14,21 +14,6 @@ class MeltanoJsonGenerator < Jekyll::Generator
       'transforms'
     ]
 
-    # Write plugin files
-    plugin_types.each do |plugin_type|
-      if not site.data['meltano_original'].key?(plugin_type)
-        next
-      end
-      site.data['meltano_original'][plugin_type].each do |plugin_name, variants|
-        variants.each do |variant_name, variant_definition|
-          definition = transform_definition(variant_definition)
-          plugin_name = variant_definition['name']
-          definition["docs"] ||= "#{@url}/#{plugin_type}/#{plugin_name}--#{variant_name}"
-          generate_file(site, "/meltano/api/v1/plugins/#{plugin_type}", "#{variant_definition['name']}--#{variant_name}", JSON.generate(definition))
-        end
-      end
-    end
-
     # Indexes: top level and plugin type level
     top_level_index = {}
     defaults = site.data['default_variants']
@@ -58,6 +43,24 @@ class MeltanoJsonGenerator < Jekyll::Generator
       top_level_index[plugin_type] = plugin_type_index
     end
     generate_file(site, "/meltano/api/v1/plugins", "index", JSON.generate(top_level_index))
+
+    # Write plugin files
+    plugin_types.each do |plugin_type|
+      if not site.data['meltano_original'].key?(plugin_type)
+        next
+      end
+      site.data['meltano_original'][plugin_type].each do |plugin_name, variants|
+        variants.each do |variant_name, variant_definition|
+          definition = transform_definition(variant_definition)
+          plugin_name = variant_definition['name']
+          definition["docs"] ||= "#{@url}/#{plugin_type}/#{plugin_name}"
+          if defaults[plugin_type][plugin_name] != variant_name
+            definition["docs"] += "--#{variant_name}"
+          end
+          generate_file(site, "/meltano/api/v1/plugins/#{plugin_type}", "#{variant_definition['name']}--#{variant_name}", JSON.generate(definition))
+        end
+      end
+    end
   end
 
   def _get_logo_url(plugin_def)
