@@ -1,16 +1,16 @@
 <template>
   <Layout>
     <div class="plugins-overview">
-    <h3>{{$page.maintainers.label}}</h3>
-    <p>{{$page.maintainers.name}}</p>
-    <p>{{$page.maintainers.url}}</p>
+      <h3>{{ $page.maintainers.label }}</h3>
+      <p>{{ $page.maintainers.name }}</p>
+      <p>{{ $page.maintainers.url }}</p>
     </div>
   </Layout>
 </template>
 
 <script>
 export default {
-    name: "MaintainersTemplate"
+  name: "MaintainersTemplate"
 }
 </script>
 <page-query>
@@ -23,5 +23,4 @@ query Maintainers($path: String!) {
 }
 </page-query>
 <style>
-
 </style>

@@ -3,32 +3,96 @@
     <div class="single-plugin-overview">
       <div class="single-plugin-detail">
         <div class="single-plugin-top-bar">
-          <h4>{{ $page.orchestrators.name }}</h4>
+          <h4>{{ $page.orchestrators.label }} - <span>{{ $page.orchestrators.description }}</span></h4>
         </div>
         <div class="single-plugin-main">
           <h1>
-            {{ $page.orchestrators.name }} -
+            {{ $page.orchestrators.name }} //
             <span>{{ $page.orchestrators.variant }}</span>
           </h1>
-          <p>{{ $page.orchestrators.description }}</p>
-          <p>{{ $page.orchestrators.namespace }}</p>
-          <p>{{ $page.orchestrators.pip_url }}</p>
-          <p>{{ $page.orchestrators.prereq }}</p>
           <p>{{ $page.orchestrators.usage }}</p>
+          <p>The {{ $page.orchestrators.name }} <a href="https://docs.meltano.com/concepts/plugins#orchestrators">Meltano
+              orchestrator</a> allows for workflows to be programmatically authored, scheduled, and monitored.</p>
+          <p class="add-more-info">variant info here</p>
+          <h2>Getting Started</h2>
+          <h3>Prerequisites</h3>
+          <p>If you haven't already, follow the initial steps of the <a
+              href="https://docs.meltano.com/getting-started.html">Getting Started guide</a>:</p>
+          <ol>
+            <li><a href="https://docs.meltano.com/getting-started.html#install-meltano">Install Meltano</a></li>
+            <li><a href="https://docs.meltano.com/getting-started.html#create-your-meltano-project">Create your Meltano
+                project</a></li>
+          </ol>
+          <p>{{ $page.orchestrators.prereq }}</p>
+          <h3>Installation and configuration</h3>
+
+          <p>Add the airflow orchestrator to your project using meltano add :</p>
+          <ol>
+            <li>
+              <pre class=""><code>meltano add orchestrator airflow</code></pre>
+            </li>
+            <li>Configure the settings below using
+              <pre class="inline-code-block"><code>meltano config</code></pre>.
+            </li>
+          </ol>
+
+          <h3>Next steps</h3>
+          <p>{{ $page.orchestrators.next_steps }}</p>
+          <p>If you run into any issues, learn how to get help.</p>
+          <!-- <h2>Capabilities</h2>
+          <p>The current capabilities for
+          <pre class="inline-code-block"><code>{{ $page.orchestrators.name }}</code></pre> may have been automatically
+          set when originally added to the Hub. Please review the capabilities when using this extractor. If you find
+          they are out of date, please consider updating them by making a pull request to the YAML file that defines the
+          capabilities for this extractor.</p>
+          <p>This plugin has the following capabilities:</p>
+          <ul>
+            <li v-for="(capability, index) in $page.orchestrators.capabilities" v-bind:key="index">{{ capability }}</li>
+          </ul> -->
+          <h2>Settings</h2>
+          <p>{{ $page.orchestrators.name }} requires the configuration of the following settings:</p>
+          <ul>
+            <li v-for="(setting, index) in $page.orchestrators.settings" v-bind:key="index">{{ setting.name }}</li>
+          </ul>
+          <p>The settings for extractor tap-github that are known to Meltano are documented below. To quickly find the
+            setting you're looking for, use the Table of Contents at the top of the page.</p>
+          <!-- <h3>Personal Access Tokens (access_token)</h3>
+          <ul><li>Environment variable: TAP_GITHUB_ACCESS_TOKEN</li></ul> -->
+          <p class="add-more-info">Account ID</p>
+          <p class="add-more-info">Personal Access Token</p>
+          <p class="add-more-info">Start Date</p>
+          <p class="add-more-info">End Date</p>
+          <p class="add-more-info">Anything else</p>
+          <h2>Looking for help?</h2>
+          <p>If you're having trouble getting the {{ $page.orchestrators.name }} orchestrator to work, look for an <a
+              href="https://github.com/singer-io/tap-github/issues">existing issue in its repository</a>, file a <a
+              href="https://github.com/singer-io/tap-github/issues/new">new issue</a>, or <a
+              href="https://meltano.com/slack">join the Meltano Slack community</a> and ask for help in the
+          <pre class="inline-code-block"><code>#plugins-general channel</code></pre>.</p>
+          <h3>Found an issue on this page?</h3>
+          <p>This page is generated from a YAML file that you can contribute changes to. <a
+              href="https://github.com/meltano/hub/blob/main/_data/meltano/extractors/tap-github/singer-io.yml">Edit it
+              on GitHub!</a></p>
         </div>
         <div class="single-plugin-aside">
-          <span>Install</span>
+          <h4>Install</h4>
           <pre><code>meltano add {{ $page.orchestrators.name }}</code></pre>
-          <span>Homepage</span>
-          <span>Repo</span>
-          <div class="link-box">
-            <img
-              class="aside-icon"
-              src="../assets/images/git-alt-brands.svg"
-            /><span>{{ $page.orchestrators.repo }}</span>
+          <h4 v-if="$page.orchestrators.domain_url">Homepage</h4>
+          <div class="link-box" v-if="$page.orchestrators.domain_url">
+            <img class="aside-icon" src="../assets/images/link-solid.svg" /><a :href="$page.orchestrators.domain_url">{{
+                $page.orchestrators.domain_url
+            }}</a>
           </div>
+          <h4>Repo</h4>
+          <div class="link-box">
+            <img class="aside-icon" src="../assets/images/git-alt-brands.svg" /><a :href="$page.orchestrators.repo">{{
+                $page.orchestrators.repo
+            }}</a>
+          </div>
+          <h4>Maintenance Status</h4>
           <p>{{ $page.orchestrators.maintenance_status }}</p>
-          <p>{{ $page.orchestrators.keywords }}</p>
+          <h4>Keywords</h4>
+          <p v-for="(keyword, index) in $page.orchestrators.keywords" v-bind:key="index">{{ keyword }}</p>
         </div>
       </div>
     </div>
@@ -53,13 +117,36 @@ query Orchestrators($path: String!) {
     variant
     pip_url
     repo
+    next_steps
+    requires {
+      files {
+        name
+        variant
+      }
+    }
     maintenance_status
+    commands {
+      create_admin {
+        args
+        description
+      }
+      ui {
+        args
+        description
+      }
+    }
     settings {
       name
-      label
     }
+    logo_url
+    settings_preamble
   }
 }
 </page-query>
 
-<style></style>
+<style>
+.add-more-info {
+  color: red;
+  border: 1px solid red;
+}
+</style>
