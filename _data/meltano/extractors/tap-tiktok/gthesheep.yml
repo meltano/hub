@@ -1,0 +1,34 @@
+description: Social Media Marketing Platform
+label: TikTok Ads
+name: tap-tiktok
+logo_url: /assets/logos/extractors/tiktok.png
+namespace: tap_tiktok
+variant: gthesheep
+pip_url: git+https://github.com/gthesheep/tap-tiktok.git
+repo: https://github.com/gthesheep/tap-tiktok
+capabilities:
+- catalog
+- discover
+- state
+- about
+- stream-maps
+settings_group_validation:
+- - access_token
+  - advertiser_id
+  - start_date
+settings:
+- name: api_key
+  label: API Key
+  kind: password
+  description: API Token gained from Tiktok
+- name: advertiser_id
+  label: Advertiser ID
+  description: Identifier for the advertiser to extract data for
+- name: start_date
+  label: Start date
+  description: Start date as of when to collect metrics from
+domain_url: https://ads.tiktok.com/marketing_api/homepage
+maintenance_status: active
+keywords:
+- api
+- meltano_sdk

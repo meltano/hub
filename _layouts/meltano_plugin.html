@@ -4,9 +4,7 @@ layout: plugin_page
 
 {% assign plugin_type = page.plugin_type %} {% assign plugin = page.plugin %}
 {% assign repo_package_name = plugin.repo | split: "/" | last %}
-{% capture yaml_file %}
-https://github.com/meltano/hub/blob/main/_data/meltano/{{page.meltano_type}}/{{plugin.name}}/{{plugin.variant}}.yml
-{% endcapture %}
+{% capture yaml_file %}https://github.com/meltano/hub/blob/main/_data/meltano/{{page.meltano_type}}/{{plugin.name}}/{{plugin.variant}}.yml{% endcapture %}
 {% if plugin.metrics %} {% assign metrics = plugin.metrics %}{% endif %}
 
 {% if page.page_topic %}
