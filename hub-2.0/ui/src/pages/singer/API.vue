@@ -6,7 +6,7 @@
 
 <script>
 export default {
-    name: "API"
+    name: "SingerAPI"
 }
 </script>
 

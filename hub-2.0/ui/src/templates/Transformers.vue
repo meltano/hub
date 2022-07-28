@@ -63,7 +63,7 @@
             setting you're looking for, use the Table of Contents at the top of the page.</p>
           <h2>Commands</h2>
           <ol>
-            <li v-for="command in $page.transformers.commands">
+            <li v-for="(command, index) in $page.transformers.commands" :bind="index">
               <h3>{{ command.args }}</h3>
               <span>{{ command.description }}</span>
             </li>

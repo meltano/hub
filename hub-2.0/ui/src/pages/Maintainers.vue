@@ -16,6 +16,7 @@
 
 <script>
 import { Pager } from "gridsome";
+
 export default {
   name: "MaintainersPage",
   components: {

@@ -482,7 +482,7 @@ Targets do not take a schema file. However, they are expected to read the schema
 
 <script>
 export default {
-    name: "Singer Spec"
+    name: "SingerSpec"
 }
 </script>
 

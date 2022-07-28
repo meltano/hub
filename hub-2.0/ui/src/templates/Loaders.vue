@@ -46,8 +46,7 @@
           </ol>
           <p>If you run into any issues, learn how to get help.</p>
           <h2 v-if="$page.loaders.capabilities">Capabilities</h2>
-          <p v-if="$page.loaders.capabilities">The current capabilities for
-          <pre class="inline-code-block"><code>{{ $page.loaders.name }}</code></pre> may have been automatically set
+          <p v-if="$page.loaders.capabilities">The current capabilities for <pre class="inline-code-block"><code>{{ $page.loaders.name }}</code></pre> may have been automatically set
           when originally added to the Hub. Please review the capabilities when using this extractor. If you find they
           are out of date, please consider updating them by making a pull request to the YAML file that defines the
           capabilities for this extractor.</p>
