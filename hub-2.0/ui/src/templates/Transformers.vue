@@ -16,9 +16,7 @@
           <p>{{ $page.transformers.usage }}</p>
           <p>
             The {{ $page.transformers.name }}
-            <a href="https://docs.meltano.com/concepts/plugins#transformer"
-              >transformer</a
-            >
+            <a href="https://docs.meltano.com/concepts/plugins#transformer">transformer</a>
             uses SQL to transform data stored in your warehouse.
           </p>
           <p class="add-more-info">variant info here</p>
@@ -26,20 +24,16 @@
           <h3>Prerequisites</h3>
           <p>
             If you haven't already, follow the initial steps of the
-            <a href="https://docs.meltano.com/getting-started.html"
-              >Getting Started guide</a
-            >:
+            <a href="https://docs.meltano.com/getting-started.html">Getting Started guide</a>:
           </p>
           <ol>
             <li>
-              <a
-                href="https://docs.meltano.com/getting-started.html#install-meltano"
+              <a href="https://docs.meltano.com/getting-started.html#install-meltano"
                 >Install Meltano</a
               >
             </li>
             <li>
-              <a
-                href="https://docs.meltano.com/getting-started.html#create-your-meltano-project"
+              <a href="https://docs.meltano.com/getting-started.html#create-your-meltano-project"
                 >Create your Meltano project</a
               >
             </li>
@@ -48,17 +42,14 @@
           <h3>Installation and configuration</h3>
           <ol>
             <li>
-              Add the {{ $page.transformers.name }} transformer to your project
-              using
+              Add the {{ $page.transformers.name }} transformer to your project using
               <pre class="inline-code-block"><code>meltano add</code></pre>
               :
             </li>
             <pre><code>meltano add transformer {{ $page.transformers.name }}</code></pre>
             <li>
               Configure the
-              <a href="https://hub.meltano.com/transformers/dbt#settings"
-                >settings</a
-              >
+              <a href="https://hub.meltano.com/transformers/dbt#settings">settings</a>
               below using
               <pre class="inline-code-block"><code>meltano config</code></pre>
               .
@@ -67,9 +58,7 @@
           <h3>Next steps</h3>
           <p>
             Follow the remaining steps of the
-            <a href="https://docs.meltano.com/getting-started.html"
-              >Getting Started guide</a
-            >:
+            <a href="https://docs.meltano.com/getting-started.html">Getting Started guide</a>:
           </p>
           <ol>
             <li>
@@ -88,43 +77,30 @@
           </ul> -->
           <h2>Settings</h2>
           <p>
-            Settings for {{ $page.transformers.name }} itself can be configured
-            through
-            <a href="https://docs.getdbt.com/reference/dbt_project.yml"
-              >dbt_project.yml</a
-            >
-            as usual, which can be found at transform/dbt_project.yml in your
-            Meltano project.
+            Settings for {{ $page.transformers.name }} itself can be configured through
+            <a href="https://docs.getdbt.com/reference/dbt_project.yml">dbt_project.yml</a>
+            as usual, which can be found at transform/dbt_project.yml in your Meltano project.
           </p>
           <p>
             The
-            <a
-              href="https://docs.meltano.com/contribute/plugins#setting-definitions"
-              >settings</a
-            >
-            for transformer {{ $page.transformers.name }} that are known to
-            Meltano are documented below. To quickly find the setting you're
-            looking for, use the Table of Contents at the top of the page.
+            <a href="https://docs.meltano.com/contribute/plugins#setting-definitions">settings</a>
+            for transformer {{ $page.transformers.name }} that are known to Meltano are documented
+            below. To quickly find the setting you're looking for, use the Table of Contents at the
+            top of the page.
           </p>
           <ul>
-            <li
-              v-for="(setting, index) in $page.transformers.settings"
-              v-bind:key="index"
-            >
+            <li v-for="(setting, index) in $page.transformers.settings" v-bind:key="index">
               {{ setting.name }}
             </li>
           </ul>
           <p>
-            The settings for extractor tap-github that are known to Meltano are
-            documented below. To quickly find the setting you're looking for,
-            use the Table of Contents at the top of the page.
+            The settings for extractor tap-github that are known to Meltano are documented below. To
+            quickly find the setting you're looking for, use the Table of Contents at the top of the
+            page.
           </p>
           <h2>Commands</h2>
           <ol>
-            <li
-              v-for="(command, index) in $page.transformers.commands"
-              v-bind:key="index"
-            >
+            <li v-for="(command, index) in $page.transformers.commands" v-bind:key="index">
               <h3>{{ command.args }}</h3>
               <span>{{ command.description }}</span>
             </li>
@@ -140,23 +116,15 @@
             {{ $page.transformers.name }} extractor to work, look for an
             <a href="https://github.com/singer-io/tap-github/issues"
               >existing issue in its repository</a
-            >, file a
-            <a href="https://github.com/singer-io/tap-github/issues/new"
-              >new issue</a
-            >, or
-            <a href="https://meltano.com/slack"
-              >join the Meltano Slack community</a
-            >
+            >, file a <a href="https://github.com/singer-io/tap-github/issues/new">new issue</a>, or
+            <a href="https://meltano.com/slack">join the Meltano Slack community</a>
             and ask for help in the
-            <pre
-              class="inline-code-block"
-            ><code>#plugins-general channel</code></pre>
+            <pre class="inline-code-block"><code>#plugins-general channel</code></pre>
             .
           </div>
           <h3>Found an issue on this page?</h3>
           <p>
-            This page is generated from a YAML file that you can contribute
-            changes to.
+            This page is generated from a YAML file that you can contribute changes to.
             <a
               href="https://github.com/meltano/hub/blob/main/_data/meltano/extractors/tap-github/singer-io.yml"
               >Edit it on GitHub!</a

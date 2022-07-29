@@ -33,8 +33,7 @@ export default {
 </script>
 <page-query lang="graphql">
 query ($page: Int) {
-  allMaintainers(perPage: 24, page: $page, sortBy: "label", order: ASC)
-    @paginate {
+  allMaintainers(perPage: 24, page: $page, sortBy: "label", order: ASC) @paginate {
     pageInfo {
       totalPages
       currentPage

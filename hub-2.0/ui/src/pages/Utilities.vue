@@ -3,15 +3,11 @@
     <div class="plugins-overview">
       <h1>Utilities</h1>
       <p>
-        Meltano utilities plugins allow virtually any open source data tool to
-        be integrated with your data project.
+        Meltano utilities plugins allow virtually any open source data tool to be integrated with
+        your data project.
       </p>
       <ul class="plugins-list">
-        <li
-          v-for="edge in $page.allUtilities.edges"
-          :key="edge.node.id"
-          class="page-single-plugin"
-        >
+        <li v-for="edge in $page.allUtilities.edges" :key="edge.node.id" class="page-single-plugin">
           <g-link :to="edge.node.path">
             <h2>{{ edge.node.label }}</h2>
             <!-- <g-image :src="require(`!!assets-loader!@/src${edge.node.logo_url}`)" /> -->
@@ -43,8 +39,7 @@ export default {
 
 <page-query lang="graphql">
 query ($page: Int) {
-  allUtilities(perPage: 12, page: $page, sortBy: "label", order: ASC)
-    @paginate {
+  allUtilities(perPage: 12, page: $page, sortBy: "label", order: ASC) @paginate {
     pageInfo {
       totalPages
       currentPage

@@ -2,9 +2,7 @@
   <footer class="footer">
     <div class="footer-item">
       <h3>Support</h3>
-      <a class="nav__link" href="https://www.meltano.com/slack"
-        >Join Us On Slack</a
-      >
+      <a class="nav__link" href="https://www.meltano.com/slack">Join Us On Slack</a>
       <a class="nav__link" href="https://docs.meltano.com/">Documentation</a>
       <a class="nav__link" href="https://www.meltano.com/contact">Contact</a>
     </div>
@@ -16,12 +14,8 @@
     </div>
     <div class="footer-item">
       <h3>Terms & Policies</h3>
-      <a class="nav__link" href="https://www.meltano.com/privacy-policy"
-        >Privacy Policy</a
-      >
-      <a class="nav__link" href="https://www.meltano.com/terms-of-service"
-        >Terms of Service</a
-      >
+      <a class="nav__link" href="https://www.meltano.com/privacy-policy">Privacy Policy</a>
+      <a class="nav__link" href="https://www.meltano.com/terms-of-service">Terms of Service</a>
     </div>
     <div class="footer-item">
       <h3>Follow Us</h3>

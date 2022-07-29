@@ -3,8 +3,8 @@
     <div class="plugins-overview">
       <h1>Orchestrators</h1>
       <p>
-        Meltano orchestrator plugins provide advanced scheduling and workflow
-        execution capabilities.
+        Meltano orchestrator plugins provide advanced scheduling and workflow execution
+        capabilities.
       </p>
       <ul class="plugins-list">
         <li
@@ -43,8 +43,7 @@ export default {
 
 <page-query lang="graphql">
 query ($page: Int) {
-  allOrchestrators(perPage: 12, page: $page, sortBy: "label", order: ASC)
-    @paginate {
+  allOrchestrators(perPage: 12, page: $page, sortBy: "label", order: ASC) @paginate {
     pageInfo {
       totalPages
       currentPage
