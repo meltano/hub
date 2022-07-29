@@ -45,7 +45,7 @@ export default {
 
 <page-query lang="graphql">
 query ($page: Int) {
-  allFiles(perPage: 12, page: $page, sortBy: "label", order: DESC) @paginate {
+  allFiles(perPage: 12, page: $page, sortBy: "label", order: ASC) @paginate {
     pageInfo {
       totalPages
       currentPage

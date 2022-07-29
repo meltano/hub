@@ -43,7 +43,7 @@ export default {
 
 <page-query lang="graphql">
 query ($page: Int) {
-  allUtilities(perPage: 12, page: $page, sortBy: "label", order: DESC)
+  allUtilities(perPage: 12, page: $page, sortBy: "label", order: ASC)
     @paginate {
     pageInfo {
       totalPages
