@@ -11,8 +11,10 @@
     "format:write": "prettier --write ."
   },
   "dependencies": {
+    "graphql-tag": "^2.12.6",
     "gridsome": "^0.7.0",
-    "js-yaml": "^4.1.0"
+    "js-yaml": "^4.1.0",
+    "write": "^2.0.0"
   },
   "resolutions": {
     "gridsome/sharp": "0.29.3"
