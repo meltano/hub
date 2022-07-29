@@ -3,10 +3,9 @@
     <div class="plugins-overview">
       <h1>Extractors</h1>
       <p>
-        Meltano lets you easily extract data out of arbitrary sources
-        (databases, SaaS APIs, and file formats) using Singer taps, which take
-        the role of your project’s extractor plugins. To learn more about
-        extracting and loading data using Meltano, refer to the Data Integration
+        Meltano lets you easily extract data out of arbitrary sources (databases, SaaS APIs, and
+        file formats) using Singer taps, which take the role of your project’s extractor plugins. To
+        learn more about extracting and loading data using Meltano, refer to the Data Integration
         (EL) guide.
       </p>
       <ul class="plugins-list">
@@ -46,8 +45,7 @@ export default {
 
 <page-query lang="graphql">
 query ($page: Int) {
-  allExtractors(perPage: 12, page: $page, sortBy: "label", order: ASC)
-    @paginate {
+  allExtractors(perPage: 12, page: $page, sortBy: "label", order: ASC) @paginate {
     pageInfo {
       totalPages
       currentPage

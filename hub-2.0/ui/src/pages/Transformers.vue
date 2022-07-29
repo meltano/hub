@@ -3,8 +3,8 @@
     <div class="plugins-overview">
       <h1>Transformers</h1>
       <p>
-        Meltano transformer plugins allow you to create new derived
-        transformations from raw data sources.
+        Meltano transformer plugins allow you to create new derived transformations from raw data
+        sources.
       </p>
       <ul class="plugins-list">
         <li
@@ -43,8 +43,7 @@ export default {
 
 <page-query lang="graphql">
 query ($page: Int) {
-  allTransformers(perPage: 12, page: $page, sortBy: "label", order: ASC)
-    @paginate {
+  allTransformers(perPage: 12, page: $page, sortBy: "label", order: ASC) @paginate {
     pageInfo {
       totalPages
       currentPage

@@ -4,10 +4,9 @@
     <pre><code>meltano add {{ name }}</code></pre>
     <h4>Homepage</h4>
     <div class="link-box">
-      <img class="aside-icon" src="../assets/images/link-solid.svg" /><a
-        :href="domain_url"
-        >{{ domain_url }}</a
-      >
+      <img class="aside-icon" src="../assets/images/link-solid.svg" /><a :href="domain_url">{{
+        domain_url
+      }}</a>
     </div>
     <h4>Maintenance Status</h4>
     <img
@@ -37,10 +36,9 @@
     />
     <h4>Repo</h4>
     <div class="link-box">
-      <img class="aside-icon" src="../assets/images/git-alt-brands.svg" /><a
-        :href="repo"
-        >{{ repo }}</a
-      >
+      <img class="aside-icon" src="../assets/images/git-alt-brands.svg" /><a :href="repo">{{
+        repo
+      }}</a>
     </div>
 
     <ul class="repo-shields">
@@ -92,14 +90,7 @@
 <script>
 export default {
   name: "PluginSidebar",
-  props: [
-    "name",
-    "domain_url",
-    "repo",
-    "maintenance_status",
-    "keywords",
-    "variant",
-  ],
+  props: ["name", "domain_url", "repo", "maintenance_status", "keywords", "variant"],
 };
 </script>
 

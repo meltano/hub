@@ -13,10 +13,7 @@ export default {
     <div class="top-nav">
       <strong>
         <g-link to="/">
-          <g-image
-            src="../assets/images/meltano-logo-stacked-padded.svg"
-            width="80"
-          />
+          <g-image src="../assets/images/meltano-logo-stacked-padded.svg" width="80" />
         </g-link>
       </strong>
       <nav class="nav">
@@ -27,15 +24,14 @@ export default {
             <g-link class="nav__link" to="/extractors">
               <h3>Extractors</h3>
               <span>
-                View all SaaS API, database, and file sources from which Meltano
-                can pull data
+                View all SaaS API, database, and file sources from which Meltano can pull data
               </span>
             </g-link>
             <g-link class="nav__link" to="/loaders/">
               <h3>Loaders</h3>
               <span
-                >View all database, file, and SaaS API destinations to which
-                Meltano can send data</span
+                >View all database, file, and SaaS API destinations to which Meltano can send
+                data</span
               >
             </g-link>
             <g-link class="nav__link" to="/transformers/">
@@ -44,15 +40,11 @@ export default {
             </g-link>
             <g-link class="nav__link" to="/orchestrators">
               <h3>Orchestrators</h3>
-              <span
-                >Learn how to orchestrate scheduled pipelines in Meltano</span
-              >
+              <span>Learn how to orchestrate scheduled pipelines in Meltano</span>
             </g-link>
             <g-link class="nav__link" to="/utilities/">
               <h3>Utilities</h3>
-              <span
-                >Add tools, commands, and other services to your project</span
-              >
+              <span>Add tools, commands, and other services to your project</span>
             </g-link>
             <g-link class="nav__link" to="/files/">
               <h3>Files</h3>
@@ -65,45 +57,33 @@ export default {
           <div class="dropdown-content">
             <g-link class="nav__link" to="/singer/taps">
               <h3>Taps</h3>
-              <span
-                >Find a Singer tap to pull data from a SaaS API, database, or
-                file</span
-              >
+              <span>Find a Singer tap to pull data from a SaaS API, database, or file</span>
             </g-link>
             <g-link class="nav__link" to="/singer/targets">
               <h3>Targets</h3>
-              <span
-                >Find a Singer target to send data to a database, file, or SaaS
-                API</span
-              >
+              <span>Find a Singer target to send data to a database, file, or SaaS API</span>
             </g-link>
             <a class="nav__link" href="https://sdk.meltano.com">
               <h3>SDK</h3>
               <span
-                >Learn more about building Singer taps and targets for new
-                sources and destinations</span
+                >Learn more about building Singer taps and targets for new sources and
+                destinations</span
               >
             </a>
             <g-link class="nav__link" to="/singer/spec">
               <h3>Spec</h3>
-              <span
-                >Learn more about the Singer specification for open source data
-                connectors</span
-              >
+              <span>Learn more about the Singer specification for open source data connectors</span>
             </g-link>
             <g-link class="nav__link" to="/singer/docs">
               <h3>Docs</h3>
               <span
-                >Understand more about Singer taps and targets and how to use
-                them with Meltano</span
+                >Understand more about Singer taps and targets and how to use them with
+                Meltano</span
               >
             </g-link>
             <g-link class="nav__link" to="/singer/api">
               <h3>API</h3>
-              <span
-                >Find the API resources for our Meltano + Singer taps and
-                targets</span
-              >
+              <span>Find the API resources for our Meltano + Singer taps and targets</span>
             </g-link>
           </div>
         </div>
