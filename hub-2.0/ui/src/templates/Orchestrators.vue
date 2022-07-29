@@ -70,34 +70,18 @@
               href="https://github.com/meltano/hub/blob/main/_data/meltano/extractors/tap-github/singer-io.yml">Edit it
               on GitHub!</a></p>
         </div>
-        <div class="single-plugin-aside">
-          <h4>Install</h4>
-          <pre><code>meltano add {{ $page.orchestrators.name }}</code></pre>
-          <h4 v-if="$page.orchestrators.domain_url">Homepage</h4>
-          <div class="link-box" v-if="$page.orchestrators.domain_url">
-            <img class="aside-icon" src="../assets/images/link-solid.svg" /><a :href="$page.orchestrators.domain_url">{{
-                $page.orchestrators.domain_url
-            }}</a>
-          </div>
-          <h4>Repo</h4>
-          <div class="link-box">
-            <img class="aside-icon" src="../assets/images/git-alt-brands.svg" /><a :href="$page.orchestrators.repo">{{
-                $page.orchestrators.repo
-            }}</a>
-          </div>
-          <h4>Maintenance Status</h4>
-          <p>{{ $page.orchestrators.maintenance_status }}</p>
-          <h4>Keywords</h4>
-          <p v-for="(keyword, index) in $page.orchestrators.keywords" v-bind:key="index">{{ keyword }}</p>
-        </div>
+        <PluginSidebar :name="$page.orchestrators.name" :domain_url="$page.orchestrators.domain_url" :repo="$page.orchestrators.repo" :maintenance_status="$page.orchestrators.maintenance_status" :keywords="$page.orchestrators.keywords" :variant="$page.orchestrators.variant"/>
       </div>
     </div>
   </Layout>
 </template>
 
 <script>
+import PluginSidebar from '../components/PluginSidebar.vue';
+
 export default {
   name: "OrchestratorsTemplate",
+  components: { PluginSidebar },
 };
 </script>
 

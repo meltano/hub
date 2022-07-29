@@ -75,34 +75,18 @@
               href="https://github.com/meltano/hub/blob/main/_data/meltano/extractors/tap-github/singer-io.yml">Edit it
               on GitHub!</a></p>
         </div>
-        <div class="single-plugin-aside">
-          <h4>Install</h4>
-          <pre><code>meltano add {{ $page.files.name }}</code></pre>
-          <h4>Homepage</h4>
-          <div class="link-box">
-            <img class="aside-icon" src="../assets/images/link-solid.svg" /><a :href="$page.files.domain_url">{{
-                $page.files.domain_url
-            }}</a>
-          </div>
-          <h4>Repo</h4>
-          <div class="link-box">
-            <img class="aside-icon" src="../assets/images/git-alt-brands.svg" /><a :href="$page.files.repo">{{
-                $page.files.repo
-            }}</a>
-          </div>
-          <h4>Maintenance Status</h4>
-          <p>{{ $page.files.maintenance_status }}</p>
-          <h4>Keywords</h4>
-          <p v-for="(keyword, index) in $page.files.keywords" v-bind:key="index">{{ keyword }}</p>
-        </div>
+        <PluginSidebar :name="$page.files.name" :domain_url="$page.files.domain_url" :repo="$page.files.repo" :maintenance_status="$page.files.maintenance_status" :keywords="$page.files.keywords" :variant="$page.files.variant"/>
       </div>
     </div>
   </Layout>
 </template>
 
 <script>
+import PluginSidebar from '../components/PluginSidebar.vue';
+
 export default {
   name: "FilesTemplate",
+  components: { PluginSidebar },
 };
 </script>
 
