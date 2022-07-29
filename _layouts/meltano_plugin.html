@@ -319,13 +319,13 @@ If you run into any issues, <a href="#looking-for-help">learn how to get help</a
   </li> {% endfor %} </ul>
 
   {% endif %}
-
+<p>
+  These capabilities can also be <a
+    href="https://docs.meltano.com/guide/configuration#overriding-discoverable-plugin-properties">overriden</a>
+  by specifying the <code>capabilities</code> key in your <code>meltano.yml</code> file.
+</p>
 {% endif %}
 
-<p>
-  These capabilities can also be <a href="https://docs.meltano.com/guide/configuration#overriding-discoverable-plugin-properties">overriden</a> 
-  by specifying the `capabilities` key in your `meltano.yml` file.
-</p>
 
 <h2 id="settings">Settings</h2>
 
@@ -336,7 +336,7 @@ If you run into any issues, <a href="#looking-for-help">learn how to get help</a
 {% if plugin.settings.size == 0 or plugin.settings == nil %}
 <p>
   The {{plugin_type}} <code>{{plugin.name}}</code> does not have any <a href="https://docs.meltano.com/contribute/plugins#setting-definitions">settings</a> defined in its metadata.
-  You can <a href="https://docs.meltano.com/guide/configuration#overriding-discoverable-plugin-properties">specify settings</a> in your `meltano.yml` by adding the `settings` key in your `meltano.yml`.
+  You can <a href="https://docs.meltano.com/guide/configuration#overriding-discoverable-plugin-properties">specify settings</a> in your <code>meltano.yml</code> by adding the <code>settings</code> key.
   Please considering adding any settings you have defined locally to this definition on MeltanoHub by making a pull request to the
   <a href="{{yaml_file}}">YAML file</a>
   that defines the <a href="https://docs.meltano.com/contribute/plugins#setting-definitions">settings</a> for this {{plugin_type}}.
@@ -389,17 +389,19 @@ If you run into any issues, <a href="#looking-for-help">learn how to get help</a
   setting you're looking for, use the <a href="#toc">Table of Contents</a> at
   the top of the page.
 </p>
-
+<br>
+<p>
+    You can <a href="https://docs.meltano.com/guide/configuration#overriding-discoverable-plugin-properties">override these
+      settings or specify additional
+      ones</a> in your <code>meltano.yml</code> by adding the <code>settings</code> key.
+    Please considering adding any settings you have defined locally to this definition on MeltanoHub by making a pull
+    request to the
+    <a href="{{yaml_file}}">YAML file</a>
+    that defines the <a href="https://docs.meltano.com/contribute/plugins#setting-definitions">settings</a> for this
+    {{plugin_type}}.
+</p>
 {% for setting in plugin.settings %} {% include setting.html setting=setting
 plugin_name=plugin.name %} {% endfor %}
-
-  You can <a href="https://docs.meltano.com/guide/configuration#overriding-discoverable-plugin-properties">override these settings or specify additional
-    ones</a> in your `meltano.yml` by adding the `settings` key in your `meltano.yml`.
-  Please considering adding any settings you have defined locally to this definition on MeltanoHub by making a pull
-  request to the
-  <a href="{{yaml_file}}">YAML file</a>
-  that defines the <a href="https://docs.meltano.com/contribute/plugins#setting-definitions">settings</a> for this
-  {{plugin_type}}.
 {% endif %}
 
 {% if plugin.commands.size > 0 %}
