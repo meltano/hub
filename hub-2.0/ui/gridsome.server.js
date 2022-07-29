@@ -15,6 +15,14 @@ const defaultVariantData = yaml.load(
   fs.readFileSync(path.join(dataRoot, "default_variants.yml"))
 );
 
+const readMaintainers = yaml.load(
+  fs.readFileSync(path.join(dataRoot, "maintainers.yml"))
+);
+
+const readMetrics = yaml.load(
+  fs.readFileSync(path.join(dataRoot, "metrics.yml"))
+);
+
 function buildData(dataPath, collection) {
   const currentCollection = dataPath;
   let collectionFolder = fs.readdirSync(dataPath);
@@ -28,8 +36,6 @@ function buildData(dataPath, collection) {
       const fileContents = fs.readFileSync(
         `${currentCollection}/${currentFolder}/${plugin}`
       );
-      // eslint-disable-next-line no-console
-      console.log(`${currentCollection}/${currentFolder}/${plugin}`);
       const readPlugin = yaml.load(fileContents);
       readPlugin.isDefault =
         defaultVariantData[path.basename(dataPath)][currentFolder] ===
@@ -40,11 +46,23 @@ function buildData(dataPath, collection) {
   });
 }
 
-module.exports = function main(api) {
-  // api.loadSource(({ addCollection }) => {
-  //   // Use the Data Store API here: https://gridsome.org/docs/data-store-api/
-  // });
+function buildMaintainers(datapath, collection) {
+  for (const key in datapath) {
+    collection.addNode({
+      name: datapath[key].name,
+      label: datapath[key].label,
+      url: datapath[key].url,
+    });
+  }
+}
 
+function buildMetrics(datapath, collection) {
+  // here's a stub for adding metrics to the mix
+}
+
+buildMetrics();
+
+module.exports = function main(api) {
   api.loadSource(async (actions) => {
     const extractorsCollection = actions.addCollection({
       typeName: "Extractors",
@@ -64,6 +82,9 @@ module.exports = function main(api) {
     const utilitiesCollection = actions.addCollection({
       typeName: "Utilities",
     });
+    const maintainersCollection = actions.addCollection({
+      typeName: "Maintainers",
+    });
 
     buildData(path.join(dataRoot, "meltano/extractors"), extractorsCollection);
     buildData(path.join(dataRoot, "meltano/loaders"), loadersCollection);
@@ -77,9 +98,10 @@ module.exports = function main(api) {
       transformersCollection
     );
     buildData(path.join(dataRoot, "meltano/utilities"), utilitiesCollection);
+    buildMaintainers(readMaintainers, maintainersCollection);
   });
 
-  // Create defualt variant pages
+  // Create default variant pages
   api.createPages(async ({ createPage, graphql }) => {
     const defaultPlugins = await graphql(`
       {

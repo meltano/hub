@@ -48,5 +48,11 @@ module.exports = {
         component: "./src/templates/Files.vue",
       },
     ],
+    Maintainers: [
+      {
+        path: "/maintainers/:name",
+        component: ".src/templates/Maintainers.vue",
+      },
+    ],
   },
 };

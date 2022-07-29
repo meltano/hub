@@ -13,11 +13,6 @@ body {
   color: #fff;
 }
 
-.nav__link {
-  color: #3438bf;
-  text-decoration: none;
-}
-
 main {
   display: flex;
   flex-grow: 1;
@@ -28,6 +23,31 @@ main,
 footer {
   flex-shrink: 0;
 }
+
+.inline-code-block {
+  display: inline;
+}
+
+/* BUTTONS AND LINKS */
+
+.nav__link {
+  color: #3438bf;
+  text-decoration: none;
+}
+
+.primary-button {
+  margin: 25px auto;
+  background: #d9042b;
+  color: #fff;
+  border-radius: 38px;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+/* PLUGIN PAGES (e.g. ../extractors) */
 
 .plugins-overview {
   min-width: 70%;
@@ -89,6 +109,8 @@ footer {
   text-decoration: none;
 }
 
+/* TEMPLATES PAGES (e.g. ../utilities/airflow/) */
+
 .single-plugin-overview {
   display: flex;
   flex-direction: column;
@@ -100,6 +122,17 @@ footer {
   font-size: 2.5em;
 }
 
+.single-plugin-overview a {
+  color: #3438bf;
+  text-decoration: none;
+}
+
+.single-plugin-overview pre code {
+  background: #b0e3c1;
+  padding: 12px;
+  border: 1px solid #62626e;
+}
+
 .single-plugin-detail {
   background: #e8f0ff;
   color: #3438bf;
@@ -107,22 +140,40 @@ footer {
   flex-wrap: wrap;
   word-wrap: break-word;
   width: 100%;
-  text-align: center;
+  text-align: left;
 }
 
 .single-plugin-detail .single-plugin-top-bar {
   width: 100%;
   border-bottom: 2px solid #62626e;
+  background: #fbbf52;
+  text-align: left;
+  padding-left: 10px;
 }
 
 .single-plugin-detail .single-plugin-main {
   width: 100%;
+  text-align: left;
+  padding: 0 10px;
+}
+
+.single-plugin-detail .single-plugin-main pre {
+  margin: 20px auto;
+}
+
+.single-plugin-detail .single-plugin-main pre code {
+  display: inline-block;
 }
 
 .single-plugin-detail .single-plugin-aside {
   width: 100%;
   background: #f1f1f2;
   word-break: break-word;
+}
+
+.single-plugin-detail .single-plugin-aside h4 {
+  color: #62626e;
+  margin: 10px auto;
 }
 
 .single-plugin-detail .single-plugin-aside .link-box {
@@ -134,17 +185,7 @@ footer {
   margin-right: 10px;
 }
 
-.primary-button {
-  margin: 25px auto;
-  background: #d9042b;
-  color: #fff;
-  border-radius: 38px;
-  display: flex;
-  align-items: center;
-  padding: 1rem;
-  text-decoration: none;
-  text-transform: uppercase;
-}
+/* MEDIA QUERIES */
 
 @media (min-width: 768px) {
   .plugins-overview {
@@ -184,10 +225,12 @@ footer {
   }
 
   .single-plugin-detail .single-plugin-main {
-    width: 65%;
+    width: 60%;
   }
 
   .single-plugin-detail .single-plugin-aside {
-    width: 35%;
+    width: 37%;
+    border-left: 2px solid #62626e;
+    padding: 10px 0 0 10px;
   }
 }

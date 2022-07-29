@@ -46,7 +46,7 @@ export default {
 
 <page-query lang="graphql">
 query ($page: Int) {
-  allLoaders(perPage: 12, page: $page, sortBy: "label", order: DESC) @paginate {
+  allLoaders(perPage: 12, page: $page, sortBy: "label", order: ASC) @paginate {
     pageInfo {
       totalPages
       currentPage
