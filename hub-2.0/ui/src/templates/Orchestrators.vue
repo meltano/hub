@@ -64,7 +64,9 @@
           <p class="add-more-info">End Date</p>
           <p class="add-more-info">Anything else</p>
           <h2>Looking for help?</h2>
-          <p>If you're having trouble getting the {{ $page.orchestrators.name }} orchestrator to work, look for an <a href="https://github.com/singer-io/tap-github/issues">existing issue in its repository</a>, file a <a href="https://github.com/singer-io/tap-github/issues/new">new issue</a>, or <a href="https://meltano.com/slack">join the Meltano Slack community</a> and ask for help in the <pre class="inline-code-block"><code>#plugins-general channel</code></pre>.</p>
+          <p>
+            If you're having trouble getting the {{ $page.orchestrators.name }} orchestrator to work, look for an <a href="https://github.com/singer-io/tap-github/issues">existing issue in its repository</a>, file a <a href="https://github.com/singer-io/tap-github/issues/new">new issue</a>, or <a href="https://meltano.com/slack">join the Meltano Slack community</a> and ask for help in the <pre class="inline-code-block"><code>#plugins-general channel</code></pre>.
+          </p>
           <h3>Found an issue on this page?</h3>
           <p>This page is generated from a YAML file that you can contribute changes to. <a
               href="https://github.com/meltano/hub/blob/main/_data/meltano/extractors/tap-github/singer-io.yml">Edit it
