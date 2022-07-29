@@ -8,51 +8,51 @@ module.exports = {
   siteName: "MeltanoHub",
   icon: "./src/meltano-favicon-192x192.png",
   plugins: [],
-  chainWebpack: config => {
+  chainWebpack: (config) => {
     config.resolve.alias.set("@logos", "@assets/logos");
   },
   templates: {
     Extractors: [
       {
         path: "/extractors/:name/:variant",
-        component: "./src/templates/Extractors.vue"
-      }
+        component: "./src/templates/Extractors.vue",
+      },
     ],
     Loaders: [
       {
         path: "/loaders/:name/:variant",
-        component: "./src/templates/Loaders.vue"
-      }
+        component: "./src/templates/Loaders.vue",
+      },
     ],
     Orchestrators: [
       {
         path: "/orchestrators/:name/:variant",
-        component: "./src/templates/Orchestrators.vue"
-      }
+        component: "./src/templates/Orchestrators.vue",
+      },
     ],
     Transformers: [
       {
         path: "/transformers/:name/:variant",
-        component: "./src/templates/Transformers.vue"
-      }
+        component: "./src/templates/Transformers.vue",
+      },
     ],
     Utilities: [
       {
         path: "/utilities/:name/:variant",
-        component: "./src/templates/Utilities.vue"
-      }
+        component: "./src/templates/Utilities.vue",
+      },
     ],
     Files: [
       {
         path: "/files/:name/:variant",
-        component: "./src/templates/Files.vue"
-      }
+        component: "./src/templates/Files.vue",
+      },
     ],
     Maintainers: [
       {
         path: "/maintainers/:name",
-        component: ".src/templates/Maintainers.vue"
-      }
-    ]
-  }
+        component: ".src/templates/Maintainers.vue",
+      },
+    ],
+  },
 };

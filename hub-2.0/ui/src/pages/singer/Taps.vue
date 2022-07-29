@@ -4,10 +4,8 @@
 
 <script>
 export default {
-    name: "SingerTaps"
-}
+  name: "SingerTaps",
+};
 </script>
 
-<style>
-
-</style>
+<style></style>

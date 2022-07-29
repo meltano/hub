@@ -10,8 +10,8 @@
 
 <script>
 export default {
-  name: "MaintainersTemplate"
-}
+  name: "MaintainersTemplate",
+};
 </script>
 <page-query>
 query Maintainers($path: String!) {
@@ -22,5 +22,4 @@ query Maintainers($path: String!) {
   }
 }
 </page-query>
-<style>
-</style>
+<style></style>

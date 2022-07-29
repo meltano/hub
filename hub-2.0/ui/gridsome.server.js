@@ -27,12 +27,12 @@ function buildData(dataPath, collection) {
   const currentCollection = dataPath;
   let collectionFolder = fs.readdirSync(dataPath);
   collectionFolder = collectionFolder.filter(
-    item => !/(^|\/)\.[^/.]/g.test(item)
+    (item) => !/(^|\/)\.[^/.]/g.test(item)
   );
-  collectionFolder.forEach(folder => {
+  collectionFolder.forEach((folder) => {
     const currentFolder = folder;
     const subfolderPlugins = fs.readdirSync(`${currentCollection}/${folder}`);
-    subfolderPlugins.forEach(plugin => {
+    subfolderPlugins.forEach((plugin) => {
       const fileContents = fs.readFileSync(
         `${currentCollection}/${currentFolder}/${plugin}`
       );
@@ -51,7 +51,7 @@ function buildMaintainers(datapath, collection) {
     collection.addNode({
       name: datapath[key].name,
       label: datapath[key].label,
-      url: datapath[key].url
+      url: datapath[key].url,
     });
   }
 }
@@ -63,27 +63,27 @@ function buildMetrics(datapath, collection) {
 buildMetrics();
 
 module.exports = function main(api) {
-  api.loadSource(async actions => {
+  api.loadSource(async (actions) => {
     const extractorsCollection = actions.addCollection({
-      typeName: "Extractors"
+      typeName: "Extractors",
     });
     const loadersCollection = actions.addCollection({
-      typeName: "Loaders"
+      typeName: "Loaders",
     });
     const filesCollection = actions.addCollection({
-      typeName: "Files"
+      typeName: "Files",
     });
     const orchestratorsCollection = actions.addCollection({
-      typeName: "Orchestrators"
+      typeName: "Orchestrators",
     });
     const transformersCollection = actions.addCollection({
-      typeName: "Transformers"
+      typeName: "Transformers",
     });
     const utilitiesCollection = actions.addCollection({
-      typeName: "Utilities"
+      typeName: "Utilities",
     });
     const maintainersCollection = actions.addCollection({
-      typeName: "Maintainers"
+      typeName: "Maintainers",
     });
 
     buildData(path.join(dataRoot, "meltano/extractors"), extractorsCollection);
@@ -162,7 +162,7 @@ module.exports = function main(api) {
       }
     `);
 
-    Object.keys(defaultPlugins.data).forEach(query => {
+    Object.keys(defaultPlugins.data).forEach((query) => {
       // For each default plugin we create an extra page one-level up
       defaultPlugins.data[query].edges.forEach(({ node }) => {
         createPage({
@@ -172,8 +172,8 @@ module.exports = function main(api) {
           component: `./src/templates/${query.substring(3)}.vue`,
           context: {
             id: node.id,
-            path: node.path
-          }
+            path: node.path,
+          },
         });
       });
     });
