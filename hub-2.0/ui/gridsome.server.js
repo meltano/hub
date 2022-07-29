@@ -19,10 +19,6 @@ const readMaintainers = yaml.load(
   fs.readFileSync(path.join(dataRoot, "maintainers.yml"))
 );
 
-const readMetrics = yaml.load(
-  fs.readFileSync(path.join(dataRoot, "metrics.yml"))
-);
-
 function buildData(dataPath, collection) {
   const currentCollection = dataPath;
   let collectionFolder = fs.readdirSync(dataPath);
@@ -47,20 +43,14 @@ function buildData(dataPath, collection) {
 }
 
 function buildMaintainers(datapath, collection) {
-  for (const key in datapath) {
+  Object.keys(datapath).forEach((key) => {
     collection.addNode({
       name: datapath[key].name,
       label: datapath[key].label,
       url: datapath[key].url,
     });
-  }
+  });
 }
-
-function buildMetrics(datapath, collection) {
-  // here's a stub for adding metrics to the mix
-}
-
-buildMetrics();
 
 module.exports = function main(api) {
   api.loadSource(async (actions) => {
