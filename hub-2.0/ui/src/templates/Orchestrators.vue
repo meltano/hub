@@ -3,7 +3,10 @@
     <div class="single-plugin-overview">
       <div class="single-plugin-detail">
         <div class="single-plugin-top-bar">
-          <h4>{{ $page.orchestrators.label }} - <span>{{ $page.orchestrators.description }}</span></h4>
+          <h4>
+            {{ $page.orchestrators.label }} -
+            <span>{{ $page.orchestrators.description }}</span>
+          </h4>
         </div>
         <div class="single-plugin-main">
           <h1>
@@ -11,28 +14,51 @@
             <span>{{ $page.orchestrators.variant }}</span>
           </h1>
           <p>{{ $page.orchestrators.usage }}</p>
-          <p>The {{ $page.orchestrators.name }} <a href="https://docs.meltano.com/concepts/plugins#orchestrators">Meltano
-              orchestrator</a> allows for workflows to be programmatically authored, scheduled, and monitored.</p>
+          <p>
+            The {{ $page.orchestrators.name }}
+            <a href="https://docs.meltano.com/concepts/plugins#orchestrators"
+              >Meltano orchestrator</a
+            >
+            allows for workflows to be programmatically authored, scheduled, and
+            monitored.
+          </p>
           <p class="add-more-info">variant info here</p>
           <h2>Getting Started</h2>
           <h3>Prerequisites</h3>
-          <p>If you haven't already, follow the initial steps of the <a
-              href="https://docs.meltano.com/getting-started.html">Getting Started guide</a>:</p>
+          <p>
+            If you haven't already, follow the initial steps of the
+            <a href="https://docs.meltano.com/getting-started.html"
+              >Getting Started guide</a
+            >:
+          </p>
           <ol>
-            <li><a href="https://docs.meltano.com/getting-started.html#install-meltano">Install Meltano</a></li>
-            <li><a href="https://docs.meltano.com/getting-started.html#create-your-meltano-project">Create your Meltano
-                project</a></li>
+            <li>
+              <a
+                href="https://docs.meltano.com/getting-started.html#install-meltano"
+                >Install Meltano</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://docs.meltano.com/getting-started.html#create-your-meltano-project"
+                >Create your Meltano project</a
+              >
+            </li>
           </ol>
           <p>{{ $page.orchestrators.prereq }}</p>
           <h3>Installation and configuration</h3>
 
-          <p>Add the airflow orchestrator to your project using meltano add :</p>
+          <p>
+            Add the airflow orchestrator to your project using meltano add :
+          </p>
           <ol>
             <li>
               <pre class=""><code>meltano add orchestrator airflow</code></pre>
             </li>
-            <li>Configure the settings below using
-              <pre class="inline-code-block"><code>meltano config</code></pre>.
+            <li>
+              Configure the settings below using
+              <pre class="inline-code-block"><code>meltano config</code></pre>
+              .
             </li>
           </ol>
 
@@ -50,12 +76,23 @@
             <li v-for="(capability, index) in $page.orchestrators.capabilities" v-bind:key="index">{{ capability }}</li>
           </ul> -->
           <h2>Settings</h2>
-          <p>{{ $page.orchestrators.name }} requires the configuration of the following settings:</p>
+          <p>
+            {{ $page.orchestrators.name }} requires the configuration of the
+            following settings:
+          </p>
           <ul>
-            <li v-for="(setting, index) in $page.orchestrators.settings" v-bind:key="index">{{ setting.name }}</li>
+            <li
+              v-for="(setting, index) in $page.orchestrators.settings"
+              v-bind:key="index"
+            >
+              {{ setting.name }}
+            </li>
           </ul>
-          <p>The settings for extractor tap-github that are known to Meltano are documented below. To quickly find the
-            setting you're looking for, use the Table of Contents at the top of the page.</p>
+          <p>
+            The settings for extractor tap-github that are known to Meltano are
+            documented below. To quickly find the setting you're looking for,
+            use the Table of Contents at the top of the page.
+          </p>
           <!-- <h3>Personal Access Tokens (access_token)</h3>
           <ul><li>Environment variable: TAP_GITHUB_ACCESS_TOKEN</li></ul> -->
           <p class="add-more-info">Account ID</p>
@@ -64,22 +101,49 @@
           <p class="add-more-info">End Date</p>
           <p class="add-more-info">Anything else</p>
           <h2>Looking for help?</h2>
-          <p>
-            If you're having trouble getting the {{ $page.orchestrators.name }} orchestrator to work, look for an <a href="https://github.com/singer-io/tap-github/issues">existing issue in its repository</a>, file a <a href="https://github.com/singer-io/tap-github/issues/new">new issue</a>, or <a href="https://meltano.com/slack">join the Meltano Slack community</a> and ask for help in the <pre class="inline-code-block"><code>#plugins-general channel</code></pre>.
-          </p>
+          <div>
+            If you're having trouble getting the
+            {{ $page.orchestrators.name }} orchestrator to work, look for an
+            <a href="https://github.com/singer-io/tap-github/issues"
+              >existing issue in its repository</a
+            >, file a
+            <a href="https://github.com/singer-io/tap-github/issues/new"
+              >new issue</a
+            >, or
+            <a href="https://meltano.com/slack"
+              >join the Meltano Slack community</a
+            >
+            and ask for help in the
+            <pre
+              class="inline-code-block"
+            ><code>#plugins-general channel</code></pre>
+            .
+          </div>
           <h3>Found an issue on this page?</h3>
-          <p>This page is generated from a YAML file that you can contribute changes to. <a
-              href="https://github.com/meltano/hub/blob/main/_data/meltano/extractors/tap-github/singer-io.yml">Edit it
-              on GitHub!</a></p>
+          <p>
+            This page is generated from a YAML file that you can contribute
+            changes to.
+            <a
+              href="https://github.com/meltano/hub/blob/main/_data/meltano/extractors/tap-github/singer-io.yml"
+              >Edit it on GitHub!</a
+            >
+          </p>
         </div>
-        <PluginSidebar :name="$page.orchestrators.name" :domain_url="$page.orchestrators.domain_url" :repo="$page.orchestrators.repo" :maintenance_status="$page.orchestrators.maintenance_status" :keywords="$page.orchestrators.keywords" :variant="$page.orchestrators.variant"/>
+        <PluginSidebar
+          :name="$page.orchestrators.name"
+          :domain_url="$page.orchestrators.domain_url"
+          :repo="$page.orchestrators.repo"
+          :maintenance_status="$page.orchestrators.maintenance_status"
+          :keywords="$page.orchestrators.keywords"
+          :variant="$page.orchestrators.variant"
+        />
       </div>
     </div>
   </Layout>
 </template>
 
 <script>
-import PluginSidebar from '../components/PluginSidebar.vue';
+import PluginSidebar from "../components/PluginSidebar.vue";
 
 export default {
   name: "OrchestratorsTemplate",
