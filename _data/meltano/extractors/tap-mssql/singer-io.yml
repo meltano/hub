@@ -4,7 +4,7 @@ name: tap-mssql
 logo_url: /assets/logos/extractors/mssql.png
 namespace: tap_mssql
 variant: singer-io
-pip_url: tap-mssql
+pip_url: git+https://github.com/singer-io/tap-mssql.git
 repo: https://github.com/singer-io/tap-mssql
 settings: []
 capabilities:
