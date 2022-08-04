@@ -147,8 +147,8 @@ import PluginSidebar from "../components/PluginSidebar.vue";
 export default {
   metaInfo() {
     return {
-      title: this.$page.utilities.name
-    }
+      title: this.$page.utilities.name,
+    };
   },
   name: "UtilitiesTemplate",
   components: { PluginSidebar },

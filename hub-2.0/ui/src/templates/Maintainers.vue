@@ -12,8 +12,8 @@
 export default {
   metaInfo() {
     return {
-      title: this.$page.maintainers.name
-    }
+      title: this.$page.maintainers.name,
+    };
   },
   name: "MaintainersTemplate",
 };
