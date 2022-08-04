@@ -123,14 +123,16 @@ footer {
 }
 
 .single-plugin-overview a {
-  color: #3438bf;
+  color: #02a5a5;
   text-decoration: none;
 }
 
 .single-plugin-overview pre code {
-  background: #b0e3c1;
-  padding: 12px;
+  background: #f5f7fa;
+  color: #62626e;
+  padding: 2px 15px;
   border: 1px solid #62626e;
+  font-family: "IBM Plex Mono";
 }
 
 .single-plugin-detail {
@@ -146,7 +148,7 @@ footer {
 .single-plugin-detail .single-plugin-top-bar {
   width: 100%;
   border-bottom: 2px solid #62626e;
-  background: #fbbf52;
+  background: #fff;
   text-align: left;
   padding-left: 10px;
 }
@@ -155,6 +157,7 @@ footer {
   width: 100%;
   text-align: left;
   padding: 0 10px;
+  background: #e8f0ff;
 }
 
 .single-plugin-detail .single-plugin-main pre {
