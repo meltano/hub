@@ -9,6 +9,8 @@ repo: https://gitlab.com/meltano/tap-carbon-intensity
 pip_url: git+https://gitlab.com/meltano/tap-carbon-intensity.git
 capabilities:
 - discover
+- state
+- catalog
 domain_url: https://api.carbonintensity.org.uk/
 maintenance_status: unknown
 keywords:
