@@ -3,7 +3,7 @@
     <div class="home-details">
       <h1>Welcome to Meltano Hub</h1>
       <h2>
-        MeltanoHub is a central place to find any Meltano plugin as well as Singer taps and targets.
+        Meltano Hub is a central place to find any Meltano plugin as well as Singer taps and targets.
         The Hub is lovingly curated by Meltano and the wider Singer community.
       </h2>
       <a href="https://docs.meltano.com/concepts/plugins" class="primary-button">Learn More</a>

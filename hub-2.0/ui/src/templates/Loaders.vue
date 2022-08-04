@@ -146,6 +146,11 @@
 import PluginSidebar from "../components/PluginSidebar.vue";
 
 export default {
+  metaInfo() {
+    return {
+      title: this.$page.loaders.name
+    }
+  },
   name: "LoadersTemplate",
   components: { PluginSidebar },
 };

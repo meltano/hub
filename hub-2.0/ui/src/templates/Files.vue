@@ -143,6 +143,11 @@
 import PluginSidebar from "../components/PluginSidebar.vue";
 
 export default {
+  metaInfo() {
+    return {
+      title: this.$page.files.name
+    }
+  },
   name: "FilesTemplate",
   components: { PluginSidebar },
 };

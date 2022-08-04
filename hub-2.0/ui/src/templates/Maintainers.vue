@@ -10,6 +10,11 @@
 
 <script>
 export default {
+  metaInfo() {
+    return {
+      title: this.$page.maintainers.name
+    }
+  },
   name: "MaintainersTemplate",
 };
 </script>
