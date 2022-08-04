@@ -4,6 +4,7 @@ name: tap-tiktok
 logo_url: /assets/logos/extractors/tiktok.png
 namespace: tap_tiktok
 variant: gthesheep
+default: true
 pip_url: git+https://github.com/gthesheep/tap-tiktok.git
 repo: https://github.com/gthesheep/tap-tiktok
 capabilities:
