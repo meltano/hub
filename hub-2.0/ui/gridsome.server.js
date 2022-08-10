@@ -91,6 +91,10 @@ module.exports = function main(api) {
     buildMaintainers(readMaintainers, maintainersCollection);
   });
 
+  api.chainWebpack((config) => {
+    config.resolve.alias.set("@logos", "@/assets/logos");
+  });
+
   // Create default variant pages
   api.createPages(async ({ createPage, graphql }) => {
     const defaultPlugins = await graphql(`

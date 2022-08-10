@@ -9,7 +9,7 @@ module.exports = {
   icon: "./src/meltano-favicon-192x192.png",
   plugins: [],
   chainWebpack: (config) => {
-    config.resolve.alias.set("@logos", "@assets/logos");
+    config.resolve.alias.set("@logos", "@/assets/logos");
   },
   templates: {
     Extractors: [
