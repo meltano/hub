@@ -1,0 +1,35 @@
+description: Social Media Marketing Platform
+label: Dash Hudson
+name: tap-dash-hudson
+logo_url: /assets/logos/extractors/dash-hudson.png
+namespace: tap_dash_hudson
+variant: gthesheep
+pip_url: git+https://github.com/gthesheep/tap-dash-hudson.git
+repo: https://github.com/gthesheep/tap-dash-hudson
+capabilities:
+- catalog
+- discover
+- state
+- about
+- stream-maps
+settings_group_validation:
+- - api_key
+  - brand_id
+  - start_date
+  - end_date
+settings:
+- name: api_key
+  label: API Key
+  kind: password
+  description: API key gained from the Dash Hudson UI
+- name: brand_id
+  label: Brand ID
+  description: Unique identifier for your Dash Hudson brand
+- name: start_date
+  label: Start date
+  description: Start date as of when to collect metrics from
+domain_url: https://developer.dashhudson.com/#section/APIs
+maintenance_status: active
+keywords:
+- api
+- meltano_sdk
