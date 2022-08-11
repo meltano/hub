@@ -51,12 +51,10 @@ settings:
 
     2. Under the `Standard keys` section, click on the button to `Create secret key`
 
-    :::tip No button?
-
-    If the "Create secret key" button is not available, a secret key may already have been generated before.
-    In this case, use the "Reveal live key token" button under "Token" and to the right of "Secret key". The token that appears is the secret key you can copy and paste into the data source configuration.
-
-    :::
+    > **Tip: No button?**
+    > 
+    > If the "Create secret key" button is not available, a secret key may already have been generated before.
+    > In this case, use the "Reveal live key token" button under "Token" and to the right of "Secret key". The token that appears is the secret key you can copy and paste into the data source configuration.
 
     ![Screenshot of where Create secret key button is](/assets/images/tap-stripe/04-stripe-docs.png)
 
