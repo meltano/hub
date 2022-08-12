@@ -75,7 +75,7 @@ class PluginEnricher < Jekyll::Generator
       if variant_definition.key?("repo")
         repo_url = variant_definition['repo']
         repo_path_match = repo_url.match(%r{\Ahttps?://(?:www\.)?git(?:hub|lab)\.com/([^/]+/[^/.]+)}i)
-        if repo_path_match
+        if repo_url.start_with?("https://github.com/") && repo_path_match
           repo_path = repo_path_match[1]
           variant_definition['metrics'] = site.data['metrics']['metrics'][repo_path]
         else
