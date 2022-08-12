@@ -3,6 +3,7 @@ const path = require("path");
 const { gql } = require("graphql-tag");
 
 const outputRoot = "dist/meltano/api/v1/plugins";
+const baseurl = "https://hub.meltano.com";
 
 const fieldFragment = gql`
   fragment Fields on Node {
@@ -31,6 +32,7 @@ const fieldFragment = gql`
       placeholder
     }
     capabilities
+    isDefault
   }
 `;
 const apiRoutes = [
@@ -168,38 +170,60 @@ const removeEmpty = (obj) => {
 
 module.exports = function buildJSONApi(gridsome) {
   gridsome.afterBuild(async () => {
-    const allPlugins = [];
-    const promises = apiRoutes.map(async (item) => {
-      try {
-        // eslint-disable-next-line no-underscore-dangle
-        const result = await gridsome._app.graphql(item.query);
-        const allPluginsOfType = [];
-        result.data.data.edges.map(async (edge) => {
-          const plugin = removeEmpty(edge.node);
-          allPluginsOfType.push(plugin);
-          allPlugins.push(plugin);
-          write(
-            path.join(
-              outputRoot,
-              item.path,
-              `${plugin.name}--${plugin.variant}`
-            ),
-            JSON.stringify(plugin)
-          );
-        });
-        return write(
-          path.join(outputRoot, item.path, "index"),
-          JSON.stringify(allPluginsOfType)
-        );
-      } catch (e) {
-        // eslint-disable-next-line no-console
-        console.error(e);
-        throw e;
-      }
-    });
-    // wait for all promises to finish
-    await Promise.all(promises);
+    const allPluginsIndex = {};
+    await Promise.all(
+      apiRoutes.map(async (item) => {
+        try {
+          // eslint-disable-next-line no-underscore-dangle
+          const result = await gridsome._app.graphql(item.query);
+          const typeIndex = {};
+          await Promise.all(
+            result.data.data.edges.map(async (edge) => {
+              const plugin = removeEmpty(edge.node);
 
-    return write(path.join(outputRoot, "index"), JSON.stringify(allPlugins));
+              // Update plugin index
+              const indexEntry = typeIndex[plugin.name] || { variants: {} };
+              indexEntry.variants[plugin.variant] = {
+                ref: `${baseurl}/meltano/api/v1/plugins/${plugin.name}--${plugin.variant}`,
+              };
+              if (plugin.isDefault) {
+                indexEntry.default_variant = plugin.variant;
+                indexEntry.logo_url = plugin.logo_url || null;
+              }
+              typeIndex[plugin.name] = indexEntry;
+              delete plugin.isDefault;
+
+              // Write plugin file
+              return write(
+                path.join(
+                  outputRoot,
+                  item.path,
+                  `${plugin.name}--${plugin.variant}`
+                ),
+                JSON.stringify(plugin)
+              );
+            })
+          );
+
+          // Add to top level index
+          allPluginsIndex[item.path] = typeIndex;
+
+          // Write index for this plugin type
+          return write(
+            path.join(outputRoot, item.path, "index"),
+            JSON.stringify(typeIndex)
+          );
+        } catch (e) {
+          // eslint-disable-next-line no-console
+          console.error(e);
+          throw e;
+        }
+      })
+    );
+
+    return write(
+      path.join(outputRoot, "index"),
+      JSON.stringify(allPluginsIndex)
+    );
   });
 };
