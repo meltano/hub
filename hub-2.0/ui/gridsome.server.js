@@ -19,6 +19,19 @@ const readMaintainers = yaml.load(
   fs.readFileSync(path.join(dataRoot, "maintainers.yml"))
 );
 
+const readMetrics = yaml.load(fs.readFileSync("../data/variant_metrics.yml"));
+
+function buildMetrics(plugin) {
+  Object.entries(readMetrics.metrics).forEach((metric) => {
+    if (metric[0] === plugin.repo) {
+      const readPlugin = plugin;
+      // eslint-disable-next-line prefer-destructuring
+      readPlugin.metrics = metric[1];
+      return plugin;
+    }
+  });
+}
+
 function buildData(dataPath, collection) {
   const currentCollection = dataPath;
   let collectionFolder = fs.readdirSync(dataPath);
@@ -33,6 +46,8 @@ function buildData(dataPath, collection) {
         `${currentCollection}/${currentFolder}/${plugin}`
       );
       const readPlugin = yaml.load(fileContents);
+      buildMetrics(readPlugin);
+
       readPlugin.isDefault =
         defaultVariantData[path.basename(dataPath)][currentFolder] ===
         readPlugin.variant;
