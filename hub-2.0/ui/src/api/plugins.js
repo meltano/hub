@@ -1,37 +1,31 @@
 const write = require("write");
 const path = require("path");
+const fs = require("fs");
+const yaml = require("js-yaml");
 const { gql } = require("graphql-tag");
 
 const outputRoot = "dist/meltano/api/v1/plugins";
+
+const dataRoot = "../../_data/meltano";
+
 const baseurl = "https://hub.meltano.com";
+
+const toDelete = [
+  "keywords",
+  "maintenance_status",
+  "domain_url",
+  "definition",
+  "next_steps",
+  "settings_preamble",
+  "usage",
+  "prereq",
+];
 
 const fieldFragment = gql`
   fragment Fields on Node {
-    description
-    label
     name
-    namespace
     logo_url
     variant
-    pip_url
-    repo
-    settings {
-      name
-      kind
-      label
-      description
-      value
-      env
-      options {
-        label
-        value
-      }
-      aliases
-      value_post_processor
-      value_processor
-      placeholder
-    }
-    capabilities
     isDefault
   }
 `;
@@ -158,16 +152,6 @@ const apiRoutes = [
   },
 ];
 
-const removeEmpty = (obj) => {
-  Object.entries(obj).forEach(
-    ([key, val]) =>
-      (val && typeof val === "object" && removeEmpty(val)) ||
-      // eslint-disable-next-line no-param-reassign
-      ((val === null || val === "") && delete obj[key])
-  );
-  return obj;
-};
-
 module.exports = function buildJSONApi(gridsome) {
   gridsome.afterBuild(async () => {
     const allPluginsIndex = {};
@@ -178,25 +162,39 @@ module.exports = function buildJSONApi(gridsome) {
           const result = await gridsome._app.graphql(pluginType.query);
           const typeIndex = {};
           await Promise.all(
-            result.data.data.edges.map(async (edge) => {
+            result.data.data.edges.map(async ({ node: plugin }) => {
               // Clean up plugin object, create full log_url, add docs url
-              const plugin = removeEmpty(edge.node);
-              plugin.logo_url = plugin.logo_url
+              const logoUrl = plugin.logo_url
                 ? `${baseurl}${plugin.logo_url}`
                 : undefined;
-              plugin.docs = `${baseurl}/${pluginType.path}/${plugin.name}`;
+              const docs = `${baseurl}/${pluginType.path}/${plugin.name}/${plugin.variant}`;
 
               // Update plugin index
               const indexEntry = typeIndex[plugin.name] || { variants: {} };
               indexEntry.variants[plugin.variant] = {
-                ref: `${baseurl}/meltano/api/v1/plugins/${plugin.name}--${plugin.variant}`,
+                ref: `${baseurl}/meltano/api/v1/plugins/${pluginType.path}/${plugin.name}--${plugin.variant}`,
               };
               if (plugin.isDefault) {
                 indexEntry.default_variant = plugin.variant;
                 indexEntry.logo_url = plugin.logo_url || null;
               }
               typeIndex[plugin.name] = indexEntry;
-              delete plugin.isDefault;
+
+              // Read in the file (again 🙄)
+              const filePath = path.join(
+                dataRoot,
+                pluginType.path,
+                plugin.name,
+                `${plugin.variant}.yml`
+              );
+              const fileContents = fs.readFileSync(filePath);
+              const readPlugin = yaml.load(fileContents);
+              readPlugin.logo_url = logoUrl;
+              readPlugin.docs = docs;
+
+              toDelete.forEach((field) => {
+                delete readPlugin[field];
+              });
 
               // Write plugin file
               return write(
@@ -205,7 +203,7 @@ module.exports = function buildJSONApi(gridsome) {
                   pluginType.path,
                   `${plugin.name}--${plugin.variant}`
                 ),
-                JSON.stringify(plugin)
+                JSON.stringify(readPlugin)
               );
             })
           );
