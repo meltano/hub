@@ -176,7 +176,7 @@ module.exports = function buildJSONApi(gridsome) {
               };
               if (plugin.isDefault) {
                 indexEntry.default_variant = plugin.variant;
-                indexEntry.logo_url = plugin.logo_url || null;
+                indexEntry.logo_url = logoUrl || null;
               }
               typeIndex[plugin.name] = indexEntry;
 
