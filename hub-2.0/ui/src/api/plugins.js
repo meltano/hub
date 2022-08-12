@@ -172,14 +172,19 @@ module.exports = function buildJSONApi(gridsome) {
   gridsome.afterBuild(async () => {
     const allPluginsIndex = {};
     await Promise.all(
-      apiRoutes.map(async (item) => {
+      apiRoutes.map(async (pluginType) => {
         try {
           // eslint-disable-next-line no-underscore-dangle
-          const result = await gridsome._app.graphql(item.query);
+          const result = await gridsome._app.graphql(pluginType.query);
           const typeIndex = {};
           await Promise.all(
             result.data.data.edges.map(async (edge) => {
+              // Clean up plugin object, create full log_url, add docs url
               const plugin = removeEmpty(edge.node);
+              plugin.logo_url = plugin.logo_url
+                ? `${baseurl}${plugin.logo_url}`
+                : undefined;
+              plugin.docs = `${baseurl}/${pluginType.path}/${plugin.name}`;
 
               // Update plugin index
               const indexEntry = typeIndex[plugin.name] || { variants: {} };
@@ -197,7 +202,7 @@ module.exports = function buildJSONApi(gridsome) {
               return write(
                 path.join(
                   outputRoot,
-                  item.path,
+                  pluginType.path,
                   `${plugin.name}--${plugin.variant}`
                 ),
                 JSON.stringify(plugin)
@@ -206,11 +211,11 @@ module.exports = function buildJSONApi(gridsome) {
           );
 
           // Add to top level index
-          allPluginsIndex[item.path] = typeIndex;
+          allPluginsIndex[pluginType.path] = typeIndex;
 
           // Write index for this plugin type
           return write(
-            path.join(outputRoot, item.path, "index"),
+            path.join(outputRoot, pluginType.path, "index"),
             JSON.stringify(typeIndex)
           );
         } catch (e) {
