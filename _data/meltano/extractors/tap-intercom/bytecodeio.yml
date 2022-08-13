@@ -10,6 +10,7 @@ settings: []
 capabilities:
 - catalog
 - discover
+- state
 domain_url: https://developers.intercom.com/intercom-api-reference/v1.4/reference
 maintenance_status: unknown
 keywords:

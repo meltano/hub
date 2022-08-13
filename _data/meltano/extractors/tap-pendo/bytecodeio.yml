@@ -7,6 +7,7 @@ variant: bytecodeio
 capabilities:
 - catalog
 - discover
+- state
 settings: []
 settings_group_validation: []
 pip_url: git+https://github.com/bytecodeio/tap-pendo.git

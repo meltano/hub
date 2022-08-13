@@ -10,6 +10,7 @@ settings: []
 capabilities:
 - catalog
 - discover
+- state
 domain_url: https://documentation.mailgun.com/en/latest/api_reference.html
 maintenance_status: unknown
 keywords:

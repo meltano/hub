@@ -9,6 +9,7 @@ pip_url: git+https://github.com/mashey/tap-zoom.git
 capabilities:
 - catalog
 - discover
+- state
 settings_group_validation:
 - - jwt
 - - client_id
@@ -19,7 +20,8 @@ settings:
   kind: password
   label: JSON Web Token
   documentation: https://marketplace.zoom.us/docs/guides/auth/jwt
-  description: Your Zoom JSON Web Token. The JWT is likely the easiest option for tap users. Configure the JWT with a very long expiry so it does not expire.
+  description: Your Zoom JSON Web Token. The JWT is likely the easiest option for
+    tap users. Configure the JWT with a very long expiry so it does not expire.
 - name: client_id
   label: Client ID
   documentation: https://marketplace.zoom.us/docs/guides/auth/oauth
@@ -29,12 +31,16 @@ settings:
   label: Client Secret
   kind: password
   documentation: https://marketplace.zoom.us/docs/guides/auth/oauth
-  description: The Zoom Client Secret that is generated when app credentials are created. See the [Zoom OAuth App Credentials documentation](https://marketplace.zoom.us/docs/guides/build/oauth-app#app-credentials) for more information.
+  description: The Zoom Client Secret that is generated when app credentials are created.
+    See the [Zoom OAuth App Credentials documentation](https://marketplace.zoom.us/docs/guides/build/oauth-app#app-credentials)
+    for more information.
 - name: refresh_token
   label: Refresh Token
   kind: password
   documentation: https://marketplace.zoom.us/docs/guides/auth/oauth
-  description: The Zoom Refresh Token that is provided after successfully authenticating with Zoom. See the [Zoom OAuth Access Token Request documentation](https://marketplace.zoom.us/docs/guides/auth/oauth#step-2-request-access-token) for more information.
+  description: The Zoom Refresh Token that is provided after successfully authenticating
+    with Zoom. See the [Zoom OAuth Access Token Request documentation](https://marketplace.zoom.us/docs/guides/auth/oauth#step-2-request-access-token)
+    for more information.
 domain_url: https://marketplace.zoom.us/docs/api-reference/introduction
 maintenance_status: active
 keywords:
