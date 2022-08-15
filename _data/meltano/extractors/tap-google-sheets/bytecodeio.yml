@@ -9,6 +9,7 @@ repo: https://github.com/bytecodeio/tap-google-sheets
 capabilities:
 - catalog
 - discover
+- state
 settings: []
 settings_group_validation: []
 domain_url: https://developers.google.com/webmaster-tools/search-console-api-original/v3/how-tos/search_analytics

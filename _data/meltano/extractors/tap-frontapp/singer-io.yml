@@ -10,6 +10,7 @@ settings: []
 capabilities:
 - catalog
 - discover
+- state
 domain_url: https://frontapp.com/
 maintenance_status: unknown
 keywords:

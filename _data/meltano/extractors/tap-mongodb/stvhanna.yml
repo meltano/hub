@@ -9,6 +9,7 @@ repo: https://github.com/stvhanna/tap-mongodb
 capabilities:
 - catalog
 - discover
+- state
 settings_group_validation: []
 settings: []
 domain_url: https://www.mongodb.com/

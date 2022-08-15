@@ -10,6 +10,7 @@ settings: []
 capabilities:
 - catalog
 - discover
+- state
 domain_url: https://docs.adyen.com/reporting
 maintenance_status: unknown
 keywords:

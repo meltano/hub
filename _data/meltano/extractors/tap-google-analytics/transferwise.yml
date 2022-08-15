@@ -9,6 +9,7 @@ repo: https://github.com/transferwise/pipelinewise-tap-google-analytics
 capabilities:
 - catalog
 - discover
+- state
 settings_group_validation: []
 settings: []
 domain_url: https://developers.google.com/analytics/devguides/reporting/core/v4/

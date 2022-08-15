@@ -10,6 +10,7 @@ settings: []
 capabilities:
 - catalog
 - discover
+- state
 domain_url: https://clubhouse.io/
 maintenance_status: unknown
 keywords:

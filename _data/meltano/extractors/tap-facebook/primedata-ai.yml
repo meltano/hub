@@ -7,6 +7,7 @@ variant: primedata-ai
 capabilities:
 - catalog
 - discover
+- state
 settings: []
 settings_group_validation: []
 pip_url: git+https://github.com/primedata-ai/tap-facebook.git
