@@ -10,6 +10,7 @@ settings: []
 capabilities:
 - catalog
 - discover
+- state
 domain_url: https://doc.api.customerx.com.br/?version=latest
 maintenance_status: unknown
 keywords:

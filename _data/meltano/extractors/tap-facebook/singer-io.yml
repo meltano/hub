@@ -55,15 +55,6 @@ settings:
 
       First, you will need to create a Facebook App through the Developer Portal.
 
-      ::: tip Don't feel like going through the Facebook App setup process?
-
-      <p>
-        <OAuthServiceLink provider="facebook">Connect your Facebook Ads account</OAuthServiceLink> to acquire this token right away.
-      </p>
-
-      Once you authorize Meltano to access your Facebook Ads data, Facebook will generate an access token and provide it to Meltano OAuth Service. The OAuth Service will not store or use the token, and will only display it to you once so that you can copy and paste it into your local Meltano configuration.
-      :::
-
       1. Go to <https://developers.facebook.com/>.
       2. Log into Facebook if you haven't already. Make sure that your account is an Admin of the Ads Account you will be pulling data from.
       3. Convert your Facebook account to a Developer Account if you haven't done so already. This will not affect your personal Facebook profile, but will give you access to Facebook's developer tools.

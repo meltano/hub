@@ -10,6 +10,7 @@ settings: []
 capabilities:
 - catalog
 - discover
+- state
 domain_url: https://www.ceridian.com/products/dayforce
 maintenance_status: unknown
 keywords:

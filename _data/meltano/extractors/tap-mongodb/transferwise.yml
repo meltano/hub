@@ -7,8 +7,10 @@ variant: transferwise
 pip_url: pipelinewise-tap-mongodb
 repo: https://github.com/transferwise/pipelinewise-tap-mongodb
 capabilities:
+- state
 - catalog
 - discover
+- state
 settings_group_validation: []
 settings: []
 domain_url: https://www.mongodb.com/

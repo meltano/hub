@@ -9,6 +9,7 @@ repo: https://github.com/hotgluexyz/tap-woocommerce
 capabilities:
 - catalog
 - discover
+- state
 settings:
 - name: site_url
   kind: string

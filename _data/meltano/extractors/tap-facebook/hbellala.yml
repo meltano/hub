@@ -9,6 +9,7 @@ repo: https://github.com/hbellala/tap-facebook
 capabilities:
 - properties
 - discover
+- state
 settings_group_validation: []
 settings: []
 domain_url: https://developers.facebook.com/docs/marketing-apis

@@ -10,6 +10,7 @@ settings: []
 capabilities:
 - catalog
 - discover
+- state
 domain_url: https://wonolo.readme.io/docs/getting-started
 maintenance_status: unknown
 keywords:

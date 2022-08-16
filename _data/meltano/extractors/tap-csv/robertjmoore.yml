@@ -9,6 +9,7 @@ repo: https://github.com/robertjmoore/tap-csv
 capabilities:
 - discover
 - catalog
+- state
 settings_group_validation: []
 settings: []
 domain_url: https://en.wikipedia.org/wiki/Comma-separated_values

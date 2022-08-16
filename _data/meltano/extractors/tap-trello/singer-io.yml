@@ -32,6 +32,7 @@ settings:
 capabilities:
 - catalog
 - discover
+- state
 settings_group_validation:
 - - start_date
   - consumer_key

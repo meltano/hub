@@ -7,6 +7,7 @@ variant: jeffhuth-bytecode
 capabilities:
 - catalog
 - discover
+- state
 settings: []
 settings_group_validation: []
 pip_url: git+https://github.com/jeffhuth-bytecode/tap-pendo.git

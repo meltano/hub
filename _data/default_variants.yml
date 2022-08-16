@@ -77,7 +77,6 @@ extractors:
   tap-brightpearl: zookal
   tap-bronto: fishtown-analytics
   tap-bynder: radico
-  tap-call-cap: llazarovgannett
   tap-campaign-monitor: singer-io
   tap-carbon-intensity: meltano
   tap-centra: icebug
@@ -103,6 +102,7 @@ extractors:
   tap-currencyfreaks: spacecowboy
   tap-customerx: rafaeljusi
   tap-daisycon: horze-international
+  tap-dash-hudson: gthesheep
   tap-dayforce: goodeggs
   tap-db2: singer-io
   tap-dbt-artifacts: prratek
@@ -176,6 +176,7 @@ extractors:
   tap-kustomer: singer-io
   tap-kwanko: uptilab2
   tap-lever: fishtown-analytics
+  tap-lightdash: gthesheep
   tap-linkedin-ads: singer-io
   tap-listen360: radico
   tap-listrak: fishtown-analytics
