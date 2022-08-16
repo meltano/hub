@@ -20,8 +20,8 @@ settings_group_validation:
   - database
 settings:
 - name: password
-  kind: password
   label: Password
+  kind: password
   description: The MongoDB password.
 - name: user
   label: User
@@ -36,12 +36,12 @@ settings:
   label: Database Name
   description: Database name to sync from.
 - name: srv
-  label: Replica Set
+  label: SRV
   kind: boolean
   description: Uses a mongodb+srv protocol to connect. Disables the usage of port argument if set to True
 - name: port
-  kind: integer
   label: Port
+  kind: integer
   description: Connection port. Required if a non-srv connection is being used.
 - name: replica_set
   label: Replica Set
@@ -49,19 +49,16 @@ settings:
 - name: ssl
   label: SSL
   kind: boolean
-  value: false
   description: Can be set to true to connect using ssl.
 - name: verify_mode
   label: Verify Mode
   kind: boolean
-  value: true
   description: Default SSL verify mode.
 - name: include_schemas_in_destination_stream_name
+  label: Include Schemas In Destination Stream Name
   kind: boolean
-  value: false
   description: Forces the stream names to take the form `<database_name>_<collection_name>`
     instead of `<collection_name>`
-  label: Include Schemas In Destination Stream Name
 - name: update_buffer_size
   label: Update Buffer Size
   kind: integer
