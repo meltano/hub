@@ -16,12 +16,24 @@
           class="result-item"
         >
           <g-link :to="plugin.node.path">
-            <h1>
-              {{ plugin.node.label }}
-            </h1>
+            <div class="result-left">
+              <g-image
+                v-if="plugin.node.logo_url"
+                class="result-logo"
+                :src="
+                  require(`!!assets-loader?width=75!@logos/${plugin.node.logo_url.replace(
+                    '/assets/logos/',
+                    ''
+                  )}`)
+                "
+              />
+              <h1>
+                {{ plugin.node.label }}
+              </h1>
+              <span>{{ plugin.node.description || "No description" }}</span>
+            </div>
 
-            <span>{{ plugin.node.description || "No description" }}</span>
-            <span class="plugin-type">{{ plugin.node.pluginType }}</span>
+            <span class="result-right plugin-type">{{ plugin.node.pluginType }}</span>
           </g-link>
         </article>
       </div>
@@ -189,10 +201,8 @@ query {
 
       a {
         text-decoration: none;
-      }
-
-      .plugin-type {
-        float: right;
+        display: flex;
+        justify-content: space-between;
       }
     }
   }

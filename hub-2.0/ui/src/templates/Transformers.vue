@@ -9,6 +9,15 @@
           </h4>
         </div>
         <div class="single-plugin-main">
+          <g-image
+            v-if="$page.transformers.logo_url"
+            :src="
+              require(`!!assets-loader?width=250!@logos/${$page.transformers.logo_url.replace(
+                '/assets/logos/',
+                ''
+              )}`)
+            "
+          />
           <h1>
             {{ $page.transformers.name }} //
             <span>{{ $page.transformers.variant }}</span>
