@@ -9,6 +9,15 @@
           </h4>
         </div>
         <div class="single-plugin-main">
+          <g-image
+            v-if="$page.orchestrators.logo_url"
+            :src="
+              require(`!!assets-loader?width=250!@logos/${$page.orchestrators.logo_url.replace(
+                '/assets/logos/',
+                ''
+              )}`)
+            "
+          />
           <h1>
             {{ $page.orchestrators.name }} //
             <span>{{ $page.orchestrators.variant }}</span>

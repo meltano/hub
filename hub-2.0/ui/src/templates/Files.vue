@@ -8,6 +8,15 @@
           </h4>
         </div>
         <div class="single-plugin-main">
+          <g-image
+            v-if="$page.files.logo_url"
+            :src="
+              require(`!!assets-loader?width=250!@logos/${$page.files.logo_url.replace(
+                '/assets/logos/',
+                ''
+              )}`)
+            "
+          />
           <h1>
             {{ $page.files.name }} //
             <span>{{ $page.files.variant }}</span>

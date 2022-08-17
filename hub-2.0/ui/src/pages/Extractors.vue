@@ -16,7 +16,15 @@
         >
           <g-link :to="edge.node.path">
             <h2>{{ edge.node.label }}</h2>
-            <!-- <g-image :src="require(`!!assets-loader!@logos/${edge.node.logo_url}`)"/> -->
+            <g-image
+              v-if="edge.node.logo_url"
+              :src="
+                require(`!!assets-loader?width=175!@logos/${edge.node.logo_url.replace(
+                  '/assets/logos/',
+                  ''
+                )}`)
+              "
+            />
             <p>Variant: {{ edge.node.variant }}</p>
             <p>Mainenance Status: {{ edge.node.maintenance_status }}</p>
             <p>Description: {{ edge.node.description }}</p>

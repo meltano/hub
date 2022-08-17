@@ -9,6 +9,15 @@
           </h4>
         </div>
         <div class="single-plugin-main">
+          <g-image
+            v-if="$page.loaders.logo_url"
+            :src="
+              require(`!!assets-loader?width=250!@logos/${$page.loaders.logo_url.replace(
+                '/assets/logos/',
+                ''
+              )}`)
+            "
+          />
           <h1>
             {{ $page.loaders.name }} //
             <span>{{ $page.loaders.variant }}</span>
