@@ -27,8 +27,8 @@
             The {{ $page.extractors.name }}
             <a href="https://docs.meltano.com/concepts/plugins#extractors">Meltano extractor</a>
             pulls data from
-            <a :href="$page.extractors.domain_url">{{ $page.extractors.label }}</a> that can then be sent to a
-            destination using a <g-link to="/loaders">loader</g-link>.
+            <a :href="$page.extractors.domain_url">{{ $page.extractors.label }}</a> that can then be
+            sent to a destination using a <g-link to="/loaders">loader</g-link>.
           </p>
           <p class="add-more-info">variant info here</p>
           <h2>Getting Started</h2>
@@ -111,9 +111,8 @@
           <div>
             If you're having trouble getting the
             {{ $page.extractors.name }} extractor to work, look for an
-            <a :href="$page.extractors.repo + '/issues'"
-              >existing issue in its repository</a
-            >, file a <a :href="$page.extractors.repo + '/issues/new'">new issue</a>, or
+            <a :href="$page.extractors.repo + '/issues'">existing issue in its repository</a>, file
+            a <a :href="$page.extractors.repo + '/issues/new'">new issue</a>, or
             <a href="https://meltano.com/slack">join the Meltano Slack community</a>
             and ask for help in the
             <pre class="inline-code-block"><code>#plugins-general channel</code></pre>
@@ -123,7 +122,13 @@
           <p>
             This page is generated from a YAML file that you can contribute changes to.
             <a
-              :href="'https://github.com/meltano/hub/blob/main/_data/meltano/extractors/' + $page.extractors.name + '/' + $page.extractors.variant + '.yml'"
+              :href="
+                'https://github.com/meltano/hub/blob/main/_data/meltano/extractors/' +
+                $page.extractors.name +
+                '/' +
+                $page.extractors.variant +
+                '.yml'
+              "
               >Edit it on GitHub!</a
             >
           </p>
