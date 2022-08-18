@@ -27,7 +27,7 @@
             The {{ $page.extractors.name }}
             <a href="https://docs.meltano.com/concepts/plugins#extractors">Meltano extractor</a>
             pulls data from
-            <a :href="$page.extractors.domain_url">{{ $page.extractors.namespace }}</a> that can then be sent to a
+            <a :href="$page.extractors.domain_url">{{ $page.extractors.label }}</a> that can then be sent to a
             destination using a <g-link to="/loaders">loader</g-link>.
           </p>
           <p class="add-more-info">variant info here</p>
