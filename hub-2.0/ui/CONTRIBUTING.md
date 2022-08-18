@@ -17,10 +17,10 @@ gridsome build
 gridsome server
 ```
 
-Or build for development:
+Or build for development and get live updates as files are changed:
 
 ```console
-gridsome build
+gridsome develop
 ```
 
 ## Note:
