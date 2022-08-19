@@ -83,7 +83,8 @@
     <h4>Meltano Stats</h4>
 
     <h4>Keywords</h4>
-    <p v-for="(keyword, index) in keywords" v-bind:key="index">{{ keyword }}</p>
+    <p>{{ keywords.join(', ') }}</p>
+
   </div>
 </template>
 
