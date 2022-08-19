@@ -83,8 +83,7 @@
     <h4>Meltano Stats</h4>
 
     <h4>Keywords</h4>
-    <p>{{ (keywords ?? []).join(', ') }}</p>
-
+    <p>{{ (keywords ?? []).join(", ") }}</p>
   </div>
 </template>
 
