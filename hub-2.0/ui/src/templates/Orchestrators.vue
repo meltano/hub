@@ -30,7 +30,18 @@
             >
             allows for workflows to be programmatically authored, scheduled, and monitored.
           </p>
-          <p class="add-more-info">variant info here</p>
+          <h3>Available Variants</h3>
+          <ul>
+            <li v-for="(variant, index) in $page.variants.edges" v-bind:key="index">
+              <g-link
+                :to="variant.node.path"
+                v-if="variant.node.path !== $page.orchestrators.path"
+                >{{ variant.node.variant }}</g-link
+              >
+              <span v-else>{{ variant.node.variant }}</span>
+              <span v-if="variant.node.isDefault"> (default)</span>
+            </li>
+          </ul>
           <h2>Getting Started</h2>
           <h3>Prerequisites</h3>
           <p>
@@ -147,7 +158,7 @@ export default {
 </script>
 
 <page-query lang="graphql">
-query Orchestrators($path: String!) {
+query Orchestrators($path: String!, $name: String!) {
   orchestrators: orchestrators(path: $path) {
     id
     path
@@ -181,6 +192,16 @@ query Orchestrators($path: String!) {
     }
     logo_url
     settings_preamble
+  }
+  variants: allOrchestrators(filter: { name: { eq: $name } }) {
+    edges {
+      node {
+        name
+        variant
+        path
+        isDefault
+      }
+    }
   }
 }
 </page-query>

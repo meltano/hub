@@ -30,7 +30,16 @@
             <a href="https://docs.github.com/en/rest">GitHub</a> that can then be sent to a
             destination using a <g-link to="/loaders">loader</g-link>.
           </p>
-          <p class="add-more-info">variant info here</p>
+          <h3>Available Variants</h3>
+          <ul>
+            <li v-for="(variant, index) in $page.variants.edges" v-bind:key="index">
+              <g-link :to="variant.node.path" v-if="variant.node.path !== $page.extractors.path">{{
+                variant.node.variant
+              }}</g-link>
+              <span v-else>{{ variant.node.variant }}</span>
+              <span v-if="variant.node.isDefault"> (default)</span>
+            </li>
+          </ul>
           <h2>Getting Started</h2>
           <h3>Prerequisites</h3>
           <p>
@@ -166,7 +175,7 @@ export default {
 </script>
 
 <page-query lang="graphql">
-query Extractors($path: String!) {
+query Extractors($path: String!, $name: String!) {
   extractors: extractors(path: $path) {
     id
     description
@@ -191,6 +200,16 @@ query Extractors($path: String!) {
     }
     prereq
     usage
+  }
+  variants: allExtractors(filter: { name: { eq: $name } }) {
+    edges {
+      node {
+        name
+        variant
+        path
+        isDefault
+      }
+    }
   }
 }
 </page-query>
