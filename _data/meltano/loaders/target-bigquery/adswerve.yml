@@ -48,15 +48,24 @@ settings:
   value: false
   label: Add Metadata Columns
 - name: replication_method
-  description: Replication method, `append` or `truncate`
   kind: options
   options:
   - label: Append
     value: append
   - label: Truncate
     value: truncate
+  - label: Incremental
+    value: incremental
   value: append
   label: Replication Method
+  description: |
+    The Replication method can be:
+
+    `append`: Adding new rows to the table (Default value)
+    `truncate`: Deleting all previous rows and uploading the new ones to the table
+    `incremental`: Upserting new rows into the table, using the primary key given by the tap connector (if it finds an old row with same key, updates it. Otherwise it inserts the new row)
+
+    WARNING: It is not recommended to use the `incremental` option (which uses MERGE SQL statement). It might result in loss of production data, because historical records get updated. Instead, we recommend using the `append` replication method, which will preserve historical data.
 - name: table_prefix
   description: Add prefix to table name
   label: Table Prefix
