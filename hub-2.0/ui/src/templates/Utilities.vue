@@ -28,7 +28,16 @@
             <a href="https://docs.meltano.com/concepts/plugins#utilities">utility</a>
             is {{ $page.utilities.definition }}
           </p>
-          <p class="add-more-info">variant info here</p>
+          <h3>Available Variants</h3>
+          <ul>
+            <li v-for="(variant, index) in $page.variants.edges" v-bind:key="index">
+              <g-link :to="variant.node.path" v-if="variant.node.path !== $page.utilities.path">{{
+                variant.node.variant
+              }}</g-link>
+              <span v-else>{{ variant.node.variant }}</span>
+              <span v-if="variant.node.isDefault"> (default)</span>
+            </li>
+          </ul>
           <h2>Getting Started</h2>
           <h3>Prerequisites</h3>
           <p>
@@ -165,7 +174,7 @@ export default {
 </script>
 
 <page-query lang="graphql">
-query Utilities($path: String!) {
+query Utilities($path: String!, $name: String!) {
   utilities: utilities(path: $path) {
     id
     name
@@ -225,6 +234,16 @@ query Utilities($path: String!) {
     }
     prereq
     usage
+  }
+  variants: allUtilities(filter: { name: { eq: $name } }) {
+    edges {
+      node {
+        name
+        variant
+        path
+        isDefault
+      }
+    }
   }
 }
 </page-query>

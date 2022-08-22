@@ -172,6 +172,7 @@ module.exports = function main(api) {
           context: {
             id: node.id,
             path: node.path,
+            name: node.name,
           },
         });
       });
