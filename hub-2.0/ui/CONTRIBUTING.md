@@ -6,8 +6,8 @@ _This page is about contributing to the Hub website. For information about contr
 
 ```console
 cd hub-2.0/ui
-npm install
-npm install --global @gridsome/cli
+yarn
+yarn add --global @gridsome/cli
 ```
 
 ## Build and serve the project
