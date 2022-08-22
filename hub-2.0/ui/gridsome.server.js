@@ -8,6 +8,7 @@
 const fs = require("fs");
 const yaml = require("js-yaml");
 const path = require("path");
+const buildJSONApi = require("./src/api/plugins");
 
 const dataRoot = "../../_data/";
 
@@ -69,6 +70,12 @@ module.exports = function main(api) {
     const transformersCollection = actions.addCollection({
       typeName: "Transformers",
     });
+    const transformsCollection = actions.addCollection({
+      typeName: "Transforms",
+    });
+    const mappersCollection = actions.addCollection({
+      typeName: "Mappers",
+    });
     const utilitiesCollection = actions.addCollection({
       typeName: "Utilities",
     });
@@ -87,6 +94,8 @@ module.exports = function main(api) {
       path.join(dataRoot, "meltano/transformers"),
       transformersCollection
     );
+    buildData(path.join(dataRoot, "meltano/transforms"), transformsCollection);
+    buildData(path.join(dataRoot, "meltano/mappers"), mappersCollection);
     buildData(path.join(dataRoot, "meltano/utilities"), utilitiesCollection);
     buildMaintainers(readMaintainers, maintainersCollection);
   });
@@ -168,4 +177,7 @@ module.exports = function main(api) {
       });
     });
   });
+
+  // Build JSON files to serve the static Meltano API
+  buildJSONApi(api);
 };
