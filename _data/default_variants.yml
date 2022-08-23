@@ -53,6 +53,7 @@ extractors:
   tap-amazon-mws: fishtown-analytics
   tap-anaplan: matthew-skinner
   tap-apparel-magic: jamespotz
+  tap-appfigures: singer-io
   tap-appsflyer: singer-io
   tap-appstore: miroapp
   tap-asana: singer-io
@@ -214,6 +215,7 @@ extractors:
   tap-orbit: fishtown-analytics
   tap-ordway: singer-io
   tap-outbrain: fishtown-analytics
+  tap-outreach: singer-io
   tap-pagerduty: goodeggs
   tap-pardot: singer-io
   tap-parquet: dataops-tk
