@@ -3,25 +3,34 @@
     <div class="single-plugin-overview">
       <div class="single-plugin-detail">
         <div class="single-plugin-top-bar">
-          <h4>
-            {{ $page.extractors.label }} -
-            <span>{{ $page.extractors.description }}</span>
-          </h4>
+          <table>
+            <tr>
+              <td style="padding: 25px">
+                <g-image
+                  v-if="$page.extractors.logo_url"
+                  :src="
+                    require(`!!assets-loader?width=250&height=200&fit=inside!@logos/${$page.extractors.logo_url.replace(
+                      '/assets/logos/',
+                      ''
+                    )}`)
+                  "
+                />
+              </td>
+              <td>
+                <h1>
+                  {{ $page.extractors.label }}
+                </h1>
+                <h2>
+                  <code>{{ $page.extractors.name }} from {{ $page.extractors.variant }}</code>
+                </h2>
+                <p>
+                  <b>{{ $page.extractors.description }}</b>
+                </p>
+              </td>
+            </tr>
+          </table>
         </div>
         <div class="single-plugin-main">
-          <g-image
-            v-if="$page.extractors.logo_url"
-            :src="
-              require(`!!assets-loader?width=250!@logos/${$page.extractors.logo_url.replace(
-                '/assets/logos/',
-                ''
-              )}`)
-            "
-          />
-          <h1>
-            {{ $page.extractors.name }} //
-            <span>{{ $page.extractors.variant }}</span>
-          </h1>
           <p>{{ $page.extractors.usage }}</p>
           <p>
             The {{ $page.extractors.name }}
@@ -30,7 +39,7 @@
             <a :href="$page.extractors.domain_url">{{ $page.extractors.label }}</a> that can then be
             sent to a destination using a <g-link to="/loaders">loader</g-link>.
           </p>
-          <h3>Available Variants</h3>
+          <h3>Other Available Variants</h3>
           <ul>
             <li v-for="(variant, index) in $page.variants.edges" v-bind:key="index">
               <g-link :to="variant.node.path" v-if="variant.node.path !== $page.extractors.path">{{
