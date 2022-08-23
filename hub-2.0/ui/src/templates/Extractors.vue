@@ -39,14 +39,16 @@
             <a :href="$page.extractors.domain_url">{{ $page.extractors.label }}</a> that can then be
             sent to a destination using a <g-link to="/loaders">loader</g-link>.
           </p>
-          <h3>Other Available Variants</h3>
+          <h3>Other {{ $page.extractors.label }} Extractors on the Hub</h3>
           <ul>
             <li v-for="(variant, index) in $page.variants.edges" v-bind:key="index">
               <g-link :to="variant.node.path" v-if="variant.node.path !== $page.extractors.path">{{
                 variant.node.variant
               }}</g-link>
               <span v-else>{{ variant.node.variant }}</span>
-              <span v-if="variant.node.isDefault"> (default)</span>
+              <span> ({{ variant.node.maintenance_status }} status</span>
+              <span v-if="variant.node.isDefault">, default</span>
+              <span>)</span>
             </li>
           </ul>
           <h2>Getting Started</h2>
@@ -182,6 +184,8 @@ export default {
 query Extractors($path: String!, $name: String!) {
   extractors: extractors(path: $path) {
     id
+    isDefault
+    maintenance_status
     description
     path
     label
@@ -191,10 +195,11 @@ query Extractors($path: String!, $name: String!) {
     variant
     pip_url
     repo
-    maintenance_status
     keywords
     domain_url
     capabilities
+    prereq
+    usage
     settings {
       name
       label
@@ -202,8 +207,6 @@ query Extractors($path: String!, $name: String!) {
       kind
       placeholder
     }
-    prereq
-    usage
   }
   variants: allExtractors(filter: { name: { eq: $name } }) {
     edges {
@@ -212,6 +215,7 @@ query Extractors($path: String!, $name: String!) {
         variant
         path
         isDefault
+        maintenance_status
       }
     }
   }
