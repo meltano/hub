@@ -49,7 +49,7 @@ export default {
   name: "SearchBar",
   data() {
     return {
-      search: "",
+      search: ""
     };
   },
   computed: {
@@ -60,7 +60,7 @@ export default {
         this.$static.allFiles,
         this.$static.allOrchestrators,
         this.$static.allUtilities,
-        this.$static.allTransformers,
+        this.$static.allTransformers
       ];
       return pluginCollections.flatMap((coll) =>
         coll.edges.filter((plugin) => {
@@ -68,7 +68,7 @@ export default {
             plugin.node.name,
             plugin.node.description,
             plugin.node.label,
-            plugin.node.keywords?.join(" "),
+            plugin.node.keywords?.join(" ")
           ];
           return pluginTextFields
             .join(" ")
@@ -76,8 +76,8 @@ export default {
             .includes(this.search.toLowerCase().trim());
         })
       );
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -173,16 +173,12 @@ query {
   justify-content: center;
 
   .search-bar {
-    border: 2px solid red;
+    border: 2px solid #3438bf;
     width: 90%;
     border-radius: 0;
     font-size: 20px;
     background: #f1f1f2;
     padding-left: 20px;
-    &:focus-visible {
-      outline: 3px solid #3438bf;
-      border: 0;
-    }
   }
 
   .results {
