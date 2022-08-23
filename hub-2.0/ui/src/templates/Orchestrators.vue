@@ -162,11 +162,11 @@ import PluginSidebar from "../components/PluginSidebar.vue";
 export default {
   metaInfo() {
     return {
-      title: this.$page.orchestrators.name
+      title: this.$page.orchestrators.name,
     };
   },
   name: "OrchestratorsTemplate",
-  components: { PluginSidebar }
+  components: { PluginSidebar },
 };
 </script>
 

@@ -183,11 +183,11 @@ import PluginSidebar from "../components/PluginSidebar.vue";
 export default {
   metaInfo() {
     return {
-      title: this.$page.transformers.name
+      title: this.$page.transformers.name,
     };
   },
   name: "TransformersTemplate",
-  components: { PluginSidebar }
+  components: { PluginSidebar },
 };
 </script>
 
