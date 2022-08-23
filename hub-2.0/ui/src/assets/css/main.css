@@ -129,13 +129,14 @@ footer {
 }
 
 .single-plugin-overview pre code {
-  background: #3439bf28;
-  padding: 4px;
+  background: #e5e7eb;
+  padding: 2px 4px;
+  font-family: "IBM Plex Mono";
 }
 
 .single-plugin-detail {
   background: #ffffff;
-  color: #3438bf;
+  color: #29292f;
   display: flex;
   flex-wrap: wrap;
   word-wrap: break-word;
@@ -146,7 +147,7 @@ footer {
 .single-plugin-detail .single-plugin-top-bar {
   width: 100%;
   border-bottom: 2px solid #62626e;
-  background: #ffffff;
+  background: #fff;
   text-align: left;
   padding-left: 10px;
 }
