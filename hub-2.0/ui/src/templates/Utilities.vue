@@ -3,21 +3,34 @@
     <div class="single-plugin-overview">
       <div class="single-plugin-detail">
         <div class="single-plugin-top-bar">
-          <h4>
-            {{ $page.utilities.label }} -
-            <span>{{ $page.utilities.description }}</span>
-          </h4>
+          <table>
+            <tr>
+              <td style="padding: 25px">
+                <g-image
+                  v-if="$page.utilities.logo_url"
+                  :src="
+                    require(`!!assets-loader?width=250&height=200&fit=inside!@logos/${$page.utilities.logo_url.replace(
+                      '/assets/logos/',
+                      ''
+                    )}`)
+                  "
+                />
+              </td>
+              <td>
+                <h1>
+                  {{ $page.utilities.label }}
+                </h1>
+                <h2>
+                  <code>{{ $page.utilities.name }} from {{ $page.utilities.variant }}</code>
+                </h2>
+                <p>
+                  <b>{{ $page.utilities.description }}</b>
+                </p>
+              </td>
+            </tr>
+          </table>
         </div>
         <div class="single-plugin-main">
-          <g-image
-            v-if="$page.utilities.logo_url"
-            :src="
-              require(`!!assets-loader?width=250!@logos/${$page.utilities.logo_url.replace(
-                '/assets/logos/',
-                ''
-              )}`)
-            "
-          />
           <h1>
             {{ $page.utilities.name }} //
             <span>{{ $page.utilities.variant }}</span>
@@ -28,7 +41,7 @@
             <a href="https://docs.meltano.com/concepts/plugins#utilities">utility</a>
             is {{ $page.utilities.definition }}
           </p>
-          <h3>Available Variants</h3>
+          <h3>Other Available Variants</h3>
           <ul>
             <li v-for="(variant, index) in $page.variants.edges" v-bind:key="index">
               <g-link :to="variant.node.path" v-if="variant.node.path !== $page.utilities.path">{{

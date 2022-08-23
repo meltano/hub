@@ -173,16 +173,12 @@ query {
   justify-content: center;
 
   .search-bar {
-    border: 2px solid red;
+    border: 2px solid #3438bf;
     width: 90%;
     border-radius: 0;
     font-size: 20px;
     background: #f1f1f2;
     padding-left: 20px;
-    &:focus-visible {
-      outline: 3px solid #3438bf;
-      border: 0;
-    }
   }
 
   .results {

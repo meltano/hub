@@ -3,21 +3,34 @@
     <div class="single-plugin-overview">
       <div class="single-plugin-detail">
         <div class="single-plugin-top-bar">
-          <h4>
-            {{ $page.loaders.label }} -
-            <span>{{ $page.loaders.description }}</span>
-          </h4>
+          <table>
+            <tr>
+              <td style="padding: 25px">
+                <g-image
+                  v-if="$page.loaders.logo_url"
+                  :src="
+                    require(`!!assets-loader?width=250&height=200&fit=inside!@logos/${$page.loaders.logo_url.replace(
+                      '/assets/logos/',
+                      ''
+                    )}`)
+                  "
+                />
+              </td>
+              <td>
+                <h1>
+                  {{ $page.loaders.label }}
+                </h1>
+                <h2>
+                  <code>{{ $page.loaders.name }} from {{ $page.loaders.variant }}</code>
+                </h2>
+                <p>
+                  <b>{{ $page.loaders.description }}</b>
+                </p>
+              </td>
+            </tr>
+          </table>
         </div>
         <div class="single-plugin-main">
-          <g-image
-            v-if="$page.loaders.logo_url"
-            :src="
-              require(`!!assets-loader?width=250!@logos/${$page.loaders.logo_url.replace(
-                '/assets/logos/',
-                ''
-              )}`)
-            "
-          />
           <h1>
             {{ $page.loaders.name }} //
             <span>{{ $page.loaders.variant }}</span>
@@ -32,7 +45,7 @@
             after it was pulled from a source using an
             <g-link to="/extractors">extractor</g-link>.
           </p>
-          <h3>Available Variants</h3>
+          <h3>Other Available Variants</h3>
           <ul>
             <li v-for="(variant, index) in $page.variants.edges" v-bind:key="index">
               <g-link :to="variant.node.path" v-if="variant.node.path !== $page.loaders.path">{{

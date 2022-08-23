@@ -3,20 +3,34 @@
     <div class="single-plugin-overview">
       <div class="single-plugin-detail">
         <div class="single-plugin-top-bar">
-          <h4>
-            {{ $page.files.label }} - <span>{{ $page.files.description }}</span>
-          </h4>
+          <table>
+            <tr>
+              <td style="padding: 25px">
+                <g-image
+                  v-if="$page.files.logo_url"
+                  :src="
+                    require(`!!assets-loader?width=250&height=200&fit=inside!@logos/${$page.files.logo_url.replace(
+                      '/assets/logos/',
+                      ''
+                    )}`)
+                  "
+                />
+              </td>
+              <td>
+                <h1>
+                  {{ $page.files.label }}
+                </h1>
+                <h2>
+                  <code>{{ $page.files.name }} from {{ $page.files.variant }}</code>
+                </h2>
+                <p>
+                  <b>{{ $page.files.description }}</b>
+                </p>
+              </td>
+            </tr>
+          </table>
         </div>
         <div class="single-plugin-main">
-          <g-image
-            v-if="$page.files.logo_url"
-            :src="
-              require(`!!assets-loader?width=250!@logos/${$page.files.logo_url.replace(
-                '/assets/logos/',
-                ''
-              )}`)
-            "
-          />
           <h1>
             {{ $page.files.name }} //
             <span>{{ $page.files.variant }}</span>
@@ -27,7 +41,7 @@
             <a href="https://docs.meltano.com/concepts/plugins#file-bundles">file bundle</a>
             {{ $page.files.definition }}
           </p>
-          <h3>Available Variants</h3>
+          <h3>Other Available Variants</h3>
           <ul>
             <li v-for="(variant, index) in $page.variants.edges" v-bind:key="index">
               <g-link :to="variant.node.path" v-if="variant.node.path !== $page.files.path">{{

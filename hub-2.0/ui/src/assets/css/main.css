@@ -26,6 +26,7 @@ footer {
 
 .inline-code-block {
   display: inline;
+  padding: 3px;
 }
 
 /* BUTTONS AND LINKS */
@@ -63,7 +64,7 @@ footer {
 .plugins-list {
   width: 100%;
   height: auto;
-  background: #e8f0ff;
+  background: #ffffff;
   display: flex;
   flex-wrap: wrap;
   margin-top: 40px;
@@ -77,8 +78,7 @@ footer {
   display: flex;
   flex-direction: column;
   list-style-type: none;
-  padding: 0;
-  margin: 0;
+  margin: 20px auto;
   flex-basis: 50%;
 }
 
@@ -88,7 +88,8 @@ footer {
 }
 
 .plugins-list .page-single-plugin a:hover {
-  background: #b0e3c1;
+  border: 1px solid #62626e;
+  border-radius: 40px;
 }
 
 .plugins-list .pager-container {
@@ -128,14 +129,14 @@ footer {
 }
 
 .single-plugin-overview pre code {
-  background: #b0e3c1;
-  padding: 12px;
-  border: 1px solid #62626e;
+  background: #e5e7eb;
+  padding: 2px 4px;
+  font-family: "IBM Plex Mono";
 }
 
 .single-plugin-detail {
-  background: #e8f0ff;
-  color: #3438bf;
+  background: #ffffff;
+  color: #29292f;
   display: flex;
   flex-wrap: wrap;
   word-wrap: break-word;
@@ -146,7 +147,7 @@ footer {
 .single-plugin-detail .single-plugin-top-bar {
   width: 100%;
   border-bottom: 2px solid #62626e;
-  background: #fbbf52;
+  background: #fff;
   text-align: left;
   padding-left: 10px;
 }

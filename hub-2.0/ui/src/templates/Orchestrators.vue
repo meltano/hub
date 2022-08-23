@@ -3,21 +3,34 @@
     <div class="single-plugin-overview">
       <div class="single-plugin-detail">
         <div class="single-plugin-top-bar">
-          <h4>
-            {{ $page.orchestrators.label }} -
-            <span>{{ $page.orchestrators.description }}</span>
-          </h4>
+          <table>
+            <tr>
+              <td style="padding: 25px">
+                <g-image
+                  v-if="$page.orchestrators.logo_url"
+                  :src="
+                    require(`!!assets-loader?width=250&height=200&fit=inside!@logos/${$page.orchestrators.logo_url.replace(
+                      '/assets/logos/',
+                      ''
+                    )}`)
+                  "
+                />
+              </td>
+              <td>
+                <h1>
+                  {{ $page.orchestrators.label }}
+                </h1>
+                <h2>
+                  <code>{{ $page.orchestrators.name }} from {{ $page.orchestrators.variant }}</code>
+                </h2>
+                <p>
+                  <b>{{ $page.orchestrators.description }}</b>
+                </p>
+              </td>
+            </tr>
+          </table>
         </div>
         <div class="single-plugin-main">
-          <g-image
-            v-if="$page.orchestrators.logo_url"
-            :src="
-              require(`!!assets-loader?width=250!@logos/${$page.orchestrators.logo_url.replace(
-                '/assets/logos/',
-                ''
-              )}`)
-            "
-          />
           <h1>
             {{ $page.orchestrators.name }} //
             <span>{{ $page.orchestrators.variant }}</span>
@@ -30,7 +43,7 @@
             >
             allows for workflows to be programmatically authored, scheduled, and monitored.
           </p>
-          <h3>Available Variants</h3>
+          <h3>Other Available Variants</h3>
           <ul>
             <li v-for="(variant, index) in $page.variants.edges" v-bind:key="index">
               <g-link

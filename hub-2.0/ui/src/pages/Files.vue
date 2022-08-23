@@ -14,15 +14,20 @@
             <g-image
               v-if="edge.node.logo_url"
               :src="
-                require(`!!assets-loader?width=175!@logos/${edge.node.logo_url.replace(
+                require(`!!assets-loader?width=175&height=80&fit=inside!@logos/${edge.node.logo_url.replace(
                   '/assets/logos/',
                   ''
                 )}`)
               "
             />
-            <p>{{ edge.node.variant }}</p>
-            <p>{{ edge.node.maintenance_status }}</p>
-            <p>{{ edge.node.description }}</p>
+            <h2>{{ edge.node.label }}</h2>
+            <h2>
+              <code>{{ edge.node.name }}</code
+              ><br /><code>from {{ edge.node.variant }}</code>
+            </h2>
+            <p>
+              <i>{{ edge.node.maintenance_status }} status</i>
+            </p>
           </g-link>
         </li>
         <Pager
@@ -48,7 +53,7 @@ export default {
 
 <page-query lang="graphql">
 query ($page: Int) {
-  allFiles(perPage: 12, page: $page, sortBy: "label", order: ASC) @paginate {
+  allFiles(perPage: 100, page: $page, sortBy: "label", order: ASC) @paginate {
     pageInfo {
       totalPages
       currentPage
