@@ -31,11 +31,6 @@
           </table>
         </div>
         <div class="single-plugin-main">
-          <h1>
-            {{ $page.transformers.name }} //
-            <span>{{ $page.transformers.variant }}</span>
-          </h1>
-          <p>{{ $page.transformers.usage }}</p>
           <p>
             The {{ $page.transformers.name }}
             <a href="https://docs.meltano.com/concepts/plugins#transformer">transformer</a>
@@ -71,7 +66,6 @@
               >
             </li>
           </ol>
-          <p>{{ $page.transformers.prereq }}</p>
           <h3>Installation and configuration</h3>
           <ol>
             <li>
@@ -102,12 +96,7 @@
             </li>
           </ol>
           <p>If you run into any issues, learn how to get help.</p>
-          <!-- <h2>Capabilities</h2>
-          <p>The current capabilities for <pre class="inline-code-block"><code>{{ $page.transformers.name }}</code></pre> may have been automatically set when originally added to the Hub. Please review the capabilities when using this extractor. If you find they are out of date, please consider updating them by making a pull request to the YAML file that defines the capabilities for this extractor.</p>
-          <p>This plugin has the following capabilities:</p>
-          <ul>
-            <li v-for="(capability, index) in $page.transformers.capabilities" v-bind:key="index">{{capability}}</li>
-          </ul> -->
+
           <h2>Settings</h2>
           <p>
             Settings for {{ $page.transformers.name }} itself can be configured through
@@ -127,9 +116,9 @@
             </li>
           </ul>
           <p>
-            The settings for extractor tap-github that are known to Meltano are documented below. To
-            quickly find the setting you're looking for, use the Table of Contents at the top of the
-            page.
+            The settings for {{ $page.transformers.name }} that are known to Meltano are documented
+            below. To quickly find the setting you're looking for, use the Table of Contents at the
+            top of the page.
           </p>
           <h2>Commands</h2>
           <ol>
@@ -138,11 +127,6 @@
               <span>{{ command.description }}</span>
             </li>
           </ol>
-          <p class="add-more-info">Account ID</p>
-          <p class="add-more-info">Personal Access Token</p>
-          <p class="add-more-info">Start Date</p>
-          <p class="add-more-info">End Date</p>
-          <p class="add-more-info">Anything else</p>
           <h2>Looking for help?</h2>
           <div>
             If you're having trouble getting the
@@ -171,6 +155,7 @@
           :maintenance_status="$page.transformers.maintenance_status"
           :keywords="$page.transformers.keywords"
           :variant="$page.transformers.variant"
+          plugin_type="transformer"
         />
       </div>
     </div>
@@ -279,9 +264,4 @@ query Transformers($path: String!, $name: String!) {
 }
 </page-query>
 
-<style>
-.add-more-info {
-  color: red;
-  border: 1px solid red;
-}
-</style>
+<style></style>

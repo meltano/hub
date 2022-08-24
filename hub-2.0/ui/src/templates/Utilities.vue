@@ -31,11 +31,6 @@
           </table>
         </div>
         <div class="single-plugin-main">
-          <h1>
-            {{ $page.utilities.name }} //
-            <span>{{ $page.utilities.variant }}</span>
-          </h1>
-          <!-- <p>{{ $page.utilities.usage }}</p> -->
           <p>
             The {{ $page.utilities.name }}
             <a href="https://docs.meltano.com/concepts/plugins#utilities">utility</a>
@@ -69,8 +64,6 @@
               >
             </li>
           </ol>
-          <p>{{ $page.utilities.prereq }}</p>
-          <p>{{ $page.utilities.next_steps }}</p>
           <h3>Installation and configuration</h3>
           <ol>
             <li>
@@ -129,15 +122,10 @@
             </li>
           </ul>
           <p>
-            The settings for extractor tap-github that are known to Meltano are documented below. To
-            quickly find the setting you're looking for, use the Table of Contents at the top of the
-            page.
+            The settings for {{ $page.utilities.name }} that are known to Meltano are documented
+            below. To quickly find the setting you're looking for, use the Table of Contents at the
+            top of the page.
           </p>
-          <p class="add-more-info">Account ID</p>
-          <p class="add-more-info">Personal Access Token</p>
-          <p class="add-more-info">Start Date</p>
-          <p class="add-more-info">End Date</p>
-          <p class="add-more-info">Anything else</p>
           <h2>Looking for help?</h2>
           <div>
             If you're having trouble getting the
@@ -166,6 +154,7 @@
           :maintenance_status="$page.utilities.maintenance_status"
           :keywords="$page.utilities.keywords"
           :variant="$page.utilities.variant"
+          plugin_type="utility"
         />
       </div>
     </div>

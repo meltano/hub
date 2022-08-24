@@ -4,7 +4,7 @@
       type="text"
       name="search"
       id="search"
-      placeholder="Search for a plugin..."
+      placeholder="Search 300+ connectors and tools that work with Meltano…"
       class="search-bar"
       v-model="search"
     />

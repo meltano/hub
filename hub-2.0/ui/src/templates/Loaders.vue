@@ -31,12 +31,6 @@
           </table>
         </div>
         <div class="single-plugin-main">
-          <h1>
-            {{ $page.loaders.name }} //
-            <span>{{ $page.loaders.variant }}</span>
-          </h1>
-
-          <p>{{ $page.loaders.usage }}</p>
           <p>
             The {{ $page.loaders.name }}
             <a href="https://docs.meltano.com/concepts/plugins#loaders">Meltano loader</a>
@@ -73,7 +67,6 @@
               >
             </li>
           </ol>
-          <p>{{ $page.loaders.prereq }}</p>
           <h3>Installation and configuration</h3>
           <ol>
             <li>
@@ -132,15 +125,10 @@
             </li>
           </ul>
           <p>
-            The settings for extractor tap-github that are known to Meltano are documented below. To
-            quickly find the setting you're looking for, use the Table of Contents at the top of the
-            page.
+            The settings for {{ $page.loaders.name }} that are known to Meltano are documented
+            below. To quickly find the setting you're looking for, use the Table of Contents at the
+            top of the page.
           </p>
-          <p class="add-more-info">Account ID</p>
-          <p class="add-more-info">Personal Access Token</p>
-          <p class="add-more-info">Start Date</p>
-          <p class="add-more-info">End Date</p>
-          <p class="add-more-info">Anything else</p>
           <h2>Looking for help?</h2>
           <div>
             If you're having trouble getting the {{ $page.loaders.name }} loader to work, look for
@@ -167,6 +155,7 @@
           :maintenance_status="$page.loaders.maintenance_status"
           :keywords="$page.loaders.keywords"
           :variant="$page.loaders.variant"
+          plugin_type="loader"
         />
       </div>
     </div>
@@ -224,9 +213,4 @@ query Loaders($path: String!, $name: String!) {
 }
 </page-query>
 
-<style lang="scss">
-.add-more-info {
-  color: red;
-  border: 1px solid red;
-}
-</style>
+<style lang="scss"></style>

@@ -31,7 +31,6 @@
           </table>
         </div>
         <div class="single-plugin-main">
-          <p>{{ $page.extractors.usage }}</p>
           <p>
             The {{ $page.extractors.name }}
             <a href="https://docs.meltano.com/concepts/plugins#extractors">Meltano extractor</a>
@@ -158,6 +157,7 @@
           :maintenance_status="$page.extractors.maintenance_status"
           :keywords="$page.extractors.keywords"
           :variant="$page.extractors.variant"
+          plugin_type="extractor"
         />
       </div>
     </div>
@@ -218,9 +218,4 @@ query Extractors($path: String!, $name: String!) {
 }
 </page-query>
 
-<style lang="scss">
-.add-more-info {
-  color: red;
-  border: 1px solid red;
-}
-</style>
+<style lang="scss"></style>

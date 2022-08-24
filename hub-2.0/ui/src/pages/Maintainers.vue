@@ -8,8 +8,9 @@
           :key="index"
           class="page-single-plugin"
         >
-          <h2>{{ edge.node.label }}</h2>
-          <p>{{ edge.node.name }}</p>
+          <h2>
+            <a :href="`${edge.node.url}`">{{ edge.node.label }}</a>
+          </h2>
         </li>
         <Pager
           :info="$page.allMaintainers.pageInfo"
