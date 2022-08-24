@@ -82,14 +82,13 @@ footer {
   flex-basis: 50%;
 }
 
+.plugins-list .page-single-plugin:hover {
+  border-bottom: 5px solid #02a5a5;
+}
+
 .plugins-list .page-single-plugin a {
   color: #3438bf;
   text-decoration: none;
-}
-
-.plugins-list .page-single-plugin a:hover {
-  border: 1px solid #62626e;
-  border-radius: 40px;
 }
 
 .plugins-list .pager-container {
@@ -207,7 +206,7 @@ footer {
   }
 
   .plugins-list .page-single-plugin {
-    flex-basis: 33.333333%;
+    flex-basis: 20%;
   }
 
   .single-plugin-overview {
