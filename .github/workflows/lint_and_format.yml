@@ -23,9 +23,6 @@ jobs:
   format:
     name: Formatting
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./hub-2.0/ui
 
     steps:
       - uses: actions/checkout@v3
