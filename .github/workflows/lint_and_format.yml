@@ -9,9 +9,6 @@ jobs:
   lint:
     name: Linting
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./hub-2.0/ui
 
     steps:
       - uses: actions/checkout@v3
@@ -20,7 +17,6 @@ jobs:
         with:
           node-version: 16.x
           cache: "yarn"
-          cache-dependency-path: ./hub-2.0/ui/yarn.lock
       - run: yarn install --frozen-lockfile
       - run: yarn lint:check
 
@@ -38,6 +34,5 @@ jobs:
         with:
           node-version: 16.x
           cache: "yarn"
-          cache-dependency-path: ./hub-2.0/ui/yarn.lock
       - run: yarn install --frozen-lockfile
       - run: yarn format:check
