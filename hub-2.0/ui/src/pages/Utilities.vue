@@ -21,12 +21,8 @@
             />
             <h2>{{ edge.node.label }}</h2>
             <h2>
-              <code>{{ edge.node.name }}</code
-              ><br /><code>from {{ edge.node.variant }}</code>
+              <pre><code>{{ edge.node.name }}</code></pre>
             </h2>
-            <p>
-              <i>{{ edge.node.maintenance_status }} status</i>
-            </p>
           </g-link>
         </li>
         <Pager
@@ -45,8 +41,8 @@ import { Pager } from "gridsome";
 export default {
   name: "UtilitiesPage",
   components: {
-    Pager,
-  },
+    Pager
+  }
 };
 </script>
 
