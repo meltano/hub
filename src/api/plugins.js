@@ -6,7 +6,7 @@ const { gql } = require("graphql-tag");
 
 const outputRoot = "dist/meltano/api/v1/plugins";
 
-const dataRoot = "../../_data/meltano";
+const dataRoot = "_data/meltano";
 
 const baseurl = "https://hub.meltano.com";
 

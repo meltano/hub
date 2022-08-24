@@ -11,18 +11,14 @@ Source of MeltanoHub <https://hub.meltano.com/>.
 To work locally with this project, you'll have to follow the steps below:
 
 1. Fork this project
-2. Install Ruby 3.1.2+ (via rbenv or some other method)
-2. Install dependencies: `bundle install`
-3. Build and preview: `bundle exec jekyll serve --livereload`
-4. Add content
-5. Push the commit(s) you made
-6. Make an MR
+2. Install Node v16 (recommend using version manager like nvm/asdf/nix) and `yarn`
+3. Install dependencies: `yarn`
+4. Build and preview: `yarn gridsome develop`
+5. Add content
+6. Push the commit(s) you made
+7. Make a PR
 
 The above commands should be executed from the root directory of this project.
-
-Read more at Jekyll's [documentation][].
-
-[documentation]: https://jekyllrb.com/docs/home/
 
 ## Meltano API
 
