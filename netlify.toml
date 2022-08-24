@@ -1,6 +1,3 @@
-[context.deploy-preview]
-  command = "printf \"url: %s\" \"$DEPLOY_PRIME_URL\" > _config_netlify.yml; ./utility_scripts/build/build_with_metrics.sh"
-
 [build]
   command = "./utility_scripts/build/build_with_metrics.sh"
   publish = "dist"
