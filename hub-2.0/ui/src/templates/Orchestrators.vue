@@ -31,11 +31,6 @@
           </table>
         </div>
         <div class="single-plugin-main">
-          <h1>
-            {{ $page.orchestrators.name }} //
-            <span>{{ $page.orchestrators.variant }}</span>
-          </h1>
-          <p>{{ $page.orchestrators.usage }}</p>
           <p>
             The {{ $page.orchestrators.name }}
             <a href="https://docs.meltano.com/concepts/plugins#orchestrators"
@@ -73,7 +68,6 @@
               >
             </li>
           </ol>
-          <p>{{ $page.orchestrators.prereq }}</p>
           <h3>Installation and configuration</h3>
 
           <p>Add the airflow orchestrator to your project using meltano add :</p>
@@ -89,18 +83,7 @@
           </ol>
 
           <h3>Next steps</h3>
-          <p>{{ $page.orchestrators.next_steps }}</p>
           <p>If you run into any issues, learn how to get help.</p>
-          <!-- <h2>Capabilities</h2>
-          <p>The current capabilities for
-          <pre class="inline-code-block"><code>{{ $page.orchestrators.name }}</code></pre> may have been automatically
-          set when originally added to the Hub. Please review the capabilities when using this extractor. If you find
-          they are out of date, please consider updating them by making a pull request to the YAML file that defines the
-          capabilities for this extractor.</p>
-          <p>This plugin has the following capabilities:</p>
-          <ul>
-            <li v-for="(capability, index) in $page.orchestrators.capabilities" v-bind:key="index">{{ capability }}</li>
-          </ul> -->
           <h2>Settings</h2>
           <p>
             {{ $page.orchestrators.name }} requires the configuration of the following settings:
@@ -111,17 +94,10 @@
             </li>
           </ul>
           <p>
-            The settings for extractor tap-github that are known to Meltano are documented below. To
-            quickly find the setting you're looking for, use the Table of Contents at the top of the
-            page.
+            The settings for {{ $page.orchestrators.name }} that are known to Meltano are documented
+            below. To quickly find the setting you're looking for, use the Table of Contents at the
+            top of the page.
           </p>
-          <!-- <h3>Personal Access Tokens (access_token)</h3>
-          <ul><li>Environment variable: TAP_GITHUB_ACCESS_TOKEN</li></ul> -->
-          <p class="add-more-info">Account ID</p>
-          <p class="add-more-info">Personal Access Token</p>
-          <p class="add-more-info">Start Date</p>
-          <p class="add-more-info">End Date</p>
-          <p class="add-more-info">Anything else</p>
           <h2>Looking for help?</h2>
           <div>
             If you're having trouble getting the
@@ -150,6 +126,7 @@
           :maintenance_status="$page.orchestrators.maintenance_status"
           :keywords="$page.orchestrators.keywords"
           :variant="$page.orchestrators.variant"
+          plugin_type="orchestrator"
         />
       </div>
     </div>
@@ -162,11 +139,11 @@ import PluginSidebar from "../components/PluginSidebar.vue";
 export default {
   metaInfo() {
     return {
-      title: this.$page.orchestrators.name,
+      title: this.$page.orchestrators.name
     };
   },
   name: "OrchestratorsTemplate",
-  components: { PluginSidebar },
+  components: { PluginSidebar }
 };
 </script>
 
@@ -219,9 +196,4 @@ query Orchestrators($path: String!, $name: String!) {
 }
 </page-query>
 
-<style>
-.add-more-info {
-  color: red;
-  border: 1px solid red;
-}
-</style>
+<style></style>

@@ -31,11 +31,6 @@
           </table>
         </div>
         <div class="single-plugin-main">
-          <h1>
-            {{ $page.files.name }} //
-            <span>{{ $page.files.variant }}</span>
-          </h1>
-          <p>{{ $page.files.usage }}</p>
           <p>
             The {{ $page.files.name }}
             <a href="https://docs.meltano.com/concepts/plugins#file-bundles">file bundle</a>
@@ -69,7 +64,6 @@
               >
             </li>
           </ol>
-          <p>{{ $page.files.prereq }}</p>
           <h3>Installation and configuration</h3>
           <ol>
             <li>
@@ -128,15 +122,10 @@
             </li>
           </ul>
           <p>
-            The settings for extractor tap-github that are known to Meltano are documented below. To
-            quickly find the setting you're looking for, use the Table of Contents at the top of the
-            page.
+            The settings for {{ $page.files.name }} that are known to Meltano are documented below.
+            To quickly find the setting you're looking for, use the Table of Contents at the top of
+            the page.
           </p>
-          <p class="add-more-info">Account ID</p>
-          <p class="add-more-info">Personal Access Token</p>
-          <p class="add-more-info">Start Date</p>
-          <p class="add-more-info">End Date</p>
-          <p class="add-more-info">Anything else</p>
           <h2>Looking for help?</h2>
           <div>
             If you're having trouble getting the
@@ -165,6 +154,7 @@
           :maintenance_status="$page.files.maintenance_status"
           :keywords="$page.files.keywords"
           :variant="$page.files.variant"
+          plugin_type="file"
         />
       </div>
     </div>
@@ -177,11 +167,11 @@ import PluginSidebar from "../components/PluginSidebar.vue";
 export default {
   metaInfo() {
     return {
-      title: this.$page.files.name,
+      title: this.$page.files.name
     };
   },
   name: "FilesTemplate",
-  components: { PluginSidebar },
+  components: { PluginSidebar }
 };
 </script>
 
@@ -213,9 +203,4 @@ query Files($path: String!, $name: String!) {
 }
 </page-query>
 
-<style>
-.add-more-info {
-  color: red;
-  border: 1px solid red;
-}
-</style>
+<style></style>
