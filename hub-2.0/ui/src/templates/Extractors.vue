@@ -170,11 +170,11 @@ import PluginSidebar from "../components/PluginSidebar.vue";
 export default {
   metaInfo() {
     return {
-      title: this.$page.extractors.name
+      title: this.$page.extractors.name,
     };
   },
   name: "ExtractorsTemplate",
-  components: { PluginSidebar }
+  components: { PluginSidebar },
 };
 </script>
 

@@ -28,8 +28,8 @@ import { Pager } from "gridsome";
 export default {
   name: "MaintainersPage",
   components: {
-    Pager
-  }
+    Pager,
+  },
 };
 </script>
 <page-query lang="graphql">

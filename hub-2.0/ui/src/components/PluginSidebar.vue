@@ -90,7 +90,7 @@
 <script>
 export default {
   name: "PluginSidebar",
-  props: ["name", "domain_url", "repo", "maintenance_status", "keywords", "variant", "plugin_type"]
+  props: ["name", "domain_url", "repo", "maintenance_status", "keywords", "variant", "plugin_type"],
 };
 </script>
 

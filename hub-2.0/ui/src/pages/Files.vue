@@ -42,8 +42,8 @@ import { Pager } from "gridsome";
 export default {
   name: "FilesPage",
   components: {
-    Pager
-  }
+    Pager,
+  },
 };
 </script>
 

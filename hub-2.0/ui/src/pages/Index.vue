@@ -13,9 +13,9 @@
 <script>
 export default {
   metaInfo: {
-    title: "Home"
+    title: "Home",
   },
-  name: "HomePage"
+  name: "HomePage",
 };
 </script>
 
