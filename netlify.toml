@@ -1,3 +1,4 @@
 [build]
+  base = "."
   command = "./utility_scripts/build/build_with_metrics.sh"
   publish = "dist"
