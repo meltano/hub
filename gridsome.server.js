@@ -10,7 +10,7 @@ const yaml = require("js-yaml");
 const path = require("path");
 const buildJSONApi = require("./src/api/plugins");
 
-const dataRoot = "../../_data/";
+const dataRoot = "_data/";
 
 const defaultVariantData = yaml.load(
   fs.readFileSync(path.join(dataRoot, "default_variants.yml"))
