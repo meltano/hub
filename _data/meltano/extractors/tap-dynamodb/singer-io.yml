@@ -6,7 +6,35 @@ namespace: tap_dynamodb
 variant: singer-io
 pip_url: tap-dynamodb
 repo: https://github.com/singer-io/tap-dynamodb
-settings: []
+settings_group_validation:
+- - account_id
+  - external_id
+  - role_name
+  - region_name
+settings:
+- name: account_id
+  kind: password
+  label: Account ID
+  description: The AWS account ID used to connect to DynamoDB.
+- name: external_id
+  kind: password
+  label: External ID
+  description: The AWS external ID used for connecting to DynamoDB from a third party. https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html
+- name: role_name
+  label: Role Name
+  description: The AWS role used to connect to DynamoDB.
+- name: region_name
+  label: Region Name
+  description: The AWS region name 
+- name: use_local_dynamo
+  label: Use Local Dynamo
+  kind: boolean
+  description: Whether to use a local DynamoDB instance. If this is set to True then
+    `http://localhost:8000` will be used as the endpoint_url.
+- name: request_timeout
+  label: Request Timeout (Seconds)
+  kind: integer
+  description: The boto3.client `connect_timeout` and `read_timeout` used when connecting to DynamoDB. Defaults to 300.
 capabilities:
 - catalog
 - discover
@@ -15,3 +43,4 @@ domain_url: https://aws.amazon.com/dynamodb/
 maintenance_status: unknown
 keywords:
 - database
+- aws

@@ -53,7 +53,7 @@ extractors:
   tap-amazon-mws: fishtown-analytics
   tap-anaplan: matthew-skinner
   tap-apparel-magic: jamespotz
-  tap-appfigures: meowwolf
+  tap-appfigures: singer-io
   tap-appsflyer: singer-io
   tap-appstore: miroapp
   tap-asana: singer-io
@@ -116,7 +116,6 @@ extractors:
   tap-eloqua: singer-io
   tap-emarsys: singer-io
   tap-estoca: muriloo
-  tap-eventbrite: phillymedia
   tap-exactsales: rafaeljusi
   tap-exacttarget: singer-io
   tap-exchangeratehost: anelendata
@@ -146,7 +145,6 @@ extractors:
   tap-google-sheets: singer-io
   tap-googleads: matatika
   tap-gorgias: brooklyn-data
-  tap-grader: reachlocal
   tap-greenhouse: codyss
   tap-harvest-forecast: singer-io
   tap-harvest: singer-io
@@ -154,7 +152,6 @@ extractors:
   tap-helpscout: singer-io
   tap-helpshift: pathlight
   tap-holidays: goodeggs
-  tap-hubplanner: rangle
   tap-hubspot: singer-io
   tap-idealo-click-report: horze-international
   tap-ilevel: singer-io
@@ -201,7 +198,7 @@ extractors:
   tap-mixpanel: hotgluexyz
   tap-mode: franloza
   tap-monday: gthesheep
-  tap-mongodb: singer-io
+  tap-mongodb: transferwise
   tap-ms-teams: singer-io
   tap-mssql: wintersrd
   tap-mysql: transferwise
@@ -218,7 +215,7 @@ extractors:
   tap-orbit: fishtown-analytics
   tap-ordway: singer-io
   tap-outbrain: fishtown-analytics
-  tap-outreach: cmbramwell
+  tap-outreach: singer-io
   tap-pagerduty: goodeggs
   tap-pardot: singer-io
   tap-parquet: dataops-tk
@@ -301,7 +298,6 @@ extractors:
   tap-taboola: singer-io
   tap-talkable: gthesheep
   tap-teamwork: immuta
-  tap-telemetrics: reachlocal
   tap-thinkific: birdiecare
   tap-thunderboard: matatika
   tap-tickettailor: fishtown-analytics
@@ -314,7 +310,7 @@ extractors:
   tap-trustpilot: fishtown-analytics
   tap-twilio: transferwise
   tap-twinfield: yoast
-  tap-twitter-ads: dreamdata-io
+  tap-twitter-ads: singer-io
   tap-twitter-streams: pbegle
   tap-twitter: bernietai
   tap-typeform: albert-marrero
@@ -326,7 +322,6 @@ extractors:
   tap-vnda-ecommerce: muriloo
   tap-walkscore: radico
   tap-webcrawl: anelendata
-  tap-webcrm: dreamdata-io
   tap-wonolo: goodeggs
   tap-woocommerce: hotgluexyz
   tap-wootric: singer-io
