@@ -155,7 +155,10 @@
               </p>
             </span>
           </span>
-          <span v-else>This plugin currently has no settings defined. If you know the settings required by this plugin, <a href="#contribute">please contribute!</a></span>
+          <span v-else
+            >This plugin currently has no settings defined. If you know the settings required by
+            this plugin, <a href="#contribute">please contribute!</a></span
+          >
           <h2 id="contribute">Something missing?</h2>
           <p>
             This page is generated from a YAML file that you can contribute changes to.
