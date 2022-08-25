@@ -1,0 +1,14 @@
+name: target-postgres
+label: PostgreSQL
+description: PostgreSQL database loader
+namespace: target_postgres
+dialect: postgres
+target_schema: $TARGET_POSTGRES_SCHEMA
+logo_url: /assets/logos/loaders/postgres.png
+variant: meltanolabs
+repo: https://github.com/meltanolabs/target-postgres
+pip_url: git+https://github.com/meltanolabs/target-postgres.git
+domain_url: https://www.postgresql.org/
+maintenance_status: development
+keywords:
+- database
