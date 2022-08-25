@@ -48,8 +48,8 @@
               <span v-if="variant.node.isDefault"> (default)</span>
             </li>
           </ul>
-          <h2>Getting Started</h2>
-          <h3>Prerequisites</h3>
+          <h2 id="getting-started">Getting Started</h2>
+          <h3 id="prereqs">Prerequisites</h3>
           <p>
             If you haven't already, follow the initial steps of the
             <a href="https://docs.meltano.com/getting-started.html">Getting Started guide</a>:
@@ -67,7 +67,7 @@
             </li>
           </ol>
           <p>{{ $page.extractors.prereq }}</p>
-          <h3>Installation and configuration</h3>
+          <h3 id="installation">Installation and configuration</h3>
           <ol>
             <li>
               Add the {{ $page.extractors.name }} extractor to your project using
@@ -102,7 +102,7 @@
             </li>
           </ol>
           <p>If you run into any issues, learn how to get help.</p>
-          <h2>Capabilities</h2>
+          <h2 id="capabilities">Capabilities</h2>
           <div>
             The current capabilities for
             <pre class="inline-code-block"><code>{{ $page.extractors.name }}</code></pre>
@@ -117,25 +117,46 @@
               {{ capability }}
             </li>
           </ul>
-          <h2>Settings</h2>
-          <p>{{ $page.extractors.name }} requires the configuration of the following settings:</p>
-          <ul>
-            <li v-for="(setting, index) in $page.extractors.settings" v-bind:key="index">
-              {{ setting.name }}
-            </li>
-          </ul>
-          <h2>Looking for help?</h2>
-          <div>
-            If you're having trouble getting the
-            {{ $page.extractors.name }} extractor to work, look for an
-            <a :href="$page.extractors.repo + '/issues'">existing issue in its repository</a>, file
-            a <a :href="$page.extractors.repo + '/issues/new'">new issue</a>, or
-            <a href="https://meltano.com/slack">join the Meltano Slack community</a>
-            and ask for help in the
-            <pre class="inline-code-block"><code>#plugins-general channel</code></pre>
-            .
-          </div>
-          <h3>Found an issue on this page?</h3>
+          <h2 id="settings">Settings</h2>
+          <span v-if="$page.extractors.settings.length">
+            <p>
+              The
+              <code>{{ $page.extractors.name }}</code> settings that are known to Meltano are
+              documented below. To quickly find the setting you're looking for, click on any setting
+              name from the list:
+            </p>
+            <ul>
+              <li v-for="(setting, index) in $page.extractors.settings" v-bind:key="index">
+                <a :href="'#' + setting.name + '-setting'"
+                  ><code>{{ setting.name }}</code></a
+                >
+              </li>
+            </ul>
+            <p>
+              You can
+              <a
+                href="https://docs.meltano.com/guide/configuration#overriding-discoverable-plugin-properties"
+                >override these settings or specify additional ones</a
+              >
+              in your <code>meltano.yml</code> by adding the <code>settings</code> key.
+            </p>
+            <p>
+              Please consider adding any settings you have defined locally to this definition on
+              MeltanoHub by making a
+              <a href="#contributing">pull request to the YAML file</a>.
+            </p>
+            <span v-for="(setting, index) in $page.extractors.settings" v-bind:key="index">
+              <h3 :id="setting.name + '-setting'">
+                <code>{{ setting.label }} ({{ setting.name }})</code>
+              </h3>
+              <p>
+                <span v-if="setting.description">{{ setting.description }}</span>
+                <span v-else><a href="#contribute">[No description provided.]</a></span>
+              </p>
+            </span>
+          </span>
+          <span v-else>This plugin currently has no settings defined. If you know the settings required by this plugin, <a href="#contribute">please contribute!</a></span>
+          <h2 id="contribute">Something missing?</h2>
           <p>
             This page is generated from a YAML file that you can contribute changes to.
             <a
@@ -149,6 +170,17 @@
               >Edit it on GitHub!</a
             >
           </p>
+          <h2 id="looking-for-help">Looking for help?</h2>
+          <div>
+            If you're having trouble getting the
+            {{ $page.extractors.name }} extractor to work, look for an
+            <a :href="$page.extractors.repo + '/issues'">existing issue in its repository</a>, file
+            a <a :href="$page.extractors.repo + '/issues/new'">new issue</a>, or
+            <a href="https://meltano.com/slack">join the Meltano Slack community</a>
+            and ask for help in the
+            <pre class="inline-code-block"><code>#plugins-general</code></pre>
+            channel.
+          </div>
         </div>
         <PluginSidebar
           :name="$page.extractors.name"
