@@ -37,8 +37,9 @@ settings:
   description: Database name to sync from.
 - name: srv
   label: SRV
-  kind: boolean
-  description: Uses a mongodb+srv protocol to connect. Disables the usage of port argument if set to True
+  kind: string
+  description: Uses a mongodb+srv protocol to connect. Disables the usage of port argument if set to `true`.
+    Warning - this uses a string representation of a boolean, use lowercase `true`.
 - name: port
   label: Port
   kind: integer
@@ -48,17 +49,19 @@ settings:
   description: Name of replica set
 - name: ssl
   label: SSL
-  kind: boolean
+  kind: string
   description: Can be set to true to connect using ssl.
+    Warning - this uses a string representation of a boolean, use lowercase `true`.
 - name: verify_mode
   label: Verify Mode
-  kind: boolean
+  kind: string
   description: Default SSL verify mode.
+    Warning - this uses a string representation of a boolean, use lowercase `true`.
 - name: include_schemas_in_destination_stream_name
   label: Include Schemas In Destination Stream Name
-  kind: boolean
-  description: Forces the stream names to take the form `<database_name>_<collection_name>`
-    instead of `<collection_name>`
+  kind: string
+  description: Forces the stream names to take the form `<database_name>_<collection_name>` instead of `<collection_name>`.
+    Warning - this uses a string representation of a boolean, use lowercase `true`.
 - name: update_buffer_size
   label: Update Buffer Size
   kind: integer
