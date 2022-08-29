@@ -258,7 +258,7 @@ extractors:
   tap-s3-csv: transferwise
   tap-saasoptics: anelendata
   tap-sailthru: singer-io
-  tap-salesforce: meltano
+  tap-salesforce: meltanolabs
   tap-search-ads: uptilab2
   tap-selligent: singer-io
   tap-sendgrid: singer-io
