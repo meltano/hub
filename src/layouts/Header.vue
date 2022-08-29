@@ -18,6 +18,14 @@ export default {
       </strong>
       <nav class="nav">
         <button class="hamburger"></button>
+        <a
+          class="github-button"
+          href="https://github.com/meltano/meltano"
+          data-size="large"
+          data-show-count="true"
+          aria-label="Star meltano/meltano on GitHub"
+          >Star</a
+        >
         <div class="dropdown">
           <a class="page-link" href="#">Plugins</a>
           <div class="dropdown-content">
@@ -108,6 +116,14 @@ export default {
     padding: 0 20px;
     align-items: center;
     border-bottom: 2px solid #f1f1f2;
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+    nav span:first-of-type {
+      height: 28px;
+    }
   }
 
   .bottom-search {
@@ -126,6 +142,10 @@ export default {
     color: #3438bf;
     border: none;
   }
+}
+
+.widget {
+  border: 2px solid blue;
 }
 
 .dropdown {
