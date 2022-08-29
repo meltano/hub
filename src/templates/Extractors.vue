@@ -168,11 +168,11 @@ import PluginSettingsSection from "../components/PluginSettingsSection.vue";
 export default {
   metaInfo() {
     return {
-      title: this.$page.extractors.name
+      title: this.$page.extractors.name,
     };
   },
   name: "ExtractorsTemplate",
-  components: { PluginSidebar, PluginSettingsSection }
+  components: { PluginSidebar, PluginSettingsSection },
 };
 </script>
 

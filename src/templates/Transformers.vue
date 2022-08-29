@@ -149,11 +149,11 @@ import PluginSettingsSection from "../components/PluginSettingsSection.vue";
 export default {
   metaInfo() {
     return {
-      title: this.$page.transformers.name
+      title: this.$page.transformers.name,
     };
   },
   name: "TransformersTemplate",
-  components: { PluginSidebar, PluginSettingsSection }
+  components: { PluginSidebar, PluginSettingsSection },
 };
 </script>
 

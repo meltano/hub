@@ -47,7 +47,7 @@
 <script>
 export default {
   name: "PluginSettingsSection",
-  props: ["settings", "name"]
+  props: ["settings", "name"],
 };
 </script>
 

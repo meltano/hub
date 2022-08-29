@@ -157,11 +157,11 @@ import PluginSettingsSection from "../components/PluginSettingsSection.vue";
 export default {
   metaInfo() {
     return {
-      title: this.$page.files.name
+      title: this.$page.files.name,
     };
   },
   name: "FilesTemplate",
-  components: { PluginSidebar, PluginSettingsSection }
+  components: { PluginSidebar, PluginSettingsSection },
 };
 </script>
 

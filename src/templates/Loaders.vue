@@ -158,11 +158,11 @@ import PluginSettingsSection from "../components/PluginSettingsSection.vue";
 export default {
   metaInfo() {
     return {
-      title: this.$page.loaders.name
+      title: this.$page.loaders.name,
     };
   },
   name: "LoadersTemplate",
-  components: { PluginSidebar, PluginSettingsSection }
+  components: { PluginSidebar, PluginSettingsSection },
 };
 </script>
 
