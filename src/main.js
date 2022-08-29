@@ -13,4 +13,7 @@ export default function main(Vue, { head }) {
     rel: "stylesheet",
     href: "https://fonts.googleapis.com/css?family=IBM+Plex+Mono|IBM+Plex+Sans&display=swap",
   });
+  head.script.push({
+    src: "https://buttons.github.io/buttons.js",
+  });
 }
