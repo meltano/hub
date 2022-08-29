@@ -67,5 +67,5 @@
 /extractors/stripe.html /extractors/tap-stripe
 /extractors/adwords.html /extractors/tap-adwords
 /extractors/salesforce.html /extractors/tap-salesforce
-/singer/maintainers/bytecodeio /
+/singer/maintainers/* /maintainers/:splat
 /extractors/exacttarget.html /
