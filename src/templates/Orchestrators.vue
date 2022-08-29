@@ -84,20 +84,10 @@
 
           <h3>Next steps</h3>
           <p>If you run into any issues, learn how to get help.</p>
-          <h2>Settings</h2>
-          <p>
-            {{ $page.orchestrators.name }} requires the configuration of the following settings:
-          </p>
-          <ul>
-            <li v-for="(setting, index) in $page.orchestrators.settings" v-bind:key="index">
-              {{ setting.name }}
-            </li>
-          </ul>
-          <p>
-            The settings for {{ $page.orchestrators.name }} that are known to Meltano are documented
-            below. To quickly find the setting you're looking for, use the Table of Contents at the
-            top of the page.
-          </p>
+          <PluginSettingsSection
+            :settings="$page.orchestrators.settings"
+            :name="$page.orchestrators.name"
+          />
           <h2>Looking for help?</h2>
           <div>
             If you're having trouble getting the
@@ -135,15 +125,16 @@
 
 <script>
 import PluginSidebar from "../components/PluginSidebar.vue";
+import PluginSettingsSection from "../components/PluginSettingsSection.vue";
 
 export default {
   metaInfo() {
     return {
-      title: this.$page.orchestrators.name,
+      title: this.$page.orchestrators.name
     };
   },
   name: "OrchestratorsTemplate",
-  components: { PluginSidebar },
+  components: { PluginSidebar, PluginSettingsSection }
 };
 </script>
 

@@ -117,18 +117,7 @@
               {{ capability }}
             </li>
           </ul>
-          <h2>Settings</h2>
-          <p>{{ $page.loaders.name }} requires the configuration of the following settings:</p>
-          <ul>
-            <li v-for="(setting, index) in $page.loaders.settings" v-bind:key="index">
-              {{ setting.name }}
-            </li>
-          </ul>
-          <p>
-            The settings for {{ $page.loaders.name }} that are known to Meltano are documented
-            below. To quickly find the setting you're looking for, use the Table of Contents at the
-            top of the page.
-          </p>
+          <PluginSettingsSection :settings="$page.loaders.settings" :name="$page.loaders.name" />
           <h2>Looking for help?</h2>
           <div>
             If you're having trouble getting the {{ $page.loaders.name }} loader to work, look for
@@ -164,15 +153,16 @@
 
 <script>
 import PluginSidebar from "../components/PluginSidebar.vue";
+import PluginSettingsSection from "../components/PluginSettingsSection.vue";
 
 export default {
   metaInfo() {
     return {
-      title: this.$page.loaders.name,
+      title: this.$page.loaders.name
     };
   },
   name: "LoadersTemplate",
-  components: { PluginSidebar },
+  components: { PluginSidebar, PluginSettingsSection }
 };
 </script>
 

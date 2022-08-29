@@ -96,30 +96,10 @@
             </li>
           </ol>
           <p>If you run into any issues, learn how to get help.</p>
-
-          <h2>Settings</h2>
-          <p>
-            Settings for {{ $page.transformers.name }} itself can be configured through
-            <a href="https://docs.getdbt.com/reference/dbt_project.yml">dbt_project.yml</a>
-            as usual, which can be found at transform/dbt_project.yml in your Meltano project.
-          </p>
-          <p>
-            The
-            <a href="https://docs.meltano.com/contribute/plugins#setting-definitions">settings</a>
-            for transformer {{ $page.transformers.name }} that are known to Meltano are documented
-            below. To quickly find the setting you're looking for, use the Table of Contents at the
-            top of the page.
-          </p>
-          <ul>
-            <li v-for="(setting, index) in $page.transformers.settings" v-bind:key="index">
-              {{ setting.name }}
-            </li>
-          </ul>
-          <p>
-            The settings for {{ $page.transformers.name }} that are known to Meltano are documented
-            below. To quickly find the setting you're looking for, use the Table of Contents at the
-            top of the page.
-          </p>
+          <PluginSettingsSection
+            :settings="$page.transformers.settings"
+            :name="$page.transformers.name"
+          />
           <h2>Commands</h2>
           <ol>
             <li v-for="(command, index) in $page.transformers.commands" v-bind:key="index">
@@ -164,15 +144,16 @@
 
 <script>
 import PluginSidebar from "../components/PluginSidebar.vue";
+import PluginSettingsSection from "../components/PluginSettingsSection.vue";
 
 export default {
   metaInfo() {
     return {
-      title: this.$page.transformers.name,
+      title: this.$page.transformers.name
     };
   },
   name: "TransformersTemplate",
-  components: { PluginSidebar },
+  components: { PluginSidebar, PluginSettingsSection }
 };
 </script>
 

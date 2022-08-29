@@ -114,18 +114,7 @@
               {{ capability }}
             </li>
           </ul>
-          <h2>Settings</h2>
-          <p>{{ $page.files.name }} requires the configuration of the following settings:</p>
-          <ul>
-            <li v-for="(setting, index) in $page.files.settings" v-bind:key="index">
-              {{ setting.name }}
-            </li>
-          </ul>
-          <p>
-            The settings for {{ $page.files.name }} that are known to Meltano are documented below.
-            To quickly find the setting you're looking for, use the Table of Contents at the top of
-            the page.
-          </p>
+          <PluginSettingsSection :settings="$page.files.settings" :name="$page.files.name" />
           <h2>Looking for help?</h2>
           <div>
             If you're having trouble getting the
@@ -163,15 +152,16 @@
 
 <script>
 import PluginSidebar from "../components/PluginSidebar.vue";
+import PluginSettingsSection from "../components/PluginSettingsSection.vue";
 
 export default {
   metaInfo() {
     return {
-      title: this.$page.files.name,
+      title: this.$page.files.name
     };
   },
   name: "FilesTemplate",
-  components: { PluginSidebar },
+  components: { PluginSidebar, PluginSettingsSection }
 };
 </script>
 
