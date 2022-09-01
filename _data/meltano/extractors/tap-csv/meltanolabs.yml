@@ -30,7 +30,7 @@ settings:
 - name: csv_files_definition
   label: CSV Files Definition
   description: |
-    Project-relative path to JSON file holding array of objects with `entity`, `path`, `keys`, and `encoding` [Optioanl] keys, as ascribed under [Files](#files):
+    Project-relative path to JSON file holding array of objects with `entity`, `path`, `keys`, and `encoding` [Optional] keys, as ascribed under [Files](#files):
 
     ```json
     [
