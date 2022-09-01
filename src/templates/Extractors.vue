@@ -157,6 +157,7 @@
           :maintenance_status="$page.extractors.maintenance_status"
           :keywords="$page.extractors.keywords"
           :variant="$page.extractors.variant"
+          :variants="$page.variants.edges"
           plugin_type="extractor"
         />
       </div>
@@ -170,11 +171,49 @@ import PluginSidebar from "../components/PluginSidebar.vue";
 export default {
   metaInfo() {
     return {
-      title: this.$page.extractors.name,
+      title: this.$page.extractors.name
     };
   },
   name: "ExtractorsTemplate",
   components: { PluginSidebar },
+  computed: {
+    isVariantDefault() {
+      return this.$page.variants.edges.forEach((variant) => {
+        if (this.$page.extractors.variant === variant.node.variant && variant.node.isDefault) {
+          // this.variantIsDefault = true;
+          console.log("true!");
+          return true;
+        }
+        // this.variantIsDefault = false;
+        console.log("false!");
+        return false;
+      });
+    }
+  }
+  // data() {
+  //   return {
+  //     variantIsDefault: null
+  //   };
+  // },
+  // methods: {
+  //   isVariantDefault() {
+  //     this.$page.variants.edges.forEach((variant) => {
+  //       if (this.$page.extractors.variant === variant.node.variant && variant.node.isDefault) {
+  //         this.variantIsDefault = true;
+  //       } else {
+  //         this.variantIsDefault = false;
+  //       }
+  //     });
+  //   }
+  // },
+  // mounted() {
+  //   console.log("mounted");
+  //   this.isVariantDefault();
+  // },
+  // updated() {
+  //   console.log("updated");
+  //   this.isVariantDefault();
+  // }
 };
 </script>
 

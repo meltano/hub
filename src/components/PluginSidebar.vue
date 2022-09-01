@@ -1,7 +1,7 @@
 <template>
   <div class="single-plugin-aside">
     <h4>Install</h4>
-    <pre><code>meltano add {{plugin_type}} {{ name }}</code></pre>
+    <pre><code>meltano add {{plugin_type}} {{ name }}  <span v-if="this.isVariantDefault()"></span></code></pre>
     <h4>Homepage</h4>
     <div class="link-box">
       <img class="aside-icon" src="../assets/images/link-solid.svg" /><a :href="domain_url">{{
@@ -90,7 +90,43 @@
 <script>
 export default {
   name: "PluginSidebar",
-  props: ["name", "domain_url", "repo", "maintenance_status", "keywords", "variant", "plugin_type"],
+  props: [
+    "name",
+    "domain_url",
+    "repo",
+    "maintenance_status",
+    "keywords",
+    "variant",
+    "plugin_type",
+    "variants"
+  ],
+  // data() {
+  //   return {
+  //     variantIsDefault: null
+  //   };
+  // },
+  computed: {
+    isVariantDefault() {
+      return this.$page.variants.edges.forEach((variant) => {
+        if (this.$page.extractors.variant === variant.node.variant && variant.node.isDefault) {
+          // this.variantIsDefault = true;
+          console.log("true!");
+          return true;
+        }
+        // this.variantIsDefault = false;
+        console.log("false!");
+        return false;
+      });
+    }
+  },
+  mounted() {
+    console.log("mounted");
+    this.isVariantDefault();
+  },
+  updated() {
+    console.log("updated");
+    this.isVariantDefault();
+  }
 };
 </script>
 
