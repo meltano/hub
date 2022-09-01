@@ -1,7 +1,7 @@
 ---
 layout: page
 header: singer
-title: Singer Spec
+title: SingerSpec
 description: The Open Source Singer Specification
 ---
 

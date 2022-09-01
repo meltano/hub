@@ -10,15 +10,15 @@
           >launch announcement</a
         >
         to learn more about our goals with MeltanoHub or read the
-        <g-link to="/singer/docs"> docs</g-link> to understand more about our commitment to the
+        <g-link to="/singer/docs">docs</g-link> to understand more about our commitment to the
         Singer community and the architecture behind the Hub.
       </p>
 
       <ul class="plugins-list">
-        <li class="page-single-plugin">singer taps</li>
-        <li class="page-single-plugin">singer targets</li>
-        <li class="page-single-plugin">sdk</li>
-        <li class="page-single-plugin">spec</li>
+        <li class="page-single-plugin"><g-link to="/singer/"> </g-link> singer taps</li>
+        <li class="page-single-plugin"><g-link to="/singer/"> </g-link> singer targets</li>
+        <li class="page-single-plugin"><g-link to="/singer/"> </g-link> sdk</li>
+        <li class="page-single-plugin"><g-link to="/singer/"> </g-link> spec</li>
       </ul>
 
       <h1>API Resources</h1>
@@ -29,9 +29,15 @@
         below:
       </p>
       <ul class="plugins-list">
-        <li class="page-single-plugin">tap json</li>
-        <li class="page-single-plugin">target json</li>
-        <li class="page-single-plugin">json schema</li>
+        <li class="page-single-plugin">
+          <g-link to="/src/taps.json">tap json</g-link>
+        </li>
+        <li class="page-single-plugin">
+          <g-link to="/src/targets.json">target json</g-link>
+        </li>
+        <li class="page-single-plugin">
+          <g-link to="/src/schema.json">json schema</g-link>
+        </li>
       </ul>
     </div>
   </Layout>
@@ -39,8 +45,13 @@
 
 <script>
 export default {
-  name: "SingerPage",
+  name: "SingerPage"
 };
 </script>
 
-<style></style>
+<style lang="scss">
+a {
+  color: #fbbf52;
+  text-decoration: none;
+}
+</style>

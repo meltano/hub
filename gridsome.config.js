@@ -7,7 +7,15 @@
 module.exports = {
   siteName: "Meltano Hub",
   icon: "./src/meltano-favicon-192x192.png",
-  plugins: [],
+  plugins: [
+    {
+      use: "@gridsome/source-filesystem",
+      options: {
+        typeName: "SingerFile",
+        path: "./singer/*.md",
+      },
+    },
+  ],
   chainWebpack: (config) => {
     config.resolve.alias.set("@logos", "@/../assets/logos");
   },
@@ -51,7 +59,12 @@ module.exports = {
     Maintainers: [
       {
         path: "/maintainers/:name",
-        component: ".src/templates/Maintainers.vue",
+        component: "./src/templates/Maintainers.vue",
+      },
+    ],
+    SingerFile: [
+      {
+        path: "/singer/:title",
       },
     ],
   },
