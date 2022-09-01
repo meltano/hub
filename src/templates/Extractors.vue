@@ -102,50 +102,20 @@
             </li>
           </ol>
           <p>If you run into any issues, learn how to get help.</p>
-          <h2 id="capabilities">Capabilities</h2>
-          <div>
-            The current capabilities for
-            <pre class="inline-code-block"><code>{{ $page.extractors.name }}</code></pre>
-            may have been automatically set when originally added to the Hub. Please review the
-            capabilities when using this extractor. If you find they are out of date, please
-            consider updating them by making a pull request to the YAML file that defines the
-            capabilities for this extractor.
-          </div>
-          <p>This plugin has the following capabilities:</p>
-          <ul>
-            <li v-for="(capability, index) in $page.extractors.capabilities" v-bind:key="index">
-              {{ capability }}
-            </li>
-          </ul>
+          <PluginCapabilitiesSection
+            :capabilities="$page.extractors.capabilities"
+            :name="$page.extractors.name"
+          />
           <PluginSettingsSection
             :settings="$page.extractors.settings"
             :name="$page.extractors.name"
           />
-          <h2 id="contribute">Something missing?</h2>
-          <p>
-            This page is generated from a YAML file that you can contribute changes to.
-            <a
-              :href="
-                'https://github.com/meltano/hub/blob/main/_data/meltano/extractors/' +
-                $page.extractors.name +
-                '/' +
-                $page.extractors.variant +
-                '.yml'
-              "
-              >Edit it on GitHub!</a
-            >
-          </p>
-          <h2 id="looking-for-help">Looking for help?</h2>
-          <div>
-            If you're having trouble getting the
-            {{ $page.extractors.name }} extractor to work, look for an
-            <a :href="$page.extractors.repo + '/issues'">existing issue in its repository</a>, file
-            a <a :href="$page.extractors.repo + '/issues/new'">new issue</a>, or
-            <a href="https://meltano.com/slack">join the Meltano Slack community</a>
-            and ask for help in the
-            <pre class="inline-code-block"><code>#plugins-general</code></pre>
-            channel.
-          </div>
+          <PluginHelpSection
+            :name="$page.extractors.name"
+            :variant="$page.extractors.variant"
+            :repo="$page.extractors.repo"
+            plugin_type="extractors"
+          />
         </div>
         <PluginSidebar
           :name="$page.extractors.name"
@@ -164,15 +134,22 @@
 <script>
 import PluginSidebar from "../components/PluginSidebar.vue";
 import PluginSettingsSection from "../components/PluginSettingsSection.vue";
+import PluginHelpSection from "../components/PluginHelpSection.vue";
+import PluginCapabilitiesSection from "../components/PluginCapabilitiesSection.vue";
 
 export default {
   metaInfo() {
     return {
-      title: this.$page.extractors.name,
+      title: this.$page.extractors.name
     };
   },
   name: "ExtractorsTemplate",
-  components: { PluginSidebar, PluginSettingsSection },
+  components: {
+    PluginSidebar,
+    PluginSettingsSection,
+    PluginHelpSection,
+    PluginCapabilitiesSection
+  }
 };
 </script>
 
