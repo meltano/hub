@@ -4,8 +4,8 @@ import Search from "../components/Search.vue";
 export default {
   name: "HeaderLayout",
   components: {
-    Search
-  }
+    Search,
+  },
 };
 </script>
 <template>

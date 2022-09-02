@@ -30,7 +30,7 @@
 <script>
 export default {
   name: "PluginCommandsSection",
-  props: ["commands", "name", "plugin_type"]
+  props: ["commands", "name", "plugin_type"],
 };
 </script>
 
