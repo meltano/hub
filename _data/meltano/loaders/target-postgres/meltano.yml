@@ -5,6 +5,7 @@ namespace: target_postgres
 dialect: postgres
 target_schema: $TARGET_POSTGRES_SCHEMA
 logo_url: /assets/logos/loaders/postgres.png
+hidden: true
 variant: meltano
 repo: https://github.com/meltano/target-postgres
 pip_url: git+https://github.com/meltano/target-postgres.git

@@ -18,6 +18,17 @@ export default {
       </strong>
       <nav class="nav">
         <button class="hamburger"></button>
+        <div class="widget widget-lg page-link">
+          <!-- Place this tag where you want the button to render. -->
+          <a
+            class="github-button"
+            href="https://github.com/meltano/meltano"
+            data-size="large"
+            data-show-count="true"
+            aria-label="Star meltano/meltano on GitHub"
+            >Star</a
+          >
+        </div>
         <!--
           TODO: Debug stars.
           The below needs a reload of the page to fully work.
