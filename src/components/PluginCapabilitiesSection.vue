@@ -35,7 +35,7 @@
 <script>
 export default {
   name: "PluginCapabilitiesSection",
-  props: ["capabilities", "name", "plugin_type"]
+  props: ["capabilities", "name", "plugin_type"],
 };
 </script>
 
