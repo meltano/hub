@@ -18,8 +18,10 @@ export default {
       </strong>
       <nav class="nav">
         <button class="hamburger"></button>
-        <!-- The below needs a reload of the page to fully work. Figure out why that is. -->
-        <!-- <a
+        <!--
+          TODO: Debug stars.
+          The below needs a reload of the page to fully work.
+        <a
           class="github-button"
           href="https://github.com/meltano/meltano"
           data-size="large"
