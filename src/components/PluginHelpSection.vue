@@ -24,7 +24,7 @@
 <script>
 export default {
   name: "PluginHelpSection",
-  props: ["name", "plugin_type", "variant", "repo"]
+  props: ["name", "plugin_type", "variant", "repo"],
 };
 </script>
 

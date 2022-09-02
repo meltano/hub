@@ -141,7 +141,7 @@ import PluginHelpSection from "../components/PluginHelpSection.vue";
 export default {
   metaInfo() {
     return {
-      title: this.$page.transformers.name
+      title: this.$page.transformers.name,
     };
   },
   name: "TransformersTemplate",
@@ -150,8 +150,8 @@ export default {
     PluginSettingsSection,
     PluginCommandsSection,
     PluginRequiresSection,
-    PluginHelpSection
-  }
+    PluginHelpSection,
+  },
 };
 </script>
 

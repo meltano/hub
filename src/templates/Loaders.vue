@@ -120,6 +120,7 @@
           <PluginCapabilitiesSection
             :capabilities="$page.loaders.capabilities"
             :name="$page.loaders.name"
+            plugin_type="loader"
           />
           <PluginSettingsSection :settings="$page.loaders.settings" :name="$page.loaders.name" />
           <PluginHelpSection
@@ -152,11 +153,16 @@ import PluginCapabilitiesSection from "../components/PluginCapabilitiesSection.v
 export default {
   metaInfo() {
     return {
-      title: this.$page.loaders.name
+      title: this.$page.loaders.name,
     };
   },
   name: "LoadersTemplate",
-  components: { PluginSidebar, PluginSettingsSection, PluginHelpSection, PluginCapabilitiesSection }
+  components: {
+    PluginSidebar,
+    PluginSettingsSection,
+    PluginHelpSection,
+    PluginCapabilitiesSection,
+  },
 };
 </script>
 

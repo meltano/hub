@@ -13,7 +13,7 @@
 <script>
 export default {
   name: "PluginRequiresSection",
-  props: ["requires", "plugin_type"]
+  props: ["requires", "plugin_type"],
 };
 </script>
 

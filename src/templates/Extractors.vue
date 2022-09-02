@@ -105,6 +105,7 @@
           <PluginCapabilitiesSection
             :capabilities="$page.extractors.capabilities"
             :name="$page.extractors.name"
+            plugin_type="extractor"
           />
           <PluginSettingsSection
             :settings="$page.extractors.settings"
@@ -140,7 +141,7 @@ import PluginCapabilitiesSection from "../components/PluginCapabilitiesSection.v
 export default {
   metaInfo() {
     return {
-      title: this.$page.extractors.name
+      title: this.$page.extractors.name,
     };
   },
   name: "ExtractorsTemplate",
@@ -148,8 +149,8 @@ export default {
     PluginSidebar,
     PluginSettingsSection,
     PluginHelpSection,
-    PluginCapabilitiesSection
-  }
+    PluginCapabilitiesSection,
+  },
 };
 </script>
 

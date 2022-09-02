@@ -129,11 +129,11 @@ import PluginHelpSection from "../components/PluginHelpSection.vue";
 export default {
   metaInfo() {
     return {
-      title: this.$page.files.name
+      title: this.$page.files.name,
     };
   },
   name: "FilesTemplate",
-  components: { PluginSidebar, PluginSettingsSection, PluginHelpSection }
+  components: { PluginSidebar, PluginSettingsSection, PluginHelpSection },
 };
 </script>
 

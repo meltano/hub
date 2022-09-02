@@ -129,7 +129,7 @@ import PluginHelpSection from "../components/PluginHelpSection.vue";
 export default {
   metaInfo() {
     return {
-      title: this.$page.orchestrators.name
+      title: this.$page.orchestrators.name,
     };
   },
   name: "OrchestratorsTemplate",
@@ -138,8 +138,8 @@ export default {
     PluginSettingsSection,
     PluginCommandsSection,
     PluginRequiresSection,
-    PluginHelpSection
-  }
+    PluginHelpSection,
+  },
 };
 </script>
 

@@ -102,6 +102,7 @@
           <PluginCapabilitiesSection
             :capabilities="$page.utilities.capabilities"
             :name="$page.utilities.name"
+            plugin_type="utility"
           />
           <PluginSettingsSection
             :settings="$page.utilities.settings"
@@ -143,7 +144,7 @@ import PluginHelpSection from "../components/PluginHelpSection.vue";
 export default {
   metaInfo() {
     return {
-      title: this.$page.utilities.name
+      title: this.$page.utilities.name,
     };
   },
   name: "UtilitiesTemplate",
@@ -152,8 +153,8 @@ export default {
     PluginSettingsSection,
     PluginCommandsSection,
     PluginCapabilitiesSection,
-    PluginHelpSection
-  }
+    PluginHelpSection,
+  },
 };
 </script>
 
