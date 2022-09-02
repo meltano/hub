@@ -66,6 +66,11 @@
               >
             </li>
           </ol>
+          <PluginRequiresSection
+            :requires="$page.transformers.requires"
+            :name="$page.transformers.name"
+            plugin_type="transformer"
+          />
           <h3>Installation and configuration</h3>
           <ol>
             <li>
@@ -100,33 +105,17 @@
             :settings="$page.transformers.settings"
             :name="$page.transformers.name"
           />
-          <h2>Commands</h2>
-          <ol>
-            <li v-for="(command, index) in $page.transformers.commands" v-bind:key="index">
-              <h3>{{ command.args }}</h3>
-              <span>{{ command.description }}</span>
-            </li>
-          </ol>
-          <h2>Looking for help?</h2>
-          <div>
-            If you're having trouble getting the
-            {{ $page.transformers.name }} extractor to work, look for an
-            <a href="https://github.com/singer-io/tap-github/issues"
-              >existing issue in its repository</a
-            >, file a <a href="https://github.com/singer-io/tap-github/issues/new">new issue</a>, or
-            <a href="https://meltano.com/slack">join the Meltano Slack community</a>
-            and ask for help in the
-            <pre class="inline-code-block"><code>#plugins-general channel</code></pre>
-            .
-          </div>
-          <h3>Found an issue on this page?</h3>
-          <p>
-            This page is generated from a YAML file that you can contribute changes to.
-            <a
-              href="https://github.com/meltano/hub/blob/main/_data/meltano/extractors/tap-github/singer-io.yml"
-              >Edit it on GitHub!</a
-            >
-          </p>
+          <PluginCommandsSection
+            :commands="$page.transformers.commands"
+            :name="$page.transformers.name"
+            plugin_type="transformer"
+          />
+          <PluginHelpSection
+            :name="$page.transformers.name"
+            :variant="$page.transformers.variant"
+            :repo="$page.transformers.repo"
+            plugin_type="transformers"
+          />
         </div>
         <PluginSidebar
           :name="$page.transformers.name"
@@ -145,15 +134,24 @@
 <script>
 import PluginSidebar from "../components/PluginSidebar.vue";
 import PluginSettingsSection from "../components/PluginSettingsSection.vue";
+import PluginCommandsSection from "../components/PluginCommandsSection.vue";
+import PluginRequiresSection from "../components/PluginRequiresSection.vue";
+import PluginHelpSection from "../components/PluginHelpSection.vue";
 
 export default {
   metaInfo() {
     return {
-      title: this.$page.transformers.name,
+      title: this.$page.transformers.name
     };
   },
   name: "TransformersTemplate",
-  components: { PluginSidebar, PluginSettingsSection },
+  components: {
+    PluginSidebar,
+    PluginSettingsSection,
+    PluginCommandsSection,
+    PluginRequiresSection,
+    PluginHelpSection
+  }
 };
 </script>
 
@@ -185,50 +183,62 @@ query Transformers($path: String!, $name: String!) {
       clean {
         args
         description
+        name
       }
       compile {
         args
         description
+        name
       }
       deps {
         args
         description
+        name
       }
       run {
         args
         description
+        name
       }
       seed {
         args
         description
+        name
       }
       snapshot {
         args
         description
+        name
       }
       test {
         args
         description
+        name
       }
       freshness {
         args
         description
+        name
       }
       build {
         args
         description
+        name
       }
       docs_generate {
         args
         description
+        name
       }
       docs_serve {
         args
         description
+        name
       }
       debug {
         args
         description
+        name
       }
     }
   }

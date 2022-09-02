@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2 id="settings">Settings</h2>
-    <span v-if="settings.length">
+    <span v-if="settings">
       <p>
         The
         <code>{{ name }}</code> settings that are known to Meltano are documented below. To quickly
@@ -47,7 +47,7 @@
 <script>
 export default {
   name: "PluginSettingsSection",
-  props: ["settings", "name"],
+  props: ["settings", "name"]
 };
 </script>
 

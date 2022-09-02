@@ -99,42 +99,13 @@
             </li>
           </ol>
           <p>If you run into any issues, learn how to get help.</p>
-          <h2>Capabilities</h2>
-          <div>
-            The current capabilities for
-            <pre class="inline-code-block"><code>{{ $page.files.name }}</code></pre>
-            may have been automatically set when originally added to the Hub. Please review the
-            capabilities when using this extractor. If you find they are out of date, please
-            consider updating them by making a pull request to the YAML file that defines the
-            capabilities for this extractor.
-          </div>
-          <p>This plugin has the following capabilities:</p>
-          <ul>
-            <li v-for="(capability, index) in $page.files.capabilities" v-bind:key="index">
-              {{ capability }}
-            </li>
-          </ul>
           <PluginSettingsSection :settings="$page.files.settings" :name="$page.files.name" />
-          <h2>Looking for help?</h2>
-          <div>
-            If you're having trouble getting the
-            {{ $page.files.name }} extractor to work, look for an
-            <a href="https://github.com/singer-io/tap-github/issues"
-              >existing issue in its repository</a
-            >, file a <a href="https://github.com/singer-io/tap-github/issues/new">new issue</a>, or
-            <a href="https://meltano.com/slack">join the Meltano Slack community</a>
-            and ask for help in the
-            <pre class="inline-code-block"><code>#plugins-general channel</code></pre>
-            .
-          </div>
-          <h3>Found an issue on this page?</h3>
-          <p>
-            This page is generated from a YAML file that you can contribute changes to.
-            <a
-              href="https://github.com/meltano/hub/blob/main/_data/meltano/extractors/tap-github/singer-io.yml"
-              >Edit it on GitHub!</a
-            >
-          </p>
+          <PluginHelpSection
+            :name="$page.files.name"
+            :variant="$page.files.variant"
+            :repo="$page.files.repo"
+            plugin_type="files"
+          />
         </div>
         <PluginSidebar
           :name="$page.files.name"
@@ -153,15 +124,16 @@
 <script>
 import PluginSidebar from "../components/PluginSidebar.vue";
 import PluginSettingsSection from "../components/PluginSettingsSection.vue";
+import PluginHelpSection from "../components/PluginHelpSection.vue";
 
 export default {
   metaInfo() {
     return {
-      title: this.$page.files.name,
+      title: this.$page.files.name
     };
   },
   name: "FilesTemplate",
-  components: { PluginSidebar, PluginSettingsSection },
+  components: { PluginSidebar, PluginSettingsSection, PluginHelpSection }
 };
 </script>
 

@@ -102,7 +102,7 @@
             </li>
           </ol>
           <p>If you run into any issues, learn how to get help.</p>
-          <h2 v-if="$page.loaders.capabilities">Capabilities</h2>
+          <!-- <h2 v-if="$page.loaders.capabilities">Capabilities</h2>
           <div v-if="$page.loaders.capabilities">
             The current capabilities for
             <pre class="inline-code-block"><code>{{ $page.loaders.name }}</code></pre>
@@ -116,26 +116,18 @@
             <li v-for="(capability, index) in $page.loaders.capabilities" v-bind:key="index">
               {{ capability }}
             </li>
-          </ul>
+          </ul> -->
+          <PluginCapabilitiesSection
+            :capabilities="$page.loaders.capabilities"
+            :name="$page.loaders.name"
+          />
           <PluginSettingsSection :settings="$page.loaders.settings" :name="$page.loaders.name" />
-          <h2>Looking for help?</h2>
-          <div>
-            If you're having trouble getting the {{ $page.loaders.name }} loader to work, look for
-            an <a :href="$page.loaders.domain_url">existing issue in its repository</a>, file a
-            <a href="https://github.com/singer-io/tap-github/issues/new">new issue</a>, or
-            <a href="https://meltano.com/slack">join the Meltano Slack community</a>
-            and ask for help in the
-            <pre class="inline-code-block"><code>#plugins-general channel</code></pre>
-            .
-          </div>
-          <h3>Found an issue on this page?</h3>
-          <p>
-            This page is generated from a YAML file that you can contribute changes to.
-            <a
-              href="https://github.com/meltano/hub/blob/main/_data/meltano/extractors/tap-github/singer-io.yml"
-              >Edit it on GitHub!</a
-            >
-          </p>
+          <PluginHelpSection
+            :name="$page.loaders.name"
+            :variant="$page.loaders.variant"
+            :repo="$page.loaders.repo"
+            plugin_type="loaders"
+          />
         </div>
         <PluginSidebar
           :name="$page.loaders.name"
@@ -154,15 +146,17 @@
 <script>
 import PluginSidebar from "../components/PluginSidebar.vue";
 import PluginSettingsSection from "../components/PluginSettingsSection.vue";
+import PluginHelpSection from "../components/PluginHelpSection.vue";
+import PluginCapabilitiesSection from "../components/PluginCapabilitiesSection.vue";
 
 export default {
   metaInfo() {
     return {
-      title: this.$page.loaders.name,
+      title: this.$page.loaders.name
     };
   },
   name: "LoadersTemplate",
-  components: { PluginSidebar, PluginSettingsSection },
+  components: { PluginSidebar, PluginSettingsSection, PluginHelpSection, PluginCapabilitiesSection }
 };
 </script>
 
@@ -182,6 +176,7 @@ query Loaders($path: String!, $name: String!) {
     maintenance_status
     keywords
     domain_url
+    capabilities
     settings {
       name
       label

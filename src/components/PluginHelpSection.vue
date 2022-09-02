@@ -10,7 +10,7 @@
     <h2 id="looking-for-help">Looking for help?</h2>
     <div>
       If you're having trouble getting the
-      {{ $page.extractors.name }} extractor to work, look for an
+      {{ name }} extractor to work, look for an
       <a :href="`${repo}/issues`">existing issue in its repository</a>, file a
       <a :href="`${repo}/issues/new`">new issue</a>, or
       <a href="https://meltano.com/slack">join the Meltano Slack community</a>
