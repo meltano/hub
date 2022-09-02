@@ -6,16 +6,16 @@
       <pre><code>meltano invoke</code></pre>
       :</span
     >
-    <div v-for="(key, value, index) in commands" v-bind:key="index">
+    <div v-for="(value, key, index) in commands" v-bind:key="index">
       <span v-if="value">
         <h3>
-          <pre><code>{{ key.name }}</code></pre>
+          <pre><code>{{ value.name }}</code></pre>
         </h3>
         <span
           >Equivalent to:
-          <pre><code>{{ key.args }}</code></pre>
+          <pre><code>{{ value.args }}</code></pre>
         </span>
-        <p>{{ key.description }}</p>
+        <p>{{ value.description }}</p>
         <h3>How to use</h3>
         <span
           >Run this command using
@@ -30,7 +30,7 @@
 <script>
 export default {
   name: "PluginCommandsSection",
-  props: ["commands", "name", "plugin_type"],
+  props: ["commands", "name", "plugin_type"]
 };
 </script>
 
