@@ -18,6 +18,9 @@ export default {
       </strong>
       <nav class="nav">
         <button class="hamburger"></button>
+        <!--
+          TODO: Debug stars.
+          The below needs a reload of the page to fully work.
         <a
           class="github-button"
           href="https://github.com/meltano/meltano"
@@ -25,7 +28,7 @@ export default {
           data-show-count="true"
           aria-label="Star meltano/meltano on GitHub"
           >Star</a
-        >
+        > -->
         <div class="dropdown">
           <a class="page-link" href="#">Plugins</a>
           <div class="dropdown-content">

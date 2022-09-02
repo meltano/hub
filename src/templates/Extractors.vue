@@ -48,8 +48,8 @@
               <span v-if="variant.node.isDefault"> (default)</span>
             </li>
           </ul>
-          <h2>Getting Started</h2>
-          <h3>Prerequisites</h3>
+          <h2 id="getting-started">Getting Started</h2>
+          <h3 id="prereqs">Prerequisites</h3>
           <p>
             If you haven't already, follow the initial steps of the
             <a href="https://docs.meltano.com/getting-started.html">Getting Started guide</a>:
@@ -67,7 +67,7 @@
             </li>
           </ol>
           <p>{{ $page.extractors.prereq }}</p>
-          <h3>Installation and configuration</h3>
+          <h3 id="installation">Installation and configuration</h3>
           <ol>
             <li>
               Add the {{ $page.extractors.name }} extractor to your project using
@@ -102,53 +102,21 @@
             </li>
           </ol>
           <p>If you run into any issues, learn how to get help.</p>
-          <h2>Capabilities</h2>
-          <div>
-            The current capabilities for
-            <pre class="inline-code-block"><code>{{ $page.extractors.name }}</code></pre>
-            may have been automatically set when originally added to the Hub. Please review the
-            capabilities when using this extractor. If you find they are out of date, please
-            consider updating them by making a pull request to the YAML file that defines the
-            capabilities for this extractor.
-          </div>
-          <p>This plugin has the following capabilities:</p>
-          <ul>
-            <li v-for="(capability, index) in $page.extractors.capabilities" v-bind:key="index">
-              {{ capability }}
-            </li>
-          </ul>
-          <h2>Settings</h2>
-          <p>{{ $page.extractors.name }} requires the configuration of the following settings:</p>
-          <ul>
-            <li v-for="(setting, index) in $page.extractors.settings" v-bind:key="index">
-              {{ setting.name }}
-            </li>
-          </ul>
-          <h2>Looking for help?</h2>
-          <div>
-            If you're having trouble getting the
-            {{ $page.extractors.name }} extractor to work, look for an
-            <a :href="$page.extractors.repo + '/issues'">existing issue in its repository</a>, file
-            a <a :href="$page.extractors.repo + '/issues/new'">new issue</a>, or
-            <a href="https://meltano.com/slack">join the Meltano Slack community</a>
-            and ask for help in the
-            <pre class="inline-code-block"><code>#plugins-general channel</code></pre>
-            .
-          </div>
-          <h3>Found an issue on this page?</h3>
-          <p>
-            This page is generated from a YAML file that you can contribute changes to.
-            <a
-              :href="
-                'https://github.com/meltano/hub/blob/main/_data/meltano/extractors/' +
-                $page.extractors.name +
-                '/' +
-                $page.extractors.variant +
-                '.yml'
-              "
-              >Edit it on GitHub!</a
-            >
-          </p>
+          <PluginCapabilitiesSection
+            :capabilities="$page.extractors.capabilities"
+            :name="$page.extractors.name"
+            plugin_type="extractor"
+          />
+          <PluginSettingsSection
+            :settings="$page.extractors.settings"
+            :name="$page.extractors.name"
+          />
+          <PluginHelpSection
+            :name="$page.extractors.name"
+            :variant="$page.extractors.variant"
+            :repo="$page.extractors.repo"
+            plugin_type="extractors"
+          />
         </div>
         <PluginSidebar
           :name="$page.extractors.name"
@@ -166,6 +134,9 @@
 
 <script>
 import PluginSidebar from "../components/PluginSidebar.vue";
+import PluginSettingsSection from "../components/PluginSettingsSection.vue";
+import PluginHelpSection from "../components/PluginHelpSection.vue";
+import PluginCapabilitiesSection from "../components/PluginCapabilitiesSection.vue";
 
 export default {
   metaInfo() {
@@ -174,7 +145,12 @@ export default {
     };
   },
   name: "ExtractorsTemplate",
-  components: { PluginSidebar },
+  components: {
+    PluginSidebar,
+    PluginSettingsSection,
+    PluginHelpSection,
+    PluginCapabilitiesSection,
+  },
 };
 </script>
 

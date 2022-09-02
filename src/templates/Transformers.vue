@@ -66,6 +66,11 @@
               >
             </li>
           </ol>
+          <PluginRequiresSection
+            :requires="$page.transformers.requires"
+            :name="$page.transformers.name"
+            plugin_type="transformer"
+          />
           <h3>Installation and configuration</h3>
           <ol>
             <li>
@@ -96,57 +101,21 @@
             </li>
           </ol>
           <p>If you run into any issues, learn how to get help.</p>
-
-          <h2>Settings</h2>
-          <p>
-            Settings for {{ $page.transformers.name }} itself can be configured through
-            <a href="https://docs.getdbt.com/reference/dbt_project.yml">dbt_project.yml</a>
-            as usual, which can be found at transform/dbt_project.yml in your Meltano project.
-          </p>
-          <p>
-            The
-            <a href="https://docs.meltano.com/contribute/plugins#setting-definitions">settings</a>
-            for transformer {{ $page.transformers.name }} that are known to Meltano are documented
-            below. To quickly find the setting you're looking for, use the Table of Contents at the
-            top of the page.
-          </p>
-          <ul>
-            <li v-for="(setting, index) in $page.transformers.settings" v-bind:key="index">
-              {{ setting.name }}
-            </li>
-          </ul>
-          <p>
-            The settings for {{ $page.transformers.name }} that are known to Meltano are documented
-            below. To quickly find the setting you're looking for, use the Table of Contents at the
-            top of the page.
-          </p>
-          <h2>Commands</h2>
-          <ol>
-            <li v-for="(command, index) in $page.transformers.commands" v-bind:key="index">
-              <h3>{{ command.args }}</h3>
-              <span>{{ command.description }}</span>
-            </li>
-          </ol>
-          <h2>Looking for help?</h2>
-          <div>
-            If you're having trouble getting the
-            {{ $page.transformers.name }} extractor to work, look for an
-            <a href="https://github.com/singer-io/tap-github/issues"
-              >existing issue in its repository</a
-            >, file a <a href="https://github.com/singer-io/tap-github/issues/new">new issue</a>, or
-            <a href="https://meltano.com/slack">join the Meltano Slack community</a>
-            and ask for help in the
-            <pre class="inline-code-block"><code>#plugins-general channel</code></pre>
-            .
-          </div>
-          <h3>Found an issue on this page?</h3>
-          <p>
-            This page is generated from a YAML file that you can contribute changes to.
-            <a
-              href="https://github.com/meltano/hub/blob/main/_data/meltano/extractors/tap-github/singer-io.yml"
-              >Edit it on GitHub!</a
-            >
-          </p>
+          <PluginSettingsSection
+            :settings="$page.transformers.settings"
+            :name="$page.transformers.name"
+          />
+          <PluginCommandsSection
+            :commands="$page.transformers.commands"
+            :name="$page.transformers.name"
+            plugin_type="transformer"
+          />
+          <PluginHelpSection
+            :name="$page.transformers.name"
+            :variant="$page.transformers.variant"
+            :repo="$page.transformers.repo"
+            plugin_type="transformers"
+          />
         </div>
         <PluginSidebar
           :name="$page.transformers.name"
@@ -164,6 +133,10 @@
 
 <script>
 import PluginSidebar from "../components/PluginSidebar.vue";
+import PluginSettingsSection from "../components/PluginSettingsSection.vue";
+import PluginCommandsSection from "../components/PluginCommandsSection.vue";
+import PluginRequiresSection from "../components/PluginRequiresSection.vue";
+import PluginHelpSection from "../components/PluginHelpSection.vue";
 
 export default {
   metaInfo() {
@@ -172,7 +145,13 @@ export default {
     };
   },
   name: "TransformersTemplate",
-  components: { PluginSidebar },
+  components: {
+    PluginSidebar,
+    PluginSettingsSection,
+    PluginCommandsSection,
+    PluginRequiresSection,
+    PluginHelpSection,
+  },
 };
 </script>
 
@@ -204,50 +183,62 @@ query Transformers($path: String!, $name: String!) {
       clean {
         args
         description
+        name
       }
       compile {
         args
         description
+        name
       }
       deps {
         args
         description
+        name
       }
       run {
         args
         description
+        name
       }
       seed {
         args
         description
+        name
       }
       snapshot {
         args
         description
+        name
       }
       test {
         args
         description
+        name
       }
       freshness {
         args
         description
+        name
       }
       build {
         args
         description
+        name
       }
       docs_generate {
         args
         description
+        name
       }
       docs_serve {
         args
         description
+        name
       }
       debug {
         args
         description
+        name
       }
     }
   }

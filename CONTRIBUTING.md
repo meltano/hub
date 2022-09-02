@@ -23,7 +23,7 @@ yarn add --global @gridsome/cli
 
 ```console
 gridsome build
-gridsome server
+gridsome serve
 ```
 
 Or build for development and get live updates as files are changed:

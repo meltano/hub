@@ -99,53 +99,26 @@
             </li>
           </ol>
           <p>If you run into any issues, learn how to get help.</p>
-          <h2>Capabilities</h2>
-          <div>
-            The current capabilities for
-            <pre class="inline-code-block"><code>{{ $page.utilities.name }}</code></pre>
-            may have been automatically set when originally added to the Hub. Please review the
-            capabilities when using this extractor. If you find they are out of date, please
-            consider updating them by making a pull request to the YAML file that defines the
-            capabilities for this extractor.
-          </div>
-          <p>This plugin has the following capabilities:</p>
-          <ul>
-            <li v-for="(capability, index) in $page.utilities.capabilities" v-bind:key="index">
-              {{ capability }}
-            </li>
-          </ul>
-          <h2>Settings</h2>
-          <p>{{ $page.utilities.name }} requires the configuration of the following settings:</p>
-          <ul>
-            <li v-for="(setting, index) in $page.utilities.settings" v-bind:key="index">
-              {{ setting.name }}
-            </li>
-          </ul>
-          <p>
-            The settings for {{ $page.utilities.name }} that are known to Meltano are documented
-            below. To quickly find the setting you're looking for, use the Table of Contents at the
-            top of the page.
-          </p>
-          <h2>Looking for help?</h2>
-          <div>
-            If you're having trouble getting the
-            {{ $page.utilities.name }} extractor to work, look for an
-            <a href="https://github.com/singer-io/tap-github/issues"
-              >existing issue in its repository</a
-            >, file a <a href="https://github.com/singer-io/tap-github/issues/new">new issue</a>, or
-            <a href="https://meltano.com/slack">join the Meltano Slack community</a>
-            and ask for help in the
-            <pre class="inline-code-block"><code>#plugins-general channel</code></pre>
-            .
-          </div>
-          <h3>Found an issue on this page?</h3>
-          <p>
-            This page is generated from a YAML file that you can contribute changes to.
-            <a
-              href="https://github.com/meltano/hub/blob/main/_data/meltano/extractors/tap-github/singer-io.yml"
-              >Edit it on GitHub!</a
-            >
-          </p>
+          <PluginCapabilitiesSection
+            :capabilities="$page.utilities.capabilities"
+            :name="$page.utilities.name"
+            plugin_type="utility"
+          />
+          <PluginSettingsSection
+            :settings="$page.utilities.settings"
+            :name="$page.utilities.name"
+          />
+          <PluginCommandsSection
+            :commands="$page.utilities.commands"
+            :name="$page.utilities.name"
+            plugin_type="utilities"
+          />
+          <PluginHelpSection
+            :name="$page.utilities.name"
+            :variant="$page.utilities.variant"
+            :repo="$page.utilities.repo"
+            plugin_type="utility"
+          />
         </div>
         <PluginSidebar
           :name="$page.utilities.name"
@@ -163,6 +136,10 @@
 
 <script>
 import PluginSidebar from "../components/PluginSidebar.vue";
+import PluginSettingsSection from "../components/PluginSettingsSection.vue";
+import PluginCommandsSection from "../components/PluginCommandsSection.vue";
+import PluginCapabilitiesSection from "../components/PluginCapabilitiesSection.vue";
+import PluginHelpSection from "../components/PluginHelpSection.vue";
 
 export default {
   metaInfo() {
@@ -171,7 +148,13 @@ export default {
     };
   },
   name: "UtilitiesTemplate",
-  components: { PluginSidebar },
+  components: {
+    PluginSidebar,
+    PluginSettingsSection,
+    PluginCommandsSection,
+    PluginCapabilitiesSection,
+    PluginHelpSection,
+  },
 };
 </script>
 
@@ -194,30 +177,37 @@ query Utilities($path: String!, $name: String!) {
     next_steps
     commands {
       lint {
+        name
         args
         description
       }
       fix {
+        name
         args
         description
       }
       fix_force {
+        name
         args
         description
       }
       ingest_dbt {
+        name
         args
         description
       }
       ui {
+        name
         args
         description
       }
       create_admin {
+        name
         args
         description
       }
       load_examples {
+        name
         args
         description
       }

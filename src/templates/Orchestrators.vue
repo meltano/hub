@@ -68,6 +68,11 @@
               >
             </li>
           </ol>
+          <PluginRequiresSection
+            :requires="$page.orchestrators.requires"
+            plugin_type="orchestrator"
+            :name="$page.orchestrators.name"
+          />
           <h3>Installation and configuration</h3>
 
           <p>Add the airflow orchestrator to your project using meltano add :</p>
@@ -84,40 +89,21 @@
 
           <h3>Next steps</h3>
           <p>If you run into any issues, learn how to get help.</p>
-          <h2>Settings</h2>
-          <p>
-            {{ $page.orchestrators.name }} requires the configuration of the following settings:
-          </p>
-          <ul>
-            <li v-for="(setting, index) in $page.orchestrators.settings" v-bind:key="index">
-              {{ setting.name }}
-            </li>
-          </ul>
-          <p>
-            The settings for {{ $page.orchestrators.name }} that are known to Meltano are documented
-            below. To quickly find the setting you're looking for, use the Table of Contents at the
-            top of the page.
-          </p>
-          <h2>Looking for help?</h2>
-          <div>
-            If you're having trouble getting the
-            {{ $page.orchestrators.name }} orchestrator to work, look for an
-            <a href="https://github.com/singer-io/tap-github/issues"
-              >existing issue in its repository</a
-            >, file a <a href="https://github.com/singer-io/tap-github/issues/new">new issue</a>, or
-            <a href="https://meltano.com/slack">join the Meltano Slack community</a>
-            and ask for help in the
-            <pre class="inline-code-block"><code>#plugins-general channel</code></pre>
-            .
-          </div>
-          <h3>Found an issue on this page?</h3>
-          <p>
-            This page is generated from a YAML file that you can contribute changes to.
-            <a
-              href="https://github.com/meltano/hub/blob/main/_data/meltano/extractors/tap-github/singer-io.yml"
-              >Edit it on GitHub!</a
-            >
-          </p>
+          <PluginSettingsSection
+            :settings="$page.orchestrators.settings"
+            :name="$page.orchestrators.name"
+          />
+          <PluginCommandsSection
+            :commands="$page.orchestrators.commands"
+            :name="$page.orchestrators.name"
+            plugin_type="orchestrator"
+          />
+          <PluginHelpSection
+            :name="$page.orchestrators.name"
+            :variant="$page.orchestrators.variant"
+            :repo="$page.orchestrators.repo"
+            plugin_type="orchestrators"
+          />
         </div>
         <PluginSidebar
           :name="$page.orchestrators.name"
@@ -135,6 +121,10 @@
 
 <script>
 import PluginSidebar from "../components/PluginSidebar.vue";
+import PluginSettingsSection from "../components/PluginSettingsSection.vue";
+import PluginCommandsSection from "../components/PluginCommandsSection.vue";
+import PluginRequiresSection from "../components/PluginRequiresSection.vue";
+import PluginHelpSection from "../components/PluginHelpSection.vue";
 
 export default {
   metaInfo() {
@@ -143,7 +133,13 @@ export default {
     };
   },
   name: "OrchestratorsTemplate",
-  components: { PluginSidebar },
+  components: {
+    PluginSidebar,
+    PluginSettingsSection,
+    PluginCommandsSection,
+    PluginRequiresSection,
+    PluginHelpSection,
+  },
 };
 </script>
 
@@ -169,10 +165,12 @@ query Orchestrators($path: String!, $name: String!) {
     maintenance_status
     commands {
       create_admin {
+        name
         args
         description
       }
       ui {
+        name
         args
         description
       }
