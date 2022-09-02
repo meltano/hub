@@ -4,8 +4,8 @@ import Search from "../components/Search.vue";
 export default {
   name: "HeaderLayout",
   components: {
-    Search,
-  },
+    Search
+  }
 };
 </script>
 <template>
@@ -18,14 +18,15 @@ export default {
       </strong>
       <nav class="nav">
         <button class="hamburger"></button>
-        <a
+        <!-- The below needs a reload of the page to fully work. Figure out why that is. -->
+        <!-- <a
           class="github-button"
           href="https://github.com/meltano/meltano"
           data-size="large"
           data-show-count="true"
           aria-label="Star meltano/meltano on GitHub"
           >Star</a
-        >
+        > -->
         <div class="dropdown">
           <a class="page-link" href="#">Plugins</a>
           <div class="dropdown-content">
