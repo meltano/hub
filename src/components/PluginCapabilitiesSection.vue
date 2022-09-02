@@ -12,7 +12,7 @@
       >
       <p>This plugin has the following capabilities:</p>
       <ul>
-        <li v-for="(capability, index) in $page.extractors.capabilities" v-bind:key="index">
+        <li v-for="(capability, index) in capabilities" v-bind:key="index">
           {{ capability }}
         </li>
       </ul>
@@ -35,7 +35,7 @@
 <script>
 export default {
   name: "PluginCapabilitiesSection",
-  props: ["capabilities", "name", "plugin_type"],
+  props: ["capabilities", "name", "plugin_type"]
 };
 </script>
 
