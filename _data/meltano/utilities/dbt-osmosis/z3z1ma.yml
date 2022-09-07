@@ -7,6 +7,15 @@ repo: https://github.com/z3z1ma/dbt-osmosis
 executable: dbt-osmosis
 logo_url: /assets/logos/utilities/dbt-osmosis.png
 variant: z3z1ma
+default: true
+definition: A tool to supercharge dbt development by providing 3 key functions.
+  1. A workbench for a REPL like development experience for dbt models
+  2. The ability to diff model outputs across file revisions,
+  3. Automation which manages generating, updating, and propagate documentation for your
+  schema yaml files.
+  Additionally, a server for VS code to allow quickly previewing models
+  when used in conjunction with https://github.com/datacoves/vscode-dbt-power-user
+  though the server can be used for anything.
 commands:
   server:
     args: server --project-dir ${MELTANO_PROJECT_ROOT}/transform --profiles-dir
@@ -49,18 +58,19 @@ settings:
     env: ADAPTER
     description: |
       This should be set to the adapter you have installed as meltano will install
-      dbt and its profile directory into transform/<adapter> directory. We use this 
+      dbt and its profile directory into transform/&lt;adapter&gt; directory. We use this 
       config option to resolve dbt profile directory.
 keywords:
   - dbt
   - osmosis
-  - tools
   - tooling
-definition: Centrally track all your metadata assets pushing metadata to datahub.
 next_steps: |
-  1. Add dbt-<adapter> to your pip_url, ie: `pip_url: dbt-osmosis dbt-bigquery`
+  1. Add dbt-&lt;adapter&gt; to your pip_url, ie: `pip_url: dbt-osmosis dbt-bigquery`
 
   2. Override the namespace to mirror your dbt adapter, ie: `namespace: dbt_bigquery`
 
-  3. Mirror the configuration set in your dbt-<adapter> plugin. A simple copy-paste of
+  3. Mirror the configuration set in your dbt-&lt;adapter&gt; plugin. A simple copy-paste of
   the `config:` block should be sufficient.
+
+  4. Ensure you additionally add `adapter: ...` to your dbt-osmosis config for the built
+  in commands to work. ie for Bigquery, `adapter: bigquery`
