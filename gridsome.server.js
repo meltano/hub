@@ -8,6 +8,7 @@
 const fs = require("fs");
 const yaml = require("js-yaml");
 const path = require("path");
+const marked = require("marked");
 const buildJSONApi = require("./src/api/plugins");
 
 const dataRoot = "_data/";
@@ -34,6 +35,22 @@ function buildData(dataPath, collection) {
         `${currentCollection}/${currentFolder}/${plugin}`
       );
       const readPlugin = yaml.load(fileContents);
+      readPlugin.settings =
+        readPlugin.settings &&
+        readPlugin.settings.map((setting) => ({
+          ...setting,
+          descriptionRendered:
+            setting.description && marked.marked(setting.description),
+        }));
+      readPlugin.usageRendered = readPlugin.usage
+        ? marked.marked(readPlugin.usage)
+        : undefined;
+      readPlugin.prereqRendered = readPlugin.prereq
+        ? marked.marked(readPlugin.prereq)
+        : undefined;
+      readPlugin.next_stepsRendered = readPlugin.next_steps
+        ? marked.marked(readPlugin.next_steps)
+        : undefined;
       readPlugin.isDefault =
         defaultVariantData[path.basename(dataPath)][currentFolder] ===
         readPlugin.variant;

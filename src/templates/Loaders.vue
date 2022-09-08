@@ -172,6 +172,7 @@ query Loaders($path: String!, $name: String!) {
       name
       label
       description
+      descriptionRendered
     }
     prereq
     usage

@@ -175,6 +175,7 @@ query Extractors($path: String!, $name: String!) {
       name
       label
       description
+      descriptionRendered
       kind
       placeholder
     }
