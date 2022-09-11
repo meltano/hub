@@ -86,7 +86,6 @@
           </ol>
           <p>If you run into any issues, learn how to get help.</p>
           <span v-if="$page.extractors.usage" v-html="$page.extractors.usageRendered"></span>
-          <span v-if="setting.description" v-html="setting.descriptionRendered"></span>
           <PluginCapabilitiesSection
             :capabilities="$page.extractors.capabilities"
             :name="$page.extractors.name"
