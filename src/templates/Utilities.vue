@@ -215,6 +215,7 @@ query Utilities($path: String!, $name: String!) {
       name
       label
       description
+      descriptionRendered
       env
     }
     prereq

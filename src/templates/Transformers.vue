@@ -164,6 +164,8 @@ query Transformers($path: String!, $name: String!) {
     settings {
       name
       label
+      description
+      descriptionRendered
       value
     }
     settings_preamble
