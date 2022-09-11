@@ -1,0 +1,29 @@
+<template>
+  <div>
+    <h3 id="prereqs">Prerequisites</h3>
+    <p>
+      If you haven't already, follow the initial steps of the
+      <a href="https://docs.meltano.com/getting-started.html">Getting Started guide</a>:
+    </p>
+    <ol>
+      <li>
+        <a href="https://docs.meltano.com/getting-started.html#install-meltano">Install Meltano</a>
+      </li>
+      <li>
+        <a href="https://docs.meltano.com/getting-started.html#create-your-meltano-project"
+          >Create your Meltano project</a
+        >
+      </li>
+    </ol>
+    <div v-if="plugin.prereq" v-html="plugin.prereqRendered"></div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "PluginPrereqSection",
+  props: ["plugin", "plugin_type"],
+};
+</script>
+
+<style></style>
