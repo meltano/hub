@@ -86,6 +86,7 @@
             </li>
           </ol>
           <p>If you run into any issues, learn how to get help.</p>
+          <span v-if="$page.loaders.usage" v-html="$page.loaders.usageRendered"></span>
           <PluginCapabilitiesSection
             :capabilities="$page.loaders.capabilities"
             :name="$page.loaders.name"
@@ -163,6 +164,7 @@ query Loaders($path: String!, $name: String!) {
     prereq
     prereqRendered
     usage
+    usageRendered
   }
   variants: allLoaders(filter: { name: { eq: $name } }) {
     edges {

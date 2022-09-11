@@ -83,6 +83,7 @@
             </li>
           </ol>
           <p>If you run into any issues, learn how to get help.</p>
+          <span v-if="$page.utilities.usage" v-html="$page.utilities.usageRendered"></span>
           <PluginCapabilitiesSection
             :capabilities="$page.utilities.capabilities"
             :name="$page.utilities.name"
@@ -213,6 +214,7 @@ query Utilities($path: String!, $name: String!) {
     prereq
     prereqRendered
     usage
+    usageRendered
   }
   variants: allUtilities(filter: { name: { eq: $name } }) {
     edges {
