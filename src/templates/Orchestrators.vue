@@ -72,6 +72,10 @@
           </ol>
 
           <h3>Next steps</h3>
+          <span
+            v-if="$page.orchestrators.next_steps"
+            v-html="$page.orchestrators.next_stepsRendered"
+          ></span>
           <p>If you run into any issues, learn how to get help.</p>
           <PluginSettingsSection
             :settings="$page.orchestrators.settings"
@@ -143,6 +147,7 @@ query Orchestrators($path: String!, $name: String!) {
     pip_url
     repo
     next_steps
+    next_stepsRendered
     requires {
       files {
         name

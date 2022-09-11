@@ -82,6 +82,10 @@
               >
             </li>
           </ol>
+          <span
+            v-if="$page.utilities.next_steps"
+            v-html="$page.utilities.next_stepsRendered"
+          ></span>
           <p>If you run into any issues, learn how to get help.</p>
           <span v-if="$page.utilities.usage" v-html="$page.utilities.usageRendered"></span>
           <PluginCapabilitiesSection
@@ -163,6 +167,7 @@ query Utilities($path: String!, $name: String!) {
     maintenance_status
     keywords
     next_steps
+    next_stepsRendered
     commands {
       lint {
         name
