@@ -2,6 +2,7 @@
   <div>
     <h2 id="settings">Settings</h2>
     <span v-if="settings">
+      <span v-if="preamble" v-html="preamble"></span>
       <p>
         The
         <code>{{ name }}</code> settings that are known to Meltano are documented below. To quickly
@@ -47,7 +48,7 @@
 <script>
 export default {
   name: "PluginSettingsSection",
-  props: ["settings", "name"],
+  props: ["settings", "preamble", "name"],
 };
 </script>
 

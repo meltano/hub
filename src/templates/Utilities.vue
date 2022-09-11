@@ -91,6 +91,7 @@
           />
           <PluginSettingsSection
             :settings="$page.utilities.settings"
+            :preamble="$page.utilities.settings_preambleRendered"
             :name="$page.utilities.name"
           />
           <PluginCommandsSection
@@ -215,6 +216,8 @@ query Utilities($path: String!, $name: String!) {
     prereqRendered
     usage
     usageRendered
+    settings_preamble
+    settings_preambleRendered
   }
   variants: allUtilities(filter: { name: { eq: $name } }) {
     edges {

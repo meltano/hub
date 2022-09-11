@@ -75,6 +75,7 @@
           <p>If you run into any issues, learn how to get help.</p>
           <PluginSettingsSection
             :settings="$page.orchestrators.settings"
+            :preamble="$page.orchestrators.settings_preambleRendered"
             :name="$page.orchestrators.name"
           />
           <PluginCommandsSection
@@ -166,6 +167,7 @@ query Orchestrators($path: String!, $name: String!) {
     }
     logo_url
     settings_preamble
+    settings_preambleRendered
   }
   variants: allOrchestrators(filter: { name: { eq: $name } }) {
     edges {
