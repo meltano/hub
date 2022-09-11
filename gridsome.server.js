@@ -21,6 +21,28 @@ const readMaintainers = yaml.load(
   fs.readFileSync(path.join(dataRoot, "maintainers.yml"))
 );
 
+function renderMarkdownSections(pluginData) {
+  return {
+    ...pluginData,
+    settings:
+      pluginData.settings &&
+      pluginData.settings.map((setting) => ({
+        ...setting,
+        descriptionRendered:
+          setting.description && marked.marked(setting.description),
+      })),
+    usageRendered: pluginData.usage
+      ? marked.marked(pluginData.usage)
+      : undefined,
+    prereqRendered: pluginData.prereq
+      ? marked.marked(pluginData.prereq)
+      : undefined,
+    next_stepsRendered: pluginData.next_steps
+      ? marked.marked(pluginData.next_steps)
+      : undefined,
+  };
+}
+
 function buildData(dataPath, collection) {
   const currentCollection = dataPath;
   let collectionFolder = fs.readdirSync(dataPath);
@@ -34,23 +56,9 @@ function buildData(dataPath, collection) {
       const fileContents = fs.readFileSync(
         `${currentCollection}/${currentFolder}/${plugin}`
       );
-      const readPlugin = yaml.load(fileContents);
-      readPlugin.settings =
-        readPlugin.settings &&
-        readPlugin.settings.map((setting) => ({
-          ...setting,
-          descriptionRendered:
-            setting.description && marked.marked(setting.description),
-        }));
-      readPlugin.usageRendered = readPlugin.usage
-        ? marked.marked(readPlugin.usage)
-        : undefined;
-      readPlugin.prereqRendered = readPlugin.prereq
-        ? marked.marked(readPlugin.prereq)
-        : undefined;
-      readPlugin.next_stepsRendered = readPlugin.next_steps
-        ? marked.marked(readPlugin.next_steps)
-        : undefined;
+      let readPlugin = yaml.load(fileContents);
+      readPlugin = renderMarkdownSections(readPlugin);
+
       readPlugin.isDefault =
         defaultVariantData[path.basename(dataPath)][currentFolder] ===
         readPlugin.variant;
