@@ -24,6 +24,7 @@ const readMaintainers = yaml.load(
 function renderMarkdownSections(pluginData) {
   return {
     ...pluginData,
+    // Common
     settings:
       pluginData.settings &&
       pluginData.settings.map((setting) => ({
@@ -31,6 +32,10 @@ function renderMarkdownSections(pluginData) {
         descriptionRendered:
           setting.description && marked.marked(setting.description),
       })),
+    // Rare
+    settings_preambleRendered: pluginData.settings_preamble
+      ? marked.marked(pluginData.settings_preamble)
+      : undefined,
     usageRendered: pluginData.usage
       ? marked.marked(pluginData.usage)
       : undefined,
