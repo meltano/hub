@@ -9,7 +9,7 @@
       </p>
       <ul class="plugins-list">
         <li v-for="edge in $page.allFiles.edges" :key="edge.node.id" class="page-single-plugin">
-          <g-link :to="edge.node.path">
+          <g-link :to="edge.node.path.split('--')[0]">
             <h2>{{ edge.node.label }}</h2>
             <g-image
               v-if="edge.node.logo_url"
@@ -49,7 +49,13 @@ export default {
 
 <page-query lang="graphql">
 query ($page: Int) {
-  allFiles(perPage: 100, page: $page, sortBy: "label", order: ASC) @paginate {
+  allFiles(
+    perPage: 100
+    page: $page
+    sortBy: "label"
+    order: ASC
+    filter: { isDefault: { eq: true } }
+  ) @paginate {
     pageInfo {
       totalPages
       currentPage

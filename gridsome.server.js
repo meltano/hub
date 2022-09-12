@@ -204,7 +204,7 @@ module.exports = function main(api) {
       defaultPlugins.data[query].edges.forEach(({ node }) => {
         createPage({
           // Remove the variant part of the path
-          path: path.normalize(path.join(node.path, "..")),
+          path: node.path.split("--")[0],
           // And send it to the same rendering template
           component: `./src/templates/${query.substring(3)}.vue`,
           context: {

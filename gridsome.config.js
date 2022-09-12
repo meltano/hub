@@ -14,37 +14,37 @@ module.exports = {
   templates: {
     Extractors: [
       {
-        path: "/extractors/:name/:variant",
+        path: "/extractors/:name--:variant",
         component: "./src/templates/Extractors.vue",
       },
     ],
     Loaders: [
       {
-        path: "/loaders/:name/:variant",
+        path: "/loaders/:name--:variant",
         component: "./src/templates/Loaders.vue",
       },
     ],
     Orchestrators: [
       {
-        path: "/orchestrators/:name/:variant",
+        path: "/orchestrators/:name--:variant",
         component: "./src/templates/Orchestrators.vue",
       },
     ],
     Transformers: [
       {
-        path: "/transformers/:name/:variant",
+        path: "/transformers/:name--:variant",
         component: "./src/templates/Transformers.vue",
       },
     ],
     Utilities: [
       {
-        path: "/utilities/:name/:variant",
+        path: "/utilities/:name--:variant",
         component: "./src/templates/Utilities.vue",
       },
     ],
     Files: [
       {
-        path: "/files/:name/:variant",
+        path: "/files/:name--:variant",
         component: "./src/templates/Files.vue",
       },
     ],
