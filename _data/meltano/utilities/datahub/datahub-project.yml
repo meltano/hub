@@ -9,7 +9,6 @@ logo_url: /assets/logos/utilities/datahub.png
 variant: datahub-project
 commands:
   ingest-dbt:
-    name: ingest-dbt
     args: ingest run --config ${MELTANO_PROJECT_ROOT}/utilities/datahub/dbt.dhub.yml
     description: Push dbt metadata to datahub
 requires:
