@@ -33,7 +33,7 @@
           <code>{{ setting.label }} ({{ setting.name }})</code>
         </h3>
         <p>
-          <span v-if="setting.description" v-html="setting.descriptionRendered"></span>
+          <span v-if="setting.description" v-html="setting.description_rendered"></span>
           <span v-else><a href="#contribute">[No description provided.]</a></span>
         </p>
       </span>

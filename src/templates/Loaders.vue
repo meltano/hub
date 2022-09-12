@@ -86,7 +86,7 @@
             </li>
           </ol>
           <p>If you run into any issues, learn how to get help.</p>
-          <span v-if="$page.loaders.usage" v-html="$page.loaders.usageRendered"></span>
+          <span v-if="$page.loaders.usage" v-html="$page.loaders.usage_rendered"></span>
           <PluginCapabilitiesSection
             :capabilities="$page.loaders.capabilities"
             :name="$page.loaders.name"
@@ -159,12 +159,12 @@ query Loaders($path: String!, $name: String!) {
       name
       label
       description
-      descriptionRendered
+      description_rendered
     }
     prereq
-    prereqRendered
+    prereq_rendered
     usage
-    usageRendered
+    usage_rendered
   }
   variants: allLoaders(filter: { name: { eq: $name } }) {
     edges {

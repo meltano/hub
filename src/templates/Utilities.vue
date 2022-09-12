@@ -84,10 +84,10 @@
           </ol>
           <span
             v-if="$page.utilities.next_steps"
-            v-html="$page.utilities.next_stepsRendered"
+            v-html="$page.utilities.next_steps_rendered"
           ></span>
           <p>If you run into any issues, learn how to get help.</p>
-          <span v-if="$page.utilities.usage" v-html="$page.utilities.usageRendered"></span>
+          <span v-if="$page.utilities.usage" v-html="$page.utilities.usage_rendered"></span>
           <PluginCapabilitiesSection
             :capabilities="$page.utilities.capabilities"
             :name="$page.utilities.name"
@@ -95,7 +95,7 @@
           />
           <PluginSettingsSection
             :settings="$page.utilities.settings"
-            :preamble="$page.utilities.settings_preambleRendered"
+            :preamble="$page.utilities.settings_preamble_rendered"
             :name="$page.utilities.name"
           />
           <PluginCommandsSection
@@ -167,7 +167,7 @@ query Utilities($path: String!, $name: String!) {
     maintenance_status
     keywords
     next_steps
-    next_stepsRendered
+    next_steps_rendered
     commands {
       lint {
         name
@@ -215,15 +215,15 @@ query Utilities($path: String!, $name: String!) {
       name
       label
       description
-      descriptionRendered
+      description_rendered
       env
     }
     prereq
-    prereqRendered
+    prereq_rendered
     usage
-    usageRendered
+    usage_rendered
     settings_preamble
-    settings_preambleRendered
+    settings_preamble_rendered
   }
   variants: allUtilities(filter: { name: { eq: $name } }) {
     edges {

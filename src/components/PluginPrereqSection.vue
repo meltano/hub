@@ -15,7 +15,7 @@
         >
       </li>
     </ol>
-    <div v-if="plugin.prereq" v-html="plugin.prereqRendered"></div>
+    <div v-if="plugin.prereq" v-html="plugin.prereq_rendered"></div>
   </div>
 </template>
 

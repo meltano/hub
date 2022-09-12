@@ -85,7 +85,7 @@
             </li>
           </ol>
           <p>If you run into any issues, learn how to get help.</p>
-          <span v-if="$page.extractors.usage" v-html="$page.extractors.usageRendered"></span>
+          <span v-if="$page.extractors.usage" v-html="$page.extractors.usage_rendered"></span>
           <PluginCapabilitiesSection
             :capabilities="$page.extractors.capabilities"
             :name="$page.extractors.name"
@@ -161,14 +161,14 @@ query Extractors($path: String!, $name: String!) {
       name
       label
       description
-      descriptionRendered
+      description_rendered
       kind
       placeholder
     }
     prereq
-    prereqRendered
+    prereq_rendered
     usage
-    usageRendered
+    usage_rendered
   }
   variants: allExtractors(filter: { name: { eq: $name } }) {
     edges {

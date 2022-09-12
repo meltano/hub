@@ -29,20 +29,20 @@ function renderMarkdownSections(pluginData) {
       pluginData.settings &&
       pluginData.settings.map((setting) => ({
         ...setting,
-        descriptionRendered:
+        description_rendered:
           setting.description && marked.marked(setting.description),
       })),
     // Rare
-    settings_preambleRendered: pluginData.settings_preamble
+    settings_preamble_rendered: pluginData.settings_preamble
       ? marked.marked(pluginData.settings_preamble)
       : undefined,
-    usageRendered: pluginData.usage
+    usage_rendered: pluginData.usage
       ? marked.marked(pluginData.usage)
       : undefined,
-    prereqRendered: pluginData.prereq
+    prereq_rendered: pluginData.prereq
       ? marked.marked(pluginData.prereq)
       : undefined,
-    next_stepsRendered: pluginData.next_steps
+    next_steps_rendered: pluginData.next_steps
       ? marked.marked(pluginData.next_steps)
       : undefined,
   };

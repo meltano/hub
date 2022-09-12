@@ -87,7 +87,7 @@
           <p>If you run into any issues, learn how to get help.</p>
           <PluginSettingsSection
             :settings="$page.transformers.settings"
-            :preamble="$page.transformers.settings_preambleRendered"
+            :preamble="$page.transformers.settings_preamble_rendered"
             :name="$page.transformers.name"
           />
           <PluginCommandsSection
@@ -165,11 +165,11 @@ query Transformers($path: String!, $name: String!) {
       name
       label
       description
-      descriptionRendered
+      description_rendered
       value
     }
     settings_preamble
-    settings_preambleRendered
+    settings_preamble_rendered
     commands {
       clean {
         args

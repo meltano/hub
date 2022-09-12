@@ -74,12 +74,12 @@
           <h3>Next steps</h3>
           <span
             v-if="$page.orchestrators.next_steps"
-            v-html="$page.orchestrators.next_stepsRendered"
+            v-html="$page.orchestrators.next_steps_rendered"
           ></span>
           <p>If you run into any issues, learn how to get help.</p>
           <PluginSettingsSection
             :settings="$page.orchestrators.settings"
-            :preamble="$page.orchestrators.settings_preambleRendered"
+            :preamble="$page.orchestrators.settings_preamble_rendered"
             :name="$page.orchestrators.name"
           />
           <PluginCommandsSection
@@ -147,7 +147,7 @@ query Orchestrators($path: String!, $name: String!) {
     pip_url
     repo
     next_steps
-    next_stepsRendered
+    next_steps_rendered
     requires {
       files {
         name
@@ -172,7 +172,7 @@ query Orchestrators($path: String!, $name: String!) {
     }
     logo_url
     settings_preamble
-    settings_preambleRendered
+    settings_preamble_rendered
   }
   variants: allOrchestrators(filter: { name: { eq: $name } }) {
     edges {
