@@ -45,7 +45,7 @@
 
 <script>
 export default {
-  name: "SingerPage"
+  name: "SingerPage",
 };
 </script>
 
