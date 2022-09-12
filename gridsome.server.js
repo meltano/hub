@@ -53,16 +53,13 @@ function renderMarkdownSections(pluginData) {
 }
 
 function addCommandNames(pluginData) {
-  return {
-    ...pluginData,
-    // Common
-    commands:
-      pluginData.commands &&
-      pluginData.commands.toArray(([commandName, command]) => ({
-        ...command,
-        name: commandName
-      }))
-  };
+  if (!pluginData.commands) {
+    return
+  }
+  Object.keys(pluginData.commands).forEach((commandName) => {
+    const command = pluginData.commands[commandName];
+    command.name = commandName;
+  });
 }
 
 function buildData(dataPath, collection) {
@@ -80,7 +77,7 @@ function buildData(dataPath, collection) {
       );
       let readPlugin = yaml.load(fileContents);
       readPlugin = renderMarkdownSections(readPlugin);
-      readPlugin = addCommandNames(readPlugin);
+      addCommandNames(readPlugin);
 
       readPlugin.isDefault =
         defaultVariantData[path.basename(dataPath)][currentFolder] ===
