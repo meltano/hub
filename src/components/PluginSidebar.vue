@@ -44,38 +44,42 @@
     <ul class="shields">
       <li>
         <img
-          alt="GitHub - Stars"
-          :src="`https://img.shields.io/github/stars/${variant}/${name}?style=flat-square&label=Stars`"
+          alt="Stars"
+          :src="`https://img.shields.io/${repoType}/stars/${parsedRepo.user}/${parsedRepo.repo_name}?style=flat-square&label=Stars`"
         />
       </li>
       <li>
         <img
-          alt="GitHub - Forks"
-          :src="`https://img.shields.io/github/forks/${variant}/${name}?style=flat-square&label=Forks`"
+          alt="Forks"
+          :src="`https://img.shields.io/${repoType}/forks/${parsedRepo.user}/${parsedRepo.repo_name}?style=flat-square&label=Forks`"
         />
       </li>
       <li>
         <img
-          alt="GitHub - Open Issues"
-          :src="`https://img.shields.io/github/issues-raw/${variant}/${name}?label=Open%20Issues`"
+          alt="Open Issues"
+          :src="`https://img.shields.io/${
+            repoType === 'github' ? 'github/issues-raw' : 'gitlab/issues/open-raw'
+          }/${parsedRepo.user}/${parsedRepo.repo_name}?label=Open%20Issues`"
         />
       </li>
       <li>
         <img
-          alt="GitHub - Open PRs"
-          :src="`https://img.shields.io/github/issues-pr-raw/${variant}/${name}?label=Open%20Pull%20Requests`"
+          alt="Open PRs"
+          :src="`https://img.shields.io/${
+            repoType === 'github' ? 'github/issues-pr-raw' : 'gitlab/merge-requests/open'
+          }/${parsedRepo.user}/${parsedRepo.repo_name}?label=Open%20Pull%20Requests`"
         />
       </li>
       <li>
         <img
-          alt="GitHub - Contributors"
-          :src="`https://img.shields.io/github/contributors/${variant}/${name}?label=Contributors`"
+          alt="Contributors"
+          :src="`https://img.shields.io/${repoType}/contributors/${parsedRepo.user}/${parsedRepo.repo_name}?label=Contributors`"
         />
       </li>
       <li>
         <img
-          alt="GitHub - License"
-          :src="`https://img.shields.io/github/license/${variant}/${name}?color=c0c0c4&label=License&style=flat-square`"
+          alt="License"
+          :src="`https://img.shields.io/${repoType}/license/${parsedRepo.user}/${parsedRepo.repo_name}?color=c0c0c4&label=License&style=flat-square`"
         />
       </li>
     </ul>
@@ -116,6 +120,19 @@ export default {
     "plugin_type",
     "metrics",
   ],
+  computed: {
+    parsedRepo() {
+      // For some plugin variants, either the `variant` or `name` doesn't match the GH repo
+      // So we need to parse it from the repo URL to make badges
+      // https://github.com/:user/:repoName
+      const urlParts = this.repo.split("/");
+      return { user: urlParts[3], repo_name: urlParts[4] };
+    },
+    repoType() {
+      // Some plugins are hosted on github, some on gitlab
+      return this.repo.includes("github.com") ? "github" : "gitlab";
+    },
+  },
 };
 </script>
 
