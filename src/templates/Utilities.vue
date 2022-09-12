@@ -47,23 +47,7 @@
             </li>
           </ul>
           <h2>Getting Started</h2>
-          <h3>Prerequisites</h3>
-          <p>
-            If you haven't already, follow the initial steps of the
-            <a href="https://docs.meltano.com/getting-started.html">Getting Started guide</a>:
-          </p>
-          <ol>
-            <li>
-              <a href="https://docs.meltano.com/getting-started.html#install-meltano"
-                >Install Meltano</a
-              >
-            </li>
-            <li>
-              <a href="https://docs.meltano.com/getting-started.html#create-your-meltano-project"
-                >Create your Meltano project</a
-              >
-            </li>
-          </ol>
+          <PluginPrereqSection :plugin="$page.utilities" plugin_type="utility" />
           <h3>Installation and configuration</h3>
           <ol>
             <li>
@@ -98,7 +82,12 @@
               >
             </li>
           </ol>
+          <span
+            v-if="$page.utilities.next_steps"
+            v-html="$page.utilities.next_steps_rendered"
+          ></span>
           <p>If you run into any issues, learn how to get help.</p>
+          <span v-if="$page.utilities.usage" v-html="$page.utilities.usage_rendered"></span>
           <PluginCapabilitiesSection
             :capabilities="$page.utilities.capabilities"
             :name="$page.utilities.name"
@@ -106,6 +95,7 @@
           />
           <PluginSettingsSection
             :settings="$page.utilities.settings"
+            :preamble="$page.utilities.settings_preamble_rendered"
             :name="$page.utilities.name"
           />
           <PluginCommandsSection
@@ -140,6 +130,7 @@ import PluginSettingsSection from "../components/PluginSettingsSection.vue";
 import PluginCommandsSection from "../components/PluginCommandsSection.vue";
 import PluginCapabilitiesSection from "../components/PluginCapabilitiesSection.vue";
 import PluginHelpSection from "../components/PluginHelpSection.vue";
+import PluginPrereqSection from "../components/PluginPrereqSection.vue";
 
 export default {
   metaInfo() {
@@ -154,6 +145,7 @@ export default {
     PluginCommandsSection,
     PluginCapabilitiesSection,
     PluginHelpSection,
+    PluginPrereqSection,
   },
 };
 </script>
@@ -175,6 +167,7 @@ query Utilities($path: String!, $name: String!) {
     maintenance_status
     keywords
     next_steps
+    next_steps_rendered
     commands {
       lint {
         name
@@ -222,10 +215,15 @@ query Utilities($path: String!, $name: String!) {
       name
       label
       description
+      description_rendered
       env
     }
     prereq
+    prereq_rendered
     usage
+    usage_rendered
+    settings_preamble
+    settings_preamble_rendered
   }
   variants: allUtilities(filter: { name: { eq: $name } }) {
     edges {

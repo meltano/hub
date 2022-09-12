@@ -49,23 +49,7 @@
             </li>
           </ul>
           <h2>Getting Started</h2>
-          <h3>Prerequisites</h3>
-          <p>
-            If you haven't already, follow the initial steps of the
-            <a href="https://docs.meltano.com/getting-started.html">Getting Started guide</a>:
-          </p>
-          <ol>
-            <li>
-              <a href="https://docs.meltano.com/getting-started.html#install-meltano"
-                >Install Meltano</a
-              >
-            </li>
-            <li>
-              <a href="https://docs.meltano.com/getting-started.html#create-your-meltano-project"
-                >Create your Meltano project</a
-              >
-            </li>
-          </ol>
+          <PluginPrereqSection :plugin="$page.transformers" plugin_type="transformer" />
           <PluginRequiresSection
             :requires="$page.transformers.requires"
             :name="$page.transformers.name"
@@ -103,6 +87,7 @@
           <p>If you run into any issues, learn how to get help.</p>
           <PluginSettingsSection
             :settings="$page.transformers.settings"
+            :preamble="$page.transformers.settings_preamble_rendered"
             :name="$page.transformers.name"
           />
           <PluginCommandsSection
@@ -137,6 +122,7 @@ import PluginSettingsSection from "../components/PluginSettingsSection.vue";
 import PluginCommandsSection from "../components/PluginCommandsSection.vue";
 import PluginRequiresSection from "../components/PluginRequiresSection.vue";
 import PluginHelpSection from "../components/PluginHelpSection.vue";
+import PluginPrereqSection from "../components/PluginPrereqSection.vue";
 
 export default {
   metaInfo() {
@@ -151,6 +137,7 @@ export default {
     PluginCommandsSection,
     PluginRequiresSection,
     PluginHelpSection,
+    PluginPrereqSection,
   },
 };
 </script>
@@ -177,8 +164,12 @@ query Transformers($path: String!, $name: String!) {
     settings {
       name
       label
+      description
+      description_rendered
       value
     }
+    settings_preamble
+    settings_preamble_rendered
     commands {
       clean {
         args

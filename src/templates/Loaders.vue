@@ -50,23 +50,7 @@
             </li>
           </ul>
           <h2>Getting Started</h2>
-          <h3>Prerequisites</h3>
-          <p>
-            If you haven't already, follow the initial steps of the
-            <a href="https://docs.meltano.com/getting-started.html">Getting Started guide</a>:
-          </p>
-          <ol>
-            <li>
-              <a href="https://docs.meltano.com/getting-started.html#install-meltano"
-                >Install Meltano</a
-              >
-            </li>
-            <li>
-              <a href="https://docs.meltano.com/getting-started.html#create-your-meltano-project"
-                >Create your Meltano project</a
-              >
-            </li>
-          </ol>
+          <PluginPrereqSection :plugin="$page.loaders" plugin_type="loader" />
           <h3>Installation and configuration</h3>
           <ol>
             <li>
@@ -102,6 +86,7 @@
             </li>
           </ol>
           <p>If you run into any issues, learn how to get help.</p>
+          <span v-if="$page.loaders.usage" v-html="$page.loaders.usage_rendered"></span>
           <PluginCapabilitiesSection
             :capabilities="$page.loaders.capabilities"
             :name="$page.loaders.name"
@@ -134,6 +119,7 @@ import PluginSidebar from "../components/PluginSidebar.vue";
 import PluginSettingsSection from "../components/PluginSettingsSection.vue";
 import PluginHelpSection from "../components/PluginHelpSection.vue";
 import PluginCapabilitiesSection from "../components/PluginCapabilitiesSection.vue";
+import PluginPrereqSection from "../components/PluginPrereqSection.vue";
 
 export default {
   metaInfo() {
@@ -147,6 +133,7 @@ export default {
     PluginSettingsSection,
     PluginHelpSection,
     PluginCapabilitiesSection,
+    PluginPrereqSection,
   },
 };
 </script>
@@ -172,9 +159,12 @@ query Loaders($path: String!, $name: String!) {
       name
       label
       description
+      description_rendered
     }
     prereq
+    prereq_rendered
     usage
+    usage_rendered
   }
   variants: allLoaders(filter: { name: { eq: $name } }) {
     edges {

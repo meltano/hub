@@ -8,6 +8,7 @@
 const fs = require("fs");
 const yaml = require("js-yaml");
 const path = require("path");
+const marked = require("marked");
 const buildJSONApi = require("./src/api/plugins");
 
 const dataRoot = "_data/";
@@ -19,6 +20,33 @@ const defaultVariantData = yaml.load(
 const readMaintainers = yaml.load(
   fs.readFileSync(path.join(dataRoot, "maintainers.yml"))
 );
+
+function renderMarkdownSections(pluginData) {
+  return {
+    ...pluginData,
+    // Common
+    settings:
+      pluginData.settings &&
+      pluginData.settings.map((setting) => ({
+        ...setting,
+        description_rendered:
+          setting.description && marked.marked(setting.description),
+      })),
+    // Rare
+    settings_preamble_rendered: pluginData.settings_preamble
+      ? marked.marked(pluginData.settings_preamble)
+      : undefined,
+    usage_rendered: pluginData.usage
+      ? marked.marked(pluginData.usage)
+      : undefined,
+    prereq_rendered: pluginData.prereq
+      ? marked.marked(pluginData.prereq)
+      : undefined,
+    next_steps_rendered: pluginData.next_steps
+      ? marked.marked(pluginData.next_steps)
+      : undefined,
+  };
+}
 
 function buildData(dataPath, collection) {
   const currentCollection = dataPath;
@@ -33,7 +61,9 @@ function buildData(dataPath, collection) {
       const fileContents = fs.readFileSync(
         `${currentCollection}/${currentFolder}/${plugin}`
       );
-      const readPlugin = yaml.load(fileContents);
+      let readPlugin = yaml.load(fileContents);
+      readPlugin = renderMarkdownSections(readPlugin);
+
       readPlugin.isDefault =
         defaultVariantData[path.basename(dataPath)][currentFolder] ===
         readPlugin.variant;
