@@ -1,7 +1,7 @@
 <template>
   <div class="single-plugin-aside">
     <h4>Install</h4>
-    <pre><code>meltano add {{plugin_type}} {{ name }} <span v-if="!is_default">--variant {{ variant }}</span></code></pre>
+    <pre><code>meltano add {{plugin_type}} {{ name }}<span v-if="!is_default"> --variant {{ variant }}</span></code></pre>
     <h4>Homepage</h4>
     <div class="link-box">
       <img class="aside-icon" src="../assets/images/link-solid.svg" /><a :href="domain_url">{{
