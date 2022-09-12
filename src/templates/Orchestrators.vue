@@ -101,6 +101,7 @@
           :maintenance_status="$page.orchestrators.maintenance_status"
           :keywords="$page.orchestrators.keywords"
           :variant="$page.orchestrators.variant"
+          :is_default="$page.orchestrators.isDefault"
           :metrics="$page.orchestrators.metrics"
           plugin_type="orchestrator"
         />
@@ -145,6 +146,7 @@ query Orchestrators($path: String!, $name: String!) {
     logo_url
     namespace
     variant
+    isDefault
     pip_url
     repo
     next_steps

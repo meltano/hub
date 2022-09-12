@@ -107,6 +107,7 @@
           :maintenance_status="$page.loaders.maintenance_status"
           :keywords="$page.loaders.keywords"
           :variant="$page.loaders.variant"
+          :is_default="$page.loaders.isDefault"
           :metrics="$page.loaders.metrics"
           plugin_type="loader"
         />
@@ -150,6 +151,7 @@ query Loaders($path: String!, $name: String!) {
     logo_url
     namespace
     variant
+    isDefault
     pip_url
     repo
     maintenance_status

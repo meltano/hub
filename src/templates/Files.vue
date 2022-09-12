@@ -98,6 +98,7 @@
           :maintenance_status="$page.files.maintenance_status"
           :keywords="$page.files.keywords"
           :variant="$page.files.variant"
+          :is_default="$page.files.isDefault"
           :metrics="$page.files.metrics"
           plugin_type="file"
         />
@@ -133,6 +134,7 @@ query Files($path: String!, $name: String!) {
     logo_url
     namespace
     variant
+    isDefault
     pip_url
     repo
     maintenance_status
