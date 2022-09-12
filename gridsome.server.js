@@ -54,7 +54,7 @@ function renderMarkdownSections(pluginData) {
 
 function addCommandNames(pluginData) {
   if (!pluginData.commands) {
-    return
+    return;
   }
   Object.keys(pluginData.commands).forEach((commandName) => {
     const command = pluginData.commands[commandName];
