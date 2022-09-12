@@ -14,7 +14,7 @@
           :key="edge.node.id"
           class="page-single-plugin"
         >
-          <g-link :to="edge.node.path">
+          <g-link :to="edge.node.path.split('--')[0]">
             <g-image
               v-if="edge.node.logo_url"
               :src="
@@ -53,7 +53,13 @@ export default {
 
 <page-query lang="graphql">
 query ($page: Int) {
-  allExtractors(perPage: 100, page: $page, sortBy: "label", order: ASC) @paginate {
+  allExtractors(
+    perPage: 100
+    page: $page
+    sortBy: "label"
+    order: ASC
+    filter: { isDefault: { eq: true } }
+  ) @paginate {
     pageInfo {
       totalPages
       currentPage

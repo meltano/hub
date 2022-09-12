@@ -15,7 +15,7 @@
           :key="plugin.node.id"
           class="result-item"
         >
-          <g-link :to="plugin.node.path">
+          <g-link :to="plugin.node.path.split('--')[0]">
             <div class="result-left">
               <g-image
                 v-if="plugin.node.logo_url"
