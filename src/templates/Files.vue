@@ -98,6 +98,7 @@
           :maintenance_status="$page.files.maintenance_status"
           :keywords="$page.files.keywords"
           :variant="$page.files.variant"
+          :metrics="$page.files.metrics"
           plugin_type="file"
         />
       </div>
@@ -136,6 +137,9 @@ query Files($path: String!, $name: String!) {
     repo
     maintenance_status
     definition
+    metrics {
+      ALL_PROJECTS
+    }
   }
   variants: allFiles(filter: { name: { eq: $name } }) {
     edges {

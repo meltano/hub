@@ -101,6 +101,7 @@
           :maintenance_status="$page.orchestrators.maintenance_status"
           :keywords="$page.orchestrators.keywords"
           :variant="$page.orchestrators.variant"
+          :metrics="$page.orchestrators.metrics"
           plugin_type="orchestrator"
         />
       </div>
@@ -173,6 +174,10 @@ query Orchestrators($path: String!, $name: String!) {
     logo_url
     settings_preamble
     settings_preamble_rendered
+    metrics {
+      ALL_PROJECTS
+      ALL_EXECS
+    }
   }
   variants: allOrchestrators(filter: { name: { eq: $name } }) {
     edges {

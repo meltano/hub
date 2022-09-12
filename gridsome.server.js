@@ -17,6 +17,10 @@ const defaultVariantData = yaml.load(
   fs.readFileSync(path.join(dataRoot, "default_variants.yml"))
 );
 
+const pluginMetricsData = yaml.load(
+  fs.readFileSync(path.join(dataRoot, "variant_metrics.yml"))
+).metrics;
+
 const readMaintainers = yaml.load(
   fs.readFileSync(path.join(dataRoot, "maintainers.yml"))
 );
@@ -68,6 +72,10 @@ function buildData(dataPath, collection) {
         defaultVariantData[path.basename(dataPath)][currentFolder] ===
         readPlugin.variant;
       readPlugin.pluginType = path.basename(dataPath).slice(0, -1);
+
+      // Include additional fields
+      readPlugin.metrics = pluginMetricsData[readPlugin.repo];
+
       collection.addNode(readPlugin);
     });
   });

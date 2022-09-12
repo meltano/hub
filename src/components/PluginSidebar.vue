@@ -41,7 +41,7 @@
       }}</a>
     </div>
 
-    <ul class="repo-shields">
+    <ul class="shields">
       <li>
         <img
           alt="GitHub - Stars"
@@ -80,8 +80,23 @@
       </li>
     </ul>
     <h4>Maintainer</h4>
-    <h4>Meltano Stats</h4>
-
+    <div v-if="metrics">
+      <h4>Meltano Stats</h4>
+      <ul class="shields">
+        <li v-if="metrics.ALL_EXECS">
+          <img
+            alt="Total Executions (Last 3 Months)"
+            :src="`https://img.shields.io/badge/Total%20Executions%20(Last%203%20Months)-${metrics.ALL_EXECS}-c0c0c4`"
+          />
+        </li>
+        <li v-if="metrics.ALL_PROJECTS">
+          <img
+            alt="Projects (Last 3 Months)"
+            :src="`https://img.shields.io/badge/Projects%20(Last%203%20Months)-${metrics.ALL_PROJECTS}-c0c0c4`"
+          />
+        </li>
+      </ul>
+    </div>
     <h4>Keywords</h4>
     <p>{{ (keywords ?? []).join(", ") }}</p>
   </div>
@@ -90,12 +105,21 @@
 <script>
 export default {
   name: "PluginSidebar",
-  props: ["name", "domain_url", "repo", "maintenance_status", "keywords", "variant", "plugin_type"],
+  props: [
+    "name",
+    "domain_url",
+    "repo",
+    "maintenance_status",
+    "keywords",
+    "variant",
+    "plugin_type",
+    "metrics",
+  ],
 };
 </script>
 
 <style lang="scss">
-.repo-shields {
+.shields {
   list-style-type: none;
   padding: 0 0 0 30px;
 }

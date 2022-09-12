@@ -107,6 +107,7 @@
           :maintenance_status="$page.loaders.maintenance_status"
           :keywords="$page.loaders.keywords"
           :variant="$page.loaders.variant"
+          :metrics="$page.loaders.metrics"
           plugin_type="loader"
         />
       </div>
@@ -165,6 +166,10 @@ query Loaders($path: String!, $name: String!) {
     prereq_rendered
     usage
     usage_rendered
+    metrics {
+      ALL_PROJECTS
+      ALL_EXECS
+    }
   }
   variants: allLoaders(filter: { name: { eq: $name } }) {
     edges {
