@@ -109,6 +109,7 @@
           :maintenance_status="$page.extractors.maintenance_status"
           :keywords="$page.extractors.keywords"
           :variant="$page.extractors.variant"
+          :metrics="$page.extractors.metrics"
           plugin_type="extractor"
         />
       </div>
@@ -169,6 +170,10 @@ query Extractors($path: String!, $name: String!) {
     prereq_rendered
     usage
     usage_rendered
+    metrics {
+      ALL_PROJECTS
+      ALL_EXECS
+    }
   }
   variants: allExtractors(filter: { name: { eq: $name } }) {
     edges {

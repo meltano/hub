@@ -117,6 +117,7 @@
           :maintenance_status="$page.utilities.maintenance_status"
           :keywords="$page.utilities.keywords"
           :variant="$page.utilities.variant"
+          :metrics="$page.utilities.metrics"
           plugin_type="utility"
         />
       </div>
@@ -224,6 +225,10 @@ query Utilities($path: String!, $name: String!) {
     usage_rendered
     settings_preamble
     settings_preamble_rendered
+    metrics {
+      ALL_PROJECTS
+      ALL_EXECS
+    }
   }
   variants: allUtilities(filter: { name: { eq: $name } }) {
     edges {

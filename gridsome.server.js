@@ -18,7 +18,7 @@ const defaultVariantData = yaml.load(
 );
 
 const pluginMetricsData = yaml.load(
-  fs.readFileSync(path.join(dataRoot, "metrics.yml"))
+  fs.readFileSync(path.join(dataRoot, "variant_metrics.yml"))
 ).metrics;
 
 const readMaintainers = yaml.load(
@@ -74,8 +74,7 @@ function buildData(dataPath, collection) {
       readPlugin.pluginType = path.basename(dataPath).slice(0, -1);
 
       // Include additional fields
-      readPlugin.metrics =
-        pluginMetricsData[`${readPlugin.variant}/${readPlugin.name}`];
+      readPlugin.metrics = pluginMetricsData[readPlugin.repo];
 
       collection.addNode(readPlugin);
     });

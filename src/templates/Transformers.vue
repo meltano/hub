@@ -109,6 +109,7 @@
           :maintenance_status="$page.transformers.maintenance_status"
           :keywords="$page.transformers.keywords"
           :variant="$page.transformers.variant"
+          :metrics="$page.transformers.metrics"
           plugin_type="transformer"
         />
       </div>
@@ -231,6 +232,10 @@ query Transformers($path: String!, $name: String!) {
         description
         name
       }
+    }
+    metrics {
+      ALL_PROJECTS
+      ALL_EXECS
     }
   }
   variants: allTransformers(filter: { name: { eq: $name } }) {
