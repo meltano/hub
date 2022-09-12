@@ -109,6 +109,7 @@
           :maintenance_status="$page.transformers.maintenance_status"
           :keywords="$page.transformers.keywords"
           :variant="$page.transformers.variant"
+          :is_default="$page.transformers.isDefault"
           :metrics="$page.transformers.metrics"
           plugin_type="transformer"
         />
@@ -153,6 +154,7 @@ query Transformers($path: String!, $name: String!) {
     logo_url
     namespace
     variant
+    isDefault
     pip_url
     repo
     requires {

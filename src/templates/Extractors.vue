@@ -109,6 +109,7 @@
           :maintenance_status="$page.extractors.maintenance_status"
           :keywords="$page.extractors.keywords"
           :variant="$page.extractors.variant"
+          :is_default="$page.extractors.isDefault"
           :metrics="$page.extractors.metrics"
           plugin_type="extractor"
         />
@@ -152,6 +153,7 @@ query Extractors($path: String!, $name: String!) {
     logo_url
     namespace
     variant
+    isDefault
     pip_url
     repo
     maintenance_status

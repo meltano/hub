@@ -117,6 +117,7 @@
           :maintenance_status="$page.utilities.maintenance_status"
           :keywords="$page.utilities.keywords"
           :variant="$page.utilities.variant"
+          :is_default="$page.utilities.isDefault"
           :metrics="$page.utilities.metrics"
           plugin_type="utility"
         />
@@ -163,6 +164,7 @@ query Utilities($path: String!, $name: String!) {
     namespace
     definition
     variant
+    isDefault
     pip_url
     repo
     maintenance_status
