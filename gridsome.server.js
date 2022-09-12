@@ -52,6 +52,19 @@ function renderMarkdownSections(pluginData) {
   };
 }
 
+function addCommandNames(pluginData) {
+  return {
+    ...pluginData,
+    // Common
+    commands:
+      pluginData.commands &&
+      pluginData.commands.toArray(([commandName, command]) => ({
+        ...command,
+        name: commandName
+      }))
+  };
+}
+
 function buildData(dataPath, collection) {
   const currentCollection = dataPath;
   let collectionFolder = fs.readdirSync(dataPath);
@@ -67,6 +80,7 @@ function buildData(dataPath, collection) {
       );
       let readPlugin = yaml.load(fileContents);
       readPlugin = renderMarkdownSections(readPlugin);
+      readPlugin = addCommandNames(readPlugin);
 
       readPlugin.isDefault =
         defaultVariantData[path.basename(dataPath)][currentFolder] ===
