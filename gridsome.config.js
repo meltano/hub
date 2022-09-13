@@ -12,6 +12,7 @@ module.exports = {
     config.resolve.alias.set("@logos", "@/../assets/logos");
   },
   templates: {
+    /*
     Extractors: [
       {
         path: "/extractors/:name--:variant",
@@ -46,6 +47,13 @@ module.exports = {
       {
         path: "/files/:name--:variant",
         component: "./src/templates/Files.vue",
+      },
+    ],
+    */
+    Plugins: [
+      {
+        path: "/:type/zzz:name--:variant",
+        component: "./src/templates/Plugins.vue",
       },
     ],
     Maintainers: [

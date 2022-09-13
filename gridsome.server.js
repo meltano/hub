@@ -104,6 +104,10 @@ function buildMaintainers(datapath, collection) {
 
 module.exports = function main(api) {
   api.loadSource(async (actions) => {
+    const pluginsCollection = actions.addCollection({
+      typeName: "Plugins",
+    });
+    /*
     const extractorsCollection = actions.addCollection({
       typeName: "Extractors",
     });
@@ -128,10 +132,12 @@ module.exports = function main(api) {
     const utilitiesCollection = actions.addCollection({
       typeName: "Utilities",
     });
+    */
     const maintainersCollection = actions.addCollection({
       typeName: "Maintainers",
     });
 
+    buildData(path.join(dataRoot, "meltano/plugins"), pluginsCollection);
     buildData(path.join(dataRoot, "meltano/extractors"), extractorsCollection);
     buildData(path.join(dataRoot, "meltano/loaders"), loadersCollection);
     buildData(path.join(dataRoot, "meltano/files"), filesCollection);
@@ -153,7 +159,7 @@ module.exports = function main(api) {
   api.createPages(async ({ createPage, graphql }) => {
     const defaultPlugins = await graphql(`
       {
-        allExtractors(filter: { isDefault: { eq: true } }) {
+        allPlugins(filter: { isDefault: { eq: true } }) {
           edges {
             node {
               id
@@ -162,51 +168,60 @@ module.exports = function main(api) {
             }
           }
         }
-        allLoaders(filter: { isDefault: { eq: true } }) {
-          edges {
-            node {
-              id
-              path
-              name
-            }
-          }
-        }
-        allFiles(filter: { isDefault: { eq: true } }) {
-          edges {
-            node {
-              id
-              path
-              name
-            }
-          }
-        }
-        allOrchestrators(filter: { isDefault: { eq: true } }) {
-          edges {
-            node {
-              id
-              path
-              name
-            }
-          }
-        }
-        allTransformers(filter: { isDefault: { eq: true } }) {
-          edges {
-            node {
-              id
-              path
-              name
-            }
-          }
-        }
-        allUtilities(filter: { isDefault: { eq: true } }) {
-          edges {
-            node {
-              id
-              path
-              name
-            }
-          }
-        }
+        // allExtractors(filter: { isDefault: { eq: true } }) {
+        //   edges {
+        //     node {
+        //       id
+        //       path
+        //       name
+        //     }
+        //   }
+        // }
+        // allLoaders(filter: { isDefault: { eq: true } }) {
+        //   edges {
+        //     node {
+        //       id
+        //       path
+        //       name
+        //     }
+        //   }
+        // }
+        // allFiles(filter: { isDefault: { eq: true } }) {
+        //   edges {
+        //     node {
+        //       id
+        //       path
+        //       name
+        //     }
+        //   }
+        // }
+        // allOrchestrators(filter: { isDefault: { eq: true } }) {
+        //   edges {
+        //     node {
+        //       id
+        //       path
+        //       name
+        //     }
+        //   }
+        // }
+        // allTransformers(filter: { isDefault: { eq: true } }) {
+        //   edges {
+        //     node {
+        //       id
+        //       path
+        //       name
+        //     }
+        //   }
+        // }
+        // allUtilities(filter: { isDefault: { eq: true } }) {
+        //   edges {
+        //     node {
+        //       id
+        //       path
+        //       name
+        //     }
+        //   }
+        // }
       }
     `);
 

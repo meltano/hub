@@ -1,0 +1,193 @@
+<template>
+  <Layout>
+    <div class="single-plugin-overview">
+      <div class="single-plugin-detail">
+        <div class="single-plugin-top-bar">
+          <table>
+            <tr>
+              <td style="padding: 25px">
+                <g-image
+                  v-if="$page.extractors.logo_url"
+                  :src="
+                    require(`!!assets-loader?width=250&height=200&fit=inside!@logos/${$page.extractors.logo_url.replace(
+                      '/assets/logos/',
+                      ''
+                    )}`)
+                  "
+                />
+              </td>
+              <td>
+                <h1>
+                  {{ $page.extractors.label }}
+                </h1>
+                <h2>
+                  <code>{{ $page.extractors.name }} from {{ $page.extractors.variant }}</code>
+                </h2>
+                <p>
+                  <b>{{ $page.extractors.description }}</b>
+                </p>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="single-plugin-main">
+          <p>
+            The {{ $page.extractors.name }}
+            <a href="https://docs.meltano.com/concepts/plugins#extractors">Meltano extractor</a>
+            pulls data from
+            <a :href="$page.extractors.domain_url">{{ $page.extractors.label }}</a> that can then be
+            sent to a destination using a <g-link to="/loaders">loader</g-link>.
+          </p>
+          <h3>Other Available Variants</h3>
+          <ul>
+            <li v-for="(variant, index) in $page.variants.edges" v-bind:key="index">
+              <g-link :to="variant.node.path" v-if="variant.node.path !== $page.extractors.path">{{
+                variant.node.variant
+              }}</g-link>
+              <span v-else>{{ variant.node.variant }}</span>
+              <span v-if="variant.node.isDefault"> (default)</span>
+            </li>
+          </ul>
+          <h2 id="getting-started">Getting Started</h2>
+          <PluginPrereqSection :plugin="$page.extractors" plugin_type="extractor" />
+          <h3 id="installation">Installation and configuration</h3>
+          <ol>
+            <li>
+              Add the {{ $page.extractors.name }} extractor to your project using
+              <pre class="inline-code-block"><code>meltano add</code></pre>
+              :
+            </li>
+            <pre><code>meltano add {{plugin_type}} {{ name }}<span v-if="!is_default"> --variant {{ variant }}</span></code></pre>
+          </ol>
+          <h3>Next steps</h3>
+          <p>
+            Follow the remaining steps of the
+            <a href="https://docs.meltano.com/getting-started.html">Getting Started guide</a>:
+          </p>
+          <ol>
+            <li>
+              <a
+                href="https://docs.meltano.com/getting-started.html#select-entities-and-attributes-to-extract"
+                >Select entities and attributes to extract</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://docs.meltano.com/getting-started.html#add-a-loader-to-send-data-to-a-destination"
+                >Add a loader to send data to a destination</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://docs.meltano.com/getting-started.html#run-a-data-integration-el-pipeline"
+                >Run a data integration (EL) pipeline</a
+              >
+            </li>
+          </ol>
+          <p>If you run into any issues, learn how to get help.</p>
+          <span v-if="$page.extractors.usage" v-html="$page.extractors.usage_rendered"></span>
+          <PluginCapabilitiesSection
+            :capabilities="$page.extractors.capabilities"
+            :name="$page.extractors.name"
+            plugin_type="extractor"
+          />
+          <PluginSettingsSection
+            :settings="$page.extractors.settings"
+            :name="$page.extractors.name"
+          />
+          <PluginHelpSection
+            :name="$page.extractors.name"
+            :variant="$page.extractors.variant"
+            :repo="$page.extractors.repo"
+            plugin_type="extractors"
+          />
+        </div>
+        <PluginSidebar
+          :name="$page.extractors.name"
+          :domain_url="$page.extractors.domain_url"
+          :repo="$page.extractors.repo"
+          :maintenance_status="$page.extractors.maintenance_status"
+          :keywords="$page.extractors.keywords"
+          :variant="$page.extractors.variant"
+          :is_default="$page.extractors.isDefault"
+          :metrics="$page.extractors.metrics"
+          plugin_type="extractor"
+        />
+      </div>
+    </div>
+  </Layout>
+</template>
+
+<script>
+import PluginSidebar from "../components/PluginSidebar.vue";
+import PluginSettingsSection from "../components/PluginSettingsSection.vue";
+import PluginHelpSection from "../components/PluginHelpSection.vue";
+import PluginCapabilitiesSection from "../components/PluginCapabilitiesSection.vue";
+import PluginPrereqSection from "../components/PluginPrereqSection.vue";
+
+export default {
+  metaInfo() {
+    return {
+      title: this.$page.extractors.name,
+    };
+  },
+  name: "ExtractorsTemplate",
+  components: {
+    PluginSidebar,
+    PluginSettingsSection,
+    PluginHelpSection,
+    PluginCapabilitiesSection,
+    PluginPrereqSection,
+  },
+};
+</script>
+
+<page-query lang="graphql">
+query Extractors($path: String!, $name: String!) {
+  extractors: extractors(path: $path) {
+    id
+    description
+    path
+    label
+    name
+    logo_url
+    namespace
+    variant
+    isDefault
+    pip_url
+    repo
+    maintenance_status
+    keywords
+    domain_url
+    capabilities
+    settings {
+      name
+      label
+      description
+      description_rendered
+      kind
+      placeholder
+    }
+    prereq
+    prereq_rendered
+    usage
+    usage_rendered
+    metrics {
+      ALL_PROJECTS
+      ALL_EXECS
+    }
+  }
+  variants: allExtractors(filter: { name: { eq: $name } }) {
+    edges {
+      node {
+        name
+        variant
+        path
+        isDefault
+      }
+    }
+  }
+}
+</page-query>
+
+<style lang="scss"></style>
