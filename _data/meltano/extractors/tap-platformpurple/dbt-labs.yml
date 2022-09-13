@@ -3,9 +3,9 @@ label: Platform Purple
 name: tap-platformpurple
 logo_url: /assets/logos/extractors/platformpurple.png
 namespace: tap_platformpurple
-variant: fishtown-analytics
-pip_url: git+https://github.com/fishtown-analytics/tap-platformpurple.git
-repo: https://github.com/fishtown-analytics/tap-platformpurple
+variant: dbt-labs
+pip_url: git+https://github.com/dbt-labs/tap-platformpurple.git
+repo: https://github.com/dbt-labs/tap-platformpurple
 settings: []
 capabilities:
 - catalog

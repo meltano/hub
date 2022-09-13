@@ -3,9 +3,9 @@ label: eBay
 name: tap-ebay
 logo_url: /assets/logos/extractors/ebay.png
 namespace: tap_ebay
-variant: fishtown-analytics
-pip_url: git+https://github.com/fishtown-analytics/tap-ebay.git
-repo: https://github.com/fishtown-analytics/tap-ebay
+variant: dbt-labs
+pip_url: git+https://github.com/dbt-labs/tap-ebay.git
+repo: https://github.com/dbt-labs/tap-ebay
 settings: []
 capabilities:
 - catalog

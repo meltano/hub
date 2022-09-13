@@ -3,9 +3,9 @@ label: Mavenlink
 name: tap-mavenlink
 logo_url: /assets/logos/extractors/mavenlink.png
 namespace: tap_mavenlink
-variant: fishtown-analytics
-pip_url: git+https://github.com/fishtown-analytics/tap-mavenlink.git
-repo: https://github.com/fishtown-analytics/tap-mavenlink
+variant: dbt-labs
+pip_url: git+https://github.com/dbt-labs/tap-mavenlink.git
+repo: https://github.com/dbt-labs/tap-mavenlink
 settings: []
 capabilities:
 - catalog

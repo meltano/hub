@@ -3,9 +3,9 @@ label: RingCentral
 name: tap-ringcentral
 logo_url: /assets/logos/extractors/ringcentral.png
 namespace: tap_ringcentral
-variant: fishtown-analytics
-pip_url: git+https://github.com/fishtown-analytics/tap-ringcentral.git
-repo: https://github.com/fishtown-analytics/tap-ringcentral
+variant: dbt-labs
+pip_url: git+https://github.com/dbt-labs/tap-ringcentral.git
+repo: https://github.com/dbt-labs/tap-ringcentral
 settings: []
 capabilities:
 - catalog

@@ -3,9 +3,9 @@ label: UserVoice
 name: tap-uservoice
 logo_url: /assets/logos/extractors/uservoice.png
 namespace: tap_uservoice
-variant: fishtown-analytics
-pip_url: git+https://github.com/fishtown-analytics/tap-uservoice.git
-repo: https://github.com/fishtown-analytics/tap-uservoice
+variant: dbt-labs
+pip_url: git+https://github.com/dbt-labs/tap-uservoice.git
+repo: https://github.com/dbt-labs/tap-uservoice
 settings: []
 capabilities:
 - catalog
