@@ -12,11 +12,9 @@ requires:
     variant: meltano
 commands:
   create-admin:
-    name: "create-admin"
     args: "users create --username admin --firstname FIRST_NAME --lastname LAST_NAME --role Admin --email admin@example.org"
     description: Create an admin user.
   ui:
-    name: "ui"
     args: webserver
     description: Start the Airflow webserver.
 next_steps: |

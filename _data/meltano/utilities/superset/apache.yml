@@ -38,16 +38,13 @@ settings:
   description: App secret key used for securely signing the session cookie and encrypting sensitive information on the database. Equivalent to the `SECRET_KEY` setting in `superset_config.py`.
 commands:
   ui:
-    name: ui
     executable: gunicorn
     args: --bind $SUPERSET_UI_BIND_HOST:$SUPERSET_UI_PORT --timeout $SUPERSET_UI_TIMEOUT --workers $SUPERSET_UI_WORKERS superset.app:create_app()
     description: Start the Superset UI. Will be available on the configured `ui.bind_host` and `ui.port`, which default to `http://localhost:8088`
   create-admin:
-    name: create-admin
     args: fab create-admin
     description: Create an admin user.
   load-examples:
-    name: load-examples
     args: load_examples
     description: Load examples.
 logo_url: /assets/logos/utilities/superset.png
