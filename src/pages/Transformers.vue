@@ -7,13 +7,8 @@
         sources.
       </p>
       <ul class="plugins-list">
-        <li
-          v-for="edge in $page.allTransformers.edges"
-          :key="edge.node.id"
-          class="page-single-plugin"
-        >
+        <li v-for="edge in $page.allPlugins.edges" :key="edge.node.id" class="page-single-plugin">
           <g-link :to="edge.node.path.split('--')[0]">
-            <h2>{{ edge.node.label }}</h2>
             <g-image
               v-if="edge.node.logo_url"
               :src="
@@ -24,13 +19,11 @@
               "
             />
             <h2>{{ edge.node.label }}</h2>
-            <h2>
-              <pre><code>{{ edge.node.name }}</code></pre>
-            </h2>
+            <p>{{ edge.node.pluginType }}</p>
           </g-link>
         </li>
         <Pager
-          :info="$page.allTransformers.pageInfo"
+          :info="$page.allPlugins.pageInfo"
           class="pager-container"
           linkClass="pager-container__link"
         />
@@ -52,12 +45,12 @@ export default {
 
 <page-query lang="graphql">
 query ($page: Int) {
-  allTransformers(
+  allPlugins(
     perPage: 100
     page: $page
     sortBy: "label"
     order: ASC
-    filter: { isDefault: { eq: true } }
+    filter: { isDefault: { eq: true }, pluginType: { eq: "transformer" } }
   ) @paginate {
     pageInfo {
       totalPages
@@ -69,6 +62,7 @@ query ($page: Int) {
         path
         label
         name
+        pluginType
         logo_url
         namespace
         variant

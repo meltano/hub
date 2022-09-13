@@ -25,6 +25,17 @@ const readMaintainers = yaml.load(
   fs.readFileSync(path.join(dataRoot, "maintainers.yml"))
 );
 
+const pluginTypeSingulars = {
+  extractors: "extractor",
+  loaders: "loader",
+  mappers: "mapper",
+  transforms: "transform",
+  transformers: "transformer",
+  orchestrators: "orchestrator",
+  utilities: "utility",
+  files: "file",
+};
+
 function renderMarkdownSections(pluginData) {
   return {
     ...pluginData,
@@ -62,7 +73,7 @@ function addCommandNames(pluginData) {
   });
 }
 
-function buildData(dataPath, collection) {
+function buildData(dataPath, collections) {
   const currentCollection = dataPath;
   let collectionFolder = fs.readdirSync(dataPath);
   collectionFolder = collectionFolder.filter(
@@ -82,12 +93,15 @@ function buildData(dataPath, collection) {
       readPlugin.isDefault =
         defaultVariantData[path.basename(dataPath)][currentFolder] ===
         readPlugin.variant;
-      readPlugin.pluginType = path.basename(dataPath).slice(0, -1);
+      readPlugin.pluginTypePlural = path.basename(dataPath);
+      readPlugin.pluginType = pluginTypeSingulars[readPlugin.pluginTypePlural];
 
       // Include additional fields
       readPlugin.metrics = pluginMetricsData[readPlugin.repo];
 
-      collection.addNode(readPlugin);
+      collections.forEach((collection) => {
+        collection.addNode(readPlugin);
+      });
     });
   });
 }
@@ -104,6 +118,9 @@ function buildMaintainers(datapath, collection) {
 
 module.exports = function main(api) {
   api.loadSource(async (actions) => {
+    const pluginsCollection = actions.addCollection({
+      typeName: "Plugins",
+    });
     const extractorsCollection = actions.addCollection({
       typeName: "Extractors",
     });
@@ -132,20 +149,38 @@ module.exports = function main(api) {
       typeName: "Maintainers",
     });
 
-    buildData(path.join(dataRoot, "meltano/extractors"), extractorsCollection);
-    buildData(path.join(dataRoot, "meltano/loaders"), loadersCollection);
-    buildData(path.join(dataRoot, "meltano/files"), filesCollection);
-    buildData(
-      path.join(dataRoot, "meltano/orchestrators"),
-      orchestratorsCollection
-    );
-    buildData(
-      path.join(dataRoot, "meltano/transformers"),
-      transformersCollection
-    );
-    buildData(path.join(dataRoot, "meltano/transforms"), transformsCollection);
-    buildData(path.join(dataRoot, "meltano/mappers"), mappersCollection);
-    buildData(path.join(dataRoot, "meltano/utilities"), utilitiesCollection);
+    buildData(path.join(dataRoot, "meltano/extractors"), [
+      extractorsCollection,
+      pluginsCollection,
+    ]);
+    buildData(path.join(dataRoot, "meltano/loaders"), [
+      loadersCollection,
+      pluginsCollection,
+    ]);
+    buildData(path.join(dataRoot, "meltano/files"), [
+      filesCollection,
+      pluginsCollection,
+    ]);
+    buildData(path.join(dataRoot, "meltano/orchestrators"), [
+      orchestratorsCollection,
+      pluginsCollection,
+    ]);
+    buildData(path.join(dataRoot, "meltano/transformers"), [
+      transformersCollection,
+      pluginsCollection,
+    ]);
+    buildData(path.join(dataRoot, "meltano/transforms"), [
+      transformsCollection,
+      pluginsCollection,
+    ]);
+    buildData(path.join(dataRoot, "meltano/mappers"), [
+      mappersCollection,
+      pluginsCollection,
+    ]);
+    buildData(path.join(dataRoot, "meltano/utilities"), [
+      utilitiesCollection,
+      pluginsCollection,
+    ]);
     buildMaintainers(readMaintainers, maintainersCollection);
   });
 
@@ -153,57 +188,13 @@ module.exports = function main(api) {
   api.createPages(async ({ createPage, graphql }) => {
     const defaultPlugins = await graphql(`
       {
-        allExtractors(filter: { isDefault: { eq: true } }) {
+        allPlugins(filter: { isDefault: { eq: true } }) {
           edges {
             node {
               id
               path
               name
-            }
-          }
-        }
-        allLoaders(filter: { isDefault: { eq: true } }) {
-          edges {
-            node {
-              id
-              path
-              name
-            }
-          }
-        }
-        allFiles(filter: { isDefault: { eq: true } }) {
-          edges {
-            node {
-              id
-              path
-              name
-            }
-          }
-        }
-        allOrchestrators(filter: { isDefault: { eq: true } }) {
-          edges {
-            node {
-              id
-              path
-              name
-            }
-          }
-        }
-        allTransformers(filter: { isDefault: { eq: true } }) {
-          edges {
-            node {
-              id
-              path
-              name
-            }
-          }
-        }
-        allUtilities(filter: { isDefault: { eq: true } }) {
-          edges {
-            node {
-              id
-              path
-              name
+              pluginType
             }
           }
         }
@@ -217,7 +208,7 @@ module.exports = function main(api) {
           // Remove the variant part of the path
           path: node.path.split("--")[0],
           // And send it to the same rendering template
-          component: `./src/templates/${query.substring(3)}.vue`,
+          component: `./src/templates/Plugins.vue`,
           context: {
             id: node.id,
             path: node.path,

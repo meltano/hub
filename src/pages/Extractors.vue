@@ -9,11 +9,7 @@
         (EL) guide.
       </p>
       <ul class="plugins-list">
-        <li
-          v-for="edge in $page.allExtractors.edges"
-          :key="edge.node.id"
-          class="page-single-plugin"
-        >
+        <li v-for="edge in $page.allPlugins.edges" :key="edge.node.id" class="page-single-plugin">
           <g-link :to="edge.node.path.split('--')[0]">
             <g-image
               v-if="edge.node.logo_url"
@@ -25,13 +21,11 @@
               "
             />
             <h2>{{ edge.node.label }}</h2>
-            <h2>
-              <pre><code>{{ edge.node.name }}</code></pre>
-            </h2>
+            <p>{{ edge.node.pluginType }}</p>
           </g-link>
         </li>
         <Pager
-          :info="$page.allExtractors.pageInfo"
+          :info="$page.allPlugins.pageInfo"
           class="pager-container"
           linkClass="pager-container__link"
         />
@@ -53,12 +47,12 @@ export default {
 
 <page-query lang="graphql">
 query ($page: Int) {
-  allExtractors(
+  allPlugins(
     perPage: 100
     page: $page
     sortBy: "label"
     order: ASC
-    filter: { isDefault: { eq: true } }
+    filter: { isDefault: { eq: true }, pluginType: { eq: "extractor" } }
   ) @paginate {
     pageInfo {
       totalPages
@@ -71,6 +65,7 @@ query ($page: Int) {
         path
         label
         name
+        pluginType
         logo_url
         namespace
         variant

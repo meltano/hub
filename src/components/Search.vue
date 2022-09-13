@@ -54,14 +54,7 @@ export default {
   },
   computed: {
     searchResults() {
-      const pluginCollections = [
-        this.$static.allExtractors,
-        this.$static.allLoaders,
-        this.$static.allFiles,
-        this.$static.allOrchestrators,
-        this.$static.allUtilities,
-        this.$static.allTransformers,
-      ];
+      const pluginCollections = [this.$static.allPlugins];
       return pluginCollections.flatMap((coll) =>
         coll.edges.filter((plugin) => {
           const pluginTextFields = [
@@ -83,7 +76,7 @@ export default {
 
 <static-query lang="graphql">
 query {
-  allExtractors(filter: { isDefault: { eq: true } }) {
+  allPlugins(filter: { isDefault: { eq: true } }) {
     edges {
       node {
         id
@@ -94,70 +87,6 @@ query {
         logo_url
         pluginType
         keywords
-      }
-    }
-  }
-  allLoaders(filter: { isDefault: { eq: true } }) {
-    edges {
-      node {
-        id
-        description
-        path
-        label
-        name
-        logo_url
-        pluginType
-        keywords
-      }
-    }
-  }
-  allOrchestrators(filter: { isDefault: { eq: true } }) {
-    edges {
-      node {
-        id
-        path
-        label
-        name
-        logo_url
-        pluginType
-      }
-    }
-  }
-  allTransformers(filter: { isDefault: { eq: true } }) {
-    edges {
-      node {
-        id
-        path
-        label
-        name
-        logo_url
-        pluginType
-      }
-    }
-  }
-  allUtilities(filter: { isDefault: { eq: true } }) {
-    edges {
-      node {
-        id
-        description
-        path
-        label
-        name
-        logo_url
-        pluginType
-        keywords
-      }
-    }
-  }
-  allFiles(filter: { isDefault: { eq: true } }) {
-    edges {
-      node {
-        id
-        path
-        label
-        name
-        logo_url
-        pluginType
       }
     }
   }
