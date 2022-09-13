@@ -3,9 +3,9 @@ label: Ticket Tailor
 name: tap-tickettailor
 logo_url: /assets/logos/extractors/tickettailor.png
 namespace: tap_tickettailor
-variant: fishtown-analytics
-pip_url: git+https://github.com/fishtown-analytics/tap-tickettailor.git
-repo: https://github.com/fishtown-analytics/tap-tickettailor
+variant: dbt-labs
+pip_url: git+https://github.com/dbt-labs/tap-tickettailor.git
+repo: https://github.com/dbt-labs/tap-tickettailor
 settings: []
 capabilities:
 - catalog

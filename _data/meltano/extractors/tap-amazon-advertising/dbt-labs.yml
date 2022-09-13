@@ -3,9 +3,9 @@ label: Amazon Advertising
 name: tap-amazon-advertising
 logo_url: /assets/logos/extractors/amazon-advertising.png
 namespace: tap_amazon_advertising
-variant: fishtown-analytics
-pip_url: git+https://github.com/fishtown-analytics/tap-amazon-advertising.git
-repo: https://github.com/fishtown-analytics/tap-amazon-advertising
+variant: dbt-labs
+pip_url: git+https://github.com/dbt-labs/tap-amazon-advertising.git
+repo: https://github.com/dbt-labs/tap-amazon-advertising
 settings: []
 capabilities:
 - catalog

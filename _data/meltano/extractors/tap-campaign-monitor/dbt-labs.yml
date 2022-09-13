@@ -3,9 +3,9 @@ label: Campaign Monitor
 name: tap-campaign-monitor
 logo_url: /assets/logos/extractors/campaign-monitor.png
 namespace: tap_campaign_monitor
-variant: fishtown-analytics
-pip_url: git+https://github.com/fishtown-analytics/tap-campaign-monitor.git
-repo: https://github.com/fishtown-analytics/tap-campaign-monitor
+variant: dbt-labs
+pip_url: git+https://github.com/dbt-labs/tap-campaign-monitor.git
+repo: https://github.com/dbt-labs/tap-campaign-monitor
 settings: []
 capabilities:
 - catalog

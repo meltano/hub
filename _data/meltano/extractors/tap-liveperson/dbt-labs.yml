@@ -3,9 +3,9 @@ label: LivePerson
 name: tap-liveperson
 logo_url: /assets/logos/extractors/liveperson.png
 namespace: tap_liveperson
-variant: fishtown-analytics
-pip_url: git+https://github.com/fishtown-analytics/tap-liveperson.git
-repo: https://github.com/fishtown-analytics/tap-liveperson
+variant: dbt-labs
+pip_url: git+https://github.com/dbt-labs/tap-liveperson.git
+repo: https://github.com/dbt-labs/tap-liveperson
 settings: []
 capabilities:
 - catalog
