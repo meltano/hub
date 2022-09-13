@@ -3,9 +3,9 @@ label: Genesys Cloud
 name: tap-purecloud
 logo_url: /assets/logos/extractors/purecloud.png
 namespace: tap_purecloud
-variant: fishtown-analytics
-pip_url: git+https://github.com/fishtown-analytics/tap-purecloud.git
-repo: https://github.com/fishtown-analytics/tap-purecloud
+variant: dbt-labs
+pip_url: git+https://github.com/dbt-labs/tap-purecloud.git
+repo: https://github.com/dbt-labs/tap-purecloud
 settings: []
 capabilities:
 - catalog

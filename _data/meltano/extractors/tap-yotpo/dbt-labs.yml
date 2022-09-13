@@ -3,9 +3,9 @@ label: Yotpo
 name: tap-yotpo
 logo_url: /assets/logos/extractors/yotpo.png
 namespace: tap_yotpo
-variant: fishtown-analytics
-pip_url: git+https://github.com/fishtown-analytics/tap-yotpo.git
-repo: https://github.com/fishtown-analytics/tap-yotpo
+variant: dbt-labs
+pip_url: git+https://github.com/dbt-labs/tap-yotpo.git
+repo: https://github.com/dbt-labs/tap-yotpo
 settings: []
 capabilities:
 - catalog

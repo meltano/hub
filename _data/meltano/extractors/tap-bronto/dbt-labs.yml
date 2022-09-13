@@ -3,9 +3,9 @@ label: Bronto
 name: tap-bronto
 logo_url: /assets/logos/extractors/bronto.png
 namespace: tap_bronto
-variant: fishtown-analytics
-pip_url: git+https://github.com/fishtown-analytics/tap-bronto.git
-repo: https://github.com/fishtown-analytics/tap-bronto
+variant: dbt-labs
+pip_url: git+https://github.com/dbt-labs/tap-bronto.git
+repo: https://github.com/dbt-labs/tap-bronto
 settings: []
 capabilities:
 - catalog

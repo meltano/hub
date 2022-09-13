@@ -2952,7 +2952,7 @@ metrics:
     ALL_PROJECTS:
     ALL_EXECS:
     NAME: tap-eloqua
-  https://github.com/fishtown-analytics/tap-amazon-advertising:
+  https://github.com/dbt-labs/tap-amazon-advertising:
     SUCCESS_EXECS:
     LEGACY_ALL_EXECS:
     LEGACY_SUCCESS_PROJECTS:
@@ -2960,12 +2960,12 @@ metrics:
     SUCCESS_PROJECTS:
     PLUGIN_TYPE: extractors
     LEGACY_SUCCESS_EXECS:
-    VARIANT: fishtown-analytics
-    PIP_URL: git+https://github.com/fishtown-analytics/tap-amazon-advertising.git
+    VARIANT: dbt-labs
+    PIP_URL: git+https://github.com/dbt-labs/tap-amazon-advertising.git
     ALL_PROJECTS:
     ALL_EXECS:
     NAME: tap-amazon-advertising
-  https://github.com/fishtown-analytics/tap-amazon-mws:
+  https://github.com/dbt-labs/tap-amazon-mws:
     SUCCESS_EXECS:
     LEGACY_ALL_EXECS:
     LEGACY_SUCCESS_PROJECTS:
@@ -2973,12 +2973,12 @@ metrics:
     SUCCESS_PROJECTS: 0
     PLUGIN_TYPE: extractors
     LEGACY_SUCCESS_EXECS:
-    VARIANT: fishtown-analytics
-    PIP_URL: git+https://github.com/fishtown-analytics/tap-amazon-mws.git
+    VARIANT: dbt-labs
+    PIP_URL: git+https://github.com/dbt-labs/tap-amazon-mws.git
     ALL_PROJECTS: 1
     ALL_EXECS:
     NAME: tap-amazon-mws
-  https://github.com/fishtown-analytics/tap-bronto:
+  https://github.com/dbt-labs/tap-bronto:
     SUCCESS_EXECS:
     LEGACY_ALL_EXECS:
     LEGACY_SUCCESS_PROJECTS:
@@ -2986,12 +2986,12 @@ metrics:
     SUCCESS_PROJECTS:
     PLUGIN_TYPE: extractors
     LEGACY_SUCCESS_EXECS:
-    VARIANT: fishtown-analytics
-    PIP_URL: git+https://github.com/fishtown-analytics/tap-bronto.git
+    VARIANT: dbt-labs
+    PIP_URL: git+https://github.com/dbt-labs/tap-bronto.git
     ALL_PROJECTS:
     ALL_EXECS:
     NAME: tap-bronto
-  https://github.com/fishtown-analytics/tap-campaign-monitor:
+  https://github.com/dbt-labs/tap-campaign-monitor:
     SUCCESS_EXECS:
     LEGACY_ALL_EXECS:
     LEGACY_SUCCESS_PROJECTS:
@@ -2999,12 +2999,12 @@ metrics:
     SUCCESS_PROJECTS:
     PLUGIN_TYPE: extractors
     LEGACY_SUCCESS_EXECS:
-    VARIANT: fishtown-analytics
-    PIP_URL: git+https://github.com/fishtown-analytics/tap-campaign-monitor.git
+    VARIANT: dbt-labs
+    PIP_URL: git+https://github.com/dbt-labs/tap-campaign-monitor.git
     ALL_PROJECTS:
     ALL_EXECS:
     NAME: tap-campaign-monitor
-  https://github.com/fishtown-analytics/tap-ebay:
+  https://github.com/dbt-labs/tap-ebay:
     SUCCESS_EXECS:
     LEGACY_ALL_EXECS:
     LEGACY_SUCCESS_PROJECTS:
@@ -3012,12 +3012,12 @@ metrics:
     SUCCESS_PROJECTS:
     PLUGIN_TYPE: extractors
     LEGACY_SUCCESS_EXECS:
-    VARIANT: fishtown-analytics
-    PIP_URL: git+https://github.com/fishtown-analytics/tap-ebay.git
+    VARIANT: dbt-labs
+    PIP_URL: git+https://github.com/dbt-labs/tap-ebay.git
     ALL_PROJECTS:
     ALL_EXECS:
     NAME: tap-ebay
-  https://github.com/fishtown-analytics/tap-lever:
+  https://github.com/dbt-labs/tap-lever:
     SUCCESS_EXECS:
     LEGACY_ALL_EXECS:
     LEGACY_SUCCESS_PROJECTS:
@@ -3025,12 +3025,12 @@ metrics:
     SUCCESS_PROJECTS:
     PLUGIN_TYPE: extractors
     LEGACY_SUCCESS_EXECS:
-    VARIANT: fishtown-analytics
-    PIP_URL: git+https://github.com/fishtown-analytics/tap-lever.git
+    VARIANT: dbt-labs
+    PIP_URL: git+https://github.com/dbt-labs/tap-lever.git
     ALL_PROJECTS:
     ALL_EXECS:
     NAME: tap-lever
-  https://github.com/fishtown-analytics/tap-listrak:
+  https://github.com/dbt-labs/tap-listrak:
     SUCCESS_EXECS:
     LEGACY_ALL_EXECS:
     LEGACY_SUCCESS_PROJECTS:
@@ -3038,12 +3038,12 @@ metrics:
     SUCCESS_PROJECTS:
     PLUGIN_TYPE: extractors
     LEGACY_SUCCESS_EXECS:
-    VARIANT: fishtown-analytics
-    PIP_URL: git+https://github.com/fishtown-analytics/tap-listrak.git
+    VARIANT: dbt-labs
+    PIP_URL: git+https://github.com/dbt-labs/tap-listrak.git
     ALL_PROJECTS:
     ALL_EXECS:
     NAME: tap-listrak
-  https://github.com/fishtown-analytics/tap-liveperson:
+  https://github.com/dbt-labs/tap-liveperson:
     SUCCESS_EXECS:
     LEGACY_ALL_EXECS:
     LEGACY_SUCCESS_PROJECTS:
@@ -3051,12 +3051,12 @@ metrics:
     SUCCESS_PROJECTS:
     PLUGIN_TYPE: extractors
     LEGACY_SUCCESS_EXECS:
-    VARIANT: fishtown-analytics
-    PIP_URL: git+https://github.com/fishtown-analytics/tap-liveperson.git
+    VARIANT: dbt-labs
+    PIP_URL: git+https://github.com/dbt-labs/tap-liveperson.git
     ALL_PROJECTS:
     ALL_EXECS:
     NAME: tap-liveperson
-  https://github.com/fishtown-analytics/tap-mavenlink:
+  https://github.com/dbt-labs/tap-mavenlink:
     SUCCESS_EXECS:
     LEGACY_ALL_EXECS:
     LEGACY_SUCCESS_PROJECTS:
@@ -3064,12 +3064,12 @@ metrics:
     SUCCESS_PROJECTS:
     PLUGIN_TYPE: extractors
     LEGACY_SUCCESS_EXECS:
-    VARIANT: fishtown-analytics
-    PIP_URL: git+https://github.com/fishtown-analytics/tap-mavenlink.git
+    VARIANT: dbt-labs
+    PIP_URL: git+https://github.com/dbt-labs/tap-mavenlink.git
     ALL_PROJECTS:
     ALL_EXECS:
     NAME: tap-mavenlink
-  https://github.com/fishtown-analytics/tap-orbit:
+  https://github.com/dbt-labs/tap-orbit:
     SUCCESS_EXECS:
     LEGACY_ALL_EXECS:
     LEGACY_SUCCESS_PROJECTS:
@@ -3077,12 +3077,12 @@ metrics:
     SUCCESS_PROJECTS:
     PLUGIN_TYPE: extractors
     LEGACY_SUCCESS_EXECS:
-    VARIANT: fishtown-analytics
-    PIP_URL: git+https://github.com/fishtown-analytics/tap-orbit.git
+    VARIANT: dbt-labs
+    PIP_URL: git+https://github.com/dbt-labs/tap-orbit.git
     ALL_PROJECTS:
     ALL_EXECS:
     NAME: tap-orbit
-  https://github.com/fishtown-analytics/tap-outbrain:
+  https://github.com/dbt-labs/tap-outbrain:
     SUCCESS_EXECS:
     LEGACY_ALL_EXECS:
     LEGACY_SUCCESS_PROJECTS:
@@ -3090,12 +3090,12 @@ metrics:
     SUCCESS_PROJECTS:
     PLUGIN_TYPE: extractors
     LEGACY_SUCCESS_EXECS:
-    VARIANT: fishtown-analytics
-    PIP_URL: git+https://github.com/fishtown-analytics/tap-outbrain.git
+    VARIANT: dbt-labs
+    PIP_URL: git+https://github.com/dbt-labs/tap-outbrain.git
     ALL_PROJECTS:
     ALL_EXECS:
     NAME: tap-outbrain
-  https://github.com/fishtown-analytics/tap-platformpurple:
+  https://github.com/dbt-labs/tap-platformpurple:
     SUCCESS_EXECS:
     LEGACY_ALL_EXECS:
     LEGACY_SUCCESS_PROJECTS:
@@ -3103,12 +3103,12 @@ metrics:
     SUCCESS_PROJECTS:
     PLUGIN_TYPE: extractors
     LEGACY_SUCCESS_EXECS:
-    VARIANT: fishtown-analytics
-    PIP_URL: git+https://github.com/fishtown-analytics/tap-platformpurple.git
+    VARIANT: dbt-labs
+    PIP_URL: git+https://github.com/dbt-labs/tap-platformpurple.git
     ALL_PROJECTS:
     ALL_EXECS:
     NAME: tap-platformpurple
-  https://github.com/fishtown-analytics/tap-purecloud:
+  https://github.com/dbt-labs/tap-purecloud:
     SUCCESS_EXECS:
     LEGACY_ALL_EXECS:
     LEGACY_SUCCESS_PROJECTS:
@@ -3116,12 +3116,12 @@ metrics:
     SUCCESS_PROJECTS:
     PLUGIN_TYPE: extractors
     LEGACY_SUCCESS_EXECS:
-    VARIANT: fishtown-analytics
-    PIP_URL: git+https://github.com/fishtown-analytics/tap-purecloud.git
+    VARIANT: dbt-labs
+    PIP_URL: git+https://github.com/dbt-labs/tap-purecloud.git
     ALL_PROJECTS:
     ALL_EXECS:
     NAME: tap-purecloud
-  https://github.com/fishtown-analytics/tap-ringcentral:
+  https://github.com/dbt-labs/tap-ringcentral:
     SUCCESS_EXECS:
     LEGACY_ALL_EXECS:
     LEGACY_SUCCESS_PROJECTS:
@@ -3129,12 +3129,12 @@ metrics:
     SUCCESS_PROJECTS:
     PLUGIN_TYPE: extractors
     LEGACY_SUCCESS_EXECS:
-    VARIANT: fishtown-analytics
-    PIP_URL: git+https://github.com/fishtown-analytics/tap-ringcentral.git
+    VARIANT: dbt-labs
+    PIP_URL: git+https://github.com/dbt-labs/tap-ringcentral.git
     ALL_PROJECTS:
     ALL_EXECS:
     NAME: tap-ringcentral
-  https://github.com/fishtown-analytics/tap-s3-csv:
+  https://github.com/dbt-labs/tap-s3-csv:
     SUCCESS_EXECS:
     LEGACY_ALL_EXECS:
     LEGACY_SUCCESS_PROJECTS:
@@ -3142,12 +3142,12 @@ metrics:
     SUCCESS_PROJECTS:
     PLUGIN_TYPE: extractors
     LEGACY_SUCCESS_EXECS:
-    VARIANT: fishtown-analytics
-    PIP_URL: git+https://github.com/fishtown-analytics/tap-s3-csv.git
+    VARIANT: dbt-labs
+    PIP_URL: git+https://github.com/dbt-labs/tap-s3-csv.git
     ALL_PROJECTS:
     ALL_EXECS:
     NAME: tap-s3-csv
-  https://github.com/fishtown-analytics/tap-selligent:
+  https://github.com/dbt-labs/tap-selligent:
     SUCCESS_EXECS:
     LEGACY_ALL_EXECS:
     LEGACY_SUCCESS_PROJECTS:
@@ -3155,12 +3155,12 @@ metrics:
     SUCCESS_PROJECTS:
     PLUGIN_TYPE: extractors
     LEGACY_SUCCESS_EXECS:
-    VARIANT: fishtown-analytics
-    PIP_URL: git+https://github.com/fishtown-analytics/tap-selligent.git
+    VARIANT: dbt-labs
+    PIP_URL: git+https://github.com/dbt-labs/tap-selligent.git
     ALL_PROJECTS:
     ALL_EXECS:
     NAME: tap-selligent
-  https://github.com/fishtown-analytics/tap-taboola:
+  https://github.com/dbt-labs/tap-taboola:
     SUCCESS_EXECS:
     LEGACY_ALL_EXECS:
     LEGACY_SUCCESS_PROJECTS:
@@ -3168,12 +3168,12 @@ metrics:
     SUCCESS_PROJECTS:
     PLUGIN_TYPE: extractors
     LEGACY_SUCCESS_EXECS:
-    VARIANT: fishtown-analytics
-    PIP_URL: git+https://github.com/fishtown-analytics/tap-taboola.git
+    VARIANT: dbt-labs
+    PIP_URL: git+https://github.com/dbt-labs/tap-taboola.git
     ALL_PROJECTS:
     ALL_EXECS:
     NAME: tap-taboola
-  https://github.com/fishtown-analytics/tap-tickettailor:
+  https://github.com/dbt-labs/tap-tickettailor:
     SUCCESS_EXECS:
     LEGACY_ALL_EXECS:
     LEGACY_SUCCESS_PROJECTS:
@@ -3181,12 +3181,12 @@ metrics:
     SUCCESS_PROJECTS:
     PLUGIN_TYPE: extractors
     LEGACY_SUCCESS_EXECS:
-    VARIANT: fishtown-analytics
-    PIP_URL: git+https://github.com/fishtown-analytics/tap-tickettailor.git
+    VARIANT: dbt-labs
+    PIP_URL: git+https://github.com/dbt-labs/tap-tickettailor.git
     ALL_PROJECTS:
     ALL_EXECS:
     NAME: tap-tickettailor
-  https://github.com/fishtown-analytics/tap-trustpilot:
+  https://github.com/dbt-labs/tap-trustpilot:
     SUCCESS_EXECS:
     LEGACY_ALL_EXECS:
     LEGACY_SUCCESS_PROJECTS:
@@ -3194,12 +3194,12 @@ metrics:
     SUCCESS_PROJECTS:
     PLUGIN_TYPE: extractors
     LEGACY_SUCCESS_EXECS:
-    VARIANT: fishtown-analytics
-    PIP_URL: git+https://github.com/fishtown-analytics/tap-trustpilot.git
+    VARIANT: dbt-labs
+    PIP_URL: git+https://github.com/dbt-labs/tap-trustpilot.git
     ALL_PROJECTS:
     ALL_EXECS:
     NAME: tap-trustpilot
-  https://github.com/fishtown-analytics/tap-uservoice:
+  https://github.com/dbt-labs/tap-uservoice:
     SUCCESS_EXECS:
     LEGACY_ALL_EXECS:
     LEGACY_SUCCESS_PROJECTS:
@@ -3207,12 +3207,12 @@ metrics:
     SUCCESS_PROJECTS:
     PLUGIN_TYPE: extractors
     LEGACY_SUCCESS_EXECS:
-    VARIANT: fishtown-analytics
-    PIP_URL: git+https://github.com/fishtown-analytics/tap-uservoice.git
+    VARIANT: dbt-labs
+    PIP_URL: git+https://github.com/dbt-labs/tap-uservoice.git
     ALL_PROJECTS:
     ALL_EXECS:
     NAME: tap-uservoice
-  https://github.com/fishtown-analytics/tap-yotpo:
+  https://github.com/dbt-labs/tap-yotpo:
     SUCCESS_EXECS:
     LEGACY_ALL_EXECS:
     LEGACY_SUCCESS_PROJECTS:
@@ -3220,8 +3220,8 @@ metrics:
     SUCCESS_PROJECTS:
     PLUGIN_TYPE: extractors
     LEGACY_SUCCESS_EXECS:
-    VARIANT: fishtown-analytics
-    PIP_URL: git+https://github.com/fishtown-analytics/tap-yotpo.git
+    VARIANT: dbt-labs
+    PIP_URL: git+https://github.com/dbt-labs/tap-yotpo.git
     ALL_PROJECTS:
     ALL_EXECS:
     NAME: tap-yotpo

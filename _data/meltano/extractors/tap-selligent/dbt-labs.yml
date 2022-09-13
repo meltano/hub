@@ -3,9 +3,9 @@ label: Selligent
 name: tap-selligent
 logo_url: /assets/logos/extractors/selligent.png
 namespace: tap_selligent
-variant: fishtown-analytics
-pip_url: git+https://github.com/fishtown-analytics/tap-selligent.git
-repo: https://github.com/fishtown-analytics/tap-selligent
+variant: dbt-labs
+pip_url: git+https://github.com/dbt-labs/tap-selligent.git
+repo: https://github.com/dbt-labs/tap-selligent
 settings: []
 capabilities:
 - catalog
