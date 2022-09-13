@@ -9,9 +9,8 @@
         Integration (EL) guide.
       </p>
       <ul class="plugins-list">
-        <li v-for="edge in $page.allLoaders.edges" :key="edge.node.id" class="page-single-plugin">
+        <li v-for="edge in $page.allPlugins.edges" :key="edge.node.id" class="page-single-plugin">
           <g-link :to="edge.node.path.split('--')[0]">
-            <h2>{{ edge.node.label }}</h2>
             <g-image
               v-if="edge.node.logo_url"
               :src="
@@ -22,13 +21,11 @@
               "
             />
             <h2>{{ edge.node.label }}</h2>
-            <h2>
-              <pre><code>{{ edge.node.name }}</code></pre>
-            </h2>
+            <p>{{ edge.node.pluginType }}</p>
           </g-link>
         </li>
         <Pager
-          :info="$page.allLoaders.pageInfo"
+          :info="$page.allPlugins.pageInfo"
           class="pager-container"
           linkClass="pager-container__link"
         />
@@ -50,12 +47,12 @@ export default {
 
 <page-query lang="graphql">
 query ($page: Int) {
-  allLoaders(
+  allPlugins(
     perPage: 100
     page: $page
     sortBy: "label"
     order: ASC
-    filter: { isDefault: { eq: true } }
+    filter: { isDefault: { eq: true }, pluginType: { eq: "loader" } }
   ) @paginate {
     pageInfo {
       totalPages
@@ -68,6 +65,7 @@ query ($page: Int) {
         description
         label
         name
+        pluginType
         logo_url
         namespace
         variant

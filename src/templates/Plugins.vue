@@ -7,9 +7,9 @@
             <tr>
               <td style="padding: 25px">
                 <g-image
-                  v-if="$page.extractors.logo_url"
+                  v-if="$page.plugins.logo_url"
                   :src="
-                    require(`!!assets-loader?width=250&height=200&fit=inside!@logos/${$page.extractors.logo_url.replace(
+                    require(`!!assets-loader?width=250&height=200&fit=inside!@logos/${$page.plugins.logo_url.replace(
                       '/assets/logos/',
                       ''
                     )}`)
@@ -18,13 +18,13 @@
               </td>
               <td>
                 <h1>
-                  {{ $page.extractors.label }}
+                  {{ $page.plugins.label }}
                 </h1>
                 <h2>
-                  <code>{{ $page.extractors.name }} from {{ $page.extractors.variant }}</code>
+                  <code>{{ $page.plugins.name }} from {{ $page.plugins.variant }}</code>
                 </h2>
                 <p>
-                  <b>{{ $page.extractors.description }}</b>
+                  <b>{{ $page.plugins.description }}</b>
                 </p>
               </td>
             </tr>
@@ -32,16 +32,18 @@
         </div>
         <div class="single-plugin-main">
           <p>
-            The {{ $page.extractors.name }}
-            <a href="https://docs.meltano.com/concepts/plugins#extractors">Meltano extractor</a>
+            The {{ $page.plugins.name }}
+            <a :href="'https://docs.meltano.com/concepts/plugins#' + $page.plugins.pluginTypePlural"
+              >Meltano {{ $page.plugins.pluginType }}</a
+            >
             pulls data from
-            <a :href="$page.extractors.domain_url">{{ $page.extractors.label }}</a> that can then be
-            sent to a destination using a <g-link to="/loaders">loader</g-link>.
+            <a :href="$page.plugins.domain_url">{{ $page.plugins.label }}</a> that can then be sent
+            to a destination using a <g-link to="/loaders">loader</g-link>.
           </p>
           <h3>Other Available Variants</h3>
           <ul>
             <li v-for="(variant, index) in $page.variants.edges" v-bind:key="index">
-              <g-link :to="variant.node.path" v-if="variant.node.path !== $page.extractors.path">{{
+              <g-link :to="variant.node.path" v-if="variant.node.path !== $page.plugins.path">{{
                 variant.node.variant
               }}</g-link>
               <span v-else>{{ variant.node.variant }}</span>
@@ -49,15 +51,15 @@
             </li>
           </ul>
           <h2 id="getting-started">Getting Started</h2>
-          <PluginPrereqSection :plugin="$page.extractors" plugin_type="extractor" />
+          <PluginPrereqSection :plugin="$page.plugins" :plugin_type="$page.plugins.pluginType" />
           <h3 id="installation">Installation and configuration</h3>
           <ol>
             <li>
-              Add the {{ $page.extractors.name }} extractor to your project using
+              Add the {{ $page.plugins.name }} {{ $page.plugins.pluginType }} to your project using
               <pre class="inline-code-block"><code>meltano add</code></pre>
               :
             </li>
-            <pre><code>meltano add {{plugin_type}} {{ name }}<span v-if="!is_default"> --variant {{ variant }}</span></code></pre>
+            <pre><code>meltano add {{ $page.plugins.pluginType }} {{ $page.plugins.name }}<span v-if="!$page.plugins.isDefault"> --variant {{ $page.plugins.variant }}</span></code></pre>
           </ol>
           <h3>Next steps</h3>
           <p>
@@ -85,33 +87,30 @@
             </li>
           </ol>
           <p>If you run into any issues, learn how to get help.</p>
-          <span v-if="$page.extractors.usage" v-html="$page.extractors.usage_rendered"></span>
+          <span v-if="$page.plugins.usage" v-html="$page.plugins.usage_rendered"></span>
           <PluginCapabilitiesSection
-            :capabilities="$page.extractors.capabilities"
-            :name="$page.extractors.name"
-            plugin_type="extractor"
+            :capabilities="$page.plugins.capabilities"
+            :name="$page.plugins.name"
+            :plugin_type="$page.plugins.pluginType"
           />
-          <PluginSettingsSection
-            :settings="$page.extractors.settings"
-            :name="$page.extractors.name"
-          />
+          <PluginSettingsSection :settings="$page.plugins.settings" :name="$page.plugins.name" />
           <PluginHelpSection
-            :name="$page.extractors.name"
-            :variant="$page.extractors.variant"
-            :repo="$page.extractors.repo"
-            plugin_type="extractors"
+            :name="$page.plugins.name"
+            :variant="$page.plugins.variant"
+            :repo="$page.plugins.repo"
+            :plugin_type="$page.plugins.pluginType"
           />
         </div>
         <PluginSidebar
-          :name="$page.extractors.name"
-          :domain_url="$page.extractors.domain_url"
-          :repo="$page.extractors.repo"
-          :maintenance_status="$page.extractors.maintenance_status"
-          :keywords="$page.extractors.keywords"
-          :variant="$page.extractors.variant"
-          :is_default="$page.extractors.isDefault"
-          :metrics="$page.extractors.metrics"
-          plugin_type="extractor"
+          :name="$page.plugins.name"
+          :domain_url="$page.plugins.domain_url"
+          :repo="$page.plugins.repo"
+          :maintenance_status="$page.plugins.maintenance_status"
+          :keywords="$page.plugins.keywords"
+          :variant="$page.plugins.variant"
+          :is_default="$page.plugins.isDefault"
+          :metrics="$page.plugins.metrics"
+          :plugin_type="$page.plugins.pluginType"
         />
       </div>
     </div>
@@ -128,10 +127,10 @@ import PluginPrereqSection from "../components/PluginPrereqSection.vue";
 export default {
   metaInfo() {
     return {
-      title: this.$page.extractors.name,
+      title: this.$page.plugins.name,
     };
   },
-  name: "ExtractorsTemplate",
+  name: "PluginsTemplate",
   components: {
     PluginSidebar,
     PluginSettingsSection,
@@ -143,17 +142,19 @@ export default {
 </script>
 
 <page-query lang="graphql">
-query Extractors($path: String!, $name: String!) {
-  extractors: extractors(path: $path) {
+query Plugins($path: String!, $name: String!) {
+  plugins: plugins(path: $path) {
     id
     description
-    path
     label
     name
+    path
     logo_url
     namespace
     variant
     isDefault
+    pluginType
+    pluginTypePlural
     pip_url
     repo
     maintenance_status
@@ -177,12 +178,12 @@ query Extractors($path: String!, $name: String!) {
       ALL_EXECS
     }
   }
-  variants: allExtractors(filter: { name: { eq: $name } }) {
+  variants: allPlugins(filter: { name: { eq: $name } }) {
     edges {
       node {
         name
-        variant
         path
+        variant
         isDefault
       }
     }

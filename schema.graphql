@@ -31,6 +31,42 @@ input BelongsToFilterInput {
 
 scalar Date
 
+type Plugins implements Node {
+  id: ID!
+  path(to: String = "default"): String
+  belongsTo(
+    sortBy: String = "date"
+    order: SortOrder = DESC
+
+    """
+    Defaults to 25 when page is provided.
+    """
+    perPage: Int
+    skip: Int = 0
+    limit: Int
+    page: Int
+    sort: [SortArgument!]
+    filter: BelongsToFilterInput
+  ): NodeBelongsTo
+}
+
+type PluginsConnection implements NodeConnection {
+  totalCount: Int!
+  pageInfo: PageInfo!
+  edges: [PluginsEdge]
+}
+
+type PluginsEdge implements NodeConnectionEdge {
+  node: Plugins
+  next: Plugins
+  previous: Plugins
+}
+
+input PluginsFilterInput {
+  id: IDQueryOperatorInput
+  path: StringQueryOperatorInput
+}
+
 type Extractors implements Node {
   id: ID!
   path(to: String = "default"): String
@@ -330,6 +366,33 @@ type PageInfo {
 }
 
 type Query {
+  plugins(
+    id: ID
+    path: String
+
+    """
+    Will return an error if not nullable.
+    """
+    nullable: Boolean = false
+  ): Plugins
+  allPlugins(
+    sortBy: String = "date"
+    order: SortOrder = DESC
+
+    """
+    Defaults to 25 when page is provided.
+    """
+    perPage: Int
+    skip: Int = 0
+    limit: Int
+    page: Int
+    sort: [SortArgument]
+
+    """
+    Filter for Plugins nodes.
+    """
+    filter: PluginsFilterInput
+  ): PluginsConnection
   extractors(
     id: ID
     path: String
