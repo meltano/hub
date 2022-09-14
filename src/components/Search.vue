@@ -27,9 +27,9 @@
                   )}`)
                 "
               />
-              <h1>
+              <p class="text-3xl">
                 {{ plugin.node.label }}
-              </h1>
+              </p>
               <span>{{ plugin.node.description || "No description" }}</span>
             </div>
 

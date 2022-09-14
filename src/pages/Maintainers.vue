@@ -1,16 +1,16 @@
 <template>
   <Layout>
     <div class="plugins-overview">
-      <h1>Plugin Maintainers</h1>
+      <p class="text-3xl">Plugin Maintainers</p>
       <ul class="plugins-list">
         <li
           v-for="(edge, index) in $page.allMaintainers.edges"
           :key="index"
           class="page-single-plugin"
         >
-          <h2>
+          <p class="text-2xl">
             <a :href="`${edge.node.url}`">{{ edge.node.label }}</a>
-          </h2>
+          </p>
         </li>
         <Pager
           :info="$page.allMaintainers.pageInfo"

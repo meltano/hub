@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <div class="plugins-overview">
-      <h1>Loaders</h1>
+      <p class="text-3xl">Loaders</p>
       <p>
         Meltano lets you easily load extracted data into arbitrary destinations (databases, SaaS
         APIs, and file formats) using Singer targets, which take the role of your project’s loader
@@ -20,7 +20,7 @@
                 )}`)
               "
             />
-            <h2>{{ edge.node.label }}</h2>
+            <p class="text-2xl">{{ edge.node.label }}</p>
             <p>{{ edge.node.pluginType }}</p>
           </g-link>
         </li>

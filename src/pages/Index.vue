@@ -1,11 +1,11 @@
 <template>
   <Layout>
     <div class="home-details">
-      <h1>Welcome to Meltano Hub</h1>
-      <h2>
+      <p class="text-3xl">Welcome to Meltano Hub</p>
+      <p class="text-2xl">
         Meltano Hub is a central place to find any Meltano plugin as well as Singer taps and
         targets. The Hub is lovingly curated by Meltano and the wider Singer community.
-      </h2>
+      </p>
     </div>
   </Layout>
 </template>
@@ -28,13 +28,13 @@ export default {
   padding: 20px;
   text-align: center;
 
-  h1 {
+  p {
     font-size: 3rem;
     line-height: 1.25;
     margin: 25px auto;
   }
 
-  h2 {
+  p {
     margin: 25px auto;
   }
 }
@@ -48,7 +48,7 @@ export default {
     padding: 50px 20%;
     text-align: center;
 
-    h1 {
+    p {
       font-size: 4.7rem;
     }
   }

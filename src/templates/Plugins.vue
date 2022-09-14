@@ -17,12 +17,12 @@
                 />
               </td>
               <td>
-                <h1>
+                <p class="text-3xl">
                   {{ $page.plugins.label }}
-                </h1>
-                <h2>
+                </p>
+                <p class="text-2xl">
                   <code>{{ $page.plugins.name }} from {{ $page.plugins.variant }}</code>
-                </h2>
+                </p>
                 <p>
                   <b>{{ $page.plugins.description }}</b>
                 </p>
@@ -40,7 +40,7 @@
             <a :href="$page.plugins.domain_url">{{ $page.plugins.label }}</a> that can then be sent
             to a destination using a <g-link to="/loaders">loader</g-link>.
           </p>
-          <h3>Other Available Variants</h3>
+          <p class="text-2xl">Other Available Variants</p>
           <ul>
             <li v-for="(variant, index) in $page.variants.edges" v-bind:key="index">
               <g-link :to="variant.node.path" v-if="variant.node.path !== $page.plugins.path">{{
@@ -50,9 +50,9 @@
               <span v-if="variant.node.isDefault"> (default)</span>
             </li>
           </ul>
-          <h2 id="getting-started">Getting Started</h2>
+          <p class="text-3xl" id="getting-started">Getting Started</p>
           <PluginPrereqSection :plugin="$page.plugins" :plugin_type="$page.plugins.pluginType" />
-          <h3 id="installation">Installation and configuration</h3>
+          <p class="text-2xl" id="installation">Installation and configuration</p>
           <ol>
             <li>
               Add the {{ $page.plugins.name }} {{ $page.plugins.pluginType }} to your project using
@@ -61,7 +61,7 @@
             </li>
             <pre><code>meltano add {{ $page.plugins.pluginType }} {{ $page.plugins.name }}<span v-if="!$page.plugins.isDefault"> --variant {{ $page.plugins.variant }}</span></code></pre>
           </ol>
-          <h3>Next steps</h3>
+          <p class="text-2xl">Next steps</p>
           <p>
             Follow the remaining steps of the
             <a href="https://docs.meltano.com/getting-started.html">Getting Started guide</a>:

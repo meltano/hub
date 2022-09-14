@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 id="capabilities">Capabilities</h2>
+    <p class="text-3xl" id="capabilities">Capabilities</p>
     <span v-if="capabilities">
       <span
         >The current capabilities for

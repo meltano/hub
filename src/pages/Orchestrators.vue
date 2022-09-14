@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <div class="plugins-overview">
-      <h1>Orchestrators</h1>
+      <p class="text-3xl">Orchestrators</p>
       <p>
         Meltano orchestrator plugins provide advanced scheduling and workflow execution
         capabilities.
@@ -18,7 +18,7 @@
                 )}`)
               "
             />
-            <h2>{{ edge.node.label }}</h2>
+            <p class="text-2xl">{{ edge.node.label }}</p>
             <p>{{ edge.node.pluginType }}</p>
           </g-link>
         </li>

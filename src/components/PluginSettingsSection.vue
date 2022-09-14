@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 id="settings">Settings</h2>
+    <p class="text-3xl" id="settings">Settings</p>
     <span v-if="settings">
       <span v-if="preamble" v-html="preamble"></span>
       <p>
@@ -29,9 +29,9 @@
         <a href="#contributing">pull request to the YAML file</a>.
       </p>
       <span v-for="(setting, index) in settings" v-bind:key="index">
-        <h3 :id="setting.name + '-setting'">
+        <p class="text-2xl" :id="setting.name + '-setting'">
           <code>{{ setting.label }} ({{ setting.name }})</code>
-        </h3>
+        </p>
         <p>
           <span v-if="setting.description" v-html="setting.description_rendered"></span>
           <span v-else><a href="#contribute">[No description provided.]</a></span>
