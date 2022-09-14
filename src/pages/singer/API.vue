@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <h1>API</h1>
+    <p class="text-3xl">API</p>
   </Layout>
 </template>
 

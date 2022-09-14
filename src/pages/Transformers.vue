@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <div class="plugins-overview">
-      <h1>Transformers</h1>
+      <p class="text-3xl">Transformers</p>
       <p>
         Meltano transformer plugins allow you to create new derived transformations from raw data
         sources.
@@ -18,7 +18,7 @@
                 )}`)
               "
             />
-            <h2>{{ edge.node.label }}</h2>
+            <p class="text-2xl">{{ edge.node.label }}</p>
             <p>{{ edge.node.pluginType }}</p>
           </g-link>
         </li>

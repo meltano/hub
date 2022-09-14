@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <div class="plugins-overview">
-      <h1>Extractors</h1>
+      <p class="text-3xl">Extractors</p>
       <p>
         Meltano lets you easily extract data out of arbitrary sources (databases, SaaS APIs, and
         file formats) using Singer taps, which take the role of your project’s extractor plugins. To
@@ -20,7 +20,7 @@
                 )}`)
               "
             />
-            <h2>{{ edge.node.label }}</h2>
+            <p class="text-2xl">{{ edge.node.label }}</p>
             <p>{{ edge.node.pluginType }}</p>
           </g-link>
         </li>

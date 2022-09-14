@@ -1,14 +1,14 @@
 <template>
   <div class="single-plugin-aside">
-    <h4>Install</h4>
+    <p class="text-lg">Install</p>
     <pre><code>meltano add {{plugin_type}} {{ name }}<span v-if="!is_default"> --variant {{ variant }}</span></code></pre>
-    <h4>Homepage</h4>
+    <p class="text-lg">Homepage</p>
     <div class="link-box">
       <img class="aside-icon" src="../assets/images/link-solid.svg" /><a :href="domain_url">{{
         domain_url
       }}</a>
     </div>
-    <h4>Maintenance Status</h4>
+    <p class="text-lg">Maintenance Status</p>
     <img
       v-if="maintenance_status === 'active'"
       alt="Maintenance Status"
@@ -34,7 +34,7 @@
       alt="Maintenance Status"
       src="https://img.shields.io/badge/Maintenance%20Status-Inactive%20or%20Stale-red"
     />
-    <h4>Repo</h4>
+    <p class="text-lg">Repo</p>
     <div class="link-box">
       <img class="aside-icon" src="../assets/images/git-alt-brands.svg" /><a :href="repo">{{
         repo
@@ -83,9 +83,9 @@
         />
       </li>
     </ul>
-    <h4>Maintainer</h4>
+    <p class="text-lg">Maintainer</p>
     <div v-if="metrics">
-      <h4>Meltano Stats</h4>
+      <p class="text-lg">Meltano Stats</p>
       <ul class="shields">
         <li v-if="metrics.ALL_EXECS">
           <img
@@ -101,7 +101,7 @@
         </li>
       </ul>
     </div>
-    <h4>Keywords</h4>
+    <p class="text-lg">Keywords</p>
     <p>{{ (keywords ?? []).join(", ") }}</p>
   </div>
 </template>

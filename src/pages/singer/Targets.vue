@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <h1>targets</h1>
+    <p class="text-3xl">targets</p>
   </Layout>
 </template>
 

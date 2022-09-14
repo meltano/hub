@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <div class="plugins-overview">
-      <h1>Files</h1>
+      <p class="text-3xl">Files</p>
       <p>
         Meltano file plugins allow you to easily add new file resources to your data project. For
         example, Meltano utilities and other plugins can define file plugins that provide
@@ -19,7 +19,7 @@
                 )}`)
               "
             />
-            <h2>{{ edge.node.label }}</h2>
+            <p class="text-2xl">{{ edge.node.label }}</p>
             <p>{{ edge.node.pluginType }}</p>
           </g-link>
         </li>

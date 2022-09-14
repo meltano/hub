@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3 id="prereqs">Prerequisites</h3>
+    <p class="text-3xl" id="prereqs">Prerequisites</p>
     <p>
       If you haven't already, follow the initial steps of the
       <a href="https://docs.meltano.com/getting-started.html">Getting Started guide</a>:

@@ -1,5 +1,5 @@
 <template>
-  <Layout><h1>Taps</h1></Layout>
+  <Layout><p class="text-3xl">Taps</p></Layout>
 </template>
 
 <script>
