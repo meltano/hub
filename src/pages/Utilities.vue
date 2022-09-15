@@ -8,7 +8,7 @@
       </p>
       <ul class="list-disc list-inside plugins-list">
         <li v-for="edge in $page.allPlugins.edges" :key="edge.node.id" class="page-single-plugin">
-          <g-link :to="edge.node.path.split('--')[0]">
+          <g-link class="items-center flex flex-auto flex-col" :to="edge.node.path.split('--')[0]">
             <g-image
               v-if="edge.node.logo_url"
               :src="
