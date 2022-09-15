@@ -6,6 +6,7 @@
       id="search"
       placeholder="Search 300+ connectors and tools that work with Meltano…"
       class="search-bar"
+      ref="searchBar"
       v-model="search"
       @focus="searchFocused = true"
       @blur="searchFocused = false"
@@ -22,6 +23,7 @@
           @click="
             hoveringOnSearchOptions = false;
             searchFocused = false;
+            this.$refs.searchBar.reset();
           "
         >
           <g-link :to="plugin.node.path.split('--')[0]">
