@@ -6,14 +6,25 @@
       id="search"
       placeholder="Search 300+ connectors and tools that work with Meltano…"
       class="search-bar"
+      ref="searchBar"
       v-model="search"
+      @focus="searchFocused = true"
+      @blur="searchFocused = false"
+      v-focus="searchFocused"
     />
-    <div class="results" v-if="search != ''">
-      <div v-if="searchResults.length > 0">
+    <div class="results" v-if="search != '' && (searchFocused || hoveringOnSearchOptions)">
+      <div v-if="searchResults.length > 0 && (searchFocused || hoveringOnSearchOptions)">
         <article
           v-for="plugin in searchResults.slice(0, 10)"
           :key="plugin.node.id"
           class="result-item"
+          @mouseover="hoveringOnSearchOptions = true"
+          @mouseleave="hoveringOnSearchOptions = false"
+          @click="
+            hoveringOnSearchOptions = false;
+            searchFocused = false;
+            this.$refs.searchBar.reset();
+          "
         >
           <g-link :to="plugin.node.path.split('--')[0]">
             <div class="result-left">
@@ -50,6 +61,8 @@ export default {
   data() {
     return {
       search: "",
+      searchFocused: false,
+      hoveringOnSearchOptions: false,
     };
   },
   computed: {
