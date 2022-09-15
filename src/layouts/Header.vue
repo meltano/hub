@@ -103,10 +103,6 @@ export default {
                 Meltano</span
               >
             </g-link>
-            <g-link class="nav__link" to="/singer/api">
-              <h3>API</h3>
-              <span>Find the API resources for our Meltano + Singer taps and targets</span>
-            </g-link>
           </div>
         </div>
       </nav>
