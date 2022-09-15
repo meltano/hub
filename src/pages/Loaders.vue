@@ -24,7 +24,6 @@
               "
             />
             <p class="text-2xl">{{ edge.node.label }}</p>
-            <p>{{ edge.node.pluginType }}</p>
           </g-link>
         </li>
         <Pager
