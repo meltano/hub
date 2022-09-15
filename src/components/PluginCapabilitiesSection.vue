@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p class="text-3xl" id="capabilities">Capabilities</p>
+    <p class="text-3xl py-4" id="capabilities">Capabilities</p>
     <span v-if="capabilities">
       <span
         >The current capabilities for
@@ -11,7 +11,7 @@
         capabilities for this {{ plugin_type }}.</span
       >
       <p>This plugin has the following capabilities:</p>
-      <ul>
+      <ul class="list-disc list-inside">
         <li v-for="(capability, index) in capabilities" v-bind:key="index">
           {{ capability }}
         </li>

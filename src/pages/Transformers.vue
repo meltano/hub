@@ -1,12 +1,12 @@
 <template>
   <Layout>
     <div class="plugins-overview">
-      <p class="text-3xl">Transformers</p>
+      <p class="text-3xl py-4">Transformers</p>
       <p>
         Meltano transformer plugins allow you to create new derived transformations from raw data
         sources.
       </p>
-      <ul class="plugins-list">
+      <ul class="list-disc list-inside plugins-list">
         <li v-for="edge in $page.allPlugins.edges" :key="edge.node.id" class="page-single-plugin">
           <g-link :to="edge.node.path.split('--')[0]">
             <g-image

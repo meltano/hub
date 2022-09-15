@@ -1,14 +1,14 @@
 <template>
   <Layout>
     <div class="plugins-overview">
-      <p class="text-3xl">Extractors</p>
+      <p class="text-3xl py-4">Extractors</p>
       <p>
         Meltano lets you easily extract data out of arbitrary sources (databases, SaaS APIs, and
         file formats) using Singer taps, which take the role of your project’s extractor plugins. To
         learn more about extracting and loading data using Meltano, refer to the Data Integration
         (EL) guide.
       </p>
-      <ul class="plugins-list">
+      <ul class="list-disc list-inside plugins-list">
         <li v-for="edge in $page.allPlugins.edges" :key="edge.node.id" class="page-single-plugin">
           <g-link :to="edge.node.path.split('--')[0]">
             <g-image

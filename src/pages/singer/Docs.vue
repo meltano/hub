@@ -42,7 +42,7 @@
       </p>
 
       <p class="text-2xl">API</p>
-      <ul>
+      <ul class="list-disc list-inside">
         <li>API Directory</li>
       </ul>
 
@@ -51,7 +51,7 @@
         these files will always be available at these endpoints:
       </p>
 
-      <ul>
+      <ul class="list-disc list-inside">
         <li>Tap JSON</li>
         <li>Target JSON</li>
       </ul>
@@ -233,7 +233,7 @@
         or target side but will soon be supported in Meltano itself. This includes things like:
       </p>
 
-      <ul>
+      <ul class="list-disc list-inside">
         <li>stream and property aliasing</li>
         <li>duplication and bifurcation of streams</li>
         <li>hashing or anonymizing PII/PHI</li>
@@ -324,7 +324,7 @@
         overall quality of Singer connectors.
       </p>
       <p>Current Metrics:</p>
-      <ul>
+      <ul class="list-disc list-inside">
         <li>
           Executions (Last 3 Months): The sum of executions via meltano elt or meltano invoke) that
           used the plugin.

@@ -1,14 +1,14 @@
 <template>
   <div>
-    <p class="text-3xl" id="settings">Settings</p>
-    <span v-if="settings">
+    <p class="text-3xl py-4" id="settings">Settings</p>
+    <span class="space-y-3" v-if="settings">
       <span v-if="preamble" v-html="preamble"></span>
       <p>
         The
         <code>{{ name }}</code> settings that are known to Meltano are documented below. To quickly
         find the setting you're looking for, click on any setting name from the list:
       </p>
-      <ul>
+      <ul class="list-disc list-inside pl-4">
         <li v-for="(setting, index) in settings" v-bind:key="index">
           <a :href="'#' + setting.name + '-setting'"
             ><code>{{ setting.name }}</code></a
@@ -29,7 +29,7 @@
         <a href="#contributing">pull request to the YAML file</a>.
       </p>
       <span v-for="(setting, index) in settings" v-bind:key="index">
-        <p class="text-2xl" :id="setting.name + '-setting'">
+        <p class="text-xl mt-3" :id="setting.name + '-setting'">
           <code>{{ setting.label }} ({{ setting.name }})</code>
         </p>
         <p>

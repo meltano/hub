@@ -1,12 +1,12 @@
 <template>
   <Layout>
     <div class="plugins-overview">
-      <p class="text-3xl">Utilities</p>
+      <p class="text-3xl py-4">Utilities</p>
       <p>
         Meltano utilities plugins allow virtually any open source data tool to be integrated with
         your data project.
       </p>
-      <ul class="plugins-list">
+      <ul class="list-disc list-inside plugins-list">
         <li v-for="edge in $page.allPlugins.edges" :key="edge.node.id" class="page-single-plugin">
           <g-link :to="edge.node.path.split('--')[0]">
             <g-image

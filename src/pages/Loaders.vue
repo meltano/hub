@@ -1,14 +1,14 @@
 <template>
   <Layout>
     <div class="plugins-overview">
-      <p class="text-3xl">Loaders</p>
+      <p class="text-3xl py-4">Loaders</p>
       <p>
         Meltano lets you easily load extracted data into arbitrary destinations (databases, SaaS
         APIs, and file formats) using Singer targets, which take the role of your project’s loader
         plugins. To learn more about extracting and loading data using Meltano, refer to the Data
         Integration (EL) guide.
       </p>
-      <ul class="plugins-list">
+      <ul class="list-disc list-inside plugins-list">
         <li v-for="edge in $page.allPlugins.edges" :key="edge.node.id" class="page-single-plugin">
           <g-link :to="edge.node.path.split('--')[0]">
             <g-image

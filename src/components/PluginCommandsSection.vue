@@ -1,6 +1,6 @@
 <template>
   <div v-if="commands">
-    <p class="text-3xl" id="commands">Commands</p>
+    <p class="text-3xl py-4" id="commands">Commands</p>
     <span
       >The {{ name }} {{ plugin_type }} supports the following commands that can be used with
       <pre><code>meltano invoke</code></pre>

@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <div class="file-not-found">
-      <p class="text-3xl">Whoops. Nothing to see here!</p>
+      <p class="text-3xl py-4">Whoops. Nothing to see here!</p>
     </div>
   </Layout>
 </template>

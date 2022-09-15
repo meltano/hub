@@ -1,13 +1,13 @@
 <template>
   <Layout>
     <div class="plugins-overview">
-      <p class="text-3xl">Files</p>
+      <p class="text-3xl py-4">Files</p>
       <p>
         Meltano file plugins allow you to easily add new file resources to your data project. For
         example, Meltano utilities and other plugins can define file plugins that provide
         tool-specific scaffolding, templates, and applicable readme resources.
       </p>
-      <ul class="plugins-list">
+      <ul class="list-disc list-inside plugins-list">
         <li v-for="edge in $page.allPlugins.edges" :key="edge.node.id" class="page-single-plugin">
           <g-link :to="edge.node.path.split('--')[0]">
             <g-image
