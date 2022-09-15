@@ -32,14 +32,12 @@
         <p class="text-xl mt-3" :id="setting.name + '-setting'">
           <code>{{ setting.label }} ({{ setting.name }})</code>
         </p>
-        <p>
-          <div
-            class="prose bg-slate-100"
-            v-if="setting.description"
-            v-html="setting.description_rendered"
-          ></div>
-          <span v-else><a href="#contribute">[No description provided.]</a></span>
-        </p>
+        <div
+          class="prose bg-slate-100"
+          v-if="setting.description"
+          v-html="setting.description_rendered"
+        ></div>
+        <span v-else><a href="#contribute">[No description provided.]</a></span>
       </span>
     </span>
     <span v-else
