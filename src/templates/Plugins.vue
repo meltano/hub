@@ -87,7 +87,11 @@
             </li>
           </ol>
           <p>If you run into any issues, learn how to get help.</p>
-          <span v-if="$page.plugins.usage" v-html="$page.plugins.usage_rendered"></span>
+          <div
+            class="prose bg-slate-100 mt-3"
+            v-if="$page.plugins.usage"
+            v-html="$page.plugins.usage_rendered"
+          ></div>
           <PluginCapabilitiesSection
             :capabilities="$page.plugins.capabilities"
             :name="$page.plugins.name"

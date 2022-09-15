@@ -11,6 +11,7 @@
     "format:write": "prettier --write ."
   },
   "dependencies": {
+    "@tailwindcss/typography": "^0.5.7",
     "graphql-tag": "^2.12.6",
     "gridsome": "^0.7.0",
     "js-yaml": "^4.1.0",

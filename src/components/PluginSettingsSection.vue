@@ -2,7 +2,7 @@
   <div>
     <p class="text-3xl py-4" id="settings">Settings</p>
     <span class="space-y-3" v-if="settings">
-      <span v-if="preamble" v-html="preamble"></span>
+      <div class="prose bg-slate-100 mt-3" v-if="preamble" v-html="preamble"></div>
       <p>
         The
         <code>{{ name }}</code> settings that are known to Meltano are documented below. To quickly
@@ -33,7 +33,11 @@
           <code>{{ setting.label }} ({{ setting.name }})</code>
         </p>
         <p>
-          <span v-if="setting.description" v-html="setting.description_rendered"></span>
+          <div
+            class="prose bg-slate-100"
+            v-if="setting.description"
+            v-html="setting.description_rendered"
+          ></div>
           <span v-else><a href="#contribute">[No description provided.]</a></span>
         </p>
       </span>
