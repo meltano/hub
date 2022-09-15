@@ -40,7 +40,6 @@
               />
               <h1>
                 {{ plugin.node.label }}
-                J
               </h1>
               <span>{{ plugin.node.description || "No description" }}</span>
             </div>
@@ -53,7 +52,6 @@
         <p>Your search didn't return any results. Please try again.</p>
       </div>
     </div>
-    o
   </div>
 </template>
 
