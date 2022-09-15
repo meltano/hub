@@ -15,8 +15,6 @@
       </p>
 
       <ul class="plugins-list">
-        <li class="page-single-plugin">singer taps</li>
-        <li class="page-single-plugin">singer targets</li>
         <li class="page-single-plugin">sdk</li>
         <li class="page-single-plugin">spec</li>
       </ul>
