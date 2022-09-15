@@ -19,6 +19,10 @@
           class="result-item"
           @mouseover="hoveringOnSearchOptions = true"
           @mouseleave="hoveringOnSearchOptions = false"
+          @click="
+            hoveringOnSearchOptions = false;
+            searchFocused = false;
+          "
         >
           <g-link :to="plugin.node.path.split('--')[0]">
             <div class="result-left">
