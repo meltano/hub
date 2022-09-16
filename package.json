@@ -11,10 +11,12 @@
     "format:write": "prettier --write ."
   },
   "dependencies": {
+    "@tailwindcss/typography": "^0.5.7",
     "graphql-tag": "^2.12.6",
     "gridsome": "^0.7.0",
     "js-yaml": "^4.1.0",
     "marked": "^4.1.0",
+    "tailwindcss": "^3.1.8",
     "write": "^2.0.0"
   },
   "resolutions": {
@@ -26,6 +28,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-vue": "^9.2.0",
+    "gridsome-plugin-tailwindcss": "^4.1.1",
     "prettier": "2.7.1",
     "sass": "^1.52.3",
     "sass-loader": "^10",

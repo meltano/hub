@@ -1,11 +1,11 @@
 <template>
   <div>
-    <h3 id="prereqs">Prerequisites</h3>
+    <p class="text-xl py-3" id="prereqs">Prerequisites</p>
     <p>
       If you haven't already, follow the initial steps of the
       <a href="https://docs.meltano.com/getting-started.html">Getting Started guide</a>:
     </p>
-    <ol>
+    <ol class="list-decimal list-inside pl-4">
       <li>
         <a href="https://docs.meltano.com/getting-started.html#install-meltano">Install Meltano</a>
       </li>
@@ -15,7 +15,7 @@
         >
       </li>
     </ol>
-    <div v-if="plugin.prereq" v-html="plugin.prereq_rendered"></div>
+    <div class="prose mt-3 p-2" v-if="plugin.prereq" v-html="plugin.prereq_rendered"></div>
   </div>
 </template>
 

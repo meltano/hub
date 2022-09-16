@@ -17,12 +17,12 @@
                 />
               </td>
               <td>
-                <h1>
+                <p class="text-3xl py-8">
                   {{ $page.plugins.label }}
-                </h1>
-                <h2>
+                </p>
+                <p class="text-2xl">
                   <code>{{ $page.plugins.name }} from {{ $page.plugins.variant }}</code>
-                </h2>
+                </p>
                 <p>
                   <b>{{ $page.plugins.description }}</b>
                 </p>
@@ -30,7 +30,7 @@
             </tr>
           </table>
         </div>
-        <div class="single-plugin-main">
+        <div class="single-plugin-main p-5 space-y-4">
           <p>
             The {{ $page.plugins.name }}
             <a :href="'https://docs.meltano.com/concepts/plugins#' + $page.plugins.pluginTypePlural"
@@ -40,8 +40,8 @@
             <a :href="$page.plugins.domain_url">{{ $page.plugins.label }}</a> that can then be sent
             to a destination using a <g-link to="/loaders">loader</g-link>.
           </p>
-          <h3>Other Available Variants</h3>
-          <ul>
+          <p class="text-2xl">Other Available Variants</p>
+          <ul class="list-disc list-inside pl-4">
             <li v-for="(variant, index) in $page.variants.edges" v-bind:key="index">
               <g-link :to="variant.node.path" v-if="variant.node.path !== $page.plugins.path">{{
                 variant.node.variant
@@ -50,10 +50,10 @@
               <span v-if="variant.node.isDefault"> (default)</span>
             </li>
           </ul>
-          <h2 id="getting-started">Getting Started</h2>
+          <p class="text-3xl py-4" id="getting-started">Getting Started</p>
           <PluginPrereqSection :plugin="$page.plugins" :plugin_type="$page.plugins.pluginType" />
-          <h3 id="installation">Installation and configuration</h3>
-          <ol>
+          <p class="text-xl py-3" id="installation">Installation and configuration</p>
+          <ol class="list-decimal list-inside pl-4">
             <li>
               Add the {{ $page.plugins.name }} {{ $page.plugins.pluginType }} to your project using
               <pre class="inline-code-block"><code>meltano add</code></pre>
@@ -61,12 +61,12 @@
             </li>
             <pre><code>meltano add {{ $page.plugins.pluginType }} {{ $page.plugins.name }}<span v-if="!$page.plugins.isDefault"> --variant {{ $page.plugins.variant }}</span></code></pre>
           </ol>
-          <h3>Next steps</h3>
+          <p class="text-xl py-3">Next steps</p>
           <p>
             Follow the remaining steps of the
             <a href="https://docs.meltano.com/getting-started.html">Getting Started guide</a>:
           </p>
-          <ol>
+          <ol class="list-decimal list-inside pl-4">
             <li>
               <a
                 href="https://docs.meltano.com/getting-started.html#select-entities-and-attributes-to-extract"
@@ -87,7 +87,11 @@
             </li>
           </ol>
           <p>If you run into any issues, learn how to get help.</p>
-          <span v-if="$page.plugins.usage" v-html="$page.plugins.usage_rendered"></span>
+          <div
+            class="prose mt-3 p-2"
+            v-if="$page.plugins.usage"
+            v-html="$page.plugins.usage_rendered"
+          ></div>
           <PluginCapabilitiesSection
             :capabilities="$page.plugins.capabilities"
             :name="$page.plugins.name"

@@ -5,7 +5,7 @@
       name="search"
       id="search"
       placeholder="Search 300+ connectors and tools that work with Meltano…"
-      class="search-bar"
+      class="search-bar text-black"
       ref="searchBar"
       v-model="search"
       @focus="searchFocused = true"
@@ -38,9 +38,9 @@
                   )}`)
                 "
               />
-              <h1>
+              <p class="text-3xl py-4">
                 {{ plugin.node.label }}
-              </h1>
+              </p>
               <span>{{ plugin.node.description || "No description" }}</span>
             </div>
 

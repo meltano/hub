@@ -7,7 +7,15 @@
 module.exports = {
   siteName: "Meltano Hub",
   icon: "./src/meltano-favicon-192x192.png",
-  plugins: [],
+  plugins: [
+    {
+      use: "gridsome-plugin-tailwindcss",
+
+      options: {
+        tailwindConfig: "./tailwind.config.js",
+      },
+    },
+  ],
   chainWebpack: (config) => {
     config.resolve.alias.set("@logos", "@/../assets/logos");
   },

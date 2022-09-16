@@ -1,20 +1,20 @@
 <template>
   <Layout>
     <div class="docs-layout">
-      <h2>Commitment to the Singer Community</h2>
+      <p class="text-2xl">Commitment to the Singer Community</p>
       <p>
         The Meltano team aims to make MeltanoHub a fantastic resource for members of the Singer
         Community. We’re fully embracing Singer and MeltanoHub for Singer is a large part of those
         efforts.
       </p>
 
-      <h2>Development</h2>
+      <p class="text-2xl">Development</p>
       <p>
         MeltanoHub is under active development by Meltano. Check out our issue tracker to understand
         progress on a specific feature.
       </p>
 
-      <h2>Standardized Connectors</h2>
+      <p class="text-2xl">Standardized Connectors</p>
       <p>
         All taps and targets are pulled from external sources, such as GitHub and GitLab, and are
         organized into a clean YAML format that has no references to external tools. Learn more
@@ -41,8 +41,8 @@
         GitHub. These are useful proxy metrics for the quality of a given connector.
       </p>
 
-      <h2>API</h2>
-      <ul>
+      <p class="text-2xl">API</p>
+      <ul class="list-disc list-inside">
         <li>API Directory</li>
       </ul>
 
@@ -51,7 +51,7 @@
         these files will always be available at these endpoints:
       </p>
 
-      <ul>
+      <ul class="list-disc list-inside">
         <li>Tap JSON</li>
         <li>Target JSON</li>
       </ul>
@@ -66,7 +66,7 @@
         Our expectation is that other tools, including Meltano, will utilize the data available via
         the API to build their own library of Singer taps and targets.
       </p>
-      <h2>Tap and Target SDKs</h2>
+      <p class="text-2xl">Tap and Target SDKs</p>
       <p>
         We’ve also created an SDK for Taps and Targets that is the best way to build and maintain
         Singer Taps and Targets.
@@ -74,13 +74,13 @@
 
       <p>Read more about the launch of the SDK on the Meltano blog.</p>
 
-      <h2>Singer Spec</h2>
+      <p class="text-2xl">Singer Spec</p>
       <p>
         We’ve created a simplified version of the Singer Specification with the goal of making it
         easier for people new to the Singer ecosystem to understand the spec.
       </p>
 
-      <h2>Singer Connector Capabilities</h2>
+      <p class="text-2xl">Singer Connector Capabilities</p>
       <p>
         The Singer Specification does a great job defining how taps and targets should communicate
         with each other at a high level but there’s an additional layer of commonly used patterns
@@ -90,33 +90,33 @@
       </p>
 
       <h3>Tap Specific</h3>
-      <h4>Catalog</h4>
+      <p class="text-lg">Catalog</p>
       <p>
         The tap accepts a --catalog argument referencing a file that defines the structure of one or
         many data streams. For more details see the Catalog Files section in our Singer Spec
         interpretation.
       </p>
 
-      <h4>Properties</h4>
+      <p class="text-lg">Properties</p>
       <p>
         The tap accepts the legacy --properties argument referencing a file that defines the
         structure of one or many data streams. For more details see the Catalog Files section in our
         Singer Spec interpretation.
       </p>
 
-      <h4>Discover</h4>
+      <p class="text-lg">Discover</p>
       <p>
         The tap accepts a --discover argument that is used to generate a catalog files. For more
         details see the Discovery mode section section in our Singer Spec interpretation.
       </p>
 
-      <h4>State</h4>
+      <p class="text-lg">State</p>
       <p>
         The tap accepts a --state argument and uses the input in order to run incremental syncs. For
         more details see the State Files section section in our Singer Spec interpretation.
       </p>
 
-      <h4>Log Based</h4>
+      <p class="text-lg">Log Based</p>
       This is a database source specific capability which supports reading the transaction logs of a
       database in order to identify incrementally changed data. The two common replication
       techniques are key-based or log-based replication. Key-based uses a timestamp or incrementing
@@ -125,14 +125,14 @@
       Supporting this capability, where applicable, means that targets have the information it needs
       to delete records in the destination.
 
-      <h4>Test</h4>
+      <p class="text-lg">Test</p>
       This capability is still in development, but the goal is to make it easy for connector
       developers to test locally without having to make a connection to the source systems. This
       might be accomplished by implementing utilities that can generate and save test data or make
       saving and moving real HTTP requests for tests easier. Join the issue conversation here!
 
       <h3>Target Specific</h3>
-      <h4>Soft Delete</h4>
+      <p class="text-lg">Soft Delete</p>
       <p>
         Targets that support this capability implement logic that soft deletes records in the
         destination, usually by populating a deleted_at timestamp field. The two common techniques
@@ -141,7 +141,7 @@
         deletes, in which case the behavior is configurable in the target’s config settings.
       </p>
 
-      <h4>Hard Delete</h4>
+      <p class="text-lg">Hard Delete</p>
       <p>
         Similar to the Soft Deletes capability, targets that support the hard delete capability
         implement logic that removes records from the destination when they receive a notification
@@ -150,7 +150,7 @@
         configurable in the target’s config settings.
       </p>
 
-      <h4>Datatype Failsafe</h4>
+      <p class="text-lg">Datatype Failsafe</p>
       <p>
         This capability means that the target has a failsafe data type (e.g. string) to ensure safe
         handling of unparsable or unforseen types. It’s common to find targets in the Singer
@@ -159,7 +159,7 @@
         exceptions will not be raised for unsupported types.
       </p>
 
-      <h4>Record Flattening</h4>
+      <p class="text-lg">Record Flattening</p>
       <p>
         It’s common for taps to output nested json data which needs to be flattened by the target in
         order to be loaded into a columnar format destinations. For example, the following is a
@@ -186,7 +186,7 @@
       </p>
 
       <h3>Either Tap or Target</h3>
-      <h4>Activate Version</h4>
+      <p class="text-lg">Activate Version</p>
       <p>
         Managing hard deletes in the source system is difficult but the Singer community has
         developed a technique using a message type called ACTIVATE_VERSION. This isnt a standardized
@@ -226,14 +226,14 @@
         destination.
       </p>
 
-      <h4>Stream Maps</h4>
+      <p class="text-lg">Stream Maps</p>
       <p>
         The ability to accept a mapping configuration can be used to do minor transformations to the
         data between the tap and target. The capability can be currently be implemented on the tap
         or target side but will soon be supported in Meltano itself. This includes things like:
       </p>
 
-      <ul>
+      <ul class="list-disc list-inside">
         <li>stream and property aliasing</li>
         <li>duplication and bifurcation of streams</li>
         <li>hashing or anonymizing PII/PHI</li>
@@ -249,7 +249,7 @@
         details and use cases.
       </p>
 
-      <h4>About</h4>
+      <p class="text-lg">About</p>
       <p>
         The tap or target accepts an --about argument which outputs details about the connector
         including its capabilities and settings which can be used in programmatically generate UI
@@ -282,7 +282,7 @@
 }
 </code></pre>
 
-      <h4>Batch</h4>
+      <p class="text-lg">Batch</p>
       <p>
         This capability is currently in development by the Singer Working Group to align on a
         consistent approach for supporting batch sync messages in the Spec or as part of its
@@ -311,7 +311,7 @@
       <p>We’re using Singer taps and targets to extract and load into a Snowflake warehouse.</p>
       <p>We’re using dbt to manage transformations with Athena to aid in curating the data.</p>
 
-      <h2>Meltano Usage Metrics</h2>
+      <p class="text-2xl">Meltano Usage Metrics</p>
       <p>
         Meltano collects anonymous usage stats using Google Analytics. We use this data to learn
         about the size of our user base and overal feature usage. This helps us determine the
@@ -324,7 +324,7 @@
         overall quality of Singer connectors.
       </p>
       <p>Current Metrics:</p>
-      <ul>
+      <ul class="list-disc list-inside">
         <li>
           Executions (Last 3 Months): The sum of executions via meltano elt or meltano invoke) that
           used the plugin.
