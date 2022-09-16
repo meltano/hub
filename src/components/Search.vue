@@ -5,7 +5,7 @@
       name="search"
       id="search"
       placeholder="Search 300+ connectors and tools that work with Meltano…"
-      class="search-bar"
+      class="search-bar text-black"
       ref="searchBar"
       v-model="search"
       @focus="searchFocused = true"
