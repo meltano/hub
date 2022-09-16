@@ -15,11 +15,7 @@
         >
       </li>
     </ol>
-    <div
-      class="prose mt-3 bg-slate-100 p-2"
-      v-if="plugin.prereq"
-      v-html="plugin.prereq_rendered"
-    ></div>
+    <div class="prose mt-3 p-2" v-if="plugin.prereq" v-html="plugin.prereq_rendered"></div>
   </div>
 </template>
 

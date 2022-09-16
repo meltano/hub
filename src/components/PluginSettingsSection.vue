@@ -2,7 +2,7 @@
   <div>
     <p class="text-3xl py-4" id="settings">Settings</p>
     <span class="space-y-3" v-if="settings">
-      <div class="prose bg-slate-100 mt-3 p-2" v-if="preamble" v-html="preamble"></div>
+      <div class="prose mt-3 p-2" v-if="preamble" v-html="preamble"></div>
       <p>
         The
         <code>{{ name }}</code> settings that are known to Meltano are documented below. To quickly
