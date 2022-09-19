@@ -16,6 +16,14 @@ module.exports = {
       },
     },
     {
+      use: "gridsome-plugin-gtag",
+      options: {
+        config: {
+          id: "G-NSVMGNSZKN",
+        },
+      },
+    },
+    {
       use: "@gridsome/source-filesystem",
       options: {
         typeName: "MarkdownDocs",
