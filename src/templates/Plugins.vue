@@ -71,8 +71,11 @@
               <pre><code>meltano add {{ $page.plugins.pluginType }} {{ $page.plugins.name }}<span v-if="!$page.plugins.isDefault"> --variant {{ $page.plugins.variant }}</span></code></pre>
             </ol>
             <p class="text-xl py-3">Next steps</p>
-            <!-- TODO: finish debugging this -->
-            <div v-if="$page.plugins.next_steps_rendered" v-html="{ next_steps_rendered }"></div>
+
+            <div
+              v-if="$page.plugins.next_steps_rendered"
+              v-html="$page.plugins.next_steps_rendered"
+            ></div>
 
             <!-- extractors default next steps -->
             <div v-else-if="$page.plugins.pluginType == 'extractor'">
