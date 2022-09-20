@@ -6,30 +6,43 @@
         Meltano orchestrator plugins provide advanced scheduling and workflow execution
         capabilities.
       </p>
-      <ul class="list-disc list-inside plugins-list">
-        <li v-for="edge in $page.allPlugins.edges" :key="edge.node.id" class="page-single-plugin">
-          <g-link
-            class="items-center flex flex-auto flex-col justify-around"
-            :to="edge.node.path.split('--')[0]"
-          >
-            <g-image
-              v-if="edge.node.logo_url"
-              :src="
-                require(`!!assets-loader?width=175&height=80&fit=inside!@logos/${edge.node.logo_url.replace(
-                  '/assets/logos/',
-                  ''
-                )}`)
-              "
-            />
-            <p class="text-2xl">{{ edge.node.label }}</p>
+      <div
+        class="grid grid-cols-2 md:grid-cols-4 place-items-center bg-slate-200 rounded-lg p-4 mt-4 md:m-4 gap-4 w-full"
+        role="list"
+      >
+        <div
+          v-for="edge in $page.allPlugins.edges"
+          :key="edge.node.id"
+          class="rounded-md shadow-lg text-slate-800 hover:bg-slate-100 self-center w-full h-full place-items-center p-2 md:p-4 bg-white overflow-hidden"
+        >
+          <g-link class="grid w-full h-full" :to="edge.node.path.split('--')[0]">
+            <div class="place-self-center row-span-2 object-scale-down">
+              <g-image
+                v-if="edge.node.logo_url"
+                :src="
+                  require(`!!assets-loader?width=175&height=80&fit=inside!@logos/${edge.node.logo_url.replace(
+                    '/assets/logos/',
+                    ''
+                  )}`)
+                "
+                class="place-self-center object-scale-down"
+              />
+            </div>
+            <div class="row-span-1 self-end object-scale-down">
+              <p
+                class="font-bold underline text-xs md:text-lg justify-self-center place-self-end object-scale-down text-clip"
+              >
+                {{ edge.node.label }}
+              </p>
+            </div>
           </g-link>
-        </li>
+        </div>
         <Pager
           :info="$page.allPlugins.pageInfo"
           class="pager-container"
           linkClass="pager-container__link"
         />
-      </ul>
+      </div>
     </div>
   </Layout>
 </template>
