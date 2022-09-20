@@ -100,7 +100,7 @@
 
     <div>
       <p class="text-lg">Maintainer</p>
-      <ul v-if="variant.node.keywords.includes('meltano_sdk')" class="list-disc list-inside shields">
+      <ul v-if="(keywords ?? []).includes('meltano_sdk')" class="list-disc list-inside shields">
         <li>
           <a href="https://sdk.meltano.com/en/latest/">
             <img
