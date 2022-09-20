@@ -5,12 +5,16 @@
       <pre><code>meltano add {{plugin_type}} {{ name }}<span v-if="!is_default"> --variant {{ variant }}</span></code></pre>
     </div>
     <div></div>
-    <p class="text-lg">Homepage</p>
-    <div class="link-box">
-      <img class="aside-icon" src="../assets/images/link-solid.svg" /><a :href="domain_url">{{
-        domain_url
-      }}</a>
+
+    <div v-if="domain_url">
+      <p class="text-lg">Homepage</p>
+      <div class="link-box">
+        <img class="aside-icon" src="../assets/images/link-solid.svg" /><a :href="domain_url">{{
+          domain_url
+        }}</a>
+      </div>
     </div>
+  
     <div>
       <p class="text-lg">Maintenance Status</p>
       <img
@@ -94,7 +98,19 @@
       </ul>
     </div>
 
-    <div><p class="text-lg">Maintainer</p></div>
+    <div>
+      <p class="text-lg">Maintainer</p>
+      <ul v-if="variant.node.keywords.includes('meltano_sdk')" class="list-disc list-inside shields">
+        <li>
+          <a href="https://sdk.meltano.com/en/latest/">
+            <img
+              alt="Built with the Meltano SDK"
+              src="https://img.shields.io/badge/-Built%20with%20the%20Meltano%20SDK-blueviolet"
+            >
+          </a>
+        </li>
+      </ul>
+    </div>
 
     <div v-if="metrics">
       <p class="text-lg">Meltano Stats</p>

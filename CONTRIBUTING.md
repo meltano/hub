@@ -30,3 +30,7 @@ yarn
 # Build the site in live-update mode:
 gridsome develop
 ```
+
+## Tailwind Dev Configuration
+
+During development, the hot-reload dev server doesn't quite play nice with tailwind. To avoid having to restart it constantly, there's a workaround inside `tailwind.config.js` that you can uncomment.

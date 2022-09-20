@@ -48,74 +48,129 @@
               }}</g-link>
               <span v-else>{{ variant.node.variant }}</span>
               <span v-if="variant.node.isDefault"> (default)</span>
+              <span v-if="variant.node.keywords.includes('meltano_sdk')">
+                <img
+                  class="inline pl-2"
+                  alt="Built with the Meltano SDK"
+                  src="https://img.shields.io/badge/-Meltano%20SDK-blueviolet"
+                />
+              </span>
             </li>
           </ul>
-          <p class="text-3xl py-4" id="getting-started">Getting Started</p>
-          <PluginPrereqSection :plugin="$page.plugins" :plugin_type="$page.plugins.pluginType" />
-          <p class="text-xl py-3" id="installation">Installation and configuration</p>
-          <ol class="list-decimal list-inside pl-4">
-            <li>
-              Add the {{ $page.plugins.name }} {{ $page.plugins.pluginType }} to your project using
-              <pre class="inline-code-block"><code>meltano add</code></pre>
-              :
-            </li>
-            <pre><code>meltano add {{ $page.plugins.pluginType }} {{ $page.plugins.name }}<span v-if="!$page.plugins.isDefault"> --variant {{ $page.plugins.variant }}</span></code></pre>
-          </ol>
-          <p class="text-xl py-3">Next steps</p>
-          <p>
-            Follow the remaining steps of the
-            <a href="https://docs.meltano.com/getting-started.html">Getting Started guide</a>:
-          </p>
-          <ol class="list-decimal list-inside pl-4">
-            <li>
-              <a
-                href="https://docs.meltano.com/getting-started.html#select-entities-and-attributes-to-extract"
-                >Select entities and attributes to extract</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://docs.meltano.com/getting-started.html#add-a-loader-to-send-data-to-a-destination"
-                >Add a loader to send data to a destination</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://docs.meltano.com/getting-started.html#run-a-data-integration-el-pipeline"
-                >Run a data integration (EL) pipeline</a
-              >
-            </li>
-          </ol>
-          <p>If you run into any issues, learn how to get help.</p>
-          <div
-            class="prose mt-3 p-2"
-            v-if="$page.plugins.usage"
-            v-html="$page.plugins.usage_rendered"
-          ></div>
-          <PluginCapabilitiesSection
-            :capabilities="$page.plugins.capabilities"
-            :name="$page.plugins.name"
-            :plugin_type="$page.plugins.pluginType"
-          />
-          <PluginSettingsSection :settings="$page.plugins.settings" :name="$page.plugins.name" />
-          <PluginHelpSection
-            :name="$page.plugins.name"
-            :variant="$page.plugins.variant"
-            :repo="$page.plugins.repo"
-            :plugin_type="$page.plugins.pluginType"
-          />
+          <div>
+            <p class="text-3xl py-4" id="getting-started">Getting Started</p>
+            <PluginPrereqSection :plugin="$page.plugins" :plugin_type="$page.plugins.pluginType" />
+            <p class="text-xl py-3" id="installation">Installation and configuration</p>
+            <ol class="list-decimal list-inside pl-4">
+              <li>
+                Add the {{ $page.plugins.name }} {{ $page.plugins.pluginType }} to your project
+                using
+                <pre class="inline-code-block"><code>meltano add</code></pre>
+                :
+              </li>
+              <pre><code>meltano add {{ $page.plugins.pluginType }} {{ $page.plugins.name }}<span v-if="!$page.plugins.isDefault"> --variant {{ $page.plugins.variant }}</span></code></pre>
+            </ol>
+            <p class="text-xl py-3">Next steps</p>
+            <!-- TODO: finish debugging this -->
+            <div v-if="$page.plugins.next_steps_rendered" v-html="{ next_steps_rendered }"></div>
+
+            <!-- extractors default next steps -->
+            <div v-else-if="$page.plugins.pluginType == 'extractor'">
+              <p>
+                Follow the remaining steps of the
+                <a href="https://docs.meltano.com/getting-started.html">Getting Started guide</a>:
+              </p>
+              <ol class="list-decimal list-inside pl-4">
+                <li>
+                  <a
+                    href="https://docs.meltano.com/getting-started.html#select-entities-and-attributes-to-extract"
+                    >Select entities and attributes to extract</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://docs.meltano.com/getting-started.html#add-a-loader-to-send-data-to-a-destination"
+                    >Add a loader to send data to a destination</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://docs.meltano.com/getting-started.html#run-a-data-integration-el-pipeline"
+                    >Run a data integration (EL) pipeline</a
+                  >
+                </li>
+              </ol>
+            </div>
+
+            <!-- loaders default next steps -->
+            <div v-else-if="$page.plugins.pluginType == 'loader'">
+              <p>
+                Follow the remaining steps of the
+                <a href="https://docs.meltano.com/getting-started.html">Getting Started guide</a>:
+              </p>
+              <ol class="list-decimal list-inside pl-4">
+                <li>
+                  <a
+                    href="https://docs.meltano.com/getting-started.html#run-a-data-integration-el-pipeline"
+                    >Run a data integration (EL) pipeline</a
+                  >
+                </li>
+              </ol>
+            </div>
+
+            <!-- Default transformers next steps -->
+            <div v-else-if="$page.plugins.pluginType == 'transformer'">
+              <p>
+                Follow the remaining steps of the
+                <a href="https://docs.meltano.com/getting-started.html">Getting Started guide</a>:
+              </p>
+              <ol class="list-decimal list-inside pl-4">
+                <li>
+                  <a
+                    href="https://docs.meltano.com/getting-started.html#transform-loaded-data-for-analysis"
+                  >
+                    Transform loaded data for analysis
+                  </a>
+                </li>
+              </ol>
+            </div>
+            <!-- No next steps defined for this plugin. -->
+            <div v-else></div>
+
+            <!-- Help section -->
+            <p>If you run into any issues, learn how to get help.</p>
+            <div
+              class="prose mt-3 p-2"
+              v-if="$page.plugins.usage"
+              v-html="$page.plugins.usage_rendered"
+            ></div>
+          </div>
+          <div>
+            <PluginCapabilitiesSection
+              :capabilities="$page.plugins.capabilities"
+              :name="$page.plugins.name"
+              :plugin_type="$page.plugins.pluginType"
+            />
+            <PluginSettingsSection :settings="$page.plugins.settings" :name="$page.plugins.name" />
+            <PluginHelpSection
+              :name="$page.plugins.name"
+              :variant="$page.plugins.variant"
+              :repo="$page.plugins.repo"
+              :plugin_type="$page.plugins.pluginType"
+            />
+            <PluginSidebar
+              :name="$page.plugins.name"
+              :domain_url="$page.plugins.domain_url"
+              :repo="$page.plugins.repo"
+              :maintenance_status="$page.plugins.maintenance_status"
+              :keywords="$page.plugins.keywords"
+              :variant="$page.plugins.variant"
+              :is_default="$page.plugins.isDefault"
+              :metrics="$page.plugins.metrics"
+              :plugin_type="$page.plugins.pluginType"
+            />
+          </div>
         </div>
-        <PluginSidebar
-          :name="$page.plugins.name"
-          :domain_url="$page.plugins.domain_url"
-          :repo="$page.plugins.repo"
-          :maintenance_status="$page.plugins.maintenance_status"
-          :keywords="$page.plugins.keywords"
-          :variant="$page.plugins.variant"
-          :is_default="$page.plugins.isDefault"
-          :metrics="$page.plugins.metrics"
-          :plugin_type="$page.plugins.pluginType"
-        />
       </div>
     </div>
   </Layout>
@@ -155,6 +210,8 @@ query Plugins($path: String!, $name: String!) {
     path
     logo_url
     namespace
+    next_steps
+    next_steps_rendered
     variant
     isDefault
     pluginType
@@ -189,6 +246,7 @@ query Plugins($path: String!, $name: String!) {
         path
         variant
         isDefault
+        keywords
       }
     }
   }
