@@ -21,13 +21,12 @@ yarn add --global @gridsome/cli
 
 ## Build and serve the project
 
-```console
-gridsome build
-gridsome serve
-```
-
-Or build for development and get live updates as files are changed:
+Build for development and get live updates as files are changed:
 
 ```console
+# Update packages if needed:
+yarn
+
+# Build the site in live-update mode:
 gridsome develop
 ```
