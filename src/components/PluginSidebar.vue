@@ -106,7 +106,7 @@
             <img
               alt="Built with the Meltano SDK"
               src="https://img.shields.io/badge/-Built%20with%20the%20Meltano%20SDK-blueviolet"
-            >
+            />
           </a>
         </li>
       </ul>
