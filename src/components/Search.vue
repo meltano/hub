@@ -30,7 +30,6 @@
         >
           <div
             v-for="plugin in searchResults.slice(0, 10)"
-            v-if="plugin.node.label"
             :key="plugin.node.id"
             class="grid grid-cols-1 grid-span-1 place-self-start w-full"
             @mouseover="hoveringOnSearchOptions = true"
