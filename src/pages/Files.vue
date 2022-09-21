@@ -16,12 +16,12 @@
           :key="edge.node.id"
           class="grid rounded-md shadow-lg text-slate-800 h-36 hover:bg-slate-100 p-2 md:p-4 bg-white overflow-hidden place-items-center"
           :class="{
-            'col-start-2':
+            'md:col-start-2':
               ($page.allPlugins.edges.length - index == 2 &&
                 $page.allPlugins.edges.length % 4 == 2) ||
               ($page.allPlugins.edges.length - index == 1 &&
                 $page.allPlugins.edges.length % 4 == 1),
-            'col-span-2':
+            'md:col-span-2':
               ($page.allPlugins.edges.length - index == 1 &&
                 $page.allPlugins.edges.length % 4 == 1) ||
               ($page.allPlugins.edges.length - index == 2 &&
@@ -52,7 +52,7 @@
         </div>
         <Pager
           :info="$page.allPlugins.pageInfo"
-          class="pager-container text-black m-4 col-span-2 md:col-span-4 mx-auto"
+          class="pager-container text-black m-4 md:col-span-2 md:col-span-4 mx-auto"
           linkClass="pager-container__link p-2 hover:text-sky-300"
           activeLinkClass="bg-sky-300 rounded-lg"
         />
