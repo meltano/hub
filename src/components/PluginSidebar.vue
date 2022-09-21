@@ -100,8 +100,13 @@
 
     <div>
       <p class="text-lg">Maintainer</p>
-      <ul v-if="(keywords ?? []).includes('meltano_sdk')" class="list-disc list-inside shields">
-        <li>
+      <p><b>{{ variant }}</b></p>
+    </div>
+
+    <div v-if="metrics || (keywords ?? []).includes('meltano_sdk')">
+      <p class="text-lg">Meltano Stats</p>
+      <ul class="list-disc list-inside shields">
+        <li v-if="(keywords ?? []).includes('meltano_sdk')" class="list-disc list-inside shields">
           <a href="https://sdk.meltano.com/en/latest/">
             <img
               alt="Built with the Meltano SDK"
@@ -109,12 +114,6 @@
             />
           </a>
         </li>
-      </ul>
-    </div>
-
-    <div v-if="metrics">
-      <p class="text-lg">Meltano Stats</p>
-      <ul class="list-disc list-inside shields">
         <li v-if="metrics.ALL_EXECS">
           <img
             alt="Total Executions (Last 3 Months)"
