@@ -1,15 +1,15 @@
 <template>
-  <div class="single-plugin-aside space-y-3">
+  <div class="single-plugin-aside bg-gray-100 space-y-3">
     <div>
-      <p class="text-lg">Install</p>
-      <pre><code>meltano add {{plugin_type}} {{ name }}<span v-if="!is_default"> --variant {{ variant }}</span></code></pre>
+      <p class="text-lg py-2">Install</p>
+      <code class="break-word bg-gray-300 p-2">meltano add {{plugin_type}} {{ name }}<span v-if="!is_default"> --variant {{ variant }}</span></code>
     </div>
     <div></div>
 
     <div v-if="domain_url">
       <p class="text-lg">Homepage</p>
       <div class="link-box">
-        <img class="aside-icon" src="../assets/images/link-solid.svg" /><a :href="domain_url">{{
+        <img class="w-8 h-4 inline gap-x-11" src="../assets/images/link-solid.svg" /><a :href="domain_url">{{
           domain_url
         }}</a>
       </div>
@@ -17,44 +17,48 @@
 
     <div>
       <p class="text-lg">Maintenance Status</p>
-      <img
-        v-if="maintenance_status === 'active'"
-        alt="Maintenance Status"
-        src="https://img.shields.io/badge/Maintenance%20Status-Active%20(Stable)-brightgreen"
-      />
-      <img
-        v-else-if="maintenance_status === 'unknown'"
-        alt="Maintenance Status"
-        src="https://img.shields.io/badge/Maintenance%20Status-Unknown-lightgrey"
-      />
-      <img
-        v-else-if="maintenance_status === 'development'"
-        alt="Maintenance Status"
-        src="https://img.shields.io/badge/Maintenance%20Status-Development%20(Under%20Construction)-orange"
-      />
-      <img
-        v-else-if="maintenance_status === 'beta'"
-        alt="Maintenance Status"
-        src="https://img.shields.io/badge/Maintenance%20Status-Prerelease%20(Beta)-yellow"
-      />
-      <img
-        v-else-if="maintenance_status === 'inactive'"
-        alt="Maintenance Status"
-        src="https://img.shields.io/badge/Maintenance%20Status-Inactive%20or%20Stale-red"
-      />
+      <ul class="list-disc list-inside shields space-y-1">
+        <li>
+          <img
+            v-if="maintenance_status === 'active'"
+            alt="Maintenance Status"
+            src="https://img.shields.io/badge/Maintenance%20Status-Active%20(Stable)-brightgreen"
+          />
+          <img
+            v-else-if="maintenance_status === 'unknown'"
+            alt="Maintenance Status"
+            src="https://img.shields.io/badge/Maintenance%20Status-Unknown-lightgrey"
+          />
+          <img
+            v-else-if="maintenance_status === 'development'"
+            alt="Maintenance Status"
+            src="https://img.shields.io/badge/Maintenance%20Status-Development%20(Under%20Construction)-orange"
+          />
+          <img
+            v-else-if="maintenance_status === 'beta'"
+            alt="Maintenance Status"
+            src="https://img.shields.io/badge/Maintenance%20Status-Prerelease%20(Beta)-yellow"
+          />
+          <img
+            v-else-if="maintenance_status === 'inactive'"
+            alt="Maintenance Status"
+            src="https://img.shields.io/badge/Maintenance%20Status-Inactive%20or%20Stale-red"
+          />
+        </li>
+      </ul>
     </div>
 
     <div>
       <p class="text-lg">Repo</p>
-      <div class="link-box">
-        <img class="aside-icon" src="../assets/images/git-alt-brands.svg" /><a :href="repo">{{
+      <div>
+        <img class="w-8 h-4 inline gap-x-11" src="../assets/images/git-alt-brands.svg" /><a :href="repo">{{
           repo
         }}</a>
       </div>
     </div>
 
     <div>
-      <ul class="list-disc list-inside shields space-y-2">
+      <ul class="list-disc list-inside shields space-y-1">
         <li>
           <img
             alt="Stars"
@@ -100,20 +104,17 @@
 
     <div>
       <p class="text-lg">Maintainer</p>
-      <p><b>{{ variant }}</b></p>
+      <ul class="list-disc list-inside shields">
+        <li>
+          <span class="bg-gray-600 text-gray-200 text-xs font-semibold mr-2 px-2.5 py-0.5">{{variant}}</span>
+        </li>
+      </ul>
     </div>
 
-    <div v-if="metrics || (keywords ?? []).includes('meltano_sdk')">
+    <!-- <div v-if="metrics  (keywords ?? []).includes('meltano_sdk')"> -->
+    <div v-if="metrics">
       <p class="text-lg">Meltano Stats</p>
-      <ul class="list-disc list-inside shields">
-        <li v-if="(keywords ?? []).includes('meltano_sdk')" class="list-disc list-inside shields">
-          <a href="https://sdk.meltano.com/en/latest/">
-            <img
-              alt="Built with the Meltano SDK"
-              src="https://img.shields.io/badge/-Built%20with%20the%20Meltano%20SDK-blueviolet"
-            />
-          </a>
-        </li>
+      <ul class="list-disc list-inside shields space-y-1">
         <li v-if="metrics.ALL_EXECS">
           <img
             alt="Total Executions (Last 3 Months)"
@@ -126,11 +127,26 @@
             :src="`https://img.shields.io/badge/Projects%20(Last%203%20Months)-${metrics.ALL_PROJECTS}-c0c0c4`"
           />
         </li>
+        <li v-if="(keywords ?? []).includes('meltano_sdk')">
+          <a href="https://sdk.meltano.com/en/latest/">
+            <img
+              alt="Built with the Meltano SDK"
+              src="https://img.shields.io/badge/Built%20with%20the%20Meltano%20SDK-✔-blueviolet"
+            />
+          </a>
+        </li>
       </ul>
     </div>
     <div>
       <p class="text-lg">Keywords</p>
-      <p>{{ (keywords ?? []).join(", ") }}</p>
+      <p><ul class="list-disc list-inside shields">
+        <li>
+        <span class="bg-gray-300 text-gray-700 text-xs font-semibold mr-2 px-2.5 py-0.5" v-for="(keyword, index) in keywords" v-bind:key="index">
+          {{keyword}}
+        </span>
+        </li>
+      </ul>
+      </p>
     </div>
   </div>
 </template>
