@@ -111,9 +111,10 @@
       <p class="text-lg">Maintainer</p>
       <ul class="list-disc list-inside shields">
         <li>
-          <span class="bg-gray-600 text-gray-200 text-xs font-semibold mr-2 px-2.5 py-0.5">{{
-            variant
-          }}</span>
+          <img
+            :alt="variant"
+            :src="`https://img.shields.io/static/v1?label=&message=${variant}&color=grey`"
+          />
         </li>
       </ul>
     </div>
@@ -148,13 +149,12 @@
       <p class="text-lg">Keywords</p>
       <ul class="list-disc list-inside shields">
         <li>
-          <span
-            class="bg-gray-300 text-gray-700 text-xs font-semibold mr-2 px-2.5 py-0.5"
-            v-for="(keyword, index) in keywords"
+          <img v-for="(keyword, index) in keywords"
             v-bind:key="index"
-          >
-            {{ keyword }}
-          </span>
+            class="inline m-1"
+            :alt="keyword"
+            :src="`https://img.shields.io/static/v1?label=&message=${keyword}&color=grey`"
+          />
         </li>
       </ul>
     </div>
