@@ -2,7 +2,7 @@
   <Layout>
     <div class="flex flex-col items-center w-full">
       <div
-        class="bg-white border text-black p-4 mt-7 mx-10 prose max-w-screen-lg"
+        class="bg-white border text-black p-4 my-7 mx-10 prose max-w-screen-lg rounded-lg"
         v-html="$page.markdown.content"
       />
     </div>
