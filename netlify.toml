@@ -2,3 +2,13 @@
   base = "."
   command = "./utility_scripts/build/build_with_metrics.sh"
   publish = "dist"
+
+[[redirects]]
+  from = "/taps/*"
+  to = "/extractors/:splat"
+  force = true
+
+[[redirects]]
+  from = "/targets/*"
+  to = "/loaders/:splat"
+  force = true
