@@ -23,16 +23,16 @@ module.exports = {
         path: "./**/*.md",
         remark: {
           // remark options
-        },
-      },
-      transformers: {
-        remark: {
-          // global remark options
           plugins: [
             // Place Remark markdown extensions here:
             // https://github.com/remarkjs/remark/blob/main/doc/plugins.md#list-of-plugins
             "remark-prism",
           ],
+        },
+      },
+      transformers: {
+        remark: {
+          // global remark options
         },
       },
     },
