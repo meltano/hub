@@ -66,10 +66,14 @@ settings:
   label: Airflow Home
   value: $MELTANO_PROJECT_ROOT/airflow
   env: AIRFLOW_HOME
+  description: |
+    The directory where Airflow will store its configuration, logs, and other files.
 - name: extension.airflow_config
   label: Airflow Home
   value: $MELTANO_PROJECT_ROOT/airflow/airflow.cfg
   env: AIRFLOW_CONFIG
+  description: |
+    The path where the Airflow configuration file will be stored.
 logo_url: /assets/logos/orchestrators/airflow.png
 settings_preamble: |
   Meltano [centralizes the configuration](https://docs.meltano.com/guide/configuration) of all of the plugins in your project, including Airflow's. This means that if the [Airflow documentation](https://airflow.apache.org/docs/apache-airflow/stable/howto/set-config.html) tells you to put something in `airflow.cfg`, you can use `meltano config`, `meltano.yml`, or environment variables instead, and get the benefits of Meltano features like [environments](https://docs.meltano.com/concepts/environments).
