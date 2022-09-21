@@ -16,14 +16,14 @@ module.exports = {
       },
     },
     {
-      use: '@gridsome/source-filesystem',
+      use: "@gridsome/source-filesystem",
       options: {
-        typeName: 'MarkdownDocs',
-        baseDir: './static/markdown',
-        path: './**/*.md',
+        typeName: "MarkdownDocs",
+        baseDir: "./static/markdown",
+        path: "./**/*.md",
         remark: {
           // remark options
-        }
+        },
       },
       transformers: {
         remark: {
@@ -32,10 +32,10 @@ module.exports = {
             // Place Remark markdown extensions here:
             // https://github.com/remarkjs/remark/blob/main/doc/plugins.md#list-of-plugins
             "remark-prism",
-          ]
-        }
-      }
-    }
+          ],
+        },
+      },
+    },
   ],
   chainWebpack: (config) => {
     config.resolve.alias.set("@logos", "@/../assets/logos");
@@ -56,7 +56,7 @@ module.exports = {
     MarkdownDocs: [
       {
         path: (node) => node.path,
-        component: ".src/templates/MarkdownDocs.vue"
+        component: ".src/templates/MarkdownDocs.vue",
       },
     ],
   },
