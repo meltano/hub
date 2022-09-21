@@ -11,9 +11,21 @@
         role="list"
       >
         <div
-          v-for="edge in $page.allPlugins.edges"
+          v-for="(edge, index) in $page.allPlugins.edges"
           :key="edge.node.id"
           class="grid rounded-md shadow-lg text-slate-800 h-36 hover:bg-slate-100 p-2 md:p-4 bg-white overflow-hidden place-items-center"
+          :class="{
+            'col-start-2':
+              ($page.allPlugins.edges.length - index == 2 &&
+                $page.allPlugins.edges.length % 4 == 2) ||
+              ($page.allPlugins.edges.length - index == 1 &&
+                $page.allPlugins.edges.length % 4 == 1),
+            'col-span-2':
+              ($page.allPlugins.edges.length - index == 1 &&
+                $page.allPlugins.edges.length % 4 == 1) ||
+              ($page.allPlugins.edges.length - index == 2 &&
+                $page.allPlugins.edges.length % 4 == 3),
+          }"
         >
           <g-link
             class="grid align-self-center place-items-center"
