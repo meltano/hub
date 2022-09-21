@@ -3,6 +3,7 @@ utilities:
   sqlfluff: sqlfluff
   superset: apache
   datahub: datahub-project
+  airflow: meltano
 orchestrators:
   airflow: apache
 transforms:
