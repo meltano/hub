@@ -18,59 +18,33 @@ export default {
       </strong>
       <nav class="nav">
         <button class="hamburger"></button>
-        <div class="widget widget-lg page-link">
-          <!-- Place this tag where you want the button to render. -->
-          <a
-            class="github-button"
-            href="https://github.com/meltano/meltano"
-            data-size="large"
-            data-show-count="true"
-            aria-label="Star meltano/meltano on GitHub"
-            >Star</a
-          >
+        <div class="mx-2">
+          <a href="https://github.com/meltano/meltano"
+            ><img
+              alt="Forks"
+              :src="`https://img.shields.io/github/stars/meltano/meltano?style=social`"
+          /></a>
         </div>
-        <!--
-          TODO: Debug stars.
-          The below needs a reload of the page to fully work.
-        <a
-          class="github-button"
-          href="https://github.com/meltano/meltano"
-          data-size="large"
-          data-show-count="true"
-          aria-label="Star meltano/meltano on GitHub"
-          >Star</a
-        > -->
         <div class="dropdown">
           <a class="page-link" href="#">Plugins</a>
           <div class="dropdown-content">
             <g-link class="nav__link" to="/extractors">
               <h3>Extractors</h3>
-              <span>
-                View all SaaS API, database, and file sources from which Meltano can pull data
-              </span>
             </g-link>
             <g-link class="nav__link" to="/loaders/">
               <h3>Loaders</h3>
-              <span
-                >View all database, file, and SaaS API destinations to which Meltano can send
-                data</span
-              >
             </g-link>
             <g-link class="nav__link" to="/transformers/">
               <h3>Transformers</h3>
-              <span>Learn how to transform your loaded data using Meltano</span>
             </g-link>
             <g-link class="nav__link" to="/orchestrators">
               <h3>Orchestrators</h3>
-              <span>Learn how to orchestrate scheduled pipelines in Meltano</span>
             </g-link>
             <g-link class="nav__link" to="/utilities/">
               <h3>Utilities</h3>
-              <span>Add tools, commands, and other services to your project</span>
             </g-link>
             <g-link class="nav__link" to="/files/">
               <h3>Files</h3>
-              <span>Add file resources to your Meltano project</span>
             </g-link>
           </div>
         </div>
@@ -79,33 +53,21 @@ export default {
           <div class="dropdown-content">
             <g-link class="nav__link" to="/singer/taps">
               <h3>Taps</h3>
-              <span>Find a Singer tap to pull data from a SaaS API, database, or file</span>
             </g-link>
             <g-link class="nav__link" to="/singer/targets">
               <h3>Targets</h3>
-              <span>Find a Singer target to send data to a database, file, or SaaS API</span>
             </g-link>
             <a class="nav__link" href="https://sdk.meltano.com">
               <h3>SDK</h3>
-              <span
-                >Learn more about building Singer taps and targets for new sources and
-                destinations</span
-              >
             </a>
             <g-link class="nav__link" to="/singer/spec">
               <h3>Spec</h3>
-              <span>Learn more about the Singer specification for open source data connectors</span>
             </g-link>
             <g-link class="nav__link" to="/singer/docs">
               <h3>Docs</h3>
-              <span
-                >Understand more about Singer taps and targets and how to use them with
-                Meltano</span
-              >
             </g-link>
             <g-link class="nav__link" to="/singer/api">
               <h3>API</h3>
-              <span>Find the API resources for our Meltano + Singer taps and targets</span>
             </g-link>
           </div>
         </div>
@@ -158,10 +120,6 @@ export default {
   }
 }
 
-.widget {
-  border: 2px solid blue;
-}
-
 .dropdown {
   display: none;
   position: relative;
@@ -173,30 +131,21 @@ export default {
   overflow: auto;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   text-align: center;
-  width: 1000px;
+  justify-content: center;
+  width: auto;
   height: auto;
   right: 0;
   flex-wrap: wrap;
-  border: 2px solid #3438bf;
 }
 
 .dropdown-content a {
   display: flex;
   color: #3438bf;
   text-decoration: none;
-  flex-basis: 49%;
+  width: 180px;
   padding: 10px 5px;
-  text-align: left;
+  text-align: center;
   flex-direction: column;
-}
-
-.dropdown-content a h3 {
-  margin: 0 0 5px 0;
-}
-
-.dropdown-content a span {
-  font-style: italic;
-  color: #62626e;
 }
 
 .dropdown:hover .dropdown-content {
@@ -207,10 +156,6 @@ export default {
 .dropdown-content a:hover {
   color: #fff;
   background-color: #3438bf;
-
-  span {
-    color: #f1f1f2;
-  }
 }
 
 @media (min-width: 391px) {

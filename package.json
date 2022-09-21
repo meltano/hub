@@ -11,6 +11,8 @@
     "format:write": "prettier --write ."
   },
   "dependencies": {
+    "@gridsome/source-filesystem": "^0.6.2",
+    "@gridsome/transformer-remark": "^0.6.4",
     "@tailwindcss/typography": "^0.5.7",
     "graphql-tag": "^2.12.6",
     "gridsome": "^0.7.0",

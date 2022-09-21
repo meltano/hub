@@ -15,6 +15,27 @@ module.exports = {
         tailwindConfig: "./tailwind.config.js",
       },
     },
+    {
+      use: "@gridsome/source-filesystem",
+      options: {
+        typeName: "MarkdownDocs",
+        baseDir: "./static/markdown",
+        path: "./**/*.md",
+        remark: {
+          // remark options
+        },
+      },
+      transformers: {
+        remark: {
+          // global remark options
+          plugins: [
+            // Place Remark markdown extensions here:
+            // https://github.com/remarkjs/remark/blob/main/doc/plugins.md#list-of-plugins
+            "remark-prism",
+          ],
+        },
+      },
+    },
   ],
   chainWebpack: (config) => {
     config.resolve.alias.set("@logos", "@/../assets/logos");
@@ -30,6 +51,12 @@ module.exports = {
       {
         path: "/maintainers/:name",
         component: ".src/templates/Maintainers.vue",
+      },
+    ],
+    MarkdownDocs: [
+      {
+        path: (node) => node.path,
+        component: ".src/templates/MarkdownDocs.vue",
       },
     ],
   },
