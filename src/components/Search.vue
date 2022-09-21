@@ -54,6 +54,12 @@
                     )}`)
                   "
                 />
+                <g-image
+                  v-else
+                  :src="
+                    require(`!!assets-loader?width=75!@logos/${plugin.node.pluginTypePlural}/${plugin.node.name}.png`)
+                  "
+                />
               </div>
               <div class="grid align-items-center grid-rows-3 col-span-10 p-3">
                 <div class="flex space-x-3 pt-1">
@@ -75,7 +81,7 @@
         </div>
 
         <div v-else>
-          <p>Your search didn't return any results. Please try again.</p>
+          <p class="text-amber-800">Your search didn't return any results. Please try again.</p>
         </div>
       </div>
     </transition>
@@ -126,6 +132,7 @@ query {
         name
         logo_url
         pluginType
+        pluginTypePlural
         keywords
       }
     }
