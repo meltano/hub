@@ -149,7 +149,8 @@
       <p class="text-lg">Keywords</p>
       <ul class="list-disc list-inside shields">
         <li>
-          <img v-for="(keyword, index) in keywords"
+          <img
+            v-for="(keyword, index) in keywords"
             v-bind:key="index"
             class="inline m-1"
             :alt="keyword"
