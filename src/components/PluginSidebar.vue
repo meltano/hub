@@ -139,14 +139,13 @@
     </div>
     <div>
       <p class="text-lg">Keywords</p>
-      <p><ul class="list-disc list-inside shields">
+      <ul class="list-disc list-inside shields">
         <li>
         <span class="bg-gray-300 text-gray-700 text-xs font-semibold mr-2 px-2.5 py-0.5" v-for="(keyword, index) in keywords" v-bind:key="index">
           {{keyword}}
         </span>
         </li>
       </ul>
-      </p>
     </div>
   </div>
 </template>
