@@ -2,16 +2,20 @@
   <div class="single-plugin-aside bg-gray-100 space-y-3">
     <div>
       <p class="text-lg py-2">Install</p>
-      <code class="break-word bg-gray-300 p-2">meltano add {{plugin_type}} {{ name }}<span v-if="!is_default"> --variant {{ variant }}</span></code>
+      <code class="break-word bg-gray-300 p-2"
+        >meltano add {{ plugin_type }} {{ name
+        }}<span v-if="!is_default"> --variant {{ variant }}</span></code
+      >
     </div>
     <div></div>
 
     <div v-if="domain_url">
       <p class="text-lg">Homepage</p>
       <div class="link-box">
-        <img class="w-8 h-4 inline gap-x-11" src="../assets/images/link-solid.svg" /><a :href="domain_url">{{
-          domain_url
-        }}</a>
+        <img class="w-8 h-4 inline gap-x-11" src="../assets/images/link-solid.svg" /><a
+          :href="domain_url"
+          >{{ domain_url }}</a
+        >
       </div>
     </div>
 
@@ -51,9 +55,10 @@
     <div>
       <p class="text-lg">Repo</p>
       <div>
-        <img class="w-8 h-4 inline gap-x-11" src="../assets/images/git-alt-brands.svg" /><a :href="repo">{{
-          repo
-        }}</a>
+        <img class="w-8 h-4 inline gap-x-11" src="../assets/images/git-alt-brands.svg" /><a
+          :href="repo"
+          >{{ repo }}</a
+        >
       </div>
     </div>
 
@@ -106,7 +111,9 @@
       <p class="text-lg">Maintainer</p>
       <ul class="list-disc list-inside shields">
         <li>
-          <span class="bg-gray-600 text-gray-200 text-xs font-semibold mr-2 px-2.5 py-0.5">{{variant}}</span>
+          <span class="bg-gray-600 text-gray-200 text-xs font-semibold mr-2 px-2.5 py-0.5">{{
+            variant
+          }}</span>
         </li>
       </ul>
     </div>
@@ -141,9 +148,13 @@
       <p class="text-lg">Keywords</p>
       <ul class="list-disc list-inside shields">
         <li>
-        <span class="bg-gray-300 text-gray-700 text-xs font-semibold mr-2 px-2.5 py-0.5" v-for="(keyword, index) in keywords" v-bind:key="index">
-          {{keyword}}
-        </span>
+          <span
+            class="bg-gray-300 text-gray-700 text-xs font-semibold mr-2 px-2.5 py-0.5"
+            v-for="(keyword, index) in keywords"
+            v-bind:key="index"
+          >
+            {{ keyword }}
+          </span>
         </li>
       </ul>
     </div>
