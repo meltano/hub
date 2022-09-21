@@ -1,12 +1,10 @@
 <template>
   <Layout>
-    <div class="grid w-full">
-      <div class="h-7 max-h-7"></div>
+    <div class="flex flex-col items-center w-full">
       <div
-        class="bg-white border text-black w-full prose lg:prose-xl"
+        class="bg-white border text-black p-4 mt-7 mx-10 prose max-w-screen-lg"
         v-html="$page.markdown.content"
       />
-      <div class="h-7 max-h-7"></div>
     </div>
   </Layout>
 </template>
