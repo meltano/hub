@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <div class="plugins-overview">
+    <div class="plugins-overview mx-auto">
       <p class="text-3xl py-4">Files</p>
       <p>
         Meltano file plugins allow you to easily add new file resources to your data project. For
@@ -8,16 +8,16 @@
         tool-specific scaffolding, templates, and applicable readme resources.
       </p>
       <div
-        class="grid grid-cols-2 md:grid-cols-4 place-items-center bg-slate-200 rounded-lg p-4 mt-4 md:m-4 gap-4 w-full"
+        class="grid grid-cols-2 md:grid-cols-4 bg-slate-200 rounded-lg p-4 mt-4 md:m-4 gap-4 w-full place-items-stretch"
         role="list"
       >
         <div
           v-for="edge in $page.allPlugins.edges"
           :key="edge.node.id"
-          class="rounded-md shadow-lg text-slate-800 hover:bg-slate-100 self-center w-full h-full place-items-center p-2 md:p-4 bg-white overflow-hidden"
+          class="grid rounded-md shadow-lg text-slate-800 h-36 hover:bg-slate-100 p-2 md:p-4 bg-white overflow-hidden place-items-center"
         >
           <g-link class="grid w-full h-full" :to="edge.node.path.split('--')[0]">
-            <div class="place-self-center row-span-2 object-scale-down">
+            <div class="grid align-self-center place-items-center">
               <g-image
                 v-if="edge.node.logo_url"
                 :src="
@@ -40,8 +40,9 @@
         </div>
         <Pager
           :info="$page.allPlugins.pageInfo"
-          class="pager-container"
-          linkClass="pager-container__link"
+          class="pager-container text-black m-4 col-span-2 md:col-span-4 mx-auto"
+          linkClass="pager-container__link p-2 hover:text-sky-300"
+          activeLinkClass="bg-sky-300 rounded-lg"
         />
       </div>
     </div>
