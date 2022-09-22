@@ -1,13 +1,13 @@
 <template>
   <div class="help-module">
-    <h2 id="contribute">Something missing?</h2>
+    <p class="text-3xl py-4" id="contribute">Something missing?</p>
     <p>This page is generated from a YAML file that you can contribute changes to.</p>
     <a
       v-if="name"
       :href="`https://github.com/meltano/hub/blob/main/_data/meltano/${plugin_type}/${name}/${variant}.yml`"
       >Edit it on GitHub!</a
     >
-    <h2 id="looking-for-help">Looking for help?</h2>
+    <p class="text-3xl py-4" id="looking-for-help">Looking for help?</p>
     <div>
       If you're having trouble getting the
       {{ name }} extractor to work, look for an

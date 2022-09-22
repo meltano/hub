@@ -1,33 +1,52 @@
 <template>
   <Layout>
-    <div class="plugins-overview">
-      <h1>Orchestrators</h1>
+    <div class="plugins-overview mx-auto">
+      <p class="text-3xl py-4">Orchestrators</p>
       <p>
         Meltano orchestrator plugins provide advanced scheduling and workflow execution
         capabilities.
       </p>
-      <ul class="plugins-list">
-        <li v-for="edge in $page.allPlugins.edges" :key="edge.node.id" class="page-single-plugin">
-          <g-link :to="edge.node.path.split('--')[0]">
-            <g-image
-              v-if="edge.node.logo_url"
-              :src="
-                require(`!!assets-loader?width=175&height=80&fit=inside!@logos/${edge.node.logo_url.replace(
-                  '/assets/logos/',
-                  ''
-                )}`)
-              "
-            />
-            <h2>{{ edge.node.label }}</h2>
-            <p>{{ edge.node.pluginType }}</p>
+      <div
+        class="grid grid-cols-2 md:grid-cols-4 bg-slate-200 rounded-lg p-4 mt-4 md:m-4 gap-4 w-full place-items-stretch"
+        role="list"
+      >
+        <div
+          v-for="edge in $page.allPlugins.edges"
+          :key="edge.node.id"
+          class="grid rounded-md shadow-lg text-slate-800 h-36 hover:bg-slate-100 p-2 md:p-4 bg-white overflow-hidden place-items-center"
+        >
+          <g-link
+            class="grid align-self-center place-items-center"
+            :to="edge.node.path.split('--')[0]"
+          >
+            <div class="place-self-center row-span-2 object-scale-down">
+              <g-image
+                v-if="edge.node.logo_url"
+                :src="
+                  require(`!!assets-loader?width=175&height=80&fit=inside!@logos/${edge.node.logo_url.replace(
+                    '/assets/logos/',
+                    ''
+                  )}`)
+                "
+                class="place-self-center object-scale-down"
+              />
+            </div>
+            <div class="row-span-1 self-end object-scale-down">
+              <p
+                class="font-bold underline text-xs md:text-lg justify-self-center place-self-end object-scale-down text-clip"
+              >
+                {{ edge.node.label }}
+              </p>
+            </div>
           </g-link>
-        </li>
+        </div>
         <Pager
           :info="$page.allPlugins.pageInfo"
-          class="pager-container"
-          linkClass="pager-container__link"
+          class="pager-container text-black m-4 col-span-2 md:col-span-4 mx-auto"
+          linkClass="pager-container__link p-2 hover:text-sky-300"
+          activeLinkClass="bg-sky-300 rounded-lg"
         />
-      </ul>
+      </div>
     </div>
   </Layout>
 </template>
