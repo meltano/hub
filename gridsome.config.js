@@ -31,16 +31,36 @@ module.exports = {
         path: "./**/*.md",
         remark: {
           // remark options
+          plugins: [
+            // Place Remark markdown extensions here:
+            // https://github.com/remarkjs/remark/blob/main/doc/plugins.md#list-of-plugins
+            "remark-prism",
+            [
+              "remark-autolink-headings",
+              {
+                behavior: "append",
+                content: {
+                  type: "element",
+                  tagName: "span",
+                  properties: {
+                    className: [
+                      "icon",
+                      "icon-link",
+                      "ml-1",
+                      "font-thin",
+                      "text-slate-600",
+                    ],
+                  },
+                  children: [{ type: "text", value: "#" }],
+                },
+              },
+            ],
+          ],
         },
       },
       transformers: {
         remark: {
           // global remark options
-          plugins: [
-            // Place Remark markdown extensions here:
-            // https://github.com/remarkjs/remark/blob/main/doc/plugins.md#list-of-plugins
-            "remark-prism",
-          ],
         },
       },
     },
