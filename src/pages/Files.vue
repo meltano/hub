@@ -33,7 +33,7 @@
               />
             </div>
             <div class="grid content-end row-span-5 self-stretch h-full">
-              <p class="font-bold underline text-xs lg:text-md justify-self-center text-clip" e>
+              <p class="font-bold underline text-xs lg:text-md justify-self-center text-clip">
                 {{ edge.node.label }}
               </p>
             </div>
