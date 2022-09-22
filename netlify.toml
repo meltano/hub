@@ -12,3 +12,13 @@
   from = "/targets/*"
   to = "/loaders/target-:splat"
   force = true
+
+[[redirects]]
+  from = "/singer/taps"
+  to = "/extractors"
+  force = true
+
+[[redirects]]
+  from = "/singer/targets"
+  to = "/loaders"
+  force = true
