@@ -16,6 +16,12 @@ commands:
   initialize:
     executable: airflow_extension
     args: initialize
+  create-admin:
+    args: "users create --username admin --firstname FIRST_NAME --lastname LAST_NAME --role Admin --email admin@example.org"
+    description: Create an admin user.
+  ui:
+    args: webserver
+    description: Start the Airflow webserver.
 next_steps: |
   1. Use the [meltano schedule](https://docs.meltano.com/reference/command-line-interface#schedule) command to create pipeline schedules in your project, to be run by Airflow.
 
