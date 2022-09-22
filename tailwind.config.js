@@ -10,7 +10,7 @@ module.exports = {
   // Safelist is a brute force method to get tailwind to work with `gridsome develop`
   // https://tailwindcss.com/docs/content-configuration#safelisting-classes
   // Only enable during local dev
-  // safelist: [{ pattern: /.*/ }],
+  // safelist: [{ pattern: /.*/, variants: ["lg", "md", "sm", "hover"] }],
   theme: {
     extend: {},
   },
