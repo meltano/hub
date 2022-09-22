@@ -37,7 +37,7 @@
             "type": "string",
             "description": "The URL to the repository where the plugin code lives."
         },
-        "edk_repo": {
+        "ext_repo": {
             "type": "string",
             "description": "The URL to the repository where the plugin extension code lives."
         },
