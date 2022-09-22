@@ -4,7 +4,7 @@
     <p>This page is generated from a YAML file that you can contribute changes to.</p>
     <a
       v-if="name"
-      :href="`https://github.com/meltano/hub/blob/main/_data/meltano/${plugin_type}/${name}/${variant}.yml`"
+      :href="`https://github.com/meltano/hub/blob/main/_data/meltano/${plugin_type_plural}/${name}/${variant}.yml`"
       >Edit it on GitHub!</a
     >
     <p class="text-3xl py-4" id="looking-for-help">Looking for help?</p>
@@ -24,7 +24,7 @@
 <script>
 export default {
   name: "PluginHelpSection",
-  props: ["name", "plugin_type", "variant", "repo"],
+  props: ["name", "plugin_type", "plugin_type_plural", "variant", "repo"],
 };
 </script>
 

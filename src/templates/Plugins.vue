@@ -159,6 +159,7 @@
               :variant="$page.plugins.variant"
               :repo="$page.plugins.repo"
               :plugin_type="$page.plugins.pluginType"
+              :plugin_type_plural="$page.plugins.pluginTypePlural"
             />
             <PluginSidebar
               :name="$page.plugins.name"
