@@ -110,3 +110,4 @@ commands:
   debug:
     args: debug
     description: Debug your DBT project and warehouse connection.
+logo_url: /assets/logos/transformers/dbt.png
