@@ -51,10 +51,10 @@ export default {
         <div class="dropdown">
           <a class="page-link" href="#">Singer</a>
           <div class="dropdown-content">
-            <g-link class="nav__link" to="/singer/taps">
+            <g-link class="nav__link" to="/extractors">
               <h3>Taps</h3>
             </g-link>
-            <g-link class="nav__link" to="/singer/targets">
+            <g-link class="nav__link" to="/loaders">
               <h3>Targets</h3>
             </g-link>
             <a class="nav__link" href="https://sdk.meltano.com">
@@ -65,9 +65,6 @@ export default {
             </g-link>
             <g-link class="nav__link" to="/singer/docs">
               <h3>Docs</h3>
-            </g-link>
-            <g-link class="nav__link" to="/singer/api">
-              <h3>API</h3>
             </g-link>
           </div>
         </div>
