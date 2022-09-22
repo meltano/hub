@@ -7,6 +7,7 @@ pip_url: git+https://github.com/meltano/airflow-ext.git@main apache-airflow==2.3
 executable: airflow_invoker
 variant: meltano
 maintenance_status: active
+definition: is an [orchestrator](https://docs.meltano.com/concepts/plugins#orchestrators) that allows for workflows to be programmatically authored, scheduled, and monitored.
 commands:
   describe:
     executable: airflow_extension
@@ -79,3 +80,5 @@ settings_preamble: |
   Meltano [centralizes the configuration](https://docs.meltano.com/guide/configuration) of all of the plugins in your project, including Airflow's. This means that if the [Airflow documentation](https://airflow.apache.org/docs/apache-airflow/stable/howto/set-config.html) tells you to put something in `airflow.cfg`, you can use `meltano config`, `meltano.yml`, or environment variables instead, and get the benefits of Meltano features like [environments](https://docs.meltano.com/concepts/environments).
 
   Any setting you can add to `airflow.cfg` can be added to `meltano.yml`, manually or using `meltano config`. For example, `[core] executor = SequentialExecutor` becomes `meltano config airflow set core executor SequentialExecutor` on the CLI, or `core.executor: SequentialExecutor` in `meltano.yml`. Config sections indicated by `[section]` in `airflow.cfg` become nested dictionaries in `meltano.yml`.
+keywords:
+  - edk
