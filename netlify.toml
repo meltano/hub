@@ -5,10 +5,10 @@
 
 [[redirects]]
   from = "/taps/*"
-  to = "/extractors/:splat"
+  to = "/extractors/tap-:splat"
   force = true
 
 [[redirects]]
   from = "/targets/*"
-  to = "/loaders/:splat"
+  to = "/loaders/target-:splat"
   force = true
