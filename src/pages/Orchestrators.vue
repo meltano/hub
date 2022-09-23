@@ -13,13 +13,13 @@
         <div
           v-for="edge in $page.allPlugins.edges"
           :key="edge.node.id"
-          class="rounded-md shadow-lg text-slate-800 h-36 hover:bg-slate-100 p-2 md:p-4 bg-white overflow-hidden"
+          class="rounded-md shadow-lg text-slate-800 h-48 hover:bg-slate-100 p-2 md:p-4 bg-white overflow-hidden"
         >
           <g-link
-            class="grid grid-rows-6 align-self-center place-items-center h-full w-full"
+            class="grid grid-rows-6 align-self-center place-items-center h-40 w-full"
             :to="edge.node.path.split('--')[0]"
           >
-            <div class="grid place-self-center row-span-4 h-full w-full">
+            <div class="grid place-self-center row-span-4 h-24 w-full">
               <g-image
                 v-if="edge.node.logo_url"
                 :src="
@@ -31,7 +31,7 @@
                 class="place-self-center"
               />
             </div>
-            <div class="grid content-end row-span-5 self-stretch h-full">
+            <div class="grid content-end row-span-5 self-stretch">
               <p class="font-bold underline text-xs lg:text-md justify-self-center text-clip">
                 {{ edge.node.label }}
               </p>
