@@ -102,7 +102,7 @@ commands:
     executable: dbt_extension
     description: |
       Initialize a new dbt project. This will create a dbt_project.yml file, a profiles.yml file, and models directory.
-logo_url: /assets/logos/transformers/dbt-snowflake.png
+logo_url: /assets/logos/utilities/dbt.png
 keywords:
   - meltano_edk
 next_steps: |
