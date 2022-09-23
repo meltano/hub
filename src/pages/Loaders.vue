@@ -69,7 +69,7 @@ query ($page: Int) {
     page: $page
     sortBy: "label_lowercase"
     order: ASC
-    filter: { isDefault: { eq: true }, pluginType: { eq: "loader" } }
+    filter: { isDefault: { eq: true }, pluginType: { eq: "loader" }, hidden: { ne: true } }
   ) @paginate {
     pageInfo {
       totalPages
