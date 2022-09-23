@@ -11,8 +11,8 @@ module.exports = {
   // https://tailwindcss.com/docs/content-configuration#safelisting-classes
   // Only enable during local dev
   // safelist: [{ pattern: /.*/ }],
-    theme: {
-	fontSize: {
+  theme: {
+  	fontSize: {
 	    'xs': '.75rem',
 	    'sm': '.875rem',
 	    'base': '1rem',
@@ -26,7 +26,8 @@ module.exports = {
 	    '6xl': '4rem',
 	    '7xl': '5rem',
 	},
-	extend: {},
+  	extend: {},
+    // safelist: [{ pattern: /.*/, variants: ["lg", "md", "sm", "hover"] }],
   },
   // eslint-disable-next-line global-require
   plugins: [require("@tailwindcss/typography")],
