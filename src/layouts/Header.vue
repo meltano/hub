@@ -11,11 +11,12 @@ export default {
 <template>
   <header class="header">
     <div class="top-nav">
-      <strong>
-        <g-link to="/">
-          <g-image src="../assets/images/meltano-logo-stacked-padded.svg" width="80" />
+      <div class="py-3">
+        <g-link to="/" class="flex">
+          <g-image src="../assets/images/meltano-logo.svg" class="logo-img" />
+          <p class="logo-text">┃Hub</p>
         </g-link>
-      </strong>
+      </div>
       <nav class="nav">
         <button class="hamburger"></button>
         <div class="mx-2">
@@ -77,6 +78,24 @@ export default {
 </template>
 
 <style lang="scss">
+.logo-img {
+  width: 80px;
+  @media (min-width: 768px) {
+    width: 150px;
+  }
+}
+
+.logo-text {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 900;
+  padding-top: 0.2rem;
+  font-size: 0.9rem;
+  @media (min-width: 768px) {
+    font-weight: 900;
+    padding-top: 0.59rem;
+    font-size: 1.3rem;
+  }
+}
 .header {
   display: flex;
   background: #fff;
