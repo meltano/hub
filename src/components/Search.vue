@@ -122,7 +122,7 @@ export default {
 
 <static-query lang="graphql">
 query {
-  allPlugins(filter: { isDefault: { eq: true } }) {
+  allPlugins(filter: { isDefault: { eq: true }, hidden: { ne: true } }) {
     edges {
       node {
         id
