@@ -1,14 +1,14 @@
-name: dbt-postgres
-label: dbt PostgreSQL
+name: dbt-redshift
+label: dbt Redshift
 executable: dbt_invoker
-namespace: dbt_postgres
+namespace: dbt_redshift
 docs: https://docs.meltano.com/guide/transformation
-repo: https://github.com/dbt-labs/dbt-core
-pip_url: dbt-core~=1.1.0 dbt-postgres~=1.1.0 git+https://github.com/meltano/dbt-ext.git@main
+repo: https://github.com/dbt-labs/dbt-redshift
+pip_url: dbt-core~=1.1.0 dbt-redshift~=1.1.0 git+https://github.com/meltano/dbt-ext.git@main
 variant: dbt-labs
 maintenance_status: active
 settings_preamble: |
-  Settings for dbt itself can be configured through [dbt_project.yml](https://docs.getdbt.com/reference/dbt_project.yml) as usual, which can be found at transform/dbt_project.yml in your Meltano project.  dbt also has [adapter-specific documentation for PostgreSQL](https://docs.getdbt.com/reference/resource-configs/postgres-configs).
+  Settings for dbt itself can be configured through [dbt_project.yml](https://docs.getdbt.com/reference/dbt_project.yml) as usual, which can be found at transform/dbt_project.yml in your Meltano project. dbt also has [adapter-specific documentation for Redshift](https://docs.getdbt.com/reference/resource-configs/redshift-configs).
 settings:
 - name: skip_pre_invoke
   kind: boolean
@@ -19,28 +19,39 @@ settings:
   env: DBT_EXT_TYPE
   value: postgres
 - name: project_dir
-  label: Projects Directory
+  label: Project Directory
   value: $MELTANO_PROJECT_ROOT/transform
 - name: profiles_dir
   label: Profiles Directory
-  value: $MELTANO_PROJECT_ROOT/transform/profiles/postgres
+  value: $MELTANO_PROJECT_ROOT/transform/profiles/redshift
   env: DBT_PROFILES_DIR
-  # Postgres connection settings are set via `config:` blocks and mapped to `profiles.yml`
+  # Redshift connection settings are set via `config:` blocks and mapped to `profiles.yml`
+- name: auth_method
+  label: Authentication Method
+  kind: string
+  description: |
+    The auth method to use (to use iam, set to "iam".
+    Omit to use password-based auth.)
+- name: cluster_id
+  label: Cluster ID
+  kind: string
+  description: |
+    The cluster id.
 - name: host
   label: Host
   kind: string
   description: |
-    The postgres host to connect to.
+    The host for the cluster.
+- name: password
+  label: Password
+  kind: password
+  description: |
+    The password, if using password-based auth.
 - name: user
   label: User
   kind: string
   description: |
     The user to connect as.
-- name: password
-  label: Password
-  kind: password
-  description: |
-    The password to connect with.
 - name: port
   label: Port
   kind: integer
@@ -51,32 +62,52 @@ settings:
   aliases: ["database"]
   kind: string
   description: |
-    The db to connect to.
+    The name of the db to connect to.
 - name: schema
   label: Schema
   kind: string
   description: |
     The schema to use.
+- name: iam_profile
+  label: IAM Profile
+  kind: string
+  description: |
+    The IAM profile to use.
+- name: iam_duration_seconds
+  label: IAM Duration Seconds
+  kind: integer
+  description: |
+    Duration of the IAM session.
+- name: autocreate
+  label: Autocreate
+  kind: boolean
+  description: |
+    Whether or not to automatically create entities.
+- name: db_groups
+  label: Databse Groups
+  kind: array
+  description: |
+    Database groups to use.
 - name: keepalives_idle
   label: Keep Alives Idle
   kind: integer
   description: |
-    Seconds between TCP keepalive packets.
+    Seconds between TCP keepalive packets
 - name: search_path
   label: Search Path
   kind: string
   description: |
-    Overrides the default search path.
-- name: role
-  label: Role
-  kind: string
-  description: |
-    Role for dbt to assume when executing queries.
+    The search path to use (use of this setting is not recommended)
 - name: sslmode
   label: SSL Mode
   kind: array
   description: |
-    SSL Mode used to connect to the database.
+    SSL MOde used to connect to Redshift.
+- name: ra3_node
+  label: RA3 Node
+  kind: boolean
+  description: |
+    Enables cross-database sources.
 commands:
   clean:
     args: clean
@@ -130,5 +161,5 @@ next_steps: |
 
     ```sh
     # create a starter dbt_project.yml file, a profiles.yml file, and models directory
-    meltano invoke dbt-postgres:initialize
+    meltano invoke dbt-redshift:initialize
     ```
