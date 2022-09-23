@@ -66,7 +66,9 @@ function renderMarkdownSections(pluginData) {
 function addLowercaseLabel(pluginData) {
   return {
     ...pluginData,
-      label_lowercase: pluginData.label ? pluginData.label.toLowerCase(): undefined,
+    label_lowercase: pluginData.label
+      ? pluginData.label.toLowerCase()
+      : undefined,
   };
 }
 function addCommandNames(pluginData) {
