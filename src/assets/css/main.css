@@ -186,7 +186,6 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 70px;
   }
 
   .plugins-overview h1 {
@@ -201,10 +200,6 @@ footer {
 
   .plugins-list .page-single-plugin {
     flex-basis: 20%;
-  }
-
-  .single-plugin-overview {
-    padding: 0 70px;
   }
 
   .single-plugin-detail {
