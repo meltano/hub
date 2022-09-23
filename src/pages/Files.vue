@@ -66,7 +66,7 @@ query ($page: Int) {
   allPlugins(
     perPage: 100
     page: $page
-    sortBy: "label"
+    sortBy: "label_lowercase"
     order: ASC
     filter: { isDefault: { eq: true }, pluginType: { eq: "file" } }
   ) @paginate {

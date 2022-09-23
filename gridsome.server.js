@@ -63,6 +63,12 @@ function renderMarkdownSections(pluginData) {
   };
 }
 
+function addLowercaseLabel(pluginData) {
+  return {
+    ...pluginData,
+      label_lowercase: pluginData.label ? pluginData.label.toLowerCase(): undefined,
+  };
+}
 function addCommandNames(pluginData) {
   if (!pluginData.commands) {
     return;
@@ -87,7 +93,7 @@ function buildData(dataPath, collections) {
         `${currentCollection}/${currentFolder}/${plugin}`
       );
       let readPlugin = yaml.load(fileContents);
-      readPlugin = renderMarkdownSections(readPlugin);
+      readPlugin = renderMarkdownSections(addLowercaseLabel(readPlugin));
       addCommandNames(readPlugin);
 
       readPlugin.isDefault =
