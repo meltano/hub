@@ -4,6 +4,7 @@ executable: dbt_invoker
 namespace: dbt_snowflake
 docs: https://docs.meltano.com/guide/transformation
 repo: https://github.com/dbt-labs/dbt-snowflake
+ext_repo: https://github.com/meltano/dbt-ext
 pip_url: dbt-core~=1.1.0 dbt-snowflake~=1.1.0 git+https://github.com/meltano/dbt-ext.git@main
 variant: dbt-labs
 maintenance_status: active
@@ -17,7 +18,7 @@ settings:
   env: DBT_EXT_SKIP_PRE_INVOKE
 - name: type
   env: DBT_EXT_TYPE
-  value: postgres
+  value: snowflake
 - name: project_dir
   label: Projects Directory
   value: $MELTANO_PROJECT_ROOT/transform
