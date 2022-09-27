@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <div class="single-plugin-overview lg:px-13">
+    <div class="single-plugin-overview mx-24">
       <div class="single-plugin-detail">
         <div class="single-plugin-top-bar">
           <table>
@@ -30,8 +30,8 @@
             </tr>
           </table>
         </div>
-        <div class="flex flex-col md:flex-row">
-          <div class="p-5">
+        <div class="flex flex-col lg:flex-row">
+          <div class="p-5 overflow-x-scroll">
             <p>
               The {{ $page.plugins.name }}
               <a

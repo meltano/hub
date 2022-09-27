@@ -1,5 +1,7 @@
 <template>
-  <div class="single-plugin-aside bg-gray-100 space-y-3 min-w-fit order-first md:order-last">
+  <div
+    class="single-plugin-aside bg-gray-100 space-y-3 min-w-fit pl-4 order-first lg:pr-4 lg:order-last lg:border-l-2 border-black"
+  >
     <div>
       <p class="text-lg py-2">Install</p>
       <code class="break-word bg-gray-300 p-2"
