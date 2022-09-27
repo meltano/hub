@@ -186,7 +186,6 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 70px;
   }
 
   .plugins-overview h1 {
@@ -203,28 +202,7 @@ footer {
     flex-basis: 20%;
   }
 
-  .single-plugin-overview {
-    padding: 0 70px;
-  }
-
   .single-plugin-detail {
     margin: 40px auto 80px;
-  }
-}
-
-@media (min-width: 1000px) {
-  .plugins-overview,
-  .single-plugin-overview {
-    padding: 0 200px;
-  }
-
-  .single-plugin-detail .single-plugin-main {
-    width: 60%;
-  }
-
-  .single-plugin-detail .single-plugin-aside {
-    width: 37%;
-    border-left: 2px solid #62626e;
-    padding: 10px 0 0 10px;
   }
 }
