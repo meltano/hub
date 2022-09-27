@@ -75,7 +75,9 @@
                   <pre class="inline-code-block"><code>meltano add</code></pre>
                   :
                 </li>
-                <pre><code>meltano add {{ $page.plugins.pluginType }} {{ $page.plugins.name }}<span v-if="!$page.plugins.isDefault"> --variant {{ $page.plugins.variant }}</span></code></pre>
+                <pre
+                  class="prose language-bash rounded-md"
+                ><code >meltano add {{ $page.plugins.pluginType }} {{ $page.plugins.name }}<span v-if="!$page.plugins.isDefault"> --variant {{ $page.plugins.variant }}</span></code></pre>
               </ol>
               <p class="text-xl py-3">Next steps</p>
               <div
