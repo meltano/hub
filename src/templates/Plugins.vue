@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <div class="single-plugin-overview mx-24">
+    <div class="single-plugin-overview mx-36">
       <div class="single-plugin-detail">
         <div class="single-plugin-top-bar">
           <table>
