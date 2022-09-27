@@ -25,8 +25,13 @@
       </p>
       <p>
         Please consider adding any settings you have defined locally to this definition on
-        MeltanoHub by making a
-        <a href="#contributing">pull request to the YAML file</a>.
+        MeltanoHub by making a pull request to the
+        <a
+          :href="`https://github.com/meltano/hub/blob/main/_data/meltano/${plugin_type_plural}/${name}/${variant}.yml`"
+        >
+          YAML file</a
+        >
+        that defines the settings for this plugin.
       </p>
       <span v-for="(setting, index) in settings" v-bind:key="index">
         <p class="text-xl mt-3" :id="setting.name + '-setting'">
@@ -37,7 +42,7 @@
           v-if="setting.description"
           v-html="setting.description_rendered"
         ></div>
-        <span v-else><a href="#contribute">[No description provided.]</a></span>
+        <span v-else>[No description provided.]</span>
       </span>
     </span>
     <span v-else
@@ -50,7 +55,7 @@
 <script>
 export default {
   name: "PluginSettingsSection",
-  props: ["settings", "preamble", "name"],
+  props: ["settings", "plugin_type_plural", "preamble", "name", "variant"],
 };
 </script>
 

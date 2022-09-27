@@ -165,6 +165,8 @@
               <PluginSettingsSection
                 :settings="$page.plugins.settings"
                 :name="$page.plugins.name"
+                :plugin_type_plural="$page.plugins.pluginTypePlural"
+                :variant="$page.plugins.variant"
               />
               <PluginHelpSection
                 :name="$page.plugins.name"
