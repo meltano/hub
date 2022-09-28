@@ -40,8 +40,11 @@
           href="https://docs.meltano.com/reference/command-line-interface#config"
           >configured</a
         >
-        by running <code>meltano config {{ name }} set --interactive</code>,
-        or by using
+        by running:
+      </p>
+      <p><code class="break-word bg-gray-300 p-2">meltano config {{ name }} set --interactive</code></p>
+      <p>
+        Settings can also be configured using
         <a
           href="https://docs.meltano.com/guide/configuration#configuring-settings"
           >environment variables</a
