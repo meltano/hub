@@ -37,7 +37,7 @@
       </p>
       <p class="text-3xl py-4" id="configuration">Configuration</p>
       <p>
-        Settings for {{ plugin.name }} can be
+        Settings for {{ name }} can be
         <a
           href="https://docs.meltano.com/reference/command-line-interface#config"
           >configured</a
