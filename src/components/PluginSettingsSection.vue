@@ -42,10 +42,9 @@
         >
         by running:
       </p>
-      <p></p>
-      <pre class="prose language-bash rounded-md">
-          <code>meltano config {{ name }} set --interactive</code>
-        </pre>
+      <p><pre class="prose language-bash rounded-md"
+        ><code>meltano config {{ name }} set --interactive</code
+        ></pre></p>
       <p>
         Settings can also be configured using
         <a
