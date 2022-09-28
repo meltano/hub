@@ -10,7 +10,7 @@
     <p class="text-3xl py-4" id="looking-for-help">Looking for help?</p>
     <div>
       If you're having trouble getting the
-      {{ name }} extractor to work, look for an
+      {{ name }} {{ plugin_type }} to work, look for an
       <a :href="`${repo}/issues`">existing issue in its repository</a>, file a
       <a :href="`${repo}/issues/new`">new issue</a>, or
       <a href="https://meltano.com/slack">join the Meltano Slack community</a>

@@ -113,7 +113,13 @@
       <p class="text-lg">Maintainer</p>
       <ul class="list-disc list-inside shields">
         <li>
-          <img
+          <a v-if="maintainer" :href="maintainer.url"
+            ><img
+              :alt="maintainer.label"
+              :src="`https://img.shields.io/static/v1?label=&message=${maintainer.label}&color=grey`"
+            /> </a
+          ><img
+            v-else
             :alt="variant"
             :src="`https://img.shields.io/static/v1?label=&message=${variant}&color=grey`"
           />
@@ -177,6 +183,7 @@ export default {
     "variant",
     "plugin_type",
     "metrics",
+    "maintainer",
   ],
   computed: {
     parsedRepo() {

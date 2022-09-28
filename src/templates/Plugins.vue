@@ -75,7 +75,9 @@
                   <pre class="inline-code-block"><code>meltano add</code></pre>
                   :
                 </li>
-                <pre><code>meltano add {{ $page.plugins.pluginType }} {{ $page.plugins.name }}<span v-if="!$page.plugins.isDefault"> --variant {{ $page.plugins.variant }}</span></code></pre>
+                <pre
+                  class="prose language-bash rounded-md"
+                ><code >meltano add {{ $page.plugins.pluginType }} {{ $page.plugins.name }}<span v-if="!$page.plugins.isDefault"> --variant {{ $page.plugins.variant }}</span></code></pre>
               </ol>
               <p class="text-xl py-3">Next steps</p>
               <div
@@ -163,6 +165,8 @@
               <PluginSettingsSection
                 :settings="$page.plugins.settings"
                 :name="$page.plugins.name"
+                :plugin_type_plural="$page.plugins.pluginTypePlural"
+                :variant="$page.plugins.variant"
               />
               <PluginHelpSection
                 :name="$page.plugins.name"
@@ -183,6 +187,7 @@
             :is_default="$page.plugins.isDefault"
             :metrics="$page.plugins.metrics"
             :plugin_type="$page.plugins.pluginType"
+            :maintainer="$page.plugins.maintainer"
           />
         </div>
       </div>
@@ -251,6 +256,11 @@ query Plugins($path: String!, $name: String!) {
     metrics {
       ALL_PROJECTS
       ALL_EXECS
+    }
+    maintainer {
+      name
+      label
+      url
     }
   }
   variants: allPlugins(filter: { name: { eq: $name } }) {
