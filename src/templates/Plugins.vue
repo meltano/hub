@@ -187,6 +187,7 @@
             :is_default="$page.plugins.isDefault"
             :metrics="$page.plugins.metrics"
             :plugin_type="$page.plugins.pluginType"
+            :maintainer="$page.plugins.maintainer"
           />
         </div>
       </div>
@@ -255,6 +256,11 @@ query Plugins($path: String!, $name: String!) {
     metrics {
       ALL_PROJECTS
       ALL_EXECS
+    }
+    maintainer {
+      name
+      label
+      url
     }
   }
   variants: allPlugins(filter: { name: { eq: $name } }) {

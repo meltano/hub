@@ -106,6 +106,7 @@ function buildData(dataPath, collections) {
 
       // Include additional fields
       readPlugin.metrics = pluginMetricsData[readPlugin.repo];
+      readPlugin.maintainer = readMaintainers[readPlugin.variant];
 
       collections.forEach((collection) => {
         collection.addNode(readPlugin);
