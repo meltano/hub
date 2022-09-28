@@ -113,11 +113,16 @@
       <p class="text-lg">Maintainer</p>
       <ul class="list-disc list-inside shields">
         <li>
-          <a :href="maintainer.url"
+          <a v-if="maintainer" :href="maintainer.url"
             ><img
-              :alt="variant"
+              :alt="maintainer.label"
               :src="`https://img.shields.io/static/v1?label=&message=${maintainer.label}&color=grey`"
-          /></a>
+            /> </a
+          ><img
+            v-else
+            :alt="variant"
+            :src="`https://img.shields.io/static/v1?label=&message=${variant}&color=grey`"
+          />
         </li>
       </ul>
     </div>
