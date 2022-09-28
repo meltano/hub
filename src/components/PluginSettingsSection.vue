@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p class="text-3xl py-4" id="settings">Settings</p>
+    <p class="py-4 text-3xl" id="settings">Settings</p>
     <span class="space-y-3" v-if="settings">
       <div class="prose mt-3 p-2" v-if="preamble" v-html="preamble"></div>
       <p>
@@ -8,7 +8,7 @@
         <code>{{ name }}</code> settings that are known to Meltano are documented below. To quickly
         find the setting you're looking for, click on any setting name from the list:
       </p>
-      <ul class="list-disc list-inside pl-4">
+      <ul class="list-inside list-disc pl-4">
         <li v-for="(setting, index) in settings" v-bind:key="index">
           <a :href="'#' + setting.name + '-setting'"
             ><code>{{ setting.name }}</code></a
@@ -34,7 +34,7 @@
         that defines the settings for this plugin.
       </p>
       <span v-for="(setting, index) in settings" v-bind:key="index">
-        <p class="text-xl mt-3" :id="setting.name + '-setting'">
+        <p class="mt-3 text-xl" :id="setting.name + '-setting'">
           <code>{{ setting.label }} ({{ setting.name }})</code>
         </p>
         <div

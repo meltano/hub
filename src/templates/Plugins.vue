@@ -17,7 +17,7 @@
                 />
               </td>
               <td>
-                <p class="text-3xl py-8">
+                <p class="py-8 text-3xl">
                   {{ $page.plugins.label }}
                 </p>
                 <p class="text-2xl">
@@ -31,7 +31,7 @@
           </table>
         </div>
         <div class="flex flex-col lg:flex-row">
-          <div class="p-5 overflow-x-scroll">
+          <div class="overflow-x-scroll p-5">
             <p>
               The {{ $page.plugins.name }}
               <a
@@ -45,7 +45,7 @@
               sent to a destination using a <g-link to="/loaders">loader</g-link>.
             </p>
             <p class="text-2xl">Other Available Variants</p>
-            <ul class="list-disc list-inside pl-4">
+            <ul class="list-inside list-disc pl-4">
               <li v-for="(variant, index) in $page.variants.edges" v-bind:key="index">
                 <g-link :to="variant.node.path" v-if="variant.node.path !== $page.plugins.path">{{
                   variant.node.variant
@@ -62,13 +62,13 @@
               </li>
             </ul>
             <div>
-              <p class="text-3xl py-4" id="getting-started">Getting Started</p>
+              <p class="py-4 text-3xl" id="getting-started">Getting Started</p>
               <PluginPrereqSection
                 :plugin="$page.plugins"
                 :plugin_type="$page.plugins.pluginType"
               />
-              <p class="text-xl py-3" id="installation">Installation and configuration</p>
-              <ol class="list-decimal list-inside pl-4">
+              <p class="py-3 text-xl" id="installation">Installation and configuration</p>
+              <ol class="list-inside list-decimal pl-4">
                 <li>
                   Add the {{ $page.plugins.name }} {{ $page.plugins.pluginType }} to your project
                   using
@@ -76,10 +76,10 @@
                   :
                 </li>
                 <pre
-                  class="prose language-bash rounded-md"
+                  class="language-bash prose rounded-md"
                 ><code >meltano add {{ $page.plugins.pluginType }} {{ $page.plugins.name }}<span v-if="!$page.plugins.isDefault"> --variant {{ $page.plugins.variant }}</span></code></pre>
               </ol>
-              <p class="text-xl py-3">Next steps</p>
+              <p class="py-3 text-xl">Next steps</p>
               <div
                 v-if="$page.plugins.next_steps_rendered"
                 v-html="$page.plugins.next_steps_rendered"
@@ -91,7 +91,7 @@
                   Follow the remaining steps of the
                   <a href="https://docs.meltano.com/getting-started.html">Getting Started guide</a>:
                 </p>
-                <ol class="list-decimal list-inside pl-4">
+                <ol class="list-inside list-decimal pl-4">
                   <li>
                     <a
                       href="https://docs.meltano.com/getting-started.html#select-entities-and-attributes-to-extract"
@@ -119,7 +119,7 @@
                   Follow the remaining steps of the
                   <a href="https://docs.meltano.com/getting-started.html">Getting Started guide</a>:
                 </p>
-                <ol class="list-decimal list-inside pl-4">
+                <ol class="list-inside list-decimal pl-4">
                   <li>
                     <a
                       href="https://docs.meltano.com/getting-started.html#run-a-data-integration-el-pipeline"
@@ -135,7 +135,7 @@
                   Follow the remaining steps of the
                   <a href="https://docs.meltano.com/getting-started.html">Getting Started guide</a>:
                 </p>
-                <ol class="list-decimal list-inside pl-4">
+                <ol class="list-inside list-decimal pl-4">
                   <li>
                     <a
                       href="https://docs.meltano.com/getting-started.html#transform-loaded-data-for-analysis"

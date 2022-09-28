@@ -1,9 +1,9 @@
 <template>
   <div
-    class="single-plugin-aside bg-gray-100 space-y-3 min-w-fit pl-4 order-first lg:pr-4 lg:order-last lg:border-l-2 border-black"
+    class="single-plugin-aside order-first min-w-fit space-y-3 border-black bg-gray-100 pl-4 lg:order-last lg:border-l-2 lg:pr-4"
   >
     <div>
-      <p class="text-lg py-2">Install</p>
+      <p class="py-2 text-lg">Install</p>
       <code class="break-word bg-gray-300 p-2"
         >meltano add {{ plugin_type }} {{ name
         }}<span v-if="!is_default"> --variant {{ variant }}</span></code
@@ -14,7 +14,7 @@
     <div v-if="domain_url">
       <p class="text-lg">Homepage</p>
       <div class="link-box">
-        <img class="w-8 h-4 inline gap-x-11" src="../assets/images/link-solid.svg" /><a
+        <img class="inline h-4 w-8 gap-x-11" src="../assets/images/link-solid.svg" /><a
           :href="domain_url"
           >{{ domain_url }}</a
         >
@@ -23,7 +23,7 @@
 
     <div>
       <p class="text-lg">Maintenance Status</p>
-      <ul class="list-disc list-inside shields space-y-1">
+      <ul class="shields list-inside list-disc space-y-1">
         <li>
           <img
             v-if="maintenance_status === 'active'"
@@ -57,7 +57,7 @@
     <div>
       <p class="text-lg">Repo</p>
       <div>
-        <img class="w-8 h-4 inline gap-x-11" src="../assets/images/git-alt-brands.svg" /><a
+        <img class="inline h-4 w-8 gap-x-11" src="../assets/images/git-alt-brands.svg" /><a
           :href="repo"
           >{{ repo }}</a
         >
@@ -65,7 +65,7 @@
     </div>
 
     <div>
-      <ul class="list-disc list-inside shields space-y-1">
+      <ul class="shields list-inside list-disc space-y-1">
         <li>
           <img
             alt="Stars"
@@ -111,7 +111,7 @@
 
     <div>
       <p class="text-lg">Maintainer</p>
-      <ul class="list-disc list-inside shields">
+      <ul class="shields list-inside list-disc">
         <li>
           <a v-if="maintainer" :href="maintainer.url"
             ><img
@@ -130,7 +130,7 @@
     <!-- <div v-if="metrics  (keywords ?? []).includes('meltano_sdk')"> -->
     <div v-if="metrics">
       <p class="text-lg">Meltano Stats</p>
-      <ul class="list-disc list-inside shields space-y-1">
+      <ul class="shields list-inside list-disc space-y-1">
         <li v-if="metrics.ALL_EXECS">
           <img
             alt="Total Executions (Last 3 Months)"
@@ -155,12 +155,12 @@
     </div>
     <div>
       <p class="text-lg">Keywords</p>
-      <ul class="list-disc list-inside shields">
+      <ul class="shields list-inside list-disc">
         <li>
           <img
             v-for="(keyword, index) in keywords"
             v-bind:key="index"
-            class="inline m-1"
+            class="m-1 inline"
             :alt="keyword"
             :src="`https://img.shields.io/static/v1?label=&message=${keyword}&color=grey`"
           />

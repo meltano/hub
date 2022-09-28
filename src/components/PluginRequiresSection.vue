@@ -1,8 +1,8 @@
 <template>
   <div v-if="requires">
-    <p class="text-3xl py-4">Requires</p>
+    <p class="py-4 text-3xl">Requires</p>
     <p>This {{ plugin_type }} requires the following plugins and variants to work:</p>
-    <ul class="list-disc list-inside">
+    <ul class="list-inside list-disc">
       <li v-for="(file, index) in requires.files" v-bind:key="index">
         {{ file.name }} - {{ file.variant }}
       </li>

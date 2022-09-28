@@ -1,8 +1,8 @@
 <template>
   <Layout>
     <div class="plugins-overview">
-      <p class="text-3xl py-4">Plugin Maintainers</p>
-      <ul class="list-disc list-inside plugins-list">
+      <p class="py-4 text-3xl">Plugin Maintainers</p>
+      <ul class="plugins-list list-inside list-disc">
         <li
           v-for="(edge, index) in $page.allMaintainers.edges"
           :key="index"

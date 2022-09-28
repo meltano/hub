@@ -1,25 +1,25 @@
 <template>
   <Layout>
     <div class="plugins-overview mx-auto">
-      <p class="text-3xl py-4">Orchestrators</p>
+      <p class="py-4 text-3xl">Orchestrators</p>
       <p>
         Meltano orchestrator plugins provide advanced scheduling and workflow execution
         capabilities.
       </p>
       <div
-        class="grid grid-cols-2 md:grid-cols-4 bg-slate-200 rounded-lg p-4 mt-4 md:m-4 gap-4 w-full place-items-stretch"
+        class="mt-4 grid w-full grid-cols-2 place-items-stretch gap-4 rounded-lg bg-slate-200 p-4 md:m-4 md:grid-cols-4"
         role="list"
       >
         <div
           v-for="edge in $page.allPlugins.edges"
           :key="edge.node.id"
-          class="rounded-md shadow-lg text-slate-800 h-48 hover:bg-slate-100 p-2 md:p-4 bg-white overflow-hidden"
+          class="h-48 overflow-hidden rounded-md bg-white p-2 text-slate-800 shadow-lg hover:bg-slate-100 md:p-4"
         >
           <g-link
-            class="grid grid-rows-6 align-self-center place-items-center h-40 w-full"
+            class="align-self-center grid h-40 w-full grid-rows-6 place-items-center"
             :to="edge.node.path.split('--')[0]"
           >
-            <div class="grid place-self-center row-span-4 h-24 w-full">
+            <div class="row-span-4 grid h-24 w-full place-self-center">
               <g-image
                 v-if="edge.node.logo_url"
                 :src="
@@ -31,8 +31,8 @@
                 class="place-self-center"
               />
             </div>
-            <div class="grid content-end row-span-5 self-stretch">
-              <p class="font-bold underline text-xs lg:text-md justify-self-center text-clip">
+            <div class="row-span-5 grid content-end self-stretch">
+              <p class="justify-self-center text-clip text-xs font-bold underline lg:text-md">
                 {{ edge.node.label }}
               </p>
             </div>
@@ -40,7 +40,7 @@
         </div>
         <Pager
           :info="$page.allPlugins.pageInfo"
-          class="pager-container text-black m-4 col-span-2 md:col-span-4 mx-auto"
+          class="pager-container col-span-2 m-4 mx-auto text-black md:col-span-4"
           linkClass="pager-container__link p-2 hover:text-sky-300"
           activeLinkClass="bg-sky-300 rounded-lg"
         />

@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <div class="home-details">
-      <p class="text-5xl tracking-wide mb-3">Welcome to Meltano Hub</p>
+      <p class="mb-3 text-5xl tracking-wide">Welcome to Meltano Hub</p>
       <p class="text-xl">
         Meltano Hub is a central place to find any Meltano plugin as well as Singer taps and
         targets. The Hub is lovingly curated by Meltano and the wider Singer community.

@@ -1,13 +1,13 @@
 <template>
   <div class="help-module">
-    <p class="text-3xl py-4" id="contribute">Something missing?</p>
+    <p class="py-4 text-3xl" id="contribute">Something missing?</p>
     <p>This page is generated from a YAML file that you can contribute changes to.</p>
     <a
       v-if="name"
       :href="`https://github.com/meltano/hub/blob/main/_data/meltano/${plugin_type_plural}/${name}/${variant}.yml`"
       >Edit it on GitHub!</a
     >
-    <p class="text-3xl py-4" id="looking-for-help">Looking for help?</p>
+    <p class="py-4 text-3xl" id="looking-for-help">Looking for help?</p>
     <div>
       If you're having trouble getting the
       {{ name }} {{ plugin_type }} to work, look for an
