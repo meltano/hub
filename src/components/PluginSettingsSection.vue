@@ -35,12 +35,12 @@
       </p>
       <p class="text-3xl py-4" id="configuration">Configuration</p>
       <p>
-        Settings for {{ name }} can be
+        Settings for <code>{{ name }}</code> can be
         <a
           href="https://docs.meltano.com/reference/command-line-interface#config"
           >configured</a
         >
-        by running <code>meltano config {{ plugin.name }} set --interactive</code>,
+        by running <code>meltano config {{ name }} set --interactive</code>,
         or by using
         <a
           href="https://docs.meltano.com/guide/configuration#configuring-settings"
