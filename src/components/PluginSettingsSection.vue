@@ -44,9 +44,7 @@
       </p>
       <p></p>
       <pre class="prose language-bash rounded-md">
-          <code class="break-word bg-gray-300 p-2"
-            >meltano config {{ name }} set --interactive
-          </code>
+          <code>meltano config {{ name }} set --interactive</code>
         </pre>
       <p>
         Settings can also be configured using
