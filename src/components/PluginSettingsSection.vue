@@ -1,7 +1,7 @@
 <template>
   <div>
     <p class="text-3xl py-4" id="settings">Settings</p>
-    <span class="space-y-3" v-if="settings">
+    <span class="space-y-3" v-if="settings && settings.length">
       <div class="prose mt-3 p-2" v-if="preamble" v-html="preamble"></div>
       <p>
         The
@@ -33,12 +33,25 @@
         >
         that defines the settings for this plugin.
       </p>
-      <span v-for="(setting, index) in settings" v-bind:key="index">
-        <p class="text-xl mt-3" :id="setting.name + '-setting'">
+      <span class="mt-6" v-for="(setting, index) in settings" v-bind:key="index">
+        <p class="mt-3 text-xl" :id="setting.name + '-setting'">
           <code>{{ setting.label }} ({{ setting.name }})</code>
         </p>
+        <ul class="list-inside list-disc pl-4 text-sm">
+          <li>
+            Environment variable:
+            <code>{{
+              `${name.replaceAll("-", "_").toUpperCase()}_${setting.name
+                .replaceAll(".", "_")
+                .toUpperCase()}`
+            }}</code>
+          </li>
+          <li v-if="setting.value">
+            Default Value: <code>{{ setting.value }}</code>
+          </li>
+        </ul>
         <div
-          class="prose bg-slate-100 p-2"
+          class="prose mt-3 bg-slate-100 p-2"
           v-if="setting.description"
           v-html="setting.description_rendered"
         ></div>
