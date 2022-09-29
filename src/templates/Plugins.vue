@@ -72,15 +72,19 @@
                 <li>
                   Add the {{ $page.plugins.name }} {{ $page.plugins.pluginType }} to your project
                   using
-                  <a href="https://docs.meltano.com/reference/command-line-interface#add"><pre class="inline-code-block"><code>meltano add</code></pre></a>
+                  <a href="https://docs.meltano.com/reference/command-line-interface#add">
+                    <pre class="inline-code-block"><code>meltano add</code></pre>
+                  </a>
                   :
                 </li>
                 <pre
                   class="prose language-bash rounded-md"
                 ><code >meltano add {{ $page.plugins.pluginType }} {{ $page.plugins.name }}<span v-if="!$page.plugins.isDefault"> --variant {{ $page.plugins.variant }}</span></code></pre>
                 <li>
-                  Configure the {{ $page.plugins.name }} {{ $page.plugins.pluginType }} using
-                  <a href="https://docs.meltano.com/reference/command-line-interface#config"><pre class="inline-code-block"><code>meltano config</code></pre></a>
+                  Configure the {{ $page.plugins.name }} <a href=#settings>settings</a> using
+                  <a href="https://docs.meltano.com/reference/command-line-interface#config">
+                    <pre class="inline-code-block"><code>meltano config</code></pre>
+                  </a>
                   :
                 </li>
                 <pre
@@ -89,7 +93,9 @@
                 <span v-if="$page.plugins.pluginType === 'extractor'">
                   <li>
                     Test that extractor settings are valid using
-                    <a href="https://docs.meltano.com/reference/command-line-interface#test"><pre class="inline-code-block"><code>meltano test</code></pre></a>
+                    <a href="https://docs.meltano.com/reference/command-line-interface#test">
+                      <pre class="inline-code-block"><code>meltano test</code></pre>
+                    </a>
                     :
                   </li>
                   <pre
