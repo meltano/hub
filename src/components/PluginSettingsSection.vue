@@ -1,7 +1,7 @@
 <template>
   <div>
     <p class="text-3xl py-4" id="settings">Settings</p>
-    <span class="space-y-3" v-if="settings">
+    <span class="space-y-3" v-if="settings && settings.length">
       <div class="prose mt-3 p-2" v-if="preamble" v-html="preamble"></div>
       <p>
         The
@@ -32,25 +32,6 @@
           YAML file</a
         >
         that defines the settings for this plugin.
-      </p>
-      <p class="text-3xl py-4" id="configuration">Configuration</p>
-      <p>
-        Settings for <code>{{ name }}</code> can be
-        <a
-          href="https://docs.meltano.com/reference/command-line-interface#config"
-          >configured</a
-        >
-        by running:
-      </p>
-      <p><pre class="prose language-bash rounded-md"
-        ><code>meltano config {{ name }} set --interactive</code
-        ></pre></p>
-      <p>
-        Settings can also be configured using
-        <a
-          href="https://docs.meltano.com/guide/configuration#configuring-settings"
-          >environment variables</a
-        >.
       </p>
       <span v-for="(setting, index) in settings" v-bind:key="index">
         <p class="text-xl mt-3" :id="setting.name + '-setting'">

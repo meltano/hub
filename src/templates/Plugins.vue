@@ -72,12 +72,20 @@
                 <li>
                   Add the {{ $page.plugins.name }} {{ $page.plugins.pluginType }} to your project
                   using
-                  <pre class="inline-code-block"><code>meltano add</code></pre>
+                  <a href="https://docs.meltano.com/reference/command-line-interface#add"><pre class="inline-code-block"><code>meltano add</code></pre></a>
                   :
                 </li>
                 <pre
                   class="prose language-bash rounded-md"
                 ><code >meltano add {{ $page.plugins.pluginType }} {{ $page.plugins.name }}<span v-if="!$page.plugins.isDefault"> --variant {{ $page.plugins.variant }}</span></code></pre>
+                <li>
+                  Configure the {{ $page.plugins.name }} {{ $page.plugins.pluginType }} using
+                  <a href="https://docs.meltano.com/reference/command-line-interface#config"><pre class="inline-code-block"><code>meltano config</code></pre></a>
+                  :
+                </li>
+                <pre
+                  class="prose language-bash rounded-md"
+                ><code >meltano config {{ $page.plugins.name }} set --interactive</span></code></pre>
               </ol>
               <p class="text-xl py-3">Next steps</p>
               <div
