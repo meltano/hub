@@ -1,0 +1,17 @@
+description: Customer Review Website
+label: TrustPilot
+name: tap-trustpilot
+logo_url: /assets/logos/extractors/trustpilot.png
+namespace: tap_trustpilot
+variant: dbt-labs
+pip_url: git+https://github.com/dbt-labs/tap-trustpilot.git
+repo: https://github.com/dbt-labs/tap-trustpilot
+settings: []
+capabilities:
+- catalog
+- discover
+- state
+domain_url: https://developers.trustpilot.com/
+maintenance_status: unknown
+keywords:
+- api

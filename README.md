@@ -6,8 +6,8 @@
 
 Source of MeltanoHub: [hub.meltano.com](https://hub.meltano.com/). The central place for any Meltano plugin.
 
-*Not familiar with Meltano?* 
-[Meltano](https://docs.meltano.com/getting-started/meltano-at-a-glance) is your DataOps infrastructure that: 
+_Not familiar with Meltano?_
+[Meltano](https://docs.meltano.com/getting-started/meltano-at-a-glance) is your DataOps infrastructure that:
 
 - **Starts simple**: Meltano is pip-installable and comes in a prepackaged docker container, you can have your first ELT pipeline running within minutes.
 - **Has DataOps out-of-the-box**: Meltano provides tools that make DataOps best practices easy to use in every project.
@@ -17,29 +17,15 @@ Source of MeltanoHub: [hub.meltano.com](https://hub.meltano.com/). The central p
 - **Has first class ELT tooling built-in**: Extract data from any data source, load into any target, use inline maps to transform on data on the fly, and test the incoming data, all in one package.
 
 If you want to get started with Meltano, we suggest you:
+
 - head over to the [Installation](https://docs.meltano.com/getting-started/installation)
 - or if you have it installed, go through the [Meltano Tutorial](https://docs.meltano.com/getting-started/part1).
-
 
 ---
 
 ## Development
 
-To work locally with this project, you'll have to follow the steps below:
-
-1. Fork this project
-2. Install Ruby 3.1.2+ (via rbenv or some other method)
-2. Install dependencies: `bundle install`
-3. Build and preview: `bundle exec jekyll serve --livereload`
-4. Add content
-5. Push the commit(s) you made
-6. Make an MR
-
-The above commands should be executed from the root directory of this project.
-
-Read more at Jekyll's [documentation][].
-
-[documentation]: https://jekyllrb.com/docs/home/
+To work locally with this project, see [CONTRIBUTING.md](./CONTRIBUTING.md)
 
 ## Meltano API
 

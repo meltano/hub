@@ -1,0 +1,16 @@
+description: Marketing Platform
+label: Bronto
+name: tap-bronto
+logo_url: /assets/logos/extractors/bronto.png
+namespace: tap_bronto
+variant: dbt-labs
+pip_url: git+https://github.com/dbt-labs/tap-bronto.git
+repo: https://github.com/dbt-labs/tap-bronto
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://bronto.com/
+maintenance_status: unknown
+keywords:
+- api

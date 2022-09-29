@@ -1,5 +1,24 @@
-[context.deploy-preview]
-  command = "printf \"url: %s\" \"$DEPLOY_PRIME_URL\" > _config_netlify.yml; ./utility_scripts/build/build_with_metrics.sh"
-
 [build]
+  base = "."
   command = "./utility_scripts/build/build_with_metrics.sh"
+  publish = "dist"
+
+[[redirects]]
+  from = "/taps/*"
+  to = "/extractors/tap-:splat"
+  force = true
+
+[[redirects]]
+  from = "/targets/*"
+  to = "/loaders/target-:splat"
+  force = true
+
+[[redirects]]
+  from = "/singer/taps"
+  to = "/extractors"
+  force = true
+
+[[redirects]]
+  from = "/singer/targets"
+  to = "/loaders"
+  force = true
