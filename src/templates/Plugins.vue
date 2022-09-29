@@ -248,6 +248,7 @@ query Plugins($path: String!, $name: String!) {
       description_rendered
       kind
       placeholder
+      value
     }
     prereq
     prereq_rendered

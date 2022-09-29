@@ -104,6 +104,22 @@ function buildData(dataPath, collections) {
       readPlugin.pluginTypePlural = path.basename(dataPath);
       readPlugin.pluginType = pluginTypeSingulars[readPlugin.pluginTypePlural];
 
+      // Need to stringify default setting values due to limited gql type system
+      readPlugin.settings =
+        readPlugin.settings &&
+        readPlugin.settings.map((setting) => ({
+          ...setting,
+          value: (function parseValue(s) {
+            if (s.value === undefined) {
+              return undefined;
+            }
+            if (typeof s.value === "string") {
+              return s.value;
+            }
+            return JSON.stringify(s.value);
+          })(setting),
+        }));
+
       // Include additional fields
       readPlugin.metrics = pluginMetricsData[readPlugin.repo];
       readPlugin.maintainer = readMaintainers[readPlugin.variant];
