@@ -1,7 +1,7 @@
 <template>
   <div>
     <p class="text-3xl py-4" id="settings">Settings</p>
-    <span class="space-y-3" v-if="settings">
+    <span class="space-y-3" v-if="settings && settings.length">
       <div class="prose mt-3 p-2" v-if="preamble" v-html="preamble"></div>
       <p>
         The
