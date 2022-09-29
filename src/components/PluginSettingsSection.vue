@@ -47,7 +47,7 @@
             }}</code>
           </li>
           <li v-if="setting.value">
-            Default Value: <code class="overflow-x-scroll">{{ setting.value }}</code>
+            Default Value: <code>{{ setting.value }}</code>
           </li>
         </ul>
         <div
