@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <div class="plugins-overview mx-auto">
+    <div class="plugins-overview w-full md:w-9/12 mx-auto">
       <p class="text-3xl py-4">Files</p>
       <p>
         Meltano file plugins allow you to easily add new file resources to your data project. For

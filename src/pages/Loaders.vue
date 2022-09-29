@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <div class="plugins-overview mx-auto">
+    <div class="plugins-overview w-full md:w-9/12 mx-auto">
       <p class="text-3xl py-4">Loaders</p>
       <p>
         Meltano lets you easily load extracted data into arbitrary destinations (databases, SaaS

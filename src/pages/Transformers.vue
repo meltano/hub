@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <div class="plugins-overview mx-auto">
+    <div class="plugins-overview w-full md:w-9/12 mx-auto">
       <p class="text-3xl py-4">Transformers</p>
       <p>
         Meltano transformer plugins allow you to create new derived transformations from raw data
