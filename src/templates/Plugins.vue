@@ -81,7 +81,7 @@
                   class="prose language-bash rounded-md"
                 ><code >meltano add {{ $page.plugins.pluginType }} {{ $page.plugins.name }}<span v-if="!$page.plugins.isDefault"> --variant {{ $page.plugins.variant }}</span></code></pre>
                 <li>
-                  Configure the {{ $page.plugins.name }} <a href=#settings>settings</a> using
+                  Configure the {{ $page.plugins.name }} <a href="#settings">settings</a> using
                   <a href="https://docs.meltano.com/reference/command-line-interface#config">
                     <pre class="inline-code-block"><code>meltano config</code></pre>
                   </a>
