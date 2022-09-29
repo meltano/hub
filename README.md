@@ -25,17 +25,7 @@ If you want to get started with Meltano, we suggest you:
 
 ## Development
 
-To work locally with this project, you'll have to follow the steps below:
-
-1. Fork this project
-2. Install Node v16 (recommend using version manager like nvm/asdf/nix) and `yarn`
-3. Install dependencies: `yarn`
-4. Build and preview: `yarn gridsome develop`
-5. Add content
-6. Push the commit(s) you made
-7. Make a PR
-
-The above commands should be executed from the root directory of this project.
+To work locally with this project, see [CONTRIBUTING.md](./CONTRIBUTING.md)
 
 ## Meltano API
 
