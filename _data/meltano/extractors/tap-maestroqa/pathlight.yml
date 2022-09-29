@@ -6,10 +6,24 @@ namespace: tap_maestroqa
 variant: pathlight
 pip_url: git+https://github.com/Pathlight/tap-maestroqa.git
 repo: https://github.com/Pathlight/tap-maestroqa
-settings: []
+settings_group_validation:
+- - api_token
+- - start_date
+settings:
+- name: start_date
+  kind: date_iso8601
+  label: Start Date
+  description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
+- name: api_token
+  label: API Token
+  kind: password
+  description: Your MaestroQA API token for authentication.
 capabilities:
 - catalog
 - discover
+- state
 domain_url: https://help.maestroqa.com/en/articles/3209794-maestroqa-api
 maintenance_status: unknown
 keywords:
