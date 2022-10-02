@@ -1,0 +1,40 @@
+name: metabase
+namespace: metabase
+label: Metabase
+description: Metabase is the easy, open-source way for everyone in your company to ask questions and learn from data.
+docs: https://www.metabase.com/
+repo: https://github.com/metabase/metabase
+maintenance_status: active
+variant: metabase
+pip_url: null
+settings: []
+commands:
+  ui:
+    args: metabase
+    container_spec:
+      image: metabase/metabase:latest
+      env:
+        PWD: /
+        HOME: /root
+        MB_DB_FILE: /metabase-data/metabase.db
+        JAVA_HOME: /opt/java/openjdk
+        PATH: /opt/java/openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+      ports:
+        "3000": "3000/tcp"
+      volumes:
+      - "$MELTANO_PROJECT_ROOT/analyze/metabase/:/metabase-data"
+logo_url: /assets/logos/utilities/metabase.png
+keywords:
+- analysis
+prereq: |
+  #### Dependencies
+
+  Metabase is packaged as a Docker image so you must have Docker installed before running the plugin.
+next_steps: |
+  1. Launch Metabase UI:
+
+     ```sh
+     meltano invoke --containers metabase:ui
+     ```
+
+     By default, the UI will be available at at [`http://localhost:3000`](http://localhost:3000).
