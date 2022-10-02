@@ -6,7 +6,7 @@ docs: https://www.metabase.com/
 repo: https://github.com/metabase/metabase
 maintenance_status: active
 variant: metabase
-pip_url: null
+pip_url: ''
 settings: []
 commands:
   ui:
