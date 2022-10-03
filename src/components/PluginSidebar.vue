@@ -69,13 +69,13 @@
         <li>
           <img
             alt="Stars"
-            :src="`https://img.shields.io/${repoType}/stars/${parsedRepo.user}/${parsedRepo.repo_name}?style=flat-square&label=Stars`"
+            :src="`https://img.shields.io/${repoType}/stars/${parsedRepo.user}/${parsedRepo.repo_name}?label=Stars`"
           />
         </li>
         <li>
           <img
             alt="Forks"
-            :src="`https://img.shields.io/${repoType}/forks/${parsedRepo.user}/${parsedRepo.repo_name}?style=flat-square&label=Forks`"
+            :src="`https://img.shields.io/${repoType}/forks/${parsedRepo.user}/${parsedRepo.repo_name}?label=Forks`"
           />
         </li>
         <li>
@@ -103,7 +103,7 @@
         <li>
           <img
             alt="License"
-            :src="`https://img.shields.io/${repoType}/license/${parsedRepo.user}/${parsedRepo.repo_name}?color=c0c0c4&label=License&style=flat-square`"
+            :src="`https://img.shields.io/${repoType}/license/${parsedRepo.user}/${parsedRepo.repo_name}?color=c0c0c4&label=License`"
           />
         </li>
       </ul>
@@ -153,6 +153,25 @@
         </li>
       </ul>
     </div>
+    <div v-if="hasPyPI">
+      <p class="text-lg">PyPI Stats</p>
+      <ul class="list-disc list-inside shields space-y-1">
+        <li>
+          <img
+            alt="PyPI Downloads"
+            :src="`https://img.shields.io/pypi/dm/${pip_url}?color=3438BF&label=PyPI%20Downloads&`"
+            :href="`https://pypi.org/project/${pip_url}/`"
+          />
+        </li>
+        <li>
+          <img
+            alt="PyPI Package Version"
+            :src="`https://img.shields.io/pypi/v/${pip_url}?color=3438BF&label=PyPI%20Package%20Version&`"
+            :href="`https://pypi.org/project/${pip_url}/`"
+          />
+        </li>
+      </ul>
+    </div>
     <div>
       <p class="text-lg">Keywords</p>
       <ul class="list-disc list-inside shields">
@@ -160,7 +179,7 @@
           <img
             v-for="(keyword, index) in keywords"
             v-bind:key="index"
-            class="inline m-1"
+            class="inline mr-1"
             :alt="keyword"
             :src="`https://img.shields.io/static/v1?label=&message=${keyword}&color=grey`"
           />
@@ -184,6 +203,7 @@ export default {
     "plugin_type",
     "metrics",
     "maintainer",
+    "pip_url",
   ],
   computed: {
     parsedRepo() {
@@ -196,6 +216,9 @@ export default {
     repoType() {
       // Some plugins are hosted on github, some on gitlab
       return this.repo.includes("github.com") ? "github" : "gitlab";
+    },
+    hasPyPI() {
+      return !this.pip_url.includes("git+");
     },
   },
 };
