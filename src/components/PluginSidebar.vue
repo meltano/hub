@@ -218,7 +218,14 @@ export default {
       return this.repo.includes("github.com") ? "github" : "gitlab";
     },
     hasPyPI() {
-      return !this.pip_url.includes("git+");
+      // Exclude more elaborate ways of specifying pypi
+      // TODO: figure out what we should do when multiple packages are listed space-delimited
+      return !(
+        this.pip_url.includes("git+") ||
+        this.pip_url.includes("//") ||
+        this.pip_url.includes("=") ||
+        this.pip_url.includes(" ")
+      );
     },
   },
 };
