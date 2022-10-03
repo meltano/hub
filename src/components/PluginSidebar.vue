@@ -1,6 +1,6 @@
 <template>
   <div
-    class="single-plugin-aside bg-gray-100 space-y-3 pl-4 order-first lg:pr-4 lg:order-last lg:border-l-2 border-black"
+    class="single-plugin-aside bg-gray-100 space-y-3 pl-4 pb-4 order-first lg:pr-4 lg:order-last lg:border-l-2 border-black"
   >
     <div>
       <p class="text-lg py-2">Install</p>
