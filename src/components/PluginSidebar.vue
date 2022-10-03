@@ -219,12 +219,16 @@ export default {
     },
     hasPyPI() {
       // Exclude more elaborate ways of specifying pypi
-      // TODO: figure out what we should do when multiple packages are listed space-delimited
+      // TODO: figure out what we should do when
+      //   - multiple packages are listed space-delimited
+      //   - packages have version specifiers (==, ~=)
+      //   - packages specify optional dependencies in []
       return !(
         this.pip_url.includes("git+") ||
         this.pip_url.includes("//") ||
         this.pip_url.includes("=") ||
-        this.pip_url.includes(" ")
+        this.pip_url.includes(" ") ||
+        this.pip_url.includes("[")
       );
     },
   },
