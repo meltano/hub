@@ -153,6 +153,25 @@
         </li>
       </ul>
     </div>
+    <div v-if="hasPyPI">
+      <p class="text-lg">PyPI Stats</p>
+      <ul class="list-disc list-inside shields space-y-1">
+        <li>
+          <img
+            alt="PyPI Downloads"
+            :src="`https://img.shields.io/pypi/dm/${pip_url}?color=3438BF&label=PyPI%20Downloads&`"
+            :href="`https://pypi.org/project/${pip_url}/`"
+          />
+        </li>
+        <li>
+          <img
+            alt="PyPI Package Version"
+            :src="`https://img.shields.io/pypi/v/${pip_url}?color=3438BF&label=PyPI%20Package%20Version&`"
+            :href="`https://pypi.org/project/${pip_url}/`"
+          />
+        </li>
+      </ul>
+    </div>
     <div>
       <p class="text-lg">Keywords</p>
       <ul class="list-disc list-inside shields">
@@ -184,6 +203,7 @@ export default {
     "plugin_type",
     "metrics",
     "maintainer",
+    "pip_url",
   ],
   computed: {
     parsedRepo() {
@@ -196,6 +216,9 @@ export default {
     repoType() {
       // Some plugins are hosted on github, some on gitlab
       return this.repo.includes("github.com") ? "github" : "gitlab";
+    },
+    hasPyPI() {
+      return !this.pip_url.includes("git+");
     },
   },
 };
