@@ -69,13 +69,13 @@
         <li>
           <img
             alt="Stars"
-            :src="`https://img.shields.io/${repoType}/stars/${parsedRepo.user}/${parsedRepo.repo_name}?style=flat-square&label=Stars`"
+            :src="`https://img.shields.io/${repoType}/stars/${parsedRepo.user}/${parsedRepo.repo_name}?label=Stars`"
           />
         </li>
         <li>
           <img
             alt="Forks"
-            :src="`https://img.shields.io/${repoType}/forks/${parsedRepo.user}/${parsedRepo.repo_name}?style=flat-square&label=Forks`"
+            :src="`https://img.shields.io/${repoType}/forks/${parsedRepo.user}/${parsedRepo.repo_name}?label=Forks`"
           />
         </li>
         <li>
@@ -103,7 +103,7 @@
         <li>
           <img
             alt="License"
-            :src="`https://img.shields.io/${repoType}/license/${parsedRepo.user}/${parsedRepo.repo_name}?color=c0c0c4&label=License&style=flat-square`"
+            :src="`https://img.shields.io/${repoType}/license/${parsedRepo.user}/${parsedRepo.repo_name}?color=c0c0c4&label=License`"
           />
         </li>
       </ul>
@@ -179,7 +179,7 @@
           <img
             v-for="(keyword, index) in keywords"
             v-bind:key="index"
-            class="inline m-1"
+            class="inline mr-1"
             :alt="keyword"
             :src="`https://img.shields.io/static/v1?label=&message=${keyword}&color=grey`"
           />
