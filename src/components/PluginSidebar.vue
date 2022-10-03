@@ -218,7 +218,7 @@ export default {
       return this.repo.includes("github.com") ? "github" : "gitlab";
     },
     hasPyPI() {
-      // Exclude more elaborate ways of specifying pypi
+      // Exclude more elaborate ways of specifying `pip_url`
       // TODO: figure out what we should do when
       //   - multiple packages are listed space-delimited
       //   - packages have version specifiers (==, ~=)
