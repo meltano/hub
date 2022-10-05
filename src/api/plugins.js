@@ -165,23 +165,23 @@ module.exports = function buildJSONApi(gridsome) {
             result.data.data.edges.map(async ({ node: plugin }) => {
               // Clean up plugin object, create full log_url, add docs url
               const logoUrl = plugin.logo_url
-                ? path.join(baseurl, plugin.logo_url)
+                ? new URL(plugin.logo_url, baseurl)
                 : undefined;
-              const docs = path.join(
-                baseurl,
-                pluginType.path,
-                plugin.name,
-                plugin.variant
+              const docs = new URL(
+                path.join(pluginType.path, `${plugin.name}--${plugin.variant}`),
+                baseurl
               );
 
               // Update plugin index
               const indexEntry = typeIndex[plugin.name] || { variants: {} };
               indexEntry.variants[plugin.variant] = {
-                ref: path.join(
-                  baseurl,
-                  "meltano/api/v1/plugins",
-                  pluginType.path,
-                  `${plugin.name}--${plugin.variant}`
+                ref: new URL(
+                  path.join(
+                    "meltano/api/v1/plugins",
+                    pluginType.path,
+                    `${plugin.name}--${plugin.variant}`
+                  ),
+                  baseurl
                 ),
               };
               if (plugin.isDefault) {
