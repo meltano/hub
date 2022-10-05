@@ -8,7 +8,7 @@ const outputRoot = "dist/meltano/api/v1/plugins";
 
 const dataRoot = "_data/meltano";
 
-const baseurl = "https://hub.meltano.com";
+const baseurl = process.env.HUB_SITE_URL || "http://localhost:8080";
 
 const toDelete = [
   "keywords",
@@ -165,14 +165,24 @@ module.exports = function buildJSONApi(gridsome) {
             result.data.data.edges.map(async ({ node: plugin }) => {
               // Clean up plugin object, create full log_url, add docs url
               const logoUrl = plugin.logo_url
-                ? `${baseurl}${plugin.logo_url}`
+                ? path.join(baseurl, plugin.logo_url)
                 : undefined;
-              const docs = `${baseurl}/${pluginType.path}/${plugin.name}/${plugin.variant}`;
+              const docs = path.join(
+                baseurl,
+                pluginType.path,
+                plugin.name,
+                plugin.variant
+              );
 
               // Update plugin index
               const indexEntry = typeIndex[plugin.name] || { variants: {} };
               indexEntry.variants[plugin.variant] = {
-                ref: `${baseurl}/meltano/api/v1/plugins/${pluginType.path}/${plugin.name}--${plugin.variant}`,
+                ref: path.join(
+                  baseurl,
+                  "meltano/api/v1/plugins",
+                  pluginType.path,
+                  `${plugin.name}--${plugin.variant}`
+                ),
               };
               if (plugin.isDefault) {
                 indexEntry.default_variant = plugin.variant;
