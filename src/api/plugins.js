@@ -168,7 +168,7 @@ module.exports = function buildJSONApi(gridsome) {
                 ? new URL(plugin.logo_url, baseurl)
                 : undefined;
               const docs = new URL(
-                path.join(pluginType.path, plugin.name, plugin.variant),
+                path.join(pluginType.path, `${plugin.name}--${plugin.variant}`),
                 baseurl
               );
 
