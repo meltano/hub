@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <div class="single-plugin-overview mx-36">
+    <div class="single-plugin-overview md:mx-36 sm:mx-0">
       <div class="single-plugin-detail">
         <div class="single-plugin-top-bar">
           <table>
@@ -30,8 +30,8 @@
             </tr>
           </table>
         </div>
-        <div class="flex flex-col lg:flex-row">
-          <div class="p-5 overflow-x-scroll">
+        <div class="flex flex-col lg:flex-row w-screen sm:w-auto">
+          <div class="p-5">
             <p>
               The {{ $page.plugins.name }}
               <a
@@ -212,6 +212,7 @@
             :metrics="$page.plugins.metrics"
             :plugin_type="$page.plugins.pluginType"
             :maintainer="$page.plugins.maintainer"
+            :pip_url="$page.plugins.pip_url"
           />
         </div>
       </div>
