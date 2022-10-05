@@ -5,6 +5,7 @@ dist
 *.log
 # ignore build artifacts
 .venv
+*.env
 *.DS_Store
 .vscode
 .idea

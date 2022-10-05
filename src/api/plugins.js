@@ -8,7 +8,7 @@ const outputRoot = "dist/meltano/api/v1/plugins";
 
 const dataRoot = "_data/meltano";
 
-const baseurl = process.env.HUB_SITE_URL;
+const baseurl = process.env.HUB_SITE_URL || "http://localhost:8080";
 
 const toDelete = [
   "keywords",
