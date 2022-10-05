@@ -66,7 +66,7 @@ module.exports = {
     },
   ],
   chainWebpack: (config) => {
-    config.resolve.alias.set("@logos", "@/../assets/logos");
+    config.resolve.alias.set("@logos", "@/../static/assets/logos");
   },
   templates: {
     Plugins: [
