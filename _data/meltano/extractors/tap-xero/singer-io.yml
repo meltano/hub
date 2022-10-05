@@ -30,6 +30,7 @@ settings:
   description: Your Xero refresh token.
 - name: include_archived_contacts
   label: Include Archived Contacts
+  kind: boolean
   description: Whether to include archive contacts in the sync.
 - name: user_agent
   label: User Agent
