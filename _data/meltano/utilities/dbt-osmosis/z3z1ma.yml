@@ -15,8 +15,7 @@ definition: |
   3. Automation which manages generating, updating, and propagating documentation for your
   `schema.yml` files.
   4. A FastAPI dbt server which principally integrates with the 
-  [VSCode dbt power user extension](https://github.com/innoverio/vscode-dbt-power-user)
-  though the server can be used for anything.
+  [VSCode dbt power user extension](https://github.com/innoverio/vscode-dbt-power-user).
 commands:
   server:
     args:
