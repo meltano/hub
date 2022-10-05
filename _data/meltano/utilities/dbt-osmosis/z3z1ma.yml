@@ -8,24 +8,26 @@ executable: dbt-osmosis
 logo_url: /assets/logos/utilities/dbt-osmosis.png
 variant: z3z1ma
 default: true
-definition: A tool to supercharge dbt development by providing 3 key functions.
+definition: |
+  is a tool to supercharge [dbt](https://docs.getdbt.com/) development by providing 4 key functions.
   1. A workbench for a REPL like development experience for dbt models
-  2. The ability to diff model outputs across file revisions,
-  3. Automation which manages generating, updating, and propagate documentation for your
-  schema yaml files.
-  Additionally, a server for VS code to allow quickly previewing models
-  when used in conjunction with https://github.com/datacoves/vscode-dbt-power-user
+  2. The ability to diff model outputs across file revisions
+  3. Automation which manages generating, updating, and propagating documentation for your
+  `schema.yml` files.
+  4. A FastAPI dbt server which principally integrates with the 
+  [VSCode dbt power user extension](https://github.com/innoverio/vscode-dbt-power-user)
   though the server can be used for anything.
 commands:
   server:
-    args: server --project-dir ${MELTANO_PROJECT_ROOT}/transform --profiles-dir
+    args:
+      server --register-project --project-dir ${MELTANO_PROJECT_ROOT}/transform --profiles-dir
       ${MELTANO_PROJECT_ROOT}/transform/profiles/${ADAPTER}
     description: |
       Start a server exposing two primary endpoints. /compile and /run which receive POST
       requests and compile or run dbt SQL against your dbt profile. It is significantly faster 
       and simpler than dbt RPC and internally does not rely on it. This server is compatible with 
-      https://github.com/datacoves/vscode-dbt-power-user providing VS code users interactive
-      query previews via a simple ▶️ button.
+      https://github.com/innoverio/vscode-dbt-power-user providing VS code users interactive
+      query previews via a simple ▶️ button or Cmd+Enter.
   workbench:
     args:
       workbench --project-dir ${MELTANO_PROJECT_ROOT}/transform --profiles-dir
@@ -58,18 +60,21 @@ settings:
     env: ADAPTER
     description: |
       This should be set to the adapter you have installed as meltano will install
-      dbt and its profile directory into transform/&lt;adapter&gt; directory. We use this 
+      dbt and its profile directory into `transform/<adapter>` directory. We use this 
       config option to resolve dbt profile directory.
 keywords:
   - dbt
   - osmosis
+  - streamlit
+  - fastapi
+  - yaml
   - tooling
 next_steps: |
-  1. Add dbt-&lt;adapter&gt; to your pip_url, ie: `pip_url: dbt-osmosis dbt-bigquery`
+  1. Add `dbt-<adapter>` to your pip_url, ie: `pip_url: dbt-osmosis dbt-bigquery`
 
   2. Override the namespace to mirror your dbt adapter, ie: `namespace: dbt_bigquery`
 
-  3. Mirror the configuration set in your dbt-&lt;adapter&gt; plugin. A simple copy-paste of
+  3. Mirror the configuration set in your `dbt-<adapter>` plugin. A simple copy-paste of
   the `config:` block should be sufficient.
 
   4. Ensure you additionally add `adapter: ...` to your dbt-osmosis config for the built
