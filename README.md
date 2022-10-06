@@ -7,7 +7,7 @@
 Source of MeltanoHub: [hub.meltano.com](https://hub.meltano.com/). The central place for any Meltano plugin.
 
 _Not familiar with Meltano?_
-[Meltano](https://docs.meltano.com/getting-started/meltano-at-a-glance) is your DataOps infrastructure that:
+[Meltano](https://docs.meltano.com/getting-started/meltano-at-a-glance) is your CLI for ELT+ that:
 
 - **Starts simple**: Meltano is pip-installable and comes in a prepackaged docker container, you can have your first ELT pipeline running within minutes.
 - **Has DataOps out-of-the-box**: Meltano provides tools that make DataOps best practices easy to use in every project.
