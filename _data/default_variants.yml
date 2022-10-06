@@ -3,6 +3,7 @@ utilities:
   sqlfluff: sqlfluff
   superset: apache
   datahub: datahub-project
+  metabase: metabase
 orchestrators:
   airflow: apache
 transforms:
