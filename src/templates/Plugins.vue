@@ -94,15 +94,13 @@
                   <li>
                     Test that extractor settings are valid using
                     <a href="https://docs.meltano.com/reference/command-line-interface#test">
-                      <pre
-                        class="inline-code-block"
-                      ><code>meltano config {{ $page.plugins.name }} test</code></pre>
+                      <pre class="inline-code-block"><code>meltano config</code></pre>
                     </a>
                     :
                   </li>
                   <pre
                     class="prose language-bash rounded-md"
-                  ><code >meltano test {{ $page.plugins.name }}</code></pre>
+                  ><code >meltano config {{ $page.plugins.name }} test</code></pre>
                 </span>
               </ol>
               <p class="text-xl py-3">Next steps</p>
