@@ -7,7 +7,6 @@ repo: https://github.com/z3z1ma/dbt-osmosis
 executable: dbt-osmosis
 logo_url: /assets/logos/utilities/dbt-osmosis.png
 variant: z3z1ma
-default: true
 definition: |
   is a tool to supercharge [dbt](https://docs.getdbt.com/) development by providing 4 key functions.
   1. A workbench for a REPL like development experience for dbt models
