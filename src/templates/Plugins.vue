@@ -94,7 +94,7 @@
                   <li>
                     Test that extractor settings are valid using
                     <a href="https://docs.meltano.com/reference/command-line-interface#test">
-                      <pre class="inline-code-block"><code>meltano test</code></pre>
+                      <pre class="inline-code-block"><code>meltano config {{ $page.plugins.name }} test</code></pre>
                     </a>
                     :
                   </li>
