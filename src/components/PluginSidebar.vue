@@ -223,7 +223,7 @@ export default {
       //   - multiple packages are listed space-delimited
       //   - packages have version specifiers (==, ~=)
       //   - packages specify optional dependencies in []
-      return !(
+      return this.pip_url && !(
         this.pip_url.includes("git+") ||
         this.pip_url.includes("//") ||
         this.pip_url.includes("=") ||
