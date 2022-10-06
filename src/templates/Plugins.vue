@@ -93,7 +93,7 @@
                 <span v-if="$page.plugins.pluginType === 'extractor'">
                   <li>
                     Test that extractor settings are valid using
-                    <a href="https://docs.meltano.com/reference/command-line-interface#test">
+                    <a href="https://docs.meltano.com/reference/command-line-interface#config">
                       <pre class="inline-code-block"><code>meltano config</code></pre>
                     </a>
                     :
