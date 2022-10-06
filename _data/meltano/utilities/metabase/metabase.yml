@@ -21,7 +21,7 @@ commands:
       ports:
         "3000": "3000/tcp"
       volumes:
-      - "$MELTANO_PROJECT_ROOT/analyze/metabase/:/metabase-data"
+      - "$MELTANO_PROJECT_ROOT/.meltano/utilities/metabase/data/:/metabase-data"
 logo_url: /assets/logos/utilities/metabase.png
 keywords:
 - analysis
