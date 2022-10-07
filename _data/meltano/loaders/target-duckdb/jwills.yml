@@ -7,7 +7,7 @@ variant: jwills
 repo: https://github.com/jwills/target-duckdb
 pip_url: target-duckdb~=0.4
 settings_group_validation:
-  - file_path
+  - filepath
   - default_target_schema
 settings:
   - name: filepath
