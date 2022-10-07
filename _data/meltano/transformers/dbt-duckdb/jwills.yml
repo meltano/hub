@@ -1,0 +1,63 @@
+name: dbt-duckdb
+label: dbt DuckDB
+executable: dbt
+namespace: dbt_duckdb
+docs: https://docs.meltano.com/guide/transformation
+repo: https://github.com/jwills/dbt-duckdb
+pip_url: dbt-core~=1.2.0 dbt-duckdb~=1.2.0
+variant: jwills
+maintenance_status: active
+requires:
+  files:
+  - name: files-dbt-postgres
+    variant: meltano
+settings_preamble: |
+  Settings for dbt itself can be configured through [dbt_project.yml](https://docs.getdbt.com/reference/dbt_project.yml) as usual, which can be found at transform/dbt_project.yml in your Meltano project.  dbt also has [adapter-specific documentation for DuckDB](https://docs.getdbt.com/reference/resource-configs/postgres-configs).
+settings:
+  - name: path
+    label: Path
+    kind: string
+    description: The path on your local filesystem where you would like the DuckDB database file and it's associated write-ahead log to be written.
+  - name: schema
+    kind: string
+    label: Schema
+    value: main
+    description: Specify the schema to write into.
+commands:
+  clean:
+    args: clean
+    description: Delete all folders in the clean-targets list (usually the dbt_modules and target directories.)
+  compile:
+    args: compile
+    description: Generates executable SQL from source model, test, and analysis files. Compiled SQL files are written to the target/ directory.
+  deps:
+    args: deps
+    description: Pull the most recent version of the dependencies listed in packages.yml
+  run:
+    args: run
+    description: Compile SQL and execute against the current target database.
+  seed:
+    args: seed
+    description: Load data from csv files into your data warehouse.
+  snapshot:
+    args: snapshot
+    description: Execute snapshots defined in your project.
+  test:
+    args: test
+    description: Runs tests on data in deployed models.
+  freshness:
+    args: source freshness
+    description: Check the freshness of your source data.
+  build:
+    args: build
+    description: Will run your models, tests, snapshots and seeds in DAG order.
+  docs-generate:
+    args: docs generate
+    description: Generate documentation for your project.
+  docs-serve:
+    args: docs serve
+    description: Serve documentation for your project. Make sure you ran `docs-generate` first.
+  debug:
+    args: debug
+    description: Debug your DBT project and warehouse connection.
+logo_url: /assets/logos/transformers/dbt.png
