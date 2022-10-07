@@ -1,0 +1,10 @@
+{
+  "overrides": [
+    {
+      "files": "src/**/*.vue",
+      "options": {
+        "printWidth": 100
+      }
+    }
+  ]
+}

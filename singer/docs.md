@@ -20,29 +20,11 @@ All taps and targets are pulled from external sources, such as GitHub and GitLab
 
 All taps and targets available through MeltanoHub are listed on the [Taps](/singer/taps/) and [Targets](/singer/targets/) pages.
 
-Each tap and target is defined in YAML and is validated against a JSON Schema available via [the Hub API](/singer/api/v1/).
-
 ### Connector Metadata
 
 Each connector page lists revelant information about the maintainer of the connector along with its maintenance status.
 
 Additionally, metrics such as last update, stars, and open issues and PRs, are pulled from GitHub. These are useful proxy metrics for the quality of a given connector.
-
-## API
-
-* [API Directory](/singer/api/v1)
-
-A listing of all taps and targets is available via the [API](/singer/api/v1) as JSON.
-The latest version of these files will always be available at these endpoints:
-
-* [Tap JSON](/singer/taps.json)
-* [Target JSON](/singer/targets.json)
-
-These files will also be versioned when changes are made in a backwards-incompatible way.
-The versioned files will be available through the [API](/singer/api/v1/).
-Individual YAML files are also available through the individual connector pages or on the [repository](https://github.com/meltano/hub/) building MeltanoHub.
-
-Our expectation is that other tools, including Meltano, will utilize the data available via the API to build their own library of Singer taps and targets.
 
 ## Tap and Target SDKs
 
@@ -53,7 +35,6 @@ Read more about the [launch of the SDK on the Meltano blog](https://meltano.com/
 ## Singer Spec
 
 We've created a simplified version of the [Singer Specification](/singer/spec) with the goal of making it easier for people new to the Singer ecosystem to understand the spec.
-
 
 ## Singer Connector Capabilities
 
