@@ -14,6 +14,13 @@ requires:
 settings_preamble: |
   Settings for dbt itself can be configured through [dbt_project.yml](https://docs.getdbt.com/reference/dbt_project.yml) as usual, which can be found at transform/dbt_project.yml in your Meltano project.  dbt also has [adapter-specific documentation for DuckDB](https://docs.getdbt.com/reference/resource-configs/postgres-configs).
 settings:
+  - name: project_dir
+    label: Projects Directory
+    value: $MELTANO_PROJECT_ROOT/transform
+  - name: profiles_dir
+    label: Profiles Directory
+    value: $MELTANO_PROJECT_ROOT/transform/profiles/postgres
+    env: DBT_PROFILES_DIR  
   - name: path
     label: Path
     kind: string
