@@ -1,14 +1,10 @@
 utilities:
-  airflow: apache
-  datahub: datahub-project
   great_expectations: great-expectations
   sqlfluff: sqlfluff
   superset: apache
-<<<<<<< HEAD
-=======
   datahub: datahub-project
   metabase: metabase
->>>>>>> main
+  airflow: apache
 orchestrators:
   airflow: apache
 transforms:
