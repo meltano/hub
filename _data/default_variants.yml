@@ -3,6 +3,7 @@ utilities:
   sqlfluff: sqlfluff
   superset: apache
   datahub: datahub-project
+  dbt-osmosis: z3z1ma
   metabase: metabase
 orchestrators:
   airflow: apache
