@@ -19,6 +19,7 @@ transforms:
   tap-zendesk: meltano
 transformers:
   dbt-bigquery: dbt-labs
+  dbt-duckdb: jwills
   dbt-postgres: dbt-labs
   dbt-redshift: dbt-labs
   dbt-snowflake: dbt-labs
@@ -27,6 +28,7 @@ files:
   files-great-expectations: meltano
   files-datahub: z3z1ma
   files-dbt-bigquery: meltano
+  files-dbt-duckdb: meltano
   files-dbt-postgres: meltano
   files-dbt-redshift: meltano
   files-dbt-snowflake: meltano
@@ -350,6 +352,7 @@ loaders:
   target-cassandra: coeff
   target-csv: hotgluexyz
   target-datadotworld: datadotworld
+  target-duckdb: jwills
   target-gcs: datateer
   target-gsheet: singer-io
   target-jsonl: andyh1203
