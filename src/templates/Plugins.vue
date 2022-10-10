@@ -40,9 +40,37 @@
                 "
                 >Meltano {{ $page.plugins.pluginType }}</a
               >
-              pulls data from
-              <a :href="$page.plugins.domain_url">{{ $page.plugins.label }}</a> that can then be
-              sent to a destination using a <g-link to="/loaders">loader</g-link>.
+              <span v-if="$page.plugins.pluginType === 'extractor'">
+                pulls data from
+                <a :href="$page.plugins.domain_url">{{ $page.plugins.label }}</a> that can then be
+                sent to a destination using a <g-link to="/loaders">loader</g-link>.</span
+              >
+              <span v-if="$page.plugins.pluginType === 'loader'">
+                sends <g-link to="/extractors">extracted</g-link> data to a
+                <a :href="$page.plugins.domain_url">{{ $page.plugins.label }}</a>
+                destination.</span
+              >
+              <span v-if="$page.plugins.pluginType === 'transformer'">
+                is a plugin for running transformations on ELT data using
+                <a :href="$page.plugins.domain_url">{{ $page.plugins.label }}</a
+                >.</span
+              >
+              <span v-if="$page.plugins.pluginType === 'orchestrator'">
+                is used to schedule a project's pipelines with
+                <a :href="$page.plugins.domain_url">{{ $page.plugins.label }}</a
+                >.</span
+              >
+              <span v-if="$page.plugins.pluginType === 'utility'">
+                is a plugin for integrating
+                <a :href="$page.plugins.domain_url">{{ $page.plugins.label }}</a> into your data
+                project.</span
+              >
+              <span v-if="$page.plugins.pluginType === 'file'">
+                plugin imports bundles for scaffolding/templating files in your data project that
+                allow you to use
+                <a :href="$page.plugins.domain_url">{{ $page.plugins.label }}</a> or related
+                utilities.</span
+              >
             </p>
             <p class="text-2xl">Other Available Variants</p>
             <ul class="list-disc list-inside pl-4">
