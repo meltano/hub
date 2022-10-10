@@ -56,7 +56,7 @@
                 >.</span
               >
               <span v-if="$page.plugins.pluginType === 'orchestrator'">
-                is used to schedule a projects pipelines with
+                is used to schedule a project's pipelines with
                 <a :href="$page.plugins.domain_url">{{ $page.plugins.label }}</a
                 >.</span
               >
