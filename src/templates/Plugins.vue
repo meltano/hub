@@ -46,9 +46,9 @@
                 sent to a destination using a <g-link to="/loaders">loader</g-link>.</span
               >
               <span v-if="$page.plugins.pluginType === 'loader'">
-                sends <g-link to="/extractors">extracted</g-link> data to a destination
+                sends <g-link to="/extractors">extracted</g-link> data to a
                 <a :href="$page.plugins.domain_url">{{ $page.plugins.label }}</a>
-                instance/cluster.</span
+                destination.</span
               >
               <span v-if="$page.plugins.pluginType === 'transformer'">
                 is a plugin for running transformations on ELT data using
