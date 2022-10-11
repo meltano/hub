@@ -38,7 +38,7 @@
                 :href="
                   'https://docs.meltano.com/concepts/plugins#' + $page.plugins.pluginTypePlural
                 "
-                >Meltano {{ $page.plugins.pluginType }}</a
+                >{{ $page.plugins.pluginType }}</a
               >
               <span v-if="$page.plugins.pluginType === 'extractor'">
                 pulls data from
@@ -46,30 +46,23 @@
                 sent to a destination using a <g-link to="/loaders">loader</g-link>.</span
               >
               <span v-if="$page.plugins.pluginType === 'loader'">
-                sends <g-link to="/extractors">extracted</g-link> data to a
-                <a :href="$page.plugins.domain_url">{{ $page.plugins.label }}</a>
-                destination.</span
+                sends data to into <a :href="$page.plugins.domain_url">{{ $page.plugins.label }}</a>
+                after it was pulled from a source using an 
+                <g-link to="/extractors">extractor</g-link></span
               >
               <span v-if="$page.plugins.pluginType === 'transformer'">
-                is a plugin for running transformations on ELT data using
-                <a :href="$page.plugins.domain_url">{{ $page.plugins.label }}</a
-                >.</span
+                is a plugin for running SQL-based transformations on data 
+                stored in your warehouse.</span
               >
               <span v-if="$page.plugins.pluginType === 'orchestrator'">
-                is used to schedule a project's pipelines with
-                <a :href="$page.plugins.domain_url">{{ $page.plugins.label }}</a
-                >.</span
+                allows for workflows to be programmatically 
+                authored, scheduled, and monitored.</span
               >
               <span v-if="$page.plugins.pluginType === 'utility'">
-                is a plugin for integrating
-                <a :href="$page.plugins.domain_url">{{ $page.plugins.label }}</a> into your data
-                project.</span
+                {{ $page.plugins.definition }}</span
               >
               <span v-if="$page.plugins.pluginType === 'file'">
-                plugin imports bundles for scaffolding/templating files in your data project that
-                allow you to use
-                <a :href="$page.plugins.domain_url">{{ $page.plugins.label }}</a> or related
-                utilities.</span
+                {{ $page.plugins.definition }}</span
               >
             </p>
             <p class="text-2xl">Other Available Variants</p>
