@@ -1,0 +1,419 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "id": "http://hub.meltano.com/singer/schema.json",
+    "type": "object",
+    "title": "The root schema",
+    "description": "The root schema comprises the entire JSON document.",
+    "required": [
+        "name",
+        "label",
+        "type",
+        "variants"
+    ],
+    "properties": {
+        "name": {
+            "id": "#/properties/name",
+            "type": "string",
+            "title": "The name of the tap or target. ",
+            "description": "This is lowercase and can be used to determine the pip name.",
+            "pattern": "^[a-z-0-9]+$",
+            "example": "bigquery"
+        },
+        "label": {
+            "id": "#/properties/label",
+            "type": "string",
+            "title": "The pretty print version of the name.",
+            "description": "This is used for display on websites and in documentation.",
+            "example": "BigQuery"
+        },
+        "type": {
+            "id": "#/properties/type",
+            "type": "string",
+            "enum": [
+                "tap",
+                "target",
+                "transform"
+            ],
+            "title": "The type of Singer executable",
+            "description": "An explanation about the purpose of this instance."
+        },
+        "description": {
+            "id": "#/properties/description",
+            "type": "string",
+            "title": "The description schema",
+            "description": "An explanation about the purpose of this instance."
+        },
+        "include": {
+            "id": "#/properties/include",
+            "type": "string",
+            "title": "Specifies the YAML file to reference",
+            "description": "This key indentifies the other YAML file used to build the current file. In the context of the clean Singer files, this can point to scraped/<plugin>. For Meltano it would point to singer/<plugin>."
+        },
+        "entity_type": {
+            "id": "#/properties/entity_type",
+            "type": "string",
+            "enum": [
+                "api",
+                "database",
+                "file"
+            ],
+            "title": "The entity type of the tap/target",
+            "description": "An explanation about the purpose of this instance."
+        },
+        "entity_url": {
+            "id": "#/properties/entity_url",
+            "type": "string",
+            "format": "uri",
+            "title": "The url of the data entity.",
+            "description": "Links to the website represnting the database, api, etc."
+        },
+        "singer_name": {
+            "id": "#/properties/singer_name",
+            "type": "string",
+            "title": "The full name used in the Singer Ecosystem",
+            "description": "An explanation about the purpose of this instance.",
+            "example": "tap-bigquery"
+        },
+        "variants": {
+            "id": "#/properties/variants",
+            "type": "array",
+            "title": "The variants schema",
+            "description": "An list of the available variants of a given tap/target",
+            "items": {
+                "id": "#/properties/variants/items",
+                "type": "object",
+                "required": [
+                    "name",
+                    "repo",
+                    "pip_url",
+                    "maintenance_status",
+                    "settings"
+                ],
+                "properties": {
+                    "name": {
+                        "id": "#/properties/variants/items/properties/name",
+                        "type": "string",
+                        "title": "The name of the variant",
+                        "description": "An explanation about the purpose of this instance."
+                    },
+                    "executable": {
+                        "id": "#/properties/variants/items/properties/executable",
+                        "type": "string",
+                        "title": "The name of the executable",
+                        "description": "The plugin's executable name, as defined in setup.py (if a Python based plugin)"
+                    },
+                    "repo": {
+                        "id": "#/properties/variants/items/properties/repo",
+                        "type": "string",
+                        "format": "uri",
+                        "title": "The repository URL",
+                        "description": "An explanation about the purpose of this instance."
+                    },
+                    "language": {
+                        "id": "#/properties/variants/items/properties/language",
+                        "type": "string",
+                        "format": "uri",
+                        "enum": [
+                            "python",
+                            "clojure",
+                            "java",
+                            "go",
+                            "scala"
+                        ],
+                        "title": "The primary language of the connector",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": "python"
+                    },
+                    "repo_forks": {
+                        "id": "#/properties/variants/items/properties/repo_forks",
+                        "type": "string",
+                        "format": "uri",
+                        "title": "The repository forks URL",
+                        "description": "An explanation about the purpose of this instance."
+                    },
+                    "docs": {
+                        "id": "#/properties/variants/items/properties/docs",
+                        "type": "string",
+                        "format": "uri",
+                        "title": "The documentation URL",
+                        "description": "An explanation about the purpose of this instance."
+                    },
+                    "pip_url": {
+                        "id": "#/properties/variants/items/properties/pip_url",
+                        "type": "string",
+                        "title": "The pip_url of the variant",
+                        "description": "This can be simply the pip name or a git link."
+                    },
+                    "capabilities": {
+                        "id": "#/properties/variants/items/properties/capabilities",
+                        "type": "array",
+                        "items": {
+                            "id": "#/properties/variants/items/properties/capabilities/items",
+                            "type": "string",
+                            "enum": [
+                                "catalog",
+                                "discover",
+                                "properties",
+                                "state",
+                                "about",
+                                "stream-maps",
+                                "activate-version",
+                                "batch",
+                                "test",
+                                "log-based",
+                                "soft-delete",
+                                "hard-delete",
+                                "datatype-failsafe",
+                                "record-flattening",
+                                "schema-flattening"
+                            ]
+                        }
+                    },
+                    "maintainer": {
+                        "id": "#/properties/variants/items/properties/maintainer",
+                        "type": "object",
+                        "title": "The maintainer schema",
+                        "description": "Details the name and URL of the maintainer.",
+                        "default": {},
+                        "properties": {
+                            "name": {
+                                "id": "#/properties/variants/items/properties/maintainer/properties/name",
+                                "type": "string",
+                                "title": "The name schema",
+                                "description": "An explanation about the purpose of this instance."
+                            },
+                            "url": {
+                                "id": "#/properties/variants/items/properties/maintainer/properties/url",
+                                "type": "string",
+                                "format": "uri",
+                                "title": "The url of the Maintainer",
+                                "description": "Should always link to a website and not a git repo if possible."
+                            }
+                        }
+                    },
+                    "maintenance_status": {
+                        "id": "#/properties/variants/items/properties/maintenance_status",
+                        "type": "string",
+                        "title": "Variant Maintenance Status",
+                        "enum": [
+                            "active",
+                            "beta",
+                            "development",
+                            "inactive",
+                            "unknown"
+                        ],
+                        "description": "The maintenance_status of the variant."
+                    },
+                    "default": {
+                        "id": "#/properties/variants/items/properties/default",
+                        "type": "boolean",
+                        "title": "Default variant",
+                        "description": "Defines whether the variant is a default or not",
+                        "default": false
+                    },
+                    "hidden": {
+                        "id": "#/properties/variants/items/properties/hidden",
+                        "type": "boolean",
+                        "title": "Hidden variant",
+                        "description": "Indicates whether a variant is hidden from view",
+                        "default": false
+                    },
+                    "meltano_sdk": {
+                        "id": "#/properties/variants/items/properties/meltano_sdk",
+                        "type": "boolean",
+                        "title": "Built with Meltano SDK",
+                        "description": "Defines whether the variant was built with the Meltano SDK or not",
+                        "default": false
+                    },
+                    "adoptable": {
+                        "id": "#/properties/variants/items/properties/default",
+                        "type": "boolean",
+                        "title": "Details adoptability",
+                        "description": "Defines whether the variant is adoptable or not",
+                        "default": false
+                    },
+                    "dependencies": {
+                        "id": "#/properties/variants/items/properties/dependencies",
+                        "type": "array",
+                        "title": "Dependencies of the variant",
+                        "description": "Defines the dependencies of the variant",
+                        "default": [],
+                        "items": {
+                            "id": "#/properties/variants/items/properties/dependencies/items",
+                            "type": "string",
+                            "title": "Dependency details",
+                            "description": "Lists information required to use the tap/target."
+                        }
+                    },
+                    "settings_group_validation": {
+                        "id": "#/properties/variants/items/properties/settings_group_validation",
+                        "type": "array",
+                        "title": "The settings_group_validation schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "items": {
+                            "id": "#/properties/variants/items/properties/settings_group_validation/items",
+                            "type": "array",
+                            "title": "The first anyOf schema",
+                            "description": "An explanation about the purpose of this instance.",
+                            "default": [],
+                            "items": {
+                                "id": "#/properties/variants/items/properties/settings_group_validation/items/items",
+                                "type": "string",
+                                "title": "The first anyOf schema",
+                                "description": "An explanation about the purpose of this instance."
+                            }
+                        }
+                    },
+                    "settings": {
+                        "id": "#/properties/variants/items/properties/settings",
+                        "type": "array",
+                        "title": "Details settings of the tap/target",
+                        "description": "A list of settings for the tap/target.",
+                        "items": {
+                            "id": "#/properties/variants/items/properties/settings/items",
+                            "type": "object",
+                            "title": "The first anyOf schema",
+                            "description": "An explanation about the purpose of this instance.",
+                            "default": {},
+                            "required": [
+                                "name"
+                            ],
+                            "properties": {
+                                "name": {
+                                    "id": "#/properties/variants/items/properties/settings/items/properties/name",
+                                    "type": "string",
+                                    "title": "The name schema",
+                                    "description": "An explanation about the purpose of this instance."
+                                },
+                                "label": {
+                                    "id": "#/properties/variants/items/properties/settings/items/properties/name",
+                                    "type": "string",
+                                    "title": "The prettified label of the setting",
+                                    "description": "An explanation about the purpose of this instance."
+                                },
+                                "description": {
+                                    "id": "#/properties/variants/items/properties/settings/items/properties/description",
+                                    "type": "string",
+                                    "title": "The description schema",
+                                    "description": "An explanation about the purpose of this instance.",
+                                    "default": ""
+                                },
+                                "documentation": {
+                                    "id": "#/properties/variants/items/properties/settings/items/properties/documentation",
+                                    "type": "string",
+                                    "title": "The documentation schema",
+                                    "description": "An explanation about the purpose of this instance.",
+                                    "default": ""
+                                },
+                                "placeholder": {
+                                    "id": "#/properties/variants/items/properties/settings/items/properties/description",
+                                    "type": "string",
+                                    "title": "Placeholder text",
+                                    "description": "An explanation about the purpose of this instance.",
+                                    "default": ""
+                                },
+                                "kind": {
+                                    "id": "#/properties/variants/items/properties/settings/items/properties/kind",
+                                    "type": "string",
+                                    "title": "The kind schema",
+                                    "enum": [
+                                        "array",
+                                        "boolean",
+                                        "date_iso8601",
+                                        "email",
+                                        "file",
+                                        "hidden",
+                                        "integer",
+                                        "oauth",
+                                        "object",
+                                        "options",
+                                        "password",
+                                        "string"
+                                    ],
+                                    "description": "An explanation about the purpose of this instance.",
+                                    "default": ""
+                                },
+                                "value": {
+                                    "id": "#/properties/variants/items/properties/settings/items/properties/value",
+                                    "oneOf": [
+                                        {
+                                            "type": "string"
+                                        },
+                                        {
+                                            "type": "boolean"
+                                        },
+                                        {
+                                            "type": "integer"
+                                        },
+                                        {
+                                            "type": "object"
+                                        },
+                                        {
+                                            "type": "array"
+                                        }
+                                    ],
+                                    "title": "The value schema",
+                                    "description": "An explanation about the purpose of this instance."
+                                },
+                                "value_post_processor": {
+                                    "id": "#/properties/variants/items/properties/settings/items/properties/value_post_processor",
+                                    "type": "string",
+                                    "title": "The value_post_processor schema",
+                                    "enum": [
+                                        "stringify"
+                                    ],
+                                    "description": "An explanation about the purpose of this instance."
+                                },
+                                "schema_id": {
+                                    "id": "#/properties/variants/items/properties/settings/items/properties/schema_id",
+                                    "type": "boolean",
+                                    "title": "The schema_id schema",
+                                    "description": "An explanation about the purpose of this instance.",
+                                    "default": false
+                                },
+                                "options": {
+                                    "id": "#/properties/variants/items/properties/settings/items/properties/options",
+                                    "type": "array",
+                                    "title": "The options schema",
+                                    "description": "An explanation about the purpose of this instance.",
+                                    "default": [],
+                                    "additionalItems": true,
+                                    "items": {
+                                        "id": "#/properties/variants/items/properties/settings/items/properties/options/items",
+                                        "type": "object",
+                                        "title": "The first anyOf schema",
+                                        "description": "An explanation about the purpose of this instance.",
+                                        "default": {},
+                                        "required": [
+                                            "label",
+                                            "value"
+                                        ],
+                                        "properties": {
+                                            "label": {
+                                                "id": "#/properties/variants/items/properties/settings/items/properties/options/items/properties/label",
+                                                "type": "string",
+                                                "title": "The label schema",
+                                                "description": "An explanation about the purpose of this instance.",
+                                                "default": ""
+                                            },
+                                            "value": {
+                                                "id": "#/properties/variants/items/properties/settings/items/properties/options/items/properties/value",
+                                                "type": "string",
+                                                "title": "The value schema",
+                                                "description": "An explanation about the purpose of this instance.",
+                                                "default": ""
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "additionalProperties": false
+                        }
+                    }
+                },
+                "additionalProperties": false
+            }
+        }
+    },
+    "additionalProperties": false
+}

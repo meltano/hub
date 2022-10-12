@@ -1,11 +1,20 @@
-node_modules
-.cache
-src/.temp
-dist
-*.log
+test
+discovery.yml
+
+_site
+.sass-cache
+.jekyll-metadata
+public/
+.ruby-version
+
 # ignore build artifacts
-.venv
+/discovery.yml
+/test
+meltano/api/*
+.venv/
 *.env
 *.DS_Store
-.vscode
+.vscode/*
 .idea
+# Local Netlify folder
+.netlify

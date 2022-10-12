@@ -8,6 +8,7 @@
     "required": [
         "name",
         "namespace",
+        "pip_url",
         "variant"
     ],
     "properties": {

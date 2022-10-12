@@ -1,27 +1,5 @@
-[build]
-  base = "."
-  command = "HUB_SITE_URL=$URL ./utility_scripts/build/build_with_metrics.sh"
-  publish = "dist"
-
 [context.deploy-preview]
-  command = "HUB_SITE_URL=$DEPLOY_PRIME_URL ./utility_scripts/build/build_with_metrics.sh"
+  command = "printf \"url: %s\" \"$DEPLOY_PRIME_URL\" > _config_netlify.yml; ./utility_scripts/build/build_with_metrics.sh"
 
-[[redirects]]
-  from = "/taps/*"
-  to = "/extractors/tap-:splat"
-  force = true
-
-[[redirects]]
-  from = "/targets/*"
-  to = "/loaders/target-:splat"
-  force = true
-
-[[redirects]]
-  from = "/singer/taps"
-  to = "/extractors"
-  force = true
-
-[[redirects]]
-  from = "/singer/targets"
-  to = "/loaders"
-  force = true
+[build]
+  command = "./utility_scripts/build/build_with_metrics.sh"
