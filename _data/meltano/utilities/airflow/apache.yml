@@ -4,7 +4,7 @@ label: Airflow
 docs: https://docs.meltano.com/guide/orchestration
 repo: https://github.com/apache/airflow
 ext_repo: https://github.com/meltano/airflow-ext
-pip_url: git+https://github.com/meltano/airflow-ext.git@main apache-airflow==2.3.3 --constraint https://raw.githubusercontent.com/apache/airflow/constraints-2.3.3/constraints-no-providers-3.8.txt
+pip_url: git+https://github.com/meltano/airflow-ext.git@main apache-airflow==2.3.3 --constraint https://raw.githubusercontent.com/apache/airflow/constraints-2.3.3/constraints-no-providers-${MELTANO__PYTHON_VERSION}.txt
 executable: airflow_invoker
 variant: apache
 maintenance_status: active
