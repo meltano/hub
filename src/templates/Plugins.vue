@@ -220,11 +220,6 @@
 
               <!-- Help section -->
               <p>If you run into any issues, learn how to get help.</p>
-              <div
-                class="prose mt-3 p-2"
-                v-if="$page.plugins.usage"
-                v-html="$page.plugins.usage_rendered"
-              ></div>
             </div>
             <div>
               <PluginCapabilitiesSection
@@ -237,7 +232,13 @@
                 :name="$page.plugins.name"
                 :plugin_type_plural="$page.plugins.pluginTypePlural"
                 :variant="$page.plugins.variant"
+                :preamble="$page.plugins.settings_preamble_rendered"
               />
+              <div
+                class="prose mt-3 p-2"
+                v-if="$page.plugins.usage"
+                v-html="$page.plugins.usage_rendered"
+              ></div>
               <PluginHelpSection
                 :name="$page.plugins.name"
                 :variant="$page.plugins.variant"
@@ -323,6 +324,8 @@ query Plugins($path: String!, $name: String!) {
     }
     prereq
     prereq_rendered
+    settings_preamble
+    settings_preamble_rendered
     usage
     usage_rendered
     metrics {
