@@ -1,5 +1,6 @@
 name: dbt-duckdb
 label: dbt DuckDB
+domain_url: https://www.getdbt.com/
 executable: dbt
 namespace: dbt_duckdb
 docs: https://docs.meltano.com/guide/transformation

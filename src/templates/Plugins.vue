@@ -6,15 +6,33 @@
           <table>
             <tr>
               <td style="padding: 25px">
-                <g-image
-                  v-if="$page.plugins.logo_url"
-                  :src="
-                    require(`!!assets-loader?width=250&height=200&fit=inside!@logos/${$page.plugins.logo_url.replace(
-                      '/assets/logos/',
-                      ''
-                    )}`)
-                  "
-                />
+                <a
+                  v-if="$page.plugins.domain_url"
+                  :href="$page.plugins.domain_url"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <g-image
+                    v-if="$page.plugins.logo_url"
+                    :src="
+                      require(`!!assets-loader?width=250&height=200&fit=inside!@logos/${$page.plugins.logo_url.replace(
+                        '/assets/logos/',
+                        ''
+                      )}`)
+                    "
+                  />
+                </a>
+                <div v-else>
+                  <g-image
+                    v-if="$page.plugins.logo_url"
+                    :src="
+                      require(`!!assets-loader?width=250&height=200&fit=inside!@logos/${$page.plugins.logo_url.replace(
+                        '/assets/logos/',
+                        ''
+                      )}`)
+                    "
+                  />
+                </div>
               </td>
               <td>
                 <p class="text-3xl py-8">
@@ -195,11 +213,6 @@
 
               <!-- Help section -->
               <p>If you run into any issues, learn how to get help.</p>
-              <div
-                class="prose mt-3 p-2"
-                v-if="$page.plugins.usage"
-                v-html="$page.plugins.usage_rendered"
-              ></div>
             </div>
             <div>
               <PluginCapabilitiesSection
@@ -212,7 +225,13 @@
                 :name="$page.plugins.name"
                 :plugin_type_plural="$page.plugins.pluginTypePlural"
                 :variant="$page.plugins.variant"
+                :preamble="$page.plugins.settings_preamble_rendered"
               />
+              <div
+                class="prose mt-3 p-2"
+                v-if="$page.plugins.usage"
+                v-html="$page.plugins.usage_rendered"
+              ></div>
               <PluginHelpSection
                 :name="$page.plugins.name"
                 :variant="$page.plugins.variant"
@@ -298,6 +317,8 @@ query Plugins($path: String!, $name: String!) {
     }
     prereq
     prereq_rendered
+    settings_preamble
+    settings_preamble_rendered
     usage
     usage_rendered
     metrics {
