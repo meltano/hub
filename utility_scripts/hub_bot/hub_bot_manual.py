@@ -21,10 +21,10 @@ def read_yaml(path):
         data = yaml.load(f)
     return data
 
-def add_logo_url(plugin_name, plugin_variant, plugin_type, plugin_definition, dir_name):
+def add_logo_url(plugin_type, plugin_definition, dir_name):
     logo_url = ''
     if Path(dir_name).exists() and os.listdir(dir_name):
-        for r, d, f in os.walk(dir_name):
+        for _, _, f in os.walk(dir_name):
             other_yaml = read_yaml(f'{dir_name}/{f[0]}')
             logo_url = other_yaml['logo_url']
             break
@@ -37,7 +37,7 @@ def add_logo_url(plugin_name, plugin_variant, plugin_type, plugin_definition, di
 
     plugin_definition['logo_url'] = logo_url
 
-def write_definition(plugin_name, plugin_variant, plugin_type, plugin_definition, dir_name):
+def write_definition(plugin_variant, plugin_definition, dir_name):
     Path(dir_name).mkdir(parents=True, exist_ok=True)
     plugin_definition = dict(reversed(plugin_definition.items()))
     if not Path(os.path.join(dir_name, f'{plugin_variant}.yml')).exists():
@@ -55,7 +55,6 @@ def handle_default_variant(plugin_name, plugin_variant, plugin_type):
     plugin_type_defaults = defaults[plugin_type]
     if plugin_name not in plugin_type_defaults:
         plugin_type_defaults[plugin_name] = plugin_variant
-        # plugin_type_defaults = dict(OrderedDict(sorted(plugin_type_defaults.items())))
         defaults[plugin_type] = plugin_type_defaults
         write_yaml(default_path, defaults)
         print(f'Default: Updated')
@@ -103,11 +102,11 @@ def iterate_file():
             plugin_type = get_plugin_type(plugin_name)
             dir_name = os.path.join(hub_root, '_data', 'meltano', plugin_type, plugin_name)
             if "\\/\\" in repo_url:
-                print(f'Cancelled: {repo_url}')
+                print(f'Cancelled: {repo_url}\n\n')
                 continue
             else:
-                add_logo_url(plugin_name, plugin_variant, plugin_type, plugin_definition, dir_name)
-                write_definition(plugin_name, plugin_variant, plugin_type, plugin_definition, dir_name)
+                add_logo_url(plugin_type, plugin_definition, dir_name)
+                write_definition(plugin_variant, plugin_definition, dir_name)
                 handle_default_variant(plugin_name, plugin_variant, plugin_type)
                 handle_maintainer(plugin_variant, repo_url)
                 print(f'Completed\n\n')
