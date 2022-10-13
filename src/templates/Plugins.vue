@@ -214,6 +214,7 @@
                 :name="$page.plugins.name"
                 :plugin_type_plural="$page.plugins.pluginTypePlural"
                 :variant="$page.plugins.variant"
+                :preamble="$page.plugins.settings_preamble_rendered"
               />
               <div
                 class="prose mt-3 p-2"
