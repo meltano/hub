@@ -19,10 +19,14 @@ Repo maintainers with `write` access are able to perform automated plugin testin
 In any issue or pull request, type the following on the first line of a new comment:
 
 ```txt
-/test-plugin name=PLUGIN_NAME [pip_url=PIP_URL]
+/test-plugin name=PLUGIN_NAME [pip-url=PIP_URL]
 ```
 
-If `pip_url` is omitted, the `name` field will be used as `pip_url`.
+If `pip-url` is omitted, the `name` field will be used as `pip-url`.
+
+For more information about slash commands and slash command dispatch:
+
+- https://github.com/peter-evans/slash-command-dispatch
 
 ## Installing prereqs
 
