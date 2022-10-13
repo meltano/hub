@@ -1,4 +1,4 @@
-description: For loading data into [YAML](https://yaml.org/)
+description: For loading data into the YAML file format.
 label: YAML
 name: target-yaml
 logo_url: /assets/logos/loaders/yaml.png
@@ -12,52 +12,49 @@ capabilities:
 settings:
 - name: file_naming_scheme
   label: File Naming Scheme
-  description: The scheme with which output files will be named. Naming scheme may
-    leverage any of the following substitutions - \n\n- `{stream_name}`- `{datestamp}`-
-    `{timestamp}`
+  description: |
+    The scheme with which output files will be named. Naming scheme may leverage any of the following substitutions:
+     - `{stream_name}`
+     - `{datestamp}`
+     - `{timestamp}`
 - name: datestamp_format
   label: Datestamp Format
-  description: A python format string to use when outputting the `{datestamp}` string.
-    For reference, see - https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes
+  description: A python format string to use when outputting the `{datestamp}` string. For reference, see - https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes
 - name: timestamp_format
   label: Timestamp Format
-  description: A python format string to use when outputting the `{datestamp}` string.
-    For reference, see - https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes
+  description: A python format string to use when outputting the `{datestamp}` string. For reference, see - https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes
 - name: timestamp_timezone
   label: Timestamp Timezone
-  description: The timezone code or name to use when generating `{timestamp}` and
-    `{datestamp}`. Defaults to "UTC". For a list of possible values, please see -
-    https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  description: The timezone code or name to use when generating `{timestamp}` and `{datestamp}`. Defaults to "UTC". For a list of possible values, please see -https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 - name: stream_maps
   kind: object
   label: Stream Maps
-  description: Allows inline stream transformations and aliasing. For more information
-    see - https://sdk.meltano.com/en/latest/stream_maps.html
+  description: Allows inline stream transformations and aliasing. For more information see - https://sdk.meltano.com/en/latest/stream_maps.html
 - name: record_insert_jsonpath
   label: Record Insert Jsonpath
-  description: A jsonpath string determining the insertion point for new records.
-    Currently, this must be the path to a map key which will be populated by a list
-    of records. \n\nFor example "$.metrics" will populate the file with `metrics -
-    [{<record1>},{<record2>},...]` \n\nFor JSONPath syntax help, see - https://jsonpath.com
+  description: |
+    A jsonpath string determining the insertion point for new records.
+    Currently, this must be the path to a map key which will be populated by a list of records.  For example "$.metrics" will populate the file with `metrics - [{<record1>},{<record2>},...]`  For JSONPath syntax help, see - https://jsonpath.com
 - name: record_key_property_name
   label: Record Key Property Name
-  description: A property in the record which will be used as the dictionary key.\n\nIf
+  description: A property in the record which will be used as the dictionary key. If
     this property is provided, records will be written as key-value objects; if omitted,
     records are written as a list.
 - name: record_sort_property_name
   label: Record Sort Property Name
-  description: A property in the record which will be used as a sort key.\n\nIf this
+  description: A property in the record which will be used as a sort key. If this
     property is omitted, records will not be sorted.
 - name: overwrite_behavior
   label: Overwrite Behavior
-  description: Determines the overwrite behavior if destination file already exists.
-    Must be one of the following string values - \n\n- `append_records` (default)
-    - append records at the insertion point\n- `replace_records` - replace all records
-    at the insertion point\n- `replace_file` - replace entire file using `default_yaml_template`\n
+  description: |
+    Determines the overwrite behavior if destination file already exists.
+    Must be one of the following string values:
+      - `append_records` (default): append records at the insertion point 
+      - `replace_records`: replace all records at the insertion point 
+      - `replace_file`: replace entire file using `default_yaml_template` 
 - name: default_yaml_template
   label: Default Yaml Template
-  description: Text string to use for a yaml template file. This text will be used
-    to create a new file if the destination file does not exist.
+  description: Text string to use for a yaml template file. This text will be used to create a new file if the destination file does not exist.
 domain_url: https://yaml.org/
 maintenance_status: active
 keywords:
