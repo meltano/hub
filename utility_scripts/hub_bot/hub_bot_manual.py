@@ -4,6 +4,7 @@ import os
 from pathlib import Path
 import json
 from collections import OrderedDict
+import shutil
 
 yaml = YAML()
 file_path = '/Users/pnadolny/Documents/Git/GitHub/meltano/hub/utility_scripts/hub_bot/export.csv'
@@ -20,8 +21,23 @@ def read_yaml(path):
         data = yaml.load(f)
     return data
 
-def write_definition(plugin_name, plugin_variant, plugin_type, plugin_definition):
-    dir_name = os.path.join(hub_root, '_data', 'meltano', plugin_type, plugin_name)
+def add_logo_url(plugin_name, plugin_variant, plugin_type, plugin_definition, dir_name):
+    logo_url = ''
+    if Path(dir_name).exists() and os.listdir(dir_name):
+        for r, d, f in os.walk(dir_name):
+            other_yaml = read_yaml(f'{dir_name}/{f[0]}')
+            logo_url = other_yaml['logo_url']
+            break
+        print(f'Logo: Reusing')
+    else:
+        logo_file_name = plugin_definition['label'].lower().replace(' ', '-')
+        logo_url = f'/assets/logos/{plugin_type}/{logo_file_name}.png'
+        shutil.copyfile(f'{hub_root}/utility_scripts/hub_bot/placeholder.png', f'{hub_root}/static/assets/logos/{plugin_type}/{logo_file_name}.png')
+        print(f'Logo: Placeholder Added')
+
+    plugin_definition['logo_url'] = logo_url
+
+def write_definition(plugin_name, plugin_variant, plugin_type, plugin_definition, dir_name):
     Path(dir_name).mkdir(parents=True, exist_ok=True)
     plugin_definition = dict(reversed(plugin_definition.items()))
     if not Path(os.path.join(dir_name, f'{plugin_variant}.yml')).exists():
@@ -29,6 +45,10 @@ def write_definition(plugin_name, plugin_variant, plugin_type, plugin_definition
             os.path.join(dir_name, f'{plugin_variant}.yml'),
             plugin_definition
         )
+        print(f'Definition: Updated')
+    else:
+        print(f'Definition: Skipping')
+
 
 def handle_default_variant(plugin_name, plugin_variant, plugin_type):
     defaults = read_yaml(default_path)
@@ -38,7 +58,11 @@ def handle_default_variant(plugin_name, plugin_variant, plugin_type):
         # plugin_type_defaults = dict(OrderedDict(sorted(plugin_type_defaults.items())))
         defaults[plugin_type] = plugin_type_defaults
         write_yaml(default_path, defaults)
-    
+        print(f'Default: Updated')
+    else:
+        print(f'Default: Skipping')
+
+
 def handle_maintainer(plugin_variant, repo_url):
     updated_maintainers = read_yaml(maintainers_path)
     if plugin_variant not in updated_maintainers:
@@ -46,8 +70,12 @@ def handle_maintainer(plugin_variant, repo_url):
             "label": "TODO: ADD LABEL",
             "url": "/".join(repo_url.split("/")[:-1]),
         }
-    updated_maintainers = dict(OrderedDict(sorted(updated_maintainers.items())))
-    write_yaml(maintainers_path, updated_maintainers)
+        print(f'Maintainer: Updated')
+        updated_maintainers = dict(OrderedDict(sorted(updated_maintainers.items())))
+        write_yaml(maintainers_path, updated_maintainers)
+    else:
+        print(f'Maintainer: Skipping')
+
 
 def get_plugin_type(plugin_name):
     if 'tap' in plugin_name and 'target' in plugin_name:
@@ -70,11 +98,19 @@ def iterate_file():
             plugin_variant = row[2].lower()
             is_pull_request_open = row[3]
             is_issue_open = row[4]
+            print(f'Starting: {plugin_name} {plugin_variant}')
             plugin_definition = json.loads(row[5])
             plugin_type = get_plugin_type(plugin_name)
-            write_definition(plugin_name, plugin_variant, plugin_type, plugin_definition)
-            handle_default_variant(plugin_name, plugin_variant, plugin_type)
-            handle_maintainer(plugin_variant, repo_url)
+            dir_name = os.path.join(hub_root, '_data', 'meltano', plugin_type, plugin_name)
+            if "\\/\\" in repo_url:
+                print(f'Cancelled: {repo_url}')
+                continue
+            else:
+                add_logo_url(plugin_name, plugin_variant, plugin_type, plugin_definition, dir_name)
+                write_definition(plugin_name, plugin_variant, plugin_type, plugin_definition, dir_name)
+                handle_default_variant(plugin_name, plugin_variant, plugin_type)
+                handle_maintainer(plugin_variant, repo_url)
+                print(f'Completed\n\n')
 
 if __name__ == "__main__":
     iterate_file()
