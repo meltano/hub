@@ -10,6 +10,7 @@ settings: []
 capabilities:
 - catalog
 - discover
+- state
 domain_url: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1
 maintenance_status: unknown
 keywords:

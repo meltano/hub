@@ -10,6 +10,7 @@ settings: []
 capabilities:
 - catalog
 - discover
+- state
 domain_url: https://www.coosto.com/en
 maintenance_status: unknown
 keywords:

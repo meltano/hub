@@ -1,0 +1,30 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "common/mappers_specific.schema.json",
+    "title": "JSON Schema for mapper plugins.",
+    "description": "https://docs.meltano.com/concepts/plugins#mappers",
+    "type": "object",
+    "additionalProperties": true,
+    "properties": {
+        "mappings": {
+            "description": "Name of the invokable mappings and their associated configs.",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "config": {
+                        "type": "object"
+                    }
+                }
+            },
+            "required": [
+                "config",
+                "name"
+            ]
+        }
+    }
+}

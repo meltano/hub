@@ -1,0 +1,126 @@
+name: tap-salesforce
+label: Salesforce
+description: Customer-relationship management & customer success platform
+namespace: tap_salesforce
+logo_url: /assets/logos/extractors/salesforce.png
+variant: meltanolabs
+repo: https://github.com/meltanolabs/tap-salesforce
+pip_url: git+https://github.com/meltanolabs/tap-salesforce.git@v1.5.0
+capabilities:
+- properties
+- discover
+- state
+select:
+- Lead.*
+- Contact.*
+- User.*
+- OpportunityHistory.*
+- Account.*
+- Opportunity.*
+settings_group_validation:
+- - username
+  - password
+  - security_token
+  - start_date
+- - client_id
+  - client_secret
+  - refresh_token
+  - start_date
+settings:
+- name: username
+  label: Username
+  description: The username (or email address) used to sign in to your Salesforce
+    account.
+  placeholder: Ex. me@my-organization.com
+- name: password
+  kind: password
+  label: Password
+  description: The password used to sign in to your Salesforce account.
+  placeholder: Ex. *****************
+- name: security_token
+  kind: password
+  label: Security Token
+  placeholder: Ex. *****************
+  documentation: https://hub.meltano.com/extractors/salesforce.html#salesforce-setup
+  description: |
+    #### How to get
+
+    If you don't already have a Salesforce Security Token for your account, you can generate one through the following steps:
+
+    1. Sign in to your [Salesforce Account](https://login.salesforce.com/).
+
+    1. Go to your Account Settings (top right on the header bar)
+
+    1. Click `Reset My Security Token` (Under the `My Personal Information` section)
+
+    1. Click `Reset Security Token`
+
+    An email with the Security Token will be sent to your email.
+
+    > **Tip: Why is my "Reset Security Token" option missing?**
+    >
+    > If a user’s profile is configured such that there is a restriction on the IP ranges that can access Salesforce, then that user will not have the ability to access/reset their security token.
+    >
+    > In order to give access to the security token, either remove the user from the profile that contains the IP range restriction, or update the user’s profile by removing the IP range restriction.
+    >
+    > In rare cases where the user’s profile doesn’t contain IP range restriction and they still can’t access the security token reset option, edit the user’s profile and save (without making any actual changes to the profile).
+
+    > **Tip:** When you reset your Salesforce password, your security token resets as well. If that security token is used to integrate Meltano with Salesforce, that integration will break as well. Each time you reset an account password used to connect Meltano or other applications to Salesforce, you will need to re-enter your new security token into that application.
+
+    > **Warning:** If you have other third-party applications integrated with Salesforce and you reset your security token, that integration will break. Try to use your existing Security Token instead of resetting your existing one. Otherwise, you will need to re-enter your new security token into all the connected applications.
+
+- name: client_id
+  label: Client ID
+  description: Salesforce client ID. See https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.html.
+- name: client_secret
+  kind: password
+  label: Client Secret
+  description: Salesforce client secret. See https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.html.
+- name: refresh_token
+  kind: password
+  label: Refresh Token
+  description: Salesforce refresh token. See https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.html.
+- name: start_date
+  kind: date_iso8601
+  label: Start Date
+  description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
+- name: is_sandbox
+  kind: boolean
+  value: false
+  label: Is Sandbox
+  description: Use Salesforce Sandbox
+- name: api_type
+  value: REST
+  kind: options
+  options:
+  - label: REST
+    value: REST
+  - label: BULK
+    value: BULK
+  label: API Type
+  description: Used to switch the behavior of the tap between using Salesforce’s “REST”
+    and “BULK” APIs.
+- name: select_fields_by_default
+  kind: boolean
+  value: true
+  description: Select by default any new fields discovered in Salesforce objects
+  label: Select Fields By Default
+- name: state_message_threshold
+  kind: integer
+  value: 1000
+  description: |
+    Used to throttle how often STATE messages are generated when the tap is using the “REST” API.
+
+    This is a balance between not slowing down execution due to too many STATE messages produced and how many records must be fetched again if a tap fails unexpectedly. Defaults to 1000 (generate a STATE message every 1000 records).
+  label: State Message Threshold
+- name: max_workers
+  kind: integer
+  value: 8
+  label: Maximum number of threads to use
+  description: Maximum number of threads to use.
+domain_url: https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_what_is_rest_api.htm
+maintenance_status: active
+keywords:
+- api

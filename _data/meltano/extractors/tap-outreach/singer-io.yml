@@ -1,0 +1,50 @@
+description: Sales Engagement Platform
+label: Outreach
+name: tap-outreach
+logo_url: /assets/logos/extractors/outreach.png
+namespace: tap_outreach
+variant: singer-io
+pip_url: git+https://github.com/singer-io/tap-outreach.git
+repo: https://github.com/singer-io/tap-outreach
+settings_group_validation:
+- - start_date
+  - client_id
+  - client_secret
+  - redirect_uri
+  - refresh_token
+settings:
+- name: start_date
+  kind: date_iso8601
+  label: Start Date
+  description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
+- name: client_id
+  kind: password
+  label: Client ID
+  description: Your Outreach client ID.
+- name: client_secret
+  kind: password
+  label: Client Secret
+  description: Your Outreach client secret.
+- name: redirect_uri
+  label: Redirect URI
+  description: The Outreach redirect URI.
+- name: refresh_token
+  kind: password
+  label: Refresh Token
+  description: Your Outreach refresh token.
+- name: quota_limit
+  label: Quota Limit
+  description: The request quota limit.
+- name: page_size
+  label: Page Size
+  description: The page size of request responses.
+capabilities:
+- catalog
+- discover
+- state
+domain_url: https://api.outreach.io/api/v2/docs
+maintenance_status: unknown
+keywords:
+- api

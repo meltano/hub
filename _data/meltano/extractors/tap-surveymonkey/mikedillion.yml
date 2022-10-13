@@ -10,6 +10,7 @@ settings: []
 capabilities:
 - catalog
 - discover
+- state
 domain_url: https://developer.surveymonkey.com/api/v3/
 maintenance_status: unknown
 keywords:

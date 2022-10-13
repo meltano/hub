@@ -1,0 +1,42 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "transforms.schema.json",
+    "title": "JSON Schema for transforms plugins.",
+    "description": "https://docs.meltano.com/concepts/plugins#transforms",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "../common/common.schema.json"
+        },
+        {
+            "$ref": "../common/transforms_specific.schema.json"
+        },
+        {
+            "$ref": "hub_metadata.schema.json"
+        },
+        {
+            "additionalProperties": false,
+            "properties": {
+                "name": {},
+                "pip_url": {},
+                "namespace": {},
+                "repo": {},
+                "label": {},
+                "description": {},
+                "docs": {},
+                "variant": {},
+                "logo_url": {},
+                "package_name": {},
+                "vars": {},
+                "maintenance_status": {},
+                "domain_url": {},
+                "keywords": {},
+                "definition": {},
+                "next_steps": {},
+                "settings_preamble": {},
+                "usage": {},
+                "prereq": {}
+            }
+        }
+    ]
+}

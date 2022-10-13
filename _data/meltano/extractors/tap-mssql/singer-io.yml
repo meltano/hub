@@ -4,12 +4,13 @@ name: tap-mssql
 logo_url: /assets/logos/extractors/mssql.png
 namespace: tap_mssql
 variant: singer-io
-pip_url: tap-mssql
+pip_url: git+https://github.com/singer-io/tap-mssql.git
 repo: https://github.com/singer-io/tap-mssql
 settings: []
 capabilities:
 - catalog
 - discover
+- state
 domain_url: https://www.microsoft.com/en-us/sql-server/sql-server-2019
 maintenance_status: unknown
 keywords:

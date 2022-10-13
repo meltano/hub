@@ -10,6 +10,7 @@ settings: []
 capabilities:
 - catalog
 - discover
+- state
 domain_url: https://apidocs.yotpo.com/reference
 maintenance_status: unknown
 keywords:

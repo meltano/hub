@@ -18,26 +18,35 @@ settings:
   label: Files
   kind: array
   description: |
-    Array of objects with `entity`, `path`, and `keys` keys:
+    Array of objects with `entity`, `path`, `keys`, and `encoding` [Optioanl] keys:
 
     * `entity`: The entity name, used as the table name for the data loaded from that CSV.
     * `path`: Local path (relative to the project's root) to the file to be ingested. Note that this may be a directory, in which case all files in that directory and any of its subdirectories will be recursively processed
     * `keys`: The names of the columns that constitute the unique keys for that entity.
+    * `encoding`: [Optional] The file encoding to use when reading the file (i.e. "latin1", "UTF-8"). Use this setting when you get a UnicodeDecodeError error.
+      Each input CSV file must be a traditionally-delimited CSV (comma separated columns, newlines indicate new rows, double quoted values).
 
-    Each input CSV file must be a traditionally-delimited CSV (comma separated columns, newlines indicate new rows, double quoted values).
+    The following entries are passed through in an internal CSV dialect that then is used to configure the CSV reader:
+
+    * `delimiter`: A one-character string used to separate fields. It defaults to ','.
+    * `doublequote`: Controls how instances of quotechar appearing inside a field should themselves be quoted. When True, the character is doubled. When False, the escapechar is used as a prefix to the quotechar. It defaults to True.
+    * `escapechar`: A one-character string used by the reader, where the escapechar removes any special meaning from the following character. It defaults to None, which disables escaping.
+    * `quotechar`: A one-character string used to quote fields containing special characters, such as the delimiter or quotechar, or which contain new-line characters. It defaults to '"'.
+    * `skipinitialspace`: When True, spaces immediately following the delimiter are ignored. The default is False.
+    * `strict`: When True, raise exception Error on bad CSV input. The default is False.
 
     The first row is the header defining the attribute name for that column and will result to a column of the same name in the database. It must have a valid format with no spaces or special characters (like for example `!` or `@`, etc).
 - name: csv_files_definition
   label: CSV Files Definition
   description: |
-    Project-relative path to JSON file holding array of objects with `entity`, `path`, and `keys` keys, as ascribed under [Files](#files):
+    Project-relative path to JSON file holding array of objects as described under [Files](#files) - with `entity`, `path`, `keys`, and other optional keys:
 
     ```json
     [
       {
         "entity": "<entity>",
         "path": "<path>",
-        "keys": ["<key>"]
+        "keys": ["<key>"],
       },
       // ...
     ]

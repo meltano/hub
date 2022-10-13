@@ -3,6 +3,8 @@ utilities:
   sqlfluff: sqlfluff
   superset: apache
   datahub: datahub-project
+  dbt-osmosis: z3z1ma
+  metabase: metabase
 orchestrators:
   airflow: apache
 transforms:
@@ -17,6 +19,7 @@ transforms:
   tap-zendesk: meltano
 transformers:
   dbt-bigquery: dbt-labs
+  dbt-duckdb: jwills
   dbt-postgres: dbt-labs
   dbt-redshift: dbt-labs
   dbt-snowflake: dbt-labs
@@ -25,6 +28,7 @@ files:
   files-great-expectations: meltano
   files-datahub: z3z1ma
   files-dbt-bigquery: meltano
+  files-dbt-duckdb: meltano
   files-dbt-postgres: meltano
   files-dbt-redshift: meltano
   files-dbt-snowflake: meltano
@@ -49,11 +53,11 @@ extractors:
   tap-agilecrm: dreamdata-io
   tap-airtable: goes-funky
   tap-amazon-ads-dsp: singer-io
-  tap-amazon-advertising: fishtown-analytics
-  tap-amazon-mws: fishtown-analytics
+  tap-amazon-advertising: dbt-labs
+  tap-amazon-mws: dbt-labs
   tap-anaplan: matthew-skinner
   tap-apparel-magic: jamespotz
-  tap-appfigures: meowwolf
+  tap-appfigures: singer-io
   tap-appsflyer: singer-io
   tap-appstore: miroapp
   tap-asana: singer-io
@@ -75,9 +79,8 @@ extractors:
   tap-bold: oriskincare
   tap-braintree: singer-io
   tap-brightpearl: zookal
-  tap-bronto: fishtown-analytics
+  tap-bronto: dbt-labs
   tap-bynder: radico
-  tap-call-cap: llazarovgannett
   tap-campaign-monitor: singer-io
   tap-carbon-intensity: meltano
   tap-centra: icebug
@@ -103,6 +106,7 @@ extractors:
   tap-currencyfreaks: spacecowboy
   tap-customerx: rafaeljusi
   tap-daisycon: horze-international
+  tap-dash-hudson: gthesheep
   tap-dayforce: goodeggs
   tap-db2: singer-io
   tap-dbt-artifacts: prratek
@@ -112,11 +116,10 @@ extractors:
   tap-domo: mashey
   tap-dynamics: dreamdata-io
   tap-dynamodb: singer-io
-  tap-ebay: fishtown-analytics
+  tap-ebay: dbt-labs
   tap-eloqua: singer-io
   tap-emarsys: singer-io
   tap-estoca: muriloo
-  tap-eventbrite: phillymedia
   tap-exactsales: rafaeljusi
   tap-exacttarget: singer-io
   tap-exchangeratehost: anelendata
@@ -146,7 +149,6 @@ extractors:
   tap-google-sheets: singer-io
   tap-googleads: matatika
   tap-gorgias: brooklyn-data
-  tap-grader: reachlocal
   tap-greenhouse: codyss
   tap-harvest-forecast: singer-io
   tap-harvest: singer-io
@@ -154,7 +156,6 @@ extractors:
   tap-helpscout: singer-io
   tap-helpshift: pathlight
   tap-holidays: goodeggs
-  tap-hubplanner: rangle
   tap-hubspot: singer-io
   tap-idealo-click-report: horze-international
   tap-ilevel: singer-io
@@ -175,10 +176,11 @@ extractors:
   tap-klaviyo: hotgluexyz
   tap-kustomer: singer-io
   tap-kwanko: uptilab2
-  tap-lever: fishtown-analytics
+  tap-lever: dbt-labs
+  tap-lightdash: gthesheep
   tap-linkedin-ads: singer-io
   tap-listen360: radico
-  tap-listrak: fishtown-analytics
+  tap-listrak: dbt-labs
   tap-livechat: pathlight
   tap-liveperson: singer-io
   tap-logmeinrescue: isabella232
@@ -193,14 +195,14 @@ extractors:
   tap-mambu: singer-io
   tap-marketman: mashey
   tap-marketo: singer-io
-  tap-mavenlink: fishtown-analytics
+  tap-mavenlink: dbt-labs
   tap-megaphone: yujoy
   tap-meltano: matatika
   tap-mercadopago: a-rusi
   tap-mixpanel: hotgluexyz
   tap-mode: franloza
   tap-monday: gthesheep
-  tap-mongodb: singer-io
+  tap-mongodb: transferwise
   tap-ms-teams: singer-io
   tap-mssql: wintersrd
   tap-mysql: transferwise
@@ -214,10 +216,10 @@ extractors:
   tap-open-library: loeakaodas
   tap-openweathermap: matatika
   tap-oracle: transferwise
-  tap-orbit: fishtown-analytics
+  tap-orbit: dbt-labs
   tap-ordway: singer-io
-  tap-outbrain: fishtown-analytics
-  tap-outreach: cmbramwell
+  tap-outbrain: dbt-labs
+  tap-outreach: singer-io
   tap-pagerduty: goodeggs
   tap-pardot: singer-io
   tap-parquet: dataops-tk
@@ -239,7 +241,7 @@ extractors:
   tap-pubg: autoidm
   tap-purecloud: rumeau
   tap-quaderno: nickleomartin
-  tap-quickbase: singer-io
+  tap-quickbase: mainspringenergy
   tap-quickbooks: hotgluexyz
   tap-rakuten: chrisgoddard
   tap-readthedocs: edgarrmondragon
@@ -255,12 +257,12 @@ extractors:
   tap-revinate: singer-io
   tap-richpanel: richpanel-company
   tap-rickandmorty: clrcrl
-  tap-ringcentral: fishtown-analytics
+  tap-ringcentral: dbt-labs
   tap-rockgympro: cinchio
   tap-s3-csv: transferwise
   tap-saasoptics: anelendata
   tap-sailthru: singer-io
-  tap-salesforce: meltano
+  tap-salesforce: meltanolabs
   tap-search-ads: uptilab2
   tap-selligent: singer-io
   tap-sendgrid: singer-io
@@ -268,7 +270,7 @@ extractors:
   tap-sentry: valulucchesi
   tap-servicem8: fostersdata
   tap-sevenrooms: uptilab2
-  tap-sftp: singer-io
+  tap-sftp: meltanolabs
   tap-shiphero: singer-io
   tap-shipstation: mashey
   tap-shopify: singer-io
@@ -300,20 +302,19 @@ extractors:
   tap-taboola: singer-io
   tap-talkable: gthesheep
   tap-teamwork: immuta
-  tap-telemetrics: reachlocal
   tap-thinkific: birdiecare
   tap-thunderboard: matatika
-  tap-tickettailor: fishtown-analytics
-  tap-tiktok: uptilab2
+  tap-tickettailor: dbt-labs
+  tap-tiktok: gthesheep
   tap-timebutler: taikonauten
   tap-toast: lambtron
   tap-toggl: singer-io
   tap-treez: mashey
   tap-trello: singer-io
-  tap-trustpilot: fishtown-analytics
+  tap-trustpilot: dbt-labs
   tap-twilio: transferwise
   tap-twinfield: yoast
-  tap-twitter-ads: dreamdata-io
+  tap-twitter-ads: singer-io
   tap-twitter-streams: pbegle
   tap-twitter: bernietai
   tap-typeform: albert-marrero
@@ -325,7 +326,6 @@ extractors:
   tap-vnda-ecommerce: muriloo
   tap-walkscore: radico
   tap-webcrawl: anelendata
-  tap-webcrm: dreamdata-io
   tap-wonolo: goodeggs
   tap-woocommerce: hotgluexyz
   tap-wootric: singer-io
@@ -352,11 +352,13 @@ loaders:
   target-cassandra: coeff
   target-csv: hotgluexyz
   target-datadotworld: datadotworld
+  target-duckdb: jwills
   target-gcs: datateer
   target-gsheet: singer-io
   target-jsonl: andyh1203
   target-kinesis: prontopro
   target-magentobi: singer-io
+  target-miso: misoai
   target-pardot: anelendata
   target-parquet: estrategiahq
   target-postgres: transferwise

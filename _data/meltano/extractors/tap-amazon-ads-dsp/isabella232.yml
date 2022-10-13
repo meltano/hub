@@ -10,6 +10,7 @@ settings: []
 capabilities:
 - catalog
 - discover
+- state
 domain_url: https://advertising.amazon.com/API/docs/en-us/dsp-reports-beta-3p/#/Reports
 maintenance_status: unknown
 keywords:

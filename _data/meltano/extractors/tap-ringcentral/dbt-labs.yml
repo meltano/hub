@@ -1,0 +1,16 @@
+description: Cloud Communication Software
+label: RingCentral
+name: tap-ringcentral
+logo_url: /assets/logos/extractors/ringcentral.png
+namespace: tap_ringcentral
+variant: dbt-labs
+pip_url: git+https://github.com/dbt-labs/tap-ringcentral.git
+repo: https://github.com/dbt-labs/tap-ringcentral
+settings: []
+capabilities:
+- catalog
+- discover
+domain_url: https://developers.ringcentral.com/api-reference/
+maintenance_status: unknown
+keywords:
+- api

@@ -4,7 +4,7 @@ executable: dbt
 namespace: dbt_bigquery
 docs: https://docs.meltano.com/guide/transformation
 repo: https://github.com/dbt-labs/dbt-bigquery
-pip_url: dbt-core~=1.0.0 dbt-bigquery~=1.0.0
+pip_url: dbt-core~=1.1.0 dbt-bigquery~=1.1.0
 variant: dbt-labs
 maintenance_status: active
 requires:
@@ -86,3 +86,19 @@ commands:
   test:
     args: test
     description: Runs tests on data in deployed models.
+  freshness:
+    args: source freshness
+    description: Check the freshness of your source data.
+  build:
+    args: build
+    description: Will run your models, tests, snapshots and seeds in DAG order.
+  docs-generate:
+    args: docs generate
+    description: Generate documentation for your project.
+  docs-serve:
+    args: docs serve
+    description: Serve documentation for your project. Make sure you ran `docs-generate` first.
+  debug:
+    args: debug
+    description: Debug your DBT project and warehouse connection.
+logo_url: /assets/logos/transformers/dbt.png

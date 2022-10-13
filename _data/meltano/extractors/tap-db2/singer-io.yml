@@ -10,6 +10,7 @@ settings: []
 capabilities:
 - catalog
 - discover
+- state
 domain_url: https://www.ibm.com/analytics/db2
 maintenance_status: unknown
 keywords:

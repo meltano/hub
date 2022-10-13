@@ -7,7 +7,7 @@ variant: hotgluexyz
 repo: https://github.com/hotgluexyz/tap-quickbooks
 pip_url: git+https://github.com/hotgluexyz/tap-quickbooks.git
 capabilities:
-- catalog
+- properties
 - discover
 - state
 settings_group_validation:
