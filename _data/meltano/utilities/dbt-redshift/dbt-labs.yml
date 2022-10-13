@@ -1,0 +1,167 @@
+name: dbt-redshift
+label: dbt Redshift
+executable: dbt_invoker
+namespace: dbt_redshift
+docs: https://docs.meltano.com/guide/transformation
+repo: https://github.com/dbt-labs/dbt-redshift
+ext_repo: https://github.com/meltano/dbt-ext
+pip_url: dbt-core~=1.1.0 dbt-redshift~=1.1.0 git+https://github.com/meltano/dbt-ext.git@main
+variant: dbt-labs
+maintenance_status: active
+settings_preamble: |
+  Settings for dbt itself can be configured through [dbt_project.yml](https://docs.getdbt.com/reference/dbt_project.yml) as usual, which can be found at transform/dbt_project.yml in your Meltano project. dbt also has [adapter-specific documentation for Redshift](https://docs.getdbt.com/reference/resource-configs/redshift-configs).
+settings:
+- name: skip_pre_invoke
+  kind: boolean
+  value: false
+  description: Whether to skip pre-invoke hooks which automatically run dbt clean and deps
+  env: DBT_EXT_SKIP_PRE_INVOKE
+- name: type
+  env: DBT_EXT_TYPE
+  value: redshift
+- name: project_dir
+  label: Project Directory
+  value: $MELTANO_PROJECT_ROOT/transform
+- name: profiles_dir
+  label: Profiles Directory
+  value: $MELTANO_PROJECT_ROOT/transform/profiles/redshift
+  env: DBT_PROFILES_DIR
+  # Redshift connection settings are set via `config:` blocks and mapped to `profiles.yml`
+- name: auth_method
+  label: Authentication Method
+  kind: string
+  description: |
+    The auth method to use (to use iam, set to "iam".
+    Omit to use password-based auth.)
+- name: cluster_id
+  label: Cluster ID
+  kind: string
+  description: |
+    The cluster id.
+- name: host
+  label: Host
+  kind: string
+  description: |
+    The host for the cluster.
+- name: password
+  label: Password
+  kind: password
+  description: |
+    The password, if using password-based auth.
+- name: user
+  label: User
+  kind: string
+  description: |
+    The user to connect as.
+- name: port
+  label: Port
+  kind: integer
+  description: |
+    The port to connect to.
+- name: dbname
+  label: Database
+  aliases: ["database"]
+  kind: string
+  description: |
+    The name of the db to connect to.
+- name: schema
+  label: Schema
+  kind: string
+  description: |
+    The schema to use.
+- name: iam_profile
+  label: IAM Profile
+  kind: string
+  description: |
+    The IAM profile to use.
+- name: iam_duration_seconds
+  label: IAM Duration Seconds
+  kind: integer
+  description: |
+    Duration of the IAM session.
+- name: autocreate
+  label: Autocreate
+  kind: boolean
+  description: |
+    Whether or not to automatically create entities.
+- name: db_groups
+  label: Databse Groups
+  kind: array
+  description: |
+    Database groups to use.
+- name: keepalives_idle
+  label: Keep Alives Idle
+  kind: integer
+  description: |
+    Seconds between TCP keepalive packets
+- name: search_path
+  label: Search Path
+  kind: string
+  description: |
+    The search path to use (use of this setting is not recommended)
+- name: sslmode
+  label: SSL Mode
+  kind: array
+  description: |
+    SSL MOde used to connect to Redshift.
+- name: ra3_node
+  label: RA3 Node
+  kind: boolean
+  description: |
+    Enables cross-database sources.
+commands:
+  clean:
+    args: clean
+    description: Delete all folders in the clean-targets list (usually the dbt_modules and target directories.)
+  compile:
+    args: compile
+    description: Generates executable SQL from source model, test, and analysis files. Compiled SQL files are written to the target/ directory.
+  deps:
+    args: deps
+    description: Pull the most recent version of the dependencies listed in packages.yml
+  run:
+    args: run
+    description: Compile SQL and execute against the current target database.
+  seed:
+    args: seed
+    description: Load data from csv files into your data warehouse.
+  snapshot:
+    args: snapshot
+    description: Execute snapshots defined in your project.
+  test:
+    args: test
+    description: Runs tests on data in deployed models.
+  freshness:
+    args: source freshness
+    description: Check the freshness of your source data.
+  build:
+    args: build
+    description: Will run your models, tests, snapshots and seeds in DAG order.
+  docs-generate:
+    args: docs generate
+    description: Generate documentation for your project.
+  docs-serve:
+    args: docs serve
+    description: Serve documentation for your project. Make sure you ran `docs-generate` first.
+  debug:
+    args: debug
+    description: Debug your DBT project and warehouse connection.
+  describe:
+    args: describe
+    executable: dbt_extension
+    description: Describe the 
+  initialize:
+    args: initialize
+    executable: dbt_extension
+    description: |
+      Initialize a new dbt project. This will create a dbt_project.yml file, a profiles.yml file, and models directory.
+logo_url: /assets/logos/utilities/dbt.png
+keywords:
+  - meltano_edk
+next_steps: |
+  1. If you're running dbt for the first time in a new environment:
+
+    ```sh
+    # create a starter dbt_project.yml file, a profiles.yml file, and models directory
+    meltano invoke dbt-redshift:initialize
+    ```

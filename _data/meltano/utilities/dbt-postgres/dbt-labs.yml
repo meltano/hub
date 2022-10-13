@@ -1,0 +1,136 @@
+name: dbt-postgres
+label: dbt PostgreSQL
+executable: dbt_invoker
+namespace: dbt_postgres
+docs: https://docs.meltano.com/guide/transformation
+repo: https://github.com/dbt-labs/dbt-core
+ext_repo: https://github.com/meltano/dbt-ext
+pip_url: dbt-core~=1.1.0 dbt-postgres~=1.1.0 git+https://github.com/meltano/dbt-ext.git@main
+variant: dbt-labs
+maintenance_status: active
+settings_preamble: |
+  Settings for dbt itself can be configured through [dbt_project.yml](https://docs.getdbt.com/reference/dbt_project.yml) as usual, which can be found at transform/dbt_project.yml in your Meltano project.  dbt also has [adapter-specific documentation for PostgreSQL](https://docs.getdbt.com/reference/resource-configs/postgres-configs).
+settings:
+- name: skip_pre_invoke
+  kind: boolean
+  value: false
+  description: Whether to skip pre-invoke hooks which automatically run dbt clean and deps
+  env: DBT_EXT_SKIP_PRE_INVOKE
+- name: type
+  env: DBT_EXT_TYPE
+  value: postgres
+- name: project_dir
+  label: Projects Directory
+  value: $MELTANO_PROJECT_ROOT/transform
+- name: profiles_dir
+  label: Profiles Directory
+  value: $MELTANO_PROJECT_ROOT/transform/profiles/postgres
+  env: DBT_PROFILES_DIR
+  # Postgres connection settings are set via `config:` blocks and mapped to `profiles.yml`
+- name: host
+  label: Host
+  kind: string
+  description: |
+    The postgres host to connect to.
+- name: user
+  label: User
+  kind: string
+  description: |
+    The user to connect as.
+- name: password
+  label: Password
+  kind: password
+  description: |
+    The password to connect with.
+- name: port
+  label: Port
+  kind: integer
+  description: |
+    The port to connect to.
+- name: dbname
+  label: Database
+  aliases: ["database"]
+  kind: string
+  description: |
+    The db to connect to.
+- name: schema
+  label: Schema
+  kind: string
+  description: |
+    The schema to use.
+- name: keepalives_idle
+  label: Keep Alives Idle
+  kind: integer
+  description: |
+    Seconds between TCP keepalive packets.
+- name: search_path
+  label: Search Path
+  kind: string
+  description: |
+    Overrides the default search path.
+- name: role
+  label: Role
+  kind: string
+  description: |
+    Role for dbt to assume when executing queries.
+- name: sslmode
+  label: SSL Mode
+  kind: array
+  description: |
+    SSL Mode used to connect to the database.
+commands:
+  clean:
+    args: clean
+    description: Delete all folders in the clean-targets list (usually the dbt_modules and target directories.)
+  compile:
+    args: compile
+    description: Generates executable SQL from source model, test, and analysis files. Compiled SQL files are written to the target/ directory.
+  deps:
+    args: deps
+    description: Pull the most recent version of the dependencies listed in packages.yml
+  run:
+    args: run
+    description: Compile SQL and execute against the current target database.
+  seed:
+    args: seed
+    description: Load data from csv files into your data warehouse.
+  snapshot:
+    args: snapshot
+    description: Execute snapshots defined in your project.
+  test:
+    args: test
+    description: Runs tests on data in deployed models.
+  freshness:
+    args: source freshness
+    description: Check the freshness of your source data.
+  build:
+    args: build
+    description: Will run your models, tests, snapshots and seeds in DAG order.
+  docs-generate:
+    args: docs generate
+    description: Generate documentation for your project.
+  docs-serve:
+    args: docs serve
+    description: Serve documentation for your project. Make sure you ran `docs-generate` first.
+  debug:
+    args: debug
+    description: Debug your DBT project and warehouse connection.
+  describe:
+    args: describe
+    executable: dbt_extension
+    description: Describe the 
+  initialize:
+    args: initialize
+    executable: dbt_extension
+    description: |
+      Initialize a new dbt project. This will create a dbt_project.yml file, a profiles.yml file, and models directory.
+logo_url: /assets/logos/utilities/dbt.png
+keywords:
+  - meltano_edk
+next_steps: |
+  1. If you're running dbt for the first time in a new environment:
+
+    ```sh
+    # create a starter dbt_project.yml file, a profiles.yml file, and models directory
+    meltano invoke dbt-postgres:initialize
+    ```
