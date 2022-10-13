@@ -6,28 +6,28 @@
           <table>
             <tr>
               <td style="padding: 25px">
-              <a v-if="domain_url" href="domain_url" target="_blank" rel="noopener noreferrer">
-                <g-image
-                  v-if="$page.plugins.logo_url"
-                  :src="
-                    require(`!!assets-loader?width=250&height=200&fit=inside!@logos/${$page.plugins.logo_url.replace(
-                      '/assets/logos/',
-                      ''
-                    )}`)
-                  "
-                />
-              </a>
-              <div v-else>
-                <g-image
-                  v-if="$page.plugins.logo_url"
-                  :src="
-                    require(`!!assets-loader?width=250&height=200&fit=inside!@logos/${$page.plugins.logo_url.replace(
-                      '/assets/logos/',
-                      ''
-                    )}`)
-                  "
-                />
-              </div>
+                <a v-if="domain_url" href="domain_url" target="_blank" rel="noopener noreferrer">
+                  <g-image
+                    v-if="$page.plugins.logo_url"
+                    :src="
+                      require(`!!assets-loader?width=250&height=200&fit=inside!@logos/${$page.plugins.logo_url.replace(
+                        '/assets/logos/',
+                        ''
+                      )}`)
+                    "
+                  />
+                </a>
+                <div v-else>
+                  <g-image
+                    v-if="$page.plugins.logo_url"
+                    :src="
+                      require(`!!assets-loader?width=250&height=200&fit=inside!@logos/${$page.plugins.logo_url.replace(
+                        '/assets/logos/',
+                        ''
+                      )}`)
+                    "
+                  />
+                </div>
               </td>
               <td>
                 <p class="text-3xl py-8">
