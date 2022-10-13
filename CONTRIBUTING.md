@@ -12,6 +12,18 @@ Chat with us in [#contributing](https://meltano.slack.com/archives/C013Z450LCD) 
 
 Contributors are expected to follow our [Code of Conduct](https://docs.meltano.com/contribute/#code-of-conduct).
 
+## Automated plugin testing
+
+Repo maintainers with `write` access are able to perform automated plugin testing using slash commands in any issue or pull request.
+
+In any issue or pull request, type the following on the first line of a new comment:
+
+```txt
+/test-plugin name=PLUGIN_NAME [pip_url=PIP_URL]
+```
+
+If `pip_url` is omitted, the `name` field will be used as `pip_url`.
+
 ## Installing prereqs
 
 ```console
