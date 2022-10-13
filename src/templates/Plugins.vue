@@ -46,7 +46,7 @@
                 sent to a destination using a <g-link to="/loaders">loader</g-link>.</span
               >
               <span v-if="$page.plugins.pluginType === 'loader'">
-                sends data to into <a :href="$page.plugins.domain_url">{{ $page.plugins.label }}</a>
+                sends data into <a :href="$page.plugins.domain_url">{{ $page.plugins.label }}</a>
                 after it was pulled from a source using an 
                 <g-link to="/extractors">extractor</g-link></span
               >
