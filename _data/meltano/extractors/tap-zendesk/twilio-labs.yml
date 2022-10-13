@@ -82,7 +82,7 @@ settings:
   label: End Date
   kind: date_iso8601
   description: Sets a limit on how much data to extract in combination with start_date. If passed, data would be loaded for date >= start_date and date < end_date.
-usage: |
+settings_preamble: |
   ### Sideloading for Tickets
 
   Sideloading is a functionality provided by Zendesk to fetch related records in a single request more detail - https://developer.zendesk.com/documentation/ticketing/using-the-zendesk-api/side_loading/
