@@ -72,7 +72,7 @@
                 utilities.</span
               >
             </p>
-            <p class="text-2xl">Other Available Variants</p>
+            <p class="text-2xl">Available Variants</p>
             <ul class="list-disc list-inside pl-4">
               <li v-for="(variant, index) in $page.variants.edges" v-bind:key="index">
                 <g-link :to="variant.node.path" v-if="variant.node.path !== $page.plugins.path">{{
