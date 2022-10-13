@@ -9,6 +9,7 @@ pip_url: target-jsonl
 settings:
 - name: destination_path
   label: Destination Path
+  kind: string
   description: |
     Sets the destination path the JSONL files are written to, relative
     to the project root.
@@ -29,8 +30,8 @@ settings:
     If this option gets set to `true`, the resulting file will have a timestamp associated with it (i.e. `exchange_rate-{timestamp}.jsonl`).
   value: false
 - name: custom_name
-  kind: string
   label: Custom File Name Override
+  kind: string
   description: |
     Specifies a custom name for the filename, instead of the stream name.
     
