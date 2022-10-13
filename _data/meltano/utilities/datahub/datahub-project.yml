@@ -1,5 +1,6 @@
 name: datahub
 label: Datahub
+domain_url: https://datahubproject.io/
 namespace: datahub
 pip_url: acryl-datahub[rest,dbt]
 maintenance_status: active

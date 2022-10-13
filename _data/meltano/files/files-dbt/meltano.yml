@@ -1,5 +1,6 @@
 name: files-dbt
 label: dbt Files
+domain_url: https://www.getdbt.com/
 namespace: files_dbt
 repo: https://github.com/meltano/files-dbt
 pip_url: git+https://github.com/meltano/files-dbt.git@config-version-2

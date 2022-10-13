@@ -1,6 +1,7 @@
 name: dbt
 label: dbt
 namespace: dbt
+domain_url: https://www.getdbt.com/
 docs: https://docs.meltano.com/guide/transformation
 repo: https://github.com/dbt-labs/dbt-core
 pip_url: dbt-core~=1.1.0 dbt-postgres~=1.1.0 dbt-redshift~=1.1.0 dbt-snowflake~=1.1.0

@@ -1,5 +1,6 @@
 name: airflow
 namespace: airflow
+domain_url: https://airflow.apache.org/
 label: Airflow
 docs: https://docs.meltano.com/guide/orchestration
 repo: https://github.com/apache/airflow
