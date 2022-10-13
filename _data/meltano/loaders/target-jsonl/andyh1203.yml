@@ -28,6 +28,18 @@ settings:
 
     If this option gets set to `true`, the resulting file will have a timestamp associated with it (i.e. `exchange_rate-{timestamp}.jsonl`).
   value: false
+- name: custom_name
+  kind: string
+  label: Custom File Name Override
+  description: |
+    Specifies a custom name for the filename, instead of the stream name.
+    
+    The file name will be `{custom_name}-{timestamp}.jsonl`, if `do_timestamp_file` is `true`.
+    Otherwise the file name will be `{custom_name}.jsonl`.
+
+    If custom name is not provided, the stream name will be used.
+
 maintenance_status: active
 keywords:
 - file
+- jsonl
