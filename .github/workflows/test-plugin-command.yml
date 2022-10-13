@@ -35,10 +35,6 @@ jobs:
 
     steps:
 
-    # # We actually don't need to checkout the repo (at least, not currently).
-    # # Skipped deliberately:
-    # - uses: actions/checkout@v2
-
     - name: Handle missing pip_url
       if: github.event.inputs.pip-url == ''
       run: echo 'PIP_URL=${{ github.event.inputs.name }}' >> "$GITHUB_ENV"
