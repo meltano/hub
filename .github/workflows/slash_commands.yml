@@ -19,7 +19,7 @@ jobs:
         uses: peter-evans/slash-command-dispatch@v3
         with:
           # https://github.com/peter-evans/slash-command-dispatch
-          token: ${{ secrets.ACTIONS_BOT_TOKEN }}
+          token: ${{ secrets.MELTYBOT_GITHUB_AUTH_TOKEN }}
           dispatch-type: workflow
           reactions: false  # Otherwise 👀 and 🚀 will immediately be posted to the comment.
           issue-type: "both"  # pull-requests and issues
