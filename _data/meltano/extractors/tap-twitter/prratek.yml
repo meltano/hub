@@ -1,0 +1,20 @@
+logo_url: /assets/logos/extractors/twitter.png
+variant: prratek
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/prratek/tap-twitter
+pip_url: git+https://github.com/prratek/tap-twitter.git
+next_steps: ''
+namespace: tap_twitter
+name: tap-twitter
+maintenance_status: active
+label: Twitter
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

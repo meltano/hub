@@ -1,0 +1,20 @@
+logo_url: /assets/logos/extractors/indeed.png
+variant: autoidm
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/AutoIDM/tap-indeed
+pip_url: git+https://github.com/AutoIDM/tap-indeed.git
+next_steps: ''
+namespace: tap_indeed
+name: tap-indeed
+maintenance_status: active
+label: Indeed
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

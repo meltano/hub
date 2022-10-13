@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/nba-api.png
+variant: gandalfthegraydelson
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/gandalfthegraydelson/tap-nba-api
+pip_url: git+https://github.com/gandalfthegraydelson/tap-nba-api.git
+next_steps: ''
+namespace: tap_nba_api
+name: tap-nba-api
+maintenance_status: active
+label: Nba Api
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

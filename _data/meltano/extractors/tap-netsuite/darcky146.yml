@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/netsuite.png
+variant: darcky146
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/darcky146/tap-netsuite
+pip_url: git+https://github.com/darcky146/tap-netsuite.git
+next_steps: ''
+namespace: tap_netsuite
+name: tap-netsuite
+maintenance_status: active
+label: Netsuite
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

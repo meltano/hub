@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/quickbase.png
+variant: erickqb67
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/erickqb67/tap-quickbase
+pip_url: git+https://github.com/erickqb67/tap-quickbase.git
+next_steps: ''
+namespace: tap_quickbase
+name: tap-quickbase
+maintenance_status: active
+label: Quickbase
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

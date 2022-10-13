@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/singer-shopify-shops.png
+variant: yoast
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/Yoast/singer-tap-shopify-shops
+pip_url: git+https://github.com/Yoast/singer-tap-shopify-shops.git
+next_steps: ''
+namespace: singer_tap_shopify_shops
+name: singer-tap-shopify-shops
+maintenance_status: active
+label: Singer Shopify Shops
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

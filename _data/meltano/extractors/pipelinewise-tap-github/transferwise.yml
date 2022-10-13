@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/pipelinewise-github.png
+variant: transferwise
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/transferwise/pipelinewise-tap-github
+pip_url: git+https://github.com/transferwise/pipelinewise-tap-github.git
+next_steps: ''
+namespace: pipelinewise_tap_github
+name: pipelinewise-tap-github
+maintenance_status: active
+label: Pipelinewise Github
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

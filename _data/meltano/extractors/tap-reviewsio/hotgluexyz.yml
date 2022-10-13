@@ -1,0 +1,20 @@
+logo_url: /assets/logos/extractors/reviewsio.png
+variant: hotgluexyz
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/hotgluexyz/tap-reviewsio
+pip_url: git+https://github.com/hotgluexyz/tap-reviewsio.git
+next_steps: ''
+namespace: tap_reviewsio
+name: tap-reviewsio
+maintenance_status: active
+label: Reviewsio
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

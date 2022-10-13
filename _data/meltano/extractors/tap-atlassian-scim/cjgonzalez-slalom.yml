@@ -1,0 +1,20 @@
+logo_url: /assets/logos/extractors/atlassian-scim.png
+variant: cjgonzalez-slalom
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/cjgonzalez-slalom/tap-atlassian-scim
+pip_url: git+https://github.com/cjgonzalez-slalom/tap-atlassian-scim.git
+next_steps: ''
+namespace: tap_atlassian_scim
+name: tap-atlassian-scim
+maintenance_status: active
+label: Atlassian Scim
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

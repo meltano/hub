@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/pingboard.png
+variant: immuta
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/immuta/tap-pingboard
+pip_url: git+https://github.com/immuta/tap-pingboard.git
+next_steps: ''
+namespace: tap_pingboard
+name: tap-pingboard
+maintenance_status: active
+label: Pingboard
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

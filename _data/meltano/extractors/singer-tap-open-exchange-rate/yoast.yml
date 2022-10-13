@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/singer-open-exchange-rate.png
+variant: yoast
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/Yoast/singer-tap-open-exchange-rate
+pip_url: git+https://github.com/Yoast/singer-tap-open-exchange-rate.git
+next_steps: ''
+namespace: singer_tap_open_exchange_rate
+name: singer-tap-open-exchange-rate
+maintenance_status: active
+label: Singer Open Exchange Rate
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

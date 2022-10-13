@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/exact.png
+variant: sagedata-ood
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/SageData-OOD/tap-exact
+pip_url: git+https://github.com/SageData-OOD/tap-exact.git
+next_steps: ''
+namespace: tap_exact
+name: tap-exact
+maintenance_status: active
+label: Exact
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/iterable.png
+variant: dan-ladd
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/dan-ladd/tap-iterable
+pip_url: git+https://github.com/dan-ladd/tap-iterable.git
+next_steps: ''
+namespace: tap_iterable
+name: tap-iterable
+maintenance_status: active
+label: Iterable
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

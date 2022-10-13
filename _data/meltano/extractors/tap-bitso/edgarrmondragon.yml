@@ -1,0 +1,20 @@
+logo_url: /assets/logos/extractors/bitso.png
+variant: edgarrmondragon
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/edgarrmondragon/tap-bitso
+pip_url: git+https://github.com/edgarrmondragon/tap-bitso.git
+next_steps: ''
+namespace: tap_bitso
+name: tap-bitso
+maintenance_status: active
+label: Bitso
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/jira.png
+variant: pathlight
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/Pathlight/tap-jira
+pip_url: git+https://github.com/Pathlight/tap-jira.git
+next_steps: ''
+namespace: tap_jira
+name: tap-jira
+maintenance_status: active
+label: Jira
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

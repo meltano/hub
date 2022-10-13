@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/postgres.png
+variant: revanthpeddi-scripbox
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/revanthpeddi-scripbox/tap-postgres
+pip_url: git+https://github.com/revanthpeddi-scripbox/tap-postgres.git
+next_steps: ''
+namespace: tap_postgres
+name: tap-postgres
+maintenance_status: active
+label: Postgres
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

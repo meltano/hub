@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/wrike.png
+variant: potloc
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/potloc/tap-wrike
+pip_url: git+https://github.com/potloc/tap-wrike.git
+next_steps: ''
+namespace: tap_wrike
+name: tap-wrike
+maintenance_status: active
+label: Wrike
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

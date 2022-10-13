@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/sftp.png
+variant: radbrry
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/radbrry/tap-sftp
+pip_url: git+https://github.com/radbrry/tap-sftp.git
+next_steps: ''
+namespace: tap_sftp
+name: tap-sftp
+maintenance_status: active
+label: Sftp
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

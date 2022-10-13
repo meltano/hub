@@ -1,0 +1,20 @@
+logo_url: /assets/logos/extractors/bexio.png
+variant: substringgmbh
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/substringgmbh/tap-bexio
+pip_url: git+https://github.com/substringgmbh/tap-bexio.git
+next_steps: ''
+namespace: tap_bexio
+name: tap-bexio
+maintenance_status: active
+label: Bexio
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/rest-api.png
+variant: anelendata
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/anelendata/tap-rest-api
+pip_url: git+https://github.com/anelendata/tap-rest-api.git
+next_steps: ''
+namespace: tap_rest_api
+name: tap-rest-api
+maintenance_status: active
+label: Rest Api
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

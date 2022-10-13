@@ -1,0 +1,20 @@
+logo_url: /assets/logos/extractors/impact-publisher.png
+variant: voxmedia
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/voxmedia/tap-impact-publisher
+pip_url: git+https://github.com/voxmedia/tap-impact-publisher.git
+next_steps: ''
+namespace: tap_impact_publisher
+name: tap-impact-publisher
+maintenance_status: active
+label: Impact Publisher
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

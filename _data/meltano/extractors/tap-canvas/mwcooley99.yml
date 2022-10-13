@@ -1,0 +1,20 @@
+logo_url: /assets/logos/extractors/canvas.png
+variant: mwcooley99
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/mwcooley99/tap-canvas
+pip_url: git+https://github.com/mwcooley99/tap-canvas.git
+next_steps: ''
+namespace: tap_canvas
+name: tap-canvas
+maintenance_status: active
+label: Canvas
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/bamboohr.png
+variant: leonsmith12
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/LeonSmith12/tap-bamboohr
+pip_url: git+https://github.com/LeonSmith12/tap-bamboohr.git
+next_steps: ''
+namespace: tap_bamboohr
+name: tap-bamboohr
+maintenance_status: active
+label: Bamboohr
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

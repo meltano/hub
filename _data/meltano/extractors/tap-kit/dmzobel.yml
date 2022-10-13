@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/kit.png
+variant: dmzobel
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/dmzobel/tap-kit
+pip_url: git+https://github.com/dmzobel/tap-kit.git
+next_steps: ''
+namespace: tap_kit
+name: tap-kit
+maintenance_status: active
+label: Kit
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

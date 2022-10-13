@@ -1,0 +1,20 @@
+logo_url: /assets/logos/extractors/circle-ci.png
+variant: meltanolabs
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/MeltanoLabs/tap-circle-ci
+pip_url: git+https://github.com/MeltanoLabs/tap-circle-ci.git
+next_steps: ''
+namespace: tap_circle_ci
+name: tap-circle-ci
+maintenance_status: active
+label: Circle Ci
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

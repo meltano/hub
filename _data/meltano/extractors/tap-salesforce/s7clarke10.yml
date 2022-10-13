@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/salesforce.png
+variant: s7clarke10
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/s7clarke10/tap-salesforce
+pip_url: git+https://github.com/s7clarke10/tap-salesforce.git
+next_steps: ''
+namespace: tap_salesforce
+name: tap-salesforce
+maintenance_status: active
+label: Salesforce
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

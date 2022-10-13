@@ -1,0 +1,17 @@
+logo_url: /assets/logos/loaders/oracle.png
+variant: wake-forest-ctsi
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/wake-forest-ctsi/target-oracle
+pip_url: git+https://github.com/wake-forest-ctsi/target-oracle.git
+next_steps: ''
+namespace: target_oracle
+name: target-oracle
+maintenance_status: active
+label: Oracle
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities: []

@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/hackernews.png
+variant: mattarderne
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/mattarderne/tap-hackernews
+pip_url: git+https://github.com/mattarderne/tap-hackernews.git
+next_steps: ''
+namespace: tap_hackernews
+name: tap-hackernews
+maintenance_status: active
+label: Hackernews
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

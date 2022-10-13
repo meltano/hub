@@ -1,0 +1,20 @@
+logo_url: /assets/logos/extractors/jira.png
+variant: z3z1ma
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/z3z1ma/tap-jira
+pip_url: git+https://github.com/z3z1ma/tap-jira.git
+next_steps: ''
+namespace: tap_jira
+name: tap-jira
+maintenance_status: active
+label: Jira
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

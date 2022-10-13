@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/klaviyo.png
+variant: singer-io
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/singer-io/tap-klaviyo
+pip_url: git+https://github.com/singer-io/tap-klaviyo.git
+next_steps: ''
+namespace: tap_klaviyo
+name: tap-klaviyo
+maintenance_status: active
+label: Klaviyo
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

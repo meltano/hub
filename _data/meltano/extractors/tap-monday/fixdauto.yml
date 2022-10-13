@@ -1,0 +1,20 @@
+logo_url: /assets/logos/extractors/monday.png
+variant: fixdauto
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/fixdauto/tap-monday
+pip_url: git+https://github.com/fixdauto/tap-monday.git
+next_steps: ''
+namespace: tap_monday
+name: tap-monday
+maintenance_status: active
+label: Monday
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/twitter.png
+variant: 0xpetersatoshi
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/0xpetersatoshi/tap-twitter
+pip_url: git+https://github.com/0xpetersatoshi/tap-twitter.git
+next_steps: ''
+namespace: tap_twitter
+name: tap-twitter
+maintenance_status: active
+label: Twitter
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

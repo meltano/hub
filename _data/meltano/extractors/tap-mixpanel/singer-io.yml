@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/mixpanel.png
+variant: singer-io
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/singer-io/tap-mixpanel
+pip_url: git+https://github.com/singer-io/tap-mixpanel.git
+next_steps: ''
+namespace: tap_mixpanel
+name: tap-mixpanel
+maintenance_status: active
+label: Mixpanel
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

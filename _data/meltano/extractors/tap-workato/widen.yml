@@ -1,0 +1,20 @@
+logo_url: /assets/logos/extractors/workato.png
+variant: widen
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/Widen/tap-workato
+pip_url: git+https://github.com/Widen/tap-workato.git
+next_steps: ''
+namespace: tap_workato
+name: tap-workato
+maintenance_status: active
+label: Workato
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

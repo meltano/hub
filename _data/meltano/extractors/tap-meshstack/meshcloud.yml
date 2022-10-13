@@ -1,0 +1,20 @@
+logo_url: /assets/logos/extractors/meshstack.png
+variant: meshcloud
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/meshcloud/tap-meshstack
+pip_url: git+https://github.com/meshcloud/tap-meshstack.git
+next_steps: ''
+namespace: tap_meshstack
+name: tap-meshstack
+maintenance_status: active
+label: Meshstack
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

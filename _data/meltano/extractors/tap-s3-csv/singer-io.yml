@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/s3-csv.png
+variant: singer-io
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/singer-io/tap-s3-csv
+pip_url: git+https://github.com/singer-io/tap-s3-csv.git
+next_steps: ''
+namespace: tap_s3_csv
+name: tap-s3-csv
+maintenance_status: active
+label: S3 Csv
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

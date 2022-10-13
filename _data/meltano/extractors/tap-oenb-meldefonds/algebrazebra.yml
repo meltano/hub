@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/oenb-meldefonds.png
+variant: algebrazebra
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/Algebrazebra/tap-oenb-meldefonds
+pip_url: git+https://github.com/Algebrazebra/tap-oenb-meldefonds.git
+next_steps: ''
+namespace: tap_oenb_meldefonds
+name: tap-oenb-meldefonds
+maintenance_status: active
+label: Oenb Meldefonds
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

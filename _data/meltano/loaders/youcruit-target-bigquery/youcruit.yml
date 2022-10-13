@@ -1,0 +1,17 @@
+logo_url: /assets/logos/loaders/youcruit-bigquery.png
+variant: youcruit
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/YouCruit/youcruit-target-bigquery
+pip_url: git+https://github.com/YouCruit/youcruit-target-bigquery.git
+next_steps: ''
+namespace: youcruit_target_bigquery
+name: youcruit-target-bigquery
+maintenance_status: active
+label: Youcruit Bigquery
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities: []

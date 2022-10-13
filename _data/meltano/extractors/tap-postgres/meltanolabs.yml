@@ -1,0 +1,20 @@
+logo_url: /assets/logos/extractors/postgres.png
+variant: meltanolabs
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/MeltanoLabs/tap-postgres
+pip_url: git+https://github.com/MeltanoLabs/tap-postgres.git
+next_steps: ''
+namespace: tap_postgres
+name: tap-postgres
+maintenance_status: active
+label: Postgres
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

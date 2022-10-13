@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/gigya.png
+variant: radico
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/Radico/tap-gigya
+pip_url: git+https://github.com/Radico/tap-gigya.git
+next_steps: ''
+namespace: tap_gigya
+name: tap-gigya
+maintenance_status: active
+label: Gigya
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

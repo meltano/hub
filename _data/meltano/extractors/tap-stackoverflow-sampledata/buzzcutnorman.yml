@@ -1,0 +1,20 @@
+logo_url: /assets/logos/extractors/stackoverflow-sampledata.png
+variant: buzzcutnorman
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/BuzzCutNorman/tap-stackoverflow-sampledata
+pip_url: git+https://github.com/BuzzCutNorman/tap-stackoverflow-sampledata.git
+next_steps: ''
+namespace: tap_stackoverflow_sampledata
+name: tap-stackoverflow-sampledata
+maintenance_status: active
+label: Stackoverflow Sampledata
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

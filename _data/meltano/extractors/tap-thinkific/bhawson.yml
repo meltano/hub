@@ -1,0 +1,20 @@
+logo_url: /assets/logos/extractors/thinkific.png
+variant: bhawson
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/bhawson/tap-thinkific
+pip_url: git+https://github.com/bhawson/tap-thinkific.git
+next_steps: ''
+namespace: tap_thinkific
+name: tap-thinkific
+maintenance_status: active
+label: Thinkific
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

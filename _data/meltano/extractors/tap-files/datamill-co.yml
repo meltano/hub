@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/files.png
+variant: datamill-co
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/datamill-co/tap-files
+pip_url: git+https://github.com/datamill-co/tap-files.git
+next_steps: ''
+namespace: tap_files
+name: tap-files
+maintenance_status: active
+label: Files
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

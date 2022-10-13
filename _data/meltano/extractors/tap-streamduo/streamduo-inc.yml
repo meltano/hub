@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/streamduo.png
+variant: streamduo-inc
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/streamduo-inc/tap-streamduo
+pip_url: git+https://github.com/streamduo-inc/tap-streamduo.git
+next_steps: ''
+namespace: tap_streamduo
+name: tap-streamduo
+maintenance_status: active
+label: Streamduo
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

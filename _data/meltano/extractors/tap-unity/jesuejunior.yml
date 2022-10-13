@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/unity.png
+variant: jesuejunior
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/jesuejunior/tap-unity
+pip_url: git+https://github.com/jesuejunior/tap-unity.git
+next_steps: ''
+namespace: tap_unity
+name: tap-unity
+maintenance_status: active
+label: Unity
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

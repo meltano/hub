@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/helpscout.png
+variant: stampedeapp
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/stampedeapp/tap-helpscout
+pip_url: git+https://github.com/stampedeapp/tap-helpscout.git
+next_steps: ''
+namespace: tap_helpscout
+name: tap-helpscout
+maintenance_status: active
+label: Helpscout
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/quickbooks-report.png
+variant: goodeggs
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/goodeggs/tap-quickbooks-report
+pip_url: git+https://github.com/goodeggs/tap-quickbooks-report.git
+next_steps: ''
+namespace: tap_quickbooks_report
+name: tap-quickbooks-report
+maintenance_status: active
+label: Quickbooks Report
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

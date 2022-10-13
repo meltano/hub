@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/instagram.png
+variant: joon-solutions
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/joon-solutions/tap-instagram
+pip_url: git+https://github.com/joon-solutions/tap-instagram.git
+next_steps: ''
+namespace: tap_instagram
+name: tap-instagram
+maintenance_status: active
+label: Instagram
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

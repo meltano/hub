@@ -1,0 +1,21 @@
+logo_url: /assets/logos/extractors/anvil.png
+variant: k-aranke
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/k-aranke/tap-anvil
+pip_url: git+https://github.com/k-aranke/tap-anvil.git
+next_steps: ''
+namespace: tap_anvil
+name: tap-anvil
+maintenance_status: active
+label: Anvil
+keywords:
+- meltano_sdk
+domain_url: ''
+docs: https://www.useanvil.com/docs/api/workflows
+capabilities:
+- catalog
+- discover
+- state

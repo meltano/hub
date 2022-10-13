@@ -1,0 +1,20 @@
+logo_url: /assets/logos/extractors/codatio.png
+variant: manuphatak
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/manuphatak/tap-codatio
+pip_url: git+https://github.com/manuphatak/tap-codatio.git
+next_steps: ''
+namespace: tap_codatio
+name: tap-codatio
+maintenance_status: active
+label: Codatio
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

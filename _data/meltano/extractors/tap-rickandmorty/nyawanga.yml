@@ -1,0 +1,20 @@
+logo_url: /assets/logos/extractors/rick-and-morty.png
+variant: nyawanga
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/nyawanga/tap-rickandmorty
+pip_url: git+https://github.com/nyawanga/tap-rickandmorty.git
+next_steps: ''
+namespace: tap_rickandmorty
+name: tap-rickandmorty
+maintenance_status: active
+label: Rickandmorty
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

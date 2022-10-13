@@ -1,0 +1,20 @@
+logo_url: /assets/logos/extractors/appsflyer-cpai.png
+variant: comparative-inc
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/Comparative-Inc/tap-appsflyer-cpai
+pip_url: git+https://github.com/Comparative-Inc/tap-appsflyer-cpai.git
+next_steps: ''
+namespace: tap_appsflyer_cpai
+name: tap-appsflyer-cpai
+maintenance_status: active
+label: Appsflyer Cpai
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

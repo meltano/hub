@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/cscart.png
+variant: blue-rabbit-vet
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/Blue-Rabbit-Vet/tap-cscart
+pip_url: git+https://github.com/Blue-Rabbit-Vet/tap-cscart.git
+next_steps: ''
+namespace: tap_cscart
+name: tap-cscart
+maintenance_status: active
+label: Cscart
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/sap-commerce-cloud.png
+variant: opinagecollab
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/opinagecollab/tap-sap-commerce-cloud
+pip_url: git+https://github.com/opinagecollab/tap-sap-commerce-cloud.git
+next_steps: ''
+namespace: tap_sap_commerce_cloud
+name: tap-sap-commerce-cloud
+maintenance_status: active
+label: Sap Commerce Cloud
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

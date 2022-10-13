@@ -1,0 +1,20 @@
+logo_url: /assets/logos/extractors/degreed.png
+variant: the-prairie
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/the-prairie/tap-degreed
+pip_url: git+https://github.com/the-prairie/tap-degreed.git
+next_steps: ''
+namespace: tap_degreed
+name: tap-degreed
+maintenance_status: active
+label: Degreed
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

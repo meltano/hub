@@ -1,0 +1,16 @@
+logo_url: /assets/logos/loaders/postgres.png
+variant: opinagecollab
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/opinagecollab/target-postgres
+pip_url: git+https://github.com/opinagecollab/target-postgres.git
+next_steps: ''
+namespace: target_postgres
+name: target-postgres
+maintenance_status: active
+label: Postgres
+keywords: []
+domain_url: ''
+capabilities: []

@@ -1,0 +1,20 @@
+logo_url: /assets/logos/extractors/opensea_no_api_key.png
+variant: bobswain
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/bobswain/tap-opensea_no_api_key
+pip_url: git+https://github.com/bobswain/tap-opensea_no_api_key.git
+next_steps: ''
+namespace: tap_opensea_no_api_key
+name: tap-opensea_no_api_key
+maintenance_status: active
+label: Opensea_no_api_key
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

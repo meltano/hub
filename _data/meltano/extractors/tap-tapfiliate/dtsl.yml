@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/tapfiliate.png
+variant: dtsl
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/DTSL/tap-tapfiliate
+pip_url: git+https://github.com/DTSL/tap-tapfiliate.git
+next_steps: ''
+namespace: tap_tapfiliate
+name: tap-tapfiliate
+maintenance_status: active
+label: Tapfiliate
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

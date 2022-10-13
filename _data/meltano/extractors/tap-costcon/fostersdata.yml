@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/costcon.png
+variant: fostersdata
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/FostersData/tap-costcon
+pip_url: git+https://github.com/FostersData/tap-costcon.git
+next_steps: ''
+namespace: tap_costcon
+name: tap-costcon
+maintenance_status: active
+label: Costcon
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

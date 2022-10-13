@@ -1,0 +1,20 @@
+logo_url: /assets/logos/extractors/brillium.png
+variant: manuelapilongo
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/manuelapilongo/tap-brillium
+pip_url: git+https://github.com/manuelapilongo/tap-brillium.git
+next_steps: ''
+namespace: tap_brillium
+name: tap-brillium
+maintenance_status: active
+label: Brillium
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

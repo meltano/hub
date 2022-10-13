@@ -1,0 +1,20 @@
+logo_url: /assets/logos/extractors/template.png
+variant: degreed-data-engineering
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/degreed-data-engineering/tap-template
+pip_url: git+https://github.com/degreed-data-engineering/tap-template.git
+next_steps: ''
+namespace: tap_template
+name: tap-template
+maintenance_status: active
+label: Template
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

@@ -1,0 +1,20 @@
+logo_url: /assets/logos/extractors/sparkthink.png
+variant: slalom
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/slalom/tap-sparkthink
+pip_url: git+https://github.com/slalom/tap-sparkthink.git
+next_steps: ''
+namespace: tap_sparkthink
+name: tap-sparkthink
+maintenance_status: active
+label: Sparkthink
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

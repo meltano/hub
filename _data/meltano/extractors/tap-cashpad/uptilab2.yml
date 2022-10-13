@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/cashpad.png
+variant: uptilab2
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/uptilab2/tap-cashpad
+pip_url: git+https://github.com/uptilab2/tap-cashpad.git
+next_steps: ''
+namespace: tap_cashpad
+name: tap-cashpad
+maintenance_status: active
+label: Cashpad
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/twitter-ads.png
+variant: potloc
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/potloc/tap-twitter-ads
+pip_url: git+https://github.com/potloc/tap-twitter-ads.git
+next_steps: ''
+namespace: tap_twitter_ads
+name: tap-twitter-ads
+maintenance_status: active
+label: Twitter Ads
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

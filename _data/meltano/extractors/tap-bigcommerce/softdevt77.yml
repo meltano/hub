@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/bigcommerce.png
+variant: softdevt77
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/softdevt77/tap-bigcommerce
+pip_url: git+https://github.com/softdevt77/tap-bigcommerce.git
+next_steps: ''
+namespace: tap_bigcommerce
+name: tap-bigcommerce
+maintenance_status: active
+label: Bigcommerce
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

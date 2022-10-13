@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/bmaquet-jira.png
+variant: benjmaq
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/BenjMaq/bmaquet-tap-jira
+pip_url: git+https://github.com/BenjMaq/bmaquet-tap-jira.git
+next_steps: ''
+namespace: bmaquet_tap_jira
+name: bmaquet-tap-jira
+maintenance_status: active
+label: Bmaquet Jira
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

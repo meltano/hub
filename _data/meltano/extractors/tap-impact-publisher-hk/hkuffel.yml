@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/impact-publisher-hk.png
+variant: hkuffel
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/hkuffel/tap-impact-publisher-hk
+pip_url: git+https://github.com/hkuffel/tap-impact-publisher-hk.git
+next_steps: ''
+namespace: tap_impact_publisher_hk
+name: tap-impact-publisher-hk
+maintenance_status: active
+label: Impact Publisher Hk
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

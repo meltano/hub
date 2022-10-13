@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/companies-house.png
+variant: devruss
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/devruss/tap-companies-house
+pip_url: git+https://github.com/devruss/tap-companies-house.git
+next_steps: ''
+namespace: tap_companies_house
+name: tap-companies-house
+maintenance_status: active
+label: Companies House
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

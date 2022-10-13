@@ -1,0 +1,20 @@
+logo_url: /assets/logos/extractors/clientsuccess.png
+variant: antiny
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/antiny/tap-clientsuccess
+pip_url: git+https://github.com/antiny/tap-clientsuccess.git
+next_steps: ''
+namespace: tap_clientsuccess
+name: tap-clientsuccess
+maintenance_status: active
+label: Clientsuccess
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

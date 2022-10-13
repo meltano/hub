@@ -1,0 +1,17 @@
+logo_url: /assets/logos/loaders/snowflake.png
+variant: rabidaudio
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/rabidaudio/target-snowflake
+pip_url: git+https://github.com/rabidaudio/target-snowflake.git
+next_steps: ''
+namespace: target_snowflake
+name: target-snowflake
+maintenance_status: active
+label: Snowflake
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities: []

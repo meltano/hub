@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/purecloud.png
+variant: boughtbymany
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/boughtbymany/tap-purecloud
+pip_url: git+https://github.com/boughtbymany/tap-purecloud.git
+next_steps: ''
+namespace: tap_purecloud
+name: tap-purecloud
+maintenance_status: active
+label: Purecloud
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

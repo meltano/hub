@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/linkedin.png
+variant: kellymondor
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/kellymondor/tap-linkedin
+pip_url: git+https://github.com/kellymondor/tap-linkedin.git
+next_steps: ''
+namespace: tap_linkedin
+name: tap-linkedin
+maintenance_status: active
+label: Linkedin
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

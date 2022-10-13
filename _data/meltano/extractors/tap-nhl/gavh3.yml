@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/nhl.png
+variant: gavh3
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/gavh3/tap-nhl
+pip_url: git+https://github.com/gavh3/tap-nhl.git
+next_steps: ''
+namespace: tap_nhl
+name: tap-nhl
+maintenance_status: active
+label: Nhl
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

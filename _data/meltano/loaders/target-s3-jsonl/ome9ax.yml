@@ -1,0 +1,16 @@
+logo_url: /assets/logos/loaders/s3-jsonl.png
+variant: ome9ax
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/ome9ax/target-s3-jsonl
+pip_url: git+https://github.com/ome9ax/target-s3-jsonl.git
+next_steps: ''
+namespace: target_s3_jsonl
+name: target-s3-jsonl
+maintenance_status: active
+label: S3 Jsonl
+keywords: []
+domain_url: ''
+capabilities: []

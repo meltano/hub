@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/decentraland-thegraph.png
+variant: decentraland
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/decentraland/tap-decentraland-thegraph
+pip_url: git+https://github.com/decentraland/tap-decentraland-thegraph.git
+next_steps: ''
+namespace: tap_decentraland_thegraph
+name: tap-decentraland-thegraph
+maintenance_status: active
+label: Decentraland Thegraph
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

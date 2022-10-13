@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/stripe.png
+variant: dtsl
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/DTSL/tap-stripe
+pip_url: git+https://github.com/DTSL/tap-stripe.git
+next_steps: ''
+namespace: tap_stripe
+name: tap-stripe
+maintenance_status: active
+label: Stripe
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

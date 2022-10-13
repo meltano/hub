@@ -1,0 +1,20 @@
+logo_url: /assets/logos/extractors/chorusai.png
+variant: andyoneal
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/andyoneal/tap-chorusai
+pip_url: git+https://github.com/andyoneal/tap-chorusai.git
+next_steps: ''
+namespace: tap_chorusai
+name: tap-chorusai
+maintenance_status: active
+label: Chorusai
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

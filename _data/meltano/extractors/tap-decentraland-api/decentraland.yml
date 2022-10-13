@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/decentraland-api.png
+variant: decentraland
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/decentraland/tap-decentraland-api
+pip_url: git+https://github.com/decentraland/tap-decentraland-api.git
+next_steps: ''
+namespace: tap_decentraland_api
+name: tap-decentraland-api
+maintenance_status: active
+label: Decentraland Api
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

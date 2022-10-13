@@ -1,0 +1,20 @@
+logo_url: /assets/logos/extractors/gmail.png
+variant: kgpayne
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/kgpayne/tap-gmail
+pip_url: git+https://github.com/kgpayne/tap-gmail.git
+next_steps: ''
+namespace: tap_gmail
+name: tap-gmail
+maintenance_status: active
+label: Gmail
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

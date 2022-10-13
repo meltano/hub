@@ -1,0 +1,17 @@
+logo_url: /assets/logos/loaders/s3-parquet.png
+variant: gupy-io
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/gupy-io/target-s3-parquet
+pip_url: git+https://github.com/gupy-io/target-s3-parquet.git
+next_steps: ''
+namespace: target_s3_parquet
+name: target-s3-parquet
+maintenance_status: active
+label: S3 Parquet
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities: []

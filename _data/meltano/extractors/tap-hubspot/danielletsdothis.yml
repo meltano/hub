@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/hubspot.png
+variant: danielletsdothis
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/danielletsdothis/tap-hubspot
+pip_url: git+https://github.com/danielletsdothis/tap-hubspot.git
+next_steps: ''
+namespace: tap_hubspot
+name: tap-hubspot
+maintenance_status: active
+label: Hubspot
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

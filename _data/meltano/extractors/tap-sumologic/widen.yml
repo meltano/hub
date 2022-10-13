@@ -1,0 +1,20 @@
+logo_url: /assets/logos/extractors/sumologic.png
+variant: widen
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/Widen/tap-sumologic
+pip_url: git+https://github.com/Widen/tap-sumologic.git
+next_steps: ''
+namespace: tap_sumologic
+name: tap-sumologic
+maintenance_status: active
+label: Sumologic
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/gocardless.png
+variant: morrislaptop
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/morrislaptop/tap-gocardless
+pip_url: git+https://github.com/morrislaptop/tap-gocardless.git
+next_steps: ''
+namespace: tap_gocardless
+name: tap-gocardless
+maintenance_status: active
+label: Gocardless
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

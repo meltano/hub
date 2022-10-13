@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/paycor.png
+variant: jarvusinnovations
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/JarvusInnovations/tap-paycor
+pip_url: git+https://github.com/JarvusInnovations/tap-paycor.git
+next_steps: ''
+namespace: tap_paycor
+name: tap-paycor
+maintenance_status: active
+label: Paycor
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

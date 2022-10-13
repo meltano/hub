@@ -1,0 +1,20 @@
+logo_url: /assets/logos/extractors/opendota.png
+variant: jkausti
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/jkausti/tap-opendota
+pip_url: git+https://github.com/jkausti/tap-opendota.git
+next_steps: ''
+namespace: tap_opendota
+name: tap-opendota
+maintenance_status: active
+label: Opendota
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

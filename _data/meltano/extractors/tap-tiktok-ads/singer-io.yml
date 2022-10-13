@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/tiktok-ads.png
+variant: singer-io
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/singer-io/tap-tiktok-ads
+pip_url: git+https://github.com/singer-io/tap-tiktok-ads.git
+next_steps: ''
+namespace: tap_tiktok_ads
+name: tap-tiktok-ads
+maintenance_status: active
+label: Tiktok Ads
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

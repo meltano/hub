@@ -1,0 +1,17 @@
+logo_url: /assets/logos/loaders/google-people.png
+variant: kgpayne
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/kgpayne/target-google-people
+pip_url: git+https://github.com/kgpayne/target-google-people.git
+next_steps: ''
+namespace: target_google_people
+name: target-google-people
+maintenance_status: active
+label: Google People
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities: []

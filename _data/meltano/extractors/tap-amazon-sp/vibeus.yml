@@ -1,0 +1,20 @@
+logo_url: /assets/logos/extractors/amazon-sp.png
+variant: vibeus
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/vibeus/tap-amazon-sp
+pip_url: git+https://github.com/vibeus/tap-amazon-sp.git
+next_steps: ''
+namespace: tap_amazon_sp
+name: tap-amazon-sp
+maintenance_status: active
+label: Amazon Sp
+keywords: []
+domain_url: ''
+docs: https://pypi.org/project/tap-amazon-sp/
+capabilities:
+- catalog
+- discover
+- state

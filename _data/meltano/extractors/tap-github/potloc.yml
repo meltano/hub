@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/github.png
+variant: potloc
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/potloc/tap-github
+pip_url: git+https://github.com/potloc/tap-github.git
+next_steps: ''
+namespace: tap_github
+name: tap-github
+maintenance_status: active
+label: Github
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

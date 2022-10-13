@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/github-clone.png
+variant: anbarasuram
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/AnbarasuRam/tap-github-clone
+pip_url: git+https://github.com/AnbarasuRam/tap-github-clone.git
+next_steps: ''
+namespace: tap_github_clone
+name: tap-github-clone
+maintenance_status: active
+label: Github Clone
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

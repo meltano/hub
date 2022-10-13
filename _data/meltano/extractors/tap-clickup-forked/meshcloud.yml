@@ -1,0 +1,20 @@
+logo_url: /assets/logos/extractors/clickup-forked.png
+variant: meshcloud
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/meshcloud/tap-clickup-forked
+pip_url: git+https://github.com/meshcloud/tap-clickup-forked.git
+next_steps: ''
+namespace: tap_clickup_forked
+name: tap-clickup-forked
+maintenance_status: active
+label: Clickup Forked
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

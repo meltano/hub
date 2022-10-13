@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/apple-search-ads.png
+variant: mighty-digital
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/mighty-digital/tap-apple-search-ads
+pip_url: git+https://github.com/mighty-digital/tap-apple-search-ads.git
+next_steps: ''
+namespace: tap_apple_search_ads
+name: tap-apple-search-ads
+maintenance_status: active
+label: Apple Search Ads
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

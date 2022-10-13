@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/gitlab.png
+variant: peako-io
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/peako-io/tap-gitlab
+pip_url: git+https://github.com/peako-io/tap-gitlab.git
+next_steps: ''
+namespace: tap_gitlab
+name: tap-gitlab
+maintenance_status: active
+label: Gitlab
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

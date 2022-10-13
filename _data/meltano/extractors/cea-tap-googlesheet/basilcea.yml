@@ -1,0 +1,20 @@
+logo_url: /assets/logos/extractors/cea-googlesheet.png
+variant: basilcea
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/basilcea/cea-tap-googlesheet
+pip_url: git+https://github.com/basilcea/cea-tap-googlesheet.git
+next_steps: ''
+namespace: cea_tap_googlesheet
+name: cea-tap-googlesheet
+maintenance_status: active
+label: Cea Googlesheet
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

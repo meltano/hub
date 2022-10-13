@@ -1,0 +1,20 @@
+logo_url: /assets/logos/extractors/leaflink-meltano.png
+variant: pjatx
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/pjatx/tap-leaflink-meltano
+pip_url: git+https://github.com/pjatx/tap-leaflink-meltano.git
+next_steps: ''
+namespace: tap_leaflink_meltano
+name: tap-leaflink-meltano
+maintenance_status: active
+label: Leaflink Meltano
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

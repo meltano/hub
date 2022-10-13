@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/kingdee-jdy.png
+variant: vibeus
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/vibeus/tap-kingdee-jdy
+pip_url: git+https://github.com/vibeus/tap-kingdee-jdy.git
+next_steps: ''
+namespace: tap_kingdee_jdy
+name: tap-kingdee-jdy
+maintenance_status: active
+label: Kingdee Jdy
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

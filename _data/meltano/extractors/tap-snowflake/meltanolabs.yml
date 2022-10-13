@@ -1,0 +1,20 @@
+logo_url: /assets/logos/extractors/snowflake.png
+variant: meltanolabs
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/MeltanoLabs/tap-snowflake
+pip_url: git+https://github.com/MeltanoLabs/tap-snowflake.git
+next_steps: ''
+namespace: tap_snowflake
+name: tap-snowflake
+maintenance_status: active
+label: Snowflake
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

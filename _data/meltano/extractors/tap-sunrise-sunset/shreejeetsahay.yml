@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/sunrise-sunset.png
+variant: shreejeetsahay
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/shreejeetsahay/tap-sunrise-sunset
+pip_url: git+https://github.com/shreejeetsahay/tap-sunrise-sunset.git
+next_steps: ''
+namespace: tap_sunrise_sunset
+name: tap-sunrise-sunset
+maintenance_status: active
+label: Sunrise Sunset
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

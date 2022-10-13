@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/facebook.png
+variant: danielletsdothis
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/danielletsdothis/tap-facebook
+pip_url: git+https://github.com/danielletsdothis/tap-facebook.git
+next_steps: ''
+namespace: tap_facebook
+name: tap-facebook
+maintenance_status: active
+label: Facebook
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

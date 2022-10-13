@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/giftup.png
+variant: jesuejunior
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/jesuejunior/tap-giftup
+pip_url: git+https://github.com/jesuejunior/tap-giftup.git
+next_steps: ''
+namespace: tap_giftup
+name: tap-giftup
+maintenance_status: active
+label: Giftup
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

@@ -1,0 +1,20 @@
+logo_url: /assets/logos/extractors/coingecko.png
+variant: sicarul
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/sicarul/tap-coingecko
+pip_url: git+https://github.com/sicarul/tap-coingecko.git
+next_steps: ''
+namespace: tap_coingecko
+name: tap-coingecko
+maintenance_status: active
+label: Coingecko
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

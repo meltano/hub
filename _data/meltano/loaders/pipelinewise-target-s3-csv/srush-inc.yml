@@ -1,0 +1,16 @@
+logo_url: /assets/logos/loaders/pipelinewise-s3-csv.png
+variant: srush-inc
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/srush-inc/pipelinewise-target-s3-csv
+pip_url: git+https://github.com/srush-inc/pipelinewise-target-s3-csv.git
+next_steps: ''
+namespace: pipelinewise_target_s3_csv
+name: pipelinewise-target-s3-csv
+maintenance_status: active
+label: Pipelinewise S3 Csv
+keywords: []
+domain_url: ''
+capabilities: []

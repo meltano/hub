@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/adwords.png
+variant: stampedeapp
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/stampedeapp/tap-adwords
+pip_url: git+https://github.com/stampedeapp/tap-adwords.git
+next_steps: ''
+namespace: tap_adwords
+name: tap-adwords
+maintenance_status: active
+label: Adwords
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

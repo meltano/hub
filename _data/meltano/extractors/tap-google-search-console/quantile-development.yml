@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/google-search-console.png
+variant: quantile-development
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/quantile-development/tap-google-search-console
+pip_url: git+https://github.com/quantile-development/tap-google-search-console.git
+next_steps: ''
+namespace: tap_google_search_console
+name: tap-google-search-console
+maintenance_status: active
+label: Google Search Console
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

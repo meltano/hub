@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/salesforce-meltano.png
+variant: obause
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/obause/tap-salesforce-meltano
+pip_url: git+https://github.com/obause/tap-salesforce-meltano.git
+next_steps: ''
+namespace: tap_salesforce_meltano
+name: tap-salesforce-meltano
+maintenance_status: active
+label: Salesforce Meltano
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

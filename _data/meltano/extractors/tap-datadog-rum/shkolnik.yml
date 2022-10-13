@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/datadog-rum.png
+variant: shkolnik
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/shkolnik/tap-datadog-rum
+pip_url: git+https://github.com/shkolnik/tap-datadog-rum.git
+next_steps: ''
+namespace: tap_datadog_rum
+name: tap-datadog-rum
+maintenance_status: active
+label: Datadog Rum
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

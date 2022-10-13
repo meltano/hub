@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/bmaquet-github.png
+variant: benjmaq
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/BenjMaq/bmaquet-tap-github
+pip_url: git+https://github.com/BenjMaq/bmaquet-tap-github.git
+next_steps: ''
+namespace: bmaquet_tap_github
+name: bmaquet-tap-github
+maintenance_status: active
+label: Bmaquet Github
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

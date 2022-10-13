@@ -1,0 +1,20 @@
+logo_url: /assets/logos/extractors/bigquery.png
+variant: epoch8
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/epoch8/tap-bigquery
+pip_url: git+https://github.com/epoch8/tap-bigquery.git
+next_steps: ''
+namespace: tap_bigquery
+name: tap-bigquery
+maintenance_status: active
+label: Bigquery
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

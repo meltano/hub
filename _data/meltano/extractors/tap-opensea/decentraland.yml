@@ -1,0 +1,20 @@
+logo_url: /assets/logos/extractors/opensea.png
+variant: decentraland
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/decentraland/tap-opensea
+pip_url: git+https://github.com/decentraland/tap-opensea.git
+next_steps: ''
+namespace: tap_opensea
+name: tap-opensea
+maintenance_status: active
+label: Opensea
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/airtable.png
+variant: crystaljg
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/crystaljg/tap-airtable
+pip_url: git+https://github.com/crystaljg/tap-airtable.git
+next_steps: ''
+namespace: tap_airtable
+name: tap-airtable
+maintenance_status: active
+label: Airtable
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

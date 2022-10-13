@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/toast.png
+variant: cyril-cdb
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/Cyril-CDB/tap-toast
+pip_url: git+https://github.com/Cyril-CDB/tap-toast.git
+next_steps: ''
+namespace: tap_toast
+name: tap-toast
+maintenance_status: active
+label: Toast
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

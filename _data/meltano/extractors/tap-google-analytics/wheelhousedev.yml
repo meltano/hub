@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/google-analytics.png
+variant: wheelhousedev
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/wheelhousedev/tap-google-analytics
+pip_url: git+https://github.com/wheelhousedev/tap-google-analytics.git
+next_steps: ''
+namespace: tap_google_analytics
+name: tap-google-analytics
+maintenance_status: active
+label: Google Analytics
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

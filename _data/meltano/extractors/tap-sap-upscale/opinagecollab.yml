@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/sap-upscale.png
+variant: opinagecollab
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/opinagecollab/tap-sap-upscale
+pip_url: git+https://github.com/opinagecollab/tap-sap-upscale.git
+next_steps: ''
+namespace: tap_sap_upscale
+name: tap-sap-upscale
+maintenance_status: active
+label: Sap Upscale
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

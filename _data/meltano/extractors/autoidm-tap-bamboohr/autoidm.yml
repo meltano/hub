@@ -1,0 +1,20 @@
+logo_url: /assets/logos/extractors/autoidm-bamboohr.png
+variant: autoidm
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/AutoIDM/autoidm-tap-bamboohr
+pip_url: git+https://github.com/AutoIDM/autoidm-tap-bamboohr.git
+next_steps: ''
+namespace: autoidm_tap_bamboohr
+name: autoidm-tap-bamboohr
+maintenance_status: active
+label: Autoidm Bamboohr
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

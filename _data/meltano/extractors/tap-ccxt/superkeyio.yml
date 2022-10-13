@@ -1,0 +1,20 @@
+logo_url: /assets/logos/extractors/ccxt.png
+variant: superkeyio
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/superkeyio/tap-ccxt
+pip_url: git+https://github.com/superkeyio/tap-ccxt.git
+next_steps: ''
+namespace: tap_ccxt
+name: tap-ccxt
+maintenance_status: active
+label: Ccxt
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

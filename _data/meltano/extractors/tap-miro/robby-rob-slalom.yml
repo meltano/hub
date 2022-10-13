@@ -1,0 +1,20 @@
+logo_url: /assets/logos/extractors/miro.png
+variant: robby-rob-slalom
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/robby-rob-slalom/tap-miro
+pip_url: git+https://github.com/robby-rob-slalom/tap-miro.git
+next_steps: ''
+namespace: tap_miro
+name: tap-miro
+maintenance_status: active
+label: Miro
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

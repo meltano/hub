@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/simpro.png
+variant: fostersdata
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/FostersData/tap-simpro
+pip_url: git+https://github.com/FostersData/tap-simpro.git
+next_steps: ''
+namespace: tap_simpro
+name: tap-simpro
+maintenance_status: active
+label: Simpro
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

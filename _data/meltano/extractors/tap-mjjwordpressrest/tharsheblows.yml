@@ -1,0 +1,20 @@
+logo_url: /assets/logos/extractors/mjjwordpressrest.png
+variant: tharsheblows
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/tharsheblows/tap-mjjwordpressrest
+pip_url: git+https://github.com/tharsheblows/tap-mjjwordpressrest.git
+next_steps: ''
+namespace: tap_mjjwordpressrest
+name: tap-mjjwordpressrest
+maintenance_status: active
+label: Mjjwordpressrest
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

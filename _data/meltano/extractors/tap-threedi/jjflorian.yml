@@ -1,0 +1,20 @@
+logo_url: /assets/logos/extractors/threedi.png
+variant: jjflorian
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/JJFlorian/tap-threedi
+pip_url: git+https://github.com/JJFlorian/tap-threedi.git
+next_steps: ''
+namespace: tap_threedi
+name: tap-threedi
+maintenance_status: active
+label: Threedi
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

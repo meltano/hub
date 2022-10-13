@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/amazon-sp.png
+variant: goes-funky
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/goes-funky/tap-amazon-sp
+pip_url: git+https://github.com/goes-funky/tap-amazon-sp.git
+next_steps: ''
+namespace: tap_amazon_sp
+name: tap-amazon-sp
+maintenance_status: active
+label: Amazon Sp
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

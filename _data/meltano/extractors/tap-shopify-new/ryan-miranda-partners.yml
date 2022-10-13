@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/shopify-new.png
+variant: ryan-miranda-partners
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/ryan-miranda-partners/tap-shopify-new
+pip_url: git+https://github.com/ryan-miranda-partners/tap-shopify-new.git
+next_steps: ''
+namespace: tap_shopify_new
+name: tap-shopify-new
+maintenance_status: active
+label: Shopify New
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/singer-shopify-partners.png
+variant: yoast
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/Yoast/singer-tap-shopify-partners
+pip_url: git+https://github.com/Yoast/singer-tap-shopify-partners.git
+next_steps: ''
+namespace: singer_tap_shopify_partners
+name: singer-tap-shopify-partners
+maintenance_status: active
+label: Singer Shopify Partners
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

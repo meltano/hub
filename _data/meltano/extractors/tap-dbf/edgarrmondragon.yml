@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/dbf.png
+variant: edgarrmondragon
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/edgarrmondragon/tap-dbf
+pip_url: git+https://github.com/edgarrmondragon/tap-dbf.git
+next_steps: ''
+namespace: tap_dbf
+name: tap-dbf
+maintenance_status: active
+label: Dbf
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

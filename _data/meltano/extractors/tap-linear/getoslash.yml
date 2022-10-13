@@ -1,0 +1,19 @@
+logo_url: /assets/logos/extractors/linear.png
+variant: getoslash
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/getoslash/tap-linear
+pip_url: git+https://github.com/getoslash/tap-linear.git
+next_steps: ''
+namespace: tap_linear
+name: tap-linear
+maintenance_status: active
+label: Linear
+keywords: []
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

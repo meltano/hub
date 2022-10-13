@@ -1,0 +1,20 @@
+logo_url: /assets/logos/extractors/zohosprints.png
+variant: autoidm
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/AutoIDM/tap-zohosprints
+pip_url: git+https://github.com/AutoIDM/tap-zohosprints.git
+next_steps: ''
+namespace: tap_zohosprints
+name: tap-zohosprints
+maintenance_status: active
+label: Zohosprints
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

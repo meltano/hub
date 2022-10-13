@@ -1,0 +1,20 @@
+logo_url: /assets/logos/extractors/amazon-associates.png
+variant: voxmedia
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/voxmedia/tap-amazon-associates
+pip_url: git+https://github.com/voxmedia/tap-amazon-associates.git
+next_steps: ''
+namespace: tap_amazon_associates
+name: tap-amazon-associates
+maintenance_status: active
+label: Amazon Associates
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state

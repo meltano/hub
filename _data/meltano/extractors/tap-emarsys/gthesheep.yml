@@ -1,0 +1,20 @@
+logo_url: /assets/logos/extractors/emarsys.png
+variant: gthesheep
+usage: ''
+settings_preamble: ''
+settings_group_validation: []
+settings: []
+repo: https://github.com/GtheSheep/tap-emarsys
+pip_url: git+https://github.com/GtheSheep/tap-emarsys.git
+next_steps: ''
+namespace: tap_emarsys
+name: tap-emarsys
+maintenance_status: active
+label: Emarsys
+keywords:
+- meltano_sdk
+domain_url: ''
+capabilities:
+- catalog
+- discover
+- state
