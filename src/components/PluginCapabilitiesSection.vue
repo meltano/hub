@@ -1,7 +1,7 @@
 <template>
   <div>
     <p class="text-3xl py-4" id="capabilities">Capabilities</p>
-    <span v-if="capabilities">
+    <span v-if="len(capabilities) > 0">
       <span
         >The current capabilities for
         <pre class="inline-code-block"><code>{{ name }}</code></pre>
