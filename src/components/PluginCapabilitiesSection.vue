@@ -1,7 +1,7 @@
 <template>
   <div>
     <p class="text-3xl py-4" id="capabilities">Capabilities</p>
-    <span class="space-y-3" v-if="len(capabilities) > 0">
+    <span class="space-y-3" v-if="capabilities && capabilities.length">
       <p>
         The current capabilities for
         <code>{{ name }}</code>
