@@ -1,6 +1,7 @@
 name: sqlfluff
 label: SQLFluff
 namespace: sqlfluff
+domain_url: https://www.sqlfluff.com/
 pip_url: sqlfluff sqlfluff-templater-dbt dbt-core
 maintenance_status: active
 repo: https://github.com/sqlfluff/sqlfluff
