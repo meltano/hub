@@ -46,7 +46,7 @@ settings:
   label: Filter DBs
   description: Comma separated list of schemas to extract tables only from particular schemas and to improve data extraction performance.
 - name: use_gtid
-  kind: bool
+  kind: boolean
   value: False
   description: Flag to enable log based replication using GTID.
 - name: engine
