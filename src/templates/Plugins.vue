@@ -8,7 +8,7 @@
               <td style="padding: 25px">
                 <a
                   v-if="$page.plugins.domain_url"
-                  href="$page.plugins.domain_url"
+                  :href="$page.plugins.domain_url"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
