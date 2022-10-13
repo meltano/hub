@@ -219,6 +219,7 @@
                 :name="$page.plugins.name"
                 :plugin_type_plural="$page.plugins.pluginTypePlural"
                 :variant="$page.plugins.variant"
+                :preamble="$page.plugins.settings_preamble_rendered"
               />
               <PluginHelpSection
                 :name="$page.plugins.name"
@@ -294,6 +295,8 @@ query Plugins($path: String!, $name: String!) {
     keywords
     domain_url
     capabilities
+    settings_preamble
+    settings_preamble_rendered
     settings {
       name
       label
