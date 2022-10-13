@@ -72,7 +72,7 @@ settings:
   env: AIRFLOW__WEBSERVER__WEB_SERVER_PORT
 - name: extension.airflow_home
   label: Airflow Home
-  value: $MELTANO_PROJECT_ROOT/orchestrate/airflow/config
+  value: $MELTANO_PROJECT_ROOT/orchestrate/airflow
   env: AIRFLOW_HOME
   description: |
     The directory where Airflow will store its configuration, logs, and other files.
