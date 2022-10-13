@@ -1,0 +1,204 @@
+name: Plugin 'Test' Command
+
+on:
+  workflow_dispatch:
+    inputs:
+      # These first two inputs are required in order for the slash command to function
+      repository:
+        description: The repository from which the slash command was dispatched
+        required: true
+      comment-id:
+        description: The comment ID of the originating slash command
+        required: true
+      issue-number:
+        description: The issue number containing the slash command comment
+        required: true
+      name:
+        description: The name of the plugin's executable
+        required: true
+      pip-url:
+        description: The pip_url for the plugin
+        required: false
+        default: ''
+
+jobs:
+  plugin_tests:
+
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write       # to create a github release
+      pull-requests: write  # to create and update PRs
+    env:
+      GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      PLUGIN_NAME: ${{ github.event.inputs.name }}
+      PIP_URL: ${{ github.event.inputs.pip-url }}
+
+    steps:
+
+    - name: Handle missing pip_url
+      if: github.event.inputs.pip-url == ''
+      run: echo 'PIP_URL=${{ github.event.inputs.name }}' >> "$GITHUB_ENV"
+
+    - name: Add 👀 reaction
+      uses: peter-evans/create-or-update-comment@v2
+      with:
+        token: ${{ secrets.ACTIONS_BOT_TOKEN }}
+        repository: ${{ github.event.inputs.repository }}
+        comment-id: ${{ github.event.inputs.comment-id }}
+        reaction-type: eyes
+
+    - name: Append 'starting' notification to comment
+      uses: peter-evans/create-or-update-comment@v2
+      with:
+        comment-id: ${{ github.event.inputs.comment-id }}
+        body: |
+          > [Starting test job...](https://github.com/${{github.repository}}/actions/runs/${{github.run_id}})
+          > ...
+
+    - name: Create requirements.txt
+      run: echo '${{ env.PIP_URL }}' > requirements.txt
+    - name: Set up Python
+      uses: actions/setup-python@v3.1.2
+      with:
+        # https://github.com/actions/setup-python
+        python-version: 3.9
+        cache: 'pip'
+
+    - name: Install plugin
+      id: plugin-install
+      run: |
+        pipx install ${{ env.PIP_URL }} 2>&1 | tee install-output.txt
+        echo "::set-output name=failed::${PIPESTATUS[0]}"
+
+    - name: Create installation failure log
+      if: steps.plugin-install.outputs.failed == '1'
+      run: |
+        echo "JOB_OUTPUT<<EOF" >> $GITHUB_ENV
+        echo "melty-bot % pipx install ${{ env.PIP_URL }}" >> $GITHUB_ENV
+        cat install-output.txt >> $GITHUB_ENV
+        echo "EOF" >> $GITHUB_ENV
+
+    - name: Abort if installation failed
+      if: steps.plugin-install.outputs.failed == '1'
+      uses: actions/github-script@v3
+      with:
+        script: |
+            core.setFailed('Plugin installation failed')
+
+    - name: Print plugin help
+      id: plugin-help
+      run: |
+        ${{ env.PLUGIN_NAME }} --help 2>&1 | tee help-output.txt
+
+    - name: Print plugin version
+      id: plugin-version
+      continue-on-error: true
+      run: |
+        ${{ env.PLUGIN_NAME }} --version | tee version-output.txt
+
+    - name: Print plugin about
+      id: plugin-about
+      continue-on-error: true
+      run: |
+        ${{ env.PLUGIN_NAME }} --about --format=json | tee about-result.json
+
+    - name: Print plugin markdown
+      id: plugin-markdown
+      continue-on-error: true
+      run: |
+        ${{ env.PLUGIN_NAME }} --about --format=markdown | tee markdown-result.md
+
+    - name: Print discovery output
+      id: plugin-catalog
+      continue-on-error: true
+      run: |
+        ${{ env.PLUGIN_NAME }} --discover | tee catalog.json
+
+    # Generates the JOB_OUTPUT env var, accessible via '${{ env.JOB_OUTPUT }}''
+    # Ref: https://trstringer.com/github-actions-multiline-strings/
+    - name: Process job output
+      if: steps.plugin-install.outputs.failed == '0'
+      run: |
+        echo "JOB_OUTPUT<<EOF" >> $GITHUB_ENV
+        if [ -s markdown-result.md ]; then
+          echo -e "<details><summary>Auto-generated README.md</summary>\n" >> $GITHUB_ENV
+          cat markdown-result.md >> $GITHUB_ENV
+          echo -e "\n</details>" >> $GITHUB_ENV
+        fi
+        if [ -s version-output.txt ]; then
+          echo "<details><summary>Version info</summary>" >> $GITHUB_ENV
+          echo -e "\n\`\`\`" >> $GITHUB_ENV
+          cat version-output.txt >> $GITHUB_ENV
+          echo -e "\`\`\`\n" >> $GITHUB_ENV
+          echo "</details>" >> $GITHUB_ENV
+        fi
+        echo "<details><summary>Usage info</summary>" >> $GITHUB_ENV
+        echo -e "\n\`\`\`" >> $GITHUB_ENV
+        echo "melty-bot % ${{ env.PLUGIN_NAME }} --help" >> $GITHUB_ENV
+        cat help-output.txt >> $GITHUB_ENV
+        echo -e "\`\`\`\n" >> $GITHUB_ENV
+        echo "</details>" >> $GITHUB_ENV
+        echo "<details><summary>Detected capabilities</summary>" >> $GITHUB_ENV
+        echo -e "\n" >> $GITHUB_ENV
+        if grep -q -e "--catalog" help-output.txt; then
+          echo "> - ✅ 'catalog'" >> $GITHUB_ENV
+        elif grep -q -e "--properties" help-output.txt; then
+          echo "> - ❌ 'catalog'" >> $GITHUB_ENV
+          echo "> - ✅ 'properties'" >> $GITHUB_ENV
+        else
+          echo "> - ❌ 'catalog'" >> $GITHUB_ENV
+          echo "> - ❌ 'properties'" >> $GITHUB_ENV
+        fi
+        if grep -q -e "--state" help-output.txt; then
+          echo "> - ✅ 'state'" >> $GITHUB_ENV
+        else
+          echo "> - ❌ 'state'" >> $GITHUB_ENV
+        fi
+        if grep -q -e "--about" help-output.txt; then
+          echo "> - ✅ 'about'" >> $GITHUB_ENV
+        else
+          echo "> - ❌ 'about'" >> $GITHUB_ENV
+        fi
+        echo -e "\n</details>\n" >> $GITHUB_ENV
+        if [ -s about-result.json ]; then
+          echo "<details><summary>JSON Metadata</summary>" >> $GITHUB_ENV
+          echo -e "\n\`\`\`json" >> $GITHUB_ENV
+          cat about-result.json >> $GITHUB_ENV
+          echo -e "\`\`\`\n" >> $GITHUB_ENV
+          echo "</details>" >> $GITHUB_ENV
+        fi
+        if [ -s catalog.json ]; then
+          echo "<details><summary>Discovered streams</summary>" >> $GITHUB_ENV
+          echo -e "\n" >> $GITHUB_ENV
+          cat catalog.json | jq --raw-output '.streams[] | (.tap_stream_id // .stream ) | "- `\(.)`"' >> $GITHUB_ENV
+          echo -e "\n" >> $GITHUB_ENV
+          echo "</details>" >> $GITHUB_ENV
+        fi
+        echo "EOF" >> $GITHUB_ENV
+
+    - name: Append summary output
+      uses: peter-evans/create-or-update-comment@v2
+      if: always()
+      with:
+        comment-id: ${{ github.event.inputs.comment-id }}
+        body: |
+          > Job completed.
+
+          ${{ env.JOB_OUTPUT }}
+
+    - name: Add reaction (success)
+      uses: peter-evans/create-or-update-comment@v2
+      with:
+        token: ${{ secrets.ACTIONS_BOT_TOKEN }}
+        repository: ${{ github.event.inputs.repository }}
+        comment-id: ${{ github.event.inputs.comment-id }}
+        reaction-type: hooray
+
+    - name: Add reaction (failure)
+      uses: peter-evans/create-or-update-comment@v2
+      if: failure()
+      with:
+        token: ${{ secrets.ACTIONS_BOT_TOKEN }}
+        repository: ${{ github.event.inputs.repository }}
+        comment-id: ${{ github.event.inputs.comment-id }}
+        reaction-type: confused
