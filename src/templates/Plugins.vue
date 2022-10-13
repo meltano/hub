@@ -6,7 +6,12 @@
           <table>
             <tr>
               <td style="padding: 25px">
-                <a v-if="$page.plugins.domain_url" href="$page.plugins.domain_url" target="_blank" rel="noopener noreferrer">
+                <a
+                  v-if="$page.plugins.domain_url"
+                  href="$page.plugins.domain_url"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <g-image
                     v-if="$page.plugins.logo_url"
                     :src="
