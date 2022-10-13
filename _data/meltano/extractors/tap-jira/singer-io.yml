@@ -57,7 +57,7 @@ settings:
   label: Start Date
   kind: date_iso8601
   description: Specifies the date at which the tap will begin pulling data. This works
-    only for the streams taht suppport it.
+    only for the streams that support it.
 - name: user_agent
   label: User Agent
   description: The user agent.

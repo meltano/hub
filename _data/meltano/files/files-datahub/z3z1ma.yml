@@ -1,6 +1,7 @@
 name: files-datahub
 label: Datahub
 namespace: files_datahub
+domain_url: https://airflow.apache.org/
 repo: https://github.com/z3z1ma/files-datahub
 pip_url: git+https://github.com/z3z1ma/files-datahub.git
 variant: z3z1ma
