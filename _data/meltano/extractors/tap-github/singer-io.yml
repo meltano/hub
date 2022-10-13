@@ -28,7 +28,7 @@ settings:
     kind: date_iso8601
     description: Defines how far into the past to pull data for the provided repositories.
 capabilities:
-  - properties
+  - catalog
   - discover
   - state
 domain_url: https://docs.github.com/en/rest

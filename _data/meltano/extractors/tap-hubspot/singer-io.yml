@@ -16,6 +16,8 @@ settings_group_validation:
   - client_secret
   - refresh_token
   - start_date
+- - hapikey
+  - start_date
 settings:
 - name: redirect_uri
   label: Redirect URI
@@ -34,6 +36,19 @@ settings:
   label: Refresh Token
   kind: password
   description: This is the refresh token provided by HubSpot.
+- name: hapikey
+  label: Hubspot API Key
+  kind: password
+  description: |
+    This is the Hubspot API Key provided by HubSpot.
+
+    As an alternative to OAuth 2.0 authentication during development, you may specify
+    this setting to authenticate with the HubSpot API. This should be used only for
+    low-volume development work, as the
+    [HubSpot API Usage Guidelines](https://developers.hubspot.com/apps/api_guidelines)
+    specify that integrations should use OAuth for authentication.
+
+    Any OAuth authentication parameters will be ignored if this key is present!
 - name: start_date
   label: Start Date
   kind: date_iso8601
