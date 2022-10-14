@@ -83,7 +83,7 @@
               >
               <span 
                 class="prose"
-                v-if="$page.plugins.pluginType === 'file'">
+                v-if="$page.plugins.pluginType === 'file'"
                 v-html="$page.plugins.definition_rendered"></span
               >
             </p>
