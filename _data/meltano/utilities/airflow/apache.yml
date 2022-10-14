@@ -20,12 +20,14 @@ commands:
   describe:
     executable: airflow_extension
     args: describe
+    description: Describe the Airflow Extension
   initialize:
     executable: airflow_extension
     args: initialize
+    description: Initialize the Airflow Extension which will seed the database, create the default airflow.cfg, and deploy the Meltano DAG orchestrator.
   create-admin:
     args: "users create --username admin --firstname FIRST_NAME --lastname LAST_NAME --role Admin --email admin@example.org"
-    description: Create an admin user.
+    description: Create an Airflow user with admin privileges.
   ui:
     args: webserver
     description: Start the Airflow webserver.
