@@ -1,5 +1,6 @@
 name: files-dbt-redshift
 label: dbt Redshift
+domain_url: https://www.getdbt.com/
 namespace: files_dbt_redshift
 repo: https://github.com/meltano/files-dbt-redshift
 pip_url: git+https://github.com/meltano/files-dbt-redshift

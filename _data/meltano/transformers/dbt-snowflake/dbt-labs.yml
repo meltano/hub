@@ -1,5 +1,6 @@
 name: dbt-snowflake
 label: dbt Snowflake
+domain_url: https://www.getdbt.com/
 executable: dbt
 namespace: dbt_snowflake
 docs: https://docs.meltano.com/guide/transformation

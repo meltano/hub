@@ -1,5 +1,6 @@
 name: files-great-expectations
 label: Great Expectations
+domain_url: https://greatexpectations.io/
 namespace: files_great_expectations
 repo: https://github.com/meltano/files-great-expectations
 pip_url: git+https://github.com/meltano/files-great-expectations
