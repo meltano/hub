@@ -289,7 +289,8 @@ query Plugins($path: String!, $name: String!) {
   plugins: plugins(path: $path) {
     id
     description
-    description_rendered
+    definition
+    definition_rendered
     label
     name
     path
