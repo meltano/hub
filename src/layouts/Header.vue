@@ -14,7 +14,6 @@ export default {
       <div class="py-3">
         <g-link to="/" class="flex">
           <g-image src="../assets/images/meltano-logo.svg" class="logo-img" />
-          <p class="logo-text">┃Hub</p>
         </g-link>
       </div>
       <nav class="nav">
@@ -79,9 +78,9 @@ export default {
 
 <style lang="scss">
 .logo-img {
-  width: 80px;
+  width: 150px;
   @media (min-width: 768px) {
-    width: 150px;
+    width: 200px;
   }
 }
 
