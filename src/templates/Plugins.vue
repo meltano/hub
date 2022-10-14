@@ -77,12 +77,14 @@
                 monitored.</span
               >
               <span 
+                class="prose"
                 v-if="$page.plugins.pluginType === 'utility'"
-                v-html="definition_rendered"></span
+                v-html="$page.plugins.definition_rendered"></span
               >
               <span 
+                class="prose"
                 v-if="$page.plugins.pluginType === 'file'">
-                v-html="definition_rendered"></span
+                v-html="$page.plugins.definition_rendered"></span
               >
             </p>
             <p class="text-2xl">Other Available Variants</p>
