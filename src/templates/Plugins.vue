@@ -6,15 +6,33 @@
           <table>
             <tr>
               <td style="padding: 25px">
-                <g-image
-                  v-if="$page.plugins.logo_url"
-                  :src="
-                    require(`!!assets-loader?width=250&height=200&fit=inside!@logos/${$page.plugins.logo_url.replace(
-                      '/assets/logos/',
-                      ''
-                    )}`)
-                  "
-                />
+                <a
+                  v-if="$page.plugins.domain_url"
+                  :href="$page.plugins.domain_url"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <g-image
+                    v-if="$page.plugins.logo_url"
+                    :src="
+                      require(`!!assets-loader?width=250&height=200&fit=inside!@logos/${$page.plugins.logo_url.replace(
+                        '/assets/logos/',
+                        ''
+                      )}`)
+                    "
+                  />
+                </a>
+                <div v-else>
+                  <g-image
+                    v-if="$page.plugins.logo_url"
+                    :src="
+                      require(`!!assets-loader?width=250&height=200&fit=inside!@logos/${$page.plugins.logo_url.replace(
+                        '/assets/logos/',
+                        ''
+                      )}`)
+                    "
+                  />
+                </div>
               </td>
               <td>
                 <p class="text-3xl py-8">
@@ -38,7 +56,7 @@
                 :href="
                   'https://docs.meltano.com/concepts/plugins#' + $page.plugins.pluginTypePlural
                 "
-                >Meltano {{ $page.plugins.pluginType }}</a
+                >{{ $page.plugins.pluginType }}</a
               >
               <span v-if="$page.plugins.pluginType === 'extractor'">
                 pulls data from
@@ -46,30 +64,23 @@
                 sent to a destination using a <g-link to="/loaders">loader</g-link>.</span
               >
               <span v-if="$page.plugins.pluginType === 'loader'">
-                sends <g-link to="/extractors">extracted</g-link> data to a
-                <a :href="$page.plugins.domain_url">{{ $page.plugins.label }}</a>
-                destination.</span
+                sends data into <a :href="$page.plugins.domain_url">{{ $page.plugins.label }}</a>
+                after it was pulled from a source using an 
+                <g-link to="/extractors">extractor</g-link></span
               >
               <span v-if="$page.plugins.pluginType === 'transformer'">
-                is a plugin for running transformations on ELT data using
-                <a :href="$page.plugins.domain_url">{{ $page.plugins.label }}</a
-                >.</span
+                is a plugin for running SQL-based transformations on data 
+                stored in your warehouse.</span
               >
               <span v-if="$page.plugins.pluginType === 'orchestrator'">
-                is used to schedule a project's pipelines with
-                <a :href="$page.plugins.domain_url">{{ $page.plugins.label }}</a
-                >.</span
+                allows for workflows to be programmatically 
+                authored, scheduled, and monitored.</span
               >
               <span v-if="$page.plugins.pluginType === 'utility'">
-                is a plugin for integrating
-                <a :href="$page.plugins.domain_url">{{ $page.plugins.label }}</a> into your data
-                project.</span
+                {{ $page.plugins.definition }}</span
               >
               <span v-if="$page.plugins.pluginType === 'file'">
-                plugin imports bundles for scaffolding/templating files in your data project that
-                allow you to use
-                <a :href="$page.plugins.domain_url">{{ $page.plugins.label }}</a> or related
-                utilities.</span
+                {{ $page.plugins.definition }}</span
               >
             </p>
             <p class="text-2xl">Other Available Variants</p>
@@ -141,24 +152,24 @@
               <div v-else-if="$page.plugins.pluginType == 'extractor'">
                 <p>
                   Follow the remaining steps of the
-                  <a href="https://docs.meltano.com/getting-started.html">Getting Started guide</a>:
+                  <a href="https://docs.meltano.com/getting-started/part1">Getting Started guide</a>:
                 </p>
                 <ol class="list-decimal list-inside pl-4">
                   <li>
                     <a
-                      href="https://docs.meltano.com/getting-started.html#select-entities-and-attributes-to-extract"
+                      href="https://docs.meltano.com/getting-started/part1#select-entities-and-attributes-to-extract"
                       >Select entities and attributes to extract</a
                     >
                   </li>
                   <li>
                     <a
-                      href="https://docs.meltano.com/getting-started.html#add-a-loader-to-send-data-to-a-destination"
+                      href="https://docs.meltano.com/getting-started/part2"
                       >Add a loader to send data to a destination</a
                     >
                   </li>
                   <li>
                     <a
-                      href="https://docs.meltano.com/getting-started.html#run-a-data-integration-el-pipeline"
+                      href="https://docs.meltano.com/getting-started/part2#run-your-data-integration-el-pipeline"
                       >Run a data integration (EL) pipeline</a
                     >
                   </li>
@@ -169,12 +180,12 @@
               <div v-else-if="$page.plugins.pluginType == 'loader'">
                 <p>
                   Follow the remaining steps of the
-                  <a href="https://docs.meltano.com/getting-started.html">Getting Started guide</a>:
+                  <a href="https://docs.meltano.com/getting-started/part1">Getting Started guide</a>:
                 </p>
                 <ol class="list-decimal list-inside pl-4">
                   <li>
                     <a
-                      href="https://docs.meltano.com/getting-started.html#run-a-data-integration-el-pipeline"
+                      href="https://docs.meltano.com/getting-started/part2#run-your-data-integration-el-pipeline"
                       >Run a data integration (EL) pipeline</a
                     >
                   </li>
@@ -185,12 +196,12 @@
               <div v-else-if="$page.plugins.pluginType == 'transformer'">
                 <p>
                   Follow the remaining steps of the
-                  <a href="https://docs.meltano.com/getting-started.html">Getting Started guide</a>:
+                  <a href="https://docs.meltano.com/getting-started/part3">Getting Started guide</a>:
                 </p>
                 <ol class="list-decimal list-inside pl-4">
                   <li>
                     <a
-                      href="https://docs.meltano.com/getting-started.html#transform-loaded-data-for-analysis"
+                      href="https://docs.meltano.com/getting-started/part3"
                     >
                       Transform loaded data for analysis
                     </a>
@@ -202,11 +213,6 @@
 
               <!-- Help section -->
               <p>If you run into any issues, learn how to get help.</p>
-              <div
-                class="prose mt-3 p-2"
-                v-if="$page.plugins.usage"
-                v-html="$page.plugins.usage_rendered"
-              ></div>
             </div>
             <div>
               <PluginCapabilitiesSection
@@ -219,7 +225,13 @@
                 :name="$page.plugins.name"
                 :plugin_type_plural="$page.plugins.pluginTypePlural"
                 :variant="$page.plugins.variant"
+                :preamble="$page.plugins.settings_preamble_rendered"
               />
+              <div
+                class="prose mt-3 p-2"
+                v-if="$page.plugins.usage"
+                v-html="$page.plugins.usage_rendered"
+              ></div>
               <PluginHelpSection
                 :name="$page.plugins.name"
                 :variant="$page.plugins.variant"
@@ -305,6 +317,8 @@ query Plugins($path: String!, $name: String!) {
     }
     prereq
     prereq_rendered
+    settings_preamble
+    settings_preamble_rendered
     usage
     usage_rendered
     metrics {

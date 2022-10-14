@@ -1,5 +1,6 @@
 name: dbt-postgres
 label: dbt PostgreSQL
+domain_url: https://www.getdbt.com/
 executable: dbt
 namespace: dbt_postgres
 docs: https://docs.meltano.com/guide/transformation

@@ -1,5 +1,6 @@
 name: dbt-bigquery
 label: dbt BigQuery
+domain_url: https://www.getdbt.com/
 executable: dbt
 namespace: dbt_bigquery
 docs: https://docs.meltano.com/guide/transformation

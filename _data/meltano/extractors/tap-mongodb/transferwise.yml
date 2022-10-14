@@ -1,6 +1,6 @@
 name: tap-mongodb
 label: MongoDB
-description: General purpose, document-based, distributed database
+description: General purpose, document-based, distributed database.
 namespace: tap_mongodb
 logo_url: /assets/logos/extractors/mongodb.png
 variant: transferwise
@@ -67,7 +67,7 @@ settings:
   kind: integer
   description: (LOG_BASED) The size of the buffer that holds detected update operations in memory, the buffer is flushed once the size is reached.
 - name: await_time_ms
-  label: Await Time ms
+  label: Await Time Milliseconds
   kind: integer
   description: (LOG_BASED) The maximum amount of time in milliseconds the loge_base method waits for new data changes before exiting.
 domain_url: https://www.mongodb.com/

@@ -1,5 +1,6 @@
 name: dbt-redshift
 label: dbt Redshift
+domain_url: https://www.getdbt.com/
 executable: dbt
 namespace: dbt_redshift
 docs: https://docs.meltano.com/guide/transformation
