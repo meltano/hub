@@ -5,6 +5,11 @@ utilities:
   datahub: datahub-project
   dbt-osmosis: z3z1ma
   metabase: metabase
+  dbt-bigquery: dbt-labs
+  dbt-duckdb: jwills
+  dbt-postgres: dbt-labs
+  dbt-redshift: dbt-labs
+  dbt-snowflake: dbt-labs
 orchestrators:
   airflow: apache
 transforms:
