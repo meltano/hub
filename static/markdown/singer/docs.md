@@ -30,9 +30,7 @@ Additionally, metrics such as last update, stars, and open issues and PRs, are p
 
 ## API
 
-* [API Directory](/singer/api/v1)
-
-A listing of all connectors is available via the [API](/meltano/api/v1/plugins/index) as JSON.
+A listing of all connectors and plugins is available via the [API](/meltano/api/v1/plugins/index) as JSON.
 The latest version of these files will always be available at these endpoints:
 
 * [Extractors JSON](/meltano/api/v1/plugins/extractors/index)
@@ -40,7 +38,7 @@ The latest version of these files will always be available at these endpoints:
 
 These files will also be versioned when changes are made in a backwards-incompatible way.
 The versioned files will be available through the [API](/meltano/api/v1/plugins/index).
-Individual YAML files are also available through the individual connector pages or on the [repository](https://github.com/meltano/hub/) building MeltanoHub.
+Individual YAML files are also available through the individual connector pages or on the [repository](https://github.com/meltano/hub/tree/main/_data/meltano) building MeltanoHub.
 
 Our expectation is that other tools, including Meltano, will utilize the data available via the API to build their own library of Singer taps and targets.
 
