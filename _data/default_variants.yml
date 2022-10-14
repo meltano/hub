@@ -343,6 +343,7 @@ extractors:
   tap-zenefits: mashey
   tap-zoom: mashey
   tap-zuora: transferwise
+  tap-coingecko: sicarul
 loaders:
   target-airtable: hotgluexyz
   target-apprise: AutoIDM
