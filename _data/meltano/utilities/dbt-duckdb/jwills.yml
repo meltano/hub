@@ -6,7 +6,7 @@ namespace: dbt_duckdb
 docs: https://docs.meltano.com/guide/transformation
 repo: https://github.com/jwills/dbt-duckdb
 ext_repo: https://github.com/meltano/dbt-ext
-pip_url: dbt-core~=1.2.0 dbt-duckdb~=1.2.0
+pip_url: dbt-core~=1.2.0 dbt-duckdb~=1.2.0 git+https://github.com/meltano/dbt-ext.git@main
 variant: jwills
 maintenance_status: active
 settings_preamble: |
