@@ -76,11 +76,15 @@
                 allows for workflows to be programmatically authored, scheduled, and
                 monitored.</span
               >
-              <span v-if="$page.plugins.pluginType === 'utility'">
-                {{ $page.plugins.definition }}</span
+              <span 
+                class="prose"
+                v-if="$page.plugins.pluginType === 'utility'"
+                v-html="$page.plugins.definition_rendered"></span
               >
-              <span v-if="$page.plugins.pluginType === 'file'">
-                {{ $page.plugins.definition }}</span
+              <span 
+                class="prose"
+                v-if="$page.plugins.pluginType === 'file'"
+                v-html="$page.plugins.definition_rendered"></span
               >
             </p>
             <p class="text-2xl">Other Available Variants</p>
@@ -289,6 +293,8 @@ query Plugins($path: String!, $name: String!) {
   plugins: plugins(path: $path) {
     id
     description
+    definition
+    definition_rendered
     label
     name
     path
