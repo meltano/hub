@@ -77,10 +77,10 @@
                 monitored.</span
               >
               <span v-if="$page.plugins.pluginType === 'utility'">
-                {{ $page.plugins.definition }}</span
+                {{ $page.plugins.definition_rendered }}</span
               >
               <span v-if="$page.plugins.pluginType === 'file'">
-                {{ $page.plugins.definition }}</span
+                {{ $page.plugins.definition_rendered }}</span
               >
             </p>
             <p class="text-2xl">Other Available Variants</p>
@@ -289,6 +289,7 @@ query Plugins($path: String!, $name: String!) {
   plugins: plugins(path: $path) {
     id
     description
+    description_rendered
     label
     name
     path

@@ -48,6 +48,9 @@ function renderMarkdownSections(pluginData) {
           setting.description && marked.marked(setting.description),
       })),
     // Rare
+    description_rendered: pluginData.description
+      ? marked.marked(pluginData.description)
+      : undefined,
     settings_preamble_rendered: pluginData.settings_preamble
       ? marked.marked(pluginData.settings_preamble)
       : undefined,
