@@ -77,10 +77,10 @@
                 monitored.</span
               >
               <span v-if="$page.plugins.pluginType === 'utility'">
-                {{ $page.plugins.definition_rendered }}</span
+                {{ $page.plugins.definition }}</span
               >
               <span v-if="$page.plugins.pluginType === 'file'">
-                {{ $page.plugins.definition_rendered }}</span
+                {{ $page.plugins.definition }}</span
               >
             </p>
             <p class="text-2xl">Other Available Variants</p>
