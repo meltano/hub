@@ -20,7 +20,7 @@ All taps and targets are pulled from external sources, such as GitHub and GitLab
 
 All taps and targets available through MeltanoHub are listed on the [Taps](/singer/taps/) and [Targets](/singer/targets/) pages.
 
-Each tap and target is defined in YAML and is validated against a JSON Schema available via [the Hub API](/singer/api/v1/).
+Each tap and target is defined in YAML and is validated against a JSON Schema available via [the Hub repository](https://github.com/meltano/hub/tree/main/schemas).
 
 ### Connector Metadata
 
@@ -32,21 +32,21 @@ Additionally, metrics such as last update, stars, and open issues and PRs, are p
 
 * [API Directory](/singer/api/v1)
 
-A listing of all taps and targets is available via the [API](/singer/api/v1) as JSON.
+A listing of all connectors is available via the [API](/meltano/api/v1/plugins/index) as JSON.
 The latest version of these files will always be available at these endpoints:
 
-* [Tap JSON](/singer/taps.json)
-* [Target JSON](/singer/targets.json)
+* [Extractors JSON](/meltano/api/v1/plugins/extractors/index)
+* [Loaders JSON](/meltano/api/v1/plugins/loaders/index)
 
 These files will also be versioned when changes are made in a backwards-incompatible way.
-The versioned files will be available through the [API](/singer/api/v1/).
+The versioned files will be available through the [API](/meltano/api/v1/plugins/index).
 Individual YAML files are also available through the individual connector pages or on the [repository](https://github.com/meltano/hub/) building MeltanoHub.
 
 Our expectation is that other tools, including Meltano, will utilize the data available via the API to build their own library of Singer taps and targets.
 
 ## Tap and Target SDKs
 
-We've also created an [SDK for Taps and Targets](https://sdk.meltano.com) that is the best way to build and maintain Singer Taps and Targets.
+We've also created the [Meltano Singer SDK for Taps and Targets](https://sdk.meltano.com) that is the best way to build and maintain Singer Taps and Targets.
 
 Read more about the [launch of the SDK on the Meltano blog](https://meltano.com/blog/2021/04/05/meltano-launches-v0-1-0-of-the-singer-tap-sdk/).
 
