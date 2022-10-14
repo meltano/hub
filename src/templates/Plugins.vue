@@ -65,16 +65,16 @@
               >
               <span v-if="$page.plugins.pluginType === 'loader'">
                 sends data into <a :href="$page.plugins.domain_url">{{ $page.plugins.label }}</a>
-                after it was pulled from a source using an 
+                after it was pulled from a source using an
                 <g-link to="/extractors">extractor</g-link></span
               >
               <span v-if="$page.plugins.pluginType === 'transformer'">
-                is a plugin for running SQL-based transformations on data 
-                stored in your warehouse.</span
+                is a plugin for running SQL-based transformations on data stored in your
+                warehouse.</span
               >
               <span v-if="$page.plugins.pluginType === 'orchestrator'">
-                allows for workflows to be programmatically 
-                authored, scheduled, and monitored.</span
+                allows for workflows to be programmatically authored, scheduled, and
+                monitored.</span
               >
               <span v-if="$page.plugins.pluginType === 'utility'">
                 {{ $page.plugins.definition }}</span
@@ -152,7 +152,8 @@
               <div v-else-if="$page.plugins.pluginType == 'extractor'">
                 <p>
                   Follow the remaining steps of the
-                  <a href="https://docs.meltano.com/getting-started/part1">Getting Started guide</a>:
+                  <a href="https://docs.meltano.com/getting-started/part1">Getting Started guide</a
+                  >:
                 </p>
                 <ol class="list-decimal list-inside pl-4">
                   <li>
@@ -162,8 +163,7 @@
                     >
                   </li>
                   <li>
-                    <a
-                      href="https://docs.meltano.com/getting-started/part2"
+                    <a href="https://docs.meltano.com/getting-started/part2"
                       >Add a loader to send data to a destination</a
                     >
                   </li>
@@ -180,7 +180,8 @@
               <div v-else-if="$page.plugins.pluginType == 'loader'">
                 <p>
                   Follow the remaining steps of the
-                  <a href="https://docs.meltano.com/getting-started/part1">Getting Started guide</a>:
+                  <a href="https://docs.meltano.com/getting-started/part1">Getting Started guide</a
+                  >:
                 </p>
                 <ol class="list-decimal list-inside pl-4">
                   <li>
@@ -196,13 +197,12 @@
               <div v-else-if="$page.plugins.pluginType == 'transformer'">
                 <p>
                   Follow the remaining steps of the
-                  <a href="https://docs.meltano.com/getting-started/part3">Getting Started guide</a>:
+                  <a href="https://docs.meltano.com/getting-started/part3">Getting Started guide</a
+                  >:
                 </p>
                 <ol class="list-decimal list-inside pl-4">
                   <li>
-                    <a
-                      href="https://docs.meltano.com/getting-started/part3"
-                    >
+                    <a href="https://docs.meltano.com/getting-started/part3">
                       Transform loaded data for analysis
                     </a>
                   </li>

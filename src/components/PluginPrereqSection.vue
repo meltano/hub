@@ -10,9 +10,7 @@
         <a href="https://docs.meltano.com/getting-started/installation">Install Meltano</a>
       </li>
       <li>
-        <a href="https://docs.meltano.com/getting-started/part1"
-          >Create your Meltano project</a
-        >
+        <a href="https://docs.meltano.com/getting-started/part1">Create your Meltano project</a>
       </li>
     </ol>
     <div class="prose mt-3 p-2" v-if="plugin.prereq" v-html="plugin.prereq_rendered"></div>
