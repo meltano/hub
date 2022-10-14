@@ -1,5 +1,6 @@
 name: files-airflow
 label: Airflow
+domain_url: https://airflow.apache.org/
 namespace: files_airflow
 repo: https://github.com/meltano/files-airflow
 pip_url: git+https://github.com/meltano/files-airflow.git
