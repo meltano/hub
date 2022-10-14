@@ -42,7 +42,6 @@ settings:
 - name: server_id
   label: Server ID
   kind: integer
-  value: <random int>
   description: Used as the slave id when this tap is connecting to the server.
 - name: filter_dbs
   label: Filter DBs
