@@ -152,24 +152,24 @@
               <div v-else-if="$page.plugins.pluginType == 'extractor'">
                 <p>
                   Follow the remaining steps of the
-                  <a href="https://docs.meltano.com/getting-started.html">Getting Started guide</a>:
+                  <a href="https://docs.meltano.com/getting-started/part1">Getting Started guide</a>:
                 </p>
                 <ol class="list-decimal list-inside pl-4">
                   <li>
                     <a
-                      href="https://docs.meltano.com/getting-started.html#select-entities-and-attributes-to-extract"
+                      href="https://docs.meltano.com/getting-started/part1#select-entities-and-attributes-to-extract"
                       >Select entities and attributes to extract</a
                     >
                   </li>
                   <li>
                     <a
-                      href="https://docs.meltano.com/getting-started.html#add-a-loader-to-send-data-to-a-destination"
+                      href="https://docs.meltano.com/getting-started/part2"
                       >Add a loader to send data to a destination</a
                     >
                   </li>
                   <li>
                     <a
-                      href="https://docs.meltano.com/getting-started.html#run-a-data-integration-el-pipeline"
+                      href="https://docs.meltano.com/getting-started/part2#run-your-data-integration-el-pipeline"
                       >Run a data integration (EL) pipeline</a
                     >
                   </li>
@@ -180,12 +180,12 @@
               <div v-else-if="$page.plugins.pluginType == 'loader'">
                 <p>
                   Follow the remaining steps of the
-                  <a href="https://docs.meltano.com/getting-started.html">Getting Started guide</a>:
+                  <a href="https://docs.meltano.com/getting-started/part1">Getting Started guide</a>:
                 </p>
                 <ol class="list-decimal list-inside pl-4">
                   <li>
                     <a
-                      href="https://docs.meltano.com/getting-started.html#run-a-data-integration-el-pipeline"
+                      href="https://docs.meltano.com/getting-started/part2#run-your-data-integration-el-pipeline"
                       >Run a data integration (EL) pipeline</a
                     >
                   </li>
@@ -196,12 +196,12 @@
               <div v-else-if="$page.plugins.pluginType == 'transformer'">
                 <p>
                   Follow the remaining steps of the
-                  <a href="https://docs.meltano.com/getting-started.html">Getting Started guide</a>:
+                  <a href="https://docs.meltano.com/getting-started/part3">Getting Started guide</a>:
                 </p>
                 <ol class="list-decimal list-inside pl-4">
                   <li>
                     <a
-                      href="https://docs.meltano.com/getting-started.html#transform-loaded-data-for-analysis"
+                      href="https://docs.meltano.com/getting-started/part3"
                     >
                       Transform loaded data for analysis
                     </a>
