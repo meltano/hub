@@ -76,11 +76,13 @@
                 allows for workflows to be programmatically authored, scheduled, and
                 monitored.</span
               >
-              <span v-if="$page.plugins.pluginType === 'utility'">
-                {{ $page.plugins.definition }}</span
+              <span 
+                v-if="$page.plugins.pluginType === 'utility'"
+                v-html="definition_rendered"></span
               >
-              <span v-if="$page.plugins.pluginType === 'file'">
-                {{ $page.plugins.definition }}</span
+              <span 
+                v-if="$page.plugins.pluginType === 'file'">
+                v-html="definition_rendered"></span
               >
             </p>
             <p class="text-2xl">Other Available Variants</p>
