@@ -80,7 +80,7 @@ export default {
 .logo-img {
   width: 80px;
   @media (min-width: 768px) {
-    width: 150px;
+    width: 200px;
   }
 }
 
