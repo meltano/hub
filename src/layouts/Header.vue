@@ -78,7 +78,7 @@ export default {
 
 <style lang="scss">
 .logo-img {
-  width: 80px;
+  width: 150px;
   @media (min-width: 768px) {
     width: 200px;
   }
