@@ -344,6 +344,7 @@ extractors:
   tap-zoom: mashey
   tap-zuora: transferwise
   tap-coingecko: sicarul
+  tap-ccxt: superkeyio
 loaders:
   target-airtable: hotgluexyz
   target-apprise: AutoIDM
