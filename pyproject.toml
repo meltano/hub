@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "hub-utils"
+version = "0.1.0"
+description = ""
+authors = ["pnadolny13 <patnadolny@gmail.com>"]
+readme = "README.md"
+packages = [{include = "hub_utils"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+typer = {extras = ["all"], version = "^0.6.1"}
+ruamel-yaml = "^0.17.21"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^22.10.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+hub_utils = 'hub_utils.main:app'
