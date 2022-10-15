@@ -17,5 +17,11 @@ def add(
 ):
     util = Utilities(auto_accept)
     util.add(repo_url)
-    # Utilities.scrape_sdk_metadata()
-    # Utilities.scrape_sdk_metadata()
+
+@app.command()
+def add_bulk(
+    csv_path: str,
+    auto_accept: bool = typer.Option(False)
+):
+    util = Utilities(auto_accept)
+    util.add_bulk(csv_path)

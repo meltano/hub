@@ -7,9 +7,10 @@ readme = "README.md"
 packages = [{include = "hub_utils"}]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = ">=3.8,<3.11"
 typer = {extras = ["all"], version = "^0.6.1"}
 ruamel-yaml = "^0.17.21"
+meltano = "^2.7.2"
 
 
 [tool.poetry.group.dev.dependencies]

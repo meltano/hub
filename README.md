@@ -4,7 +4,7 @@ poetry install
 poetry run hub_utils --help
 
 poetry run hub_utils add https://github.com/birdiecare/tap-cqc-org-uk
-poetry run hub_utils add https://github.com/birdiecare/tap-cqc-org-uk --auto_accept
+poetry run hub_utils add https://github.com/birdiecare/tap-cqc-org-uk --auto-accept
 
 - evaluate
     - validate against minimum requirements (settings, etc.)
