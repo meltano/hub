@@ -8,6 +8,7 @@ import os
 from collections import OrderedDict
 import shutil
 import csv
+from hub_utils.meltano_util import MeltanoUtil
 
 class Kind(str, Enum):
     string = "string"
@@ -71,7 +72,9 @@ class Utilities:
             return []
 
     @staticmethod
-    def _scrape_keywords():
+    def _scrape_keywords(meltano_sdk):
+        if meltano_sdk:
+            return f"['meltano_sdk']"
         return "[]"
 
     @staticmethod
@@ -128,8 +131,17 @@ class Utilities:
         except:
             return value
 
-    def _boilerplate_definition(self, repo_url, plugin_type, settings, settings_group_validation):
-        name = self._prompt("plugin name", self._get_plugin_name(repo_url))
+    def _boilerplate_definition(
+        self,
+        repo_url,
+        plugin_type,
+        settings,
+        settings_group_validation,
+        name,
+        namespace,
+        pip_url,
+        keywords
+    ):
         label = self._get_label(name, plugin_type=plugin_type)
         logo_name = label.lower().replace(' ', '-')
         return {
@@ -139,11 +151,11 @@ class Utilities:
             "logo_url": f'/assets/logos/{plugin_type}/{logo_name}.png',
             "capabilities": self._string_to_literal(self._prompt("capabilities", self._boilerplate_capabilities(plugin_type))),
             "domain_url": "",
-            "keywords": self._string_to_literal(self._prompt("keywords", self._scrape_keywords())),
+            "keywords": keywords,
             "maintenance_status": self._prompt("maintenance_status", self._get_maintenance_status()),
-            "namespace": name.replace('-', '_'),
+            "namespace": namespace,
             "next_steps": "",
-            "pip_url": f"git+{repo_url}.git",
+            "pip_url": pip_url,
             "repo": repo_url,
             "settings": settings,
             "settings_group_validation": settings_group_validation,
@@ -232,11 +244,54 @@ class Utilities:
         logo_file_name = definition['logo_url'].split('/')[-1]
         shutil.copyfile(image_path, f'{self.hub_root}/static/assets/logos/{plugin_type}/{logo_file_name}')
 
+    @staticmethod
+    def _install_test(plugin_name, namespace, plugin_type, pip_url, is_meltano_sdk):
+        MeltanoUtil.add(plugin_name, namespace, pip_url, plugin_type)
+        MeltanoUtil.help_test(plugin_name)
+
+    def _parse_sdk_about_settings(self, sdk_settings):
+        settings_raw = sdk_settings.get('settings', {})
+        properties = settings_raw.get('properties', {})
+        reformatted_settings = []
+        for setting_name, details in properties.items():
+            setting_details = {
+                'name': setting_name,
+                'label': self._get_label(setting_name),
+                'description': details.get('description')
+            }
+            kind = [s_type for s_type in details.get('type') if s_type != 'null'][0]
+            if kind != 'string' and details.get('format') != 'date-time':
+                if details.get('format') != 'date-time':
+                    kind = 'date_iso8601'
+                setting_details['kind'] = kind
+            reformatted_settings.append(setting_details)
+
+        return reformatted_settings, settings_raw.get('required', [])
+
+
     def add(self, repo_url: str, definition_seed: dict = None):
-        setting_list = self._compile_settings()
-        settings, settings_group_validation = self._build_settings(setting_list)
+        plugin_name = self._prompt("plugin name", self._get_plugin_name(repo_url))
         plugin_type = self._prompt("plugin type", self.get_plugin_type(repo_url))
-        definition = self._boilerplate_definition(repo_url, plugin_type, settings, settings_group_validation)
+        pip_url = self._prompt("pip_url", f"git+{repo_url}.git")
+        namespace = self._prompt("namespace", plugin_name.replace('-', '_'))
+        is_meltano_sdk = self._prompt("is_meltano_sdk", True, type=bool)
+        sdk_settings = None
+        try:
+            self._install_test(plugin_name, namespace, plugin_type, pip_url, is_meltano_sdk)
+            if is_meltano_sdk:
+                sdk_settings = MeltanoUtil.sdk_about(plugin_name)
+        except Exception as e:
+            print(e)
+        finally:
+            MeltanoUtil.remove(plugin_name, plugin_type)
+        
+        if sdk_settings:
+            settings, settings_group_validation = self._parse_sdk_about_settings(sdk_settings)
+        else:
+            setting_list = self._compile_settings()
+            settings, settings_group_validation = self._build_settings(setting_list)
+        keywords = self._string_to_literal(self._prompt("keywords", self._scrape_keywords(is_meltano_sdk)))
+        definition = self._boilerplate_definition(repo_url, plugin_type, settings, settings_group_validation, plugin_name, namespace, pip_url, keywords)
         self._write_definition(definition, plugin_type)
         self._handle_default_variant(definition['name'], definition['variant'], plugin_type)
         self._handle_maintainer(definition['variant'], repo_url)
