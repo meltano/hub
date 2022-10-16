@@ -173,7 +173,8 @@ class Utilities:
         )
         variant = definition['variant']
         Path(dir_name).mkdir(parents=True, exist_ok=True)
-        if not Path(os.path.join(dir_name, f'{variant}.yml')).exists():
+        yaml_path = Path(os.path.join(dir_name, f'{variant}.yml'))
+        if not yaml_path.exists():
             self._write_yaml(
                 os.path.join(dir_name, f'{variant}.yml'),
                 definition
@@ -192,6 +193,7 @@ class Utilities:
                     definition
                 )
             print(f'Definition: Skipping')
+        return str(yaml_path)
 
     def _update_variant_file(self, plugin_type_defaults, plugin_name, plugin_variant, defaults, plugin_type):
         plugin_type_defaults[plugin_name] = plugin_variant
@@ -292,10 +294,13 @@ class Utilities:
             settings, settings_group_validation = self._build_settings(setting_list)
         keywords = self._string_to_literal(self._prompt("keywords", self._scrape_keywords(is_meltano_sdk)))
         definition = self._boilerplate_definition(repo_url, plugin_type, settings, settings_group_validation, plugin_name, namespace, pip_url, keywords)
-        self._write_definition(definition, plugin_type)
-        self._handle_default_variant(definition['name'], definition['variant'], plugin_type)
-        self._handle_maintainer(definition['variant'], repo_url)
+        definition_path = self._write_definition(definition, plugin_type)
+        variant = definition['variant']
+        self._handle_default_variant(plugin_name, definition['variant'], plugin_type)
+        self._handle_maintainer(variant, repo_url)
         self._handle_logo(definition, plugin_type)
+        print(definition_path)
+        print(f'Adds {plugin_type} {plugin_name} ({variant})\n\n')
 
     def delete_rows(self, repo_urls_to_delete, edit_path, csv_path):
         with open(csv_path, 'r') as inp, open(edit_path, 'w') as out:
