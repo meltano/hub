@@ -23,7 +23,8 @@ settings:
   description:
 - name: planfix_token
   label: Planfix Token
-  description:
+  description: Your Planfix token.
+  kind: password
 - name: stream_maps
   label: Stream Maps
   description: Config object for stream maps capability.

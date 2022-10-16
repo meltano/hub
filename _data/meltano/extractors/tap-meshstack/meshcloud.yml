@@ -26,6 +26,7 @@ settings:
   label: Federation Auth Password
   description: The HTTP basic auth password to authenticate against the meshObject
     API for federation
+  kind: password
 - name: federation.api_url
   label: Federation Api Url
   description: The url of the meshObject API (excluding the /api prefix!)
@@ -37,6 +38,7 @@ settings:
   label: Kraken Auth Password
   description: The HTTP basic auth password to authenticate against the meshObject
     API for kraken
+  kind: password
 - name: kraken.api_url
   label: Kraken Api Url
   description: The url of the meshObject API (excluding the /api prefix!)

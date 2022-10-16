@@ -20,10 +20,12 @@ settings:
 - name: consumer_key
   label: Consumer Key
   description: The consumer key used in the authentication flow
+  kind: password
 - name: access_token
   label: Access Token
   description: Access token to authenticate against the API service. Follow instructions
     in README to get
+  kind: password
 - name: start_date
   label: Start Date
   description: The earliest record date to sync
