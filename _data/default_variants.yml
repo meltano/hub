@@ -354,6 +354,7 @@ extractors:
   tap-getpocket: evelte
   tap-apple-search-ads: mighty-digital
   tap-pingboard: immuta
+  tap-linear: getoslash
 loaders:
   target-airtable: hotgluexyz
   target-apprise: AutoIDM
