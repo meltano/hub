@@ -346,6 +346,7 @@ extractors:
   tap-coingecko: sicarul
   tap-ccxt: superkeyio
   tap-cqc-org-uk: birdiecare
+  tap-mindstamp: manuelapilongo
 loaders:
   target-airtable: hotgluexyz
   target-apprise: AutoIDM
