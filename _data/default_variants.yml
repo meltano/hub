@@ -347,6 +347,7 @@ extractors:
   tap-ccxt: superkeyio
   tap-cqc-org-uk: birdiecare
   tap-mindstamp: manuelapilongo
+  tap-memberful: prratek
 loaders:
   target-airtable: hotgluexyz
   target-apprise: AutoIDM
