@@ -350,6 +350,7 @@ extractors:
   tap-memberful: prratek
   tap-planfix: epoch8
   tap-meshstack: meshcloud
+  tap-amazon-sp: singer-io
 loaders:
   target-airtable: hotgluexyz
   target-apprise: AutoIDM
