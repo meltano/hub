@@ -351,6 +351,7 @@ extractors:
   tap-planfix: epoch8
   tap-meshstack: meshcloud
   tap-amazon-sp: singer-io
+  tap-getpocket: evelte
 loaders:
   target-airtable: hotgluexyz
   target-apprise: AutoIDM

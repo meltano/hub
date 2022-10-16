@@ -1,0 +1,47 @@
+name: tap-getpocket
+variant: evelte
+label: Pocket
+logo_url: /assets/logos/extractors/getpocket.png
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+domain_url: ''
+keywords:
+- meltano_sdk
+maintenance_status: active
+namespace: tap_getpocket
+next_steps: ''
+pip_url: git+https://github.com/evelte/tap-getpocket.git
+repo: https://github.com/evelte/tap-getpocket
+settings:
+- name: consumer_key
+  label: Consumer Key
+  description: The consumer key used in the authentication flow
+- name: access_token
+  label: Access Token
+  description: Access token to authenticate against the API service. Follow instructions
+    in README to get
+- name: start_date
+  label: Start Date
+  description: The earliest record date to sync
+- name: favorite
+  label: Favorite
+  description: Whether to retrieve only favorited, unfavorited or all items
+  kind: boolean
+- name: state
+  label: State
+  description: Whether to retrieve only unread, archived or all items
+- name: detail_type
+  label: Detail Type
+  description: Whether to retrieve only basic information or all data about each item
+- name: tag
+  label: Tag
+  description: Only return items with this tag_name. Use _untagged_ to get only untagged
+    items
+settings_group_validation:
+- []
+settings_preamble: ''
+usage: ''
