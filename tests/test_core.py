@@ -107,17 +107,17 @@ def test_sdk_about_parsing():
     assert settings == [
         {
             "name": "federation.auth.username",
-            "label": "Federation.Auth.Username",
+            "label": "Federation Auth Username",
             "description": "The HTTP basic auth user to authenticate against the meshObject API for federation"
         },
         {
             "name": "federation.auth.password",
-            "label": "Federation.Auth.Password",
+            "label": "Federation Auth Password",
             "description": "The HTTP basic auth password to authenticate against the meshObject API for federation"
         },
         {
             "name": "federation.api_url",
-            "label": "Federation.Api Url",
+            "label": "Federation Api Url",
             "description": "The url of the meshObject API (excluding the /api prefix!)"
         },
         {

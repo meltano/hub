@@ -57,7 +57,7 @@ class MeltanoUtil:
 
     @staticmethod
     def _get_label(plugin_name, plugin_type=None):
-        return plugin_name.replace('_', ' ').replace('-', ' ').title()
+        return plugin_name.replace('_', ' ').replace('-', ' ').replace('.', ' ').title()
 
     @staticmethod
     def _parse_sdk_about_settings(sdk_about_dict):
