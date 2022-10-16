@@ -1,0 +1,36 @@
+name: tap-pingboard
+variant: immuta
+label: Pingboard
+logo_url: /assets/logos/extractors/pingboard.png
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+domain_url: ''
+keywords: []
+maintenance_status: active
+namespace: tap_pingboard
+next_steps: ''
+pip_url: git+https://github.com/immuta/tap-pingboard.git
+repo: https://github.com/immuta/tap-pingboard
+settings:
+- name: client_secret
+  label: Client Secret
+  description: Client Secret for Pingboard
+  kind: password
+- name: client_id
+  label: Client Id
+  description: Client Id for Pingboard
+  kind: password
+- name: start_date
+  label: Start Date
+  description: Should be used on first sync to indicate how far back to grab records.
+    Start dates should conform to the RFC3339 specification.
+  kind: date_iso8601
+settings_group_validation:
+- - client_secret
+  - client_id
+settings_preamble: ''
+usage: ''
