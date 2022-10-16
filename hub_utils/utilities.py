@@ -141,7 +141,8 @@ class Utilities:
         name,
         namespace,
         pip_url,
-        keywords
+        keywords,
+        capabilities
     ):
         label = self._get_label(name, plugin_type=plugin_type)
         logo_name = label.lower().replace(' ', '-')
@@ -150,7 +151,7 @@ class Utilities:
             "variant": self._prompt("plugin variant", self._get_plugin_variant(repo_url)),
             "label": self._prompt("label", label),
             "logo_url": f'/assets/logos/{plugin_type}/{logo_name}.png',
-            "capabilities": self._string_to_literal(self._prompt("capabilities", self._boilerplate_capabilities(plugin_type))),
+            "capabilities": capabilities,
             "domain_url": "",
             "keywords": keywords,
             "maintenance_status": self._prompt("maintenance_status", self._get_maintenance_status()),
@@ -252,8 +253,8 @@ class Utilities:
         MeltanoUtil.add(plugin_name, namespace, pip_url, plugin_type)
         MeltanoUtil.help_test(plugin_name)
 
-    def _parse_sdk_about_settings(self, sdk_settings):
-        settings_raw = sdk_settings.get('settings', {})
+    def _parse_sdk_about_settings(self, sdk_about_dict):
+        settings_raw = sdk_about_dict.get('settings', {})
         properties = settings_raw.get('properties', {})
         reformatted_settings = []
         for setting_name, details in properties.items():
@@ -268,8 +269,7 @@ class Utilities:
                     kind = 'date_iso8601'
                 setting_details['kind'] = kind
             reformatted_settings.append(setting_details)
-
-        return reformatted_settings, settings_raw.get('required', [])
+        return reformatted_settings, settings_raw.get('required', []), sdk_about_dict.get('capabilities')
 
 
     def add(self, repo_url: str, definition_seed: dict = None):
@@ -278,23 +278,24 @@ class Utilities:
         pip_url = self._prompt("pip_url", f"git+{repo_url}.git")
         namespace = self._prompt("namespace", plugin_name.replace('-', '_'))
         is_meltano_sdk = self._prompt("is_meltano_sdk", True, type=bool)
-        sdk_settings = None
+        sdk_about_dict = None
         try:
             self._install_test(plugin_name, namespace, plugin_type, pip_url, is_meltano_sdk)
             if is_meltano_sdk:
-                sdk_settings = MeltanoUtil.sdk_about(plugin_name)
+                sdk_about_dict = MeltanoUtil.sdk_about(plugin_name)
         except Exception as e:
             print(e)
         finally:
             MeltanoUtil.remove(plugin_name, plugin_type)
         
-        if sdk_settings:
-            settings, settings_group_validation = self._parse_sdk_about_settings(sdk_settings)
+        if sdk_about_dict:
+            settings, settings_group_validation, capabilities = self._parse_sdk_about_settings(sdk_about_dict)
         else:
             setting_list = self._compile_settings()
             settings, settings_group_validation = self._build_settings(setting_list)
+            capabilities = self._string_to_literal(self._prompt("capabilities", self._boilerplate_capabilities(plugin_type)))
         keywords = self._string_to_literal(self._prompt("keywords", self._scrape_keywords(is_meltano_sdk)))
-        definition = self._boilerplate_definition(repo_url, plugin_type, settings, settings_group_validation, plugin_name, namespace, pip_url, keywords)
+        definition = self._boilerplate_definition(repo_url, plugin_type, settings, settings_group_validation, plugin_name, namespace, pip_url, keywords, capabilities)
         definition_path = self._write_definition(definition, plugin_type)
         variant = definition['variant']
         self._handle_default_variant(plugin_name, definition['variant'], plugin_type)
