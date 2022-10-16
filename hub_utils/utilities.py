@@ -9,6 +9,7 @@ from collections import OrderedDict
 import shutil
 import csv
 from hub_utils.meltano_util import MeltanoUtil
+import hashlib
 
 class Kind(str, Enum):
     string = "string"
@@ -263,7 +264,7 @@ class Utilities:
             }
             kind = [s_type for s_type in details.get('type') if s_type != 'null'][0]
             if kind != 'string' and details.get('format') != 'date-time':
-                if details.get('format') != 'date-time':
+                if details.get('format') == 'date-time':
                     kind = 'date_iso8601'
                 setting_details['kind'] = kind
             reformatted_settings.append(setting_details)
@@ -322,10 +323,14 @@ class Utilities:
                 continue
             repo_url = row[0]
             plugin_definition = json.loads(row[5])
-            do_add = self._prompt(f'Add {repo_url}?', default_val=True, type=bool)
-            if not do_add:
-                continue
-            self.add(repo_url, definition_seed=plugin_definition)
+            name_hash = hashlib.sha256(self._get_plugin_name(repo_url).encode()).hexdigest()
+            do_add = self._prompt(f'Add {repo_url} - {name_hash}?', default_val=True, type=bool)
+            if do_add:
+                self.add(repo_url, definition_seed=plugin_definition)
+                self._prompt('Pausing to commit changes...hit any key to continue')
             repo_urls_to_delete.append(repo_url)
             self.delete_rows(repo_urls_to_delete, edit_path, csv_path)
-            self._prompt('Pausing to commit changes...hit any key to continue')
+
+if __name__ == "__main__":
+    util = Utilities(False)
+    util.add_bulk('/Users/pnadolny/Documents/Git/GitHub/pnadolny/hub-utils/other_scripts/export_edit.csv')
