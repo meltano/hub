@@ -345,6 +345,7 @@ extractors:
   tap-zuora: transferwise
   tap-coingecko: sicarul
   tap-ccxt: superkeyio
+  tap-cqc-org-uk: birdiecare
 loaders:
   target-airtable: hotgluexyz
   target-apprise: AutoIDM
