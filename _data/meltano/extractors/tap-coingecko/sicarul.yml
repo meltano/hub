@@ -1,39 +1,57 @@
-logo_url: /assets/logos/extractors/coingecko.png
-variant: sicarul
-usage: ''
-settings_preamble: ''
-settings_group_validation:
-- - token
-  - api_url
-  - start_date
-  - wait_time_between_requests
-settings:
-  - name: token
-    kind: password
-    label: Token
-    description: The name of the token to import the price history of
-  - name: api_url
-    label: API URL
-    description: Coingecko's api url
-  - name: start_date
-    kind: password
-    label: Start Date
-    description: First date to obtain token price for
-  - name: wait_time_between_requests
-    kind: integer
-    label: Wait Time Between Requests
-    description: Number of seconds to wait between requests
-repo: https://github.com/sicarul/tap-coingecko
-pip_url: git+https://github.com/sicarul/tap-coingecko.git
-next_steps: ''
-namespace: tap_coingecko
 name: tap-coingecko
-maintenance_status: active
+variant: sicarul
 label: Coingecko
-keywords:
-- meltano_sdk
-domain_url: ''
+logo_url: /assets/logos/extractors/coingecko.png
 capabilities:
 - catalog
-- discover
 - state
+- discover
+- about
+- stream-maps
+- schema-flattening
+domain_url: ''
+keywords:
+- meltano_sdk
+maintenance_status: active
+namespace: tap_coingecko
+next_steps: ''
+pip_url: git+https://github.com/sicarul/tap-coingecko.git
+repo: https://github.com/sicarul/tap-coingecko
+settings:
+- name: token
+  label: Token
+  description: The name of the token to import the price history of
+- name: api_url
+  label: Api Url
+  description: Coingecko's api url
+- name: start_date
+  label: Start Date
+  description: First date to obtain token price for
+- name: wait_time_between_requests
+  label: Wait Time Between Requests
+  description: Number of seconds to wait between requests
+  kind: integer
+- name: stream_maps
+  label: Stream Maps
+  description: Config object for stream maps capability.
+  kind: object
+- name: stream_map_config
+  label: Stream Map Config
+  description: User-defined config values to be used within map expressions.
+  kind: object
+- name: flattening_enabled
+  label: Flattening Enabled
+  description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+- name: flattening_max_depth
+  label: Flattening Max Depth
+  description: The max depth to flatten schemas.
+  kind: integer
+settings_group_validation:
+- token
+- api_url
+- start_date
+- wait_time_between_requests
+settings_preamble: ''
+usage: ''

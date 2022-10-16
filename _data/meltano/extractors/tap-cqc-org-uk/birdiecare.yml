@@ -4,8 +4,11 @@ label: Care Quality Commission (CQC) Org UK
 logo_url: /assets/logos/extractors/cqc-org-uk.png
 capabilities:
 - catalog
-- discover
 - state
+- discover
+- about
+- stream-maps
+- schema-flattening
 domain_url: ''
 keywords:
 - meltano_sdk

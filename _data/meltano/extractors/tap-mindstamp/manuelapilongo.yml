@@ -4,8 +4,11 @@ label: Mindstamp
 logo_url: /assets/logos/extractors/mindstamp.png
 capabilities:
 - catalog
-- discover
 - state
+- discover
+- about
+- stream-maps
+- schema-flattening
 domain_url: ''
 keywords:
 - meltano_sdk
