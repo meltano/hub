@@ -352,6 +352,7 @@ extractors:
   tap-meshstack: meshcloud
   tap-amazon-sp: singer-io
   tap-getpocket: evelte
+  tap-apple-search-ads: mighty-digital
 loaders:
   target-airtable: hotgluexyz
   target-apprise: AutoIDM
