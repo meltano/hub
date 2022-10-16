@@ -55,6 +55,62 @@ class MeltanoUtil:
             check=True
         )
 
+    @staticmethod
+    def _get_label(plugin_name, plugin_type=None):
+        return plugin_name.replace('_', ' ').replace('-', ' ').title()
+
+    @staticmethod
+    def _parse_sdk_about_settings(sdk_about_dict):
+        settings_raw = sdk_about_dict.get('settings', {})
+        reformatted_settings = []
+        settings_group_validation = []
+        for settings in MeltanoUtil._traverse_schema_properties(settings_raw):
+            setting_details = {
+                'name': settings.get('name'),
+                'label': MeltanoUtil._get_label(settings.get('name')),
+                'description': settings.get('description')
+            }
+            kind = [s_type for s_type in settings.get('type') if s_type != 'null'][0]
+            if kind != 'string' and settings.get('format') != 'date-time':
+                if settings.get('format') == 'date-time':
+                    kind = 'date_iso8601'
+                setting_details['kind'] = kind
+            reformatted_settings.append(setting_details)
+            if settings.get('required'):
+                settings_group_validation.append(settings.get('name'))
+        return reformatted_settings, [settings_group_validation], sdk_about_dict.get('capabilities')
+
+    @staticmethod
+    def _traverse_schema_properties(schema, field_sep='.'):
+        fields = []
+
+        for key, value in schema.get('properties', {}).items():
+            val_type = value.get('type')
+            if val_type == 'object':
+                for subfield in MeltanoUtil._traverse_schema_properties(value):
+                    sub_name = subfield.get('name')
+                    full_name = f'{key}{field_sep}{sub_name}'
+                    reqs = value.get("required")
+                    field = {
+                        'name': full_name,
+                        'description': subfield.get('description'),
+                        'type': subfield.get('type'),
+                    }
+                    if 'required' in subfield:
+                        # accept parent if it was set already
+                        field['required'] = subfield['required']
+                    else:
+                        field['required'] = sub_name in reqs
+
+                    fields.append(field)
+            else:
+                fields.append({
+                    'name': key,
+                    'description': value.get('description'),
+                    'type': value.get('type')
+                })
+        return fields
+
 if __name__ == '__main__':
     m = MeltanoUtil()
 

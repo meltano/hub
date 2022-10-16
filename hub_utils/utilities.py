@@ -20,7 +20,7 @@ class Kind(str, Enum):
 
 class Utilities:
 
-    def __init__(self, auto_accept):
+    def __init__(self, auto_accept=False):
         self.yaml = YAML()
         self.auto_accept = auto_accept
         self.hub_root = '/Users/pnadolny/Documents/Git/GitHub/meltano/hub'
@@ -253,25 +253,6 @@ class Utilities:
         MeltanoUtil.add(plugin_name, namespace, pip_url, plugin_type)
         MeltanoUtil.help_test(plugin_name)
 
-    def _parse_sdk_about_settings(self, sdk_about_dict):
-        settings_raw = sdk_about_dict.get('settings', {})
-        properties = settings_raw.get('properties', {})
-        reformatted_settings = []
-        for setting_name, details in properties.items():
-            setting_details = {
-                'name': setting_name,
-                'label': self._get_label(setting_name),
-                'description': details.get('description')
-            }
-            kind = [s_type for s_type in details.get('type') if s_type != 'null'][0]
-            if kind != 'string' and details.get('format') != 'date-time':
-                if details.get('format') == 'date-time':
-                    kind = 'date_iso8601'
-                setting_details['kind'] = kind
-            reformatted_settings.append(setting_details)
-        return reformatted_settings, settings_raw.get('required', []), sdk_about_dict.get('capabilities')
-
-
     def add(self, repo_url: str, definition_seed: dict = None):
         plugin_name = self._prompt("plugin name", self._get_plugin_name(repo_url))
         plugin_type = self._prompt("plugin type", self.get_plugin_type(repo_url))
@@ -289,7 +270,7 @@ class Utilities:
             MeltanoUtil.remove(plugin_name, plugin_type)
         
         if sdk_about_dict:
-            settings, settings_group_validation, capabilities = self._parse_sdk_about_settings(sdk_about_dict)
+            settings, settings_group_validation, capabilities = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
         else:
             setting_list = self._compile_settings()
             settings, settings_group_validation = self._build_settings(setting_list)
