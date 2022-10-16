@@ -349,6 +349,7 @@ extractors:
   tap-mindstamp: manuelapilongo
   tap-memberful: prratek
   tap-planfix: epoch8
+  tap-meshstack: meshcloud
 loaders:
   target-airtable: hotgluexyz
   target-apprise: AutoIDM
