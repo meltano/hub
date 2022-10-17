@@ -380,6 +380,7 @@ extractors:
   tap-amazon-associates: voxmedia
   tap-dbf: edgarrmondragon
   tap-dagster: voxmedia
+  tap-lastfm: rabidaudio
 loaders:
   target-airtable: hotgluexyz
   target-apprise: AutoIDM
