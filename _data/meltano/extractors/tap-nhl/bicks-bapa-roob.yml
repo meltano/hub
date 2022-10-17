@@ -1,0 +1,49 @@
+name: tap-nhl
+variant: bicks-bapa-roob
+label: NHL Stats API
+logo_url: /assets/logos/extractors/nhl.png
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+- schema-flattening
+domain_url: ''
+keywords:
+- meltano_sdk
+maintenance_status: active
+namespace: tap_nhl
+next_steps: ''
+pip_url: git+https://github.com/bicks-bapa-roob/tap-nhl.git
+repo: https://github.com/bicks-bapa-roob/tap-nhl
+settings:
+- name: start_date
+  label: Start Date
+  description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+- name: api_url
+  label: Api Url
+  description: The url for the API service
+- name: stream_maps
+  label: Stream Maps
+  description:
+  kind: object
+- name: stream_map_config
+  label: Stream Map Config
+  description:
+  kind: object
+- name: flattening_enabled
+  label: Flattening Enabled
+  description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+- name: flattening_max_depth
+  label: Flattening Max Depth
+  description: The max depth to flatten schemas.
+  kind: integer
+settings_group_validation:
+- []
+settings_preamble: ''
+usage: ''
