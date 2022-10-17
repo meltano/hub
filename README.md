@@ -1,38 +1,21 @@
 # hub-utils
 
+A utility CLI intended to streamline the steps needed to add Singer taps/targets to [MeltanoHub](https://hub.meltano.com/).
+
+```
 poetry install
 poetry run hub_utils --help
 
-poetry run hub_utils add https://github.com/birdiecare/tap-cqc-org-uk
-poetry run hub_utils add https://github.com/birdiecare/tap-cqc-org-uk --auto-accept
+poetry run hub_utils add https://github.com/MeltanoLabs/tap-google-analytics
+poetry run hub_utils add https://github.com/MeltanoLabs/tap-google-analytics --auto-accept
+```
 
-- evaluate
-    - validate against minimum requirements (settings, etc.)
-    - sdk
-    - commits
-    - last update
-    - usage
-    - 
-- add
-  - given a repo_url, pull SDK metadata if it exists, ask for user input as needed
-  - prompt for alternative naming, if its meltano-xyz and just fits under an existing xyz plugin dir
-  - write definition file
-  - add as default variant if the only one
-  - add to maintainers if not exists
-  - prompt for a logo url path
-- add_bulk
-  - same as add but uses a CSV as input
-- update - given a repo_url, check for updates
-- delete - check for repos that dont exist and remove
+## Bulk Add
 
-- labels
-- name + file check
-- maintainer exists
-- state capabilities
+This will iterate all reo_urls in a CSV file and prompt as it goes through.
+After writing output it excludes the repo_url from an output CSV so you can pause iterating and restart. If skipped or added, it shouldnt prompt again.
 
 
-Ideas:
-- it should help with settings too
-- request all setting names at once, to get them all stored, then ask about updates to defaults and descriptions one by one
-- auto create label, default to string, description as label
-- 
+```
+poetry run hub_utils add-bulk /path/to/csv_file
+```
