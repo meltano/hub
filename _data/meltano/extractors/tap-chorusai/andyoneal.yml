@@ -21,6 +21,7 @@ settings:
 - name: auth_token
   label: Auth Token
   description: The token to authenticate against the API service
+  kind: password
 - name: start_date
   label: Start Date
   description: Start date if no bookmark available.
