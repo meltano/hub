@@ -403,3 +403,4 @@ loaders:
   target-stitch: singer-io
   target-yaml: meltanolabs
   pipelinewise-target-s3-csv: transferwise
+  target-s3-parquet: gupy-io
