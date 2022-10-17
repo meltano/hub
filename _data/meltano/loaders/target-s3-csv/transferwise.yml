@@ -1,16 +1,17 @@
 logo_url: /assets/logos/loaders/pipelinewise-s3-csv.png
 variant: transferwise
+description: AWS S3 - CSV File Format
 usage: ''
 settings_preamble: ''
 repo: https://github.com/transferwise/pipelinewise-target-s3-csv
 pip_url: git+https://github.com/transferwise/pipelinewise-target-s3-csv.git
 next_steps: ''
 namespace: pipelinewise_target_s3_csv
-name: pipelinewise-target-s3-csv
+name: target-s3-csv
 maintenance_status: active
-label: Pipelinewise S3 Csv
+label: S3 CSV
 keywords: []
-domain_url: ''
+domain_url: https://aws.amazon.com/s3/
 docs: https://transferwise.github.io/pipelinewise/
 capabilities: []
 settings_group_validation:
