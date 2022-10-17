@@ -1,6 +1,6 @@
-name: tap-decentraland-thegraph
+name: tap-decentraland-api
 variant: decentraland
-label: Decentraland Thegraph
+label: Decentraland Api
 logo_url: /assets/logos/extractors/decentraland.png
 capabilities:
 - catalog
@@ -13,39 +13,38 @@ domain_url: ''
 keywords:
 - meltano_sdk
 maintenance_status: active
-namespace: tap_decentraland_thegraph
+namespace: tap_decentraland_api
 next_steps: ''
-pip_url: git+https://github.com/decentraland/tap-decentraland-thegraph.git
-repo: https://github.com/decentraland/tap-decentraland-thegraph
+pip_url: git+https://github.com/decentraland/tap-decentraland-api.git
+repo: https://github.com/decentraland/tap-decentraland-api
 settings:
-- name: start_updated_at
-  label: Start Updated At
-  description:
-  kind: integer
 - name: api_url
   label: Api Url
   description:
-- name: polygon_collections_url
-  label: Polygon Collections Url
+- name: coingecko_url
+  label: Coingecko Url
   description:
-- name: incremental_limit
-  label: Incremental Limit
+- name: coingecko_start_date
+  label: Coingecko Start Date
+  description:
+- name: events_api_url
+  label: Events Api Url
+  description:
+- name: governance_snapshot_api_url
+  label: Governance Snapshot Api Url
+  description:
+- name: governance_aragon_api_url
+  label: Governance Aragon Api Url
+  description:
+- name: peer_api_url
+  label: Peer Api Url
+  description:
+- name: scenes_per_run
+  label: Scenes Per Run
   description:
   kind: integer
-- name: eth_mana_holder_url
-  label: Eth Mana Holder Url
-  description:
-- name: polygon_mana_holder_url
-  label: Polygon Mana Holder Url
-  description:
-- name: poaps_xdai_url
-  label: Poaps Xdai Url
-  description:
-- name: poaps_details_url
-  label: Poaps Details Url
-  description:
-- name: eth_collections_url
-  label: Eth Collections Url
+- name: smart_items_url
+  label: Smart Items Url
   description:
 - name: stream_maps
   label: Stream Maps
