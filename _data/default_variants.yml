@@ -375,6 +375,7 @@ extractors:
   tap-nhl: bicks-bapa-roob
   tap-decentraland-api: decentraland
   tap-apachelog: omelark
+  tap-bexio: substringgmbh
 loaders:
   target-airtable: hotgluexyz
   target-apprise: AutoIDM
