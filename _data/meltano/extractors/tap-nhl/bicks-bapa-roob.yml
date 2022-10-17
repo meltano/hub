@@ -9,7 +9,7 @@ capabilities:
 - about
 - stream-maps
 - schema-flattening
-domain_url: ''
+domain_url: https://www.nhl.com/
 keywords:
 - meltano_sdk
 maintenance_status: active
@@ -28,11 +28,11 @@ settings:
   description: The url for the API service
 - name: stream_maps
   label: Stream Maps
-  description:
+  description: Config object for stream maps capability.
   kind: object
 - name: stream_map_config
   label: Stream Map Config
-  description:
+  description: User-defined config values to be used within map expressions.
   kind: object
 - name: flattening_enabled
   label: Flattening Enabled

@@ -24,7 +24,7 @@ settings:
 - name: api_number
   label: Api Number
   description: Number for your account API, i.e. https://api-xx.tvsquared.com
-  kind: number
+  kind: integer
 - name: username
   label: Username
   description: Username for authentication

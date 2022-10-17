@@ -9,7 +9,7 @@ capabilities:
 - about
 - stream-maps
 - schema-flattening
-domain_url: ''
+domain_url: https://mindstamp.io/
 keywords:
 - meltano_sdk
 maintenance_status: active
@@ -42,6 +42,6 @@ settings:
   description: The max depth to flatten schemas.
   kind: integer
 settings_group_validation:
-- api_key
+- - api_key
 settings_preamble: ''
 usage: ''

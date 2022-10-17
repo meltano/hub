@@ -20,32 +20,32 @@ repo: https://github.com/decentraland/tap-decentraland-api
 settings:
 - name: api_url
   label: Api Url
-  description:
+  description: Api Url
 - name: coingecko_url
   label: Coingecko Url
-  description:
+  description: Coingecko Url
 - name: coingecko_start_date
   label: Coingecko Start Date
-  description:
+  description: Coingecko Start Date
 - name: events_api_url
   label: Events Api Url
-  description:
+  description: Events Api Url
 - name: governance_snapshot_api_url
   label: Governance Snapshot Api Url
-  description:
+  description: Governance Snapshot Api Url
 - name: governance_aragon_api_url
   label: Governance Aragon Api Url
-  description:
+  description: Governance Aragon Api Url
 - name: peer_api_url
   label: Peer Api Url
-  description:
+  description: Peer Api Url
 - name: scenes_per_run
   label: Scenes Per Run
-  description:
+  description: Scenes Per Run
   kind: integer
 - name: smart_items_url
   label: Smart Items Url
-  description:
+  description: Smart Items Url
 - name: stream_maps
   label: Stream Maps
   description: Config object for stream maps capability.

@@ -9,7 +9,7 @@ capabilities:
 - about
 - stream-maps
 - schema-flattening
-domain_url: ''
+domain_url: https://www.cqc.org.uk/
 keywords:
 - meltano_sdk
 maintenance_status: active
@@ -20,10 +20,12 @@ repo: https://github.com/birdiecare/tap-cqc-org-uk
 settings:
 - name: partner_code
   label: Partner Code
-  description:
+  description: Partner Code
 - name: start_date
   label: Start Date
-  description:
+  description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
 - name: stream_maps
   label: Stream Maps
   description: Config object for stream maps capability.

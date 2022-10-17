@@ -8,7 +8,7 @@ capabilities:
 - discover
 - about
 - stream-maps
-domain_url: ''
+domain_url: https://memberful.com/
 keywords:
 - meltano_sdk
 maintenance_status: active
@@ -24,6 +24,6 @@ settings:
   label: Start Date
   description: The earliest record date to sync
 settings_group_validation:
-- api_key
+- - api_key
 settings_preamble: ''
 usage: ''

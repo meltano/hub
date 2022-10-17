@@ -20,33 +20,33 @@ repo: https://github.com/decentraland/tap-decentraland-thegraph
 settings:
 - name: start_updated_at
   label: Start Updated At
-  description:
+  description: The start updated at date to use.
   kind: integer
 - name: api_url
-  label: Api Url
-  description:
+  label: Api URL
+  description: The API URL.
 - name: polygon_collections_url
-  label: Polygon Collections Url
-  description:
+  label: Polygon Collections URL
+  description: Polygon Collections URL
 - name: incremental_limit
   label: Incremental Limit
-  description:
+  description: Incremental Limit
   kind: integer
 - name: eth_mana_holder_url
-  label: Eth Mana Holder Url
-  description:
+  label: Eth Mana Holder URL
+  description: Eth Mana Holder URL
 - name: polygon_mana_holder_url
   label: Polygon Mana Holder Url
-  description:
+  description: Polygon Mana Holder Url
 - name: poaps_xdai_url
   label: Poaps Xdai Url
-  description:
+  description: Poaps Xdai Url
 - name: poaps_details_url
   label: Poaps Details Url
-  description:
+  description: Poaps Details Url
 - name: eth_collections_url
   label: Eth Collections Url
-  description:
+  description: Eth Collections Url
 - name: stream_maps
   label: Stream Maps
   description: Config object for stream maps capability.

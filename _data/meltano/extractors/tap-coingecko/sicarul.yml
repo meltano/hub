@@ -9,7 +9,7 @@ capabilities:
 - about
 - stream-maps
 - schema-flattening
-domain_url: ''
+domain_url: https://www.coingecko.com/
 keywords:
 - meltano_sdk
 maintenance_status: active
@@ -49,9 +49,9 @@ settings:
   description: The max depth to flatten schemas.
   kind: integer
 settings_group_validation:
-- token
-- api_url
-- start_date
-- wait_time_between_requests
+- - token
+  - api_url
+  - start_date
+  - wait_time_between_requests
 settings_preamble: ''
 usage: ''

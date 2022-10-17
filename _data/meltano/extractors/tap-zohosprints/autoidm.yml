@@ -8,7 +8,7 @@ capabilities:
 - discover
 - about
 - stream-maps
-domain_url: ''
+domain_url: https://www.zoho.com/sprints/
 keywords:
 - meltano_sdk
 maintenance_status: active
@@ -18,26 +18,28 @@ pip_url: git+https://github.com/AutoIDM/tap-zohosprints.git
 repo: https://github.com/AutoIDM/tap-zohosprints
 settings:
 - name: api_url
-  label: Api Url
-  description:
+  label: API URL
+  description: The API URL
 - name: oauth_url
-  label: Oauth Url
-  description:
+  label: OAuth URL
+  description: The OAuth URL
 - name: client_id
   label: Client Id
-  description:
+  description: Your client ID.
   kind: password
 - name: client_secret
   label: Client Secret
-  description:
+  description: Your client secret.
   kind: password
 - name: refresh_token
   label: Refresh Token
-  description:
+  description: Your refresh token.
   kind: password
 - name: start_date
   label: Start Date
-  description:
+  description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
 settings_group_validation:
 - - refresh_token
   - api_url

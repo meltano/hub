@@ -8,7 +8,7 @@ capabilities:
 - discover
 - about
 - stream-maps
-domain_url: ''
+domain_url: https://apaleo.com/
 keywords:
 - meltano_sdk
 maintenance_status: active
@@ -19,15 +19,17 @@ repo: https://github.com/felixkoch/tap-apaleo
 settings:
 - name: client_id
   label: Client Id
-  description:
+  description: Your Client Id.
   kind: password
 - name: client_secret
   label: Client Secret
-  description:
+  description: Your Client Secret.
   kind: password
 - name: start_date
   label: Start Date
-  description:
+  description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
 settings_group_validation:
 - - client_id
   - client_secret

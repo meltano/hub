@@ -20,7 +20,7 @@ repo: https://github.com/epoch8/tap-planfix
 settings:
 - name: planfiix_url
   label: Planfiix Url
-  description:
+  description: Planfiix Url
 - name: planfix_token
   label: Planfix Token
   description: Your Planfix token.
