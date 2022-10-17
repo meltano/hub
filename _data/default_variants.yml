@@ -363,6 +363,7 @@ extractors:
   tap-atinternet: gendarmerienationale
   tap-zohosprints: autoidm
   tap-gladly: harrystech
+  tap-meltanohub: autoidm
 loaders:
   target-airtable: hotgluexyz
   target-apprise: AutoIDM
