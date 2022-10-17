@@ -359,6 +359,7 @@ extractors:
   tap-mailjet: Somtom
   tap-tiktok-business: hkuffel
   tap-apaleo: felixkoch
+  tap-decentraland-thegraph: decentraland
 loaders:
   target-airtable: hotgluexyz
   target-apprise: AutoIDM
