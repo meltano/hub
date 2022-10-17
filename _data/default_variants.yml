@@ -365,6 +365,7 @@ extractors:
   tap-gladly: harrystech
   tap-meltanohub: autoidm
   tap-opensea: decentraland
+  tap-trustrace: icebug
 loaders:
   target-airtable: hotgluexyz
   target-apprise: AutoIDM
