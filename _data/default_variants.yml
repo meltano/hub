@@ -371,6 +371,7 @@ extractors:
   tap-dixa: singer-io
   tap-krow: datateer
   tap-degreed: the-prairie
+  tap-partoo: gendarmerienationale
 loaders:
   target-airtable: hotgluexyz
   target-apprise: AutoIDM
