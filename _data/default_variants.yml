@@ -376,6 +376,7 @@ extractors:
   tap-decentraland-api: decentraland
   tap-apachelog: omelark
   tap-bexio: substringgmbh
+  tap-hibob: potloc
 loaders:
   target-airtable: hotgluexyz
   target-apprise: AutoIDM
