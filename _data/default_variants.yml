@@ -361,6 +361,7 @@ extractors:
   tap-apaleo: felixkoch
   tap-decentraland-thegraph: decentraland
   tap-atinternet: gendarmerienationale
+  tap-zohosprints: autoidm
 loaders:
   target-airtable: hotgluexyz
   target-apprise: AutoIDM

@@ -1,0 +1,48 @@
+name: tap-zohosprints
+variant: autoidm
+label: Zohosprints
+logo_url: /assets/logos/extractors/zohosprints.png
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+domain_url: ''
+keywords:
+- meltano_sdk
+maintenance_status: active
+namespace: tap_zohosprints
+next_steps: ''
+pip_url: git+https://github.com/AutoIDM/tap-zohosprints.git
+repo: https://github.com/AutoIDM/tap-zohosprints
+settings:
+- name: api_url
+  label: Api Url
+  description:
+- name: oauth_url
+  label: Oauth Url
+  description:
+- name: client_id
+  label: Client Id
+  description:
+  kind: password
+- name: client_secret
+  label: Client Secret
+  description:
+  kind: password
+- name: refresh_token
+  label: Refresh Token
+  description:
+  kind: password
+- name: start_date
+  label: Start Date
+  description:
+settings_group_validation:
+- - refresh_token
+  - api_url
+  - oauth_url
+  - client_secret
+  - client_id
+settings_preamble: ''
+usage: ''
