@@ -2,6 +2,83 @@ import pytest
 from hub_utils.meltano_util import MeltanoUtil
 
 
+def test_sdk_about_parsing_2():
+    sdk_about_dict = {
+        "name": "tap-apaleo",
+        "description": "Apaleo tap class.",
+        "version": "0.0.1",
+        "sdk_version": "0.3.18",
+        "capabilities": [
+            "catalog",
+            "state",
+            "discover",
+            "about",
+            "stream-maps"
+        ],
+        "settings": {
+            "type": "object",
+            "properties": {
+            "client_id": {
+                "type": [
+                "string"
+                ]
+            },
+            "client_secret": {
+                "type": [
+                "string"
+                ]
+            },
+            "start_date": {
+                "type": [
+                "string"
+                ],
+                "format": "date-time"
+            }
+            },
+            "required": [
+                "client_id",
+                "client_secret",
+                "start_date"
+            ]
+        }
+    }
+
+    settings, settings_group_validation, capabilities = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
+    print(settings)
+    assert settings == [
+        {
+            "name": "client_id",
+            "label": "Client Id",
+            "description": None,
+            "kind": "password"
+        },
+        {
+            "name": "client_secret",
+            "label": "Client Secret",
+            "description": None,
+            "kind": "password"
+        },
+        {
+            "name": "start_date",
+            "label": "Start Date",
+            "description": None
+        }
+    ]
+    assert set(settings_group_validation[0]) == set(
+        [
+            'client_id',
+            'client_secret',
+            'start_date'
+        ]
+    )
+    assert capabilities == [
+        "catalog",
+        "state",
+        "discover",
+        "about",
+        "stream-maps"
+    ]
+
 def test_sdk_about_parsing():
     sdk_about_dict = {
         "name": "tap-meshstack",
@@ -150,12 +227,15 @@ def test_sdk_about_parsing():
             "kind": "integer"
         }
     ]
-
-    assert settings_group_validation[0] == [
-        'federation.auth.username',
-        'federation.auth.password',
-        'federation.api_url'
-    ]
+    assert set(settings_group_validation[0]) == set(
+        [
+            'federation.auth.username',
+            'federation.auth.password',
+            'federation.api_url',
+            'another_setting_required',
+            'federation'
+        ]
+    )
     assert capabilities == [
         "catalog",
         "state",

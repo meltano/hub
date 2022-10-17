@@ -50,7 +50,7 @@ class Utilities:
 
     @staticmethod
     def _get_plugin_variant(repo_url: str):
-        return repo_url.split("/")[-2]
+        return repo_url.split("/")[-2].lower()
 
     @staticmethod
     def get_plugin_type(plugin_name: str):
@@ -152,7 +152,8 @@ class Utilities:
             "label": self._prompt("label", label),
             "logo_url": f'/assets/logos/{plugin_type}/{logo_name}.png',
             "capabilities": capabilities,
-            "domain_url": "",
+            "description": self._prompt("description", ""),
+            "domain_url": self._prompt("domain_url", ""),
             "keywords": keywords,
             "maintenance_status": self._prompt("maintenance_status", self._get_maintenance_status()),
             "namespace": namespace,
@@ -226,6 +227,7 @@ class Utilities:
             updated_maintainers[plugin_variant] = {
                 "label": maintainer_name,
                 "url": "/".join(repo_url.split("/")[:-1]),
+                "name": maintainer_name
             }
             print(f'Maintainer: Updated')
             updated_maintainers = dict(OrderedDict(sorted(updated_maintainers.items())))
@@ -249,8 +251,8 @@ class Utilities:
         shutil.copyfile(image_path, f'{self.hub_root}/static/assets/logos/{plugin_type}/{logo_file_name}')
 
     @staticmethod
-    def _install_test(plugin_name, namespace, plugin_type, pip_url, is_meltano_sdk):
-        MeltanoUtil.add(plugin_name, namespace, pip_url, plugin_type)
+    def _install_test(plugin_name, plugin_type, pip_url, namespace, executable):
+        MeltanoUtil.add(plugin_name, namespace, executable, pip_url, plugin_type)
         MeltanoUtil.help_test(plugin_name)
 
     def add(self, repo_url: str, definition_seed: dict = None):
@@ -258,12 +260,15 @@ class Utilities:
         plugin_type = self._prompt("plugin type", self.get_plugin_type(repo_url))
         pip_url = self._prompt("pip_url", f"git+{repo_url}.git")
         namespace = self._prompt("namespace", plugin_name.replace('-', '_'))
+        executable = self._prompt("executable", plugin_name)
         is_meltano_sdk = self._prompt("is_meltano_sdk", True, type=bool)
         sdk_about_dict = None
         try:
-            self._install_test(plugin_name, namespace, plugin_type, pip_url, is_meltano_sdk)
+            if self._prompt("Run install test?", True, type=bool):
+                self._install_test(plugin_name, plugin_type, pip_url, namespace, executable)
             if is_meltano_sdk:
-                sdk_about_dict = MeltanoUtil.sdk_about(plugin_name)
+                if self._prompt("Scrape SDK --about settings?", True, type=bool):
+                    sdk_about_dict = MeltanoUtil.sdk_about(plugin_name)
         except Exception as e:
             print(e)
         finally:
