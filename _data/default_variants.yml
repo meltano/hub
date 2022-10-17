@@ -379,6 +379,7 @@ extractors:
   tap-hibob: potloc
   tap-amazon-associates: voxmedia
   tap-dbf: edgarrmondragon
+  tap-dagster: voxmedia
 loaders:
   target-airtable: hotgluexyz
   target-apprise: AutoIDM
