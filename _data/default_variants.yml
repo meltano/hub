@@ -362,6 +362,7 @@ extractors:
   tap-decentraland-thegraph: decentraland
   tap-atinternet: gendarmerienationale
   tap-zohosprints: autoidm
+  tap-gladly: harrystech
 loaders:
   target-airtable: hotgluexyz
   target-apprise: AutoIDM
