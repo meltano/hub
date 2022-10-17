@@ -382,6 +382,7 @@ extractors:
   tap-dagster: voxmedia
   tap-lastfm: rabidaudio
   tap-bamboohr: autoidm
+  tap-lessonly: pathlight
 loaders:
   target-airtable: hotgluexyz
   target-apprise: AutoIDM
