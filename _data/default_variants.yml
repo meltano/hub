@@ -378,6 +378,7 @@ extractors:
   tap-bexio: substringgmbh
   tap-hibob: potloc
   tap-amazon-associates: voxmedia
+  tap-dbf: edgarrmondragon
 loaders:
   target-airtable: hotgluexyz
   target-apprise: AutoIDM
