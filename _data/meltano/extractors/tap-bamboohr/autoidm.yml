@@ -1,0 +1,37 @@
+name: tap-bamboohr
+variant: autoidm
+label: BambooHR
+logo_url: /assets/logos/extractors/bamboohr.png
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+description: HR Platform
+domain_url: https://www.bamboohr.com/
+keywords:
+- meltano_sdk
+maintenance_status: active
+namespace: autoidm_tap_bamboohr
+next_steps: ''
+pip_url: git+https://github.com/AutoIDM/autoidm-tap-bamboohr.git
+repo: https://github.com/AutoIDM/autoidm-tap-bamboohr
+settings:
+- name: auth_token
+  label: Auth Token
+  description: Token gathered from BambooHR, instructions are [here](https://documentation.bamboohr.com/docs#section-authentication)
+  kind: password
+- name: subdomain
+  label: Subdomain
+  description: subdomain from BambooHR
+- name: custom_reports
+  label: Custom Reports
+  description: CustomReport full body definition, example in meltano.yml, same format
+    as the Body for the POST request [here](https://documentation.bamboohr.com/reference/request-custom-report-1)
+  kind: array
+settings_group_validation:
+- - subdomain
+  - auth_token
+settings_preamble: ''
+usage: ''

@@ -381,6 +381,7 @@ extractors:
   tap-dbf: edgarrmondragon
   tap-dagster: voxmedia
   tap-lastfm: rabidaudio
+  tap-bamboohr: autoidm
 loaders:
   target-airtable: hotgluexyz
   target-apprise: AutoIDM
