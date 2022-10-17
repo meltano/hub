@@ -1,0 +1,46 @@
+name: tap-tableau
+variant: tailsdotcom
+label: Tableau
+logo_url: /assets/logos/extractors/tableau.png
+capabilities:
+- catalog
+- state
+- discover
+domain_url: ''
+keywords:
+- meltano_sdk
+maintenance_status: active
+namespace: tap_tableau_server
+next_steps: ''
+pip_url: git+https://github.com/tailsdotcom/tap-tableau-server.git
+repo: https://github.com/tailsdotcom/tap-tableau-server
+settings:
+- name: host
+  label: Host
+  description:
+- name: username
+  label: Username
+  description:
+- name: password
+  label: Password
+  description:
+  kind: password
+- name: site_id
+  label: Site Id
+  description:
+- name: limit
+  label: Limit
+  description:
+  kind: integer
+- name: relation_types_include
+  label: Relation Types Include
+  description:
+  kind: array
+- name: relation_types_exclude
+  label: Relation Types Exclude
+  description:
+  kind: array
+settings_group_validation:
+- []
+settings_preamble: ''
+usage: ''
