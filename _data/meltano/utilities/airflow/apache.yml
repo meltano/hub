@@ -56,6 +56,10 @@ next_steps: |
   1. Start Scheduler or execute Airflow commands directly using the instructions in [the Meltano docs](https://docs.meltano.com/guide/orchestration#starting-the-airflow-scheduler).
 
 settings:
+- name: database.sql_alchemy_conn
+  label: SQL Alchemy Connection
+  value: sqlite:///$MELTANO_PROJECT_ROOT/.meltano/utilities/airflow/airflow.db
+  env: AIRFLOW__DATABASE__SQL_ALCHEMY_CONN
 - name: core.dags_folder
   label: DAGs Folder
   value: $MELTANO_PROJECT_ROOT/orchestrate/airflow/dags
@@ -64,10 +68,6 @@ settings:
   label: Plugins Folder
   value: $MELTANO_PROJECT_ROOT/orchestrate/airflow/plugins
   env: AIRFLOW__CORE__PLUGINS_FOLDER
-- name: database.sql_alchemy_conn
-  label: SQL Alchemy Connection
-  value: sqlite:///$MELTANO_PROJECT_ROOT/orchestrate/airflow/config/airflow.db
-  env: AIRFLOW__CORE__SQL_ALCHEMY_CONN
 - name: core.load_examples
   label: Load Examples
   value: false
@@ -80,6 +80,26 @@ settings:
   label: Webserver Port
   value: 8080
   env: AIRFLOW__WEBSERVER__WEB_SERVER_PORT
+- name: logging.base_log_folder
+  label: Base Log Folder
+  value: $MELTANO_PROJECT_ROOT/.meltano/utilities/airflow/logs
+  env: AIRFLOW__LOGGING__BASE_LOG_FOLDER
+  description: |
+    The folder where airflow should store its log files. This path must be absolute. There are a few existing
+    configurations that assume this is set to the default. If you choose to override this you may need to update
+    the dag_processor_manager_log_location and child_process_log_directory settings as well.
+- name: logging.dag_processor_manager_log_location
+  label: Dag Processor Manager Log Location
+  value: $MELTANO_PROJECT_ROOT/.meltano/utilities/airflow/logs/dag_processor_manager/dag_processor_manager.log
+  env: AIRFLOW__LOGGING__DAG_PROCESSOR_MANAGER_LOG_LOCATION
+  description: |
+    Where to send dag parser logs.
+- name: scheduler.child_process_log_directory
+  label: Child Process Log Directory
+  value: $MELTANO_PROJECT_ROOT/.meltano/utilities/airflow/logs/scheduler
+  env: AIRFLOW__SCHEDULER__CHILD_PROCESS_LOG_DIRECTORY
+  description: |
+    Where to send the logs of each scheduler process.
 - name: extension.airflow_home
   label: Airflow Home
   value: $MELTANO_PROJECT_ROOT/orchestrate/airflow
