@@ -1,0 +1,36 @@
+name: tap-apaleo
+variant: felixkoch
+label: Apaleo
+logo_url: /assets/logos/extractors/apaleo.png
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+domain_url: ''
+keywords:
+- meltano_sdk
+maintenance_status: active
+namespace: tap_apaleo
+next_steps: ''
+pip_url: git+https://github.com/felixkoch/tap-apaleo.git
+repo: https://github.com/felixkoch/tap-apaleo
+settings:
+- name: client_id
+  label: Client Id
+  description:
+  kind: password
+- name: client_secret
+  label: Client Secret
+  description:
+  kind: password
+- name: start_date
+  label: Start Date
+  description:
+settings_group_validation:
+- - client_id
+  - client_secret
+  - start_date
+settings_preamble: ''
+usage: ''
