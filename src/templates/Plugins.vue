@@ -76,16 +76,16 @@
                 allows for workflows to be programmatically authored, scheduled, and
                 monitored.</span
               >
-              <span 
+              <span
                 class="prose"
                 v-if="$page.plugins.pluginType === 'utility'"
-                v-html="$page.plugins.definition_rendered"></span
-              >
-              <span 
+                v-html="$page.plugins.definition_rendered"
+              ></span>
+              <span
                 class="prose"
                 v-if="$page.plugins.pluginType === 'file'"
-                v-html="$page.plugins.definition_rendered"></span
-              >
+                v-html="$page.plugins.definition_rendered"
+              ></span>
             </p>
             <p class="text-2xl">Other Available Variants</p>
             <ul class="list-disc list-inside pl-4">
