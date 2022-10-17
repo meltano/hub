@@ -377,6 +377,7 @@ extractors:
   tap-apachelog: omelark
   tap-bexio: substringgmbh
   tap-hibob: potloc
+  tap-amazon-associates: voxmedia
 loaders:
   target-airtable: hotgluexyz
   target-apprise: AutoIDM
