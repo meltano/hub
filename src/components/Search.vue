@@ -4,7 +4,7 @@
       type="text"
       name="search"
       id="search"
-      placeholder="Search 300+ connectors and tools that work with Meltano…"
+      placeholder="Search 350+ connectors and tools that work with Meltano…"
       class="text-black col-span-1 bg-slate-100 pl-4 border-solid border-black border-2 w-10/12 place-self-center"
       ref="searchBar"
       :value="search"

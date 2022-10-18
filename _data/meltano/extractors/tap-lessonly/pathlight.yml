@@ -1,0 +1,29 @@
+name: tap-lessonly
+variant: pathlight
+label: Lessonly
+logo_url: /assets/logos/extractors/lessonly.png
+capabilities:
+- catalog
+- discover
+- state
+description: Team Training Software
+domain_url: https://seismic.com/lessonly/
+keywords: []
+maintenance_status: active
+namespace: tap_lessonly
+next_steps: ''
+pip_url: git+https://github.com/Pathlight/tap-lessonly.git
+repo: https://github.com/Pathlight/tap-lessonly
+settings:
+- name: api_key
+  label: API Key
+  description: Your Lessonly API key.
+  kind: password
+- name: subdomain
+  label: Subdomain
+  description: Your Lessonly subdomain.
+settings_group_validation:
+- - api_key
+  - subdomain
+settings_preamble: ''
+usage: ''
