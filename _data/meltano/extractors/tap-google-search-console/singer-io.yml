@@ -20,7 +20,7 @@ settings:
   description: The request timeout.
   kind: integer
 - name: site_urls
-  label: Site Urls
+  label: Site URLs
   description: The website URL properties in a comma delimited list; do not include
     the domain-level property in the list.
 - name: client_id
@@ -28,7 +28,7 @@ settings:
   description: Your client ID.
   kind: password
 - name: user_agent
-  label: The user agent to send along with the API requests.
+  label: User Agent
   description: The user agent to send along with the API requests.
 settings_group_validation:
 - - refresh_token
