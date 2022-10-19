@@ -6,7 +6,31 @@ namespace: tap_appstore
 variant: miroapp
 pip_url: git+https://github.com/miroapp/tap-appstore.git
 repo: https://github.com/miroapp/tap-appstore
-settings: []
+settings:
+- name: vendor
+  label: Vendor
+  description: Appstore vendor number.
+- name: issuer_id
+  label: Issuer ID
+  description: Appstore issuer ID.
+- name: start_date
+  label: Start Date
+  description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
+  kind: date_iso8601
+- name: key_id
+  label: Key ID
+  description: Appstore key ID.
+- name: key_file
+  label: Key File
+  description: Appstore key file.
+settings_group_validation:
+- - vendor
+  - issuer_id
+  - start_date
+  - key_id
+  - key_file
 capabilities:
 - catalog
 - discover
