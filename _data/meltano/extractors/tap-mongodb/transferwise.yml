@@ -10,7 +10,6 @@ capabilities:
 - state
 - catalog
 - discover
-- state
 - log-based
 settings_group_validation:
 - - password
