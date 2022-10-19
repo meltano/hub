@@ -6,12 +6,40 @@ namespace: tap_google_search_console
 variant: singer-io
 pip_url: tap-google-search-console
 repo: https://github.com/singer-io/tap-google-search-console
-settings: []
+settings:
+- name: refresh_token
+  label: Refresh Token
+  description: Your refresh token.
+  kind: password
+- name: client_secret
+  label: Client Secret
+  description: Your client secret.
+  kind: password
+- name: request_timeout
+  label: Request Timeout
+  description: The request timeout.
+  kind: integer
+- name: site_urls
+  label: Site Urls
+  description: The website URL properties in a comma delimited list; do not include
+    the domain-level property in the list.
+- name: client_id
+  label: Client ID
+  description: Your client ID.
+  kind: password
+- name: user_agent
+  label: The user agent to send along with the API requests.
+  description: The user agent to send along with the API requests.
+settings_group_validation:
+- - refresh_token
+  - client_secret
+  - client_id
+  - user_agent
 capabilities:
 - catalog
 - discover
 - state
 domain_url: https://developers.google.com/webmaster-tools/search-console-api-original/v3/how-tos/search_analytics
-maintenance_status: unknown
+maintenance_status: active
 keywords:
 - api
