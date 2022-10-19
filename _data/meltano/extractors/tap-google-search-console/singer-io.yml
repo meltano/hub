@@ -20,7 +20,7 @@ settings:
   description: The request timeout.
   kind: integer
 - name: site_urls
-  label: Site Urls
+  label: Site URLs
   description: The website URL properties in a comma delimited list; do not include
     the domain-level property in the list.
 - name: client_id
