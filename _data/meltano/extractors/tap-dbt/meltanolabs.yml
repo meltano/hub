@@ -6,10 +6,49 @@ namespace: tap_dbt
 variant: meltanolabs
 pip_url: git+https://github.com/meltanolabs/tap-dbt.git
 repo: https://github.com/meltanolabs/tap-dbt
-settings: []
+settings_group_validation:
+- - api_key
+  - account_ids
+settings:
+- name: api_key
+  label: Api Key
+  description: API key for the dbt Cloud API
+  kind: password
+- name: account_ids
+  label: Account Ids
+  description: dbt Cloud account IDs
+  kind: array
+- name: base_url
+  label: Base Url
+  description: Base URL for the dbt Cloud API
+- name: user_agent
+  label: User Agent
+  description: User-Agent to make requests with
+- name: stream_maps
+  label: Stream Maps
+  description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+- name: stream_map_config
+  label: Stream Map Config
+  description: User-defined config values to be used within map expressions.
+  kind: object
+- name: flattening_enabled
+  label: Flattening Enabled
+  description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+- name: flattening_max_depth
+  label: Flattening Max Depth
+  description: The max depth to flatten schemas.
+  kind: integer
 capabilities:
 - catalog
+- state
 - discover
+- about
+- stream-maps
+- schema-flattening
 domain_url: https://www.getdbt.com/product/
 maintenance_status: active
 keywords:
