@@ -6,7 +6,22 @@ namespace: tap_exchangeratehost
 variant: anelendata
 pip_url: git+https://github.com/anelendata/tap-exchangeratehost.git
 repo: https://github.com/anelendata/tap-exchangeratehost
-settings: []
+settings:
+- name: start_date
+  label: Start Date
+  description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
+  kind: date_iso8601
+- name: end_date
+  label: End Date
+  description: The end date for when the sync should stop pulling data.
+  kind: date_iso8601
+- name: base
+  label: Base
+  description: Changing base currency. Enter the three-letter currency code of your preferred base currency.
+    For example - base=USD. (Default EUR)
+settings_group_validation: []
 capabilities:
 - state
 domain_url: https://exchangerate.host/#/

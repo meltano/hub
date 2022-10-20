@@ -6,9 +6,20 @@ namespace: tap_parquet
 variant: dataops-tk
 pip_url: git+https://github.com/dataops-tk/tap-parquet.git
 repo: https://github.com/dataops-tk/tap-parquet
-settings: []
+settings_group_validation:
+- - filepath
+settings:
+- name: start_date
+  label: Start Date
+  description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+- name: filepath
+  label: Filepath
+  description: The absolute path to a parquet source file.
 capabilities:
 - catalog
+- state
 - discover
 domain_url: https://parquet.apache.org/
 maintenance_status: unknown
