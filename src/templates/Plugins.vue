@@ -49,203 +49,10 @@
           </table>
         </div>
         <div class="flex flex-col lg:flex-row w-screen sm:w-auto">
-          <div class="p-5">
-            <p>
-              The {{ $page.plugins.name }}
-              <a
-                :href="
-                  'https://docs.meltano.com/concepts/plugins#' + $page.plugins.pluginTypePlural
-                "
-                >{{ $page.plugins.pluginType }}</a
-              >
-              <span v-if="$page.plugins.pluginType === 'extractor'">
-                pulls data from
-                <a :href="$page.plugins.domain_url">{{ $page.plugins.label }}</a> that can then be
-                sent to a destination using a <g-link to="/loaders">loader</g-link>.</span
-              >
-              <span v-if="$page.plugins.pluginType === 'loader'">
-                sends data into <a :href="$page.plugins.domain_url">{{ $page.plugins.label }}</a>
-                after it was pulled from a source using an
-                <g-link to="/extractors">extractor</g-link></span
-              >
-              <span v-if="$page.plugins.pluginType === 'transformer'">
-                is a plugin for running SQL-based transformations on data stored in your
-                warehouse.</span
-              >
-              <span v-if="$page.plugins.pluginType === 'orchestrator'">
-                allows for workflows to be programmatically authored, scheduled, and
-                monitored.</span
-              >
-              <span
-                class="prose"
-                v-if="$page.plugins.pluginType === 'utility'"
-                v-html="$page.plugins.definition_rendered"
-              ></span>
-              <span
-                class="prose"
-                v-if="$page.plugins.pluginType === 'file'"
-                v-html="$page.plugins.definition_rendered"
-              ></span>
-            </p>
-            <span class="space-y-3" v-if="$page.variants.edges && $page.variants.edges.length > 1">
-              <p class="text-2xl">Available Variants</p>
-              <ul class="list-disc list-inside pl-4">
-                <li v-for="(variant, index) in $page.variants.edges" v-bind:key="index">
-                  <g-link :to="variant.node.path" v-if="variant.node.path !== $page.plugins.path">{{
-                    variant.node.variant
-                  }}</g-link>
-                  <span v-else>{{ variant.node.variant }}</span>
-                  <span v-if="variant.node.isDefault"> (default)</span>
-                  <span v-if="variant.node.keywords.includes('meltano_sdk')">
-                    <img
-                      class="inline pl-2"
-                      alt="Built with the Meltano SDK"
-                      src="https://img.shields.io/badge/-Meltano%20SDK-blueviolet"
-                    />
-                  </span>
-                </li>
-              </ul>
-            </span>
-            <div>
-              <p class="text-3xl py-4" id="getting-started">Getting Started</p>
-              <PluginPrereqSection
-                :plugin="$page.plugins"
-                :plugin_type="$page.plugins.pluginType"
-              />
-              <p class="text-xl py-3" id="installation">Installation and configuration</p>
-              <ol class="list-decimal list-inside pl-4">
-                <li>
-                  Add the {{ $page.plugins.name }} {{ $page.plugins.pluginType }} to your project
-                  using
-                  <a href="https://docs.meltano.com/reference/command-line-interface#add">
-                    <pre class="inline-code-block"><code>meltano add</code></pre>
-                  </a>
-                  :
-                </li>
-                <pre
-                  class="prose language-bash rounded-md"
-                ><code >meltano add {{ $page.plugins.pluginType }} {{ $page.plugins.name }}<span v-if="!$page.plugins.isDefault"> --variant {{ $page.plugins.variant }}</span></code></pre>
-                <li>
-                  Configure the {{ $page.plugins.name }} <a href="#settings">settings</a> using
-                  <a href="https://docs.meltano.com/reference/command-line-interface#config">
-                    <pre class="inline-code-block"><code>meltano config</code></pre>
-                  </a>
-                  :
-                </li>
-                <pre
-                  class="prose language-bash rounded-md"
-                ><code >meltano config {{ $page.plugins.name }} set --interactive</code></pre>
-                <span v-if="$page.plugins.pluginType === 'extractor'">
-                  <li>
-                    Test that extractor settings are valid using
-                    <a href="https://docs.meltano.com/reference/command-line-interface#config">
-                      <pre class="inline-code-block"><code>meltano config</code></pre>
-                    </a>
-                    :
-                  </li>
-                  <pre
-                    class="prose language-bash rounded-md"
-                  ><code >meltano config {{ $page.plugins.name }} test</code></pre>
-                </span>
-              </ol>
-              <p class="text-xl py-3">Next steps</p>
-              <div
-                v-if="$page.plugins.next_steps_rendered"
-                v-html="$page.plugins.next_steps_rendered"
-                class="prose"
-              ></div>
-              <!-- extractors default next steps -->
-              <div v-else-if="$page.plugins.pluginType == 'extractor'">
-                <p>
-                  Follow the remaining steps of the
-                  <a href="https://docs.meltano.com/getting-started/part1">Getting Started guide</a
-                  >:
-                </p>
-                <ol class="list-decimal list-inside pl-4">
-                  <li>
-                    <a
-                      href="https://docs.meltano.com/getting-started/part1#select-entities-and-attributes-to-extract"
-                      >Select entities and attributes to extract</a
-                    >
-                  </li>
-                  <li>
-                    <a href="https://docs.meltano.com/getting-started/part2"
-                      >Add a loader to send data to a destination</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="https://docs.meltano.com/getting-started/part2#run-your-data-integration-el-pipeline"
-                      >Run a data integration (EL) pipeline</a
-                    >
-                  </li>
-                </ol>
-              </div>
-
-              <!-- loaders default next steps -->
-              <div v-else-if="$page.plugins.pluginType == 'loader'">
-                <p>
-                  Follow the remaining steps of the
-                  <a href="https://docs.meltano.com/getting-started/part1">Getting Started guide</a
-                  >:
-                </p>
-                <ol class="list-decimal list-inside pl-4">
-                  <li>
-                    <a
-                      href="https://docs.meltano.com/getting-started/part2#run-your-data-integration-el-pipeline"
-                      >Run a data integration (EL) pipeline</a
-                    >
-                  </li>
-                </ol>
-              </div>
-
-              <!-- Default transformers next steps -->
-              <div v-else-if="$page.plugins.pluginType == 'transformer'">
-                <p>
-                  Follow the remaining steps of the
-                  <a href="https://docs.meltano.com/getting-started/part3">Getting Started guide</a
-                  >:
-                </p>
-                <ol class="list-decimal list-inside pl-4">
-                  <li>
-                    <a href="https://docs.meltano.com/getting-started/part3">
-                      Transform loaded data for analysis
-                    </a>
-                  </li>
-                </ol>
-              </div>
-              <!-- No next steps defined for this plugin. -->
-              <div v-else></div>
-
-              <!-- Help section -->
-              <p>If you run into any issues, learn how to get help.</p>
-            </div>
-            <div>
-              <PluginCapabilitiesSection
-                :capabilities="$page.plugins.capabilities"
-                :name="$page.plugins.name"
-                :plugin_type="$page.plugins.pluginType"
-              />
-              <PluginSettingsSection
-                :settings="$page.plugins.settings"
-                :name="$page.plugins.name"
-                :plugin_type_plural="$page.plugins.pluginTypePlural"
-                :variant="$page.plugins.variant"
-                :preamble="$page.plugins.settings_preamble_rendered"
-              />
-              <div
-                class="prose mt-3 p-2"
-                v-if="$page.plugins.usage"
-                v-html="$page.plugins.usage_rendered"
-              ></div>
-              <PluginHelpSection
-                :name="$page.plugins.name"
-                :variant="$page.plugins.variant"
-                :repo="$page.plugins.repo"
-                :plugin_type="$page.plugins.pluginType"
-                :plugin_type_plural="$page.plugins.pluginTypePlural"
-              />
-            </div>
+          <div>
+            <PluginReadme
+              :plugin="$page.plugins"
+            />
           </div>
           <PluginSidebar
             :name="$page.plugins.name"
@@ -268,10 +75,10 @@
 
 <script>
 import PluginSidebar from "../components/PluginSidebar.vue";
-import PluginSettingsSection from "../components/PluginSettingsSection.vue";
-import PluginHelpSection from "../components/PluginHelpSection.vue";
-import PluginCapabilitiesSection from "../components/PluginCapabilitiesSection.vue";
-import PluginPrereqSection from "../components/PluginPrereqSection.vue";
+import PluginReadme from "../components/PluginReadme.vue";
+// import PluginSettingsSection from "../components/PluginSettingsSection.vue";
+// import PluginHelpSection from "../components/PluginHelpSection.vue";
+// import PluginCapabilitiesSection from "../components/PluginCapabilitiesSection.vue";
 
 export default {
   metaInfo() {
@@ -282,10 +89,7 @@ export default {
   name: "PluginsTemplate",
   components: {
     PluginSidebar,
-    PluginSettingsSection,
-    PluginHelpSection,
-    PluginCapabilitiesSection,
-    PluginPrereqSection,
+    PluginReadme,
   },
 };
 </script>
@@ -322,6 +126,11 @@ query Plugins($path: String!, $name: String!) {
       kind
       placeholder
       value
+    }
+    commands {
+      name
+      description
+      args
     }
     prereq
     prereq_rendered

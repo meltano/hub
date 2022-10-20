@@ -76,12 +76,18 @@ function addLowercaseLabel(pluginData) {
 }
 function addCommandNames(pluginData) {
   if (!pluginData.commands) {
-    return;
+    return pluginData;
   }
+  const newCommands = []
   Object.keys(pluginData.commands).forEach((commandName) => {
     const command = pluginData.commands[commandName];
     command.name = commandName;
+    newCommands.push(command)
   });
+  return {
+    ...pluginData,
+    commands: newCommands
+  };
 }
 
 function buildData(dataPath, collections) {
@@ -99,7 +105,7 @@ function buildData(dataPath, collections) {
       );
       let readPlugin = yaml.load(fileContents);
       readPlugin = renderMarkdownSections(addLowercaseLabel(readPlugin));
-      addCommandNames(readPlugin);
+      readPlugin = addCommandNames(readPlugin);
 
       readPlugin.isDefault =
         defaultVariantData[path.basename(dataPath)][currentFolder] ===
