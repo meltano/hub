@@ -1,5 +1,5 @@
 name: dbt-bigquery
-label: dbt BigQuery
+label: dbt BigQuery (EDK preview)
 executable: dbt_invoker
 namespace: dbt_bigquery
 docs: https://docs.meltano.com/guide/transformation
@@ -69,6 +69,13 @@ settings:
   kind: string
   description: |
     The path to the `keyfile.json`` to use, if authenticating via service-account method.
+definition: |
+  is an adapter-specific dbt [transformer](https://docs.meltano.com/concepts/plugins#transformers) allowing you to create new derived transformations from raw data sources.
+
+  ### EDK Preview
+  This utility is in a preview stage of readiness. It is based upon our Extension Developer Kit (EDK) which is the new way to build and add plugins to Meltano Hub.
+  This preview of dbt will replace the native transformer once it comes out of preview. In the meantime, we would appreciate any feedback in the [EDK repo](https://github.com/meltano/edk/) and in the [dbt Extension repo](https://github.com/meltano/dbt-ext/).
+
 commands:
   clean:
     args: clean

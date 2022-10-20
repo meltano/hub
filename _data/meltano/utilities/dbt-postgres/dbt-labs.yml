@@ -1,5 +1,5 @@
 name: dbt-postgres
-label: dbt PostgreSQL
+label: dbt PostgreSQL (EDK preview)
 executable: dbt_invoker
 namespace: dbt_postgres
 docs: https://docs.meltano.com/guide/transformation
@@ -78,6 +78,13 @@ settings:
   kind: array
   description: |
     SSL Mode used to connect to the database.
+definition: |
+  is an adapter-specific dbt [transformer](https://docs.meltano.com/concepts/plugins#transformers) allowing you to create new derived transformations from raw data sources.
+
+  ### EDK Preview
+  This utility is in a preview stage of readiness. It is based upon our Extension Developer Kit (EDK) which is the new way to build and add plugins to Meltano Hub.
+  This preview of dbt will replace the native transformer once it comes out of preview. In the meantime, we would appreciate any feedback in the [EDK repo](https://github.com/meltano/edk/) and in the [dbt Extension repo](https://github.com/meltano/dbt-ext/).
+
 commands:
   clean:
     args: clean

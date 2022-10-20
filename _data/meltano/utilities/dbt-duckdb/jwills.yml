@@ -1,5 +1,5 @@
 name: dbt-duckdb
-label: dbt DuckDB
+label: dbt DuckDB (EDK preview)
 domain_url: https://www.getdbt.com/
 executable: dbt_invoker
 namespace: dbt_duckdb
@@ -43,6 +43,13 @@ settings:
   label: Schema
   value: main
   description: Specify the schema to write into.
+definition: |
+  is an adapter-specific dbt [transformer](https://docs.meltano.com/concepts/plugins#transformers) allowing you to create new derived transformations from raw data sources.
+
+  ### EDK Preview
+  This utility is in a preview stage of readiness. It is based upon our Extension Developer Kit (EDK) which is the new way to build and add plugins to Meltano Hub.
+  This preview of dbt will replace the native transformer once it comes out of preview. In the meantime, we would appreciate any feedback in the [EDK repo](https://github.com/meltano/edk/) and in the [dbt Extension repo](https://github.com/meltano/dbt-ext/).
+
 commands:
   clean:
     args: clean
