@@ -6,13 +6,44 @@ namespace: tap_procore
 variant: hotgluexyz
 pip_url: git+https://github.com/hotgluexyz/tap-procore.git
 repo: https://github.com/hotgluexyz/tap-procore
-settings: []
+settings:
+- name: client_id
+  label: Client Id
+  description: Your Procore client Id.
+  kind: password
+- name: client_secret
+  label: Client Secret
+  description: Your Procore client secret.
+  kind: password
+- name: refresh_token
+  label: Refresh Token
+  description: Your Procore refresh token.
+  kind: password
+- name: redirect_uri
+  label: Redirect Uri
+  description: The redirect URI to send with requests.
+  kind: string
+- name: is_sandbox
+  label: Is Sandbox
+  description: A boolean whether using a Sandbox or not. Default False.
+  kind: boolean
+- name: start_date
+  label: Start Date
+  description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
 capabilities:
 - catalog
 - discover
 - state
 domain_url: https://www.procore.com/
-maintenance_status: unknown
+maintenance_status: active
 keywords:
 - api
 - meltano_sdk
+settings_group_validation:
+- - client_secret
+  - redirect_uri
+  - client_id
+  - refresh_token

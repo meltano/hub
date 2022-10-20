@@ -6,12 +6,32 @@ namespace: tap_fixerio
 variant: singer-io
 pip_url: tap-fixerio
 repo: https://github.com/singer-io/tap-fixerio
-settings: []
+settings:
+- name: base
+  label: Base
+  description: The base rate to which others will be converted.
+- name: access_key
+  label: Access Key
+  description: Your fixer.io access key.
+  kind: password
+- name: start_date
+  label: Start Date
+  description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
+  kind: date_iso8601
+- name: symbols
+  label: Symbols
+  description: "An optional list of currency symbols to fetch in the following format:\
+    \ ['USD', 'GBP', etc.]. If not specified fixer will return a list of all exchange\
+    \ rates for each day."
+  kind: string
 capabilities:
-- catalog
 - discover
 - state
 domain_url: https://fixer.io/documentation
-maintenance_status: unknown
+maintenance_status: inactive
 keywords:
 - api
+settings_group_validation:
+- - access_key

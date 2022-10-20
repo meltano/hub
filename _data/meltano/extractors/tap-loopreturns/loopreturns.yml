@@ -6,12 +6,32 @@ namespace: tap_loopreturns
 variant: loopreturns
 pip_url: git+https://github.com/LoopReturns/tap-loopreturns.git
 repo: https://github.com/LoopReturns/tap-loopreturns
-settings: []
+settings:
+- name: user_agent
+  label: User Agent
+  description: The user agent to send with API requests.
+- name: api_key
+  label: API Key
+  description: Your Loop API key.
+  kind: password
+- name: start_date
+  label: Start Date
+  description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
+- name: end_date
+  label: End Date
+  description: Date up to when historical data will be extracted.
+  kind: date_iso8601
 capabilities:
 - catalog
 - discover
 - state
 domain_url: https://docs.loopreturns.com/
-maintenance_status: unknown
+maintenance_status: inactive
 keywords:
 - api
+settings_group_validation:
+- - api_key
+  - start_date
