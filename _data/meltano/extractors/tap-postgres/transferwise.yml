@@ -50,6 +50,14 @@ settings:
     of data extraction
 - name: default_replication_method
   label: Default Replication Method
+  description: |
+    The prefered replication method.
+    
+    Note:
+    - Key-based incremental (`INCREMENTAL`) requires configuring a `replication_key` column within the
+      catalog's stream definitions for each supported stream.
+    - Requirements and setup instructions for log-based incremental (`LOG_BASED`) are documented
+      [here](https://github.com/transferwise/pipelinewise-tap-postgres#log-based-replication-requirements).
   kind: options
   options:
   - label: Log-based Incremental Replication
