@@ -195,7 +195,8 @@ class Utilities:
                     os.path.join(dir_name, f'{variant}.yml'),
                     definition
                 )
-            print(f'Definition: Skipping')
+            else:
+                print(f'Definition: Skipping')
         return str(yaml_path)
 
     def _update_variant_file(self, plugin_type_defaults, plugin_name, plugin_variant, defaults, plugin_type):
@@ -241,14 +242,16 @@ class Utilities:
             default_val=False,
             type=bool
         )
-        if placeholder:
+        image_path = self._prompt(
+            "Path to image [.png] file",
+            'placeholder.png'
+        )
+        if image_path == 'placeholder.png':
             definition['logo_url'] = '/assets/logos/placeholder.png'
             print('Logo: Placeholder Used')
-        image_path = self._prompt(
-            "Path to image [.png] file"
-        )
-        logo_file_name = definition['logo_url'].split('/')[-1]
-        shutil.copyfile(image_path, f'{self.hub_root}/static/assets/logos/{plugin_type}/{logo_file_name}')
+        else:
+            logo_file_name = definition['logo_url'].split('/')[-1]
+            shutil.copyfile(image_path, f'{self.hub_root}/static/assets/logos/{plugin_type}/{logo_file_name}')
 
     @staticmethod
     def _install_test(plugin_name, plugin_type, pip_url, namespace, executable):
