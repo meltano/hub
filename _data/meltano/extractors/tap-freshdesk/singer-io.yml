@@ -6,7 +6,27 @@ namespace: tap_freshdesk
 variant: singer-io
 pip_url: tap-freshdesk
 repo: https://github.com/singer-io/tap-freshdesk
-settings: []
+settings:
+- name: domain
+  label: Domain
+  description: Your Freshdesk subdomain.
+- name: api_key
+  label: API Key
+  description: Your Freshdesk API key.
+  kind: password
+- name: user_agent
+  label: User Agent
+  description: The user agent to send with API requests.
+- name: start_date
+  label: Start Date
+  description: 'Determines how much historical data will be extracted. Please be aware
+    that the larger the time peri[start_date] `required`: od and amount of data, the
+    longer the initial extraction can be expected to take.'
+  kind: date_iso8601
+settings_group_validation:
+- - domain
+  - api_key
+  - start_date
 capabilities:
 - catalog
 - discover

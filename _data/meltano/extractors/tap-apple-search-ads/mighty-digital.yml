@@ -1,0 +1,45 @@
+name: tap-apple-search-ads
+variant: mighty-digital
+label: Apple Search Ads
+logo_url: /assets/logos/extractors/apple-search-ads.png
+capabilities:
+- catalog
+- discover
+- state
+domain_url: ''
+keywords: []
+maintenance_status: active
+namespace: tap_apple_search_ads
+next_steps: ''
+pip_url: git+https://github.com/mighty-digital/tap-apple-search-ads.git
+repo: https://github.com/mighty-digital/tap-apple-search-ads
+settings:
+- name: org_id
+  label: Org Id
+  description: Apple Search Ads Organization ID, obtained from Apple Search Ads console.
+- name: team_id
+  label: Team Id
+  description: obtained from "Implementing OAuth for the Apple Search Ads API".
+- name: client_id
+  label: Client Id
+  description: obtained from "Implementing OAuth for the Apple Search Ads API".
+  kind: password
+- name: private_key_file
+  label: Private Key File
+  description: path to the private-key.pem file obtained from "Implementing OAuth
+    for the Apple Search Ads API".
+- name: key_id
+  label: Key Id
+  description: obtained from "Implementing OAuth for the Apple Search Ads API".
+- name: private_key_value
+  label: Private Key Value
+  description: contents of the private-key.pem file as string (joined with \n character).
+settings_group_validation:
+- - org_id
+  - team_id
+  - client_id
+  - private_key_file
+  - key_id
+  - private_key_value
+settings_preamble: ''
+usage: ''

@@ -1,0 +1,53 @@
+name: tap-redshift
+variant: monad-inc
+label: Redshift
+logo_url: /assets/logos/extractors/redshift.png
+capabilities:
+- catalog
+- discover
+- state
+description: Amazon Redshift Data Warehouse
+domain_url: https://aws.amazon.com/redshift/
+keywords:
+  - database
+maintenance_status: active
+namespace: tap_redshift
+next_steps: ''
+pip_url: git+https://github.com/Monad-Inc/tap-redshift.git
+repo: https://github.com/Monad-Inc/tap-redshift
+settings:
+- name: host
+  label: Host
+  description: Your Redshift host name.
+- name: user
+  label: User
+  description: Your Redshift user name.
+- name: start_date
+  label: Start Date
+  description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
+  kind: date_iso8601
+- name: port
+  label: Port
+  description: Your Redshift port number.
+  kind: integer
+- name: dbname
+  label: Database Name
+  description: Your Redshift database name.
+- name: password
+  label: Password
+  description: Your Redshift password.
+  kind: password
+- name: schema
+  label: Schema Name
+  description: Your Redshift schema name.
+settings_group_validation:
+- - host
+  - user
+  - start_date
+  - port
+  - dbname
+  - password
+settings_preamble: ''
+usage: ''

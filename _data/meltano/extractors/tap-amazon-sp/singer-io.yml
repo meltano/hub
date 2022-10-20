@@ -1,0 +1,61 @@
+name: tap-amazon-sp
+variant: singer-io
+label: Amazon Selling Partner (SP)
+logo_url: /assets/logos/extractors/amazon-sp.png
+capabilities:
+- catalog
+- discover
+- state
+domain_url: ''
+keywords: []
+maintenance_status: active
+namespace: tap_amazon_sp
+next_steps: ''
+pip_url: git+https://github.com/singer-io/tap-amazon-sp.git
+repo: https://github.com/singer-io/tap-amazon-sp
+settings:
+- name: aws_access_key
+  label: AWS Access Key
+  description: Your AWS access key.
+  kind: password
+- name: start_date
+  label: Start Date
+  description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
+  kind: date_iso8601
+- name: client_id
+  label: Client ID
+  description: Your AWS client ID.
+- name: client_secret
+  label: Client Secret
+  description: Your AWS client secret.
+  kind: password
+- name: refresh_token
+  label: Refresh Token
+  description: Your AWS refresh token.
+  kind: password
+- name: marketplaces
+  label: Marketplaces
+  description: Space delimited string of Marketplace Country Code values. Default
+    is ["US"].
+- name: role_arn
+  label: Role Arn
+  description: Your AWS role ARN.
+- name: sales_data_granularity
+  label: Sales Data Granularity
+  description: Granularity for sales stream for sales aggregation. Default is "DAY".
+- name: aws_secret_key
+  label: Aws Secret Key
+  description: Your AWS secret key.
+  kind: password
+settings_group_validation:
+- - aws_access_key
+  - start_date
+  - client_id
+  - client_secret
+  - refresh_token
+  - role_arn
+  - aws_secret_key
+settings_preamble: ''
+usage: ''

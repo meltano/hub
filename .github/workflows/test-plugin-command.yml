@@ -139,6 +139,11 @@ jobs:
         echo "</details>" >> $GITHUB_ENV
         echo "<details><summary>Detected capabilities</summary>" >> $GITHUB_ENV
         echo -e "\n" >> $GITHUB_ENV
+        if grep -q -e "--discover" help-output.txt; then
+          echo "> - ✅ 'discover'" >> $GITHUB_ENV
+        else
+          echo "> - ❌ 'discover'" >> $GITHUB_ENV
+        fi
         if grep -q -e "--catalog" help-output.txt; then
           echo "> - ✅ 'catalog'" >> $GITHUB_ENV
         elif grep -q -e "--properties" help-output.txt; then
