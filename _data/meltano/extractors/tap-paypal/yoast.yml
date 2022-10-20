@@ -6,12 +6,33 @@ namespace: tap_paypal
 variant: yoast
 pip_url: git+https://github.com/Yoast/singer-tap-paypal.git
 repo: https://github.com/Yoast/singer-tap-paypal
-settings: []
+settings:
+- name: secret
+  label: Secret
+  description: Your PayPal secret key.
+  kind: password
+- name: client_id
+  label: Client ID
+  description: Your PayPal client ID.
+  kind: password
+- name: start_date
+  label: Start Date
+  description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
+- name: sandbox
+  label: Sandbox
+  description: Determines whether to use the sandbox or live environment.
 capabilities:
 - catalog
 - discover
 - state
 domain_url: https://www.paypal.com/us/home
-maintenance_status: unknown
+maintenance_status: active
 keywords:
 - api
+settings_group_validation:
+- - secret
+  - client_id
+  - start_date
