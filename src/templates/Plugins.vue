@@ -52,6 +52,7 @@
           <div>
             <PluginReadme
               :plugin="$page.plugins"
+              :variants="$page.variants"
             />
           </div>
           <PluginSidebar
