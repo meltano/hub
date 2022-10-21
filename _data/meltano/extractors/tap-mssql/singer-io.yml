@@ -7,7 +7,7 @@ variant: singer-io
 prereqs: |
   ## Required Pre-Installation
   
-  This edition of the SQL Server tap is built in [Clojure](https://clojure.org/) and requires a JVM
+  This edition of the SQL Server tap is built in [Clojure](https://en.wikipedia.org/wiki/Clojure) and requires a JVM
   preinstalled. For this reason, you will need to perform custom installation steps before you will
   be able to use this with Meltano.
   
