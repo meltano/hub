@@ -4,7 +4,7 @@ name: tap-mssql
 logo_url: /assets/logos/extractors/mssql.png
 namespace: tap_mssql
 variant: singer-io
-prereqs: |
+prereq: |
   ## Required Pre-Installation
   
   This edition of the SQL Server tap is built in [Clojure](https://en.wikipedia.org/wiki/Clojure) and requires a JVM
