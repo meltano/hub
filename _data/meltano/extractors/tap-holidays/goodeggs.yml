@@ -6,12 +6,21 @@ namespace: tap_holidays
 variant: goodeggs
 pip_url: git+https://github.com/goodeggs/tap-holidays.git
 repo: https://github.com/goodeggs/tap-holidays
-settings: []
+settings:
+- name: api_key
+  label: API Key
+  description: A valid Holiday API key.
+  kind: password
+- name: api_version
+  label: API Version
+  description: The API version to use, default `v1`.
 capabilities:
 - catalog
 - discover
 - state
 domain_url: https://holidayapi.com/docs
-maintenance_status: unknown
+maintenance_status: inactive
 keywords:
 - api
+settings_group_validation:
+- - api_key
