@@ -21,7 +21,7 @@ settings:
 - name: user_agent
   label: User Agent
   description: The user agent to send with requests.
-- name: token
+- name: api_token
   label: API Token
   description: Your API token. See [the docs](https://developer.kustomer.com/kustomer-api-docs/reference/authentication) on how to obtain this.
   kind: password
