@@ -6,11 +6,44 @@ namespace: tap_zuora
 variant: transferwise
 pip_url: pipelinewise-tap-zuora
 repo: https://github.com/transferwise/pipelinewise-tap-zuora
-settings: []
+settings:
+- name: start_date
+  label: Start Date
+  description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
+- name: sandbox
+  label: Sandbox
+  kind: boolean
+  description: Whether to use a sandbox or not. Default, False.
+- name: username
+  label: Username
+  description: Your username.
+- name: api_type
+  label: API Type
+  description: The API type to use, e.g. `REST`.
+- name: password
+  label: Password
+  description: Your password.
+  kind: password
+- name: european
+  label: European
+  description: Whether to use a European client or not. Default, False.
+  kind: boolean
+- name: partner_id
+  label: Partner ID
+  description: The partner ID.
 capabilities:
 - catalog
 - discover
+- state
 domain_url: https://www.zuora.com/
-maintenance_status: unknown
+maintenance_status: active
 keywords:
 - api
+settings_group_validation:
+- - start_date
+  - username
+  - api_type
+  - password
