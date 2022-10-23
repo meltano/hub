@@ -4,7 +4,14 @@ name: tap-mssql
 logo_url: /assets/logos/extractors/mssql.png
 namespace: tap_mssql
 variant: singer-io
-pip_url: git+https://github.com/singer-io/tap-mssql.git
+prereq: |
+  ### Required Pre-Installation
+  
+  This edition of the SQL Server tap is built in [Clojure](https://en.wikipedia.org/wiki/Clojure) and requires a JVM
+  preinstalled. For this reason, you will need to perform custom installation steps before you will
+  be able to use this with Meltano.
+  
+  For more information, please see the `tap-mssql` readme: https://github.com/singer-io/tap-mssql#requirements
 repo: https://github.com/singer-io/tap-mssql
 settings: []
 capabilities:
@@ -15,3 +22,4 @@ domain_url: https://www.microsoft.com/en-us/sql-server/sql-server-2019
 maintenance_status: unknown
 keywords:
 - database
+- clojure

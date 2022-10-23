@@ -6,12 +6,24 @@ namespace: tap_postmark
 variant: yoast
 pip_url: git+https://github.com/Yoast/singer-tap-postmark.git
 repo: https://github.com/Yoast/singer-tap-postmark
-settings: []
+settings:
+- name: postmark_server_token
+  label: Postmark Server Token
+  description: Your Postmark server token.
+  kind: password
+- name: start_date
+  label: Start Date
+  description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
+  kind: date_iso8601
 capabilities:
 - catalog
 - discover
 - state
 domain_url: https://postmarkapp.com/developer
-maintenance_status: unknown
+maintenance_status: active
 keywords:
 - api
+settings_group_validation:
+- - postmark_server_token
