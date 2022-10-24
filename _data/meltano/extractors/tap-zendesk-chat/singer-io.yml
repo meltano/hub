@@ -6,11 +6,46 @@ namespace: tap_zendesk_chat
 variant: singer-io
 pip_url: tap-zendesk-chat
 repo: https://github.com/singer-io/tap-zendesk-chat
-settings: []
+settings:
+- name: user_agent
+  label: User Agent
+  description: The user agent to send with requests.
+- name: chat_search_interval_days
+  label: Chat Search Interval Days
+  description: The chat search interval days, default 14 days.
+- name: chats_full_sync_days
+  label: Chats Full Sync Days
+  description: The amount of days between full syncs of chats. This allows you to configure
+    the tap to re-sync all chats every so many number of days. This exists due to the options
+    (or lack thereof) the Zendesk Chat API provides when syncing chats. Each chat has an "end
+    timestamp" that indicates when the chat was "ended." However, even after the chat has ended,
+    it may be modified. In order to not sync all of the chats during every run of the tap, the
+    tap filters data based on the "end timestamp." But this means if the chat is modified after
+    the tap has already synced it, any modifications will be missed by the tap. By re-syncing
+    every N days, you are able to update any chats that may have changed since they were synced
+    by the tap. Defaults to None, meaning don't full sync regularly. 
+- name: access_token
+  label: Access Token
+  description: The Zendesk Chat access token.
+  kind: password
+- name: agents_page_limit
+  label: Agents Page Limit
+  description: The page limit of API requests, default 100.
+  kind: integer
+- name: start_date
+  label: Start Date
+  description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
 capabilities:
 - catalog
 - discover
+- state
 domain_url: https://developer.zendesk.com/rest_api/docs/chat/introduction
-maintenance_status: unknown
+maintenance_status: active
 keywords:
 - api
+settings_group_validation:
+- - access_token
+  - start_date
