@@ -34,6 +34,7 @@ settings:
     instead of the production API.
 - name: books
   kind: array
+  label: Books
   description: List of books to extract
 domain_url: https://bitso.com
 maintenance_status: development
