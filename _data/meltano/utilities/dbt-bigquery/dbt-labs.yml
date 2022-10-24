@@ -74,7 +74,7 @@ settings:
   description: |
     The path to the `keyfile.json`` to use, if authenticating via service-account method.
 definition: |
-  is an adapter-specific dbt [transformer](https://docs.meltano.com/concepts/plugins#transformers) allowing you to create new derived transformations from raw data sources.
+  is an adapter-specific dbt [transformer](https://docs.meltano.com/concepts/plugins#transformers) for running SQL-based transformations on data stored in your warehouse.
 
   ### EDK Preview
   This utility is in a preview stage of readiness. It is based upon our Extension Developer Kit (EDK) which is the new way to build and add plugins to Meltano Hub.
