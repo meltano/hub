@@ -6,11 +6,23 @@ namespace: tap_okta
 variant: isabella232
 pip_url: git+https://github.com/isabella232/tap-okta.git
 repo: https://github.com/isabella232/tap-okta
-settings: []
+settings:
+- name: service_url
+  label: Service Url
+  description: The Okta API url to use for requests. E.g. http://<okta_url>/api/v1/.
+    Make sure to include the final slash.
+- name: api_key
+  label: API Key
+  description: Your Okta API key. See the [Okta docs](https://developer.okta.com/docs/guides/create-an-api-token/main/) for more details.
+  kind: password
 capabilities:
+- state
 - catalog
 - discover
 domain_url: https://developer.okta.com/docs/reference/
-maintenance_status: unknown
+maintenance_status: inactive
 keywords:
 - api
+settings_group_validation:
+- - service_url
+  - api_key

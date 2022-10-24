@@ -31,6 +31,7 @@ jobs:
             repository=${{ github.repository }}
             comment-id=${{ github.event.comment.id }}
             issue-number=${{ github.event.issue.number }}
+            from-slash-command=true
 
       - name: Edit comment with error message
         if: steps.command-dispatch.outputs.error-message

@@ -6,12 +6,44 @@ namespace: tap_dayforce
 variant: goodeggs
 pip_url: git+https://github.com/goodeggs/tap-dayforce.git
 repo: https://github.com/goodeggs/tap-dayforce
-settings: []
+settings:
+- name: client_namespace
+  label: Client Namespace
+  description: A valid client name (e.g. Company Name) that will be inserted into
+    the request URL.
+- name: test
+  label: Test
+  description: Whether to use a test environment, default False.
+  kind: boolean
+- name: dayforce_release
+  label: Dayforce Release
+  description: The Dayforce release, default 61.
+- name: start_date
+  label: Start Date
+  description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
+- name: password
+  label: Password
+  description: A valid Dayforce web services user account password.
+  kind: password
+- name: username
+  label: Username
+  description: A valid Dayforce web services user account username.
+- name: api_version
+  label: API Version
+  description: The api version to send requests to, default V1.
 capabilities:
 - catalog
 - discover
 - state
 domain_url: https://www.ceridian.com/products/dayforce
-maintenance_status: unknown
+maintenance_status: active
 keywords:
 - api
+settings_group_validation:
+- - client_namespace
+  - start_date
+  - password
+  - username

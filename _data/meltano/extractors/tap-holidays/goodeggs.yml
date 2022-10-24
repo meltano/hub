@@ -6,12 +6,36 @@ namespace: tap_holidays
 variant: goodeggs
 pip_url: git+https://github.com/goodeggs/tap-holidays.git
 repo: https://github.com/goodeggs/tap-holidays
-settings: []
+settings_preamble: The `streams.holidays.<>` configurations have additional optional request parameters
+  that can be set, see the [API docs](https://holidayapi.com/docs) for more details.
+  For example, `meltano config tap-holidays set streams.holidays.public True` will retrieve only public holidays.
+  Also be aware that currently the free tier includes only last year holidays.
+settings:
+- name: api_key
+  label: API Key
+  description: A valid Holiday API key.
+  kind: password
+- name: api_version
+  label: API Version
+  description: The API version to use, default `v1`.
+  # The tap errors if this isn't set even though its meant to be defaulted.
+  value: v1
+- name: streams.holidays.country
+  label: Country Code - Holiday Streams
+  description: The country code to request holidays for.
+- name: streams.holidays.year
+  label: Year - Holiday Streams
+  description: The year to request holidays for.
+  kind: integer
 capabilities:
 - catalog
 - discover
 - state
 domain_url: https://holidayapi.com/docs
-maintenance_status: unknown
+maintenance_status: inactive
 keywords:
 - api
+settings_group_validation:
+- - api_key
+  - streams.holidays.country
+  - streams.holidays.year
