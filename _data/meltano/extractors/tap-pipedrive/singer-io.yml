@@ -6,11 +6,32 @@ namespace: tap_pipedrive
 variant: singer-io
 pip_url: tap-pipedrive
 repo: https://github.com/singer-io/tap-pipedrive
-settings: []
+settings:
+- name: api_token
+  label: API Token
+  description: Your Pipedrive API token.
+  kind: password
+- name: user-agent
+  label: User Agent
+  description: The user agent to send with requests.
+- name: request_timeout
+  label: Request Timeout
+  description: The request timeout,  default 300 seconds.
+  kind: integer
+- name: start_date
+  label: Start Date
+  description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
 capabilities:
+- state
 - catalog
 - discover
 domain_url: https://developers.pipedrive.com/docs/api/v1
-maintenance_status: unknown
+maintenance_status: active
 keywords:
 - api
+settings_group_validation:
+- - api_token
+  - start_date

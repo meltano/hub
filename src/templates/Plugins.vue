@@ -76,34 +76,36 @@
                 allows for workflows to be programmatically authored, scheduled, and
                 monitored.</span
               >
-              <span 
+              <span
                 class="prose"
                 v-if="$page.plugins.pluginType === 'utility'"
-                v-html="$page.plugins.definition_rendered"></span
-              >
-              <span 
+                v-html="$page.plugins.definition_rendered"
+              ></span>
+              <span
                 class="prose"
                 v-if="$page.plugins.pluginType === 'file'"
-                v-html="$page.plugins.definition_rendered"></span
-              >
+                v-html="$page.plugins.definition_rendered"
+              ></span>
             </p>
-            <p class="text-2xl">Other Available Variants</p>
-            <ul class="list-disc list-inside pl-4">
-              <li v-for="(variant, index) in $page.variants.edges" v-bind:key="index">
-                <g-link :to="variant.node.path" v-if="variant.node.path !== $page.plugins.path">{{
-                  variant.node.variant
-                }}</g-link>
-                <span v-else>{{ variant.node.variant }}</span>
-                <span v-if="variant.node.isDefault"> (default)</span>
-                <span v-if="variant.node.keywords.includes('meltano_sdk')">
-                  <img
-                    class="inline pl-2"
-                    alt="Built with the Meltano SDK"
-                    src="https://img.shields.io/badge/-Meltano%20SDK-blueviolet"
-                  />
-                </span>
-              </li>
-            </ul>
+            <span class="space-y-3" v-if="$page.variants.edges && $page.variants.edges.length > 1">
+              <p class="text-2xl">Available Variants</p>
+              <ul class="list-disc list-inside pl-4">
+                <li v-for="(variant, index) in $page.variants.edges" v-bind:key="index">
+                  <g-link :to="variant.node.path" v-if="variant.node.path !== $page.plugins.path">{{
+                    variant.node.variant
+                  }}</g-link>
+                  <span v-else>{{ variant.node.variant }}</span>
+                  <span v-if="variant.node.isDefault"> (default)</span>
+                  <span v-if="variant.node.keywords.includes('meltano_sdk')">
+                    <img
+                      class="inline pl-2"
+                      alt="Built with the Meltano SDK"
+                      src="https://img.shields.io/badge/-Meltano%20SDK-blueviolet"
+                    />
+                  </span>
+                </li>
+              </ul>
+            </span>
             <div>
               <p class="text-3xl py-4" id="getting-started">Getting Started</p>
               <PluginPrereqSection

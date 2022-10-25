@@ -6,8 +6,23 @@ namespace: target_azureblobstorage
 variant: shrutikaponde-vc
 pip_url: git+https://github.com/shrutikaponde-vc/target-azureblobstorage.git
 repo: https://github.com/shrutikaponde-vc/target-azureblobstorage
-settings: []
+settings:
+- name: account_name
+  label: Account Name
+  description: Your Azure blob storage account name.
+- name: container_name
+  label: Container Name
+  description: The name of your Azure blob storage container.
+- name: account_key
+  label: Account Key
+  description: Your Azure account key.
+  kind: password
 domain_url: https://azure.microsoft.com/en-us/services/storage/blobs/
-maintenance_status: unknown
+maintenance_status: inactive
 keywords:
 - file
+capabilities: []
+settings_group_validation:
+- - account_name
+  - account_key
+  - container_name

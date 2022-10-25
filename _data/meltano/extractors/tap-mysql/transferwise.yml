@@ -1,6 +1,6 @@
 name: tap-mysql
-label: MySQL / MariaDB
-description: MySQL / MariaDB database extractor
+label: MySQL/MariaDB
+description: MySQL/MariaDB database extractor
 namespace: tap_mysql
 logo_url: /assets/logos/extractors/mysql.png
 variant: transferwise
@@ -19,38 +19,65 @@ settings:
 - name: host
   value: localhost
   label: Host
-  description: The MySQL hostname.
+  description: The MySQL/MariaDB hostname.
 - name: port
   label: Port
   kind: integer
   value: 3306
-  description: The MySQL port.
+  description: The MySQL/MariaDB port.
 - name: user
   label: User
-  description: The MySQL username.
+  description: The MySQL/MariaDB username.
 - name: password
   kind: password
   label: Password
-  description: The MySQL password.
+  description: The MySQL/MariaDB password.
 - name: database
   label: Database
-  description: The MySQL database name.
+  description: The MySQL/MariaDB database name.
+- name: cursorclass
+  label: Cursor Class
+  value: pymysql.cursors.SSCursor
+  description: Cursor class used by PyMYSQL.
+- name: server_id
+  label: Server ID
+  kind: integer
+  description: Used as the slave id when this tap is connecting to the server.
+- name: filter_dbs
+  label: Filter DBs
+  description: Comma separated list of schemas to extract tables only from particular schemas and to improve data extraction performance.
+- name: use_gtid
+  label: Use GTID
+  kind: boolean
+  value: False
+  description: Flag to enable log based replication using GTID.
+- name: engine
+  label: Engine
+  value: 'mysql'
+  description: Indicate which flavor the server is, used for LOG_BASED with GTID. Can be either 'mysql' or 'mariadb'.
 - name: ssl
   kind: boolean
   label: SSL
-  description: Whether the MySQL connection should use SSL.
+  description: Whether the MySQL/MariaDB connection should use SSL.
   value: false
   value_post_processor: stringify
-- name: filter_dbs
-  label: Filter DBs
-  description: Comma separated list of schemas to extract tables only from particular
-    schemas and to improve data extraction performance
+- name: ssl_ca
+  label: SSL CA
+  description: CA for self-signed SSL.
+- name: ssl_cert
+  label: SSL Certificate
+  description: Certificate for self-signed SSL.
+- name: ssl_key
+  label: SSL Key
+  description: Key for self-signed SSL.
+- name: internal_hostname
+  label: Internal Hostname
+  description: Override match hostname for Google cloud.
 - name: session_sqls
   kind: array
   label: Session SQLs
   value: ["SET @@session.time_zone='+0:00'","SET @@session.wait_timeout=28800","SET @@session.net_read_timeout=3600","SET @@session.innodb_lock_wait_timeout=3600"]
-  description: List of SQL commands to run when a connection made. This allows to
-    set session variables dynamically, like timeouts.
+  description: List of SQL commands to run when a connection made. This allows to set session variables dynamically, like timeouts.
 domain_url: https://www.mysql.com/
 maintenance_status: active
 keywords:

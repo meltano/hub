@@ -1,4 +1,4 @@
-[![Build Status](https://gitlab.com/meltano/hub/badges/main/pipeline.svg)](https://gitlab.com/meltano/hub/-/pipelines?ref=main)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8d09aec1-da21-4d06-ada5-ff15dcd5c04c/deploy-status)](https://app.netlify.com/sites/meltano-hub/deploys)
 
 ---
 
@@ -11,7 +11,7 @@ _Not familiar with Meltano?_
 
 - **Starts simple**: Meltano is pip-installable and comes in a prepackaged docker container, you can have your first ELT pipeline running within minutes.
 - **Has DataOps out-of-the-box**: Meltano provides tools that make DataOps best practices easy to use in every project.
-- **Integrates with everything**: 300+ natively supported data sources & targets, as well as additional plugins like great expectations or dbt are natively available.
+- **Integrates with everything**: 350+ natively supported data sources & targets, as well as additional plugins like great expectations or dbt are natively available.
 - **Is Easily customizable**: Meltano isn't just extensible, it's built to be extended! The SDK for Singer Connectors & EDK for Meltano Components are easy to use. Meltano Hub helps you find all of the connectors and components created across the data community.
 - **Is a Mature system**: Developed since [2018](https://handbook.meltano.com/timeline), runs in production at large companies like GitLab, and currently powers over a million pipeline runs monthly.
 - **Has first class ELT tooling built-in**: Extract data from any data source, load into any target, use inline maps to transform on data on the fly, and test the incoming data, all in one package.

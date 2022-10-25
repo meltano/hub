@@ -6,12 +6,62 @@ namespace: tap_newrelic
 variant: fixdauto
 pip_url: git+https://github.com/fixdauto/tap-newrelic.git
 repo: https://github.com/fixdauto/tap-newrelic
-settings: []
+settings:
+- name: api_key
+  label: Api Key
+  description: Your Newrelic [API key](https://docs.newrelic.com/docs/apis/nerdgraph/get-started/introduction-new-relic-nerdgraph/#explorer).
+  kind: password
+- name: api_url
+  label: Api Url
+  description: The API url to use e.g. `https://api.eu.newrelic.com/graphql`.
+  kind: string
+- name: account_id
+  label: Account Id
+  description: Your Newrelic account ID.
+  kind: integer
+- name: start_date
+  label: Start Date
+  description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
+- name: custom_queries
+  label: Custom Queries
+  description: 'An object containing the keys - `name`, `query`, `key_properties`.
+    E.g. { "name": "my_custom_event", "query": "SELECT * FROM my_custom_event", //
+    optional, override the primary keys for your event "key_properties": ["my_event_id"]
+    }'
+  kind: array
+- name: stream_maps
+  label: Stream Maps
+  description: Config object for stream maps capability.
+  kind: object
+- name: stream_map_config
+  label: Stream Map Config
+  description: User-defined config values to be used within map expressions.
+  kind: object
+- name: flattening_enabled
+  label: Flattening Enabled
+  description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+- name: flattening_max_depth
+  label: Flattening Max Depth
+  description: The max depth to flatten schemas.
+  kind: integer
 capabilities:
 - catalog
+- state
 - discover
+- about
+- stream-maps
+- schema-flattening
 domain_url: https://docs.newrelic.com/docs/apis/nerdgraph/get-started/introduction-new-relic-nerdgraph/
-maintenance_status: unknown
+maintenance_status: active
 keywords:
 - api
 - meltano_sdk
+settings_group_validation:
+- - account_id
+  - api_key
+  - start_date

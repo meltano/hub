@@ -1,0 +1,43 @@
+description: Buy and sell bitcoin or 46 other cryptocurrencies and store them all in one place.
+label: Bitso
+name: tap-bitso
+logo_url: /assets/logos/extractors/bitso.svg
+namespace: tap_bitso
+variant: edgarrmondragon
+docs: https://bitso.com/api_info
+pip_url: git+https://github.com/edgarrmondragon/tap-bitso.git
+repo: https://github.com/edgarrmondragon/tap-bitso
+capabilities:
+- catalog
+- discover
+- state
+- about
+- stream-maps
+- schema-flattening
+settings_group_validation:
+- [key, secret]
+settings:
+- name: key
+  kind: password
+  label: Bitso API Key
+  description: Bitso API Key
+  docs: https://bitso.com/api_info?python#generating-api-keys
+- name: secret
+  kind: password
+  label: Bitso API Secret
+  description: Bitso API Secret
+- name: base_url
+  kind: string
+  value: https://api.bitso.com
+  label: Bitso API base URL
+  description: Set this to `https://api-sandbox.bitso.com/v3/` to use the sandbox API
+    instead of the production API.
+- name: books
+  kind: array
+  label: Books
+  description: List of books to extract
+domain_url: https://bitso.com
+maintenance_status: development
+keywords:
+- api
+- meltano_sdk

@@ -1,0 +1,68 @@
+name: tap-tiktok-business
+variant: hkuffel
+label: Tiktok Business
+logo_url: /assets/logos/extractors/tiktok-business.png
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+- schema-flattening
+domain_url: ''
+keywords:
+- meltano_sdk
+maintenance_status: active
+namespace: tap_tiktok_business
+next_steps: ''
+pip_url: git+https://github.com/hkuffel/tap-tiktok-business.git
+repo: https://github.com/hkuffel/tap-tiktok-business
+settings:
+- name: client_id
+  label: Client Id
+  description: Client ID for the TikTok Business API
+  kind: password
+- name: client_secret
+  label: Client Secret
+  description: Client secret for the TikTok Business API
+  kind: password
+- name: access_token
+  label: Access Token
+  description: The token to authenticate against the API service
+  kind: password
+- name: refresh_token
+  label: Refresh Token
+  description: The token to generate a new access token
+  kind: password
+- name: business_ids
+  label: Business Ids
+  description: unique ids for each TikTok business account to be queried
+  kind: array
+- name: start_date
+  label: Start Date
+  description: The earliest record date to sync
+- name: stream_maps
+  label: Stream Maps
+  description: Config object for stream maps capability.
+  kind: object
+- name: stream_map_config
+  label: Stream Map Config
+  description: User-defined config values to be used within map expressions.
+  kind: object
+- name: flattening_enabled
+  label: Flattening Enabled
+  description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+- name: flattening_max_depth
+  label: Flattening Max Depth
+  description: The max depth to flatten schemas.
+  kind: integer
+settings_group_validation:
+- - client_id
+  - client_secret
+  - access_token
+  - refresh_token
+  - business_ids
+settings_preamble: ''
+usage: ''
