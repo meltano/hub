@@ -33,8 +33,15 @@ settings:
   description: The MSSQL port, defaulted to 1433.
 - name: tds_version
   label: tds_version
-  description: The TDS version of the connection. Defaults to 8.0, connecting to older
+  description: The TDS version of the connection. Defaults to 7.3, connecting to older
     databases (ex MS SQL 2005) requires 7.0 or earlier
+- name: use_date_datatype
+  kind: boolean
+  label: Use Date Datatype.
+  description: To emit a date datatype as a date without a time component or time without an UTC offset.
+- name: characterset:
+  label: Characterset
+  description: The characterset for the database / source system. The default is utf8, however older databases might use a charactersets like cp1252 for the encoding.
 capabilities:
 - catalog
 - discover
