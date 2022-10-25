@@ -1,0 +1,77 @@
+name: tap-sumologic
+variant: widen
+label: Sumo Logic
+logo_url: /assets/logos/extractors/sumologic.png
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+- schema-flattening
+description: Cloud Log Management, Monitoring, SIEM Tools
+domain_url: https://www.sumologic.com/
+keywords:
+- meltano_sdk
+- api
+maintenance_status: active
+namespace: tap_sumologic
+next_steps: ''
+pip_url: git+https://github.com/Widen/tap-sumologic.git
+repo: https://github.com/Widen/tap-sumologic
+settings:
+- name: access_id
+  label: Access Id
+  description: The access id for authenticating against the Sumologic API.
+  kind: password
+- name: access_key
+  label: Access Key
+  description: The access key for authenticating against the Sumologic API.
+  kind: password
+- name: root_url
+  label: Root Url
+  description: The Sumologic endpoint for your deployment.
+  kind: string
+- name: start_date
+  label: Start Date
+  description: 'The earliest record date to sync. Sets the `from` parameter for all
+    queries. Format: YYYY-MM-DDTHH:mm:ss'
+  kind: date_iso8601
+- name: end_date
+  label: End Date
+  description: 'The latest record date to sync. Sets the `to` parameter for all queries.
+    Format: YYYY-MM-DDTHH:mm:ss'
+  kind: date_iso8601
+- name: time_zone
+  label: Time Zone
+  description: The time zone for the queries. Sets the `timeZone` parameter for all
+    queries
+  kind: string
+- name: tables
+  label: Tables
+  description: The list of configs for each table/query/stream.
+  kind: array
+- name: stream_maps
+  label: Stream Maps
+  description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+- name: stream_map_config
+  label: Stream Map Config
+  description: User-defined config values to be used within map expressions.
+  kind: object
+- name: flattening_enabled
+  label: Flattening Enabled
+  description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+- name: flattening_max_depth
+  label: Flattening Max Depth
+  description: The max depth to flatten schemas.
+  kind: integer
+settings_group_validation:
+- - access_key
+  - access_id
+  - tables
+settings_preamble: ''
+usage: ''
