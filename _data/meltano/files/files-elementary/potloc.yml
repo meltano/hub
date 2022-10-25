@@ -1,0 +1,10 @@
+name: files-elementary
+label: Elementary
+namespace: files_elementary
+domain_url: https://docs.elementary-data.com/introduction
+repo: https://github.com/potloc/files-elementary
+pip_url: git+https://github.com/potloc/files-elementary
+variant: potloc
+logo_url: /assets/logos/files/elementary.png
+definition: are bundled with the utility Elementary.
+maintenance_status: active
