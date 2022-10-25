@@ -12,9 +12,6 @@ maintenance_status: active
 settings_preamble: |
   Settings for dbt itself can be configured through [dbt_project.yml](https://docs.getdbt.com/reference/dbt_project.yml) as usual, which can be found at transform/dbt_project.yml in your Meltano project.
 settings:
-- name: project_dir
-  value: $MELTANO_PROJECT_ROOT/transform
-  label: Projects Directory
 - name: skip_pre_invoke
   label: Skip Pre-invoke
   kind: boolean
@@ -25,10 +22,6 @@ settings:
   label: dbt Profile type
   env: DBT_EXT_TYPE
   value: duckdb
-- name: profiles_dir
-  env: DBT_PROFILES_DIR
-  value: $MELTANO_PROJECT_ROOT/transform/profiles/duckdb
-  label: Profiles Directory
 - name: project_dir
   label: Projects Directory
   value: $MELTANO_PROJECT_ROOT/transform
