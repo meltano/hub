@@ -6,12 +6,58 @@ namespace: tap_3plcentral
 variant: singer-io
 pip_url: tap-3plcentral
 repo: https://github.com/singer-io/tap-3plcentral
-settings: []
+settings:
+- name: client_id
+  label: Client Id
+  description: Your client ID.
+  kind: password
+- name: start_date
+  label: Start Date
+  description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
+- name: base_url
+  label: Base Url
+  description: API URL to which /endpoints are appended. e.g http://secure-wms.com
+- name: tpl_key
+  label: TPL Key
+  description: A warehouse-specic 3PL key.
+  kind: password
+- name: user_agent
+  label: User Agent
+  description: The user agent to send with requests.
+- name: customer_id
+  label: Customer Id
+  description: Integer ID number for the customer organization.
+  kind: integer
+- name: client_secret
+  label: Client Secret
+  description: A secure OAuth 2.0 secret key for application/client authentication.
+  kind: password
+- name: user_login_id
+  label: User Login Id
+  description: Integer ID number for the user.
+  kind: integer
+- name: facility_id
+  label: Facility Id
+  description: Integer ID number for the warehouse facility.
+  kind: integer
 capabilities:
 - catalog
 - discover
 - state
 domain_url: https://www.3plcentral.com
-maintenance_status: unknown
+maintenance_status: inactive
 keywords:
 - api
+settings_group_validation:
+- - client_id
+  - start_date
+  - base_url
+  - tpl_key
+  - user_agent
+  - customer_id
+  - client_secret
+  - user_login_id
+  - facility_id

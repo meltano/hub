@@ -82,6 +82,7 @@ extractors:
   tap-bigquery: anelendata
   tap-billwerk: bi-media
   tap-bing-ads: singer-io
+  tap-bitso: edgarrmondragon
   tap-bling-erp: muriloo
   tap-bls: frasermarlow
   tap-bold: oriskincare
@@ -122,7 +123,7 @@ extractors:
   tap-daisycon: horze-international
   tap-dash-hudson: gthesheep
   tap-dayforce: goodeggs
-  tap-db2: singer-io
+  tap-db2: mjsqu
   tap-dbf: edgarrmondragon
   tap-dbt-artifacts: prratek
   tap-dbt: meltanolabs
@@ -310,6 +311,7 @@ extractors:
   tap-shiphero: singer-io
   tap-shipstation: mashey
   tap-shopify: singer-io
+  tap-shortcut: edgarrmondragon
   tap-signonsite: singer-io
   tap-simplifi: georgiyolovski
   tap-sklik: polar-analytics

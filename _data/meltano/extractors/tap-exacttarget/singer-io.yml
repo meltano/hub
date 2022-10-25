@@ -6,11 +6,54 @@ namespace: tap_exacttarget
 variant: singer-io
 pip_url: tap-exacttarget
 repo: https://github.com/singer-io/tap-exacttarget
-settings: []
+settings:
+- name: batch_size
+  label: Batch Size
+  description: The batch size to request, default 2500.
+  kind: integer
+- name: tenant_subdomain
+  label: Tenant Subdomain
+  description: 'For S10+ accounts: https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/your-subdomain-tenant-specific-endpoints.html'
+- name: request_timeout
+  label: Request Timeout
+  description: The request timeout length, default 300.
+  kind: integer
+- name: start_date
+  label: Start Date
+  description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
+- name: client_id
+  label: Client ID
+  description: Your Salesforce Marketing Cloud/Exact Target client ID.
+  kind: password
+- name: client_secret
+  label: Client Secret
+  description: Your Salesforce Marketing Cloud/Exact Target client secret.
+  kind: password
 capabilities:
-- catalog
+- properties
 - discover
+- state
 domain_url: https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/index-api.htm
 maintenance_status: active
 keywords:
 - api
+settings_group_validation:
+- - client_id
+  - client_secret
+usage: |
+  ### Authentication
+
+  Get credentials from Exacttarget. You'll need to:
+    - Create a Salesforce Marketing Cloud App
+    - Authenticate it to your Exacttarget account
+    - Get client ID and secret. Save these -- you'll need them in the next step.
+    - Find out if the sales force integration package is created (after 1st Aug, 2019) with only [OAuth2 support](https://help.salesforce.com/s/articleView?language=en_US&id=mc_rn_january_2019_platform_ip_enhanced_functionality_oauth2_0.htm&type=5)
+    - Find your tenant subdomain {tenant-subdomin}.login.exacttarget.com
+    - Obtian a refresh token following the steps [here](https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/access-token-app.html)
+
+  ### Stream Selection
+  
+  If you select the subscriber stream, you MUST select list_subscriber as well. subscriber is replicated through list_subscriber.

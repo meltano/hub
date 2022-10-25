@@ -9,15 +9,23 @@ on:
         required: true
       comment-id:
         description: The comment ID of the originating slash command
-        required: true
+        required: false
       issue-number:
         description: The issue number containing the slash command comment
         required: true
+      from-slash-command:
+        description: Whether this workflow run was invoked by a slash command
+        required: true
+        default: 'false'
       name:
         description: The name of the plugin's executable
         required: true
       pip-url:
         description: The pip_url for the plugin
+        required: false
+        default: ''
+      prepend-text:
+        description: Text to be prepended to the command output
         required: false
         default: ''
 
@@ -35,10 +43,11 @@ jobs:
     steps:
 
     - name: Handle missing pip_url
-      if: github.event.inputs.pip-url == ''
+      if: github.event.inputs.from-slash-command == 'true'
       run: echo 'PIP_URL=${{ github.event.inputs.name }}' >> "$GITHUB_ENV"
 
     - name: Add 👀 reaction
+      if: github.event.inputs.from-slash-command == 'true'
       uses: peter-evans/create-or-update-comment@v2
       with:
         token: ${{ secrets.MELTYBOT_GITHUB_AUTH_TOKEN }}
@@ -46,11 +55,21 @@ jobs:
         comment-id: ${{ github.event.inputs.comment-id }}
         reaction-type: eyes
 
+    - name: Set initial edit mode (to conditionally clear previous comment)
+      id: initial-edit-mode
+      run: |
+        should_replace=${{ github.event.inputs.from-slash-command == 'false' && github.event.inputs.comment-id != '' }}
+        echo "edit-mode=$([ ${should_replace} == 'true' ] && echo 'replace' || echo 'append')" >> $GITHUB_OUTPUT
+
     - name: Append 'starting' notification to comment
+      id: create-or-update-comment
       uses: peter-evans/create-or-update-comment@v2
       with:
+        edit-mode: ${{ steps.initial-edit-mode.outputs.edit-mode }}
         comment-id: ${{ github.event.inputs.comment-id }}
+        issue-number: ${{ github.event.inputs.issue-number }}
         body: |
+          ${{ github.event.inputs.prepend-text }}
           > [Starting test job...](https://github.com/${{github.repository}}/actions/runs/${{github.run_id}})
           > ...
 
@@ -184,13 +203,14 @@ jobs:
       uses: peter-evans/create-or-update-comment@v2
       if: always()
       with:
-        comment-id: ${{ github.event.inputs.comment-id }}
+        comment-id: ${{ steps.create-or-update-comment.outputs.comment-id }}
         body: |
           > Job completed.
 
           ${{ env.JOB_OUTPUT }}
 
     - name: Add reaction (success)
+      if: github.event.inputs.from-slash-command == 'true'
       uses: peter-evans/create-or-update-comment@v2
       with:
         token: ${{ secrets.MELTYBOT_GITHUB_AUTH_TOKEN }}
@@ -200,7 +220,7 @@ jobs:
 
     - name: Add reaction (failure)
       uses: peter-evans/create-or-update-comment@v2
-      if: failure()
+      if: failure() && (github.event.inputs.from-slash-command == 'true')
       with:
         token: ${{ secrets.MELTYBOT_GITHUB_AUTH_TOKEN }}
         repository: ${{ github.event.inputs.repository }}
