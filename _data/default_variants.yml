@@ -385,6 +385,7 @@ extractors:
   tap-zohosprints: autoidm
   tap-zoom: mashey
   tap-zuora: transferwise
+  tap-wrike: potloc
 loaders:
   target-airtable: hotgluexyz
   target-apprise: AutoIDM
