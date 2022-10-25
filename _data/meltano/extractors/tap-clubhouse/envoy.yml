@@ -5,6 +5,7 @@ logo_url: /assets/logos/extractors/clubhouse.png
 namespace: tap_clubhouse
 variant: envoy
 pip_url: git+https://github.com/envoy/tap-clubhouse.git
+hidden: true
 repo: https://github.com/envoy/tap-clubhouse
 settings: []
 capabilities:
