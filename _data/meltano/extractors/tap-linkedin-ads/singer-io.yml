@@ -6,12 +6,107 @@ namespace: tap_linkedin_ads
 variant: singer-io
 pip_url: tap-linkedin-ads
 repo: https://github.com/singer-io/tap-linkedin-ads
-settings: []
+usage: |
+  ### Authentication Setup Details
+  The tap uses a LinkedIn provided access_token in the config settings to make API requests. Access tokens expire after 60 days and require a user to manually authenticate again. If the tap receives a 401 invalid token response, the error logs will state that your access token has expired and to re-authenticate your connection to generate a new token. This is described more in LinkedIn OAuth 2.0 Docs.
+
+  The API user account should be assigned one of the following roles:
+
+  - ACCOUNT_BILLING_ADMIN
+  - ACCOUNT_MANAGER
+  - CAMPAIGN_MANAGER
+  - CREATIVE_MANAGER
+  - VIEWER (Recommended)
+
+  The API user account should be assigned the following permissions for the API endpoints:
+
+  - accounts, account_users, video_ads, campaign_groups, campaigns, creatives:
+    - r_ads: read ads (Recommended)
+    - rw_ads: read-write ads
+  - ad_analytics_by_campaign, ad_analytics_by_creative:
+    - r_ads_reporting: read ads reporting
+  
+  NOTE: Legacy permissions (r_ad_campaigns) have been migrated to the new permissions (r_ads and r_ads_reporting) based on this permissions mapping.
+
+  To generate the access_token:
+
+  1. Login to LinkedIn as the API user.
+  2. Create an [API App](https://www.linkedin.com/developers/apps) here:
+    - App Name: tap-linkedin-ads
+    - Company: search and find your company LinkedIn page
+    - Privacy policy URL: link to company privacy policy
+    - Business email: developer/admin email address
+    - App logo: Stitch (or Company) logo
+    - Products: Select Marketing Developer Platform (checkbox)
+    - Review/agree to legal terms and create app
+  3. Verify App:
+    - Provide the verify URL to your Company's LinkedIn Admin to verify and authorize the app.
+    - Once verified, select the [App in the Console here](https://www.linkedin.com/developers/apps).
+    - Review the “Auth” tab:
+    - Record client_id and client_secret (for later steps).
+    - Review permissions and ensure app has the permissions (above).
+    - Oauth 2.0 settings: Provide a redirect_uri (for later steps): https://www.google.com
+    - Review the “Products” tab and ensure “Marketing Developer Platform” has been added and approved (listed in the “added products” section).
+    - Review the “Usage & limits” tab. This shows the daily application and user/member limits with percent used for each resource endpoint.
+  4. Authorize App: The authorization token lasts 60-days before expiring. The tap app will need to be reauthorized when the authorization token expires.
+    - Create an Authorization URL with the following pattern
+      - Create a random alphanumeric state_key (used to prevent [CRSF](https://en.wikipedia.org/wiki/Cross-site_request_forgery)).
+      - URL pattern: Provide the scope from permissions above (with + delimiting each permission) and replace the other highlighted parameters: https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=YOUR_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URI&scope=YOUR_PERMISSIONS_SCOPE&state=YOUR_STATE_KEY
+    - In web browser, navigate to Authorization URL.
+    - Once redirected, click “Allow” to authorize app.
+    - The browser will be redirected to the redirect_uri. Record the code parameter listed in the redirect URL in the Browser header URL.
+  5. Run the following curl command with the parameters replaced to return your access_token. The access_token expires in 2-months.
+    ```bash
+    > curl -0 -v -X POST https://www.linkedin.com/oauth/v2/accessToken\
+      -H "Accept: application/json"\
+      -H "application/x-www-form-urlencoded"\
+      -d "grant_type=authorization_code"\
+      -d "code=YOUR_CODE"\
+      -d "client_id=YOUR_CLIENT_ID"\
+      -d "client_secret=YOUR_CLIENT_SECRET"\
+      -d "state=YOUR_STATE_KEY"\
+      -d "redirect_uri=YOUR_REDIRECT_URI"
+    ```
+settings:
+- name: accounts
+  label: Accounts
+  description: A comma separated list of account IDs, e.g. "id1, id2, id3"
+- name: client_id
+  label: Client ID
+  description: The API client ID.
+  kind: password
+- name: date_window_size
+  label: Date Window Size
+  description: The date window to request date from. The default is 30 days.
+  kind: integer
+- name: page_size
+  label: Page Size
+  description: The page size for requests. Default, 100.
+  kind: integer
+- name: client_secret
+  label: Client Secret
+  description: Your client secret.
+  kind: password
+- name: access_token
+  label: Access Token
+  description: Your access token.
+  kind: password
+- name: user_agent
+  label: User Agent
+  description: The user agent to send with requests.
+- name: refresh_token
+  label: Refresh Token
+  description: Your refresh token.
+  kind: password
 capabilities:
 - catalog
 - discover
 - state
 domain_url: https://docs.microsoft.com/en-us/linkedin/marketing/
-maintenance_status: unknown
+maintenance_status: active
 keywords:
 - api
+settings_group_validation:
+- - accounts
+  - access_token
+  - user_agent

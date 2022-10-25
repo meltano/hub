@@ -6,12 +6,59 @@ namespace: tap_mambu
 variant: singer-io
 pip_url: tap-mambu
 repo: https://github.com/singer-io/tap-mambu
-settings: []
+settings:
+- name: apikey
+  label: API Key
+  description: Your Mambu API key.
+  kind: password
+- name: subdomain
+  label: Subdomain
+  description: 'The subdomain is everything before .mambu.com in the Mambu instance
+    URL. For the URL: https://stitch.sandbox.mambu.com, the subdomain would be stitch.sandbox.'
+- name: apikey_audit
+  label: API Key Audit
+  description: Your Mambu audit trail API key.
+  kind: password
+- name: user_agent
+  label: User Agent
+  description: The user agent to send with requests.
+- name: page_size
+  label: Page Size
+  description: The page size for requests.
+  kind: integer
+- name: lookback_window
+  label: Lookback Window
+  description: Lookback window applies only to loan transactions stream.
+  kind: integer
+- name: start_date
+  label: Start Date
+  description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
+- name: username
+  label: Username
+  description: Your username if not using an API key.
+- name: password
+  label: Password
+  description: Your password paired with username if not using an API key.
+  kind: password
 capabilities:
 - catalog
 - discover
 - state
 domain_url: https://api.mambu.com/?shell
-maintenance_status: unknown
+maintenance_status: active
 keywords:
 - api
+settings_group_validation:
+- - subdomain
+  - start_date
+  - user_agent
+  - apikey
+- - subdomain
+  - start_date
+  - user_agent
+  - username
+  - password
+

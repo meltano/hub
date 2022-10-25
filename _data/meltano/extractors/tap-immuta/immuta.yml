@@ -6,12 +6,31 @@ namespace: tap_immuta
 variant: immuta
 pip_url: git+https://github.com/immuta/tap-immuta.git
 repo: https://github.com/immuta/tap-immuta
-settings: []
+settings:
+- name: hostname
+  label: Hostname
+  description: Immuta hostname, e.g. https://my-immuta.my-domain.com
+  kind: string
+- name: api_key
+  label: Api Key
+  description: User-generated Immuta API Key.
+  kind: password
+- name: user_agent
+  label: User Agent
+  description: Should be set to something that includes a contact email address should
+    the API provider need to contact you for any reason.
+  kind: string
 capabilities:
 - catalog
+- state
 - discover
+- about
+- stream-maps
 domain_url: https://www.immuta.com/
-maintenance_status: unknown
+maintenance_status: active
 keywords:
 - api
 - meltano_sdk
+settings_group_validation:
+- - api_key
+  - hostname

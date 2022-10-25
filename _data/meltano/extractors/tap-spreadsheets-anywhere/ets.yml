@@ -17,8 +17,30 @@ settings:
 - name: tables
   label: Tables
   kind: array
-  description: An array holding json objects that each describe a set of targeted
-    source files. See [repo README](https://github.com/ets/tap-spreadsheets-anywhere) for details.
+  description: |
+    An array holding json objects that each describe a set of targeted source files.
+
+    ```yaml
+    config:
+      tables:
+      - path: s3://my-s3-bucket
+        name: target_table_name
+        pattern: subfolder/common_prefix.*
+        start_date: 2017-05-01T00:00:00Z
+        key_properties: []
+        format: csv
+        delimiter: "|"
+        quotechar: '"'
+        universal_newlines: false
+        sample_rate: 10
+        max_sampling_read: 2000
+        max_sampled_files: 3
+        prefer_number_vs_integer: true
+        selected: true
+    ```
+
+    See [repo README](https://github.com/ets/tap-spreadsheets-anywhere) for details.
+
 maintenance_status: active
 keywords:
 - file
