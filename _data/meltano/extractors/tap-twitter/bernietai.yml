@@ -6,12 +6,52 @@ namespace: tap_twitter
 variant: bernietai
 pip_url: git+https://github.com/bernietai/tap-twitter.git
 repo: https://github.com/bernietai/tap-twitter
-settings: []
+settings:
+- name: consumer_key
+  label: Consumer Key
+  description: See your Twitter App setup.
+  kind: password
+- name: access_token_url
+  label: Access Token Url
+  description: The access token URL. Default, https://api.twitter.com/oauth/access_token.
+  value: https://api.twitter.com/oauth/access_token
+- name: start_date
+  label: Start Date
+  description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
+- name: request_token_url
+  label: Request Token Url
+  description: The request token URL. Default, https://api.twitter.com/oauth/request_token.
+  value: https://api.twitter.com/oauth/request_token
+- name: consumer_secret
+  label: Consumer Secret
+  description: Your consumer secret.
+  kind: password
+- name: count
+  label: Count
+  description: The number of records to retrieve. Applies to all streams. Default
+    10.
+  kind: integer
+  value: 10
+- name: authorize_url
+  label: Authorize Url
+  description: The authorize url. Default https://api.twitter.com/oauth/authorize.
+  value: https://api.twitter.com/oauth/authorize
 capabilities:
 - catalog
 - discover
 - state
 domain_url: https://developer.twitter.com
-maintenance_status: unknown
+maintenance_status: inactive
 keywords:
 - api
+settings_group_validation:
+- - consumer_key
+  - access_token_url
+  - start_date
+  - request_token_url
+  - consumer_secret
+  - count
+  - authorize_url

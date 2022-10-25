@@ -1,0 +1,43 @@
+name: tap-twitter
+variant: voxmedia
+label: Twitter
+logo_url: /assets/logos/extractors/twitter.png
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+description: Social Networking Website
+domain_url: https://developer.twitter.com/en
+keywords:
+- meltano_sdk
+- api
+maintenance_status: active
+namespace: tap_twitter
+next_steps: ''
+pip_url: git+https://github.com/voxmedia/tap-twitter.git
+repo: https://github.com/voxmedia/tap-twitter
+settings:
+- name: bearer_token
+  label: Bearer Token
+  description: 'The bearer token to authenticate against the Twitter API using the
+    OAuth 2.0 flow outlined here - https://developer.twitter.com/en/docs/authentication/oauth-2-0/application-only '
+  kind: password
+- name: user_ids
+  label: User Ids
+  description: List of user IDs of Twitter accounts for which to fetch data
+  kind: array
+- name: url_patterns
+  label: Url Patterns
+  description: List of URL patterns for which to fetch tweets
+  kind: array
+- name: start_date
+  label: Start Date
+  description: The earliest record date to sync
+  kind: date_iso8601
+settings_group_validation:
+- - bearer_token
+  - user_ids
+settings_preamble: ''
+usage: ''
