@@ -6,7 +6,7 @@ pip_url: elementary-data[bigquery]
 maintenance_status: active
 repo: https://github.com/elementary-data/elementary
 executable: edr
-logo_url: /assets/logos/utilities/elementary.png
+logo_url: /assets/logos/files/elementary.png
 variant: elementary
 settings:
 - name: profiles-dir
