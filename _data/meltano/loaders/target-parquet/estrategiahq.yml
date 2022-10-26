@@ -34,6 +34,6 @@ settings:
   description: The number of rows to write per file. The default is to write to a
     single file.
 domain_url: https://parquet.apache.org/
-maintenance_status: unknown
+maintenance_status: active
 keywords:
 - file

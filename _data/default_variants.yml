@@ -328,7 +328,7 @@ extractors:
   tap-solarvista: matatika
   tap-spotify: matatika
   tap-spreadsheets-anywhere: ets
-  tap-square: kalai-wavicle
+  tap-square: singer-io
   tap-stackexchange: meltanolabs
   tap-starshipit: zookal
   tap-stella: pathlight
@@ -358,7 +358,7 @@ extractors:
   tap-twinfield: yoast
   tap-twitter-ads: singer-io
   tap-twitter-streams: pbegle
-  tap-twitter: bernietai
+  tap-twitter: voxmedia
   tap-typeform: albert-marrero
   tap-typo: typo-ai
   tap-udemy-for-business: immuta
@@ -386,6 +386,7 @@ extractors:
   tap-zohosprints: autoidm
   tap-zoom: mashey
   tap-zuora: transferwise
+  tap-wrike: potloc
 loaders:
   target-airtable: hotgluexyz
   target-apprise: AutoIDM
@@ -412,3 +413,4 @@ loaders:
   target-sqlite: meltanolabs
   target-stitch: singer-io
   target-yaml: meltanolabs
+  target-s3-avro: faumel
