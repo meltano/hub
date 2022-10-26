@@ -1,10 +1,16 @@
 utilities:
+  airflow: apache
+  datahub: datahub-project
+  dbt-bigquery: dbt-labs
+  dbt-duckdb: jwills
+  dbt-osmosis: z3z1ma
+  dbt-postgres: dbt-labs
+  dbt-redshift: dbt-labs
+  dbt-snowflake: dbt-labs
   great_expectations: great-expectations
+  metabase: metabase
   sqlfluff: sqlfluff
   superset: apache
-  datahub: datahub-project
-  dbt-osmosis: z3z1ma
-  metabase: metabase
 orchestrators:
   airflow: apache
 transforms:
@@ -385,6 +391,7 @@ extractors:
   tap-zohosprints: autoidm
   tap-zoom: mashey
   tap-zuora: transferwise
+  tap-wrike: potloc
 loaders:
   target-airtable: hotgluexyz
   target-apprise: AutoIDM
