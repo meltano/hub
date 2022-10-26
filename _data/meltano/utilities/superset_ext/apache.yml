@@ -56,6 +56,7 @@ commands:
     args: create-admin
     executable: superset_extension
   ui:
+    executable: gunicorn
     args: --bind $SUPERSET_UI_BIND_HOST:$SUPERSET_UI_PORT --timeout $SUPERSET_UI_TIMEOUT --workers $SUPERSET_UI_WORKERS superset.app:create_app()
     description: Start the Superset UI. Will be available on the configured `ui.bind_host` and `ui.port`, which default to `http://localhost:8088`
   load-examples:
