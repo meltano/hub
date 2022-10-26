@@ -99,6 +99,8 @@ next_steps: |
     ```
 
     This is equivalent to `superset load_examples` in the Superset documentation
+    
+    **Note that you need a user named `admin` with the admin permissions to load these examples.**
 
   1. Launch the Superset UI and log in using the username/password you created:
 
