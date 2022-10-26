@@ -83,7 +83,7 @@ next_steps: |
     # create the initial config, database, and auth roles.
     meltano invoke superset_ext:initialize
     ```
-  1. Create an admin user: (use `admin` as username to be able to load the examples)
+  2. Create an admin user: (use `admin` as username to be able to load the examples)
 
     ```sh
     # add a superset admin using prompting for required values
@@ -92,7 +92,7 @@ next_steps: |
 
     This is equivalent to `superset fab create-admin` in the Superset documentation
 
-  1. Optionally, load some example data to play with:
+  3. Optionally, load some example data to play with:
 
     ```sh
     meltano invoke superset_ext:load-examples
@@ -102,7 +102,7 @@ next_steps: |
     
     **Note that you need a user named `admin` with the admin permissions to load these examples.**
 
-  1. Launch the Superset UI and log in using the username/password you created:
+  4. Launch the Superset UI and log in using the username/password you created:
 
     ```sh
     meltano invoke superset_ext:ui
