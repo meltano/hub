@@ -5,6 +5,7 @@ utilities:
   datahub: datahub-project
   dbt-osmosis: z3z1ma
   metabase: metabase
+  airflow: apache
 orchestrators:
   airflow: apache
 transforms:
