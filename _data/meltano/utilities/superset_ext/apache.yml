@@ -28,7 +28,7 @@ settings:
 - name: SUPERSET_CONFIG_PATH
   label: Superset config path
   description: The path to where the Superset config file is located.
-  value: $MELTANO_PROJECT_ROOT/superset/superset_config.py
+  value: $MELTANO_PROJECT_ROOT/analyze/superset/superset_config.py
 - name: SQLALCHEMY_DATABASE_URI
   label: SQLAlchemy Database URI
   value: sqlite:///$MELTANO_PROJECT_ROOT/.meltano/utilities/superset/superset.db
