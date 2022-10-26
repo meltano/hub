@@ -32,7 +32,7 @@ settings:
   label: Port
   description: The MSSQL port, defaulted to 1433.
 - name: tds_version
-  label: tds_version
+  label: TDS Version
   description: |
     The TDS version of the connection. Defaults to 7.3, connecting to older
     databases (ex MS SQL 2005) requires 7.0 or earlier. Please see the pymssql or FreeTSD documentation for more details.
@@ -40,7 +40,7 @@ settings:
 - name: use_date_datatype
   kind: boolean
   value: false
-  label: Use Date Datatype.
+  label: Use Date Datatype
   description: |
     To emit a date datatype as a date without a time component or time without an UTC offset.
     If this boolean config item is not set, the default behaviour is false i.e. emit date datatypes as a datetime.
