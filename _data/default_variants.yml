@@ -1,15 +1,16 @@
 utilities:
-  great_expectations: great-expectations
-  sqlfluff: sqlfluff
-  superset: apache
+  airflow: apache
   datahub: datahub-project
-  dbt-osmosis: z3z1ma
-  metabase: metabase
   dbt-bigquery: dbt-labs
   dbt-duckdb: jwills
+  dbt-osmosis: z3z1ma
   dbt-postgres: dbt-labs
   dbt-redshift: dbt-labs
   dbt-snowflake: dbt-labs
+  great_expectations: great-expectations
+  metabase: metabase
+  sqlfluff: sqlfluff
+  superset: apache
 orchestrators:
   airflow: apache
 transforms:
