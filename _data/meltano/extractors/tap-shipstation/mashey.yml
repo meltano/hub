@@ -6,11 +6,29 @@ namespace: tap_shipstation
 variant: mashey
 pip_url: git+https://github.com/Mashey/tap-shipstation.git
 repo: https://github.com/Mashey/tap-shipstation
-settings: []
+settings:
+- name: api_key
+  label: API Key
+  description: Your ShipStation API Key
+  kind: password
+- name: default_start_datetime
+  label: Default Start Datetime
+  description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
+- name: api_secret
+  label: API Secret
+  description: Your ShipStation API Secret
+  kind: password
 capabilities:
 - catalog
 - discover
+- state
 domain_url: https://www.shipstation.com/developer-api/
-maintenance_status: unknown
+maintenance_status: inactive
 keywords:
 - api
+settings_group_validation:
+- - api_key
+  - default_start_datetime
+  - api_secret
