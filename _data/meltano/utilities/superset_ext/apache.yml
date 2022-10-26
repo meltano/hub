@@ -27,7 +27,7 @@ settings:
   description: Workers used by `meltano invoke superset:ui`. Corresponds to the `gunicorn` `--workers` option
 - name: HOME
   label: Superset home 
-  value: $MELTANO_PROJECT_ROOT/analyze
+  value: $MELTANO_PROJECT_ROOT/analyze/superset
 - name: CONFIG_PATH
   label: Superset config path
   description: The path to where the Superset config file is located.
