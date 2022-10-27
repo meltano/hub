@@ -37,7 +37,6 @@ settings:
   description: The MySQL/MariaDB database name.
 - name: cursorclass
   label: Cursor Class
-  value: pymysql.cursors.SSCursor
   description: Cursor class used by PyMYSQL.
 - name: server_id
   label: Server ID

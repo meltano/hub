@@ -1,0 +1,121 @@
+name: airflow
+namespace: airflow
+label: Airflow (EDK preview)
+docs: https://docs.meltano.com/guide/orchestration
+repo: https://github.com/apache/airflow
+ext_repo: https://github.com/meltano/airflow-ext
+pip_url: git+https://github.com/meltano/airflow-ext.git@main apache-airflow==2.3.3 --constraint https://raw.githubusercontent.com/apache/airflow/constraints-2.3.3/constraints-no-providers-${MELTANO__PYTHON_VERSION}.txt
+executable: airflow_invoker
+variant: apache
+maintenance_status: active
+definition: |
+  is an [orchestrator](https://docs.meltano.com/concepts/plugins#orchestrators) that allows for workflows to be programmatically authored, scheduled, and monitored.
+
+  ### EDK Preview
+
+  This utility is in a preview stage of readiness. It is based upon our Extension Developer Kit (EDK) which is the new way to build and add plugins to Meltano Hub.
+
+  This preview of Airflow will replace the native orchestrator once it comes out of preview. In the meantime, we would appreciate any feedback in the [EDK repo](https://github.com/meltano/edk/) and in the [Airflow Extension repo](https://github.com/meltano/airflow-ext/).
+  
+commands:
+  describe:
+    executable: airflow_extension
+    args: describe
+    description: Describe the Airflow Extension
+  initialize:
+    executable: airflow_extension
+    args: initialize
+    description: Initialize the Airflow Extension which will seed the database, create the default airflow.cfg, and deploy the Meltano DAG orchestrator.
+  create-admin:
+    args: "users create --username admin --firstname FIRST_NAME --lastname LAST_NAME --role Admin --email admin@example.org"
+    description: Create an Airflow user with admin privileges.
+  ui:
+    args: webserver
+    description: Start the Airflow webserver.
+next_steps: |
+  1. Use the [meltano schedule](https://docs.meltano.com/reference/command-line-interface#schedule) command to create pipeline schedules in your project, to be run by Airflow.
+
+  1. If you're running Airflow for the first time in a new environment:
+
+     ```sh
+     # explicitly seed the database, create default airflow.cfg, deploy the meltano dag orchestrator
+     meltano invoke airflow:initialize
+
+     # create an airflow user with admin privileges
+     meltano invoke airflow users create -u admin@localhost -p password --role Admin -e admin@localhost -f admin -l admin
+     ```
+
+  1. Launch the Airflow UI and log in using the username/password you created:
+
+     ```sh
+     meltano invoke airflow webserver
+     ```
+
+     By default, the UI will be available at at [`http://localhost:8080`](http://localhost:8080). You can change this using the `webserver.web_server_port` setting documented below.
+
+  1. Start Scheduler or execute Airflow commands directly using the instructions in [the Meltano docs](https://docs.meltano.com/guide/orchestration#starting-the-airflow-scheduler).
+
+settings:
+- name: database.sql_alchemy_conn
+  label: SQL Alchemy Connection
+  value: sqlite:///$MELTANO_PROJECT_ROOT/.meltano/utilities/airflow/airflow.db
+  env: AIRFLOW__DATABASE__SQL_ALCHEMY_CONN
+- name: core.dags_folder
+  label: DAGs Folder
+  value: $MELTANO_PROJECT_ROOT/orchestrate/airflow/dags
+  env: AIRFLOW__CORE__DAGS_FOLDER
+- name: core.plugins_folder
+  label: Plugins Folder
+  value: $MELTANO_PROJECT_ROOT/orchestrate/airflow/plugins
+  env: AIRFLOW__CORE__PLUGINS_FOLDER
+- name: core.load_examples
+  label: Load Examples
+  value: false
+  env: AIRFLOW__CORE__LOAD_EXAMPLES
+- name: core.dags_are_paused_at_creation
+  label: Pause DAGs at Creation
+  env: AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION
+  value: false
+- name: webserver.web_server_port
+  label: Webserver Port
+  value: 8080
+  env: AIRFLOW__WEBSERVER__WEB_SERVER_PORT
+- name: logging.base_log_folder
+  label: Base Log Folder
+  value: $MELTANO_PROJECT_ROOT/.meltano/utilities/airflow/logs
+  env: AIRFLOW__LOGGING__BASE_LOG_FOLDER
+  description: |
+    The folder where airflow should store its log files. This path must be absolute. There are a few existing
+    configurations that assume this is set to the default. If you choose to override this you may need to update
+    the dag_processor_manager_log_location and child_process_log_directory settings as well.
+- name: logging.dag_processor_manager_log_location
+  label: Dag Processor Manager Log Location
+  value: $MELTANO_PROJECT_ROOT/.meltano/utilities/airflow/logs/dag_processor_manager/dag_processor_manager.log
+  env: AIRFLOW__LOGGING__DAG_PROCESSOR_MANAGER_LOG_LOCATION
+  description: |
+    Where to send dag parser logs.
+- name: scheduler.child_process_log_directory
+  label: Child Process Log Directory
+  value: $MELTANO_PROJECT_ROOT/.meltano/utilities/airflow/logs/scheduler
+  env: AIRFLOW__SCHEDULER__CHILD_PROCESS_LOG_DIRECTORY
+  description: |
+    Where to send the logs of each scheduler process.
+- name: extension.airflow_home
+  label: Airflow Home
+  value: $MELTANO_PROJECT_ROOT/orchestrate/airflow
+  env: AIRFLOW_HOME
+  description: |
+    The directory where Airflow will store its configuration, logs, and other files.
+- name: extension.airflow_config
+  label: Airflow Home
+  value: $MELTANO_PROJECT_ROOT/orchestrate/airflow/airflow.cfg
+  env: AIRFLOW_CONFIG
+  description: |
+    The path where the Airflow configuration file will be stored.
+logo_url: /assets/logos/orchestrators/airflow.png
+settings_preamble: |
+  Meltano [centralizes the configuration](https://docs.meltano.com/guide/configuration) of all of the plugins in your project, including Airflow's. This means that if the [Airflow documentation](https://airflow.apache.org/docs/apache-airflow/stable/howto/set-config.html) tells you to put something in `airflow.cfg`, you can use `meltano config`, `meltano.yml`, or environment variables instead, and get the benefits of Meltano features like [environments](https://docs.meltano.com/concepts/environments).
+
+  Any setting you can add to `airflow.cfg` can be added to `meltano.yml`, manually or using `meltano config`. For example, `[core] executor = SequentialExecutor` becomes `meltano config airflow set core executor SequentialExecutor` on the CLI, or `core.executor: SequentialExecutor` in `meltano.yml`. Config sections indicated by `[section]` in `airflow.cfg` become nested dictionaries in `meltano.yml`.
+keywords:
+  - meltano_edk

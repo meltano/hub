@@ -32,9 +32,25 @@ settings:
   label: Port
   description: The MSSQL port, defaulted to 1433.
 - name: tds_version
-  label: tds_version
-  description: The TDS version of the connection. Defaults to 8.0, connecting to older
-    databases (ex MS SQL 2005) requires 7.0 or earlier
+  label: TDS Version
+  description: |
+    The TDS version of the connection. Defaults to 7.3, connecting to older
+    databases (ex MS SQL 2005) requires 7.0 or earlier. Please see the pymssql or FreeTSD documentation for more details.
+    Also note, while this is a confusing topic version 7.3 is more current than 8.0.
+- name: use_date_datatype
+  kind: boolean
+  value: false
+  label: Use Date Datatype
+  description: |
+    To emit a date datatype as a date without a time component or time without an UTC offset.
+    If this boolean config item is not set, the default behaviour is false i.e. emit date datatypes as a datetime.
+    It is recommended to set this on if you have time datatypes and are having issues uploading into into a target database.
+- name: characterset
+  label: Characterset
+  description: |
+    The characterset for the database / source system. The default is utf8, however older databases might use a charactersets like cp1252 for the encoding.
+    If you have errors with a UnicodeDecodeError: 'utf-8' codec can't decode byte .... then a solution is to examine the characterset of the source database / system
+    and make an appropriate substitution for utf8 like cp1252.
 capabilities:
 - catalog
 - discover
