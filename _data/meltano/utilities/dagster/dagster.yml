@@ -10,13 +10,10 @@ executable: dagster_invoker
 logo_url: /assets/logos/utilities/dagster.png
 variant: quantile-development
 commands:
-    describe:
-      executable: dagster_extension
-      args: describe
-      description: Describe the Dagster Extension.
-    initialize:
-    args: initialize
+  describe:
     executable: dagster_extension
+    args: describe
+    description: Describe the Dagster Extension.
   init:
     args: initialize
     executable: dagster_extension
