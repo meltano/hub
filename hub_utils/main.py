@@ -12,7 +12,7 @@ def callback():
 
 @app.command()
 def add(
-    repo_url: str,
+    repo_url: str = None,
     auto_accept: bool = typer.Option(False)
 ):
     util = Utilities(auto_accept)

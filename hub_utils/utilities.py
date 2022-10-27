@@ -54,11 +54,11 @@ class Utilities:
 
     @staticmethod
     def get_plugin_type(plugin_name: str):
-        if 'tap' in plugin_name and 'target' in plugin_name:
+        if 'tap-' in plugin_name and 'target-' in plugin_name:
             raise Exception(f'Type Unknown: {plugin_name}')
-        if 'tap' in plugin_name:
+        if 'tap-' in plugin_name:
             return 'extractors'
-        if 'target' in plugin_name:
+        if 'target-' in plugin_name:
             return 'loaders'
 
     @staticmethod
@@ -219,7 +219,7 @@ class Utilities:
             )
             if overwrite:
                 self._update_variant_file(plugin_type_defaults, plugin_name, plugin_variant, defaults, plugin_type)
-
+            return True
 
     def _handle_maintainer(self, plugin_variant, repo_url):
         updated_maintainers = self._read_yaml(self.maintainers_path)
@@ -236,7 +236,13 @@ class Utilities:
         else:
             print(f'Maintainer: Skipping')
 
-    def _handle_logo(self, definition, plugin_type):
+    def _handle_logo(self, definition, plugin_type, variant_exists):
+        if variant_exists and self._prompt(
+            f"Use current variant's logo?",
+            default_val=True,
+            type=bool
+        ):
+            return
         placeholder = self._prompt(
             f"Use placeholder logo?",
             default_val=False,
@@ -258,7 +264,9 @@ class Utilities:
         MeltanoUtil.add(plugin_name, namespace, executable, pip_url, plugin_type)
         MeltanoUtil.help_test(plugin_name)
 
-    def add(self, repo_url: str, definition_seed: dict = None):
+    def add(self, repo_url: str = None, definition_seed: dict = None):
+        if not repo_url:
+            repo_url = self._prompt("repo_url")
         plugin_name = self._prompt("plugin name", self._get_plugin_name(repo_url))
         plugin_type = self._prompt("plugin type", self.get_plugin_type(repo_url))
         pip_url = self._prompt("pip_url", f"git+{repo_url}.git")
@@ -284,9 +292,9 @@ class Utilities:
         definition = self._boilerplate_definition(repo_url, plugin_type, settings, settings_group_validation, plugin_name, namespace, pip_url, keywords, capabilities)
         definition_path = self._write_definition(definition, plugin_type)
         variant = definition['variant']
-        self._handle_default_variant(plugin_name, definition['variant'], plugin_type)
+        variant_exists = self._handle_default_variant(plugin_name, definition['variant'], plugin_type)
         self._handle_maintainer(variant, repo_url)
-        self._handle_logo(definition, plugin_type)
+        self._handle_logo(definition, plugin_type, variant_exists)
         print(definition_path)
         print(f'Adds {plugin_type} {plugin_name} ({variant})\n\n')
 
@@ -381,7 +389,7 @@ class Utilities:
 
     def update(self, repo_url: str = None, definition_seed: dict = None):
         repo_url, plugin_name, plugin_type, plugin_variant, existing_def, sdk_def = self._update_base(repo_url)
-        setting_names = [setting.get('name') for setting in existing_def.get('settings')]
+        setting_names = [setting.get('name') for setting in existing_def.get('settings', [])]
         caps = self._string_to_literal(self._prompt("capabilities", existing_def.get('capabilities')))
         m_status = self._prompt("maintenance_status", existing_def.get('maintenance_status'))
         keywords = self._string_to_literal(self._prompt("keywords", existing_def.get('keywords')))
