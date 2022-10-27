@@ -100,11 +100,12 @@ class ApiBuilder:
             output_dir.mkdir(parents=True)
 
         default_variants = self.get_default_variants()
+        global_index = {}
 
         for plugin_type in PluginType:
             source_type_path = self.data_path.joinpath("meltano", plugin_type.value)
             output_type_path = output_dir.joinpath(plugin_type.value)
-            plugin_index = {}
+            plugin_type_index = {}
 
             if not output_type_path.exists() and create:
                 output_type_path.mkdir(parents=True)
@@ -150,18 +151,26 @@ class ApiBuilder:
                         default_variant_logo = definition.get("logo_url")
 
                 # Add to plugin type index
-                plugin_index[plugin_name] = {
+                plugin_type_index[plugin_name] = {
                     "default_variant": default_variant,
                     "variants": variants,
                     "logo_url": default_variant_logo,
                 }
 
             # Write plugin type index
+            global_index[plugin_type.value] = plugin_type_index
             plugin_index_path = output_type_path.joinpath("index")
             with plugin_index_path.open("w") as f:
-                json.dump(plugin_index, f, separators=(",", ":"))
+                json.dump(plugin_type_index, f, separators=(",", ":"))
 
             logger.info("Wrote %s", plugin_index_path)
+
+        # Write global index
+        global_index_path = output_dir.joinpath("index")
+        with global_index_path.open("w") as f:
+            json.dump(global_index, f, separators=(",", ":"))
+
+        logger.info("Wrote %s", global_index_path)
 
 
 if __name__ == "__main__":
