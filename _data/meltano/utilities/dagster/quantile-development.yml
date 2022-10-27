@@ -3,9 +3,9 @@ label: Dagster
 domain_url: https://dagster.io/
 namespace: dagster
 pip_url: dagster-ext
-ext_repo: https://github.com/meltano/dagster-ext
+ext_repo: https://github.com/quantile-development/dagster-ext
 maintenance_status: development
-repo: https://github.com/quantile-development/dagster-ext
+repo: https://github.com/dagster-io/dagster
 executable: dagster_invoker
 logo_url: /assets/logos/utilities/dagster.png
 variant: quantile-development
@@ -24,13 +24,15 @@ commands:
     description: Start Dagster.
 settings:
 - name: dagster_home
+  label: Dagster Home
   env: DAGSTER_HOME
   value: $MELTANO_PROJECT_ROOT/.meltano
-  label: The home folder of Dagster.
+  description: The home folder of Dagster.
 - name: repository_dir
+  label: Repository Directory
   env: REPOSITORY_DIR
   value: $MELTANO_PROJECT_ROOT/orchestrate
-  label: The root folder of the Dagster project.
+  description: The root folder of the Dagster project.
 keywords:
 - dagster
 - meltano_edk
