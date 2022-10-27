@@ -3,9 +3,9 @@ label: Instagram
 name: tap-instagram
 logo_url: /assets/logos/extractors/instagram.png
 namespace: tap_instagram
-variant: prratek
+variant: voxmedia
 pip_url: tap-instagram
-repo: https://github.com/prratek/tap-instagram
+repo: https://github.com/voxmedia/tap-instagram
 capabilities:
 - catalog
 - discover
