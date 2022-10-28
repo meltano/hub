@@ -23,7 +23,7 @@ class Utilities:
     def __init__(self, auto_accept=False):
         self.yaml = YAML()
         self.auto_accept = auto_accept
-        self.hub_root = os.getenv('HUB_UTILS')
+        self.hub_root = os.getenv('HUB_ROOT_PATH')
         self.default_variants_path = f'{self.hub_root}/_data/default_variants.yml'
         self.maintainers_path = f'{self.hub_root}/_data/maintainers.yml'
 
