@@ -3,6 +3,8 @@
 A utility CLI intended to streamline the steps needed to add Singer taps/targets to [MeltanoHub](https://hub.meltano.com/).
 
 ```
+export HUB_ROOT_PATH='/Users/pnadolny/Documents/Git/GitHub/meltano/hub'
+
 poetry install
 poetry run hub_utils --help
 
