@@ -3,7 +3,7 @@ description: User tracking in web apps
 label: GainsightPX
 namespace: tap_gainsightpx
 logo_url: /assets/logos/extractors/gainsightpx.png
-variant: Widen
+variant: widen
 pip_url: git+https://github.com/Widen/tap-gainsightpx.git
 repo: https://github.com/Widen/tap-gainsightpx
 capabilities:
@@ -58,3 +58,4 @@ keywords:
 - api
 - gainsight
 - tap
+- meltano_sdk
