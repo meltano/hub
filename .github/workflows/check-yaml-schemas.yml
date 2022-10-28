@@ -27,22 +27,22 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Get changed files in the docs folder
-      id: changed-files
-      uses: tj-actions/changed-files@v34
-      with:
-        files: |
-          _data/meltano/${{ matrix.plugin_type }}/**/*.yml
+    # - name: Get changed files in the docs folder
+    #   id: changed-files
+    #   uses: tj-actions/changed-files@v34
+    #   with:
+    #     files: |
+    #       _data/meltano/${{ matrix.plugin_type }}/**/*.yml
 
     - name: Install check-jsonschema
-      if: steps.changed-files.outputs.any_changed == 'true'
+      # if: steps.changed-files.outputs.any_changed == 'true'
       run: |
         pipx install check-jsonschema
         pipx inject check-jsonschema rfc3986-validator
 
     - name: Check YAML schemas
-      if: steps.changed-files.outputs.any_changed == 'true'
+      # if: steps.changed-files.outputs.any_changed == 'true'
       run: >
         check-jsonschema
         --schemafile schemas/plugin_definitions/${{ matrix.plugin_type }}.schema.json
-        ${{ steps.changed-files.outputs.all_changed_files }}
+        _data/meltano/${{ matrix.plugin_type }}/*/*.yml
