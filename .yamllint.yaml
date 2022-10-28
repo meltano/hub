@@ -1,0 +1,12 @@
+extends: default
+
+# yaml-files:
+#   - '_data/meltano/*/*/*.yml'
+#   - '_data/*.yml'
+
+rules:
+  braces:
+    forbid: non-empty
+  document-start:
+    present: false # Don't require `---` at the start of the file
+  key-ordering: enable
