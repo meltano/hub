@@ -1,6 +1,5 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "common/common.schema.json",
     "title": "JSON Schema for common plugin properties.",
     "description": "Meltano (https://meltano.com) is an open source platform for building, running & orchestrating ELT pipelines",
     "type": "object",
@@ -34,7 +33,8 @@
         },
         "repo": {
             "type": "string",
-            "description": "The URL to the repository where the plugin code lives."
+            "description": "The URL to the repository where the plugin code lives.",
+            "format": "uri"
         },
         "ext_repo": {
             "type": "string",
