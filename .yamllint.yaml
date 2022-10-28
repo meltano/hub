@@ -5,4 +5,7 @@ rules:
     forbid: non-empty
   document-start:
     present: false # Don't require `---` at the start of the file
+  indentation:
+    spaces: 2
+    indent-sequences: false
   key-ordering: enable
