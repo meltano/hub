@@ -2,7 +2,7 @@ from os import stat
 import subprocess
 import pathlib
 import json
-
+import typer
 class MeltanoUtil:
 
     def __init__(self):
@@ -60,6 +60,30 @@ class MeltanoUtil:
         return plugin_name.replace('_', ' ').replace('-', ' ').replace('.', ' ').title()
 
     @staticmethod
+    def _parse_kind(kind, setting, format=None):
+        setting = setting.lower()
+        if kind == 'string':
+            if format == 'date-time' or setting in ('start_date', 'end_date'):
+                return 'date_iso8601'
+            if any(id_str.lower() in setting for id_str in ['password', 'id', 'token', 'key', 'secret']):
+                return 'password'
+            return 'string'
+        else:
+            return kind
+
+    @staticmethod
+    def _default_description(setting):
+        setting = setting.lower()
+        if setting == "start_date":
+            return """Determines how much historical data will be extracted. Please be aware
+that the larger the time period and amount of data, the longer the initial extraction
+can be expected to take."""
+        if setting == "end_date":
+            return "Date up to when historical data will be extracted."
+        else:
+            return None
+
+    @staticmethod
     def _parse_sdk_about_settings(sdk_about_dict):
         settings_raw = sdk_about_dict.get('settings', {})
         reformatted_settings = []
@@ -67,10 +91,8 @@ class MeltanoUtil:
         base_required = settings_raw.get('required', [])
         for settings in MeltanoUtil._traverse_schema_properties(settings_raw):
             description = settings.get('description')
-            if settings.get('name') == "start_date":
-                description = """Determines how much historical data will be extracted. Please be aware
-that the larger the time period and amount of data, the longer the initial extraction
-can be expected to take."""
+            if not settings.get('description'):
+                description = typer.prompt(f"[{settings.get('name')}] `description`", default=MeltanoUtil._default_description(settings.get('name')))
             setting_details = {
                 'name': settings.get('name'),
                 'label': MeltanoUtil._get_label(settings.get('name')),
@@ -81,13 +103,7 @@ can be expected to take."""
             else:
                 kind = settings.get('type')
 
-            if kind != 'string' and settings.get('format') != 'date-time':
-                if settings.get('format') == 'date-time':
-                    kind = 'date_iso8601'
-                setting_details['kind'] = kind
-
-            if kind == 'string' and any(id_str.lower() in settings.get('name').lower() for id_str in ['password', 'id', 'token', 'key', 'secret']):
-                setting_details['kind'] = 'password'
+            setting_details['kind'] = MeltanoUtil._parse_kind(kind, settings.get('name'))
 
             reformatted_settings.append(setting_details)
             if settings.get('required'):

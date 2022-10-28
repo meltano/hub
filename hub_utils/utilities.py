@@ -54,11 +54,11 @@ class Utilities:
 
     @staticmethod
     def get_plugin_type(plugin_name: str):
-        if 'tap' in plugin_name and 'target' in plugin_name:
+        if 'tap-' in plugin_name and 'target-' in plugin_name:
             raise Exception(f'Type Unknown: {plugin_name}')
-        if 'tap' in plugin_name:
+        if 'tap-' in plugin_name:
             return 'extractors'
-        if 'target' in plugin_name:
+        if 'target-' in plugin_name:
             return 'loaders'
 
     @staticmethod
@@ -98,8 +98,8 @@ class Utilities:
         settings_group_validation = []
         for setting in setting_list:
             label = self._prompt(f"[{setting}] `label`", default_val=self._get_label(setting))
-            kind = self._prompt(f"[{setting}] `kind`", default_val="string")
-            description = self._prompt(f"[{setting}] `description`")
+            kind = self._prompt(f"[{setting}] `kind`", default_val=MeltanoUtil._parse_kind("string", setting))
+            description = self._prompt(f"[{setting}] `description`", default_val=MeltanoUtil._default_description(setting))
             required = self._prompt(f"[{setting}] `required`", default_val=False, type=bool)
             setting_details = {
                 'name': setting,
@@ -113,8 +113,8 @@ class Utilities:
                 settings_group_validation.append(setting)
         return settings, [settings_group_validation]
 
-    def _compile_settings(self):
-        settings = []
+    def _compile_settings(self, seed=[]):
+        settings = seed
         continue_prompts = True
         prompt_text = 'Lets collect all the settings, provide one at a time'
         while continue_prompts and not self.auto_accept:
@@ -195,7 +195,8 @@ class Utilities:
                     os.path.join(dir_name, f'{variant}.yml'),
                     definition
                 )
-            print(f'Definition: Skipping')
+            else:
+                print(f'Definition: Skipping')
         return str(yaml_path)
 
     def _update_variant_file(self, plugin_type_defaults, plugin_name, plugin_variant, defaults, plugin_type):
@@ -218,7 +219,7 @@ class Utilities:
             )
             if overwrite:
                 self._update_variant_file(plugin_type_defaults, plugin_name, plugin_variant, defaults, plugin_type)
-
+            return True
 
     def _handle_maintainer(self, plugin_variant, repo_url):
         updated_maintainers = self._read_yaml(self.maintainers_path)
@@ -235,27 +236,37 @@ class Utilities:
         else:
             print(f'Maintainer: Skipping')
 
-    def _handle_logo(self, definition, plugin_type):
+    def _handle_logo(self, definition, plugin_type, variant_exists):
+        if variant_exists and self._prompt(
+            f"Use current variant's logo?",
+            default_val=True,
+            type=bool
+        ):
+            return
         placeholder = self._prompt(
             f"Use placeholder logo?",
             default_val=False,
             type=bool
         )
-        if placeholder:
+        image_path = self._prompt(
+            "Path to image [.png] file",
+            'placeholder.png'
+        )
+        if image_path == 'placeholder.png':
             definition['logo_url'] = '/assets/logos/placeholder.png'
             print('Logo: Placeholder Used')
-        image_path = self._prompt(
-            "Path to image [.png] file"
-        )
-        logo_file_name = definition['logo_url'].split('/')[-1]
-        shutil.copyfile(image_path, f'{self.hub_root}/static/assets/logos/{plugin_type}/{logo_file_name}')
+        else:
+            logo_file_name = definition['logo_url'].split('/')[-1]
+            shutil.copyfile(image_path, f'{self.hub_root}/static/assets/logos/{plugin_type}/{logo_file_name}')
 
     @staticmethod
     def _install_test(plugin_name, plugin_type, pip_url, namespace, executable):
         MeltanoUtil.add(plugin_name, namespace, executable, pip_url, plugin_type)
         MeltanoUtil.help_test(plugin_name)
 
-    def add(self, repo_url: str, definition_seed: dict = None):
+    def add(self, repo_url: str = None, definition_seed: dict = None):
+        if not repo_url:
+            repo_url = self._prompt("repo_url")
         plugin_name = self._prompt("plugin name", self._get_plugin_name(repo_url))
         plugin_type = self._prompt("plugin type", self.get_plugin_type(repo_url))
         pip_url = self._prompt("pip_url", f"git+{repo_url}.git")
@@ -263,17 +274,14 @@ class Utilities:
         executable = self._prompt("executable", plugin_name)
         is_meltano_sdk = self._prompt("is_meltano_sdk", True, type=bool)
         sdk_about_dict = None
-        try:
-            if self._prompt("Run install test?", True, type=bool):
-                self._install_test(plugin_name, plugin_type, pip_url, namespace, executable)
-            if is_meltano_sdk:
-                if self._prompt("Scrape SDK --about settings?", True, type=bool):
-                    sdk_about_dict = MeltanoUtil.sdk_about(plugin_name)
-        except Exception as e:
-            print(e)
-        finally:
-            MeltanoUtil.remove(plugin_name, plugin_type)
-        
+        sdk_about_dict = self._test(
+            plugin_name,
+            plugin_type,
+            pip_url,
+            namespace,
+            executable,
+            is_meltano_sdk
+        )
         if sdk_about_dict:
             settings, settings_group_validation, capabilities = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
         else:
@@ -284,9 +292,9 @@ class Utilities:
         definition = self._boilerplate_definition(repo_url, plugin_type, settings, settings_group_validation, plugin_name, namespace, pip_url, keywords, capabilities)
         definition_path = self._write_definition(definition, plugin_type)
         variant = definition['variant']
-        self._handle_default_variant(plugin_name, definition['variant'], plugin_type)
+        variant_exists = self._handle_default_variant(plugin_name, definition['variant'], plugin_type)
         self._handle_maintainer(variant, repo_url)
-        self._handle_logo(definition, plugin_type)
+        self._handle_logo(definition, plugin_type, variant_exists)
         print(definition_path)
         print(f'Adds {plugin_type} {plugin_name} ({variant})\n\n')
 
@@ -318,6 +326,101 @@ class Utilities:
             repo_urls_to_delete.append(repo_url)
             self.delete_rows(repo_urls_to_delete, edit_path, csv_path)
 
+    def _retrieve_def(self, plugin_name, plugin_variant, plugin_type):
+        def_path = f'{self.hub_root}/_data/meltano/{plugin_type}/{plugin_name}/{plugin_variant}.yml'
+        return self._read_yaml(def_path)
+
+    def _write_updated_def(self, plugin_name, plugin_variant, plugin_type, definition):
+        def_path = f'{self.hub_root}/_data/meltano/{plugin_type}/{plugin_name}/{plugin_variant}.yml'
+        self._write_yaml(
+            def_path,
+            definition
+        )
+
+    def _iterate_existing_settings(self, plugin_name, plugin_variant, plugin_type):
+        def_path = f'{self.hub_root}/_data/meltano/{plugin_type}/{plugin_name}/{plugin_variant}.yml'
+        return self._read_yaml(def_path)
+
+    def _merge_definitions(
+        self,
+        existing_def,
+        settings,
+        keywords,
+        m_status,
+        caps,
+        sgv
+    ):
+        new_def = existing_def.copy()
+        new_def['settings'] = settings
+        new_def['keywords'] = keywords
+        new_def['maintenance_status'] = m_status
+        new_def['capabilities'] = caps
+        new_def['settings_group_validation'] = sgv
+        return new_def
+
+    def _test(self, plugin_name, plugin_type, pip_url, namespace, executable, is_meltano_sdk):
+        try:
+            if self._prompt("Run install test?", True, type=bool):
+                self._install_test(plugin_name, plugin_type, pip_url, namespace, executable)
+            if is_meltano_sdk:
+                if self._prompt("Scrape SDK --about settings?", True, type=bool):
+                    return MeltanoUtil.sdk_about(plugin_name)
+        except Exception as e:
+            print(e)
+        finally:
+            MeltanoUtil.remove(plugin_name, plugin_type)
+
+    def _update_base(self, repo_url, is_meltano_sdk=False):
+        if not repo_url:
+            repo_url = self._prompt("repo_url")
+        plugin_name = self._prompt("plugin name", self._get_plugin_name(repo_url))
+        plugin_type = self._prompt("plugin type", self.get_plugin_type(repo_url))
+        plugin_variant = self._prompt("plugin variant", self._get_plugin_variant(repo_url))
+        existing_def = self._retrieve_def(plugin_name, plugin_variant, plugin_type)
+        sdk_def = self._test(
+            plugin_name,
+            plugin_type,
+            existing_def['pip_url'],
+            existing_def['namespace'],
+            existing_def.get('executable', plugin_name),
+            is_meltano_sdk
+        )
+        return repo_url, plugin_name, plugin_type, plugin_variant, existing_def, sdk_def
+
+    def update(self, repo_url: str = None, definition_seed: dict = None):
+        repo_url, plugin_name, plugin_type, plugin_variant, existing_def, sdk_def = self._update_base(repo_url)
+        setting_names = [setting.get('name') for setting in existing_def.get('settings', [])]
+        caps = self._string_to_literal(self._prompt("capabilities", existing_def.get('capabilities')))
+        m_status = self._prompt("maintenance_status", existing_def.get('maintenance_status'))
+        keywords = self._string_to_literal(self._prompt("keywords", existing_def.get('keywords')))
+        settings, sgv = self._build_settings(self._compile_settings(setting_names))
+        new_def = self._merge_definitions(
+            existing_def,
+            settings,
+            keywords,
+            m_status,
+            caps,
+            sgv,
+        )
+        self._write_updated_def(plugin_name, plugin_variant, plugin_type, new_def)
+        print(f'\nUpdates {plugin_type} {plugin_name} ({plugin_variant})\n\n')
+
+    def update_sdk(self, repo_url: str = None, definition_seed: dict = None):
+        repo_url, plugin_name, plugin_type, plugin_variant, existing_def, sdk_def = self._update_base(repo_url, is_meltano_sdk=True)
+        settings, settings_group_validation, capabilities = MeltanoUtil._parse_sdk_about_settings(sdk_def)
+        new_def = self._merge_definitions(
+            existing_def,
+            settings,
+            self._string_to_literal(self._prompt("keywords", self._scrape_keywords(True))),
+            self._prompt("maintenance_status", self._get_maintenance_status()),
+            capabilities,
+            settings_group_validation,
+        )
+        self._write_updated_def(plugin_name, plugin_variant, plugin_type, new_def)
+        print(f'\nUpdates {plugin_type} {plugin_name} (SDK based - {plugin_variant})\n\n')
+
 if __name__ == "__main__":
     util = Utilities(False)
-    util.add_bulk('/Users/pnadolny/Documents/Git/GitHub/pnadolny/hub-utils/other_scripts/export_edit.csv')
+    # util.update("https://github.com/Yoast/singer-tap-postmark")
+    util.update_sdk("https://github.com/hotgluexyz/tap-procore")
+    # util.add_bulk('/Users/pnadolny/Documents/Git/GitHub/pnadolny/hub-utils/other_scripts/export_edit.csv')

@@ -12,7 +12,7 @@ def callback():
 
 @app.command()
 def add(
-    repo_url: str,
+    repo_url: str = None,
     auto_accept: bool = typer.Option(False)
 ):
     util = Utilities(auto_accept)
@@ -25,3 +25,19 @@ def add_bulk(
 ):
     util = Utilities(auto_accept)
     util.add_bulk(csv_path)
+
+@app.command()
+def update(
+    repo_url: str = None,
+    auto_accept: bool = typer.Option(False)
+):
+    util = Utilities(auto_accept)
+    util.update(repo_url)
+
+@app.command()
+def update_sdk(
+    repo_url: str = None,
+    auto_accept: bool = typer.Option(False)
+):
+    util = Utilities(auto_accept)
+    util.update_sdk(repo_url)
