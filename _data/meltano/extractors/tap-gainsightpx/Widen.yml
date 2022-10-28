@@ -2,7 +2,7 @@ name: tap-gainsight
 description: User tracking in web apps
 label: GainsightPX
 namespace: tap_gainsightpx
-logo_url:
+logo_url: /assets/logos/extractors/gainsightpx.png
 variant: Widen
 pip_url: git+https://github.com/Widen/tap-gainsightpx.git
 repo: https://github.com/Widen/tap-gainsightpx
