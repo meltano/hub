@@ -1,9 +1,5 @@
 extends: default
 
-# yaml-files:
-#   - '_data/meltano/*/*/*.yml'
-#   - '_data/*.yml'
-
 rules:
   braces:
     forbid: non-empty
