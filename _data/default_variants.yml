@@ -224,7 +224,7 @@ extractors:
   tap-maestroqa: pathlight
   tap-mailchimp: singer-io
   tap-mailgun: streetteam
-  tap-mailjet: Somtom
+  tap-mailjet: somtom
   tap-mailshake: singer-io
   tap-mambu: singer-io
   tap-marketman: mashey
@@ -394,7 +394,7 @@ extractors:
   tap-wrike: potloc
 loaders:
   target-airtable: hotgluexyz
-  target-apprise: AutoIDM
+  target-apprise: autoidm
   target-athena: meltanolabs
   target-azureblobstorage: shrutikaponde-vc
   target-bigquery: adswerve
