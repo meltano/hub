@@ -1,6 +1,6 @@
 description: Jupyter Notebook runner and converter
 name: notebook
-label: Notebook
+label: Jupyter Notebook
 namespace: notebook
 pip_url: git+https://github.com/Matatika/utility-notebook.git
 maintenance_status: development
