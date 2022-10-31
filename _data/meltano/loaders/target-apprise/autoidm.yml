@@ -5,7 +5,7 @@ label: Apprise
 name: target-apprise
 logo_url: /assets/logos/loaders/apprise.png
 namespace: target_apprise
-variant: AutoIDM
+variant: autoidm
 pip_url: target-apprise
 repo: https://github.com/AutoIDM/target-apprise
 capabilities:
