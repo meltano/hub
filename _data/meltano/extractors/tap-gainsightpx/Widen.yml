@@ -14,7 +14,11 @@ capabilities:
 - stream-maps
 - schema-flattening
 settings_group_validation:
-- api_url
+- - api_url
+  - client_id
+  - client_secret
+  - refresh_token
+  - start_date
 - client_id
 - client_secret
 - refresh_token
