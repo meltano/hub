@@ -15,14 +15,10 @@ capabilities:
 - schema-flattening
 settings_group_validation:
 - - api_url
-  - client_id
-  - client_secret
-  - refresh_token
+  - api_key
+  - page_size
   - start_date
-- client_id
-- client_secret
-- refresh_token
-- start_date
+  - end_date
 settings:
 - name: api_url
   label: API URI
