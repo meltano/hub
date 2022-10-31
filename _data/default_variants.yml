@@ -392,6 +392,7 @@ extractors:
   tap-zoom: mashey
   tap-zuora: transferwise
   tap-wrike: potloc
+  tap-sharepointsites: storebrand
 loaders:
   target-airtable: hotgluexyz
   target-apprise: autoidm
