@@ -6,11 +6,25 @@ namespace: tap_greenhouse
 variant: codyss
 pip_url: git+https://github.com/codyss/tap-greenhouse.git
 repo: https://github.com/codyss/tap-greenhouse
-settings: []
+settings:
+- name: api_key
+  label: API Key
+  description: Your Greenhouse [API Key](https://developers.greenhouse.io/harvest.html#authentication).
+  kind: password
+- name: start_date
+  label: Start Date
+  description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
 capabilities:
-- catalog
+- properties
+- state
 - discover
 domain_url: https://developers.greenhouse.io/harvest.html
-maintenance_status: unknown
+maintenance_status: inactive
 keywords:
 - api
+settings_group_validation:
+- - api_key
+  - start_date
