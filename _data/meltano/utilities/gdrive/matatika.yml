@@ -33,6 +33,7 @@ settings:
   label: Client ID
   description: Google Client ID.
 - name: client_secret
+  label: Client Secret
   description: Google Client Secret.
 - name: refresh_token
   label: Refresh Token
