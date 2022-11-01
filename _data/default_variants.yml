@@ -164,6 +164,7 @@ extractors:
   tap-frontapp: singer-io
   tap-fulfil: fulfilio
   tap-fullstory: singer-io
+  tap-gainsightpx: widen
   tap-getpocket: evelte
   tap-github-org-projects: rossmcdonald
   tap-github: meltanolabs
@@ -193,7 +194,7 @@ extractors:
   tap-indeed: aroder
   tap-insided: karbonhq
   tap-insightly: fostersdata
-  tap-instagram: prratek
+  tap-instagram: voxmedia
   tap-intacct: hotgluexyz
   tap-intercom: singer-io
   tap-invoiced: singer-io
@@ -222,9 +223,9 @@ extractors:
   tap-loopreturns: loopreturns
   tap-lotr: mattarderne
   tap-maestroqa: pathlight
-  tap-mailchimp: lovepopcards
+  tap-mailchimp: singer-io
   tap-mailgun: streetteam
-  tap-mailjet: Somtom
+  tap-mailjet: somtom
   tap-mailshake: singer-io
   tap-mambu: singer-io
   tap-marketman: mashey
@@ -322,7 +323,7 @@ extractors:
   tap-simplifi: georgiyolovski
   tap-sklik: polar-analytics
   tap-skubana: singer-io
-  tap-slack: mashey
+  tap-slack: meltanolabs
   tap-sleeper: collinprather
   tap-sling: singer-io
   tap-smartsheet: brooklyn-data
@@ -392,9 +393,10 @@ extractors:
   tap-zoom: mashey
   tap-zuora: transferwise
   tap-wrike: potloc
+  tap-sharepointsites: storebrand
 loaders:
   target-airtable: hotgluexyz
-  target-apprise: AutoIDM
+  target-apprise: autoidm
   target-athena: meltanolabs
   target-azureblobstorage: shrutikaponde-vc
   target-bigquery: adswerve
