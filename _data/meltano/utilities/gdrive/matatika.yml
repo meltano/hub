@@ -1,0 +1,43 @@
+description: Google Drive file downloader
+name: gdrive
+label: Google Drive
+namespace: gdrive
+pip_url: git+https://github.com/Matatika/utility-gdrive.git
+maintenance_status: development
+repo: https://github.com/Matatika/utility-gdrive
+executable: gdrive
+logo_url: /assets/logos/utilities/gdrive.png
+variant: matatika
+settings_group_validation:
+- - file_id
+  - access_token
+- - file_id
+  - client_secret
+  - access_token
+  - refresh_token
+commands:
+  run:
+    args: $GDRIVE_FILE_ID
+    description: Download a file or folder of files from Google Drive.
+settings:
+- name: file_id
+  label: File ID
+  description: Google Drive File or Folder ID. [More information on settings](https://github.com/Matatika/utility-gdrive#settings)
+- name: output_path
+  label: Output Path
+  description: Output path for downloaded files.
+- name: access_token
+  label: Access Token
+  description: Google Access Token.
+- name: client_id
+  label: Client ID
+  description: Google Client ID.
+- name: client_secret
+  description: Google Client Secret.
+- name: refresh_token
+  label: Refresh Token
+  description: Google Refresh Token.
+keywords:
+- google
+- google drive
+definition: is a utility to download Google Drive files.
