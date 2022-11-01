@@ -1,4 +1,4 @@
-name: superset_ext
+name: superset
 namespace: superset
 label: Superset (EDK preview)
 domain_url: https://superset.apache.org/
@@ -6,7 +6,7 @@ description: A modern, enterprise-ready business intelligence web application.
 docs: https://docs.meltano.com/guide/analysis
 repo: https://github.com/apache/superset
 maintenance_status: active
-variant: apache
+variant: meltano
 pip_url: apache-superset==2.0.0 flask==2.0.3 werkzeug==2.0.3 jinja2==3.0.1 wtforms==2.3.3 git+https://github.com/meltano/superset-ext.git@main
 settings:
 - name: ui.bind_host
