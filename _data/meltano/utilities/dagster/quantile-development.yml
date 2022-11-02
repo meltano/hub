@@ -14,11 +14,11 @@ commands:
     executable: dagster_extension
     args: describe
     description: Describe the Dagster Extension.
-  init:
+  initialize:
     args: initialize
     executable: dagster_extension
     description: Initialize the Dagster extension.
-  up:
+  start:
     args: -f $REPOSITORY_DIR/repository.py
     executable: dagit_invoker
     description: Start Dagster.
@@ -31,7 +31,7 @@ settings:
 - name: repository_dir
   label: Repository Directory
   env: REPOSITORY_DIR
-  value: $MELTANO_PROJECT_ROOT/orchestrate
+  value: $MELTANO_PROJECT_ROOT/orchestrate/dagster
   description: The root folder of the Dagster project.
 keywords:
 - dagster
@@ -47,5 +47,5 @@ next_steps: |
   ### Start Dagit
 
   ```bash
-  meltano invoke dagster:up
+  meltano invoke dagster:start
   ```
