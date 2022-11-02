@@ -164,6 +164,7 @@ extractors:
   tap-frontapp: singer-io
   tap-fulfil: fulfilio
   tap-fullstory: singer-io
+  tap-gainsightpx: widen
   tap-getpocket: evelte
   tap-github-org-projects: rossmcdonald
   tap-github: meltanolabs
@@ -193,7 +194,7 @@ extractors:
   tap-indeed: aroder
   tap-insided: karbonhq
   tap-insightly: fostersdata
-  tap-instagram: prratek
+  tap-instagram: voxmedia
   tap-intacct: hotgluexyz
   tap-intercom: singer-io
   tap-invoiced: singer-io
@@ -392,6 +393,7 @@ extractors:
   tap-zoom: mashey
   tap-zuora: transferwise
   tap-wrike: potloc
+  tap-sharepointsites: storebrand
 loaders:
   target-airtable: hotgluexyz
   target-apprise: autoidm
