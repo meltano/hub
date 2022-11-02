@@ -29,16 +29,19 @@ settings:
 - name: access_token
   label: Access Token
   description: Google Access Token.
+  kind: password
 - name: client_id
   label: Client ID
   description: Google Client ID.
 - name: client_secret
   label: Client Secret
   description: Google Client Secret.
+  kind: password
 - name: refresh_token
   label: Refresh Token
   description: Google Refresh Token.
+  kind: password
 keywords:
 - google
 - google drive
-definition: is a utility to download Google Drive files.
+definition: is a utility to download Google Drive files. Note that this is not an extractor and will not work when paired with a loader.
