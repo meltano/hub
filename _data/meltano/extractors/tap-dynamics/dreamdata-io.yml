@@ -6,11 +6,46 @@ namespace: tap_dynamics
 variant: dreamdata-io
 pip_url: git+https://github.com/dreamdata-io/tap-dynamics.git
 repo: https://github.com/dreamdata-io/tap-dynamics
-settings: []
+settings:
+- name: client_id
+  label: Client ID
+  description: Your Dynamics client ID. See [the docs](https://learn.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/use-microsoft-dynamics-365-web-api?view=op-9-1)
+    for more details.
+  kind: password
+- name: start_date
+  label: Start Date
+  description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
+- name: redirect_uri
+  label: Redirect Uri
+  description: The redirect URI to use for auth.
+- name: domain
+  label: Domain
+  description: Your domain. E.g. `dreamdata.crm4`.
+- name: client_secret
+  label: Client Secret
+  description: Your Dynamics client secret. See [the docs](https://learn.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/use-microsoft-dynamics-365-web-api?view=op-9-1)
+    for more details.
+  kind: password
+- name: refresh_token
+  label: Refresh Token
+  description: Your Dynamics refresh token. See [the docs](https://learn.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/use-microsoft-dynamics-365-web-api?view=op-9-1)
+    for more details.
+  kind: password
 capabilities:
 - catalog
 - discover
+- state
 domain_url: https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/use-microsoft-dynamics-365-web-api
-maintenance_status: unknown
+maintenance_status: active
 keywords:
 - api
+settings_group_validation:
+- - client_id
+  - start_date
+  - redirect_uri
+  - domain
+  - client_secret
+  - refresh_token
