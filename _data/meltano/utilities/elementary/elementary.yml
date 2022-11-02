@@ -2,7 +2,7 @@ name: elementary
 label: Elementary
 domain_url: https://docs.elementary-data.com/introduction
 namespace: elementary
-pip_url: elementary-data[bigquery] git+https://github.com/potloc/elementary-ext.git
+pip_url: elementary-data[bigquery]=0.5.3 git+https://github.com/potloc/elementary-ext.git
 maintenance_status: active
 repo: https://github.com/elementary-data/elementary
 executable: edr
@@ -75,3 +75,7 @@ next_steps: |
   3. Test away!
 
   Run `meltano invoke elementary:monitor-report` and see your brand new report!
+
+notes: |
+  - This is a work in progress; any feedback on issues is hugely appreciated!
+  - When upgrading elementary, make sure you update the dbt_packages entry version as well
