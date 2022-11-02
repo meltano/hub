@@ -8,9 +8,7 @@ repo: https://github.com/elementary-data/elementary
 executable: edr
 logo_url: /assets/logos/utilities/elementary.png
 variant: elementary
-
-
-
+description: Elementary is an open-source data observability solution for data & analytics engineers.
 
 settings:
 - name: profiles-dir
@@ -59,8 +57,12 @@ keywords:
 - Testing
 - Elementary
 
+definition: |
+  Automate test report generation and anomaly detection through elementary
 
-definition: Automate test report generation and anomaly detection through elementary
+  - This is a work in progress; any feedback on issues is hugely appreciated!
+  - When upgrading elementary, make sure you update the dbt_packages entry version as well
+
 next_steps: |
 
   1. Run dbt deps
@@ -76,6 +78,3 @@ next_steps: |
 
   Run `meltano invoke elementary:monitor-report` and see your brand new report!
 
-notes: |
-  - This is a work in progress; any feedback on issues is hugely appreciated!
-  - When upgrading elementary, make sure you update the dbt_packages entry version as well

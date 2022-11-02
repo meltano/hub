@@ -7,6 +7,7 @@ utilities:
   dbt-postgres: dbt-labs
   dbt-redshift: dbt-labs
   dbt-snowflake: dbt-labs
+  elementary: elementary
   great_expectations: great-expectations
   metabase: metabase
   sqlfluff: sqlfluff
