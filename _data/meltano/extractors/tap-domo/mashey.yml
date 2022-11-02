@@ -6,11 +6,33 @@ namespace: tap_domo
 variant: mashey
 pip_url: git+https://github.com/Mashey/tap-domo.git
 repo: https://github.com/Mashey/tap-domo
-settings: []
+settings:
+- name: data_specs
+  label: Data Specs
+  description: The specs of the tables to sync. See the [sample config](https://github.com/Mashey/tap-domo/blob/daff2b708f945ac21363b7f6f1ab789ace3a339e/sample_config.json#L8)
+    as an example.
+  kind: object
+- name: client_id
+  label: Client ID
+  description: Your Domo client ID.
+  kind: password
+- name: client_secret
+  label: Client Secret
+  description: Your Domo client secret.
+  kind: password
+- name: limit
+  label: Limit
+  description: The limit of records to sync. Default, 1500.
+  kind: integer
 capabilities:
 - catalog
 - discover
+- state
 domain_url: https://developer.domo.com/docs/api-overview/api-overview
-maintenance_status: unknown
+maintenance_status: inactive
 keywords:
 - api
+settings_group_validation:
+- - data_specs
+  - client_id
+  - client_secret
