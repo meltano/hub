@@ -1,0 +1,42 @@
+name: postgres
+namespace: postgres
+domain_url: https://www.postgresql.org/
+label: Postgres
+description: The World's Most Advanced Open Source Relational Database.
+docs: https://www.postgresql.org/
+definition: is a containerized instance of Postgres useful for local development.
+repo: https://github.com/postgres/postgres
+maintenance_status: active
+variant: postgres
+settings: []
+commands:
+  start:
+    args: start
+    container_spec:
+      image: postgres:15
+      env:
+        PATH: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/lib/postgresql/15/bin
+        LANG: en_US.utf8
+        POSTGRES_DB: warehouse
+        POSTGRES_PASSWORD: warehouse
+        POSTGRES_USER: warehouse
+      ports:
+        "5432": "5432/tcp"
+      volumes:
+      - "$MELTANO_PROJECT_ROOT/.meltano/utilities/postgres/data/:/var/lib/postgresql/data"
+logo_url: /assets/logos/loaders/postgres.png
+keywords:
+- warehouse
+prereq: |
+  #### Dependencies
+
+  Postgres is packaged as a Docker image so you must have Docker installed before running the plugin.
+next_steps: |
+  1. Launch Postgres:
+
+     ```sh
+     meltano invoke --containers postgres:start
+     ```
+
+     Connect with your postgres client at `postgresql://warehouse:warehouse@localhost:5432/warehouse`.
+

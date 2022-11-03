@@ -9,6 +9,7 @@ utilities:
   dbt-snowflake: dbt-labs
   great_expectations: great-expectations
   metabase: metabase
+  postgres: postgres
   sqlfluff: sqlfluff
   superset: apache
 orchestrators:
