@@ -26,7 +26,7 @@ settings:
 - name: dagster_home
   label: Dagster Home
   env: DAGSTER_HOME
-  value: $MELTANO_PROJECT_ROOT/.meltano
+  value: $MELTANO_PROJECT_ROOT/.meltano/dagster
   description: The home folder of Dagster.
 - name: repository_dir
   label: Repository Directory
