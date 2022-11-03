@@ -4,6 +4,7 @@ domain_url: https://www.postgresql.org/
 label: Postgres
 description: The World's Most Advanced Open Source Relational Database.
 docs: https://www.postgresql.org/
+definition: is a containerized instance of Postgres useful for local development.
 repo: https://github.com/postgres/postgres
 maintenance_status: active
 variant: postgres
