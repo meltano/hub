@@ -1,5 +1,5 @@
 name: tap-stackoverflow-sampledata
-description: Tap for the Stack Overflow xml dump files avaiable at Archieve.org .  Intended as a loader plugin testing aid.
+description: Tap for the Stack Overflow XML dump files available at Archive.org.  Intended as a loader plugin testing aid.
 namespace: tap_stackoverflow_sampledata
 logo_url: /assets/logos/extractors/tap-stackoverflow-sampledata.png
 variant: buzzcutnorman
@@ -9,22 +9,16 @@ capabilities:
 - discover
 settings:
 - name: stackoverflow_data_directory
-- description: A path to the StackOverflow XML data files.
-- name: batch_config
-  kind: object
-- description: Optional Batch Message configuration
-- name: encoding
-  kind: object
-- name: format
-- description: Currently the only format is 'jsonl'
-- name: compression
-- description: Currently the only compression options is 'gzip'
-- name: storage
-  kind: object
-- name: root
-- description: The directory you want batch messages to be placed in example 'file://test/batches'
-- name: prefix
-- description: What prefix you want your messages to have example test-batch-
+  description: A path to the StackOverflow XML data files.
+- name: batch_config.encoding.format
+  description: Batch file format. Currently the only format is 'jsonl'.
+- name: batch_config.encoding.compression
+  description: Batch file compression. Currently the only compression options is 'gzip'.
+- name: batch_config.storage.root
+  description: The directory you want batch messages to be placed in. For example, 
+`file://test/batches`.
+- name: batch_config.storage.prefix
+  description: What prefix you want your messages to have. For example, `test-batch-`.
 pip_url: git+https://github.com/BuzzCutNorman/tap-stackoverflow-sampledata.git
 repo: https://github.com/BuzzCutNorman/tap-stackoverflow-sampledata
 maintenance_status: active
