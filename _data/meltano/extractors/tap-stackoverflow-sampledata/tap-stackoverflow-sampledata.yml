@@ -15,8 +15,7 @@ settings:
 - name: batch_config.encoding.compression
   description: Batch file compression. Currently the only compression options is 'gzip'.
 - name: batch_config.storage.root
-  description: The directory you want batch messages to be placed in. For example, 
-`file://test/batches`.
+  description: The directory you want batch messages to be placed in. For example, `file://test/batches`.
 - name: batch_config.storage.prefix
   description: What prefix you want your messages to have. For example, `test-batch-`.
 pip_url: git+https://github.com/BuzzCutNorman/tap-stackoverflow-sampledata.git
