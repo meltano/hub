@@ -12,18 +12,27 @@ settings_group_validation:
 settings:
 - name: tags
   label: Question tags
+  kind: array
   description: Question tags to retrieve.
 - name: site
   label: Site
   description: StackExchange site to look for questions.
+  documentation: https://stackexchange.com/sites
 - name: key
   label: Stack App key
   kind: password
   description: Key to receive a higher request quota.
+  documentation: https://api.stackexchange.com/docs/authentication
 - name: start_date
   label: Start date
   kind: integer
   description: The earliest record date to sync
+  documentation: https://api.stackexchange.com/docs/dates
+- name: filter
+  kind: string
+  label: Filter
+  description: Custom API filter to apply to all requests
+  documentation: https://api.stackexchange.com/docs/filters
 capabilities:
 - catalog
 - discover
@@ -32,3 +41,5 @@ maintenance_status: active
 keywords:
 - api
 - meltano_sdk
+- stackoverflow
+domain_url: https://stackexchange.com

@@ -6,11 +6,49 @@ namespace: tap_eloqua
 variant: singer-io
 pip_url: tap-eloqua
 repo: https://github.com/singer-io/tap-eloqua
-settings: []
+settings:
+- name: bulk_page_size
+  label: Bulk Page Size
+  description: The bulk page size. Default, 5000.
+  kind: integer
+- name: client_id
+  label: Client ID
+  description: Your OAuth Client ID. See [the API docs](https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Authentication_Auth.html)
+    for more details.
+  kind: password
+- name: redirect_uri
+  label: Redirect Uri
+  description: The redirect url to use for auth. E.g. http://localhost:8080/callback.
+- name: user_agent
+  label: User Agent
+  description: The user agent to send with requests.
+- name: client_secret
+  label: Client Secret
+  description: Your OAuth Client Secret. See [the API docs](https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Authentication_Auth.html)
+    for more details.
+  kind: password
+- name: refresh_token
+  label: Refresh Token
+  description: Your OAuth Refresh Token. See [the API docs](https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Authentication_Auth.html)
+    for more details.
+  kind: password
+- name: start_date
+  label: Start Date
+  description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
 capabilities:
 - catalog
 - discover
+- state
 domain_url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-develop/Developers/BulkAPI/Tutorials/Export.htm
-maintenance_status: unknown
+maintenance_status: inactive
 keywords:
 - api
+settings_group_validation:
+- - client_id
+  - redirect_uri
+  - client_secret
+  - refresh_token
+  - start_date

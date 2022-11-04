@@ -6,8 +6,28 @@ namespace: target_cassandra
 variant: coeff
 pip_url: git+https://github.com/coeff/target-cassandra.git
 repo: https://github.com/coeff/target-cassandra
-settings: []
+settings:
+- name: username
+  label: Username
+  description: Your Cassandra username.
+- name: keyspace
+  label: Keyspace
+  description: Your Cassandra keyspace.
+- name: password
+  label: Password
+  description: Your Cassandra password.
+  kind: password
+- name: contact_points
+  label: Contact Points
+  description: An array of your Cassandra node contact points.
+  kind: array
 domain_url: https://cassandra.apache.org/
-maintenance_status: unknown
+maintenance_status: inactive
 keywords:
 - database
+capabilities: []
+settings_group_validation:
+- - username
+  - keyspace
+  - password
+  - contact_points

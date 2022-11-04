@@ -10,6 +10,7 @@ utilities:
   dbt-snowflake: dbt-labs
   great_expectations: great-expectations
   metabase: metabase
+  postgres: postgres
   sqlfluff: sqlfluff
   superset: apache
 orchestrators:
@@ -337,6 +338,7 @@ extractors:
   tap-spreadsheets-anywhere: ets
   tap-square: singer-io
   tap-stackexchange: meltanolabs
+  tap-stackoverflow-sampledata: buzzcutnorman
   tap-starshipit: zookal
   tap-stella: pathlight
   tap-strava: briansloane
