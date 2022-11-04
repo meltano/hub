@@ -9,3 +9,5 @@ rules:
     spaces: 2
     indent-sequences: false
   key-ordering: enable
+  line-length:
+    max: 160
