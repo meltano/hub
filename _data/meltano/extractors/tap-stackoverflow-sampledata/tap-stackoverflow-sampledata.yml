@@ -1,7 +1,7 @@
 name: tap-stackoverflow-sampledata
 description: Tap for the Stack Overflow xml dump files avaiable at Archieve.org .  Intended as a loader plugin testing aid.
 namespace: tap_stackoverflow_sampledata
-logo_url: /assets/logos/extractors/stackoverflow.png
+logo_url: /assets/logos/extractors/tap-stackoverflow-sampledata.png
 variant: buzzcutnorman
 capabilities:
 - state
