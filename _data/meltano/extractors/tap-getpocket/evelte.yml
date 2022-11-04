@@ -1,21 +1,26 @@
 name: tap-getpocket
 variant: evelte
+description: Your own private corner of the web to spend quality time with great articles.
 label: Pocket
-logo_url: /assets/logos/extractors/getpocket.png
+logo_url: /assets/logos/extractors/getpocket.svg
 capabilities:
 - catalog
 - state
 - discover
 - about
 - stream-maps
-domain_url: ''
+domain_url: https://getpocket.com/
 keywords:
+- api
 - meltano_sdk
 maintenance_status: active
 namespace: tap_getpocket
 next_steps: ''
 pip_url: git+https://github.com/evelte/tap-getpocket.git
 repo: https://github.com/evelte/tap-getpocket
+settings_group_validation:
+- - consumer_key
+  - access_token
 settings:
 - name: consumer_key
   label: Consumer Key
@@ -43,7 +48,5 @@ settings:
   label: Tag
   description: Only return items with this tag_name. Use _untagged_ to get only untagged
     items
-settings_group_validation:
-- []
 settings_preamble: ''
 usage: ''

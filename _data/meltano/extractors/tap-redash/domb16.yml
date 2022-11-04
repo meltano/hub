@@ -6,11 +6,42 @@ namespace: tap_redash
 variant: domb16
 pip_url: git+https://github.com/domb16/tap-redash.git
 repo: https://github.com/domb16/tap-redash
-settings: []
+settings:
+- name: LOGIN_URL
+  label: Login Url
+  description: Your login url. E.g. https://reports.replace-with-org-name.com/login.
+- name: API_KEY
+  label: API Key
+  description: Your API key.
+  kind: password
+- name: password
+  label: Password
+  description: Your password.
+  kind: password
+- name: disable_collection
+  label: Disable Collection
+  description: Whether to allow annoymous usage tracking. Default, true.
+  kind: boolean
+- name: QUERY_URL
+  label: Query URL
+  description: The query url to use. E.g. https://reports.replace-with-org-name.com/api/queries
+- name: QUERY_ID
+  label: Query Id
+  description: Your query ID.
+- name: email
+  label: Email
+  description: Your Redash email.
 capabilities:
-- catalog
+- properties
 - discover
 domain_url: https://redash.io/
-maintenance_status: unknown
+maintenance_status: inactive
 keywords:
 - api
+settings_group_validation:
+- - LOGIN_URL
+  - API_KEY
+  - password
+  - QUERY_URL
+  - QUERY_ID
+  - email
