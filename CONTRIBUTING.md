@@ -35,6 +35,19 @@ yarn
 yarn add --global @gridsome/cli
 ```
 
+### Linters
+
+You can use `pre-commit` to run the linters before committing.
+
+```console
+pipx install pre-commit
+pre-commit install
+```
+
+This will run the linters on all files that are staged for commit. Included linters:
+
+- [yamlllint](https://yamllint.readthedocs.io/en/stable/)
+
 ## Build and serve the project
 
 Build for development and get live updates as files are changed:

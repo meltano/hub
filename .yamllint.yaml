@@ -1,13 +1,16 @@
 extends: default
 
+ignore: |
+  .pre-commit-config.yaml
+
 rules:
   braces:
     forbid: non-empty
   document-start:
-    present: false # Don't require `---` at the start of the file
+    present: false  # Don't require `---` at the start of the file
   indentation:
-    spaces: 2
     indent-sequences: false
+    spaces: 2
   key-ordering: enable
   line-length:
     max: 160
