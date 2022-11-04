@@ -6,11 +6,18 @@ namespace: tap_acuite
 variant: fostersdata
 pip_url: git+https://github.com/FostersData/tap-acuite.git
 repo: https://github.com/FostersData/tap-acuite
-settings: []
+settings:
+- name: api_key
+  label: API Key
+  description: Your Acuite API Key.
+  kind: password
 capabilities:
-- catalog
+- properties
+- state
 - discover
 domain_url: https://api.acuite.co.nz/swagger/ui/index#/
-maintenance_status: unknown
+maintenance_status: active
 keywords:
 - api
+settings_group_validation:
+- - api_key

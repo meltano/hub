@@ -6,12 +6,37 @@ namespace: tap_twinfield
 variant: yoast
 pip_url: git+https://github.com/Yoast/singer-tap-twinfield.git
 repo: https://github.com/Yoast/singer-tap-twinfield
-settings: []
+settings:
+- name: office
+  label: Office
+  description: Your Twinfield office.
+- name: start_date
+  label: Start Date
+  description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
+- name: organisation
+  label: Organisation
+  description: Your Twinfield organisation.
+- name: password
+  label: Password
+  description: Your Twinfield password.
+  kind: password
+- name: username
+  label: Username
+  description: Your Twinfield username.
 capabilities:
 - catalog
 - discover
 - state
 domain_url: https://accounting2.twinfield.com/webservices/documentation/#/ApiReference/Request/BrowseData
-maintenance_status: unknown
+maintenance_status: inactive
 keywords:
 - api
+settings_group_validation:
+- - office
+  - start_date
+  - organisation
+  - password
+  - username
