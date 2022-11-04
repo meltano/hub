@@ -8,7 +8,8 @@
     "required": [
         "name",
         "namespace",
-        "variant"
+        "variant",
+        "label"
     ],
     "properties": {
         "logo_url": {
