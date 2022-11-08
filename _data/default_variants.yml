@@ -1,5 +1,6 @@
 utilities:
   airflow: apache
+  dagster: quantile-development
   datahub: datahub-project
   dbt-bigquery: dbt-labs
   dbt-duckdb: jwills
