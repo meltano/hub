@@ -1,0 +1,32 @@
+name: tap-stackoverflow-sampledata
+label: Stack Overflow Sample Data
+description: Tap for the Stack Overflow XML dump files available at Archive.org.  Intended as a loader plugin testing aid.
+namespace: tap_stackoverflow_sampledata
+logo_url: /assets/logos/extractors/stackoverflow.svg
+variant: buzzcutnorman
+capabilities:
+- state
+- catalog
+- discover
+settings:
+- name: stackoverflow_data_directory
+  label: Data Directory
+  description: A path to the StackOverflow XML data files.
+- name: batch_config.encoding.format
+  label: Encoding Format
+  description: Batch file format. Currently the only format is 'jsonl'.
+- name: batch_config.encoding.compression
+  label: Encoding Compression
+  description: Batch file compression. Currently the only compression options is 'gzip'.
+- name: batch_config.storage.root
+  label: Storage Root Directory
+  description: The directory you want batch messages to be placed in. For example, `file://test/batches`.
+- name: batch_config.storage.prefix
+  label: Storage Prefix
+  description: What prefix you want your messages to have. For example, `test-batch-`.
+pip_url: git+https://github.com/BuzzCutNorman/tap-stackoverflow-sampledata.git
+repo: https://github.com/BuzzCutNorman/tap-stackoverflow-sampledata
+maintenance_status: active
+keywords:
+- meltano_sdk
+- sampledata

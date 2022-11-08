@@ -87,10 +87,10 @@
                 v-html="$page.plugins.definition_rendered"
               ></span>
             </p>
-            <span class="space-y-3" v-if="$page.variants.edges && $page.variants.edges.length > 1">
+            <span class="space-y-3" v-if="filteredVariants && filteredVariants.length > 1">
               <p class="text-2xl">Available Variants</p>
               <ul class="list-disc list-inside pl-4">
-                <li v-for="(variant, index) in $page.variants.edges" v-bind:key="index">
+                <li v-for="(variant, index) in filteredVariants" v-bind:key="index">
                   <g-link :to="variant.node.path" v-if="variant.node.path !== $page.plugins.path">{{
                     variant.node.variant
                   }}</g-link>
@@ -287,6 +287,13 @@ export default {
     PluginCapabilitiesSection,
     PluginPrereqSection,
   },
+  computed: {
+    filteredVariants() {
+      return this.$page.variants.edges.filter(
+        (variant) => variant.node.pluginType === this.$page.plugins.pluginType
+      );
+    },
+  },
 };
 </script>
 
@@ -347,6 +354,7 @@ query Plugins($path: String!, $name: String!) {
         variant
         isDefault
         keywords
+        pluginType
       }
     }
   }

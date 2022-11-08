@@ -6,11 +6,30 @@ namespace: tap_sklik
 variant: polar-analytics
 pip_url: git+https://github.com/polar-analytics/tap-sklik.git
 repo: https://github.com/polar-analytics/tap-sklik
-settings: []
+settings:
+- name: end_date
+  label: End Date
+  description: Date up to when historical data will be extracted.
+  kind: date_iso8601
+- name: start_date
+  label: Start Date
+  description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
+- name: token
+  label: Token
+  description: Your Sklik API token.
+  kind: password
 capabilities:
 - catalog
 - discover
+- state
 domain_url: https://api.sklik.cz/drak/
-maintenance_status: unknown
+maintenance_status: inactive
 keywords:
 - api
+settings_group_validation:
+- - end_date
+  - start_date
+  - token

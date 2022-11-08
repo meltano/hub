@@ -1,5 +1,6 @@
 utilities:
   airflow: apache
+  dagster: quantile-development
   datahub: datahub-project
   dbt-bigquery: dbt-labs
   dbt-duckdb: jwills
@@ -7,9 +8,11 @@ utilities:
   dbt-postgres: dbt-labs
   dbt-redshift: dbt-labs
   dbt-snowflake: dbt-labs
+  gdrive: matatika
   great_expectations: great-expectations
   metabase: metabase
   notebook: matatika
+  postgres: postgres
   sqlfluff: sqlfluff
   superset: apache
 orchestrators:
@@ -337,6 +340,7 @@ extractors:
   tap-spreadsheets-anywhere: ets
   tap-square: singer-io
   tap-stackexchange: meltanolabs
+  tap-stackoverflow-sampledata: buzzcutnorman
   tap-starshipit: zookal
   tap-stella: pathlight
   tap-strava: briansloane
