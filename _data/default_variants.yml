@@ -8,6 +8,7 @@ utilities:
   dbt-postgres: dbt-labs
   dbt-redshift: dbt-labs
   dbt-snowflake: dbt-labs
+  gdrive: matatika
   great_expectations: great-expectations
   metabase: metabase
   postgres: postgres
