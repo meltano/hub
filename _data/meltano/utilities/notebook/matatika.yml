@@ -1,0 +1,48 @@
+description: Jupyter Notebook runner and converter
+name: notebook
+label: Jupyter Notebook
+namespace: notebook
+pip_url: git+https://github.com/Matatika/utility-notebook.git
+maintenance_status: development
+repo: https://github.com/Matatika/utility-notebook
+executable: notebook
+logo_url: /assets/logos/utilities/notebook.png
+variant: matatika
+commands:
+  install:
+    args: install $NOTEBOOK_REQUIREMENTS_PATH
+    description: Install the dependencies of a notebook to the plugin's Meltano-managed virtual environment (usually `.meltano/utilities/notebook/venv/`).
+  run:
+    args: run $NOTEBOOK_PATH
+    description: Run a notebook.
+  convert:
+    args: convert $NOTEBOOK_PATH -f $NOTEBOOK_FORMAT -c $NOTEBOOK_CONFIG
+    description: Convert a notebook to another format.
+  run-convert:
+    args: run $NOTEBOOK_PATH -f $NOTEBOOK_FORMAT -c $NOTEBOOK_CONFIG
+    description: Run and convert a notebook.
+settings:
+- name: requirements_path
+  label: Requirements path
+  description: The path to a `requirements.txt` file containing dependencies for a notebook.
+- name: path
+  label: Path
+  description: The path to a notebook `.ipynb` file or directory of notebook files.
+- name: format
+  label: Format
+  description: |-
+    The target format to convert the notebook to.
+
+    [More information on supported formats](https://github.com/Matatika/utility-notebook#supported-converting-formats)
+- name: config
+  label: Configuration
+  description: |-
+    [Configuration for the `nbconvert` exporter](https://nbconvert.readthedocs.io/en/latest/config_options.html#exporter-options) specified by `format` as a preset or raw JSON string.
+
+    [More information on configuration and available presets](https://github.com/Matatika/utility-notebook#supported-converting-formats) 
+  value: '""'
+keywords:
+- notebook
+- jupyter
+- nbconvert
+definition: is a [Jupyter Notebook](https://docs.jupyter.org/en/latest/) runner and converter.
