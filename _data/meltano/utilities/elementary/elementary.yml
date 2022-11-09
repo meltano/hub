@@ -54,9 +54,8 @@ commands:
     executable: elementary_extension
 
 keywords:
-- DBT
-- Testing
-- Elementary
+- dbt
+- testing
 
 definition: |
   Automate test report generation and anomaly detection through elementary
