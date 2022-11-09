@@ -41,7 +41,7 @@ commands:
           --profiles-dir ${ELEMENTARY_PROFILES_DIR}
           --file-path ${ELEMENTARY_FILE_PATH}
   monitor-send-report:
-    description: Allows your to send a report through slack
+    description: Allows you to send a report through Slack.
     args: monitor send-report
           --profiles-dir ${ELEMENTARY_PROFILES_DIR}
           --slack-token ${ELEMENTARY_SLACK_TOKEN}
