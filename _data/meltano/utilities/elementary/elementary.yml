@@ -12,6 +12,7 @@ description: Elementary is an open-source data observability solution for data &
 
 settings:
 - name: profiles-dir
+  label: Profiles Directory
   description: Profiles directory path for your dbt project
   kind: string
   value: ${MELTANO_PROJECT_ROOT}/transform/profiles/bigquery/
