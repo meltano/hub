@@ -33,7 +33,7 @@ settings:
   value: elementary-notifs
 commands:
   monitor:
-    description: Allows your to run monitoring with elementary
+    description: Allows you to run monitoring with Elementary.
     args: monitor --profiles-dir ${ELEMENTARY_PROFILES_DIR}
   monitor-report:
     description: Allows your to create a local report
