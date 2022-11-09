@@ -9,7 +9,7 @@ executable: edr
 logo_url: /assets/logos/utilities/elementary.png
 variant: elementary
 description: Elementary is an open-source data observability solution for data & analytics engineers.
-
+ext_repo: https://github.com/potloc/elementary-ext
 settings:
 - name: profiles-dir
   label: Profiles Directory
