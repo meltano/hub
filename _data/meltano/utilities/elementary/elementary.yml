@@ -36,7 +36,7 @@ commands:
     description: Allows you to run monitoring with Elementary.
     args: monitor --profiles-dir ${ELEMENTARY_PROFILES_DIR}
   monitor-report:
-    description: Allows your to create a local report
+    description: Allows you to create a local report.
     args: monitor report
           --profiles-dir ${ELEMENTARY_PROFILES_DIR}
           --file-path ${ELEMENTARY_FILE_PATH}
