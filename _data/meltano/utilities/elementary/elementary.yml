@@ -2,7 +2,7 @@ name: elementary
 label: Elementary
 domain_url: https://docs.elementary-data.com/introduction
 namespace: elementary
-pip_url: elementary-data git+https://github.com/potloc/elementary-ext.git
+pip_url: elementary-data==0.5.3 git+https://github.com/potloc/elementary-ext.git
 maintenance_status: active
 repo: https://github.com/elementary-data/elementary
 executable: edr
