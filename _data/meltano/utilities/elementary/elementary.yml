@@ -46,13 +46,7 @@ commands:
     executable: elementary_extension
   initialize:
     args: initialize
-    description: |
-      Allows you to initialize your elementary extension.
-
-      NOTE: This has only be setup with bigquery for informational purposes. You should not
-      use this feature if
-       1) You are not using the bigquery dbt extension
-       2) You already have DBT setup in your project
+    description: Allows you to initialize your Elementary extension.
     executable: elementary_extension
   describe:
     args: describe
@@ -63,38 +57,40 @@ keywords:
 - testing
 
 definition: |
-  Automate test report generation and anomaly detection through elementary
+  that enables you to automate test report generation and anomaly detection using Elementary
 
-  - This is a work in progress; any feedback on issues is hugely appreciated!
-  - When upgrading elementary, make sure you update the dbt_packages entry version as well
+  - This is a work in progress; any feedback on issues in the [extension repo](https://github.com/potloc/elementary-ext) is appreciated!
+  - When upgrading Elementary, ensure you update the dbt_packages entry version as well
 
 next_steps: |
 
-  "NOTE:"
-  This a DBT extension, and therefore requires knowledge and understanding of DBT before adding to your project.
-  Please install one of the available DBT extensions from the [hub](https://hub.meltano.com/utilities/) before proceeding with the rest of the setup
+  **NOTE**:
+  
+  This a dbt extension, and therefore requires knowledge and understanding of dbt before adding to your project.
+  Please install one of the available dbt extensions from [Meltano Hub](https://hub.meltano.com/utilities/) before proceeding with the rest of the setup.
 
-  1. Specify your dbt adapter in the pip_url and in your profiles directory
-  "Example, in the case of BigQuery:"
+  1. Specify your dbt adapter in the `pip_url` and in your profiles directory
+  
+  Example, in the case of BigQuery:
+  
     ```
     pip_url: elementary-data[bigquery] git+https://github.com/potloc/elementary-ext.git
     config:
       profiles_dir: ${MELTANO_PROJECT_ROOT}/transform/profiles/
     ```
 
-  "**1. Run dbt deps**"
+  2. Run dbt deps
 
   This will populate you `dbt_packages` folder with pertinent dbt models
 
   It is important to note that you will need to update your dbt packages file when you update your
   your elementary pip url. These 2 different packages **Should have the same version**
 
-
-  "**2. Follow elementary setup tutorial**"
+  3. Follow elementary setup tutorial
 
   Tutorial found here: https://docs.elementary-data.com/quickstart
 
-  "**3. Test away!**"
+  4. Invoke Elementary
 
   Run `meltano invoke elementary:monitor-report` and see your brand new report!
 
