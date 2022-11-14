@@ -6,12 +6,54 @@ namespace: tap_harvest_forecast
 variant: singer-io
 pip_url: tap-harvest-forecast
 repo: https://github.com/singer-io/tap-harvest-forecast
-settings: []
+settings:
+- name: refresh_token
+  label: Refresh Token
+  description: Your refresh token.
+  kind: password
+- name: client_secret
+  label: Client Secret
+  description: Your client secret.
+  kind: password
+- name: user_agent
+  label: User Agent
+  description: The user agent to be sent with requests.
+- name: client_id
+  label: Client ID
+  description: Your client ID.
+  kind: password
+- name: start_date
+  label: Start Date
+  description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
+- name: account_id
+  label: Account ID
+  description: Your account ID.
+- name: end_date
+  label: End Date
+  description: Date up to when historical data will be extracted.
+  kind: date_iso8601
 capabilities:
 - catalog
 - discover
 - state
 domain_url: https://help.getharvest.com/api-v2/
-maintenance_status: unknown
+maintenance_status: inactive
 keywords:
 - api
+settings_group_validation:
+- - refresh_token
+  - client_secret
+  - client_id
+  - start_date
+  - account_id
+usage: |
+  As the Harvest Forecast API is [not yet public](https://help.getharvest.com/forecast/faqs/faq-list/api/), this tap is experimental and liable to break at any time. Please keep this in mind if you run into any issues (and submit a PR if you can fix something broken).
+
+  ### Retrieve Auth Credentials
+
+  Visit the [developer tools](https://id.getharvest.com/developers) page on Harvest's website and create a new oauth token.
+
+  Paste the Client ID you got from the above page in the url of a browser like https://id.getharvest.com/oauth2/authorize?client_id={OAUTH_CLIENT_ID}&response_type=code. Now you're able to login, click 'authorize app' and then are redirected to a url like this https://id.getharvest.com/oauth2/authorize?code={OAUTH_REFRESH_TOKEN}&scope=all. You will use this OAUTH_REFRESH_TOKEN in the following step to configure the oauth application.

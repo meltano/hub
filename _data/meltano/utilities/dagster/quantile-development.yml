@@ -1,0 +1,51 @@
+name: dagster
+label: Dagster
+domain_url: https://dagster.io/
+namespace: dagster
+pip_url: dagster-ext
+ext_repo: https://github.com/quantile-development/dagster-ext
+maintenance_status: development
+repo: https://github.com/dagster-io/dagster
+executable: dagster_invoker
+logo_url: /assets/logos/utilities/dagster.png
+variant: quantile-development
+commands:
+  describe:
+    executable: dagster_extension
+    args: describe
+    description: Describe the Dagster Extension.
+  initialize:
+    args: initialize
+    executable: dagster_extension
+    description: Initialize the Dagster extension.
+  start:
+    args: -f $REPOSITORY_DIR/repository.py
+    executable: dagit_invoker
+    description: Start Dagster.
+settings:
+- name: dagster_home
+  label: Dagster Home
+  env: DAGSTER_HOME
+  value: $MELTANO_PROJECT_ROOT/.meltano/dagster
+  description: The home folder of Dagster.
+- name: repository_dir
+  label: Repository Directory
+  env: REPOSITORY_DIR
+  value: $MELTANO_PROJECT_ROOT/orchestrate/dagster
+  description: The root folder of the Dagster project.
+keywords:
+- dagster
+- meltano_edk
+definition: is an [orchestrator](https://docs.meltano.com/concepts/plugins#orchestrators) that allows for workflows to be programmatically authored, scheduled, and monitored.
+next_steps: |
+  ### Initialize your Dagster project
+
+  ```bash
+  meltano invoke dagster:initialize
+  ```
+
+  ### Start Dagit
+
+  ```bash
+  meltano invoke dagster:start
+  ```
