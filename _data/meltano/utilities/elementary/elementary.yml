@@ -57,15 +57,12 @@ keywords:
 - testing
 
 definition: |
-  that enables you to automate test report generation and anomaly detection using Elementary
+  enables you to automate test report generation and anomaly detection using Elementary
 
   - This is a work in progress; any feedback on issues in the [extension repo](https://github.com/potloc/elementary-ext) is appreciated!
   - When upgrading Elementary, ensure you update the dbt_packages entry version as well
 
 next_steps: |
-
-  **NOTE**:
-  
   This a dbt extension, and therefore requires knowledge and understanding of dbt before adding to your project.
   Please install one of the available dbt extensions from [Meltano Hub](https://hub.meltano.com/utilities/) before proceeding with the rest of the setup.
 
