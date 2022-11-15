@@ -127,6 +127,14 @@ function buildData(dataPath, collections) {
       readPlugin.metrics = pluginMetricsData[readPlugin.repo];
       readPlugin.maintainer = readMaintainers[readPlugin.variant];
 
+      // If there are commands, turn them into a more graphql-friendly array
+      readPlugin.commands = readPlugin.commands
+        ? Object.keys(readPlugin.commands).map((key) => ({
+            ...readPlugin.commands[key],
+            name: key,
+          }))
+        : undefined;
+
       collections.forEach((collection) => {
         collection.addNode(readPlugin);
       });

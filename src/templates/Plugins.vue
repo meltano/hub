@@ -234,12 +234,10 @@
                 :preamble="$page.plugins.settings_preamble_rendered"
               />
               <PluginCommandsSection
-                :settings="$page.plugins.commands"
+                :commands="$page.plugins.commands"
                 :name="$page.plugins.name"
-                :plugin_type_plural="$page.plugins.pluginTypePlural"
-                :variant="$page.plugins.variant"
-                :preamble="$page.plugins.settings_preamble_rendered"
-              />              
+                :plugin_type="$page.plugins.pluginType"
+              />
               <div
                 class="prose mt-3 p-2"
                 v-if="$page.plugins.usage"
@@ -340,10 +338,10 @@ query Plugins($path: String!, $name: String!) {
       value
     }
     commands {
+      name
       executable
       args
       description
-      container_spec
     }
     prereq
     prereq_rendered
