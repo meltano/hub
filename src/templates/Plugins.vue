@@ -233,6 +233,13 @@
                 :variant="$page.plugins.variant"
                 :preamble="$page.plugins.settings_preamble_rendered"
               />
+              <PluginCommandsSection
+                :settings="$page.plugins.commands"
+                :name="$page.plugins.name"
+                :plugin_type_plural="$page.plugins.pluginTypePlural"
+                :variant="$page.plugins.variant"
+                :preamble="$page.plugins.settings_preamble_rendered"
+              />              
               <div
                 class="prose mt-3 p-2"
                 v-if="$page.plugins.usage"
@@ -269,6 +276,7 @@
 <script>
 import PluginSidebar from "../components/PluginSidebar.vue";
 import PluginSettingsSection from "../components/PluginSettingsSection.vue";
+import PluginCommandsSection from "../components/PluginCommandsSection.vue";
 import PluginHelpSection from "../components/PluginHelpSection.vue";
 import PluginCapabilitiesSection from "../components/PluginCapabilitiesSection.vue";
 import PluginPrereqSection from "../components/PluginPrereqSection.vue";
@@ -283,6 +291,7 @@ export default {
   components: {
     PluginSidebar,
     PluginSettingsSection,
+    PluginCommandsSection,
     PluginHelpSection,
     PluginCapabilitiesSection,
     PluginPrereqSection,
@@ -329,6 +338,13 @@ query Plugins($path: String!, $name: String!) {
       kind
       placeholder
       value
+    }
+    commands {
+      node {
+        executable
+        args
+        description
+      }
     }
     prereq
     prereq_rendered
