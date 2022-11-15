@@ -340,11 +340,10 @@ query Plugins($path: String!, $name: String!) {
       value
     }
     commands {
-      node {
-        executable
-        args
-        description
-      }
+      executable
+      args
+      description
+      container_spec
     }
     prereq
     prereq_rendered
