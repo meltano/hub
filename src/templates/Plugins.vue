@@ -340,10 +340,14 @@ query Plugins($path: String!, $name: String!) {
       value
     }
     commands {
-      executable
-      args
-      description
-      container_spec
+      edges {
+        node {
+          executable
+          args
+          description
+          container_spec
+        }
+      }
     }
     prereq
     prereq_rendered
