@@ -35,7 +35,8 @@ settings:
   label: Tables
   description: An array that consists of one or more objects that describe how to
     find files and emit records. Required in each table object - `table_name`, `search_pattern`,`search_prefix`,
-    `key_properties`, `delimiter`.
+    `key_properties` (Array containing the unique keys of the table. Defaults to ['_sdc_source_file', '_sdc_source_lineno'], representing the file name and line number. Specify an emtpy array ([]) to load all new files without a replication key), `delimiter`, `encoding` (defaults to utf-8),
+    `sanitize_header` (specifies whether to clean up header names so that they are more likely to be accepted by a target SQL database. Replacing things like columns starting with numbers, special characters with underscores, etc.).
 - name: start_date
   kind: date_iso8601
   label: Start Date
