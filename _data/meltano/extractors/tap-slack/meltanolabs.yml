@@ -10,10 +10,52 @@ capabilities:
 - discover
 - about
 - stream-maps
+prereq: |
+  #### Creating the Tap-Slack App
+
+  In order to access the records in your workspace, you will need to create a [new Slack App](https://api.slack.com/apps?new_app=1).
+  Below is an example App Manifest that you can use for your workspace.
+  If you would like to access additional channels, such as direct messages, you will need to provide additional scopes to your Slack app.
+
+  ```yaml
+  _metadata:
+    major_version: 1
+    minor_version: 1
+  display_information:
+    name: MeltanoLabs Tap-Slack
+    description: Slack App to support the implementation of Singer.io tap-slack
+    long_description: This application is used for extracting channel, user, and message data from the Slack workspace via the tap-slack application. Found on GitHub at https://github.com/MeltanoLabs/tap-slack.
+  features:
+    bot_user:
+      display_name: MeltanoLabs Tap-Slack
+      always_online: false
+  oauth_config:
+    redirect_urls:
+      - https://meltano.com/
+    scopes:
+      bot:
+        - channels:join
+        - channels:history
+        - channels:read
+        - users:read
+        - users:read.email
+  settings:
+    org_deploy_enabled: false
+    socket_mode_enabled: false
+    token_rotation_enabled: false
+  ```
+
+  Once you receive an API key you can test that it has proper access to your Slack app using the following curl command.
+
+  ```bash
+  curl -X GET -H 'Authorization: Bearer <Your Token>' https://slack.com/api/conversations.list?exclude_archived=False
+  ```
+
 settings:
 - kind: password
   label: API Key
   name: api_key
+  description: Your Slack App API key. See the Prerequisites section above for more details on obtaining it.
 - description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.
@@ -25,7 +67,7 @@ settings:
   kind: integer
   label: Thread Lookback Days
   name: thread_lookback_days
-- description: The types of conversations the tap will attempt to extract data from.
+- description: An array of the types of conversations the tap will attempt to extract data from.
     Must be one of 'public_channel', 'mpim', 'private_channel', or 'im'. Note that
     the Slack app must have the appropriate privileges and be a member of the conversations
     to sync messages.
