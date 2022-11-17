@@ -42,6 +42,9 @@ settings:
 - name: kraken.api_url
   label: Kraken Api Url
   description: The url of the meshObject API (excluding the /api prefix!)
+- name: cert_path
+  label: SSL Certificate Path
+  description: Path to self-signed SSL certificate
 - name: stream_maps
   label: Stream Maps
   description: Config object for stream maps capability.
