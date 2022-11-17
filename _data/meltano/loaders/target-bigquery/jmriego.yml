@@ -3,8 +3,7 @@ label: Google BigQuery
 description: For loading data into BigQuery
 namespace: target_bigquery
 logo_url: /assets/logos/loaders/bigquery.png
-variant: transferwise
-hidden: true
+variant: jmriego
 capabilities:
 - record-flattening
 - hard-delete
@@ -135,7 +134,7 @@ settings_group_validation:
 - - dataset_id
   - project_id
 pip_url: pipelinewise-target-bigquery
-repo: https://github.com/transferwise/pipelinewise-target-bigquery
+repo: https://github.com/jmriego/pipelinewise-target-bigquery
 domain_url: https://cloud.google.com/bigquery/
 maintenance_status: active
 keywords: 
