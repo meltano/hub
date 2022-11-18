@@ -1,6 +1,7 @@
 name: target-bigquery
 label: Google BigQuery
-description: For loading data into BigQuery
+description: For loading data into BigQuery.
+  This repo was migrated from the transferwise namespace.
 namespace: target_bigquery
 logo_url: /assets/logos/loaders/bigquery.png
 variant: jmriego

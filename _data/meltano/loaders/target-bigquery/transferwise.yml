@@ -1,6 +1,7 @@
 name: target-bigquery
 label: Google BigQuery
-description: For loading data into BigQuery
+description: For loading data into BigQuery.
+  This repo was transferred to the jmriego namespace.
 namespace: target_bigquery
 logo_url: /assets/logos/loaders/bigquery.png
 variant: transferwise
@@ -137,7 +138,7 @@ settings_group_validation:
 pip_url: pipelinewise-target-bigquery
 repo: https://github.com/transferwise/pipelinewise-target-bigquery
 domain_url: https://cloud.google.com/bigquery/
-maintenance_status: active
+maintenance_status: inactive
 keywords: 
 - google
 - bigquery
