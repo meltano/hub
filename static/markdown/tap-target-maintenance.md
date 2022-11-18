@@ -7,18 +7,23 @@ description: "Find out how to maintain Singer taps and targets using the Meltano
 
 Thanks for your interest in maintaining a tap or target! Here are some best practices and FAQs for contributing to and maintaining these projects.
 
-### What's expected of maintainers? What does a well-maintained tap or target look like?
+### How are targets marked as "maintained" and "unmaintained"? What does a well-maintained tap or target look like?
 
-(TBD)
-- Respond to new issues and PRs/MRs within a week
-- TODO: Come up with a baseline list of capabilities
-- Well documented (define this)
+There are no hard requirements for maintainership, but well-maintained taps typically follow these guidelines:
+
+- Issues and PRs/MRs responded to within a week.
+- TODO: Come up with a baseline list of capabilities?
+- All settings documented, with additional documentation containing useage examples.
 
 ### How do I add my tap or target to the Meltano Hub?
 
-(TBD) We need a guide for this.
+Please follow the steps outlined in [this guide](/add-a-tap) and the PR request template.
 
 ### How can I become a maintainer in MeltanoLabs?
+
+(TBD)
+
+### How do I stop being a maintainer?
 
 (TBD)
 
@@ -47,7 +52,7 @@ Here are some signs that a tap or target has been abandoned:
 
 ### How do I report an unmaintained tap?
 
-Open an issue on the Singer Most Wanted repository. This lets the Meltano Team and the community know that this tap needs adopting.
+Open an issue on the [Singer Most Wanted repository](https://github.com/MeltanoLabs/Singer-Working-Group). This lets the Meltano Team and the community know that this tap needs adopting.
 
 ### How do I take over maintenance of a tap or target?
 
@@ -58,22 +63,10 @@ Open an issue on the Singer Most Wanted repository. This lets the Meltano Team a
 
 Not a problem! Please open an issue on the [Singer Most Wanted repo](https://github.com/MeltanoLabs/Singer-Most-Wanted/issues) to let the Meltano Community know that a tap needs a maintainer. We can help find someone to maintain it.
 
----
-
-Draft/Notes
-
-## How do I stop being a maintainer?
-
-(TBD) We should have a way for folks to let us know they're stepping down.
-
-## What happens if a repo gets deleted? I don’t want to risk using a variant if it could be deleted in the future? Should I be keeping a fork in my own namespace? Hard fork?
-
-This is something that happened on npm and it ended up breaking thousands of builds. Should we mirror the ones we know about? That's a huge undertaking.
-
 ## Where do I go if I want to pay someone to build a tap or add a feature?
 
-We can definitely send them to partners. Do we want to have a preferred partners list? My gut reaction is no, but if we're suggesting specific companies (as we have in the past) we may want to have a preferred partner list in the next year or so.
+Please reach out to one of our [Partners](https://meltano.com/partners/) to discuss custom taps and targets.
 
 ## How do I escalate an issue if it’s not being recognized by the maintainer?
 
-Open an issue on the Singer Most Wanted repository and let us know
+Please join the #contributing channel on [Slack](https://meltano.com/slack) and tag `@Amanda Folson` along with a link to the issue.
