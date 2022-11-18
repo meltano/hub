@@ -1,5 +1,6 @@
 import os
 import subprocess
+import sys
 from collections import OrderedDict
 
 from ruamel.yaml import YAML
@@ -8,18 +9,12 @@ yaml = YAML()
 yaml.preserve_quotes = True
 yaml.default_flow_style = False
 
-TAP_DIR = "_data/meltano/extractors/"
-TARGET_DIR = "_data/meltano/loaders/"
-
-
 def insert_newlines(string, every=160):
     # TODO: this is not working because editing strings causes them
     # to get wrapped in double quotes which looks ugly.
     return string
     # lines = []
     # for i in range(0, len(string), every):
-    #     if string.startswith('"'):
-    #         print('')
     #     lines.append(string[i:i+every])
     # return '\n'.join(lines)
 
@@ -27,7 +22,7 @@ def insert_newlines(string, every=160):
 def process(v):
     output = None
     if isinstance(v, dict):
-        output = sort_ordered_dict(v)
+        output = fix_yaml_dict_format(v)
     elif isinstance(v, list):
         new_l = []
         for i in v:
@@ -45,40 +40,52 @@ def process(v):
     return output
 
 
-def sort_ordered_dict(od):
+def fix_yaml_dict_format(od):
     res = OrderedDict()
-    if isinstance(od, str):
-        print("")
     for k, v in sorted(od.items()):
         res[k] = process(v)
     return dict(res)
 
 
-def _fix(yml_path):
+def fix_yaml(yml_path):
+    """
+    Reads in the yaml file and attempts to fix it before
+    overwriting the existing contents.
+    """
     print(f"Fixing: {yml_path}")
     with open(yml_path, "r") as plugin_file:
         plugin_data = yaml.load(plugin_file)
     with open(yml_path, "w") as plugin_file:
-        yaml.dump(sort_ordered_dict(plugin_data), plugin_file)
+        updated_dict = fix_yaml_dict_format(plugin_data)
+        yaml.dump(updated_dict, plugin_file)
 
 
-def lint(path):
+def run_yamllint(path):
     print(f"Linting: {path}")
-    command = f"yamllint {path} -c .yamllint.yaml".split(" ")
-    subprocess.run(command)
+    subprocess.run(f"yamllint {path} -c .yamllint.yaml".split(" "))
 
 
-def find_all_yaml(f_path="_data/"):
+def find_all_yamls(f_path="_data/"):
     for root, subdirs, files in os.walk(f_path):
         for file in files:
             if file.endswith(".yml"):
                 yield os.path.join(root, file)
         for subdir in subdirs:
-            find_all_yaml(os.path.join(root, f_path, subdir))
+            find_all_yamls(os.path.join(root, f_path, subdir))
 
 
 if __name__ == "__main__":
-    for yaml_file in find_all_yaml():
-        print(yaml_file)
-        _fix(yaml_file)
-        lint(yaml_file)
+    """
+    This script iterates all the plugin definition files and fixes
+    their formatting, then runs yamllint to validate the changes.
+    You can optionally provide a file path to target only a single file,
+    otherwise the default is to iterate all yml files in the `_data/` directory.
+    """
+    if len(sys.argv) > 1:
+        file_path = sys.argv[1]
+        fix_yaml(file_path)
+        run_yamllint(file_path)
+    else:
+        for yaml_file in find_all_yamls():
+            fix_yaml(yaml_file)
+            run_yamllint(yaml_file)
