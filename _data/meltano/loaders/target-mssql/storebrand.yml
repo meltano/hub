@@ -18,7 +18,7 @@ pip_url: git+https://github.com/storebrand/target-mssql.git
 repo: https://github.com/storebrand/target-mssql
 settings:
 - name: sqlalchemy_url
-  label: Sqlalchemy Url
+  label: SQLAlchemy Url
   description: SQLAlchemy connection string
   kind: string
 - name: stream_maps

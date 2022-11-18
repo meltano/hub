@@ -18,7 +18,8 @@
                     "soft-delete",
                     "hard-delete",
                     "datatype-failsafe",
-                    "record-flattening"
+                    "record-flattening",
+                    "schema-flattening"
                 ]
             }
         },

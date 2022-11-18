@@ -416,6 +416,7 @@ loaders:
   target-kinesis: prontopro
   target-magentobi: singer-io
   target-miso: misoai
+  target-mssql: storebrand
   target-pardot: anelendata
   target-parquet: estrategiahq
   target-postgres: transferwise
@@ -427,4 +428,3 @@ loaders:
   target-stitch: singer-io
   target-yaml: meltanolabs
   target-s3-avro: faumel
-  target-mssql: storebrand
