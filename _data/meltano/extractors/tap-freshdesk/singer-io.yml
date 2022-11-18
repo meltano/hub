@@ -28,10 +28,8 @@ settings_group_validation:
   - api_key
   - start_date
 capabilities:
-- catalog
-- discover
 - state
 domain_url: https://developer.freshdesk.com/api/
-maintenance_status: unknown
+maintenance_status: active
 keywords:
 - api
