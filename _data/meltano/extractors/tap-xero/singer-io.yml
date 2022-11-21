@@ -1,51 +1,51 @@
+capabilities:
+- catalog
+- discover
+- state
 description: Accounting Software
+domain_url: https://developer.xero.com/documentation/
+keywords:
+- api
 label: Xero
-name: tap-xero
 logo_url: /assets/logos/extractors/xero.png
+maintenance_status: unknown
+name: tap-xero
 namespace: tap_xero
-variant: singer-io
 pip_url: tap-xero
 repo: https://github.com/singer-io/tap-xero
 settings:
-- name: start_date
-  kind: date_iso8601
-  label: Start Date
-  description: Determines how much historical data will be extracted. Please be aware
+- description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.
-- name: client_id
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: Your Xero client ID. Issued when you create your app.
+  kind: password
   label: Client ID
+  name: client_id
+- description: Your Xero client secret.
   kind: password
-  description: Your Xero client ID. Issued when you create your app.
-- name: client_secret
   label: Client Secret
-  kind: password
-  description: Your Xero client secret.
-- name: tenant_id
+  name: client_secret
+- description: Your Xero tenant ID.
   label: Tenant ID
-  description: Your Xero tenant ID.
-- name: refresh_token
-  label: Refresh Token
+  name: tenant_id
+- description: Your Xero refresh token.
   kind: password
-  description: Your Xero refresh token.
-- name: include_archived_contacts
-  label: Include Archived Contacts
+  label: Refresh Token
+  name: refresh_token
+- description: Whether to include archive contacts in the sync.
   kind: boolean
-  description: Whether to include archive contacts in the sync.
-- name: user_agent
+  label: Include Archived Contacts
+  name: include_archived_contacts
+- description: The user agent sent with your requests to the Xero API.
   label: User Agent
-  description: The user agent sent with your requests to the Xero API.
+  name: user_agent
 settings_group_validation:
 - - start_date
   - client_id
   - client_secret
   - tenant_id
   - refresh_token
-capabilities:
-- catalog
-- discover
-- state
-domain_url: https://developer.xero.com/documentation/
-maintenance_status: unknown
-keywords:
-- api
+variant: singer-io

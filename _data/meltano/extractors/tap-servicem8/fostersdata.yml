@@ -1,16 +1,16 @@
-description: Field Service Software
-label: ServiceM8
-name: tap-servicem8
-logo_url: /assets/logos/extractors/servicem8.png
-namespace: tap_servicem8
-variant: fostersdata
-pip_url: git+https://github.com/FostersData/tap-servicem8.git
-repo: https://github.com/FostersData/tap-servicem8
-settings: []
 capabilities:
 - catalog
 - discover
+description: Field Service Software
 domain_url: https://developer.servicem8.com/docs
-maintenance_status: unknown
 keywords:
 - api
+label: ServiceM8
+logo_url: /assets/logos/extractors/servicem8.png
+maintenance_status: unknown
+name: tap-servicem8
+namespace: tap_servicem8
+pip_url: git+https://github.com/FostersData/tap-servicem8.git
+repo: https://github.com/FostersData/tap-servicem8
+settings: []
+variant: fostersdata

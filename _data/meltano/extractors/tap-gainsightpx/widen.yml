@@ -1,11 +1,3 @@
-name: tap-gainsightpx
-description: User tracking in web apps
-label: GainsightPX
-namespace: tap_gainsightpx
-logo_url: /assets/logos/extractors/gainsightpx.png
-variant: widen
-pip_url: git+https://github.com/Widen/tap-gainsightpx.git
-repo: https://github.com/Widen/tap-gainsightpx
 capabilities:
 - catalog
 - state
@@ -13,49 +5,60 @@ capabilities:
 - about
 - stream-maps
 - schema-flattening
+description: User tracking in web apps
+domain_url: https://support.gainsight.com/PX/API_for_Developers/02Usage_of_Different_APIs/Work_with_the_Gainsight_PX_REST_API
+keywords:
+- api
+- gainsight
+- tap
+- meltano_sdk
+label: GainsightPX
+logo_url: /assets/logos/extractors/gainsightpx.png
+maintenance_status: active
+name: tap-gainsightpx
+namespace: tap_gainsightpx
+pip_url: git+https://github.com/Widen/tap-gainsightpx.git
+repo: https://github.com/Widen/tap-gainsightpx
+settings:
+- description: The base url for GainsightPX service. See GainsightPX docs.
+  documentation: https://support.gainsight.com/PX/API_for_Developers/02Usage_of_Different_APIs/Work_with_the_Gainsight_PX_REST_API
+  label: API URI
+  name: api_url
+- description: The api key to authenticate against the GainsightPX service.
+  documentation: https://support.gainsight.com/PX/API_for_Developers/02Usage_of_Different_APIs/Work_with_the_Gainsight_PX_REST_API
+  kind: password
+  label: API Key
+  name: api_key
+- description: The number of records to return from the API in single page.Default
+    and max varies based on the endpoint
+  label: Page Size
+  name: page_size
+- description: The earliest record date to sync (inclusive '>='). ISO Format.
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: The latest record date to sync (inclusive '<='). ISO format.
+  kind: date_iso8601
+  label: End Date
+  name: end_date
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  label: Stream Maps
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
+  label: Stream Map Config
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  label: Flattening Max Depth
+  name: flattening_max_depth
 settings_group_validation:
 - - api_url
   - api_key
   - page_size
   - start_date
   - end_date
-settings:
-- name: api_url
-  label: API URI
-  description: The base url for GainsightPX service. See GainsightPX docs.
-  documentation: https://support.gainsight.com/PX/API_for_Developers/02Usage_of_Different_APIs/Work_with_the_Gainsight_PX_REST_API
-- name: api_key
-  label: API Key
-  kind: password
-  description: The api key to authenticate against the GainsightPX service.
-  documentation: https://support.gainsight.com/PX/API_for_Developers/02Usage_of_Different_APIs/Work_with_the_Gainsight_PX_REST_API
-- name: page_size
-  label: Page Size
-  description: The number of records to return from the API in single page.Default and max varies based on the endpoint
-- name: start_date
-  label: Start Date
-  kind: date_iso8601
-  description: The earliest record date to sync (inclusive '>='). ISO Format.
-- name: end_date
-  label: End Date
-  kind: date_iso8601
-  description: The latest record date to sync (inclusive '<='). ISO format.
-- name: stream_maps
-  label: Stream Maps
-  description: Config object for stream maps capability. For more information check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-- name: stream_map_config
-  label: Stream Map Config
-  description: User-defined config values to be used within map expressions.
-- name: flattening_enabled
-  label: Flattening Enabled
-  description: "'True' to enable schema flattening and automatically expand nested properties."
-- name: flattening_max_depth
-  label: Flattening Max Depth
-  description: The max depth to flatten schemas.
-domain_url: https://support.gainsight.com/PX/API_for_Developers/02Usage_of_Different_APIs/Work_with_the_Gainsight_PX_REST_API
-maintenance_status: active
-keywords:
-- api
-- gainsight
-- tap
-- meltano_sdk
+variant: widen

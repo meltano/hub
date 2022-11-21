@@ -1,17 +1,17 @@
-description: Restaurant Point of Sale and Management System
-label: Toast
-name: tap-toast
-logo_url: /assets/logos/extractors/toast.png
-namespace: tap_toast
-variant: lambtron
-pip_url: git+https://github.com/lambtron/tap-toast.git
-repo: https://github.com/lambtron/tap-toast
-settings: []
 capabilities:
 - catalog
 - discover
 - state
+description: Restaurant Point of Sale and Management System
 domain_url: https://pos.toasttab.com/
-maintenance_status: unknown
 keywords:
 - api
+label: Toast
+logo_url: /assets/logos/extractors/toast.png
+maintenance_status: unknown
+name: tap-toast
+namespace: tap_toast
+pip_url: git+https://github.com/lambtron/tap-toast.git
+repo: https://github.com/lambtron/tap-toast
+settings: []
+variant: lambtron

@@ -1,6 +1,6 @@
+executable: transform-field
 name: transform-field
 namespace: transform_field
-variant: transferwise
 pip_url: pipelinewise-transform-field
 repo: https://github.com/transferwise/pipelinewise-transform-field
-executable: transform-field
+variant: transferwise

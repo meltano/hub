@@ -1,13 +1,3 @@
-description: From task management to complex portfolio management, Smartsheet enables
-  project management professionals to streamline workflows, eliminate silos, and achieve
-  more.
-label: Smartsheet
-name: tap-smartsheet
-logo_url: /assets/logos/extractors/smartsheet.png
-namespace: tap_smartsheet
-variant: brooklyn-data
-pip_url: git+https://github.com/brooklyn-data/tap-smartsheet.git
-repo: https://github.com/brooklyn-data/tap-smartsheet
 capabilities:
 - catalog
 - discover
@@ -15,13 +5,23 @@ capabilities:
 - about
 - stream-maps
 - schema-flattening
-settings:
-- name: smartsheet_access_token
-  label: Smartsheet Access Token
-  kind: password
-  description: The token to authenticate against the API service
+description: From task management to complex portfolio management, Smartsheet enables
+  project management professionals to streamline workflows, eliminate silos, and achieve
+  more.
 domain_url: https://smartsheet.redoc.ly/
-maintenance_status: active
 keywords:
 - api
 - meltano_sdk
+label: Smartsheet
+logo_url: /assets/logos/extractors/smartsheet.png
+maintenance_status: active
+name: tap-smartsheet
+namespace: tap_smartsheet
+pip_url: git+https://github.com/brooklyn-data/tap-smartsheet.git
+repo: https://github.com/brooklyn-data/tap-smartsheet
+settings:
+- description: The token to authenticate against the API service
+  kind: password
+  label: Smartsheet Access Token
+  name: smartsheet_access_token
+variant: brooklyn-data

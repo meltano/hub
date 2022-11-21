@@ -1,26 +1,26 @@
+capabilities:
+- state
 description: Exchange Rates API
+domain_url: https://exchangeratesapi.io/
+keywords:
+- api
 label: Exchangeratesapi.io
-name: tap-exchangeratesapi
 logo_url: /assets/logos/extractors/exchangeratesapi.png
+maintenance_status: inactive
+name: tap-exchangeratesapi
 namespace: tap_exchangeratesapi
-variant: singer-io
 pip_url: tap-exchangeratesapi
 repo: https://github.com/singer-io/tap-exchangeratesapi
 settings:
-- name: base
+- description: The base currency code, default 'USD'.
   label: Base
-  description: The base currency code, default 'USD'.
-- name: start_date
-  label: Start Date
-  description: Determines how much historical data will be extracted. Please be aware
+  name: base
+- description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.
   kind: date_iso8601
-capabilities:
-- state
-domain_url: https://exchangeratesapi.io/
-maintenance_status: inactive
-keywords:
-- api
+  label: Start Date
+  name: start_date
 settings_group_validation:
 - []
+variant: singer-io

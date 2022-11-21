@@ -1,16 +1,16 @@
-description: Amazon API for Selling Automation
-label: Amazon MWS
-name: tap-amazon-mws
-logo_url: /assets/logos/extractors/amazon-mws.png
-namespace: tap_amazon_mws
-variant: adswerve
-pip_url: git+https://github.com/adswerve/singer-tap-amazon-mws.git
-repo: https://github.com/adswerve/singer-tap-amazon-mws
-settings: []
 capabilities:
 - catalog
 - discover
+description: Amazon API for Selling Automation
 domain_url: https://developer.amazonservices.com/
-maintenance_status: unknown
 keywords:
 - api
+label: Amazon MWS
+logo_url: /assets/logos/extractors/amazon-mws.png
+maintenance_status: unknown
+name: tap-amazon-mws
+namespace: tap_amazon_mws
+pip_url: git+https://github.com/adswerve/singer-tap-amazon-mws.git
+repo: https://github.com/adswerve/singer-tap-amazon-mws
+settings: []
+variant: adswerve

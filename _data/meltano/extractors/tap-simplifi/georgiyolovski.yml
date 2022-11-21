@@ -1,16 +1,16 @@
-description: Marketing and Advertising Platform
-label: Simpli.fi
-name: tap-simplifi
-logo_url: /assets/logos/extractors/simplifi.png
-namespace: tap_simplifi
-variant: georgiyolovski
-pip_url: git+https://github.com/georgiyolovski/tap-simplifi.git
-repo: https://github.com/georgiyolovski/tap-simplifi
-settings: []
 capabilities:
 - catalog
 - discover
+description: Marketing and Advertising Platform
 domain_url: https://simpli.fi/home/
-maintenance_status: unknown
 keywords:
 - api
+label: Simpli.fi
+logo_url: /assets/logos/extractors/simplifi.png
+maintenance_status: unknown
+name: tap-simplifi
+namespace: tap_simplifi
+pip_url: git+https://github.com/georgiyolovski/tap-simplifi.git
+repo: https://github.com/georgiyolovski/tap-simplifi
+settings: []
+variant: georgiyolovski

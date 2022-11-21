@@ -1,51 +1,7 @@
-name: dbt-duckdb
-label: dbt DuckDB (EDK preview)
-domain_url: https://www.getdbt.com/
-executable: dbt_invoker
-namespace: dbt_duckdb
-docs: https://docs.meltano.com/guide/transformation
-repo: https://github.com/jwills/dbt-duckdb
-ext_repo: https://github.com/meltano/dbt-ext
-pip_url: dbt-core~=1.3.0 dbt-duckdb~=1.3.0 git+https://github.com/meltano/dbt-ext.git@main
-variant: jwills
-maintenance_status: active
-settings_preamble: |
-  Settings for dbt itself can be configured through [dbt_project.yml](https://docs.getdbt.com/reference/dbt_project.yml) as usual, which can be found at transform/dbt_project.yml in your Meltano project.
-settings:
-- name: skip_pre_invoke
-  label: Skip Pre-invoke
-  kind: boolean
-  value: false
-  description: Whether to skip pre-invoke hooks which automatically run dbt clean and deps
-  env: DBT_EXT_SKIP_PRE_INVOKE
-- name: type
-  label: dbt Profile type
-  env: DBT_EXT_TYPE
-  value: duckdb
-- name: project_dir
-  label: Projects Directory
-  value: $MELTANO_PROJECT_ROOT/transform
-- name: profiles_dir
-  label: Profiles Directory
-  value: $MELTANO_PROJECT_ROOT/transform/profiles/duckdb
-  env: DBT_PROFILES_DIR
-- name: path
-  label: Path
-  kind: string
-  description: The path on your local filesystem where you would like the DuckDB database file and it's associated write-ahead log to be written.
-- name: schema
-  kind: string
-  label: Schema
-  value: main
-  description: Specify the schema to write into.
-definition: |
-  is an adapter-specific dbt [transformer](https://docs.meltano.com/concepts/plugins#transformers) for running SQL-based transformations on data stored in your warehouse.
-
-  ### EDK Preview
-  This utility is in a preview stage of readiness. It is based upon our Extension Developer Kit (EDK) which is the new way to build and add plugins to Meltano Hub.
-  This preview of dbt will replace the native transformer once it comes out of preview. In the meantime, we would appreciate any feedback in the [EDK repo](https://github.com/meltano/edk/) and in the [dbt Extension repo](https://github.com/meltano/dbt-ext/).
-
 commands:
+  build:
+    args: build
+    description: Will run your models, tests, snapshots and seeds in DAG order.
   clean:
     args: clean
     description: Delete all folders in the clean-targets list (usually the dbt_modules
@@ -54,9 +10,31 @@ commands:
     args: compile
     description: Generates executable SQL from source model, test, and analysis files.
       Compiled SQL files are written to the target/ directory.
+  debug:
+    args: debug
+    description: Debug your DBT project and warehouse connection.
   deps:
     args: deps
     description: Pull the most recent version of the dependencies listed in packages.yml
+  describe:
+    args: describe
+    description: Describe the
+    executable: dbt_extension
+  docs-generate:
+    args: docs generate
+    description: Generate documentation for your project.
+  docs-serve:
+    args: docs serve
+    description: Serve documentation for your project. Make sure you ran `docs-generate`
+      first.
+  freshness:
+    args: source freshness
+    description: Check the freshness of your source data.
+  initialize:
+    args: initialize
+    description: |
+      Initialize a new dbt project. This will create a dbt_project.yml file, a profiles.yml file, and models directory.
+    executable: dbt_extension
   run:
     args: run
     description: Compile SQL and execute against the current target database.
@@ -69,33 +47,23 @@ commands:
   test:
     args: test
     description: Runs tests on data in deployed models.
-  freshness:
-    args: source freshness
-    description: Check the freshness of your source data.
-  build:
-    args: build
-    description: Will run your models, tests, snapshots and seeds in DAG order.
-  docs-generate:
-    args: docs generate
-    description: Generate documentation for your project.
-  docs-serve:
-    args: docs serve
-    description: Serve documentation for your project. Make sure you ran `docs-generate` first.
-  debug:
-    args: debug
-    description: Debug your DBT project and warehouse connection.
-  describe:
-    args: describe
-    executable: dbt_extension
-    description: Describe the 
-  initialize:
-    args: initialize
-    executable: dbt_extension
-    description: |
-      Initialize a new dbt project. This will create a dbt_project.yml file, a profiles.yml file, and models directory.
-logo_url: /assets/logos/utilities/dbt.png
+definition: |
+  is an adapter-specific dbt [transformer](https://docs.meltano.com/concepts/plugins#transformers) for running SQL-based transformations on data stored in your warehouse.
+
+  ### EDK Preview
+  This utility is in a preview stage of readiness. It is based upon our Extension Developer Kit (EDK) which is the new way to build and add plugins to Meltano Hub.
+  This preview of dbt will replace the native transformer once it comes out of preview. In the meantime, we would appreciate any feedback in the [EDK repo](https://github.com/meltano/edk/) and in the [dbt Extension repo](https://github.com/meltano/dbt-ext/).
+docs: https://docs.meltano.com/guide/transformation
+domain_url: https://www.getdbt.com/
+executable: dbt_invoker
+ext_repo: https://github.com/meltano/dbt-ext
 keywords:
-  - meltano_edk
+- meltano_edk
+label: dbt DuckDB (EDK preview)
+logo_url: /assets/logos/utilities/dbt.png
+maintenance_status: active
+name: dbt-duckdb
+namespace: dbt_duckdb
 next_steps: |
   1. If you're running dbt for the first time in a new environment:
 
@@ -103,3 +71,37 @@ next_steps: |
     # create a starter dbt_project.yml file, a profiles.yml file, and models directory
     meltano invoke dbt-duckdb:initialize
     ```
+pip_url: dbt-core~=1.3.0 dbt-duckdb~=1.3.0 git+https://github.com/meltano/dbt-ext.git@main
+repo: https://github.com/jwills/dbt-duckdb
+settings:
+- description: Whether to skip pre-invoke hooks which automatically run dbt clean
+    and deps
+  env: DBT_EXT_SKIP_PRE_INVOKE
+  kind: boolean
+  label: Skip Pre-invoke
+  name: skip_pre_invoke
+  value: false
+- env: DBT_EXT_TYPE
+  label: dbt Profile type
+  name: type
+  value: duckdb
+- label: Projects Directory
+  name: project_dir
+  value: $MELTANO_PROJECT_ROOT/transform
+- env: DBT_PROFILES_DIR
+  label: Profiles Directory
+  name: profiles_dir
+  value: $MELTANO_PROJECT_ROOT/transform/profiles/duckdb
+- description: The path on your local filesystem where you would like the DuckDB database
+    file and it's associated write-ahead log to be written.
+  kind: string
+  label: Path
+  name: path
+- description: Specify the schema to write into.
+  kind: string
+  label: Schema
+  name: schema
+  value: main
+settings_preamble: |
+  Settings for dbt itself can be configured through [dbt_project.yml](https://docs.getdbt.com/reference/dbt_project.yml) as usual, which can be found at transform/dbt_project.yml in your Meltano project.
+variant: jwills

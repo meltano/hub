@@ -1,30 +1,30 @@
-description: Customer Communication Platform
-label: SendGrid
-name: tap-sendgrid
-logo_url: /assets/logos/extractors/sendgrid.png
-namespace: tap_sendgrid
-variant: singer-io
-pip_url: tap-sendgrid
-repo: https://github.com/singer-io/tap-sendgrid
-settings:
-- name: api_key
-  label: API Key
-  description: Your SendGrid [API Key](https://app.sendgrid.com/settings/api_keys).
-  kind: password
-- name: start_date
-  label: Start Date
-  description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
-    can be expected to take."
-  kind: date_iso8601
 capabilities:
 - properties
 - discover
 - state
+description: Customer Communication Platform
 domain_url: https://docs.sendgrid.com/docs/for-developers/sending-email/api-getting-started/
-maintenance_status: inactive
 keywords:
 - api
+label: SendGrid
+logo_url: /assets/logos/extractors/sendgrid.png
+maintenance_status: inactive
+name: tap-sendgrid
+namespace: tap_sendgrid
+pip_url: tap-sendgrid
+repo: https://github.com/singer-io/tap-sendgrid
+settings:
+- description: Your SendGrid [API Key](https://app.sendgrid.com/settings/api_keys).
+  kind: password
+  label: API Key
+  name: api_key
+- description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
 settings_group_validation:
 - - api_key
   - start_date
+variant: singer-io

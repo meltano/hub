@@ -1,49 +1,49 @@
-description: Transactional Email API Service
-label: Mailgun
-name: tap-mailgun
-logo_url: /assets/logos/extractors/mailgun.png
-namespace: tap_mailgun
-variant: streetteam
-pip_url: git+https://github.com/streetteam/tap-mailgun.git
-repo: https://github.com/streetteam/tap-mailgun
-settings:
-- name: private_key
-  label: Private Key
-  description: Authentication is required when using the Mailgun API, you can find
-    your private key inside your Mailgun Control Panel.
-  kind: password
-- name: base_url
-  label: Base Url
-  description: All API calls start with a base URL. Mailgun allows the ability to
-    send and receive email in either US region or EU region. Be sure to use the appropriate
-    base URL based on which region you've created your domain in. Default https://api.mailgun.net/v3/.
-- name: start_date
-  label: Start Date
-  description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
-    can be expected to take."
-  kind: date_iso8601
-- name: user_agent
-  label: User Agent
-  description: The user agent to send with requests.
-- name: full_suppression_sync
-  label: Full Suppression Sync
-  description: If true, suppressions (bounces, unsubscribes and complaints) will be
-    synced in full regardless of start_date. Default, False.
-  kind: boolean
-- name: event_lookback
-  label: Event Lookback
-  description: Amount of hours to subtract from the state timestamp, to catch any
-    late-arriving events. Default 1. 
-  kind: integer
 capabilities:
 - catalog
 - discover
 - state
+description: Transactional Email API Service
 domain_url: https://documentation.mailgun.com/en/latest/api_reference.html
-maintenance_status: inactive
 keywords:
 - api
+label: Mailgun
+logo_url: /assets/logos/extractors/mailgun.png
+maintenance_status: inactive
+name: tap-mailgun
+namespace: tap_mailgun
+pip_url: git+https://github.com/streetteam/tap-mailgun.git
+repo: https://github.com/streetteam/tap-mailgun
+settings:
+- description: Authentication is required when using the Mailgun API, you can find
+    your private key inside your Mailgun Control Panel.
+  kind: password
+  label: Private Key
+  name: private_key
+- description: All API calls start with a base URL. Mailgun allows the ability to
+    send and receive email in either US region or EU region. Be sure to use the appropriate
+    base URL based on which region you've created your domain in. Default https://api.mailgun.net/v3/.
+  label: Base Url
+  name: base_url
+- description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: The user agent to send with requests.
+  label: User Agent
+  name: user_agent
+- description: If true, suppressions (bounces, unsubscribes and complaints) will be
+    synced in full regardless of start_date. Default, False.
+  kind: boolean
+  label: Full Suppression Sync
+  name: full_suppression_sync
+- description: Amount of hours to subtract from the state timestamp, to catch any
+    late-arriving events. Default 1.
+  kind: integer
+  label: Event Lookback
+  name: event_lookback
 settings_group_validation:
 - - private_key
   - start_date
+variant: streetteam

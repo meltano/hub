@@ -1,11 +1,53 @@
+capabilities:
+- catalog
+- discover
+- state
 description: LinkedIn Ad Platform
+domain_url: https://docs.microsoft.com/en-us/linkedin/marketing/
+keywords:
+- api
 label: LinkedIn Ads
-name: tap-linkedin-ads
 logo_url: /assets/logos/extractors/linkedin-ads.png
+maintenance_status: active
+name: tap-linkedin-ads
 namespace: tap_linkedin_ads
-variant: singer-io
 pip_url: tap-linkedin-ads
 repo: https://github.com/singer-io/tap-linkedin-ads
+settings:
+- description: A comma separated list of account IDs, e.g. "id1, id2, id3"
+  label: Accounts
+  name: accounts
+- description: The API client ID.
+  kind: password
+  label: Client ID
+  name: client_id
+- description: The date window to request date from. The default is 30 days.
+  kind: integer
+  label: Date Window Size
+  name: date_window_size
+- description: The page size for requests. Default, 100.
+  kind: integer
+  label: Page Size
+  name: page_size
+- description: Your client secret.
+  kind: password
+  label: Client Secret
+  name: client_secret
+- description: Your access token.
+  kind: password
+  label: Access Token
+  name: access_token
+- description: The user agent to send with requests.
+  label: User Agent
+  name: user_agent
+- description: Your refresh token.
+  kind: password
+  label: Refresh Token
+  name: refresh_token
+settings_group_validation:
+- - accounts
+  - access_token
+  - user_agent
 usage: |
   ### Authentication Setup Details
   The tap uses a LinkedIn provided access_token in the config settings to make API requests. Access tokens expire after 60 days and require a user to manually authenticate again. If the tap receives a 401 invalid token response, the error logs will state that your access token has expired and to re-authenticate your connection to generate a new token. This is described more in LinkedIn OAuth 2.0 Docs.
@@ -25,7 +67,7 @@ usage: |
     - rw_ads: read-write ads
   - ad_analytics_by_campaign, ad_analytics_by_creative:
     - r_ads_reporting: read ads reporting
-  
+
   NOTE: Legacy permissions (r_ad_campaigns) have been migrated to the new permissions (r_ads and r_ads_reporting) based on this permissions mapping.
 
   To generate the access_token:
@@ -67,46 +109,4 @@ usage: |
       -d "state=YOUR_STATE_KEY"\
       -d "redirect_uri=YOUR_REDIRECT_URI"
     ```
-settings:
-- name: accounts
-  label: Accounts
-  description: A comma separated list of account IDs, e.g. "id1, id2, id3"
-- name: client_id
-  label: Client ID
-  description: The API client ID.
-  kind: password
-- name: date_window_size
-  label: Date Window Size
-  description: The date window to request date from. The default is 30 days.
-  kind: integer
-- name: page_size
-  label: Page Size
-  description: The page size for requests. Default, 100.
-  kind: integer
-- name: client_secret
-  label: Client Secret
-  description: Your client secret.
-  kind: password
-- name: access_token
-  label: Access Token
-  description: Your access token.
-  kind: password
-- name: user_agent
-  label: User Agent
-  description: The user agent to send with requests.
-- name: refresh_token
-  label: Refresh Token
-  description: Your refresh token.
-  kind: password
-capabilities:
-- catalog
-- discover
-- state
-domain_url: https://docs.microsoft.com/en-us/linkedin/marketing/
-maintenance_status: active
-keywords:
-- api
-settings_group_validation:
-- - accounts
-  - access_token
-  - user_agent
+variant: singer-io

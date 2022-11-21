@@ -1,37 +1,37 @@
-name: tap-recharge
-label: ReCharge
-description: Subscription payments platform
-namespace: tap_recharge
-logo_url: /assets/logos/extractors/recharge.png
-variant: singer-io
-repo: https://github.com/singer-io/tap-recharge
-pip_url: tap-recharge==1.0.3
 capabilities:
 - catalog
 - discover
 - state
-settings_group_validation:
-  - - access_token
-    - start_date
-settings:
-- name: access_token
-  label: Access Token
-  kind: password
-  description: Private API Token
-  placeholder: Ex. 1a2b3c4d5e6f
-- name: start_date
-  label: Start Date
-  kind: date_iso8601
-  description: Determines how much historical data will be extracted. Please be aware
-    that the larger the time period and amount of data, the longer the initial extraction
-    can be expected to take.
-- name: user_agent
-  label: User Agent
-  value: tap-recharge via Meltano
-  description: User agent to send to ReCharge along with API requests. Typically includes
-    name of integration and an email address you can be reached at
-  placeholder: Ex. tap-recharge via Meltano <user@example.com>
+description: Subscription payments platform
 domain_url: https://rechargepayments.com/developers/
-maintenance_status: inactive
 keywords:
 - api
+label: ReCharge
+logo_url: /assets/logos/extractors/recharge.png
+maintenance_status: inactive
+name: tap-recharge
+namespace: tap_recharge
+pip_url: tap-recharge==1.0.3
+repo: https://github.com/singer-io/tap-recharge
+settings:
+- description: Private API Token
+  kind: password
+  label: Access Token
+  name: access_token
+  placeholder: Ex. 1a2b3c4d5e6f
+- description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: User agent to send to ReCharge along with API requests. Typically includes
+    name of integration and an email address you can be reached at
+  label: User Agent
+  name: user_agent
+  placeholder: Ex. tap-recharge via Meltano <user@example.com>
+  value: tap-recharge via Meltano
+settings_group_validation:
+- - access_token
+  - start_date
+variant: singer-io

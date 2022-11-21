@@ -1,30 +1,29 @@
-description: Social Networking Website
-label: Twitter Filtered Stream
-name: tap-twitter-streams
-logo_url: /assets/logos/extractors/twitter-streams.png
-namespace: tap_twitter_streams
-variant: pbegle
-pip_url: git+https://github.com/pbegle/tap-twitter-streams.git
-repo: https://github.com/pbegle/tap-twitter-streams
-settings:
-- name: bearer_token
-  label: Bearer Token
-  description: Your Twitter bearer token.
-  kind: password
-- name: rules
-  label: Rules
-  description: 'An array of rule objects containing keys - `value` and `tag`. E.g.
-    [ {"value": "bitcoin is:verified", "tag": "bitcoin tweets by verified
-    users"}]'
-  kind: array
 capabilities:
 - catalog
 - discover
 - state
+description: Social Networking Website
 domain_url: https://developer.twitter.com
-maintenance_status: inactive
 keywords:
 - api
+label: Twitter Filtered Stream
+logo_url: /assets/logos/extractors/twitter-streams.png
+maintenance_status: inactive
+name: tap-twitter-streams
+namespace: tap_twitter_streams
+pip_url: git+https://github.com/pbegle/tap-twitter-streams.git
+repo: https://github.com/pbegle/tap-twitter-streams
+settings:
+- description: Your Twitter bearer token.
+  kind: password
+  label: Bearer Token
+  name: bearer_token
+- description: 'An array of rule objects containing keys - `value` and `tag`. E.g.
+    [ {"value": "bitcoin is:verified", "tag": "bitcoin tweets by verified users"}]'
+  kind: array
+  label: Rules
+  name: rules
 settings_group_validation:
 - - bearer_token
   - rules
+variant: pbegle

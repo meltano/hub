@@ -1,35 +1,35 @@
+capabilities:
+- state
 description: Customer Support Software
+domain_url: https://developer.freshdesk.com/api/
+keywords:
+- api
 label: Freshdesk
-name: tap-freshdesk
 logo_url: /assets/logos/extractors/freshdesk.png
+maintenance_status: active
+name: tap-freshdesk
 namespace: tap_freshdesk
-variant: singer-io
 pip_url: tap-freshdesk
 repo: https://github.com/singer-io/tap-freshdesk
 settings:
-- name: domain
+- description: Your Freshdesk subdomain.
   label: Domain
-  description: Your Freshdesk subdomain.
-- name: api_key
-  label: API Key
-  description: Your Freshdesk API key.
+  name: domain
+- description: Your Freshdesk API key.
   kind: password
-- name: user_agent
+  label: API Key
+  name: api_key
+- description: The user agent to send with API requests.
   label: User Agent
-  description: The user agent to send with API requests.
-- name: start_date
-  label: Start Date
-  description: 'Determines how much historical data will be extracted. Please be aware
+  name: user_agent
+- description: 'Determines how much historical data will be extracted. Please be aware
     that the larger the time peri[start_date] `required`: od and amount of data, the
     longer the initial extraction can be expected to take.'
   kind: date_iso8601
+  label: Start Date
+  name: start_date
 settings_group_validation:
 - - domain
   - api_key
   - start_date
-capabilities:
-- state
-domain_url: https://developer.freshdesk.com/api/
-maintenance_status: active
-keywords:
-- api
+variant: singer-io

@@ -1,17 +1,17 @@
-name: tap-chargebee
-namespace: tap_chargebee
-label: Chargebee
-description: Subscription billing software
-logo_url: /assets/logos/extractors/chargebee.png
-variant: envoy
-pip_url: git+https://github.com/envoy/tap-chargebee.git
-repo: https://github.com/envoy/tap-chargebee
 capabilities:
 - catalog
 - discover
-settings_group_validation: []
-settings: []
+description: Subscription billing software
 domain_url: https://apidocs.chargebee.com/docs/api
-maintenance_status: unknown
 keywords:
 - api
+label: Chargebee
+logo_url: /assets/logos/extractors/chargebee.png
+maintenance_status: unknown
+name: tap-chargebee
+namespace: tap_chargebee
+pip_url: git+https://github.com/envoy/tap-chargebee.git
+repo: https://github.com/envoy/tap-chargebee
+settings: []
+settings_group_validation: []
+variant: envoy

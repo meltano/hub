@@ -1,14 +1,14 @@
-name: tap-adwords
-label: Google Ads
-description: Advertising Platform
-namespace: tap_adwords
-logo_url: /assets/logos/extractors/adwords.png
-variant: georgiyolovski
-repo: https://github.com/georgiyolovski/tap-adwords
-pip_url: git+https://github.com/georgiyolovski/tap-adwords.git
-maintenance_status: unknown
-settings: []
-settings_group_validation: []
 capabilities:
 - catalog
 - discover
+description: Advertising Platform
+label: Google Ads
+logo_url: /assets/logos/extractors/adwords.png
+maintenance_status: unknown
+name: tap-adwords
+namespace: tap_adwords
+pip_url: git+https://github.com/georgiyolovski/tap-adwords.git
+repo: https://github.com/georgiyolovski/tap-adwords
+settings: []
+settings_group_validation: []
+variant: georgiyolovski

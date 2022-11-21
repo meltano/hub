@@ -1,16 +1,16 @@
-description: Ecommerce platform
-label: VNDA Ecommerce
-name: tap-vnda-ecommerce
-logo_url: /assets/logos/extractors/vnda-ecommerce.png
-namespace: tap_vnda_ecommerce
-variant: muriloo
-pip_url: git+https://github.com/Muriloo/tap-vnda-ecommerce.git
-repo: https://github.com/Muriloo/tap-vnda-ecommerce
-settings: []
 capabilities:
 - catalog
 - discover
+description: Ecommerce platform
 domain_url: https://demo.vnda.com.br/api/v2/docs/index.html
-maintenance_status: unknown
 keywords:
 - api
+label: VNDA Ecommerce
+logo_url: /assets/logos/extractors/vnda-ecommerce.png
+maintenance_status: unknown
+name: tap-vnda-ecommerce
+namespace: tap_vnda_ecommerce
+pip_url: git+https://github.com/Muriloo/tap-vnda-ecommerce.git
+repo: https://github.com/Muriloo/tap-vnda-ecommerce
+settings: []
+variant: muriloo

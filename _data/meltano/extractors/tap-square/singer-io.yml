@@ -1,7 +1,3 @@
-name: tap-square
-variant: singer-io
-label: Square
-logo_url: /assets/logos/extractors/square.png
 capabilities:
 - catalog
 - discover
@@ -10,37 +6,40 @@ description: Financial and Merchant Services
 domain_url: https://developer.squareup.com/us/en
 keywords:
 - api
+label: Square
+logo_url: /assets/logos/extractors/square.png
 maintenance_status: inactive
+name: tap-square
 namespace: tap_square
 next_steps: ''
 pip_url: git+https://github.com/singer-io/tap-square.git
 repo: https://github.com/singer-io/tap-square
 settings:
-- name: user_agent
+- description: The user agent to send with requests.
   label: User Agent
-  description: The user agent to send with requests.
-- name: refresh_token
+  name: user_agent
+- description: Your refresh token.
+  kind: password
   label: Refresh Token
-  description: Your refresh token.
+  name: refresh_token
+- description: Your client secret.
   kind: password
-- name: client_secret
   label: Client Secret
-  description: Your client secret.
+  name: client_secret
+- description: Your client ID.
   kind: password
-- name: client_id
   label: Client ID
-  description: Your client ID.
-  kind: password
-- name: start_date
-  label: Start Date
-  description: "Determines how much historical data will be extracted. Please be aware\n\
+  name: client_id
+- description: "Determines how much historical data will be extracted. Please be aware\n\
     that the larger the time period and amount of data, the longer the initial extraction\n\
     can be expected to take."
   kind: date_iso8601
-- name: sandbox
-  label: Sandbox
-  description: Whether to use a sandbox account or not. Default, False.
+  label: Start Date
+  name: start_date
+- description: Whether to use a sandbox account or not. Default, False.
   kind: boolean
+  label: Sandbox
+  name: sandbox
 settings_group_validation:
 - - refresh_token
   - client_secret
@@ -48,3 +47,4 @@ settings_group_validation:
   - start_date
 settings_preamble: ''
 usage: ''
+variant: singer-io

@@ -1,38 +1,38 @@
-description: Cloud collaboration service
-label: Airtable
-name: tap-airtable
-logo_url: /assets/logos/extractors/airtable.png
-namespace: tap_airtable
-variant: goes-funky
-pip_url: git+https://github.com/goes-funky/tap-airtable.git
-repo: https://github.com/goes-funky/tap-airtable
-settings_group_validation:
-- - token
-settings:
-- name: token
-  kind: password
-  label: Token
-  description: Airtable Token
-- name: metadata_url
-  label: Metadata URL
-  description: Airtable metadata URL, at the time of the update - "https://api.airtable.com/v2/meta/"
-- name: records_url
-  label: Records URL
-  description: Airtable content URL, at the time of the update - "https://api.airtable.com/v0/"
-- name: base_id
-  label: Base ID
-  description: Airtable base ID to export
-- name: selected_by_default
-  label: Selected By Default
-  description: Default for every table in the base. If set to true, all of the tables
-    in the schema will be syncronized
-- name: remove_emojis
-  label: Remove Emojis
-  description: Filter out emojis from the scyncronization
 capabilities:
 - properties
 - discover
+description: Cloud collaboration service
 domain_url: https://airtable.com/api
-maintenance_status: active
 keywords:
 - api
+label: Airtable
+logo_url: /assets/logos/extractors/airtable.png
+maintenance_status: active
+name: tap-airtable
+namespace: tap_airtable
+pip_url: git+https://github.com/goes-funky/tap-airtable.git
+repo: https://github.com/goes-funky/tap-airtable
+settings:
+- description: Airtable Token
+  kind: password
+  label: Token
+  name: token
+- description: Airtable metadata URL, at the time of the update - "https://api.airtable.com/v2/meta/"
+  label: Metadata URL
+  name: metadata_url
+- description: Airtable content URL, at the time of the update - "https://api.airtable.com/v0/"
+  label: Records URL
+  name: records_url
+- description: Airtable base ID to export
+  label: Base ID
+  name: base_id
+- description: Default for every table in the base. If set to true, all of the tables
+    in the schema will be syncronized
+  label: Selected By Default
+  name: selected_by_default
+- description: Filter out emojis from the scyncronization
+  label: Remove Emojis
+  name: remove_emojis
+settings_group_validation:
+- - token
+variant: goes-funky

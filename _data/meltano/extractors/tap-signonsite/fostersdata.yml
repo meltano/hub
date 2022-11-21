@@ -1,16 +1,16 @@
-description: Connected Worker Platform for Construction
-label: SignOnSite
-name: tap-signonsite
-logo_url: /assets/logos/extractors/signonsite.png
-namespace: tap_signonsite
-variant: fostersdata
-pip_url: git+https://github.com/FostersData/tap-signonsite.git
-repo: https://github.com/FostersData/tap-signonsite
-settings: []
 capabilities:
 - catalog
 - discover
+description: Connected Worker Platform for Construction
 domain_url: https://support.signonsite.com.au/hc/en-us/articles/360003319376-API
-maintenance_status: unknown
 keywords:
 - api
+label: SignOnSite
+logo_url: /assets/logos/extractors/signonsite.png
+maintenance_status: unknown
+name: tap-signonsite
+namespace: tap_signonsite
+pip_url: git+https://github.com/FostersData/tap-signonsite.git
+repo: https://github.com/FostersData/tap-signonsite
+settings: []
+variant: fostersdata

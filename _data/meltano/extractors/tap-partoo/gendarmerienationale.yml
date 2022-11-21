@@ -1,7 +1,3 @@
-name: tap-partoo
-variant: gendarmerienationale
-label: Partoo
-logo_url: /assets/logos/extractors/partoo.png
 capabilities:
 - catalog
 - state
@@ -11,23 +7,27 @@ capabilities:
 domain_url: https://www.partoo.co/
 keywords:
 - meltano_sdk
+label: Partoo
+logo_url: /assets/logos/extractors/partoo.png
 maintenance_status: active
+name: tap-partoo
 namespace: tap_partoo
 next_steps: ''
 pip_url: git+https://github.com/GendarmerieNationale/tap-partoo.git
 repo: https://github.com/GendarmerieNationale/tap-partoo
 settings:
-- name: api_key
-  label: Api Key
-  description: Partoo API Key
+- description: Partoo API Key
   kind: password
-- name: start_date
-  label: Start Date
-  description: "Determines how much historical data will be extracted. Please be aware\n\
+  label: Api Key
+  name: api_key
+- description: "Determines how much historical data will be extracted. Please be aware\n\
     that the larger the time period and amount of data, the longer the initial extraction\n\
     can be expected to take."
+  label: Start Date
+  name: start_date
 settings_group_validation:
 - - api_key
   - start_date
 settings_preamble: ''
 usage: ''
+variant: gendarmerienationale

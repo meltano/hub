@@ -1,17 +1,17 @@
-description: Advertising Demand Side Platform
-label: Amazon Advertising DSP
-name: tap-amazon-ads-dsp
-logo_url: /assets/logos/extractors/amazon-ads-dsp.png
-namespace: tap_amazon_ads_dsp
-variant: singer-io
-pip_url: tap-amazon-ads-dsp
-repo: https://github.com/singer-io/tap-amazon-ads-dsp
-settings: []
 capabilities:
 - catalog
 - discover
 - state
+description: Advertising Demand Side Platform
 domain_url: https://advertising.amazon.com/API/docs/en-us/dsp-reports-beta-3p/#/Reports
-maintenance_status: unknown
 keywords:
 - api
+label: Amazon Advertising DSP
+logo_url: /assets/logos/extractors/amazon-ads-dsp.png
+maintenance_status: unknown
+name: tap-amazon-ads-dsp
+namespace: tap_amazon_ads_dsp
+pip_url: tap-amazon-ads-dsp
+repo: https://github.com/singer-io/tap-amazon-ads-dsp
+settings: []
+variant: singer-io

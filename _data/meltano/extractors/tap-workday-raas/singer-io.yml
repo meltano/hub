@@ -1,38 +1,37 @@
-description: Enterprise Management Software
-label: Workday
-name: tap-workday-raas
-logo_url: /assets/logos/extractors/workday-raas.png
-namespace: tap_workday_raas
-variant: singer-io
-pip_url: tap-workday-raas
-repo: https://github.com/singer-io/tap-workday-raas
-settings:
-- name: reports
-  label: Reports
-  description: A JSON string containing a list of objects containing the report_name
-    and report_url. report_name is the name of the stream for the report, and the
-    report_url is the URL to the Workday XML REST link for the report you wish to
-    extract.
-- name: password
-  label: Password
-  description: The password of the workday account with access to the reports to extract
-  kind: password
-- name: username
-  label: Username
-  description: The username of the workday account with access to the reports to extract
 capabilities:
 - catalog
 - discover
 - state
+description: Enterprise Management Software
 domain_url: https://community.workday.com/api
-maintenance_status: active
 keywords:
 - api
+label: Workday
+logo_url: /assets/logos/extractors/workday-raas.png
+maintenance_status: active
+name: tap-workday-raas
+namespace: tap_workday_raas
+pip_url: tap-workday-raas
+repo: https://github.com/singer-io/tap-workday-raas
+settings:
+- description: A JSON string containing a list of objects containing the report_name
+    and report_url. report_name is the name of the stream for the report, and the
+    report_url is the URL to the Workday XML REST link for the report you wish to
+    extract.
+  label: Reports
+  name: reports
+- description: The password of the workday account with access to the reports to extract
+  kind: password
+  label: Password
+  name: password
+- description: The username of the workday account with access to the reports to extract
+  label: Username
+  name: username
 settings_group_validation:
 - - reports
   - password
   - username
-usage: |
+usage: |-
   ### Reports Configuration
 
   An example of the reports JSON string is below.
@@ -40,3 +39,4 @@ usage: |
   ```
   "[{\"report_name\": \"abitrary_name\", \"report_url\": \"https://...\"}, ...]"
   ```
+variant: singer-io

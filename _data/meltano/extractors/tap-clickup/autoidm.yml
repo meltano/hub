@@ -1,11 +1,3 @@
-description: All your work in one place. Tasks, docs, chat, goals, & more.
-label: Clickup
-name: tap-clickup
-logo_url: /assets/logos/extractors/clickup.png
-namespace: tap_clickup
-variant: autoidm
-pip_url: tap-clickup
-repo: https://github.com/AutoIDM/tap-clickup
 capabilities:
 - catalog
 - discover
@@ -13,15 +5,23 @@ capabilities:
 - about
 - stream-maps
 - schema-flattening
-settings_group_validation:
-- - api_token
-settings:
-- name: api_token
-  label: API Token
-  kind: password
-  description: 'Example: pk_12345'
+description: All your work in one place. Tasks, docs, chat, goals, & more.
 domain_url: https://clickup.com/api
-maintenance_status: active
 keywords:
 - api
 - meltano_sdk
+label: Clickup
+logo_url: /assets/logos/extractors/clickup.png
+maintenance_status: active
+name: tap-clickup
+namespace: tap_clickup
+pip_url: tap-clickup
+repo: https://github.com/AutoIDM/tap-clickup
+settings:
+- description: 'Example: pk_12345'
+  kind: password
+  label: API Token
+  name: api_token
+settings_group_validation:
+- - api_token
+variant: autoidm

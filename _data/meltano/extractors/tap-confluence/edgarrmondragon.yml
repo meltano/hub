@@ -1,46 +1,3 @@
-description: Corporate Wiki Software
-label: Confluence
-name: tap-confluence
-logo_url: /assets/logos/extractors/confluence.png
-namespace: tap_confluence
-variant: edgarrmondragon
-pip_url: git+https://github.com/edgarrmondragon/tap-confluence.git
-repo: https://github.com/edgarrmondragon/tap-confluence
-settings:
-- name: base_url
-  label: Base Url
-  description: The url to use for requests, e.g. https://your-domain.atlassian.net/wiki/rest/api.
-  kind: string
-- name: email
-  label: Email
-  description: Your email address, e.g. <your_email@domain.com>.
-  kind: string
-- name: api_token
-  label: Api Token
-  description: Your Confluence API token.
-  kind: password
-- name: user_agent
-  label: User Agent
-  description: The user agent details to send with your requests.
-  kind: string
-- name: stream_maps
-  label: Stream Maps
-  description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-- name: stream_map_config
-  label: Stream Map Config
-  description: User-defined config values to be used within map expressions.
-  kind: object
-- name: flattening_enabled
-  label: Flattening Enabled
-  description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
-  kind: boolean
-- name: flattening_max_depth
-  label: Flattening Max Depth
-  description: The max depth to flatten schemas.
-  kind: integer
 capabilities:
 - catalog
 - state
@@ -48,12 +5,55 @@ capabilities:
 - about
 - stream-maps
 - schema-flattening
+description: Corporate Wiki Software
 domain_url: https://www.atlassian.com/software/confluence
-maintenance_status: active
 keywords:
 - api
 - meltano_sdk
+label: Confluence
+logo_url: /assets/logos/extractors/confluence.png
+maintenance_status: active
+name: tap-confluence
+namespace: tap_confluence
+pip_url: git+https://github.com/edgarrmondragon/tap-confluence.git
+repo: https://github.com/edgarrmondragon/tap-confluence
+settings:
+- description: The url to use for requests, e.g. https://your-domain.atlassian.net/wiki/rest/api.
+  kind: string
+  label: Base Url
+  name: base_url
+- description: Your email address, e.g. <your_email@domain.com>.
+  kind: string
+  label: Email
+  name: email
+- description: Your Confluence API token.
+  kind: password
+  label: Api Token
+  name: api_token
+- description: The user agent details to send with your requests.
+  kind: string
+  label: User Agent
+  name: user_agent
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
 settings_group_validation:
 - - email
   - base_url
   - api_token
+variant: edgarrmondragon

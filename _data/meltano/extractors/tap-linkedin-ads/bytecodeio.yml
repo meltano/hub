@@ -1,17 +1,17 @@
-description: LinkedIn Ad Platform
-label: LinkedIn Ads
-name: tap-linkedin-ads
-logo_url: /assets/logos/extractors/linkedin-ads.png
-namespace: tap_linkedin_ads
-variant: bytecodeio
-pip_url: git+https://github.com/bytecodeio/tap-linkedin-ads.git
-repo: https://github.com/bytecodeio/tap-linkedin-ads
-settings: []
 capabilities:
 - catalog
 - discover
 - state
+description: LinkedIn Ad Platform
 domain_url: https://docs.microsoft.com/en-us/linkedin/marketing/
-maintenance_status: unknown
 keywords:
 - api
+label: LinkedIn Ads
+logo_url: /assets/logos/extractors/linkedin-ads.png
+maintenance_status: unknown
+name: tap-linkedin-ads
+namespace: tap_linkedin_ads
+pip_url: git+https://github.com/bytecodeio/tap-linkedin-ads.git
+repo: https://github.com/bytecodeio/tap-linkedin-ads
+settings: []
+variant: bytecodeio

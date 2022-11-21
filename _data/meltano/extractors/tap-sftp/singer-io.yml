@@ -1,11 +1,52 @@
+capabilities:
+- catalog
+- discover
+- state
 description: File Transfer Protocl
+domain_url: https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol
+keywords:
+- file
 label: SFTP
-name: tap-sftp
 logo_url: /assets/logos/extractors/sftp.png
+maintenance_status: unknown
+name: tap-sftp
 namespace: tap_sftp
-variant: singer-io
 pip_url: tap-sftp
 repo: https://github.com/singer-io/tap-sftp
+settings:
+- description: The SFTP server hostname.
+  label: Host
+  name: host
+- description: The SFTP server port.
+  kind: integer
+  label: Port
+  name: port
+- description: The username for connecting the the SFTP server.
+  label: Username
+  name: username
+- description: The pass for connecting the the SFTP server.
+  kind: password
+  label: Password
+  name: password
+- description: A path to the private key file for connecting the the SFTP server.
+  label: Private Key File
+  name: private_key_file
+- description: An array that consists of one or more objects that describe how to
+    find files and emit records. Required in each table object - `table_name`, `search_pattern`,`search_prefix`,
+    `key_properties`, `delimiter`.
+  kind: array
+  label: Tables
+  name: tables
+- description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: The SFTP connection timeout in seconds. Defaults to 300.
+  kind: integer
+  label: Request Timeout
+  name: request_timeout
 settings_group_validation:
 - - username
   - port
@@ -14,45 +55,4 @@ settings_group_validation:
   - tables
   - start_date
   - username
-settings:
-- name: host
-  label: Host
-  description: The SFTP server hostname.
-- name: port
-  kind: integer
-  label: Port
-  description: The SFTP server port.
-- name: username
-  label: Username
-  description: The username for connecting the the SFTP server.
-- name: password
-  kind: password
-  label: Password
-  description: The pass for connecting the the SFTP server.
-- name: private_key_file
-  label: Private Key File
-  description: A path to the private key file for connecting the the SFTP server.
-- name: tables
-  kind: array
-  label: Tables
-  description: An array that consists of one or more objects that describe how to
-    find files and emit records. Required in each table object - `table_name`, `search_pattern`,`search_prefix`,
-    `key_properties`, `delimiter`.
-- name: start_date
-  kind: date_iso8601
-  label: Start Date
-  description: Determines how much historical data will be extracted. Please be aware
-    that the larger the time period and amount of data, the longer the initial extraction
-    can be expected to take.
-- name: request_timeout
-  kind: integer
-  label: Request Timeout
-  description: The SFTP connection timeout in seconds. Defaults to 300.
-capabilities:
-- catalog
-- discover
-- state
-domain_url: https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol
-maintenance_status: unknown
-keywords:
-- file
+variant: singer-io

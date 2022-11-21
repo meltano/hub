@@ -1,16 +1,19 @@
-name: tap-adwords
-label: Google Ads
-description: Advertising Platform
-namespace: tap_adwords
-logo_url: /assets/logos/extractors/adwords.png
-variant: meltano
-hidden: true
-repo: https://gitlab.com/meltano/tap-adwords
-pip_url: git+https://gitlab.com/meltano/tap-adwords.git
 capabilities:
 - properties
 - discover
 - state
+description: Advertising Platform
+domain_url: https://developers.google.com/adwords/api/
+hidden: true
+keywords:
+- api
+label: Google Ads
+logo_url: /assets/logos/extractors/adwords.png
+maintenance_status: active
+name: tap-adwords
+namespace: tap_adwords
+pip_url: git+https://gitlab.com/meltano/tap-adwords.git
+repo: https://gitlab.com/meltano/tap-adwords
 select:
 - campaigns.*
 - ad_groups.*
@@ -191,72 +194,58 @@ select:
 - AD_PERFORMANCE_REPORT.videoPlayedTo75
 - AD_PERFORMANCE_REPORT.viewRate
 - AD_PERFORMANCE_REPORT.viewThroughConv
-settings_group_validation:
-- - developer_token
-  - oauth_client_id
-  - oauth_client_secret
-  - refresh_token
-  - user_agent
-  - customer_ids
-  - start_date
 settings:
-- name: developer_token
+- description: Your Developer Token for Google AdWord Application
   kind: password
   label: Developer Token
-  description: Your Developer Token for Google AdWord Application
+  name: developer_token
   placeholder: Ex. *****************
-- name: oauth_client_id
+- description: Your Google OAuth Client ID
   kind: password
   label: OAuth Client ID
-  description: Your Google OAuth Client ID
+  name: oauth_client_id
   placeholder: Ex. 123456789012345.apps.googleusercontent.com
-- name: oauth_client_secret
+- description: Your Google OAuth Client Secret
   kind: password
   label: OAuth Client Secret
-  description: Your Google OAuth Client Secret
+  name: oauth_client_secret
   placeholder: Ex. *****************
-- name: refresh_token
+- description: The Refresh Token generated through the OAuth flow run using your OAuth
+    Client and your Developer Token
   kind: oauth
+  label: Access Token
+  name: refresh_token
   oauth:
     provider: google-adwords
-  label: Access Token
-  description: The Refresh Token generated through the OAuth flow run using your OAuth
-    Client and your Developer Token
   placeholder: Ex. *****************
-- name: customer_ids
+- description: A comma-separated list of Ad Account IDs to replicate data from
   label: Account ID(s)
+  name: customer_ids
   placeholder: Ex. 1234567890,1234567891,1234567892
-  description: A comma-separated list of Ad Account IDs to replicate data from
-- name: start_date
-  kind: date_iso8601
-  description: Determines how much historical data will be extracted. Please be aware
+- description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.
-- name: end_date
   kind: date_iso8601
-  description: Date up to when historical data will be extracted.
-- name: user_agent
-  value: tap-adwords via Meltano
-  label: User Agent for your OAuth Client
-  placeholder: Ex. tap-adwords via Meltano <user@example.com>
-  description: The User Agent for your OAuth Client (used in requests made to the
+  name: start_date
+- description: Date up to when historical data will be extracted.
+  kind: date_iso8601
+  name: end_date
+- description: The User Agent for your OAuth Client (used in requests made to the
     AdWords API)
-- name: conversion_window_days
+  label: User Agent for your OAuth Client
+  name: user_agent
+  placeholder: Ex. tap-adwords via Meltano <user@example.com>
+  value: tap-adwords via Meltano
+- description: How many Days before the Start Date to fetch data for Performance Reports
   kind: integer
-  value: 0
   label: Conversion Window Days
-  description: How many Days before the Start Date to fetch data for Performance Reports
-- name: primary_keys
+  name: conversion_window_days
+  value: 0
+- description: Primary Keys for the selected Entities (Streams)
   kind: object
+  label: Primary Keys
+  name: primary_keys
   value:
-    KEYWORDS_PERFORMANCE_REPORT:
-    - customerID
-    - campaignID
-    - adGroupID
-    - keywordID
-    - day
-    - network
-    - device
     AD_PERFORMANCE_REPORT:
     - customerID
     - campaignID
@@ -265,9 +254,20 @@ settings:
     - day
     - network
     - device
-  label: Primary Keys
-  description: Primary Keys for the selected Entities (Streams)
-domain_url: https://developers.google.com/adwords/api/
-maintenance_status: active
-keywords:
-- api
+    KEYWORDS_PERFORMANCE_REPORT:
+    - customerID
+    - campaignID
+    - adGroupID
+    - keywordID
+    - day
+    - network
+    - device
+settings_group_validation:
+- - developer_token
+  - oauth_client_id
+  - oauth_client_secret
+  - refresh_token
+  - user_agent
+  - customer_ids
+  - start_date
+variant: meltano

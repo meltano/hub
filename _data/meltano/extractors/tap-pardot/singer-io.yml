@@ -1,58 +1,60 @@
-description: B2B Marketing Automation Software
-label: Pardot
-name: tap-pardot
-logo_url: /assets/logos/extractors/pardot.png
-namespace: tap_pardot
-variant: singer-io
-pip_url: tap-pardot
-repo: https://github.com/singer-io/tap-pardot
-settings:
-- name: access_token
-  label: Access Token
-  description: Your access token. See [this helpful article](https://medium.com/@bpmmendis94/obtain-access-refresh-tokens-from-salesforce-rest-api-a324fe4ccd9b)
-    for more details on obtaining keys. When choosing OAuth2 based auth.
-  kind: password
-- name: start_date
-  label: Start Date
-  description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
-    can be expected to take."
-  kind: date_iso8601
-- name: user_key
-  label: User Key
-  description: Your Pardot user key, when choosing user based auth.
-- name: password
-  label: Password
-  description: Your Pardot password, when choosing user based auth.
-  kind: password
-- name: email
-  label: Email
-  description: Your email address, when choosing user based auth.
-- name: pardot_business_unit_id
-  label: Pardot Business Unit Id
-  description: Pardot Business ID, when choosing OAuth2 based auth. Can be found at Setup > Pardot > Pardot Account
-    Setup.
-- name: client_secret
-  label: Client Secret
-  description: The Consumer Secret that can be found when viewing your app in Salesforce, when choosing OAuth2 based auth.
-  kind: password
-- name: client_id
-  label: Client Id
-  description: The Consumer Key that can be found when viewing your app in Salesforce, when choosing OAuth2 based auth.
-  kind: password
-- name: refresh_token
-  label: Refresh Token
-  description: Your refresh token, when choosing OAuth2 based auth. See [this helpful article](https://medium.com/@bpmmendis94/obtain-access-refresh-tokens-from-salesforce-rest-api-a324fe4ccd9b)
-    for more details on obtaining keys.
-  kind: password
 capabilities:
 - catalog
 - discover
 - state
+description: B2B Marketing Automation Software
 domain_url: https://www.pardot.com/
-maintenance_status: active
 keywords:
 - api
+label: Pardot
+logo_url: /assets/logos/extractors/pardot.png
+maintenance_status: active
+name: tap-pardot
+namespace: tap_pardot
+pip_url: tap-pardot
+repo: https://github.com/singer-io/tap-pardot
+settings:
+- description: Your access token. See [this helpful article](https://medium.com/@bpmmendis94/obtain-access-refresh-tokens-from-salesforce-rest-api-a324fe4ccd9b)
+    for more details on obtaining keys. When choosing OAuth2 based auth.
+  kind: password
+  label: Access Token
+  name: access_token
+- description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: Your Pardot user key, when choosing user based auth.
+  label: User Key
+  name: user_key
+- description: Your Pardot password, when choosing user based auth.
+  kind: password
+  label: Password
+  name: password
+- description: Your email address, when choosing user based auth.
+  label: Email
+  name: email
+- description: Pardot Business ID, when choosing OAuth2 based auth. Can be found at
+    Setup > Pardot > Pardot Account Setup.
+  label: Pardot Business Unit Id
+  name: pardot_business_unit_id
+- description: The Consumer Secret that can be found when viewing your app in Salesforce,
+    when choosing OAuth2 based auth.
+  kind: password
+  label: Client Secret
+  name: client_secret
+- description: The Consumer Key that can be found when viewing your app in Salesforce,
+    when choosing OAuth2 based auth.
+  kind: password
+  label: Client Id
+  name: client_id
+- description: Your refresh token, when choosing OAuth2 based auth. See [this helpful
+    article](https://medium.com/@bpmmendis94/obtain-access-refresh-tokens-from-salesforce-rest-api-a324fe4ccd9b)
+    for more details on obtaining keys.
+  kind: password
+  label: Refresh Token
+  name: refresh_token
 settings_group_validation:
 - - start_date
   - refresh_token
@@ -63,3 +65,4 @@ settings_group_validation:
   - email
   - password
   - user_key
+variant: singer-io

@@ -1,48 +1,48 @@
-description: Time Tracking Software
-label: Harvest
-name: tap-harvest
-logo_url: /assets/logos/extractors/harvest.png
-namespace: tap_harvest
-variant: singer-io
-pip_url: tap-harvest
-repo: https://github.com/singer-io/tap-harvest
-settings:
-- name: request_timeout
-  label: Request Timeout
-  description: The request timeout length, default 300.
-  kind: integer
-- name: start_date
-  label: Start Date
-  description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
-    can be expected to take."
-  kind: date_iso8601
-- name: client_id
-  label: Client ID
-  description: Your OAuth client ID.
-  kind: password
-- name: refresh_token
-  label: Refresh Token
-  description: Your OAuth refresh token.
-  kind: password
-- name: user_agent
-  label: User Agent
-  description: The user agent to send with requests.
-- name: client_secret
-  label: Client Secret
-  description: Your OAuth client secret.
-  kind: password
 capabilities:
 - catalog
 - discover
 - state
+description: Time Tracking Software
 domain_url: https://help.getharvest.com/api-v2/
-maintenance_status: active
 keywords:
 - api
+label: Harvest
+logo_url: /assets/logos/extractors/harvest.png
+maintenance_status: active
+name: tap-harvest
+namespace: tap_harvest
+pip_url: tap-harvest
+repo: https://github.com/singer-io/tap-harvest
+settings:
+- description: The request timeout length, default 300.
+  kind: integer
+  label: Request Timeout
+  name: request_timeout
+- description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: Your OAuth client ID.
+  kind: password
+  label: Client ID
+  name: client_id
+- description: Your OAuth refresh token.
+  kind: password
+  label: Refresh Token
+  name: refresh_token
+- description: The user agent to send with requests.
+  label: User Agent
+  name: user_agent
+- description: Your OAuth client secret.
+  kind: password
+  label: Client Secret
+  name: client_secret
 settings_group_validation:
 - - start_date
   - client_id
   - refresh_token
   - user_agent
   - client_secret
+variant: singer-io
