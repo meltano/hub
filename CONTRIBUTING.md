@@ -48,6 +48,18 @@ This will run the linters on all files that are staged for commit. Included lint
 
 - [yamlllint](https://yamllint.readthedocs.io/en/stable/)
 
+Theres a utility script that makes a best effort to help reformat yaml files to conform to the
+yamllint rules.
+To use the script run:
+
+```bash
+# Run on a single file
+poetry run python utility_scripts/plugin_definitions/yaml_lint_fix.py _data/meltano/extractors/tap-3plcentral/bytecodeio.yml
+
+# Run on all .yml files in the `_data/` directory including subdirectories
+poetry run python utility_scripts/plugin_definitions/yaml_lint_fix.py
+```
+
 ## Build and serve the project
 
 Build for development and get live updates as files are changed:

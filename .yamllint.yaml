@@ -12,5 +12,6 @@ rules:
     indent-sequences: false
     spaces: 2
   key-ordering: enable
-  line-length:
-    max: 160
+  line-length: disable
+      # max: 160
+  trailing-spaces: disable
