@@ -16,7 +16,7 @@ settings:
 - name: connection_string
   label: Connection String
   description: Connection string in the format mongodb://[${MONGO_USERNAME:${MONGO_PASSWORD}@]mongodb0.example.com:PORT
-  kind: string
+  kind: password
 - name: db_name
   label: DB Name
   description: Name of the target db inside your mongoDB
