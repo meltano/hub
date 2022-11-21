@@ -44,7 +44,7 @@ settings:
 - description: |-
     [Configuration for the `nbconvert` exporter](https://nbconvert.readthedocs.io/en/latest/config_options.html#exporter-options) specified by `format` as a preset or raw JSON string.
 
-    [More information on configuration and available presets](https://github.com/Matatika/utility-notebook#supported-converting-formats) 
+    [More information on configuration and available presets](https://github.com/Matatika/utility-notebook#supported-converting-formats)
   label: Configuration
   name: config
   value: '""'

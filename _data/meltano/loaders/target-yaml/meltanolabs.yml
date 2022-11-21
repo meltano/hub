@@ -55,9 +55,9 @@ settings:
 - description: |
     Determines the overwrite behavior if destination file already exists.
     Must be one of the following string values:
-      - `append_records` (default): append records at the insertion point 
-      - `replace_records`: replace all records at the insertion point 
-      - `replace_file`: replace entire file using `default_yaml_template` 
+      - `append_records` (default): append records at the insertion point
+      - `replace_records`: replace all records at the insertion point
+      - `replace_file`: replace entire file using `default_yaml_template`
   label: Overwrite Behavior
   name: overwrite_behavior
 - description: Text string to use for a yaml template file. This text will be used

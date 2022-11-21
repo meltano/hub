@@ -62,7 +62,7 @@ next_steps: |
     ```
 
     This is equivalent to `superset load_examples` in the Superset documentation
-    
+
     **Note that you need a user named `admin` with the admin permissions to load these examples.**
 
   4. Launch the Superset UI and log in using the username/password you created:
@@ -146,7 +146,7 @@ usage: |
 
   ### Invalid decryption key
 
-  If you see a `ValueError: Invalid decryption key` warning or a message that `Superset default roles and permissions could not be created: 'superset init' failed` then it's likely that your encryption key is incorrect. 
+  If you see a `ValueError: Invalid decryption key` warning or a message that `Superset default roles and permissions could not be created: 'superset init' failed` then it's likely that your encryption key is incorrect.
 
   If you change your [`SECRET_KEY`](#secret-key), the metadata database containing your users and reports will become unreadable. If there was nothing valuable in there, you can delete it at `.meltano/utilities/superset/superset.db` inside your project. If you changed the secret key because the old one was leaked, you can [rotate the key](https://superset.apache.org/docs/installation/configuring-superset/#secret_key-rotation):
 
