@@ -416,6 +416,7 @@ loaders:
   target-kinesis: prontopro
   target-magentobi: singer-io
   target-miso: misoai
+  target-mongodb: hotgluexyz
   target-mssql: storebrand
   target-pardot: anelendata
   target-parquet: estrategiahq
