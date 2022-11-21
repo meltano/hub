@@ -1,16 +1,16 @@
-description: Customer Engagement Tool
-label: UserVoice
-name: tap-uservoice
-logo_url: /assets/logos/extractors/uservoice.png
-namespace: tap_uservoice
-variant: dbt-labs
-pip_url: git+https://github.com/dbt-labs/tap-uservoice.git
-repo: https://github.com/dbt-labs/tap-uservoice
-settings: []
 capabilities:
 - catalog
 - discover
+description: Customer Engagement Tool
 domain_url: https://www.uservoice.com/
-maintenance_status: unknown
 keywords:
 - api
+label: UserVoice
+logo_url: /assets/logos/extractors/uservoice.png
+maintenance_status: unknown
+name: tap-uservoice
+namespace: tap_uservoice
+pip_url: git+https://github.com/dbt-labs/tap-uservoice.git
+repo: https://github.com/dbt-labs/tap-uservoice
+settings: []
+variant: dbt-labs

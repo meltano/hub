@@ -1,10 +1,10 @@
-name: files-dbt-duckdb
-label: dbt DuckDB
-domain_url: https://www.getdbt.com/
-namespace: files_dbt_duckdb
-repo: https://github.com/meltano/files-dbt-duckdb
-pip_url: git+https://github.com/meltano/files-dbt-duckdb
-variant: meltano
-logo_url: /assets/logos/files/dbt-duckdb.png
 definition: are bundled with the dbt-duckdb transformer.
+domain_url: https://www.getdbt.com/
+label: dbt DuckDB
+logo_url: /assets/logos/files/dbt-duckdb.png
 maintenance_status: active
+name: files-dbt-duckdb
+namespace: files_dbt_duckdb
+pip_url: git+https://github.com/meltano/files-dbt-duckdb
+repo: https://github.com/meltano/files-dbt-duckdb
+variant: meltano

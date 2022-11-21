@@ -1,16 +1,16 @@
-description: Order Data from Ebay Fulfillment
-label: eBay
-name: tap-ebay
-logo_url: /assets/logos/extractors/ebay.png
-namespace: tap_ebay
-variant: dbt-labs
-pip_url: git+https://github.com/dbt-labs/tap-ebay.git
-repo: https://github.com/dbt-labs/tap-ebay
-settings: []
 capabilities:
 - catalog
 - discover
+description: Order Data from Ebay Fulfillment
 domain_url: https://www.ebay.com/
-maintenance_status: unknown
 keywords:
 - api
+label: eBay
+logo_url: /assets/logos/extractors/ebay.png
+maintenance_status: unknown
+name: tap-ebay
+namespace: tap_ebay
+pip_url: git+https://github.com/dbt-labs/tap-ebay.git
+repo: https://github.com/dbt-labs/tap-ebay
+settings: []
+variant: dbt-labs

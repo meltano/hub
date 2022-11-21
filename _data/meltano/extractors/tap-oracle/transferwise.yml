@@ -1,48 +1,48 @@
+capabilities:
+- catalog
+- discover
+- state
 description: Cloud Database
+domain_url: https://www.oracle.com/database/
+keywords:
+- database
 label: Oracle DB
-name: tap-oracle
 logo_url: /assets/logos/extractors/oracle.png
+maintenance_status: unknown
+name: tap-oracle
 namespace: tap_oracle
-variant: transferwise
 pip_url: pipelinewise-tap-oracle
 repo: https://github.com/transferwise/pipelinewise-tap-oracle
+settings:
+- description: Your Oracle SID.
+  label: SID
+  name: sid
+- description: Your Oracle host.
+  label: Host
+  name: host
+- description: Your Oracle port.
+  label: Port
+  name: port
+- description: Your Oracle user.
+  label: User
+  name: user
+- description: Your Oracle password.
+  kind: password
+  label: Password
+  name: password
+- description: The default replication method to use if one is not automatically set
+    on the stream. Options - 'LOG_BASED', 'FULL_TABLE', 'INCREMENTAL'.
+  label: Default Replication Method
+  name: default_replication_method
+- description: A comma separated list of schema names to scan. Used to improve the
+    performance of data extraction.
+  label: Filter Schemas
+  name: filter_schemas
+  placeholder: SCHEMA1,SCHEMA2
 settings_group_validation:
 - - sid
   - host
   - port
   - user
   - password
-settings:
-- name: sid
-  label: SID
-  description: Your Oracle SID.
-- name: host
-  label: Host
-  description: Your Oracle host.
-- name: port
-  label: Port
-  description: Your Oracle port.
-- name: user
-  label: User
-  description: Your Oracle user.
-- name: password
-  kind: password
-  label: Password
-  description: Your Oracle password.
-- name: default_replication_method
-  label: Default Replication Method
-  description: The default replication method to use if one is not automatically set
-    on the stream. Options - 'LOG_BASED', 'FULL_TABLE', 'INCREMENTAL'.
-- name: filter_schemas
-  label: Filter Schemas
-  description: A comma separated list of schema names to scan. Used to improve the
-    performance of data extraction.
-  placeholder: SCHEMA1,SCHEMA2
-capabilities:
-- catalog
-- discover
-- state
-domain_url: https://www.oracle.com/database/
-maintenance_status: unknown
-keywords:
-- database
+variant: transferwise

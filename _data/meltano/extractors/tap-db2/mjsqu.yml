@@ -1,7 +1,3 @@
-name: tap-db2
-variant: mjsqu
-label: IBM DB2
-logo_url: /assets/logos/extractors/db2.png
 capabilities:
 - catalog
 - discover
@@ -10,48 +6,51 @@ description: IBM DB2 Relational Database
 domain_url: https://www.ibm.com/products/db2
 keywords:
 - database
+label: IBM DB2
+logo_url: /assets/logos/extractors/db2.png
 maintenance_status: active
+name: tap-db2
 namespace: tap_db2
 next_steps: ''
 pip_url: git+https://github.com/mjsqu/tap-db2.git
 repo: https://github.com/mjsqu/tap-db2
 settings:
-- name: database
+- description: The database name.
   label: Database
-  description: The database name.
-- name: port
-  label: Port
-  description: The database port.
+  name: database
+- description: The database port.
   kind: integer
-- name: offset_value
-  label: Offset Value
-  description: The offset to use for querying data. Only needed for development and
+  label: Port
+  name: port
+- description: The offset to use for querying data. Only needed for development and
     edge cases. The state bookmarks usually keep track of this.
   kind: integer
-- name: use_date_datatype
-  label: Use Date Datatype
-  description: Whether to add date format to the schema when date strings are provided.
+  label: Offset Value
+  name: offset_value
+- description: Whether to add date format to the schema when date strings are provided.
     Default False.
   kind: boolean
-- name: hostname
+  label: Use Date Datatype
+  name: use_date_datatype
+- description: Your DB2 hostname.
   label: Hostname
-  description: Your DB2 hostname.
-- name: username
+  name: hostname
+- description: Your DB2 username.
   label: Username
-  description: Your DB2 username.
-- name: password
-  label: Password
-  description: Your DB2 password.
+  name: username
+- description: Your DB2 password.
   kind: password
-- name: use_singer_decimal
-  label: Use Singer Decimal
-  description: Whether to add decimal format to the schema when decimal strings are
+  label: Password
+  name: password
+- description: Whether to add decimal format to the schema when decimal strings are
     provided. Default False.
   kind: boolean
-- name: cursor_array_size
-  label: Cursor Array Size
-  description: The size of the cursor to use when querying data. Default 1.
+  label: Use Singer Decimal
+  name: use_singer_decimal
+- description: The size of the cursor to use when querying data. Default 1.
   kind: integer
+  label: Cursor Array Size
+  name: cursor_array_size
 settings_group_validation:
 - - database
   - port
@@ -60,3 +59,4 @@ settings_group_validation:
   - password
 settings_preamble: ''
 usage: ''
+variant: mjsqu

@@ -1,7 +1,3 @@
-name: tap-trustrace
-variant: icebug
-label: TrusTrace
-logo_url: /assets/logos/extractors/trustrace.png
 capabilities:
 - catalog
 - state
@@ -11,17 +7,21 @@ capabilities:
 domain_url: https://trustrace.com/
 keywords:
 - meltano_sdk
+label: TrusTrace
+logo_url: /assets/logos/extractors/trustrace.png
 maintenance_status: active
+name: tap-trustrace
 namespace: tap_trustrace
 next_steps: ''
 pip_url: git+https://github.com/icebug/tap-trustrace.git
 repo: https://github.com/icebug/tap-trustrace
 settings:
-- name: api_key
-  label: Api Key
-  description: The token to authenticate against the API service
+- description: The token to authenticate against the API service
   kind: password
+  label: Api Key
+  name: api_key
 settings_group_validation:
 - - api_key
 settings_preamble: ''
 usage: ''
+variant: icebug

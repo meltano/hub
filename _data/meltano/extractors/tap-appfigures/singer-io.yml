@@ -1,39 +1,39 @@
+capabilities:
+- catalog
+- discover
+- state
 description: Reporting platform for mobile app developers
+domain_url: https://appfigures.com/
+keywords:
+- api
 label: AppFigures
-name: tap-appfigures
 logo_url: /assets/logos/extractors/appfigures.png
+maintenance_status: inactive
+name: tap-appfigures
 namespace: tap_appfigures
-variant: singer-io
 pip_url: git+https://github.com/singer-io/tap-appfigures.git
 repo: https://github.com/singer-io/tap-appfigures
+settings:
+- description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: Your Appfigures username.
+  label: Username
+  name: username
+- description: Your Appfigures password.
+  kind: password
+  label: Password
+  name: password
+- description: Your Appfigures API key.
+  kind: password
+  label: API Key
+  name: api_key
 settings_group_validation:
 - - start_date
   - username
   - password
   - api_key
-settings:
-- name: start_date
-  kind: date_iso8601
-  label: Start Date
-  description: Determines how much historical data will be extracted. Please be aware
-    that the larger the time period and amount of data, the longer the initial extraction
-    can be expected to take.
-- name: username
-  label: Username
-  description: Your Appfigures username.
-- name: password
-  kind: password
-  label: Password
-  description: Your Appfigures password.
-- name: api_key
-  kind: password
-  label: API Key
-  description: Your Appfigures API key. 
-capabilities:
-- catalog
-- discover
-- state
-domain_url: https://appfigures.com/
-maintenance_status: inactive
-keywords:
-- api
+variant: singer-io

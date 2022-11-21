@@ -1,17 +1,17 @@
-description: Financial and Merchant Services
-label: Square
-name: tap-square
-logo_url: /assets/logos/extractors/square.png
-namespace: tap_square
-variant: pk-sakthivel
-pip_url: git+https://github.com/pk-sakthivel/tap-square.git
-repo: https://github.com/pk-sakthivel/tap-square
-settings: []
-hidden: true
 capabilities:
 - catalog
 - discover
+description: Financial and Merchant Services
 domain_url: https://developer.squareup.com/us/en
-maintenance_status: unknown
+hidden: true
 keywords:
 - api
+label: Square
+logo_url: /assets/logos/extractors/square.png
+maintenance_status: unknown
+name: tap-square
+namespace: tap_square
+pip_url: git+https://github.com/pk-sakthivel/tap-square.git
+repo: https://github.com/pk-sakthivel/tap-square
+settings: []
+variant: pk-sakthivel

@@ -1,61 +1,61 @@
+capabilities:
+- catalog
+- discover
+- state
 description: Microsoft SQL Server
+domain_url: https://www.microsoft.com/en-us/sql-server/sql-server-2019
+keywords:
+- database
 label: Microsoft SQL Server
-name: tap-mssql
 logo_url: /assets/logos/extractors/mssql.png
+maintenance_status: active
+name: tap-mssql
 namespace: tap_mssql
-variant: wintersrd
 pip_url: tap-mssql
 repo: https://github.com/wintersrd/pipelinewise-tap-mssql
+settings:
+- description: Your MSSQL server host.
+  label: Host
+  name: host
+- description: Your MSSQL database name.
+  label: Database
+  name: database
+- description: Your MSSQL username.
+  label: User
+  name: user
+- description: Your MSSQL password.
+  kind: password
+  label: Password
+  name: password
+- description: A comma separated list of databases to filter for.
+  label: Filter Databases
+  name: filter_dbs
+- description: The MSSQL port, defaulted to 1433.
+  label: Port
+  name: port
+- description: |
+    The TDS version of the connection. Defaults to 7.3, connecting to older
+    databases (ex MS SQL 2005) requires 7.0 or earlier. Please see the pymssql or FreeTSD documentation for more details.
+    Also note, while this is a confusing topic version 7.3 is more current than 8.0.
+  label: TDS Version
+  name: tds_version
+- description: |
+    To emit a date datatype as a date without a time component or time without an UTC offset.
+    If this boolean config item is not set, the default behaviour is false i.e. emit date datatypes as a datetime.
+    It is recommended to set this on if you have time datatypes and are having issues uploading into into a target database.
+  kind: boolean
+  label: Use Date Datatype
+  name: use_date_datatype
+  value: false
+- description: |
+    The characterset for the database / source system. The default is utf8, however older databases might use a charactersets like cp1252 for the encoding.
+    If you have errors with a UnicodeDecodeError: 'utf-8' codec can't decode byte .... then a solution is to examine the characterset of the source database / system
+    and make an appropriate substitution for utf8 like cp1252.
+  label: Characterset
+  name: characterset
 settings_group_validation:
 - - host
   - database
   - user
   - password
-settings:
-- name: host
-  label: Host
-  description: Your MSSQL server host.
-- name: database
-  label: Database
-  description: Your MSSQL database name.
-- name: user
-  label: User
-  description: Your MSSQL username.
-- name: password
-  kind: password
-  label: Password
-  description: Your MSSQL password.
-- name: filter_dbs
-  label: Filter Databases
-  description: A comma separated list of databases to filter for.
-- name: port
-  label: Port
-  description: The MSSQL port, defaulted to 1433.
-- name: tds_version
-  label: TDS Version
-  description: |
-    The TDS version of the connection. Defaults to 7.3, connecting to older
-    databases (ex MS SQL 2005) requires 7.0 or earlier. Please see the pymssql or FreeTSD documentation for more details.
-    Also note, while this is a confusing topic version 7.3 is more current than 8.0.
-- name: use_date_datatype
-  kind: boolean
-  value: false
-  label: Use Date Datatype
-  description: |
-    To emit a date datatype as a date without a time component or time without an UTC offset.
-    If this boolean config item is not set, the default behaviour is false i.e. emit date datatypes as a datetime.
-    It is recommended to set this on if you have time datatypes and are having issues uploading into into a target database.
-- name: characterset
-  label: Characterset
-  description: |
-    The characterset for the database / source system. The default is utf8, however older databases might use a charactersets like cp1252 for the encoding.
-    If you have errors with a UnicodeDecodeError: 'utf-8' codec can't decode byte .... then a solution is to examine the characterset of the source database / system
-    and make an appropriate substitution for utf8 like cp1252.
-capabilities:
-- catalog
-- discover
-- state
-domain_url: https://www.microsoft.com/en-us/sql-server/sql-server-2019
-maintenance_status: active
-keywords:
-- database
+variant: wintersrd

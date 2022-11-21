@@ -1,30 +1,30 @@
-description: Work operating platform for projects and workflows
-label: Monday.com
-name: tap-monday
-logo_url: /assets/logos/extractors/monday.png
-namespace: tap_monday
-variant: gthesheep
-pip_url: git+https://github.com/gthesheep/tap-monday.git
-repo: https://github.com/gthesheep/tap-monday
 capabilities:
 - catalog
 - discover
 - state
 - about
 - stream-maps
-settings_group_validation:
-- - auth_token
-  - board_limit
-settings:
-- name: auth_token
-  label: API Token
-  kind: password
-  description: API Token gained from Monday.com authorisation process
-- name: board_limit
-  label: Board Limit
-  description: Number of boards to retrieve per page
+description: Work operating platform for projects and workflows
 domain_url: https://api.developer.monday.com/docs
-maintenance_status: active
 keywords:
 - api
 - meltano_sdk
+label: Monday.com
+logo_url: /assets/logos/extractors/monday.png
+maintenance_status: active
+name: tap-monday
+namespace: tap_monday
+pip_url: git+https://github.com/gthesheep/tap-monday.git
+repo: https://github.com/gthesheep/tap-monday
+settings:
+- description: API Token gained from Monday.com authorisation process
+  kind: password
+  label: API Token
+  name: auth_token
+- description: Number of boards to retrieve per page
+  label: Board Limit
+  name: board_limit
+settings_group_validation:
+- - auth_token
+  - board_limit
+variant: gthesheep

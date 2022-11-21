@@ -1,35 +1,29 @@
-name: metabase
-namespace: metabase
-domain_url: https://www.metabase.com/
-label: Metabase
-description: Metabase is the easy, open-source way for everyone in your company to ask questions and learn from data.
-docs: https://www.metabase.com/
-repo: https://github.com/metabase/metabase
-maintenance_status: active
-variant: metabase
-settings: []
 commands:
   ui:
     args: metabase
     container_spec:
-      image: metabase/metabase:latest
       env:
-        PWD: /
         HOME: /root
-        MB_DB_FILE: /metabase-data/metabase.db
         JAVA_HOME: /opt/java/openjdk
+        MB_DB_FILE: /metabase-data/metabase.db
         PATH: /opt/java/openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+        PWD: /
+      image: metabase/metabase:latest
       ports:
         "3000": "3000/tcp"
       volumes:
       - "$MELTANO_PROJECT_ROOT/.meltano/utilities/metabase/data/:/metabase-data"
-logo_url: /assets/logos/utilities/metabase.png
+description: Metabase is the easy, open-source way for everyone in your company to
+  ask questions and learn from data.
+docs: https://www.metabase.com/
+domain_url: https://www.metabase.com/
 keywords:
 - analysis
-prereq: |
-  #### Dependencies
-
-  Metabase is packaged as a Docker image so you must have Docker installed before running the plugin.
+label: Metabase
+logo_url: /assets/logos/utilities/metabase.png
+maintenance_status: active
+name: metabase
+namespace: metabase
 next_steps: |
   1. Launch Metabase UI:
 
@@ -38,3 +32,10 @@ next_steps: |
      ```
 
      By default, the UI will be available at at [`http://localhost:3000`](http://localhost:3000).
+prereq: |
+  #### Dependencies
+
+  Metabase is packaged as a Docker image so you must have Docker installed before running the plugin.
+repo: https://github.com/metabase/metabase
+settings: []
+variant: metabase

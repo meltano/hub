@@ -1,15 +1,19 @@
-name: tap-slack
-label: Slack
-description: Team communication tool
-namespace: tap_slack
-logo_url: /assets/logos/extractors/slack.png
-variant: meltanolabs
 capabilities:
 - catalog
 - state
 - discover
 - about
 - stream-maps
+description: Team communication tool
+domain_url:
+keywords:
+- meltano_sdk
+label: Slack
+logo_url: /assets/logos/extractors/slack.png
+maintenance_status: active
+name: tap-slack
+namespace: tap_slack
+pip_url: git+https://github.com/MeltanoLabs/tap-slack.git
 prereq: |
   #### Creating the Tap-Slack App
 
@@ -50,12 +54,13 @@ prereq: |
   ```bash
   curl -X GET -H 'Authorization: Bearer <Your Token>' https://slack.com/api/conversations.list?exclude_archived=False
   ```
-
+repo: https://github.com/MeltanoLabs/tap-slack
 settings:
-- kind: password
+- description: Your Slack App API key. See the Prerequisites section above for more
+    details on obtaining it.
+  kind: password
   label: API Key
   name: api_key
-  description: Your Slack App API key. See the Prerequisites section above for more details on obtaining it.
 - description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.
@@ -67,10 +72,10 @@ settings:
   kind: integer
   label: Thread Lookback Days
   name: thread_lookback_days
-- description: An array of the types of conversations the tap will attempt to extract data from.
-    Must be one of 'public_channel', 'mpim', 'private_channel', or 'im'. Note that
-    the Slack app must have the appropriate privileges and be a member of the conversations
-    to sync messages.
+- description: An array of the types of conversations the tap will attempt to extract
+    data from. Must be one of 'public_channel', 'mpim', 'private_channel', or 'im'.
+    Note that the Slack app must have the appropriate privileges and be a member of
+    the conversations to sync messages.
   kind: array
   label: Channel Types
   name: channel_types
@@ -92,9 +97,4 @@ settings:
   name: excluded_channels
 settings_group_validation:
 - - api_key
-pip_url: git+https://github.com/MeltanoLabs/tap-slack.git
-repo: https://github.com/MeltanoLabs/tap-slack
-domain_url:
-maintenance_status: active
-keywords:
-- meltano_sdk
+variant: meltanolabs

@@ -1,17 +1,17 @@
-description: Data Quality Service
-label: Typo
-name: tap-typo
-logo_url: /assets/logos/extractors/typo.png
-namespace: tap_typo
-variant: typo-ai
-pip_url: git+https://github.com/typo-ai/tap-typo.git
-repo: https://github.com/typo-ai/tap-typo
-settings: []
 capabilities:
 - catalog
 - discover
 - state
+description: Data Quality Service
 domain_url: https://www.typo.ai/
-maintenance_status: unknown
 keywords:
 - api
+label: Typo
+logo_url: /assets/logos/extractors/typo.png
+maintenance_status: unknown
+name: tap-typo
+namespace: tap_typo
+pip_url: git+https://github.com/typo-ai/tap-typo.git
+repo: https://github.com/typo-ai/tap-typo
+settings: []
+variant: typo-ai

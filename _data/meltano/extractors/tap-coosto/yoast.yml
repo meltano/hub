@@ -1,17 +1,17 @@
-description: Social Media Management Platform
-label: Coosto
-name: tap-coosto
-logo_url: /assets/logos/extractors/coosto.png
-namespace: tap_coosto
-variant: yoast
-pip_url: git+https://github.com/Yoast/singer-tap-coosto.git
-repo: https://github.com/Yoast/singer-tap-coosto
-settings: []
 capabilities:
 - catalog
 - discover
 - state
+description: Social Media Management Platform
 domain_url: https://www.coosto.com/en
-maintenance_status: unknown
 keywords:
 - api
+label: Coosto
+logo_url: /assets/logos/extractors/coosto.png
+maintenance_status: unknown
+name: tap-coosto
+namespace: tap_coosto
+pip_url: git+https://github.com/Yoast/singer-tap-coosto.git
+repo: https://github.com/Yoast/singer-tap-coosto
+settings: []
+variant: yoast

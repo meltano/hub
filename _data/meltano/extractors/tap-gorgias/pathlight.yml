@@ -1,16 +1,16 @@
-description: Ecommerce Helpdesk
-label: Gorgias
-name: tap-gorgias
-logo_url: /assets/logos/extractors/gorgias.png
-namespace: tap_gorgias
-variant: pathlight
-pip_url: git+https://github.com/Pathlight/tap-gorgias.git
-repo: https://github.com/Pathlight/tap-gorgias
-settings: []
 capabilities:
 - catalog
 - discover
+description: Ecommerce Helpdesk
 domain_url: https://developers.gorgias.com/reference
-maintenance_status: unknown
 keywords:
 - api
+label: Gorgias
+logo_url: /assets/logos/extractors/gorgias.png
+maintenance_status: unknown
+name: tap-gorgias
+namespace: tap_gorgias
+pip_url: git+https://github.com/Pathlight/tap-gorgias.git
+repo: https://github.com/Pathlight/tap-gorgias
+settings: []
+variant: pathlight

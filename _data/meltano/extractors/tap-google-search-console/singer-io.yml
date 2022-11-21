@@ -1,45 +1,45 @@
+capabilities:
+- catalog
+- discover
+- state
 description: Search platform
+domain_url: https://developers.google.com/webmaster-tools/search-console-api-original/v3/how-tos/search_analytics
+keywords:
+- api
 label: Google Search Console
-name: tap-google-search-console
 logo_url: /assets/logos/extractors/google-search-console.png
+maintenance_status: active
+name: tap-google-search-console
 namespace: tap_google_search_console
-variant: singer-io
 pip_url: tap-google-search-console
 repo: https://github.com/singer-io/tap-google-search-console
 settings:
-- name: refresh_token
+- description: Your refresh token.
+  kind: password
   label: Refresh Token
-  description: Your refresh token.
+  name: refresh_token
+- description: Your client secret.
   kind: password
-- name: client_secret
   label: Client Secret
-  description: Your client secret.
-  kind: password
-- name: request_timeout
-  label: Request Timeout
-  description: The request timeout.
+  name: client_secret
+- description: The request timeout.
   kind: integer
-- name: site_urls
-  label: Site URLs
-  description: The website URL properties in a comma delimited list; do not include
+  label: Request Timeout
+  name: request_timeout
+- description: The website URL properties in a comma delimited list; do not include
     the domain-level property in the list.
-- name: client_id
-  label: Client ID
-  description: Your client ID.
+  label: Site URLs
+  name: site_urls
+- description: Your client ID.
   kind: password
-- name: user_agent
+  label: Client ID
+  name: client_id
+- description: The user agent to send along with the API requests.
   label: User Agent
-  description: The user agent to send along with the API requests.
+  name: user_agent
 settings_group_validation:
 - - refresh_token
   - client_secret
   - client_id
   - user_agent
-capabilities:
-- catalog
-- discover
-- state
-domain_url: https://developers.google.com/webmaster-tools/search-console-api-original/v3/how-tos/search_analytics
-maintenance_status: active
-keywords:
-- api
+variant: singer-io

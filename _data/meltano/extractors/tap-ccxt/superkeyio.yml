@@ -1,25 +1,25 @@
-name: tap-ccxt
-variant: superkeyio
-label: CCXT
-logo_url: /assets/logos/extractors/ccxt.png
 capabilities:
 - catalog
 - discover
 - state
 domain_url: ''
 keywords: []
+label: CCXT
+logo_url: /assets/logos/extractors/ccxt.png
 maintenance_status: active
+name: tap-ccxt
 namespace: tap_ccxt
 next_steps: ''
 pip_url: git+https://github.com/superkeyio/tap-ccxt.git
 repo: https://github.com/superkeyio/tap-ccxt
 settings:
-- name: exchanges
-  label: Exchanges
-  description: An array of objects containing - `id` and `pairs` see an example in
+- description: An array of objects containing - `id` and `pairs` see an example in
     https://github.com/superkeyio/tap-ccxt/blob/master/examples/config.json.
   kind: array
+  label: Exchanges
+  name: exchanges
 settings_group_validation:
 - - exchanges
 settings_preamble: ''
 usage: ''
+variant: superkeyio

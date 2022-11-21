@@ -1,17 +1,17 @@
-description: On-Demand Staffing Solution
-label: Wonolo
-name: tap-wonolo
-logo_url: /assets/logos/extractors/wonolo.png
-namespace: tap_wonolo
-variant: goodeggs
-pip_url: git+https://github.com/goodeggs/tap-wonolo.git
-repo: https://github.com/goodeggs/tap-wonolo
-settings: []
 capabilities:
 - catalog
 - discover
 - state
+description: On-Demand Staffing Solution
 domain_url: https://wonolo.readme.io/docs/getting-started
-maintenance_status: unknown
 keywords:
 - api
+label: Wonolo
+logo_url: /assets/logos/extractors/wonolo.png
+maintenance_status: unknown
+name: tap-wonolo
+namespace: tap_wonolo
+pip_url: git+https://github.com/goodeggs/tap-wonolo.git
+repo: https://github.com/goodeggs/tap-wonolo
+settings: []
+variant: goodeggs

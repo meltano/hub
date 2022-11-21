@@ -1,17 +1,17 @@
-description: Time Management Software
-label: Timebutler
-name: tap-timebutler
-logo_url: /assets/logos/extractors/timebutler.png
-namespace: tap_timebutler
-variant: taikonauten
-pip_url: git+https://github.com/taikonauten/tap-timebutler.git
-repo: https://github.com/taikonauten/tap-timebutler
-settings: []
 capabilities:
 - catalog
 - discover
 - state
+description: Time Management Software
 domain_url: https://timebutler.de/
-maintenance_status: unknown
 keywords:
 - api
+label: Timebutler
+logo_url: /assets/logos/extractors/timebutler.png
+maintenance_status: unknown
+name: tap-timebutler
+namespace: tap_timebutler
+pip_url: git+https://github.com/taikonauten/tap-timebutler.git
+repo: https://github.com/taikonauten/tap-timebutler
+settings: []
+variant: taikonauten

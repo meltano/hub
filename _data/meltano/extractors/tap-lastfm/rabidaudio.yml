@@ -1,7 +1,3 @@
-name: tap-lastfm
-variant: rabidaudio
-label: Last.fm
-logo_url: /assets/logos/extractors/lastfm.png
 capabilities:
 - catalog
 - state
@@ -13,51 +9,55 @@ description: Play music, find songs, and discover artists
 domain_url: https://www.last.fm/
 keywords:
 - meltano_sdk
+label: Last.fm
+logo_url: /assets/logos/extractors/lastfm.png
 maintenance_status: active
+name: tap-lastfm
 namespace: tap_lastfm
 next_steps: ''
 pip_url: git+https://github.com/rabidaudio/tap-lastfm.git
 repo: https://github.com/rabidaudio/tap-lastfm
 settings:
-- name: api_key
-  label: Api Key
-  description: The API key to authenticate against the API service
+- description: The API key to authenticate against the API service
   kind: password
-- name: usernames
-  label: Usernames
-  description: The usernames of users to fetch scrobble data for
+  label: Api Key
+  name: api_key
+- description: The usernames of users to fetch scrobble data for
   kind: array
-- name: user_agent
+  label: Usernames
+  name: usernames
+- description: Passed to the API to identify the tool requesting data
   label: User Agent
-  description: Passed to the API to identify the tool requesting data
-- name: start_date
-  label: Start Date
-  description: "Determines how much historical data will be extracted. Please be aware\n\
+  name: user_agent
+- description: "Determines how much historical data will be extracted. Please be aware\n\
     that the larger the time period and amount of data, the longer the initial extraction\n\
     can be expected to take."
-- name: step_days
-  label: Step Days
-  description: The number of days to scan through before emitting state
+  label: Start Date
+  name: start_date
+- description: The number of days to scan through before emitting state
   kind: integer
-- name: stream_maps
+  label: Step Days
+  name: step_days
+- description: Config object for stream maps capability.
+  kind: object
   label: Stream Maps
-  description: Config object for stream maps capability.
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
   kind: object
-- name: stream_map_config
   label: Stream Map Config
-  description: User-defined config values to be used within map expressions.
-  kind: object
-- name: flattening_enabled
-  label: Flattening Enabled
-  description: "'True' to enable schema flattening and automatically expand nested\
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
     \ properties."
   kind: boolean
-- name: flattening_max_depth
-  label: Flattening Max Depth
-  description: The max depth to flatten schemas.
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
   kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
 settings_group_validation:
 - - api_key
   - usernames
 settings_preamble: ''
 usage: ''
+variant: rabidaudio

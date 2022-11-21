@@ -1,7 +1,3 @@
-name: target-mongodb
-variant: hotgluexyz
-label: MongoDB
-logo_url: /assets/logos/loaders/mongodb.png
 capabilities:
 - about
 description: General purpose, document-based, distributed database.
@@ -9,20 +5,24 @@ domain_url: https://www.mongodb.com/
 keywords:
 - meltano_sdk
 - database
+label: MongoDB
+logo_url: /assets/logos/loaders/mongodb.png
+name: target-mongodb
 namespace: target_mongodb
 pip_url: git+https://gitlab.com/hotglue/target-mongodb.git
 repo: https://gitlab.com/hotglue/target-mongodb
 settings:
-- name: connection_string
-  label: Connection String
-  description: Connection string in the format mongodb://[${MONGO_USERNAME:${MONGO_PASSWORD}@]mongodb0.example.com:PORT
+- description: Connection string in the format mongodb://[${MONGO_USERNAME:${MONGO_PASSWORD}@]mongodb0.example.com:PORT
   kind: password
-- name: db_name
-  label: Database Name
-  description: Name of the target db inside your mongoDB
+  label: Connection String
+  name: connection_string
+- description: Name of the target db inside your mongoDB
   kind: string
+  label: Database Name
+  name: db_name
 settings_group_validation:
 - - connection_string
   - db_name
 settings_preamble: ''
 usage: ''
+variant: hotgluexyz

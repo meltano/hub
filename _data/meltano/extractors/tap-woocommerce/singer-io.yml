@@ -1,16 +1,16 @@
-description: eCommerce Plugin for Wordpress
-label: WooCommerce
-name: tap-woocommerce
-logo_url: /assets/logos/extractors/woocommerce.png
-namespace: tap_woocommerce
-variant: singer-io
-pip_url: tap-woocommerce
-repo: https://github.com/singer-io/tap-woocommerce
-settings: []
 capabilities:
 - catalog
 - discover
+description: eCommerce Plugin for Wordpress
 domain_url: http://woocommerce.github.io/woocommerce-rest-api-docs/
-maintenance_status: unknown
 keywords:
 - api
+label: WooCommerce
+logo_url: /assets/logos/extractors/woocommerce.png
+maintenance_status: unknown
+name: tap-woocommerce
+namespace: tap_woocommerce
+pip_url: tap-woocommerce
+repo: https://github.com/singer-io/tap-woocommerce
+settings: []
+variant: singer-io

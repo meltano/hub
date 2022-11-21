@@ -1,38 +1,38 @@
-description: Customer Experience Automation Platform
-label: ActiveCampaign
-name: tap-activecampaign
-logo_url: /assets/logos/extractors/activecampaign.png
-namespace: tap_activecampaign
-variant: singer-io
-pip_url: tap-activecampaign
-repo: https://github.com/singer-io/tap-activecampaign
-settings:
-- name: api_url
-  label: API URL
-  description: The ActiveCampaign API URL.
-- name: start_date
-  label: Start Date
-  description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
-    can be expected to take."
-  kind: date_iso8601
-- name: user_agent
-  label: User Agent
-  description: The user agent to send with requests.
-- name: api_token
-  label: API Token
-  description: Your API token.
-  kind: password
 capabilities:
 - catalog
 - discover
 - state
+description: Customer Experience Automation Platform
 domain_url: https://www.activecampaign.com/
-maintenance_status: active
 keywords:
 - api
+label: ActiveCampaign
+logo_url: /assets/logos/extractors/activecampaign.png
+maintenance_status: active
+name: tap-activecampaign
+namespace: tap_activecampaign
+pip_url: tap-activecampaign
+repo: https://github.com/singer-io/tap-activecampaign
+settings:
+- description: The ActiveCampaign API URL.
+  label: API URL
+  name: api_url
+- description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: The user agent to send with requests.
+  label: User Agent
+  name: user_agent
+- description: Your API token.
+  kind: password
+  label: API Token
+  name: api_token
 settings_group_validation:
 - - api_url
   - start_date
   - user_agent
   - api_token
+variant: singer-io

@@ -1,48 +1,48 @@
-description: CSV/Excel attachments/urls from a GMail Mailbox
-label: GMail CSV/Excel Attachments
-name: tap-gmail-csv
-logo_url: /assets/logos/extractors/gmail-csv.png
-namespace: tap_gmail_csv
-variant: food-spotter
-pip_url: git+https://github.com/food-spotter/tap-gmail-csv.git
-repo: https://github.com/food-spotter/tap-gmail-csv
-settings:
-- name: pickle_base64_encoded
-  label: Pickle Base64 Encoded
-  description: A Google generated pickle file encoded in base64 for authentication.
-- name: start_date
-  label: Start Date
-  description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
-    can be expected to take."
-  kind: date_iso8601
-- name: tables
-  label: Tables
-  description: An array of table configurations including - name, pattern, key_properties,
-    format (csv or excel), source_type (attachment, url), and see the [config contract](https://github.com/food-spotter/tap-gmail-csv/blob/e3f866b462b60ad87b885a7fdcd0945fdb68779a/tap_gmail_csv/config.py#L6)
-    for more details on optional table configs available.
-  kind: array
-- name: email_address
-  label: Email Address
-  description: The Gmail account you're connecting to.
-- name: gmail_search_query
-  label: Gmail Search Query
-  description: 'Your search query to apply. The date-time filter is auto applied at
-    runtime. E.g. "to: me+finance@gmail.com"'
-- name: gmail_label
-  label: Gmail Label
-  description: The gmail label to search against.
 capabilities:
 - catalog
 - discover
 - state
+description: CSV/Excel attachments/urls from a GMail Mailbox
 domain_url: https://www.google.com/gmail/about/
-maintenance_status: inactive
 keywords:
 - api
+label: GMail CSV/Excel Attachments
+logo_url: /assets/logos/extractors/gmail-csv.png
+maintenance_status: inactive
+name: tap-gmail-csv
+namespace: tap_gmail_csv
+pip_url: git+https://github.com/food-spotter/tap-gmail-csv.git
+repo: https://github.com/food-spotter/tap-gmail-csv
+settings:
+- description: A Google generated pickle file encoded in base64 for authentication.
+  label: Pickle Base64 Encoded
+  name: pickle_base64_encoded
+- description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: An array of table configurations including - name, pattern, key_properties,
+    format (csv or excel), source_type (attachment, url), and see the [config contract](https://github.com/food-spotter/tap-gmail-csv/blob/e3f866b462b60ad87b885a7fdcd0945fdb68779a/tap_gmail_csv/config.py#L6)
+    for more details on optional table configs available.
+  kind: array
+  label: Tables
+  name: tables
+- description: The Gmail account you're connecting to.
+  label: Email Address
+  name: email_address
+- description: 'Your search query to apply. The date-time filter is auto applied at
+    runtime. E.g. "to: me+finance@gmail.com"'
+  label: Gmail Search Query
+  name: gmail_search_query
+- description: The gmail label to search against.
+  label: Gmail Label
+  name: gmail_label
 settings_group_validation:
 - - pickle_base64_encoded
   - start_date
   - tables
   - email_address
   - gmail_search_query
+variant: food-spotter

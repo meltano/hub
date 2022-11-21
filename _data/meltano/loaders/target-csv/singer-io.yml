@@ -1,19 +1,23 @@
-name: target-csv
-label: Comma Separated Values (CSV)
 description: CSV loader
-namespace: target_csv
+keywords:
+- file
+label: Comma Separated Values (CSV)
 logo_url: /assets/logos/loaders/csv.png
-variant: singer-io
-repo: https://github.com/singer-io/target-csv
+maintenance_status: inactive
+name: target-csv
+namespace: target_csv
 pip_url: target-csv
+repo: https://github.com/singer-io/target-csv
 settings:
-- name: destination_path
-  description: Sets the destination path the CSV files are written to, relative to
+- description: Sets the destination path the CSV files are written to, relative to
     the project root. The directory needs to exist already, it will not be created
     automatically. To write CSV files to the project root, set an empty string (`""`).
+  name: destination_path
   value: output
-- name: delimiter
+- description: A one-character string used to separate fields. It defaults to a comma
+    (,).
   kind: options
+  name: delimiter
   options:
   - label: Comma (,)
     value: ','
@@ -24,19 +28,15 @@ settings:
   - label: Pipe (|)
     value: '|'
   value: ','
-  description: A one-character string used to separate fields. It defaults to a comma
-    (,).
-- name: quotechar
+- description: A one-character string used to quote fields containing special characters,
+    such as the delimiter or quotechar, or which contain new-line characters. It defaults
+    to single quote (').
   kind: options
+  name: quotechar
   options:
   - label: Single Quote (')
     value: "'"
   - label: Double Quote (")
     value: '"'
   value: "'"
-  description: A one-character string used to quote fields containing special characters,
-    such as the delimiter or quotechar, or which contain new-line characters. It defaults
-    to single quote (').
-maintenance_status: inactive
-keywords:
-- file
+variant: singer-io

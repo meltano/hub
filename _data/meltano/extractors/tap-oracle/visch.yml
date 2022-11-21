@@ -1,16 +1,16 @@
-description: Cloud Database
-label: Oracle DB
-name: tap-oracle
-logo_url: /assets/logos/extractors/oracle.png
-namespace: tap_oracle
-variant: visch
-pip_url: git+https://github.com/visch/pipelinewise-tap-oracle.git
-repo: https://github.com/visch/pipelinewise-tap-oracle
-settings: []
 capabilities:
 - catalog
 - discover
+description: Cloud Database
 domain_url: https://www.oracle.com/database/
-maintenance_status: unknown
 keywords:
 - database
+label: Oracle DB
+logo_url: /assets/logos/extractors/oracle.png
+maintenance_status: unknown
+name: tap-oracle
+namespace: tap_oracle
+pip_url: git+https://github.com/visch/pipelinewise-tap-oracle.git
+repo: https://github.com/visch/pipelinewise-tap-oracle
+settings: []
+variant: visch

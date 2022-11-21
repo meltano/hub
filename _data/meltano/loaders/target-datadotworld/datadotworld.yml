@@ -1,28 +1,28 @@
+capabilities: []
 description: Cloud Data Catalog
+domain_url: https://apidocs.data.world/toolkit/api
+keywords:
+- api
 label: Data.world
-name: target-datadotworld
 logo_url: /assets/logos/loaders/datadotworld.png
+maintenance_status: inactive
+name: target-datadotworld
 namespace: target_datadotworld
-variant: datadotworld
 pip_url: git+https://github.com/datadotworld/target-datadotworld.git
 repo: https://github.com/datadotworld/target-datadotworld
 settings:
-- name: api_token
-  label: API Token
-  description: Your API token.
+- description: Your API token.
   kind: password
-- name: dataset_id
+  label: API Token
+  name: api_token
+- description: The dataset ID.
   label: Dataset Id
-  description: The dataset ID.
-- name: dataset_owner
+  name: dataset_id
+- description: The dataset owner.
   label: Dataset Owner
-  description: The dataset owner.
-domain_url: https://apidocs.data.world/toolkit/api
-maintenance_status: inactive
-keywords:
-- api
-capabilities: []
+  name: dataset_owner
 settings_group_validation:
 - - api_token
   - dataset_id
   - dataset_owner
+variant: datadotworld

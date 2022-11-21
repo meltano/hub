@@ -1,16 +1,16 @@
-description: Scheduling, Timesheet & Time Clock Software
-label: Deputy
-name: tap-deputy
-logo_url: /assets/logos/extractors/deputy.png
-namespace: tap_deputy
-variant: isabella232
-pip_url: git+https://github.com/isabella232/tap-deputy.git
-repo: https://github.com/isabella232/tap-deputy
-settings: []
 capabilities:
 - catalog
 - discover
+description: Scheduling, Timesheet & Time Clock Software
 domain_url: https://www.deputy.com/api-doc/API/Getting_Started
-maintenance_status: unknown
 keywords:
 - api
+label: Deputy
+logo_url: /assets/logos/extractors/deputy.png
+maintenance_status: unknown
+name: tap-deputy
+namespace: tap_deputy
+pip_url: git+https://github.com/isabella232/tap-deputy.git
+repo: https://github.com/isabella232/tap-deputy
+settings: []
+variant: isabella232

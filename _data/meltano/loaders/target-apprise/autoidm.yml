@@ -1,26 +1,11 @@
-description: 'Apprise allows you to send a notification to almost all of the most
-  popular notification services available to us today such as: Telegram, Discord,
-  Slack, Amazon SNS, Gotify, etc'
-label: Apprise
-name: target-apprise
-logo_url: /assets/logos/loaders/apprise.png
-namespace: target_apprise
-variant: autoidm
-pip_url: target-apprise
-repo: https://github.com/AutoIDM/target-apprise
 capabilities:
 - about
 - stream-maps
 - record-flattening
-settings_group_validation:
-- - uris
-settings:
-- name: uris
-  kind: array
-  label: URIs
-  description: Array of apprise URIs
+description: 'Apprise allows you to send a notification to almost all of the most
+  popular notification services available to us today such as: Telegram, Discord,
+  Slack, Amazon SNS, Gotify, etc'
 domain_url: https://github.com/caronc/apprise
-maintenance_status: active
 keywords:
 - api
 - meltano_sdk
@@ -121,3 +106,18 @@ keywords:
 - json
 - xml
 - attachments
+label: Apprise
+logo_url: /assets/logos/loaders/apprise.png
+maintenance_status: active
+name: target-apprise
+namespace: target_apprise
+pip_url: target-apprise
+repo: https://github.com/AutoIDM/target-apprise
+settings:
+- description: Array of apprise URIs
+  kind: array
+  label: URIs
+  name: uris
+settings_group_validation:
+- - uris
+variant: autoidm

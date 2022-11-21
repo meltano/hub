@@ -1,28 +1,28 @@
-description: Megaphone - Podcast Platform
-label: Megaphone
-name: tap-megaphone
-logo_url: /assets/logos/extractors/megaphone.png
-namespace: tap_megaphone
-variant: yujoy
-pip_url: tap-megaphone
-repo: https://github.com/yujoy/tap-megaphone
 capabilities:
 - catalog
 - discover
 - state
 - about
 - stream-maps
-settings:
-- name: auth_token
-  label: Access Token
-  description: API Token required for authorization. See README in Github Repo for
-    more details.
-- name: organization_id
-  kind: string
-  label: Organization ID
-  description: Organization ID from Megaphone.
+description: Megaphone - Podcast Platform
 domain_url: https://developers.megaphone.fm/
-maintenance_status: active
 keywords:
 - api
 - meltano_sdk
+label: Megaphone
+logo_url: /assets/logos/extractors/megaphone.png
+maintenance_status: active
+name: tap-megaphone
+namespace: tap_megaphone
+pip_url: tap-megaphone
+repo: https://github.com/yujoy/tap-megaphone
+settings:
+- description: API Token required for authorization. See README in Github Repo for
+    more details.
+  label: Access Token
+  name: auth_token
+- description: Organization ID from Megaphone.
+  kind: string
+  label: Organization ID
+  name: organization_id
+variant: yujoy

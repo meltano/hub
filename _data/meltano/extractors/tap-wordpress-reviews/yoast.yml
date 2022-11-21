@@ -1,16 +1,16 @@
-description: Content Management System
-label: Wordpress.org Reviews
-name: tap-wordpress-reviews
-logo_url: /assets/logos/extractors/wordpress-reviews.png
-namespace: tap_wordpress_reviews
-variant: yoast
-pip_url: git+https://github.com/Yoast/singer-tap-wordpress-reviews.git
-repo: https://github.com/Yoast/singer-tap-wordpress-reviews
-settings: []
 capabilities:
 - catalog
 - discover
+description: Content Management System
 domain_url: https://developer.wordpress.org/rest-api/
-maintenance_status: unknown
 keywords:
 - api
+label: Wordpress.org Reviews
+logo_url: /assets/logos/extractors/wordpress-reviews.png
+maintenance_status: unknown
+name: tap-wordpress-reviews
+namespace: tap_wordpress_reviews
+pip_url: git+https://github.com/Yoast/singer-tap-wordpress-reviews.git
+repo: https://github.com/Yoast/singer-tap-wordpress-reviews
+settings: []
+variant: yoast

@@ -1,7 +1,3 @@
-name: tap-apaleo
-variant: felixkoch
-label: Apaleo
-logo_url: /assets/logos/extractors/apaleo.png
 capabilities:
 - catalog
 - state
@@ -11,28 +7,32 @@ capabilities:
 domain_url: https://apaleo.com/
 keywords:
 - meltano_sdk
+label: Apaleo
+logo_url: /assets/logos/extractors/apaleo.png
 maintenance_status: active
+name: tap-apaleo
 namespace: tap_apaleo
 next_steps: ''
 pip_url: git+https://github.com/felixkoch/tap-apaleo.git
 repo: https://github.com/felixkoch/tap-apaleo
 settings:
-- name: client_id
+- description: Your Client Id.
+  kind: password
   label: Client Id
-  description: Your Client Id.
+  name: client_id
+- description: Your Client Secret.
   kind: password
-- name: client_secret
   label: Client Secret
-  description: Your Client Secret.
-  kind: password
-- name: start_date
-  label: Start Date
-  description: Determines how much historical data will be extracted. Please be aware
+  name: client_secret
+- description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.
+  label: Start Date
+  name: start_date
 settings_group_validation:
 - - client_id
   - client_secret
   - start_date
 settings_preamble: ''
 usage: ''
+variant: felixkoch

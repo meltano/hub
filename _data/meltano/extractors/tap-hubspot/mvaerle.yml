@@ -1,17 +1,17 @@
-name: tap-hubspot
-description: Inbound Marketing software
-label: Hubspot
-namespace: tap_hubspot
-logo_url: /assets/logos/extractors/hubspot.png
-variant: mvaerle
-pip_url: git+https://github.com/mvaerle/tap-hubspot.git
-repo: https://github.com/mvaerle/tap-hubspot
 capabilities:
 - discover
 - catalog
-settings_group_validation: []
-settings: []
+description: Inbound Marketing software
 domain_url: https://legacydocs.hubspot.com/docs/overview
-maintenance_status: unknown
 keywords:
 - api
+label: Hubspot
+logo_url: /assets/logos/extractors/hubspot.png
+maintenance_status: unknown
+name: tap-hubspot
+namespace: tap_hubspot
+pip_url: git+https://github.com/mvaerle/tap-hubspot.git
+repo: https://github.com/mvaerle/tap-hubspot
+settings: []
+settings_group_validation: []
+variant: mvaerle
