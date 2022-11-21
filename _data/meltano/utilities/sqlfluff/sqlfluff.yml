@@ -46,7 +46,7 @@ next_steps: |
       ```
   1. Create a `.sqlfluffignore` in the root directory of your project using the sample content below.
     This makes sure SQLFluff ignores auto generated sql or installed packages.
-   
+
       ```
       .meltano/
       utilities/
@@ -58,7 +58,7 @@ next_steps: |
   1. Depending on your dbt adapter you will need to override your dbt environment variables using the `env` key so when SQLFluff calls dbt your
     [profile.yml env vars](https://github.com/meltano/files-dbt-snowflake/blob/c8ae6cde35716b6ada3ccf8f9b6f116ba37b95fe/bundle/transform/profiles/snowflake/profiles.yml#L15)
     are properly set.
-    Refer to the Meltano transformer [docs](https://hub.meltano.com/transformers/) for details on what variables are needed for your adapter. 
+    Refer to the Meltano transformer [docs](https://hub.meltano.com/transformers/) for details on what variables are needed for your adapter.
     An example for Snowflake is shown below.
 
       ```yaml
