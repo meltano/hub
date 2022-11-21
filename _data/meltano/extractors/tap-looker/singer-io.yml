@@ -53,7 +53,7 @@ settings_group_validation:
   - client_id
 usage: |
   ### Additional Notes
-  This tap uses Looker's API v3.1 https://developers.looker.com/api/explorer/3.1. 
+  This tap uses Looker's API v3.1 https://developers.looker.com/api/explorer/3.1.
 
   - All endpoints replicate FULL_TABLE (ALL records, every time). Currently, the Looker API does not support paginating, sorting, filtering, or providing audit fields (like created/modified datetimes).
   - Primary Key field(s): Almost all endpoint have an id primary key

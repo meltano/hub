@@ -10,7 +10,7 @@ commands:
     args: diff --project-dir ${MELTANO_PROJECT_ROOT}/transform --profiles-dir ${MELTANO_PROJECT_ROOT}/transform/profiles/${ADAPTER}
       --temp-table
     description: |
-      Diff a query from git HEAD to inspect changes as you develop caching the HEAD rev of the model 
+      Diff a query from git HEAD to inspect changes as you develop caching the HEAD rev of the model
       to a schema called `dbt_diff`, requires -m [MODEL]
   run:
     args: run --project-dir ${MELTANO_PROJECT_ROOT}/transform --profiles-dir ${MELTANO_PROJECT_ROOT}/transform/profiles/${ADAPTER}
@@ -21,8 +21,8 @@ commands:
       --profiles-dir ${MELTANO_PROJECT_ROOT}/transform/profiles/${ADAPTER}
     description: |
       Start a server exposing two primary endpoints. /compile and /run which receive POST
-      requests and compile or run dbt SQL against your dbt profile. It is significantly faster 
-      and simpler than dbt RPC and internally does not rely on it. This server is compatible with 
+      requests and compile or run dbt SQL against your dbt profile. It is significantly faster
+      and simpler than dbt RPC and internally does not rely on it. This server is compatible with
       https://github.com/innoverio/vscode-dbt-power-user providing VS code users interactive
       query previews via a simple ▶️ button or Cmd+Enter.
   workbench:
@@ -38,7 +38,7 @@ definition: |
   2. The ability to diff model outputs across file revisions
   3. Automation which manages generating, updating, and propagating documentation for your
   `schema.yml` files.
-  4. A FastAPI dbt server which principally integrates with the 
+  4. A FastAPI dbt server which principally integrates with the
   [VSCode dbt power user extension](https://github.com/innoverio/vscode-dbt-power-user).
 domain_url: https://github.com/z3z1ma/dbt-osmosis
 executable: dbt-osmosis
@@ -69,7 +69,7 @@ repo: https://github.com/z3z1ma/dbt-osmosis
 settings:
 - description: |
     This should be set to the adapter you have installed as meltano will install
-    dbt and its profile directory into `transform/<adapter>` directory. We use this 
+    dbt and its profile directory into `transform/<adapter>` directory. We use this
     config option to resolve dbt profile directory.
   env: ADAPTER
   name: adapter

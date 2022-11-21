@@ -108,7 +108,7 @@ usage: |
     *  slas
 
   To sideload an object a list can be passed in the [metadata extra](https://docs.meltano.com/concepts/plugins#metadata-extra) under `sideload-objects``:
-    
+
   ```
   extractors:
   - name: tap-zendesk
