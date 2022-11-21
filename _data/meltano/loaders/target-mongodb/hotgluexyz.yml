@@ -22,6 +22,7 @@ settings:
   description: Name of the target db inside your mongoDB
   kind: string
 settings_group_validation:
-- []
+- - connection_string
+  - db_name
 settings_preamble: ''
 usage: ''
