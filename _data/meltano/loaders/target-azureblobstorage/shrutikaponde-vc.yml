@@ -1,28 +1,28 @@
+capabilities: []
 description: Object Storage
+domain_url: https://azure.microsoft.com/en-us/services/storage/blobs/
+keywords:
+- file
 label: Azure Blob Storage
-name: target-azureblobstorage
 logo_url: /assets/logos/loaders/azureblobstorage.png
+maintenance_status: inactive
+name: target-azureblobstorage
 namespace: target_azureblobstorage
-variant: shrutikaponde-vc
 pip_url: git+https://github.com/shrutikaponde-vc/target-azureblobstorage.git
 repo: https://github.com/shrutikaponde-vc/target-azureblobstorage
 settings:
-- name: account_name
+- description: Your Azure blob storage account name.
   label: Account Name
-  description: Your Azure blob storage account name.
-- name: container_name
+  name: account_name
+- description: The name of your Azure blob storage container.
   label: Container Name
-  description: The name of your Azure blob storage container.
-- name: account_key
-  label: Account Key
-  description: Your Azure account key.
+  name: container_name
+- description: Your Azure account key.
   kind: password
-domain_url: https://azure.microsoft.com/en-us/services/storage/blobs/
-maintenance_status: inactive
-keywords:
-- file
-capabilities: []
+  label: Account Key
+  name: account_key
 settings_group_validation:
 - - account_name
   - account_key
   - container_name
+variant: shrutikaponde-vc

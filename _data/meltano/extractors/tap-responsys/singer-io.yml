@@ -1,17 +1,17 @@
-description: Campaign Management Software
-label: Responsys
-name: tap-responsys
-logo_url: /assets/logos/extractors/responsys.png
-namespace: tap_responsys
-variant: singer-io
-pip_url: tap-responsys
-repo: https://github.com/singer-io/tap-responsys
-settings: []
 capabilities:
 - catalog
 - discover
 - state
+description: Campaign Management Software
 domain_url: https://www.oracle.com/cx/marketing/campaign-management/
-maintenance_status: unknown
 keywords:
 - file
+label: Responsys
+logo_url: /assets/logos/extractors/responsys.png
+maintenance_status: unknown
+name: tap-responsys
+namespace: tap_responsys
+pip_url: tap-responsys
+repo: https://github.com/singer-io/tap-responsys
+settings: []
+variant: singer-io

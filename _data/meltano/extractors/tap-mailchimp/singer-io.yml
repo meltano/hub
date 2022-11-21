@@ -1,51 +1,52 @@
-description: Integrated Marketing Platform
-label: Mailchimp
-name: tap-mailchimp
-logo_url: /assets/logos/extractors/mailchimp.png
-namespace: tap_mailchimp
-variant: singer-io
-pip_url: tap-mailchimp
-repo: https://github.com/singer-io/tap-mailchimp
-settings:
-- name: request_timeout
-  label: Request Timeout
-  description: Time for which request should wait to get response. Default, 300.
-  kind: integer
-- name: dc
-  label: Data Center
-  description: The Mailchimp data center, only requried when using API key auth. E.g. "us14".
-- name: page_size
-  label: Page Size
-  description: The request page size, default 1000.
-  kind: integer
-- name: user_agent
-  label: User Agent
-  description: The user agent to send on every request.
-- name: start_date
-  label: Start Date
-  description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
-    can be expected to take."
-  kind: date_iso8601
-- name: access_token
-  label: Access Token
-  description: The access token from the OAuth2 flow.
-  kind: password
-- name: api_key
-  label: API Key
-  description: The Mailchimp API key, if using API key auth instead of OAuth.
-  kind: password
 capabilities:
 - catalog
 - discover
 - state
+description: Integrated Marketing Platform
 domain_url: https://mailchimp.com/developer/marketing/api/
-maintenance_status: active
 keywords:
 - api
+label: Mailchimp
+logo_url: /assets/logos/extractors/mailchimp.png
+maintenance_status: active
+name: tap-mailchimp
+namespace: tap_mailchimp
+pip_url: tap-mailchimp
+repo: https://github.com/singer-io/tap-mailchimp
+settings:
+- description: Time for which request should wait to get response. Default, 300.
+  kind: integer
+  label: Request Timeout
+  name: request_timeout
+- description: The Mailchimp data center, only requried when using API key auth. E.g.
+    "us14".
+  label: Data Center
+  name: dc
+- description: The request page size, default 1000.
+  kind: integer
+  label: Page Size
+  name: page_size
+- description: The user agent to send on every request.
+  label: User Agent
+  name: user_agent
+- description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: The access token from the OAuth2 flow.
+  kind: password
+  label: Access Token
+  name: access_token
+- description: The Mailchimp API key, if using API key auth instead of OAuth.
+  kind: password
+  label: API Key
+  name: api_key
 settings_group_validation:
 - - start_date
   - api_key
   - dc
 - - start_date
   - access_token
+variant: singer-io

@@ -1,7 +1,3 @@
-name: tap-bexio
-variant: substringgmbh
-label: bexio
-logo_url: /assets/logos/extractors/bexio.png
 capabilities:
 - catalog
 - state
@@ -12,22 +8,26 @@ description: Business Software for Small Businesses and Startups
 domain_url: https://www.bexio.com/
 keywords:
 - meltano_sdk
+label: bexio
+logo_url: /assets/logos/extractors/bexio.png
 maintenance_status: active
+name: tap-bexio
 namespace: tap_bexio
 next_steps: ''
 pip_url: git+https://github.com/substringgmbh/tap-bexio.git
 repo: https://github.com/substringgmbh/tap-bexio
 settings:
-- name: auth_token
-  label: Auth Token
-  description: The token to authenticate against the API service
+- description: The token to authenticate against the API service
   kind: password
-- name: start_date
-  label: Start Date
-  description: "Determines how much historical data will be extracted. Please be aware\n\
+  label: Auth Token
+  name: auth_token
+- description: "Determines how much historical data will be extracted. Please be aware\n\
     that the larger the time period and amount of data, the longer the initial extraction\n\
     can be expected to take."
+  label: Start Date
+  name: start_date
 settings_group_validation:
 - - auth_token
 settings_preamble: ''
 usage: ''
+variant: substringgmbh

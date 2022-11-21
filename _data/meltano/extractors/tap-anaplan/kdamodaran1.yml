@@ -1,17 +1,17 @@
-description: Cloud-based Business-planning Software
-label: Anaplan
-name: tap-anaplan
-logo_url: /assets/logos/extractors/anaplan.png
-namespace: tap_anaplan
-variant: kdamodaran1
-pip_url: git+https://github.com/kdamodaran1/tap-anaplan.git
-repo: https://github.com/kdamodaran1/tap-anaplan
-settings: []
 capabilities:
 - catalog
 - discover
 - state
+description: Cloud-based Business-planning Software
 domain_url: https://www.anaplan.com/
-maintenance_status: unknown
 keywords:
 - api
+label: Anaplan
+logo_url: /assets/logos/extractors/anaplan.png
+maintenance_status: unknown
+name: tap-anaplan
+namespace: tap_anaplan
+pip_url: git+https://github.com/kdamodaran1/tap-anaplan.git
+repo: https://github.com/kdamodaran1/tap-anaplan
+settings: []
+variant: kdamodaran1

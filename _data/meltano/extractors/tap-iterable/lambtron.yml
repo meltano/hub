@@ -1,34 +1,35 @@
-description: Cross-Channel Marketing Platform
-label: Iterable
-name: tap-iterable
-logo_url: /assets/logos/extractors/iterable.png
-namespace: tap_iterable
-variant: lambtron
-pip_url: git+https://github.com/lambtron/tap-iterable.git
-repo: https://github.com/lambtron/tap-iterable
-settings:
-- name: api_key
-  label: API Key
-  description: Iterable Server-side API Key with standard permissions. See [API Keys
-    docs](https://support.iterable.com/hc/en-us/articles/360043464871-API-Keys-) for more details.
-  kind: password
-- name: api_window_in_days
-  label: API Window In Days
-  description: The amount of days to request in each set of data. Default 30.
-  kind: integer
-- name: start_date
-  label: Start Date
-  description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
-    can be expected to take."
-  kind: date_iso8601
 capabilities:
 - catalog
 - discover
 - state
+description: Cross-Channel Marketing Platform
 domain_url: https://api.iterable.com/api/docs
-maintenance_status: inactive
 keywords:
 - api
+label: Iterable
+logo_url: /assets/logos/extractors/iterable.png
+maintenance_status: inactive
+name: tap-iterable
+namespace: tap_iterable
+pip_url: git+https://github.com/lambtron/tap-iterable.git
+repo: https://github.com/lambtron/tap-iterable
+settings:
+- description: Iterable Server-side API Key with standard permissions. See [API Keys
+    docs](https://support.iterable.com/hc/en-us/articles/360043464871-API-Keys-) for
+    more details.
+  kind: password
+  label: API Key
+  name: api_key
+- description: The amount of days to request in each set of data. Default 30.
+  kind: integer
+  label: API Window In Days
+  name: api_window_in_days
+- description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
 settings_group_validation:
 - - api_key
+variant: lambtron

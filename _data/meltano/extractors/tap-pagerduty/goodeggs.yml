@@ -1,45 +1,45 @@
-description: SaaS Incident Response Platform
-label: PagerDuty
-name: tap-pagerduty
-logo_url: /assets/logos/extractors/pagerduty.png
-namespace: tap_pagerduty
-variant: goodeggs
-pip_url: git+https://github.com/goodeggs/tap-pagerduty.git
-repo: https://github.com/goodeggs/tap-pagerduty
-settings_group_validation:
-- - token
-  - email
-  - since
-settings:
-- name: token
-  kind: password
-  label: API Token
-  description: A valid Pagerduty REST API key. See https://support.pagerduty.com/docs/api-access-keys.
-- name: email
-  label: Email
-  description: A valid email address to be inserted into the From header of the HTTP
-    Request headers. See https://developer.pagerduty.com/docs/ZG9jOjExMDI5NTUw-rest-api-overview#http-request-headers.
-- name: since
-  kind: date_iso8601
-  label: Since
-  description: A date to be used as the default since parameter for all API endpoints
-    that support that parameter.
-- name: streams
-  kind: object
-  label: Streams
-  description: An object used to specify more granular configurations for individual
-    streams. Each key under a stream should represent a valid API request parameter
-    for that endpoint. A more fleshed-out configuration file may look similar to the
-    following.
-- name: limit
-  kind: integer
-  label: API Request Limit
-  description: (Default 100) The API request limit.
 capabilities:
 - catalog
 - discover
 - state
+description: SaaS Incident Response Platform
 domain_url: https://developer.pagerduty.com/docs/rest-api-v2/rest-api/
-maintenance_status: unknown
 keywords:
 - api
+label: PagerDuty
+logo_url: /assets/logos/extractors/pagerduty.png
+maintenance_status: unknown
+name: tap-pagerduty
+namespace: tap_pagerduty
+pip_url: git+https://github.com/goodeggs/tap-pagerduty.git
+repo: https://github.com/goodeggs/tap-pagerduty
+settings:
+- description: A valid Pagerduty REST API key. See https://support.pagerduty.com/docs/api-access-keys.
+  kind: password
+  label: API Token
+  name: token
+- description: A valid email address to be inserted into the From header of the HTTP
+    Request headers. See https://developer.pagerduty.com/docs/ZG9jOjExMDI5NTUw-rest-api-overview#http-request-headers.
+  label: Email
+  name: email
+- description: A date to be used as the default since parameter for all API endpoints
+    that support that parameter.
+  kind: date_iso8601
+  label: Since
+  name: since
+- description: An object used to specify more granular configurations for individual
+    streams. Each key under a stream should represent a valid API request parameter
+    for that endpoint. A more fleshed-out configuration file may look similar to the
+    following.
+  kind: object
+  label: Streams
+  name: streams
+- description: (Default 100) The API request limit.
+  kind: integer
+  label: API Request Limit
+  name: limit
+settings_group_validation:
+- - token
+  - email
+  - since
+variant: goodeggs

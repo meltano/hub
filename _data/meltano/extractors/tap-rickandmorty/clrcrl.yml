@@ -1,24 +1,24 @@
-description: Rick and Morty API
-label: Rick and Morty API
-name: tap-rickandmorty
-logo_url: /assets/logos/extractors/rick-and-morty.png
-namespace: tap_rickandmorty
-variant: clrcrl
-pip_url: git+https://github.com/clrcrl/tap-rickandmorty.git
-repo: https://github.com/clrcrl/tap-rickandmorty
 capabilities:
 - about
 - catalog
 - discover
 - state
-settings_group_validation:
-- []
-settings:
-- name: start_date
-  label: Start Date
-  kind: date_iso8601
-  description: The date to start syncing data from.
+description: Rick and Morty API
 domain_url: https://rickandmortyapi.com/
-maintenance_status: active
 keywords:
 - api
+label: Rick and Morty API
+logo_url: /assets/logos/extractors/rick-and-morty.png
+maintenance_status: active
+name: tap-rickandmorty
+namespace: tap_rickandmorty
+pip_url: git+https://github.com/clrcrl/tap-rickandmorty.git
+repo: https://github.com/clrcrl/tap-rickandmorty
+settings:
+- description: The date to start syncing data from.
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+settings_group_validation:
+- []
+variant: clrcrl

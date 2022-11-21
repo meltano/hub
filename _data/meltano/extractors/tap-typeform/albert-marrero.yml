@@ -1,24 +1,24 @@
-description: Survey and Form Software
-label: Typeform
-name: tap-typeform
-logo_url: /assets/logos/extractors/typeform.png
-namespace: tap_typeform
-variant: albert-marrero
-pip_url: git+https://github.com/albert-marrero/tap-typeform.git
-repo: https://github.com/albert-marrero/tap-typeform
-settings_group_validation:
-- - personal_access_token
-settings:
-- name: personal_access_token
-  label: Personal Access Token
-  description: Your personal access token for Typeform's API.
-  kind: password
 capabilities:
 - catalog
 - discover
 - state
+description: Survey and Form Software
 domain_url: https://developer.typeform.com/
-maintenance_status: active
 keywords:
 - api
 - meltano_sdk
+label: Typeform
+logo_url: /assets/logos/extractors/typeform.png
+maintenance_status: active
+name: tap-typeform
+namespace: tap_typeform
+pip_url: git+https://github.com/albert-marrero/tap-typeform.git
+repo: https://github.com/albert-marrero/tap-typeform
+settings:
+- description: Your personal access token for Typeform's API.
+  kind: password
+  label: Personal Access Token
+  name: personal_access_token
+settings_group_validation:
+- - personal_access_token
+variant: albert-marrero

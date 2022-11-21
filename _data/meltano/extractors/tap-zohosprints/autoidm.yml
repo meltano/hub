@@ -1,7 +1,3 @@
-name: tap-zohosprints
-variant: autoidm
-label: Zohosprints
-logo_url: /assets/logos/extractors/zohosprints.png
 capabilities:
 - catalog
 - state
@@ -11,35 +7,38 @@ capabilities:
 domain_url: https://www.zoho.com/sprints/
 keywords:
 - meltano_sdk
+label: Zohosprints
+logo_url: /assets/logos/extractors/zohosprints.png
 maintenance_status: active
+name: tap-zohosprints
 namespace: tap_zohosprints
 next_steps: ''
 pip_url: git+https://github.com/AutoIDM/tap-zohosprints.git
 repo: https://github.com/AutoIDM/tap-zohosprints
 settings:
-- name: api_url
+- description: The API URL
   label: API URL
-  description: The API URL
-- name: oauth_url
+  name: api_url
+- description: The OAuth URL
   label: OAuth URL
-  description: The OAuth URL
-- name: client_id
+  name: oauth_url
+- description: Your client ID.
+  kind: password
   label: Client Id
-  description: Your client ID.
+  name: client_id
+- description: Your client secret.
   kind: password
-- name: client_secret
   label: Client Secret
-  description: Your client secret.
+  name: client_secret
+- description: Your refresh token.
   kind: password
-- name: refresh_token
   label: Refresh Token
-  description: Your refresh token.
-  kind: password
-- name: start_date
-  label: Start Date
-  description: Determines how much historical data will be extracted. Please be aware
+  name: refresh_token
+- description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.
+  label: Start Date
+  name: start_date
 settings_group_validation:
 - - refresh_token
   - api_url
@@ -48,3 +47,4 @@ settings_group_validation:
   - client_id
 settings_preamble: ''
 usage: ''
+variant: autoidm

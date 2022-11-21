@@ -1,45 +1,56 @@
-description: Business Intelligence (BI) & Data Analytics Platform
-label: Looker
-name: tap-looker
-logo_url: /assets/logos/extractors/looker.png
-namespace: tap_looker
-variant: singer-io
-pip_url: tap-looker
-repo: https://github.com/singer-io/tap-looker
-settings:
-- name: client_secret
-  label: Client Secret
-  description: Your [API3 Keys](https://docs.looker.com/admin-options/settings/users#api3_keys) client secret. 
-  kind: password
-- name: start_date
-  label: Start Date
-  description: "Currently not used because the Looker API doesnt support query filtering, sorting, pagination. Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
-    can be expected to take."
-  kind: date_iso8601
-- name: user_agent
-  label: User Agent
-  description: The user agent to send with requests.
-- name: subdomain
-  label: Subdomain
-  description: The leading part of Looker URL before .looker.com; https://<subdomain>.looker.com
-- name: api_port
-  label: API Port
-  description: The API port for the Looker instance. Uusually 19999, unless you are
-    hosting Looker internally and are using a different port for the API.
-  kind: integer
-- name: domain
-  label: Domain
-  description: Is usually looker.com, unless you have your own white-labeled URL.
-- name: client_id
-  label: Client ID
-  description: Your [API3 Keys](https://docs.looker.com/admin-options/settings/users#api3_keys) client ID. 
-  kind: password
 capabilities:
 - catalog
 - discover
 - state
+description: Business Intelligence (BI) & Data Analytics Platform
 domain_url: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1
+keywords:
+- api
+label: Looker
+logo_url: /assets/logos/extractors/looker.png
+maintenance_status: inactive
+name: tap-looker
+namespace: tap_looker
+pip_url: tap-looker
+repo: https://github.com/singer-io/tap-looker
+settings:
+- description: Your [API3 Keys](https://docs.looker.com/admin-options/settings/users#api3_keys)
+    client secret.
+  kind: password
+  label: Client Secret
+  name: client_secret
+- description: "Currently not used because the Looker API doesnt support query filtering,\
+    \ sorting, pagination. Determines how much historical data will be extracted.\
+    \ Please be aware\nthat the larger the time period and amount of data, the longer\
+    \ the initial extraction\ncan be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: The user agent to send with requests.
+  label: User Agent
+  name: user_agent
+- description: The leading part of Looker URL before .looker.com; https://<subdomain>.looker.com
+  label: Subdomain
+  name: subdomain
+- description: The API port for the Looker instance. Uusually 19999, unless you are
+    hosting Looker internally and are using a different port for the API.
+  kind: integer
+  label: API Port
+  name: api_port
+- description: Is usually looker.com, unless you have your own white-labeled URL.
+  label: Domain
+  name: domain
+- description: Your [API3 Keys](https://docs.looker.com/admin-options/settings/users#api3_keys)
+    client ID.
+  kind: password
+  label: Client ID
+  name: client_id
+settings_group_validation:
+- - client_secret
+  - start_date
+  - user_agent
+  - subdomain
+  - client_id
 usage: |
   ### Additional Notes
   This tap uses Looker's API v3.1 https://developers.looker.com/api/explorer/3.1. 
@@ -54,12 +65,4 @@ usage: |
     - group_attribute_values use group_id and attribute_value_id
   - Transformations: Remove can nodes; IDs to string; fix JSON validation errors (datatypes)
   - ALL JSON schema generated from Looker API Swagger Definitions
-maintenance_status: inactive
-keywords:
-- api
-settings_group_validation:
-- - client_secret
-  - start_date
-  - user_agent
-  - subdomain
-  - client_id
+variant: singer-io

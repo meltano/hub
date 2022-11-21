@@ -1,17 +1,17 @@
-name: tap-twilio
-label: Twilio
-description: Cloud communications platform as a service
-namespace: tap_twilio
-logo_url: /assets/logos/extractors/twilio.png
-variant: bytecodeio
 capabilities:
 - catalog
 - discover
 - state
-settings: []
-settings_group_validation: []
+description: Cloud communications platform as a service
+domain_url:
+keywords: []
+label: Twilio
+logo_url: /assets/logos/extractors/twilio.png
+maintenance_status: unknown
+name: tap-twilio
+namespace: tap_twilio
 pip_url: git+https://github.com/bytecodeio/tap-twilio.git
 repo: https://github.com/bytecodeio/tap-twilio
-domain_url:
-maintenance_status: unknown
-keywords: []
+settings: []
+settings_group_validation: []
+variant: bytecodeio

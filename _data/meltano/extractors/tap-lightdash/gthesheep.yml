@@ -1,39 +1,39 @@
-description: Business Intelligence Platform
-label: Lightdash
-name: tap-lightdash
-logo_url: /assets/logos/extractors/lightdash.png
-namespace: tap_lightdash
-variant: gthesheep
-pip_url: git+https://github.com/gthesheep/tap-lightdash.git
-repo: https://github.com/gthesheep/tap-lightdash
 capabilities:
 - catalog
 - discover
 - state
 - about
 - stream-maps
+description: Business Intelligence Platform
+domain_url: https://github.com/lightdash/lightdash
+keywords:
+- api
+- meltano_sdk
+label: Lightdash
+logo_url: /assets/logos/extractors/lightdash.png
+maintenance_status: active
+name: tap-lightdash
+namespace: tap_lightdash
+pip_url: git+https://github.com/gthesheep/tap-lightdash.git
+repo: https://github.com/gthesheep/tap-lightdash
+settings:
+- description: URL of your Lightdash instance
+  label: URL
+  name: url
+- description: Username to authenticate with
+  label: Username
+  name: username
+- description: Password for authentication
+  kind: password
+  label: Password
+  name: password
+- description: Personal access token to authenticate against the API service
+  kind: password
+  label: Personal Access Token
+  name: personal_access_token
 settings_group_validation:
 - - url
   - username
   - password
   - personal_access_token
-settings:
-- name: url
-  label: URL
-  description: URL of your Lightdash instance
-- name: username
-  label: Username
-  description: Username to authenticate with
-- name: password
-  label: Password
-  kind: password
-  description: Password for authentication
-- name: personal_access_token
-  label: Personal Access Token
-  kind: password
-  description: Personal access token to authenticate against the API service
-domain_url: https://github.com/lightdash/lightdash
-maintenance_status: active
-keywords:
-- api
-- meltano_sdk
+variant: gthesheep

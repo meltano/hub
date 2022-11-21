@@ -1,28 +1,28 @@
-description: Project management software
-label: Shortcut (formerly Clubhouse)
-name: tap-shortcut
-executable: tap-clubhouse
-logo_url: /assets/logos/extractors/shortcut.png
-namespace: tap_clubhouse
-variant: envoy
-pip_url: git+https://github.com/envoy/tap-clubhouse.git
-repo: https://github.com/envoy/tap-clubhouse
-settings:
-- name: api_token
-  kind: password
-  label: Clubhouse Token
-  description: Clubhouse API Token
-  documentation: https://clubhouse.io/api/rest/v3/#Authentication
-- name: start_date
-  kind: date_iso8601
-  label: Start Date
-  description: The date from which to start extracting data
-  documentation: https://clubhouse.io/api/rest/v3/#Authentication
 capabilities:
 - catalog
 - discover
 - state
+description: Project management software
 domain_url: https://shortcut.com
-maintenance_status: unknown
+executable: tap-clubhouse
 keywords:
 - api
+label: Shortcut (formerly Clubhouse)
+logo_url: /assets/logos/extractors/shortcut.png
+maintenance_status: unknown
+name: tap-shortcut
+namespace: tap_clubhouse
+pip_url: git+https://github.com/envoy/tap-clubhouse.git
+repo: https://github.com/envoy/tap-clubhouse
+settings:
+- description: Clubhouse API Token
+  documentation: https://clubhouse.io/api/rest/v3/#Authentication
+  kind: password
+  label: Clubhouse Token
+  name: api_token
+- description: The date from which to start extracting data
+  documentation: https://clubhouse.io/api/rest/v3/#Authentication
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+variant: envoy

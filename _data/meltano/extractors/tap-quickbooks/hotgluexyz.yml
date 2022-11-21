@@ -1,63 +1,64 @@
-name: tap-quickbooks
-namespace: tap_quickbooks
-label: Quickbooks
-description: Accounting management platform
-logo_url: /assets/logos/extractors/quickbooks.png
-variant: hotgluexyz
-repo: https://github.com/hotgluexyz/tap-quickbooks
-pip_url: git+https://github.com/hotgluexyz/tap-quickbooks.git
 capabilities:
 - properties
 - discover
 - state
+description: Accounting management platform
+domain_url: https://developer.intuit.com/app/developer/qbo/docs/develop
+keywords:
+- api
+label: Quickbooks
+logo_url: /assets/logos/extractors/quickbooks.png
+maintenance_status: active
+name: tap-quickbooks
+namespace: tap_quickbooks
+pip_url: git+https://github.com/hotgluexyz/tap-quickbooks.git
+repo: https://github.com/hotgluexyz/tap-quickbooks
+settings:
+- label: Realm ID
+  name: realmId
+- description: Your Quickbooks Online OAuth client ID
+  kind: password
+  label: Client ID
+  name: client_id
+- description: Your Quickbooks Online OAuth client secret
+  kind: password
+  label: Client Secret
+  name: client_secret
+- description: Access to Quickbooks’s API requires a refresh token that will authenticate
+    you with the server.
+  kind: password
+  label: Refresh Token
+  name: refresh_token
+- description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: Use Quickbooks Sandbox
+  kind: boolean
+  label: Is Sandbox
+  name: is_sandbox
+  value: false
+- description: Select by default any new fields discovered in Quickbooks objects
+  kind: boolean
+  label: Select Fields By Default
+  name: select_fields_by_default
+  value: true
+- description: Generate a STATE message every N records
+  kind: integer
+  label: State Message Threshold
+  name: state_message_threshold
+  value: 1000
+- description: Maximum number of threads to use
+  kind: integer
+  label: Max Workers
+  name: max_workers
+  value: 8
 settings_group_validation:
 - - client_id
   - client_secret
   - refresh_token
   - realmId
   - start_date
-settings:
-- name: realmId
-  label: Realm ID
-- name: client_id
-  kind: password
-  label: Client ID
-  description: Your Quickbooks Online OAuth client ID
-- name: client_secret
-  label: Client Secret
-  description: Your Quickbooks Online OAuth client secret
-  kind: password
-- name: refresh_token
-  label: Refresh Token
-  description: Access to Quickbooks’s API requires a refresh token that will authenticate you with the server.
-  kind: password
-- name: start_date
-  label: Start Date
-  kind: date_iso8601
-  description: Determines how much historical data will be extracted. Please be aware
-    that the larger the time period and amount of data, the longer the initial extraction
-    can be expected to take.
-- name: is_sandbox
-  label: Is Sandbox
-  kind: boolean
-  value: false
-  description: Use Quickbooks Sandbox
-- name: select_fields_by_default
-  label: Select Fields By Default
-  kind: boolean
-  value: true
-  description: Select by default any new fields discovered in Quickbooks objects
-- name: state_message_threshold
-  label: State Message Threshold
-  kind: integer
-  value: 1000
-  description: Generate a STATE message every N records
-- name: max_workers
-  label: Max Workers
-  kind: integer
-  value: 8
-  description: Maximum number of threads to use
-domain_url: https://developer.intuit.com/app/developer/qbo/docs/develop
-maintenance_status: active
-keywords:
-- api
+variant: hotgluexyz

@@ -1,75 +1,79 @@
-name: tap-mongodb
-label: MongoDB
-description: General purpose, document-based, distributed database.
-namespace: tap_mongodb
-logo_url: /assets/logos/extractors/mongodb.png
-variant: transferwise
-pip_url: pipelinewise-tap-mongodb
-repo: https://github.com/transferwise/pipelinewise-tap-mongodb
 capabilities:
 - state
 - catalog
 - discover
 - log-based
+description: General purpose, document-based, distributed database.
+domain_url: https://www.mongodb.com/
+keywords:
+- database
+label: MongoDB
+logo_url: /assets/logos/extractors/mongodb.png
+maintenance_status: active
+name: tap-mongodb
+namespace: tap_mongodb
+pip_url: pipelinewise-tap-mongodb
+repo: https://github.com/transferwise/pipelinewise-tap-mongodb
+settings:
+- description: The MongoDB password.
+  kind: password
+  label: Password
+  name: password
+- description: The MongoDB user.
+  label: User
+  name: user
+- description: The MongoDB host URL.
+  label: Host URL
+  name: host
+- description: The database name to authenticate on.
+  label: Auth Database
+  name: auth_database
+- description: Database name to sync from.
+  label: Database Name
+  name: database
+- description: Uses a mongodb+srv protocol to connect. Disables the usage of port
+    argument if set to `true`. Warning - this uses a string representation of a boolean,
+    use lowercase `true`.
+  kind: string
+  label: SRV
+  name: srv
+- description: Connection port. Required if a non-srv connection is being used.
+  kind: integer
+  label: Port
+  name: port
+- description: Name of replica set
+  label: Replica Set
+  name: replica_set
+- description: Can be set to true to connect using ssl. Warning - this uses a string
+    representation of a boolean, use lowercase `true`.
+  kind: string
+  label: SSL
+  name: ssl
+- description: Default SSL verify mode. Warning - this uses a string representation
+    of a boolean, use lowercase `true`.
+  kind: string
+  label: Verify Mode
+  name: verify_mode
+- description: Forces the stream names to take the form `<database_name>_<collection_name>`
+    instead of `<collection_name>`. Warning - this uses a string representation of
+    a boolean, use lowercase `true`.
+  kind: string
+  label: Include Schemas In Destination Stream Name
+  name: include_schemas_in_destination_stream_name
+- description: (LOG_BASED) The size of the buffer that holds detected update operations
+    in memory, the buffer is flushed once the size is reached.
+  kind: integer
+  label: Update Buffer Size
+  name: update_buffer_size
+- description: (LOG_BASED) The maximum amount of time in milliseconds the loge_base
+    method waits for new data changes before exiting.
+  kind: integer
+  label: Await Time Milliseconds
+  name: await_time_ms
 settings_group_validation:
 - - password
   - user
   - host
   - auth_database
   - database
-settings:
-- name: password
-  label: Password
-  kind: password
-  description: The MongoDB password.
-- name: user
-  label: User
-  description: The MongoDB user.
-- name: host
-  label: Host URL
-  description: The MongoDB host URL.
-- name: auth_database
-  label: Auth Database
-  description: The database name to authenticate on.
-- name: database
-  label: Database Name
-  description: Database name to sync from.
-- name: srv
-  label: SRV
-  kind: string
-  description: Uses a mongodb+srv protocol to connect. Disables the usage of port argument if set to `true`.
-    Warning - this uses a string representation of a boolean, use lowercase `true`.
-- name: port
-  label: Port
-  kind: integer
-  description: Connection port. Required if a non-srv connection is being used.
-- name: replica_set
-  label: Replica Set
-  description: Name of replica set
-- name: ssl
-  label: SSL
-  kind: string
-  description: Can be set to true to connect using ssl.
-    Warning - this uses a string representation of a boolean, use lowercase `true`.
-- name: verify_mode
-  label: Verify Mode
-  kind: string
-  description: Default SSL verify mode.
-    Warning - this uses a string representation of a boolean, use lowercase `true`.
-- name: include_schemas_in_destination_stream_name
-  label: Include Schemas In Destination Stream Name
-  kind: string
-  description: Forces the stream names to take the form `<database_name>_<collection_name>` instead of `<collection_name>`.
-    Warning - this uses a string representation of a boolean, use lowercase `true`.
-- name: update_buffer_size
-  label: Update Buffer Size
-  kind: integer
-  description: (LOG_BASED) The size of the buffer that holds detected update operations in memory, the buffer is flushed once the size is reached.
-- name: await_time_ms
-  label: Await Time Milliseconds
-  kind: integer
-  description: (LOG_BASED) The maximum amount of time in milliseconds the loge_base method waits for new data changes before exiting.
-domain_url: https://www.mongodb.com/
-maintenance_status: active
-keywords:
-- database
+variant: transferwise

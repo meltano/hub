@@ -1,40 +1,43 @@
-description: Business Communication Platform
-label: Microsoft Teams
-name: tap-ms-teams
-logo_url: /assets/logos/extractors/ms-teams.png
-namespace: tap_ms_teams
-variant: singer-io
-pip_url: tap-ms-teams
-repo: https://github.com/singer-io/tap-ms-teams
-settings:
-- name: user_agent
-  label: User Agent
-  description: The user agent to send with requests.
-- name: start_date
-  label: Start Date
-  description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
-    can be expected to take."
-  kind: date_iso8601
-- name: client_secret
-  label: Client Secret
-  description: The Client Secret of your Microsoft Teams developer application.
-  kind: password
-- name: tenant_id
-  label: Tenant ID
-  description: A globally unique identifier (GUID) that is different than your organization name or domain. Follow these steps to obtain - open one of the Teams where you belong inside the Teams Application -> Click on the … next to the Team title -> Click on Get link to team -> Copy the link to the team and grab the tenant ID form the URL.
-- name: client_id
-  label: Client ID
-  description: The Client ID of your Microsoft Teams developer application.
-  kind: password
 capabilities:
 - catalog
 - discover
 - state
+description: Business Communication Platform
 domain_url: https://docs.microsoft.com/en-us/graph/
-maintenance_status: inactive
 keywords:
 - api
+label: Microsoft Teams
+logo_url: /assets/logos/extractors/ms-teams.png
+maintenance_status: inactive
+name: tap-ms-teams
+namespace: tap_ms_teams
+pip_url: tap-ms-teams
+repo: https://github.com/singer-io/tap-ms-teams
+settings:
+- description: The user agent to send with requests.
+  label: User Agent
+  name: user_agent
+- description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: The Client Secret of your Microsoft Teams developer application.
+  kind: password
+  label: Client Secret
+  name: client_secret
+- description: A globally unique identifier (GUID) that is different than your organization
+    name or domain. Follow these steps to obtain - open one of the Teams where you
+    belong inside the Teams Application -> Click on the … next to the Team title ->
+    Click on Get link to team -> Copy the link to the team and grab the tenant ID
+    form the URL.
+  label: Tenant ID
+  name: tenant_id
+- description: The Client ID of your Microsoft Teams developer application.
+  kind: password
+  label: Client ID
+  name: client_id
 settings_group_validation:
 - - user_agent
   - start_date
@@ -95,3 +98,4 @@ usage: |
     - Team > Team.ReadBasic.All
     - User > User.Read.All
   16. Click Add permissions
+variant: singer-io

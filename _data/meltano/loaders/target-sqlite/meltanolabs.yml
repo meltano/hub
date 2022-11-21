@@ -1,33 +1,33 @@
-name: target-sqlite
-label: SQLite
 description: SQLite database loader
-namespace: target_sqlite
-logo_url: /assets/logos/loaders/sqlite.png
-variant: meltanolabs
-repo: https://github.com/MeltanoLabs/target-sqlite
-pip_url: git+https://github.com/MeltanoLabs/target-sqlite.git
 dialect: sqlite
-settings_group_validation:
-- - batch_size
+domain_url: https://sqlite.org/index.html
+keywords:
+- database
+label: SQLite
+logo_url: /assets/logos/loaders/sqlite.png
+maintenance_status: active
+name: target-sqlite
+namespace: target_sqlite
+pip_url: git+https://github.com/MeltanoLabs/target-sqlite.git
+repo: https://github.com/MeltanoLabs/target-sqlite
 settings:
-- name: database
-  label: Database Name
-  description: |
+- description: |
     Name of the SQLite database file to be used or created, relative to the project root.
 
     The `.db` extension is optional and will be added automatically when omitted.
+  label: Database Name
+  name: database
   value: warehouse
-- name: batch_size
-  label: Batch Size
+- description: How many records are sent to SQLite at a time.
   kind: integer
+  label: Batch Size
+  name: batch_size
   value: 50
-  description: How many records are sent to SQLite at a time.
-- name: timestamp_column
-  label: Timestamp Column
-  value: __loaded_at
-  description: Name of the column used for recording the timestamp when data are loaded
+- description: Name of the column used for recording the timestamp when data are loaded
     to SQLite.
-domain_url: https://sqlite.org/index.html
-maintenance_status: active
-keywords:
-- database
+  label: Timestamp Column
+  name: timestamp_column
+  value: __loaded_at
+settings_group_validation:
+- - batch_size
+variant: meltanolabs

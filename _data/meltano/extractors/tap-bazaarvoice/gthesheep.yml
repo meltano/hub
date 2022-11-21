@@ -1,36 +1,36 @@
-description: E-commerce User Content Platform
-label: Bazaarvoice
-name: tap-bazaarvoice
-logo_url: /assets/logos/extractors/bazaarvoice.png
-namespace: tap_bazaarvoice
-variant: gthesheep
-pip_url: git+https://github.com/gthesheep/tap-bazaarvoice.git
-repo: https://github.com/gthesheep/tap-bazaarvoice
 capabilities:
 - catalog
 - discover
 - state
+description: E-commerce User Content Platform
+domain_url: https://developer.bazaarvoice.com/conversations-api/home
+keywords:
+- api
+- meltano_sdk
+label: Bazaarvoice
+logo_url: /assets/logos/extractors/bazaarvoice.png
+maintenance_status: active
+name: tap-bazaarvoice
+namespace: tap_bazaarvoice
+pip_url: git+https://github.com/gthesheep/tap-bazaarvoice.git
+repo: https://github.com/gthesheep/tap-bazaarvoice
+settings:
+- description: API Token gained from Bazaarvoice
+  kind: password
+  label: API Key
+  name: api_key
+- description: Bazaarvoice environment (staging/ production)
+  label: Environment
+  name: environment
+- description: API Version, i.e. "5.4"
+  label: API Version
+  name: api_version
+- description: Page size for pagination, default 10
+  label: Page size
+  name: page_size
 settings_group_validation:
 - - api_key
   - environment
   - api_version
   - page_size
-settings:
-- name: api_key
-  label: API Key
-  kind: password
-  description: API Token gained from Bazaarvoice
-- name: environment
-  label: Environment
-  description: Bazaarvoice environment (staging/ production)
-- name: api_version
-  label: API Version
-  description: API Version, i.e. "5.4"
-- name: page_size
-  label: Page size
-  description: Page size for pagination, default 10
-domain_url: https://developer.bazaarvoice.com/conversations-api/home
-maintenance_status: active
-keywords:
-- api
-- meltano_sdk
+variant: gthesheep

@@ -1,35 +1,35 @@
-description: eCommerce Plugin for Wordpress
-label: WooCommerce
-name: tap-woocommerce
-logo_url: /assets/logos/extractors/woocommerce.png
-namespace: tap_woocommerce
-variant: hotgluexyz
-pip_url: git+https://github.com/hotgluexyz/tap-woocommerce.git
-repo: https://github.com/hotgluexyz/tap-woocommerce
 capabilities:
 - catalog
 - discover
 - state
-settings:
-- name: site_url
-  kind: string
-  label: Site URL
-  description: WooCommerce Site URL
-- name: consumer_key
-  kind: password
-  label: Consumer Key
-  description: WooCommerce API Consumer Key
-- name: consumer_secret
-  kind: password
-  label: Consumer Secret
-  description: WooCommerce API Consumer Secret
-- name: start_date
-  kind: date_iso8601
-  label: Start Date
-  description: Determines how much historical data will be extracted. Please be aware
-    that the larger the time period and amount of data, the longer the initial extraction
-    can be expected to take.
+description: eCommerce Plugin for Wordpress
 domain_url: http://woocommerce.github.io/woocommerce-rest-api-docs/
-maintenance_status: active
 keywords:
 - api
+label: WooCommerce
+logo_url: /assets/logos/extractors/woocommerce.png
+maintenance_status: active
+name: tap-woocommerce
+namespace: tap_woocommerce
+pip_url: git+https://github.com/hotgluexyz/tap-woocommerce.git
+repo: https://github.com/hotgluexyz/tap-woocommerce
+settings:
+- description: WooCommerce Site URL
+  kind: string
+  label: Site URL
+  name: site_url
+- description: WooCommerce API Consumer Key
+  kind: password
+  label: Consumer Key
+  name: consumer_key
+- description: WooCommerce API Consumer Secret
+  kind: password
+  label: Consumer Secret
+  name: consumer_secret
+- description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+variant: hotgluexyz

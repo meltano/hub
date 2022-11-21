@@ -1,16 +1,16 @@
-description: Content Management System
-label: Wordpress.org Stats
-name: tap-wordpress-stats
-logo_url: /assets/logos/extractors/wordpress-stats.png
-namespace: tap_wordpress_stats
-variant: yoast
-pip_url: git+https://github.com/Yoast/singer-tap-wordpress-stats.git
-repo: https://github.com/Yoast/singer-tap-wordpress-stats
-settings: []
 capabilities:
 - catalog
 - discover
+description: Content Management System
 domain_url: https://developer.wordpress.org/rest-api/
-maintenance_status: unknown
 keywords:
 - api
+label: Wordpress.org Stats
+logo_url: /assets/logos/extractors/wordpress-stats.png
+maintenance_status: unknown
+name: tap-wordpress-stats
+namespace: tap_wordpress_stats
+pip_url: git+https://github.com/Yoast/singer-tap-wordpress-stats.git
+repo: https://github.com/Yoast/singer-tap-wordpress-stats
+settings: []
+variant: yoast
