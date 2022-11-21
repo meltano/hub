@@ -54,10 +54,10 @@ To use the script run:
 
 ```bash
 # Run on a single file
-python utility_scripts/plugin_definitions/yaml_lint_fix.py _data/meltano/extractors/tap-3plcentral/bytecodeio.yml
+poetry run python utility_scripts/plugin_definitions/yaml_lint_fix.py _data/meltano/extractors/tap-3plcentral/bytecodeio.yml
 
 # Run on all .yml files in the `_data/` directory including subdirectories
-python utility_scripts/plugin_definitions/yaml_lint_fix.py
+poetry run python utility_scripts/plugin_definitions/yaml_lint_fix.py
 ```
 
 ## Build and serve the project
