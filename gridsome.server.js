@@ -36,6 +36,12 @@ const pluginTypeSingulars = {
   files: "file",
 };
 
+function renderDefinition(definition) {
+  let rendered = marked.marked(definition);
+  rendered = rendered.replace(/<p>|<\/p>/gi, "");
+  return ` ${rendered.charAt(0).toLowerCase()}${rendered.slice(1)}`;
+}
+
 function renderMarkdownSections(pluginData) {
   return {
     ...pluginData,
@@ -49,7 +55,7 @@ function renderMarkdownSections(pluginData) {
       })),
     // Rare
     definition_rendered: pluginData.definition
-      ? marked.marked(pluginData.definition)
+      ? renderDefinition(pluginData.definition)
       : undefined,
     settings_preamble_rendered: pluginData.settings_preamble
       ? marked.marked(pluginData.settings_preamble)
