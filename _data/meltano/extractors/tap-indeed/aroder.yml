@@ -1,16 +1,16 @@
-description: Job Search Software
-label: Indeed
-name: tap-indeed
-logo_url: /assets/logos/extractors/indeed.png
-namespace: tap_indeed
-variant: aroder
-pip_url: git+https://github.com/aroder/tap-indeed.git
-repo: https://github.com/aroder/tap-indeed
-settings: []
 capabilities:
 - catalog
 - discover
+description: Job Search Software
 domain_url: https://opensource.indeedeng.io/api-documentation/
-maintenance_status: unknown
 keywords:
 - api
+label: Indeed
+logo_url: /assets/logos/extractors/indeed.png
+maintenance_status: unknown
+name: tap-indeed
+namespace: tap_indeed
+pip_url: git+https://github.com/aroder/tap-indeed.git
+repo: https://github.com/aroder/tap-indeed
+settings: []
+variant: aroder

@@ -6,3 +6,5 @@ _data
 assets
 schemas
 singer
+.pre-commit-config.yaml
+.yamllint.yaml

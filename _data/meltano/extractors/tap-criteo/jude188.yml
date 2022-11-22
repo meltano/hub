@@ -1,17 +1,17 @@
-description: Advertising Platform
-label: Criteo
-name: tap-criteo
-logo_url: /assets/logos/extractors/criteo.png
-namespace: tap_criteo
-variant: jude188
-pip_url: git+https://github.com/Jude188/tap-criteo.git
-repo: https://github.com/Jude188/tap-criteo
-settings: []
 capabilities:
 - catalog
 - discover
 - state
+description: Advertising Platform
 domain_url: https://www.criteo.com/
-maintenance_status: unknown
 keywords:
 - api
+label: Criteo
+logo_url: /assets/logos/extractors/criteo.png
+maintenance_status: unknown
+name: tap-criteo
+namespace: tap_criteo
+pip_url: git+https://github.com/Jude188/tap-criteo.git
+repo: https://github.com/Jude188/tap-criteo
+settings: []
+variant: jude188

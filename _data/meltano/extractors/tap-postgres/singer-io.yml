@@ -1,16 +1,16 @@
-name: tap-postgres
-label: PostgreSQL
-description: PostgreSQL database extractor
-namespace: tap_postgres
-logo_url: /assets/logos/extractors/postgres.png
-variant: singer-io
 capabilities:
 - catalog
 - discover
-settings: []
-settings_group_validation: []
+description: PostgreSQL database extractor
+domain_url:
+keywords: []
+label: PostgreSQL
+logo_url: /assets/logos/extractors/postgres.png
+maintenance_status: unknown
+name: tap-postgres
+namespace: tap_postgres
 pip_url: tap-postgres
 repo: https://github.com/singer-io/tap-postgres
-domain_url:
-maintenance_status: unknown
-keywords: []
+settings: []
+settings_group_validation: []
+variant: singer-io

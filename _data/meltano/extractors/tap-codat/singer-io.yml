@@ -1,16 +1,16 @@
-description: Financial Integration Software
-label: Codat
-name: tap-codat
-logo_url: /assets/logos/extractors/codat.png
-namespace: tap_codat
-variant: singer-io
-pip_url: tap-codat
-repo: https://github.com/singer-io/tap-codat
-settings: []
 capabilities:
 - catalog
 - discover
+description: Financial Integration Software
 domain_url: https://www.codat.io/
-maintenance_status: unknown
 keywords:
 - api
+label: Codat
+logo_url: /assets/logos/extractors/codat.png
+maintenance_status: unknown
+name: tap-codat
+namespace: tap_codat
+pip_url: tap-codat
+repo: https://github.com/singer-io/tap-codat
+settings: []
+variant: singer-io

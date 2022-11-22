@@ -1,11 +1,43 @@
+capabilities:
+- catalog
+- discover
+- state
 description: Amazon Web Services
+domain_url: https://aws.amazon.com/aws-cost-management/aws-cost-explorer/
+keywords:
+- api
+- meltano_sdk
 label: AWS Cost Explorer
-name: tap-aws-cost-explorer
 logo_url: /assets/logos/extractors/aws-cost-explorer.png
+maintenance_status: active
+name: tap-aws-cost-explorer
 namespace: tap_aws_cost_explorer
-variant: albert-marrero
 pip_url: git+https://github.com/albert-marrero/tap-aws-cost-explorer.git
 repo: https://github.com/albert-marrero/tap-aws-cost-explorer
+settings:
+- description: Your AWS Account Access Key.
+  label: Access Key
+  name: access_key
+- description: Your AWS Account Secret Key.
+  kind: password
+  label: Secret Key
+  name: secret_key
+- description: The start date for retrieving Amazon Web Services cost.
+  label: Start Date
+  name: start_date
+- description: The end date for retrieving Amazon Web Services cost.
+  label: End Date
+  name: end_date
+- description: Sets the Amazon Web Services cost granularity to MONTHLY or DAILY ,
+    or HOURLY.
+  label: Granularity
+  name: granularity
+- description: Which metrics are returned in the query. Valid values are AmortizedCost,
+    BlendedCost, NetAmortizedCost, NetUnblendedCost, NormalizedUsageAmount, UnblendedCost,
+    and UsageQuantity.
+  kind: array
+  label: Metrics
+  name: metrics
 settings_group_validation:
 - - access_key
   - secret_key
@@ -13,36 +45,4 @@ settings_group_validation:
   - end_date
   - granularity
   - metrics
-settings:
-- name: access_key
-  label: Access Key
-  description: Your AWS Account Access Key.
-- name: secret_key
-  label: Secret Key
-  description: Your AWS Account Secret Key.
-  kind: password
-- name: start_date
-  label: Start Date
-  description: The start date for retrieving Amazon Web Services cost.
-- name: end_date
-  label: End Date
-  description: The end date for retrieving Amazon Web Services cost.
-- name: granularity
-  label: Granularity
-  description: Sets the Amazon Web Services cost granularity to MONTHLY or DAILY ,
-    or HOURLY.
-- name: metrics
-  label: Metrics
-  kind: array
-  description: Which metrics are returned in the query. Valid values are AmortizedCost,
-    BlendedCost, NetAmortizedCost, NetUnblendedCost, NormalizedUsageAmount, UnblendedCost,
-    and UsageQuantity.
-capabilities:
-- catalog
-- discover
-- state
-domain_url: https://aws.amazon.com/aws-cost-management/aws-cost-explorer/
-maintenance_status: active
-keywords:
-- api
-- meltano_sdk
+variant: albert-marrero

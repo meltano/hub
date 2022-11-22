@@ -1,64 +1,61 @@
-name: tap-postgres
-label: PostgreSQL
-description: PostgreSQL database extractor
-namespace: tap_postgres
-logo_url: /assets/logos/extractors/postgres.png
-variant: transferwise
-repo: https://github.com/transferwise/pipelinewise-tap-postgres
-pip_url: pipelinewise-tap-postgres
 capabilities:
 - catalog
 - discover
 - state
-settings_group_validation:
-- - host
-  - port
-  - user
-  - password
-  - dbname
+description: PostgreSQL database extractor
+domain_url: https://www.postgresql.org/
+keywords:
+- database
+label: PostgreSQL
+logo_url: /assets/logos/extractors/postgres.png
+maintenance_status: active
+name: tap-postgres
+namespace: tap_postgres
+pip_url: pipelinewise-tap-postgres
+repo: https://github.com/transferwise/pipelinewise-tap-postgres
 settings:
-- name: host
+- description: PostgreSQL host
   label: Host
+  name: host
   value: localhost
-  description: PostgreSQL host
-- name: port
-  label: Port
+- description: PostgreSQL port
   kind: integer
+  label: Port
+  name: port
   value: 5432
-  description: PostgreSQL port
-- name: user
+- description: PostgreSQL user
   label: User
-  description: PostgreSQL user
-- name: password
-  label: Password
+  name: user
+- description: PostgreSQL password
   kind: password
-  description: PostgreSQL password
-- name: dbname
+  label: Password
+  name: password
+- description: PostgreSQL database name
   label: Database Name
-  description: PostgreSQL database name
-- name: ssl
-  label: SSL
-  kind: boolean
-  value: false
-  value_post_processor: stringify
-  description: Using SSL via postgres `sslmode='require'` option. If the server does
+  name: dbname
+- description: Using SSL via postgres `sslmode='require'` option. If the server does
     not accept SSL connections or the client certificate is not recognized the connection
     will fail
-- name: filter_schemas
-  label: Filter Schemas
-  description: Scan only the specified comma-separated schemas to improve the performance
+  kind: boolean
+  label: SSL
+  name: ssl
+  value: false
+  value_post_processor: stringify
+- description: Scan only the specified comma-separated schemas to improve the performance
     of data extraction
-- name: default_replication_method
-  label: Default Replication Method
-  description: |
+  label: Filter Schemas
+  name: filter_schemas
+- description: |
     The prefered replication method.
-    
+
     Note:
     - Key-based incremental (`INCREMENTAL`) requires configuring a `replication_key` column within the
       catalog's stream definitions for each supported stream.
     - Requirements and setup instructions for log-based incremental (`LOG_BASED`) are documented
       [here](https://github.com/transferwise/pipelinewise-tap-postgres#log-based-replication-requirements).
   kind: options
+  label: Default Replication Method
+  name: default_replication_method
   options:
   - label: Log-based Incremental Replication
     value: LOG_BASED
@@ -66,27 +63,29 @@ settings:
     value: INCREMENTAL
   - label: Full Table Replication
     value: FULL_TABLE
-- name: max_run_seconds
+- description: Stop running the tap after certain number of seconds
+  kind: integer
   label: Max Run Seconds
-  kind: integer
+  name: max_run_seconds
   value: 43200
-  description: Stop running the tap after certain number of seconds
-- name: logical_poll_total_seconds
-  label: Logical Poll Total Seconds
-  kind: integer
-  value: 10800
-  description: Stop running the tap when no data received from wal after certain number
+- description: Stop running the tap when no data received from wal after certain number
     of seconds
-- name: break_at_end_lsn
-  label: Break At End LSN
-  kind: boolean
-  value: true
-  description: Stop running the tap if the newly received lsn is after the max lsn
+  kind: integer
+  label: Logical Poll Total Seconds
+  name: logical_poll_total_seconds
+  value: 10800
+- description: Stop running the tap if the newly received lsn is after the max lsn
     that was detected when the tap started
-domain_url: https://www.postgresql.org/
-maintenance_status: active
-keywords:
-- database
+  kind: boolean
+  label: Break At End LSN
+  name: break_at_end_lsn
+  value: true
+settings_group_validation:
+- - host
+  - port
+  - user
+  - password
+  - dbname
 usage: |
   ## Troubleshooting
 
@@ -95,4 +94,4 @@ usage: |
   This error message indicates that the [`libpq`](https://www.postgresql.org/docs/current/libpq.html) dependency is missing.
 
   To resolve this, refer to the ["Dependencies" section](#dependencies) above.
-
+variant: transferwise

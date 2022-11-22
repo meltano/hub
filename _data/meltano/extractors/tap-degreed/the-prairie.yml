@@ -1,7 +1,3 @@
-name: tap-degreed
-variant: the-prairie
-label: Degreed
-logo_url: /assets/logos/extractors/degreed.png
 capabilities:
 - catalog
 - state
@@ -11,33 +7,37 @@ capabilities:
 domain_url: https://degreed.com/
 keywords:
 - meltano_sdk
+label: Degreed
+logo_url: /assets/logos/extractors/degreed.png
 maintenance_status: active
+name: tap-degreed
 namespace: tap_degreed
 next_steps: ''
 pip_url: git+https://github.com/the-prairie/tap-degreed.git
 repo: https://github.com/the-prairie/tap-degreed
 settings:
-- name: client_id
+- description: The token to authenticate against the API service
+  kind: password
   label: Client Id
-  description: The token to authenticate against the API service
+  name: client_id
+- description: The token to authenticate against the API service
   kind: password
-- name: client_secret
   label: Client Secret
-  description: The token to authenticate against the API service
-  kind: password
-- name: api_url
+  name: client_secret
+- description: The url for the API service
   label: Api Url
-  description: The url for the API service
-- name: start_date
-  label: Start Date
-  description: "Determines how much historical data will be extracted. Please be aware\n\
+  name: api_url
+- description: "Determines how much historical data will be extracted. Please be aware\n\
     that the larger the time period and amount of data, the longer the initial extraction\n\
     can be expected to take."
-- name: end_date
+  label: Start Date
+  name: start_date
+- description: The earliest record date to sync. Expected format YYYY-mm-dd.
   label: End Date
-  description: The earliest record date to sync. Expected format YYYY-mm-dd.
+  name: end_date
 settings_group_validation:
 - - client_secret
   - client_id
 settings_preamble: ''
 usage: ''
+variant: the-prairie

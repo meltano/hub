@@ -1,16 +1,16 @@
-description: Customer Service Agent Platform
-label: Stella Connect
-name: tap-stella
-logo_url: /assets/logos/extractors/stella.png
-namespace: tap_stella
-variant: pathlight
-pip_url: git+https://github.com/Pathlight/tap-stella.git
-repo: https://github.com/Pathlight/tap-stella
-settings: []
 capabilities:
 - catalog
 - discover
+description: Customer Service Agent Platform
 domain_url: https://stellaconnect.com/
-maintenance_status: unknown
 keywords:
 - api
+label: Stella Connect
+logo_url: /assets/logos/extractors/stella.png
+maintenance_status: unknown
+name: tap-stella
+namespace: tap_stella
+pip_url: git+https://github.com/Pathlight/tap-stella.git
+repo: https://github.com/Pathlight/tap-stella
+settings: []
+variant: pathlight

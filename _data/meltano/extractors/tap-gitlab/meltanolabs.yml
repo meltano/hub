@@ -1,35 +1,26 @@
-name: tap-gitlab
-label: GitLab
-description: Single application for the entire DevOps lifecycle
-namespace: tap_gitlab
-logo_url: /assets/logos/extractors/gitlab.png
-variant: meltanolabs
-repo: https://github.com/MeltanoLabs/tap-gitlab
-pip_url: git+https://github.com/MeltanoLabs/tap-gitlab.git
 capabilities:
 - catalog
 - discover
 - state
-settings_group_validation:
-- - api_url
-  - groups
-  - start_date
-- - api_url
-  - projects
-  - start_date
+description: Single application for the entire DevOps lifecycle
+domain_url: https://docs.gitlab.com/ee/api/
+keywords:
+- api
+label: GitLab
+logo_url: /assets/logos/extractors/gitlab.png
+maintenance_status: active
+name: tap-gitlab
+namespace: tap_gitlab
+pip_url: git+https://github.com/MeltanoLabs/tap-gitlab.git
+repo: https://github.com/MeltanoLabs/tap-gitlab
 settings:
-- name: api_url
-  label: GitLab Instance
-  value: https://gitlab.com
-  description: GitLab API/instance URL. When an API path is omitted, `/api/v4/` is
+- description: GitLab API/instance URL. When an API path is omitted, `/api/v4/` is
     assumed.
+  label: GitLab Instance
+  name: api_url
   protected: true
-- name: private_token
-  kind: password
-  value: ''
-  label: Access Token
-  placeholder: Ex. *****************
-  description: |
+  value: https://gitlab.com
+- description: |
     GitLab personal access token or other API token.
 
     #### How to get
@@ -52,10 +43,12 @@ settings:
     3. Click on `Create personal access token` to submit your request.
 
     4. You should see your token appear at the top of your screen. It should look something like this: `I8vxHsiVAaDnAX3hA`
-- name: groups
+  kind: password
+  label: Access Token
+  name: private_token
+  placeholder: Ex. *****************
   value: ''
-  label: Groups
-  description: |
+- description: |
     This property allows you to scope data that the extractor fetches to only the desired group. The group name can generally be found at the root of a repository's URL. If this is left blank, you have to at least provide a [project](#projects).
 
     Leave empty if you'd like to pull data from a project in a personal user namespace.
@@ -63,11 +56,11 @@ settings:
     For example, `https://github.com/MeltanoLabs/tap-gitlab` has a group of `meltano`.
 
     Multiple group names can be separated using space characters.
+  label: Groups
+  name: groups
   placeholder: Ex. my-organization
-- name: projects
   value: ''
-  label: Project
-  description: |
+- description: |
     This property allows you to scope the project(s) that the extractor fetches.
 
     Leave empty if you've specified one or more [groups](#groups) and would like to pull data from all projects inside these groups.
@@ -78,43 +71,50 @@ settings:
     - `meltano/sdk` - The project for the [Meltano SDK for Singer Taps and Targets ](https://gitlab.com/meltano/sdk)
 
     Multiple group paths can be separated using space characters.
+  label: Project
+  name: projects
   placeholder: Ex. my-organization/project-1
-- name: ultimate_license
-  label: Ultimate License
-  kind: boolean
-  value: false
-  description: |
+  value: ''
+- description: |
     Enable to pull in extra data (like Epics, Epic Issues and other entities)
     only available to GitLab Ultimate and GitLab.com Gold accounts.
 
     The `epics` and `epic_issues` entities cannot be [selected](https://docs.meltano.com/guide/integration#selecting-entities-and-attributes-for-extraction) unless this setting is enabled.
-- name: fetch_merge_request_commits
-  label: Fetch Merge Request Commits
   kind: boolean
+  label: Ultimate License
+  name: ultimate_license
   value: false
-  description: |
+- description: |
     For each Merge Request, also fetch the MR's commits and create the join table `merge_request_commits` with the Merge Request and related Commit IDs.
 
     This can slow down extraction considerably because of the many API calls required.
 
     The `merge_request_commits` entity cannot be [selected](https://docs.meltano.com/guide/integration#selecting-entities-and-attributes-for-extraction) unless this setting is enabled.
-- name: fetch_pipelines_extended
-  label: Fetch Pipelines Extended
   kind: boolean
+  label: Fetch Merge Request Commits
+  name: fetch_merge_request_commits
   value: false
-  description: |
+- description: |
     For every Pipeline, also fetch extended details of each of these pipelines.
 
     This  can slow down extraction considerably because of the many API calls required.
 
     The `pipelines_extended` entity cannot be [selected](https://docs.meltano.com/guide/integration#selecting-entities-and-attributes-for-extraction) unless this setting is enabled.
-- name: start_date
-  label: Start Date
-  kind: date_iso8601
-  description: Determines how much historical data will be extracted. Please be aware
+  kind: boolean
+  label: Fetch Pipelines Extended
+  name: fetch_pipelines_extended
+  value: false
+- description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.
-domain_url: https://docs.gitlab.com/ee/api/
-maintenance_status: active
-keywords:
-- api
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+settings_group_validation:
+- - api_url
+  - groups
+  - start_date
+- - api_url
+  - projects
+  - start_date
+variant: meltanolabs

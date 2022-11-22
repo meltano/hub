@@ -1,16 +1,16 @@
-description: Online Community Platform
-label: inSided
-name: tap-insided
-logo_url: /assets/logos/extractors/insided.png
-namespace: tap_insided
-variant: karbonhq
-pip_url: git+https://github.com/karbonhq/singer-tap-insided.git
-repo: https://github.com/karbonhq/singer-tap-insided
-settings: []
 capabilities:
 - catalog
 - discover
+description: Online Community Platform
 domain_url: https://www.insided.com/
-maintenance_status: unknown
 keywords:
 - api
+label: inSided
+logo_url: /assets/logos/extractors/insided.png
+maintenance_status: unknown
+name: tap-insided
+namespace: tap_insided
+pip_url: git+https://github.com/karbonhq/singer-tap-insided.git
+repo: https://github.com/karbonhq/singer-tap-insided
+settings: []
+variant: karbonhq

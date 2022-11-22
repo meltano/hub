@@ -1,45 +1,43 @@
-name: target-gcs
-label: Google Cloud Storage
 description: Google Cloud Storage loader
-namespace: target_gcs
-logo_url: /assets/logos/loaders/gcs.png
-variant: datateer
-repo: https://github.com/Datateer/target-gcs
-pip_url: git+https://github.com/Datateer/target-gcs.git
-settings_group_validation:
-- - bucket_name
-  - credentials_file
-settings:
-- name: bucket_name
-  kind: string
-  description: The name of the GCS Bucket to sync the stream to
-- name: credentials_file
-  kind: string
-  env: GOOGLE_APPLICATION_CREDENTIALS
-  value: $MELTANO_PROJECT_ROOT/client_secrets.json
-  description:
-    The fully resolved path to the credentials json file. By default we will look
-    in the meltano project directory root for a file called `client_secrets.json`
-- name: date_format
-  kind: string
-  value: "%Y-%m-%d"
-  description: The date formate for the export date used in the bucket key path
-- name: key_prefix
-  kind: string
-  value: meltano/${MELTANO_EXTRACT__LOAD_SCHEMA}/
-  description:
-    This is the base key prefix which lets you define where the stream will write to in the bucket.
-    By default, we use `meltano/${MELTANO_EXTRACT__LOAD_SCHEMA}/` which is derived from the tap. For
-    example tap-jira would end up in meltano/tap_jira/...
-- name: key_naming_convention
-  kind: string
-  value: "{stream}/export_date={date}/{timestamp}.jsonl"
-  description:
-    This is the naming convention for the key. Available values in the format string are
-    stream (stream name), date, timestamp. By default this naming convention uses hive style partitioning
 domain_url: https://cloud.google.com/storage
-maintenance_status: active
 keywords:
 - google
 - cloud
 - bucket
+label: Google Cloud Storage
+logo_url: /assets/logos/loaders/gcs.png
+maintenance_status: active
+name: target-gcs
+namespace: target_gcs
+pip_url: git+https://github.com/Datateer/target-gcs.git
+repo: https://github.com/Datateer/target-gcs
+settings:
+- description: The name of the GCS Bucket to sync the stream to
+  kind: string
+  name: bucket_name
+- description: The fully resolved path to the credentials json file. By default we
+    will look in the meltano project directory root for a file called `client_secrets.json`
+  env: GOOGLE_APPLICATION_CREDENTIALS
+  kind: string
+  name: credentials_file
+  value: $MELTANO_PROJECT_ROOT/client_secrets.json
+- description: The date formate for the export date used in the bucket key path
+  kind: string
+  name: date_format
+  value: "%Y-%m-%d"
+- description: This is the base key prefix which lets you define where the stream
+    will write to in the bucket. By default, we use `meltano/${MELTANO_EXTRACT__LOAD_SCHEMA}/`
+    which is derived from the tap. For example tap-jira would end up in meltano/tap_jira/...
+  kind: string
+  name: key_prefix
+  value: meltano/${MELTANO_EXTRACT__LOAD_SCHEMA}/
+- description: This is the naming convention for the key. Available values in the
+    format string are stream (stream name), date, timestamp. By default this naming
+    convention uses hive style partitioning
+  kind: string
+  name: key_naming_convention
+  value: "{stream}/export_date={date}/{timestamp}.jsonl"
+settings_group_validation:
+- - bucket_name
+  - credentials_file
+variant: datateer

@@ -1,7 +1,3 @@
-name: target-s3-parquet
-variant: gupy-io
-label: S3 Parquet
-logo_url: /assets/logos/loaders/s3-parquet.png
 capabilities:
 - about
 - stream-maps
@@ -10,51 +6,54 @@ description: AWS S3 - Apache Parquet File Format
 domain_url: https://aws.amazon.com/s3/
 keywords:
 - meltano_sdk
+label: S3 Parquet
+logo_url: /assets/logos/loaders/s3-parquet.png
 maintenance_status: active
+name: target-s3-parquet
 namespace: target_s3_parquet
 next_steps: ''
 pip_url: git+https://github.com/gupy-io/target-s3-parquet.git
 repo: https://github.com/gupy-io/target-s3-parquet
 settings:
-- name: s3_path
+- description: The s3 path to the target output file
   label: S3 Path
-  description: The s3 path to the target output file
-- name: aws_access_key_id
+  name: s3_path
+- description: Your AWS access key ID.
+  kind: password
   label: AWS Access Key Id
-  description: Your AWS access key ID.
+  name: aws_access_key_id
+- description: Your AWS secret access key.
   kind: password
-- name: aws_secret_access_key
   label: AWS Secret Access Key
-  description: Your AWS secret access key.
-  kind: password
-- name: athena_database
+  name: aws_secret_access_key
+- description: The Athena database.
   label: Athena Database
-  description: The Athena database.
-- name: add_record_metadata
+  name: athena_database
+- description: A boolean whether to add record metadata
+  kind: boolean
   label: Add Record Metadata
-  description: A boolean whether to add record metadata
+  name: add_record_metadata
+- description: A boolean whether to stringify Schema
   kind: boolean
-- name: stringify_schema
   label: Stringify Schema
-  description: A boolean whether to stringify Schema
-  kind: boolean
-- name: stream_maps
+  name: stringify_schema
+- description: Config object for stream maps capability.
+  kind: object
   label: Stream Maps
-  description: Config object for stream maps capability.
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
   kind: object
-- name: stream_map_config
   label: Stream Map Config
-  description: User-defined config values to be used within map expressions.
-  kind: object
-- name: flattening_enabled
-  label: Flattening Enabled
-  description: "'True' to enable schema flattening and automatically expand nested\
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
     \ properties."
   kind: boolean
-- name: flattening_max_depth
-  label: Flattening Max Depth
-  description: The max depth to flatten schemas.
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
   kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
 settings_group_validation:
 - - s3_path
   - aws_access_key_id
@@ -62,3 +61,4 @@ settings_group_validation:
   - athena_database
 settings_preamble: ''
 usage: ''
+variant: gupy-io

@@ -1,16 +1,16 @@
-description: Business Solution Software for Apparel Industry
-label: ApparelMagic
-name: tap-apparel-magic
-logo_url: /assets/logos/extractors/apparel-magic.png
-namespace: tap_apparel_magic
-variant: jamespotz
-pip_url: git+https://github.com/jamespotz/tap-apparel-magic.git
-repo: https://github.com/jamespotz/tap-apparel-magic
-settings: []
 capabilities:
 - catalog
 - discover
+description: Business Solution Software for Apparel Industry
 domain_url: https://apparelmagic.com/integrations/
-maintenance_status: unknown
 keywords:
 - api
+label: ApparelMagic
+logo_url: /assets/logos/extractors/apparel-magic.png
+maintenance_status: unknown
+name: tap-apparel-magic
+namespace: tap_apparel_magic
+pip_url: git+https://github.com/jamespotz/tap-apparel-magic.git
+repo: https://github.com/jamespotz/tap-apparel-magic
+settings: []
+variant: jamespotz

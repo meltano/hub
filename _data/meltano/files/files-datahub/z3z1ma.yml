@@ -1,10 +1,10 @@
-name: files-datahub
-label: Datahub
-namespace: files_datahub
-domain_url: https://airflow.apache.org/
-repo: https://github.com/z3z1ma/files-datahub
-pip_url: git+https://github.com/z3z1ma/files-datahub.git
-variant: z3z1ma
-logo_url: /assets/logos/files/datahub.png
 definition: are bundled with the utility Datahub.
+domain_url: https://airflow.apache.org/
+label: Datahub
+logo_url: /assets/logos/files/datahub.png
 maintenance_status: active
+name: files-datahub
+namespace: files_datahub
+pip_url: git+https://github.com/z3z1ma/files-datahub.git
+repo: https://github.com/z3z1ma/files-datahub
+variant: z3z1ma

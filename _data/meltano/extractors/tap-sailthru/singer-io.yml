@@ -1,44 +1,44 @@
-description: Marketing Automation Software
-label: Sailthru
-name: tap-sailthru
-logo_url: /assets/logos/extractors/sailthru.png
-namespace: tap_sailthru
-variant: singer-io
-pip_url: tap-sailthru
-repo: https://github.com/singer-io/tap-sailthru
-settings:
-- name: user_agent
-  label: User Agent
-  description: The user agent to send with requests for logging purposes.
-- name: request_timeout
-  label: Request Timeout
-  description: The time for which request should wait to get response and default
-    request_timeout is 300 seconds.
-  kind: integer
-- name: start_date
-  label: Start Date
-  description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
-    can be expected to take."
-  kind: date_iso8601
-- name: api_key
-  label: API Key
-  description: Your Sailthru API key.
-  kind: password
-- name: api_secret
-  label: API Secret
-  description: Your Sailthru API secret.
-  kind: password
 capabilities:
 - catalog
 - discover
 - state
+description: Marketing Automation Software
 domain_url: https://getstarted.sailthru.com/developers/api-basics/introduction/
-maintenance_status: active
 keywords:
 - api
+label: Sailthru
+logo_url: /assets/logos/extractors/sailthru.png
+maintenance_status: active
+name: tap-sailthru
+namespace: tap_sailthru
+pip_url: tap-sailthru
+repo: https://github.com/singer-io/tap-sailthru
+settings:
+- description: The user agent to send with requests for logging purposes.
+  label: User Agent
+  name: user_agent
+- description: The time for which request should wait to get response and default
+    request_timeout is 300 seconds.
+  kind: integer
+  label: Request Timeout
+  name: request_timeout
+- description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: Your Sailthru API key.
+  kind: password
+  label: API Key
+  name: api_key
+- description: Your Sailthru API secret.
+  kind: password
+  label: API Secret
+  name: api_secret
 settings_group_validation:
 - - user_agent
   - start_date
   - api_key
   - api_secret
+variant: singer-io

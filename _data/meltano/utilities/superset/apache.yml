@@ -1,87 +1,28 @@
-name: superset
-namespace: superset
-label: Superset
-domain_url: https://superset.apache.org/
-description: A modern, enterprise-ready business intelligence web application.
-docs: https://docs.meltano.com/guide/analysis
-repo: https://github.com/apache/superset
-maintenance_status: active
-variant: apache
-pip_url: apache-superset==1.5.0 markupsafe==2.0.1 # `markupsafe` is listed explicitly to resolve https://github.com/apache/superset/issues/19150
-settings:
-- name: ui.bind_host
-  label: UI Bind Host
-  value: "0.0.0.0"
-  description: Host used by `meltano invoke superset:ui`. Used in the `gunicorn` `--bind` option along with `ui.port`.
-- name: ui.port
-  label: UI Port
-  value: 8088
-  description: Port used by `meltano invoke superset:ui`. Used in the `gunicorn` `--bind` option along with `ui.bind_host`.
-- name: ui.timeout
-  label: UI Timeout
-  value: 60
-  description: Timeout in sections, used by `meltano invoke superset:ui`. Corresponds to the `gunicorn` `--timeout` option
-- name: ui.workers
-  label: UI Workers
-  value: 4
-  description: Workers used by `meltano invoke superset:ui`. Corresponds to the `gunicorn` `--workers` option
-- name: SQLALCHEMY_DATABASE_URI
-  label: SQLAlchemy Database URI
-  value: sqlite:///$MELTANO_PROJECT_ROOT/.meltano/utilities/superset/superset.db
-  description: |
-    Superset metadata database connection string. Equivalent to the `SQLALCHEMY_DATABASE_URI` setting in `superset_config.py`.
-
-    SQLite is used by default, but in production PostgreSQL or MySQL is more appropriate. See the [Superset documentation](https://superset.apache.org/docs/installation/configuring-superset/#using-a-production-metastore) for more information. To add a database driver like `psycopg2` or `mysqlclient`, refer to the [Add additional database drivers](#add-additional-database-drivers) section above.
-- name: SECRET_KEY
-  label: Secret Key
-  kind: password
-  value: thisisnotapropersecretkey
-  description: App secret key used for securely signing the session cookie and encrypting sensitive information on the database. Equivalent to the `SECRET_KEY` setting in `superset_config.py`.
 commands:
-  ui:
-    executable: gunicorn
-    args: --bind $SUPERSET_UI_BIND_HOST:$SUPERSET_UI_PORT --timeout $SUPERSET_UI_TIMEOUT --workers $SUPERSET_UI_WORKERS superset.app:create_app()
-    description: Start the Superset UI. Will be available on the configured `ui.bind_host` and `ui.port`, which default to `http://localhost:8088`
   create-admin:
     args: fab create-admin
     description: Create an admin user.
   load-examples:
     args: load_examples
     description: Load examples.
-logo_url: /assets/logos/utilities/superset.png
-definition: is a modern, enterprise-ready business intelligence web application. **It requires Meltano version 2.0.**
+  ui:
+    args: --bind $SUPERSET_UI_BIND_HOST:$SUPERSET_UI_PORT --timeout $SUPERSET_UI_TIMEOUT
+      --workers $SUPERSET_UI_WORKERS superset.app:create_app()
+    description: Start the Superset UI. Will be available on the configured `ui.bind_host`
+      and `ui.port`, which default to `http://localhost:8088`
+    executable: gunicorn
+definition: is a modern, enterprise-ready business intelligence web application. **It
+  requires Meltano version 2.0.**
+description: A modern, enterprise-ready business intelligence web application.
+docs: https://docs.meltano.com/guide/analysis
+domain_url: https://superset.apache.org/
 keywords:
 - analysis
-settings_preamble: |
-  Meltano [centralizes the configuration](https://docs.meltano.com/guide/configuration) of all of the plugins in your project, including Superset's. This means that if the [Superset documentation](https://superset.apache.org/docs/installation/configuring-superset/) tells you to put something in `superset_config.py`, you can use `meltano config`, `meltano.yml`, or environment variables instead, and get the benefits of Meltano features like [environments](https://docs.meltano.com/concepts/environments).
-
-  Most settings (those with simple values like strings, integers, booleans, lists, or dictionaries) can be added directly to `meltano.yml`, manually or using `meltano config`. For example, `ROW_LIMIT = 5000` becomes `meltano config superset set ROW_LIMIT 5000` on the CLI, or `ROW_LIMIT: 5000` in `meltano.yml`. Just like in `superset_config.py`, config keys should be ALL_CAPS.
-
-  #### Advanced configuration
-
-  If you want to configure something more complex, like [custom OAuth2 configuration](https://superset.apache.org/docs/installation/configuring-superset/#custom-oauth2-configuration), you can add a `superset_config.py` file somewhere in your project, put your Superset config there exactly as the documentation suggests, and tell Meltano to pass that to Superset along with the Meltano-managed configuration by adding the `config_path` property to the `superset` plugin definition in `meltano.yml`:
-
-  ```yaml
-  utilities:
-  - name: superset
-    variant: apache
-    pip_url: apache-superset==1.5.0
-    config_path: analyze/superset/superset_config.py
-    config:
-      ROW_LIMIT: 5000
-  ```
-
-  Properties defined in your own `superset_config.py` take precedence over those managed by Meltano, like `ROW_LIMIT` in the example.
-
-  #### Superset settings already known to Meltano
-prereq: |
-  #### Dependencies
-
-  **The Superset plugin requires Meltano version 2.0.** If you're on an older version, make sure you update Meltano first.
-
-  Once you have Meltano running, you likely already have everything you need for Superset as well.
-  If you do run into trouble installing Superset following the instructions below, check out the [OS Dependencies](https://superset.apache.org/docs/installation/installing-superset-from-scratch/#os-dependencies) section in the Superset documentation.
-  Note that the rest of that guide is not relevant if you're using Meltano to manage your Superset installation, initialization, and configuration.
+label: Superset
+logo_url: /assets/logos/utilities/superset.png
+maintenance_status: active
+name: superset
+namespace: superset
 next_steps: |
   1. If you're running Superset for the first time in a new environment, generate a new [`SECRET_KEY`](#secret-key) to increase security:
 
@@ -135,18 +76,85 @@ next_steps: |
      ```
 
   Now when you (re)start Superset, you will be able to connect to a new type of database, like Snowflake in the example.
+pip_url: apache-superset==1.5.0 markupsafe==2.0.1
+prereq: |
+  #### Dependencies
+
+  **The Superset plugin requires Meltano version 2.0.** If you're on an older version, make sure you update Meltano first.
+
+  Once you have Meltano running, you likely already have everything you need for Superset as well.
+  If you do run into trouble installing Superset following the instructions below, check out the [OS Dependencies](https://superset.apache.org/docs/installation/installing-superset-from-scratch/#os-dependencies) section in the Superset documentation.
+  Note that the rest of that guide is not relevant if you're using Meltano to manage your Superset installation, initialization, and configuration.
+repo: https://github.com/apache/superset
+settings:
+- description: Host used by `meltano invoke superset:ui`. Used in the `gunicorn` `--bind`
+    option along with `ui.port`.
+  label: UI Bind Host
+  name: ui.bind_host
+  value: "0.0.0.0"
+- description: Port used by `meltano invoke superset:ui`. Used in the `gunicorn` `--bind`
+    option along with `ui.bind_host`.
+  label: UI Port
+  name: ui.port
+  value: 8088
+- description: Timeout in sections, used by `meltano invoke superset:ui`. Corresponds
+    to the `gunicorn` `--timeout` option
+  label: UI Timeout
+  name: ui.timeout
+  value: 60
+- description: Workers used by `meltano invoke superset:ui`. Corresponds to the `gunicorn`
+    `--workers` option
+  label: UI Workers
+  name: ui.workers
+  value: 4
+- description: |
+    Superset metadata database connection string. Equivalent to the `SQLALCHEMY_DATABASE_URI` setting in `superset_config.py`.
+
+    SQLite is used by default, but in production PostgreSQL or MySQL is more appropriate. See the [Superset documentation](https://superset.apache.org/docs/installation/configuring-superset/#using-a-production-metastore) for more information. To add a database driver like `psycopg2` or `mysqlclient`, refer to the [Add additional database drivers](#add-additional-database-drivers) section above.
+  label: SQLAlchemy Database URI
+  name: SQLALCHEMY_DATABASE_URI
+  value: sqlite:///$MELTANO_PROJECT_ROOT/.meltano/utilities/superset/superset.db
+- description: App secret key used for securely signing the session cookie and encrypting
+    sensitive information on the database. Equivalent to the `SECRET_KEY` setting
+    in `superset_config.py`.
+  kind: password
+  label: Secret Key
+  name: SECRET_KEY
+  value: thisisnotapropersecretkey
+settings_preamble: |
+  Meltano [centralizes the configuration](https://docs.meltano.com/guide/configuration) of all of the plugins in your project, including Superset's. This means that if the [Superset documentation](https://superset.apache.org/docs/installation/configuring-superset/) tells you to put something in `superset_config.py`, you can use `meltano config`, `meltano.yml`, or environment variables instead, and get the benefits of Meltano features like [environments](https://docs.meltano.com/concepts/environments).
+
+  Most settings (those with simple values like strings, integers, booleans, lists, or dictionaries) can be added directly to `meltano.yml`, manually or using `meltano config`. For example, `ROW_LIMIT = 5000` becomes `meltano config superset set ROW_LIMIT 5000` on the CLI, or `ROW_LIMIT: 5000` in `meltano.yml`. Just like in `superset_config.py`, config keys should be ALL_CAPS.
+
+  #### Advanced configuration
+
+  If you want to configure something more complex, like [custom OAuth2 configuration](https://superset.apache.org/docs/installation/configuring-superset/#custom-oauth2-configuration), you can add a `superset_config.py` file somewhere in your project, put your Superset config there exactly as the documentation suggests, and tell Meltano to pass that to Superset along with the Meltano-managed configuration by adding the `config_path` property to the `superset` plugin definition in `meltano.yml`:
+
+  ```yaml
+  utilities:
+  - name: superset
+    variant: apache
+    pip_url: apache-superset==1.5.0
+    config_path: analyze/superset/superset_config.py
+    config:
+      ROW_LIMIT: 5000
+  ```
+
+  Properties defined in your own `superset_config.py` take precedence over those managed by Meltano, like `ROW_LIMIT` in the example.
+
+  #### Superset settings already known to Meltano
 usage: |
   ## Troubleshooting
-  
+
   ### Invalid decryption key
-  
-  If you see a `ValueError: Invalid decryption key` warning or a message that `Superset default roles and permissions could not be created: 'superset init' failed` then it's likely that your encryption key is incorrect. 
-  
+
+  If you see a `ValueError: Invalid decryption key` warning or a message that `Superset default roles and permissions could not be created: 'superset init' failed` then it's likely that your encryption key is incorrect.
+
   If you change your [`SECRET_KEY`](#secret-key), the metadata database containing your users and reports will become unreadable. If there was nothing valuable in there, you can delete it at `.meltano/utilities/superset/superset.db` inside your project. If you changed the secret key because the old one was leaked, you can [rotate the key](https://superset.apache.org/docs/installation/configuring-superset/#secret_key-rotation):
-  
+
   ```bash
   meltano config superset set SECRET_KEY <new_key>
   meltano config superset set PREVIOUS_SECRET_KEY <original_key>
   meltano invoke superset re-encrypt-secrets
   ```
-  
+variant: apache

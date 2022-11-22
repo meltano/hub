@@ -1,16 +1,16 @@
-description: Logistics Management Software
-label: Onfleet
-name: tap-onfleet
-logo_url: /assets/logos/extractors/onfleet.png
-namespace: tap_onfleet
-variant: lambtron
-pip_url: git+https://github.com/lambtron/tap-onfleet.git
-repo: https://github.com/lambtron/tap-onfleet
-settings: []
 capabilities:
 - catalog
 - discover
+description: Logistics Management Software
 domain_url: https://docs.onfleet.com/
-maintenance_status: unknown
 keywords:
 - api
+label: Onfleet
+logo_url: /assets/logos/extractors/onfleet.png
+maintenance_status: unknown
+name: tap-onfleet
+namespace: tap_onfleet
+pip_url: git+https://github.com/lambtron/tap-onfleet.git
+repo: https://github.com/lambtron/tap-onfleet
+settings: []
+variant: lambtron

@@ -1,17 +1,17 @@
-name: tap-facebook
-label: Facebook Ads
-description: Advertising Platform
-namespace: tap_facebook
-logo_url: /assets/logos/extractors/facebook.png
-variant: primedata-ai
 capabilities:
 - catalog
 - discover
 - state
-settings: []
-settings_group_validation: []
+description: Advertising Platform
+domain_url:
+keywords: []
+label: Facebook Ads
+logo_url: /assets/logos/extractors/facebook.png
+maintenance_status: unknown
+name: tap-facebook
+namespace: tap_facebook
 pip_url: git+https://github.com/primedata-ai/tap-facebook.git
 repo: https://github.com/primedata-ai/tap-facebook
-domain_url:
-maintenance_status: unknown
-keywords: []
+settings: []
+settings_group_validation: []
+variant: primedata-ai

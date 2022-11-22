@@ -1,65 +1,72 @@
+capabilities:
+- catalog
+- discover
+- state
 description: Social Networking Website
+domain_url: https://developer.twitter.com
+keywords:
+- api
 label: Twitter Ads
-name: tap-twitter-ads
 logo_url: /assets/logos/extractors/twitter-ads.png
+maintenance_status: unknown
+name: tap-twitter-ads
 namespace: tap_twitter_ads
-variant: singer-io
 pip_url: tap-twitter-ads
 repo: https://github.com/singer-io/tap-twitter-ads
 settings:
-- name: consumer_key
-  label: Consumer Key
-  description: OAuth 1.0a credentials - Consumer Key
+- description: OAuth 1.0a credentials - Consumer Key
   kind: password
-- name: request_timeout
-  label: Request Timeout
-  description: To configure the read and connect timeout for twitter-ads client. Default
+  label: Consumer Key
+  name: consumer_key
+- description: To configure the read and connect timeout for twitter-ads client. Default
     is 300 seconds.
   kind: integer
-- name: account_ids
+  label: Request Timeout
+  name: request_timeout
+- description: Comma-delimited list of Twitter Ad Account IDs.
   label: Account IDs
-  description: Comma-delimited list of Twitter Ad Account IDs.
-- name: access_token_secret
+  name: account_ids
+- description: OAuth 1.0a credentials - Access Token Secret
+  kind: password
   label: Access Token Secret
-  description: OAuth 1.0a credentials - Access Token Secret
-  kind: password
-- name: attribution_window
-  label: Attribution Window
-  description: Number of days for latency look-back period to allow analytical reporting
+  name: access_token_secret
+- description: Number of days for latency look-back period to allow analytical reporting
     numbers to stabilize.
-- name: page_size
-  label: Page Size
-  description: An optional parameter to configure custom page_size.
+  label: Attribution Window
+  name: attribution_window
+- description: An optional parameter to configure custom page_size.
   kind: integer
-- name: consumer_secret
+  label: Page Size
+  name: page_size
+- description: OAuth 1.0a credentials - Consumer Secret
+  kind: password
   label: Consumer Secret
-  description: OAuth 1.0a credentials - Consumer Secret
+  name: consumer_secret
+- description: OAuth 1.0a credentials - Access Token
   kind: password
-- name: access_token
   label: Access Token
-  description: OAuth 1.0a credentials - Access Token
-  kind: password
-- name: country_codes
-  label: Country Codes
-  description: Comma-delimited list of ISO 2-letter country codes for targeting and
+  name: access_token
+- description: Comma-delimited list of ISO 2-letter country codes for targeting and
     segmentation. (e.g. "US, CA, MX, DE")
-- name: with_deleted
-  label: With Deleted
-  description: Specifies whether to include logically deleted records in the results.
+  label: Country Codes
+  name: country_codes
+- description: Specifies whether to include logically deleted records in the results.
   kind: boolean
-- name: start_date
-  label: Start Date
-  description: Determines how much historical data will be extracted. Please be aware
+  label: With Deleted
+  name: with_deleted
+- description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.
   kind: date_iso8601
-- name: reports
-  label: Reports
-  description: Object array of specified reports with name, entity, segment, and granularity.
+  label: Start Date
+  name: start_date
+- description: Object array of specified reports with name, entity, segment, and granularity.
   kind: object
-- name: user_agent
+  label: Reports
+  name: reports
+- description: The user agent to send with requests.
   label: User Agent
-  description: The user agent to send with requests.
+  name: user_agent
 settings_group_validation:
 - - consumer_key
   - account_ids
@@ -67,11 +74,4 @@ settings_group_validation:
   - consumer_secret
   - access_token
   - start_date
-capabilities:
-- catalog
-- discover
-- state
-domain_url: https://developer.twitter.com
-maintenance_status: unknown
-keywords:
-- api
+variant: singer-io

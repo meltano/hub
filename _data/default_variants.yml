@@ -1,56 +1,3 @@
-utilities:
-  airflow: apache
-  dagster: quantile-development
-  datahub: datahub-project
-  dbt-bigquery: dbt-labs
-  dbt-duckdb: jwills
-  dbt-osmosis: z3z1ma
-  dbt-postgres: dbt-labs
-  dbt-redshift: dbt-labs
-  dbt-snowflake: dbt-labs
-  elementary: elementary
-  gdrive: matatika
-  great_expectations: great-expectations
-  metabase: metabase
-  notebook: matatika
-  postgres: postgres
-  sqlfluff: sqlfluff
-  superset: apache
-orchestrators:
-  airflow: apache
-transforms:
-  tap-adwords: meltano
-  tap-carbon-intensity: meltano
-  tap-facebook: meltano
-  tap-gitlab: meltano
-  tap-google-analytics: meltano
-  tap-salesforce: meltano
-  tap-shopify: meltano
-  tap-stripe: meltano
-  tap-zendesk: meltano
-transformers:
-  dbt-bigquery: dbt-labs
-  dbt-duckdb: jwills
-  dbt-postgres: dbt-labs
-  dbt-redshift: dbt-labs
-  dbt-snowflake: dbt-labs
-  dbt: dbt-labs
-files:
-  files-great-expectations: meltano
-  files-datahub: z3z1ma
-  files-dbt-bigquery: meltano
-  files-dbt-duckdb: meltano
-  files-dbt-postgres: meltano
-  files-dbt-redshift: meltano
-  files-dbt-snowflake: meltano
-  files-gitlab-ci: meltano
-  files-airflow: meltano
-  files-docker-compose: meltano
-  files-dbt: meltano
-  files-docker: meltano
-mappers:
-  meltano-map-transformer: meltano
-  transform-field: transferwise
 extractors:
   singer-tap-zenhub: chillu
   tap-3plcentral: singer-io
@@ -136,8 +83,8 @@ extractors:
   tap-dayforce: goodeggs
   tap-db2: mjsqu
   tap-dbf: edgarrmondragon
-  tap-dbt-artifacts: prratek
   tap-dbt: meltanolabs
+  tap-dbt-artifacts: prratek
   tap-decentraland-api: decentraland
   tap-decentraland-thegraph: decentraland
   tap-degreed: the-prairie
@@ -156,10 +103,10 @@ extractors:
   tap-exchangeratehost: anelendata
   tap-exchangeratesapi: singer-io
   tap-fabdb: dwallace0723
+  tap-facebook: singer-io
   tap-facebook-pages: goes-funky
   tap-facebook-posts: rowanv
   tap-facebook-reviews: packlane
-  tap-facebook: singer-io
   tap-fastly: splitio
   tap-feed: jawats
   tap-five9: pathlight
@@ -171,21 +118,21 @@ extractors:
   tap-fullstory: singer-io
   tap-gainsightpx: widen
   tap-getpocket: evelte
-  tap-github-org-projects: rossmcdonald
   tap-github: meltanolabs
+  tap-github-org-projects: rossmcdonald
   tap-gitlab: meltanolabs
   tap-gladly: harrystech
   tap-gleantap: radico
-  tap-gmail-csv: food-spotter
   tap-gmail: kgpayne
+  tap-gmail-csv: food-spotter
   tap-google-analytics: meltanolabs
   tap-google-search-console: singer-io
   tap-google-sheets: singer-io
   tap-googleads: matatika
   tap-gorgias: brooklyn-data
   tap-greenhouse: codyss
-  tap-harvest-forecast: singer-io
   tap-harvest: singer-io
+  tap-harvest-forecast: singer-io
   tap-hellobaton: dluftspring
   tap-helpscout: singer-io
   tap-helpshift: pathlight
@@ -320,6 +267,7 @@ extractors:
   tap-servicem8: fostersdata
   tap-sevenrooms: uptilab2
   tap-sftp: meltanolabs
+  tap-sharepointsites: storebrand
   tap-shiphero: singer-io
   tap-shipstation: mashey
   tap-shopify: singer-io
@@ -356,8 +304,8 @@ extractors:
   tap-thinkific: birdiecare
   tap-thunderboard: matatika
   tap-tickettailor: dbt-labs
-  tap-tiktok-business: hkuffel
   tap-tiktok: gthesheep
+  tap-tiktok-business: hkuffel
   tap-timebutler: taikonauten
   tap-toast: lambtron
   tap-toggl: singer-io
@@ -368,9 +316,9 @@ extractors:
   tap-tvsquared: gthesheep
   tap-twilio: transferwise
   tap-twinfield: yoast
+  tap-twitter: voxmedia
   tap-twitter-ads: singer-io
   tap-twitter-streams: pbegle
-  tap-twitter: voxmedia
   tap-typeform: albert-marrero
   tap-typo: typo-ai
   tap-udemy-for-business: immuta
@@ -388,18 +336,30 @@ extractors:
   tap-wordpress-stats: yoast
   tap-workday-raas: singer-io
   tap-workramp: pathlight
+  tap-wrike: potloc
   tap-xero: singer-io
   tap-yotpo: singer-io
   tap-youtube-analytics: singer-io
+  tap-zendesk: twilio-labs
   tap-zendesk-chat: singer-io
   tap-zendesk-sell: leag
-  tap-zendesk: twilio-labs
   tap-zenefits: mashey
   tap-zohosprints: autoidm
   tap-zoom: mashey
   tap-zuora: transferwise
-  tap-wrike: potloc
-  tap-sharepointsites: storebrand
+files:
+  files-airflow: meltano
+  files-datahub: z3z1ma
+  files-dbt: meltano
+  files-dbt-bigquery: meltano
+  files-dbt-duckdb: meltano
+  files-dbt-postgres: meltano
+  files-dbt-redshift: meltano
+  files-dbt-snowflake: meltano
+  files-docker: meltano
+  files-docker-compose: meltano
+  files-gitlab-ci: meltano
+  files-great-expectations: meltano
 loaders:
   target-airtable: hotgluexyz
   target-apprise: autoidm
@@ -416,14 +376,56 @@ loaders:
   target-kinesis: prontopro
   target-magentobi: singer-io
   target-miso: misoai
+  target-mongodb: hotgluexyz
+  target-mssql: storebrand
   target-pardot: anelendata
   target-parquet: estrategiahq
   target-postgres: transferwise
   target-redshift: transferwise
+  target-s3-avro: faumel
   target-s3-csv: transferwise
   target-s3-parquet: gupy-io
   target-snowflake: transferwise
   target-sqlite: meltanolabs
   target-stitch: singer-io
   target-yaml: meltanolabs
-  target-s3-avro: faumel
+mappers:
+  meltano-map-transformer: meltano
+  transform-field: transferwise
+orchestrators:
+  airflow: apache
+transformers:
+  dbt: dbt-labs
+  dbt-bigquery: dbt-labs
+  dbt-duckdb: jwills
+  dbt-postgres: dbt-labs
+  dbt-redshift: dbt-labs
+  dbt-snowflake: dbt-labs
+transforms:
+  tap-adwords: meltano
+  tap-carbon-intensity: meltano
+  tap-facebook: meltano
+  tap-gitlab: meltano
+  tap-google-analytics: meltano
+  tap-salesforce: meltano
+  tap-shopify: meltano
+  tap-stripe: meltano
+  tap-zendesk: meltano
+utilities:
+  airflow: apache
+  dagster: quantile-development
+  datahub: datahub-project
+  dbt-bigquery: dbt-labs
+  dbt-duckdb: jwills
+  dbt-osmosis: z3z1ma
+  dbt-postgres: dbt-labs
+  dbt-redshift: dbt-labs
+  dbt-snowflake: dbt-labs
+  elementary: elementary
+  gdrive: matatika
+  great_expectations: great-expectations
+  metabase: metabase
+  notebook: matatika
+  postgres: postgres
+  sqlfluff: sqlfluff
+  superset: apache

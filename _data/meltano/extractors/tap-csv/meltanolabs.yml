@@ -1,23 +1,21 @@
-name: tap-csv
-label: Comma Separated Values (CSV)
-description: Generic data extractor of CSV (comma separated value) files
-namespace: tap_csv
-logo_url: /assets/logos/extractors/csv.png
-variant: meltanolabs
-repo: https://github.com/MeltanoLabs/tap-csv
-pip_url: git+https://github.com/MeltanoLabs/tap-csv.git
 capabilities:
 - discover
 - catalog
 - state
-settings_group_validation:
-- - files
-- - csv_files_definition
+description: Generic data extractor of CSV (comma separated value) files
+domain_url: https://en.wikipedia.org/wiki/Comma-separated_values
+keywords:
+- file
+- meltano_sdk
+label: Comma Separated Values (CSV)
+logo_url: /assets/logos/extractors/csv.png
+maintenance_status: active
+name: tap-csv
+namespace: tap_csv
+pip_url: git+https://github.com/MeltanoLabs/tap-csv.git
+repo: https://github.com/MeltanoLabs/tap-csv
 settings:
-- name: files
-  label: Files
-  kind: array
-  description: |
+- description: |
     Array of objects with `entity`, `path`, `keys`, and `encoding` [Optioanl] keys:
 
     * `entity`: The entity name, used as the table name for the data loaded from that CSV.
@@ -36,9 +34,10 @@ settings:
     * `strict`: When True, raise exception Error on bad CSV input. The default is False.
 
     The first row is the header defining the attribute name for that column and will result to a column of the same name in the database. It must have a valid format with no spaces or special characters (like for example `!` or `@`, etc).
-- name: csv_files_definition
-  label: CSV Files Definition
-  description: |
+  kind: array
+  label: Files
+  name: files
+- description: |
     Project-relative path to JSON file holding array of objects as described under [Files](#files) - with `entity`, `path`, `keys`, and other optional keys:
 
     ```json
@@ -51,10 +50,11 @@ settings:
       // ...
     ]
     ```
-  placeholder: Ex. files-def.json
   documentation: https://github.com/MeltanoLabs/tap-csv#settings
-domain_url: https://en.wikipedia.org/wiki/Comma-separated_values
-maintenance_status: active
-keywords:
-- file
-- meltano_sdk
+  label: CSV Files Definition
+  name: csv_files_definition
+  placeholder: Ex. files-def.json
+settings_group_validation:
+- - files
+- - csv_files_definition
+variant: meltanolabs

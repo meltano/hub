@@ -1,7 +1,3 @@
-name: tap-opensea
-variant: decentraland
-label: OpenSea NFT Marketplace
-logo_url: /assets/logos/extractors/opensea.png
 capabilities:
 - catalog
 - state
@@ -11,24 +7,28 @@ capabilities:
 domain_url: https://opensea.io/
 keywords:
 - meltano_sdk
+label: OpenSea NFT Marketplace
+logo_url: /assets/logos/extractors/opensea.png
 maintenance_status: active
+name: tap-opensea
 namespace: tap_opensea
 next_steps: ''
 pip_url: git+https://github.com/decentraland/tap-opensea.git
 repo: https://github.com/decentraland/tap-opensea
 settings:
-- name: auth_token
-  label: Auth Token
-  description: Your OpenSea auth token.
+- description: Your OpenSea auth token.
   kind: password
-- name: api_url
+  label: Auth Token
+  name: auth_token
+- description: The OpenSea auth url.
   label: Api Url
-  description: The OpenSea auth url.
-- name: collections
+  name: api_url
+- description: A comma separated list of collections to extract.
   label: Collections
-  description: A comma separated list of collections to extract.
+  name: collections
 settings_group_validation:
 - - collections
   - auth_token
 settings_preamble: ''
 usage: ''
+variant: decentraland

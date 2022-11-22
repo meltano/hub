@@ -1,10 +1,10 @@
-name: files-gitlab-ci
-label: GitLab CI
-domain_url: https://docs.gitlab.com/ee/ci/
-namespace: files_gitlab_ci
-repo: https://github.com/meltano/files-gitlab-ci
-pip_url: git+https://github.com/meltano/files-gitlab-ci.git
-variant: meltano
-logo_url: /assets/logos/files/gitlab-ci.png
 definition: are useful for running your project in GitLab CI.
+domain_url: https://docs.gitlab.com/ee/ci/
+label: GitLab CI
+logo_url: /assets/logos/files/gitlab-ci.png
 maintenance_status: active
+name: files-gitlab-ci
+namespace: files_gitlab_ci
+pip_url: git+https://github.com/meltano/files-gitlab-ci.git
+repo: https://github.com/meltano/files-gitlab-ci
+variant: meltano

@@ -1,34 +1,34 @@
-description: Video Delivery Software
-label: Platform Purple
-name: tap-platformpurple
-logo_url: /assets/logos/extractors/platformpurple.png
-namespace: tap_platformpurple
-variant: singer-io
-pip_url: tap-platformpurple
-repo: https://github.com/singer-io/tap-platformpurple
-settings:
-- name: environment
-  label: Environment
-  description: Your Platform Purple environment name.
-- name: start_date
-  label: Start Date
-  description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
-    can be expected to take."
-  kind: date_iso8601
-- name: api_key
-  label: API Key
-  description: Your Platform Purple API Key.
-  kind: password
 capabilities:
 - catalog
 - discover
 - state
+description: Video Delivery Software
 domain_url: https://www.platformpurple.com/
-maintenance_status: inactive
 keywords:
 - api
+label: Platform Purple
+logo_url: /assets/logos/extractors/platformpurple.png
+maintenance_status: inactive
+name: tap-platformpurple
+namespace: tap_platformpurple
+pip_url: tap-platformpurple
+repo: https://github.com/singer-io/tap-platformpurple
+settings:
+- description: Your Platform Purple environment name.
+  label: Environment
+  name: environment
+- description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: Your Platform Purple API Key.
+  kind: password
+  label: API Key
+  name: api_key
 settings_group_validation:
 - - environment
   - start_date
   - api_key
+variant: singer-io

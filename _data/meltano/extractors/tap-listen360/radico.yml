@@ -1,17 +1,17 @@
-description: Customer Engagement Software
-label: Listen360
-name: tap-listen360
-logo_url: /assets/logos/extractors/listen360.png
-namespace: tap_listen360
-variant: radico
-pip_url: git+https://github.com/Radico/tap-listen360.git
-repo: https://github.com/Radico/tap-listen360
-settings: []
 capabilities:
 - catalog
 - discover
 - state
+description: Customer Engagement Software
 domain_url: https://www.listen360.com/
-maintenance_status: unknown
 keywords:
 - api
+label: Listen360
+logo_url: /assets/logos/extractors/listen360.png
+maintenance_status: unknown
+name: tap-listen360
+namespace: tap_listen360
+pip_url: git+https://github.com/Radico/tap-listen360.git
+repo: https://github.com/Radico/tap-listen360
+settings: []
+variant: radico

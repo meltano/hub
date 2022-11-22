@@ -1,45 +1,45 @@
-description: Authentication and Authorization Platform
-label: Auth0
-name: tap-auth0
-logo_url: /assets/logos/extractors/auth0.png
-namespace: tap_auth0
-variant: matatika
-pip_url: git+https://github.com/Matatika/tap-auth0.git
-repo: https://github.com/Matatika/tap-auth0
-settings_group_validation:
-- - client_id
-  - client_secret
-  - domain
-settings:
-- name: client_id
-  label: Client ID
-  kind: password
-  description: App client ID
-- name: client_secret
-  label: Client secret
-  kind: password
-  description: App client secret
-- name: domain
-  label: Domain
-  description: Tenant domain
-- name: job_poll_interval_ms
-  label: Job poll interval
-  value: 2000
-  kind: integer
-  description: Job poll interval (ms)
-- name: job_poll_max_count
-  label: Maximum job poll count
-  value: 10
-  kind: integer
-  description: Maximum job poll count
 capabilities:
 - catalog
 - discover
 - state
 - about
 - stream-maps
+description: Authentication and Authorization Platform
 domain_url: https://auth0.com/
-maintenance_status: active
 keywords:
 - api
 - meltano_sdk
+label: Auth0
+logo_url: /assets/logos/extractors/auth0.png
+maintenance_status: active
+name: tap-auth0
+namespace: tap_auth0
+pip_url: git+https://github.com/Matatika/tap-auth0.git
+repo: https://github.com/Matatika/tap-auth0
+settings:
+- description: App client ID
+  kind: password
+  label: Client ID
+  name: client_id
+- description: App client secret
+  kind: password
+  label: Client secret
+  name: client_secret
+- description: Tenant domain
+  label: Domain
+  name: domain
+- description: Job poll interval (ms)
+  kind: integer
+  label: Job poll interval
+  name: job_poll_interval_ms
+  value: 2000
+- description: Maximum job poll count
+  kind: integer
+  label: Maximum job poll count
+  name: job_poll_max_count
+  value: 10
+settings_group_validation:
+- - client_id
+  - client_secret
+  - domain
+variant: matatika

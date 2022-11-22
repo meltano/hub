@@ -1,71 +1,3 @@
-description: Code hosting platform
-label: GitHub
-name: tap-github
-logo_url: /assets/logos/extractors/github.png
-namespace: tap_github
-variant: meltanolabs
-pip_url: git+https://github.com/MeltanoLabs/tap-github.git
-repo: https://github.com/MeltanoLabs/tap-github
-maintenance_status: active
-settings_group_validation:
-- - repositories
-- - organizations
-- - searches
-- - user_usernames
-- - user_ids
-settings:
-- name: user_agent
-  label: User Agent
-- name: metrics_log_level
-  label: Metrics Log Level
-  description: The log level of the API response metrics.
-- name: auth_token
-  label: Auth Token
-  description: GitHub token to authenticate with.
-  kind: password
-- name: additional_auth_tokens
-  label: Additional Auth Tokens
-  description: List of GitHub tokens to authenticate with. Streams will loop through them when hitting rate limits.
-  kind: array
-- name: rate_limit_buffer
-  label: Rate Limit Buffer
-  description: Add a buffer to avoid consuming all query points for the token at hand. Defaults to 1000.
-  kind: integer
-- name: searches
-  label: Searches
-  description: An array of search descriptor objects with the following properties.
-    "name" - a human readable name for the search query.
-    "query" -  a github search string (generally the same as would come after ?q= in the URL)
-  kind: array
-- name: organizations
-  label: Organizations
-  description: An array of strings containing the github organizations to be included
-  kind: array
-- name: repositories
-  label: Repositories
-  description: An array of strings containing the github repos to be included
-  kind: array
-- name: user_usernames
-  label: User Usernames
-  description: A list of GithHub usernames.
-  kind: array
-- name: user_ids
-  label: User IDs
-  description: A list of GitHub user ids.
-  kind: array
-- name: start_date
-  label: Start Date
-  kind: date_iso8601
-- name: stream_maps
-  label: Stream Maps
-  kind: object
-- name: stream_map_config
-  label: Stream Map Config
-  kind: object
-- name: skip_parent_streams
-  label: Skip Parent Streams
-  description: Set to true to skip API calls for the parent streams (such as repositories) if it is not selected but children are.
-  kind: boolean
 capabilities:
 - catalog
 - state
@@ -73,6 +5,78 @@ capabilities:
 - about
 - stream-maps
 - schema-flattening
+description: Code hosting platform
 domain_url: https://docs.github.com/en/rest
 keywords:
 - api
+- free service
+label: GitHub
+logo_url: /assets/logos/extractors/github.png
+maintenance_status: active
+name: tap-github
+namespace: tap_github
+pip_url: git+https://github.com/MeltanoLabs/tap-github.git
+repo: https://github.com/MeltanoLabs/tap-github
+settings:
+- label: User Agent
+  name: user_agent
+- description: The log level of the API response metrics.
+  label: Metrics Log Level
+  name: metrics_log_level
+- description: GitHub token to authenticate with.
+  kind: password
+  label: Auth Token
+  name: auth_token
+- description: List of GitHub tokens to authenticate with. Streams will loop through
+    them when hitting rate limits.
+  kind: array
+  label: Additional Auth Tokens
+  name: additional_auth_tokens
+- description: Add a buffer to avoid consuming all query points for the token at hand.
+    Defaults to 1000.
+  kind: integer
+  label: Rate Limit Buffer
+  name: rate_limit_buffer
+- description: An array of search descriptor objects with the following properties.
+    "name" - a human readable name for the search query. "query" -  a github search
+    string (generally the same as would come after ?q= in the URL)
+  kind: array
+  label: Searches
+  name: searches
+- description: An array of strings containing the github organizations to be included
+  kind: array
+  label: Organizations
+  name: organizations
+- description: An array of strings containing the github repos to be included
+  kind: array
+  label: Repositories
+  name: repositories
+- description: A list of GithHub usernames.
+  kind: array
+  label: User Usernames
+  name: user_usernames
+- description: A list of GitHub user ids.
+  kind: array
+  label: User IDs
+  name: user_ids
+- kind: date_iso8601
+  label: Start Date
+  name: start_date
+- kind: object
+  label: Stream Maps
+  name: stream_maps
+- kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Set to true to skip API calls for the parent streams (such as repositories)
+    if it is not selected but children are.
+  kind: boolean
+  label: Skip Parent Streams
+  name: skip_parent_streams
+settings_group_validation:
+- - repositories
+- - organizations
+- - searches
+- - user_usernames
+- - user_ids
+variant: meltanolabs

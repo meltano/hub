@@ -1,49 +1,49 @@
-description: Partnership Automation Software
-label: Impact
-name: tap-impact
-logo_url: /assets/logos/extractors/impact.png
-namespace: tap_impact
-variant: singer-io
-pip_url: tap-impact
-repo: https://github.com/singer-io/tap-impact
-settings:
-- name: start_date
-  label: Start Date
-  description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
-    can be expected to take."
-  kind: date_iso8601
-- name: user_agent
-  label: User Agent
-  description: The user agent to send with requests.
-- name: account_sid
-  label: Account SID
-  description: Your account SID, it can be found in your user settings when API access
-    is enabled.
-  kind: password
-- name: model_id
-  label: Model Id
-  description: Your model ID for conversion paths endpoints. Contact Impact Support
-    to get your model_id.
-- name: api_catalog
-  label: API Catalog
-  description: 'Is one of the following: Advertisers, Agencies, Partners.'
-- name: auth_token
-  label: Auth Token
-  description: Your auth token, it can be found in your user settings when API access
-    is enabled.
-  kind: password
 capabilities:
 - catalog
 - discover
 - state
+description: Partnership Automation Software
 domain_url: https://developer.impact.com/default
-maintenance_status: inactive
 keywords:
 - api
+label: Impact
+logo_url: /assets/logos/extractors/impact.png
+maintenance_status: inactive
+name: tap-impact
+namespace: tap_impact
+pip_url: tap-impact
+repo: https://github.com/singer-io/tap-impact
+settings:
+- description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: The user agent to send with requests.
+  label: User Agent
+  name: user_agent
+- description: Your account SID, it can be found in your user settings when API access
+    is enabled.
+  kind: password
+  label: Account SID
+  name: account_sid
+- description: Your model ID for conversion paths endpoints. Contact Impact Support
+    to get your model_id.
+  label: Model Id
+  name: model_id
+- description: 'Is one of the following: Advertisers, Agencies, Partners.'
+  label: API Catalog
+  name: api_catalog
+- description: Your auth token, it can be found in your user settings when API access
+    is enabled.
+  kind: password
+  label: Auth Token
+  name: auth_token
 settings_group_validation:
 - - start_date
   - user_agent
   - account_sid
   - api_catalog
   - auth_token
+variant: singer-io

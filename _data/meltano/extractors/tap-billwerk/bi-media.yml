@@ -1,17 +1,17 @@
-description: Subscription Management Software
-label: billwerk
-name: tap-billwerk
-logo_url: /assets/logos/extractors/billwerk.png
-namespace: tap_billwerk
-variant: bi-media
-pip_url: git+https://github.com/bi-media/tap-billwerk.git
-repo: https://github.com/bi-media/tap-billwerk
-settings: []
 capabilities:
 - catalog
 - discover
 - state
+description: Subscription Management Software
 domain_url: https://billwerk.io/
-maintenance_status: unknown
 keywords:
 - api
+label: billwerk
+logo_url: /assets/logos/extractors/billwerk.png
+maintenance_status: unknown
+name: tap-billwerk
+namespace: tap_billwerk
+pip_url: git+https://github.com/bi-media/tap-billwerk.git
+repo: https://github.com/bi-media/tap-billwerk
+settings: []
+variant: bi-media
