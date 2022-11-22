@@ -13,7 +13,7 @@
       <ul class="list-inside list-disc pl-4 text-sm">
         <li>
           Equivalent to:
-          <pre><code>{{ command.args }}</code></pre>
+          <code>{{ command.args }}</code>
         </li>
       </ul>
       <p>{{ command.description }}</p>
