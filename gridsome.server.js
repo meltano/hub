@@ -43,7 +43,7 @@ function renderDefinition(definition) {
 }
 
 function renderNextSteps(nextSteps) {
-  let rendered = marked.marked(nextSteps);
+  const rendered = marked.marked(nextSteps);
   return rendered.replace(
     /<pre>/gi,
     '<pre class="prose language-bash rounded-md"'
