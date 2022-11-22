@@ -347,6 +347,7 @@ extractors:
   tap-zohosprints: autoidm
   tap-zoom: mashey
   tap-zuora: transferwise
+  tap-nice-incontact: singer-io
 files:
   files-airflow: meltano
   files-datahub: z3z1ma
