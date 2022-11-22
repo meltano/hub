@@ -44,9 +44,10 @@ function renderDefinition(definition) {
 
 function renderNextSteps(nextSteps) {
   let rendered = marked.marked(nextSteps);
-  return rendered
-    .replace(/<p>/gi, '<p class="overflow-scroll">')
-    .replace(/<pre>/gi, '<pre class="prose language-bash rounded-md"');
+  return rendered.replace(
+    /<pre>/gi,
+    '<pre class="prose language-bash rounded-md"'
+  );
 }
 function renderMarkdownSections(pluginData) {
   return {
