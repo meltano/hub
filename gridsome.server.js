@@ -39,9 +39,7 @@ const pluginTypeSingulars = {
 function renderDefinition(definition) {
   let rendered = marked.marked(definition);
   rendered = rendered.replace(/<p>|<\/p>/gi, "");
-  return " "
-    .concat(rendered.charAt(0).toLowerCase())
-    .concate(rendered.slice(1));
+  return " ".concat(rendered.charAt(0).toLowerCase()).concat(rendered.slice(1));
 }
 
 function renderMarkdownSections(pluginData) {
