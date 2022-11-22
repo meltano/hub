@@ -201,6 +201,7 @@ extractors:
   tap-netsuite: hotgluexyz
   tap-newrelic: fixdauto
   tap-nhl: bicks-bapa-roob
+  tap-nice-incontact: singer-io
   tap-nikabot: phdesign
   tap-officernd: cschouten
   tap-okta: isabella232
@@ -347,7 +348,6 @@ extractors:
   tap-zohosprints: autoidm
   tap-zoom: mashey
   tap-zuora: transferwise
-  tap-nice-incontact: singer-io
 files:
   files-airflow: meltano
   files-datahub: z3z1ma

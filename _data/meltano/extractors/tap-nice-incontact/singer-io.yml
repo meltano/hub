@@ -1,7 +1,3 @@
-name: tap-nice-incontact
-variant: singer-io
-label: NICE inContact
-logo_url: /assets/logos/extractors/nice-incontact.png
 capabilities:
 - catalog
 - discover
@@ -11,41 +7,44 @@ description: NICE Systems provides intent-based solutions that capture and analy
 domain_url: https://www.nice.com/
 keywords:
 - api
+label: NICE inContact
+logo_url: /assets/logos/extractors/nice-incontact.png
 maintenance_status: active
+name: tap-nice-incontact
 namespace: tap_nice_incontact
 next_steps: ''
 pip_url: git+https://github.com/singer-io/tap-nice-incontact.git
 repo: https://github.com/singer-io/tap-nice-incontact
 settings:
-- name: api_version
+- description: NICE inContact API version. Default is "21.0"
   label: Api Version
-  description: NICE inContact API version. Default is "21.0"
-- name: user_agent
-  label: User Agent
-  description: 'Process and email for API logging purposes. Example: tap-nice-incontact
+  name: api_version
+- description: 'Process and email for API logging purposes. Example: tap-nice-incontact
     <api_user_email@your_company.com>'
-- name: api_key
+  label: User Agent
+  name: user_agent
+- description: NICE inContact API key (see Authentication in usage section for more
+    details)
+  kind: password
   label: API Key
-  description: NICE inContact API key (see Authentication in usage section for more details)
-  kind: password
-- name: api_cluster
+  name: api_key
+- description: 'NICE inContact instance cluster. Example: "c42"'
   label: API Cluster
-  description: 'NICE inContact instance cluster. Example: "c42"'
-- name: auth_domain
-  label: Auth Domain
-  description: The NICE inContact auth domain/region to use. Default is "na1". See
+  name: api_cluster
+- description: The NICE inContact auth domain/region to use. Default is "na1". See
     Authentication for more.
-- name: api_secret
-  label: API Secret
-  description: NICE inContact API secret (see Authentication in usage section for more details)
+  label: Auth Domain
+  name: auth_domain
+- description: NICE inContact API secret (see Authentication in usage section for
+    more details)
   kind: password
-- name: start_date
-  label: Start Date
-  description: RFC3339 date string "2017-01-01T00:00:00Z"
+  label: API Secret
+  name: api_secret
+- description: RFC3339 date string "2017-01-01T00:00:00Z"
   kind: date_iso8601
-- name: periods
-  label: Periods
-  description: |
+  label: Start Date
+  name: start_date
+- description: |
     Stream specific reporting periods. The config is a mapping of stream name to reporting period, the options are: days, hours, and minutes.
     Default days. The days/hours are in increments of 1 and minutes are in increments of 5 minutes.
 
@@ -70,9 +69,9 @@ settings:
       periods.wfm_agents_scorecards: days
 
     ```
-
-
   kind: object
+  label: Periods
+  name: periods
 settings_group_validation:
 - - user_agent
   - api_key
@@ -85,3 +84,4 @@ usage: |
 
   The tap is built around the NICE inContact UserHub authentication process.
   This [guide](https://developer.niceincontact.com/Documentation/UserHubGettingStarted) will show the steps required to get an api_key and api_secret.
+variant: singer-io
