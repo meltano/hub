@@ -1,5 +1,5 @@
 <template>
-  <div v-if="commands">
+  <div v-if="commands && commands.length">
     <p class="text-3xl py-4" id="commands">Commands</p>
     <span
       >The {{ name }} {{ plugin_type }} supports the following commands that can be used with
