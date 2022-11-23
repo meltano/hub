@@ -49,7 +49,7 @@ jobs:
         --api-url ${{ env.API_URL }}
 
     - name: Upload artifacts
-      uses: actions/upload-artifact@v3.1.0
+      uses: actions/upload-artifact@v3.1.1
       with:
         name: hub-api-files
         path: "_hub_api/*"
