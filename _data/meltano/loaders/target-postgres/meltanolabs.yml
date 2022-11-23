@@ -1,14 +1,82 @@
+capabilities:
+- about
+- stream-maps
+- schema-flattening
 description: PostgreSQL database loader
 dialect: postgres
 domain_url: https://www.postgresql.org/
 keywords:
+- meltano_sdk
 - database
-label: PostgreSQL
+label: Postgres
 logo_url: /assets/logos/loaders/postgres.png
 maintenance_status: development
 name: target-postgres
 namespace: target_postgres
-pip_url: git+https://github.com/meltanolabs/target-postgres.git
-repo: https://github.com/meltanolabs/target-postgres
+next_steps: ''
+pip_url: git+https://github.com/MeltanoLabs/target-postgres.git
+repo: https://github.com/MeltanoLabs/target-postgres
+settings:
+- description: Hostname for postgres instance. Note if sqlalchemy_url is set this
+    will be ignored.
+  kind: string
+  label: Host
+  name: host
+- description: The port on which postgres is awaiting connection. Note if sqlalchemy_url
+    is set this will be ignored.
+  kind: integer
+  label: Port
+  name: port
+- description: |
+    User name used to authenticate. Note if sqlalchemy_url is set this will be ignored.
+  kind: string
+  label: User
+  name: user
+- description: Password used to authenticate. Note if sqlalchemy_url is set this will
+    be ignored.
+  kind: password
+  label: Password
+  name: password
+- description: Database name. Note if sqlalchemy_url is set this will be ignored.
+  kind: string
+  label: Database
+  name: database
+- description: SQLAlchemy connection string. This will override using host, user,
+    password, port,dialect. Note that you must esacpe password specialcharacters properly
+    seehttps://docs.sqlalchemy.org/en/20/core/engines.html#escaping-special-characters-such-as-signs-in-passwords
+  kind: string
+  label: Sqlalchemy Url
+  name: sqlalchemy_url
+- description: Dialect+driver see https://docs.sqlalchemy.org/en/20/core/engines.html.
+    Generally just leave this alone. Note if sqlalchemy_url is set this will be ignored.
+  kind: string
+  label: Dialect+Driver
+  name: dialect+driver
+- description: 'Postgres schema to send data to, example: tap-clickup'
+  kind: string
+  label: Default Target Schema
+  name: default_target_schema
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+settings_group_validation:
+- []
+settings_preamble: ''
 target_schema: $TARGET_POSTGRES_SCHEMA
+usage: ''
 variant: meltanolabs

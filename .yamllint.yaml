@@ -2,6 +2,8 @@ extends: default
 
 ignore: |
   .pre-commit-config.yaml
+  dependabot.yml
+  .github/workflows/*.yml
 
 rules:
   braces:
@@ -13,4 +15,3 @@ rules:
     spaces: 2
   key-ordering: enable
   line-length: disable
-      # max: 160
