@@ -42,6 +42,13 @@ function renderDefinition(definition) {
   return ` ${rendered.charAt(0).toLowerCase()}${rendered.slice(1)}`;
 }
 
+function renderNextSteps(nextSteps) {
+  const rendered = marked.marked(nextSteps);
+  return rendered.replace(
+    /<pre>/gi,
+    '<pre class="prose language-bash rounded-md"'
+  );
+}
 function renderMarkdownSections(pluginData) {
   return {
     ...pluginData,
@@ -67,7 +74,7 @@ function renderMarkdownSections(pluginData) {
       ? marked.marked(pluginData.prereq)
       : undefined,
     next_steps_rendered: pluginData.next_steps
-      ? marked.marked(pluginData.next_steps)
+      ? renderNextSteps(pluginData.next_steps)
       : undefined,
   };
 }
@@ -132,6 +139,14 @@ function buildData(dataPath, collections) {
       // Include additional fields
       readPlugin.metrics = pluginMetricsData[readPlugin.repo];
       readPlugin.maintainer = readMaintainers[readPlugin.variant];
+
+      // If there are commands, turn them into a more graphql-friendly array
+      readPlugin.commands = readPlugin.commands
+        ? Object.keys(readPlugin.commands).map((key) => ({
+            ...readPlugin.commands[key],
+            name: key,
+          }))
+        : undefined;
 
       collections.forEach((collection) => {
         collection.addNode(readPlugin);
