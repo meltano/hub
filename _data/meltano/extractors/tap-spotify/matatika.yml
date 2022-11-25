@@ -18,16 +18,16 @@ pip_url: git+https://github.com/Matatika/tap-spotify.git
 repo: https://github.com/Matatika/tap-spotify
 settings:
 - description: App client ID
-  label: Client ID
   kind: password
+  label: Client ID
   name: client_id
 - description: App client secret
-  label: Client secret
   kind: password
+  label: Client secret
   name: client_secret
 - description: Refresh token
-  label: Refresh token
   kind: password
+  label: Refresh token
   name: refresh_token
 settings_group_validation:
 - - client_id
