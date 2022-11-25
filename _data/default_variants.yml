@@ -414,6 +414,7 @@ transforms:
   tap-zendesk: meltano
 utilities:
   airflow: apache
+  clickhouse: clickhouse
   dagster: quantile-development
   datahub: datahub-project
   dbt-bigquery: dbt-labs
