@@ -1,0 +1,52 @@
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+- schema-flattening
+description: Email marketing software
+domain_url: https://www.mailerlite.com/
+keywords:
+- meltano_sdk
+- api
+label: Mailerlite
+logo_url: /assets/logos/extractors/mailerlite.png
+maintenance_status: development
+name: tap-mailerlite
+namespace: tap_mailerlite
+next_steps: ''
+pip_url: git+https://github.com/AlvaroRaul7/tap-mailerlite.git
+repo: https://github.com/AlvaroRaul7/tap-mailerlite
+settings:
+- description: The token to authenticate against the API service
+  kind: password
+  label: Auth Token
+  name: auth_token
+- description: The earliest record date to sync
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+settings_group_validation:
+- - auth_token
+settings_preamble: ''
+usage: ''
+variant: alvaroraul7
