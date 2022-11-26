@@ -1,0 +1,45 @@
+capabilities:
+- about
+- stream-maps
+- schema-flattening
+description: Cloud Database
+domain_url: https://www.oracle.com/database/
+keywords:
+- meltano_sdk
+- database
+label: Oracle
+logo_url: /assets/logos/loaders/oracle.png
+maintenance_status: development
+name: target-oracle
+namespace: target_oracle
+next_steps: ''
+pip_url: git+https://github.com/radbrt/target-oracle.git
+repo: https://github.com/radbrt/target-oracle
+settings:
+- description: SQLAlchemy connection string
+  kind: password
+  label: Sqlalchemy Url
+  name: sqlalchemy_url
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+settings_group_validation:
+- - sqlalchemy_url
+settings_preamble: ''
+usage: ''
+variant: radbrt
