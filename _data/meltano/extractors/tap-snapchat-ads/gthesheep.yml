@@ -1,7 +1,3 @@
-name: tap-snapchat-ads
-variant: gthesheep
-label: Snapchat Ads
-logo_url: /assets/logos/extractors/snapchat-ads.png
 capabilities:
 - catalog
 - state
@@ -14,45 +10,49 @@ domain_url: https://developers.snapchat.com/docs/
 keywords:
 - meltano_sdk
 - api
+label: Snapchat Ads
+logo_url: /assets/logos/extractors/snapchat-ads.png
 maintenance_status: development
+name: tap-snapchat-ads
 namespace: tap_snapchat_ads
 next_steps: ''
 pip_url: git+https://github.com/GtheSheep/tap-snapchat-ads.git
 repo: https://github.com/GtheSheep/tap-snapchat-ads
 settings:
-- name: client_id
+- description: The token to authenticate against the API service
+  kind: password
   label: Client Id
-  description: The token to authenticate against the API service
+  name: client_id
+- description: The token to authenticate against the API service
   kind: password
-- name: client_secret
   label: Client Secret
-  description: The token to authenticate against the API service
+  name: client_secret
+- description: The token to authenticate against the API service
   kind: password
-- name: refresh_token
   label: Refresh Token
-  description: The token to authenticate against the API service
-  kind: password
-- name: stream_maps
-  label: Stream Maps
-  description: Config object for stream maps capability. For more information check
+  name: refresh_token
+- description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
-- name: stream_map_config
-  label: Stream Map Config
-  description: User-defined config values to be used within map expressions.
+  label: Stream Maps
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
   kind: object
-- name: flattening_enabled
-  label: Flattening Enabled
-  description: "'True' to enable schema flattening and automatically expand nested\
+  label: Stream Map Config
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
     \ properties."
   kind: boolean
-- name: flattening_max_depth
-  label: Flattening Max Depth
-  description: The max depth to flatten schemas.
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
   kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
 settings_group_validation:
 - - refresh_token
   - client_secret
   - client_id
 settings_preamble: ''
 usage: ''
+variant: gthesheep

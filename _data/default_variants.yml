@@ -375,6 +375,7 @@ loaders:
   target-duckdb: jwills
   target-gcs: datateer
   target-gsheet: singer-io
+  target-iomete: iomete
   target-jsonl: andyh1203
   target-kinesis: prontopro
   target-magentobi: singer-io
@@ -393,7 +394,6 @@ loaders:
   target-sqlite: meltanolabs
   target-stitch: singer-io
   target-yaml: meltanolabs
-  target-iomete: iomete
 mappers:
   meltano-map-transformer: meltano
   transform-field: transferwise
