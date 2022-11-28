@@ -176,6 +176,7 @@ extractors:
   tap-lotr: mattarderne
   tap-maestroqa: pathlight
   tap-mailchimp: singer-io
+  tap-mailerlite: alvaroraul7
   tap-mailgun: streetteam
   tap-mailjet: somtom
   tap-mailshake: singer-io
@@ -189,6 +190,7 @@ extractors:
   tap-memberful: prratek
   tap-mercadopago: a-rusi
   tap-meshstack: meshcloud
+  tap-messagebird: meltanolabs
   tap-mindstamp: manuelapilongo
   tap-mixpanel: hotgluexyz
   tap-mode: franloza
@@ -373,12 +375,14 @@ loaders:
   target-duckdb: jwills
   target-gcs: datateer
   target-gsheet: singer-io
+  target-iomete: iomete
   target-jsonl: andyh1203
   target-kinesis: prontopro
   target-magentobi: singer-io
   target-miso: misoai
   target-mongodb: hotgluexyz
   target-mssql: storebrand
+  target-oracle: radbrt
   target-pardot: anelendata
   target-parquet: estrategiahq
   target-postgres: transferwise
