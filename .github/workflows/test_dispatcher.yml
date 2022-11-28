@@ -62,13 +62,14 @@ jobs:
       - name: Get the name and pip url
         run: |
           name="$(basename "$(dirname "${{ matrix.changed_file }}")")"
-          pip_url="$(./yq '.pip_url' "${{ matrix.changed_file }}")"
+          pip_url="$(./yq '.pip_url // ""' "${{ matrix.changed_file }}")"
           variant="$(./yq '.variant' "${{ matrix.changed_file }}")"
           echo "name=${name}" >> $GITHUB_ENV
           echo "pip_url=${pip_url}" >> $GITHUB_ENV
           echo "prelude=Testing plugin \`${name}\` (\`${variant}\` variant):" >> $GITHUB_ENV
 
       - name: Find the MeltyBot test-command comment if it exists
+        if: ${{ env.pip_url != '' }}
         id: find_comment
         uses: peter-evans/find-comment@v2
         with:
@@ -77,6 +78,7 @@ jobs:
           body-includes: ${{ env.prelude }}
 
       - uses: octokit/request-action@v2.x
+        if: ${{ env.pip_url != '' }}
         with:
           route: "POST /repos/${{ github.repository }}/actions/workflows/test-plugin-command.yml/dispatches"
           ref: 'main'
