@@ -1,0 +1,53 @@
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+- schema-flattening
+description: An omnichannel communications platform, built for global scale.
+domain_url: https://www.messagebird.com
+keywords:
+- meltano_sdk
+- api
+label: Messagebird
+logo_url: /assets/logos/extractors/messagebird.png
+maintenance_status: development
+name: tap-messagebird
+namespace: tap_messagebird
+next_steps: ''
+pip_url: git+https://github.com/MeltanoLabs/tap-messagebird.git
+repo: https://github.com/MeltanoLabs/tap-messagebird
+settings:
+- description: The token to authenticate against the API service. Test keys are not
+    supported for Conversations see https://support.messagebird.com/hc/en-us/articles/360000670709-What-is-the-difference-between-a-live-key-and-a-test-key-
+  kind: password
+  label: Api Key
+  name: api_key
+- description: The earliest record date to sync
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+settings_group_validation:
+- - api_key
+settings_preamble: ''
+usage: ''
+variant: meltanolabs
