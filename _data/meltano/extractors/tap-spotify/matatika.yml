@@ -2,6 +2,8 @@ capabilities:
 - catalog
 - discover
 - state
+- about
+- stream-maps
 description: Audio Streaming and Media Services
 domain_url: https://developer.spotify.com/documentation/web-api/
 keywords:
@@ -17,12 +19,15 @@ repo: https://github.com/Matatika/tap-spotify
 settings:
 - description: App client ID
   kind: password
+  label: Client ID
   name: client_id
 - description: App client secret
   kind: password
+  label: Client secret
   name: client_secret
 - description: Refresh token
   kind: password
+  label: Refresh token
   name: refresh_token
 settings_group_validation:
 - - client_id
