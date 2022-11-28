@@ -1,6 +1,5 @@
 capabilities:
 - catalog
-- state
 - discover
 - about
 - stream-maps
@@ -16,7 +15,7 @@ maintenance_status: development
 name: tap-messagebird
 namespace: tap_messagebird
 next_steps: ''
-pip_url: git+https://github.com/MeltanoLabs/tap-messagebird.git
+pip_url: tap-messagebird
 repo: https://github.com/MeltanoLabs/tap-messagebird
 settings:
 - description: The token to authenticate against the API service. Test keys are not
@@ -24,7 +23,7 @@ settings:
   kind: password
   label: Api Key
   name: api_key
-- description: The earliest record date to sync
+- description: The sync start date that determines how much historical data will be extracted. ISO8601 format of date. Defaults, 3 years ago.
   kind: date_iso8601
   label: Start Date
   name: start_date
