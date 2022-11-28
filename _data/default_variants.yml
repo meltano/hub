@@ -393,6 +393,7 @@ loaders:
   target-sqlite: meltanolabs
   target-stitch: singer-io
   target-yaml: meltanolabs
+  target-iomete: iomete
 mappers:
   meltano-map-transformer: meltano
   transform-field: transferwise
