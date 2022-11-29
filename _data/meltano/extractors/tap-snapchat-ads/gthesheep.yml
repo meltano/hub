@@ -32,7 +32,7 @@ settings:
   label: Refresh Token
   name: refresh_token
 - description: Start date for stats collection
-  kind: datetime
+  kind: date_iso8601
   label: Start Date
   name: start_date
 - description: Attribution window for swipe ups 1_DAY, 7_DAY, 28_DAY (default)
