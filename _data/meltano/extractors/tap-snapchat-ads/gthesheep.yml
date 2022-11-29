@@ -35,11 +35,11 @@ settings:
   kind: datetime
   label: Start Date
   name: start_date
-- description: Attribution window for swipe ups: 1_DAY, 7_DAY, 28_DAY (default)
+- description: Attribution window for swipe ups 1_DAY, 7_DAY, 28_DAY (default)
   kind: string
   label: Swipe up attribution window
   name: swipe_up_attribution_window
-- description: Attribution window for views: 1_HOUR, 3_HOUR, 6_HOUR, 1_DAY (default), 7_DAY, 28_DAY
+- description: Attribution window for views 1_HOUR, 3_HOUR, 6_HOUR, 1_DAY (default), 7_DAY, 28_DAY
   kind: string
   label: View attribution window
   name: view_attribution_window
