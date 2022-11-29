@@ -12,25 +12,45 @@ keywords:
 - api
 label: Snapchat Ads
 logo_url: /assets/logos/extractors/snapchat-ads.png
-maintenance_status: development
+maintenance_status: active
 name: tap-snapchat-ads
 namespace: tap_snapchat_ads
 next_steps: ''
 pip_url: git+https://github.com/GtheSheep/tap-snapchat-ads.git
 repo: https://github.com/GtheSheep/tap-snapchat-ads
 settings:
-- description: The token to authenticate against the API service
+- description: Client ID
   kind: password
-  label: Client Id
+  label: Client ID
   name: client_id
-- description: The token to authenticate against the API service
+- description: Client secret
   kind: password
   label: Client Secret
   name: client_secret
-- description: The token to authenticate against the API service
+- description: Refresh token
   kind: password
   label: Refresh Token
   name: refresh_token
+- description: Start date for stats collection
+  kind: datetime
+  label: Start Date
+  name: start_date
+- description: Attribution window for swipe ups: 1_DAY, 7_DAY, 28_DAY (default)
+  kind: string
+  label: Swipe up attribution window
+  name: swipe_up_attribution_window
+- description: Attribution window for views: 1_HOUR, 3_HOUR, 6_HOUR, 1_DAY (default), 7_DAY, 28_DAY
+  kind: string
+  label: View attribution window
+  name: view_attribution_window
+- description: User agent to set on requests
+  kind: string
+  label: User agent
+  name: user_agent
+- description: List of lower - case 2 - letter ISO Country Codes for Ads Targeting
+  kind: array
+  label: Targeting country codes
+  name: targeting_country_codes
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
@@ -40,8 +60,7 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -53,6 +72,11 @@ settings_group_validation:
 - - refresh_token
   - client_secret
   - client_id
+  - start_date
+  - swipe_up_attribution_window
+  - view_attribution_window
+  - user_agent
+  - targeting_country_codes
 settings_preamble: ''
 usage: ''
 variant: gthesheep
