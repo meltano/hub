@@ -19,37 +19,38 @@ next_steps: ''
 pip_url: git+https://github.com/GtheSheep/tap-snapchat-ads.git
 repo: https://github.com/GtheSheep/tap-snapchat-ads
 settings:
-- description: Client ID
+- description: Client ID used to authenticate against the API.
   kind: password
   label: Client ID
   name: client_id
-- description: Client secret
+- description: Client secret used to authenticate against the API.
   kind: password
   label: Client Secret
   name: client_secret
-- description: Refresh token
+- description: Refresh token used to authenticate against the API.
   kind: password
   label: Refresh Token
   name: refresh_token
-- description: Start date for stats collection
+- description: Start date for stats collection.
   kind: date_iso8601
   label: Start Date
   name: start_date
-- description: Attribution window for swipe ups 1_DAY, 7_DAY, 28_DAY (default)
+- description: Attribution window for swipe ups 1_DAY, 7_DAY, 28_DAY (default).
   kind: string
-  label: Swipe up attribution window
+  label: Swipe Up Attribution Window
   name: swipe_up_attribution_window
+  value: 28_DAY
 - description: Attribution window for views 1_HOUR, 3_HOUR, 6_HOUR, 1_DAY (default), 7_DAY, 28_DAY
   kind: string
-  label: View attribution window
+  label: View Attribution Window
   name: view_attribution_window
 - description: User agent to set on requests
   kind: string
-  label: User agent
+  label: User Agent
   name: user_agent
-- description: List of lower - case 2 - letter ISO Country Codes for Ads Targeting
+- description: List of lowercase 2-letter ISO Country Codes for Ads Targeting
   kind: array
-  label: Targeting country codes
+  label: Targeting Country Codes
   name: targeting_country_codes
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
