@@ -73,11 +73,6 @@ settings_group_validation:
 - - refresh_token
   - client_secret
   - client_id
-  - start_date
-  - swipe_up_attribution_window
-  - view_attribution_window
-  - user_agent
-  - targeting_country_codes
 settings_preamble: ''
 usage: ''
 variant: gthesheep
