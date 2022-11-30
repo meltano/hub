@@ -55,6 +55,9 @@ prereq: |
   curl -X GET -H 'Authorization: Bearer <Your Token>' https://slack.com/api/conversations.list?exclude_archived=False
   ```
 repo: https://github.com/MeltanoLabs/tap-slack
+select:
+- '*.*'
+- '!integration_logs.*'
 settings:
 - description: Your Slack App API key. See the Prerequisites section above for more
     details on obtaining it.
