@@ -5,7 +5,7 @@ capabilities:
 - about
 - stream-maps
 description: Team communication tool
-domain_url:
+domain_url: https://api.slack.com/
 keywords:
 - meltano_sdk
 label: Slack
@@ -100,4 +100,21 @@ settings:
   name: excluded_channels
 settings_group_validation:
 - - api_key
+usage: |
+  ## Additional Usage details
+
+  ### Admin Stream - team.IntegrationLogs
+
+  This tap supports an `integration_logs` stream that is deselected by default because it requires elevated admin privileges to work.
+  See the [team.integrationLogs docs](https://api.slack.com/methods/team.integrationLogs) for more details on the contents and
+  [admin scopes docs](https://api.slack.com/scopes/admin) for more information on assigning access.
+
+  If you chose to override the default select criteria you must also exclude this stream. For example:
+
+  ```yaml
+    select:
+    - '*.*'
+    - '!integration_logs.*'
+  ```
+  See the [Meltano docs](https://docs.meltano.com/guide/integration#selecting-entities-and-attributes-for-extraction) for selecting entities and attributes.
 variant: meltanolabs
