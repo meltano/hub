@@ -392,6 +392,7 @@ loaders:
   target-s3-avro: faumel
   target-s3-csv: transferwise
   target-s3-parquet: gupy-io
+  target-salesforce: dan-ladd
   target-snowflake: transferwise
   target-sqlite: meltanolabs
   target-stitch: singer-io
