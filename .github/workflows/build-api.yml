@@ -7,6 +7,14 @@ on:
   pull_request:
     branches:
     - main
+  workflow_dispatch:
+    hub-url:
+      description: The base URL of the Meltano Hub site
+      required: true
+      default: 'https://hub.meltano.com'
+    api-url:
+      description: The base URL of the Hub API
+      required: true
 
 jobs:
   build:
@@ -37,9 +45,16 @@ jobs:
 
     - name: Set production variables
       if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      # FIXME: Use GitHub secrets for the API URL
       run: |
         echo "HUB_URL=https://hub.meltano.com" >> $GITHUB_ENV
-        echo "API_URL=https://hub.meltano.com/meltano/api/v1/plugins" >> $GITHUB_ENV
+        echo "API_URL=https://d638lmu7oa.execute-api.us-west-2.amazonaws.com/sandbox" >> $GITHUB_ENV
+
+    - name: Set custom variables
+      if: github.event_name == 'workflow_dispatch'
+      run: |
+        echo "HUB_URL=${{ github.event.inputs.hub-url }}" >> $GITHUB_ENV
+        echo "API_URL=${{ github.event.inputs.api-url }}" >> $GITHUB_ENV
 
     - name: Build
       run: >
@@ -53,3 +68,27 @@ jobs:
       with:
         name: hub-api-files
         path: "_hub_api/*"
+
+  publish:
+    runs-on: ubuntu-latest
+    needs: build
+    permissions:
+      id-token: write # This is required for requesting the JWT
+    steps:
+    - uses: actions/checkout@v3.0.2
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1.7.0
+      with:
+        # FIXME: Use GitHub secrets for the role
+        role-to-assume: arn:aws:iam::383114100614:role/role-644fde6
+        aws-region: us-west-2
+        role-session-name: "GitHubActions"
+    - name: Download artifacts
+      uses: actions/download-artifact@v3.0.1
+      with:
+        name: hub-api-files
+        path: "_hub_api"
+    - name: Upload to S3
+      # FIXME: Use GitHub secrets for the bucket
+      run: |
+        aws s3 sync _hub_api s3://hub-api-e219288/hub-api
