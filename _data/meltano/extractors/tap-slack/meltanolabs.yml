@@ -55,9 +55,6 @@ prereq: |
   curl -X GET -H 'Authorization: Bearer <Your Token>' https://slack.com/api/conversations.list?exclude_archived=False
   ```
 repo: https://github.com/MeltanoLabs/tap-slack
-select:
-- '*.*'
-- '!integration_logs.*'
 settings:
 - description: Your Slack App API key. See the Prerequisites section above for more
     details on obtaining it.
@@ -98,23 +95,11 @@ settings:
   kind: array
   label: Excluded Channels
   name: excluded_channels
+- description: Whether to include streams that require admin privileges or not. If the user does
+    not have the proper scopes then the tap will throw and exception.
+  kind: boolean
+  label: Include Admin Streams
+  name: include_admin_streams
 settings_group_validation:
 - - api_key
-usage: |
-  ## Additional Usage details
-
-  ### Admin Stream - team.IntegrationLogs
-
-  This tap supports an `integration_logs` stream that is deselected by default because it requires elevated admin privileges to work.
-  See the [team.integrationLogs docs](https://api.slack.com/methods/team.integrationLogs) for more details on the contents and
-  [admin scopes docs](https://api.slack.com/scopes/admin) for more information on assigning access.
-
-  If you chose to override the default select criteria you must also exclude this stream. For example:
-
-  ```yaml
-    select:
-    - '*.*'
-    - '!integration_logs.*'
-  ```
-  See the [Meltano docs](https://docs.meltano.com/guide/integration#selecting-entities-and-attributes-for-extraction) for selecting entities and attributes.
 variant: meltanolabs
