@@ -23,6 +23,7 @@ def write_updated_maintainers(data):
 
 def build_maintainers():
     maintainers_set = set()
+    missing = set()
     updated_maintainers = read_yaml(f"{data_dir}/maintainers.yml")
 
     for plugin_type in os.listdir(directory):
@@ -33,14 +34,15 @@ def build_maintainers():
                 plugin_data = read_yaml(
                     os.path.join(directory, plugin_type, plugin_name, variant_yml)
                 )
-                maintainers_set.add(plugin_data.get("variant").lower())
+                maintainers_set.add(plugin_data.get("variant"))  # different casings will return as distinct items
                 if plugin_data.get("variant").lower() not in updated_maintainers:
+                    missing.add(plugin_data.get("variant"))
                     updated_maintainers[plugin_data.get("variant").lower()] = {
                         "label": "TODO: ADD LABEL",
                         "url": "/".join(plugin_data.get("repo").split("/")[:-1]),
                     }
 
-    return maintainers_set, updated_maintainers
+    return maintainers_set, updated_maintainers, missing
 
 
 def remove_extras(updated_maintainers, extras):
@@ -56,10 +58,9 @@ if __name__ == "__main__":
     to accelerate updates. It also exits with code 1 if there are extra or missing
     maintainers so CICD can use it to validate.
     """
-    maintainers_set, updated_maintainers = build_maintainers()
+    maintainers_set, updated_maintainers, missing = build_maintainers()
 
     extras = updated_maintainers.keys() - maintainers_set
-    missing = maintainers_set - updated_maintainers.keys()
 
     remove_extras(updated_maintainers, extras)
     write_updated_maintainers(updated_maintainers)
@@ -67,6 +68,15 @@ if __name__ == "__main__":
     if extras or missing:
         print(f"Extra Maintainers: {extras}")
         print(f"Missing Maintainers: {missing}")
+        misspellings = set(
+            [
+                variant for variant in extras | missing
+                if variant.lower() != variant
+            ]
+        )
+        if misspellings:
+            print(f"Possible misspellings (check casing): {misspellings}")
+
         sys.exit(1)
     else:
         print("All maintainers are present.")

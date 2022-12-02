@@ -1,11 +1,12 @@
-name: files-airflow
+definition: are bundled with the Airflow orchestrator.
+domain_url: https://airflow.apache.org/
 label: Airflow
+logo_url: /assets/logos/files/airflow.png
+maintenance_status: active
+name: files-airflow
 namespace: files_airflow
-repo: https://github.com/meltano/files-airflow
 pip_url: git+https://github.com/meltano/files-airflow.git
-variant: meltano
+repo: https://github.com/meltano/files-airflow
 update:
   orchestrate/dags/meltano.py: true
-logo_url: /assets/logos/files/airflow.png
-definition: are bundled with the Airflow orchestrator.
-maintenance_status: active
+variant: meltano

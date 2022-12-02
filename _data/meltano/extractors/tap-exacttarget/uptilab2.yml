@@ -1,16 +1,16 @@
-description: Digital Marketing Platform
-label: SalesForce Marketing Cloud
-name: tap-exacttarget
-logo_url: /assets/logos/extractors/exacttarget.png
-namespace: tap_exacttarget
-variant: uptilab2
-pip_url: git+https://github.com/uptilab2/tap-exacttarget.git
-repo: https://github.com/uptilab2/tap-exacttarget
-settings: []
 capabilities:
 - catalog
 - discover
+description: Digital Marketing Platform
 domain_url: https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/index-api.htm
-maintenance_status: unknown
 keywords:
 - api
+label: SalesForce Marketing Cloud
+logo_url: /assets/logos/extractors/exacttarget.png
+maintenance_status: unknown
+name: tap-exacttarget
+namespace: tap_exacttarget
+pip_url: git+https://github.com/uptilab2/tap-exacttarget.git
+repo: https://github.com/uptilab2/tap-exacttarget
+settings: []
+variant: uptilab2

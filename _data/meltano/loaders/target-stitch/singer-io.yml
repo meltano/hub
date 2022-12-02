@@ -1,13 +1,47 @@
+capabilities: []
 description: Extract and Load Platform
-label: Stitch
-name: target-stitch
-logo_url: /assets/logos/loaders/stitch.png
-namespace: target_stitch
-variant: singer-io
-pip_url: target-stitch
-repo: https://github.com/singer-io/target-stitch
-settings: []
 domain_url: https://www.stitchdata.com/docs/developers/import-api/
-maintenance_status: unknown
 keywords:
 - api
+label: Stitch
+logo_url: /assets/logos/loaders/stitch.png
+maintenance_status: active
+name: target-stitch
+namespace: target_stitch
+pip_url: target-stitch
+repo: https://github.com/singer-io/target-stitch
+settings:
+- description: Your Stitch client ID.
+  kind: password
+  label: Client ID
+  name: client_id
+- description: The turbo boost factor to use. Default, 1.
+  kind: integer
+  label: Turbo Boost Factor
+  name: turbo_boost_factor
+- description: Whether to send anonymous usage data to stitchdata.com
+  kind: boolean
+  label: Disable Collection
+  name: disable_collection
+- description: The Stitch small batch URL to use. E.g. https://api.stitchdata.com/v2/import/batch.
+  label: Small Batch Url
+  name: small_batch_url
+- description: The Stitch big batch URL to use. E.g. https://api.stitchdata.com/v2/import/batch.
+  label: Big Batch Url
+  name: big_batch_url
+- description: Your Stitch auth token.
+  kind: password
+  label: Token
+  name: token
+- description: The batch size preferences to use. Must contains key `full_table_streams`
+    with arrays type value.
+  kind: object
+  label: Batch Size Preferences
+  name: batch_size_preferences
+settings_group_validation:
+- - client_id
+  - small_batch_url
+  - big_batch_url
+  - token
+  - batch_size_preferences
+variant: singer-io

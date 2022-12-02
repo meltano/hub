@@ -1,17 +1,37 @@
-description: Foreign Exchnage Rates API
-label: Fixer
-name: tap-fixerio
-logo_url: /assets/logos/extractors/fixerio.png
-namespace: tap_fixerio
-variant: singer-io
-pip_url: tap-fixerio
-repo: https://github.com/singer-io/tap-fixerio
-settings: []
 capabilities:
-- catalog
 - discover
 - state
+description: Foreign Exchnage Rates API
 domain_url: https://fixer.io/documentation
-maintenance_status: unknown
 keywords:
 - api
+label: Fixer
+logo_url: /assets/logos/extractors/fixerio.png
+maintenance_status: inactive
+name: tap-fixerio
+namespace: tap_fixerio
+pip_url: tap-fixerio
+repo: https://github.com/singer-io/tap-fixerio
+settings:
+- description: The base rate to which others will be converted.
+  label: Base
+  name: base
+- description: Your fixer.io access key.
+  kind: password
+  label: Access Key
+  name: access_key
+- description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: "An optional list of currency symbols to fetch in the following format:\
+    \ ['USD', 'GBP', etc.]. If not specified fixer will return a list of all exchange\
+    \ rates for each day."
+  kind: string
+  label: Symbols
+  name: symbols
+settings_group_validation:
+- - access_key
+variant: singer-io

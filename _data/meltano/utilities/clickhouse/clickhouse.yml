@@ -1,0 +1,34 @@
+commands:
+  start:
+    args: start
+    container_spec:
+      image: clickhouse/clickhouse-server:latest
+      ports:
+        "8123": "8123"
+        "9000": "9000"
+definition: is a containerized instance of Clickhouse useful for local development.
+description: Open source, column-oriented data warehouse.
+docs: https://clickhouse.com/docs/
+domain_url: https://clickhouse.com
+keywords:
+- warehouse
+label: Clickhouse
+logo_url: /assets/logos/utilities/clickhouse.png
+maintenance_status: active
+name: clickhouse
+namespace: clickhouse
+next_steps: |
+  1. Launch Clickhouse:
+
+     ```sh
+     meltano invoke --containers clickhouse:start
+     ```
+
+     Connect via the UI at http://localhost:8123/play.
+prereq: |
+  #### Dependencies
+
+  Clickhouse is packaged as a Docker image so you must have Docker installed before running the plugin.
+repo: https://github.com/ClickHouse/ClickHouse/
+settings: []
+variant: clickhouse

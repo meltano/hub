@@ -1,47 +1,47 @@
 description: Real-time Streaming Platform
-label: Kinesis
-name: target-kinesis
+domain_url: https://aws.amazon.com/kinesis/
+keywords:
+- api
+label: Amazon Kinesis
 logo_url: /assets/logos/loaders/kinesis.png
+maintenance_status: unknown
+name: target-kinesis
 namespace: target_kinesis
-variant: prontopro
 pip_url: git+https://github.com/ProntoPro/target-kinesis.git
 repo: https://github.com/ProntoPro/target-kinesis
+settings:
+- description: The name of the Kinesis stream to write to.
+  label: Stream Name
+  name: stream_name
+- description: S3 Access Key Id. If not provided, aws_profile or AWS_ACCESS_KEY_ID
+    environment variable will be used.
+  kind: password
+  label: AWS S3 Access Key ID
+  name: aws_access_key_id
+- description: S3 Secret Access Key. If not provided, aws_profile or AWS_ACCESS_KEY_ID
+    environment variable will be used.
+  kind: password
+  label: AWS S3 Secret Access Key
+  name: aws_secret_access_key
+- description: The AWS region to use i.e. us-east-2.
+  label: AWS Region
+  name: region
+- description: (Default False) Whether to user a Firehouse client or not.
+  kind: boolean
+  label: Is Firehouse
+  name: is_firehose
+- description: (Default - 10) The max number of records per chunk.
+  kind: integer
+  label: Record Chunks
+  name: record_chunks
+- description: (Default - 1000) The max size of data per chunk.
+  kind: integer
+  label: Data Chunks
+  name: data_chunks
+- description: (Default - `id`) The partition key to use when writing to Kinesis.
+  label: Partition Key
+  name: partition_key
 settings_group_validation:
 - - aws_access_key_id
   - aws_secret_access_key
-settings:
-- name: stream_name
-  label: Stream Name
-  description: The name of the Kinesis stream to write to.
-- name: aws_access_key_id
-  kind: password
-  label: AWS S3 Access Key ID
-  description: S3 Access Key Id. If not provided, aws_profile or AWS_ACCESS_KEY_ID
-    environment variable will be used.
-- name: aws_secret_access_key
-  label: AWS S3 Secret Access Key
-  kind: password
-  description: S3 Secret Access Key. If not provided, aws_profile or AWS_ACCESS_KEY_ID
-    environment variable will be used.
-- name: region
-  label: AWS Region
-  description: The AWS region to use i.e. us-east-2.
-- name: is_firehose
-  kind: boolean
-  label: Is Firehouse
-  description: (Default False) Whether to user a Firehouse client or not.
-- name: record_chunks
-  kind: integer
-  label: Record Chunks
-  description: (Default - 10) The max number of records per chunk.
-- name: data_chunks
-  kind: integer
-  label: Data Chunks
-  description: (Default - 1000) The max size of data per chunk.
-- name: partition_key
-  label: Partition Key
-  description: (Default - `id`) The partition key to use when writing to Kinesis.
-domain_url: https://aws.amazon.com/kinesis/
-maintenance_status: unknown
-keywords:
-- api
+variant: prontopro

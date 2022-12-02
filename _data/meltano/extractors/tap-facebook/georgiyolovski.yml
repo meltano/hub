@@ -1,17 +1,17 @@
-name: tap-facebook
-label: Facebook Ads
-description: Advertising Platform
-namespace: tap_facebook
-logo_url: /assets/logos/extractors/facebook.png
-variant: georgiyolovski
-pip_url: git+https://github.com/georgiyolovski/tap-facebook.git
-repo: https://github.com/georgiyolovski/tap-facebook
 capabilities:
 - properties
 - discover
-settings_group_validation: []
-settings: []
+description: Advertising Platform
 domain_url: https://developers.facebook.com/docs/marketing-apis
-maintenance_status: unknown
 keywords:
 - api
+label: Facebook Ads
+logo_url: /assets/logos/extractors/facebook.png
+maintenance_status: unknown
+name: tap-facebook
+namespace: tap_facebook
+pip_url: git+https://github.com/georgiyolovski/tap-facebook.git
+repo: https://github.com/georgiyolovski/tap-facebook
+settings: []
+settings_group_validation: []
+variant: georgiyolovski

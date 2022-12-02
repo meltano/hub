@@ -1,6 +1,6 @@
 <template>
   <div
-    class="single-plugin-aside bg-gray-100 space-y-3 pl-4 order-first lg:pr-4 lg:order-last lg:border-l-2 border-black"
+    class="single-plugin-aside bg-gray-100 space-y-3 pl-4 pb-4 order-first lg:pr-4 lg:order-last lg:border-l-2 border-black"
   >
     <div>
       <p class="text-lg py-2">Install</p>
@@ -51,6 +51,14 @@
             src="https://img.shields.io/badge/Maintenance%20Status-Inactive%20or%20Stale-red"
           />
         </li>
+        <li v-if="(keywords ?? []).includes('meltano_sdk')">
+          <a href="https://sdk.meltano.com/en/latest/">
+            <img
+              alt="Built with the Meltano SDK"
+              src="https://img.shields.io/badge/Built%20with%20the%20Meltano%20SDK-✔-blueviolet"
+            />
+          </a>
+        </li>
       </ul>
     </div>
 
@@ -69,13 +77,13 @@
         <li>
           <img
             alt="Stars"
-            :src="`https://img.shields.io/${repoType}/stars/${parsedRepo.user}/${parsedRepo.repo_name}?style=flat-square&label=Stars`"
+            :src="`https://img.shields.io/${repoType}/stars/${parsedRepo.user}/${parsedRepo.repo_name}?label=Stars`"
           />
         </li>
         <li>
           <img
             alt="Forks"
-            :src="`https://img.shields.io/${repoType}/forks/${parsedRepo.user}/${parsedRepo.repo_name}?style=flat-square&label=Forks`"
+            :src="`https://img.shields.io/${repoType}/forks/${parsedRepo.user}/${parsedRepo.repo_name}?label=Forks`"
           />
         </li>
         <li>
@@ -103,7 +111,7 @@
         <li>
           <img
             alt="License"
-            :src="`https://img.shields.io/${repoType}/license/${parsedRepo.user}/${parsedRepo.repo_name}?color=c0c0c4&label=License&style=flat-square`"
+            :src="`https://img.shields.io/${repoType}/license/${parsedRepo.user}/${parsedRepo.repo_name}?color=c0c0c4&label=License`"
           />
         </li>
       </ul>
@@ -128,28 +136,39 @@
     </div>
 
     <!-- <div v-if="metrics  (keywords ?? []).includes('meltano_sdk')"> -->
-    <div v-if="metrics">
+    <div v-if="metrics.ALL_EXECS || metrics.ALL_PROJECTS">
       <p class="text-lg">Meltano Stats</p>
       <ul class="list-disc list-inside shields space-y-1">
         <li v-if="metrics.ALL_EXECS">
           <img
             alt="Total Executions (Last 3 Months)"
-            :src="`https://img.shields.io/badge/Total%20Executions%20(Last%203%20Months)-${metrics.ALL_EXECS}-c0c0c4`"
+            :src="`https://img.shields.io/badge/Total%20Executions%20(Last%203%20Months)-${metrics.ALL_EXECS.toLocaleString()}-c0c0c4`"
           />
         </li>
         <li v-if="metrics.ALL_PROJECTS">
           <img
             alt="Projects (Last 3 Months)"
-            :src="`https://img.shields.io/badge/Projects%20(Last%203%20Months)-${metrics.ALL_PROJECTS}-c0c0c4`"
+            :src="`https://img.shields.io/badge/Projects%20(Last%203%20Months)-${metrics.ALL_PROJECTS.toLocaleString()}-c0c0c4`"
           />
         </li>
-        <li v-if="(keywords ?? []).includes('meltano_sdk')">
-          <a href="https://sdk.meltano.com/en/latest/">
-            <img
-              alt="Built with the Meltano SDK"
-              src="https://img.shields.io/badge/Built%20with%20the%20Meltano%20SDK-✔-blueviolet"
-            />
-          </a>
+      </ul>
+    </div>
+    <div v-if="hasPyPI">
+      <p class="text-lg">PyPI Stats</p>
+      <ul class="list-disc list-inside shields space-y-1">
+        <li>
+          <img
+            alt="PyPI Downloads"
+            :src="`https://img.shields.io/pypi/dm/${pip_url}?color=3438BF&label=PyPI%20Downloads&`"
+            :href="`https://pypi.org/project/${pip_url}/`"
+          />
+        </li>
+        <li>
+          <img
+            alt="PyPI Package Version"
+            :src="`https://img.shields.io/pypi/v/${pip_url}?color=3438BF&label=PyPI%20Package%20Version&`"
+            :href="`https://pypi.org/project/${pip_url}/`"
+          />
         </li>
       </ul>
     </div>
@@ -160,7 +179,7 @@
           <img
             v-for="(keyword, index) in keywords"
             v-bind:key="index"
-            class="inline m-1"
+            class="inline mr-1"
             :alt="keyword"
             :src="`https://img.shields.io/static/v1?label=&message=${keyword}&color=grey`"
           />
@@ -184,6 +203,7 @@ export default {
     "plugin_type",
     "metrics",
     "maintainer",
+    "pip_url",
   ],
   computed: {
     parsedRepo() {
@@ -196,6 +216,23 @@ export default {
     repoType() {
       // Some plugins are hosted on github, some on gitlab
       return this.repo.includes("github.com") ? "github" : "gitlab";
+    },
+    hasPyPI() {
+      // Exclude more elaborate ways of specifying `pip_url`
+      // TODO: figure out what we should do when
+      //   - multiple packages are listed space-delimited
+      //   - packages have version specifiers (==, ~=)
+      //   - packages specify optional dependencies in []
+      return (
+        this.pip_url &&
+        !(
+          this.pip_url.includes("git+") ||
+          this.pip_url.includes("//") ||
+          this.pip_url.includes("=") ||
+          this.pip_url.includes(" ") ||
+          this.pip_url.includes("[")
+        )
+      );
     },
   },
 };

@@ -1,17 +1,17 @@
-description: Affiliate Marketing Service Provider
-label: Rakuten Advertising
-name: tap-rakuten
-logo_url: /assets/logos/extractors/rakuten.png
-namespace: tap_rakuten
-variant: chrisgoddard
-pip_url: git+https://github.com/chrisgoddard/tap-rakuten.git
-repo: https://github.com/chrisgoddard/tap-rakuten
-settings: []
 capabilities:
 - catalog
 - discover
 - state
+description: Affiliate Marketing Service Provider
 domain_url: https://advhelp.rakutenmarketing.com/hc/en-us/articles/206630745-Create-a-Custom-Reporting-API
-maintenance_status: unknown
 keywords:
 - api
+label: Rakuten Advertising
+logo_url: /assets/logos/extractors/rakuten.png
+maintenance_status: unknown
+name: tap-rakuten
+namespace: tap_rakuten
+pip_url: git+https://github.com/chrisgoddard/tap-rakuten.git
+repo: https://github.com/chrisgoddard/tap-rakuten
+settings: []
+variant: chrisgoddard

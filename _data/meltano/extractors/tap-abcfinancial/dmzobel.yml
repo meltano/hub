@@ -1,17 +1,17 @@
-description: SaaS solution for club management
-label: ABC Fitness Solutions
-name: tap-abcfinancial
-logo_url: /assets/logos/extractors/abcfinancial.png
-namespace: tap_abcfinancial
-variant: dmzobel
-pip_url: git+https://github.com/dmzobel/tap-abcfinancial.git
-repo: https://github.com/dmzobel/tap-abcfinancial
-settings: []
 capabilities:
 - catalog
 - discover
 - state
+description: SaaS solution for club management
 domain_url: https://abcfinancial.3scale.net
-maintenance_status: unknown
 keywords:
 - api
+label: ABC Fitness Solutions
+logo_url: /assets/logos/extractors/abcfinancial.png
+maintenance_status: unknown
+name: tap-abcfinancial
+namespace: tap_abcfinancial
+pip_url: git+https://github.com/dmzobel/tap-abcfinancial.git
+repo: https://github.com/dmzobel/tap-abcfinancial
+settings: []
+variant: dmzobel

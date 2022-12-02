@@ -12,11 +12,52 @@ Chat with us in [#contributing](https://meltano.slack.com/archives/C013Z450LCD) 
 
 Contributors are expected to follow our [Code of Conduct](https://docs.meltano.com/contribute/#code-of-conduct).
 
+## Automated plugin testing
+
+Repo maintainers with `write` access are able to perform automated plugin testing using slash commands in any issue or pull request.
+
+In any issue or pull request, type the following on the first line of a new comment:
+
+```txt
+/test-plugin name=PLUGIN_NAME [pip-url=PIP_URL]
+```
+
+If `pip-url` is omitted, the `name` field will be used as `pip-url`.
+
+For more information about slash commands and slash command dispatch:
+
+- https://github.com/peter-evans/slash-command-dispatch
+
 ## Installing prereqs
 
 ```console
 yarn
 yarn add --global @gridsome/cli
+```
+
+### Linters
+
+You can use `pre-commit` to run the linters before committing.
+
+```console
+pipx install pre-commit
+pre-commit install
+```
+
+This will run the linters on all files that are staged for commit. Included linters:
+
+- [yamlllint](https://yamllint.readthedocs.io/en/stable/)
+
+Theres a utility script that makes a best effort to help reformat yaml files to conform to the
+yamllint rules.
+To use the script run:
+
+```bash
+# Run on a single file
+poetry run python utility_scripts/plugin_definitions/yaml_lint_fix.py _data/meltano/extractors/tap-3plcentral/bytecodeio.yml
+
+# Run on all .yml files in the `_data/` directory including subdirectories
+poetry run python utility_scripts/plugin_definitions/yaml_lint_fix.py
 ```
 
 ## Build and serve the project

@@ -1,17 +1,17 @@
-name: tap-zoom
-label: Zoom
-description: Video conferencing software
-namespace: tap_zoom
-logo_url: /assets/logos/extractors/zoom.png
-variant: singer-io
 capabilities:
 - catalog
 - discover
 - state
-settings: []
-settings_group_validation: []
+description: Video conferencing software
+domain_url:
+keywords: []
+label: Zoom
+logo_url: /assets/logos/extractors/zoom.png
+maintenance_status: unknown
+name: tap-zoom
+namespace: tap_zoom
 pip_url: tap-zoom
 repo: https://github.com/singer-io/tap-zoom
-domain_url:
-maintenance_status: unknown
-keywords: []
+settings: []
+settings_group_validation: []
+variant: singer-io

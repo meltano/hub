@@ -1,18 +1,18 @@
-name: tap-csv
-label: Comma Separated Values (CSV)
-description: Generic data extractor of CSV (comma separated value) files
-namespace: tap_csv
-logo_url: /assets/logos/extractors/csv.png
-variant: robertjmoore
-pip_url: git+https://github.com/robertjmoore/tap-csv.git
-repo: https://github.com/robertjmoore/tap-csv
 capabilities:
 - discover
 - catalog
 - state
-settings_group_validation: []
-settings: []
+description: Generic data extractor of CSV (comma separated value) files
 domain_url: https://en.wikipedia.org/wiki/Comma-separated_values
-maintenance_status: unknown
 keywords:
 - file
+label: Comma Separated Values (CSV)
+logo_url: /assets/logos/extractors/csv.png
+maintenance_status: unknown
+name: tap-csv
+namespace: tap_csv
+pip_url: git+https://github.com/robertjmoore/tap-csv.git
+repo: https://github.com/robertjmoore/tap-csv
+settings: []
+settings_group_validation: []
+variant: robertjmoore

@@ -1,17 +1,17 @@
-name: tap-salesforce
-label: Salesforce
-description: Customer-relationship management & customer success platform
-namespace: tap_salesforce
-logo_url: /assets/logos/extractors/salesforce.png
-variant: singer-io
 capabilities:
 - catalog
 - discover
 - state
-settings: []
-settings_group_validation: []
+description: Customer-relationship management & customer success platform
+domain_url:
+keywords: []
+label: Salesforce
+logo_url: /assets/logos/extractors/salesforce.png
+maintenance_status: unknown
+name: tap-salesforce
+namespace: tap_salesforce
 pip_url: tap-salesforce
 repo: https://github.com/singer-io/tap-salesforce
-domain_url:
-maintenance_status: unknown
-keywords: []
+settings: []
+settings_group_validation: []
+variant: singer-io

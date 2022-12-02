@@ -1,16 +1,16 @@
-description: E-Commerce Logistics Platform
-label: Estoca
-name: tap-estoca
-logo_url: /assets/logos/extractors/estoca.png
-namespace: tap_estoca
-variant: r4ir4
-pip_url: git+https://github.com/r4ir4/tap-estoca.git
-repo: https://github.com/r4ir4/tap-estoca
-settings: []
 capabilities:
 - catalog
 - discover
+description: E-Commerce Logistics Platform
 domain_url: https://estoca.com.br/
-maintenance_status: unknown
 keywords:
 - api
+label: Estoca
+logo_url: /assets/logos/extractors/estoca.png
+maintenance_status: unknown
+name: tap-estoca
+namespace: tap_estoca
+pip_url: git+https://github.com/r4ir4/tap-estoca.git
+repo: https://github.com/r4ir4/tap-estoca
+settings: []
+variant: r4ir4

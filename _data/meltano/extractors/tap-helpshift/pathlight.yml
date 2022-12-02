@@ -1,16 +1,16 @@
-description: Customer Service Platform
-label: Helpshift
-name: tap-helpshift
-logo_url: /assets/logos/extractors/helpshift.png
-namespace: tap_helpshift
-variant: pathlight
-pip_url: git+https://github.com/Pathlight/tap-helpshift.git
-repo: https://github.com/Pathlight/tap-helpshift
-settings: []
 capabilities:
 - catalog
 - discover
+description: Customer Service Platform
 domain_url: https://apidocs.helpshift.com/
-maintenance_status: unknown
 keywords:
 - api
+label: Helpshift
+logo_url: /assets/logos/extractors/helpshift.png
+maintenance_status: unknown
+name: tap-helpshift
+namespace: tap_helpshift
+pip_url: git+https://github.com/Pathlight/tap-helpshift.git
+repo: https://github.com/Pathlight/tap-helpshift
+settings: []
+variant: pathlight

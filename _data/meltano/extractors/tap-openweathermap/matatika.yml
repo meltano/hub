@@ -1,36 +1,37 @@
+capabilities:
+- catalog
+- discover
+- state
 description: Current and Forecast Weather Data Collection
+domain_url: https://openweathermap.org/api
+keywords:
+- api
+- meltano_sdk
+- free service
 label: OpenWeatherMap
-name: tap-openweathermap
 logo_url: /assets/logos/extractors/openweathermap.png
+maintenance_status: active
+name: tap-openweathermap
 namespace: tap_openweathermap
-variant: matatika
 pip_url: git+https://github.com/Matatika/tap-openweathermap.git
 repo: https://github.com/Matatika/tap-openweathermap
+settings:
+- description: App API Key
+  kind: password
+  label: API Key
+  name: api_key
+- description: City name to get current weather for
+  label: Current Weather City Name
+  name: current_weather_city_name
+- description: City longtitude to get forecast data
+  label: Forecast Weather Longitude
+  name: forecast_weather_longitude
+- description: City lattitude to get forecast data
+  label: Forecast Weather Latitude
+  name: forecast_weather_lattitude
 settings_group_validation:
 - - api_key
   - current_weather_city_name
   - forecast_weather_longitude
   - forecast_weather_lattitude
-settings:
-- name: api_key
-  label: API Key
-  kind: password
-  description: App API Key
-- name: current_weather_city_name
-  label: Current Weather City Name
-  description: City name to get current weather for
-- name: forecast_weather_longitude
-  label: Forecast Weather Longitude
-  description: City longtitude to get forecast data
-- name: forecast_weather_lattitude
-  label: Forecast Weather Latitude
-  description: City lattitude to get forecast data
-capabilities:
-- catalog
-- discover
-- state
-domain_url: https://openweathermap.org/api
-maintenance_status: active
-keywords:
-- api
-- meltano_sdk
+variant: matatika

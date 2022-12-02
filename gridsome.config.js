@@ -19,7 +19,7 @@ module.exports = {
       use: "gridsome-plugin-gtag",
       options: {
         config: {
-          id: "G-NSVMGNSZKN",
+          id: "GTM-MNDN7ZF",
         },
       },
     },
@@ -66,7 +66,7 @@ module.exports = {
     },
   ],
   chainWebpack: (config) => {
-    config.resolve.alias.set("@logos", "@/../assets/logos");
+    config.resolve.alias.set("@logos", "@/../static/assets/logos");
   },
   templates: {
     Plugins: [

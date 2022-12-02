@@ -1,13 +1,33 @@
+capabilities: []
 description: NoSQL Database
-label: Cassandra
-name: target-cassandra
-logo_url: /assets/logos/loaders/cassandra.png
-namespace: target_cassandra
-variant: coeff
-pip_url: git+https://github.com/coeff/target-cassandra.git
-repo: https://github.com/coeff/target-cassandra
-settings: []
 domain_url: https://cassandra.apache.org/
-maintenance_status: unknown
 keywords:
 - database
+label: Cassandra
+logo_url: /assets/logos/loaders/cassandra.png
+maintenance_status: inactive
+name: target-cassandra
+namespace: target_cassandra
+pip_url: git+https://github.com/coeff/target-cassandra.git
+repo: https://github.com/coeff/target-cassandra
+settings:
+- description: Your Cassandra username.
+  label: Username
+  name: username
+- description: Your Cassandra keyspace.
+  label: Keyspace
+  name: keyspace
+- description: Your Cassandra password.
+  kind: password
+  label: Password
+  name: password
+- description: An array of your Cassandra node contact points.
+  kind: array
+  label: Contact Points
+  name: contact_points
+settings_group_validation:
+- - username
+  - keyspace
+  - password
+  - contact_points
+variant: coeff

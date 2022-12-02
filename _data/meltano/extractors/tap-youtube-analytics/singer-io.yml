@@ -1,17 +1,48 @@
-description: Video Streaming Platform
-label: YouTube Analytics
-name: tap-youtube-analytics
-logo_url: /assets/logos/extractors/youtube-analytics.png
-namespace: tap_youtube_analytics
-variant: singer-io
-pip_url: tap-youtube-analytics
-repo: https://github.com/singer-io/tap-youtube-analytics
-settings: []
 capabilities:
 - catalog
 - discover
 - state
+description: Video Streaming Platform
 domain_url: https://developers.google.com/youtube/
-maintenance_status: unknown
 keywords:
 - api
+label: YouTube Analytics
+logo_url: /assets/logos/extractors/youtube-analytics.png
+maintenance_status: inactive
+name: tap-youtube-analytics
+namespace: tap_youtube_analytics
+pip_url: tap-youtube-analytics
+repo: https://github.com/singer-io/tap-youtube-analytics
+settings:
+- description: The unique channel IDs in a comma delimited list.
+  label: Channel IDs
+  name: channel_ids
+- description: Your client secret.
+  kind: password
+  label: Client Secret
+  name: client_secret
+- description: Your client ID.
+  kind: password
+  label: Client ID
+  name: client_id
+- description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: Your refresh token.
+  kind: password
+  label: Refresh Token
+  name: refresh_token
+- description: The user agent to send with requests.
+  label: User Agent
+  name: user_agent
+settings_group_validation:
+- - channel_ids
+  - client_secret
+  - client_id
+  - start_date
+  - refresh_token
+  - user_agent
+variant: singer-io

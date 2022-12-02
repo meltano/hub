@@ -1,17 +1,17 @@
-description: Amazon Redshift Data Warehouse
-label: Redshift
-name: tap-redshift
-logo_url: /assets/logos/extractors/redshift.png
-namespace: tap_redshift
-variant: datadotworld
-pip_url: git+https://github.com/datadotworld/tap-redshift.git
-repo: https://github.com/datadotworld/tap-redshift
-settings: []
 capabilities:
 - catalog
 - discover
 - state
+description: Amazon Redshift Data Warehouse
 domain_url: https://aws.amazon.com/redshift/
-maintenance_status: unknown
 keywords:
 - database
+label: Redshift
+logo_url: /assets/logos/extractors/redshift.png
+maintenance_status: unknown
+name: tap-redshift
+namespace: tap_redshift
+pip_url: git+https://github.com/datadotworld/tap-redshift.git
+repo: https://github.com/datadotworld/tap-redshift
+settings: []
+variant: datadotworld

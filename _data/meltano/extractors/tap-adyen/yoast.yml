@@ -1,17 +1,54 @@
-description: Payments Platform
-label: Adyen
-name: tap-adyen
-logo_url: /assets/logos/extractors/adyen.png
-namespace: tap_adyen
-variant: yoast
-pip_url: git+https://github.com/Yoast/singer-tap-adyen.git
-repo: https://github.com/Yoast/singer-tap-adyen
-settings: []
 capabilities:
 - catalog
 - discover
 - state
+description: Payments Platform
 domain_url: https://docs.adyen.com/reporting
-maintenance_status: unknown
 keywords:
 - api
+label: Adyen
+logo_url: /assets/logos/extractors/adyen.png
+maintenance_status: inactive
+name: tap-adyen
+namespace: tap_adyen
+pip_url: git+https://github.com/Yoast/singer-tap-adyen.git
+repo: https://github.com/Yoast/singer-tap-adyen
+settings:
+- description: Your company account.
+  label: Company Account
+  name: company_account
+- description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: Your report user.
+  label: Report User
+  name: report_user
+- description: Your password.
+  kind: password
+  label: User Password
+  name: user_password
+- description: Adyen merchant account
+  label: Merchant Account
+  name: merchant_account
+- description: Whether to use the test or live environment. Default False.
+  kind: boolean
+  label: Test
+  name: test
+settings_group_validation:
+- - company_account
+  - start_date
+  - report_user
+  - user_password
+  - merchant_account
+usage: |
+  ### Retrieve Report User credentials
+
+  - Visit: Customer Area > Account > API credentials
+  - In the reporting area, enable automatic reporting for any of the following reports you want to use:
+    - Dispute transaction details
+    - Payment accounting
+    - Settlement_details
+variant: yoast

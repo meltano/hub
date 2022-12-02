@@ -1,26 +1,26 @@
-description: Online Learning Platform
-label: Udemy for Business
-name: tap-udemy-for-business
-logo_url: /assets/logos/extractors/udemy-for-business.png
-namespace: tap_udemy_for_business
-variant: immuta
-pip_url: git+https://github.com/immuta/tap-udemy-for-business.git
-repo: https://github.com/immuta/tap-udemy-for-business
 capabilities:
 - state
 - catalog
 - discover
-settings:
-- name: client_id
-- name: client_secret
-  kind: password
-- name: organization_id
-  kind: integer
-- name: organization_name
-- name: start_date
-  kind: date_iso8601
+description: Online Learning Platform
 domain_url: https://business-support.udemy.com/hc/en-us/articles/360005792753-Udemy-Business-API-Reference
-maintenance_status: active
 keywords:
 - api
 - meltano_sdk
+label: Udemy for Business
+logo_url: /assets/logos/extractors/udemy-for-business.png
+maintenance_status: active
+name: tap-udemy-for-business
+namespace: tap_udemy_for_business
+pip_url: git+https://github.com/immuta/tap-udemy-for-business.git
+repo: https://github.com/immuta/tap-udemy-for-business
+settings:
+- name: client_id
+- kind: password
+  name: client_secret
+- kind: integer
+  name: organization_id
+- name: organization_name
+- kind: date_iso8601
+  name: start_date
+variant: immuta

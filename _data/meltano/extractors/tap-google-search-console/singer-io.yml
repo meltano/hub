@@ -1,17 +1,45 @@
-description: Search platform
-label: Google Search Console
-name: tap-google-search-console
-logo_url: /assets/logos/extractors/google-search-console.png
-namespace: tap_google_search_console
-variant: singer-io
-pip_url: tap-google-search-console
-repo: https://github.com/singer-io/tap-google-search-console
-settings: []
 capabilities:
 - catalog
 - discover
 - state
+description: Search platform
 domain_url: https://developers.google.com/webmaster-tools/search-console-api-original/v3/how-tos/search_analytics
-maintenance_status: unknown
 keywords:
 - api
+label: Google Search Console
+logo_url: /assets/logos/extractors/google-search-console.png
+maintenance_status: active
+name: tap-google-search-console
+namespace: tap_google_search_console
+pip_url: tap-google-search-console
+repo: https://github.com/singer-io/tap-google-search-console
+settings:
+- description: Your refresh token.
+  kind: password
+  label: Refresh Token
+  name: refresh_token
+- description: Your client secret.
+  kind: password
+  label: Client Secret
+  name: client_secret
+- description: The request timeout.
+  kind: integer
+  label: Request Timeout
+  name: request_timeout
+- description: The website URL properties in a comma delimited list; do not include
+    the domain-level property in the list.
+  label: Site URLs
+  name: site_urls
+- description: Your client ID.
+  kind: password
+  label: Client ID
+  name: client_id
+- description: The user agent to send along with the API requests.
+  label: User Agent
+  name: user_agent
+settings_group_validation:
+- - refresh_token
+  - client_secret
+  - client_id
+  - user_agent
+variant: singer-io

@@ -1,0 +1,29 @@
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+domain_url: https://memberful.com/
+keywords:
+- meltano_sdk
+label: Memberful
+logo_url: /assets/logos/extractors/memberful.png
+maintenance_status: active
+name: tap-memberful
+namespace: tap_memberful
+next_steps: ''
+pip_url: git+https://github.com/prratek/tap-memberful.git
+repo: https://github.com/prratek/tap-memberful
+settings:
+- description: The token to authenticate against the API service
+  label: Api Key
+  name: api_key
+- description: The earliest record date to sync
+  label: Start Date
+  name: start_date
+settings_group_validation:
+- - api_key
+settings_preamble: ''
+usage: ''
+variant: prratek

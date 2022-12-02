@@ -1,17 +1,17 @@
-description: Space Analytics Platform
-label: Density
-name: tap-density
-logo_url: /assets/logos/extractors/density.png
-namespace: tap_density
-variant: envoy
-pip_url: git+https://github.com/envoy/tap-density.git
-repo: https://github.com/envoy/tap-density
-settings: []
 capabilities:
 - catalog
 - discover
 - state
+description: Space Analytics Platform
 domain_url: https://www.density.io/
-maintenance_status: unknown
 keywords:
 - api
+label: Density
+logo_url: /assets/logos/extractors/density.png
+maintenance_status: unknown
+name: tap-density
+namespace: tap_density
+pip_url: git+https://github.com/envoy/tap-density.git
+repo: https://github.com/envoy/tap-density
+settings: []
+variant: envoy

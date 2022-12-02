@@ -4,10 +4,11 @@
       type="text"
       name="search"
       id="search"
-      placeholder="Search 300+ connectors and tools that work with Meltano…"
+      placeholder="Search 400+ connectors and tools that work with Meltano…"
       class="text-black col-span-1 bg-slate-100 pl-4 border-solid border-black border-2 w-10/12 place-self-center"
       ref="searchBar"
-      v-model="search"
+      :value="search"
+      @input="search = $event.target.value"
       @focus="searchFocused = true"
       @blur="searchFocused = false"
       v-focus="searchFocused"
@@ -122,7 +123,9 @@ export default {
 
 <static-query lang="graphql">
 query {
-  allPlugins(filter: { isDefault: { eq: true }, hidden: { ne: true } }) {
+  allPlugins(
+    filter: { isDefault: { eq: true }, hidden: { ne: true }, pluginType: { ne: "transform" } }
+  ) {
     edges {
       node {
         id

@@ -1,37 +1,27 @@
-name: tap-zendesk
-label: Zendesk
-description: Support ticketing system & customer service platform
-namespace: tap_zendesk
-logo_url: /assets/logos/extractors/zendesk.png
-variant: twilio-labs
-repo: https://github.com/twilio-labs/twilio-tap-zendesk
-pip_url: twilio-tap-zendesk
 capabilities:
 - catalog
 - discover
 - state
-settings_group_validation:
-- - email
-  - api_token
-  - subdomain
-  - start_date
-- - access_token
-  - subdomain
-  - start_date
+description: Support ticketing system & customer service platform
+domain_url: https://developer.zendesk.com/rest_api
+keywords:
+- api
+label: Zendesk
+logo_url: /assets/logos/extractors/zendesk.png
+maintenance_status: active
+name: tap-zendesk
+namespace: tap_zendesk
+pip_url: twilio-tap-zendesk
+repo: https://github.com/twilio-labs/twilio-tap-zendesk
 settings:
-- name: email
-  label: Email
-  kind: email
-  placeholder: Ex. me@my-organization.com
-  description: This is the email you use to login to your Zendesk dashboard. For API
+- description: This is the email you use to login to your Zendesk dashboard. For API
     Authentication, `/token` is automatically appended to the email address and is
     not required in the configuration.
-- name: api_token
-  kind: password
-  label: API Token
-  placeholder: Ex. *****************
-  documentation: https://support.zendesk.com/hc/en-us/articles/226022787-Generating-a-new-API-token-
-  description: |
+  kind: email
+  label: Email
+  name: email
+  placeholder: Ex. me@my-organization.com
+- description: |
     #### How to get
 
     1. Login to your Zendesk dashboard.
@@ -53,31 +43,81 @@ settings:
     6. Copy the API token since it will not be shown again
 
     7. Click `Save` button to complete API key creation
-- name: access_token
-  label: Access Token
+
+    See https://support.zendesk.com/hc/en-us/articles/226022787-Generating-a-new-API-token- for more details about generating an API Token.
+  documentation: https://support.zendesk.com/hc/en-us/articles/226022787-Generating-a-new-API-token-
   kind: password
-  description: |
+  label: API Token
+  name: api_token
+  placeholder: Ex. *****************
+- description: |
     To use OAuth, you will need to fetch an `access_token` from a configured Zendesk integration.
 
     See <https://support.zendesk.com/hc/en-us/articles/203663836>.
   documentation: https://support.zendesk.com/hc/en-us/articles/203663836
-- name: subdomain
-  label: Zendesk Subdomain
-  placeholder: Ex. my-subdomain.zendesk.com
-  description: |
+  kind: password
+  label: Access Token
+  name: access_token
+- description: |
     When visiting your Zendesk instance, the URL is structured as follows: `SUBDOMAIN.zendesk.com`.
 
     You'll need this subdomain when configuring the extractor.
 
     For example, if the URL is `meltano.zendesk.com`, then the subdomain is `meltano`.
   documentation: https://support.zendesk.com/hc/en-us/articles/221682747-Where-can-I-find-my-Zendesk-subdomain-
-- name: start_date
-  label: Start Date
-  kind: date_iso8601
-  description: Determines how much historical data will be extracted. Please be aware
+  kind: string
+  label: Zendesk Subdomain
+  name: subdomain
+  placeholder: Ex. my-subdomain.zendesk.com
+- description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.
-domain_url: https://developer.zendesk.com/rest_api
-maintenance_status: active
-keywords:
-- api
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: Sets a limit on how much data to extract in combination with start_date.
+    If passed, data would be loaded for date >= start_date and date < end_date.
+  kind: date_iso8601
+  label: End Date
+  name: end_date
+settings_group_validation:
+- - email
+  - api_token
+  - subdomain
+  - start_date
+- - access_token
+  - subdomain
+  - start_date
+usage: |
+  ### Sideloading for Tickets
+
+  Sideloading is a functionality provided by Zendesk to fetch related records in a single request more detail - https://developer.zendesk.com/documentation/ticketing/using-the-zendesk-api/side_loading/
+
+  There are two ways in which the records are returned:
+
+    * Within the same object as a column
+    * As a separate object
+
+  Here we have provided support for sideloading only the 1st type i.e. the attributes returned in the same object as additional columns
+
+  Sideload supported for tickets:
+
+    *  comment_count
+    *  dates
+    *  metric_sets
+    *  slas
+
+  To sideload an object a list can be passed in the [metadata extra](https://docs.meltano.com/concepts/plugins#metadata-extra) under `sideload-objects``:
+
+  ```
+  extractors:
+  - name: tap-zendesk
+    metadata:
+      tickets:
+        sideload-objects:
+          - comment_count
+          - dates
+          - metric_events
+          - slas
+  ```
+variant: twilio-labs

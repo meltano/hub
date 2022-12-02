@@ -1,0 +1,43 @@
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+domain_url: https://degreed.com/
+keywords:
+- meltano_sdk
+label: Degreed
+logo_url: /assets/logos/extractors/degreed.png
+maintenance_status: active
+name: tap-degreed
+namespace: tap_degreed
+next_steps: ''
+pip_url: git+https://github.com/the-prairie/tap-degreed.git
+repo: https://github.com/the-prairie/tap-degreed
+settings:
+- description: The token to authenticate against the API service
+  kind: password
+  label: Client Id
+  name: client_id
+- description: The token to authenticate against the API service
+  kind: password
+  label: Client Secret
+  name: client_secret
+- description: The url for the API service
+  label: Api Url
+  name: api_url
+- description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  label: Start Date
+  name: start_date
+- description: The earliest record date to sync. Expected format YYYY-mm-dd.
+  label: End Date
+  name: end_date
+settings_group_validation:
+- - client_secret
+  - client_id
+settings_preamble: ''
+usage: ''
+variant: the-prairie

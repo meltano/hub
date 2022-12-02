@@ -1,17 +1,17 @@
-description: Customer Success Software
-label: CustomerX
-name: tap-customerx
-logo_url: /assets/logos/extractors/customerx.png
-namespace: tap_customerx
-variant: rafaeljusi
-pip_url: git+https://github.com/rafaeljusi/tap-customerx.git
-repo: https://github.com/rafaeljusi/tap-customerx
-settings: []
 capabilities:
 - catalog
 - discover
 - state
+description: Customer Success Software
 domain_url: https://doc.api.customerx.com.br/?version=latest
-maintenance_status: unknown
 keywords:
 - api
+label: CustomerX
+logo_url: /assets/logos/extractors/customerx.png
+maintenance_status: unknown
+name: tap-customerx
+namespace: tap_customerx
+pip_url: git+https://github.com/rafaeljusi/tap-customerx.git
+repo: https://github.com/rafaeljusi/tap-customerx
+settings: []
+variant: rafaeljusi

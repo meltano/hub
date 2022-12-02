@@ -1,16 +1,38 @@
-description: BI Platform
-label: Domo
-name: tap-domo
-logo_url: /assets/logos/extractors/domo.png
-namespace: tap_domo
-variant: mashey
-pip_url: git+https://github.com/Mashey/tap-domo.git
-repo: https://github.com/Mashey/tap-domo
-settings: []
 capabilities:
 - catalog
 - discover
+- state
+description: BI Platform
 domain_url: https://developer.domo.com/docs/api-overview/api-overview
-maintenance_status: unknown
 keywords:
 - api
+label: Domo
+logo_url: /assets/logos/extractors/domo.png
+maintenance_status: inactive
+name: tap-domo
+namespace: tap_domo
+pip_url: git+https://github.com/Mashey/tap-domo.git
+repo: https://github.com/Mashey/tap-domo
+settings:
+- description: The specs of the tables to sync. See the [sample config](https://github.com/Mashey/tap-domo/blob/daff2b708f945ac21363b7f6f1ab789ace3a339e/sample_config.json#L8)
+    as an example.
+  kind: object
+  label: Data Specs
+  name: data_specs
+- description: Your Domo client ID.
+  kind: password
+  label: Client ID
+  name: client_id
+- description: Your Domo client secret.
+  kind: password
+  label: Client Secret
+  name: client_secret
+- description: The limit of records to sync. Default, 1500.
+  kind: integer
+  label: Limit
+  name: limit
+settings_group_validation:
+- - data_specs
+  - client_id
+  - client_secret
+variant: mashey

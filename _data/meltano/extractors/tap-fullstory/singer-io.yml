@@ -1,17 +1,32 @@
-description: Digital Experience Platform
-label: Fullstory
-name: tap-fullstory
-logo_url: /assets/logos/extractors/fullstory.png
-namespace: tap_fullstory
-variant: singer-io
-pip_url: tap-fullstory
-repo: https://github.com/singer-io/tap-fullstory
-settings: []
 capabilities:
-- catalog
 - discover
-- state
+- catalog
+description: Digital Experience Platform
 domain_url: https://www.fullstory.com/
-maintenance_status: unknown
 keywords:
 - api
+label: Fullstory
+logo_url: /assets/logos/extractors/fullstory.png
+maintenance_status: inactive
+name: tap-fullstory
+namespace: tap_fullstory
+pip_url: tap-fullstory
+repo: https://github.com/singer-io/tap-fullstory
+settings:
+- description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: Your FullStory API key.
+  kind: password
+  label: API Key
+  name: api_key
+- description: The user agent to send with requests.
+  label: User Agent
+  name: user_agent
+settings_group_validation:
+- - start_date
+  - api_key
+variant: singer-io

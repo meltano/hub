@@ -1,16 +1,16 @@
-description: Project Management Software
-label: Teamwork
-name: tap-teamwork
-logo_url: /assets/logos/extractors/teamwork.png
-namespace: tap_teamwork
-variant: immuta
-pip_url: git+https://github.com/immuta/tap-teamwork.git
-repo: https://github.com/immuta/tap-teamwork
-settings: []
 capabilities:
 - catalog
 - discover
+description: Project Management Software
 domain_url: https://developer.teamwork.com/
-maintenance_status: unknown
 keywords:
 - api
+label: Teamwork
+logo_url: /assets/logos/extractors/teamwork.png
+maintenance_status: unknown
+name: tap-teamwork
+namespace: tap_teamwork
+pip_url: git+https://github.com/immuta/tap-teamwork.git
+repo: https://github.com/immuta/tap-teamwork
+settings: []
+variant: immuta

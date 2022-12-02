@@ -1,15 +1,30 @@
-description: Exchange Rate API
-label: exchangerate.host
-name: tap-exchangeratehost
-logo_url: /assets/logos/extractors/exchangeratehost.png
-namespace: tap_exchangeratehost
-variant: anelendata
-pip_url: git+https://github.com/anelendata/tap-exchangeratehost.git
-repo: https://github.com/anelendata/tap-exchangeratehost
-settings: []
 capabilities:
 - state
+description: Exchange Rate API
 domain_url: https://exchangerate.host/#/
-maintenance_status: unknown
 keywords:
 - api
+label: exchangerate.host
+logo_url: /assets/logos/extractors/exchangeratehost.png
+maintenance_status: unknown
+name: tap-exchangeratehost
+namespace: tap_exchangeratehost
+pip_url: git+https://github.com/anelendata/tap-exchangeratehost.git
+repo: https://github.com/anelendata/tap-exchangeratehost
+settings:
+- description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: The end date for when the sync should stop pulling data.
+  kind: date_iso8601
+  label: End Date
+  name: end_date
+- description: Changing base currency. Enter the three-letter currency code of your
+    preferred base currency. For example - base=USD. (Default EUR)
+  label: Base
+  name: base
+settings_group_validation: []
+variant: anelendata

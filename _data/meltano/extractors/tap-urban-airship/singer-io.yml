@@ -1,17 +1,38 @@
-description: Customer Engagement Platform
-label: Airship
-name: tap-urban-airship
-logo_url: /assets/logos/extractors/urban-airship.png
-namespace: tap_urban_airship
-variant: singer-io
-pip_url: tap-urban-airship
-repo: https://github.com/singer-io/tap-urban-airship
-settings: []
 capabilities:
 - catalog
 - discover
 - state
+description: Customer Engagement Platform
 domain_url: https://docs.airship.com/api/ua/
-maintenance_status: unknown
 keywords:
 - api
+label: Airship
+logo_url: /assets/logos/extractors/urban-airship.png
+maintenance_status: inactive
+name: tap-urban-airship
+namespace: tap_urban_airship
+pip_url: tap-urban-airship
+repo: https://github.com/singer-io/tap-urban-airship
+settings:
+- description: Your Airship App secret.
+  kind: password
+  label: App Secret
+  name: app_secret
+- description: Your Airship App Key.
+  kind: password
+  label: App Key
+  name: app_key
+- description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: The user agent to send with requests.
+  label: User Agent
+  name: user_agent
+settings_group_validation:
+- - app_secret
+  - app_key
+  - start_date
+variant: singer-io

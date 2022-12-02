@@ -1,17 +1,17 @@
-description: Hotel CRM and Email Marketing Software
-label: Revinate
-name: tap-revinate
-logo_url: /assets/logos/extractors/revinate.png
-namespace: tap_revinate
-variant: singer-io
-pip_url: tap-revinate
-repo: https://github.com/singer-io/tap-revinate
-settings: []
 capabilities:
 - catalog
 - discover
 - state
+description: Hotel CRM and Email Marketing Software
 domain_url: https://porter.revinate.com/documentation
-maintenance_status: unknown
 keywords:
 - api
+label: Revinate
+logo_url: /assets/logos/extractors/revinate.png
+maintenance_status: unknown
+name: tap-revinate
+namespace: tap_revinate
+pip_url: tap-revinate
+repo: https://github.com/singer-io/tap-revinate
+settings: []
+variant: singer-io

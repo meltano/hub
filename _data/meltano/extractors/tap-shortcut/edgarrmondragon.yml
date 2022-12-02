@@ -1,0 +1,30 @@
+capabilities:
+- catalog
+- discover
+- about
+- stream-maps
+- schema-flattening
+description: >
+  Shortcut unites planning and development into a single experience with
+  tightly integrated Docs, Issue Tracking, and Sprint Planning features.
+docs: https://shortcut.com/api/rest/v3
+domain_url: https://shortcut.com
+keywords:
+- api
+- meltano_sdk
+label: Shortcut (formerly Clubhouse)
+logo_url: /assets/logos/extractors/shortcut.png
+maintenance_status: development
+name: tap-shortcut
+namespace: tap_shortcut
+pip_url: git+https://github.com/edgarrmondragon/tap-shortcut.git
+repo: https://github.com/edgarrmondragon/tap-shortcut
+settings:
+- description: Shortcut API Token
+  documentation: https://shortcut.com/api/rest/v3#Authentication
+  kind: password
+  label: Shortcut Token
+  name: token
+settings_group_validation:
+- - token
+variant: edgarrmondragon

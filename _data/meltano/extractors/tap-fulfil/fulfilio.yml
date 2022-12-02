@@ -1,16 +1,16 @@
-description: Enterprise Resource Planning Platform
-label: Fulfil
-name: tap-fulfil
-logo_url: /assets/logos/extractors/fulfil.png
-namespace: tap_fulfil
-variant: fulfilio
-pip_url: git+https://github.com/fulfilio/tap-fulfil.git
-repo: https://github.com/fulfilio/tap-fulfil
-settings: []
 capabilities:
 - catalog
 - discover
+description: Enterprise Resource Planning Platform
 domain_url: https://www.fulfil.io/
-maintenance_status: unknown
 keywords:
 - api
+label: Fulfil
+logo_url: /assets/logos/extractors/fulfil.png
+maintenance_status: unknown
+name: tap-fulfil
+namespace: tap_fulfil
+pip_url: git+https://github.com/fulfilio/tap-fulfil.git
+repo: https://github.com/fulfilio/tap-fulfil
+settings: []
+variant: fulfilio

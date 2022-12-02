@@ -1,16 +1,34 @@
-description: Recruiting Software
-label: Lever
-name: tap-lever
-logo_url: /assets/logos/extractors/lever.png
-namespace: tap_lever
-variant: dbt-labs
-pip_url: git+https://github.com/dbt-labs/tap-lever.git
-repo: https://github.com/dbt-labs/tap-lever
-settings: []
 capabilities:
 - catalog
 - discover
+- state
+description: Recruiting Software
 domain_url: https://hire.lever.co/developer/documentation
-maintenance_status: unknown
 keywords:
 - api
+label: Lever
+logo_url: /assets/logos/extractors/lever.png
+maintenance_status: inactive
+name: tap-lever
+namespace: tap_lever
+pip_url: git+https://github.com/dbt-labs/tap-lever.git
+repo: https://github.com/dbt-labs/tap-lever
+settings:
+- description: The user agent to send with requests.
+  label: User Agent
+  name: user_agent
+- description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: Your Lever API token. See the [API docs](https://hire.lever.co/settings/integrations?tab=api)
+    for details.
+  kind: password
+  label: Token
+  name: token
+settings_group_validation:
+- - start_date
+  - token
+variant: dbt-labs

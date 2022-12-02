@@ -1,16 +1,36 @@
-description: B2B SaaS Billing Software
-label: Chargify
-name: tap-chargify
-logo_url: /assets/logos/extractors/chargify.png
-namespace: tap_chargify
-variant: singer-io
-pip_url: tap-chargify
-repo: https://github.com/singer-io/tap-chargify
-settings: []
 capabilities:
 - catalog
 - discover
+- state
+description: B2B SaaS Billing Software
 domain_url: https://reference.chargify.com/v1/basics/introduction
-maintenance_status: unknown
 keywords:
 - api
+label: Chargify
+logo_url: /assets/logos/extractors/chargify.png
+maintenance_status: active
+name: tap-chargify
+namespace: tap_chargify
+pip_url: tap-chargify
+repo: https://github.com/singer-io/tap-chargify
+settings:
+- description: 'The subdomain of your Chargify site. For example: If the full URL
+    were https://test.my-chargify-site.com, this value would be test.'
+  label: Subdomain
+  name: subdomain
+- description: A Chargify API key. Refer to the [Chargify documentation](https://help.chargify.com/integrations/api-keys-chargify-direct.html)
+    for instructions on creating an API key.
+  kind: password
+  label: API Key
+  name: api_key
+- description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+settings_group_validation:
+- - subdomain
+  - api_key
+  - start_date
+variant: singer-io

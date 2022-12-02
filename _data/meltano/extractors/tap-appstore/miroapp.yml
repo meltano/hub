@@ -1,17 +1,41 @@
-description: Management API for Apple Apps
-label: Apple AppStore
-name: tap-appstore
-logo_url: /assets/logos/extractors/appstore.png
-namespace: tap_appstore
-variant: miroapp
-pip_url: git+https://github.com/miroapp/tap-appstore.git
-repo: https://github.com/miroapp/tap-appstore
-settings: []
 capabilities:
 - catalog
 - discover
 - state
+description: Management API for Apple Apps
 domain_url: https://developer.apple.com/app-store-connect/api/
-maintenance_status: unknown
 keywords:
 - api
+label: Apple AppStore
+logo_url: /assets/logos/extractors/appstore.png
+maintenance_status: unknown
+name: tap-appstore
+namespace: tap_appstore
+pip_url: git+https://github.com/miroapp/tap-appstore.git
+repo: https://github.com/miroapp/tap-appstore
+settings:
+- description: Appstore vendor number.
+  label: Vendor
+  name: vendor
+- description: Appstore issuer ID.
+  label: Issuer ID
+  name: issuer_id
+- description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: Appstore key ID.
+  label: Key ID
+  name: key_id
+- description: Appstore key file.
+  label: Key File
+  name: key_file
+settings_group_validation:
+- - vendor
+  - issuer_id
+  - start_date
+  - key_id
+  - key_file
+variant: miroapp

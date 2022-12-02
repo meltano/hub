@@ -1,16 +1,16 @@
-description: Contact Center Management Platform
-label: Genesys Cloud
-name: tap-purecloud
-logo_url: /assets/logos/extractors/purecloud.png
-namespace: tap_purecloud
-variant: drewbanin
-pip_url: git+https://github.com/drewbanin/tap-purecloud.git
-repo: https://github.com/drewbanin/tap-purecloud
-settings: []
 capabilities:
 - catalog
 - discover
+description: Contact Center Management Platform
 domain_url: https://developer.genesys.cloud/api/rest/v2/
-maintenance_status: unknown
 keywords:
 - api
+label: Genesys Cloud
+logo_url: /assets/logos/extractors/purecloud.png
+maintenance_status: unknown
+name: tap-purecloud
+namespace: tap_purecloud
+pip_url: git+https://github.com/drewbanin/tap-purecloud.git
+repo: https://github.com/drewbanin/tap-purecloud
+settings: []
+variant: drewbanin

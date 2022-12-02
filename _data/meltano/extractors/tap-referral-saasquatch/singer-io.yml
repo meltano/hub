@@ -1,17 +1,17 @@
-description: Referral Program Software
-label: Referral SaasQuatch
-name: tap-referral-saasquatch
-logo_url: /assets/logos/extractors/referral-saasquatch.png
-namespace: tap_referral_saasquatch
-variant: singer-io
-pip_url: tap-referral-saasquatch
-repo: https://github.com/singer-io/tap-referral-saasquatch
-settings: []
 capabilities:
 - catalog
 - discover
 - state
+description: Referral Program Software
 domain_url: https://docs.saasquatch.com/api/
-maintenance_status: unknown
 keywords:
 - api
+label: Referral SaasQuatch
+logo_url: /assets/logos/extractors/referral-saasquatch.png
+maintenance_status: unknown
+name: tap-referral-saasquatch
+namespace: tap_referral_saasquatch
+pip_url: tap-referral-saasquatch
+repo: https://github.com/singer-io/tap-referral-saasquatch
+settings: []
+variant: singer-io

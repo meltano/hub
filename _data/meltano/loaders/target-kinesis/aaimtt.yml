@@ -1,13 +1,13 @@
 description: Real-time Streaming Platform
-label: Kinesis
-name: target-kinesis
+domain_url: https://aws.amazon.com/kinesis/
+keywords:
+- api
+label: Amazon Kinesis
 logo_url: /assets/logos/loaders/kinesis.png
+maintenance_status: unknown
+name: target-kinesis
 namespace: target_kinesis
-variant: aaimtt
 pip_url: git+https://github.com/aaimtt/target-kinesis.git
 repo: https://github.com/aaimtt/target-kinesis
 settings: []
-domain_url: https://aws.amazon.com/kinesis/
-maintenance_status: unknown
-keywords:
-- api
+variant: aaimtt

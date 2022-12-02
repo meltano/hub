@@ -1,17 +1,17 @@
-description: Sales Engagement & Automation Software
-label: Mailshake
-name: tap-mailshake
-logo_url: /assets/logos/extractors/mailshake.png
-namespace: tap_mailshake
-variant: singer-io
-pip_url: tap-mailshake
-repo: https://github.com/singer-io/tap-mailshake
-settings: []
 capabilities:
 - catalog
 - discover
 - state
+description: Sales Engagement & Automation Software
 domain_url: https://api-docs.mailshake.com/
-maintenance_status: unknown
 keywords:
 - api
+label: Mailshake
+logo_url: /assets/logos/extractors/mailshake.png
+maintenance_status: unknown
+name: tap-mailshake
+namespace: tap_mailshake
+pip_url: tap-mailshake
+repo: https://github.com/singer-io/tap-mailshake
+settings: []
+variant: singer-io

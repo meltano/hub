@@ -1,50 +1,50 @@
+capabilities:
+- catalog
+- discover
+- state
 description: Sales Engagement Platform
+domain_url: https://api.outreach.io/api/v2/docs
+keywords:
+- api
 label: Outreach
-name: tap-outreach
 logo_url: /assets/logos/extractors/outreach.png
+maintenance_status: unknown
+name: tap-outreach
 namespace: tap_outreach
-variant: singer-io
 pip_url: git+https://github.com/singer-io/tap-outreach.git
 repo: https://github.com/singer-io/tap-outreach
+settings:
+- description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: Your Outreach client ID.
+  kind: password
+  label: Client ID
+  name: client_id
+- description: Your Outreach client secret.
+  kind: password
+  label: Client Secret
+  name: client_secret
+- description: The Outreach redirect URI.
+  label: Redirect URI
+  name: redirect_uri
+- description: Your Outreach refresh token.
+  kind: password
+  label: Refresh Token
+  name: refresh_token
+- description: The request quota limit.
+  label: Quota Limit
+  name: quota_limit
+- description: The page size of request responses.
+  label: Page Size
+  name: page_size
 settings_group_validation:
 - - start_date
   - client_id
   - client_secret
   - redirect_uri
   - refresh_token
-settings:
-- name: start_date
-  kind: date_iso8601
-  label: Start Date
-  description: Determines how much historical data will be extracted. Please be aware
-    that the larger the time period and amount of data, the longer the initial extraction
-    can be expected to take.
-- name: client_id
-  kind: password
-  label: Client ID
-  description: Your Outreach client ID.
-- name: client_secret
-  kind: password
-  label: Client Secret
-  description: Your Outreach client secret.
-- name: redirect_uri
-  label: Redirect URI
-  description: The Outreach redirect URI.
-- name: refresh_token
-  kind: password
-  label: Refresh Token
-  description: Your Outreach refresh token.
-- name: quota_limit
-  label: Quota Limit
-  description: The request quota limit.
-- name: page_size
-  label: Page Size
-  description: The page size of request responses.
-capabilities:
-- catalog
-- discover
-- state
-domain_url: https://api.outreach.io/api/v2/docs
-maintenance_status: unknown
-keywords:
-- api
+variant: singer-io

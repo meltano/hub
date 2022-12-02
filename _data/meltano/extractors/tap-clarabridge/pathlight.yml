@@ -1,16 +1,16 @@
-description: Customer Experience Management Platform
-label: Clarabridge
-name: tap-clarabridge
-logo_url: /assets/logos/extractors/clarabridge.png
-namespace: tap_clarabridge
-variant: pathlight
-pip_url: git+https://github.com/Pathlight/tap-clarabridge.git
-repo: https://github.com/Pathlight/tap-clarabridge
-settings: []
 capabilities:
 - catalog
 - discover
+description: Customer Experience Management Platform
 domain_url: https://www.programmableweb.com/api/clarabridge
-maintenance_status: unknown
 keywords:
 - api
+label: Clarabridge
+logo_url: /assets/logos/extractors/clarabridge.png
+maintenance_status: unknown
+name: tap-clarabridge
+namespace: tap_clarabridge
+pip_url: git+https://github.com/Pathlight/tap-clarabridge.git
+repo: https://github.com/Pathlight/tap-clarabridge
+settings: []
+variant: pathlight

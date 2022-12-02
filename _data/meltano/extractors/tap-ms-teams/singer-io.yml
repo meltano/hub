@@ -1,17 +1,101 @@
-description: Business Communication Platform
-label: Microsoft Teams
-name: tap-ms-teams
-logo_url: /assets/logos/extractors/ms-teams.png
-namespace: tap_ms_teams
-variant: singer-io
-pip_url: tap-ms-teams
-repo: https://github.com/singer-io/tap-ms-teams
-settings: []
 capabilities:
 - catalog
 - discover
 - state
+description: Business Communication Platform
 domain_url: https://docs.microsoft.com/en-us/graph/
-maintenance_status: unknown
 keywords:
 - api
+label: Microsoft Teams
+logo_url: /assets/logos/extractors/ms-teams.png
+maintenance_status: inactive
+name: tap-ms-teams
+namespace: tap_ms_teams
+pip_url: tap-ms-teams
+repo: https://github.com/singer-io/tap-ms-teams
+settings:
+- description: The user agent to send with requests.
+  label: User Agent
+  name: user_agent
+- description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: The Client Secret of your Microsoft Teams developer application.
+  kind: password
+  label: Client Secret
+  name: client_secret
+- description: A globally unique identifier (GUID) that is different than your organization
+    name or domain. Follow these steps to obtain - open one of the Teams where you
+    belong inside the Teams Application -> Click on the … next to the Team title ->
+    Click on Get link to team -> Copy the link to the team and grab the tenant ID
+    form the URL.
+  label: Tenant ID
+  name: tenant_id
+- description: The Client ID of your Microsoft Teams developer application.
+  kind: password
+  label: Client ID
+  name: client_id
+settings_group_validation:
+- - user_agent
+  - start_date
+  - client_secret
+  - tenant_id
+  - client_id
+usage: |
+  ### Authentication Details
+
+  The Microsoft Graph API uses OAuth for authentication. Follow these instructions for creating an app in the Azure portal. This process will produce the client_id, client_secret, and tenant_id needed for the tap configuration file.
+
+  [Register](https://docs.microsoft.com/en-us/graph/auth-register-app-v2#register-a-new-application-using-the-azure-portal) a new application with the Azure portal
+
+  1. Login to [Azure Portal](https://portal.azure.com/#home)
+  2. Click upper-left menu icon and select Azure Active Directory
+  3. Select App Registrations
+  4. Click New registration
+  5. Register an application
+    - Name: tap-microsoft-teams
+    - Supported account types: Accounts in this organizational directory only
+    - Redirect URL: Web - https://YOURDOMAIN/callback
+    - Register (button)
+  6. Record the client_id, tenant_id, and application_id (Object ID) which will be used by the tap for authentication and API integration.
+  7. Select Branding
+    - Name: tap-microsoft-teams
+    - Logo: [singer-io-logo.png, 512x512 px]
+    - Homepage URL: https://YOURDOMAIN
+    - ToS URL: https://www.stitchdata.com/eula/
+    - Privacy URL: https://www.stitchdata.com/privacy/
+    - Save
+  8. Select Authentication
+    - Platform configurations: Web (already setup)
+    - Supported account types: (already setup)
+    - Logout URL: https://app.stitchdata.com/session/create
+    - Access tokens: checked
+    - Public client: No
+    - Save
+  9. Select Certificates & secrets
+  10. Provide Description and Expires
+    - Description: tap-microsoft-teams client secret
+    - Expires: Never
+    - Add
+  11. Copy the client secret Value, this will be the client_secret
+  12. Select API permissions
+    - Click Add a permission
+  13. Select Microsoft Graph
+  14. Select Application permissions
+  15. Select the following permissions:
+    - Application > Application.Read.All
+    - Calendars > Calendars.Read?
+    - Chat > Chat.Read.All
+    - Files > Files.Read.All
+    - Group > Group.Read.All
+    - Notes > Notes.Read.All
+    - OnlineMeetings > OnlineMeetings.Read.All
+    - Reports > Reports.Read.All
+    - Schedule > Schedule.Read.All
+    - Team > Team.ReadBasic.All
+    - User > User.Read.All
+  16. Click Add permissions
+variant: singer-io

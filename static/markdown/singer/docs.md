@@ -20,7 +20,7 @@ All taps and targets are pulled from external sources, such as GitHub and GitLab
 
 All taps and targets available through MeltanoHub are listed on the [Taps](/singer/taps/) and [Targets](/singer/targets/) pages.
 
-Each tap and target is defined in YAML and is validated against a JSON Schema available via [the Hub API](/singer/api/v1/).
+Each tap and target is defined in YAML and is validated against a JSON Schema available via [the Hub repository](https://github.com/meltano/hub/tree/main/schemas).
 
 ### Connector Metadata
 
@@ -30,23 +30,21 @@ Additionally, metrics such as last update, stars, and open issues and PRs, are p
 
 ## API
 
-* [API Directory](/singer/api/v1)
-
-A listing of all taps and targets is available via the [API](/singer/api/v1) as JSON.
+A listing of all connectors and plugins is available via the [API](/meltano/api/v1/plugins/index) as JSON.
 The latest version of these files will always be available at these endpoints:
 
-* [Tap JSON](/singer/taps.json)
-* [Target JSON](/singer/targets.json)
+* [Extractors JSON](/meltano/api/v1/plugins/extractors/index)
+* [Loaders JSON](/meltano/api/v1/plugins/loaders/index)
 
 These files will also be versioned when changes are made in a backwards-incompatible way.
-The versioned files will be available through the [API](/singer/api/v1/).
-Individual YAML files are also available through the individual connector pages or on the [repository](https://github.com/meltano/hub/) building MeltanoHub.
+The versioned files will be available through the [API](/meltano/api/v1/plugins/index).
+Individual YAML files are also available through the individual connector pages or on the [repository](https://github.com/meltano/hub/tree/main/_data/meltano) building MeltanoHub.
 
 Our expectation is that other tools, including Meltano, will utilize the data available via the API to build their own library of Singer taps and targets.
 
 ## Tap and Target SDKs
 
-We've also created an [SDK for Taps and Targets](https://sdk.meltano.com) that is the best way to build and maintain Singer Taps and Targets.
+We've also created the [Meltano Singer SDK for Taps and Targets](https://sdk.meltano.com) that is the best way to build and maintain Singer Taps and Targets.
 
 Read more about the [launch of the SDK on the Meltano blog](https://meltano.com/blog/2021/04/05/meltano-launches-v0-1-0-of-the-singer-tap-sdk/).
 
@@ -226,25 +224,24 @@ We're using dbt to [manage transformations](https://github.com/meltano/squared/t
 
 ## Meltano Usage Metrics
 
-Meltano collects [anonymous usage stats](https://docs.meltano.com/reference/settings#send_anonymous_usage_stats) using Google Analytics.
-We use this data to learn about the size of our user base and overal feature usage.
+Meltano collects [anonymous usage stats](https://docs.meltano.com/reference/settings#send_anonymous_usage_stats) using Google Analytics and Snowplow.
+We use this data to learn about the size of our user base and overall feature usage.
 This helps us determine the highest impact improvements we can make to Meltano and the Singer ecosystem.
 
 To better support the Meltano and Singer communities, we have started aggregating metrics about the usage of taps and targets within Meltano. 
-In line with our value of [together we thrive](https://handbook.meltano.com/company/values#together-we-thrive), we are sharing this data with the communithy to help everyone better understand the overall quality of Singer connectors.
+In line with our value of [together we thrive](https://handbook.meltano.com/company/values#together-we-thrive), we are sharing this data with the community to help everyone better understand the overall quality of Singer connectors.
 
 <u>Current Metrics:</u>
 
-- Executions (Last 3 Months): The sum of executions via [`meltano elt`](https://docs.meltano.com/reference/command-line-interface.html#elt) or [`meltano invoke`](https://docs.meltano.com/reference/command-line-interface.html#invoke)) that used the plugin.
+- Executions (Last 3 Months): The sum of executions via [`meltano run`](https://docs.meltano.com/reference/command-line-interface.html#run), [`meltano elt`](https://docs.meltano.com/reference/command-line-interface.html#elt), or [`meltano invoke`](https://docs.meltano.com/reference/command-line-interface.html#invoke)) that used the plugin.
 
-* Projects (Last 3 Months): The distinct count of [project IDs](https://docs.meltano.com/reference/settings#project_id) that have executed the plugin at least once in the last 3 months.
+* Projects (Last 3 Months): The distinct count of [project IDs](https://docs.meltano.com/reference/settings#project_id) that have executed the plugin at least once in the last 3 months. The project counts are filtered to exclude projects that we consider to be ephemeral or short lived.
 
 Note that metrics will only show up on a plugin page if they're non-zero. 
 
-Currently these metrics do not take into account the specific variant of the plugin but rather an aggregation of all variants used under that plugin's namespace. 
-This is a limitation of the event data that's being collected. 
-For example, [tap-gitlab](/taps/gitlab) has multiple variants ([MeltanoLabs](https://github.com/MeltanoLabs/tap-gitlab), [singer-io](https://github.com/singer-io/tap-gitlab), etc.) which are all rolled up into the parent tap-gitlab namespace.
+These metrics are variant specific but currently only a subset of projects send variant specific telemetry data so its likely that the true metrics are higher.
+It's safe to compare these metrics across variants to get a relative sense of which variant is used the most but the raw counts under count the total usage.
 
-Since Meltano makes it easy for users to [opt out](https://docs.meltano.com/reference/settings#send_anonymous_usage_stats) of sending usage stats we assume that metrics are undercounted.
+Since Meltano makes it easy for users to [opt out](https://docs.meltano.com/reference/settings#send_anonymous_usage_stats) of sending usage stats we assume that metrics are under counted.
 
 Checkout the [Meltano Squared](https://github.com/meltano/squared) repository to see how we're using Meltano to extract and aggregate these metrics.
