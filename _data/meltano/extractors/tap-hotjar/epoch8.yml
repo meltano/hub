@@ -1,0 +1,52 @@
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+- schema-flattening
+description: Website heatmaps and behavior analytics tools
+domain_url: https://www.hotjar.com/
+keywords:
+- meltano_sdk
+label: Hotjar
+logo_url: /assets/logos/extractors/hotjar.png
+maintenance_status: active
+name: tap-hotjar
+namespace: tap_hotjar
+next_steps: ''
+pip_url: git+https://github.com/epoch8/tap-hotjar.git
+repo: https://github.com/epoch8/tap-hotjar
+settings:
+- description: User email
+  kind: string
+  label: Email
+  name: email
+- description: Project IDs to replicate
+  kind: password
+  label: Password
+  name: password
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+settings_group_validation:
+- - password
+  - email
+settings_preamble: ''
+usage: ''
+variant: epoch8
