@@ -15,23 +15,23 @@ next_steps: ''
 pip_url: git+https://github.com/dan-ladd/target-salesforce.git
 repo: https://github.com/dan-ladd/target-salesforce
 settings:
-- description: Your Salesforce client ID.
+- description: OAuth client_id
   kind: password
   label: Client Id
   name: client_id
-- description: Your Salesforce client Secret.
+- description: OAuth client_secret
   kind: password
   label: Client Secret
   name: client_secret
-- description: Your Salesforce refresh token.
+- description: OAuth refresh_token
   kind: password
   label: Refresh Token
   name: refresh_token
-- description: Your Salesforce username.
+- description: User/password username
   kind: string
   label: Username
   name: username
-- description: Your Salesforce password.
+- description: User/password password
   kind: password
   label: Password
   name: password
