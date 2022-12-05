@@ -1,0 +1,38 @@
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+description: Observability service
+domain_url: https://www.datadoghq.com/
+keywords:
+- meltano_sdk
+label: Datadog
+logo_url: /assets/logos/extractors/datadog.png
+maintenance_status: active
+name: tap-datadog
+namespace: tap_datadog
+next_steps: ''
+pip_url: git+https://github.com/degreed-data-engineering/tap-datadog.git
+repo: https://github.com/degreed-data-engineering/tap-datadog
+settings:
+- description: DD-API-KEY
+  kind: password
+  label: Api Key
+  name: api_key
+- description: DD-APP-KEY
+  kind: password
+  label: App Key
+  name: app_key
+- description: start date to sync from
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+settings_group_validation:
+- - start_date
+  - api_key
+  - app_key
+settings_preamble: ''
+usage: ''
+variant: degreed-data-engineering

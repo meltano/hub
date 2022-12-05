@@ -8,6 +8,7 @@ extractors:
   tap-adroll: singer-io
   tap-adwords: singer-io
   tap-adyen: yoast
+  tap-aftership: harrystech
   tap-agilecrm: dreamdata-io
   tap-airtable: goes-funky
   tap-amazon-ads-dsp: singer-io
@@ -16,6 +17,7 @@ extractors:
   tap-amazon-mws: dbt-labs
   tap-amazon-sp: singer-io
   tap-anaplan: matthew-skinner
+  tap-anvil: svinstech
   tap-apachelog: omelark
   tap-apaleo: felixkoch
   tap-apparel-magic: jamespotz
@@ -31,12 +33,14 @@ extractors:
   tap-autodesk-bim-360: singer-io
   tap-autopilot: singer-io
   tap-awin: gthesheep
+  tap-aws-cognito: manuelapilongo
   tap-aws-cost-explorer: albert-marrero
   tap-bamboohr: autoidm
   tap-basecone: yoast
   tap-bazaarvoice: gthesheep
   tap-bexio: substringgmbh
   tap-bigcommerce: singer-io
+  tap-bigmarker: manuelapilongo
   tap-bigquery: anelendata
   tap-billwerk: bi-media
   tap-bing-ads: singer-io
@@ -46,6 +50,7 @@ extractors:
   tap-bold: oriskincare
   tap-braintree: singer-io
   tap-brightpearl: zookal
+  tap-brillium: manuelapilongo
   tap-bronto: dbt-labs
   tap-bynder: radico
   tap-campaign-monitor: singer-io
@@ -61,6 +66,7 @@ extractors:
   tap-clarabridge: pathlight
   tap-clickcast: datateer
   tap-clickup: autoidm
+  tap-clientsuccess: antiny
   tap-clockify: immuta
   tap-closeio: singer-io
   tap-clover: kalai-wavicle
@@ -80,6 +86,7 @@ extractors:
   tap-dagster: voxmedia
   tap-daisycon: horze-international
   tap-dash-hudson: gthesheep
+  tap-datadog: degreed-data-engineering
   tap-dayforce: goodeggs
   tap-db2: mjsqu
   tap-dbf: edgarrmondragon
@@ -138,12 +145,13 @@ extractors:
   tap-helpshift: pathlight
   tap-hibob: potloc
   tap-holidays: goodeggs
+  tap-hotjar: epoch8
   tap-hubspot: singer-io
   tap-idealo-click-report: horze-international
   tap-ilevel: singer-io
   tap-immuta: immuta
   tap-impact: singer-io
-  tap-indeed: aroder
+  tap-indeed: autoidm
   tap-insided: karbonhq
   tap-insightly: fostersdata
   tap-instagram: voxmedia
@@ -192,14 +200,17 @@ extractors:
   tap-meshstack: meshcloud
   tap-messagebird: meltanolabs
   tap-mindstamp: manuelapilongo
+  tap-miro: slalom-consulting
   tap-mixpanel: hotgluexyz
   tap-mode: franloza
   tap-monday: gthesheep
   tap-mongodb: transferwise
+  tap-ms-graph: slalom-consulting
   tap-ms-teams: singer-io
   tap-mssql: wintersrd
   tap-mysql: transferwise
   tap-netlify: franloza
+  tap-netrivals: epoch8
   tap-netsuite: hotgluexyz
   tap-newrelic: fixdauto
   tap-nhl: bicks-bapa-roob
@@ -231,6 +242,7 @@ extractors:
   tap-pivotal-tracker: goodeggs
   tap-planfix: epoch8
   tap-platformpurple: singer-io
+  tap-podbean: slalom-consulting
   tap-postgres: transferwise
   tap-postmark: yoast
   tap-powerbi-metadata: dataops-tk
@@ -248,6 +260,7 @@ extractors:
   tap-recruitee: tahasadiki
   tap-recurly: lambtron
   tap-redash: domb16
+  tap-redis: atlastix
   tap-redshift: monad-inc
   tap-referral-saasquatch: singer-io
   tap-responsys: singer-io
@@ -300,6 +313,7 @@ extractors:
   tap-stripe: singer-io
   tap-sumologic: splitio
   tap-surveymonkey: singer-io
+  tap-sybase: s7clarke10
   tap-tableau: gthesheep
   tap-taboola: singer-io
   tap-talkable: gthesheep
@@ -312,6 +326,7 @@ extractors:
   tap-timebutler: taikonauten
   tap-toast: lambtron
   tap-toggl: singer-io
+  tap-tradera: kgpayne
   tap-treez: mashey
   tap-trello: singer-io
   tap-trustpilot: dbt-labs
@@ -390,6 +405,7 @@ loaders:
   target-s3-avro: faumel
   target-s3-csv: transferwise
   target-s3-parquet: gupy-io
+  target-salesforce: dan-ladd
   target-snowflake: transferwise
   target-sqlite: meltanolabs
   target-stitch: singer-io
