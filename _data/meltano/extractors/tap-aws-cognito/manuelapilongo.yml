@@ -7,9 +7,9 @@ capabilities:
 description: Identity store
 domain_url: https://aws.amazon.com/cognito/
 keywords:
-- - meltano_sdk
-  - aws
-  - api
+- aws
+- api
+- meltano_sdk
 label: Aws Cognito
 logo_url: /assets/logos/extractors/aws-cognito.png
 maintenance_status: active
