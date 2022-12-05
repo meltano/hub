@@ -43,7 +43,8 @@ settings:
   kind: array
   label: Filter Tables
   name: filter_tables
-- description: A boolean whether to use a dynamic scan window for log based replication. Default, False.
+- description: A boolean whether to use a dynamic scan window for log based replication.
+    Default, False.
   kind: boolean
   label: Logminer Dynamic Scn Window
   name: logminer_dynamic_scn_window
@@ -57,11 +58,13 @@ settings:
     on the stream. Options - 'LOG_BASED', 'FULL_TABLE', 'INCREMENTAL'.
   label: Default Replication Method
   name: default_replication_method
-- description: The timeout to use when doing log based replication, in milliseconds. Default, None.
+- description: The timeout to use when doing log based replication, in milliseconds.
+    Default, None.
   kind: integer
   label: Logminer Call Timeout
   name: logminer_call_timeout
-- description: The reduction factor to use when using log based replication. Default, 10.
+- description: The reduction factor to use when using log based replication. Default,
+    10.
   kind: integer
   label: Logminer Iter With Reduction Factor
   name: logminer_iter_with_reduction_factor
@@ -69,30 +72,36 @@ settings:
   kind: integer
   label: Port
   name: port
-- description: Support for a common user/password for working with pluggable databases (PDB).
-    Every common user can connect to an perform operations within the root database, and within any PDB in which it has privileges.
+- description: Support for a common user/password for working with pluggable databases
+    (PDB). Every common user can connect to an perform operations within the root
+    database, and within any PDB in which it has privileges.
   label: Common User
   name: common_user
-- description: Your Oracle SID. If connecting directly to an instance, otherwise use service_name.
+- description: Your Oracle SID. If connecting directly to an instance, otherwise use
+    service_name.
   label: SID
   name: sid
 - description: The scan window size when using log based replication. Default, None.
   kind: integer
   label: Scn Window Size
   name: scn_window_size
-- description: A boolean whether to use ORA_ROWSCN to bookmark progress in case replication is interrupted.
-    ORA_ROWSCN returns an Oracle SCN which is a System Change Number. This is a unique identifier for a particular change (i.e. a transaction). Default, True.
+- description: A boolean whether to use ORA_ROWSCN to bookmark progress in case replication
+    is interrupted. ORA_ROWSCN returns an Oracle SCN which is a System Change Number.
+    This is a unique identifier for a particular change (i.e. a transaction). Default,
+    True.
   kind: boolean
   label: Use Ora Rowscn
   name: use_ora_rowscn
-- description: Support for a common user/password for working with pluggable databases (PDB).
+- description: Support for a common user/password for working with pluggable databases
+    (PDB).
   kind: password
   label: Common Password
   name: common_password
-- description: A numeric setting adjusting the internal buffersize.
-    The common query tuning scenario is for SELECT statements that return a large number of rows over a slow network.
-    Increasing arraysize can improve performance by reducing the number of round-trips to the database.
-    However increasing this value increases the amount of memory required.
+- description: A numeric setting adjusting the internal buffersize. The common query
+    tuning scenario is for SELECT statements that return a large number of rows over
+    a slow network. Increasing arraysize can improve performance by reducing the number
+    of round-trips to the database. However increasing this value increases the amount
+    of memory required.
   kind: integer
   label: Cursor Array Size
   name: cursor_array_size
@@ -119,7 +128,7 @@ settings_group_validation:
 settings_preamble: ''
 usage: |
   ## Log Based Replication
-  
+
   For more details about getting log based replication configured, see the
   [Log based replication section](https://github.com/s7clarke10/pipelinewise-tap-oracle/blob/master/README.md#log-based-replication) of the repo's README.
 variant: s7clarke10
