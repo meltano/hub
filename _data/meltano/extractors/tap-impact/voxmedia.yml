@@ -7,6 +7,7 @@ capabilities:
 - schema-flattening
 description: Partnership Automation Software
 domain_url: https://integrations.impact.com/
+executable: tap-impact-publisher
 keywords:
 - meltano_sdk
 label: Impact
