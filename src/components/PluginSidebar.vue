@@ -136,7 +136,7 @@
     </div>
 
     <!-- <div v-if="metrics  (keywords ?? []).includes('meltano_sdk')"> -->
-    <div v-if="metrics.ALL_EXECS || metrics.ALL_PROJECTS">
+    <div v-if="metrics && (metrics.ALL_EXECS || metrics.ALL_PROJECTS)">
       <p class="text-lg">Meltano Stats</p>
       <ul class="list-disc list-inside shields space-y-1">
         <li v-if="metrics.ALL_EXECS">
