@@ -6,13 +6,14 @@ capabilities:
 - stream-maps
 description: The universal API for small business data
 domain_url: https://www.codat.io/
+executable: tap-codatio
 keywords:
 - meltano_sdk
 label: Codat
 logo_url: /assets/logos/extractors/codatio.png
 maintenance_status: active
-name: tap-codatio
-namespace: tap_codatio
+name: tap-codat
+namespace: tap_codat
 next_steps: ''
 pip_url: git+https://github.com/manuphatak/tap-codatio.git
 repo: https://github.com/manuphatak/tap-codatio

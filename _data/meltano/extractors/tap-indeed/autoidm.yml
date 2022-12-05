@@ -7,6 +7,7 @@ capabilities:
 - schema-flattening
 description: Job Search Software
 domain_url: https://secure.indeed.com/
+executable: tap-indeedsponsoredjobs
 keywords:
 - meltano_sdk
 label: Indeed
