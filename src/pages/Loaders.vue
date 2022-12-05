@@ -5,8 +5,13 @@
       <p>
         Meltano lets you easily load extracted data into arbitrary destinations (databases, SaaS
         APIs, and file formats) using Singer targets, which take the role of your project’s loader
-        plugins. To learn more about extracting and loading data using Meltano, refer to the Data
-        Integration (EL) guide.
+        plugins.
+      </p>
+      <p>
+        To learn more about extracting and loading data using Meltano, refer to the
+        <a href="https://docs.meltano.com/getting-started/part1" target="_blank"
+          >Getting Started guide</a
+        >.
       </p>
       <div
         class="grid grid-cols-2 md:grid-cols-4 bg-slate-200 rounded-lg p-4 mt-4 md:m-4 gap-4 w-full place-items-stretch"

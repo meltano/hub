@@ -3,6 +3,7 @@ capabilities:
 - state
 - discover
 domain_url: https://www.tableau.com/
+executable: tap-tableau-server
 keywords:
 - meltano_sdk
 label: Tableau

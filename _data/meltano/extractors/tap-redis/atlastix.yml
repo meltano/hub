@@ -1,0 +1,57 @@
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+- schema-flattening
+description: Open source in-memory data store
+domain_url: https://redis.io/
+keywords:
+- meltano_sdk
+label: Redis
+logo_url: /assets/logos/extractors/redis.png
+maintenance_status: active
+name: tap-redis
+namespace: tap_redis
+next_steps: ''
+pip_url: git+https://github.com/Atlastix/tap-redis.git
+repo: https://github.com/Atlastix/tap-redis
+settings:
+- description: The Redis server hostname
+  kind: string
+  label: Hostname
+  name: hostname
+- description: The Redis server port number
+  kind: integer
+  label: Port
+  name: port
+- description: The Redis database number
+  kind: integer
+  label: Database
+  name: database
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+settings_group_validation:
+- - port
+  - database
+  - hostname
+settings_preamble: ''
+usage: ''
+variant: atlastix

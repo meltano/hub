@@ -5,7 +5,7 @@ capabilities:
 - about
 - stream-maps
 description: Team communication tool
-domain_url:
+domain_url: https://api.slack.com/
 keywords:
 - meltano_sdk
 label: Slack
@@ -95,6 +95,11 @@ settings:
   kind: array
   label: Excluded Channels
   name: excluded_channels
+- description: Whether to include streams that require admin privileges or not. If the user does
+    not have the proper scopes then the tap will throw and exception.
+  kind: boolean
+  label: Include Admin Streams
+  name: include_admin_streams
 settings_group_validation:
 - - api_key
 variant: meltanolabs
