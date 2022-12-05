@@ -10,7 +10,7 @@ executable: tap-codatio
 keywords:
 - meltano_sdk
 label: Codat
-logo_url: /assets/logos/extractors/codatio.png
+logo_url: /assets/logos/extractors/codat.png
 maintenance_status: active
 name: tap-codat
 namespace: tap_codat
