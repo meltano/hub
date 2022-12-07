@@ -16,8 +16,6 @@ name: tap-mysql
 namespace: tap_mysql
 pip_url: git+https://github.com/singer-io/tap-mysql.git
 repo: https://github.com/singer-io/tap-mysql
-select:
-- '*.*'
 settings: []
 settings_group_validation: []
 variant: singer-io
