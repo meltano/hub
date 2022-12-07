@@ -40,23 +40,18 @@ jobs:
 
     - name: Set preview variables
       if: github.event_name == 'pull_request'
-      # FIXME: Use GitHub secrets for the API URL
       run: |
         echo "HUB_URL=https://deploy-preview-${{ github.event.number }}--meltano-hub.netlify.app" >> $GITHUB_ENV
 
     - name: Set production variables
       if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-      # FIXME: Use GitHub secrets for the API URL
-      # FIXME: Use a different API URL for production
       run: |
         echo "HUB_URL=https://hub.meltano.com" >> $GITHUB_ENV
-        echo "API_URL=https://bojtr4zf77.execute-api.us-west-2.amazonaws.com/dev" >> $GITHUB_ENV
 
     - name: Set custom variables
       if: github.event_name == 'workflow_dispatch'
       run: |
         echo "HUB_URL=${{ github.event.inputs.hub-url }}" >> $GITHUB_ENV
-        echo "API_URL=${{ github.event.inputs.api-url }}" >> $GITHUB_ENV
 
     - name: Build
       env:
