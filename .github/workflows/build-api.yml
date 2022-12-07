@@ -19,6 +19,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && 'production' || 'preview' }}
     steps:
     - uses: actions/checkout@v3.0.2
 
@@ -42,7 +43,6 @@ jobs:
       # FIXME: Use GitHub secrets for the API URL
       run: |
         echo "HUB_URL=https://deploy-preview-${{ github.event.number }}--meltano-hub.netlify.app" >> $GITHUB_ENV
-        echo "API_URL=https://bojtr4zf77.execute-api.us-west-2.amazonaws.com/dev" >> $GITHUB_ENV
 
     - name: Set production variables
       if: github.event_name == 'push' && github.ref == 'refs/heads/main'
@@ -59,6 +59,8 @@ jobs:
         echo "API_URL=${{ github.event.inputs.api-url }}" >> $GITHUB_ENV
 
     - name: Build
+      env:
+        API_URL: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.api-url || secrets.HUB_API_URL }}
       run: >
         poetry run python utility_scripts/api/make_files.py
         -o _hub_api
@@ -73,6 +75,7 @@ jobs:
 
   publish:
     runs-on: ubuntu-latest
+    environment: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && 'production' || 'preview' }}
     needs: build
     permissions:
       id-token: write # This is required for requesting the JWT
@@ -81,8 +84,7 @@ jobs:
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1.7.0
       with:
-        # FIXME: Use GitHub secrets for the role
-        role-to-assume: arn:aws:iam::692533893317:role/role-da44ec8
+        role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
         aws-region: us-west-2
         role-session-name: "GitHubActions"
     - name: Download artifacts
@@ -91,6 +93,5 @@ jobs:
         name: hub-api-files
         path: "_hub_api"
     - name: Upload to S3
-      # FIXME: Use GitHub secrets for the bucket
       run: |
-        aws s3 sync _hub_api s3://hub-api-dc30057/hub-api
+        aws s3 sync _hub_api s3://${{ secrets.HUB_API_S3_BUCKET }}/hub-api
