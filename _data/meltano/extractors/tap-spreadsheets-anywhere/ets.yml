@@ -106,12 +106,12 @@ usage: |
   ```
     config:
       tables:
-      - path: s3://<your-bucket-name>
+      - path: s3://my-bucket-name
         format: json
         key_properties: [user_id]
         name: user_names
         start_date: '2020-01-01T00:00:00Z'
-        pattern: <prefix>/user_names.json
+        pattern: my_prefix/user_names.json
   ```
 
   The `user_names.json` files contents would look like:
