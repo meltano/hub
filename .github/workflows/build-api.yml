@@ -48,7 +48,7 @@ jobs:
       # FIXME: Use GitHub secrets for the API URL
       run: |
         echo "HUB_URL=https://hub.meltano.com" >> $GITHUB_ENV
-        echo "API_URL=https://d638lmu7oa.execute-api.us-west-2.amazonaws.com/sandbox" >> $GITHUB_ENV
+        echo "API_URL=https://bojtr4zf77.execute-api.us-west-2.amazonaws.com/dev" >> $GITHUB_ENV
 
     - name: Set custom variables
       if: github.event_name == 'workflow_dispatch'
@@ -80,7 +80,7 @@ jobs:
       uses: aws-actions/configure-aws-credentials@v1.7.0
       with:
         # FIXME: Use GitHub secrets for the role
-        role-to-assume: arn:aws:iam::383114100614:role/role-644fde6
+        role-to-assume: arn:aws:iam::692533893317:role/role-da44ec8
         aws-region: us-west-2
         role-session-name: "GitHubActions"
     - name: Download artifacts
@@ -91,4 +91,4 @@ jobs:
     - name: Upload to S3
       # FIXME: Use GitHub secrets for the bucket
       run: |
-        aws s3 sync _hub_api s3://hub-api-e219288/hub-api
+        aws s3 sync _hub_api s3://hub-api-dc30057/hub-api
