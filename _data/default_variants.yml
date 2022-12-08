@@ -99,6 +99,7 @@ extractors:
   tap-deputy: singer-io
   tap-dixa: singer-io
   tap-domo: mashey
+  tap-duckdb: meltanolabs
   tap-dynamics: dreamdata-io
   tap-dynamodb: singer-io
   tap-ebay: dbt-labs
