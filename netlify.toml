@@ -28,6 +28,6 @@
 
 [[redirects]]
   from = "/meltano/api/v1/*"
-  to = "https://bojtr4zf77.execute-api.us-west-2.amazonaws.com/dev/:splat"
+  to = "https://i32s35df22.execute-api.us-west-2.amazonaws.com/prod/:splat"
   status = 301
   force = true
