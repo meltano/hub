@@ -27,7 +27,7 @@ settings:
   kind: string
   label: Org Slug
   name: org_slug
-- description: The API base URL i.e. https://circleci.com/api/v2.
+- description: The API base URL to use for requests. Default, https://circleci.com/api/v2.
   kind: string
   label: Base Url
   name: base_url
