@@ -1,0 +1,43 @@
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+description: CI/CD Platfrom
+domain_url: https://circleci.com/
+executable: tap-circle-ci
+keywords:
+- meltano_sdk
+label: CircleCI
+logo_url: /assets/logos/extractors/circle-ci.png
+maintenance_status: active
+name: tap-circle-ci
+namespace: tap_circle_ci
+next_steps: ''
+pip_url: git+https://github.com/MeltanoLabs/tap-circle-ci.git
+repo: https://github.com/MeltanoLabs/tap-circle-ci
+settings:
+- description: Personal API Token you have generated that can be used to access the
+    CircleCI API
+  kind: password
+  label: Token
+  name: token
+- description: 'Organization slug in the form vcs-slug/org-name. Example: org-slug=gh/CircleCI-Public'
+  kind: string
+  label: Org Slug
+  name: org_slug
+- description: The API base URL i.e. https://circleci.com/api/v2.
+  kind: string
+  label: Base Url
+  name: base_url
+- description: User-Agent header
+  kind: string
+  label: User Agent
+  name: user_agent
+settings_group_validation:
+- - token
+  - org_slug
+settings_preamble: ''
+usage: ''
+variant: meltanolabs
