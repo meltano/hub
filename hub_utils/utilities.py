@@ -1,15 +1,19 @@
-import typer
-from enum import Enum
-import json
-from ruamel.yaml import YAML
 import ast
-from pathlib import Path
-import os
-from collections import OrderedDict
-import shutil
 import csv
-from hub_utils.meltano_util import MeltanoUtil
 import hashlib
+import json
+import os
+import shutil
+import subprocess
+from collections import OrderedDict
+from enum import Enum
+from pathlib import Path
+
+import typer
+from ruamel.yaml import YAML
+
+from hub_utils.meltano_util import MeltanoUtil
+
 
 class Kind(str, Enum):
     string = "string"
@@ -23,7 +27,7 @@ class Utilities:
     def __init__(self, auto_accept=False):
         self.yaml = YAML()
         self.auto_accept = auto_accept
-        self.hub_root = os.getenv('HUB_ROOT_PATH')
+        self.hub_root = os.getenv('HUB_ROOT_PATH', '/Users/pnadolny/Documents/Git/GitHub/meltano/hub')
         self.default_variants_path = f'{self.hub_root}/_data/default_variants.yml'
         self.maintainers_path = f'{self.hub_root}/_data/maintainers.yml'
 
@@ -142,11 +146,12 @@ class Utilities:
         namespace,
         pip_url,
         keywords,
-        capabilities
+        capabilities,
+        executable
     ):
         label = self._get_label(name, plugin_type=plugin_type)
         logo_name = label.lower().replace(' ', '-')
-        return {
+        plugin_def = {
             "name": name,
             "variant": self._prompt("plugin variant", self._get_plugin_variant(repo_url)),
             "label": self._prompt("label", label),
@@ -165,6 +170,9 @@ class Utilities:
             "settings_preamble": "",
             "usage": "",
         }
+        if executable:
+            plugin_def["executable"] = executable
+        return plugin_def
 
     def _write_definition(self, definition, plugin_type):
         dir_name = os.path.join(
@@ -259,6 +267,20 @@ class Utilities:
             logo_file_name = definition['logo_url'].split('/')[-1]
             shutil.copyfile(image_path, f'{self.hub_root}/static/assets/logos/{plugin_type}/{logo_file_name}')
 
+    def _reformat(self, plugin_type, plugin_name, variant):
+        for file_path in [
+            '_data/default_variants.yml',
+            '_data/maintainers.yml',
+            f'_data/meltano/{plugin_type}/{plugin_name}/{variant}.yml'
+        ]:
+            print(subprocess.run(
+                f"poetry run python {self.hub_root}/utility_scripts/plugin_definitions/yaml_lint_fix.py {self.hub_root}/{file_path}".split(" "),
+                cwd=self.hub_root,
+                stdout=subprocess.PIPE,
+                universal_newlines=True,
+                check=True,
+            ))
+
     @staticmethod
     def _install_test(plugin_name, plugin_type, pip_url, namespace, executable):
         MeltanoUtil.add(plugin_name, namespace, executable, pip_url, plugin_type)
@@ -289,12 +311,13 @@ class Utilities:
             settings, settings_group_validation = self._build_settings(setting_list)
             capabilities = self._string_to_literal(self._prompt("capabilities", self._boilerplate_capabilities(plugin_type)))
         keywords = self._string_to_literal(self._prompt("keywords", self._scrape_keywords(is_meltano_sdk)))
-        definition = self._boilerplate_definition(repo_url, plugin_type, settings, settings_group_validation, plugin_name, namespace, pip_url, keywords, capabilities)
+        definition = self._boilerplate_definition(repo_url, plugin_type, settings, settings_group_validation, plugin_name, namespace, pip_url, keywords, capabilities, executable)
         definition_path = self._write_definition(definition, plugin_type)
         variant = definition['variant']
         variant_exists = self._handle_default_variant(plugin_name, definition['variant'], plugin_type)
         self._handle_maintainer(variant, repo_url)
         self._handle_logo(definition, plugin_type, variant_exists)
+        self._reformat(plugin_type, plugin_name, variant)
         print(definition_path)
         print(f'Adds {plugin_type} {plugin_name} ({variant})\n\n')
 
@@ -364,7 +387,11 @@ class Utilities:
                 self._install_test(plugin_name, plugin_type, pip_url, namespace, executable)
             if is_meltano_sdk:
                 if self._prompt("Scrape SDK --about settings?", True, type=bool):
-                    return MeltanoUtil.sdk_about(plugin_name)
+                    try:
+                        return MeltanoUtil.sdk_about(plugin_name)
+                    except Exception as e:
+                        if self._prompt("Scrape failed! Provide as json?", True, type=bool):
+                            return json.loads(self._prompt("Provide --about output"))
         except Exception as e:
             print(e)
         finally:
@@ -403,6 +430,7 @@ class Utilities:
             sgv,
         )
         self._write_updated_def(plugin_name, plugin_variant, plugin_type, new_def)
+        self._reformat(plugin_type, plugin_name, plugin_variant)
         print(f'\nUpdates {plugin_type} {plugin_name} ({plugin_variant})\n\n')
 
     def update_sdk(self, repo_url: str = None, definition_seed: dict = None):
