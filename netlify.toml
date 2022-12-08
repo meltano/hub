@@ -25,3 +25,9 @@
   from = "/singer/targets"
   to = "/loaders"
   force = true
+
+[[redirects]]
+  from = "/meltano/api/v1/*"
+  to = "https://bojtr4zf77.execute-api.us-west-2.amazonaws.com/dev/:splat"
+  status = 301
+  force = true
