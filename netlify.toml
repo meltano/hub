@@ -1,10 +1,16 @@
 [build]
   base = "."
-  command = "HUB_SITE_URL=$URL ./utility_scripts/build/build_with_metrics.sh"
+  command = """\
+  sed -i \"s|API_URL_PLACEHOLDER|${PROD_API}|g\" netlify.toml && \
+  HUB_SITE_URL=$URL ./utility_scripts/build/build_with_metrics.sh
+  """
   publish = "dist"
 
 [context.deploy-preview]
-  command = "HUB_SITE_URL=$DEPLOY_PRIME_URL ./utility_scripts/build/build_with_metrics.sh"
+  command = """\
+    sed -i \"s|API_URL_PLACEHOLDER|${STAGING_API}|g\" netlify.toml && \
+    HUB_SITE_URL=$DEPLOY_PRIME_URL ./utility_scripts/build/build_with_metrics.sh"
+    """
 
 [[redirects]]
   from = "/taps/*"
@@ -27,13 +33,7 @@
   force = true
 
 [[redirects]]
-  from = "https://hub.meltano.com/meltano/api/v1/*"
-  to = "https://i32s35df22.execute-api.us-west-2.amazonaws.com/prod/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "https://netlify.app/*"
-  to = "https://bojtr4zf77.execute-api.us-west-2.amazonaws.com/dev/:splat"
+  from = "/meltano/api/v1/*"
+  to = "API_URL_PLACEHOLDER/:splat"
   status = 301
   force = true
