@@ -101,7 +101,7 @@ settings:
     - replication_key: optional: the json key of the replication key. Note that this should be an incrementing integer or datetime object.
     - except_keys: This tap automatically flattens the entire json structure and builds keys based on the corresponding paths. Keys, whether composite or otherwise, listed in this dictionary will not be recursively flattened, but instead their values will be turned into a json string and processed in that format. This is also automatically done for any lists within the records; therefore, records are not duplicated for each item in lists.
     - num_inference_keys: optional: number of records used to infer the stream's schema. Defaults to 50.
-    - scheam: optional: A valid Singer schema or a path-like string that provides the path to a .json file that contains a valid Singer schema. If provided, the schema will not be inferred from the results of an api call.
+    - schema: optional: A valid Singer schema or a path-like string that provides the path to a .json file that contains a valid Singer schema. If provided, the schema will not be inferred from the results of an api call.
   kind: array
   label: Streams
   name: streams
