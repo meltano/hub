@@ -21,7 +21,7 @@ repo: https://github.com/Widen/tap-rest-api-msdk
 settings:
 - description: the base url/endpoint for the desired api
   kind: string
-  label: Api Url
+  label: API URL
   name: api_url
 - description: a jsonpath string representing the path to the 'next page' token. Defaults
     to `$.next_page`
