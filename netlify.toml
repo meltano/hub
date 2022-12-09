@@ -1,15 +1,15 @@
 [build]
   base = "."
   command = """\
-  sed -i \"s|API_URL_PLACEHOLDER|${PROD_API}|g\" netlify.toml && \
+  sed -i "s|API_URL_PLACEHOLDER|${PROD_API}|g" netlify.toml && \
   HUB_SITE_URL=$URL ./utility_scripts/build/build_with_metrics.sh
   """
   publish = "dist"
 
 [context.deploy-preview]
   command = """\
-    sed -i \"s|API_URL_PLACEHOLDER|${STAGING_API}|g\" netlify.toml && \
-    HUB_SITE_URL=$DEPLOY_PRIME_URL ./utility_scripts/build/build_with_metrics.sh"
+    sed -i "s|API_URL_PLACEHOLDER|${STAGING_API}|g" netlify.toml && \
+    HUB_SITE_URL=$DEPLOY_PRIME_URL ./utility_scripts/build/build_with_metrics.sh
     """
 
 [[redirects]]
