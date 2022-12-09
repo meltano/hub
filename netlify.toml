@@ -27,7 +27,13 @@
   force = true
 
 [[redirects]]
-  from = "/meltano/api/v1/*"
+  from = "https://hub.meltano.com/meltano/api/v1/*"
   to = "https://i32s35df22.execute-api.us-west-2.amazonaws.com/prod/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://netlify.app/*"
+  to = "https://bojtr4zf77.execute-api.us-west-2.amazonaws.com/dev/:splat"
   status = 301
   force = true
