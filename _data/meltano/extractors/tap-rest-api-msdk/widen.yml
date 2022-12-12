@@ -82,7 +82,7 @@ settings:
   label: Except Keys
   name: except_keys
 - description: number of records used to infer the stream's schema. Defaults to 50.
-  kind: number
+  kind: integer
   label: Num Inference Records
   name: num_inference_records
 - description: |
