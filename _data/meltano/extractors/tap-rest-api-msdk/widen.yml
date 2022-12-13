@@ -1,9 +1,10 @@
 capabilities:
-- state
 - catalog
+- state
 - discover
 - about
 - stream-maps
+- schema-flattening
 description: REST API
 domain_url: https://docs.python-requests.org/en/latest/
 keywords:
@@ -14,50 +15,142 @@ logo_url: /assets/logos/extractors/restapi.png
 maintenance_status: active
 name: tap-rest-api-msdk
 namespace: tap_rest_api_msdk
+next_steps: ''
 pip_url: tap-rest-api-msdk
 repo: https://github.com/Widen/tap-rest-api-msdk
 settings:
-- description: (required) name of the stream.
-  label: Name
-  name: name
-- description: (required) the base url/endpoint for the desired api.
-  label: API Base URL
+- description: the base url/endpoint for the desired api
+  kind: string
+  label: API URL
   name: api_url
-- description: (optional) the path appeneded to the `api_url`.
+- description: a jsonpath string representing the path to the 'next page' token. Defaults
+    to `$.next_page`
+  kind: password
+  label: Next Page Token Path
+  name: next_page_token_path
+- description: the pagination style to use for requests. Defaults to `default`
+  kind: string
+  label: Pagination Request Style
+  name: pagination_request_style
+- description: the pagination style to use for response. Defaults to `default`
+  kind: string
+  label: Pagination Response Style
+  name: pagination_response_style
+- description: the size of each page in records. Defaults to None
+  kind: integer
+  label: Pagination Page Size
+  name: pagination_page_size
+- description: the path appended to the `api_url`. Stream-level path will overwrite
+    top-level path
+  kind: string
   label: Path
   name: path
-- description: (optional) an object of objects that provide the `params` in a `requests.get`
-    method.
+- description: an object providing the `params` in a `requests.get` method. Stream
+    level params will be mergedwith top-level params with stream level params overwritingtop-level
+    params with the same key.
+  kind: object
   label: Params
   name: params
-- description: (optional) an object of headers to pass into the api calls.
+- description: An object of headers to pass into the api calls. Stream levelheaders
+    will be merged with top-level params with streamlevel params overwriting top-level
+    params with the same key
+  kind: object
   label: Headers
   name: headers
-- description: (optional) a jsonpath string representing the path in the requests
-    response that contains the records to process. Defaults to `$[*]`.
+- description: a jsonpath string representing the path in the requests response that
+    contains the records to process. Defaults to `$[*]`. Stream level records_path
+    will overwrite the top-level records_path
+  kind: string
   label: Records Path
   name: records_path
-- description: (required) a list of the json keys of the primary key for the stream.
+- description: a list of the json keys of the primary key for the stream.
+  kind: array
   label: Primary Keys
   name: primary_keys
-- description: (optional) the json key of the replication key. Note that this should
-    be an incrementing integer or datetime object.
+- description: the json key of the replication key. Note that this should be an incrementing
+    integer or datetime object.
+  kind: password
   label: Replication Key
   name: replication_key
 - description: This tap automatically flattens the entire json structure and builds
-    keys based on the corresponding paths. Keys, whether composite or otherwise, listed
-    in this dictionary will not be recursively flattened, but instead their values
-    will be turned into a json string and processed in that format. This is also automatically
-    done for any lists within the records; therefore, records are not duplicated for
-    each item in lists.
+    keys based on the corresponding paths.; Keys, whether composite or otherwise,
+    listed in this dictionary will not be recursively flattened, but instead their
+    values will be; turned into a json string and processed in that format. This is
+    also automatically done for any lists within the records; therefore, records are
+    not duplicated for each item in lists.
+  kind: array
   label: Except Keys
   name: except_keys
-- description: (optional) number of records used to infer the stream's schema. Defaults
-    to 50.
-  label: Number Inference Records
+- description: number of records used to infer the stream's schema. Defaults to 50.
+  kind: integer
+  label: Num Inference Records
   name: num_inference_records
+- description: |
+    An array of streams, designed for separate paths using thesame base url.
+
+    Stream level config options.
+
+    Parameters that appear at the stream-level will overwrite their top-level counterparts except where noted below:
+
+    - name: required: name of the stream.
+    - path: optional: the path appended to the api_url.
+    - params: optional: an object of objects that provide the params in a requests.get method. Stream level params will be merged with top-level params with stream level params overwriting top-level params with the same key.
+    - headers: optional: an object of headers to pass into the api calls. Stream level headers will be merged with top-level params with stream level params overwriting top-level params with the same key
+    - records_path: optional: a jsonpath string representing the path in the requests response that contains the records to process. Defaults to $[*].
+    - primary_keys: required: a list of the json keys of the primary key for the stream.
+    - replication_key: optional: the json key of the replication key. Note that this should be an incrementing integer or datetime object.
+    - except_keys: This tap automatically flattens the entire json structure and builds keys based on the corresponding paths. Keys, whether composite or otherwise, listed in this dictionary will not be recursively flattened, but instead their values will be turned into a json string and processed in that format. This is also automatically done for any lists within the records; therefore, records are not duplicated for each item in lists.
+    - num_inference_keys: optional: number of records used to infer the stream's schema. Defaults to 50.
+    - schema: optional: A valid Singer schema or a path-like string that provides the path to a .json file that contains a valid Singer schema. If provided, the schema will not be inferred from the results of an api call.
+  kind: array
+  label: Streams
+  name: streams
+- description: Config object for stream maps capability.
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
 settings_group_validation:
-- - name
-  - api_url
-  - primary_keys
+- - api_url
+  - streams
+settings_preamble: ''
+usage: |
+  ## Examples
+
+  An example retrieving publicly available earthquake data is described in [this blog](https://engineering.widen.com/blog/Dagster-+-Meltano/).
+  The configuration yaml for that API example should look like the following:
+
+  ```yaml
+  - name: tap-rest-api-msdk
+    variant: widen
+    pip_url: tap-rest-api-msdk
+    config:
+      api_url: https://earthquake.usgs.gov/fdsnws
+      streams:
+      - name: us_earthquakes
+        params:
+          format: geojson
+          starttime: '2022-12-07'
+          endtime: '2022-12-08'
+          minmagnitude: 1
+        path: /event/1/query
+        primary_keys:
+        - id
+        records_path: $.features[*]
+        num_inference_records: 200
+    select:
+    - '*.*'
+  ```
 variant: widen
