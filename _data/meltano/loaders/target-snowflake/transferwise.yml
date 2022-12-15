@@ -22,10 +22,10 @@ prereq: |
   See the [documentation](https://github.com/transferwise/pipelinewise-target-snowflake#pre-requirements) for more details on other optional objects and how to create them.
 repo: https://github.com/transferwise/pipelinewise-target-snowflake
 settings:
-- description: Snowflake account name (i.e. `rtXXXXX.eu-central-1`)
+- description: Snowflake account name (i.e. the `rtXXXXX` part from your account URI that looks like `rtXXXXX.eu-central-1`)
   label: Account
   name: account
-  placeholder: E.g. rtXXXXX.eu-central-1
+  placeholder: E.g. rtXXXXX (sourced from a URI like `rtXXXXX.eu-central-1`)
 - aliases:
   - database
   description: Snowflake Database name
@@ -259,4 +259,8 @@ settings_group_validation:
   - file_format
   - default_target_schema
 target_schema: $TARGET_SNOWFLAKE_DEFAULT_TARGET_SCHEMA
+usage: |
+  ## Schema Changes
+
+  See the [pipelinewise documentation](https://transferwise.github.io/pipelinewise/user_guide/schema_changes.html) for more details about how the target handles schema changes.
 variant: transferwise
