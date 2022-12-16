@@ -56,6 +56,7 @@ settings:
   kind: string
   label: Default Target Schema
   name: default_target_schema
+  value: $MELTANO_EXTRACT__LOAD_SCHEMA
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
