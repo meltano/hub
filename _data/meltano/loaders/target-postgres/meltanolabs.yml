@@ -23,7 +23,7 @@ settings:
   label: Host
   name: host
 - description: The port on which postgres is awaiting connection. Note if sqlalchemy_url
-    is set this will be ignored.
+    is set this will be ignored. Defaults to 5432
   kind: integer
   label: Port
   name: port

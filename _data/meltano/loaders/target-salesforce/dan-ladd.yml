@@ -43,10 +43,14 @@ settings:
   kind: boolean
   label: Is Sandbox
   name: is_sandbox
-- description: How to handle incomming records by default (insert/update/delete/hard_delete)
+- description: How to handle incomming records by default (insert/update/upsert/delete/hard_delete)
   kind: string
   label: Action
   name: action
+- description: Allows the target to continue persisting if a record fails to commit.
+  kind: boolean
+  label: Allow Failures
+  name: allow_failures
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
