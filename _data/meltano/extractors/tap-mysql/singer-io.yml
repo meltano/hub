@@ -17,9 +17,8 @@ namespace: tap_mysql
 pip_url: git+https://github.com/singer-io/tap-mysql.git
 prereq: |
   ### Usage Notes
-  This tap is configured to select all streams using FULL_TABLE replication by default.
+  This tap is configured to use FULL_TABLE replication by default.
   See the [metadata configuration documentation](https://docs.meltano.com/concepts/plugins#metadata-extra) for more details.
-  Sometimes with large databases the catalog discovery process is slow, even for `meltano config tap-mysql test`, so its worthwhile to consider overriding the metadata defaults from the start.
 repo: https://github.com/singer-io/tap-mysql
 settings: []
 settings_group_validation: []
