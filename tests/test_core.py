@@ -1,8 +1,9 @@
 import pytest
 from hub_utils.meltano_util import MeltanoUtil
+import json
 
 
-def test_sdk_about_parsing_2():
+def test_sdk_about_parsing_1():
     sdk_about_dict = {
         "name": "tap-apaleo",
         "description": "Apaleo tap class.",
@@ -44,7 +45,7 @@ def test_sdk_about_parsing_2():
     }
 
     settings, settings_group_validation, capabilities = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
-    print(settings)
+    print(json.dumps(settings))
     assert settings == [
         {
             "name": "client_id",
@@ -61,14 +62,15 @@ def test_sdk_about_parsing_2():
         {
             "name": "start_date",
             "label": "Start Date",
-            "description": None
+            "description": None,
+            "kind": "date_iso8601"
         }
     ]
     assert set(settings_group_validation[0]) == set(
         [
-            'client_id',
-            'client_secret',
-            'start_date'
+            "client_id",
+            "client_secret",
+            "start_date"
         ]
     )
     assert capabilities == [
@@ -79,7 +81,7 @@ def test_sdk_about_parsing_2():
         "stream-maps"
     ]
 
-def test_sdk_about_parsing():
+def test_sdk_about_parsing_2():
     sdk_about_dict = {
         "name": "tap-meshstack",
         "description": "meshStack tap class.",
@@ -180,27 +182,31 @@ def test_sdk_about_parsing():
     }
 
     settings, settings_group_validation, capabilities = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
-    print(settings)
+    print(json.dumps(settings))
     assert settings == [
         {
             "name": "federation.auth.username",
             "label": "Federation Auth Username",
-            "description": "The HTTP basic auth user to authenticate against the meshObject API for federation"
+            "description": "The HTTP basic auth user to authenticate against the meshObject API for federation",
+            "kind": "string"
         },
         {
             "name": "federation.auth.password",
             "label": "Federation Auth Password",
-            "description": "The HTTP basic auth password to authenticate against the meshObject API for federation"
+            "description": "The HTTP basic auth password to authenticate against the meshObject API for federation",
+            "kind": "password"
         },
         {
             "name": "federation.api_url",
             "label": "Federation Api Url",
-            "description": "The url of the meshObject API (excluding the /api prefix!)"
+            "description": "The url of the meshObject API (excluding the /api prefix!)",
+            "kind": "string"
         },
         {
             "name": "another_setting_required",
             "label": "Another Setting Required",
-            "description": "Test required"
+            "description": "Test required",
+            "kind": "string"
         },
         {
             "name": "stream_maps",
@@ -229,11 +235,11 @@ def test_sdk_about_parsing():
     ]
     assert set(settings_group_validation[0]) == set(
         [
-            'federation.auth.username',
-            'federation.auth.password',
-            'federation.api_url',
-            'another_setting_required',
-            'federation'
+            "federation.auth.username",
+            "federation.auth.password",
+            "federation.api_url",
+            "another_setting_required",
+            "federation"
         ]
     )
     assert capabilities == [

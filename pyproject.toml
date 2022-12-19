@@ -10,7 +10,7 @@ packages = [{include = "hub_utils"}]
 python = ">=3.8,<3.11"
 typer = {extras = ["all"], version = "^0.6.1"}
 ruamel-yaml = "^0.17.21"
-meltano = "^2.7.2"
+meltano = "^2.11.1"
 yamllint = "^1.28.0"
 
 

@@ -1,5 +1,7 @@
 # hub-utils
 
+## Add
+
 A utility CLI intended to streamline the steps needed to add Singer taps/targets to [MeltanoHub](https://hub.meltano.com/).
 
 ```
@@ -20,4 +22,13 @@ After writing output it excludes the repo_url from an output CSV so you can paus
 
 ```
 poetry run hub_utils add-bulk /path/to/csv_file
+```
+
+
+## Tests
+
+```bash
+poetry run pytest -v
+
+poetry run pytest -v tests/test_core.py::test_sdk_about_parsing_1
 ```
