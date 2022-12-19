@@ -41,3 +41,11 @@ def update_sdk(
 ):
     util = Utilities(auto_accept)
     util.update_sdk(repo_url)
+
+@app.command()
+def add_airbyte(
+    repo_url: str = None,
+    auto_accept: bool = typer.Option(False)
+):
+    util = Utilities(auto_accept)
+    util.add_airbyte(repo_url)

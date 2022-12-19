@@ -25,6 +25,16 @@ class MeltanoUtil:
         )
 
     @staticmethod
+    def command(command):
+        subprocess.run(
+            f'poetry run {command}'.split(" "),
+            cwd=str(MeltanoUtil.get_cwd()) + '/test_meltano_project/',
+            stdout=subprocess.PIPE,
+            universal_newlines=True,
+            check=True,
+        )
+
+    @staticmethod
     def help_test(plugin_name):
         subprocess.run(
             f"poetry run meltano invoke {plugin_name} --help".split(" "),
@@ -86,14 +96,14 @@ can be expected to take."""
             return None
 
     @staticmethod
-    def _parse_sdk_about_settings(sdk_about_dict):
+    def _parse_sdk_about_settings(sdk_about_dict, enforce_desc=False):
         settings_raw = sdk_about_dict.get('settings', {})
         reformatted_settings = []
         settings_group_validation = []
         base_required = settings_raw.get('required', [])
         for settings in MeltanoUtil._traverse_schema_properties(settings_raw):
             description = settings.get('description')
-            if not settings.get('description'):
+            if not settings.get('description') and enforce_desc:
                 description = typer.prompt(f"[{settings.get('name')}] `description`", default=MeltanoUtil._default_description(settings.get('name')))
             setting_details = {
                 'name': settings.get('name'),

@@ -147,13 +147,14 @@ class Utilities:
         pip_url,
         keywords,
         capabilities,
-        executable
+        executable,
+        variant
     ):
         label = self._get_label(name, plugin_type=plugin_type)
         logo_name = label.lower().replace(' ', '-')
         plugin_def = {
             "name": name,
-            "variant": self._prompt("plugin variant", self._get_plugin_variant(repo_url)),
+            "variant": variant,
             "label": self._prompt("label", label),
             "logo_url": f'/assets/logos/{plugin_type}/{logo_name}.png',
             "capabilities": capabilities,
@@ -305,16 +306,73 @@ class Utilities:
             is_meltano_sdk
         )
         if sdk_about_dict:
-            settings, settings_group_validation, capabilities = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
+            settings, settings_group_validation, capabilities = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict, enforce_desc=True)
         else:
             setting_list = self._compile_settings()
             settings, settings_group_validation = self._build_settings(setting_list)
             capabilities = self._string_to_literal(self._prompt("capabilities", self._boilerplate_capabilities(plugin_type)))
         keywords = self._string_to_literal(self._prompt("keywords", self._scrape_keywords(is_meltano_sdk)))
-        definition = self._boilerplate_definition(repo_url, plugin_type, settings, settings_group_validation, plugin_name, namespace, pip_url, keywords, capabilities, executable)
+        definition = self._boilerplate_definition(
+            repo_url,
+            plugin_type,
+            settings,
+            settings_group_validation,
+            plugin_name,
+            namespace,
+            pip_url,
+            keywords,
+            capabilities,
+            executable,
+            self._prompt("plugin variant", self._get_plugin_variant(repo_url)),
+        )
         definition_path = self._write_definition(definition, plugin_type)
         variant = definition['variant']
         variant_exists = self._handle_default_variant(plugin_name, definition['variant'], plugin_type)
+        self._handle_maintainer(variant, repo_url)
+        self._handle_logo(definition, plugin_type, variant_exists)
+        self._reformat(plugin_type, plugin_name, variant)
+        print(definition_path)
+        print(f'Adds {plugin_type} {plugin_name} ({variant})\n\n')
+
+    def add_airbyte(self, definition_seed: dict = None):
+        repo_url = 'https://github.com/z3z1ma/tap-airbyte'
+        plugin_name = self._prompt("plugin name", 'tap-<source/x>')
+        plugin_type = 'extractors'
+        pip_url = f"git+{repo_url}.git"
+        namespace = 'tap_airbyte'
+        executable = 'tap-airbyte'
+        sdk_about_dict = None
+        sdk_about_dict = self._test_airbyte(
+            plugin_name,
+            plugin_type,
+            pip_url,
+            namespace,
+            executable,
+        )
+        if sdk_about_dict:
+            settings, settings_group_validation, capabilities = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
+        else:
+            setting_list = self._compile_settings()
+            settings, settings_group_validation = self._build_settings(setting_list)
+            capabilities = self._string_to_literal(self._prompt("capabilities", self._boilerplate_capabilities(plugin_type)))
+        keywords = self._string_to_literal(self._prompt("keywords", self._scrape_keywords(True)))
+        variant = 'airbyte'
+        definition = self._boilerplate_definition(
+            repo_url,
+            plugin_type,
+            settings,
+            settings_group_validation,
+            plugin_name,
+            namespace,
+            pip_url,
+            keywords,
+            capabilities,
+            executable,
+            variant,
+        )
+        definition_path = self._write_definition(definition, plugin_type)
+        definition['variant'] = variant
+        variant_exists = self._handle_default_variant(plugin_name, variant, plugin_type)
         self._handle_maintainer(variant, repo_url)
         self._handle_logo(definition, plugin_type, variant_exists)
         self._reformat(plugin_type, plugin_name, variant)
@@ -397,6 +455,31 @@ class Utilities:
         finally:
             MeltanoUtil.remove(plugin_name, plugin_type)
 
+    def _test_airbyte(self, plugin_name, plugin_type, pip_url, namespace, executable):
+        try:
+            airbyte_name = self._prompt("airbyte_name (e.g. source-s3)")
+            MeltanoUtil.add(plugin_name, namespace, executable, pip_url, plugin_type)
+            MeltanoUtil.command(f'meltano config {plugin_name} set airbyte_spec.image airbyte/{airbyte_name}')
+            MeltanoUtil.command(f'meltano config {plugin_name} set airbyte_spec.tag latest')
+            MeltanoUtil.help_test(plugin_name)
+            try:
+                about_content = subprocess.run(
+                    f"poetry run meltano invoke {plugin_name} --about --format=json".split(" "),
+                    cwd=str(MeltanoUtil.get_cwd()) + '/test_meltano_project/',
+                    stdout=subprocess.PIPE,
+                    universal_newlines=True,
+                    check=True,
+                )
+                about_json = about_content.stdout.split('Setup Instructions:')[0]
+                return json.loads(about_json)
+            except Exception as e:
+                if self._prompt("Scrape failed! Provide as json?", True, type=bool):
+                    return json.loads(self._prompt("Provide --about output"))
+        except Exception as e:
+            print(e)
+        finally:
+            MeltanoUtil.remove(plugin_name, plugin_type)
+
     def _update_base(self, repo_url, is_meltano_sdk=False):
         if not repo_url:
             repo_url = self._prompt("repo_url")
@@ -448,7 +531,8 @@ class Utilities:
         print(f'\nUpdates {plugin_type} {plugin_name} (SDK based - {plugin_variant})\n\n')
 
 if __name__ == "__main__":
-    util = Utilities(False)
+    util = Utilities(True)
+    util.add_airbyte()
     # util.update("https://github.com/Yoast/singer-tap-postmark")
     util.update_sdk("https://github.com/hotgluexyz/tap-procore")
     # util.add_bulk('/Users/pnadolny/Documents/Git/GitHub/pnadolny/hub-utils/other_scripts/export_edit.csv')
