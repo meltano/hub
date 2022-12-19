@@ -68,6 +68,8 @@ class MeltanoUtil:
             if any(id_str.lower() in setting for id_str in ['password', 'id', 'token', 'key', 'secret']):
                 return 'password'
             return 'string'
+        if kind == 'number':
+            return 'integer'
         else:
             return kind
 
