@@ -40,7 +40,7 @@ settings:
   name: batch_size
 - description: Maximum time in minutes between state messages when records are streamed
     in. BATCH messages are not affected by this property.
-  kind: number
+  kind: integer
   label: Max Batch Age
   name: max_batch_age
 - description: Add Singer Data Capture (SDC) metadata to records
