@@ -9,9 +9,16 @@ keywords:
 label: MySQL / MariaDB
 logo_url: /assets/logos/extractors/mysql.png
 maintenance_status: unknown
+metadata:
+  '*':
+    replication-method: FULL_TABLE
 name: tap-mysql
 namespace: tap_mysql
 pip_url: git+https://github.com/singer-io/tap-mysql.git
+prereq: |
+  ### Usage Notes
+  This tap is configured to use `FULL_TABLE` replication by default.
+  See the [metadata configuration documentation](https://docs.meltano.com/concepts/plugins#metadata-extra) for more details.
 repo: https://github.com/singer-io/tap-mysql
 settings: []
 settings_group_validation: []
