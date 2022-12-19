@@ -1,48 +1,15 @@
 import pytest
 from hub_utils.meltano_util import MeltanoUtil
 import json
+import os
 
+def _read_data(file_name):
+    path = os.path.dirname(__file__)
+    with open(f'{path}/data/{file_name}', 'r') as f:
+        return json.load(f)
 
 def test_sdk_about_parsing_1():
-    sdk_about_dict = {
-        "name": "tap-apaleo",
-        "description": "Apaleo tap class.",
-        "version": "0.0.1",
-        "sdk_version": "0.3.18",
-        "capabilities": [
-            "catalog",
-            "state",
-            "discover",
-            "about",
-            "stream-maps"
-        ],
-        "settings": {
-            "type": "object",
-            "properties": {
-            "client_id": {
-                "type": [
-                "string"
-                ]
-            },
-            "client_secret": {
-                "type": [
-                "string"
-                ]
-            },
-            "start_date": {
-                "type": [
-                "string"
-                ],
-                "format": "date-time"
-            }
-            },
-            "required": [
-                "client_id",
-                "client_secret",
-                "start_date"
-            ]
-        }
-    }
+    sdk_about_dict = _read_data('tap_apaleo_about.json')
 
     settings, settings_group_validation, capabilities = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
     print(json.dumps(settings))
@@ -82,105 +49,7 @@ def test_sdk_about_parsing_1():
     ]
 
 def test_sdk_about_parsing_2():
-    sdk_about_dict = {
-        "name": "tap-meshstack",
-        "description": "meshStack tap class.",
-        "version": "0.0.1",
-        "sdk_version": "0.4.9",
-        "capabilities": [
-            "catalog",
-            "state",
-            "discover",
-            "about",
-            "stream-maps",
-            "schema-flattening"
-        ],
-        "settings": {
-        "type": "object",
-        "properties": {
-            "federation": {
-            "type": "object",
-            "properties": {
-                "auth": {
-                "type": "object",
-                "properties": {
-                    "username": {
-                    "type": [
-                        "string"
-                    ],
-                    "description": "The HTTP basic auth user to authenticate against the meshObject API for federation"
-                    },
-                    "password": {
-                    "type": [
-                        "string"
-                    ],
-                    "description": "The HTTP basic auth password to authenticate against the meshObject API for federation"
-                    }
-                },
-                "required": [
-                    "username",
-                    "password"
-                ],
-                "description": "API authentication configuration"
-                },
-                "api_url": {
-                "type": [
-                    "string"
-                ],
-                "description": "The url of the meshObject API (excluding the /api prefix!)"
-                }
-            },
-            "required": [
-                "auth",
-                "api_url"
-            ],
-            "description": "Configuration for Federation"
-            },
-            "another_setting_required": {
-            "type": [
-                "string",
-                "null"
-            ],
-            "description": "Test required"
-            },
-            "stream_maps": {
-            "type": [
-                "object",
-                "null"
-            ],
-            "properties": {},
-            "description": "Config object for stream maps capability."
-            },
-            "stream_map_config": {
-            "type": [
-                "object",
-                "null"
-            ],
-            "properties": {},
-            "description": "User-defined config values to be used within map expressions."
-            },
-            "flattening_enabled": {
-            "type": [
-                "boolean",
-                "null"
-            ],
-            "description": "True to enable schema flattening and automatically expand nested properties."
-            },
-            "flattening_max_depth": {
-            "type": [
-                "integer",
-                "null"
-            ],
-            "description": "The max depth to flatten schemas."
-            }
-        },
-        "required": [
-            "federation",
-            "another_setting_required"
-        ]
-        }
-    }
-
+    sdk_about_dict = _read_data('tap_meshstack_about.json')
     settings, settings_group_validation, capabilities = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
     print(json.dumps(settings))
     assert settings == [
