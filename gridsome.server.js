@@ -148,6 +148,11 @@ function buildData(dataPath, collections) {
           }))
         : undefined;
 
+      // Make Meltano/Singer metadata a JSON string
+      readPlugin.metadata = readPlugin.metadata
+        ? JSON.stringify(readPlugin.metadata)
+        : undefined;
+
       collections.forEach((collection) => {
         collection.addNode(readPlugin);
       });
