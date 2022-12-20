@@ -532,5 +532,5 @@ if __name__ == "__main__":
     util = Utilities(False)
     util.add_airbyte()
     # util.update("https://github.com/Yoast/singer-tap-postmark")
-    util.update_sdk("https://github.com/hotgluexyz/tap-procore")
+    # util.update_sdk("https://github.com/hotgluexyz/tap-procore")
     # util.add_bulk('/Users/pnadolny/Documents/Git/GitHub/pnadolny/hub-utils/other_scripts/export_edit.csv')

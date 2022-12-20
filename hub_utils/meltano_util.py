@@ -78,15 +78,19 @@ class MeltanoUtil:
                 return 'date_iso8601', None
             if any(id_str.lower() in setting for id_str in ['password', 'id', 'token', 'key', 'secret']) or format == 'airbyte_secret':
                 return 'password', None
+            if settings.get('enum'):
+                option_parsed = [{'label': MeltanoUtil._get_label(val), 'value': val} for val in settings.get('enum')]
+                return 'options', option_parsed
             return 'string', None
         if kind == 'number':
             return 'integer', None
-        if kind == 'array':
-            enum = settings.get('items', {}).get('enum')
-            if enum:
-                option_parsed = [{'label': MeltanoUtil._get_label(val), 'value': val} for val in enum]
-                return 'options', option_parsed   
-            return 'array', None
+        # TODO: Meltano doesnt support array enums as of today
+        # if kind == 'array':
+        #     enum = settings.get('items', {}).get('enum')
+        #     if enum:
+        #         option_parsed = [{'label': MeltanoUtil._get_label(val), 'value': val} for val in enum]
+        #         return 'options', option_parsed   
+        #     return 'array', None
         else:
             return kind, None
 
@@ -177,6 +181,7 @@ can be expected to take."""
                         'title': subfield.get('title'),
                         'const': subfield.get('const'),
                         'items': subfield.get('items'),
+                        'enum': subfield.get('enum'),
                     }
                     if 'required' in subfield:
                         # accept parent if it was set already
@@ -193,6 +198,7 @@ can be expected to take."""
                     'title': value.get('title'),
                     'const': value.get('const'),
                     'items': value.get('items'),
+                    'enum': value.get('enum'),
                 })
         for item in schema.get('oneOf', []):
             for i in MeltanoUtil._traverse_schema_properties(item):

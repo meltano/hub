@@ -257,20 +257,55 @@ def test_sdk_about_parsing_airbyte():
     ]
 
 
-def test_airbyte_array_enum():
+def test_airbyte_array_enum_array():
     sdk_about_dict = _read_data('airbyte_array_enum.json')
 
     settings, settings_group_validation, capabilities = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
     print(json.dumps(settings))
+    # TODO: Meltano doesnt support array enums as of today
+    # assert settings == [
+    #     {
+    #         "name": "connector_config.metrics",
+    #         "label": "Connector Config Metrics",
+    #         "description": "Select at least one metric to query.",
+    #         "kind": "options",
+    #         "options": [
+    #             {"label": "Network Cost", "value": "network_cost"},
+    #             {"label": "Network Cost Diff", "value": "network_cost_diff"}
+    #         ]
+    #     }
+    # ]
     assert settings == [
         {
             "name": "connector_config.metrics",
             "label": "Connector Config Metrics",
             "description": "Select at least one metric to query.",
+            "kind": "array",
+        }
+    ]
+    assert capabilities == [
+        "catalog",
+        "state",
+        "discover",
+        "about",
+        "stream-maps",
+        "schema-flattening"
+    ]
+
+def test_airbyte_array_enum_string():
+    sdk_about_dict = _read_data('airbyte_string_enum.json')
+
+    settings, settings_group_validation, capabilities = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
+    print(json.dumps(settings))
+    assert settings == [
+        {
+            "name": "connector_config.region",
+            "label": "Connector Config Region",
+            "description": "AWS Region of the SQS Queue",
             "kind": "options",
             "options": [
-                {"label": "Network Cost", "value": "network_cost"},
-                {"label": "Network Cost Diff", "value": "network_cost_diff"}
+                {"label": "Us East 1", "value": "us-east-1"},
+                {"label": "Us East 2", "value": "us-east-2"}
             ]
         }
     ]
