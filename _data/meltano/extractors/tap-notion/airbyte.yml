@@ -1,0 +1,80 @@
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+- schema-flattening
+description: Note-taking Software Platform
+domain_url: https://www.notion.so/
+executable: tap-airbyte
+keywords:
+- airbyte
+label: Notion
+logo_url: /assets/logos/extractors/notion.png
+maintenance_status: beta
+name: tap-notion
+namespace: tap_airbyte
+next_steps: ''
+pip_url: git+https://github.com/z3z1ma/tap-airbyte.git
+repo: https://github.com/z3z1ma/tap-airbyte
+settings:
+- description: Airbyte image to run
+  kind: string
+  label: Airbyte Spec Image
+  name: airbyte_spec.image
+- description: ''
+  kind: string
+  label: Airbyte Spec Tag
+  name: airbyte_spec.tag
+- description: UTC date and time in the format 2017-01-25T00:00:00.000Z. Any data
+    before this date will not be replicated.
+  kind: string
+  label: Connector Config Start Date
+  name: connector_config.start_date
+- description: OAuth2.0, token
+  kind: string
+  label: Connector Config Credentials Auth Type
+  name: connector_config.credentials.auth_type
+- description: The ClientID of your Notion integration.
+  kind: password
+  label: Connector Config Credentials Client Id
+  name: connector_config.credentials.client_id
+- description: The ClientSecret of your Notion integration.
+  kind: password
+  label: Connector Config Credentials Client Secret
+  name: connector_config.credentials.client_secret
+- description: Access Token is a token you received by complete the OauthWebFlow of
+    Notion.
+  kind: password
+  label: Connector Config Credentials Access Token
+  name: connector_config.credentials.access_token
+- description: Notion API access token, see the <a href="https://developers.notion.com/docs/authorization">docs</a>
+    for more information on how to obtain this token.
+  kind: password
+  label: Connector Config Credentials Token
+  name: connector_config.credentials.token
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+settings_group_validation:
+- - airbyte_spec.image
+  - connector_config.start_date
+settings_preamble: ''
+usage: ''
+variant: airbyte
