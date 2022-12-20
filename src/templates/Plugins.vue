@@ -64,7 +64,7 @@
                 sent to a destination using a <g-link to="/loaders">loader</g-link>.</span
               >
               <span v-if="$page.plugins.pluginType === 'extractor' && $page.plugins.keywords.includes('airbyte')">
-                  <h2> ⚠️ Airbyte Preview Warning ⚠️ </h2>
+                <p class="text-3xl py-4" id="airbyte-preview">⚠️ Airbyte Preview Warning ⚠️</p>
                   
                   This connector uses <g-link to="/extractors/tap-airbyte">tap-airbyte</g-link> to call the underlying Docker container for the source. This
                   means the following is required prior to usage:
