@@ -368,6 +368,7 @@ extractors:
   tap-zohosprints: autoidm
   tap-zoom: mashey
   tap-zuora: transferwise
+  tap-adjust: airbyte
 files:
   files-airflow: meltano
   files-datahub: z3z1ma
