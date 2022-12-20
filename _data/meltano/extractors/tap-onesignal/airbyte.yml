@@ -1,0 +1,72 @@
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+- schema-flattening
+description: Push Notification Software
+domain_url: https://onesignal.com/
+executable: tap-airbyte
+keywords:
+- airbyte
+label: OneSignal
+logo_url: /assets/logos/extractors/onesignal.png
+maintenance_status: beta
+name: tap-onesignal
+namespace: tap_airbyte
+next_steps: ''
+pip_url: git+https://github.com/z3z1ma/tap-airbyte.git
+repo: https://github.com/z3z1ma/tap-airbyte
+settings:
+- description: Airbyte image to run
+  kind: string
+  label: Airbyte Spec Image
+  name: airbyte_spec.image
+- description: ''
+  kind: string
+  label: Airbyte Spec Tag
+  name: airbyte_spec.tag
+- description: OneSignal User Auth Key, see the <a href="https://documentation.onesignal.com/docs/accounts-and-keys#user-auth-key">docs</a>
+    for more information on how to obtain this key.
+  kind: password
+  label: Connector Config User Auth Key
+  name: connector_config.user_auth_key
+- description: The date from which you'd like to replicate data for OneSignal API,
+    in the format YYYY-MM-DDT00:00:00Z. All data generated after this date will be
+    replicated.
+  kind: string
+  label: Connector Config Start Date
+  name: connector_config.start_date
+- description: Comma-separated list of names and the value (sum/count) for the returned
+    outcome data. See the <a href="https://documentation.onesignal.com/reference/view-outcomes">docs</a>
+    for more details
+  kind: string
+  label: Connector Config Outcome Names
+  name: connector_config.outcome_names
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+settings_group_validation:
+- - airbyte_spec.image
+  - connector_config.outcome_names
+  - connector_config.user_auth_key
+  - connector_config.start_date
+settings_preamble: ''
+usage: ''
+variant: airbyte
