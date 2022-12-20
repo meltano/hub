@@ -17,19 +17,19 @@ def test_sdk_about_parsing_1():
         {
             "name": "client_id",
             "label": "Client Id",
-            "description": None,
+            "description": "",
             "kind": "password"
         },
         {
             "name": "client_secret",
             "label": "Client Secret",
-            "description": None,
+            "description": "",
             "kind": "password"
         },
         {
             "name": "start_date",
             "label": "Start Date",
-            "description": None,
+            "description": "",
             "kind": "date_iso8601"
         }
     ]
@@ -136,7 +136,7 @@ def test_sdk_about_parsing_airbyte():
         {
             "name": "airbyte_spec.tag",
             "label": "Airbyte Spec Tag",
-            "description": None,
+            "description": "",
             "kind": "string"
         },
         {

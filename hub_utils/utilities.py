@@ -254,10 +254,10 @@ class Utilities:
             return
 
         image_path = self._prompt(
-            "Path to image [.png] file",
-            'placeholder.png'
+            "Path to image [.png] file, leave blank to skip",
+            None
         )
-        if image_path == 'placeholder.png':
+        if not image_path:
             logo_file_name = definition['logo_url'].split('/')[-1]
             print('Logo: Placeholder Used')
         else:
@@ -467,6 +467,7 @@ class Utilities:
                     check=True,
                 )
                 about_json = about_content.stdout.split('Setup Instructions:')[0]
+                print(about_json)
                 return json.loads(about_json)
             except Exception as e:
                 if self._prompt("Scrape failed! Provide as json?", True, type=bool):

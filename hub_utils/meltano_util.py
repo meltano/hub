@@ -73,9 +73,9 @@ class MeltanoUtil:
     def _parse_kind(kind, setting, format=None):
         setting = setting.lower()
         if kind == 'string':
-            if format == 'date-time' or setting in ('start_date', 'end_date'):
+            if format in ('date-time', 'date') or setting in ('start_date', 'end_date'):
                 return 'date_iso8601'
-            if any(id_str.lower() in setting for id_str in ['password', 'id', 'token', 'key', 'secret']):
+            if any(id_str.lower() in setting for id_str in ['password', 'id', 'token', 'key', 'secret']) or format == 'airbyte_secret':
                 return 'password'
             return 'string'
         if kind == 'number':
