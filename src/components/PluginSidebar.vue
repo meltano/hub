@@ -62,8 +62,8 @@
         <li v-if="(keywords ?? []).includes('airbyte')">
           <a href="https://docs.airbyte.com/category/sources">
             <img
-              alt="Based on the Airbyte Connector"
-              src="https://img.shields.io/badge/Based%on%20the%Airbyte%Connector-🔗-orange"
+              alt="Based on an Airbyte Connector"
+              src="https://img.shields.io/badge/Based%20on%20an%20Airbyte%20Connector-🔗-orange"
             />
           </a>
         </li>
