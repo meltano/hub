@@ -255,9 +255,10 @@ class Utilities:
 
         image_path = self._prompt(
             "Path to image [.png] file, leave blank to skip",
-            None
+            "skip"
         )
-        if not image_path:
+        # TODO: kind of a hack, not sure how to accept an empty string to skip properly
+        if image_path == "skip":
             logo_file_name = definition['logo_url'].split('/')[-1]
             print('Logo: Placeholder Used')
         else:
