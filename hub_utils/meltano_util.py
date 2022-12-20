@@ -115,8 +115,14 @@ can be expected to take."""
         base_required = settings_raw.get('required', [])
         for settings in MeltanoUtil._traverse_schema_properties(settings_raw):
             description = settings.get('description')
-            if not settings.get('description') and enforce_desc:
-                description = typer.prompt(f"[{settings.get('name')}] `description`", default=MeltanoUtil._default_description(settings.get('name')))
+            if not settings.get('description') :
+                if enforce_desc:
+                    description = typer.prompt(f"[{settings.get('name')}] `description`", default=MeltanoUtil._default_description(settings.get('name')))
+                else:
+                    if settings.get('name') == 'tag':
+                        description = 'Airbyte image tag'
+                    else:
+                        description = ''
             setting_details = {
                 'name': settings.get('name'),
                 'label': MeltanoUtil._get_label(settings.get('name')),
@@ -126,6 +132,14 @@ can be expected to take."""
                 kind = [s_type for s_type in settings.get('type') if s_type != 'null'][0]
             else:
                 kind = settings.get('type')
+
+            if not kind:
+                if enforce_desc:
+                    kind = typer.prompt(f"[{settings.get('name')}] `kind`", default='string')
+                else:
+                    name = settings.get('name')
+                    print(f'No type found for: {name}. Defaulting to string')
+                    kind = 'string'
 
             setting_details['kind'] = MeltanoUtil._parse_kind(kind, settings.get('name'))
 

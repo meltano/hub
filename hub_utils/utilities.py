@@ -252,17 +252,13 @@ class Utilities:
             type=bool
         ):
             return
-        placeholder = self._prompt(
-            f"Use placeholder logo?",
-            default_val=False,
-            type=bool
-        )
+
         image_path = self._prompt(
             "Path to image [.png] file",
             'placeholder.png'
         )
         if image_path == 'placeholder.png':
-            definition['logo_url'] = '/assets/logos/placeholder.png'
+            logo_file_name = definition['logo_url'].split('/')[-1]
             print('Logo: Placeholder Used')
         else:
             logo_file_name = definition['logo_url'].split('/')[-1]
@@ -341,6 +337,7 @@ class Utilities:
         pip_url = f"git+{repo_url}.git"
         namespace = 'tap_airbyte'
         executable = 'tap-airbyte'
+        variant = 'airbyte'
         sdk_about_dict = None
         sdk_about_dict = self._test_airbyte(
             plugin_name,
@@ -350,13 +347,12 @@ class Utilities:
             executable,
         )
         if sdk_about_dict:
-            settings, settings_group_validation, capabilities = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
+            settings, settings_group_validation, capabilities = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict, enforce_desc=True)
         else:
             setting_list = self._compile_settings()
             settings, settings_group_validation = self._build_settings(setting_list)
             capabilities = self._string_to_literal(self._prompt("capabilities", self._boilerplate_capabilities(plugin_type)))
         keywords = self._string_to_literal(self._prompt("keywords", self._scrape_keywords(True)))
-        variant = 'airbyte'
         definition = self._boilerplate_definition(
             repo_url,
             plugin_type,
@@ -531,7 +527,7 @@ class Utilities:
         print(f'\nUpdates {plugin_type} {plugin_name} (SDK based - {plugin_variant})\n\n')
 
 if __name__ == "__main__":
-    util = Utilities(True)
+    util = Utilities(False)
     util.add_airbyte()
     # util.update("https://github.com/Yoast/singer-tap-postmark")
     util.update_sdk("https://github.com/hotgluexyz/tap-procore")
