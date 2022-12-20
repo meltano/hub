@@ -120,6 +120,7 @@ extractors:
   tap-dynamics: dreamdata-io
   tap-dynamodb: singer-io
   tap-ebay: dbt-labs
+  tap-elasticsearch: airbyte
   tap-eloqua: singer-io
   tap-emarsys: singer-io
   tap-estoca: muriloo
