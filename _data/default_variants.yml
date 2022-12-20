@@ -172,6 +172,7 @@ extractors:
   tap-hibob: potloc
   tap-holidays: goodeggs
   tap-hotjar: epoch8
+  tap-hubplanner: airbyte
   tap-hubspot: singer-io
   tap-idealo-click-report: horze-international
   tap-ilevel: singer-io
