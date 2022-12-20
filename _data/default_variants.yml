@@ -98,6 +98,7 @@ extractors:
   tap-density: envoy
   tap-deputy: singer-io
   tap-dixa: singer-io
+  tap-dockerhub: airbyte
   tap-domo: mashey
   tap-duckdb: meltanolabs
   tap-dynamics: dreamdata-io
