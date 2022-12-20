@@ -5,6 +5,7 @@ extractors:
   tap-aconex: fostersdata
   tap-activecampaign: singer-io
   tap-acuite: fostersdata
+  tap-adjust: airbyte
   tap-adroll: singer-io
   tap-adwords: singer-io
   tap-adyen: yoast
@@ -368,7 +369,6 @@ extractors:
   tap-zohosprints: autoidm
   tap-zoom: mashey
   tap-zuora: transferwise
-  tap-adjust: airbyte
 files:
   files-airflow: meltano
   files-datahub: z3z1ma
