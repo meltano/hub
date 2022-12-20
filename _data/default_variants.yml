@@ -285,6 +285,7 @@ extractors:
   tap-posthog: airbyte
   tap-postmark: yoast
   tap-powerbi-metadata: dataops-tk
+  tap-prestashop: airbyte
   tap-process-street: process-street
   tap-procore: hotgluexyz
   tap-prometheus: miroapp
