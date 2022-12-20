@@ -162,7 +162,7 @@
                   </li>
                   <pre
                     class="prose language-bash rounded-md"
-                  ><code >meltano config {{ $page.plugins.name }} set airbyte_spec.image airbyte/{{ $page.plugins.name.replace("tap-", "")}}</code></pre>
+                  ><code >meltano config {{ $page.plugins.name }} set airbyte_spec.image airbyte/{{ $page.plugins.name}}</code></pre>
                   <li>
                     Configure the docker imag tag using
                     <a href="https://docs.meltano.com/reference/command-line-interface#config">
