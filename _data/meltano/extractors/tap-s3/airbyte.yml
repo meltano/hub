@@ -130,7 +130,7 @@ settings:
 - description: How JSON fields outside of explicit_schema (if given) are treated.
     Check <a href="https://arrow.apache.org/docs/python/generated/pyarrow.json.ParseOptions.html"
     target="_blank">PyArrow documentation</a> for details
-  kind:
+  kind: string
   label: Connector Config Format Unexpected Field Behavior
   name: connector_config.format.unexpected_field_behavior
 - description: 'Optionally provide a schema to enforce, as a valid JSON string. Ensure
