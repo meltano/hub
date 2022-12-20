@@ -18,6 +18,7 @@ extractors:
   tap-amazon-associates: voxmedia
   tap-amazon-mws: dbt-labs
   tap-amazon-sp: singer-io
+  tap-amazon-sqs: airbyte
   tap-anaplan: matthew-skinner
   tap-anvil: svinstech
   tap-apachelog: omelark
