@@ -136,8 +136,10 @@ extractors:
   tap-fastly: splitio
   tap-fauna: airbyte
   tap-feed: jawats
+  tap-firebolt: airbyte
   tap-five9: pathlight
   tap-fixerio: singer-io
+  tap-flexport: airbyte
   tap-forecast: uptilab2
   tap-freshdesk: singer-io
   tap-frontapp: singer-io
