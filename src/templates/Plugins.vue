@@ -152,6 +152,28 @@
                     class="prose language-bash rounded-md"
                   ><code >meltano config {{ $page.plugins.name }} test</code></pre>
                 </span>
+                <span v-if="$page.plugins.pluginType === 'extractor' && variant.node.keywords.includes('airbyte')">
+                  <li>
+                    Configure the docker image using
+                    <a href="https://docs.meltano.com/reference/command-line-interface#config">
+                      <pre class="inline-code-block"><code>meltano config</code></pre>
+                    </a>
+                    : 
+                  </li>
+                  <pre
+                    class="prose language-bash rounded-md"
+                  ><code >meltano config {{ $page.plugins.name }} set airbyte_spec.image airbyte/{{ $page.plugins.name.replaceAll("tap-", "")}}</code></pre>
+                  <li>
+                    Configure the docker imag tag using
+                    <a href="https://docs.meltano.com/reference/command-line-interface#config">
+                      <pre class="inline-code-block"><code>meltano config</code></pre>
+                    </a>
+                    : 
+                  </li>                  
+                  <pre
+                    class="prose language-bash rounded-md"
+                  ><code >meltano config {{ $page.plugins.name }} set airbyte_spec.tag latest</code></pre>
+                </span>                
               </ol>
               <p class="text-xl py-3">Next steps</p>
               <div

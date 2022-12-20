@@ -25,31 +25,7 @@ logo_url: /assets/logos/extractors/adjust.png
 maintenance_status: beta
 name: tap-adjust
 namespace: tap_airbyte
-next_steps: |
-  ## Required Configuration
-
-  Run these two commands prior to attempting to use the connector:
-
-  ```
-  meltano config <tap-name> set airbyte_spec.image airbyte/<docker-tag> 
-
-  meltano config <tap-name> set airbyte_spec.tag latest
-  ```
-
-  Your `meltano.yml` for this connector should having this block present after configuration:
-    
-  ```yaml
-  config:
-    airbyte_spec:
-      image: "airbyte/<docker-tag>"
-      tag: "latest"
-  ```
-
-  From there, you will be able to configure the rest of the settings.
-
-  ### More Information
-
-  For more context on how this Airbyte integration works please checkout out the [FAQ in the Meltano Docs](https://docs.meltano.com).
+next_steps: ''
 pip_url: git+https://github.com/z3z1ma/tap-airbyte.git
 repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-adjust
 settings:
