@@ -114,7 +114,9 @@ extractors:
   tap-dixa: singer-io
   tap-dockerhub: airbyte
   tap-domo: mashey
+  tap-drift: airbyte
   tap-duckdb: meltanolabs
+  tap-dv-360: airbyte
   tap-dynamics: dreamdata-io
   tap-dynamodb: singer-io
   tap-ebay: dbt-labs
