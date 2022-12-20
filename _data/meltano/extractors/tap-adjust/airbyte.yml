@@ -6,8 +6,9 @@ capabilities:
 - stream-maps
 - schema-flattening
 definition: |
+  <br>
 
-  ## Airbyte Preview Warning
+  ## ⚠️ Airbyte Preview Warning ⚠️
 
   This connector uses [tap-airbyte](/extractors/airbyte) to call the underlying Docker container for the source. This means the following is required prior to usage:
     
@@ -18,8 +19,8 @@ definition: |
 description: Marketing analytics platform
 domain_url: https://www.adjust.com/
 executable: tap-airbyte
-keywords:
-- airbyte
+keywords: 
+  - airbyte
 label: Adjust
 logo_url: /assets/logos/extractors/adjust.png
 maintenance_status: beta
@@ -27,25 +28,7 @@ name: tap-adjust
 namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/z3z1ma/tap-airbyte.git
-prereq: |
-  ## Required Configuration
-
-  Run these two commands prior to attempting to use the connector:
-
-  ```
-  meltano config <tap-name> set airbyte_spec.image airbyte/<docker-tag> 
-  ```
-
-  ```
-  meltano config <tap-name> set airbyte_spec.tag latest
-  ```
-
-  From there, you should be able to configure the rest of the settings using the instructions in the next section.
-
-  ### More Information
-
-  For more context on how this Airbyte integration works please checkout out the [FAQ in the Meltano Docs](https://docs.meltano.com).
-repo: https://github.com/z3z1ma/tap-airbyte
+repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-adjust
 settings:
 - description: Airbyte image to run
   kind: string
