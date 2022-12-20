@@ -8,10 +8,11 @@ capabilities:
 description: The open source, cloud-native distributed SQL database.
 domain_url: https://github.com/cockroachdb/cockroach
 executable: tap-airbyte
-keywords: []
+keywords:
+- airbyte
 label: CockroachDB
 logo_url: /assets/logos/extractors/cockroachdb.png
-maintenance_status: active
+maintenance_status: beta
 name: tap-cockroachdb
 namespace: tap_airbyte
 next_steps: ''

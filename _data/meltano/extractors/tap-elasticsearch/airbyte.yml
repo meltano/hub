@@ -8,10 +8,11 @@ capabilities:
 description: Elasticsearch is a distributed, free and open search and analytics engine
 domain_url: https://www.elastic.co/
 executable: tap-airbyte
-keywords: []
+keywords:
+- airbyte
 label: Elasticsearch
 logo_url: /assets/logos/extractors/elasticsearch.png
-maintenance_status: active
+maintenance_status: beta
 name: tap-elasticsearch
 namespace: tap_airbyte
 next_steps: ''

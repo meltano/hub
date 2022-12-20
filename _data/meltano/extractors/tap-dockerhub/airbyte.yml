@@ -10,10 +10,10 @@ description: Docker Hub is the world's easiest way to create, manage, and delive
 domain_url: https://hub.docker.com/
 executable: tap-airbyte
 keywords:
-- meltano_sdk
+- airbyte
 label: Docker Hub
 logo_url: /assets/logos/extractors/dockerhub.png
-maintenance_status: active
+maintenance_status: beta
 name: tap-dockerhub
 namespace: tap_airbyte
 next_steps: ''

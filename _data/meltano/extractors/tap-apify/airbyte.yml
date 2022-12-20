@@ -9,10 +9,10 @@ description: Web Scraping, Data Extraction and Automation
 domain_url: https://apify.com/
 executable: tap-airbyte
 keywords:
-- meltano_sdk
+- airbyte
 label: Apify
 logo_url: /assets/logos/extractors/apify.png
-maintenance_status: active
+maintenance_status: beta
 name: tap-apify
 namespace: tap_airbyte
 next_steps: ''

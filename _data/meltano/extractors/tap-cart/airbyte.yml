@@ -8,10 +8,11 @@ capabilities:
 description: The Ecommerce Platform for Growing Brands
 domain_url: https://www.cart.com/
 executable: tap-airbyte
-keywords: []
+keywords:
+- airbyte
 label: Cart.com
 logo_url: /assets/logos/extractors/cart.png
-maintenance_status: active
+maintenance_status: beta
 name: tap-cart
 namespace: tap_airbyte
 next_steps: ''

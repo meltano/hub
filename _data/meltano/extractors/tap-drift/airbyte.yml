@@ -8,10 +8,11 @@ capabilities:
 description: Conversational Marketing Software
 domain_url: https://www.drift.com/
 executable: tap-airbyte
-keywords: []
+keywords:
+- airbyte
 label: Drift
 logo_url: /assets/logos/extractors/drift.png
-maintenance_status: active
+maintenance_status: beta
 name: tap-drift
 namespace: tap_airbyte
 next_steps: ''

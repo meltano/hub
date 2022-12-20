@@ -8,10 +8,11 @@ capabilities:
 description: Subscription Analytics Platform
 domain_url: https://chartmogul.com/
 executable: tap-airbyte
-keywords: []
+keywords:
+- airbyte
 label: ChartMogul
 logo_url: /assets/logos/extractors/chartmogul.png
-maintenance_status: active
+maintenance_status: beta
 name: tap-chartmogul
 namespace: tap_airbyte
 next_steps: ''

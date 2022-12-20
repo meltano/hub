@@ -9,10 +9,10 @@ description: Fully managed message queue
 domain_url: https://aws.amazon.com/sqs/
 executable: tap-airbyte
 keywords:
-- meltano_sdk
+- airbyte
 label: Amazon SQS
 logo_url: /assets/logos/extractors/amazon-sqs.png
-maintenance_status: active
+maintenance_status: beta
 name: tap-amazon-sqs
 namespace: tap_airbyte
 next_steps: ''

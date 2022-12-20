@@ -8,10 +8,11 @@ capabilities:
 description: Next-generation digital commerce
 domain_url: https://commercetools.com/
 executable: tap-airbyte
-keywords: []
+keywords:
+- airbyte
 label: commercetools
 logo_url: /assets/logos/extractors/commercetools.png
-maintenance_status: active
+maintenance_status: beta
 name: tap-commercetools
 namespace: tap_airbyte
 next_steps: ''

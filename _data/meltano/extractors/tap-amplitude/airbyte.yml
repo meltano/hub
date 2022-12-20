@@ -9,10 +9,10 @@ description: Product analytics software
 domain_url: https://amplitude.com/
 executable: tap-airbyte
 keywords:
-- meltano_sdk
+- airbyte
 label: Amplitude
 logo_url: /assets/logos/extractors/amplitude.png
-maintenance_status: active
+maintenance_status: beta
 name: tap-amplitude
 namespace: tap_airbyte
 next_steps: ''

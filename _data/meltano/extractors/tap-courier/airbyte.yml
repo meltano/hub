@@ -8,10 +8,11 @@ capabilities:
 description: API for Email, SMS, Web & Mobile Push Notifications
 domain_url: https://www.courier.com/
 executable: tap-airbyte
-keywords: []
+keywords:
+- airbyte
 label: Courier
 logo_url: /assets/logos/extractors/courier.png
-maintenance_status: active
+maintenance_status: beta
 name: tap-courier
 namespace: tap_airbyte
 next_steps: ''

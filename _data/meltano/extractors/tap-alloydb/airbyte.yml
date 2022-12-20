@@ -9,10 +9,10 @@ description: Fully managed PostgreSQL-compatible database service by Google.
 domain_url: https://cloud.google.com/alloydb
 executable: tap-airbyte
 keywords:
-- meltano_sdk
+- airbyte
 label: AlloyDB
 logo_url: /assets/logos/extractors/alloydb.png
-maintenance_status: active
+maintenance_status: beta
 name: tap-alloydb
 namespace: tap_airbyte
 next_steps: ''

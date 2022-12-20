@@ -8,10 +8,11 @@ capabilities:
 description: Fast Open-Source OLAP DBMS
 domain_url: https://clickhouse.com/
 executable: tap-airbyte
-keywords: []
+keywords:
+- airbyte
 label: ClickHouse
 logo_url: /assets/logos/extractors/clickhouse.png
-maintenance_status: active
+maintenance_status: beta
 name: tap-clickhouse
 namespace: tap_airbyte
 next_steps: ''

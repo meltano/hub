@@ -9,10 +9,10 @@ description: App Review Management & ASO Platform
 domain_url: https://appfollow.io/
 executable: tap-airbyte
 keywords:
-- meltano_sdk
+- airbyte
 label: AppFollow
 logo_url: /assets/logos/extractors/appfollow.png
-maintenance_status: active
+maintenance_status: beta
 name: tap-appfollow
 namespace: tap_airbyte
 next_steps: ''

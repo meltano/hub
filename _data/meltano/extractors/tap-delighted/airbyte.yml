@@ -8,10 +8,11 @@ capabilities:
 description: Self-serve experience management platform
 domain_url: https://delighted.com/
 executable: tap-airbyte
-keywords: []
+keywords:
+- airbyte
 label: Delighted
 logo_url: /assets/logos/extractors/delighted.png
-maintenance_status: active
+maintenance_status: beta
 name: tap-delighted
 namespace: tap_airbyte
 next_steps: ''

@@ -6,7 +6,7 @@ capabilities:
 - stream-maps
 - schema-flattening
 definition: |
-  
+
   ## Airbyte Preview Warning
 
   This connector uses [tap-airbyte](/extractors/airbyte) to call the underlying Docker container for the source. This means the following is required prior to usage:
@@ -18,7 +18,8 @@ definition: |
 description: Marketing analytics platform
 domain_url: https://www.adjust.com/
 executable: tap-airbyte
-keywords: []
+keywords:
+- airbyte
 label: Adjust
 logo_url: /assets/logos/extractors/adjust.png
 maintenance_status: beta

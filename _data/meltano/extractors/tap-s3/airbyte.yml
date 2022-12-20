@@ -9,11 +9,11 @@ description: AWS S3
 domain_url: https://aws.amazon.com/s3/
 executable: tap-airbyte
 keywords:
-- meltano_sdk
 - aws
+- airbyte
 label: S3
 logo_url: /assets/logos/extractors/s3-csv.png
-maintenance_status: active
+maintenance_status: beta
 name: tap-s3
 namespace: tap_airbyte
 next_steps: ''

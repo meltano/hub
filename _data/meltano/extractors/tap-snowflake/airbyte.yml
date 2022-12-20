@@ -9,11 +9,11 @@ description: Extractor for Snowflake data warehouse
 domain_url: https://www.snowflake.com/
 executable: tap-airbyte
 keywords:
-- meltano_sdk
 - database
+- airbyte
 label: Snowflake
 logo_url: /assets/logos/extractors/snowflake.png
-maintenance_status: active
+maintenance_status: beta
 name: tap-snowflake
 namespace: tap_airbyte
 next_steps: ''
@@ -32,7 +32,7 @@ settings:
   kind: string
   label: Connector Config Credentials Auth Type
   name: connector_config.credentials.auth_type
-  value: 'username/password'
+  value: username/password
 # - description: The Client ID of your Snowflake developer application.
 #   kind: password
 #   label: Connector Config Credentials Client Id
