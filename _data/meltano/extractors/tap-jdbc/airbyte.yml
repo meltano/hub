@@ -1,0 +1,66 @@
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+- schema-flattening
+description: Java Database Connectivity
+domain_url: https://docs.oracle.com/javase/tutorial/jdbc/basics/index.html
+executable: tap-airbyte
+keywords:
+- airbyte
+label: JDBC
+logo_url: /assets/logos/extractors/jdbc.png
+maintenance_status: beta
+name: tap-jdbc
+namespace: tap_airbyte
+next_steps: ''
+pip_url: git+https://github.com/z3z1ma/tap-airbyte.git
+repo: https://github.com/z3z1ma/tap-airbyte
+settings:
+- description: Airbyte image to run
+  kind: string
+  label: Airbyte Spec Image
+  name: airbyte_spec.image
+- description: ''
+  kind: string
+  label: Airbyte Spec Tag
+  name: airbyte_spec.tag
+- description: The username which is used to access the database.
+  kind: string
+  label: Connector Config Username
+  name: connector_config.username
+- description: The password associated with this username.
+  kind: password
+  label: Connector Config Password
+  name: connector_config.password
+- description: JDBC formatted URL. See the standard <a href="https://docs.oracle.com/cd/E17952_01/connector-j-8.0-en/connector-j-reference-jdbc-url-format.html">here</a>.
+  kind: string
+  label: Connector Config Jdbc Url
+  name: connector_config.jdbc_url
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+settings_group_validation:
+- - airbyte_spec.image
+  - connector_config.username
+  - connector_config.jdbc_url
+settings_preamble: ''
+usage: ''
+variant: airbyte

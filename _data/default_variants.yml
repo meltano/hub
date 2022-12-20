@@ -187,6 +187,7 @@ extractors:
   tap-invoiced: singer-io
   tap-ireckonu: mashey
   tap-iterable: lambtron
+  tap-jdbc: airbyte
   tap-jira: singer-io
   tap-kafka: transferwise
   tap-kanbanize: n8sty
