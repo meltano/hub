@@ -74,6 +74,7 @@ extractors:
   tap-circle-ci: sisudata
   tap-clarabridge: pathlight
   tap-clickcast: datateer
+  tap-clickhouse: airbyte
   tap-clickup: autoidm
   tap-clientsuccess: antiny
   tap-clockify: immuta
