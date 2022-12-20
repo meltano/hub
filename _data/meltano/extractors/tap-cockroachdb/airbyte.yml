@@ -1,0 +1,86 @@
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+- schema-flattening
+description: The open source, cloud-native distributed SQL database.
+domain_url: https://github.com/cockroachdb/cockroach
+executable: tap-airbyte
+keywords: []
+label: CockroachDB
+logo_url: /assets/logos/extractors/cockroachdb.png
+maintenance_status: active
+name: tap-cockroachdb
+namespace: tap_airbyte
+next_steps: ''
+pip_url: git+https://github.com/z3z1ma/tap-airbyte.git
+repo: https://github.com/z3z1ma/tap-airbyte
+settings:
+- description: Airbyte image to run
+  kind: string
+  label: Airbyte Spec Image
+  name: airbyte_spec.image
+- description: ''
+  kind: string
+  label: Airbyte Spec Tag
+  name: airbyte_spec.tag
+- description: Hostname of the database.
+  kind: string
+  label: Connector Config Host
+  name: connector_config.host
+- description: Port of the database.
+  kind: integer
+  label: Connector Config Port
+  name: connector_config.port
+- description: Name of the database.
+  kind: string
+  label: Connector Config Database
+  name: connector_config.database
+- description: Username to use to access the database.
+  kind: string
+  label: Connector Config Username
+  name: connector_config.username
+- description: Password associated with the username.
+  kind: password
+  label: Connector Config Password
+  name: connector_config.password
+- description: Additional properties to pass to the JDBC URL string when connecting
+    to the database formatted as 'key=value' pairs separated by the symbol '&'. (Eg.
+    key1=value1&key2=value2&key3=value3). For more information read about <a href="https://jdbc.postgresql.org/documentation/head/connect.html">JDBC
+    URL parameters</a>.
+  kind: string
+  label: Connector Config Jdbc Url Params
+  name: connector_config.jdbc_url_params
+- description: Encrypt client/server communications for increased security.
+  kind: boolean
+  label: Connector Config Ssl
+  name: connector_config.ssl
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+settings_group_validation:
+- - connector_config.database
+  - connector_config.port
+  - connector_config.username
+  - connector_config.host
+  - airbyte_spec.image
+settings_preamble: ''
+usage: ''
+variant: airbyte

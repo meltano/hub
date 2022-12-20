@@ -82,6 +82,7 @@ extractors:
   tap-clover: kalai-wavicle
   tap-clubhouse: envoy
   tap-clubspeed: lambtron
+  tap-cockroachdb: airbyte
   tap-codat: singer-io
   tap-coingecko: sicarul
   tap-confluence: edgarrmondragon
