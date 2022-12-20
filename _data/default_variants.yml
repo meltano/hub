@@ -142,6 +142,7 @@ extractors:
   tap-flexport: airbyte
   tap-forecast: uptilab2
   tap-freshdesk: singer-io
+  tap-freshsales: airbyte
   tap-frontapp: singer-io
   tap-fulfil: fulfilio
   tap-fullstory: singer-io
