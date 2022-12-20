@@ -96,6 +96,18 @@ can be expected to take."""
             return None
 
     @staticmethod
+    def _dedup_settings(reformatted_settings):
+        reformatted_settings_2 = {}
+        for setting in reformatted_settings:
+            name = setting.get('name')
+            if name in reformatted_settings_2:
+                existing_setting = reformatted_settings_2.get(name)
+                existing_setting['description'] = ', '.join([existing_setting['description'], setting.get('description')])
+            else:
+                reformatted_settings_2[name] = setting
+        return [value for key, value in reformatted_settings_2.items()]
+
+    @staticmethod
     def _parse_sdk_about_settings(sdk_about_dict, enforce_desc=False):
         settings_raw = sdk_about_dict.get('settings', {})
         reformatted_settings = []
@@ -120,23 +132,25 @@ can be expected to take."""
             reformatted_settings.append(setting_details)
             if settings.get('required'):
                 settings_group_validation.append(settings.get('name'))
-        return reformatted_settings, [list(set(settings_group_validation + base_required))], sdk_about_dict.get('capabilities')
+        deduped_settings = MeltanoUtil._dedup_settings(reformatted_settings)
+        return deduped_settings, [list(set(settings_group_validation + base_required))], sdk_about_dict.get('capabilities')
 
     @staticmethod
     def _traverse_schema_properties(schema, field_sep='.'):
         fields = []
-
         for key, value in schema.get('properties', {}).items():
-            val_type = value.get('type')
-            if val_type == 'object':
+            val_type = value.get('type', 'string')
+            if (val_type == 'object' or 'object' in val_type) and (value.get('properties') or value.get('oneOf')):
                 for subfield in MeltanoUtil._traverse_schema_properties(value):
                     sub_name = subfield.get('name')
                     full_name = f'{key}{field_sep}{sub_name}'
-                    reqs = value.get("required")
+                    reqs = value.get("required", [])
                     field = {
                         'name': full_name,
                         'description': subfield.get('description'),
                         'type': subfield.get('type'),
+                        'title': subfield.get('title'),
+                        'const': subfield.get('const'),
                     }
                     if 'required' in subfield:
                         # accept parent if it was set already
@@ -149,8 +163,15 @@ can be expected to take."""
                 fields.append({
                     'name': key,
                     'description': value.get('description'),
-                    'type': value.get('type')
+                    'type': value.get('type'),
+                    'title': value.get('title'),
+                    'const': value.get('const'),
                 })
+        for item in schema.get('oneOf', []):
+            for i in MeltanoUtil._traverse_schema_properties(item):
+                if i.get('const'):
+                    i['description'] = i.get('const') or item.get('title')
+                fields.append(i)
         return fields
 
 if __name__ == '__main__':
