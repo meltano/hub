@@ -1,0 +1,86 @@
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+- schema-flattening
+description: Next-generation digital commerce
+domain_url: https://commercetools.com/
+executable: tap-airbyte
+keywords: []
+label: commercetools
+logo_url: /assets/logos/extractors/commercetools.png
+maintenance_status: active
+name: tap-commercetools
+namespace: tap_airbyte
+next_steps: ''
+pip_url: git+https://github.com/z3z1ma/tap-airbyte.git
+repo: https://github.com/z3z1ma/tap-airbyte
+settings:
+- description: Airbyte image to run
+  kind: string
+  label: Airbyte Spec Image
+  name: airbyte_spec.image
+- description: ''
+  kind: string
+  label: Airbyte Spec Tag
+  name: airbyte_spec.tag
+- description: The region of the platform.
+  kind: string
+  label: Connector Config Region
+  name: connector_config.region
+- description: 'The cloud provider your shop is hosted. See: https://docs.commercetools.com/api/authorization'
+  kind: options
+  label: Connector Config Host
+  name: connector_config.host
+  options:
+  - label: Gcp
+    value: gcp
+  - label: Aws
+    value: aws
+- description: 'The date you would like to replicate data. Format: YYYY-MM-DD.'
+  kind: string
+  label: Connector Config Start Date
+  name: connector_config.start_date
+- description: The project key
+  kind: password
+  label: Connector Config Project Key
+  name: connector_config.project_key
+- description: Id of API Client.
+  kind: password
+  label: Connector Config Client Id
+  name: connector_config.client_id
+- description: The password of secret of API Client.
+  kind: password
+  label: Connector Config Client Secret
+  name: connector_config.client_secret
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+settings_group_validation:
+- - airbyte_spec.image
+  - connector_config.start_date
+  - connector_config.project_key
+  - connector_config.client_id
+  - connector_config.client_secret
+  - connector_config.host
+  - connector_config.region
+settings_preamble: ''
+usage: ''
+variant: airbyte

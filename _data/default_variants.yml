@@ -85,6 +85,7 @@ extractors:
   tap-cockroachdb: airbyte
   tap-codat: singer-io
   tap-coingecko: sicarul
+  tap-commercetools: airbyte
   tap-confluence: edgarrmondragon
   tap-contentful: dmzobel
   tap-coosto: yoast
