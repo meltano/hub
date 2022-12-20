@@ -70,18 +70,25 @@ class MeltanoUtil:
         return plugin_name.replace('_', ' ').replace('-', ' ').replace('.', ' ').title()
 
     @staticmethod
-    def _parse_kind(kind, setting, format=None):
+    def _parse_kind(kind, settings, format=None):
+        setting = settings.get('name')
         setting = setting.lower()
         if kind == 'string':
             if format in ('date-time', 'date') or setting in ('start_date', 'end_date'):
-                return 'date_iso8601'
+                return 'date_iso8601', None
             if any(id_str.lower() in setting for id_str in ['password', 'id', 'token', 'key', 'secret']) or format == 'airbyte_secret':
-                return 'password'
-            return 'string'
+                return 'password', None
+            return 'string', None
         if kind == 'number':
-            return 'integer'
+            return 'integer', None
+        if kind == 'array':
+            enum = settings.get('items', {}).get('enum')
+            if enum:
+                option_parsed = [{'label': MeltanoUtil._get_label(val), 'value': val} for val in enum]
+                return 'options', option_parsed   
+            return 'array', None
         else:
-            return kind
+            return kind, None
 
     @staticmethod
     def _default_description(setting):
@@ -141,7 +148,11 @@ can be expected to take."""
                     print(f'No type found for: {name}. Defaulting to string')
                     kind = 'string'
 
-            setting_details['kind'] = MeltanoUtil._parse_kind(kind, settings.get('name'))
+            # raise Exception(settings)
+            kind, options = MeltanoUtil._parse_kind(kind, settings)
+            setting_details['kind'] = kind
+            if options:
+                setting_details['options'] = options
 
             reformatted_settings.append(setting_details)
             if settings.get('required'):
@@ -165,6 +176,7 @@ can be expected to take."""
                         'type': subfield.get('type'),
                         'title': subfield.get('title'),
                         'const': subfield.get('const'),
+                        'items': subfield.get('items'),
                     }
                     if 'required' in subfield:
                         # accept parent if it was set already
@@ -180,6 +192,7 @@ can be expected to take."""
                     'type': value.get('type'),
                     'title': value.get('title'),
                     'const': value.get('const'),
+                    'items': value.get('items'),
                 })
         for item in schema.get('oneOf', []):
             for i in MeltanoUtil._traverse_schema_properties(item):

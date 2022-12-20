@@ -255,3 +255,30 @@ def test_sdk_about_parsing_airbyte():
         "stream-maps",
         "schema-flattening"
     ]
+
+
+def test_airbyte_array_enum():
+    sdk_about_dict = _read_data('airbyte_array_enum.json')
+
+    settings, settings_group_validation, capabilities = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
+    print(json.dumps(settings))
+    assert settings == [
+        {
+            "name": "connector_config.metrics",
+            "label": "Connector Config Metrics",
+            "description": "Select at least one metric to query.",
+            "kind": "options",
+            "options": [
+                {"label": "Network Cost", "value": "network_cost"},
+                {"label": "Network Cost Diff", "value": "network_cost_diff"}
+            ]
+        }
+    ]
+    assert capabilities == [
+        "catalog",
+        "state",
+        "discover",
+        "about",
+        "stream-maps",
+        "schema-flattening"
+    ]

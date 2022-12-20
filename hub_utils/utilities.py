@@ -102,7 +102,7 @@ class Utilities:
         settings_group_validation = []
         for setting in setting_list:
             label = self._prompt(f"[{setting}] `label`", default_val=self._get_label(setting))
-            kind = self._prompt(f"[{setting}] `kind`", default_val=MeltanoUtil._parse_kind("string", setting))
+            kind = self._prompt(f"[{setting}] `kind`", default_val=MeltanoUtil._parse_kind("string", {'name': setting}))
             description = self._prompt(f"[{setting}] `description`", default_val=MeltanoUtil._default_description(setting))
             required = self._prompt(f"[{setting}] `required`", default_val=False, type=bool)
             setting_details = {
