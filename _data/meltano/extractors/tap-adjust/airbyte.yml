@@ -6,8 +6,9 @@ capabilities:
 - stream-maps
 - schema-flattening
 definition: |
+  <br>
 
-  ## Airbyte Preview Warning
+  ## ⚠️ Airbyte Preview Warning ⚠️
 
   This connector uses [tap-airbyte](/extractors/airbyte) to call the underlying Docker container for the source. This means the following is required prior to usage:
     

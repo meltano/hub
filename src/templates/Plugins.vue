@@ -130,6 +130,26 @@
                 <pre
                   class="prose language-bash rounded-md"
                 ><code >meltano add {{ $page.plugins.pluginType }} {{ $page.plugins.name }}<span v-if="!$page.plugins.isDefault"> --variant {{ $page.plugins.variant }}</span></code></pre>
+                <span v-if="$page.plugins.pluginType === 'extractor' && $page.plugins.keywords.includes('airbyte')">
+                  <li>
+                    Configure the docker image using
+                    <a href="https://docs.meltano.com/reference/command-line-interface#config">
+                      <pre class="inline-code-block"><code>meltano config</code></pre>
+                    </a>
+                    :
+                  </li>
+                  <pre
+                    class="prose language-bash rounded-md"><code >meltano config {{ $page.plugins.name }} set airbyte_spec.image airbyte/{{ $page.plugins.name.replace("tap-","") }}</code></pre>
+                  <li>
+                    Configure the docker imag tag using
+                    <a href="https://docs.meltano.com/reference/command-line-interface#config">
+                      <pre class="inline-code-block"><code>meltano config</code></pre>
+                    </a>
+                    :
+                  </li>
+                  <pre
+                    class="prose language-bash rounded-md"><code >meltano config {{ $page.plugins.name }} set airbyte_spec.tag latest</code></pre>
+                </span>
                 <li>
                   Configure the {{ $page.plugins.name }} <a href="#settings">settings</a> using
                   <a href="https://docs.meltano.com/reference/command-line-interface#config">
@@ -151,29 +171,7 @@
                   <pre
                     class="prose language-bash rounded-md"
                   ><code >meltano config {{ $page.plugins.name }} test</code></pre>
-                </span>
-                <span v-if="$page.plugins.pluginType === 'extractor' && $page.plugins.keywords.includes('airbyte')">
-                  <li>
-                    Configure the docker image using
-                    <a href="https://docs.meltano.com/reference/command-line-interface#config">
-                      <pre class="inline-code-block"><code>meltano config</code></pre>
-                    </a>
-                    : 
-                  </li>
-                  <pre
-                    class="prose language-bash rounded-md"
-                  ><code >meltano config {{ $page.plugins.name }} set airbyte_spec.image airbyte/{{ $page.plugins.name }}</code></pre>
-                  <li>
-                    Configure the docker imag tag using
-                    <a href="https://docs.meltano.com/reference/command-line-interface#config">
-                      <pre class="inline-code-block"><code>meltano config</code></pre>
-                    </a>
-                    : 
-                  </li>                  
-                  <pre
-                    class="prose language-bash rounded-md"
-                  ><code >meltano config {{ $page.plugins.name }} set airbyte_spec.tag latest</code></pre>
-                </span>                
+                </span>              
               </ol>
               <p class="text-xl py-3">Next steps</p>
               <div
