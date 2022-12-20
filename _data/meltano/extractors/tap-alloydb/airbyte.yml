@@ -1,0 +1,170 @@
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+- schema-flattening
+description: Fully managed PostgreSQL-compatible database service by Google.
+domain_url: https://cloud.google.com/alloydb
+executable: tap-airbyte
+keywords:
+- meltano_sdk
+label: AlloyDB
+logo_url: /assets/logos/extractors/alloydb.png
+maintenance_status: active
+name: tap-alloydb
+namespace: tap_airbyte
+next_steps: ''
+pip_url: git+https://github.com/z3z1ma/tap-airbyte.git
+repo: https://github.com/z3z1ma/tap-airbyte
+settings:
+- description: Airbyte image to run
+  kind: string
+  label: Airbyte Spec Image
+  name: airbyte_spec.image
+- description: Airbyte image tag
+  kind: string
+  label: Airbyte Spec Tag
+  name: airbyte_spec.tag
+- description: Hostname of the database.
+  kind: string
+  label: Connector Config Host
+  name: connector_config.host
+- description: Port of the database.
+  kind: integer
+  label: Connector Config Port
+  name: connector_config.port
+- description: Name of the database.
+  kind: string
+  label: Connector Config Database
+  name: connector_config.database
+- description: The list of schemas (case sensitive) to sync from. Defaults to public.
+  kind: array
+  label: Connector Config Schemas
+  name: connector_config.schemas
+- description: Username to access the database.
+  kind: string
+  label: Connector Config Username
+  name: connector_config.username
+- description: Password associated with the username.
+  kind: password
+  label: Connector Config Password
+  name: connector_config.password
+- description: Additional properties to pass to the JDBC URL string when connecting
+    to the database formatted as 'key=value' pairs separated by the symbol '&'. (Eg.
+    key1=value1&key2=value2&key3=value3). For more information read about <a href="https://jdbc.postgresql.org/documentation/head/connect.html">JDBC
+    URL parameters</a>.
+  kind: string
+  label: Connector Config Jdbc Url Params
+  name: connector_config.jdbc_url_params
+- description: Encrypt data using SSL. When activating SSL, please select one of the
+    connection modes.
+  kind: boolean
+  label: Connector Config Ssl
+  name: connector_config.ssl
+- description: disable, allow, prefer, require, verify-ca, verify-full
+  kind: string
+  label: Connector Config Ssl Mode Mode
+  name: connector_config.ssl_mode.mode
+- description: CA certificate, CA certificate
+  kind: string
+  label: Connector Config Ssl Mode Ca Certificate
+  name: connector_config.ssl_mode.ca_certificate
+- description: Client certificate, Client certificate
+  kind: string
+  label: Connector Config Ssl Mode Client Certificate
+  name: connector_config.ssl_mode.client_certificate
+- description: Client key, Client key
+  kind: password
+  label: Connector Config Ssl Mode Client Key
+  name: connector_config.ssl_mode.client_key
+- description: Password for keystorage. If you do not add it - the password will be
+    generated automatically., Password for keystorage. If you do not add it - the
+    password will be generated automatically.
+  kind: password
+  label: Connector Config Ssl Mode Client Key Password
+  name: connector_config.ssl_mode.client_key_password
+- description: Standard, CDC
+  kind: string
+  label: Connector Config Replication Method Method
+  name: connector_config.replication_method.method
+- description: A logical decoding plugin installed on the PostgreSQL server. The `pgoutput`
+    plugin is used by default. If the replication table contains a lot of big jsonb
+    values it is recommended to use `wal2json` plugin. Read more about <a href="https://docs.airbyte.com/integrations/sources/postgres#step-2-select-a-replication-plugin">selecting
+    replication plugins</a>.
+  kind: string
+  label: Connector Config Replication Method Plugin
+  name: connector_config.replication_method.plugin
+- description: A plugin logical replication slot. Read about <a href="https://docs.airbyte.com/integrations/sources/postgres#step-3-create-replication-slot">replication
+    slots</a>.
+  kind: string
+  label: Connector Config Replication Method Replication Slot
+  name: connector_config.replication_method.replication_slot
+- description: A Postgres publication used for consuming changes. Read about <a href="https://docs.airbyte.com/integrations/sources/postgres#step-4-create-publications-and-replication-identities-for-tables">publications
+    and replication identities</a>.
+  kind: string
+  label: Connector Config Replication Method Publication
+  name: connector_config.replication_method.publication
+- description: 'The amount of time the connector will wait when it launches to determine
+    if there is new data to sync or not. Defaults to 300 seconds. Valid range: 120
+    seconds to 1200 seconds. Read about <a href="https://docs.airbyte.com/integrations/sources/postgres#step-5-optional-set-up-initial-waiting-time">initial
+    waiting time</a>.'
+  kind: integer
+  label: Connector Config Replication Method Initial Waiting Seconds
+  name: connector_config.replication_method.initial_waiting_seconds
+- description: NO_TUNNEL, SSH_KEY_AUTH, SSH_PASSWORD_AUTH
+  kind: string
+  label: Connector Config Tunnel Method Tunnel Method
+  name: connector_config.tunnel_method.tunnel_method
+- description: Hostname of the jump server host that allows inbound ssh tunnel., Hostname
+    of the jump server host that allows inbound ssh tunnel.
+  kind: string
+  label: Connector Config Tunnel Method Tunnel Host
+  name: connector_config.tunnel_method.tunnel_host
+- description: Port on the proxy/jump server that accepts inbound ssh connections.,
+    Port on the proxy/jump server that accepts inbound ssh connections.
+  kind: integer
+  label: Connector Config Tunnel Method Tunnel Port
+  name: connector_config.tunnel_method.tunnel_port
+- description: OS-level username for logging into the jump server host., OS-level
+    username for logging into the jump server host
+  kind: string
+  label: Connector Config Tunnel Method Tunnel User
+  name: connector_config.tunnel_method.tunnel_user
+- description: OS-level user account ssh key credentials in RSA PEM format ( created
+    with ssh-keygen -t rsa -m PEM -f myuser_rsa )
+  kind: password
+  label: Connector Config Tunnel Method Ssh Key
+  name: connector_config.tunnel_method.ssh_key
+- description: OS-level password for logging into the jump server host
+  kind: password
+  label: Connector Config Tunnel Method Tunnel User Password
+  name: connector_config.tunnel_method.tunnel_user_password
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+settings_group_validation:
+- - connector_config.username
+  - connector_config.port
+  - airbyte_spec.image
+  - connector_config.host
+  - connector_config.database
+settings_preamble: ''
+usage: ''
+variant: airbyte
