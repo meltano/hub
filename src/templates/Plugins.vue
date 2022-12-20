@@ -152,7 +152,7 @@
                     class="prose language-bash rounded-md"
                   ><code >meltano config {{ $page.plugins.name }} test</code></pre>
                 </span>
-                <span v-if="$page.plugins.pluginType === 'extractor' && variant.node.keywords.includes('airbyte')">
+                <span v-if="$page.plugins.pluginType === 'extractor' && $page.plugins.keywords.includes('airbyte')">
                   <li>
                     Configure the docker image using
                     <a href="https://docs.meltano.com/reference/command-line-interface#config">
@@ -162,7 +162,7 @@
                   </li>
                   <pre
                     class="prose language-bash rounded-md"
-                  ><code >meltano config {{ $page.plugins.name }} set airbyte_spec.image airbyte/{{ $page.plugins.name}}</code></pre>
+                  ><code >meltano config {{ $page.plugins.name }} set airbyte_spec.image airbyte/{{ $page.plugins.name }}</code></pre>
                   <li>
                     Configure the docker imag tag using
                     <a href="https://docs.meltano.com/reference/command-line-interface#config">
