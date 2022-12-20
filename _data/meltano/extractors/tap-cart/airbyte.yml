@@ -1,0 +1,82 @@
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+- schema-flattening
+description: The Ecommerce Platform for Growing Brands
+domain_url: https://www.cart.com/
+executable: tap-airbyte
+keywords: []
+label: Cart.com
+logo_url: /assets/logos/extractors/cart.png
+maintenance_status: active
+name: tap-cart
+namespace: tap_airbyte
+next_steps: ''
+pip_url: git+https://github.com/z3z1ma/tap-airbyte.git
+repo: https://github.com/z3z1ma/tap-airbyte
+settings:
+- description: Airbyte image to run
+  kind: string
+  label: Airbyte Spec Image
+  name: airbyte_spec.image
+- description: ''
+  kind: string
+  label: Airbyte Spec Tag
+  name: airbyte_spec.tag
+- description: CENTRAL_API_ROUTER, SINGLE_STORE_ACCESS_TOKEN
+  kind: string
+  label: Connector Config Credentials Auth Type
+  name: connector_config.credentials.auth_type
+- description: Enter your application's User Name
+  kind: string
+  label: Connector Config Credentials User Name
+  name: connector_config.credentials.user_name
+- description: Enter your application's User Secret
+  kind: password
+  label: Connector Config Credentials User Secret
+  name: connector_config.credentials.user_secret
+- description: You can determine a site provisioning site Id by hitting https://site.com/store/sitemonitor.aspx
+    and reading the response param PSID
+  kind: password
+  label: Connector Config Credentials Site Id
+  name: connector_config.credentials.site_id
+- description: Access Token for making authenticated requests.
+  kind: password
+  label: Connector Config Credentials Access Token
+  name: connector_config.credentials.access_token
+- description: The name of Cart.com Online Store. All API URLs start with https://[mystorename.com]/api/v1/,
+    where [mystorename.com] is the domain name of your store.
+  kind: string
+  label: Connector Config Credentials Store Name
+  name: connector_config.credentials.store_name
+- description: The date from which you'd like to replicate the data
+  kind: string
+  label: Connector Config Start Date
+  name: connector_config.start_date
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+settings_group_validation:
+- - airbyte_spec.image
+  - connector_config.start_date
+settings_preamble: ''
+usage: ''
+variant: airbyte
