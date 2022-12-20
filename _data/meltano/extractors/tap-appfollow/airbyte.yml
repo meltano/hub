@@ -1,0 +1,73 @@
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+- schema-flattening
+description: App Review Management & ASO Platform
+domain_url: https://appfollow.io/
+executable: tap-airbyte
+keywords:
+- meltano_sdk
+label: AppFollow
+logo_url: /assets/logos/extractors/appfollow.png
+maintenance_status: active
+name: tap-appfollow
+namespace: tap_airbyte
+next_steps: ''
+pip_url: git+https://github.com/z3z1ma/tap-airbyte.git
+repo: https://github.com/z3z1ma/tap-airbyte
+settings:
+- description: Airbyte image to run
+  kind: string
+  label: Airbyte Spec Image
+  name: airbyte_spec.image
+- description: Airbyte image tag
+  kind: string
+  label: Airbyte Spec Tag
+  name: airbyte_spec.tag
+- description: for App Store — this is 9-10 digits identification number; for Google
+    Play — this is bundle name;
+  kind: password
+  label: Connector Config Ext Id
+  name: connector_config.ext_id
+- description: client id provided by Appfollow
+  kind: password
+  label: Connector Config Cid
+  name: connector_config.cid
+- description: api secret provided by Appfollow
+  kind: password
+  label: Connector Config Api Secret
+  name: connector_config.api_secret
+- description: getting data by Country
+  kind: string
+  label: Connector Config Country
+  name: connector_config.country
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+settings_group_validation:
+- - connector_config.cid
+  - connector_config.ext_id
+  - connector_config.country
+  - connector_config.api_secret
+  - airbyte_spec.image
+settings_preamble: ''
+usage: ''
+variant: airbyte
