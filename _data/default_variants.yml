@@ -272,6 +272,7 @@ extractors:
   tap-rickandmorty: clrcrl
   tap-ringcentral: dbt-labs
   tap-rockgympro: cinchio
+  tap-s3: airbyte
   tap-s3-csv: transferwise
   tap-saasoptics: anelendata
   tap-sailthru: singer-io
