@@ -59,6 +59,14 @@
             />
           </a>
         </li>
+        <li v-if="(keywords ?? []).includes('airbyte')">
+          <a href="https://docs.airbyte.com/category/sources">
+            <img
+              alt="Based on the Airbyte Connector"
+              src="https://img.shields.io/badge/Based%on%20the%Airbyte%Connector-🔗-orange"
+            />
+          </a>
+        </li>
       </ul>
     </div>
 
