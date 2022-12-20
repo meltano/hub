@@ -39,6 +39,7 @@ extractors:
   tap-autodesk-bim-360: singer-io
   tap-autopilot: singer-io
   tap-awin: gthesheep
+  tap-aws-cloudtrail: airbyte
   tap-aws-cognito: manuelapilongo
   tap-aws-cost-explorer: albert-marrero
   tap-bamboohr: autoidm

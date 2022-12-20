@@ -1,0 +1,76 @@
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+- schema-flattening
+description: Secure Standardized Logging
+domain_url: https://aws.amazon.com/cloudtrail/
+executable: tap-airbyte
+keywords: []
+label: AWS CloudTrail
+logo_url: /assets/logos/extractors/aws-cloudtrail.png
+maintenance_status: active
+name: tap-aws-cloudtrail
+namespace: tap_airbyte
+next_steps: ''
+pip_url: git+https://github.com/z3z1ma/tap-airbyte.git
+repo: https://github.com/z3z1ma/tap-airbyte
+settings:
+- description: Airbyte image to run
+  kind: string
+  label: Airbyte Spec Image
+  name: airbyte_spec.image
+- description: ''
+  kind: string
+  label: Airbyte Spec Tag
+  name: airbyte_spec.tag
+- description: AWS CloudTrail Access Key ID. See the <a href="https://docs.airbyte.io/integrations/sources/aws-cloudtrail">docs</a>
+    for more information on how to obtain this key.
+  kind: password
+  label: Connector Config Aws Key Id
+  name: connector_config.aws_key_id
+- description: AWS CloudTrail Access Key ID. See the <a href="https://docs.airbyte.io/integrations/sources/aws-cloudtrail">docs</a>
+    for more information on how to obtain this key.
+  kind: password
+  label: Connector Config Aws Secret Key
+  name: connector_config.aws_secret_key
+- description: The default AWS Region to use, for example, us-west-1 or us-west-2.
+    When specifying a Region inline during client initialization, this property is
+    named region_name.
+  kind: string
+  label: Connector Config Aws Region Name
+  name: connector_config.aws_region_name
+- description: 'The date you would like to replicate data. Data in AWS CloudTrail
+    is available for last 90 days only. Format: YYYY-MM-DD.'
+  kind: string
+  label: Connector Config Start Date
+  name: connector_config.start_date
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+settings_group_validation:
+- - connector_config.aws_region_name
+  - connector_config.start_date
+  - airbyte_spec.image
+  - connector_config.aws_key_id
+  - connector_config.aws_secret_key
+settings_preamble: ''
+usage: ''
+variant: airbyte
