@@ -63,6 +63,18 @@
                 <a :href="$page.plugins.domain_url">{{ $page.plugins.label }}</a> that can then be
                 sent to a destination using a <g-link to="/loaders">loader</g-link>.</span
               >
+              <span v-if="$page.plugins.pluginType === 'extractor' && $page.plugins.keywords.includes('airbyte')">
+                  <h2> ⚠️ Airbyte Preview Warning ⚠️ </h2>
+                  
+                  This connector uses <g-link to="/extractors/tap-airbyte">tap-airbyte</g-link> to call the underlying Docker container for the source. This
+                  means the following is required prior to usage:
+                  <ol class="list-decimal list-inside pl-4">
+                    <li>You must have Docker installed and running.</li>
+                    <li>You must have tap-airbyte installed</li>
+                  </ol>
+                  
+                  For more context on how this Airbyte integration works please checkout out the <a :href="'https://docs.meltano.com'">FAQ in the Meltano Docs</a>.
+              </span>
               <span
                 class="prose"
                 v-if="$page.plugins.pluginType === 'extractor'"

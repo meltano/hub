@@ -5,17 +5,7 @@ capabilities:
 - about
 - stream-maps
 - schema-flattening
-definition: |
-  <br>
-
-  ## ⚠️ Airbyte Preview Warning ⚠️
-
-  This connector uses [tap-airbyte](/extractors/airbyte) to call the underlying Docker container for the source. This means the following is required prior to usage:
-    
-    1. You must have Docker installed and running.
-    1. You must have tap-airbyte installed
-
-  For more context on how this Airbyte integration works please checkout out the [FAQ in the Meltano Docs](https://docs.meltano.com).
+definition: ''
 description: Marketing analytics platform
 domain_url: https://www.adjust.com/
 executable: tap-airbyte
