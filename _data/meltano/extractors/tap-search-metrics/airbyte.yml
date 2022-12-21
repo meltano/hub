@@ -11,7 +11,7 @@ executable: tap-airbyte
 keywords:
 - airbyte
 label: Searchmetrics
-logo_url: /assets/logos/extractors/search-metrics.png
+logo_url: /assets/logos/extractors/searchmetrics.png
 maintenance_status: beta
 name: tap-search-metrics
 namespace: tap_airbyte
