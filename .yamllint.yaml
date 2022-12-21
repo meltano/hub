@@ -15,3 +15,4 @@ rules:
     spaces: 2
   key-ordering: enable
   line-length: disable
+  truthy: disable
