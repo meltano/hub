@@ -1,0 +1,118 @@
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+- schema-flattening
+description: Sales CRM Software
+domain_url: https://www.zoho.com/crm/
+executable: tap-airbyte
+keywords:
+- airbyte
+label: Zoho CRM
+logo_url: /assets/logos/extractors/zoho-crm.png
+maintenance_status: beta
+name: tap-zoho-crm
+namespace: tap_airbyte
+next_steps: ''
+pip_url: git+https://github.com/z3z1ma/tap-airbyte.git
+repo: https://github.com/z3z1ma/tap-airbyte
+settings:
+- description: Airbyte image to run
+  kind: string
+  label: Airbyte Spec Image
+  name: airbyte_spec.image
+- description: ''
+  kind: string
+  label: Airbyte Spec Tag
+  name: airbyte_spec.tag
+- description: OAuth2.0 Client ID
+  kind: password
+  label: Connector Config Client Id
+  name: connector_config.client_id
+- description: OAuth2.0 Client Secret
+  kind: password
+  label: Connector Config Client Secret
+  name: connector_config.client_secret
+- description: OAuth2.0 Refresh Token
+  kind: password
+  label: Connector Config Refresh Token
+  name: connector_config.refresh_token
+- description: Please choose the region of your Data Center location. More info by
+    this <a href="https://www.zoho.com/crm/developer/docs/api/v2/multi-dc.html">Link</a>
+  kind: options
+  label: Connector Config Dc Region
+  name: connector_config.dc_region
+  options:
+  - label: Us
+    value: US
+  - label: Au
+    value: AU
+  - label: Eu
+    value: EU
+  - label: In
+    value: IN
+  - label: Cn
+    value: CN
+  - label: Jp
+    value: JP
+- description: Please choose the environment
+  kind: options
+  label: Connector Config Environment
+  name: connector_config.environment
+  options:
+  - label: Production
+    value: Production
+  - label: Developer
+    value: Developer
+  - label: Sandbox
+    value: Sandbox
+- description: 'ISO 8601, for instance: `YYYY-MM-DD`, `YYYY-MM-DD HH:MM:SS+HH:MM`'
+  kind: string
+  label: Connector Config Start Datetime
+  name: connector_config.start_datetime
+- description: Choose your Edition of Zoho CRM to determine API Concurrency Limits
+  kind: options
+  label: Connector Config Edition
+  name: connector_config.edition
+  options:
+  - label: Free
+    value: Free
+  - label: Standard
+    value: Standard
+  - label: Professional
+    value: Professional
+  - label: Enterprise
+    value: Enterprise
+  - label: Ultimate
+    value: Ultimate
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+settings_group_validation:
+- - connector_config.refresh_token
+  - connector_config.dc_region
+  - connector_config.environment
+  - connector_config.edition
+  - connector_config.client_secret
+  - airbyte_spec.image
+  - connector_config.client_id
+settings_preamble: ''
+usage: ''
+variant: airbyte
