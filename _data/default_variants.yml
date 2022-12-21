@@ -408,6 +408,7 @@ extractors:
   tap-wrike: potloc
   tap-xero: singer-io
   tap-xkcd: airbyte
+  tap-yandex-metrica: airbyte
   tap-yotpo: singer-io
   tap-youtube-analytics: singer-io
   tap-zendesk: twilio-labs
