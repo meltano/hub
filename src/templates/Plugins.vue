@@ -77,7 +77,7 @@
                   
                   For more context on how this Airbyte integration works please checkout out the <a :href="'https://docs.meltano.com'">FAQ in the Meltano Docs</a>.
                   <br>
-                  For more detailed information on this connector, checkout the link to the documentation on the <a :href="`https://docs.airbyte.com/integrations/sources/${name.replace('tap-','')}`">source connector page</a>.
+                  <!-- For more detailed information on this connector, checkout the link to the documentation on the <a :href="`https://docs.airbyte.com/integrations/sources/${name.replace('tap-','')}`">source connector page</a>. -->
               </span>
               <span
                 class="prose"
