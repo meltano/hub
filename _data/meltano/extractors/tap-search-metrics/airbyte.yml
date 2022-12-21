@@ -1,0 +1,136 @@
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+- schema-flattening
+description: Search Data Software
+domain_url: https://www.searchmetrics.com/
+executable: tap-airbyte
+keywords:
+- airbyte
+label: Searchmetrics
+logo_url: /assets/logos/extractors/search-metrics.png
+maintenance_status: beta
+name: tap-search-metrics
+namespace: tap_airbyte
+next_steps: ''
+pip_url: git+https://github.com/z3z1ma/tap-airbyte.git
+repo: https://github.com/z3z1ma/tap-airbyte
+settings:
+- description: Airbyte image to run
+  kind: string
+  label: Airbyte Spec Image
+  name: airbyte_spec.image
+- description: ''
+  kind: string
+  label: Airbyte Spec Tag
+  name: airbyte_spec.tag
+- description: ''
+  kind: password
+  label: Connector Config Api Key
+  name: connector_config.api_key
+- description: ''
+  kind: password
+  label: Connector Config Client Secret
+  name: connector_config.client_secret
+- description: The region of the S3 staging bucket to use if utilising a copy strategy.
+  kind: options
+  label: Connector Config Country Code
+  name: connector_config.country_code
+  options:
+  - label: ''
+    value: ''
+  - label: Ar
+    value: AR
+  - label: Au
+    value: AU
+  - label: At
+    value: AT
+  - label: Be
+    value: BE
+  - label: Br
+    value: BR
+  - label: Ca
+    value: CA
+  - label: Cn
+    value: CN
+  - label: Co
+    value: CO
+  - label: Dk
+    value: DK
+  - label: Fi
+    value: FI
+  - label: Fr
+    value: FR
+  - label: De
+    value: DE
+  - label: Hk
+    value: HK
+  - label: In
+    value: IN
+  - label: Ie
+    value: IE
+  - label: It
+    value: IT
+  - label: Jp
+    value: JP
+  - label: Mx
+    value: MX
+  - label: Nl
+    value: NL
+  - label: No
+    value: NO
+  - label: Pl
+    value: PL
+  - label: Ru
+    value: RU
+  - label: Sg
+    value: SG
+  - label: Za
+    value: ZA
+  - label: Es
+    value: ES
+  - label: Se
+    value: SE
+  - label: Ch
+    value: CH
+  - label: Tr
+    value: TR
+  - label: Us
+    value: US
+  - label: Gb
+    value: GB
+- description: Data generated in SearchMetrics after this date will be replicated.
+    This date must be specified in the format YYYY-MM-DDT00:00:00Z.
+  kind: string
+  label: Connector Config Start Date
+  name: connector_config.start_date
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+settings_group_validation:
+- - airbyte_spec.image
+  - connector_config.client_secret
+  - connector_config.country_code
+  - connector_config.start_date
+  - connector_config.api_key
+settings_preamble: ''
+usage: ''
+variant: airbyte
