@@ -63,17 +63,24 @@
                 <a :href="$page.plugins.domain_url">{{ $page.plugins.label }}</a> that can then be
                 sent to a destination using a <g-link to="/loaders">loader</g-link>.</span
               >
-              <span v-if="$page.plugins.pluginType === 'extractor' && $page.plugins.keywords.includes('airbyte')">
+              <span
+                v-if="
+                  $page.plugins.pluginType === 'extractor' &&
+                  $page.plugins.keywords.includes('airbyte')
+                "
+              >
                 <p class="text-3xl py-4" id="airbyte-preview">⚠️ Airbyte Preview Warning ⚠️</p>
-                  
-                  This connector uses <g-link to="/extractors/tap-airbyte">tap-airbyte</g-link> to call the underlying Docker container for the source. This
-                  means the following is required prior to usage:
-                  <ol class="list-decimal list-inside pl-4">
-                    <li>You must have Docker installed and running.</li>
-                    <li>You must have tap-airbyte installed</li>
-                  </ol>
-                  
-                  For more context on how this Airbyte integration works please checkout out the <a :href="'https://docs.meltano.com'">FAQ in the Meltano Docs</a>.
+
+                This connector uses <g-link to="/extractors/tap-airbyte">tap-airbyte</g-link> to
+                call the underlying Docker container for the source. This means the following is
+                required prior to usage:
+                <ol class="list-decimal list-inside pl-4">
+                  <li>You must have Docker installed and running.</li>
+                  <li>You must have tap-airbyte installed</li>
+                </ol>
+
+                For more context on how this Airbyte integration works please checkout out the
+                <a :href="'https://docs.meltano.com'">FAQ in the Meltano Docs</a>.
               </span>
               <span
                 class="prose"
@@ -142,7 +149,12 @@
                 <pre
                   class="prose language-bash rounded-md"
                 ><code >meltano add {{ $page.plugins.pluginType }} {{ $page.plugins.name }}<span v-if="!$page.plugins.isDefault"> --variant {{ $page.plugins.variant }}</span></code></pre>
-                <span v-if="$page.plugins.pluginType === 'extractor' && $page.plugins.keywords.includes('airbyte')">
+                <span
+                  v-if="
+                    $page.plugins.pluginType === 'extractor' &&
+                    $page.plugins.keywords.includes('airbyte')
+                  "
+                >
                   <li>
                     Configure the Docker image name using
                     <a href="https://docs.meltano.com/reference/command-line-interface#config">
@@ -151,7 +163,8 @@
                     :
                   </li>
                   <pre
-                    class="prose language-bash rounded-md"><code >meltano config {{ $page.plugins.name }} set airbyte_spec.image airbyte/{{ $page.plugins.name.replace("tap-","source-") }}</code></pre>
+                    class="prose language-bash rounded-md"
+                  ><code >meltano config {{ $page.plugins.name }} set airbyte_spec.image airbyte/{{ $page.plugins.name.replace("tap-","source-") }}</code></pre>
                   <li>
                     Configure the Docker image tag using
                     <a href="https://docs.meltano.com/reference/command-line-interface#config">
@@ -160,7 +173,8 @@
                     :
                   </li>
                   <pre
-                    class="prose language-bash rounded-md"><code >meltano config {{ $page.plugins.name }} set airbyte_spec.tag latest</code></pre>
+                    class="prose language-bash rounded-md"
+                  ><code >meltano config {{ $page.plugins.name }} set airbyte_spec.tag latest</code></pre>
                 </span>
                 <li>
                   Configure the {{ $page.plugins.name }} <a href="#settings">settings</a> using
@@ -183,7 +197,7 @@
                   <pre
                     class="prose language-bash rounded-md"
                   ><code >meltano config {{ $page.plugins.name }} test</code></pre>
-                </span>              
+                </span>
               </ol>
               <p class="text-xl py-3">Next steps</p>
               <div

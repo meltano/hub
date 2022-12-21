@@ -60,7 +60,7 @@
           </a>
         </li>
         <li v-if="(keywords ?? []).includes('airbyte')">
-          <a :href="`https://docs.airbyte.com/integrations/sources/${name.replace('tap-','')}`">
+          <a :href="`https://docs.airbyte.com/integrations/sources/${name.replace('tap-', '')}`">
             <img
               alt="Based on an Airbyte Connector"
               src="https://img.shields.io/badge/Based%20on%20an%20Airbyte%20Connector-🔗-orange"
