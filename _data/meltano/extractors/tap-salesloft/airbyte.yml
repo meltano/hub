@@ -9,7 +9,7 @@ description: Sales Engagement Platform
 domain_url: https://salesloft.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Salesloft
 logo_url: /assets/logos/extractors/salesloft.png
 maintenance_status: beta
@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: The Client ID of your Salesloft developer application.
   kind: password
   label: Connector Config Client Id

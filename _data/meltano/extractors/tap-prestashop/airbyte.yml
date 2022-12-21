@@ -9,7 +9,7 @@ description: Open source e-commerce platform
 domain_url: https://www.prestashop.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: PrestaShop
 logo_url: /assets/logos/extractors/prestashop.png
 maintenance_status: beta
@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: Your PrestaShop access key. See <a href="https://devdocs.prestashop.com/1.7/webservice/tutorials/creating-access/#create-an-access-key">
     the docs </a> for info on how to obtain this.
   kind: password

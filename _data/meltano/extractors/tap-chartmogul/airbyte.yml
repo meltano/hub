@@ -9,7 +9,7 @@ description: Subscription Analytics Platform
 domain_url: https://chartmogul.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: ChartMogul
 logo_url: /assets/logos/extractors/chartmogul.png
 maintenance_status: beta
@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: Your Chartmogul API key. See <a href="https://help.chartmogul.com/hc/en-us/articles/4407796325906-Creating-and-Managing-API-keys#creating-an-api-key">
     the docs </a> for info on how to obtain this.
   kind: password

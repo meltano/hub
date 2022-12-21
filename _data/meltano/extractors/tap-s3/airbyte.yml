@@ -10,7 +10,7 @@ domain_url: https://aws.amazon.com/s3/
 executable: tap-airbyte
 keywords:
 - aws
-- airbyte
+- airbyte_protocol
 label: S3
 logo_url: /assets/logos/extractors/s3-csv.png
 maintenance_status: beta
@@ -28,6 +28,7 @@ settings:
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: The name of the stream you would like this source to output. Can contain
     letters, numbers, or underscores.
   kind: string

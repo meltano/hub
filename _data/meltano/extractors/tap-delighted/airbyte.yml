@@ -9,7 +9,7 @@ description: Self-serve experience management platform
 domain_url: https://delighted.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Delighted
 logo_url: /assets/logos/extractors/delighted.png
 maintenance_status: beta
@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: A Delighted API key.
   kind: password
   label: Connector Config Api Key

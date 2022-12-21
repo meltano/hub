@@ -9,7 +9,7 @@ description: Note-taking Software Platform
 domain_url: https://www.notion.so/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Notion
 logo_url: /assets/logos/extractors/notion.png
 maintenance_status: beta
@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: UTC date and time in the format 2017-01-25T00:00:00.000Z. Any data
     before this date will not be replicated.
   kind: string

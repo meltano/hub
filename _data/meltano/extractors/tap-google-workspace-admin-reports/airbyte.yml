@@ -9,7 +9,7 @@ description: Google Workspace Admin - Reports API
 domain_url: https://developers.google.com/admin-sdk/reports/v1/get-start/overview
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Google Workspace Admin Reports
 logo_url: /assets/logos/extractors/google-workspace-admin-reports.png
 maintenance_status: beta
@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: The contents of the JSON service account key. See the <a href="https://developers.google.com/admin-sdk/reports/v1/guides/delegation">docs</a>
     for more information on how to generate this key.
   kind: string

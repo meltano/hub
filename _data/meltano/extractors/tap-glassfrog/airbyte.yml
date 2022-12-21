@@ -10,7 +10,7 @@ description: Cloud-based software tool that makes Holacracy transparent and acce
 domain_url: https://www.glassfrog.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: GlassFrog
 logo_url: /assets/logos/extractors/glassfrog.png
 maintenance_status: beta
@@ -24,10 +24,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: API key provided by Glassfrog
   kind: password
   label: Connector Config Api Key

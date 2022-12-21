@@ -9,7 +9,7 @@ description: Supply chain management software
 domain_url: https://www.flexport.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Flexport
 logo_url: /assets/logos/extractors/flexport.png
 maintenance_status: beta
@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: ''
   kind: password
   label: Connector Config Api Key

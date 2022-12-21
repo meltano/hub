@@ -9,7 +9,7 @@ description: Issue and Project Tracking Software
 domain_url: https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Jira
 logo_url: /assets/logos/extractors/jira.png
 maintenance_status: beta
@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: Jira API Token. See the <a href="https://docs.airbyte.com/integrations/sources/jira">docs</a>
     for more information on how to generate this key.
   kind: password

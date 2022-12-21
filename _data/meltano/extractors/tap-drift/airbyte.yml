@@ -9,7 +9,7 @@ description: Conversational Marketing Software
 domain_url: https://www.drift.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Drift
 logo_url: /assets/logos/extractors/drift.png
 maintenance_status: beta
@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: oauth2.0, access_token
   kind: options
   label: Connector Config Credentials Credentials

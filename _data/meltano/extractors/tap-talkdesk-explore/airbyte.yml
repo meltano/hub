@@ -9,7 +9,7 @@ description: End-to-End Cloud Contact Center & CX Solution
 domain_url: https://www.talkdesk.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Talkdesk Explore API
 logo_url: /assets/logos/extractors/talkdesk-explore.png
 maintenance_status: beta
@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: The date from which you'd like to replicate data for Talkdesk Explore
     API, in the format YYYY-MM-DDT00:00:00. All data generated after this date will
     be replicated.

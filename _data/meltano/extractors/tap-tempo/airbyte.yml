@@ -9,7 +9,7 @@ description: Timesheets Software
 domain_url: https://www.tempo.io/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Tempo
 logo_url: /assets/logos/extractors/tempo.png
 maintenance_status: beta
@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: Tempo API Token. Go to Tempo>Settings, scroll down to Data Access and
     select API integration.
   kind: password

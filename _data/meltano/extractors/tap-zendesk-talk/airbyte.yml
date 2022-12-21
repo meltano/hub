@@ -9,7 +9,7 @@ description: Zendesk Talk
 domain_url: https://developer.zendesk.com/api-reference/voice/talk-api
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Zendesk Talk
 logo_url: /assets/logos/extractors/zendesk-talk.png
 maintenance_status: beta
@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: This is your Zendesk subdomain that can be found in your account URL.
     For example, in https://{MY_SUBDOMAIN}.zendesk.com/, where MY_SUBDOMAIN is the
     value of your subdomain.

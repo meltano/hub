@@ -10,7 +10,7 @@ description: Marketing analytics platform
 domain_url: https://www.adjust.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Adjust
 logo_url: /assets/logos/extractors/adjust.png
 maintenance_status: beta
@@ -28,6 +28,7 @@ settings:
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: Metrics names that are not pre-defined, such as cohort metrics or app
     specific metrics.
   kind: array

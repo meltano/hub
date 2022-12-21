@@ -9,7 +9,7 @@ description: Fully managed message queue
 domain_url: https://aws.amazon.com/sqs/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Amazon SQS
 logo_url: /assets/logos/extractors/amazon-sqs.png
 maintenance_status: beta
@@ -27,6 +27,7 @@ settings:
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: URL of the SQS Queue
   kind: string
   label: Connector Config Queue Url

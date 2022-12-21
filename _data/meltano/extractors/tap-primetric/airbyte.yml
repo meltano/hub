@@ -9,7 +9,7 @@ description: Project, Resource and Finance Management
 domain_url: https://www.primetric.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Primetric
 logo_url: /assets/logos/extractors/primetric.png
 maintenance_status: beta
@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: The Client ID of your Primetric developer application. The Client ID
     is visible <a href=\"https://app.primetric.com/administrator/integrations">here</a>.
   kind: password

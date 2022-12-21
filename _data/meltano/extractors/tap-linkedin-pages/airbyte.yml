@@ -9,7 +9,7 @@ description: Linkedin Company Pages
 domain_url: https://business.linkedin.com/marketing-solutions/linkedin-pages
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Linkedin Pages
 logo_url: /assets/logos/extractors/linkedin-pages.png
 maintenance_status: beta
@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: Specify the Organization ID
   kind: integer
   label: Connector Config Org Id

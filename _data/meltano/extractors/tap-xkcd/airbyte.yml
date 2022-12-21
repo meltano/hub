@@ -9,7 +9,7 @@ description: XKCD Webcomic API
 domain_url: https://xkcd.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: XKCD
 logo_url: /assets/logos/extractors/xkcd.png
 maintenance_status: beta
@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: ''
   kind: object
   label: Connector Config

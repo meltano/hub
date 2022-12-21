@@ -9,7 +9,7 @@ description: Product analytics software
 domain_url: https://amplitude.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Amplitude
 logo_url: /assets/logos/extractors/amplitude.png
 maintenance_status: beta
@@ -27,6 +27,7 @@ settings:
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: Amplitude data region server
   kind: options
   label: Connector Config Data Region

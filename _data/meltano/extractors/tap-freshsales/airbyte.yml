@@ -9,7 +9,7 @@ description: Sales CRM Software
 domain_url: https://www.freshworks.com/crm/sales/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Freshsales
 logo_url: /assets/logos/extractors/freshsales.png
 maintenance_status: beta
@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: The Name of your Freshsales domain
   kind: string
   label: Connector Config Domain Name

@@ -9,7 +9,7 @@ description: US Census API
 domain_url: https://www.census.gov/data/developers/guidance/api-user-guide.Example_API_Queries.html
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: US Census
 logo_url: /assets/logos/extractors/us-census.png
 maintenance_status: beta
@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: The query parameters portion of the GET request, without the api key
   kind: string
   label: Connector Config Query Params

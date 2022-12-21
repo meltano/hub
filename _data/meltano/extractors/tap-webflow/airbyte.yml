@@ -9,7 +9,7 @@ description: No-code website builder
 domain_url: https://webflow.com
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Webflow
 logo_url: /assets/logos/extractors/webflow.png
 maintenance_status: beta
@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: The id of the Webflow site you are requesting data from. See https://developers.webflow.com/#sites
   kind: password
   label: Connector Config Site Id

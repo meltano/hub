@@ -9,7 +9,7 @@ description: Web Scraping, Data Extraction and Automation
 domain_url: https://apify.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Apify
 logo_url: /assets/logos/extractors/apify.png
 maintenance_status: beta
@@ -27,6 +27,7 @@ settings:
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: ID of the dataset you would like to load to Airbyte.
   kind: password
   label: Connector Config Datasetid

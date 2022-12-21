@@ -9,7 +9,7 @@ description: Fully managed PostgreSQL-compatible database service by Google.
 domain_url: https://cloud.google.com/alloydb
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: AlloyDB
 logo_url: /assets/logos/extractors/alloydb.png
 maintenance_status: beta
@@ -27,6 +27,7 @@ settings:
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: Hostname of the database.
   kind: string
   label: Connector Config Host

@@ -9,7 +9,7 @@ description: ITSM Software
 domain_url: https://freshservice.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Freshservice
 logo_url: /assets/logos/extractors/freshservice.png
 maintenance_status: beta
@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: The name of your Freshservice domain
   kind: string
   label: Connector Config Domain Name

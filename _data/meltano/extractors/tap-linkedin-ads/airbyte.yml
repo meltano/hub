@@ -9,7 +9,7 @@ description: LinkedIn Ad Platform
 domain_url: https://docs.microsoft.com/en-us/linkedin/marketing/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Linkedin Ads
 logo_url: /assets/logos/extractors/linkedin-ads.png
 maintenance_status: beta
@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: oAuth2.0, access_token
   kind: string
   label: Connector Config Credentials Auth Method

@@ -9,7 +9,7 @@ description: API for Email, SMS, Web & Mobile Push Notifications
 domain_url: https://www.courier.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Courier
 logo_url: /assets/logos/extractors/courier.png
 maintenance_status: beta
@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: Courier API Key to retrieve your data.
   kind: password
   label: Connector Config Api Key

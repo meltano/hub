@@ -9,7 +9,7 @@ description: Push Notification Software
 domain_url: https://onesignal.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: OneSignal
 logo_url: /assets/logos/extractors/onesignal.png
 maintenance_status: beta
@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: OneSignal User Auth Key, see the <a href="https://documentation.onesignal.com/docs/accounts-and-keys#user-auth-key">docs</a>
     for more information on how to obtain this key.
   kind: password

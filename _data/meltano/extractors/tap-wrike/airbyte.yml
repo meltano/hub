@@ -9,7 +9,7 @@ description: Versatile & Robust Project Management Software
 domain_url: https://developers.wrike.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Wrike
 logo_url: /assets/logos/extractors/wrike.png
 maintenance_status: beta
@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: Permanent access token. You can find documentation on how to acquire
     a permanent access token  <a href="https://developers.wrike.com/oauth-20-authorization/">here</a>
   kind: password

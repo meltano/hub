@@ -9,7 +9,7 @@ description: Modern online and offline payments for Africa
 domain_url: https://paystack.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Paystack
 logo_url: /assets/logos/extractors/paystack.png
 maintenance_status: beta
@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: The Paystack API key (usually starts with 'sk_live_'; find yours <a
     href="https://dashboard.paystack.com/#/settings/developer">here</a>).
   kind: password

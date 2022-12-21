@@ -9,7 +9,7 @@ description: Google Marketing Platform
 domain_url: https://marketingplatform.google.com/about/display-video-360/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Display & Video 360
 logo_url: /assets/logos/extractors/dv-360.png
 maintenance_status: beta
@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: Access token
   kind: password
   label: Connector Config Credentials Access Token

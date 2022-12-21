@@ -9,7 +9,7 @@ description: White label URL Shortener
 domain_url: https://short.io/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Searchmetrics
 logo_url: /assets/logos/extractors/shortio.png
 maintenance_status: beta
@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: ''
   kind: password
   label: Connector Config Domain Id

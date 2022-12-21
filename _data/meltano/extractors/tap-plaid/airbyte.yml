@@ -9,7 +9,7 @@ description: Financial Services Software
 domain_url: https://plaid.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Plaid
 logo_url: /assets/logos/extractors/plaid.png
 maintenance_status: beta
@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: The end-user's Link access token.
   kind: password
   label: Connector Config Access Token

@@ -9,7 +9,7 @@ description: Free Time Tracking for your Projects and Tasks
 domain_url: https://myhours.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: My Hours
 logo_url: /assets/logos/extractors/my-hours.png
 maintenance_status: beta
@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: Your My Hours username
   kind: string
   label: Connector Config Email

@@ -10,7 +10,7 @@ description: Docker Hub is the world's easiest way to create, manage, and delive
 domain_url: https://hub.docker.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Docker Hub
 logo_url: /assets/logos/extractors/dockerhub.png
 maintenance_status: beta
@@ -28,6 +28,7 @@ settings:
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: Username of DockerHub person or organization (for https://hub.docker.com/v2/repositories/USERNAME/
     API call)
   kind: string

@@ -9,7 +9,7 @@ description: Web Analytics Software
 domain_url: https://metrica.yandex.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Yandex.Metrica
 logo_url: /assets/logos/extractors/yandex-metrica.png
 maintenance_status: beta
@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: Your Yandex Metrica API access token
   kind: password
   label: Connector Config Auth Token

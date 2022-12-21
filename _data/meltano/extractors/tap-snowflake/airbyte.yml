@@ -10,7 +10,7 @@ domain_url: https://www.snowflake.com/
 executable: tap-airbyte
 keywords:
 - database
-- airbyte
+- airbyte_protocol
 label: Snowflake
 logo_url: /assets/logos/extractors/snowflake.png
 maintenance_status: beta
@@ -28,6 +28,7 @@ settings:
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: OAuth, username/password
   kind: string
   label: Connector Config Credentials Auth Type

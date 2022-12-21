@@ -9,7 +9,7 @@ description: Sales CRM Software & All-in-One Sales Platform
 domain_url: https://developers.getbase.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Zendesk Sell
 logo_url: /assets/logos/extractors/zendesk-sell.png
 maintenance_status: beta
@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: The API token for authenticating to Zendesk Sell
   kind: password
   label: Connector Config Api Token

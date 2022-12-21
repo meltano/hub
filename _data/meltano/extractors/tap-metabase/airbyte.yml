@@ -9,7 +9,7 @@ description: Open-source analytics and business intelligence application
 domain_url: https://www.metabase.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Metabase
 logo_url: /assets/logos/extractors/metabase.png
 maintenance_status: beta
@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: URL to your metabase instance API
   kind: string
   label: Connector Config Instance Api Url

@@ -9,7 +9,7 @@ description: Secure Standardized Logging
 domain_url: https://aws.amazon.com/cloudtrail/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: AWS CloudTrail
 logo_url: /assets/logos/extractors/aws-cloudtrail.png
 maintenance_status: beta
@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: AWS CloudTrail Access Key ID. See the <a href="https://docs.airbyte.io/integrations/sources/aws-cloudtrail">docs</a>
     for more information on how to obtain this key.
   kind: password

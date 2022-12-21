@@ -9,7 +9,7 @@ description: The Ecommerce Platform for Growing Brands
 domain_url: https://www.cart.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Cart.com
 logo_url: /assets/logos/extractors/cart.png
 maintenance_status: beta
@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: CENTRAL_API_ROUTER, SINGLE_STORE_ACCESS_TOKEN
   kind: string
   label: Connector Config Credentials Auth Type

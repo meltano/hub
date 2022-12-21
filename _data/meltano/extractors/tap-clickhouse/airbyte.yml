@@ -9,7 +9,7 @@ description: Fast Open-Source OLAP DBMS
 domain_url: https://clickhouse.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: ClickHouse
 logo_url: /assets/logos/extractors/clickhouse.png
 maintenance_status: beta
@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: The host endpoint of the Clickhouse cluster.
   kind: string
   label: Connector Config Host

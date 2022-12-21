@@ -9,7 +9,7 @@ description: Cloud Data Warehouse
 domain_url: https://www.firebolt.io/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Firebolt
 logo_url: /assets/logos/extractors/firebolt.png
 maintenance_status: beta
@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: Firebolt email address you use to login.
   kind: string
   label: Connector Config Username

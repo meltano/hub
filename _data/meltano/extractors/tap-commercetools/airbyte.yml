@@ -9,7 +9,7 @@ description: Next-generation digital commerce
 domain_url: https://commercetools.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: commercetools
 logo_url: /assets/logos/extractors/commercetools.png
 maintenance_status: beta
@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: The region of the platform.
   kind: string
   label: Connector Config Region

@@ -9,7 +9,7 @@ description: App Review Management & ASO Platform
 domain_url: https://appfollow.io/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: AppFollow
 logo_url: /assets/logos/extractors/appfollow.png
 maintenance_status: beta
@@ -27,6 +27,7 @@ settings:
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: for App Store — this is 9-10 digits identification number; for Google
     Play — this is bundle name;
   kind: password
