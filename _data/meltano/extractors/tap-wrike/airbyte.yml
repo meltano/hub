@@ -1,0 +1,68 @@
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+- schema-flattening
+description: Versatile & Robust Project Management Software
+domain_url: https://developers.wrike.com/
+executable: tap-airbyte
+keywords:
+- airbyte
+label: Wrike
+logo_url: /assets/logos/extractors/wrike.png
+maintenance_status: beta
+name: tap-wrike
+namespace: tap_airbyte
+next_steps: ''
+pip_url: git+https://github.com/z3z1ma/tap-airbyte.git
+repo: https://github.com/z3z1ma/tap-airbyte
+settings:
+- description: Airbyte image to run
+  kind: string
+  label: Airbyte Spec Image
+  name: airbyte_spec.image
+- description: ''
+  kind: string
+  label: Airbyte Spec Tag
+  name: airbyte_spec.tag
+- description: Permanent access token. You can find documentation on how to acquire
+    a permanent access token  <a href="https://developers.wrike.com/oauth-20-authorization/">here</a>
+  kind: password
+  label: Connector Config Access Token
+  name: connector_config.access_token
+- description: Wrike's instance such as `app-us2.wrike.com`
+  kind: string
+  label: Connector Config Wrike Instance
+  name: connector_config.wrike_instance
+- description: UTC date and time in the format 2017-01-25T00:00:00Z. Only comments
+    after this date will be replicated.
+  kind: string
+  label: Connector Config Start Date
+  name: connector_config.start_date
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+settings_group_validation:
+- - connector_config.access_token
+  - airbyte_spec.image
+  - connector_config.wrike_instance
+settings_preamble: ''
+usage: ''
+variant: airbyte
