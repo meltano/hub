@@ -9,8 +9,8 @@ definition: ''
 description: Marketing analytics platform
 domain_url: https://www.adjust.com/
 executable: tap-airbyte
-keywords:
-- airbyte_protocol
+keywords: 
+  - airbyte_protocol
 label: Adjust
 logo_url: /assets/logos/extractors/adjust.png
 maintenance_status: beta
