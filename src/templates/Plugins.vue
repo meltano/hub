@@ -73,15 +73,8 @@
 
                 This connector uses
                 <g-link to="/extractors/tap-airbyte">tap-airbyte-interop</g-link> to call the
-                underlying Docker container for the source. This means the following is required
-                prior to usage:
+                underlying Docker container for the source. This means you must have <a :href='"https://www.docker.com/"'>Docker</a>installed and running prior to usage.
                 <br />
-                <ol class="list-decimal list-inside pl-4">
-                  <li>You must have Docker installed and running.</li>
-                  <li>You must have tap-airbyte installed</li>
-                </ol>
-                <br />
-
                 For more context on how this Airbyte integration works please checkout out the
                 <a :href="'https://docs.meltano.com'">FAQ in the Meltano Docs</a>.
                 <br />
@@ -169,17 +162,7 @@
                   </li>
                   <pre
                     class="prose language-bash rounded-md"
-                  ><code >meltano config {{ $page.plugins.name }} set airbyte_spec.image airbyte/{{ $page.plugins.name.replace("tap-","source-") }}</code></pre>
-                  <li>
-                    Configure the Docker image tag using
-                    <a href="https://docs.meltano.com/reference/command-line-interface#config">
-                      <pre class="inline-code-block"><code>meltano config</code></pre>
-                    </a>
-                    :
-                  </li>
-                  <pre
-                    class="prose language-bash rounded-md"
-                  ><code >meltano config {{ $page.plugins.name }} set airbyte_spec.tag latest</code></pre>
+                  ><code >meltano config {{ $page.plugins.name }} set airbyte_spec image airbyte/{{ $page.plugins.name.replace("tap-","source-") }}</code></pre>
                 </span>
                 <li>
                   Configure the {{ $page.plugins.name }} <a href="#settings">settings</a> using
