@@ -1,0 +1,92 @@
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+- schema-flattening
+description: Cloud-based Warehouse Management System (WMS)
+domain_url: https://www.3plcentral.com
+executable: tap-airbyte
+keywords:
+- airbyte
+label: 3PLCentral
+logo_url: /assets/logos/extractors/3plcentral.png
+maintenance_status: beta
+name: tap-3plcentral
+namespace: tap_airbyte
+next_steps: ''
+pip_url: git+https://github.com/z3z1ma/tap-airbyte.git
+repo: https://github.com/z3z1ma/tap-airbyte
+settings:
+- description: Airbyte image to run
+  kind: string
+  label: Airbyte Spec Image
+  name: airbyte_spec.image
+- description: ''
+  kind: string
+  label: Airbyte Spec Tag
+  name: airbyte_spec.tag
+- description: ''
+  kind: string
+  label: Airbyte Config Url Base
+  name: airbyte_config.url_base
+- description: ''
+  kind: password
+  label: Airbyte Config Client Id
+  name: airbyte_config.client_id
+- description: ''
+  kind: password
+  label: Airbyte Config Client Secret
+  name: airbyte_config.client_secret
+- description: User login ID and/or name is required
+  kind: integer
+  label: Airbyte Config User Login Id
+  name: airbyte_config.user_login_id
+- description: User login ID and/or name is required
+  kind: string
+  label: Airbyte Config User Login
+  name: airbyte_config.user_login
+- description: ''
+  kind: password
+  label: Airbyte Config Tpl Key
+  name: airbyte_config.tpl_key
+- description: ''
+  kind: integer
+  label: Airbyte Config Customer Id
+  name: airbyte_config.customer_id
+- description: ''
+  kind: integer
+  label: Airbyte Config Facility Id
+  name: airbyte_config.facility_id
+- description: Date and time together in RFC 3339 format, for example, 2018-11-13T20:20:39+00:00.
+  kind: string
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+settings_group_validation:
+- - airbyte_spec
+  - airbyte_config.url_base
+  - airbyte_spec.image
+  - airbyte_config.client_secret
+  - airbyte_config.client_id
+settings_preamble: ''
+usage: ''
+variant: airbyte
