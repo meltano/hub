@@ -9,7 +9,7 @@ description: Time Tracking Software
 domain_url: https://help.getharvest.com/api-v2/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Harvest
 logo_url: /assets/logos/extractors/harvest.png
 maintenance_status: beta

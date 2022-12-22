@@ -9,7 +9,7 @@ description: Team communication tool
 domain_url: https://slack.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Slack
 logo_url: /assets/logos/extractors/slack.png
 maintenance_status: beta

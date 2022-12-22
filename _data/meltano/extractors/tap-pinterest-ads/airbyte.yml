@@ -9,7 +9,7 @@ description: Advertising Platform
 domain_url: https://developers.pinterest.com/docs/api/v5/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Pinterest Ads
 logo_url: /assets/logos/extractors/pinterest-ads.png
 maintenance_status: beta

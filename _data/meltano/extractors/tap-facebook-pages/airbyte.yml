@@ -9,7 +9,7 @@ description: Facebook Pages API
 domain_url: https://developers.facebook.com/docs/pages/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Facebook Pages
 logo_url: /assets/logos/extractors/facebook-pages.png
 maintenance_status: beta

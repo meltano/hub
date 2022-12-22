@@ -9,7 +9,7 @@ description: Customer Experience Automation Platform
 domain_url: https://www.activecampaign.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: ActiveCampaign
 logo_url: /assets/logos/extractors/activecampaign.png
 maintenance_status: beta

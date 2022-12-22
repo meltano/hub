@@ -9,7 +9,7 @@ description: Integrated Marketing Platform
 domain_url: https://mailchimp.com/developer/marketing/api/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Mailchimp
 logo_url: /assets/logos/extractors/mailchimp.png
 maintenance_status: beta

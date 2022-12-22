@@ -9,7 +9,7 @@ description: Product Analytics Tool
 domain_url: https://mixpanel.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Mixpanel
 logo_url: /assets/logos/extractors/mixpanel.png
 maintenance_status: beta

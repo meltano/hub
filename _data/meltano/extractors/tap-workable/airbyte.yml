@@ -9,7 +9,7 @@ description: Recruiting Software
 domain_url: https://workable.readme.io/reference/generate-an-access-token#generate-an-api-access-token
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Workable
 logo_url: /assets/logos/extractors/workable.png
 maintenance_status: beta

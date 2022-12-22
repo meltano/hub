@@ -9,7 +9,7 @@ description: Omnichannel Experience Management
 domain_url: https://developers.surveysparrow.com/rest-apis
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Survey Sparrow
 logo_url: /assets/logos/extractors/survey-sparrow.png
 maintenance_status: beta

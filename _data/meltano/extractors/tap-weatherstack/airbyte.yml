@@ -9,7 +9,7 @@ description: Real-Time & Historical World Weather Data API
 domain_url: https://weatherstack.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Weatherstack
 logo_url: /assets/logos/extractors/weatherstack.png
 maintenance_status: beta

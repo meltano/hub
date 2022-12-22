@@ -10,7 +10,7 @@ description: Open Source REST API for SpaceX launch, rocket, core, capsule, star
 domain_url: https://github.com/r-spacex/SpaceX-API
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Spacex API
 logo_url: /assets/logos/extractors/spacex-api.png
 maintenance_status: beta

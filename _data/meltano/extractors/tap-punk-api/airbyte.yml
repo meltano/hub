@@ -9,7 +9,7 @@ description: API for Brewdog's DIY Dog
 domain_url: https://punkapi.com/documentation/v2
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Punk API
 logo_url: /assets/logos/extractors/placeholder.png
 maintenance_status: beta

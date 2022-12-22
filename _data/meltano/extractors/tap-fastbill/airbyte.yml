@@ -9,7 +9,7 @@ description: Web-based finance management for small businesses.
 domain_url: https://www.fastbill.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Fastbill
 logo_url: /assets/logos/extractors/fastbill.png
 maintenance_status: beta

@@ -9,7 +9,7 @@ description: Cloud Database
 domain_url: https://www.oracle.com/database/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Oracle DB
 logo_url: /assets/logos/extractors/oracle.png
 maintenance_status: beta

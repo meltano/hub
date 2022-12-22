@@ -9,7 +9,7 @@ description: Sales CRM and Pipeline Management Software
 domain_url: https://developers.pipedrive.com/docs/api/v1
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Pipedrive
 logo_url: /assets/logos/extractors/pipedrive.png
 maintenance_status: beta

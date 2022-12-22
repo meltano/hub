@@ -9,7 +9,7 @@ description: Customer onboarding software for managing software implementations
 domain_url: https://app.hellobaton.com/api/redoc/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Baton
 logo_url: /assets/logos/extractors/hellobaton.png
 maintenance_status: beta

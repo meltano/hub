@@ -9,7 +9,7 @@ description: Social Media Platform
 domain_url: https://developers.snapchat.com/docs/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Snapchat Marketing
 logo_url: /assets/logos/extractors/snapchat-ads.png
 maintenance_status: beta

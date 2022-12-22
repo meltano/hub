@@ -9,7 +9,7 @@ description: Amazon Redshift Data Warehouse
 domain_url: https://aws.amazon.com/redshift/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Redshift
 logo_url: /assets/logos/extractors/redshift.png
 maintenance_status: beta

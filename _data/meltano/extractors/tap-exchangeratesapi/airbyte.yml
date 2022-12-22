@@ -9,7 +9,7 @@ description: Exchange Rates API
 domain_url: https://exchangeratesapi.io/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Exchangeratesapi.io
 logo_url: /assets/logos/extractors/exchangeratesapi.png
 maintenance_status: beta

@@ -9,7 +9,7 @@ description: Oura Smart Ring
 domain_url: https://ouraring.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Oura Ring
 logo_url: /assets/logos/extractors/oura.png
 maintenance_status: beta

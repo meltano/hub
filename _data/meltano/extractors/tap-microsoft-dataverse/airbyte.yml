@@ -9,7 +9,7 @@ description: Microsoft Dataverse is a data storage and management engine
 domain_url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Microsoft Dataverse
 logo_url: /assets/logos/extractors/microsoft-dataverse.png
 maintenance_status: beta

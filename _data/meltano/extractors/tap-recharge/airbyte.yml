@@ -9,7 +9,7 @@ description: Subscription payments platform
 domain_url: https://rechargepayments.com/developers/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: ReCharge
 logo_url: /assets/logos/extractors/recharge.png
 maintenance_status: beta

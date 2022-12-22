@@ -9,7 +9,7 @@ description: Search platform
 domain_url: https://developers.google.com/webmaster-tools/search-console-api-original/v3/how-tos/search_analytics
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Google Search Console
 logo_url: /assets/logos/extractors/google-search-console.png
 maintenance_status: beta

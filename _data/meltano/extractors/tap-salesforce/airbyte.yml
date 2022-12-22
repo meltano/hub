@@ -9,7 +9,7 @@ description: Customer-relationship management & customer success platform
 domain_url: https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_what_is_rest_api.htm
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Salesforce
 logo_url: /assets/logos/extractors/salesforce.png
 maintenance_status: beta

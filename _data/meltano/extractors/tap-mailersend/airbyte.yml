@@ -9,7 +9,7 @@ description: Transactional Email and SMS Service
 domain_url: https://developers.mailersend.com/#mailersend-api
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Mailersend
 logo_url: /assets/logos/extractors/mailersend.png
 maintenance_status: beta

@@ -9,7 +9,7 @@ description: Social Networking Website
 domain_url: https://developer.twitter.com
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Twitter
 logo_url: /assets/logos/extractors/twitter.png
 maintenance_status: beta

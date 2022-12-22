@@ -9,7 +9,7 @@ description: Generic tap for RSS and Atom feeds
 domain_url: https://en.wikipedia.org/wiki/RSS
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Feed
 logo_url: /assets/logos/extractors/feed.png
 maintenance_status: beta

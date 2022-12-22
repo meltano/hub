@@ -9,7 +9,7 @@ description: Current and Forecast Weather Data Collection
 domain_url: https://openweathermap.org/api
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: OpenWeatherMap
 logo_url: /assets/logos/extractors/openweathermap.png
 maintenance_status: beta

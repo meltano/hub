@@ -9,7 +9,7 @@ description: Cloud communications platform as a service
 domain_url: https://www.twilio.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Twilio
 logo_url: /assets/logos/extractors/twilio.png
 maintenance_status: beta

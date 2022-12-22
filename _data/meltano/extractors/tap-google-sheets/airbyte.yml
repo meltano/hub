@@ -9,7 +9,7 @@ description: Cloud Spreadsheets
 domain_url: https://developers.google.com/webmaster-tools/search-console-api-original/v3/how-tos/search_analytics
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Google Sheets
 logo_url: /assets/logos/extractors/google-sheets.png
 maintenance_status: beta

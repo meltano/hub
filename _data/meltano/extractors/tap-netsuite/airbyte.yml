@@ -9,7 +9,7 @@ description: Business Management Software
 domain_url: https://www.netsuite.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: NetSuite
 logo_url: /assets/logos/extractors/netsuite.png
 maintenance_status: beta

@@ -9,7 +9,7 @@ description: Email Marketing Platform
 domain_url: https://www.mailjet.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Mailjet
 logo_url: /assets/logos/extractors/mailjet.png
 maintenance_status: beta

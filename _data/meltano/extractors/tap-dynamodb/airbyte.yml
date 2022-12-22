@@ -9,7 +9,7 @@ description: NoSQL Database
 domain_url: https://aws.amazon.com/dynamodb/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: DynamoDB
 logo_url: /assets/logos/extractors/dynamodb.png
 maintenance_status: beta

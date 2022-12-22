@@ -9,7 +9,7 @@ description: Subscription billing software
 domain_url: https://apidocs.chargebee.com/docs/api
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Chargebee
 logo_url: /assets/logos/extractors/chargebee.png
 maintenance_status: beta

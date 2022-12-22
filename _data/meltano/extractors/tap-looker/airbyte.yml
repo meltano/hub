@@ -9,7 +9,7 @@ description: Business Intelligence (BI) & Data Analytics Platform
 domain_url: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Looker
 logo_url: /assets/logos/extractors/looker.png
 maintenance_status: beta

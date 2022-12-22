@@ -9,7 +9,7 @@ description: Email marketing software
 domain_url: https://www.mailerlite.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Mailerlite
 logo_url: /assets/logos/extractors/mailerlite.png
 maintenance_status: beta

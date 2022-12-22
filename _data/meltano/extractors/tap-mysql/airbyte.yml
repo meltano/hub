@@ -9,7 +9,7 @@ description: MySQL / MariaDB database extractor
 domain_url: https://www.mysql.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: MySQL / MariaDB
 logo_url: /assets/logos/extractors/mysql.png
 maintenance_status: beta

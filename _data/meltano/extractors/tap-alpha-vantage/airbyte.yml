@@ -9,7 +9,7 @@ description: Free Stock APIs in JSON & Excel
 domain_url: https://www.alphavantage.co/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Alpha Vantage
 logo_url: /assets/logos/extractors/alpha-vantage.png
 maintenance_status: beta

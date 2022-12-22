@@ -9,7 +9,7 @@ description: Digital currency price and information data platform
 domain_url: https://www.coingecko.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Coingecko
 logo_url: /assets/logos/extractors/coingecko.png
 maintenance_status: beta

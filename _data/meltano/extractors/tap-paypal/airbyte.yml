@@ -9,7 +9,7 @@ description: Online Payments System
 domain_url: https://www.paypal.com/us/home
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: PayPal
 logo_url: /assets/logos/extractors/paypal.png
 maintenance_status: beta

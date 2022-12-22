@@ -9,7 +9,7 @@ description: Survey and Form Software
 domain_url: https://developer.typeform.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Typeform
 logo_url: /assets/logos/extractors/typeform.png
 maintenance_status: beta

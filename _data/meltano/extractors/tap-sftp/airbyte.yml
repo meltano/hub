@@ -9,7 +9,7 @@ description: File Transfer Protocol
 domain_url: https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: SFTP
 logo_url: /assets/logos/extractors/sftp.png
 maintenance_status: beta

@@ -9,7 +9,7 @@ description: Fitness Social Network
 domain_url: https://developers.strava.com/docs/reference/#api-models-DetailedAthlete
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Strava
 logo_url: /assets/logos/extractors/strava.png
 maintenance_status: beta

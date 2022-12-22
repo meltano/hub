@@ -9,7 +9,7 @@ description: Digital currency price and information data platform
 domain_url: https://coinmarketcap.com/api/documentation/v1/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Coinmarketcap
 logo_url: /assets/logos/extractors/coinmarketcap.png
 maintenance_status: beta

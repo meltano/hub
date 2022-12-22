@@ -9,7 +9,7 @@ description: Observability service
 domain_url: https://www.datadoghq.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Datadog
 logo_url: /assets/logos/extractors/datadog.png
 maintenance_status: beta

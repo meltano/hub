@@ -9,7 +9,7 @@ description: General purpose
 domain_url: document-based
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: MongoDB
 logo_url: /assets/logos/extractors/mongodb.png
 maintenance_status: beta

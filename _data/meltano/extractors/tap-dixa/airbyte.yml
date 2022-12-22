@@ -9,7 +9,7 @@ description: Customer Experience Platform
 domain_url: https://www.dixa.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: dixa
 logo_url: /assets/logos/extractors/dixa.png
 maintenance_status: beta

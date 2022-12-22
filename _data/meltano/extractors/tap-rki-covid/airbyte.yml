@@ -9,7 +9,7 @@ description: Robert Koch-Institut Germany COVID-19 API
 domain_url: https://api.corona-zahlen.org/docs/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Robert Koch-Institut COVID-19
 logo_url: /assets/logos/extractors/placeholder.png
 maintenance_status: beta

@@ -9,7 +9,7 @@ description: Agile Project Management Software
 domain_url: https://www.pivotaltracker.com/help/api/rest/v5#top
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: PivotalTracker
 logo_url: /assets/logos/extractors/pivotal-tracker.png
 maintenance_status: beta

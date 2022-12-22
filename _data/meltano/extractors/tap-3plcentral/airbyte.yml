@@ -9,7 +9,7 @@ description: Cloud-based Warehouse Management System (WMS)
 domain_url: https://www.3plcentral.com
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: 3PLCentral
 logo_url: /assets/logos/extractors/3plcentral.png
 maintenance_status: beta

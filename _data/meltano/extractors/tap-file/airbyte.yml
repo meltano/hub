@@ -9,7 +9,7 @@ description: Extracts data from files using smart_open
 domain_url: https://developers.facebook.com/docs/pages/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: File
 logo_url: /assets/logos/extractors/file.png
 maintenance_status: beta

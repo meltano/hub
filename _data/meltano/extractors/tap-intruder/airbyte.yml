@@ -9,7 +9,7 @@ description: 'Cloud-based vulnerability scanner '
 domain_url: https://www.intruder.io/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Intruder
 logo_url: /assets/logos/extractors/intruder.png
 maintenance_status: beta

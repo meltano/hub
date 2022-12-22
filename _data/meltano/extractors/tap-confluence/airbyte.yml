@@ -9,7 +9,7 @@ description: Corporate Wiki Software
 domain_url: https://www.atlassian.com/software/confluence
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Confluence
 logo_url: /assets/logos/extractors/confluence.png
 maintenance_status: beta

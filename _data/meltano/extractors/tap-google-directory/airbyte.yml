@@ -9,7 +9,7 @@ description: Google Directory
 domain_url: https://developers.google.com/admin-sdk/directory/v1/guides
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Google Directory
 logo_url: /assets/logos/extractors/placeholder.png
 maintenance_status: beta

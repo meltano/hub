@@ -9,7 +9,7 @@ description: PostgreSQL database extractor
 domain_url: https://www.postgresql.org/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: PostgreSQL
 logo_url: /assets/logos/extractors/postgres.png
 maintenance_status: beta

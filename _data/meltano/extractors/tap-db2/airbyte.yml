@@ -9,7 +9,7 @@ description: IBM Db2 Relational Database
 domain_url: https://www.ibm.com/analytics/db2
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: IBM Db2
 logo_url: /assets/logos/extractors/db2.png
 maintenance_status: beta

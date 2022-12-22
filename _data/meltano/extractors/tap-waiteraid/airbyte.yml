@@ -9,7 +9,7 @@ description: Restaurant Booking System
 domain_url: https://app.waiteraid.com/api-docs/index.html#auth_call
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Waiteraid
 logo_url: /assets/logos/extractors/waiteraid.png
 maintenance_status: beta

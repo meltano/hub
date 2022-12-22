@@ -9,7 +9,7 @@ description: APIs for Tyntec SMS data
 domain_url: https://api.tyntec.com/reference/sms/current.html#sms-api
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Tyntec SMS
 logo_url: /assets/logos/extractors/tyntec-sms.png
 maintenance_status: beta

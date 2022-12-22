@@ -9,7 +9,7 @@ description: Stock photography provider
 domain_url: https://www.pexels.com/api/documentation
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Pexels Api
 logo_url: /assets/logos/extractors/pexels-api.png
 maintenance_status: beta

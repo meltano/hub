@@ -9,7 +9,7 @@ description: Status and incident communication tool
 domain_url: https://www.atlassian.com/software/statuspage
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Statuspage
 logo_url: /assets/logos/extractors/statuspage.png
 maintenance_status: beta

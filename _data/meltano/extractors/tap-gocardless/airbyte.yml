@@ -9,7 +9,7 @@ description: Payment Company
 domain_url: https://gocardless.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: GoCardless
 logo_url: /assets/logos/extractors/gocardless.png
 maintenance_status: beta

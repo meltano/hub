@@ -9,7 +9,7 @@ description: Stock Market Data APIs
 domain_url: https://polygon.io/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Polygon Stock API
 logo_url: /assets/logos/extractors/polygon-stock-api.png
 maintenance_status: beta

@@ -9,7 +9,7 @@ description: Zapier Supported Storage
 domain_url: https://store.zapier.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Zapier Supported Storage
 logo_url: /assets/logos/extractors/zapier-supported-storage.png
 maintenance_status: beta

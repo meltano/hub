@@ -9,7 +9,7 @@ description: Code hosting platform
 domain_url: https://docs.github.com/en/rest
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: GitHub
 logo_url: /assets/logos/extractors/github.png
 maintenance_status: beta

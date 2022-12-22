@@ -9,7 +9,7 @@ description: Autoresponder Software
 domain_url: https://smartengage.com/docs/#smartengage-api
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: SmartEngage
 logo_url: /assets/logos/extractors/smartengage.png
 maintenance_status: beta

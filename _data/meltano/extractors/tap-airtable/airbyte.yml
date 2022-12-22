@@ -9,7 +9,7 @@ description: Cloud collaboration service
 domain_url: https://airtable.com/api
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Airtable
 logo_url: /assets/logos/extractors/airtable.png
 maintenance_status: beta

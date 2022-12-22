@@ -9,7 +9,7 @@ description: Data Catalog Tool
 domain_url: https://docs.secoda.co/secoda-api
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Secoda
 logo_url: /assets/logos/extractors/secoda.png
 maintenance_status: beta

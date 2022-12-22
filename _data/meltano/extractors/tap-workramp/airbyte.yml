@@ -9,7 +9,7 @@ description: Learning Management System
 domain_url: https://www.workramp.com/products/enterprise/integrations/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Workramp
 logo_url: /assets/logos/extractors/workramp.png
 maintenance_status: beta

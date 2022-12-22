@@ -9,7 +9,7 @@ description: HR Platform
 domain_url: https://www.bamboohr.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: BambooHR
 logo_url: /assets/logos/extractors/bamboohr.png
 maintenance_status: beta

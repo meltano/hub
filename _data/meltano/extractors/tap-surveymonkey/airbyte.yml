@@ -9,7 +9,7 @@ description: Online Survey Tool
 domain_url: https://developer.surveymonkey.com/api/v3/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: SurveyMonkey
 logo_url: /assets/logos/extractors/surveymonkey.png
 maintenance_status: beta

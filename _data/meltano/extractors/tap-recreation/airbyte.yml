@@ -9,7 +9,7 @@ description: Recreation Information Database - RIDB
 domain_url: https://ridb.recreation.gov/landing
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Recreation
 logo_url: /assets/logos/extractors/recreation.png
 maintenance_status: beta

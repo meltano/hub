@@ -9,7 +9,7 @@ description: Online payment processing for internet businesses
 domain_url: https://stripe.com/docs/api
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Stripe
 logo_url: /assets/logos/extractors/stripe.png
 maintenance_status: beta

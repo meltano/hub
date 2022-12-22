@@ -9,7 +9,7 @@ description: Authentication and Authorization Platform
 domain_url: https://auth0.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Auth0
 logo_url: /assets/logos/extractors/auth0.png
 maintenance_status: beta

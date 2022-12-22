@@ -9,7 +9,7 @@ description: Public API for Public APIs
 domain_url: https://api.publicapis.org/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Public APIs
 logo_url: /assets/logos/extractors/placeholder.png
 maintenance_status: beta

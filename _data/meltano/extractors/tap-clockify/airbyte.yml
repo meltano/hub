@@ -9,7 +9,7 @@ description: Time Tracking Software
 domain_url: https://clockify.me/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Clockify
 logo_url: /assets/logos/extractors/clockify.png
 maintenance_status: beta

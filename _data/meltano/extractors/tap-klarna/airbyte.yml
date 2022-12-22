@@ -9,7 +9,7 @@ description: eCommerce payment solutions platform
 domain_url: https://www.klarna.com/us/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Klarna
 logo_url: /assets/logos/extractors/klarna.png
 maintenance_status: beta

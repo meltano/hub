@@ -9,7 +9,7 @@ description: Subscription Billing Platform
 domain_url: https://recurly.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Recurly
 logo_url: /assets/logos/extractors/recurly.png
 maintenance_status: beta

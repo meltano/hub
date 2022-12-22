@@ -9,7 +9,7 @@ description: B2B SaaS Billing Software
 domain_url: https://reference.chargify.com/v1/basics/introduction
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Chargify
 logo_url: /assets/logos/extractors/chargify.png
 maintenance_status: beta

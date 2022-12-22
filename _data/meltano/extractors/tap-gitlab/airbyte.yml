@@ -9,7 +9,7 @@ description: Single application for the entire DevOps lifecycle
 domain_url: https://docs.gitlab.com/ee/api/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: GitLab
 logo_url: /assets/logos/extractors/gitlab.png
 maintenance_status: beta

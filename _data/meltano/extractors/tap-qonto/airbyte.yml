@@ -9,7 +9,7 @@ description: Online payment institution for freelancers and SMEs
 domain_url: https://qonto.com/en
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Qonto
 logo_url: /assets/logos/extractors/qonto.png
 maintenance_status: beta

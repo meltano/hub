@@ -9,7 +9,7 @@ description: Ecommerce Platform
 domain_url: https://www.bigcommerce.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: BigCommerce
 logo_url: /assets/logos/extractors/bigcommerce.png
 maintenance_status: beta

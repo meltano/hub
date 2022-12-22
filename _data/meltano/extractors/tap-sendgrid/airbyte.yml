@@ -9,7 +9,7 @@ description: Customer Communication Platform
 domain_url: https://docs.sendgrid.com/docs/for-developers/sending-email/api-getting-started/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: SendGrid
 logo_url: /assets/logos/extractors/sendgrid.png
 maintenance_status: beta

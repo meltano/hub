@@ -9,7 +9,7 @@ description: Cloud-based code analysis service
 domain_url: https://sonarcloud.io/web_api
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Sonar Cloud
 logo_url: /assets/logos/extractors/sonar-cloud.png
 maintenance_status: beta

@@ -9,7 +9,7 @@ description: Subscription Management Platform
 domain_url: https://www.zuora.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Zuora
 logo_url: /assets/logos/extractors/zuora.png
 maintenance_status: beta

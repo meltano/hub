@@ -9,7 +9,7 @@ description: Mobile data collection platform
 domain_url: https://www.surveycto.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: SurveyCTO
 logo_url: /assets/logos/extractors/surveycto.png
 maintenance_status: beta

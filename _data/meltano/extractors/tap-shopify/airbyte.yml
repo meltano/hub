@@ -9,7 +9,7 @@ description: Ecommerce platform
 domain_url: https://shopify.dev/docs/admin-api/rest/reference
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Shopify
 logo_url: /assets/logos/extractors/shopify.png
 maintenance_status: beta

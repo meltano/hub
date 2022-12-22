@@ -9,7 +9,7 @@ description: Time Tracking Software
 domain_url: https://www.toggl.com/
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Toggl
 logo_url: /assets/logos/extractors/toggl.png
 maintenance_status: beta

@@ -9,7 +9,7 @@ description: Customer Success Platform
 domain_url: https://docs.vitally.io/pushing-data-to-vitally/rest-api
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Vitally
 logo_url: /assets/logos/extractors/vitally.png
 maintenance_status: beta

@@ -9,7 +9,7 @@ description: Dmain information lookup service
 domain_url: https://www.ip2whois.com/developers-api
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Ip2Whois
 logo_url: /assets/logos/extractors/ip2whois.png
 maintenance_status: beta

@@ -9,7 +9,7 @@ description: CRM Platform
 domain_url: https://api.insightly.com/v3.1/Help
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Insightly
 logo_url: /assets/logos/extractors/insightly.png
 maintenance_status: beta

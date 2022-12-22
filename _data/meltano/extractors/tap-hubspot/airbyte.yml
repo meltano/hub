@@ -9,7 +9,7 @@ description: Inbound Marketing software
 domain_url: https://legacydocs.hubspot.com/docs/overview
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Hubspot
 logo_url: /assets/logos/extractors/hubspot.png
 maintenance_status: beta

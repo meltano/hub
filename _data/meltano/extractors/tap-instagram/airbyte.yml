@@ -9,7 +9,7 @@ description: Social Networking platform
 domain_url: https://developers.facebook.com/docs/instagram-api
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Instagram
 logo_url: /assets/logos/extractors/instagram.png
 maintenance_status: beta

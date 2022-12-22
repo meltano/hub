@@ -9,7 +9,7 @@ description: Wikipedia Pageviews API
 domain_url: https://wikimedia.org/api/rest_v1/#/Pageviews%20data
 executable: tap-airbyte
 keywords:
-- airbyte
+- airbyte_protocol
 label: Wikipedia Pageviews
 logo_url: /assets/logos/extractors/wikipedia-pageviews.png
 maintenance_status: beta
