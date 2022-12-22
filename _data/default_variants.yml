@@ -32,6 +32,7 @@ extractors:
   tap-appsflyer: singer-io
   tap-appstore: miroapp
   tap-asana: singer-io
+  tap-ashby: airbyte
   tap-ask-nicely: mashey
   tap-athena: meltanolabs
   tap-atinternet: gendarmerienationale
@@ -60,6 +61,7 @@ extractors:
   tap-brillium: manuelapilongo
   tap-bronto: dbt-labs
   tap-bynder: radico
+  tap-callrail: airbyte
   tap-campaign-monitor: singer-io
   tap-canvas: mwcooley99
   tap-carbon-intensity: meltano
@@ -85,10 +87,12 @@ extractors:
   tap-cockroachdb: airbyte
   tap-codat: singer-io
   tap-coingecko: sicarul
+  tap-coinmarketcap: airbyte
   tap-commercetools: airbyte
   tap-confluence: edgarrmondragon
   tap-contentful: dmzobel
   tap-coosto: yoast
+  tap-copper: airbyte
   tap-courier: airbyte
   tap-cqc-org-uk: birdiecare
   tap-criteo: jude188
@@ -148,6 +152,7 @@ extractors:
   tap-fulfil: fulfilio
   tap-fullstory: singer-io
   tap-gainsightpx: widen
+  tap-genesys: airbyte
   tap-getpocket: evelte
   tap-github: meltanolabs
   tap-github-org-projects: rossmcdonald
@@ -157,7 +162,9 @@ extractors:
   tap-gleantap: radico
   tap-gmail: kgpayne
   tap-gmail-csv: food-spotter
+  tap-gong: airbyte
   tap-google-analytics: meltanolabs
+  tap-google-directory: airbyte
   tap-google-search-console: singer-io
   tap-google-sheets: singer-io
   tap-google-workspace-admin-reports: airbyte
@@ -186,12 +193,14 @@ extractors:
   tap-intacct: hotgluexyz
   tap-intercom: singer-io
   tap-invoiced: singer-io
+  tap-ip2whois: airbyte
   tap-ireckonu: mashey
   tap-iterable: lambtron
   tap-jdbc: airbyte
   tap-jira: singer-io
   tap-kafka: transferwise
   tap-kanbanize: n8sty
+  tap-klarna: airbyte
   tap-klaviyo: hotgluexyz
   tap-krow: datateer
   tap-kustomer: singer-io
@@ -244,6 +253,7 @@ extractors:
   tap-mssql: wintersrd
   tap-my-hours: airbyte
   tap-mysql: transferwise
+  tap-nasa: airbyte
   tap-netlify: franloza
   tap-netrivals: epoch8
   tap-netsuite: hotgluexyz
@@ -260,8 +270,10 @@ extractors:
   tap-opensea: decentraland
   tap-openweathermap: matatika
   tap-oracle: s7clarke10
+  tap-orb: airbyte
   tap-orbit: dbt-labs
   tap-ordway: singer-io
+  tap-oura: airbyte
   tap-outbrain: dbt-labs
   tap-outreach: singer-io
   tap-pagerduty: goodeggs
@@ -307,6 +319,7 @@ extractors:
   tap-redis: atlastix
   tap-redshift: monad-inc
   tap-referral-saasquatch: singer-io
+  tap-reply-io: airbyte
   tap-responsys: singer-io
   tap-rest-api-msdk: widen
   tap-retently: airbyte
@@ -315,6 +328,7 @@ extractors:
   tap-richpanel: richpanel-company
   tap-rickandmorty: clrcrl
   tap-ringcentral: dbt-labs
+  tap-rocket-chat: airbyte
   tap-rockgympro: cinchio
   tap-s3: airbyte
   tap-s3-csv: transferwise
@@ -350,6 +364,7 @@ extractors:
   tap-snapengage: pathlight
   tap-snowflake: transferwise
   tap-solarvista: matatika
+  tap-sonar-cloud: airbyte
   tap-spotify: matatika
   tap-spreadsheets-anywhere: ets
   tap-square: singer-io
@@ -361,6 +376,7 @@ extractors:
   tap-stringee: lamlephamngoc
   tap-stripe: singer-io
   tap-sumologic: splitio
+  tap-survey-sparrow: airbyte
   tap-surveymonkey: singer-io
   tap-sybase: s7clarke10
   tap-tableau: gthesheep
@@ -369,6 +385,7 @@ extractors:
   tap-talkdesk-explore: airbyte
   tap-teamwork: immuta
   tap-tempo: airbyte
+  tap-the-guardian-api: airbyte
   tap-thinkific: birdiecare
   tap-thunderboard: matatika
   tap-tickettailor: dbt-labs
@@ -377,6 +394,7 @@ extractors:
   tap-tiktok-business: hkuffel
   tap-timebutler: taikonauten
   tap-timely: airbyte
+  tap-tmdb: airbyte
   tap-toast: lambtron
   tap-toggl: singer-io
   tap-tradera: kgpayne
@@ -384,6 +402,7 @@ extractors:
   tap-trello: singer-io
   tap-trustpilot: dbt-labs
   tap-trustrace: icebug
+  tap-tvmaze-schedule: airbyte
   tap-tvsquared: gthesheep
   tap-twilio: transferwise
   tap-twinfield: yoast
@@ -397,8 +416,11 @@ extractors:
   tap-urban-airship: singer-io
   tap-us-census: airbyte
   tap-uservoice: singer-io
+  tap-visma-economic: airbyte
   tap-vnda-ecommerce: muriloo
+  tap-waiteraid: airbyte
   tap-walkscore: radico
+  tap-weatherstack: airbyte
   tap-webcrawl: anelendata
   tap-webflow: airbyte
   tap-whisky-hunter: airbyte
