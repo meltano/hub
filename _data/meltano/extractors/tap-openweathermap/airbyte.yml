@@ -1,0 +1,187 @@
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+- schema-flattening
+description: Current and Forecast Weather Data Collection
+domain_url: https://openweathermap.org/api
+executable: tap-airbyte
+keywords:
+- airbyte
+label: OpenWeatherMap
+logo_url: /assets/logos/extractors/openweathermap.png
+maintenance_status: beta
+name: tap-openweathermap
+namespace: tap_airbyte
+next_steps: ''
+pip_url: git+https://github.com/z3z1ma/tap-airbyte.git
+repo: https://github.com/z3z1ma/tap-airbyte
+settings:
+- description: Airbyte image to run
+  kind: string
+  label: Airbyte Spec Image
+  name: airbyte_spec.image
+- description: ''
+  kind: string
+  label: Airbyte Spec Tag
+  name: airbyte_spec.tag
+- description: Latitude for which you want to get weather condition from. (min -90,
+    max 90)
+  kind: string
+  label: Airbyte Config Lat
+  name: airbyte_config.lat
+- description: Longitude for which you want to get weather condition from. (min -180,
+    max 180)
+  kind: string
+  label: Airbyte Config Lon
+  name: airbyte_config.lon
+- description: Your OpenWeather API Key. See <a href="https://openweathermap.org/api">here</a>.
+    The key is case sensitive.
+  kind: password
+  label: Airbyte Config Appid
+  name: airbyte_config.appid
+- description: Units of measurement. standard, metric and imperial units are available.
+    If you do not use the units parameter, standard units will be applied by default.
+  kind: options
+  label: Airbyte Config Units
+  name: airbyte_config.units
+  options:
+  - label: Standard
+    value: standard
+  - label: Metric
+    value: metric
+  - label: Imperial
+    value: imperial
+- description: You can use lang parameter to get the output in your language. The
+    contents of the description field will be translated. See <a href="https://openweathermap.org/api/one-call-api#multi">here</a>
+    for the list of supported languages.
+  kind: options
+  label: Airbyte Config Lang
+  name: airbyte_config.lang
+  options:
+  - label: Af
+    value: af
+  - label: Al
+    value: al
+  - label: Ar
+    value: ar
+  - label: Az
+    value: az
+  - label: Bg
+    value: bg
+  - label: Ca
+    value: ca
+  - label: Cz
+    value: cz
+  - label: Da
+    value: da
+  - label: De
+    value: de
+  - label: El
+    value: el
+  - label: En
+    value: en
+  - label: Eu
+    value: eu
+  - label: Fa
+    value: fa
+  - label: Fi
+    value: fi
+  - label: Fr
+    value: fr
+  - label: Gl
+    value: gl
+  - label: He
+    value: he
+  - label: Hi
+    value: hi
+  - label: Hr
+    value: hr
+  - label: Hu
+    value: hu
+  - label: Id
+    value: id
+  - label: It
+    value: it
+  - label: Ja
+    value: ja
+  - label: Kr
+    value: kr
+  - label: La
+    value: la
+  - label: Lt
+    value: lt
+  - label: Mk
+    value: mk
+  - label: No
+    value: no
+  - label: Nl
+    value: nl
+  - label: Pl
+    value: pl
+  - label: Pt
+    value: pt
+  - label: Pt Br
+    value: pt_br
+  - label: Ro
+    value: ro
+  - label: Ru
+    value: ru
+  - label: Sv
+    value: sv
+  - label: Se
+    value: se
+  - label: Sk
+    value: sk
+  - label: Sl
+    value: sl
+  - label: Sp
+    value: sp
+  - label: Es
+    value: es
+  - label: Sr
+    value: sr
+  - label: Th
+    value: th
+  - label: Tr
+    value: tr
+  - label: Ua
+    value: ua
+  - label: Uk
+    value: uk
+  - label: Vi
+    value: vi
+  - label: Zh Cn
+    value: zh_cn
+  - label: Zh Tw
+    value: zh_tw
+  - label: Zu
+    value: zu
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+settings_group_validation:
+- - airbyte_config.lat
+  - airbyte_config.appid
+  - airbyte_config.lon
+  - airbyte_spec.image
+settings_preamble: ''
+usage: ''
+variant: airbyte
