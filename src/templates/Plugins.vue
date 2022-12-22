@@ -303,6 +303,7 @@
             :plugin_type="$page.plugins.pluginType"
             :maintainer="$page.plugins.maintainer"
             :pip_url="$page.plugins.pip_url"
+            :airbyte_name="$page.plugins.airbyte_name"
           />
         </div>
       </div>
