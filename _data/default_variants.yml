@@ -11,6 +11,7 @@ extractors:
   tap-adyen: yoast
   tap-aftership: harrystech
   tap-agilecrm: dreamdata-io
+  tap-aha: airbyte
   tap-airtable: goes-funky
   tap-alloydb: airbyte
   tap-amazon-ads-dsp: singer-io
@@ -57,6 +58,7 @@ extractors:
   tap-bls: frasermarlow
   tap-bold: oriskincare
   tap-braintree: singer-io
+  tap-braze: airbyte
   tap-brightpearl: zookal
   tap-brillium: manuelapilongo
   tap-bronto: dbt-labs
@@ -91,6 +93,7 @@ extractors:
   tap-commercetools: airbyte
   tap-confluence: edgarrmondragon
   tap-contentful: dmzobel
+  tap-convertkit: airbyte
   tap-coosto: yoast
   tap-copper: airbyte
   tap-courier: airbyte
@@ -126,6 +129,7 @@ extractors:
   tap-ebay: dbt-labs
   tap-elasticsearch: airbyte
   tap-eloqua: singer-io
+  tap-emailoctopus: airbyte
   tap-emarsys: singer-io
   tap-estoca: muriloo
   tap-exactsales: rafaeljusi
@@ -153,6 +157,7 @@ extractors:
   tap-fullstory: singer-io
   tap-gainsightpx: widen
   tap-genesys: airbyte
+  tap-getlago: airbyte
   tap-getpocket: evelte
   tap-github: meltanolabs
   tap-github-org-projects: rossmcdonald
@@ -165,12 +170,15 @@ extractors:
   tap-gong: airbyte
   tap-google-analytics: meltanolabs
   tap-google-directory: airbyte
+  tap-google-pagespeed-insights: airbyte
   tap-google-search-console: singer-io
   tap-google-sheets: singer-io
+  tap-google-webfonts: airbyte
   tap-google-workspace-admin-reports: airbyte
   tap-googleads: matatika
   tap-gorgias: brooklyn-data
   tap-greenhouse: codyss
+  tap-gridly: airbyte
   tap-gutendex: airbyte
   tap-harvest: singer-io
   tap-harvest-forecast: singer-io
@@ -207,6 +215,7 @@ extractors:
   tap-kwanko: uptilab2
   tap-kyriba: airbyte
   tap-lastfm: rabidaudio
+  tap-launchdarkly: airbyte
   tap-lemlist: airbyte
   tap-lessonly: pathlight
   tap-lever: dbt-labs
@@ -242,6 +251,7 @@ extractors:
   tap-meshstack: meshcloud
   tap-messagebird: meltanolabs
   tap-metabase: airbyte
+  tap-microsoft-dataverse: airbyte
   tap-mindstamp: manuelapilongo
   tap-miro: slalom-consulting
   tap-mixpanel: hotgluexyz
@@ -293,6 +303,7 @@ extractors:
   tap-plaid: airbyte
   tap-planfix: epoch8
   tap-platformpurple: singer-io
+  tap-plausible: airbyte
   tap-podbean: slalom-consulting
   tap-pokeapi: airbyte
   tap-postgres: transferwise
@@ -305,7 +316,10 @@ extractors:
   tap-procore: hotgluexyz
   tap-prometheus: miroapp
   tap-pubg: autoidm
+  tap-public-apis: airbyte
   tap-purecloud: rumeau
+  tap-pypi: airbyte
+  tap-qonto: airbyte
   tap-quaderno: nickleomartin
   tap-qualaroo: airbyte
   tap-quickbase: mainspringenergy
@@ -328,6 +342,7 @@ extractors:
   tap-richpanel: richpanel-company
   tap-rickandmorty: clrcrl
   tap-ringcentral: dbt-labs
+  tap-rki-covid: airbyte
   tap-rocket-chat: airbyte
   tap-rockgympro: cinchio
   tap-s3: airbyte
@@ -338,9 +353,11 @@ extractors:
   tap-salesloft: airbyte
   tap-search-ads: uptilab2
   tap-search-metrics: airbyte
+  tap-secoda: airbyte
   tap-selligent: singer-io
   tap-sendgrid: singer-io
   tap-sendinblue: hotgluexyz
+  tap-senseforce: airbyte
   tap-sentry: valulucchesi
   tap-servicem8: fostersdata
   tap-sevenrooms: uptilab2
@@ -358,6 +375,7 @@ extractors:
   tap-slack: meltanolabs
   tap-sleeper: collinprather
   tap-sling: singer-io
+  tap-smartengage: airbyte
   tap-smartsheet: brooklyn-data
   tap-sms: jboltron3000
   tap-snapchat-ads: singer-io
@@ -416,6 +434,7 @@ extractors:
   tap-urban-airship: singer-io
   tap-us-census: airbyte
   tap-uservoice: singer-io
+  tap-vantage: airbyte
   tap-visma-economic: airbyte
   tap-vnda-ecommerce: muriloo
   tap-waiteraid: airbyte
@@ -437,7 +456,9 @@ extractors:
   tap-xkcd: airbyte
   tap-yandex-metrica: airbyte
   tap-yotpo: singer-io
+  tap-younium: airbyte
   tap-youtube-analytics: singer-io
+  tap-zapier-supported-storage: airbyte
   tap-zendesk: twilio-labs
   tap-zendesk-chat: singer-io
   tap-zendesk-sell: leag
