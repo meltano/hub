@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: The Authentication API is served over HTTPS. All URLs referenced in
     the documentation have the following base `https://YOUR_DOMAIN`
   kind: string

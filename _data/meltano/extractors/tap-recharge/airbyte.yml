@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: The date from which you'd like to replicate data for Recharge API,
     in the format YYYY-MM-DDT00:00:00Z. Any data before this date will not be replicated.
   kind: string

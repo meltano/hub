@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: The URLs of the website property attached to your GSC account. Read
     more <a href="https://support.google.com/webmasters/answer/34592?hl=en">here</a>.
   kind: array

@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: Depending on the originating datacenter of the SurveyMonkey account,
     the API access URL may be different.
   kind: options

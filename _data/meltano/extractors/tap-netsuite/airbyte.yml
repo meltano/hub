@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: Netsuite realm e.g. 2344535, as for `production` or 2344535_SB1, as
     for the `sandbox`
   kind: string

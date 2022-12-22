@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: Your API Key. See <a href="https://dev.mailjet.com/email/guides/#authentication">here</a>.
   kind: password
   label: Airbyte Config Api Key

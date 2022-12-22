@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: A date in the format YYYY-MM-DD. If you have not set a date, it would
     be defaulted to latest allowed date by api (914 days from today).
   kind: string

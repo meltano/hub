@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: The API Key for the Airtable account. See the <a href="https://support.airtable.com/hc/en-us/articles/219046777-How-do-I-get-my-API-key-">Support
     Guide</a> for more information on how to obtain this key.
   kind: password

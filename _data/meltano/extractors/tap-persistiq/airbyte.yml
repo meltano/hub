@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: PersistIq API Key. See the <a href="https://apidocs.persistiq.com/#authentication">docs</a>
     for more information on where to find that key.
   kind: password

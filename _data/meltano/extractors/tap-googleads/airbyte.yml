@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: Developer token granted by Google to use their APIs. More instruction
     on how to find this value in our <a href="https://docs.airbyte.com/integrations/sources/google-ads#setup-guide">docs</a>
   kind: password

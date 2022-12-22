@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: The unique identifier for your entire gateway account. See the <a href="https://docs.airbyte.io/integrations/sources/braintree">docs</a>
     for more information on how to obtain this ID.
   kind: password

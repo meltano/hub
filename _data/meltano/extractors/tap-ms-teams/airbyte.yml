@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: 'Specifies the length of time over which the Team Device Report stream
     is aggregated. The supported values are: D7, D30, D90, and D180.'
   kind: string

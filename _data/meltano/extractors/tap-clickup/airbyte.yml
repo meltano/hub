@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: Every ClickUp API call required authentication. This field is your
     personal API token. See <a href="https://clickup.com/api/developer-portal/authentication/#personal-token">here</a>.
   kind: password

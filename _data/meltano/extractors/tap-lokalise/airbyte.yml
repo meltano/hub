@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: Lokalise API Key with read-access. Available at Profile settings >
     API tokens. See <a href="https://docs.lokalise.com/en/articles/1929556-api-tokens">here</a>.
   kind: password

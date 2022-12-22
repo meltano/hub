@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: Iterable API Key. See the <a href="https://docs.airbyte.com/integrations/sources/iterable">docs</a>
     for more information on how to obtain this key.
   kind: password

@@ -23,10 +23,11 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-- description: ''
+- description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
+  value: latest
 - description: Log into your GitLab account and then generate a personal [Access Token](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html).
   kind: password
   label: Airbyte Config Private Token
