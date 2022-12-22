@@ -331,7 +331,7 @@ class Utilities:
         print(definition_path)
         print(f'Adds {plugin_type} {plugin_name} ({variant})\n\n')
 
-    def add_airbyte(self, definition_seed: dict = None):
+    def add_airbyte(self, definition_seed: dict = None, enforce_desc: bool = True):
         repo_url = 'https://github.com/z3z1ma/tap-airbyte'
         plugin_name = self._prompt("plugin name", 'tap-<source/x>')
         plugin_type = 'extractors'
@@ -348,12 +348,12 @@ class Utilities:
             executable,
         )
         if sdk_about_dict:
-            settings, settings_group_validation, capabilities = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict, enforce_desc=True)
+            settings, settings_group_validation, capabilities = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict, enforce_desc=enforce_desc)
         else:
             setting_list = self._compile_settings()
             settings, settings_group_validation = self._build_settings(setting_list)
             capabilities = self._string_to_literal(self._prompt("capabilities", self._boilerplate_capabilities(plugin_type)))
-        keywords = self._string_to_literal(self._prompt("keywords", self._scrape_keywords(True)))
+        keywords = ['airbyte_protocol']
         definition = self._boilerplate_definition(
             repo_url,
             plugin_type,
