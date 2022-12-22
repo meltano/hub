@@ -60,7 +60,7 @@
           </a>
         </li>
         <li v-if="(keywords ?? []).includes('airbyte_protocol')">
-          <a :href="`https://docs.airbyte.com/integrations/sources/${airbyte_name.replace('-','s/')}`">
+          <a :href="`https://docs.airbyte.com/integrations/${airbyte_name.replace('-','s/')}`">
             <img
               alt="Based on an Airbyte Connector"
               src="https://img.shields.io/badge/Based%20on%20an%20Airbyte%20Connector-🔗-orange"
