@@ -1,0 +1,124 @@
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+- schema-flattening
+description: NoSQL Database
+domain_url: https://aws.amazon.com/dynamodb/
+executable: tap-airbyte
+keywords:
+- airbyte
+label: DynamoDB
+logo_url: /assets/logos/extractors/dynamodb.png
+maintenance_status: beta
+name: tap-dynamodb
+namespace: tap_airbyte
+next_steps: ''
+pip_url: git+https://github.com/z3z1ma/tap-airbyte.git
+repo: https://github.com/z3z1ma/tap-airbyte
+settings:
+- description: Airbyte image to run
+  kind: string
+  label: Airbyte Spec Image
+  name: airbyte_spec.image
+- description: ''
+  kind: string
+  label: Airbyte Spec Tag
+  name: airbyte_spec.tag
+- description: the URL of the Dynamodb database
+  kind: string
+  label: Airbyte Config Endpoint
+  name: airbyte_config.endpoint
+- description: The region of the Dynamodb database
+  kind: options
+  label: Airbyte Config Region
+  name: airbyte_config.region
+  options:
+  - label: ''
+    value: ''
+  - label: Us East 1
+    value: us-east-1
+  - label: Us East 2
+    value: us-east-2
+  - label: Us West 1
+    value: us-west-1
+  - label: Us West 2
+    value: us-west-2
+  - label: Af South 1
+    value: af-south-1
+  - label: Ap East 1
+    value: ap-east-1
+  - label: Ap South 1
+    value: ap-south-1
+  - label: Ap Northeast 1
+    value: ap-northeast-1
+  - label: Ap Northeast 2
+    value: ap-northeast-2
+  - label: Ap Northeast 3
+    value: ap-northeast-3
+  - label: Ap Southeast 1
+    value: ap-southeast-1
+  - label: Ap Southeast 2
+    value: ap-southeast-2
+  - label: Ca Central 1
+    value: ca-central-1
+  - label: Cn North 1
+    value: cn-north-1
+  - label: Cn Northwest 1
+    value: cn-northwest-1
+  - label: Eu Central 1
+    value: eu-central-1
+  - label: Eu North 1
+    value: eu-north-1
+  - label: Eu South 1
+    value: eu-south-1
+  - label: Eu West 1
+    value: eu-west-1
+  - label: Eu West 2
+    value: eu-west-2
+  - label: Eu West 3
+    value: eu-west-3
+  - label: Sa East 1
+    value: sa-east-1
+  - label: Me South 1
+    value: me-south-1
+  - label: Us Gov East 1
+    value: us-gov-east-1
+  - label: Us Gov West 1
+    value: us-gov-west-1
+- description: The access key id to access Dynamodb. Airbyte requires read permissions
+    to the database
+  kind: password
+  label: Airbyte Config Access Key Id
+  name: airbyte_config.access_key_id
+- description: The corresponding secret to the access key id.
+  kind: password
+  label: Airbyte Config Secret Access Key
+  name: airbyte_config.secret_access_key
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+settings_group_validation:
+- - airbyte_config.access_key_id
+  - airbyte_spec.image
+  - airbyte_config.secret_access_key
+settings_preamble: ''
+usage: ''
+variant: airbyte
