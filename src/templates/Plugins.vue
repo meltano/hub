@@ -63,21 +63,29 @@
                 <a :href="$page.plugins.domain_url">{{ $page.plugins.label }}</a> that can then be
                 sent to a destination using a <g-link to="/loaders">loader</g-link>.</span
               >
-              <span v-if="$page.plugins.pluginType === 'extractor' && $page.plugins.keywords.includes('airbyte_protocol')">
+              <span
+                v-if="
+                  $page.plugins.pluginType === 'extractor' &&
+                  $page.plugins.keywords.includes('airbyte_protocol')
+                "
+              >
                 <p class="text-3xl py-4" id="airbyte-preview">⚠️ Experimental Preview Warning ⚠️</p>
-                  
-                  This connector uses <g-link to="/extractors/tap-airbyte">tap-airbyte-interop</g-link> to call the underlying Docker container for the source. This
-                  means the following is required prior to usage:
-                  <br>
-                  <ol class="list-decimal list-inside pl-4">
-                    <li>You must have Docker installed and running.</li>
-                    <li>You must have tap-airbyte installed</li>
-                  </ol>
-                  <br>
-                  
-                  For more context on how this Airbyte integration works please checkout out the <a :href="'https://docs.meltano.com'">FAQ in the Meltano Docs</a>.
-                  <br>
-                  <!-- For more detailed information on this connector, checkout the link to the documentation on the <a :href="`https://docs.airbyte.com/integrations/sources/${name.replace('tap-','')}`">source connector page</a>. -->
+
+                This connector uses
+                <g-link to="/extractors/tap-airbyte">tap-airbyte-interop</g-link> to call the
+                underlying Docker container for the source. This means the following is required
+                prior to usage:
+                <br />
+                <ol class="list-decimal list-inside pl-4">
+                  <li>You must have Docker installed and running.</li>
+                  <li>You must have tap-airbyte installed</li>
+                </ol>
+                <br />
+
+                For more context on how this Airbyte integration works please checkout out the
+                <a :href="'https://docs.meltano.com'">FAQ in the Meltano Docs</a>.
+                <br />
+                <!-- For more detailed information on this connector, checkout the link to the documentation on the <a :href="`https://docs.airbyte.com/integrations/sources/${name.replace('tap-','')}`">source connector page</a>. -->
               </span>
               <span
                 class="prose"
@@ -146,7 +154,12 @@
                 <pre
                   class="prose language-bash rounded-md"
                 ><code >meltano add {{ $page.plugins.pluginType }} {{ $page.plugins.name }}<span v-if="!$page.plugins.isDefault"> --variant {{ $page.plugins.variant }}</span></code></pre>
-                <span v-if="$page.plugins.pluginType === 'extractor' && $page.plugins.keywords.includes('airbyte_protocol')">
+                <span
+                  v-if="
+                    $page.plugins.pluginType === 'extractor' &&
+                    $page.plugins.keywords.includes('airbyte_protocol')
+                  "
+                >
                   <li>
                     Configure the Docker image name using
                     <a href="https://docs.meltano.com/reference/command-line-interface#config">
