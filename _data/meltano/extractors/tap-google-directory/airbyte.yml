@@ -11,7 +11,7 @@ executable: tap-airbyte
 keywords:
 - airbyte
 label: Google Directory
-logo_url: /assets/logos/extractors/google-directory.png
+logo_url: /assets/logos/extractors/placeholder.png
 maintenance_status: beta
 name: tap-google-directory
 namespace: tap_airbyte
