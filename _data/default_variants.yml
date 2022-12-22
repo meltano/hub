@@ -155,6 +155,7 @@ extractors:
   tap-fastly: splitio
   tap-fauna: airbyte
   tap-feed: jawats
+  tap-file: airbyte
   tap-firebolt: airbyte
   tap-five9: pathlight
   tap-fixerio: singer-io
