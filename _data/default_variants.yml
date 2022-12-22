@@ -290,6 +290,7 @@ extractors:
   tap-pagerduty: goodeggs
   tap-pardot: singer-io
   tap-parquet: dataops-tk
+  tap-partnerstack: airbyte
   tap-partoo: gendarmerienationale
   tap-paypal: yoast
   tap-paystack: airbyte
