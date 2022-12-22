@@ -359,7 +359,7 @@ query Plugins($path: String!, $name: String!) {
       url
     }
   }
-  variants: allPlugins(filter: { name: { eq: $name } }) {
+  variants: allPlugins(filter: { name: { eq: $name }, hidden: { ne: true } }) {
     edges {
       node {
         name
