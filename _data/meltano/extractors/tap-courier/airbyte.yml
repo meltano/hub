@@ -30,8 +30,8 @@ settings:
   value: latest
 - description: Courier API Key to retrieve your data.
   kind: password
-  label: Connector Config Api Key
-  name: connector_config.api_key
+  label: Airbyte Config Api Key
+  name: airbyte_config.api_key
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object

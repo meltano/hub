@@ -30,16 +30,16 @@ settings:
   value: latest
 - description: The username which is used to access the database.
   kind: string
-  label: Connector Config Username
-  name: connector_config.username
+  label: Airbyte Config Username
+  name: airbyte_config.username
 - description: The password associated with this username.
   kind: password
-  label: Connector Config Password
-  name: connector_config.password
+  label: Airbyte Config Password
+  name: airbyte_config.password
 - description: JDBC formatted URL. See the standard <a href="https://docs.oracle.com/cd/E17952_01/connector-j-8.0-en/connector-j-reference-jdbc-url-format.html">here</a>.
   kind: string
-  label: Connector Config Jdbc Url
-  name: connector_config.jdbc_url
+  label: Airbyte Config Jdbc Url
+  name: airbyte_config.jdbc_url
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object

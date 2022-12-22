@@ -32,32 +32,32 @@ settings:
     For example, in https://{MY_SUBDOMAIN}.zendesk.com/, where MY_SUBDOMAIN is the
     value of your subdomain.
   kind: string
-  label: Connector Config Subdomain
-  name: connector_config.subdomain
+  label: Airbyte Config Subdomain
+  name: airbyte_config.subdomain
 - description: api_token, oauth2.0
   kind: string
-  label: Connector Config Credentials Auth Type
-  name: connector_config.credentials.auth_type
+  label: Airbyte Config Credentials Auth Type
+  name: airbyte_config.credentials.auth_type
 - description: The user email for your Zendesk account.
   kind: string
-  label: Connector Config Credentials Email
-  name: connector_config.credentials.email
+  label: Airbyte Config Credentials Email
+  name: airbyte_config.credentials.email
 - description: The value of the API token generated. See the <a href="https://docs.airbyte.com/integrations/sources/zendesk-talk">docs</a>
     for more information.
   kind: password
-  label: Connector Config Credentials Api Token
-  name: connector_config.credentials.api_token
+  label: Airbyte Config Credentials Api Token
+  name: airbyte_config.credentials.api_token
 - description: The value of the API token generated. See the <a href="https://docs.airbyte.io/integrations/sources/zendesk-talk">docs</a>
     for more information.
   kind: password
-  label: Connector Config Credentials Access Token
-  name: connector_config.credentials.access_token
+  label: Airbyte Config Credentials Access Token
+  name: airbyte_config.credentials.access_token
 - description: The date from which you'd like to replicate data for Zendesk Talk API,
     in the format YYYY-MM-DDT00:00:00Z. All data generated after this date will be
     replicated.
   kind: string
-  label: Connector Config Start Date
-  name: connector_config.start_date
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object

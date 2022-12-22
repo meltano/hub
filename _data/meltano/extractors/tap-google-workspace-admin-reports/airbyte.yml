@@ -31,18 +31,18 @@ settings:
 - description: The contents of the JSON service account key. See the <a href="https://developers.google.com/admin-sdk/reports/v1/guides/delegation">docs</a>
     for more information on how to generate this key.
   kind: string
-  label: Connector Config Credentials Json
-  name: connector_config.credentials_json
+  label: Airbyte Config Credentials Json
+  name: airbyte_config.credentials_json
 - description: The email of the user, who has permissions to access the Google Workspace
     Admin APIs.
   kind: string
-  label: Connector Config Email
-  name: connector_config.email
+  label: Airbyte Config Email
+  name: airbyte_config.email
 - description: Sets the range of time shown in the report. The maximum value allowed
     by the Google API is 180 days.
   kind: integer
-  label: Connector Config Lookback
-  name: connector_config.lookback
+  label: Airbyte Config Lookback
+  name: airbyte_config.lookback
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object

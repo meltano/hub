@@ -30,17 +30,17 @@ settings:
   value: latest
 - description: ''
   kind: password
-  label: Connector Config Domain Id
-  name: connector_config.domain_id
+  label: Airbyte Config Domain Id
+  name: airbyte_config.domain_id
 - description: Short.io Secret Key
   kind: password
-  label: Connector Config Secret Key
-  name: connector_config.secret_key
+  label: Airbyte Config Secret Key
+  name: airbyte_config.secret_key
 - description: UTC date and time in the format 2017-01-25T00:00:00Z. Any data before
     this date will not be replicated.
   kind: string
-  label: Connector Config Start Date
-  name: connector_config.start_date
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object

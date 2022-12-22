@@ -30,18 +30,18 @@ settings:
   value: latest
 - description: The name of your Freshservice domain
   kind: string
-  label: Connector Config Domain Name
-  name: connector_config.domain_name
+  label: Airbyte Config Domain Name
+  name: airbyte_config.domain_name
 - description: Freshservice API Key. See <a href="https://api.freshservice.com/#authentication">here</a>.
     The key is case sensitive.
   kind: password
-  label: Connector Config Api Key
-  name: connector_config.api_key
+  label: Airbyte Config Api Key
+  name: airbyte_config.api_key
 - description: UTC date and time in the format 2020-10-01T00:00:00Z. Any data before
     this date will not be replicated.
   kind: string
-  label: Connector Config Start Date
-  name: connector_config.start_date
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object

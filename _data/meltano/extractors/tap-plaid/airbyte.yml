@@ -30,25 +30,25 @@ settings:
   value: latest
 - description: The end-user's Link access token.
   kind: password
-  label: Connector Config Access Token
-  name: connector_config.access_token
+  label: Airbyte Config Access Token
+  name: airbyte_config.access_token
 - description: The Plaid API key to use to hit the API.
   kind: password
-  label: Connector Config Api Key
-  name: connector_config.api_key
+  label: Airbyte Config Api Key
+  name: airbyte_config.api_key
 - description: The Plaid client id
   kind: password
-  label: Connector Config Client Id
-  name: connector_config.client_id
+  label: Airbyte Config Client Id
+  name: airbyte_config.client_id
 - description: The Plaid environment
   kind: password
-  label: Connector Config Plaid Env
-  name: connector_config.plaid_env
+  label: Airbyte Config Plaid Env
+  name: airbyte_config.plaid_env
 - description: The date from which you'd like to replicate data for Plaid in the format
     YYYY-MM-DD. All data generated after this date will be replicated.
   kind: string
-  label: Connector Config Start Date
-  name: connector_config.start_date
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object

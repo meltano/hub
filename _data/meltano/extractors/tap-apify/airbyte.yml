@@ -30,14 +30,14 @@ settings:
   value: latest
 - description: ID of the dataset you would like to load to Airbyte.
   kind: password
-  label: Connector Config Datasetid
-  name: connector_config.datasetId
+  label: Airbyte Config Datasetid
+  name: airbyte_config.datasetId
 - description: If set to true, only clean items will be downloaded from the dataset.
     See description of what clean means in <a href="https://docs.apify.com/api/v2#/reference/datasets/item-collection/get-items">Apify
     API docs</a>. If not sure, set clean to false.
   kind: boolean
-  label: Connector Config Clean
-  name: connector_config.clean
+  label: Airbyte Config Clean
+  name: airbyte_config.clean
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object

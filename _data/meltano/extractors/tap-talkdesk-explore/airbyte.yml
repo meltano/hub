@@ -32,22 +32,22 @@ settings:
     API, in the format YYYY-MM-DDT00:00:00. All data generated after this date will
     be replicated.
   kind: string
-  label: Connector Config Start Date
-  name: connector_config.start_date
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
 - description: Timezone to use when generating reports. Only IANA timezones are supported
     (https://nodatime.org/TimeZones)
   kind: string
-  label: Connector Config Timezone
-  name: connector_config.timezone
+  label: Airbyte Config Timezone
+  name: airbyte_config.timezone
 - description: Talkdesk Auth URL. Only 'client_credentials' auth type supported at
     the moment.
   kind: string
-  label: Connector Config Auth Url
-  name: connector_config.auth_url
+  label: Airbyte Config Auth Url
+  name: airbyte_config.auth_url
 - description: Talkdesk API key.
   kind: password
-  label: Connector Config Api Key
-  name: connector_config.api_key
+  label: Airbyte Config Api Key
+  name: airbyte_config.api_key
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object

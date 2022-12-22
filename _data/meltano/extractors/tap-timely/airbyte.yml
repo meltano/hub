@@ -30,16 +30,16 @@ settings:
   value: latest
 - description: Timely account id
   kind: password
-  label: Connector Config Account Id
-  name: connector_config.account_id
+  label: Airbyte Config Account Id
+  name: airbyte_config.account_id
 - description: start date
   kind: string
-  label: Connector Config Start Date
-  name: connector_config.start_date
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
 - description: Timely bearer token
   kind: password
-  label: Connector Config Bearer Token
-  name: connector_config.bearer_token
+  label: Airbyte Config Bearer Token
+  name: airbyte_config.bearer_token
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object

@@ -31,33 +31,33 @@ settings:
 - description: The date from which you'd like to replicate data for Zendesk Chat API,
     in the format YYYY-MM-DDT00:00:00Z.
   kind: string
-  label: Connector Config Start Date
-  name: connector_config.start_date
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
 - description: Required if you access Zendesk Chat from a Zendesk Support subdomain.
   kind: string
-  label: Connector Config Subdomain
-  name: connector_config.subdomain
+  label: Airbyte Config Subdomain
+  name: airbyte_config.subdomain
 - description: oauth2.0, access_token
   kind: string
-  label: Connector Config Credentials Credentials
-  name: connector_config.credentials.credentials
+  label: Airbyte Config Credentials Credentials
+  name: airbyte_config.credentials.credentials
 - description: The Client ID of your OAuth application
   kind: password
-  label: Connector Config Credentials Client Id
-  name: connector_config.credentials.client_id
+  label: Airbyte Config Credentials Client Id
+  name: airbyte_config.credentials.client_id
 - description: The Client Secret of your OAuth application.
   kind: password
-  label: Connector Config Credentials Client Secret
-  name: connector_config.credentials.client_secret
+  label: Airbyte Config Credentials Client Secret
+  name: airbyte_config.credentials.client_secret
 - description: Access Token for making authenticated requests., The Access Token to
     make authenticated requests.
   kind: password
-  label: Connector Config Credentials Access Token
-  name: connector_config.credentials.access_token
+  label: Airbyte Config Credentials Access Token
+  name: airbyte_config.credentials.access_token
 - description: Refresh Token to obtain new Access Token, when it's expired.
   kind: password
-  label: Connector Config Credentials Refresh Token
-  name: connector_config.credentials.refresh_token
+  label: Airbyte Config Credentials Refresh Token
+  name: airbyte_config.credentials.refresh_token
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object

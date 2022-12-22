@@ -30,41 +30,41 @@ settings:
   value: latest
 - description: The subdomain for your Zendesk Account.
   kind: string
-  label: Connector Config Subdomain
-  name: connector_config.subdomain
+  label: Airbyte Config Subdomain
+  name: airbyte_config.subdomain
 - description: The date from which you'd like to replicate data for Zendesk Sunshine
     API, in the format YYYY-MM-DDT00:00:00Z.
   kind: string
-  label: Connector Config Start Date
-  name: connector_config.start_date
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
 - description: oauth2.0, api_token
   kind: options
-  label: Connector Config Credentials Auth Method
-  name: connector_config.credentials.auth_method
+  label: Airbyte Config Credentials Auth Method
+  name: airbyte_config.credentials.auth_method
   options:
   - label: Oauth2 0
     value: oauth2.0
 - description: The Client ID of your OAuth application.
   kind: password
-  label: Connector Config Credentials Client Id
-  name: connector_config.credentials.client_id
+  label: Airbyte Config Credentials Client Id
+  name: airbyte_config.credentials.client_id
 - description: The Client Secret of your OAuth application.
   kind: password
-  label: Connector Config Credentials Client Secret
-  name: connector_config.credentials.client_secret
+  label: Airbyte Config Credentials Client Secret
+  name: airbyte_config.credentials.client_secret
 - description: Long-term access Token for making authenticated requests.
   kind: password
-  label: Connector Config Credentials Access Token
-  name: connector_config.credentials.access_token
+  label: Airbyte Config Credentials Access Token
+  name: airbyte_config.credentials.access_token
 - description: API Token. See the <a href="https://docs.airbyte.io/integrations/sources/zendesk_sunshine">docs</a>
     for information on how to generate this key.
   kind: password
-  label: Connector Config Credentials Api Token
-  name: connector_config.credentials.api_token
+  label: Airbyte Config Credentials Api Token
+  name: airbyte_config.credentials.api_token
 - description: The user email for your Zendesk account
   kind: string
-  label: Connector Config Credentials Email
-  name: connector_config.credentials.email
+  label: Airbyte Config Credentials Email
+  name: airbyte_config.credentials.email
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object

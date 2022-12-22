@@ -31,23 +31,23 @@ settings:
 - description: A Qualaroo token. See the <a href="https://help.qualaroo.com/hc/en-us/articles/201969438-The-REST-Reporting-API">docs</a>
     for instructions on how to generate it.
   kind: password
-  label: Connector Config Token
-  name: connector_config.token
+  label: Airbyte Config Token
+  name: airbyte_config.token
 - description: A Qualaroo token. See the <a href="https://help.qualaroo.com/hc/en-us/articles/201969438-The-REST-Reporting-API">docs</a>
     for instructions on how to generate it.
   kind: password
-  label: Connector Config Key
-  name: connector_config.key
+  label: Airbyte Config Key
+  name: airbyte_config.key
 - description: UTC date and time in the format 2017-01-25T00:00:00Z. Any data before
     this date will not be replicated.
   kind: string
-  label: Connector Config Start Date
-  name: connector_config.start_date
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
 - description: IDs of the surveys from which you'd like to replicate data. If left
     empty, data from all surveys to which you have access will be replicated.
   kind: array
-  label: Connector Config Survey Ids
-  name: connector_config.survey_ids
+  label: Airbyte Config Survey Ids
+  name: airbyte_config.survey_ids
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object

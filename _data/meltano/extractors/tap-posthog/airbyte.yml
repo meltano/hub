@@ -31,17 +31,17 @@ settings:
 - description: The date from which you'd like to replicate the data. Any data before
     this date will not be replicated.
   kind: string
-  label: Connector Config Start Date
-  name: connector_config.start_date
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
 - description: API Key. See the <a href="https://docs.airbyte.com/integrations/sources/posthog">docs</a>
     for information on how to generate this key.
   kind: password
-  label: Connector Config Api Key
-  name: connector_config.api_key
+  label: Airbyte Config Api Key
+  name: airbyte_config.api_key
 - description: Base PostHog url. Defaults to PostHog Cloud (https://app.posthog.com).
   kind: string
-  label: Connector Config Base Url
-  name: connector_config.base_url
+  label: Airbyte Config Base Url
+  name: airbyte_config.base_url
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object

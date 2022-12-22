@@ -30,23 +30,23 @@ settings:
   value: latest
 - description: Freshdesk domain
   kind: string
-  label: Connector Config Domain
-  name: connector_config.domain
+  label: Airbyte Config Domain
+  name: airbyte_config.domain
 - description: Freshdesk API Key. See the <a href="https://docs.airbyte.com/integrations/sources/freshdesk">docs</a>
     for more information on how to obtain this key.
   kind: password
-  label: Connector Config Api Key
-  name: connector_config.api_key
+  label: Airbyte Config Api Key
+  name: airbyte_config.api_key
 - description: The number of requests per minute that this source allowed to use.
     There is a rate limit of 50 requests per minute per app per account.
   kind: integer
-  label: Connector Config Requests Per Minute
-  name: connector_config.requests_per_minute
+  label: Airbyte Config Requests Per Minute
+  name: airbyte_config.requests_per_minute
 - description: UTC date and time. Any data created after this date will be replicated.
     If this parameter is not set, all data will be replicated.
   kind: string
-  label: Connector Config Start Date
-  name: connector_config.start_date
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object

@@ -30,21 +30,21 @@ settings:
   value: latest
 - description: Linnworks Application ID
   kind: password
-  label: Connector Config Application Id
-  name: connector_config.application_id
+  label: Airbyte Config Application Id
+  name: airbyte_config.application_id
 - description: Linnworks Application Secret
   kind: password
-  label: Connector Config Application Secret
-  name: connector_config.application_secret
+  label: Airbyte Config Application Secret
+  name: airbyte_config.application_secret
 - description: ''
   kind: password
-  label: Connector Config Token
-  name: connector_config.token
+  label: Airbyte Config Token
+  name: airbyte_config.token
 - description: UTC date and time in the format 2017-01-25T00:00:00Z. Any data before
     this date will not be replicated.
   kind: string
-  label: Connector Config Start Date
-  name: connector_config.start_date
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object

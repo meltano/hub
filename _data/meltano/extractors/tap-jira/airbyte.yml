@@ -31,41 +31,41 @@ settings:
 - description: Jira API Token. See the <a href="https://docs.airbyte.com/integrations/sources/jira">docs</a>
     for more information on how to generate this key.
   kind: password
-  label: Connector Config Api Token
-  name: connector_config.api_token
+  label: Airbyte Config Api Token
+  name: airbyte_config.api_token
 - description: The Domain for your Jira account, e.g. airbyteio.atlassian.net
   kind: string
-  label: Connector Config Domain
-  name: connector_config.domain
+  label: Airbyte Config Domain
+  name: airbyte_config.domain
 - description: The user email for your Jira account.
   kind: string
-  label: Connector Config Email
-  name: connector_config.email
+  label: Airbyte Config Email
+  name: airbyte_config.email
 - description: List of Jira project keys to replicate data for.
   kind: array
-  label: Connector Config Projects
-  name: connector_config.projects
+  label: Airbyte Config Projects
+  name: airbyte_config.projects
 - description: The date from which you want to replicate data from Jira, use the format
     YYYY-MM-DDT00:00:00Z. Note that this field only applies to certain streams, and
     only data generated on or after the start date will be replicated. For more information,
     refer to the <a href="https://docs.airbyte.com/integrations/sources/jira/">documentation</a>.
   kind: string
-  label: Connector Config Start Date
-  name: connector_config.start_date
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
 - description: Expand the changelog when replicating issues.
   kind: boolean
-  label: Connector Config Expand Issue Changelog
-  name: connector_config.expand_issue_changelog
+  label: Airbyte Config Expand Issue Changelog
+  name: airbyte_config.expand_issue_changelog
 - description: Render issue fields in HTML format in addition to Jira JSON-like format.
   kind: boolean
-  label: Connector Config Render Fields
-  name: connector_config.render_fields
+  label: Airbyte Config Render Fields
+  name: airbyte_config.render_fields
 - description: Allow the use of experimental streams which rely on undocumented Jira
     API endpoints. See https://docs.airbyte.com/integrations/sources/jira#experimental-tables
     for more info.
   kind: boolean
-  label: Connector Config Enable Experimental Streams
-  name: connector_config.enable_experimental_streams
+  label: Airbyte Config Enable Experimental Streams
+  name: airbyte_config.enable_experimental_streams
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object

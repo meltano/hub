@@ -30,8 +30,8 @@ settings:
   value: latest
 - description: Pokemon requested from the API.
   kind: string
-  label: Connector Config Pokemon Name
-  name: connector_config.pokemon_name
+  label: Airbyte Config Pokemon Name
+  name: airbyte_config.pokemon_name
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object

@@ -30,26 +30,26 @@ settings:
   value: latest
 - description: Client, Token
   kind: string
-  label: Connector Config Credentials Auth Type
-  name: connector_config.credentials.auth_type
+  label: Airbyte Config Credentials Auth Type
+  name: airbyte_config.credentials.auth_type
 - description: The Client ID of your Retently developer application.
   kind: password
-  label: Connector Config Credentials Client Id
-  name: connector_config.credentials.client_id
+  label: Airbyte Config Credentials Client Id
+  name: airbyte_config.credentials.client_id
 - description: The Client Secret of your Retently developer application.
   kind: password
-  label: Connector Config Credentials Client Secret
-  name: connector_config.credentials.client_secret
+  label: Airbyte Config Credentials Client Secret
+  name: airbyte_config.credentials.client_secret
 - description: Retently Refresh Token which can be used to fetch new Bearer Tokens
     when the current one expires.
   kind: password
-  label: Connector Config Credentials Refresh Token
-  name: connector_config.credentials.refresh_token
+  label: Airbyte Config Credentials Refresh Token
+  name: airbyte_config.credentials.refresh_token
 - description: Retently API Token. See the <a href="https://app.retently.com/settings/api/tokens">docs</a>
     for more information on how to obtain this key.
   kind: password
-  label: Connector Config Credentials Api Key
-  name: connector_config.credentials.api_key
+  label: Airbyte Config Credentials Api Key
+  name: airbyte_config.credentials.api_key
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object

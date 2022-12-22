@@ -30,23 +30,23 @@ settings:
   value: latest
 - description: 'Zenloop API Token. You can get the API token in settings page <a href="https://app.zenloop.com/settings/api">here</a> '
   kind: password
-  label: Connector Config Api Token
-  name: connector_config.api_token
+  label: Airbyte Config Api Token
+  name: airbyte_config.api_token
 - description: 'Zenloop date_from. Format: 2021-10-24T03:30:30Z or 2021-10-24. Leave
     empty if only data from current data should be synced'
   kind: string
-  label: Connector Config Date From
-  name: connector_config.date_from
+  label: Airbyte Config Date From
+  name: airbyte_config.date_from
 - description: Zenloop Survey ID. Can be found <a href="https://app.zenloop.com/settings/api">here</a>.
     Leave empty to pull answers from all surveys
   kind: password
-  label: Connector Config Survey Id
-  name: connector_config.survey_id
+  label: Airbyte Config Survey Id
+  name: airbyte_config.survey_id
 - description: Zenloop Survey Group ID. Can be found by pulling All Survey Groups
     via SurveyGroups stream. Leave empty to pull answers from all survey groups
   kind: password
-  label: Connector Config Survey Group Id
-  name: connector_config.survey_group_id
+  label: Airbyte Config Survey Group Id
+  name: airbyte_config.survey_group_id
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object

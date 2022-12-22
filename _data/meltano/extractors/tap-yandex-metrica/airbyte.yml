@@ -30,20 +30,20 @@ settings:
   value: latest
 - description: Your Yandex Metrica API access token
   kind: password
-  label: Connector Config Auth Token
-  name: connector_config.auth_token
+  label: Airbyte Config Auth Token
+  name: airbyte_config.auth_token
 - description: Counter ID
   kind: password
-  label: Connector Config Counter Id
-  name: connector_config.counter_id
+  label: Airbyte Config Counter Id
+  name: airbyte_config.counter_id
 - description: UTC date and time in the format YYYY-MM-DD.
   kind: string
-  label: Connector Config Start Date
-  name: connector_config.start_date
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
 - description: UTC date and time in the format YYYY-MM-DD.
   kind: string
-  label: Connector Config End Date
-  name: connector_config.end_date
+  label: Airbyte Config End Date
+  name: airbyte_config.end_date
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object

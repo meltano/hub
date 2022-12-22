@@ -31,20 +31,20 @@ settings:
 - description: for App Store — this is 9-10 digits identification number; for Google
     Play — this is bundle name;
   kind: password
-  label: Connector Config Ext Id
-  name: connector_config.ext_id
+  label: Airbyte Config Ext Id
+  name: airbyte_config.ext_id
 - description: client id provided by Appfollow
   kind: password
-  label: Connector Config Cid
-  name: connector_config.cid
+  label: Airbyte Config Cid
+  name: airbyte_config.cid
 - description: api secret provided by Appfollow
   kind: password
-  label: Connector Config Api Secret
-  name: connector_config.api_secret
+  label: Airbyte Config Api Secret
+  name: airbyte_config.api_secret
 - description: getting data by Country
   kind: string
-  label: Connector Config Country
-  name: connector_config.country
+  label: Airbyte Config Country
+  name: airbyte_config.country
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object

@@ -31,17 +31,17 @@ settings:
 - description: Permanent access token. You can find documentation on how to acquire
     a permanent access token  <a href="https://developers.wrike.com/oauth-20-authorization/">here</a>
   kind: password
-  label: Connector Config Access Token
-  name: connector_config.access_token
+  label: Airbyte Config Access Token
+  name: airbyte_config.access_token
 - description: Wrike's instance such as `app-us2.wrike.com`
   kind: string
-  label: Connector Config Wrike Instance
-  name: connector_config.wrike_instance
+  label: Airbyte Config Wrike Instance
+  name: airbyte_config.wrike_instance
 - description: UTC date and time in the format 2017-01-25T00:00:00Z. Only comments
     after this date will be replicated.
   kind: string
-  label: Connector Config Start Date
-  name: connector_config.start_date
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object

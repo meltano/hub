@@ -30,44 +30,44 @@ settings:
   value: latest
 - description: Access token
   kind: password
-  label: Connector Config Credentials Access Token
-  name: connector_config.credentials.access_token
+  label: Airbyte Config Credentials Access Token
+  name: airbyte_config.credentials.access_token
 - description: Refresh token
   kind: password
-  label: Connector Config Credentials Refresh Token
-  name: connector_config.credentials.refresh_token
+  label: Airbyte Config Credentials Refresh Token
+  name: airbyte_config.credentials.refresh_token
 - description: Token URI
   kind: password
-  label: Connector Config Credentials Token Uri
-  name: connector_config.credentials.token_uri
+  label: Airbyte Config Credentials Token Uri
+  name: airbyte_config.credentials.token_uri
 - description: Client ID
   kind: password
-  label: Connector Config Credentials Client Id
-  name: connector_config.credentials.client_id
+  label: Airbyte Config Credentials Client Id
+  name: airbyte_config.credentials.client_id
 - description: Client secret
   kind: password
-  label: Connector Config Credentials Client Secret
-  name: connector_config.credentials.client_secret
+  label: Airbyte Config Credentials Client Secret
+  name: airbyte_config.credentials.client_secret
 - description: Partner ID
   kind: integer
-  label: Connector Config Partner Id
-  name: connector_config.partner_id
+  label: Airbyte Config Partner Id
+  name: airbyte_config.partner_id
 - description: UTC date and time in the format 2017-01-25. Any data before this date
     will not be replicated
   kind: string
-  label: Connector Config Start Date
-  name: connector_config.start_date
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
 - description: UTC date and time in the format 2017-01-25. Any data after this date
     will not be replicated.
   kind: string
-  label: Connector Config End Date
-  name: connector_config.end_date
+  label: Airbyte Config End Date
+  name: airbyte_config.end_date
 - description: "filters for the dimensions. each filter object had 2 keys: 'type'\
     \ for the name of the dimension to be used as. and 'value' for the value of the\
     \ filter"
   kind: array
-  label: Connector Config Filters
-  name: connector_config.filters
+  label: Airbyte Config Filters
+  name: airbyte_config.filters
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object

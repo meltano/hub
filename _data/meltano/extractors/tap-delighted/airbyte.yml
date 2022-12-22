@@ -30,12 +30,12 @@ settings:
   value: latest
 - description: A Delighted API key.
   kind: password
-  label: Connector Config Api Key
-  name: connector_config.api_key
+  label: Airbyte Config Api Key
+  name: airbyte_config.api_key
 - description: The date from which you'd like to replicate the data
   kind: string
-  label: Connector Config Since
-  name: connector_config.since
+  label: Airbyte Config Since
+  name: airbyte_config.since
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object

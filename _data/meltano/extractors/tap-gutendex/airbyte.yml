@@ -32,42 +32,42 @@ settings:
     authors born prior to the start year will not be returned. Supports both positive
     (CE) or negative (BCE) integer values
   kind: string
-  label: Connector Config Author Year Start
-  name: connector_config.author_year_start
+  label: Airbyte Config Author Year Start
+  name: airbyte_config.author_year_start
 - description: (Optional) Defines the maximum birth year of the authors. Books by
     authors born after the end year will not be returned. Supports both positive (CE)
     or negative (BCE) integer values
   kind: string
-  label: Connector Config Author Year End
-  name: connector_config.author_year_end
+  label: Airbyte Config Author Year End
+  name: airbyte_config.author_year_end
 - description: (Optional) Use this to find books with a certain copyright status -
     true for books with existing copyrights, false for books in the public domain
     in the USA, or null for books with no available copyright information.
   kind: string
-  label: Connector Config Copyright
-  name: connector_config.copyright
+  label: Airbyte Config Copyright
+  name: airbyte_config.copyright
 - description: (Optional) Use this to find books in any of a list of languages. They
     must be comma-separated, two-character language codes.
   kind: string
-  label: Connector Config Languages
-  name: connector_config.languages
+  label: Airbyte Config Languages
+  name: airbyte_config.languages
 - description: (Optional) Use this to search author names and book titles with given
     words. They must be separated by a space (i.e. %20 in URL-encoded format) and
     are case-insensitive.
   kind: string
-  label: Connector Config Search
-  name: connector_config.search
+  label: Airbyte Config Search
+  name: airbyte_config.search
 - description: (Optional) Use this to sort books - ascending for Project Gutenberg
     ID numbers from lowest to highest, descending for IDs highest to lowest, or popular
     (the default) for most popular to least popular by number of downloads.
   kind: string
-  label: Connector Config Sort
-  name: connector_config.sort
+  label: Airbyte Config Sort
+  name: airbyte_config.sort
 - description: (Optional) Use this to search for a case-insensitive key-phrase in
     books' bookshelves or subjects.
   kind: string
-  label: Connector Config Topic
-  name: connector_config.topic
+  label: Airbyte Config Topic
+  name: airbyte_config.topic
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object

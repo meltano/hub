@@ -30,21 +30,21 @@ settings:
   value: latest
 - description: OAuth2.0 Client ID
   kind: password
-  label: Connector Config Client Id
-  name: connector_config.client_id
+  label: Airbyte Config Client Id
+  name: airbyte_config.client_id
 - description: OAuth2.0 Client Secret
   kind: password
-  label: Connector Config Client Secret
-  name: connector_config.client_secret
+  label: Airbyte Config Client Secret
+  name: airbyte_config.client_secret
 - description: OAuth2.0 Refresh Token
   kind: password
-  label: Connector Config Refresh Token
-  name: connector_config.refresh_token
+  label: Airbyte Config Refresh Token
+  name: airbyte_config.refresh_token
 - description: Please choose the region of your Data Center location. More info by
     this <a href="https://www.zoho.com/crm/developer/docs/api/v2/multi-dc.html">Link</a>
   kind: options
-  label: Connector Config Dc Region
-  name: connector_config.dc_region
+  label: Airbyte Config Dc Region
+  name: airbyte_config.dc_region
   options:
   - label: Us
     value: US
@@ -60,8 +60,8 @@ settings:
     value: JP
 - description: Please choose the environment
   kind: options
-  label: Connector Config Environment
-  name: connector_config.environment
+  label: Airbyte Config Environment
+  name: airbyte_config.environment
   options:
   - label: Production
     value: Production
@@ -71,12 +71,12 @@ settings:
     value: Sandbox
 - description: 'ISO 8601, for instance: `YYYY-MM-DD`, `YYYY-MM-DD HH:MM:SS+HH:MM`'
   kind: string
-  label: Connector Config Start Datetime
-  name: connector_config.start_datetime
+  label: Airbyte Config Start Datetime
+  name: airbyte_config.start_datetime
 - description: Choose your Edition of Zoho CRM to determine API Concurrency Limits
   kind: options
-  label: Connector Config Edition
-  name: connector_config.edition
+  label: Airbyte Config Edition
+  name: airbyte_config.edition
   options:
   - label: Free
     value: Free

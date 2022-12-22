@@ -30,16 +30,16 @@ settings:
   value: latest
 - description: The query parameters portion of the GET request, without the api key
   kind: string
-  label: Connector Config Query Params
-  name: connector_config.query_params
+  label: Airbyte Config Query Params
+  name: airbyte_config.query_params
 - description: The path portion of the GET request
   kind: string
-  label: Connector Config Query Path
-  name: connector_config.query_path
+  label: Airbyte Config Query Path
+  name: airbyte_config.query_path
 - description: Your API Key. Get your key <a href="https://api.census.gov/data/key_signup.html">here</a>.
   kind: password
-  label: Connector Config Api Key
-  name: connector_config.api_key
+  label: Airbyte Config Api Key
+  name: airbyte_config.api_key
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object

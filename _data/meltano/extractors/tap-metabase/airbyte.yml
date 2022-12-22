@@ -30,24 +30,24 @@ settings:
   value: latest
 - description: URL to your metabase instance API
   kind: string
-  label: Connector Config Instance Api Url
-  name: connector_config.instance_api_url
+  label: Airbyte Config Instance Api Url
+  name: airbyte_config.instance_api_url
 - description: ''
   kind: string
-  label: Connector Config Username
-  name: connector_config.username
+  label: Airbyte Config Username
+  name: airbyte_config.username
 - description: ''
   kind: password
-  label: Connector Config Password
-  name: connector_config.password
+  label: Airbyte Config Password
+  name: airbyte_config.password
 - description: "To generate your session token, you need to run the following command:\
     \ ``` curl -X POST \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"username\"\
     : \"person@metabase.com\", \"password\": \"fakepassword\"}' \\\n  http://localhost:3000/api/session\n\
     ``` Then copy the value of the `id` field returned by a successful call to that\
     \ API.\nNote that by default, sessions are good for 14 days and needs to be regenerated."
   kind: password
-  label: Connector Config Session Token
-  name: connector_config.session_token
+  label: Airbyte Config Session Token
+  name: airbyte_config.session_token
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object

@@ -30,22 +30,22 @@ settings:
   value: latest
 - description: The Client ID of your Salesloft developer application.
   kind: password
-  label: Connector Config Client Id
-  name: connector_config.client_id
+  label: Airbyte Config Client Id
+  name: airbyte_config.client_id
 - description: The Client Secret of your Salesloft developer application.
   kind: password
-  label: Connector Config Client Secret
-  name: connector_config.client_secret
+  label: Airbyte Config Client Secret
+  name: airbyte_config.client_secret
 - description: The token for obtaining a new access token.
   kind: password
-  label: Connector Config Refresh Token
-  name: connector_config.refresh_token
+  label: Airbyte Config Refresh Token
+  name: airbyte_config.refresh_token
 - description: The date from which you'd like to replicate data for Salesloft API,
     in the format YYYY-MM-DDT00:00:00Z. All data generated after this date will be
     replicated.
   kind: string
-  label: Connector Config Start Date
-  name: connector_config.start_date
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object

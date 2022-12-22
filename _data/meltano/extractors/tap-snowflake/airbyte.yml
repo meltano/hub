@@ -31,8 +31,8 @@ settings:
   value: latest
 - description: OAuth, username/password
   kind: string
-  label: Connector Config Credentials Auth Type
-  name: connector_config.credentials.auth_type
+  label: Airbyte Config Credentials Auth Type
+  name: airbyte_config.credentials.auth_type
   value: username/password
 # - description: The Client ID of your Snowflake developer application.
 #   kind: password
@@ -52,39 +52,39 @@ settings:
 #   name: connector_config.credentials.refresh_token
 - description: The username you created to allow Airbyte to access the database.
   kind: string
-  label: Connector Config Credentials Username
-  name: connector_config.credentials.username
+  label: Airbyte Config Credentials Username
+  name: airbyte_config.credentials.username
 - description: The password associated with the username.
   kind: password
-  label: Connector Config Credentials Password
-  name: connector_config.credentials.password
+  label: Airbyte Config Credentials Password
+  name: airbyte_config.credentials.password
 - description: The host domain of the snowflake instance (must include the account,
     region, cloud environment, and end with snowflakecomputing.com).
   kind: string
-  label: Connector Config Host
-  name: connector_config.host
+  label: Airbyte Config Host
+  name: airbyte_config.host
 - description: The role you created for Airbyte to access Snowflake.
   kind: string
-  label: Connector Config Role
-  name: connector_config.role
+  label: Airbyte Config Role
+  name: airbyte_config.role
 - description: The warehouse you created for Airbyte to access data.
   kind: string
-  label: Connector Config Warehouse
-  name: connector_config.warehouse
+  label: Airbyte Config Warehouse
+  name: airbyte_config.warehouse
 - description: The database you created for Airbyte to access data.
   kind: string
-  label: Connector Config Database
-  name: connector_config.database
+  label: Airbyte Config Database
+  name: airbyte_config.database
 - description: The source Snowflake schema tables.
   kind: string
-  label: Connector Config Schema
-  name: connector_config.schema
+  label: Airbyte Config Schema
+  name: airbyte_config.schema
 - description: "Additional properties to pass to the JDBC URL string when connecting\
     \ to the database formatted as 'key=value' pairs separated by the symbol '&'.\
     \ (example: key1=value1&key2=value2&key3=value3)."
   kind: string
-  label: Connector Config Jdbc Url Params
-  name: connector_config.jdbc_url_params
+  label: Airbyte Config Jdbc Url Params
+  name: airbyte_config.jdbc_url_params
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object

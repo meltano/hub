@@ -32,32 +32,32 @@ settings:
 - description: Metrics names that are not pre-defined, such as cohort metrics or app
     specific metrics.
   kind: array
-  label: Connector Config Additional Metrics
-  name: connector_config.additional_metrics
+  label: Airbyte Config Additional Metrics
+  name: airbyte_config.additional_metrics
 - description: Adjust API key, see https://help.adjust.com/en/article/report-service-api-authentication
   kind: password
-  label: Connector Config Api Token
-  name: connector_config.api_token
+  label: Airbyte Config Api Token
+  name: airbyte_config.api_token
 - description: Dimensions allow a user to break down metrics into groups using one
     or several parameters. For example, the number of installs by date, country and
     network. See https://help.adjust.com/en/article/reports-endpoint#dimensions for
     more information about the dimensions.
   kind: array
-  label: Connector Config Dimensions
-  name: connector_config.dimensions
+  label: Airbyte Config Dimensions
+  name: airbyte_config.dimensions
 - description: Data ingest start date.
   kind: string
-  label: Connector Config Ingest Start
-  name: connector_config.ingest_start
+  label: Airbyte Config Ingest Start
+  name: airbyte_config.ingest_start
 - description: Select at least one metric to query.
   kind: array
-  label: Connector Config Metrics
-  name: connector_config.metrics
+  label: Airbyte Config Metrics
+  name: airbyte_config.metrics
 - description: Syncs data up until today. Useful when running daily incremental syncs,
     and duplicates are not desired.
   kind: boolean
-  label: Connector Config Until Today
-  name: connector_config.until_today
+  label: Airbyte Config Until Today
+  name: airbyte_config.until_today
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object

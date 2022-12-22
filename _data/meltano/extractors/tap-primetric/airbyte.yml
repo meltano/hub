@@ -31,13 +31,13 @@ settings:
 - description: The Client ID of your Primetric developer application. The Client ID
     is visible <a href=\"https://app.primetric.com/administrator/integrations">here</a>.
   kind: password
-  label: Connector Config Client Id
-  name: connector_config.client_id
+  label: Airbyte Config Client Id
+  name: airbyte_config.client_id
 - description: The Client Secret of your Primetric developer application. You can
     manage your client's credentials <a href=\"https://app.primetric.com/administrator/integrations">here</a>.
   kind: password
-  label: Connector Config Client Secret
-  name: connector_config.client_secret
+  label: Airbyte Config Client Secret
+  name: airbyte_config.client_secret
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object

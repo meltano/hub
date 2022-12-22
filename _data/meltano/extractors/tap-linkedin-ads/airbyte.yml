@@ -30,38 +30,38 @@ settings:
   value: latest
 - description: oAuth2.0, access_token
   kind: string
-  label: Connector Config Credentials Auth Method
-  name: connector_config.credentials.auth_method
+  label: Airbyte Config Credentials Auth Method
+  name: airbyte_config.credentials.auth_method
 - description: The client ID of the LinkedIn Ads developer application.
   kind: password
-  label: Connector Config Credentials Client Id
-  name: connector_config.credentials.client_id
+  label: Airbyte Config Credentials Client Id
+  name: airbyte_config.credentials.client_id
 - description: The client secret the LinkedIn Ads developer application.
   kind: password
-  label: Connector Config Credentials Client Secret
-  name: connector_config.credentials.client_secret
+  label: Airbyte Config Credentials Client Secret
+  name: airbyte_config.credentials.client_secret
 - description: The key to refresh the expired access token.
   kind: password
-  label: Connector Config Credentials Refresh Token
-  name: connector_config.credentials.refresh_token
+  label: Airbyte Config Credentials Refresh Token
+  name: airbyte_config.credentials.refresh_token
 - description: The token value generated using the authentication code. See the <a
     href="https://docs.airbyte.com/integrations/sources/linkedin-ads#authentication">docs</a>
     to obtain yours.
   kind: password
-  label: Connector Config Credentials Access Token
-  name: connector_config.credentials.access_token
+  label: Airbyte Config Credentials Access Token
+  name: airbyte_config.credentials.access_token
 - description: UTC date in the format 2020-09-17. Any data before this date will not
     be replicated.
   kind: string
-  label: Connector Config Start Date
-  name: connector_config.start_date
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
 - description: Specify the account IDs separated by a space, to pull the data from.
     Leave empty, if you want to pull the data from all associated accounts. See the
     <a href="https://www.linkedin.com/help/linkedin/answer/a424270/find-linkedin-ads-account-details?lang=en">LinkedIn
     Ads docs</a> for more info.
   kind: array
-  label: Connector Config Account Ids
-  name: connector_config.account_ids
+  label: Airbyte Config Account Ids
+  name: airbyte_config.account_ids
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object

@@ -30,12 +30,12 @@ settings:
   value: latest
 - description: URL of the SQS Queue
   kind: string
-  label: Connector Config Queue Url
-  name: connector_config.queue_url
+  label: Airbyte Config Queue Url
+  name: airbyte_config.queue_url
 - description: AWS Region of the SQS Queue
   kind: options
-  label: Connector Config Region
-  name: connector_config.region
+  label: Airbyte Config Region
+  name: airbyte_config.region
   options:
   - label: Us East 1
     value: us-east-1
@@ -92,34 +92,34 @@ settings:
     WARNING: Enabling this option can result in data loss in cases of failure, use
     with caution, see documentation for more detail. '
   kind: boolean
-  label: Connector Config Delete Messages
-  name: connector_config.delete_messages
+  label: Airbyte Config Delete Messages
+  name: airbyte_config.delete_messages
 - description: Max amount of messages to get in one batch (10 max)
   kind: integer
-  label: Connector Config Max Batch Size
-  name: connector_config.max_batch_size
+  label: Airbyte Config Max Batch Size
+  name: airbyte_config.max_batch_size
 - description: Max amount of time in seconds to wait for messages in a single poll
     (20 max)
   kind: integer
-  label: Connector Config Max Wait Time
-  name: connector_config.max_wait_time
+  label: Airbyte Config Max Wait Time
+  name: airbyte_config.max_wait_time
 - description: Comma separated list of Mesage Attribute names to return
   kind: string
-  label: Connector Config Attributes To Return
-  name: connector_config.attributes_to_return
+  label: Airbyte Config Attributes To Return
+  name: airbyte_config.attributes_to_return
 - description: Modify the Visibility Timeout of the individual message from the Queue's
     default (seconds).
   kind: integer
-  label: Connector Config Visibility Timeout
-  name: connector_config.visibility_timeout
+  label: Airbyte Config Visibility Timeout
+  name: airbyte_config.visibility_timeout
 - description: The Access Key ID of the AWS IAM Role to use for pulling messages
   kind: password
-  label: Connector Config Access Key
-  name: connector_config.access_key
+  label: Airbyte Config Access Key
+  name: airbyte_config.access_key
 - description: The Secret Key of the AWS IAM Role to use for pulling messages
   kind: password
-  label: Connector Config Secret Key
-  name: connector_config.secret_key
+  label: Airbyte Config Secret Key
+  name: airbyte_config.secret_key
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object

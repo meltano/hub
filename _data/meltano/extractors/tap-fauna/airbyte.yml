@@ -31,36 +31,36 @@ settings:
 - description: Domain of Fauna to query. Defaults db.fauna.com. See <a href=https://docs.fauna.com/fauna/current/learn/understanding/region_groups#how-to-use-region-groups>the
     docs</a>.
   kind: string
-  label: Connector Config Domain
-  name: connector_config.domain
+  label: Airbyte Config Domain
+  name: airbyte_config.domain
 - description: Endpoint port.
   kind: integer
-  label: Connector Config Port
-  name: connector_config.port
+  label: Airbyte Config Port
+  name: airbyte_config.port
 - description: URL scheme.
   kind: string
-  label: Connector Config Scheme
-  name: connector_config.scheme
+  label: Airbyte Config Scheme
+  name: airbyte_config.scheme
 - description: Fauna secret, used when authenticating with the database.
   kind: password
-  label: Connector Config Secret
-  name: connector_config.secret
+  label: Airbyte Config Secret
+  name: airbyte_config.secret
 - description: "The page size used when reading documents from the database. The larger\
     \ the page size, the faster the connector processes documents. However, if a page\
     \ is too large, the connector may fail. <br>\nChoose your page size based on how\
     \ large the documents are. <br>\nSee <a href=\"https://docs.fauna.com/fauna/current/learn/understanding/types#page\"\
     >the docs</a>."
   kind: integer
-  label: Connector Config Collection Page Size
-  name: connector_config.collection.page_size
+  label: Airbyte Config Collection Page Size
+  name: airbyte_config.collection.page_size
 - description: ignore, deleted_field
   kind: string
-  label: Connector Config Collection Deletions Deletion Mode
-  name: connector_config.collection.deletions.deletion_mode
+  label: Airbyte Config Collection Deletions Deletion Mode
+  name: airbyte_config.collection.deletions.deletion_mode
 - description: Name of the "deleted at" column.
   kind: string
-  label: Connector Config Collection Deletions Column
-  name: connector_config.collection.deletions.column
+  label: Airbyte Config Collection Deletions Column
+  name: airbyte_config.collection.deletions.column
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object

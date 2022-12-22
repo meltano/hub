@@ -31,16 +31,16 @@ settings:
 - description: Your PrestaShop access key. See <a href="https://devdocs.prestashop.com/1.7/webservice/tutorials/creating-access/#create-an-access-key">
     the docs </a> for info on how to obtain this.
   kind: password
-  label: Connector Config Access Key
-  name: connector_config.access_key
+  label: Airbyte Config Access Key
+  name: airbyte_config.access_key
 - description: Shop URL without trailing slash.
   kind: string
-  label: Connector Config Url
-  name: connector_config.url
+  label: Airbyte Config Url
+  name: airbyte_config.url
 - description: The Start date in the format YYYY-MM-DD.
   kind: string
-  label: Connector Config Start Date
-  name: connector_config.start_date
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object

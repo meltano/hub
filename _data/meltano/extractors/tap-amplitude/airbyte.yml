@@ -30,8 +30,8 @@ settings:
   value: latest
 - description: Amplitude data region server
   kind: options
-  label: Connector Config Data Region
-  name: connector_config.data_region
+  label: Airbyte Config Data Region
+  name: airbyte_config.data_region
   options:
   - label: Standard Server
     value: Standard Server
@@ -40,18 +40,18 @@ settings:
 - description: Amplitude API Key. See the <a href="https://docs.airbyte.com/integrations/sources/amplitude#setup-guide">setup
     guide</a> for more information on how to obtain this key.
   kind: password
-  label: Connector Config Api Key
-  name: connector_config.api_key
+  label: Airbyte Config Api Key
+  name: airbyte_config.api_key
 - description: Amplitude Secret Key. See the <a href="https://docs.airbyte.com/integrations/sources/amplitude#setup-guide">setup
     guide</a> for more information on how to obtain this key.
   kind: password
-  label: Connector Config Secret Key
-  name: connector_config.secret_key
+  label: Airbyte Config Secret Key
+  name: airbyte_config.secret_key
 - description: UTC date and time in the format 2021-01-25T00:00:00Z. Any data before
     this date will not be replicated.
   kind: string
-  label: Connector Config Start Date
-  name: connector_config.start_date
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object

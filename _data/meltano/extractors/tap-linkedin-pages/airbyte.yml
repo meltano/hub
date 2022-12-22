@@ -30,32 +30,32 @@ settings:
   value: latest
 - description: Specify the Organization ID
   kind: integer
-  label: Connector Config Org Id
-  name: connector_config.org_id
+  label: Airbyte Config Org Id
+  name: airbyte_config.org_id
 - description: oAuth2.0, access_token
   kind: string
-  label: Connector Config Credentials Auth Method
-  name: connector_config.credentials.auth_method
+  label: Airbyte Config Credentials Auth Method
+  name: airbyte_config.credentials.auth_method
 - description: The client ID of the LinkedIn developer application.
   kind: password
-  label: Connector Config Credentials Client Id
-  name: connector_config.credentials.client_id
+  label: Airbyte Config Credentials Client Id
+  name: airbyte_config.credentials.client_id
 - description: The client secret of the LinkedIn developer application.
   kind: password
-  label: Connector Config Credentials Client Secret
-  name: connector_config.credentials.client_secret
+  label: Airbyte Config Credentials Client Secret
+  name: airbyte_config.credentials.client_secret
 - description: The token value generated using the LinkedIn Developers OAuth Token
     Tools. See the <a href="https://docs.airbyte.com/integrations/sources/linkedin-pages/">docs</a>
     to obtain yours.
   kind: password
-  label: Connector Config Credentials Refresh Token
-  name: connector_config.credentials.refresh_token
+  label: Airbyte Config Credentials Refresh Token
+  name: airbyte_config.credentials.refresh_token
 - description: The token value generated using the LinkedIn Developers OAuth Token
     Tools. See the <a href="https://docs.airbyte.com/integrations/sources/linkedin-pages/">docs</a>
     to obtain yours.
   kind: password
-  label: Connector Config Credentials Access Token
-  name: connector_config.credentials.access_token
+  label: Airbyte Config Credentials Access Token
+  name: airbyte_config.credentials.access_token
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object

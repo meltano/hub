@@ -30,28 +30,28 @@ settings:
   value: latest
 - description: The full url of the Elasticsearch server
   kind: string
-  label: Connector Config Endpoint
-  name: connector_config.endpoint
+  label: Airbyte Config Endpoint
+  name: airbyte_config.endpoint
 - description: none, secret, basic
   kind: string
-  label: Connector Config Authenticationmethod Method
-  name: connector_config.authenticationMethod.method
+  label: Airbyte Config Authenticationmethod Method
+  name: airbyte_config.authenticationMethod.method
 - description: The Key ID to used when accessing an enterprise Elasticsearch instance.
   kind: password
-  label: Connector Config Authenticationmethod Apikeyid
-  name: connector_config.authenticationMethod.apiKeyId
+  label: Airbyte Config Authenticationmethod Apikeyid
+  name: airbyte_config.authenticationMethod.apiKeyId
 - description: The secret associated with the API Key ID.
   kind: password
-  label: Connector Config Authenticationmethod Apikeysecret
-  name: connector_config.authenticationMethod.apiKeySecret
+  label: Airbyte Config Authenticationmethod Apikeysecret
+  name: airbyte_config.authenticationMethod.apiKeySecret
 - description: Basic auth username to access a secure Elasticsearch server
   kind: string
-  label: Connector Config Authenticationmethod Username
-  name: connector_config.authenticationMethod.username
+  label: Airbyte Config Authenticationmethod Username
+  name: airbyte_config.authenticationMethod.username
 - description: Basic auth password to access a secure Elasticsearch server
   kind: password
-  label: Connector Config Authenticationmethod Password
-  name: connector_config.authenticationMethod.password
+  label: Airbyte Config Authenticationmethod Password
+  name: airbyte_config.authenticationMethod.password
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object

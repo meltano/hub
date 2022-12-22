@@ -30,12 +30,12 @@ settings:
   value: latest
 - description: The region of the platform.
   kind: string
-  label: Connector Config Region
-  name: connector_config.region
+  label: Airbyte Config Region
+  name: airbyte_config.region
 - description: 'The cloud provider your shop is hosted. See: https://docs.commercetools.com/api/authorization'
   kind: options
-  label: Connector Config Host
-  name: connector_config.host
+  label: Airbyte Config Host
+  name: airbyte_config.host
   options:
   - label: Gcp
     value: gcp
@@ -43,20 +43,20 @@ settings:
     value: aws
 - description: 'The date you would like to replicate data. Format: YYYY-MM-DD.'
   kind: string
-  label: Connector Config Start Date
-  name: connector_config.start_date
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
 - description: The project key
   kind: password
-  label: Connector Config Project Key
-  name: connector_config.project_key
+  label: Airbyte Config Project Key
+  name: airbyte_config.project_key
 - description: Id of API Client.
   kind: password
-  label: Connector Config Client Id
-  name: connector_config.client_id
+  label: Airbyte Config Client Id
+  name: airbyte_config.client_id
 - description: The password of secret of API Client.
   kind: password
-  label: Connector Config Client Secret
-  name: connector_config.client_secret
+  label: Airbyte Config Client Secret
+  name: airbyte_config.client_secret
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object

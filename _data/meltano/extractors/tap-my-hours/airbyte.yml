@@ -30,20 +30,20 @@ settings:
   value: latest
 - description: Your My Hours username
   kind: string
-  label: Connector Config Email
-  name: connector_config.email
+  label: Airbyte Config Email
+  name: airbyte_config.email
 - description: The password associated to the username
   kind: password
-  label: Connector Config Password
-  name: connector_config.password
+  label: Airbyte Config Password
+  name: airbyte_config.password
 - description: Start date for collecting time logs
   kind: string
-  label: Connector Config Start Date
-  name: connector_config.start_date
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
 - description: Pagination size used for retrieving logs in days
   kind: integer
-  label: Connector Config Logs Batch Size
-  name: connector_config.logs_batch_size
+  label: Airbyte Config Logs Batch Size
+  name: airbyte_config.logs_batch_size
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object

@@ -30,8 +30,8 @@ settings:
   value: latest
 - description: The API token for authenticating to Zendesk Sell
   kind: password
-  label: Connector Config Api Token
-  name: connector_config.api_token
+  label: Airbyte Config Api Token
+  name: airbyte_config.api_token
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object

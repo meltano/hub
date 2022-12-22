@@ -32,8 +32,8 @@ settings:
 - description: Username of DockerHub person or organization (for https://hub.docker.com/v2/repositories/USERNAME/
     API call)
   kind: string
-  label: Connector Config Docker Username
-  name: connector_config.docker_username
+  label: Airbyte Config Docker Username
+  name: airbyte_config.docker_username
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object

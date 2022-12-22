@@ -31,30 +31,30 @@ settings:
 - description: UTC date and time in the format 2017-01-25T00:00:00.000Z. Any data
     before this date will not be replicated.
   kind: string
-  label: Connector Config Start Date
-  name: connector_config.start_date
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
 - description: OAuth2.0, token
   kind: string
-  label: Connector Config Credentials Auth Type
-  name: connector_config.credentials.auth_type
+  label: Airbyte Config Credentials Auth Type
+  name: airbyte_config.credentials.auth_type
 - description: The ClientID of your Notion integration.
   kind: password
-  label: Connector Config Credentials Client Id
-  name: connector_config.credentials.client_id
+  label: Airbyte Config Credentials Client Id
+  name: airbyte_config.credentials.client_id
 - description: The ClientSecret of your Notion integration.
   kind: password
-  label: Connector Config Credentials Client Secret
-  name: connector_config.credentials.client_secret
+  label: Airbyte Config Credentials Client Secret
+  name: airbyte_config.credentials.client_secret
 - description: Access Token is a token you received by complete the OauthWebFlow of
     Notion.
   kind: password
-  label: Connector Config Credentials Access Token
-  name: connector_config.credentials.access_token
+  label: Airbyte Config Credentials Access Token
+  name: airbyte_config.credentials.access_token
 - description: Notion API access token, see the <a href="https://developers.notion.com/docs/authorization">docs</a>
     for more information on how to obtain this token.
   kind: password
-  label: Connector Config Credentials Token
-  name: connector_config.credentials.token
+  label: Airbyte Config Credentials Token
+  name: airbyte_config.credentials.token
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object

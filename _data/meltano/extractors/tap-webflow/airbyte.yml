@@ -30,12 +30,12 @@ settings:
   value: latest
 - description: The id of the Webflow site you are requesting data from. See https://developers.webflow.com/#sites
   kind: password
-  label: Connector Config Site Id
-  name: connector_config.site_id
+  label: Airbyte Config Site Id
+  name: airbyte_config.site_id
 - description: The API token for authenticating to Webflow. See https://university.webflow.com/lesson/intro-to-the-webflow-api
   kind: password
-  label: Connector Config Api Key
-  name: connector_config.api_key
+  label: Airbyte Config Api Key
+  name: airbyte_config.api_key
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
