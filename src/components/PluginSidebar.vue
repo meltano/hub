@@ -60,7 +60,7 @@
           </a>
         </li>
         <li v-if="(keywords ?? []).includes('airbyte_protocol')">
-          <a :href="`https://docs.airbyte.com/integrations/sources/${name.replace('tap-', '')}`">
+          <a :href="`https://docs.airbyte.com/integrations/sources/${airbyte_name}`">
             <img
               alt="Based on an Airbyte Connector"
               src="https://img.shields.io/badge/Based%20on%20an%20Airbyte%20Connector-🔗-orange"
@@ -202,6 +202,7 @@ export default {
   name: "PluginSidebar",
   props: [
     "name",
+    "airbyte_name",
     "domain_url",
     "is_default",
     "repo",

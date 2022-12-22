@@ -72,8 +72,8 @@
                 <p class="text-3xl py-4" id="airbyte-preview">⚠️ Experimental Preview Warning ⚠️</p>
 
                 This connector uses
-                <g-link to="/extractors/tap-airbyte">tap-airbyte-interop</g-link> to call the
-                underlying Docker container for the source. This means you must have <a :href='"https://www.docker.com/"'>Docker</a>installed and running prior to usage.
+                <g-link to="/extractors/tap-airbyte">tap-airbyte-wrapper</g-link> to call the
+                underlying Docker container for the source. This means you must have <a :href='"https://www.docker.com/"'>Docker</a> installed and running prior to usage.
                 <br />
                 For more context on how this Airbyte integration works please checkout out the
                 <a :href="'https://docs.meltano.com'">FAQ in the Meltano Docs</a>.
@@ -162,7 +162,7 @@
                   </li>
                   <pre
                     class="prose language-bash rounded-md"
-                  ><code >meltano config {{ $page.plugins.name }} set airbyte_spec image airbyte/{{ $page.plugins.name.replace("tap-","source-") }}</code></pre>
+                  ><code >meltano config {{ $page.plugins.name }} set airbyte_spec image airbyte/{{ $page.plugins.airbyte_name }}</code></pre>
                 </span>
                 <li>
                   Configure the {{ $page.plugins.name }} <a href="#settings">settings</a> using
@@ -352,6 +352,7 @@ query Plugins($path: String!, $name: String!) {
     definition_rendered
     label
     name
+    airbyte_name
     path
     logo_url
     namespace
