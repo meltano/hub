@@ -1,0 +1,94 @@
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+- schema-flattening
+description: Wikipedia Pageviews API
+domain_url: https://wikimedia.org/api/rest_v1/#/Pageviews%20data
+executable: tap-airbyte
+keywords:
+- airbyte
+label: Wikipedia Pageviews
+logo_url: /assets/logos/extractors/wikipedia-pageviews.png
+maintenance_status: beta
+name: tap-wikipedia-pageviews
+namespace: tap_airbyte
+next_steps: ''
+pip_url: git+https://github.com/z3z1ma/tap-airbyte.git
+repo: https://github.com/z3z1ma/tap-airbyte
+settings:
+- description: Airbyte image to run
+  kind: string
+  label: Airbyte Spec Image
+  name: airbyte_spec.image
+- description: ''
+  kind: string
+  label: Airbyte Spec Tag
+  name: airbyte_spec.tag
+- description: If you want to filter by project, use the domain of any Wikimedia project.
+  kind: string
+  label: Airbyte Config Project
+  name: airbyte_config.project
+- description: If you want to filter by access method, use one of desktop, mobile-app
+    or mobile-web. If you are interested in pageviews regardless of access method,
+    use all-access.
+  kind: string
+  label: Airbyte Config Access
+  name: airbyte_config.access
+- description: If you want to filter by agent type, use one of user, automated or
+    spider. If you are interested in pageviews regardless of agent type, use all-agents.
+  kind: string
+  label: Airbyte Config Agent
+  name: airbyte_config.agent
+- description: The title of any article in the specified project. Any spaces should
+    be replaced with underscores. It also should be URI-encoded, so that non-URI-safe
+    characters like %, / or ? are accepted.
+  kind: string
+  label: Airbyte Config Article
+  name: airbyte_config.article
+- description: The date of the first day to include, in YYYYMMDD or YYYYMMDDHH format.
+  kind: string
+  label: Airbyte Config Start
+  name: airbyte_config.start
+- description: The date of the last day to include, in YYYYMMDD or YYYYMMDDHH format.
+  kind: string
+  label: Airbyte Config End
+  name: airbyte_config.end
+- description: The ISO 3166-1 alpha-2 code of a country for which to retrieve top
+    articles.
+  kind: string
+  label: Airbyte Config Country
+  name: airbyte_config.country
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+settings_group_validation:
+- - airbyte_config.project
+  - airbyte_config.access
+  - airbyte_spec.image
+  - airbyte_config.start
+  - airbyte_config.agent
+  - airbyte_config.end
+  - airbyte_config.country
+  - airbyte_config.article
+  - airbyte_spec
+settings_preamble: ''
+usage: ''
+variant: airbyte
