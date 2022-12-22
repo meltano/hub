@@ -12,20 +12,15 @@ Thanks for your interest in maintaining a tap or target! Here are some best prac
 There are no hard requirements for maintainership, but well-maintained taps typically follow these guidelines:
 
 - Issues and PRs/MRs responded to within a week.
-- TODO: Come up with a baseline list of capabilities?
 - All settings documented, with additional documentation containing useage examples.
 
 ### How do I add my tap or target to the Meltano Hub?
 
 Please follow the steps outlined in [this guide](/add-a-tap) and the PR request template.
 
-### How can I become a maintainer in MeltanoLabs?
+### How can I become a maintainer in MeltanoLabs? How do I stop being a maintainer?
 
-(TBD)
-
-### How do I stop being a maintainer?
-
-(TBD)
+Please see the [MeltanoLabs Meta repo](https://github.com/MeltanoLabs/Meta) for more information on how we manage this organization.
 
 ### Porting Singer Taps to the Meltano Singer SDK for Taps and Targets
 
