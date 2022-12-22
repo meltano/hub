@@ -289,6 +289,19 @@ loaders:
   target-sqlite: target-sqlite
   target-stitch: target-stitch
   target-yaml: target-yaml
+files:
+  files-airflow: files-airflow
+  files-datahub: files-datahub
+  files-dbt: files-dbt
+  files-dbt-bigquery: files-dbt-bigquery
+  files-dbt-duckdb: files-dbt-duckdb
+  files-dbt-postgres: files-dbt-postgres
+  files-dbt-redshift: files-dbt-redshift
+  files-dbt-snowflake: files-dbt-snowflake
+  files-docker: files-docker
+  files-docker-compose: files-docker-compose
+  files-gitlab-ci: files-gitlab-ci
+  files-great-expectations: files-great-expectations
 mappers:
   meltano-map-transformer: meltano-map-transformer
   transform-field: transform-field
