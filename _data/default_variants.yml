@@ -206,6 +206,7 @@ extractors:
   tap-iterable: lambtron
   tap-jdbc: airbyte
   tap-jira: singer-io
+  tap-k6-cloud: airbyte
   tap-kafka: transferwise
   tap-kanbanize: n8sty
   tap-klarna: airbyte
@@ -325,6 +326,7 @@ extractors:
   tap-quickbase: mainspringenergy
   tap-quickbooks: hotgluexyz
   tap-rakuten: chrisgoddard
+  tap-rd-station-marketing: airbyte
   tap-readthedocs: edgarrmondragon
   tap-recharge: singer-io
   tap-recruitee: tahasadiki
