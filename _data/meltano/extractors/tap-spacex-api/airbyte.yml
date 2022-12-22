@@ -11,7 +11,7 @@ domain_url: https://github.com/r-spacex/SpaceX-API
 executable: tap-airbyte
 keywords:
 - airbyte
-label: Spacex Api
+label: Spacex API
 logo_url: /assets/logos/extractors/spacex-api.png
 maintenance_status: beta
 name: tap-spacex-api

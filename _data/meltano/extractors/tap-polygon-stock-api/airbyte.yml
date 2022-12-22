@@ -10,7 +10,7 @@ domain_url: https://polygon.io/
 executable: tap-airbyte
 keywords:
 - airbyte
-label: Polygon Stock Api
+label: Polygon Stock API
 logo_url: /assets/logos/extractors/polygon-stock-api.png
 maintenance_status: beta
 name: tap-polygon-stock-api
@@ -29,7 +29,7 @@ settings:
   name: airbyte_spec.tag
 - description: Your API ACCESS Key
   kind: password
-  label: Airbyte Config Apikey
+  label: Airbyte Config API Key
   name: airbyte_config.apiKey
 - description: The exchange symbol that this item is traded under.
   kind: string
