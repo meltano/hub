@@ -11,7 +11,7 @@ executable: tap-airbyte
 keywords:
 - airbyte
 label: Pocket
-logo_url: /assets/logos/extractors/getpocket.png
+logo_url: /assets/logos/extractors/getpocket.svg
 maintenance_status: beta
 name: tap-getpocket
 namespace: tap_airbyte
