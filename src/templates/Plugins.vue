@@ -162,7 +162,6 @@
                     </a>
                     :
                   </li>
-                  </span>
                   <pre
                     class="prose language-bash rounded-md"><code >meltano config {{ $page.plugins.name }} set [setting_name] [setting_value]</code></pre>
                 </span>
