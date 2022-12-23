@@ -11,7 +11,7 @@ executable: tap-airbyte
 keywords:
 - airbyte_protocol
 label: Public APIs
-logo_url: /assets/logos/extractors/placeholder.png
+logo_url: /assets/logos/extractors/public-apis.png
 maintenance_status: beta
 name: tap-public-apis
 namespace: tap_airbyte

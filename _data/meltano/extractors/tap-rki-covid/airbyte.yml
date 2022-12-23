@@ -11,7 +11,7 @@ executable: tap-airbyte
 keywords:
 - airbyte_protocol
 label: Robert Koch-Institut COVID-19
-logo_url: /assets/logos/extractors/placeholder.png
+logo_url: /assets/logos/extractors/rki-covid.png
 maintenance_status: beta
 name: tap-rki-covid
 namespace: tap_airbyte

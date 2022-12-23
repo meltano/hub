@@ -11,7 +11,7 @@ executable: tap-airbyte-wrapper
 keywords:
 - meltano_sdk
 label: Airbyte Protocol Wrapper
-logo_url: /assets/logos/extractors/placeholder.png
+logo_url: /assets/logos/extractors/airbyte.png
 maintenance_status: beta
 name: tap-airbyte-wrapper
 namespace: tap_airbyte_wrapper
