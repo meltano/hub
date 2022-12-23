@@ -50,15 +50,14 @@
             Default Value: <code>{{ setting.value }}</code>
           </li>
         </ul>
-        <p>Configure this setting directly using the following Meltano command:</p>
-        <pre
-          class="prose language-bash rounded-md"><code >meltano config {{ name }} set {{ setting.name.replace(".", " ") }} [value]</code></pre>
         <div
           class="prose mt-3 bg-slate-100 p-2"
           v-if="setting.description"
           v-html="setting.description_rendered"
         ></div>
         <span v-else>[No description provided.]</span>
+        <p>Configure this setting directly using the following Meltano command:</p>
+        <pre class="prose language-bash rounded-md"><code >meltano config {{ name }} set {{ setting.name.replace(".", " ") }} [value]</code></pre>
       </span>
     </span>
     <span v-else
