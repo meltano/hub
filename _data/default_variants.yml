@@ -389,6 +389,7 @@ loaders:
   target-csv: hotgluexyz
   target-datadotworld: datadotworld
   target-duckdb: jwills
+  target-elasticsearch: dtmirizzi
   target-gcs: datateer
   target-gsheet: singer-io
   target-iomete: iomete
