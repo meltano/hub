@@ -23,6 +23,7 @@ settings:
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
+  value: airbyte/source-reply-io
 - description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
