@@ -50,6 +50,9 @@
             Default Value: <code>{{ setting.value }}</code>
           </li>
         </ul>
+        <pre
+          class="prose language-bash rounded-md">
+          <code >meltano config {{ name }} set {{ setting.name }} [value]</code></pre>
         <div
           class="prose mt-3 bg-slate-100 p-2"
           v-if="setting.description"
