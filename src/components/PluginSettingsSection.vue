@@ -50,6 +50,7 @@
             Default Value: <code>{{ setting.value }}</code>
           </li>
         </ul>
+        <p>Configure this setting directly using the following Meltano command:</p>
         <pre
           class="prose language-bash rounded-md"><code >meltano config {{ name }} set {{ setting.name.replace(".", " ") }} [value]</code></pre>
         <div

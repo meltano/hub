@@ -165,10 +165,7 @@
                   <pre
                     class="prose language-bash rounded-md"><code >meltano config {{ $page.plugins.name }} set [setting_name] [setting_value]</code></pre>
                 </span>
-                <span v-if="
-                  $page.plugins.pluginType === 'extractor' &&
-                  !$page.plugins.keywords.includes('airbyte_protocol')
-                ">
+                <span v-if="!$page.plugins.keywords.includes('airbyte_protocol')">
                 <li>
                   Configure the {{ $page.plugins.name }} <a href="#settings">settings</a> using
                   <a href="https://docs.meltano.com/reference/command-line-interface#config">
