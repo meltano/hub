@@ -15,6 +15,11 @@
           >
         </li>
       </ul>
+      <p>You can also list these settings using <a href="https://docs.meltano.com/reference/command-line-interface#config">
+        <pre class="inline-code-block"><code>meltano config</code></pre>
+      </a> with the <pre class="inline-code-block"><code>list</code></pre> subcommand:</p>
+      <pre
+        class="prose language-bash rounded-md"><code >meltano config {{ name }} list</code></pre>
       <p>
         You can
         <a
