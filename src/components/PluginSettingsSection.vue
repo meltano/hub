@@ -56,6 +56,7 @@
           v-html="setting.description_rendered"
         ></div>
         <span v-else>[No description provided.]</span>
+        <br />
         <p>Configure this setting directly using the following Meltano command:</p>
         <pre class="prose language-bash rounded-md"><code >meltano config {{ name }} set {{ setting.name.replace(".", " ") }} [value]</code></pre>
       </span>
