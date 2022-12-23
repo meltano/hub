@@ -176,10 +176,9 @@
                   </a>
                   :
                 </li>
-                </span>
                 <pre
-                  class="prose language-bash rounded-md"
-                ><code >meltano config {{ $page.plugins.name }} set --interactive</code></pre>
+                  class="prose language-bash rounded-md"><code >meltano config {{ $page.plugins.name }} set --interactive</code></pre>
+                </span>
                 <span v-if="$page.plugins.pluginType === 'extractor'">
                   <li>
                     Test that extractor settings are valid using
