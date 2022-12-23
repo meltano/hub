@@ -145,8 +145,8 @@ function buildData(dataPath, collections) {
       readPlugin.maintainer = readMaintainers[readPlugin.variant];
       readPlugin.airbyte_name =
         readAirbyteMap[path.basename(dataPath)]?.[currentFolder] ||
-        "source-" + currentFolder.split("tap-")[1] ||
-        "source-" + currentFolder.split("target-")[1];
+        `source-${currentFolder.split("tap-")[1]}` ||
+        `source-${currentFolder.split("target-")[1]}`;
 
       // If there are commands, turn them into a more graphql-friendly array
       readPlugin.commands = readPlugin.commands
