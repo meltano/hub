@@ -80,7 +80,7 @@
       </div>
     </div>
 
-    <div v-if="!$page.plugins.pluginType === 'extractor' && !$page.plugins.keywords.includes('airbyte_protocol')">
+    <div v-if="!$page.plugins.keywords.includes('airbyte_protocol')">
       <ul class="list-disc list-inside shields space-y-1">
         <li>
           <img
