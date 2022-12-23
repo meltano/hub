@@ -80,7 +80,7 @@
       </div>
     </div>
 
-    <div>
+    <div v-if="!$page.plugins.pluginType === 'extractor' && !$page.plugins.keywords.includes('airbyte_protocol')">
       <ul class="list-disc list-inside shields space-y-1">
         <li>
           <img
@@ -121,6 +121,14 @@
             alt="License"
             :src="`https://img.shields.io/${repoType}/license/${parsedRepo.user}/${parsedRepo.repo_name}?color=c0c0c4&label=License`"
           />
+        </li>
+      </ul>
+    </div>
+    <div v-if="$page.plugins.pluginType === 'extractor' && $page.plugins.keywords.includes('airbyte_protocol')">
+      <ul class="list-disc list-inside shields space-y-1">
+        <li>
+          <img alt="License"
+            :src="`https://img.shields.io/badge/License-MIT-lightgrey`" />
         </li>
       </ul>
     </div>
