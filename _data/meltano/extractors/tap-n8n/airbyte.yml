@@ -17,7 +17,7 @@ name: tap-n8n
 namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/z3z1ma/tap-airbyte.git
-repo: https://github.com/z3z1ma/tap-airbyte
+repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-n8n
 settings:
 - description: Airbyte image to run
   kind: string
