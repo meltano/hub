@@ -73,7 +73,9 @@
 
                 This connector uses
                 <g-link to="/extractors/tap-airbyte">tap-airbyte-wrapper</g-link> to call the
-                underlying Docker container for the source. This means you must have <a :href='"https://www.docker.com/"'>Docker</a> installed and running prior to usage.
+                underlying Docker container for the source. This means you must have
+                <a :href="'https://www.docker.com/'">Docker</a> installed and running prior to
+                usage.
                 <br />
                 For more context on how this Airbyte integration works please checkout out the
                 <a :href="'https://docs.meltano.com'">FAQ in the Meltano Docs</a>.
