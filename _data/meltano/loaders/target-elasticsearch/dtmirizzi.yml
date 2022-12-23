@@ -1,0 +1,97 @@
+capabilities:
+- about
+- stream-maps
+- schema-flattening
+description: Free and Open, Distributed, RESTful Search Engine
+domain_url: https://github.com/elastic/elasticsearch
+executable: target-elasticsearch
+keywords:
+- meltano_sdk
+label: Elasticsearch
+logo_url: /assets/logos/loaders/elasticsearch.png
+maintenance_status: beta
+name: target-elasticsearch
+namespace: target_elasticsearch
+next_steps: ''
+pip_url: target-elasticsearch
+repo: https://github.com/dtmirizzi/target-elasticsearch
+settings:
+- description: http scheme used for connecting to elasticsearch
+  kind: string
+  label: Scheme
+  name: scheme
+- description: host used to connect to elasticsearch
+  kind: string
+  label: Host
+  name: host
+- description: port use to connect to elasticsearch
+  kind: integer
+  label: Port
+  name: port
+- description: basic auth username
+  kind: string
+  label: Username
+  name: username
+- description: basic auth password
+  kind: password
+  label: Password
+  name: password
+- description: bearer token for bearer authorization
+  kind: password
+  label: Bearer Token
+  name: bearer_token
+- description: api key id for auth key authorization
+  kind: password
+  label: API Key Id
+  name: api_key_id
+- description: api key for auth key authorization
+  kind: password
+  label: API Key
+  name: api_key
+- description: location of the the SSL certificate for cert verification ie. `/some/path`
+  kind: string
+  label: SSL CA File
+  name: ssl_ca_file
+- description: 'can be used to handle custom index formatting such as specifying `-latest`
+    index. Default options: Daily `{{ current_timestamp_daily }}`, Monthly `{{ current_timestamp_monthly
+    }}`, or Yearly `{{ current_timestamp_yearly }}`. You should use fields specified
+    in `index_schema_fields` such as `{{ _id }}` or `{{ timestamp }}` . There are
+    also helper fuctions such as {{ to_daily(timestamp) }}'
+  kind: string
+  label: Index Format
+  name: index_format
+- description: this id map allows you to specify specific record values via jsonpath
+    from the stream to be used in index formulation.
+  kind: object
+  label: Index Schema Fields
+  name: index_schema_fields
+- description: this should be used to pull out specific fields via jsonpath to be
+    used on for [ecs metadata patters](https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-fields.html)
+  kind: object
+  label: Metadata Fields
+  name: metadata_fields
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+settings_group_validation:
+- - host
+  - port
+  - scheme
+settings_preamble: ''
+usage: ''
+variant: dtmirizzi
