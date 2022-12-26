@@ -9,7 +9,7 @@ keywords:
 - meltano_sdk
 label: Elasticsearch
 logo_url: /assets/logos/loaders/elasticsearch.png
-maintenance_status: beta
+maintenance_status: active
 name: target-elasticsearch
 namespace: target_elasticsearch
 next_steps: ''
