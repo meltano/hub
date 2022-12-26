@@ -67,7 +67,7 @@ settings:
 
     You can also use fields mapped in `index_schema_fields` such as `{{ x }}` or `{{ timestamp }}`.
 
-    There are also helper fuctions such as:
+    There are also helper functions such as:
     to daily `{{ to_daily(timestamp) }}`,
     to monthly `{{ to_monthly(timestamp) }}`,
     to yearly `{{ to_yearly(timestamp) }}`
