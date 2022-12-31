@@ -39,9 +39,9 @@ settings:
   label: End date
   name: end_date
 settings_group_validation:
-  - client_id
-  - client_secret
-  - refresh_token
-  - start_date
-  - end_date
+- client_id
+- client_secret
+- refresh_token
+- start_date
+- end_date
 variant: dluftspring
