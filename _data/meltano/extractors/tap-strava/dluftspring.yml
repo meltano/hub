@@ -31,11 +31,11 @@ settings:
   label: Refresh Token
   name: refresh_token
 - description: The date to start pulling data from. (Optional)
-  kind: date
+  kind: date_iso8601
   label: Start Date
   name: start_date
 - description: The date to stop pulling data from. (Optional)
-  kind: date
+  kind: date_iso8601
   label: End date
   name: end_date
 settings_group_validation:
