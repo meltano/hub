@@ -30,8 +30,18 @@ settings:
   kind: password
   label: Refresh Token
   name: refresh_token
+- description: The date to start pulling data from. (Optional)
+  kind: date
+  label: Start Date
+  name: start_date
+- description: The date to stop pulling data from. (Optional)
+  kind: date
+  label: End date
+  name: end_date
 settings_group_validation:
   - client_id
   - client_secret
   - refresh_token
+  - start_date
+  - end_date
 variant: dluftspring
