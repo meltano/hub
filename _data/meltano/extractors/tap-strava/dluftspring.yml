@@ -1,0 +1,37 @@
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+- schema-flattening
+description: Fitness Social Network
+domain_url: https://developers.strava.com/docs/reference/
+keywords:
+- api
+- meltano_sdk
+label: Strava
+logo_url: /assets/logos/extractors/strava.png
+maintenance_status: active
+name: tap-strava
+namespace: tap_strava
+pip_url: git+https://github.com/dluftspring/tap-strava.git
+repo: https://github.com/dluftspring/tap-strava
+settings:
+- description: Your Strava application unique identifier.
+  kind: password
+  label: Client ID
+  name: client_id
+- description: Your Strave client secret.
+  kind: password
+  label: Client Secret
+  name: client_secret
+- description: Your Strava refresh token. Requires at minimum `activity:read` permissions.
+  kind: password
+  label: Refresh Token
+  name: refresh_token
+settings_group_validation:
+  - client_id
+  - client_secret
+  - refresh_token
+variant: dluftspring
