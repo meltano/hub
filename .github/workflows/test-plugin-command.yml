@@ -43,7 +43,7 @@ jobs:
     steps:
 
     - name: Handle missing pip_url
-      if: github.event.inputs.from-slash-command == 'true'
+      if: github.event.inputs.from-slash-command == 'true' && github.event.inputs.pip-url == ''
       run: echo 'PIP_URL=${{ github.event.inputs.name }}' >> "$GITHUB_ENV"
 
     - name: Add 👀 reaction
