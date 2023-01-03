@@ -124,11 +124,15 @@
         </li>
       </ul>
     </div>
-    <div v-if="$page.plugins.pluginType === 'extractor' && $page.plugins.keywords.includes('airbyte_protocol')">
+    <div
+      v-if="
+        $page.plugins.pluginType === 'extractor' &&
+        $page.plugins.keywords.includes('airbyte_protocol')
+      "
+    >
       <ul class="list-disc list-inside shields space-y-1">
         <li>
-          <img alt="License"
-            :src="`https://img.shields.io/badge/License-MIT-lightgrey`" />
+          <img alt="License" :src="`https://img.shields.io/badge/License-MIT-lightgrey`" />
         </li>
       </ul>
     </div>

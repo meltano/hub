@@ -11,9 +11,11 @@
     <div v-if="$page.plugins.keywords.includes('airbyte_protocol')">
       If you're having trouble getting the
       {{ name }} {{ plugin_type }} to work, read the
-      <a :href="`https://docs.meltano.com/guide/advanced-topics`">Airbyte connector FAQ</a>, look for an
-      <a :href="`https://github.com/airbytehq/airbyte/issues`">existing issue in the Airbyte repository</a>, file a
-      <a :href="`https://github.com/airbytehq/airbyte/issues/new`">new issue</a>, or
+      <a :href="`https://docs.meltano.com/guide/advanced-topics`">Airbyte connector FAQ</a>, look
+      for an
+      <a :href="`https://github.com/airbytehq/airbyte/issues`"
+        >existing issue in the Airbyte repository</a
+      >, file a <a :href="`https://github.com/airbytehq/airbyte/issues/new`">new issue</a>, or
       <a href="https://meltano.com/slack">join the Meltano Slack community</a>
       and ask for help in the
       <pre class="inline-code-block"><code>#plugins-general</code></pre>
