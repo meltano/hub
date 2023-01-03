@@ -10,6 +10,7 @@ domain_url: https://github.com/meltanolabs/tap-airbyte-wrapper
 executable: tap-airbyte-wrapper
 keywords:
 - meltano_sdk
+- airbyte_protocol
 label: Airbyte Protocol Wrapper
 logo_url: /assets/logos/extractors/airbyte.png
 maintenance_status: beta
