@@ -22,7 +22,7 @@ settings:
   kind: password
   label: Client ID
   name: client_id
-- description: Your Strave client secret.
+- description: Your Strava client secret.
   kind: password
   label: Client Secret
   name: client_secret
