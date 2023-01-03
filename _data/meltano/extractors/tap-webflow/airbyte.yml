@@ -16,7 +16,7 @@ maintenance_status: beta
 name: tap-webflow
 namespace: tap_airbyte
 next_steps: ''
-pip_url: git+https://github.com/z3z1ma/tap-airbyte.git
+pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-webflow
 settings:
 - description: Airbyte image to run
