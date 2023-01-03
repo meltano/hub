@@ -72,7 +72,7 @@
                 <p class="text-3xl py-4" id="airbyte-preview">⚠️ Experimental Preview Warning ⚠️</p>
 
                 This connector uses
-                <g-link to="/extractors/tap-airbyte-wrapper">tap-airbyte-wrapper</g-link> to call the
+                <g-link to="https://github.com/meltanolabs/tap-airbyte-wrapper">tap-airbyte-wrapper</g-link> to call the
                 underlying Docker container for the source. This means you must have
                 <a :href="'https://www.docker.com/'">Docker</a> installed and running prior to
                 usage.
