@@ -59,6 +59,14 @@
             />
           </a>
         </li>
+        <li v-if="(keywords ?? []).includes('airbyte_protocol')">
+          <a :href="`https://docs.airbyte.com/integrations/${airbyte_name.replace('-', 's/')}`">
+            <img
+              alt="Based on an Airbyte Connector"
+              src="https://img.shields.io/badge/Based%20on%20an%20Airbyte%20Connector-🔗-orange"
+            />
+          </a>
+        </li>
       </ul>
     </div>
 
@@ -72,7 +80,7 @@
       </div>
     </div>
 
-    <div>
+    <div v-if="!$page.plugins.keywords.includes('airbyte_protocol')">
       <ul class="list-disc list-inside shields space-y-1">
         <li>
           <img
@@ -113,6 +121,18 @@
             alt="License"
             :src="`https://img.shields.io/${repoType}/license/${parsedRepo.user}/${parsedRepo.repo_name}?color=c0c0c4&label=License`"
           />
+        </li>
+      </ul>
+    </div>
+    <div
+      v-if="
+        $page.plugins.pluginType === 'extractor' &&
+        $page.plugins.keywords.includes('airbyte_protocol')
+      "
+    >
+      <ul class="list-disc list-inside shields space-y-1">
+        <li>
+          <img alt="License" :src="`https://img.shields.io/badge/License-MIT-lightgrey`" />
         </li>
       </ul>
     </div>
@@ -194,6 +214,7 @@ export default {
   name: "PluginSidebar",
   props: [
     "name",
+    "airbyte_name",
     "domain_url",
     "is_default",
     "repo",

@@ -1,0 +1,77 @@
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+- schema-flattening
+description: Restaurant Booking System
+domain_url: https://app.waiteraid.com/api-docs/index.html#auth_call
+executable: tap-airbyte
+keywords:
+- airbyte_protocol
+label: Waiteraid
+logo_url: /assets/logos/extractors/waiteraid.png
+maintenance_status: beta
+name: tap-waiteraid
+namespace: tap_airbyte
+next_steps: ''
+pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
+repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-waiteraid
+settings:
+- description: Airbyte image to run
+  kind: string
+  label: Airbyte Spec Image
+  name: airbyte_spec.image
+  value: airbyte/source-waiteraid
+- description: Airbyte image tag
+  kind: string
+  label: Airbyte Spec Tag
+  name: airbyte_spec.tag
+  value: latest
+- description: Docker mounts to make available to the Airbyte container. Expects a
+    list of maps containing source, target, and type as is documented in the docker
+    --mount documentation
+  kind: array
+  label: Docker Mounts
+  name: docker_mounts
+- description: Start getting data from that date.
+  kind: string
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
+- description: Your WaiterAid API key, obtained from API request with Username and
+    Password
+  kind: string
+  label: Airbyte Config Auth Hash
+  name: airbyte_config.auth_hash
+- description: Your WaiterAid restaurant id from API request to getRestaurants
+  kind: password
+  label: Airbyte Config Restid
+  name: airbyte_config.restid
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+settings_group_validation:
+- - airbyte_config.start_date
+  - airbyte_spec
+  - airbyte_spec.image
+  - airbyte_config.restid
+  - airbyte_config.auth_hash
+settings_preamble: ''
+usage: ''
+variant: airbyte

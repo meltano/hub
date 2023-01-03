@@ -1,0 +1,81 @@
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+- schema-flattening
+description: Open-source analytics and business intelligence application
+domain_url: https://www.metabase.com/
+executable: tap-airbyte
+keywords:
+- airbyte_protocol
+label: Metabase
+logo_url: /assets/logos/extractors/metabase.png
+maintenance_status: beta
+name: tap-metabase
+namespace: tap_airbyte
+next_steps: ''
+pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
+repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-metabase
+settings:
+- description: Airbyte image to run
+  kind: string
+  label: Airbyte Spec Image
+  name: airbyte_spec.image
+  value: airbyte/source-metabase
+- description: Airbyte image tag
+  kind: string
+  label: Airbyte Spec Tag
+  name: airbyte_spec.tag
+  value: latest
+- description: Docker mounts to make available to the Airbyte container. Expects a
+    list of maps containing source, target, and type as is documented in the docker
+    --mount documentation
+  kind: array
+  label: Docker Mounts
+  name: docker_mounts
+- description: URL to your metabase instance API
+  kind: string
+  label: Airbyte Config Instance Api Url
+  name: airbyte_config.instance_api_url
+- description: ''
+  kind: string
+  label: Airbyte Config Username
+  name: airbyte_config.username
+- description: ''
+  kind: password
+  label: Airbyte Config Password
+  name: airbyte_config.password
+- description: "To generate your session token, you need to run the following command:\
+    \ ``` curl -X POST \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"username\"\
+    : \"person@metabase.com\", \"password\": \"fakepassword\"}' \\\n  http://localhost:3000/api/session\n\
+    ``` Then copy the value of the `id` field returned by a successful call to that\
+    \ API.\nNote that by default, sessions are good for 14 days and needs to be regenerated."
+  kind: password
+  label: Airbyte Config Session Token
+  name: airbyte_config.session_token
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+settings_group_validation:
+- - connector_config.instance_api_url
+  - airbyte_spec.image
+settings_preamble: ''
+usage: ''
+variant: airbyte

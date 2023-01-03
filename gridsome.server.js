@@ -25,6 +25,10 @@ const readMaintainers = yaml.load(
   fs.readFileSync(path.join(dataRoot, "maintainers.yml"))
 );
 
+const readAirbyteMap = yaml.load(
+  fs.readFileSync(path.join(dataRoot, "singer_airbyte_map.yml"))
+);
+
 const pluginTypeSingulars = {
   extractors: "extractor",
   loaders: "loader",
@@ -139,6 +143,10 @@ function buildData(dataPath, collections) {
       // Include additional fields
       readPlugin.metrics = pluginMetricsData[readPlugin.repo];
       readPlugin.maintainer = readMaintainers[readPlugin.variant];
+      readPlugin.airbyte_name =
+        readAirbyteMap[path.basename(dataPath)]?.[currentFolder] ||
+        `source-${currentFolder.split("tap-")[1]}` ||
+        `source-${currentFolder.split("target-")[1]}`;
 
       // If there are commands, turn them into a more graphql-friendly array
       readPlugin.commands = readPlugin.commands

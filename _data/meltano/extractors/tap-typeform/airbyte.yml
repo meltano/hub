@@ -1,0 +1,79 @@
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+- schema-flattening
+description: Survey and Form Software
+domain_url: https://developer.typeform.com/
+executable: tap-airbyte
+keywords:
+- airbyte_protocol
+label: Typeform
+logo_url: /assets/logos/extractors/typeform.png
+maintenance_status: beta
+name: tap-typeform
+namespace: tap_airbyte
+next_steps: ''
+pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
+repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-typeform
+settings:
+- description: Airbyte image to run
+  kind: string
+  label: Airbyte Spec Image
+  name: airbyte_spec.image
+  value: airbyte/source-typeform
+- description: Airbyte image tag
+  kind: string
+  label: Airbyte Spec Tag
+  name: airbyte_spec.tag
+  value: latest
+- description: Docker mounts to make available to the Airbyte container. Expects a
+    list of maps containing source, target, and type as is documented in the docker
+    --mount documentation
+  kind: array
+  label: Docker Mounts
+  name: docker_mounts
+- description: 'UTC date and time in the format: YYYY-MM-DDTHH:mm:ss[Z]. Any data
+    before this date will not be replicated.'
+  kind: string
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
+- description: The API Token for a Typeform account.
+  kind: password
+  label: Airbyte Config Token
+  name: airbyte_config.token
+- description: When this parameter is set, the connector will replicate data only
+    from the input forms. Otherwise, all forms in your Typeform account will be replicated.
+    You can find form IDs in your form URLs. For example, in the URL "https://mysite.typeform.com/to/u6nXL7"
+    the form_id is u6nXL7. You can find form URLs on Share panel
+  kind: array
+  label: Airbyte Config Form Ids
+  name: airbyte_config.form_ids
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+settings_group_validation:
+- - airbyte_config.token
+  - airbyte_spec.image
+  - airbyte_spec
+  - airbyte_config.start_date
+settings_preamble: ''
+usage: ''
+variant: airbyte

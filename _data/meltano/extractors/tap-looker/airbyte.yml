@@ -1,0 +1,83 @@
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+- schema-flattening
+description: Business Intelligence (BI) & Data Analytics Platform
+domain_url: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1
+executable: tap-airbyte
+keywords:
+- airbyte_protocol
+label: Looker
+logo_url: /assets/logos/extractors/looker.png
+maintenance_status: beta
+name: tap-looker
+namespace: tap_airbyte
+next_steps: ''
+pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
+repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-looker
+settings:
+- description: Airbyte image to run
+  kind: string
+  label: Airbyte Spec Image
+  name: airbyte_spec.image
+  value: airbyte/source-looker
+- description: Airbyte image tag
+  kind: string
+  label: Airbyte Spec Tag
+  name: airbyte_spec.tag
+  value: latest
+- description: Docker mounts to make available to the Airbyte container. Expects a
+    list of maps containing source, target, and type as is documented in the docker
+    --mount documentation
+  kind: array
+  label: Docker Mounts
+  name: docker_mounts
+- description: Domain for your Looker account, e.g. airbyte.cloud.looker.com,looker.[clientname].com,IP
+    address
+  kind: string
+  label: Airbyte Config Domain
+  name: airbyte_config.domain
+- description: The Client ID is first part of an API3 key that is specific to each
+    Looker user. See the <a href="https://docs.airbyte.io/integrations/sources/looker">docs</a>
+    for more information on how to generate this key.
+  kind: password
+  label: Airbyte Config Client Id
+  name: airbyte_config.client_id
+- description: The Client Secret is second part of an API3 key.
+  kind: password
+  label: Airbyte Config Client Secret
+  name: airbyte_config.client_secret
+- description: The IDs of any Looks to run (optional)
+  kind: array
+  label: Airbyte Config Run Look Ids
+  name: airbyte_config.run_look_ids
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+settings_group_validation:
+- - airbyte_spec
+  - airbyte_config.domain
+  - airbyte_spec.image
+  - airbyte_config.client_secret
+  - airbyte_config.client_id
+settings_preamble: ''
+usage: ''
+variant: airbyte
