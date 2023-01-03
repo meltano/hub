@@ -39,7 +39,7 @@
                   {{ $page.plugins.label }}
                 </p>
                 <p class="text-2xl">
-                  <code>{{ $page.plugins.name }} from {{ $page.plugins.variant }}</code>
+                  <code>{{ $page.plugins.name }} ({{ $page.plugins.variant }} variant)</code>
                 </p>
                 <p>
                   <b>{{ $page.plugins.description }}</b>
