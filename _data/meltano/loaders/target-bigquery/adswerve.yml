@@ -24,9 +24,10 @@ settings:
   name: dataset_id
   value: $MELTANO_EXTRACT__LOAD_SCHEMA
 - description: Dataset Location. See https://cloud.google.com/bigquery/docs/locations.
-  label: Location
+  label: Region
   name: location
-  value: US
+  placeholder: us-central1
+  value: us-central1
 - description: |
     Fully qualified path to `client_secrets.json` for your service account.
 
