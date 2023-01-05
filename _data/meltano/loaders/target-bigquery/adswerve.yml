@@ -26,8 +26,8 @@ settings:
 - description: Dataset Location. See https://cloud.google.com/bigquery/docs/locations.
   label: Region
   name: location
-  value: us-central1
   placeholder: us-central1
+  value: us-central1
 - description: |
     Fully qualified path to `client_secrets.json` for your service account.
 
