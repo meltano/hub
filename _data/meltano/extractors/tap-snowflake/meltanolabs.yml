@@ -16,7 +16,7 @@ maintenance_status: development
 name: tap-snowflake
 namespace: tap_snowflake
 next_steps: ''
-pip_url: git+https://github.com/MeltanoLabs/tap-snowflake.git
+pip_url: meltanolabs-tap-snowflake
 repo: https://github.com/MeltanoLabs/tap-snowflake
 settings:
 - description: The login name for your Snowflake user.
