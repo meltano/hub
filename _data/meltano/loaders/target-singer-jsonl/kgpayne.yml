@@ -1,0 +1,48 @@
+capabilities: []
+description: Write Singer-formatted JSONL Files
+domain_url: https://hub.meltano.com/singer/spec/
+executable: target-singer-jsonl
+keywords:
+- singer
+- jsonl
+label: Singer JSONL
+logo_url: /assets/logos/loaders/singer.png
+maintenance_status: active
+name: target-singer-jsonl
+namespace: target_singer_jsonl
+next_steps: ''
+pip_url: target-singer-jsonl
+repo: https://github.com/kgpayne/target-singer-jsonl
+settings:
+- description: The destination configuration to use. Currently `local` and `s3` are supported.
+  name: destination
+  kind: string
+  label: Destination
+  default: local
+- description: Whether to inject `_sdc_*` metadata columns.
+  name: add_record_metadata
+  kind: boolean
+  label: Add Record Metadata
+  default: true
+- description: Output folder to write `.singer.gz` stream files to.
+  name: local.folder
+  kind: string
+  label: Folder
+- description: S3 bucket name.
+  name: s3.bucket
+  kind: string
+  label: Bucket
+- description: S3 key prefix to write `.singer.gz` stream files under.
+  name: s3.prefix
+  kind: string
+  label: Prefix
+settings_group_validation:
+- - folder
+- - destination
+  - s3.bucket
+- - destination
+  - s3.bucket
+  - s3.prefix
+settings_preamble: ''
+usage: ''
+variant: kgpayne
