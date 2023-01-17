@@ -56,9 +56,6 @@ settings_group_validation:
 - - source
   - s3.bucket
 - - source
-  - s3.bucket
-  - s3.prefix
-- - source
   - s3.paths
 settings_preamble: ''
 usage: ''
