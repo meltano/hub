@@ -77,7 +77,7 @@
                 >
                 to call the underlying Docker container for the source. This means you must have
                 <a :href="'https://www.docker.com/'">Docker</a> installed and running prior to
-                usage.
+                usage. We also recommend using Meltano version 2.13.0 or later.
                 <br />
                 For more context on how this Airbyte integration works please checkout out the
                 <a
@@ -154,24 +154,7 @@
                 <pre
                   class="prose language-bash rounded-md"
                 ><code >meltano add {{ $page.plugins.pluginType }} {{ $page.plugins.name }}<span v-if="!$page.plugins.isDefault"> --variant {{ $page.plugins.variant }}</span></code></pre>
-                <span
-                  v-if="
-                    $page.plugins.pluginType === 'extractor' &&
-                    $page.plugins.keywords.includes('airbyte_protocol')
-                  "
-                >
-                  <li>
-                    Configure the {{ $page.plugins.name }} <a href="#settings">settings</a> using
-                    <a href="https://docs.meltano.com/reference/command-line-interface#config">
-                      <pre class="inline-code-block"><code>meltano config</code></pre>
-                    </a>
-                    :
-                  </li>
-                  <pre
-                    class="prose language-bash rounded-md"
-                  ><code >meltano config {{ $page.plugins.name }} set [setting_name] [setting_value]</code></pre>
-                </span>
-                <span v-if="!$page.plugins.keywords.includes('airbyte_protocol')">
+                <span>
                   <li>
                     Configure the {{ $page.plugins.name }} <a href="#settings">settings</a> using
                     <a href="https://docs.meltano.com/reference/command-line-interface#config">

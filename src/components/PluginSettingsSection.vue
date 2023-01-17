@@ -69,7 +69,7 @@
         <p>Configure this setting directly using the following Meltano command:</p>
         <pre
           class="prose language-bash rounded-md"
-        ><code >meltano config {{ name }} set {{ setting.name }} [value]</code></pre>
+        ><code >meltano config {{ name }} set {{ setting.name.replace(".", " ") }} [value]</code></pre>
       </span>
     </span>
     <span v-else
