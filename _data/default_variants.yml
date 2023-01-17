@@ -400,6 +400,7 @@ extractors:
   tap-shortio: airbyte
   tap-signonsite: singer-io
   tap-simplifi: georgiyolovski
+  tap-singer-jsonl: kgpayne
   tap-sklik: polar-analytics
   tap-skubana: singer-io
   tap-slack: meltanolabs
