@@ -400,6 +400,7 @@ extractors:
   tap-shortio: airbyte
   tap-signonsite: singer-io
   tap-simplifi: georgiyolovski
+  tap-singer-jsonl: kgpayne
   tap-sklik: polar-analytics
   tap-skubana: singer-io
   tap-slack: meltanolabs
@@ -550,6 +551,7 @@ loaders:
   target-s3-csv: transferwise
   target-s3-parquet: gupy-io
   target-salesforce: dan-ladd
+  target-singer-jsonl: kgpayne
   target-snowflake: transferwise
   target-sqlite: meltanolabs
   target-stitch: singer-io
