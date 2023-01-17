@@ -15,16 +15,16 @@ next_steps: ''
 pip_url: target-singer-jsonl
 repo: https://github.com/kgpayne/target-singer-jsonl
 settings:
-  - default: local
-    description: The destination configuration to use. Currently `local` and `s3` are supported.
+  - description: The destination configuration to use. Currently `local` and `s3` are supported.
     kind: string
     label: Destination
     name: destination
-  - default: true
-    description: Whether to inject `_sdc_*` metadata columns.
+    value: local
+  - description: Whether to inject `_sdc_*` metadata columns.
     kind: boolean
     label: Add Record Metadata
     name: add_record_metadata
+    value: true
   - description: Output folder to write `.singer.gz` stream files to.
     kind: string
     label: Folder

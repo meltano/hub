@@ -16,25 +16,25 @@ next_steps: ''
 pip_url: tap-singer-jsonl
 repo: https://github.com/kgpayne/tap-singer-jsonl
 settings:
-  - default: local
-    description: The source configuration to use when reading `.singer.gz` files. Currently `local` and `s3` are supported.
+  - description: The source configuration to use when reading `.singer.gz` files. Currently `local` and `s3` are supported.
     kind: string
     label: Source
     name: source
-  - default: true
-    description: Whether to inject `_sdc_*` metadata columns.
+    value: local
+  - description: Whether to inject `_sdc_*` metadata columns.
     kind: boolean
     label: Add Record Metadata
     name: add_record_metadata
+    value: true
   - description: Array of directory paths to scan for `.singer.gz` files.
     kind: array
     label: Folders
     name: local.folders
-  - default: false
-    description: Whether to scan directories recursively when discovering `.singer.gz` files.
+  - description: Whether to scan directories recursively when discovering `.singer.gz` files.
     kind: boolean
     label: Recursive
     name: local.recursive
+    value: false
   - description: Array of file paths to singer-formatted files. **Note:** extension is ignored, and compression is inferred automatically by `smart_open`. Both `local.folders` and `local.paths` can be specified together.
     kind: array
     label: Paths
