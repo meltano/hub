@@ -3,27 +3,21 @@ title: "Add a Tap or Target to Meltano Hub"
 description: "Find out how to get your plugins on the MeltanoHub"
 ---
 
-# Add a Tap to the MeltanoHub
+# Add a Plugin to the MeltanoHub
 
-1. Clone the MeltanoHub Repo & Create YAML File
+1. Clone the MeltanoHub Repo
 
 ```
 git clone git@github.com:meltano/hub.git
 ```
 
-All Singer definitions are stored in `/_data/meltano/extractors/` or `/_data/meltano/loaders/` and logo images are in /assets/logos/<extractors or loaders>. Add/update the file in the appropriate folder (`/taps` or `/targets`). The name of the file should match the name of the tap. If there is already one, add a descriptor to the name such as `-search`.
+2. Add or Update Plugin Definition
+
+All Singer definitions are stored in `/_data/meltano/extractors/` or `/_data/meltano/loaders/` and logo images are in /assets/logos/<extractors or loaders>. Each variant of a plugin is stored under a directory named after the plugin (e.g.`/_data/meltano/extractors/tap-github/meltanolabs.yml`).
 
 Use the following template to create your YAML file.
 
 ```yaml
-description: General description of what the company behind the API does
-label: Properly formatted label of the connector e.g. GitLab
-name: The unique name of the connector
-logo_url: /assets/logos/extractors/gitlab.png
-namespace: The namespace e.g. tap_gitlab
-variant: Name of the GitHub/GitLab namespace
-pip_url: git+<git_url>.git or pip install name
-repo: repo URL
 capabilities:
   # Chose the capabilities that the connector supports
   # Checkout for a list and details - https://hub.meltano.com/singer/docs#singer-connector-capabilities
@@ -49,10 +43,20 @@ capabilities:
   - hard-delete
   - datatype-failsafe
   - record-flattening
-settings_group_validation:
-  # The set of required settings.
-  - api_key
-  - start_date
+description: Code hosting platform # General description of what the company behind the API does
+domain_url: URL of the developer documentation or website
+keywords:
+  # Attributes about the plugin for easier searching. Include `meltano_sdk` here if built using the SDK.
+  # Other examples could be source type: `api`, `file`, `database`, etc. or cloud name `aws`, `gcp`, etc.
+  - api
+  - meltano_sdk
+label: GitHub
+logo_url: /assets/logos/extractors/github.png
+maintenance_status: active # Options: active, beta, development, inactive, unknown
+name: tap-github # The unique name of the connector
+namespace: tap_github # The namespace e.g. tap_github
+pip_url: git+<git_url>.git or pip install name
+repo: https://github.com/MeltanoLabs/tap-github
 settings:
   - name: api_key
     label: API Key
@@ -64,19 +68,39 @@ settings:
   - name: my_other_setting
     label: My Other Setting
     description: Some other setting
-domain_url: URL of the developer documentation or website
-maintenance_status: "Options: active, beta, development, inactive, unknown"
-keywords:
-  # Attributes about the plugin for easier searching. Include `meltano_sdk` here if built using the SDK.
-  # Other examples could be source type: `api`, `file`, `database`, etc. or cloud name `aws`, `gcp`, etc.
-  - api
-  - meltano_sdk
+settings_group_validation:
+  # The set of required settings.
+  - api_key
+  - start_date
+variant: meltanolabs # the github namespace
 ```
 
-1. Add a Logo
+3. Add a Logo
 
-Add/update the PNG logo image in `/assets/logos/<taps or targets>`. The image name must match the YAML file name.
+Add or update the logo image in `/assets/logos/<extractors or loaders>`.
 
-1. Open a PR and Get your PR Reviewed
+4. Add or Update default_variants.yml
+
+If the plugin is new or if the default variant is changing then update the `/_data/default_variants.yml` file with the plugin name and its associated default variant name.
+
+5. Add or Update maintainers.yml
+
+The plugin variant name is usually the github namespaces that the plugin lives in.
+If its not already listed in `/_data/maintainers.yml` then they should be added along with a link and label.
+
+6. Lint Your Changes
+
+Optionally run the yaml_lint_fix.py script over the files you updated to make them conform with the yamlint settings for this repo.
+
+```
+poetry install
+poetry run python utility_scripts/plugin_definitions/yaml_lint_fix.py _data/meltano/extractors/tap-github/meltanolabs.yml
+poetry run python utility_scripts/plugin_definitions/yaml_lint_fix.py _data/default_variants.yml
+poetry run python utility_scripts/plugin_definitions/yaml_lint_fix.py _data/maintainers.yml
+```
+
+See the [CONTRIBUTING.md](https://github.com/meltano/hub/blob/main/CONTRIBUTING.md#linters) for more details.
+
+7. Open a PR and Get Your PR Reviewed
 
 [Open a pull request](https://github.com/meltano/hub/pulls) on the MeltanoHub repo and tag `@tayloramurphy` or `@pnadolny13` to flag it for review. You can optionally post to the [#hub](https://meltano.slack.com/archives/C01UGBSJNG5) channel on Meltano's [Slack](https://meltano.com/slack) workspace.
