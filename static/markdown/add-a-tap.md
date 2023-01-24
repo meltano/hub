@@ -58,16 +58,16 @@ namespace: tap_github # The namespace e.g. tap_github
 pip_url: git+<git_url>.git or pip install name
 repo: https://github.com/MeltanoLabs/tap-github
 settings:
-- name: api_key
-  label: API Key
-  kind: password
-  description: The API key for this source.
-- name: start_date
-  label: Start date
-  description: Start date of when to start retrieve data from.
-- name: my_other_setting
-  label: My Other Setting
-  description: Some other setting
+  - name: api_key
+    label: API Key
+    kind: password
+    description: The API key for this source.
+  - name: start_date
+    label: Start date
+    description: Start date of when to start retrieve data from.
+  - name: my_other_setting
+    label: My Other Setting
+    description: Some other setting
 settings_group_validation:
   # The set of required settings.
   - api_key
@@ -100,7 +100,6 @@ poetry run python utility_scripts/plugin_definitions/yaml_lint_fix.py _data/main
 ```
 
 See the [CONTRIBUTING.md](https://github.com/meltano/hub/blob/main/CONTRIBUTING.md#linters) for more details.
-
 
 7. Open a PR and Get Your PR Reviewed
 
