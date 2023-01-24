@@ -10,6 +10,7 @@ description: "Find out how to get your plugins on the MeltanoHub"
 ```
 git clone git@github.com:meltano/hub.git
 ```
+
 All Singer definitions are stored in `/_data/meltano/extractors/` or `/_data/meltano/loaders/` and logo images are in /assets/logos/<extractors or loaders>. Add/update the file in the appropriate folder (`/taps` or `/targets`). The name of the file should match the name of the tap. If there is already one, add a descriptor to the name such as `-search`.
 
 Use the following template to create your YAML file.
@@ -49,27 +50,27 @@ capabilities:
   - datatype-failsafe
   - record-flattening
 settings_group_validation:
-# The set of required settings.
-- - api_key
+  # The set of required settings.
+  - api_key
   - start_date
 settings:
-- name: api_key
-  label: API Key
-  kind: password
-  description: The API key for this source.
-- name: start_date
-  label: Start date
-  description: Start date of when to start retrieve data from.
-- name: my_other_setting
-  label: My Other Setting
-  description: Some other setting
+  - name: api_key
+    label: API Key
+    kind: password
+    description: The API key for this source.
+  - name: start_date
+    label: Start date
+    description: Start date of when to start retrieve data from.
+  - name: my_other_setting
+    label: My Other Setting
+    description: Some other setting
 domain_url: URL of the developer documentation or website
 maintenance_status: "Options: active, beta, development, inactive, unknown"
 keywords:
-# Attributes about the plugin for easier searching. Include `meltano_sdk` here if built using the SDK.
-# Other examples could be source type: `api`, `file`, `database`, etc. or cloud name `aws`, `gcp`, etc.
-- api
-- meltano_sdk
+  # Attributes about the plugin for easier searching. Include `meltano_sdk` here if built using the SDK.
+  # Other examples could be source type: `api`, `file`, `database`, etc. or cloud name `aws`, `gcp`, etc.
+  - api
+  - meltano_sdk
 ```
 
 1. Add a Logo
