@@ -1,17 +1,17 @@
-name: tap-google-sheets
-description: Cloud Spreadsheets
-label: Google Sheets
-namespace: tap_google_sheets
-logo_url: /assets/logos/extractors/google-sheets.png
-variant: dcaribou
-pip_url: git+https://github.com/dcaribou/tap-gsheets.git
-repo: https://github.com/dcaribou/tap-gsheets
 capabilities:
 - discover
 - catalog
-settings_group_validation: []
-settings: []
+description: Cloud Spreadsheets
 domain_url: https://developers.google.com/webmaster-tools/search-console-api-original/v3/how-tos/search_analytics
-maintenance_status: unknown
 keywords:
 - api
+label: Google Sheets
+logo_url: /assets/logos/extractors/google-sheets.png
+maintenance_status: unknown
+name: tap-google-sheets
+namespace: tap_google_sheets
+pip_url: git+https://github.com/dcaribou/tap-gsheets.git
+repo: https://github.com/dcaribou/tap-gsheets
+settings: []
+settings_group_validation: []
+variant: dcaribou

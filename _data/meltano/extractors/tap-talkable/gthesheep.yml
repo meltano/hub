@@ -1,34 +1,34 @@
-description: E-commerce Referral Program Platform
-label: Talkable
-name: tap-talkable
-logo_url: /assets/logos/extractors/talkable.png
-namespace: tap_talkable
-variant: gthesheep
-pip_url: git+https://github.com/gthesheep/tap-talkable.git
-repo: https://github.com/gthesheep/tap-talkable
 capabilities:
 - catalog
 - discover
 - state
 - about
 - stream-maps
+description: E-commerce Referral Program Platform
+domain_url: https://docs.talkable.com/api_v2.html
+keywords:
+- api
+- meltano_sdk
+label: Talkable
+logo_url: /assets/logos/extractors/talkable.png
+maintenance_status: active
+name: tap-talkable
+namespace: tap_talkable
+pip_url: git+https://github.com/gthesheep/tap-talkable.git
+repo: https://github.com/gthesheep/tap-talkable
+settings:
+- description: API Token gained from Talkable
+  kind: password
+  label: API Key
+  name: api_key
+- description: Slug for your site on Talkable
+  label: Site Slug
+  name: site_slug
+- description: Start date as of when to collect metrics from
+  label: Start date
+  name: start_date
 settings_group_validation:
 - - api_key
   - site_slug
   - start_date
-settings:
-- name: api_key
-  label: API Key
-  kind: password
-  description: API Token gained from Talkable
-- name: site_slug
-  label: Site Slug
-  description: Slug for your site on Talkable
-- name: start_date
-  label: Start date
-  description: Start date as of when to collect metrics from
-domain_url: https://docs.talkable.com/api_v2.html
-maintenance_status: active
-keywords:
-- api
-- meltano_sdk
+variant: gthesheep

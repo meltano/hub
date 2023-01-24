@@ -1,17 +1,17 @@
-description: NoSQL Database
-label: DynamoDB
-name: tap-dynamodb
-logo_url: /assets/logos/extractors/dynamodb.png
-namespace: tap_dynamodb
-variant: henriblancke
-pip_url: git+https://github.com/henriblancke/tap-dynamodb.git
-repo: https://github.com/henriblancke/tap-dynamodb
-settings: []
 capabilities:
 - catalog
 - discover
 - state
+description: NoSQL Database
 domain_url: https://aws.amazon.com/dynamodb/
-maintenance_status: unknown
 keywords:
 - database
+label: DynamoDB
+logo_url: /assets/logos/extractors/dynamodb.png
+maintenance_status: unknown
+name: tap-dynamodb
+namespace: tap_dynamodb
+pip_url: git+https://github.com/henriblancke/tap-dynamodb.git
+repo: https://github.com/henriblancke/tap-dynamodb
+settings: []
+variant: henriblancke

@@ -1,36 +1,36 @@
-description: Data Governance Solutions
-label: Immuta
-name: tap-immuta
-logo_url: /assets/logos/extractors/immuta.png
-namespace: tap_immuta
-variant: immuta
-pip_url: git+https://github.com/immuta/tap-immuta.git
-repo: https://github.com/immuta/tap-immuta
-settings:
-- name: hostname
-  label: Hostname
-  description: Immuta hostname, e.g. https://my-immuta.my-domain.com
-  kind: string
-- name: api_key
-  label: Api Key
-  description: User-generated Immuta API Key.
-  kind: password
-- name: user_agent
-  label: User Agent
-  description: Should be set to something that includes a contact email address should
-    the API provider need to contact you for any reason.
-  kind: string
 capabilities:
 - catalog
 - state
 - discover
 - about
 - stream-maps
+description: Data Governance Solutions
 domain_url: https://www.immuta.com/
-maintenance_status: active
 keywords:
 - api
 - meltano_sdk
+label: Immuta
+logo_url: /assets/logos/extractors/immuta.png
+maintenance_status: active
+name: tap-immuta
+namespace: tap_immuta
+pip_url: git+https://github.com/immuta/tap-immuta.git
+repo: https://github.com/immuta/tap-immuta
+settings:
+- description: Immuta hostname, e.g. https://my-immuta.my-domain.com
+  kind: string
+  label: Hostname
+  name: hostname
+- description: User-generated Immuta API Key.
+  kind: password
+  label: Api Key
+  name: api_key
+- description: Should be set to something that includes a contact email address should
+    the API provider need to contact you for any reason.
+  kind: string
+  label: User Agent
+  name: user_agent
 settings_group_validation:
 - - api_key
   - hostname
+variant: immuta

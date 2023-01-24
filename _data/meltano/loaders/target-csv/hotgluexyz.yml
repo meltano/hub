@@ -1,15 +1,15 @@
-name: target-csv
-label: Comma Separated Values (CSV)
 description: CSV loader
-namespace: target_csv
+keywords:
+- file
+label: Comma Separated Values (CSV)
 logo_url: /assets/logos/loaders/csv.png
-variant: hotgluexyz
-repo: https://github.com/hotgluexyz/target-csv
+maintenance_status: active
+name: target-csv
+namespace: target_csv
 pip_url: git+https://github.com/hotgluexyz/target-csv.git
+repo: https://github.com/hotgluexyz/target-csv
 settings:
-- name: destination_path
-  label: Destination Path
-  description: |
+- description: |
     Sets the destination path the CSV files are written to, relative to
     the project root.
 
@@ -17,10 +17,14 @@ settings:
     automatically.
 
     To write CSV files to the project root, set an empty string (`""`).
+  label: Destination Path
+  name: destination_path
   value: output
-- name: delimiter
-  label: Delimiter
+- description: A one-character string used to separate fields. It defaults to a comma
+    (,).
   kind: options
+  label: Delimiter
+  name: delimiter
   options:
   - label: Comma (,)
     value: ','
@@ -31,20 +35,16 @@ settings:
   - label: Pipe (|)
     value: '|'
   value: ','
-  description: A one-character string used to separate fields. It defaults to a comma
-    (,).
-- name: quotechar
-  label: Quote Character
+- description: A one-character string used to quote fields containing special characters,
+    such as the delimiter or quotechar, or which contain new-line characters. It defaults
+    to single quote (').
   kind: options
+  label: Quote Character
+  name: quotechar
   options:
   - label: Double Quote (")
     value: '"'
   - label: Single Quote (')
     value: "'"
   value: "'"
-  description: A one-character string used to quote fields containing special characters,
-    such as the delimiter or quotechar, or which contain new-line characters. It defaults
-    to single quote (').
-maintenance_status: active
-keywords:
-- file
+variant: hotgluexyz

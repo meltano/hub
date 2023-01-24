@@ -1,15 +1,19 @@
+capabilities:
+- catalog
+- discover
 description: Cloud Log Management, Monitoring, SIEM Tools
+domain_url: https://www.sumologic.com/
+keywords:
+- api
 label: Sumo Logic
-name: tap-sumologic
 logo_url: /assets/logos/extractors/sumologic.png
+maintenance_status: active
+name: tap-sumologic
 namespace: tap_sumologic
-variant: splitio
 pip_url: git+https://github.com/splitio/tap-sumologic.git
 repo: https://github.com/splitio/tap-sumologic
 settings:
-- name: tables
-  label: Tables
-  description: "An array of objects containing the `query`, `table_name`, `max_lookback_day`,\
+- description: "An array of objects containing the `query`, `table_name`, `max_lookback_day`,\
     \ and `time_property`. E.g. { \"query\": \"_sourceCategory=prod/fastly/sdk | _timeslice\
     \ 1d as day | count by day, api_key\", \"table_name\": \"my_table\", \"max_lookback_days\"\
     : 10, \"time_property\": [\"day\"] }. The max_lookback_days by default is 7 days.\
@@ -17,37 +21,33 @@ settings:
     \ well when going to far back so use with caution. time_property: this is the\
     \ field that has the time if any. It allows to track the last processed date."
   kind: array
-- name: sumologic_root_url
+  label: Tables
+  name: tables
+- description: The root url for requests, i.e. https://api.us2.sumologic.com/api.
   label: Sumologic Root Url
-  description: The root url for requests, i.e. https://api.us2.sumologic.com/api.
-- name: sumologic_access_key
+  name: sumologic_root_url
+- description: Your access key.
+  kind: password
   label: Sumologic Access Key
-  description: Your access key.
+  name: sumologic_access_key
+- description: Your access ID.
   kind: password
-- name: sumologic_access_id
   label: Sumologic Access Id
-  description: Your access ID.
-  kind: password
-- name: end_date
-  label: End Date
-  description: Date up to when historical data will be extracted.
+  name: sumologic_access_id
+- description: Date up to when historical data will be extracted.
   kind: date_iso8601
-- name: start_date
-  label: Start Date
-  description: "Determines how much historical data will be extracted. Please be aware\n\
+  label: End Date
+  name: end_date
+- description: "Determines how much historical data will be extracted. Please be aware\n\
     that the larger the time period and amount of data, the longer the initial extraction\n\
     can be expected to take."
   kind: date_iso8601
-capabilities:
-- catalog
-- discover
-domain_url: https://www.sumologic.com/
-maintenance_status: active
-keywords:
-- api
+  label: Start Date
+  name: start_date
 settings_group_validation:
 - - tables
   - sumologic_root_url
   - sumologic_access_key
   - sumologic_access_id
   - start_date
+variant: splitio

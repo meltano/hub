@@ -1,34 +1,34 @@
 description: Personalized Search & Recommendation Engine
+domain_url: https://miso.ai
+keywords:
+- api
 label: Miso
-name: target-miso
 logo_url: /assets/logos/loaders/misoai.png
+maintenance_status: active
+name: target-miso
 namespace: target_miso
-variant: misoai
 pip_url: target-miso
 repo: https://github.com/MisoAI/target-miso
+settings:
+- description: The path to directory of template files.
+  kind: string
+  label: Template Folder
+  name: template_folder
+- description: The Miso API server host.
+  kind: string
+  label: API Server
+  name: api_server
+- description: Your Miso API key.
+  kind: string
+  label: API Key
+  name: api_key
+- description: Whether to call Miso API in asynchornous mode.
+  kind: boolean
+  label: Async Mode
+  name: use_async
 settings_group_validation:
 - - template_folder
   - api_server
   - api_key
   - use_async
-settings:
-- name: template_folder
-  kind: string
-  label: Template Folder
-  description: The path to directory of template files.
-- name: api_server
-  kind: string
-  label: API Server
-  description: The Miso API server host.
-- name: api_key
-  kind: string
-  label: API Key
-  description: Your Miso API key.
-- name: use_async
-  kind: boolean
-  label: Async Mode
-  description: Whether to call Miso API in asynchornous mode.
-domain_url: https://miso.ai
-maintenance_status: active
-keywords:
-- api
+variant: misoai

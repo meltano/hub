@@ -1,39 +1,39 @@
-description: Silicon Labs Thunderboard tap that collect environmental data - temperature,
-  uv, ambient light - from a physical device.
-label: Thunderboard
-name: tap-thunderboard
-logo_url: /assets/logos/extractors/thunderboard.png
-namespace: tap_thunderboard
-variant: matatika
-pip_url: git+https://github.com/Matatika/tap-thunderboard
-repo: https://github.com/Matatika/tap-thunderboard
 capabilities:
 - catalog
 - discover
-settings:
-- name: mode
-  label: Mode
-  description: "'dump' mode scans for devices and dumps measurements continuously\n\
-    \n'file' mode processes the `filename` in the `dataDirectory`"
-- name: dataDirectory
-  label: Data Directory
-  description: The local directory where thunderboard data can be found (Required
-    for 'file' `mode`)
-- name: filename
-  label: Filename
-  description: The name of the file in the `dataDirectory` to be processed (Required
-    for 'file' `mode`)
-- name: truncate
-  label: Truncate
-  description: Remove file contents after processing (Optional. Default - true)
-  value: true
-  kind: boolean
-- name: deviceId
-  label: Device ID
-  description: Limit output from discovered thunderboards to a specific `deviceId`
-    (Optional)
+description: Silicon Labs Thunderboard tap that collect environmental data - temperature,
+  uv, ambient light - from a physical device.
 domain_url: https://www.silabs.com/community/projects.entry.html/2017/03/08/thunderboard_sensew-Scqr
-maintenance_status: active
 keywords:
 - file
 - meltano_sdk
+label: Thunderboard
+logo_url: /assets/logos/extractors/thunderboard.png
+maintenance_status: active
+name: tap-thunderboard
+namespace: tap_thunderboard
+pip_url: git+https://github.com/Matatika/tap-thunderboard
+repo: https://github.com/Matatika/tap-thunderboard
+settings:
+- description: "'dump' mode scans for devices and dumps measurements continuously\n\
+    \n'file' mode processes the `filename` in the `dataDirectory`"
+  label: Mode
+  name: mode
+- description: The local directory where thunderboard data can be found (Required
+    for 'file' `mode`)
+  label: Data Directory
+  name: dataDirectory
+- description: The name of the file in the `dataDirectory` to be processed (Required
+    for 'file' `mode`)
+  label: Filename
+  name: filename
+- description: Remove file contents after processing (Optional. Default - true)
+  kind: boolean
+  label: Truncate
+  name: truncate
+  value: true
+- description: Limit output from discovered thunderboards to a specific `deviceId`
+    (Optional)
+  label: Device ID
+  name: deviceId
+variant: matatika

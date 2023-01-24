@@ -1,45 +1,45 @@
-description: BI Data Visuialization Tool
-label: PowerBI
-name: tap-powerbi-metadata
-logo_url: /assets/logos/extractors/powerbi-metadata.png
-namespace: tap_powerbi_metadata
-variant: dataops-tk
-pip_url: git+https://github.com/dataops-tk/tap-powerbi-metadata.git
-repo: https://github.com/dataops-tk/tap-powerbi-metadata
-settings:
-- name: tenant_id
-  label: Tenant ID
-  description: The unique identifier for the Power BI tenant.
-  kind: password
-- name: client_id
-  label: Client ID
-  description: The unique client ID for the Power BI tenant.
-  kind: password
-- name: username
-  label: Username
-  description: Username to use in the flow.
-  kind: string
-- name: password
-  label: Password
-  description: Password to use in the auth flow.
-  kind: password
-- name: start_date
-  label: Start Date
-  description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
-    can be expected to take."
-  kind: date_iso8601
 capabilities:
 - catalog
 - state
 - discover
+description: BI Data Visuialization Tool
 domain_url: https://powerbi.microsoft.com/
-maintenance_status: active
 keywords:
 - api
 - meltano_sdk
+label: PowerBI
+logo_url: /assets/logos/extractors/powerbi-metadata.png
+maintenance_status: active
+name: tap-powerbi-metadata
+namespace: tap_powerbi_metadata
+pip_url: git+https://github.com/dataops-tk/tap-powerbi-metadata.git
+repo: https://github.com/dataops-tk/tap-powerbi-metadata
+settings:
+- description: The unique identifier for the Power BI tenant.
+  kind: password
+  label: Tenant ID
+  name: tenant_id
+- description: The unique client ID for the Power BI tenant.
+  kind: password
+  label: Client ID
+  name: client_id
+- description: Username to use in the flow.
+  kind: string
+  label: Username
+  name: username
+- description: Password to use in the auth flow.
+  kind: password
+  label: Password
+  name: password
+- description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
 settings_group_validation:
 - - password
   - username
   - tenant_id
   - client_id
+variant: dataops-tk

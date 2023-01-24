@@ -1,0 +1,98 @@
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+- schema-flattening
+description: The distributed serverless database
+domain_url: https://fauna.com/
+executable: tap-airbyte
+keywords:
+- airbyte_protocol
+label: Fauna
+logo_url: /assets/logos/extractors/fauna.png
+maintenance_status: beta
+name: tap-fauna
+namespace: tap_airbyte
+next_steps: ''
+pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
+repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-fauna
+settings:
+- description: Airbyte image to run
+  kind: string
+  label: Airbyte Spec Image
+  name: airbyte_spec.image
+  value: airbyte/source-fauna
+- description: Airbyte image tag
+  kind: string
+  label: Airbyte Spec Tag
+  name: airbyte_spec.tag
+  value: latest
+- description: Docker mounts to make available to the Airbyte container. Expects a
+    list of maps containing source, target, and type as is documented in the docker
+    --mount documentation
+  kind: array
+  label: Docker Mounts
+  name: docker_mounts
+- description: Domain of Fauna to query. Defaults db.fauna.com. See <a href=https://docs.fauna.com/fauna/current/learn/understanding/region_groups#how-to-use-region-groups>the
+    docs</a>.
+  kind: string
+  label: Airbyte Config Domain
+  name: airbyte_config.domain
+- description: Endpoint port.
+  kind: integer
+  label: Airbyte Config Port
+  name: airbyte_config.port
+- description: URL scheme.
+  kind: string
+  label: Airbyte Config Scheme
+  name: airbyte_config.scheme
+- description: Fauna secret, used when authenticating with the database.
+  kind: password
+  label: Airbyte Config Secret
+  name: airbyte_config.secret
+- description: "The page size used when reading documents from the database. The larger\
+    \ the page size, the faster the connector processes documents. However, if a page\
+    \ is too large, the connector may fail. <br>\nChoose your page size based on how\
+    \ large the documents are. <br>\nSee <a href=\"https://docs.fauna.com/fauna/current/learn/understanding/types#page\"\
+    >the docs</a>."
+  kind: integer
+  label: Airbyte Config Collection Page Size
+  name: airbyte_config.collection.page_size
+- description: ignore, deleted_field
+  kind: string
+  label: Airbyte Config Collection Deletions Deletion Mode
+  name: airbyte_config.collection.deletions.deletion_mode
+- description: Name of the "deleted at" column.
+  kind: string
+  label: Airbyte Config Collection Deletions Column
+  name: airbyte_config.collection.deletions.column
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+settings_group_validation:
+- - connector_config.port
+  - connector_config.secret
+  - connector_config.domain
+  - airbyte_spec.image
+  - connector_config.collection.page_size
+  - connector_config.scheme
+settings_preamble: ''
+usage: ''
+variant: airbyte

@@ -1,23 +1,22 @@
-name: sqlfluff
-label: SQLFluff
-namespace: sqlfluff
-domain_url: https://www.sqlfluff.com/
-pip_url: sqlfluff sqlfluff-templater-dbt dbt-core
-maintenance_status: active
-repo: https://github.com/sqlfluff/sqlfluff
-variant: sqlfluff
 commands:
-  lint:
-    args: lint
-    description: Lint SQL in transform models.
   fix:
     args: fix
     description: Automatically fix SQL files according to your defined rules.
   fix-force:
     args: fix --force
-    description: Automatically fix SQL files according to your defined rules (does not ask for confirmation).
+    description: Automatically fix SQL files according to your defined rules (does
+      not ask for confirmation).
+  lint:
+    args: lint
+    description: Lint SQL in transform models.
+definition: is a linting tool for SQL files, often used with dbt to enforce SQL code
+  standards.
+domain_url: https://www.sqlfluff.com/
+label: SQLFluff
 logo_url: /assets/logos/utilities/sqlfluff.png
-definition: is a linting tool for SQL files, often used with dbt to enforce SQL code standards.
+maintenance_status: active
+name: sqlfluff
+namespace: sqlfluff
 next_steps: |
   1. Update the pip_url in your meltano.yml by appending your dbt adapter (e.g. dbt-snowflake, etc.).
 
@@ -47,7 +46,7 @@ next_steps: |
       ```
   1. Create a `.sqlfluffignore` in the root directory of your project using the sample content below.
     This makes sure SQLFluff ignores auto generated sql or installed packages.
-   
+
       ```
       .meltano/
       utilities/
@@ -59,7 +58,7 @@ next_steps: |
   1. Depending on your dbt adapter you will need to override your dbt environment variables using the `env` key so when SQLFluff calls dbt your
     [profile.yml env vars](https://github.com/meltano/files-dbt-snowflake/blob/c8ae6cde35716b6ada3ccf8f9b6f116ba37b95fe/bundle/transform/profiles/snowflake/profiles.yml#L15)
     are properly set.
-    Refer to the Meltano transformer [docs](https://hub.meltano.com/transformers/) for details on what variables are needed for your adapter. 
+    Refer to the Meltano transformer [docs](https://hub.meltano.com/transformers/) for details on what variables are needed for your adapter.
     An example for Snowflake is shown below.
 
       ```yaml
@@ -98,3 +97,6 @@ next_steps: |
       ````
   1. Run `meltano invoke sqlfluff:lint` to lint your SQL files.
   1. Run `meltano invoke sqlfluff:fix` to automatically fix your SQL files based on your linting rules.
+pip_url: sqlfluff sqlfluff-templater-dbt dbt-core
+repo: https://github.com/sqlfluff/sqlfluff
+variant: sqlfluff

@@ -39,7 +39,7 @@
                   {{ $page.plugins.label }}
                 </p>
                 <p class="text-2xl">
-                  <code>{{ $page.plugins.name }} from {{ $page.plugins.variant }}</code>
+                  <code>{{ $page.plugins.name }} ({{ $page.plugins.variant }} variant)</code>
                 </p>
                 <p>
                   <b>{{ $page.plugins.description }}</b>
@@ -63,6 +63,35 @@
                 <a :href="$page.plugins.domain_url">{{ $page.plugins.label }}</a> that can then be
                 sent to a destination using a <g-link to="/loaders">loader</g-link>.</span
               >
+              <span
+                v-if="
+                  $page.plugins.pluginType === 'extractor' &&
+                  $page.plugins.keywords.includes('airbyte_protocol')
+                "
+              >
+                <p class="text-3xl py-4" id="airbyte-preview">⚠️ Experimental Preview Warning ⚠️</p>
+
+                This connector uses
+                <g-link to="https://github.com/meltanolabs/tap-airbyte-wrapper"
+                  >tap-airbyte-wrapper</g-link
+                >
+                to call the underlying Docker container for the source. This means you must have
+                <a :href="'https://www.docker.com/'">Docker</a> installed and running prior to
+                usage. We also recommend using Meltano version 2.13.0 or later.
+                <br />
+                For more context on how this Airbyte integration works please checkout out the
+                <a
+                  :href="'https://docs.meltano.com/guide/advanced-topics#airbyte-connector-integration-faq'"
+                  >FAQ in the Meltano Docs</a
+                >.
+                <br />
+                <!-- For more detailed information on this connector, checkout the link to the documentation on the <a :href="`https://docs.airbyte.com/integrations/sources/${name.replace('tap-','')}`">source connector page</a>. -->
+              </span>
+              <span
+                class="prose"
+                v-if="$page.plugins.pluginType === 'extractor'"
+                v-html="$page.plugins.definition_rendered"
+              ></span>
               <span v-if="$page.plugins.pluginType === 'loader'">
                 sends data into <a :href="$page.plugins.domain_url">{{ $page.plugins.label }}</a>
                 after it was pulled from a source using an
@@ -125,16 +154,18 @@
                 <pre
                   class="prose language-bash rounded-md"
                 ><code >meltano add {{ $page.plugins.pluginType }} {{ $page.plugins.name }}<span v-if="!$page.plugins.isDefault"> --variant {{ $page.plugins.variant }}</span></code></pre>
-                <li>
-                  Configure the {{ $page.plugins.name }} <a href="#settings">settings</a> using
-                  <a href="https://docs.meltano.com/reference/command-line-interface#config">
-                    <pre class="inline-code-block"><code>meltano config</code></pre>
-                  </a>
-                  :
-                </li>
-                <pre
-                  class="prose language-bash rounded-md"
-                ><code >meltano config {{ $page.plugins.name }} set --interactive</code></pre>
+                <span>
+                  <li>
+                    Configure the {{ $page.plugins.name }} <a href="#settings">settings</a> using
+                    <a href="https://docs.meltano.com/reference/command-line-interface#config">
+                      <pre class="inline-code-block"><code>meltano config</code></pre>
+                    </a>
+                    :
+                  </li>
+                  <pre
+                    class="prose language-bash rounded-md"
+                  ><code >meltano config {{ $page.plugins.name }} set --interactive</code></pre>
+                </span>
                 <span v-if="$page.plugins.pluginType === 'extractor'">
                   <li>
                     Test that extractor settings are valid using
@@ -233,6 +264,11 @@
                 :variant="$page.plugins.variant"
                 :preamble="$page.plugins.settings_preamble_rendered"
               />
+              <PluginCommandsSection
+                :commands="$page.plugins.commands"
+                :name="$page.plugins.name"
+                :plugin_type="$page.plugins.pluginType"
+              />
               <div
                 class="prose mt-3 p-2"
                 v-if="$page.plugins.usage"
@@ -259,6 +295,7 @@
             :plugin_type="$page.plugins.pluginType"
             :maintainer="$page.plugins.maintainer"
             :pip_url="$page.plugins.pip_url"
+            :airbyte_name="$page.plugins.airbyte_name"
           />
         </div>
       </div>
@@ -269,6 +306,7 @@
 <script>
 import PluginSidebar from "../components/PluginSidebar.vue";
 import PluginSettingsSection from "../components/PluginSettingsSection.vue";
+import PluginCommandsSection from "../components/PluginCommandsSection.vue";
 import PluginHelpSection from "../components/PluginHelpSection.vue";
 import PluginCapabilitiesSection from "../components/PluginCapabilitiesSection.vue";
 import PluginPrereqSection from "../components/PluginPrereqSection.vue";
@@ -283,6 +321,7 @@ export default {
   components: {
     PluginSidebar,
     PluginSettingsSection,
+    PluginCommandsSection,
     PluginHelpSection,
     PluginCapabilitiesSection,
     PluginPrereqSection,
@@ -306,6 +345,7 @@ query Plugins($path: String!, $name: String!) {
     definition_rendered
     label
     name
+    airbyte_name
     path
     logo_url
     namespace
@@ -330,6 +370,12 @@ query Plugins($path: String!, $name: String!) {
       placeholder
       value
     }
+    commands {
+      name
+      executable
+      args
+      description
+    }
     prereq
     prereq_rendered
     settings_preamble
@@ -346,7 +392,7 @@ query Plugins($path: String!, $name: String!) {
       url
     }
   }
-  variants: allPlugins(filter: { name: { eq: $name } }) {
+  variants: allPlugins(filter: { name: { eq: $name }, hidden: { ne: true } }) {
     edges {
       node {
         name

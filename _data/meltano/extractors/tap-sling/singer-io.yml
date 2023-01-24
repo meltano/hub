@@ -1,17 +1,17 @@
-description: Employee Scheduling
-label: Sling
-name: tap-sling
-logo_url: /assets/logos/extractors/sling.png
-namespace: tap_sling
-variant: singer-io
-pip_url: tap-sling
-repo: https://github.com/singer-io/tap-sling
-settings: []
 capabilities:
 - catalog
 - discover
 - state
+description: Employee Scheduling
 domain_url: https://api.sling.is/#/
-maintenance_status: unknown
 keywords:
 - api
+label: Sling
+logo_url: /assets/logos/extractors/sling.png
+maintenance_status: unknown
+name: tap-sling
+namespace: tap_sling
+pip_url: tap-sling
+repo: https://github.com/singer-io/tap-sling
+settings: []
+variant: singer-io

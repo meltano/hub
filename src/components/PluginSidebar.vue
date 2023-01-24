@@ -51,6 +51,22 @@
             src="https://img.shields.io/badge/Maintenance%20Status-Inactive%20or%20Stale-red"
           />
         </li>
+        <li v-if="(keywords ?? []).includes('meltano_sdk')">
+          <a href="https://sdk.meltano.com/en/latest/">
+            <img
+              alt="Built with the Meltano SDK"
+              src="https://img.shields.io/badge/Built%20with%20the%20Meltano%20SDK-✔-blueviolet"
+            />
+          </a>
+        </li>
+        <li v-if="(keywords ?? []).includes('airbyte_protocol')">
+          <a :href="`https://docs.airbyte.com/integrations/${airbyte_name.replace('-', 's/')}`">
+            <img
+              alt="Based on an Airbyte Connector"
+              src="https://img.shields.io/badge/Based%20on%20an%20Airbyte%20Connector-🔗-orange"
+            />
+          </a>
+        </li>
       </ul>
     </div>
 
@@ -64,7 +80,7 @@
       </div>
     </div>
 
-    <div>
+    <div v-if="!$page.plugins.keywords.includes('airbyte_protocol')">
       <ul class="list-disc list-inside shields space-y-1">
         <li>
           <img
@@ -108,6 +124,18 @@
         </li>
       </ul>
     </div>
+    <div
+      v-if="
+        $page.plugins.pluginType === 'extractor' &&
+        $page.plugins.keywords.includes('airbyte_protocol')
+      "
+    >
+      <ul class="list-disc list-inside shields space-y-1">
+        <li>
+          <img alt="License" :src="`https://img.shields.io/badge/License-MIT-lightgrey`" />
+        </li>
+      </ul>
+    </div>
 
     <div>
       <p class="text-lg">Maintainer</p>
@@ -128,28 +156,20 @@
     </div>
 
     <!-- <div v-if="metrics  (keywords ?? []).includes('meltano_sdk')"> -->
-    <div v-if="metrics">
+    <div v-if="metrics && (metrics.ALL_EXECS || metrics.ALL_PROJECTS)">
       <p class="text-lg">Meltano Stats</p>
       <ul class="list-disc list-inside shields space-y-1">
         <li v-if="metrics.ALL_EXECS">
           <img
             alt="Total Executions (Last 3 Months)"
-            :src="`https://img.shields.io/badge/Total%20Executions%20(Last%203%20Months)-${metrics.ALL_EXECS}-c0c0c4`"
+            :src="`https://img.shields.io/badge/Total%20Executions%20(Last%203%20Months)-${metrics.ALL_EXECS.toLocaleString()}-c0c0c4`"
           />
         </li>
         <li v-if="metrics.ALL_PROJECTS">
           <img
             alt="Projects (Last 3 Months)"
-            :src="`https://img.shields.io/badge/Projects%20(Last%203%20Months)-${metrics.ALL_PROJECTS}-c0c0c4`"
+            :src="`https://img.shields.io/badge/Projects%20(Last%203%20Months)-${metrics.ALL_PROJECTS.toLocaleString()}-c0c0c4`"
           />
-        </li>
-        <li v-if="(keywords ?? []).includes('meltano_sdk')">
-          <a href="https://sdk.meltano.com/en/latest/">
-            <img
-              alt="Built with the Meltano SDK"
-              src="https://img.shields.io/badge/Built%20with%20the%20Meltano%20SDK-✔-blueviolet"
-            />
-          </a>
         </li>
       </ul>
     </div>
@@ -194,6 +214,7 @@ export default {
   name: "PluginSidebar",
   props: [
     "name",
+    "airbyte_name",
     "domain_url",
     "is_default",
     "repo",

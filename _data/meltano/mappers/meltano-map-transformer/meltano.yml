@@ -1,6 +1,6 @@
+executable: meltano-map-transform
 name: meltano-map-transformer
 namespace: meltano_map_transformer
-variant: meltano
 pip_url: git+https://github.com/MeltanoLabs/meltano-map-transform.git
 repo: https://github.com/MeltanoLabs/meltano-map-transform
-executable: meltano-map-transform
+variant: meltano

@@ -1,31 +1,31 @@
-name: tap-fastly
-label: Fastly
-description: Edge cloud computing services provider
-namespace: tap_fastly
-logo_url: /assets/logos/extractors/fastly.png
-variant: splitio
-repo: https://github.com/splitio/tap-fastly
-pip_url: git+https://github.com/splitio/tap-fastly.git
 capabilities:
 - catalog
 - discover
 - state
+description: Edge cloud computing services provider
+domain_url: https://developer.fastly.com/reference/api/
+keywords:
+- api
+label: Fastly
+logo_url: /assets/logos/extractors/fastly.png
+maintenance_status: active
+name: tap-fastly
+namespace: tap_fastly
+pip_url: git+https://github.com/splitio/tap-fastly.git
+repo: https://github.com/splitio/tap-fastly
+settings:
+- description: Fastly token for authenticating with the API.
+  kind: password
+  label: API Token
+  name: api_token
+  placeholder: Ex. *****************
+- description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
 settings_group_validation:
 - - api_token
   - start_date
-settings:
-- name: api_token
-  label: API Token
-  kind: password
-  placeholder: Ex. *****************
-  description: Fastly token for authenticating with the API.
-- name: start_date
-  label: Start Date
-  kind: date_iso8601
-  description: Determines how much historical data will be extracted. Please be aware
-    that the larger the time period and amount of data, the longer the initial extraction
-    can be expected to take.
-domain_url: https://developer.fastly.com/reference/api/
-maintenance_status: active
-keywords:
-- api
+variant: splitio

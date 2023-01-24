@@ -1,17 +1,17 @@
-description: Portfolio Monitoring Software
-label: iLevel Portfolio Monitoring Software
-name: tap-ilevel
-logo_url: /assets/logos/extractors/ilevel.png
-namespace: tap_ilevel
-variant: bytecodeio
-pip_url: git+https://github.com/bytecodeio/tap-ilevel.git
-repo: https://github.com/bytecodeio/tap-ilevel
-settings: []
 capabilities:
 - catalog
 - discover
 - state
+description: Portfolio Monitoring Software
 domain_url: https://ihsmarkit.com/products/ilevel.html
-maintenance_status: unknown
 keywords:
 - api
+label: iLevel Portfolio Monitoring Software
+logo_url: /assets/logos/extractors/ilevel.png
+maintenance_status: unknown
+name: tap-ilevel
+namespace: tap_ilevel
+pip_url: git+https://github.com/bytecodeio/tap-ilevel.git
+repo: https://github.com/bytecodeio/tap-ilevel
+settings: []
+variant: bytecodeio

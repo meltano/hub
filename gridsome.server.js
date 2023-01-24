@@ -25,6 +25,10 @@ const readMaintainers = yaml.load(
   fs.readFileSync(path.join(dataRoot, "maintainers.yml"))
 );
 
+const readAirbyteMap = yaml.load(
+  fs.readFileSync(path.join(dataRoot, "singer_airbyte_map.yml"))
+);
+
 const pluginTypeSingulars = {
   extractors: "extractor",
   loaders: "loader",
@@ -36,6 +40,19 @@ const pluginTypeSingulars = {
   files: "file",
 };
 
+function renderDefinition(definition) {
+  let rendered = marked.marked(definition);
+  rendered = rendered.replace(/<p>|<\/p>/gi, "");
+  return ` ${rendered.charAt(0).toLowerCase()}${rendered.slice(1)}`;
+}
+
+function renderNextSteps(nextSteps) {
+  const rendered = marked.marked(nextSteps);
+  return rendered.replace(
+    /<pre>/gi,
+    '<pre class="prose language-bash rounded-md"'
+  );
+}
 function renderMarkdownSections(pluginData) {
   return {
     ...pluginData,
@@ -49,7 +66,7 @@ function renderMarkdownSections(pluginData) {
       })),
     // Rare
     definition_rendered: pluginData.definition
-      ? marked.marked(pluginData.definition)
+      ? renderDefinition(pluginData.definition)
       : undefined,
     settings_preamble_rendered: pluginData.settings_preamble
       ? marked.marked(pluginData.settings_preamble)
@@ -61,7 +78,7 @@ function renderMarkdownSections(pluginData) {
       ? marked.marked(pluginData.prereq)
       : undefined,
     next_steps_rendered: pluginData.next_steps
-      ? marked.marked(pluginData.next_steps)
+      ? renderNextSteps(pluginData.next_steps)
       : undefined,
   };
 }
@@ -126,6 +143,23 @@ function buildData(dataPath, collections) {
       // Include additional fields
       readPlugin.metrics = pluginMetricsData[readPlugin.repo];
       readPlugin.maintainer = readMaintainers[readPlugin.variant];
+      readPlugin.airbyte_name =
+        readAirbyteMap[path.basename(dataPath)]?.[currentFolder] ||
+        `source-${currentFolder.split("tap-")[1]}` ||
+        `source-${currentFolder.split("target-")[1]}`;
+
+      // If there are commands, turn them into a more graphql-friendly array
+      readPlugin.commands = readPlugin.commands
+        ? Object.keys(readPlugin.commands).map((key) => ({
+            ...readPlugin.commands[key],
+            name: key,
+          }))
+        : undefined;
+
+      // Make Meltano/Singer metadata a JSON string
+      readPlugin.metadata = readPlugin.metadata
+        ? JSON.stringify(readPlugin.metadata)
+        : undefined;
 
       collections.forEach((collection) => {
         collection.addNode(readPlugin);

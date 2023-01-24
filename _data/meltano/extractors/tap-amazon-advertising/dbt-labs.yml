@@ -1,45 +1,44 @@
-description: Online Advertising Platform
-label: Amazon Advertising
-name: tap-amazon-advertising
-logo_url: /assets/logos/extractors/amazon-advertising.png
-namespace: tap_amazon_advertising
-variant: dbt-labs
-pip_url: git+https://github.com/dbt-labs/tap-amazon-advertising.git
-repo: https://github.com/dbt-labs/tap-amazon-advertising
-settings:
-- name: profile_id
-  label: Profile ID
-  description: Your profile ID.
-  kind: password
-- name: start_date
-  label: Start Date
-  description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
-    can be expected to take."
-  kind: date_iso8601
-- name: client_secret
-  label: Client Secret
-  description: Your Amazon Advertising API client secret.
-  kind: password
-- name: client_id
-  label: Client ID
-  description: Your Amazon Advertising API client ID.
-  kind: password
-- name: refresh_token
-  label: Refresh Token
-  description: Your Amazon Advertising API refresh token.
-  kind: password
-- name: redirect_uri
-  label: Redirect URI
-  description: The redirect URI to use for OAuth flow.
 capabilities:
 - catalog
 - discover
 - state
+description: Online Advertising Platform
 domain_url: https://advertising.amazon.com/
-maintenance_status: inactive
 keywords:
 - api
+label: Amazon Advertising
+logo_url: /assets/logos/extractors/amazon-advertising.png
+maintenance_status: inactive
+name: tap-amazon-advertising
+namespace: tap_amazon_advertising
+pip_url: git+https://github.com/dbt-labs/tap-amazon-advertising.git
+repo: https://github.com/dbt-labs/tap-amazon-advertising
+settings:
+- description: Your profile ID.
+  kind: password
+  label: Profile ID
+  name: profile_id
+- description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: Your Amazon Advertising API client secret.
+  kind: password
+  label: Client Secret
+  name: client_secret
+- description: Your Amazon Advertising API client ID.
+  kind: password
+  label: Client ID
+  name: client_id
+- description: Your Amazon Advertising API refresh token.
+  kind: password
+  label: Refresh Token
+  name: refresh_token
+- description: The redirect URI to use for OAuth flow.
+  label: Redirect URI
+  name: redirect_uri
 settings_group_validation:
 - - profile_id
   - start_date
@@ -47,3 +46,4 @@ settings_group_validation:
   - client_id
   - refresh_token
   - redirect_uri
+variant: dbt-labs

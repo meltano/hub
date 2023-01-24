@@ -16,6 +16,15 @@
         </li>
       </ul>
       <p>
+        You can also list these settings using
+        <a href="https://docs.meltano.com/reference/command-line-interface#config">
+          <pre class="inline-code-block"><code>meltano config</code></pre>
+        </a>
+        with the <code>list</code>
+        subcommand:
+      </p>
+      <pre class="prose language-bash rounded-md"><code >meltano config {{ name }} list</code></pre>
+      <p>
         You can
         <a
           href="https://docs.meltano.com/guide/configuration#overriding-discoverable-plugin-properties"
@@ -56,6 +65,11 @@
           v-html="setting.description_rendered"
         ></div>
         <span v-else>[No description provided.]</span>
+        <br />
+        <p>Configure this setting directly using the following Meltano command:</p>
+        <pre
+          class="prose language-bash rounded-md"
+        ><code >meltano config {{ name }} set {{ setting.name.replace(".", " ") }} [value]</code></pre>
       </span>
     </span>
     <span v-else

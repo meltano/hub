@@ -1,52 +1,52 @@
-name: tap-getpocket
-variant: evelte
-description: Your own private corner of the web to spend quality time with great articles.
-label: Pocket
-logo_url: /assets/logos/extractors/getpocket.svg
 capabilities:
 - catalog
 - state
 - discover
 - about
 - stream-maps
+description: Your own private corner of the web to spend quality time with great articles.
 domain_url: https://getpocket.com/
 keywords:
 - api
 - meltano_sdk
+label: Pocket
+logo_url: /assets/logos/extractors/getpocket.svg
 maintenance_status: active
+name: tap-getpocket
 namespace: tap_getpocket
 next_steps: ''
 pip_url: git+https://github.com/evelte/tap-getpocket.git
 repo: https://github.com/evelte/tap-getpocket
+settings:
+- description: The consumer key used in the authentication flow
+  kind: password
+  label: Consumer Key
+  name: consumer_key
+- description: Access token to authenticate against the API service. Follow instructions
+    in README to get
+  kind: password
+  label: Access Token
+  name: access_token
+- description: The earliest record date to sync
+  label: Start Date
+  name: start_date
+- description: Whether to retrieve only favorited, unfavorited or all items
+  kind: boolean
+  label: Favorite
+  name: favorite
+- description: Whether to retrieve only unread, archived or all items
+  label: State
+  name: state
+- description: Whether to retrieve only basic information or all data about each item
+  label: Detail Type
+  name: detail_type
+- description: Only return items with this tag_name. Use _untagged_ to get only untagged
+    items
+  label: Tag
+  name: tag
 settings_group_validation:
 - - consumer_key
   - access_token
-settings:
-- name: consumer_key
-  label: Consumer Key
-  description: The consumer key used in the authentication flow
-  kind: password
-- name: access_token
-  label: Access Token
-  description: Access token to authenticate against the API service. Follow instructions
-    in README to get
-  kind: password
-- name: start_date
-  label: Start Date
-  description: The earliest record date to sync
-- name: favorite
-  label: Favorite
-  description: Whether to retrieve only favorited, unfavorited or all items
-  kind: boolean
-- name: state
-  label: State
-  description: Whether to retrieve only unread, archived or all items
-- name: detail_type
-  label: Detail Type
-  description: Whether to retrieve only basic information or all data about each item
-- name: tag
-  label: Tag
-  description: Only return items with this tag_name. Use _untagged_ to get only untagged
-    items
 settings_preamble: ''
 usage: ''
+variant: evelte

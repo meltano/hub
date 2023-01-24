@@ -1,29 +1,29 @@
-name: tap-hubspot
-description: Inbound Marketing software
-label: Hubspot
-namespace: tap_hubspot
-logo_url: /assets/logos/extractors/hubspot.png
-variant: spacecowboy
-pip_url: git+https://github.com/spacecowboy/tap-hubspot.git
-repo: https://github.com/spacecowboy/tap-hubspot
-settings_group_validation:
-- - hapikey
-  - start_date
-settings:
-- name: hapikey
-  label: HubSpot API Key
-  kind: password
-  description: This is API key for your HubSpot account
-- name: start_date
-  label: Start Date
-  kind: date_iso8601
-  description: This is the cutoff date for syncing historical data.
 capabilities:
 - catalog
 - discover
 - properties
 - state
+description: Inbound Marketing software
 domain_url: https://legacydocs.hubspot.com/docs/overview
-maintenance_status: unknown
 keywords:
 - api
+label: Hubspot
+logo_url: /assets/logos/extractors/hubspot.png
+maintenance_status: unknown
+name: tap-hubspot
+namespace: tap_hubspot
+pip_url: git+https://github.com/spacecowboy/tap-hubspot.git
+repo: https://github.com/spacecowboy/tap-hubspot
+settings:
+- description: This is API key for your HubSpot account
+  kind: password
+  label: HubSpot API Key
+  name: hapikey
+- description: This is the cutoff date for syncing historical data.
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+settings_group_validation:
+- - hapikey
+  - start_date
+variant: spacecowboy

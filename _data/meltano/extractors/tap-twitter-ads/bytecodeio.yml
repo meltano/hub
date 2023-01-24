@@ -1,17 +1,17 @@
-description: Social Networking Website
-label: Twitter Ads
-name: tap-twitter-ads
-logo_url: /assets/logos/extractors/twitter-ads.png
-namespace: tap_twitter_ads
-variant: bytecodeio
-pip_url: git+https://github.com/bytecodeio/tap-twitter-ads.git
-repo: https://github.com/bytecodeio/tap-twitter-ads
-settings: []
 capabilities:
 - catalog
 - discover
 - state
+description: Social Networking Website
 domain_url: https://developer.twitter.com
-maintenance_status: unknown
 keywords:
 - api
+label: Twitter Ads
+logo_url: /assets/logos/extractors/twitter-ads.png
+maintenance_status: unknown
+name: tap-twitter-ads
+namespace: tap_twitter_ads
+pip_url: git+https://github.com/bytecodeio/tap-twitter-ads.git
+repo: https://github.com/bytecodeio/tap-twitter-ads
+settings: []
+variant: bytecodeio

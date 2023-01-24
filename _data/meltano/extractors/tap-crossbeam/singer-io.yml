@@ -1,16 +1,16 @@
-description: Partner Ecosystem Platform
-label: Crossbeam
-name: tap-crossbeam
-logo_url: /assets/logos/extractors/crossbeam.png
-namespace: tap_crossbeam
-variant: singer-io
-pip_url: git+https://github.com/singer-io/tap-crossbeam.git
-repo: https://github.com/singer-io/tap-crossbeam
-settings: []
 capabilities:
 - catalog
 - discover
+description: Partner Ecosystem Platform
 domain_url: https://developers.crossbeam.com/
-maintenance_status: unknown
 keywords:
 - api
+label: Crossbeam
+logo_url: /assets/logos/extractors/crossbeam.png
+maintenance_status: unknown
+name: tap-crossbeam
+namespace: tap_crossbeam
+pip_url: git+https://github.com/singer-io/tap-crossbeam.git
+repo: https://github.com/singer-io/tap-crossbeam
+settings: []
+variant: singer-io

@@ -1,16 +1,16 @@
-name: tap-zendesk
-label: Zendesk
-description: Support ticketing system & customer service platform
-namespace: tap_zendesk
-logo_url: /assets/logos/extractors/zendesk.png
-variant: radico
 capabilities:
 - catalog
 - discover
-settings: []
-settings_group_validation: []
+description: Support ticketing system & customer service platform
+domain_url:
+keywords: []
+label: Zendesk (Support)
+logo_url: /assets/logos/extractors/zendesk.png
+maintenance_status: unknown
+name: tap-zendesk
+namespace: tap_zendesk
 pip_url: git+https://github.com/Radico/tap-zendesk.git
 repo: https://github.com/Radico/tap-zendesk
-domain_url:
-maintenance_status: unknown
-keywords: []
+settings: []
+settings_group_validation: []
+variant: radico

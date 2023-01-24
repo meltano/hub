@@ -1,0 +1,82 @@
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+- schema-flattening
+description: User editable database for movies and TV shows
+domain_url: https://developers.themoviedb.org/3/getting-started
+executable: tap-airbyte
+keywords:
+- airbyte_protocol
+label: The Movie Database
+logo_url: /assets/logos/extractors/tmdb.png
+maintenance_status: beta
+name: tap-tmdb
+namespace: tap_airbyte
+next_steps: ''
+pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
+repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-tmdb
+settings:
+- description: Airbyte image to run
+  kind: string
+  label: Airbyte Spec Image
+  name: airbyte_spec.image
+  value: airbyte/source-tmdb
+- description: Airbyte image tag
+  kind: string
+  label: Airbyte Spec Tag
+  name: airbyte_spec.tag
+  value: latest
+- description: Docker mounts to make available to the Airbyte container. Expects a
+    list of maps containing source, target, and type as is documented in the docker
+    --mount documentation
+  kind: array
+  label: Docker Mounts
+  name: docker_mounts
+- description: API Key from tmdb account
+  kind: password
+  label: Airbyte Config Api Key
+  name: airbyte_config.api_key
+- description: Target movie ID, Mandate for movie streams (Example is 550)
+  kind: password
+  label: Airbyte Config Movie Id
+  name: airbyte_config.movie_id
+- description: Target movie ID, Mandate for search streams
+  kind: string
+  label: Airbyte Config Query
+  name: airbyte_config.query
+- description: Language expressed in ISO 639-1 scheme, Mandate for required streams
+    (Example en-US)
+  kind: string
+  label: Airbyte Config Language
+  name: airbyte_config.language
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+settings_group_validation:
+- - airbyte_spec
+  - airbyte_config.movie_id
+  - airbyte_config.api_key
+  - airbyte_spec.image
+  - airbyte_config.query
+  - airbyte_config.language
+settings_preamble: ''
+usage: ''
+variant: airbyte

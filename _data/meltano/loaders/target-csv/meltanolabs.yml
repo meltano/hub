@@ -1,0 +1,66 @@
+capabilities:
+- about
+- stream-maps
+description: CSV loader
+domain_url: ''
+executable: target-csv
+keywords:
+- meltano_sdk
+label: Comma Separated Values (CSV)
+logo_url: /assets/logos/loaders/csv.png
+maintenance_status: active
+name: target-csv
+namespace: target_csv
+next_steps: ''
+pip_url: git+https://github.com/MeltanoLabs/target-csv.git
+repo: https://github.com/MeltanoLabs/target-csv
+settings:
+- description: Optional path prefix which will be prepended to the file path indicated
+    by `file_naming_schema`.
+  kind: string
+  label: Output Path Prefix
+  name: output_path_prefix
+- description: "The scheme with which output files will be named. Naming scheme may\
+    \ leverage any of the following substitutions: \n\n- `{stream_name}`- `{datestamp}`-\
+    \ `{timestamp}`"
+  kind: string
+  label: File Naming Scheme
+  name: file_naming_scheme
+- description: 'A python format string to use when outputting the `{datestamp}` string.
+    For reference, see: https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes'
+  kind: string
+  label: Datestamp Format
+  name: datestamp_format
+- description: 'A python format string to use when outputting the `{timestamp}` string.
+    For reference, see: https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes'
+  kind: string
+  label: Timestamp Format
+  name: timestamp_format
+- description: "The timezone code or name to use when generating `{timestamp}` and\
+    \ `{datestamp}`. Defaults to 'UTC'. For a list of possible values, please see:\
+    \ https://en.wikipedia.org/wiki/List_of_tz_database_time_zones"
+  kind: string
+  label: Timestamp Timezone
+  name: timestamp_timezone
+- description: 'Allows inline stream transformations and aliasing. For more information
+    see: https://sdk.meltano.com/en/latest/stream_maps.html'
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: "A property in the record which will be used as a sort key.\n\nIf this\
+    \ property is omitted, records will not be sorted."
+  kind: string
+  label: Record Sort Property Name
+  name: record_sort_property_name
+- description: "Determines the overwrite behavior if destination file already exists.\
+    \ Must be one of the following string values: \n\n- `append_records` (default)\
+    \ - append records at the insertion point\n- `replace_file` - replace entire file\
+    \ using `default_CSV_template`\n"
+  kind: string
+  label: Overwrite Behavior
+  name: overwrite_behavior
+settings_group_validation:
+- []
+settings_preamble: ''
+usage: ''
+variant: meltanolabs

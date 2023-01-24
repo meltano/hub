@@ -1,0 +1,99 @@
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+- schema-flattening
+description: Brisith Daily Newspaper
+domain_url: https://open-platform.theguardian.com/
+executable: tap-airbyte
+keywords:
+- airbyte_protocol
+label: The Guardian Api
+logo_url: /assets/logos/extractors/the-guardian-api.png
+maintenance_status: beta
+name: tap-the-guardian-api
+namespace: tap_airbyte
+next_steps: ''
+pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
+repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-the-guardian-api
+settings:
+- description: Airbyte image to run
+  kind: string
+  label: Airbyte Spec Image
+  name: airbyte_spec.image
+  value: airbyte/source-the-guardian-api
+- description: Airbyte image tag
+  kind: string
+  label: Airbyte Spec Tag
+  name: airbyte_spec.tag
+  value: latest
+- description: Docker mounts to make available to the Airbyte container. Expects a
+    list of maps containing source, target, and type as is documented in the docker
+    --mount documentation
+  kind: array
+  label: Docker Mounts
+  name: docker_mounts
+- description: Your API Key. See <a href="https://open-platform.theguardian.com/access/">here</a>.
+    The key is case sensitive.
+  kind: password
+  label: Airbyte Config Api Key
+  name: airbyte_config.api_key
+- description: Use this to set the minimum date (YYYY-MM-DD) of the results. Results
+    older than the start_date will not be shown.
+  kind: string
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
+- description: (Optional) The query (q) parameter filters the results to only those
+    that include that search term. The q parameter supports AND, OR and NOT operators.
+  kind: string
+  label: Airbyte Config Query
+  name: airbyte_config.query
+- description: (Optional) A tag is a piece of data that is used by The Guardian to
+    categorise content. Use this parameter to filter results by showing only the ones
+    matching the entered tag. See <a href="https://content.guardianapis.com/tags?api-key=test">here</a>
+    for a list of all tags, and <a href="https://open-platform.theguardian.com/documentation/tag">here</a>
+    for the tags endpoint documentation.
+  kind: string
+  label: Airbyte Config Tag
+  name: airbyte_config.tag
+- description: (Optional) Use this to filter the results by a particular section.
+    See <a href="https://content.guardianapis.com/sections?api-key=test">here</a>
+    for a list of all sections, and <a href="https://open-platform.theguardian.com/documentation/section">here</a>
+    for the sections endpoint documentation.
+  kind: string
+  label: Airbyte Config Section
+  name: airbyte_config.section
+- description: (Optional) Use this to set the maximum date (YYYY-MM-DD) of the results.
+    Results newer than the end_date will not be shown. Default is set to the current
+    date (today) for incremental syncs.
+  kind: string
+  label: Airbyte Config End Date
+  name: airbyte_config.end_date
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+settings_group_validation:
+- - airbyte_spec.image
+  - airbyte_config.start_date
+  - airbyte_spec
+  - airbyte_config.api_key
+settings_preamble: ''
+usage: ''
+variant: airbyte

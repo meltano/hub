@@ -1,13 +1,13 @@
 description: Columnar Storage Format
+domain_url: https://parquet.apache.org/
+keywords:
+- file
 label: Parquet
-name: target-parquet
 logo_url: /assets/logos/loaders/parquet.png
+maintenance_status: unknown
+name: target-parquet
 namespace: target_parquet
-variant: mrtns
 pip_url: git+https://github.com/mrtns/target-parquet.git
 repo: https://github.com/mrtns/target-parquet
 settings: []
-domain_url: https://parquet.apache.org/
-maintenance_status: unknown
-keywords:
-- file
+variant: mrtns

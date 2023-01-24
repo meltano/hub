@@ -1,17 +1,20 @@
-name: tap-carbon-intensity
-label: Carbon Emissions Intensity
-description: National Grid ESO's Carbon Emissions Intensity API
-namespace: tap_carbon_intensity
-logo_url: /assets/logos/extractors/carbon-intensity.png
-variant: meltano
-hidden: true
-repo: https://gitlab.com/meltano/tap-carbon-intensity
-pip_url: git+https://gitlab.com/meltano/tap-carbon-intensity.git
 capabilities:
 - discover
 - state
 - catalog
+description: National Grid ESO's Carbon Emissions Intensity API
 domain_url: https://api.carbonintensity.org.uk/
-maintenance_status: unknown
+hidden: true
 keywords:
 - api
+- zero auth
+- zero config
+- free service
+label: Carbon Emissions Intensity
+logo_url: /assets/logos/extractors/carbon-intensity.png
+maintenance_status: unknown
+name: tap-carbon-intensity
+namespace: tap_carbon_intensity
+pip_url: git+https://gitlab.com/meltano/tap-carbon-intensity.git
+repo: https://gitlab.com/meltano/tap-carbon-intensity
+variant: meltano

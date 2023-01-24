@@ -1,16 +1,16 @@
-description: Advertising Platform
-label: Facebook Reviews
-name: tap-facebook-reviews
-logo_url: /assets/logos/extractors/facebook-reviews.png
-namespace: tap_facebook_reviews
-variant: packlane
-pip_url: git+https://github.com/Packlane/tap-facebook-reviews.git
-repo: https://github.com/Packlane/tap-facebook-reviews
-settings: []
 capabilities:
 - catalog
 - discover
+description: Advertising Platform
 domain_url: https://developers.facebook.com/docs/graph-api/
-maintenance_status: unknown
 keywords:
 - api
+label: Facebook Reviews
+logo_url: /assets/logos/extractors/facebook-reviews.png
+maintenance_status: unknown
+name: tap-facebook-reviews
+namespace: tap_facebook_reviews
+pip_url: git+https://github.com/Packlane/tap-facebook-reviews.git
+repo: https://github.com/Packlane/tap-facebook-reviews
+settings: []
+variant: packlane

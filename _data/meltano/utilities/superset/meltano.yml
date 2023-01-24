@@ -1,79 +1,42 @@
-name: superset
-namespace: superset
-label: Superset (EDK preview)
-domain_url: https://superset.apache.org/
-description: A modern, enterprise-ready business intelligence web application.
-docs: https://docs.meltano.com/guide/analysis
-repo: https://github.com/apache/superset
-maintenance_status: active
-variant: meltano
-pip_url: apache-superset==2.0.0 flask==2.0.3 werkzeug==2.0.3 jinja2==3.0.1 wtforms==2.3.3 git+https://github.com/meltano/superset-ext.git@main
-settings:
-- name: ui.bind_host
-  label: UI Bind Host
-  value: "0.0.0.0"
-  description: Host used by `meltano invoke superset:ui`. Used in the `gunicorn` `--bind` option along with `ui.port`.
-- name: ui.port
-  label: UI Port
-  value: 8088
-  description: Port used by `meltano invoke superset:ui`. Used in the `gunicorn` `--bind` option along with `ui.bind_host`.
-- name: ui.timeout
-  label: UI Timeout
-  value: 60
-  description: Timeout in sections, used by `meltano invoke superset:ui`. Corresponds to the `gunicorn` `--timeout` option
-- name: ui.workers
-  label: UI Workers
-  value: 4
-  description: Workers used by `meltano invoke superset:ui`. Corresponds to the `gunicorn` `--workers` option
-- name: HOME
-  label: Superset home 
-  value: $MELTANO_PROJECT_ROOT/.meltano/utilities/superset
-- name: CONFIG_PATH
-  label: Superset config path
-  description: The path to where the Superset config file is located.
-  value: $MELTANO_PROJECT_ROOT/analyze/superset/superset_config.py
-- name: SQLALCHEMY_DATABASE_URI
-  label: SQLAlchemy Database URI
-  value: sqlite:///$MELTANO_PROJECT_ROOT/.meltano/utilities/superset/superset.db
-  description: |
-    Superset metadata database connection string. Equivalent to the `SQLALCHEMY_DATABASE_URI` setting in `superset_config.py`.
-
-    SQLite is used by default, but in production PostgreSQL or MySQL is more appropriate. See the [Superset documentation](https://superset.apache.org/docs/installation/configuring-superset/#using-a-production-metastore) for more information. To add a database driver like `psycopg2` or `mysqlclient`, refer to the [Add additional database drivers](#add-additional-database-drivers) section above.
-- name: SECRET_KEY
-  label: Secret Key
-  kind: password
-  value: thisisnotapropersecretkey
-  description: App secret key used for securely signing the session cookie and encrypting sensitive information on the database. Equivalent to the `SECRET_KEY` setting in `superset_config.py`.
-executable: superset_invoker
 commands:
-  describe:
-    executable: superset_extension
-    args: describe
-  initialize:
-    executable: superset_extension
-    args: initialize
-  invoke:
-    executable: superset_extension
-    args: invoke
   create-admin:
     args: create-admin
     executable: superset_extension
-  ui:
-    executable: gunicorn
-    args: --bind $SUPERSET_UI_BIND_HOST:$SUPERSET_UI_PORT --timeout $SUPERSET_UI_TIMEOUT --workers $SUPERSET_UI_WORKERS superset.app:create_app()
-    description: Start the Superset UI. Will be available on the configured `ui.bind_host` and `ui.port`, which default to `http://localhost:8088`
+  describe:
+    args: describe
+    executable: superset_extension
+  initialize:
+    args: initialize
+    executable: superset_extension
+  invoke:
+    args: invoke
+    executable: superset_extension
   load-examples:
     args: load_examples
     description: Load examples.
-logo_url: /assets/logos/utilities/superset.png
+  ui:
+    args: --bind $SUPERSET_UI_BIND_HOST:$SUPERSET_UI_PORT --timeout $SUPERSET_UI_TIMEOUT
+      --workers $SUPERSET_UI_WORKERS superset.app:create_app()
+    description: Start the Superset UI. Will be available on the configured `ui.bind_host`
+      and `ui.port`, which default to `http://localhost:8088`
+    executable: gunicorn
+definition: |
+  is a modern data exploration and visualization platform.
+
+  ### EDK Preview
+   This utility is in a preview stage of readiness. It is based upon our Extension Developer Kit (EDK) which is the new way to build and add plugins to Meltano Hub.
+   This preview of Superset will replace the existing Superset utility once it comes out of preview. In the meantime, we would appreciate any feedback in the [EDK repo](https://github.com/meltano/edk/) and in the [Superset Extension repo](https://github.com/meltano/superset-ext/).
+description: A modern, enterprise-ready business intelligence web application.
+docs: https://docs.meltano.com/guide/analysis
+domain_url: https://superset.apache.org/
+executable: superset_invoker
 keywords:
 - analysis
-definition: |
- is a modern data exploration and visualization platform.
-
- ### EDK Preview
-  This utility is in a preview stage of readiness. It is based upon our Extension Developer Kit (EDK) which is the new way to build and add plugins to Meltano Hub.
-  This preview of Superset will replace the existing Superset utility once it comes out of preview. In the meantime, we would appreciate any feedback in the [EDK repo](https://github.com/meltano/edk/) and in the [Superset Extension repo](https://github.com/meltano/superset-ext/).
+label: Superset (EDK preview)
+logo_url: /assets/logos/utilities/superset.png
+maintenance_status: active
+name: superset
+namespace: superset
 next_steps: |
   1. If you're running Superset for the first time in a new environment you'll need to initialize the config, database, as well as generate generate a new [`SECRET_KEY`](#secret-key) to increase security:
 
@@ -99,7 +62,7 @@ next_steps: |
     ```
 
     This is equivalent to `superset load_examples` in the Superset documentation
-    
+
     **Note that you need a user named `admin` with the admin permissions to load these examples.**
 
   4. Launch the Superset UI and log in using the username/password you created:
@@ -133,18 +96,63 @@ next_steps: |
      ```
 
   Now when you (re)start Superset, you will be able to connect to a new type of database, like Snowflake in the example.
+pip_url: apache-superset==2.0.0 flask==2.0.3 werkzeug==2.0.3 jinja2==3.0.1 wtforms==2.3.3
+  git+https://github.com/meltano/superset-ext.git@main
+repo: https://github.com/apache/superset
+settings:
+- description: Host used by `meltano invoke superset:ui`. Used in the `gunicorn` `--bind`
+    option along with `ui.port`.
+  label: UI Bind Host
+  name: ui.bind_host
+  value: "0.0.0.0"
+- description: Port used by `meltano invoke superset:ui`. Used in the `gunicorn` `--bind`
+    option along with `ui.bind_host`.
+  label: UI Port
+  name: ui.port
+  value: 8088
+- description: Timeout in sections, used by `meltano invoke superset:ui`. Corresponds
+    to the `gunicorn` `--timeout` option
+  label: UI Timeout
+  name: ui.timeout
+  value: 60
+- description: Workers used by `meltano invoke superset:ui`. Corresponds to the `gunicorn`
+    `--workers` option
+  label: UI Workers
+  name: ui.workers
+  value: 4
+- label: Superset home
+  name: HOME
+  value: $MELTANO_PROJECT_ROOT/.meltano/utilities/superset
+- description: The path to where the Superset config file is located.
+  label: Superset config path
+  name: CONFIG_PATH
+  value: $MELTANO_PROJECT_ROOT/analyze/superset/superset_config.py
+- description: |
+    Superset metadata database connection string. Equivalent to the `SQLALCHEMY_DATABASE_URI` setting in `superset_config.py`.
+
+    SQLite is used by default, but in production PostgreSQL or MySQL is more appropriate. See the [Superset documentation](https://superset.apache.org/docs/installation/configuring-superset/#using-a-production-metastore) for more information. To add a database driver like `psycopg2` or `mysqlclient`, refer to the [Add additional database drivers](#add-additional-database-drivers) section above.
+  label: SQLAlchemy Database URI
+  name: SQLALCHEMY_DATABASE_URI
+  value: sqlite:///$MELTANO_PROJECT_ROOT/.meltano/utilities/superset/superset.db
+- description: App secret key used for securely signing the session cookie and encrypting
+    sensitive information on the database. Equivalent to the `SECRET_KEY` setting
+    in `superset_config.py`.
+  kind: password
+  label: Secret Key
+  name: SECRET_KEY
+  value: thisisnotapropersecretkey
 usage: |
   ## Troubleshooting
-  
+
   ### Invalid decryption key
-  
-  If you see a `ValueError: Invalid decryption key` warning or a message that `Superset default roles and permissions could not be created: 'superset init' failed` then it's likely that your encryption key is incorrect. 
-  
+
+  If you see a `ValueError: Invalid decryption key` warning or a message that `Superset default roles and permissions could not be created: 'superset init' failed` then it's likely that your encryption key is incorrect.
+
   If you change your [`SECRET_KEY`](#secret-key), the metadata database containing your users and reports will become unreadable. If there was nothing valuable in there, you can delete it at `.meltano/utilities/superset/superset.db` inside your project. If you changed the secret key because the old one was leaked, you can [rotate the key](https://superset.apache.org/docs/installation/configuring-superset/#secret_key-rotation):
-  
+
   ```bash
   meltano config superset_ext set SECRET_KEY <new_key>
   meltano config superset_ext set PREVIOUS_SECRET_KEY <original_key>
   meltano invoke superset_ext re-encrypt-secrets
   ```
-  
+variant: meltano

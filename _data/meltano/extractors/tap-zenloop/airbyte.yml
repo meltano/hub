@@ -1,0 +1,80 @@
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+- schema-flattening
+description: Customer Experience Management Platform
+domain_url: https://www.zenloop.com/
+executable: tap-airbyte
+keywords:
+- airbyte_protocol
+label: Zenloop
+logo_url: /assets/logos/extractors/zenloop.png
+maintenance_status: beta
+name: tap-zenloop
+namespace: tap_airbyte
+next_steps: ''
+pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
+repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-zenloop
+settings:
+- description: Airbyte image to run
+  kind: string
+  label: Airbyte Spec Image
+  name: airbyte_spec.image
+  value: airbyte/source-zenloop
+- description: Airbyte image tag
+  kind: string
+  label: Airbyte Spec Tag
+  name: airbyte_spec.tag
+  value: latest
+- description: Docker mounts to make available to the Airbyte container. Expects a
+    list of maps containing source, target, and type as is documented in the docker
+    --mount documentation
+  kind: array
+  label: Docker Mounts
+  name: docker_mounts
+- description: 'Zenloop API Token. You can get the API token in settings page <a href="https://app.zenloop.com/settings/api">here</a> '
+  kind: password
+  label: Airbyte Config Api Token
+  name: airbyte_config.api_token
+- description: 'Zenloop date_from. Format: 2021-10-24T03:30:30Z or 2021-10-24. Leave
+    empty if only data from current data should be synced'
+  kind: string
+  label: Airbyte Config Date From
+  name: airbyte_config.date_from
+- description: Zenloop Survey ID. Can be found <a href="https://app.zenloop.com/settings/api">here</a>.
+    Leave empty to pull answers from all surveys
+  kind: password
+  label: Airbyte Config Survey Id
+  name: airbyte_config.survey_id
+- description: Zenloop Survey Group ID. Can be found by pulling All Survey Groups
+    via SurveyGroups stream. Leave empty to pull answers from all survey groups
+  kind: password
+  label: Airbyte Config Survey Group Id
+  name: airbyte_config.survey_group_id
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+settings_group_validation:
+- - connector_config.api_token
+  - airbyte_spec.image
+settings_preamble: ''
+usage: ''
+variant: airbyte
