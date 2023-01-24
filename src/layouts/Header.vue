@@ -68,6 +68,17 @@ export default {
             </g-link>
           </div>
         </div>
+        <div class="dropdown">
+          <a class="page-link" href="#">Documentation</a>
+          <div class="dropdown-content">
+            <g-link class="nav__link" to="/add-a-tap">
+              <h3>Add a Tap/Target</h3>
+            </g-link>
+            <g-link class="nav__link" to="/tap-target-maintenance">
+              <h3>Tap/Target Maintenance</h3>
+            </g-link>
+          </div>
+        </div>
       </nav>
     </div>
     <div class="bottom-search">
