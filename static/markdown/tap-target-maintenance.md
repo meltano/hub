@@ -114,13 +114,12 @@ There are no hard requirements for maintainership, but well-maintained taps typi
 - Dependencies regularly updated
 - Support for the recent Python versions
 
+The Meltano community does it's best to mark the best connectors as the default variant on Meltano Hub.
+If you think the default should be different, open an issue!
+
 ### How do I add my tap or target to the Meltano Hub?
 
 Please follow the steps outlined in [this guide](/add-a-tap) and the PR request template.
-
-### How can I become a maintainer in MeltanoLabs? How do I stop being a maintainer?
-
-Please see the [MeltanoLabs Meta repo](https://github.com/MeltanoLabs/Meta) for more information on how we manage this organization.
 
 ### Porting Singer Taps to the Meltano Singer SDK for Taps and Targets
 
@@ -132,11 +131,13 @@ If you're taking over maintanership of a tap that hasn't yet been ported, it's b
 
 Please open an issue on the [Singer Most Wanted repo](https://github.com/MeltanoLabs/Singer-Most-Wanted/issues) to let the community know that a tap or target needs porting. We can try to find someone to port it.
 
+### How can I become a maintainer in MeltanoLabs? How do I stop being a maintainer?
+
+Please see the [MeltanoLabs Meta repo](https://github.com/MeltanoLabs/Meta) for more information on how we manage this organization.
+
 # Unmaintained Taps and Targets
 
 Taps will occasionally become dormant as maintainers change jobs, companies shift priorities, or individual maintainers don't have enough time.
-
-
 
 ## FAQs
 ### What is considered an unmaintained tap?
