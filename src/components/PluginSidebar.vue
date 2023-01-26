@@ -142,7 +142,8 @@
       <div>
         <img class="w-8 h-4 inline gap-x-11" src="../assets/images/git-alt-brands.svg" /><a
           :href="ext_repo"
-          >{{ ext_repo }}</a>
+          >{{ ext_repo }}</a
+        >
       </div>
     </div>
 
