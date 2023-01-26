@@ -157,13 +157,18 @@ Open an issue on the [Singer Most Wanted repository](https://github.com/MeltanoL
 
 Usually the Meltano community can help determine the best path forward but the options are usually:
 
-Fork it to your personal or organization's GitHub namespace:
+1. Fork it to your personal or organization's GitHub namespace:
 - Create a fork of the project
 - Make your changes
 - Add your fork to Meltano Hub and make it the new default
 
-Communicate with the current owner:
+2. Communicate with the current owner:
 - If the maintainer prefers you can become a maintainer on their repo
+
+3. Migrate it to MeltanoLabs:
+- See [MeltanoLabs README](https://github.com/MeltanoLabs/Meta#adding-a-new-connector) for details on transferring the repo
+- Make your changes
+- Update Meltano Hub and make it the new default
 
 
 ### What if I want to update a tap but don't want to maintain it long term?
