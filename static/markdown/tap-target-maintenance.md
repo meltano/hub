@@ -37,12 +37,10 @@ SDK based connectors have a [--about command option](https://sdk.meltano.com/en/
 For non-SDK based connectors you will commonly find an example config.json in the repo.
 The Meltano community has also invested in documenting these on MeltanoHub for your convenience.
 
-
 ### Advertise It On Meltano Hub
 
 Once your connector is functioning and ready to go, make sure you get it listed on MeltanoHub (see [docs](/add-a-tap)) so others can find it.
 More users means more contributors and maintainers for your code base!
-
 
 ### Use Meltano SDK
 
@@ -75,13 +73,13 @@ A software development kit that abstracts many of the challenges of building Sin
 - methods for common API functionality (i.e. parent child relationships, pagination, retry, post processing, etc.)
 - methods for common SQL functionality
 - default unit tests
-- additional features for testing, printing config metadata, 
+- additional features for testing, printing config metadata,
 
 #### [Pipelinewise](https://github.com/transferwise/pipelinewise)
+
 - An open source tool created in 2019 that helps configure and run Singer connectors, similar to Meltano
 - Maintains its own list of connectors that it supports. You can also run all of these with Meltano!
 - Well documented patterns around [metadata columns](https://transferwise.github.io/pipelinewise/user_guide/metadata_columns.html), [replication methods](https://transferwise.github.io/pipelinewise/concept/replication_methods.html), and [schema changes](https://transferwise.github.io/pipelinewise/user_guide/schema_changes).
-
 
 ## Evaluating a tap or target
 
@@ -140,6 +138,7 @@ Please see the [MeltanoLabs Meta repo](https://github.com/MeltanoLabs/Meta) for 
 Taps will occasionally become dormant as maintainers change jobs, companies shift priorities, or individual maintainers don't have enough time.
 
 ## FAQs
+
 ### What is considered an unmaintained tap?
 
 Here are some signs that a tap or target has been abandoned:
@@ -158,18 +157,20 @@ Open an issue on the [Singer Most Wanted repository](https://github.com/MeltanoL
 Usually the Meltano community can help determine the best path forward but the options are usually:
 
 1. Fork it to your personal or organization's GitHub namespace:
+
 - Create a fork of the project
 - Make your changes
 - Add your fork to Meltano Hub and make it the new default
 
 2. Communicate with the current owner:
+
 - If the maintainer prefers you can become a maintainer on their repo
 
 3. Migrate it to MeltanoLabs:
+
 - See [MeltanoLabs README](https://github.com/MeltanoLabs/Meta#adding-a-new-connector) for details on transferring the repo
 - Make your changes
 - Update Meltano Hub and make it the new default
-
 
 ### What if I want to update a tap but don't want to maintain it long term?
 
