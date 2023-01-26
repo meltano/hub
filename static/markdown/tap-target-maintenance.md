@@ -42,7 +42,7 @@ The Meltano community has also invested in documenting these on MeltanoHub for y
 Once your connector is functioning and ready to go, make sure you get it listed on MeltanoHub (see [docs](/add-a-tap)) so others can find it.
 More users means more contributors and maintainers for your code base!
 
-### Use Meltano SDK
+### Use the Meltano Singer SDK
 
 We might be a little biased on this one but using an SDK allows you to reduce code, increase reliability, comply with the Singer Spec, gain features with an SDK version upgrade, and work well within the Meltano community.
 
