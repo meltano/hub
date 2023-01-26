@@ -94,7 +94,7 @@ None of these attributes alone will tell you what the best connectors are, so lo
 - <u>MeltanoHub default</u>: The Meltano community does it's best to label the most active variant as the default on MeltanoHub. Although it's still possible that the best option is unmaintained.
 - <u>Meltano Singer SDK</u>: If it uses the Meltano Singer SDK then its a good sign that its relatively recent and has good support for common features. If there are many TODOs still in the repo that came with the cookiecutter it might indicate that the connector was never finished or is a hobby project.
 - <u>Stream coverage</u>: You can evaluate 2 variants against each other based on stream coverage. Sometimes a new variant is written that has more features but is only supporting a small number of streams.
-- <u>Latest commit timestamp</u>: If there are commits in the last couple months then its probably decently maintained.
+- <u>Latest commit timestamp</u>: If there are commits in the last couple months then its probably decently maintained. However, many APIs can be quite stable, so a lack of commits does not mean the connector does not work.
 - <u>Total amount of commits</u>: If it only has a few commits it could still be in development, but if the latest timestamp is also a while ago it might indicate that it was a hobby project or never completed.
 - <u>Open Pull Requests</u>: Are there pending PRs that aren't being addressed?
 - <u>Open Issues</u>: Are there many open issues that aren't being addressed? Lots of issues could also mean that it has high traffic and many feature requests so look closely at what the issues are for.
