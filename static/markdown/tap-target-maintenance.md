@@ -92,7 +92,7 @@ None of these attributes alone will tell you what the best connectors are, so lo
 
 - <u>Organization backed connectors</u>: If its in the namespace of `meltano`/`meltanolabs`/`transferwise`/`singer-io`/ etc. its usually a good bet that the connector is maintained because one of the organizations is invested in it's success. Although this isn't always the case, especially with some of the older singer-io variants.
 - <u>MeltanoHub default</u>: The Meltano community does it's best to label the most active variant as the default on MeltanoHub. Although it's still possible that the best option is unmaintained.
-- <u>Meltano SDK</u>: If it uses the Meltano SDK then its a good sign that its relatively recent and has good support for common features. If there are many TODOs still in the repo that came with the cookiecutter it might indicate that the connector was never finished or is a hobby project.
+- <u>Meltano Singer SDK</u>: If it uses the Meltano Singer SDK then its a good sign that its relatively recent and has good support for common features. If there are many TODOs still in the repo that came with the cookiecutter it might indicate that the connector was never finished or is a hobby project.
 - <u>Stream coverage</u>: You can evaluate 2 variants against each other based on stream coverage. Sometimes a new variant is written that has more features but is only supporting a small number of streams.
 - <u>Latest commit timestamp</u>: If there are commits in the last couple months then its probably decently maintained.
 - <u>Total amount of commits</u>: If it only has a few commits it could still be in development, but if the latest timestamp is also a while ago it might indicate that it was a hobby project or never completed.
