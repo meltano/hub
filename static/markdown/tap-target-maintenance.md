@@ -44,7 +44,7 @@ More users means more contributors and maintainers for your code base!
 
 ### Use the Meltano Singer SDK
 
-We might be a little biased on this one but using an SDK allows you to reduce code, increase reliability, comply with the Singer Spec, gain features with an SDK version upgrade, and work well within the Meltano community.
+Using the SDK allows you to reduce code, increase reliability, comply with the Singer Spec, gain features with an SDK version upgrade, and work well within the Meltano community. The SDK is maintained by Meltano and receives regular updates. Upgrading a tap built on the SDK is much easier than one that isn't.
 
 ## Common Patterns
 
