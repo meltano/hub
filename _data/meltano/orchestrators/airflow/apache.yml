@@ -8,6 +8,7 @@ commands:
     description: Start the Airflow webserver.
 docs: https://docs.meltano.com/guide/orchestration
 domain_url: https://airflow.apache.org/
+hidden: true
 label: Airflow
 logo_url: /assets/logos/orchestrators/airflow.png
 maintenance_status: active

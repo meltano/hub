@@ -30,6 +30,7 @@ description: A modern, enterprise-ready business intelligence web application.
 docs: https://docs.meltano.com/guide/analysis
 domain_url: https://superset.apache.org/
 executable: superset_invoker
+ext_repo: https://github.com/meltano/superset-ext
 keywords:
 - analysis
 label: Superset (EDK preview)

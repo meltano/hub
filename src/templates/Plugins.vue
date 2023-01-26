@@ -296,6 +296,7 @@
             :maintainer="$page.plugins.maintainer"
             :pip_url="$page.plugins.pip_url"
             :airbyte_name="$page.plugins.airbyte_name"
+            :ext_repo="$page.plugins.ext_repo"
           />
         </div>
       </div>
@@ -357,6 +358,7 @@ query Plugins($path: String!, $name: String!) {
     pluginTypePlural
     pip_url
     repo
+    ext_repo
     maintenance_status
     keywords
     domain_url

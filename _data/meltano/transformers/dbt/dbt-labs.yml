@@ -40,6 +40,7 @@ commands:
     description: Runs tests on data in deployed models.
 docs: https://docs.meltano.com/guide/transformation
 domain_url: https://www.getdbt.com/
+hidden: true
 label: dbt
 logo_url: /assets/logos/transformers/dbt.png
 maintenance_status: active

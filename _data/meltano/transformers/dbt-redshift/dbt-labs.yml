@@ -41,6 +41,7 @@ commands:
 docs: https://docs.meltano.com/guide/transformation
 domain_url: https://www.getdbt.com/
 executable: dbt
+hidden: true
 label: dbt Redshift
 logo_url: /assets/logos/transformers/dbt.png
 maintenance_status: active

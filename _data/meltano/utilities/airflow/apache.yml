@@ -18,17 +18,12 @@ commands:
 definition: |
   is an [orchestrator](https://docs.meltano.com/concepts/plugins#orchestrators) that allows for workflows to be programmatically authored, scheduled, and monitored.
 
-  ### EDK Preview
-
-  This utility is in a preview stage of readiness. It is based upon our Extension Developer Kit (EDK) which is the new way to build and add plugins to Meltano Hub.
-
-  This preview of Airflow will replace the native orchestrator once it comes out of preview. In the meantime, we would appreciate any feedback in the [EDK repo](https://github.com/meltano/edk/) and in the [Airflow Extension repo](https://github.com/meltano/airflow-ext/).
 docs: https://docs.meltano.com/guide/orchestration
 executable: airflow_invoker
 ext_repo: https://github.com/meltano/airflow-ext
 keywords:
 - meltano_edk
-label: Airflow (EDK preview)
+label: Airflow (EDK)
 logo_url: /assets/logos/orchestrators/airflow.png
 maintenance_status: active
 name: airflow

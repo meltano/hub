@@ -137,6 +137,15 @@
       </ul>
     </div>
 
+    <div v-if="ext_repo">
+      <p class="text-lg">EDK Extension Repo</p>
+      <div>
+        <img class="w-8 h-4 inline gap-x-11" src="../assets/images/git-alt-brands.svg" /><a
+          :href="ext_repo"
+          >{{ ext_repo }}</a>
+      </div>
+    </div>
+
     <div>
       <p class="text-lg">Maintainer</p>
       <ul class="list-disc list-inside shields">
@@ -225,6 +234,7 @@ export default {
     "metrics",
     "maintainer",
     "pip_url",
+    "ext_repo",
   ],
   computed: {
     parsedRepo() {
