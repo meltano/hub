@@ -64,7 +64,7 @@ Since Singer is only a spec (see Meltano's [Singer Spec docs](http://localhost:8
 - [Getting started guide](https://github.com/singer-io/getting-started)
 - [tap template](https://github.com/singer-io/singer-tap-template)
 
-#### [Meltano SDK](https://sdk.meltano.com/en/latest/) Based Connectors
+#### [Meltano Singer SDK](https://sdk.meltano.com/en/latest/) Based Connectors
 
 A software development kit that abstracts many of the challenges of building Singer connectors so the developer doesn't need to know about them and also provides accelerators to speed up the process of writing a new connector. See the [Meltano SDK](https://sdk.meltano.com/en/latest/) docs for more details. Example of some features:
 
