@@ -1,0 +1,151 @@
+capabilities:
+- about
+- stream-maps
+- schema-flattening
+description: BigQuery loader
+domain_url: https://cloud.google.com/bigquery
+executable: target-bigquery
+keywords:
+- meltano_sdk
+- google
+- database
+label: Google BigQuery
+logo_url: /assets/logos/loaders/bigquery.png
+maintenance_status: active
+name: target-bigquery
+namespace: target_bigquery
+next_steps: ''
+pip_url: git+https://github.com/z3z1ma/target-bigquery.git
+repo: https://github.com/z3z1ma/target-bigquery
+settings:
+- description: The path to a gcp credentials json file.
+  kind: string
+  label: Credentials Path
+  name: credentials_path
+- description: A JSON string of your service account JSON file.
+  kind: string
+  label: Credentials Json
+  name: credentials_json
+- description: The target GCP project to materialize data into.
+  kind: string
+  label: Project
+  name: project
+- description: The target dataset to materialize data into.
+  kind: string
+  label: Dataset
+  name: dataset
+- description: The maximum number of rows to send in a single batch or commit.
+  kind: integer
+  label: Batch Size
+  name: batch_size
+- description: Default timeout for batch_job and gcs_stage derived LoadJobs.
+  kind: integer
+  label: Timeout
+  name: timeout
+- description: Determines whether to denormalize the data before writing to BigQuery.
+    A false value will write data using a fixed JSON column based schema, while a
+    true value will write data using a dynamic schema derived from the tap. Denormalization
+    is only supported for the batch_job, streaming_insert, and gcs_stage methods.
+  kind: boolean
+  label: Denormalized
+  name: denormalized
+- description: The method to use for writing to BigQuery.
+  kind: options
+  label: Method
+  name: method
+  options:
+  - label: Storage Write Api
+    value: storage_write_api
+  - label: Batch Job
+    value: batch_job
+  - label: Gcs Stage
+    value: gcs_stage
+  - label: Streaming Insert
+    value: streaming_insert
+- description: Determines whether to generate a view based on the SCHEMA message parsed
+    from the tap. Only valid if denormalized=false meaning you are using the fixed
+    JSON column based schema.
+  kind: boolean
+  label: Generate View
+  name: generate_view
+- description: The GCS bucket to use for staging data. Only used if method is gcs_stage.
+  kind: string
+  label: Bucket
+  name: bucket
+- description: The granularity of the partitioning strategy. Defaults to month.
+  kind: options
+  label: Partition Granularity
+  name: partition_granularity
+  options:
+  - label: Year
+    value: year
+  - label: Month
+    value: month
+  - label: Day
+    value: day
+  - label: Hour
+    value: hour
+- description: Determines whether to cluster on the key properties from the tap. Defaults
+    to false.
+  kind: boolean
+  label: Cluster On Key Properties
+  name: cluster_on_key_properties
+- description: Lowercase column names
+  kind: boolean
+  label: Column Name Transforms Lower
+  name: column_name_transforms.lower
+- description: Quote columns during DDL generation
+  kind: boolean
+  label: Column Name Transforms Quote
+  name: column_name_transforms.quote
+- description: Add an underscore when a column starts with a digit
+  kind: boolean
+  label: Column Name Transforms Add Underscore When Invalid
+  name: column_name_transforms.add_underscore_when_invalid
+- description: Convert columns to snake case
+  kind: boolean
+  label: Column Name Transforms Snake Case
+  name: column_name_transforms.snake_case
+- description: By default, we use the default stream (Committed mode) in the storage_write_api
+    load method which results in streaming records which are immediately available
+    and is generally fastest. If this is set to true, we will use the application
+    created streams (Committed mode) to transactionally batch data on STATE messages
+    and at end of pipe.
+  kind: boolean
+  label: Options Storage Write Batch Mode
+  name: options.storage_write_batch_mode
+- description: By default we use an autoscaling threadpool to write to BigQuery. If
+    set to true, we will use a process pool.
+  kind: boolean
+  label: Options Process Pool
+  name: options.process_pool
+- description: By default, each sink type has a preconfigured max worker limit. This
+    sets an override for maximum number of workers per stream.
+  kind: integer
+  label: Options Max Workers
+  name: options.max_workers
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+settings_group_validation:
+- - project
+  - method
+  - dataset
+settings_preamble: ''
+usage: ''
+variant: z3z1ma
