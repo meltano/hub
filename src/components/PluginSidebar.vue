@@ -72,6 +72,7 @@
           src="../assets/images/gitlab-brands.svg"
         /><a :href="repo"
           ><img
+            class="inline gap-x-11"
             :alt="repo"
             :src="`https://img.shields.io/static/v1?label=${parsedRepo.user}&message=${parsedRepo.repo_name}&color=blue`"
           />
