@@ -66,14 +66,12 @@
           v-if="repoType === 'github'"
           class="w-8 h-4 inline gap-x-11"
           src="../assets/images/github-brands.svg"
-        />
-        <img
+        /><img
           v-else-if="repoType === 'gitlab'"
           class="w-8 h-4 inline gap-x-11"
           src="../assets/images/gitlab-brands.svg"
-        />
-        <a :href="repo">
-          <img
+        /><a :href="repo"
+          ><img
             :alt="repo"
             :src="`https://img.shields.io/static/v1?label=${parsedRepo.user}&message=${parsedRepo.repo_name}&color=blue`"
           />
