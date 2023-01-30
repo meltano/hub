@@ -115,6 +115,15 @@
                 v-if="$page.plugins.pluginType === 'file'"
                 v-html="$page.plugins.definition_rendered"
               ></span>
+
+              <span v-if="$page.plugins.pluginType === 'utility' && $page.plugins.ext_repo">
+                <p class="text-3xl py-4">EDK Based Plugin</p>
+
+                This utility is based on the Meltano Extension Developer Kit (EDK) which is the
+                preferred way to build and add non-Singer plugins to Meltano Hub. If you have any
+                feedback or suggestions, add them to the
+                <g-link to="https://github.com/meltano/edk/">EDK repo</g-link>.
+              </span>
             </p>
             <span class="space-y-3" v-if="filteredVariants && filteredVariants.length > 1">
               <p class="text-2xl">Available Variants</p>
