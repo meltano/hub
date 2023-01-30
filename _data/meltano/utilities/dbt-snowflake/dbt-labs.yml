@@ -57,7 +57,7 @@ executable: dbt_invoker
 ext_repo: https://github.com/meltano/dbt-ext
 keywords:
 - meltano_edk
-label: dbt Snowflake (EDK preview)
+label: dbt Snowflake (EDK)
 logo_url: /assets/logos/utilities/dbt.png
 maintenance_status: active
 name: dbt-snowflake

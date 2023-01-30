@@ -56,7 +56,7 @@ executable: dbt_invoker
 ext_repo: https://github.com/meltano/dbt-ext
 keywords:
 - meltano_edk
-label: dbt PostgreSQL (EDK preview)
+label: dbt PostgreSQL (EDK)
 logo_url: /assets/logos/utilities/dbt.png
 maintenance_status: active
 name: dbt-postgres

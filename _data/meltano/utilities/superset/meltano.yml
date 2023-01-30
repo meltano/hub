@@ -30,7 +30,7 @@ executable: superset_invoker
 ext_repo: https://github.com/meltano/superset-ext
 keywords:
 - analysis
-label: Superset (EDK preview)
+label: Superset (EDK)
 logo_url: /assets/logos/utilities/superset.png
 maintenance_status: active
 name: superset

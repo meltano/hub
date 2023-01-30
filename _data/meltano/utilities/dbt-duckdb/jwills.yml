@@ -58,7 +58,7 @@ executable: dbt_invoker
 ext_repo: https://github.com/meltano/dbt-ext
 keywords:
 - meltano_edk
-label: dbt DuckDB (EDK preview)
+label: dbt DuckDB (EDK)
 logo_url: /assets/logos/utilities/dbt.png
 maintenance_status: active
 name: dbt-duckdb
