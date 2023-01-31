@@ -120,8 +120,11 @@
                 <p class="text-3xl py-4">EDK Based Plugin</p>
 
                 This utility is based on the Meltano Extension Developer Kit (EDK) which is the
-                preferred way to build and add non-Singer plugins to Meltano Hub. For more information about the EDK, please read <a href="https://docs.meltano.com/guide/advanced-topics#extension-developer-kit-edk">this section of the Meltano docs</a>. If you have any
-                feedback or suggestions, add them to the
+                preferred way to build and add non-Singer plugins to Meltano Hub. For more
+                information about the EDK, please read
+                <a href="https://docs.meltano.com/guide/advanced-topics#extension-developer-kit-edk"
+                  >this section of the Meltano docs</a
+                >. If you have any feedback or suggestions, add them to the
                 <g-link to="https://github.com/meltano/edk/">EDK repo</g-link>.
               </span>
             </p>
