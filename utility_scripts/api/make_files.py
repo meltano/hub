@@ -156,6 +156,9 @@ class ApiBuilder:
                         default_variant_logo = definition.get("logo_url")
 
                 # Add to plugin type index
+                if plugin_name.startswith('.'):
+                    continue
+                    # raise Exception(plugin_name, plugin_type, plugin_path)
                 plugin_type_index[plugin_name] = {
                     "default_variant": default_variant,
                     "variants": variants,
