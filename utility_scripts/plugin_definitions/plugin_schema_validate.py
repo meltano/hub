@@ -30,10 +30,16 @@ class PluginSchemaValidator:
     def _set_schema_store(self, schemas_dir='plugin_definitions'):
         self.schema_store = {}
         for source in Path("schemas/common").iterdir():
+            if not source.name.endswith('.json'):
+                # Skip non schema files
+                continue
             with open(source) as schema_file:
                 schema = json.load(schema_file)
                 self.schema_store[schema["$id"]] = schema
         for source in Path(f"schemas/{schemas_dir}").iterdir():
+            if not source.name.endswith('.json'):
+                # Skip non schema files
+                continue
             with open(source) as schema_file:
                 schema = json.load(schema_file)
                 self.schema_store[schema["$id"]] = schema
@@ -63,6 +69,9 @@ class PluginSchemaValidator:
         """Iterate plugin defintions and validate against JSON schemas."""
         logger.info("Schema validation started...")
         for plugin_category in os.listdir(self.file_path):
+            if plugin_category.startswith('.'):
+                # Skip non plugin definition files
+                continue
             logger.info(f"Validating schema for plugin type: {plugin_category}")
             schema = self._read_json_schema(f"{plugin_category}.schema.json")
             plugin_count = 0
@@ -70,6 +79,9 @@ class PluginSchemaValidator:
             for plugin_name in os.listdir(
                 os.path.join(self.file_path, plugin_category)
             ):
+                if plugin_name.startswith('.'):
+                    # Skip non plugin definition files
+                    continue
                 for variant_name in os.listdir(
                     os.path.join(self.file_path, plugin_category, plugin_name)
                 ):

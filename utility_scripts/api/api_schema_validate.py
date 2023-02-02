@@ -15,11 +15,11 @@ logger = logging.getLogger(os.path.basename(__file__))
 class APIValidator:
     """Validates the Meltano plugin API content."""
 
-    def __init__(self, file_path="_site/meltano/api/v1/plugins/"):
+    def __init__(self, file_path="_hub_api/plugins/"):
         """Initialize APIValidator.
 
         Args:
-            file_path: Path to Meltano API files. Defaults to "meltano/api/v1/plugins/".
+            file_path: Path to Meltano API files. Defaults to "_hub_api/plugins/".
         """
         self.file_path = file_path
         self._set_schema_store()

@@ -26,6 +26,16 @@ SKIP_FIELDS = [
     "prereq",
 ]
 
+SKIP_FIELDS_BY_TYPE = {
+    "extractors": SKIP_FIELDS + [],
+    "loaders": SKIP_FIELDS + [],
+    "transformers": SKIP_FIELDS + ["hidden"],
+    "utilities": SKIP_FIELDS + ["hidden"],
+    "transforms": SKIP_FIELDS + ["hidden"],
+    "orchestrators": SKIP_FIELDS + ["hidden"],
+    "mappers": SKIP_FIELDS + ["hidden"],
+    "files": SKIP_FIELDS + ["hidden"],
+}
 
 class PluginType(str, enum.Enum):
     """Plugin types."""
@@ -131,7 +141,7 @@ class ApiBuilder:
                         "docs"
                     ] = f"{self.base_hub_url}/{plugin_type}/{plugin_full_name}"
 
-                    for field in SKIP_FIELDS:
+                    for field in SKIP_FIELDS_BY_TYPE.get(plugin_type):
                         definition.pop(field, None)
 
                     # -- End plugin definition cleanup
@@ -155,6 +165,8 @@ class ApiBuilder:
                     if variant == default_variant:
                         default_variant_logo = definition.get("logo_url")
 
+                if plugin_name.startswith('.'):
+                    continue
                 # Add to plugin type index
                 plugin_type_index[plugin_name] = {
                     "default_variant": default_variant,
