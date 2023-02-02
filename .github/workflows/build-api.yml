@@ -63,7 +63,7 @@ jobs:
         --hub-url ${{ env.HUB_URL }}
         --api-url ${{ env.API_URL }}
 
-    - name: Test API
+    - name: Test API Schema
       run: >
         poetry run python utility_scripts/api/api_schema_validate.py
 
