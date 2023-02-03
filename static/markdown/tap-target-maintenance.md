@@ -32,14 +32,15 @@ Sometimes it's tempting to build a connector with only your exact needs baked in
 The most challenging part of using a community maintained connector is configuring it properly.
 Always make sure to document your configurations well.
 
-SDK based connectors have a [--about command option](https://sdk.meltano.com/en/latest/implementation/cli.html#about) that prints out the documented settings and descriptions from `tap.py`. MeltanoHub scrapes these settings and descriptions for building documentation so you should make sure to keep them up to date.
+SDK based connectors have a [--about command option](https://sdk.meltano.com/en/latest/implementation/cli.html#about) that prints out the documented settings and descriptions from `tap.py`. 
+Meltano Hub uses these settings and descriptions for documentation, so ensuring they're up to date makes it more useful for everyone.
 
 For non-SDK based connectors you will commonly find an example config.json in the repo.
 The Meltano community has also invested in documenting these on MeltanoHub for your convenience.
 
 ### Advertise It On Meltano Hub
 
-Once your connector is functioning and ready to go, make sure you get it listed on MeltanoHub (see [docs](/add-a-tap)) so others can find it.
+Once your connector is functioning and ready to go, make sure you get it listed on Meltano Hub (see [docs](/add-a-tap)) so others can find it.
 More users means more contributors and maintainers for your code base!
 
 ### Use the Meltano Singer SDK
@@ -48,30 +49,32 @@ Using the SDK allows you to reduce code, increase reliability, comply with the S
 
 ## Common Patterns
 
-Since Singer is only a spec (see Meltano's [Singer Spec docs](http://localhost:8080/singer/docs#singer-spec)) for how data should be formatted and passed between connectors there have become many common patterns, tools, and SDKs to help speed the process up.
+Since Singer is a primarily a specification for data formatting and transfer(see Meltano's [Singer Spec docs](http://localhost:8080/singer/docs#singer-spec)) there have become many common patterns, tools, and SDKs to help build connectors and pipelines more efficiently.
 
 #### [singer-io](https://github.com/singer-io)
 
 - Mostly from scratch implementations, using the [singer-python](https://github.com/singer-io/singer-python) library for some shared methods
 - Commonly have most of the code in the module's `__init__.py` file with a `main` method
-- Logic for parsing cli inputs uses argparse and is required by every connector
+- Logic for parsing CLI inputs uses argparse and is required by every connector
 - A `REQUIRED_CONFIG_KEYS` list to validate required config values
 - Dependencies are usually in the setup.py vs in requirements.txt
 - Very few target examples because they we're originally built to always send data to the [Stitch](https://www.stitchdata.com/) service with [target-stitch](https://github.com/singer-io/target-stitch)
 - Usually unit tests are limited
-- The developer needs to know internal rules like when its safe to write state messages or how to handle ACTIVATE_VERSION messages
+- The developer needs to know internal rules like when its safe to write state messages or how to handle advanced features like `ACTIVATE_VERSION` messages
 - The `catalog` input file was originally called `properties` so some will accept either
 - [Getting started guide](https://github.com/singer-io/getting-started)
 - [tap template](https://github.com/singer-io/singer-tap-template)
 
 #### [Meltano Singer SDK](https://sdk.meltano.com/en/latest/) Based Connectors
 
-A software development kit that abstracts many of the challenges of building Singer connectors so the developer doesn't need to know about them and also provides accelerators to speed up the process of writing a new connector. See the [Meltano SDK](https://sdk.meltano.com/en/latest/) docs for more details. Example of some features:
+A software development kit that abstracts many of the challenges of building Singer connectors so the developer doesn't need to know about them and also provides accelerators to speed up the process of writing a new connector. 
+See the [Meltano SDK](https://sdk.meltano.com/en/latest/) docs for more details. Example of some features:
 
 - cookiecutter templates to seed a connector repo
 - manages translating records into Singer spec compliant messages
 - methods for common API functionality (i.e. parent child relationships, pagination, retry, post processing, etc.)
 - methods for common SQL functionality
+- native support for advanced features such as BATCH messaging and the ACTIVATE_VERSION sync strategy
 - default unit tests
 - additional features for testing, printing config metadata,
 
