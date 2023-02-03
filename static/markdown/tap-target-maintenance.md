@@ -32,7 +32,7 @@ Sometimes it's tempting to build a connector with only your exact needs baked in
 The most challenging part of using a community maintained connector is configuring it properly.
 Always make sure to document your configurations well.
 
-SDK based connectors have a [--about command option](https://sdk.meltano.com/en/latest/implementation/cli.html#about) that prints out the documented settings and descriptions from `tap.py`. 
+SDK based connectors have a [--about command option](https://sdk.meltano.com/en/latest/implementation/cli.html#about) that prints out the documented settings and descriptions from `tap.py`.
 Meltano Hub uses these settings and descriptions for documentation, so ensuring they're up to date makes it more useful for everyone.
 
 For non-SDK based connectors you will commonly find an example config.json in the repo.
@@ -49,7 +49,7 @@ Using the SDK allows you to reduce code, increase reliability, comply with the S
 
 ## Common Patterns
 
-Since Singer is a primarily a specification for data formatting and transfer(see Meltano's [Singer Spec docs](http://localhost:8080/singer/docs#singer-spec)) there have become many common patterns, tools, and SDKs to help build connectors and pipelines more efficiently.
+Since Singer is a primarily a specification for data formatting and transfer(see Meltano's [Singer Spec docs](/singer/docs#singer-spec)) there have become many common patterns, tools, and SDKs to help build connectors and pipelines more efficiently.
 
 #### [singer-io](https://github.com/singer-io)
 
@@ -67,7 +67,7 @@ Since Singer is a primarily a specification for data formatting and transfer(see
 
 #### [Meltano Singer SDK](https://sdk.meltano.com/en/latest/) Based Connectors
 
-A software development kit that abstracts many of the challenges of building Singer connectors so the developer doesn't need to know about them and also provides accelerators to speed up the process of writing a new connector. 
+A software development kit that abstracts many of the challenges of building Singer connectors so the developer doesn't need to know about them and also provides accelerators to speed up the process of writing a new connector.
 See the [Meltano SDK](https://sdk.meltano.com/en/latest/) docs for more details. Example of some features:
 
 - cookiecutter templates to seed a connector repo
