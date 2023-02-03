@@ -147,10 +147,22 @@
     <div v-if="ext_repo">
       <p class="text-lg">EDK Extension Repo</p>
       <div>
-        <img class="w-8 h-4 inline gap-x-11" src="../assets/images/git-alt-brands.svg" /><a
-          :href="ext_repo"
-          >{{ ext_repo }}</a
-        >
+        <img
+          v-if="repoType === 'github'"
+          class="w-8 h-4 inline gap-x-11"
+          src="../assets/images/github-brands.svg"
+        /><img
+          v-else-if="repoType === 'gitlab'"
+          class="w-8 h-4 inline gap-x-11"
+          src="../assets/images/gitlab-brands.svg"
+        /><img v-else class="w-8 h-4 inline gap-x-11" src="../assets/images/git-alt-brands.svg" /><a
+          :href="repo"
+          ><img
+            class="inline gap-x-11"
+            :alt="repo"
+            :src="`https://img.shields.io/static/v1?label=${parsedEDKRepo.user}&message=${parsedEDKRepo.repo_name}&color=blue`"
+          />
+        </a>
       </div>
     </div>
 
@@ -255,6 +267,17 @@ export default {
     repoType() {
       // Some plugins are hosted on github, some on gitlab
       return this.repo.includes("github.com") ? "github" : "gitlab";
+    },
+    parsedEDKRepo() {
+      // For some plugin variants, either the `variant` or `name` doesn't match the GH repo
+      // So we need to parse it from the repo URL to make badges
+      // https://github.com/:user/:repoName
+      const urlParts = this.ext_repo.split("/");
+      return { user: urlParts[3], repo_name: urlParts[4] };
+    },
+    repoEDKType() {
+      // Some plugins are hosted on github, some on gitlab
+      return this.ext_repo.includes("github.com") ? "github" : "gitlab";
     },
     hasPyPI() {
       // Exclude more elaborate ways of specifying `pip_url`
