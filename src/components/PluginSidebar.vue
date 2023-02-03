@@ -147,11 +147,21 @@
     <div v-if="ext_repo">
       <p class="text-lg">EDK Extension Repo</p>
       <div>
-        <img v-if="repoType === 'github'" class="w-8 h-4 inline gap-x-11" src="../assets/images/github-brands.svg" /><img
-          v-else-if="repoType === 'gitlab'" class="w-8 h-4 inline gap-x-11" src="../assets/images/gitlab-brands.svg" /><img
-          v-else class="w-8 h-4 inline gap-x-11" src="../assets/images/git-alt-brands.svg" /><a :href="repo"><img
-            class="inline gap-x-11" :alt="repo"
-            :src="`https://img.shields.io/static/v1?label=${parsedEDKRepo.user}&message=${parsedEDKRepo.repo_name}&color=blue`" />
+        <img
+          v-if="repoType === 'github'"
+          class="w-8 h-4 inline gap-x-11"
+          src="../assets/images/github-brands.svg"
+        /><img
+          v-else-if="repoType === 'gitlab'"
+          class="w-8 h-4 inline gap-x-11"
+          src="../assets/images/gitlab-brands.svg"
+        /><img v-else class="w-8 h-4 inline gap-x-11" src="../assets/images/git-alt-brands.svg" /><a
+          :href="repo"
+          ><img
+            class="inline gap-x-11"
+            :alt="repo"
+            :src="`https://img.shields.io/static/v1?label=${parsedEDKRepo.user}&message=${parsedEDKRepo.repo_name}&color=blue`"
+          />
         </a>
       </div>
     </div>
@@ -268,7 +278,7 @@ export default {
     repoEDKType() {
       // Some plugins are hosted on github, some on gitlab
       return this.ext_repo.includes("github.com") ? "github" : "gitlab";
-    },    
+    },
     hasPyPI() {
       // Exclude more elaborate ways of specifying `pip_url`
       // TODO: figure out what we should do when
