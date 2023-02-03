@@ -106,7 +106,7 @@ Markdown pages are rendered using the `MarkdownDocs` template, using `/src/templ
 
 ### GraphQL query for markdown docs
 
-To better understand the data model for markdown data files, use the following query at the GraphQL endpoint (usually [http://localhost:8080/\_\_explore](http://localhost:8080/__explore)):
+To better understand the data model for markdown data files, use the following query at the GraphQL endpoint (usually [http://localhost:8080/\_\_explore](http://localhost:8080/___explore)):
 
 ```graphql
 query MarkdownDocs {

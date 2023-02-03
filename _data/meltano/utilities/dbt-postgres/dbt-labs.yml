@@ -50,15 +50,13 @@ commands:
 definition: |
   is an adapter-specific dbt [transformer](https://docs.meltano.com/concepts/plugins#transformers) for running SQL-based transformations on data stored in your warehouse.
 
-  ### EDK Preview
-  This utility is in a preview stage of readiness. It is based upon our Extension Developer Kit (EDK) which is the new way to build and add plugins to Meltano Hub.
-  This preview of dbt will replace the native transformer once it comes out of preview. In the meantime, we would appreciate any feedback in the [EDK repo](https://github.com/meltano/edk/) and in the [dbt Extension repo](https://github.com/meltano/dbt-ext/).
-docs: https://docs.meltano.com/guide/transformation
+  This utility plugin is meant to be used in favor of the [dbt-postgres transformer plugin type](/transformers/dbt-postgres).
+
 executable: dbt_invoker
 ext_repo: https://github.com/meltano/dbt-ext
 keywords:
 - meltano_edk
-label: dbt PostgreSQL (EDK preview)
+label: dbt PostgreSQL (EDK)
 logo_url: /assets/logos/utilities/dbt.png
 maintenance_status: active
 name: dbt-postgres
