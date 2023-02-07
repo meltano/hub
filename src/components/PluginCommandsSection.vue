@@ -19,7 +19,7 @@
       <p>{{ command.description }}</p>
       <pre
         class="prose language-bash rounded-md"
-      ><code>meltano invoke {{ name }}:{{ command.name }} [args...]</code></pre>
+      ><code>meltano invoke {{ name }}:{{ command.name }}</code></pre>
     </div>
   </div>
 </template>
