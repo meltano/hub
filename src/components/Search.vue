@@ -106,6 +106,7 @@ export default {
         coll.edges.filter((plugin) => {
           const pluginTextFields = [
             plugin.node.name,
+            plugin.node.name.replace('-',' '),
             plugin.node.description,
             plugin.node.label,
             plugin.node.keywords?.join(" "),
