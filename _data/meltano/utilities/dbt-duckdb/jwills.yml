@@ -86,6 +86,7 @@ settings:
   value: duckdb
 - label: Projects Directory
   name: project_dir
+  env: DBT_PROJECT_DIR
   value: $MELTANO_PROJECT_ROOT/transform
 - env: DBT_PROFILES_DIR
   label: Profiles Directory
