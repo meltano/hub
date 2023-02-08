@@ -83,7 +83,8 @@ settings:
   label: dbt Profile Type
   name: type
   value: bigquery
-- label: Project Directory
+- env: DBT_PROJECT_DIR
+  label: Project Directory
   name: project_dir
   value: $MELTANO_PROJECT_ROOT/transform
 - env: DBT_PROFILES_DIR
