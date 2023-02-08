@@ -84,9 +84,9 @@ settings:
   label: dbt Profile type
   name: type
   value: duckdb
-- label: Projects Directory
-  name: project_dir
-  env: DBT_PROJECT_DIR
+- env: DBT_PROJECT_DIR
+  label: Projects Directory
+  name: project_dir  
   value: $MELTANO_PROJECT_ROOT/transform
 - env: DBT_PROFILES_DIR
   label: Profiles Directory
