@@ -259,4 +259,23 @@ settings_group_validation:
   - file_format
   - default_target_schema
 target_schema: $TARGET_SNOWFLAKE_DEFAULT_TARGET_SCHEMA
+usage: |
+  # Advanced Topics
+
+  ## How Schema Changes Are Handled
+
+  See the [pipelinewise](https://transferwise.github.io/pipelinewise/user_guide/schema_changes.html#schema-changes) for the full documentation.
+  Here are some of the important details:
+
+  ### 1. New Column Added
+
+  Target connectors add the new column to the destination table with the same name using a compatible data type.
+
+  ### 2. Column Dropped
+
+  Target connectors DO NOT drop columns. Old column remains in the table in case you need to do historical analysis on the column.
+
+  ### 3. Column Data Type Changed
+
+  Target connectors version the columns. See the [versioning columns docs](https://transferwise.github.io/pipelinewise/user_guide/schema_changes.html#versioning-columns) for syntax.
 variant: transferwise
