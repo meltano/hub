@@ -3,6 +3,10 @@ commands:
     args: build
     description: Build your Evidence project.
     executable: evidence_extension
+  build-strict:
+    args: build --strict
+    description: Build your Evidence, but fail if there are errors in components. Commonly used in CI/CD.
+    executable: evidence_extension
   describe:
     args: describe
     description: Describe the Evidence extension.
@@ -46,7 +50,7 @@ next_steps: |
     1. Set your Project location using `meltano config evidence set home_dir '$MELTANO_PROJECT_ROOT/<evidence dir>'`
     1. Add your database configuration to Meltano (as above). This is important as the `evidence-ext` will ignore config found in `evidence.settings.json` when invoking Evidence, to avoid conflicts.
     1. Test your project builds using `meltano invoke evidence build`.
-pip_url: evidence-ext
+pip_url: evidence-ext>=0.5
 repo: https://github.com/evidence-dev/evidence
 settings:
 - description: |
