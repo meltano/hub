@@ -34,7 +34,7 @@ next_steps: |
     1. Run `meltano invoke evidence initialize` to initialize Evidence in the default location (`analyze/evidence`).
     1. Run `meltano invoke evidence dev` to see the sample project site (includes a DuckDB database and config.)
     1. Configure your own database by:
-      - Setting the database connection type, e.g. `meltano config evidence set database snowflake` for Snowflake.
+      - Setting the database connection type, e.g. `meltano config evidence set settings.database snowflake` for Snowflake.
       - Setting the other required fields for your chosen connection type. See them using `meltano config evidence list`.
 
   *Onboard an existing Evidence project*
