@@ -10,7 +10,7 @@
       </p>
       <ul class="list-disc list-inside pl-4">
         <li v-for="(setting, index) in settings" v-bind:key="index">
-          <a :href="'#' + setting.name + '-setting'"
+          <a :href="'#' + setting.name.replace('.', '-') + '-setting'"
             ><code>{{ setting.name }}</code></a
           >
         </li>
@@ -43,7 +43,7 @@
         that defines the settings for this plugin.
       </p>
       <span class="mt-6" v-for="(setting, index) in settings" v-bind:key="index">
-        <p class="mt-3 text-xl" :id="setting.name + '-setting'">
+        <p class="mt-3 text-xl" :id="setting.name.replace('.', '-') + '-setting'">
           <code>{{ setting.label }} ({{ setting.name }})</code>
         </p>
         <ul class="list-inside list-disc pl-4 text-sm">
