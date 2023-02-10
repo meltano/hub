@@ -196,6 +196,16 @@ settings:
   kind: string
   label: Snowflake Warehouse
   name: settings.snowflake.warehouse
+- description: |
+    Send Evidence anonymous usage stats.
+  env: SEND_ANONYMOUS_USAGE_STATS
+  kind: options
+  label: Send Anonymous Usage Stats
+  name: send_anonymous_usage_stats
+  options:
+  - value: 'yes'
+  - value: 'no'
+  value: 'yes'
 settings_group_validation:
 - - home_dir
 - - home_dir
