@@ -8,6 +8,10 @@ commands:
     description: |
       Initialize a new Evidence project. By default this creates a sample project in `$MELTANO_PROJECT_ROOT/analyze/evidence`.
     executable: evidence_extension
+  build:
+    args: build
+    description: Build your Evidence project.
+    executable: evidence_extension
 definition: |
   is a Meltano utility extension that enables you to deliver a polished business intelligence system using SQL and markdown.
 description: |
