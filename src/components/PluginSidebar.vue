@@ -156,10 +156,10 @@
           class="w-8 h-4 inline gap-x-11"
           src="../assets/images/gitlab-brands.svg"
         /><img v-else class="w-8 h-4 inline gap-x-11" src="../assets/images/git-alt-brands.svg" /><a
-          :href="repo"
+          :href="ext_repo"
           ><img
             class="inline gap-x-11"
-            :alt="repo"
+            :alt="ext_repo"
             :src="`https://img.shields.io/static/v1?label=${parsedEDKRepo.user}&message=${parsedEDKRepo.repo_name}&color=blue`"
           />
         </a>
