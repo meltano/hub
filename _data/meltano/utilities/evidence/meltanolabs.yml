@@ -1,0 +1,264 @@
+commands:
+  build:
+    args: build
+    description: Build your Evidence project.
+    executable: evidence_extension
+  build-strict:
+    args: build --strict
+    description: Build your Evidence, but fail if there are errors in components. Commonly used in CI/CD.
+    executable: evidence_extension
+  describe:
+    args: describe
+    description: Describe the Evidence extension.
+    executable: evidence_extension
+  initialize:
+    args: initialize
+    description: |
+      Initialize a new Evidence project. By default this creates a sample project in `$MELTANO_PROJECT_ROOT/analyze/evidence`.
+    executable: evidence_extension
+definition: |
+  is a Meltano utility extension that enables you to deliver a polished business intelligence system using SQL and markdown.
+description: |
+  Business Intelligence for Modern Data Teams.
+  Beautiful reports synced to your data with just SQL and markdown.
+docs: https://docs.evidence.dev
+domain_url: https://evidence.dev
+executable: evidence_extension
+ext_repo: https://github.com/MeltanoLabs/evidence-ext
+keywords:
+- meltano_edk
+- evidence.dev
+- evidence
+- bi
+- analyze
+label: Evidence (EDK)
+logo_url: /assets/logos/utilities/evidence.png
+maintenance_status: active
+name: evidence
+namespace: evidence
+next_steps: |
+  *Create a new Evidence project*
+
+    1. Run `meltano invoke evidence initialize` to initialize Evidence in the default location (`analyze/evidence`).
+    1. Run `meltano invoke evidence dev` to see the sample project site (includes a DuckDB database and config.)
+    1. Configure your own database by:
+      - Setting the database connection type, e.g. `meltano config evidence set settings.database snowflake` for Snowflake.
+      - Setting the other required fields for your chosen connection type. See them using `meltano config evidence list`.
+
+  *Onboard an existing Evidence project*
+
+    1. Set your Project location using `meltano config evidence set home_dir '$MELTANO_PROJECT_ROOT/<evidence dir>'`
+    1. Add your database configuration to Meltano (as above). This is important as the `evidence-ext` will ignore config found in `evidence.settings.json` when invoking Evidence, to avoid conflicts.
+    1. Test your project builds using `meltano invoke evidence build`.
+pip_url: evidence-ext>=0.5
+repo: https://github.com/evidence-dev/evidence
+settings:
+- description: |
+    The directory where Evidence will store its project, configuration, logs, and other files.
+  env: EVIDENCE_HOME
+  kind: string
+  label: Evidence Home Dir
+  name: home_dir
+  value: $MELTANO_PROJECT_ROOT/analyze/evidence
+- env: DATABASE
+  kind: options
+  name: settings.database
+  options:
+  - label: BigQuery
+    value: bigquery
+  - label: Postgres
+    value: postgres
+  - label: MySQL
+    value: mysql
+  - label: Redshift
+    value: redshift
+  - label: Snowflake
+    value: snowflake
+  - label: SQLite
+    value: sqlite
+  - label: DuckDB
+    value: duckdb
+  - label: CSV
+    value: csv
+  value: duckdb
+- description: |
+    Name of the DuckDB database file stored in the same directory as your Evidence project.
+  env: DUCKDB_FILENAME
+  kind: string
+  label: DuckDB Database File Name
+  name: settings.duckdb.filename
+  value: needful_things.duckdb
+- description: |
+    Gitignore .db and .duckdb files
+  env: DUCKDB_GITIGNOREDUCKDB
+  kind: boolean
+  label: Gitignore DuckDB Database Files
+  name: settings.duckdb.gitignore_duckdb
+- description: |
+    Name of the SQLite database file stored in the same directory as your Evidence project.
+  env: SQLITE_FILENAME
+  kind: string
+  label: SQLite Database File Name
+  name: settings.sqlite.filename
+- description: |
+    Gitignore all SQLite files.
+  env: MYSQL_GITIGNORESQLITE
+  kind: boolean
+  label: Gitignore SQLite Database Files
+  name: settings.sqlite.gitignore_sqlite
+- env: BIGQUERY_PROJECT_ID
+  kind: string
+  label: BigQuery Project ID
+  name: settings.bigquery.project_id
+- env: BIGQUERY_CLIENT_EMAIL
+  kind: string
+  label: BigQuery Client Email
+  name: settings.bigquery.client_email
+- env: BIGQUERY_PRIVATE_KEY
+  kind: password
+  label: BigQuery Private Key
+  name: settings.bigquery.private_key
+- env: MYSQL_USER
+  kind: string
+  label: MySQL User
+  name: settings.mysql.user
+- env: MYSQL_HOST
+  kind: string
+  label: MySQL Host
+  name: settings.mysql.host
+- env: MYSQL_DATABASE
+  kind: string
+  label: MySQL Database
+  name: settings.mysql.database
+- env: MYSQL_PASSWORD
+  kind: password
+  label: MySQL Password
+  name: settings.mysql.password
+- env: MYSQL_PORT
+  label: MySQL Port
+  name: settings.mysql.port
+- env: MYSQL_SSL
+  kind: options
+  label: MySQL SSL
+  name: settings.mysql.ssl
+  options:
+  - value: 'true'
+  - value: 'false'
+  - value: Amazon RDS
+- description: |
+    This is an optional field. When using Google Cloud MySQL this is commonly required.
+  env: MYSQL_SOCKETPATH
+  kind: string
+  label: MySQL User
+  name: settings.mysql.socket_path
+- env: POSTGRES_HOST
+  kind: string
+  label: Postgres Host
+  name: settings.postgres.host
+- env: POSTGRES_DATABASE
+  kind: string
+  label: Postgres Database
+  name: settings.postgres.database
+- env: POSTGRES_PORT
+  kind: string
+  label: Postgres Port
+  name: settings.postgres.port
+- env: POSTGRES_USER
+  kind: string
+  label: Postgres User
+  name: settings.postgres.user
+- env: POSTGRES_PASSWORD
+  kind: password
+  label: Postgres Password
+  name: settings.postgres.password
+- description: |
+    Postgres SSL. When using Heroku this is commonly required.
+  env: POSTGRES_SSL
+  kind: options
+  name: settings.postgres.ssl
+  options:
+  - value: 'true'
+  - value: 'false'
+  - value: no-verify
+- description: |
+    If your database host provides a connection string, you can use that in place of the fields above.
+  env: POSTGRES_CONNECTIONSTRING
+  kind: password
+  label: Postgres Connection String
+  name: settings.postgres.connection_string
+- env: SNOWFLAKE_ACCOUNT
+  kind: string
+  label: Snowflake Account
+  name: settings.snowflake.account
+- env: SNOWFLAKE_USERNAME
+  kind: string
+  label: Snowflake Username
+  name: settings.snowflake.username
+- env: SNOWFLAKE_PASSWORD
+  kind: password
+  label: Snowflake Password
+  name: settings.snowflake.password
+- env: SNOWFLAKE_DATABASE
+  kind: string
+  label: Snowflake Database
+  name: settings.snowflake.database
+- env: SNOWFLAKE_WAREHOUSE
+  kind: string
+  label: Snowflake Warehouse
+  name: settings.snowflake.warehouse
+- description: |
+    Send Evidence anonymous usage stats.
+  env: SEND_ANONYMOUS_USAGE_STATS
+  kind: options
+  label: Send Anonymous Usage Stats
+  name: send_anonymous_usage_stats
+  options:
+  - value: 'yes'
+  - value: 'no'
+  value: 'yes'
+settings_group_validation:
+- - home_dir
+- - home_dir
+  - settings.database
+  - settings.duckdb.filename
+- - home_dir
+  - settings.database
+  - settings.sqlite.filename
+- - home_dir
+  - settings.database
+  - settings.bigquery.project_id
+  - settings.bigquery.client_email
+  - settings.bigquery.private_key
+- - home_dir
+  - settings.database
+  - settings.mysql.host
+  - settings.mysql.database
+  - settings.mysql.user
+  - settings.mysql.password
+- - home_dir
+  - settings.database
+  - settings.postgres.host
+  - settings.postgres.port
+  - settings.postgres.database
+  - settings.postgres.user
+  - settings.postgres.password
+- - home_dir
+  - settings.database
+  - settings.postgres.connection_string
+- - home_dir
+  - settings.database
+  - settings.snowflake.account
+  - settings.snowflake.username
+  - settings.snowflake.password
+  - settings.snowflake.database
+  - settings.snowflake.warehouse
+usage: |
+  Try `meltano invoke evidence --help`.
+
+  The key commands for using Evidence with Meltano are:
+
+    - `meltano invoke evidence dev` to launch the dev server.
+    - `meltano invoke evidence build` to build your Evidence project site.
+
+  See [docs.evidence.dev](https://docs.evidence.dev) for more details on building dashboards in Evidence.
+variant: meltanolabs
