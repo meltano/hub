@@ -27,20 +27,20 @@ maintenance_status: active
 name: evidence
 namespace: evidence
 next_steps: |
-  ## Create a new Evidence project
+  *Create a new Evidence project*
 
-  1. Run `meltano invoke evidence initialize` to initialize Evidence in the default location (`analyze/evidence`).
-  1. Run `meltano invoke evidence dev` to see the sample project site (includes a DuckDB database and config.)
-  1. Configure your own database by:
-    - Setting the database connection type, e.g. `meltano config evidence set database snowflake` for Snowflake.
-    - Setting the other required fields for your chosen connection type. See them using `meltano config evidence list`.
+    1. Run `meltano invoke evidence initialize` to initialize Evidence in the default location (`analyze/evidence`).
+    1. Run `meltano invoke evidence dev` to see the sample project site (includes a DuckDB database and config.)
+    1. Configure your own database by:
+      - Setting the database connection type, e.g. `meltano config evidence set database snowflake` for Snowflake.
+      - Setting the other required fields for your chosen connection type. See them using `meltano config evidence list`.
 
-  ## Onboard an existing Evidence project
+  *Onboard an existing Evidence project*
 
-  1. Set your Project location using `meltano config evidence set home_dir '$MELTANO_PROJECT_ROOT/<evidence dir>'`
-  1. Add your database configuration to Meltano (as above). This is important as the `evidence-ext` will ignore config found in `evidence.settings.json` when invoking Evidence, to avoid conflicts.
-  1. Test your project builds using `meltano invoke evidence build`.
-pip_url: exidence-ext
+    1. Set your Project location using `meltano config evidence set home_dir '$MELTANO_PROJECT_ROOT/<evidence dir>'`
+    1. Add your database configuration to Meltano (as above). This is important as the `evidence-ext` will ignore config found in `evidence.settings.json` when invoking Evidence, to avoid conflicts.
+    1. Test your project builds using `meltano invoke evidence build`.
+pip_url: evidence-ext
 repo: https://github.com/evidence-dev/evidence
 settings:
 - description: |
@@ -245,10 +245,10 @@ settings_group_validation:
 usage: |
   Try `meltano invoke evidence --help`.
 
-  The key commands for using Evidence with Meltano airflow:initialize
+  The key commands for using Evidence with Meltano are:
 
-  - `meltano invoke evidence dev` to launch the dev server.
-  - `meltano invoke evidence build` to build your Evidence project site.
+    - `meltano invoke evidence dev` to launch the dev server.
+    - `meltano invoke evidence build` to build your Evidence project site.
 
   See [docs.evidence.dev](https://docs.evidence.dev) for more details on building dashboards in Evidence.
 variant: meltanolabs
