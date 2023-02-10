@@ -51,7 +51,7 @@ definition: |
   is an adapter-specific dbt [transformer](https://docs.meltano.com/concepts/plugins#transformers) for running SQL-based transformations on data stored in your warehouse.
 
   This utility plugin is meant to be used in favor of the [dbt-redshift transformer plugin type](/transformers/dbt-redshift).
-
+  The `meltano elt` command currently doesn't support utility plugins for the transformation step, continue using the [transformer](/transformers/) variants if you are using `elt` instead of `meltano run`.
 docs: https://docs.meltano.com/guide/transformation
 executable: dbt_invoker
 ext_repo: https://github.com/meltano/dbt-ext
