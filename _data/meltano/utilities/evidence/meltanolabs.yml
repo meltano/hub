@@ -1,0 +1,262 @@
+name: evidence
+label: Evidence (EDK)
+variant: meltanolabs
+logo_url: /assets/logos/utilities/evidence.png
+description: |
+  Business Intelligence for Modern Data Teams.
+  Beautiful reports synced to your data with just SQL and markdown.
+maintenance_status: active
+docs: https://docs.evidence.dev
+repo: https://github.com/evidence-dev/evidence
+ext_repo: https://github.com/MeltanoLabs/evidence-ext
+domain_url: https://evidence.dev
+keywords:
+- meltano_edk
+- evidence.dev
+- evidence
+- bi
+- analyze
+namespace: evidence
+pip_url: exidence-ext
+executable: evidence_extension
+
+usage: |
+  Try `meltano invoke evidence --help`.
+
+  The key commands for using Evidence with Meltano airflow:initialize
+
+  - `meltano invoke evidence dev` to launch the dev server.
+  - `meltano invoke evidence build` to build your Evidence project site.
+
+  See [docs.evidence.dev](https://docs.evidence.dev) for more details on building dashboards in Evidence.
+
+next_steps: |
+  ## Create a new Evidence project
+
+  1. Run `meltano invoke evidence initialize` to initialize Evidence in the default location (`analyze/evidence`).
+  1. Run `meltano invoke evidence dev` to see the sample project site (includes a DuckDB database and config.)
+  1. Configure your own database by:
+    - Setting the database connection type, e.g. `meltano config evidence set database snowflake` for Snowflake.
+    - Setting the other required fields for your chosen connection type. See them using `meltano config evidence list`.
+
+  ## Onboard an existing Evidence project
+
+  1. Set your Project location using `meltano config evidence set home_dir '$MELTANO_PROJECT_ROOT/<evidence dir>'`
+  1. Add your database configuration to Meltano (as above). This is important as the `evidence-ext` will ignore config found in `evidence.settings.json` when invoking Evidence, to avoid conflicts.
+  1. Test your project builds using `meltano invoke evidence build`.
+
+commands:
+  describe:
+    executable: evidence_extension
+    args: describe
+    description: Describe the Evidence extension.
+  initialize:
+    executable: evidence_extension
+    args: initialize
+    description: |
+      Initialize a new Evidence project. By default this creates a sample project in `$MELTANO_PROJECT_ROOT/analyze/evidence`.
+
+settings_group_validation:
+  - - home_dir
+  # duckdb
+  - - home_dir
+    - settings.database
+    - settings.duckdb.filename
+  # sqlite
+  - - home_dir
+    - settings.database
+    - settings.sqlite.filename
+  # bigquery
+  - - home_dir
+    - settings.database
+    - settings.bigquery.project_id
+    - settings.bigquery.client_email
+    - settings.bigquery.private_key
+  # MySQL
+  - - home_dir
+    - settings.database
+    - settings.mysql.host
+    - settings.mysql.database
+    - settings.mysql.user
+    - settings.mysql.password
+  # postgres
+  - - home_dir
+    - settings.database
+    - settings.postgres.host
+    - settings.postgres.port
+    - settings.postgres.database
+    - settings.postgres.user
+    - settings.postgres.password
+  - - home_dir
+    - settings.database
+    - settings.postgres.connection_string
+  # snowflake
+  - - home_dir
+    - settings.database
+    - settings.snowflake.account
+    - settings.snowflake.username
+    - settings.snowflake.password
+    - settings.snowflake.database
+    - settings.snowflake.warehouse
+
+settings:
+  - name: home_dir
+    kind: string
+    label: Evidence Home Dir
+    value: $MELTANO_PROJECT_ROOT/analyze/evidence
+    env: EVIDENCE_HOME
+    description: |
+      The directory where Evidence will store its project, configuration, logs, and other files.
+  - name: settings.database
+    kind: options
+    env: DATABASE
+    value: duckdb  # sample project value
+    options:
+    # https://github.com/evidence-dev/evidence/blob/9b1dd45b4c90d379ea7cd2f1a525b6025364d4bc/sites/example-project/src/components/ui/Databases/DatabaseSettingsPanel.svelte#L25-L32
+    - value: bigquery
+      label: BigQuery
+    - value: postgres
+      label: Postgres
+    - value: mysql
+      label: MySQL
+    - value: redshift
+      label: Redshift
+    - value: snowflake
+      label: Snowflake
+    - value: sqlite
+      label: SQLite
+    - value: duckdb
+      label: DuckDB
+    - value: csv
+      label: CSV
+  # duckdb
+  - name: settings.duckdb.filename
+    label: DuckDB Database File Name
+    kind: string
+    env: DUCKDB_FILENAME
+    value: needful_things.duckdb  # sample project value
+    description: |
+      Name of the DuckDB database file stored in the same directory as your Evidence project.
+  - name: settings.duckdb.gitignore_duckdb
+    label: Gitignore DuckDB Database Files
+    env: DUCKDB_GITIGNOREDUCKDB
+    kind: boolean
+    description: |
+      Gitignore .db and .duckdb files
+  # sqlite
+  - name: settings.sqlite.filename
+    label: SQLite Database File Name
+    kind: string
+    env: SQLITE_FILENAME
+    description: |
+      Name of the SQLite database file stored in the same directory as your Evidence project.
+  - name: settings.sqlite.gitignore_sqlite
+    label: Gitignore SQLite Database Files
+    env: MYSQL_GITIGNORESQLITE
+    kind: boolean
+    description: |
+      Gitignore all SQLite files.
+  # bigquery
+  - name: settings.bigquery.project_id
+    label: BigQuery Project ID
+    kind: string
+    env: BIGQUERY_PROJECT_ID
+  - name: settings.bigquery.client_email
+    label: BigQuery Client Email
+    kind: string
+    env: BIGQUERY_CLIENT_EMAIL
+  - name: settings.bigquery.private_key
+    label: BigQuery Private Key
+    kind: password
+    env: BIGQUERY_PRIVATE_KEY
+  # mysql
+  - name: settings.mysql.user
+    label: MySQL User
+    kind: string
+    env: MYSQL_USER
+  - name: settings.mysql.host
+    label: MySQL Host
+    kind: string
+    env: MYSQL_HOST
+  - name: settings.mysql.database
+    label: MySQL Database
+    kind: string
+    env: MYSQL_DATABASE
+  - name: settings.mysql.password
+    label: MySQL Password
+    kind: password
+    env: MYSQL_PASSWORD
+  - name: settings.mysql.port
+    label: MySQL Port
+    env: MYSQL_PORT
+  - name: settings.mysql.ssl
+    label: MySQL SSL
+    kind: options
+    env: MYSQL_SSL
+    options:
+      - value: 'true'
+      - value: 'false'
+      - value: 'Amazon RDS'
+  - name: settings.mysql.socket_path
+    label: MySQL User
+    kind: string
+    env: MYSQL_SOCKETPATH
+    description: |
+      This is an optional field. When using Google Cloud MySQL this is commonly required.
+  # postgres / redshift
+  - name: settings.postgres.host
+    label: Postgres Host
+    kind: string
+    env: POSTGRES_HOST
+  - name: settings.postgres.database
+    label: Postgres Database
+    kind: string
+    env: POSTGRES_DATABASE
+  - name: settings.postgres.port
+    label: Postgres Port
+    kind: string
+    env: POSTGRES_PORT
+  - name: settings.postgres.user
+    label: Postgres User
+    kind: string
+    env: POSTGRES_USER
+  - name: settings.postgres.password
+    label: Postgres Password
+    kind: password
+    env: POSTGRES_PASSWORD
+  - name: settings.postgres.ssl
+    env: POSTGRES_SSL
+    kind: options
+    description: |
+      Postgres SSL. When using Heroku this is commonly required.
+    options:
+      - value: 'true'
+      - value: 'false'
+      - value: 'no-verify'
+  - name: settings.postgres.connection_string
+    label: Postgres Connection String
+    kind: password
+    env: POSTGRES_CONNECTIONSTRING
+    description: |
+      If your database host provides a connection string, you can use that in place of the fields above.
+  # snowflake
+  - name: settings.snowflake.account
+    label: Snowflake Account
+    kind: string
+    env: SNOWFLAKE_ACCOUNT
+  - name: settings.snowflake.username
+    label: Snowflake Username
+    kind: string
+    env: SNOWFLAKE_USERNAME
+  - name: settings.snowflake.password
+    label: Snowflake Password
+    kind: password
+    env: SNOWFLAKE_PASSWORD
+  - name: settings.snowflake.database
+    label: Snowflake Database
+    kind: string
+    env: SNOWFLAKE_DATABASE
+  - name: settings.snowflake.warehouse
+    label: Snowflake Warehouse
+    kind: string
+    env: SNOWFLAKE_WAREHOUSE
