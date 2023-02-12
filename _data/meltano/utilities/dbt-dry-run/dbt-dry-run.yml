@@ -17,6 +17,8 @@ definition: |
   **A note**
   This plugin is at it's most powerful (in our opinion) in CI (we use github actions). It allows us to ensure that our changes will not break production.
 domain_url: https://github.com/autotraderuk/dbt-dry-run
+entity_url: https://cloud.google.com/bigquery/docs/dry-run-queries
+meltano_edk: true
 executable: dbt-dry-run
 keywords:
 - dbt
