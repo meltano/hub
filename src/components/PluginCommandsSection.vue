@@ -3,7 +3,9 @@
     <p class="text-3xl py-4" id="commands">Commands</p>
     <span
       >The {{ name }} {{ plugin_type }} supports the following commands that can be used with
-      <pre><code>meltano invoke</code></pre>
+      <a href="https://docs.meltano.com/reference/command-line-interface#invoke">
+        <pre><code>meltano invoke</code></pre>
+      </a>
       :</span
     >
     <div v-for="(command, key, index) in commands" v-bind:key="index">
