@@ -10,17 +10,6 @@
       >
     </div>
     <div></div>
-
-    <div v-if="domain_url">
-      <p class="text-lg">Homepage</p>
-      <div class="link-box">
-        <img class="w-8 h-4 inline gap-x-11" src="../assets/images/link-solid.svg" /><a
-          :href="domain_url"
-          >{{ domain_url }}</a
-        >
-      </div>
-    </div>
-
     <div>
       <p class="text-lg">Maintenance Status</p>
       <ul class="list-disc list-inside shields space-y-1">
@@ -73,10 +62,22 @@
     <div>
       <p class="text-lg">Repo</p>
       <div>
-        <img class="w-8 h-4 inline gap-x-11" src="../assets/images/git-alt-brands.svg" /><a
+        <img
+          v-if="repoType === 'github'"
+          class="w-8 h-4 inline gap-x-11"
+          src="../assets/images/github-brands.svg"
+        /><img
+          v-else-if="repoType === 'gitlab'"
+          class="w-8 h-4 inline gap-x-11"
+          src="../assets/images/gitlab-brands.svg"
+        /><img v-else class="w-8 h-4 inline gap-x-11" src="../assets/images/git-alt-brands.svg" /><a
           :href="repo"
-          >{{ repo }}</a
-        >
+          ><img
+            class="inline gap-x-11"
+            :alt="repo"
+            :src="`https://img.shields.io/static/v1?label=${parsedRepo.user}&message=${parsedRepo.repo_name}&color=blue`"
+          />
+        </a>
       </div>
     </div>
 
@@ -92,6 +93,12 @@
           <img
             alt="Forks"
             :src="`https://img.shields.io/${repoType}/forks/${parsedRepo.user}/${parsedRepo.repo_name}?label=Forks`"
+          />
+        </li>
+        <li>
+          <img
+            alt="Last Commit Date"
+            :src="`https://img.shields.io/${repoType}/last-commit/${parsedRepo.user}/${parsedRepo.repo_name}?label=Last%20Commit`"
           />
         </li>
         <li>
@@ -135,6 +142,28 @@
           <img alt="License" :src="`https://img.shields.io/badge/License-MIT-lightgrey`" />
         </li>
       </ul>
+    </div>
+
+    <div v-if="ext_repo">
+      <p class="text-lg">EDK Extension Repo</p>
+      <div>
+        <img
+          v-if="repoType === 'github'"
+          class="w-8 h-4 inline gap-x-11"
+          src="../assets/images/github-brands.svg"
+        /><img
+          v-else-if="repoType === 'gitlab'"
+          class="w-8 h-4 inline gap-x-11"
+          src="../assets/images/gitlab-brands.svg"
+        /><img v-else class="w-8 h-4 inline gap-x-11" src="../assets/images/git-alt-brands.svg" /><a
+          :href="ext_repo"
+          ><img
+            class="inline gap-x-11"
+            :alt="ext_repo"
+            :src="`https://img.shields.io/static/v1?label=${parsedEDKRepo.user}&message=${parsedEDKRepo.repo_name}&color=blue`"
+          />
+        </a>
+      </div>
     </div>
 
     <div>
@@ -225,6 +254,7 @@ export default {
     "metrics",
     "maintainer",
     "pip_url",
+    "ext_repo",
   ],
   computed: {
     parsedRepo() {
@@ -237,6 +267,17 @@ export default {
     repoType() {
       // Some plugins are hosted on github, some on gitlab
       return this.repo.includes("github.com") ? "github" : "gitlab";
+    },
+    parsedEDKRepo() {
+      // For some plugin variants, either the `variant` or `name` doesn't match the GH repo
+      // So we need to parse it from the repo URL to make badges
+      // https://github.com/:user/:repoName
+      const urlParts = this.ext_repo.split("/");
+      return { user: urlParts[3], repo_name: urlParts[4] };
+    },
+    repoEDKType() {
+      // Some plugins are hosted on github, some on gitlab
+      return this.ext_repo.includes("github.com") ? "github" : "gitlab";
     },
     hasPyPI() {
       // Exclude more elaborate ways of specifying `pip_url`

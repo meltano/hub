@@ -1,0 +1,41 @@
+commands:
+  describe:
+    args: describe
+    description: Describe the available commands for the cron extension.
+  install:
+    args: install
+    description: Install a crontab for the Meltano project.
+  list:
+    args: list
+    description: List installed cron entries for the Meltano project
+  uninstall:
+    args: uninstall
+    description: Uninstall a crontab for the Meltano project.
+definition: |
+  is a Meltano utility extension that provides basic job scheduling via cron.
+docs: https://man7.org/linux/man-pages/man8/cron.8.html
+executable: cron
+ext_repo: https://github.com/meltano/cron-ext
+keywords:
+- meltano_edk
+label: Cron Scheduler (EDK)
+logo_url: /assets/logos/utilities/cron.png
+maintenance_status: active
+name: cron
+namespace: cron
+next_steps: |-
+  1. To install your [job schedules](https://docs.meltano.com/guide/orchestration#create-a-schedule) run:
+
+    ```sh
+    # Install your schedules
+    meltano invoke cron install
+
+    # Confirm by listing your cron schedules
+    meltano invoke cron list
+
+    ```
+pip_url: git+https://github.com/meltano/cron-ext.git
+repo: https://github.com/meltano/cron-ext
+settings: []
+settings_preamble: ''
+variant: meltano

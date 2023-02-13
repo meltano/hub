@@ -106,6 +106,7 @@ export default {
         coll.edges.filter((plugin) => {
           const pluginTextFields = [
             plugin.node.name,
+            plugin.node.name.replace("-", " "),
             plugin.node.description,
             plugin.node.label,
             plugin.node.keywords?.join(" "),
@@ -124,7 +125,22 @@ export default {
 <static-query lang="graphql">
 query {
   allPlugins(
-    filter: { isDefault: { eq: true }, hidden: { ne: true }, pluginType: { ne: "transform" } }
+    filter: {
+      isDefault: { eq: true }
+      hidden: { ne: true }
+      pluginType: { nin: ["transform", "orchestrator", "transformer"] }
+      name: {
+        nin: [
+          "files-airflow"
+          "files-dbt-snowflake"
+          "files-dbt-redshift"
+          "files-dbt-postgres"
+          "files-dbt-duckdb"
+          "files-dbt-bigquery"
+          "files-dbt"
+        ]
+      }
+    }
   ) {
     edges {
       node {

@@ -120,7 +120,6 @@ settings:
   name: insights_buffer_days
   value: 0
 - description: Determines if it should include deleted objects or not.
-  kind: boolean
   label: Include Deleted Objects
   name: include_deleted
 settings_group_validation:

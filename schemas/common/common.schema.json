@@ -125,6 +125,11 @@
                     }
                 }
             }
+        },
+        "hidden": {
+            "type": "boolean",
+            "description": "Whether the plugin should be shown when listing or not.",
+            "default": false
         }
     }
 }

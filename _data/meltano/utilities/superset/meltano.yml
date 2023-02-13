@@ -23,16 +23,14 @@ commands:
 definition: |
   is a modern data exploration and visualization platform.
 
-  ### EDK Preview
-   This utility is in a preview stage of readiness. It is based upon our Extension Developer Kit (EDK) which is the new way to build and add plugins to Meltano Hub.
-   This preview of Superset will replace the existing Superset utility once it comes out of preview. In the meantime, we would appreciate any feedback in the [EDK repo](https://github.com/meltano/edk/) and in the [Superset Extension repo](https://github.com/meltano/superset-ext/).
 description: A modern, enterprise-ready business intelligence web application.
 docs: https://docs.meltano.com/guide/analysis
 domain_url: https://superset.apache.org/
 executable: superset_invoker
+ext_repo: https://github.com/meltano/superset-ext
 keywords:
 - analysis
-label: Superset (EDK preview)
+label: Superset (EDK)
 logo_url: /assets/logos/utilities/superset.png
 maintenance_status: active
 name: superset
