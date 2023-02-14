@@ -17,16 +17,15 @@ definition: |
   **A note**
   This plugin is at it's most powerful (in our opinion) in CI (we use github actions). It allows us to ensure that our changes will not break production.
 domain_url: https://github.com/autotraderuk/dbt-dry-run
-entity_url: https://cloud.google.com/bigquery/docs/dry-run-queries
-meltano_edk: true
 executable: dbt-dry-run
 keywords:
 - dbt
 - bigquery
 - testing
 - continuous-integrations
+- meltano_edk
 label: dbt-dry-run
-logo_url: /assets/logos/utilities/dbt-dry-run.png
+logo_url: /assets/logos/utilities/dbt.png
 maintenance_status: active
 name: dbt-dry-dryn
 namespace: dbt-dry-run
@@ -35,7 +34,9 @@ next_steps: |
   You will also need to compile your dbt models using the command `dbt-bigquery compile`.
 
   Once this is done, simply run `dbt-dry-run:run` and watch the magic happen!
-repo: git+https://github.com/potloc/dbt-dry-run-ext
+pip_url: git+https://github.com/potloc/dbt-dry-run-ext
+edk_repo: https://github.com/potloc/dbt-dry-run-ext
+repo: https://github.com/autotraderuk/dbt-dry-run
 settings:
   - name: project-dir
     kind: string
