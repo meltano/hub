@@ -35,7 +35,7 @@ next_steps: |
 
   Once this is done, simply run `dbt-dry-run:run` and watch the magic happen!
 pip_url: git+https://github.com/potloc/dbt-dry-run-ext
-edk_repo: https://github.com/potloc/dbt-dry-run-ext
+ext_repo: https://github.com/potloc/dbt-dry-run-ext
 repo: https://github.com/autotraderuk/dbt-dry-run
 settings:
   - name: project-dir
