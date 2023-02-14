@@ -69,16 +69,29 @@
                   $page.plugins.keywords.includes('airbyte_protocol')
                 "
               >
-                <p class="text-3xl py-4" id="airbyte-preview">⚠️ Experimental Preview Warning ⚠️</p>
+                <p class="text-3xl py-4" id="airbyte-preview">Airbyte Usage Notice</p>
 
                 This connector uses
                 <g-link to="https://github.com/meltanolabs/tap-airbyte-wrapper"
                   >tap-airbyte-wrapper</g-link
                 >
-                to call the underlying Docker container for the source. This means you must have
-                <a :href="'https://www.docker.com/'">Docker</a> installed and running prior to
-                usage. We also recommend using Meltano version 2.13.0 or later.
-                <br />
+                to call the underlying Airbyte source Docker container. This means
+                <u>you must</u> have <a :href="'https://www.docker.com/'">Docker</a> installed and
+                running prior to usage. We also recommend using Meltano version 2.13.0 or later.
+                <br /><br />
+                Container-based connectors <u>can introduce deployment challenges</u> (see
+                <a
+                  :href="'https://docs.meltano.com/guide/advanced-topics#am-i-able-to-put-my-meltano-project-with-airbyte-connectors-in-production'"
+                  >FAQ</a
+                >
+                and
+                <g-link to="https://docs.airbyte.com/deploying-airbyte/on-aws-ecs/"
+                  >Airbyte's ECS deployment docs</g-link
+                >
+                for more details) including the potential need to run Docker-in-Docker. Before using
+                this variant we recommend considering if/how you will be able to deploy
+                container-based connectors to production. <br /><br />
+
                 For more context on how this Airbyte integration works please checkout out the
                 <a
                   :href="'https://docs.meltano.com/guide/advanced-topics#airbyte-connector-integration-faq'"
