@@ -39,10 +39,10 @@ edk_repo: https://github.com/potloc/dbt-dry-run-ext
 repo: https://github.com/autotraderuk/dbt-dry-run
 settings:
   - name: project-dir
-    kind: string
     value: ${MELTANO_PROJECT_ROOT}/transform/
     env: DBT_PROJECT_DIR
     description: Location of the directory hosting your `dbt_project.yml` file.
+    kind: string
   - name: profiles-dir
     kind: string
     value: ${MELTANO_PROJECT_ROOT}/transform/profiles/bigquery/
