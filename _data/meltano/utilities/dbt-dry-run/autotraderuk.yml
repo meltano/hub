@@ -16,7 +16,7 @@ keywords:
 label: dbt-dry-run (BigQuery Only)
 logo_url: /assets/logos/utilities/dbt-dry-run.png
 maintenance_status: active
-name: dbt-dry-dryn
+name: dbt-dry-run
 namespace: dbt-dry-run
 next_steps: |
   To run this plugin for the first time, simply specify you DBT_BIGQUERY_PROFILES_DIR, DBT_BIGQUERY_PROJECT_DIR and DBT_DRY_RUN_TARGET.
