@@ -7,6 +7,7 @@ definition: |
   This plugin is at it's most powerful (in our opinion) in CI (we use github actions). It allows us to ensure that our changes will not break production.
 domain_url: https://github.com/autotraderuk/dbt-dry-run
 executable: dbt-dry-run
+ext_repo: https://github.com/potloc/dbt-dry-run-ext
 keywords:
 - dbt
 - bigquery
@@ -38,20 +39,19 @@ next_steps: |
 
   Once this is done, simply run `dbt-dry-run:run` and watch the magic happen!
 pip_url: git+https://github.com/potloc/dbt-dry-run-ext.git
-ext_repo: https://github.com/potloc/dbt-dry-run-ext
 repo: https://github.com/autotraderuk/dbt-dry-run
 settings:
-  - name: project-dir
-    value: ${MELTANO_PROJECT_ROOT}/transform/
-    env: DBT_PROJECT_DIR
-    description: Location of the directory hosting your `dbt_project.yml` file.
-    kind: string
-  - name: profiles-dir
-    kind: string
-    value: ${MELTANO_PROJECT_ROOT}/transform/profiles/bigquery/
-    env: DBT_PROFILES_DIR
-    description: Location of the directory hosting your `profiles.yml` file.
-  - name: target
-    kind: string
-    description: Target profile in DBT.
-variant: potloc
+- description: Location of the directory hosting your `dbt_project.yml` file.
+  env: DBT_PROJECT_DIR
+  kind: string
+  name: project-dir
+  value: ${MELTANO_PROJECT_ROOT}/transform/
+- description: Location of the directory hosting your `profiles.yml` file.
+  env: DBT_PROFILES_DIR
+  kind: string
+  name: profiles-dir
+  value: ${MELTANO_PROJECT_ROOT}/transform/profiles/bigquery/
+- description: Target profile in DBT.
+  kind: string
+  name: target
+variant: autotraderuk
