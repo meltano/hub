@@ -76,10 +76,12 @@
                   >tap-airbyte-wrapper</g-link
                 >
                 to call the underlying Airbyte source Docker container. This means
-                <u>you must</u> have <a :href="'https://www.docker.com/'">Docker</a> installed and
+                <i>you must</i> have <a :href="'https://www.docker.com/'">Docker</a> installed and
                 running prior to usage. We also recommend using Meltano version 2.13.0 or later.
                 <br /><br />
-                Container-based connectors <u>can introduce deployment challenges</u> (see
+                Container-based connectors <i>can introduce deployment challenges</i> including the
+                potential need to run Docker-in-Docker (not currently supported by services like AWS
+                ECS, Meltano Cloud, etc. see
                 <a
                   :href="'https://docs.meltano.com/guide/advanced-topics#am-i-able-to-put-my-meltano-project-with-airbyte-connectors-in-production'"
                   >FAQ</a
@@ -88,9 +90,8 @@
                 <g-link to="https://docs.airbyte.com/deploying-airbyte/on-aws-ecs/"
                   >Airbyte's ECS deployment docs</g-link
                 >
-                for more details) including the potential need to run Docker-in-Docker. Before using
-                this variant we recommend considering if/how you will be able to deploy
-                container-based connectors to production. <br /><br />
+                for more details). Before using this variant we recommend considering if/how you
+                will be able to deploy container-based connectors to production. <br /><br />
 
                 For more context on how this Airbyte integration works please checkout out the
                 <a
