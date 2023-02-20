@@ -1,16 +1,16 @@
 capabilities:
-- about
-- state
-- catalog
-- discover
+  - about
+  - state
+  - catalog
+  - discover
 description: Zammad is a web-based, open source user support/ticketing solution.
 domain_url: https://zammad.org/
 keywords:
-- api
-- meltano_sdk
-- Support System
-- Helpdesk
-- Ticket System
+  - api
+  - meltano_sdk
+  - Support System
+  - Helpdesk
+  - Ticket System
 label: Zammad
 logo_url: /assets/logos/extractors/zammad.png
 maintenance_status: beta
@@ -19,16 +19,16 @@ namespace: tap_zammd
 pip_url: tap-zammad
 repo: https://github.com/Lawiss/tap-zammad
 settings:
-- kind: date_iso8601
-  name: start_date
-  value: "2022-01-12"
-- description: The base url of the Zammad API e.g. `https://example.zammad.com/api/v1/`
-  kind: string
-  name: api_base_url
-- description: The token to authenticate against the Zammad API
-  kind: password
-  name: auth_token
+  - kind: date_iso8601
+    name: start_date
+    value: "2022-01-12"
+  - description: The base url of the Zammad API e.g. `https://example.zammad.com/api/v1/`
+    kind: string
+    name: api_base_url
+  - description: The token to authenticate against the Zammad API
+    kind: password
+    name: auth_token
 settings_group_validation:
-- auth_token
-- api_base_url
+  - - auth_token
+    - api_base_url
 variant: Lawiss
