@@ -497,6 +497,7 @@ extractors:
   tap-yotpo: singer-io
   tap-younium: airbyte
   tap-youtube-analytics: singer-io
+  tap-zammad: Lawiss
   tap-zapier-supported-storage: airbyte
   tap-zendesk: twilio-labs
   tap-zendesk-chat: singer-io
@@ -585,6 +586,7 @@ utilities:
   dagster: quantile-development
   datahub: datahub-project
   dbt-bigquery: dbt-labs
+  dbt-dry-run: autotraderuk
   dbt-duckdb: jwills
   dbt-osmosis: z3z1ma
   dbt-postgres: dbt-labs
@@ -599,4 +601,3 @@ utilities:
   postgres: postgres
   sqlfluff: sqlfluff
   superset: meltano
-  dbt-dry-run: autotraderuk
