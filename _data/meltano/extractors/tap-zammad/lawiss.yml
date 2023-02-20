@@ -29,6 +29,6 @@ settings:
     kind: password
     name: auth_token
 settings_group_validation:
-  - - auth_token
-    - api_base_url
+- - auth_token
+  - api_base_url
 variant: Lawiss
