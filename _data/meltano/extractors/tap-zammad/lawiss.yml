@@ -3,6 +3,8 @@ capabilities:
 - state
 - catalog
 - discover
+- stream-maps
+- schema-flattening
 description: Zammad is a web-based, open source user support/ticketing solution.
 domain_url: https://zammad.org/
 keywords:
