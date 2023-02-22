@@ -1,0 +1,57 @@
+capabilities:
+- about
+- state
+- catalog
+- discover
+- stream-maps
+- schema-flattening
+description: Zammad is a web-based, open source user support/ticketing solution.
+domain_url: https://zammad.org/
+keywords:
+- api
+- meltano_sdk
+- Support System
+- Helpdesk
+- Ticket System
+label: Zammad
+logo_url: /assets/logos/extractors/zammad.png
+maintenance_status: beta
+name: tap-zammad
+namespace: tap_zammd
+pip_url: tap-zammad
+repo: https://github.com/Lawiss/tap-zammad
+settings:
+- description: The earliest record date to sync
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: The base url of the Zammad API
+  kind: string
+  label: Api Base Url
+  name: api_base_url
+- description: The token to authenticate against the Zammad API
+  kind: password
+  label: Auth Token
+  name: auth_token
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+settings_group_validation:
+- - auth_token
+  - api_base_url
+variant: lawiss
