@@ -548,6 +548,7 @@ loaders:
   target-parquet: estrategiahq
   target-postgres: transferwise
   target-redshift: transferwise
+  target-s3: crowemi
   target-s3-avro: faumel
   target-s3-csv: transferwise
   target-s3-parquet: gupy-io

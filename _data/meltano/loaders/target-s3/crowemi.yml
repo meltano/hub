@@ -1,0 +1,129 @@
+capabilities:
+- about
+- stream-maps
+- schema-flattening
+description: AWS S3
+domain_url: https://aws.amazon.com/s3/
+executable: target-s3
+keywords:
+- meltano_sdk
+- aws
+- file
+label: S3
+logo_url: /assets/logos/loaders/s3.png
+maintenance_status: active
+name: target-s3
+namespace: target_s3
+next_steps: ''
+pip_url: git+https://github.com/crowemi/target-s3.git
+repo: https://github.com/crowemi/target-s3
+settings:
+- description: The aws secret access key for auth to S3.
+  kind: password
+  label: Aws Access Key
+  name: aws_access_key
+- description: The aws secret access key for auth to S3.
+  kind: password
+  label: Aws Secret Access Key
+  name: aws_secret_access_key
+- description: The aws region to target
+  kind: string
+  label: Aws Region
+  name: aws_region
+- description: The aws bucket to target.
+  kind: string
+  label: Bucket
+  name: bucket
+- description: The prefix for the key.
+  kind: string
+  label: Prefix
+  name: prefix
+- description: A flag to append the date to the key prefix.
+  kind: boolean
+  label: Append Date To Prefix
+  name: append_date_to_prefix
+- description: The grain of the date to append to the prefix.
+  kind: options
+  label: Append Date To Prefix Grain
+  name: append_date_to_prefix_grain
+  options:
+  - label: Year
+    value: year
+  - label: Month
+    value: month
+  - label: Day
+    value: day
+  - label: Hour
+    value: hour
+  - label: Minute
+    value: minute
+  - label: Second
+    value: second
+  - label: Microsecond
+    value: microsecond
+- description: A flag to append the date to the key filename.
+  kind: boolean
+  label: Append Date To Filename
+  name: append_date_to_filename
+- description: The grain of the date to append to the filename.
+  kind: options
+  label: Append Date To Filename Grain
+  name: append_date_to_filename_grain
+  options:
+  - label: Year
+    value: year
+  - label: Month
+    value: month
+  - label: Day
+    value: day
+  - label: Hour
+    value: hour
+  - label: Minute
+    value: minute
+  - label: Second
+    value: second
+  - label: Microsecond
+    value: microsecond
+- description: The format of the storage object.
+  kind: options
+  label: Format Type
+  name: format_type
+  options:
+  - label: Parquet
+    value: parquet
+  - label: CSV
+    value: csv
+  - label: JSON
+    value: json
+- description: A flag indictating to flatten records.
+  kind: boolean
+  label: Flatten Records
+  name: flatten_records
+- description: A flag indictating to set dytpe to string.
+  kind: boolean
+  label: Set Dtype String
+  name: set_dtype_string
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+settings_group_validation:
+- - aws_region
+  - bucket
+settings_preamble: ''
+usage: ''
+variant: crowemi
