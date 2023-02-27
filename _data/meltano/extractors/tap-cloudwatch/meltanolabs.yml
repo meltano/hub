@@ -21,29 +21,29 @@ repo: https://github.com/meltanolabs/tap-cloudwatch
 settings:
 - description: The access key for your AWS account.
   kind: password
-  label: Aws Access Key Id
+  label: AWS Access Key Id
   name: aws_access_key_id
 - description: The secret key for your AWS account.
   kind: password
-  label: Aws Secret Access Key
+  label: AWS Secret Access Key
   name: aws_secret_access_key
 - description: The session key for your AWS account. This is only needed when you
     are using temporary credentials.
   kind: password
-  label: Aws Session Token
+  label: AWS Session Token
   name: aws_session_token
 - description: The AWS credentials profile name to use. The profile must be configured
     and accessible.
   kind: string
-  label: Aws Profile
+  label: AWS Profile
   name: aws_profile
 - description: The complete URL to use for the constructed client.
   kind: string
-  label: Aws Endpoint Url
+  label: AWS Endpoint Url
   name: aws_endpoint_url
 - description: 'The AWS region name (e.g. us-east-1) '
   kind: string
-  label: Aws Region Name
+  label: AWS Region Name
   name: aws_region_name
 - description: The earliest record date to sync
   kind: date_iso8601
