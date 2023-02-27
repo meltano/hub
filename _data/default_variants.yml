@@ -384,6 +384,7 @@ extractors:
   tap-search-ads: uptilab2
   tap-search-metrics: airbyte
   tap-secoda: airbyte
+  tap-segment: gthesheep
   tap-selligent: singer-io
   tap-sendgrid: singer-io
   tap-sendinblue: hotgluexyz
