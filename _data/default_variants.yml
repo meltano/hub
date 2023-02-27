@@ -511,6 +511,7 @@ extractors:
   tap-zohosprints: autoidm
   tap-zoom: mashey
   tap-zuora: transferwise
+  tap-qualified: z3z1ma
 files:
   files-airflow: meltano
   files-datahub: z3z1ma
