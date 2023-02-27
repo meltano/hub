@@ -19,7 +19,7 @@ next_steps: ''
 pip_url: git+https://github.com/symon-ai/tap-gong.git
 repo: https://github.com/symon-ai/tap-gong
 settings:
-- description: Gong acccess key
+- description: Gong access key
   kind: password
   label: Access Key
   name: access_key
