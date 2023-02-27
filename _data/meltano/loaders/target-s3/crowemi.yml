@@ -2,14 +2,14 @@ capabilities:
 - about
 - stream-maps
 - schema-flattening
-description: AWS S3
+description: AWS S3 (Multi Format)
 domain_url: https://aws.amazon.com/s3/
 executable: target-s3
 keywords:
 - meltano_sdk
 - aws
 - file
-label: S3
+label: S3 (Multi Format)
 logo_url: /assets/logos/loaders/s3.png
 maintenance_status: active
 name: target-s3
