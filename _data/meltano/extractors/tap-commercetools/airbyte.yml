@@ -46,7 +46,7 @@ settings:
   options:
   - label: Gcp
     value: gcp
-  - label: Aws
+  - label: AWS
     value: aws
 - description: 'The date you would like to replicate data. Format: YYYY-MM-DD.'
   kind: string

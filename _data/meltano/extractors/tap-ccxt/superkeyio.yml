@@ -3,7 +3,8 @@ capabilities:
 - discover
 - state
 domain_url: ''
-keywords: []
+keywords:
+- meltano_sdk
 label: CCXT
 logo_url: /assets/logos/extractors/ccxt.png
 maintenance_status: active

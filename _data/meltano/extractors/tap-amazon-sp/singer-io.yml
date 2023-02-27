@@ -46,7 +46,7 @@ settings:
   name: sales_data_granularity
 - description: Your AWS secret key.
   kind: password
-  label: Aws Secret Key
+  label: AWS Secret Key
   name: aws_secret_key
 settings_group_validation:
 - - aws_access_key

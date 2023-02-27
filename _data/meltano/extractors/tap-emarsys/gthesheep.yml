@@ -1,0 +1,38 @@
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+description: Omnichannel Customer Engagement Platform
+domain_url: https://emarsys.com/
+executable: tap-emarsys
+keywords:
+- meltano_sdk
+label: Emarsys
+logo_url: /assets/logos/extractors/emarsys.png
+maintenance_status: active
+name: tap-emarsys
+namespace: tap_emarsys
+next_steps: ''
+pip_url: git+https://github.com/GtheSheep/tap-emarsys.git
+repo: https://github.com/GtheSheep/tap-emarsys
+settings:
+- description: The username obtained for the API user
+  kind: string
+  label: Username
+  name: username
+- description: The secret obtained for the API user
+  kind: password
+  label: Secret
+  name: secret
+- description: The language ID for data to be retrieved in
+  kind: password
+  label: Language Id
+  name: language_id
+settings_group_validation:
+- - username
+  - secret
+settings_preamble: ''
+usage: ''
+variant: gthesheep

@@ -156,13 +156,13 @@ settings:
     requires credentials with the proper permissions. If accessing publicly available
     data, this field is not necessary.
   kind: password
-  label: Airbyte Config Provider Aws Access Key Id
+  label: Airbyte Config Provider AWS Access Key Id
   name: airbyte_config.provider.aws_access_key_id
 - description: In order to access private Buckets stored on AWS S3, this connector
     requires credentials with the proper permissions. If accessing publicly available
     data, this field is not necessary.
   kind: password
-  label: Airbyte Config Provider Aws Secret Access Key
+  label: Airbyte Config Provider AWS Secret Access Key
   name: airbyte_config.provider.aws_secret_access_key
 - description: By providing a path-like prefix (e.g. myFolder/thisTable/) under which
     all the relevant files sit, we can optimize finding these in S3. This is optional
