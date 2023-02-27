@@ -349,6 +349,7 @@ extractors:
   tap-qonto: airbyte
   tap-quaderno: nickleomartin
   tap-qualaroo: airbyte
+  tap-qualified: z3z1ma
   tap-quickbase: mainspringenergy
   tap-quickbooks: hotgluexyz
   tap-rakuten: chrisgoddard
@@ -399,6 +400,7 @@ extractors:
   tap-shopify: singer-io
   tap-shortcut: edgarrmondragon
   tap-shortio: airbyte
+  tap-showpad: z3z1ma
   tap-signonsite: singer-io
   tap-simplifi: georgiyolovski
   tap-singer-jsonl: kgpayne
@@ -511,8 +513,6 @@ extractors:
   tap-zohosprints: autoidm
   tap-zoom: mashey
   tap-zuora: transferwise
-  tap-qualified: z3z1ma
-  tap-showpad: z3z1ma
 files:
   files-airflow: meltano
   files-datahub: z3z1ma
