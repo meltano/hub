@@ -49,6 +49,12 @@ settings:
   kind: date_iso8601
   label: Start Date
   name: start_date
+- description: The last record date to sync. This tap uses a 5 minute buffer to allow
+    Cloudwatch logs to arrive in full. If you request data from current time it will
+    automatically adjust your end_date to now - 5 mins.
+  kind: date_iso8601
+  label: End Date
+  name: end_date
 - description: The log group on which to perform the query.
   kind: string
   label: Log Group Name
