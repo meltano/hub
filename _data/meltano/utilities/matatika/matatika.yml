@@ -1,0 +1,49 @@
+commands:
+  describe:
+    args: describe
+    description: Describe the Matatika extension.
+    executable: matatika_extension
+  lab:
+    args: lab --no-browser
+    description: Start the Matatika Lab.
+    executable: matatika_extension
+definition: |
+  is a Meltano utility extension that enables you to interact with the Matatika platform.
+
+  > **WARNING:** This extension is currently in beta - commands and behaviour may change in future releases without warning.
+description: Private Data Collaboration Platform
+docs: https://matatika.com/docs/
+domain_url: https://matatika.com/
+executable: matatika_extension
+ext_repo: https://github.com/Matatika/matatika-ext
+keywords:
+- analyze
+- chart
+- bi
+- lab
+- insights
+- import
+- matatika
+- meltano_edk
+- pipelines
+- visualization
+- ui
+label: Matatika
+logo_url: /assets/logos/utilities/matatika.png
+maintenance_status: beta
+name: matatika
+namespace: matatika
+next_steps: |
+  To start the Matatika Lab with your Meltano project, run:
+
+  ```
+  meltano invoke matatika lab
+  ```
+
+  If this is first time this command has been run, container images will be pulled from Docker Hub - be aware that this may take a couple of minutes, depending on the speed of your internet connection.
+  Once the images exist on the host machine, start-up should take no longer than 30s.
+
+  By default, a tab in your default browser will be opened to the Lab automatically at https://localhost:3443.
+pip_url: git+https://github.com/Matatika/matatika-ext@v0.1.0.git
+usage: For help, try `meltano invoke matatika --help` (or `--help` on any subcommand).
+variant: matatika
