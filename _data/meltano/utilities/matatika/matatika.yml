@@ -45,5 +45,6 @@ next_steps: |
 
   By default, a tab in your default browser will be opened to the Lab automatically at https://localhost:3443.
 pip_url: git+https://github.com/Matatika/matatika-ext@v0.1.0.git
+repo: https://github.com/Matatika/matatika-ext
 usage: For help, try `meltano invoke matatika --help` (or `--help` on any subcommand).
 variant: matatika
