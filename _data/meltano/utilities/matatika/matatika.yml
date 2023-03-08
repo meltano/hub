@@ -8,10 +8,11 @@ commands:
     description: Start the Matatika Lab.
     executable: matatika_extension
 definition: |
-  is a Meltano utility extension that enables you to interact with the Matatika platform.
+  is a Meltano utility extension providing a simplified community version of [Matatika](https://www.matatika.com/) - a modern data platform for analytics users.
+  This tool is designed to provide a complete and simple UI to run your Meltano project with, locally or self-hosted.
 
-  > **WARNING:** This extension is currently in beta - commands and behaviour may change in future releases without warning.
-description: Private Data Collaboration Platform
+  > **WARNING:** This extension is currently in beta - if you run into any problems, [join the Matatika Slack community](https://join.slack.com/t/matatika/shared_invite/zt-19n1bfokx-F31DNitTpSxWCFO2aFlgxg) and ask for help in the `#troubleshooting` channel.
+description: A simple UI and scheduler for Meltano projects
 docs: https://matatika.com/docs/
 domain_url: https://matatika.com/
 executable: matatika_extension
@@ -44,7 +45,12 @@ next_steps: |
   Once the images exist on the host machine, start-up should take no longer than 30s.
 
   By default, a tab in your default browser will be opened to the Lab automatically at https://localhost:3443.
-pip_url: git+https://github.com/Matatika/matatika-ext@v0.1.0.git
+
+  ---
+
+  If you're running into problems with this extension, or just want to chat about all things data, [join the Matatika Slack community](https://join.slack.com/t/matatika/shared_invite/zt-19n1bfokx-F31DNitTpSxWCFO2aFlgxg).
+  <br/><br/>
+pip_url: git+https://github.com/Matatika/matatika-ext.git@v0.1.0
 repo: https://github.com/Matatika/matatika-ce
 usage: For help, try `meltano invoke matatika --help` (or `--help` on any subcommand).
 variant: matatika
