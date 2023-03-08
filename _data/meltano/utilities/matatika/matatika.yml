@@ -44,7 +44,7 @@ next_steps: |
   Once the images exist on the host machine, start-up should take no longer than 30s.
 
   By default, a tab in your default browser will be opened to the Lab automatically at https://localhost:3443.
-pip_url: git+https://github.com/Matatika/matatika-ext@v0.1.0.git
+pip_url: git+https://github.com/Matatika/matatika-ext.git@v0.1.0
 repo: https://github.com/Matatika/matatika-ce
 usage: For help, try `meltano invoke matatika --help` (or `--help` on any subcommand).
 variant: matatika
