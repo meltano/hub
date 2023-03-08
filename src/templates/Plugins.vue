@@ -275,7 +275,7 @@
               <div v-else></div>
 
               <!-- Help section -->
-              <p>If you run into any issues, learn how to get help.</p>
+              <p>If you run into any issues, <a href="#looking-for-help">learn how to get help</a>.</p>
             </div>
             <div>
               <PluginCapabilitiesSection
