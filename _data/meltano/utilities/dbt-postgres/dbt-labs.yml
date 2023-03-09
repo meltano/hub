@@ -82,7 +82,8 @@ settings:
   label: dbt Profile type
   name: type
   value: postgres
-- label: Projects Directory
+- env: DBT_PROJECT_DIR
+  label: Projects Directory
   name: project_dir
   value: $MELTANO_PROJECT_ROOT/transform
 - env: DBT_PROFILES_DIR
