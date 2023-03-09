@@ -16,7 +16,7 @@ pip_url: git+https://github.com/MeltanoLabs/tap-csv.git
 repo: https://github.com/MeltanoLabs/tap-csv
 settings:
 - description: |
-    Array of objects with `entity`, `path`, `keys`, and `encoding` [Optioanl] keys:
+    Array of objects with `entity`, `path`, `keys`, and `encoding` [Optional] keys:
 
     * `entity`: The entity name, used as the table name for the data loaded from that CSV.
     * `path`: Local path (relative to the project's root) to the file to be ingested. Note that this may be a directory, in which case all files in that directory and any of its subdirectories will be recursively processed
