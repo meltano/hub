@@ -38,18 +38,18 @@ settings:
 - description: AWS CloudTrail Access Key ID. See the <a href="https://docs.airbyte.io/integrations/sources/aws-cloudtrail">docs</a>
     for more information on how to obtain this key.
   kind: password
-  label: Airbyte Config Aws Key Id
+  label: Airbyte Config AWS Key Id
   name: airbyte_config.aws_key_id
 - description: AWS CloudTrail Access Key ID. See the <a href="https://docs.airbyte.io/integrations/sources/aws-cloudtrail">docs</a>
     for more information on how to obtain this key.
   kind: password
-  label: Airbyte Config Aws Secret Key
+  label: Airbyte Config AWS Secret Key
   name: airbyte_config.aws_secret_key
 - description: The default AWS Region to use, for example, us-west-1 or us-west-2.
     When specifying a Region inline during client initialization, this property is
     named region_name.
   kind: string
-  label: Airbyte Config Aws Region Name
+  label: Airbyte Config AWS Region Name
   name: airbyte_config.aws_region_name
 - description: 'The date you would like to replicate data. Data in AWS CloudTrail
     is available for last 90 days only. Format: YYYY-MM-DD.'

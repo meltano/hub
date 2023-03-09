@@ -183,7 +183,7 @@ extractors:
   tap-gmail-csv: food-spotter
   tap-gnews: airbyte
   tap-gocardless: airbyte
-  tap-gong: airbyte
+  tap-gong: symon-ai
   tap-google-analytics: meltanolabs
   tap-google-directory: airbyte
   tap-google-pagespeed-insights: airbyte
@@ -349,6 +349,7 @@ extractors:
   tap-qonto: airbyte
   tap-quaderno: nickleomartin
   tap-qualaroo: airbyte
+  tap-qualified: z3z1ma
   tap-quickbase: mainspringenergy
   tap-quickbooks: hotgluexyz
   tap-rakuten: chrisgoddard
@@ -384,6 +385,7 @@ extractors:
   tap-search-ads: uptilab2
   tap-search-metrics: airbyte
   tap-secoda: airbyte
+  tap-segment: gthesheep
   tap-selligent: singer-io
   tap-sendgrid: singer-io
   tap-sendinblue: hotgluexyz
@@ -398,6 +400,7 @@ extractors:
   tap-shopify: singer-io
   tap-shortcut: edgarrmondragon
   tap-shortio: airbyte
+  tap-showpad: z3z1ma
   tap-signonsite: singer-io
   tap-simplifi: georgiyolovski
   tap-singer-jsonl: kgpayne
@@ -497,6 +500,7 @@ extractors:
   tap-yotpo: singer-io
   tap-younium: airbyte
   tap-youtube-analytics: singer-io
+  tap-zammad: lawiss
   tap-zapier-supported-storage: airbyte
   tap-zendesk: twilio-labs
   tap-zendesk-chat: singer-io
@@ -547,6 +551,7 @@ loaders:
   target-parquet: estrategiahq
   target-postgres: transferwise
   target-redshift: transferwise
+  target-s3: crowemi
   target-s3-avro: faumel
   target-s3-csv: transferwise
   target-s3-parquet: gupy-io
@@ -585,16 +590,19 @@ utilities:
   dagster: quantile-development
   datahub: datahub-project
   dbt-bigquery: dbt-labs
+  dbt-dry-run: autotraderuk
   dbt-duckdb: jwills
   dbt-osmosis: z3z1ma
   dbt-postgres: dbt-labs
   dbt-redshift: dbt-labs
   dbt-snowflake: dbt-labs
   elementary: elementary
+  evidence: meltanolabs
   gdrive: matatika
   great_expectations: great-expectations
+  matatika: matatika
   metabase: metabase
   notebook: matatika
   postgres: postgres
   sqlfluff: sqlfluff
-  superset: apache
+  superset: meltano

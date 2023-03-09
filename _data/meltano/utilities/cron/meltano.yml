@@ -18,7 +18,7 @@ executable: cron
 ext_repo: https://github.com/meltano/cron-ext
 keywords:
 - meltano_edk
-label: Cron Scheduler (EDK)
+label: Cron Scheduler
 logo_url: /assets/logos/utilities/cron.png
 maintenance_status: active
 name: cron

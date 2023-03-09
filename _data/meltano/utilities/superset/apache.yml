@@ -67,7 +67,7 @@ next_steps: |
      utilities:
      - name: superset
        variant: apache
-       pip_url: apache-superset==1.5.0 snowflake-sqlalchemy
+       pip_url: apache-superset==1.5.0 markupsafe==2.0.1 cryptography==3.4.7 snowflake-sqlalchemy
      ```
   3. Re-install the plugin:
 
@@ -76,7 +76,7 @@ next_steps: |
      ```
 
   Now when you (re)start Superset, you will be able to connect to a new type of database, like Snowflake in the example.
-pip_url: apache-superset==1.5.0 markupsafe==2.0.1
+pip_url: apache-superset==1.5.0 markupsafe==2.0.1 cryptography==3.4.7
 prereq: |
   #### Dependencies
 

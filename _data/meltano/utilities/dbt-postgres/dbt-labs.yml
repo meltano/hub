@@ -51,12 +51,12 @@ definition: |
   is an adapter-specific dbt [transformer](https://docs.meltano.com/concepts/plugins#transformers) for running SQL-based transformations on data stored in your warehouse.
 
   This utility plugin is meant to be used in favor of the [dbt-postgres transformer plugin type](/transformers/dbt-postgres).
-
+  Note that this plugin can only be run as part of an ELT pipeline with the `meltano run` command. If you are using `meltano elt` you should use the [transformer](/transformers/) plugins. We do recommend migrating to `meltano run` as the transformer plugin type will be deprecated in a future major Meltano release.
 executable: dbt_invoker
 ext_repo: https://github.com/meltano/dbt-ext
 keywords:
 - meltano_edk
-label: dbt PostgreSQL (EDK)
+label: dbt PostgreSQL
 logo_url: /assets/logos/utilities/dbt.png
 maintenance_status: active
 name: dbt-postgres

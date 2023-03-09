@@ -86,6 +86,12 @@ settings_group_validation:
 usage: |
   ## Common Config Examples
 
+  ### Debugging
+
+  If you're having trouble syncing records try running the following command to view more verbose error messages:
+
+  `meltano invoke tap-spreadsheets-anywhere --dev`
+
   ### AWS Public IP Ranges JSON File
 
   The JSON response from https://ip-ranges.amazonaws.com/ip-ranges.json can be parsed into records for each prefix in the `prefixes` array, using the `json_path` key.
@@ -120,5 +126,22 @@ usage: |
   ```
     {"user_id": 1, "first_name": "John", "last_name": "Doe"}
     {"user_id": 2, "first_name": "Sarah", "last_name": "Smith"}
+  ```
+
+  ### Local Excel files
+
+  A local data directory containing an Excel file like this `/Users/my_local_path/data/excel_file.xlsx` could be synced using:
+
+  ```
+    config:
+      tables:
+      - path: "file:///Users/my_local_path"
+        name: "my_excel_files"
+        format: "excel"
+        worksheet_name: "Sheet1"
+        pattern: ".*"
+        key_properties: [id]
+        search_prefix: "data"
+        start_date: '2020-01-01T00:00:00Z'
   ```
 variant: ets
