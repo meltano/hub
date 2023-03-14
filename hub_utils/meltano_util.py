@@ -3,6 +3,9 @@ import subprocess
 import pathlib
 import json
 import typer
+import tempfile
+
+
 class MeltanoUtil:
 
     def __init__(self):
@@ -14,56 +17,57 @@ class MeltanoUtil:
 
     @staticmethod
     def add(plugin_name, namespace, executable, pip_url, plugin_type):
-        content = f"""{namespace}\n{pip_url}\n{executable}\n\n\n"""
         subprocess.run(
-            f'poetry run meltano add {plugin_type} {plugin_name} --custom'.split(" "),
-            cwd=str(MeltanoUtil.get_cwd()) + '/test_meltano_project/',
-            stdout=subprocess.PIPE,
-            universal_newlines=True,
-            check=True,
-            input=content
-        )
-
-    @staticmethod
-    def command(command):
-        subprocess.run(
-            f'poetry run {command}'.split(" "),
-            cwd=str(MeltanoUtil.get_cwd()) + '/test_meltano_project/',
+            f'pipx install {pip_url}'.split(" "),
             stdout=subprocess.PIPE,
             universal_newlines=True,
             check=True,
         )
 
     @staticmethod
-    def help_test(plugin_name):
-        subprocess.run(
-            f"poetry run meltano invoke {plugin_name} --help".split(" "),
-            cwd=str(MeltanoUtil.get_cwd()) + '/test_meltano_project/',
-            stdout=subprocess.PIPE,
-            universal_newlines=True,
-            check=True,
-        )
+    def help_test(plugin_name, config=None):
+        if config:
+            with tempfile.NamedTemporaryFile(mode="w+") as tmp:
+                print(tmp.name)
+                json.dump(config, tmp)
+                tmp.flush()
+                subprocess.run(
+                    f"{plugin_name} --help --config {tmp.name}".split(" "),
+                    stdout=subprocess.PIPE,
+                    universal_newlines=True,
+                    check=True,
+                )
+        else:
+            subprocess.run(
+                f"{plugin_name} --help".split(" "),
+                stdout=subprocess.PIPE,
+                universal_newlines=True,
+                check=True,
+            )
 
     @staticmethod
-    def sdk_about(plugin_name):
-        about_content = subprocess.run(
-            f"poetry run meltano invoke {plugin_name} --about --format=json".split(" "),
-            cwd=str(MeltanoUtil.get_cwd()) + '/test_meltano_project/',
-            stdout=subprocess.PIPE,
-            universal_newlines=True,
-            check=True,
-        )
+    def sdk_about(plugin_name, config=None):
+        about_content = ""
+        if config:
+            with tempfile.NamedTemporaryFile(mode="w+") as tmp:
+                print(tmp.name)
+                json.dump(config, tmp)
+                tmp.flush()
+                about_content = subprocess.run(
+                    f"{plugin_name} --about --format=json --config {tmp.name}".split(" "),
+                    stdout=subprocess.PIPE,
+                    universal_newlines=True,
+                    check=True,
+                )
+                # return about_content
+        else:
+            about_content = subprocess.run(
+                f"{plugin_name} --about --format=json".split(" "),
+                stdout=subprocess.PIPE,
+                universal_newlines=True,
+                check=True,
+            )
         return json.loads(about_content.stdout)
-
-    @staticmethod
-    def remove(plugin_name, plugin_type):
-        subprocess.run(
-            f"poetry run meltano remove {plugin_type} {plugin_name}".split(" "),
-            cwd=str(MeltanoUtil.get_cwd()) + '/test_meltano_project/',
-            stdout=subprocess.PIPE,
-            universal_newlines=True,
-            check=True
-        )
 
     @staticmethod
     def _get_label(plugin_name, plugin_type=None):
@@ -226,4 +230,3 @@ if __name__ == '__main__':
     MeltanoUtil.help_test(plugin_name)
     if is_meltano_sdk:
         MeltanoUtil.sdk_about(plugin_name)
-    MeltanoUtil.remove(plugin_name, plugin_type)

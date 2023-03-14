@@ -332,7 +332,7 @@ class Utilities:
         print(f'Adds {plugin_type} {plugin_name} ({variant})\n\n')
 
     def add_airbyte(self, definition_seed: dict = None, enforce_desc: bool = True):
-        repo_url = 'https://github.com/z3z1ma/tap-airbyte'
+        repo_url = 'https://github.com/meltanolabs/tap-airbyte-wrapper'
         plugin_name = self._prompt("plugin name", 'tap-<source/x>')
         plugin_type = 'extractors'
         pip_url = f"git+{repo_url}.git"
@@ -449,34 +449,32 @@ class Utilities:
                             return json.loads(self._prompt("Provide --about output"))
         except Exception as e:
             print(e)
-        finally:
-            MeltanoUtil.remove(plugin_name, plugin_type)
 
     def _test_airbyte(self, plugin_name, plugin_type, pip_url, namespace, executable):
         try:
             airbyte_name = self._prompt("airbyte_name (e.g. source-s3)")
             MeltanoUtil.add(plugin_name, namespace, executable, pip_url, plugin_type)
-            MeltanoUtil.command(f'meltano config {plugin_name} set airbyte_spec.image airbyte/{airbyte_name}')
-            MeltanoUtil.command(f'meltano config {plugin_name} set airbyte_spec.tag latest')
-            MeltanoUtil.help_test(plugin_name)
+            airbyte_config = {
+                "airbyte_spec": {
+                    "image": f"airbyte/{airbyte_name}",
+                    "tag": "latest"
+                }
+            }
+            MeltanoUtil.help_test(executable, config=airbyte_config)
             try:
-                about_content = subprocess.run(
-                    f"poetry run meltano invoke {plugin_name} --about --format=json".split(" "),
-                    cwd=str(MeltanoUtil.get_cwd()) + '/test_meltano_project/',
-                    stdout=subprocess.PIPE,
-                    universal_newlines=True,
-                    check=True,
-                )
-                about_json = about_content.stdout.split('Setup Instructions:')[0]
+                about_json = MeltanoUtil.sdk_about(executable, config=airbyte_config)
                 print(about_json)
-                return json.loads(about_json)
+                return about_json
+                # about_json = about_content.stdout.split('Setup Instructions:')[0]
+                # about_json = about_content.split('Setup Instructions:')[0]
+                # print(about_json)
+                # return json.loads(about_json)
             except Exception as e:
+                print(e)
                 if self._prompt("Scrape failed! Provide as json?", True, type=bool):
                     return json.loads(self._prompt("Provide --about output"))
         except Exception as e:
             print(e)
-        finally:
-            MeltanoUtil.remove(plugin_name, plugin_type)
 
     def _update_base(self, repo_url, is_meltano_sdk=False):
         if not repo_url:
@@ -531,6 +529,6 @@ class Utilities:
 if __name__ == "__main__":
     util = Utilities(False)
     util.add_airbyte()
-    # util.update("https://github.com/Yoast/singer-tap-postmark")
+    # util.update_sdk("https://github.com/MeltanoLabs/tap-snowflake")
     # util.update_sdk("https://github.com/hotgluexyz/tap-procore")
     # util.add_bulk('/Users/pnadolny/Documents/Git/GitHub/pnadolny/hub-utils/other_scripts/export_edit.csv')
