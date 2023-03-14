@@ -25,6 +25,16 @@ class MeltanoUtil:
         )
 
     @staticmethod
+    def command(command):
+        subprocess.run(
+            f'poetry run {command}'.split(" "),
+            cwd=str(MeltanoUtil.get_cwd()) + '/test_meltano_project/',
+            stdout=subprocess.PIPE,
+            universal_newlines=True,
+            check=True,
+        )
+
+    @staticmethod
     def help_test(plugin_name):
         subprocess.run(
             f"poetry run meltano invoke {plugin_name} --help".split(" "),
@@ -60,18 +70,29 @@ class MeltanoUtil:
         return plugin_name.replace('_', ' ').replace('-', ' ').replace('.', ' ').title()
 
     @staticmethod
-    def _parse_kind(kind, setting, format=None):
+    def _parse_kind(kind, settings, format=None):
+        setting = settings.get('name')
         setting = setting.lower()
         if kind == 'string':
-            if format == 'date-time' or setting in ('start_date', 'end_date'):
-                return 'date_iso8601'
-            if any(id_str.lower() in setting for id_str in ['password', 'id', 'token', 'key', 'secret']):
-                return 'password'
-            return 'string'
+            if format in ('date-time', 'date') or setting in ('start_date', 'end_date'):
+                return 'date_iso8601', None
+            if any(id_str.lower() in setting for id_str in ['password', 'id', 'token', 'key', 'secret']) or format == 'airbyte_secret':
+                return 'password', None
+            if settings.get('enum'):
+                option_parsed = [{'label': MeltanoUtil._get_label(val), 'value': val} for val in settings.get('enum')]
+                return 'options', option_parsed
+            return 'string', None
         if kind == 'number':
-            return 'integer'
+            return 'integer', None
+        # TODO: Meltano doesnt support array enums as of today
+        # if kind == 'array':
+        #     enum = settings.get('items', {}).get('enum')
+        #     if enum:
+        #         option_parsed = [{'label': MeltanoUtil._get_label(val), 'value': val} for val in enum]
+        #         return 'options', option_parsed   
+        #     return 'array', None
         else:
-            return kind
+            return kind, None
 
     @staticmethod
     def _default_description(setting):
@@ -86,15 +107,33 @@ can be expected to take."""
             return None
 
     @staticmethod
-    def _parse_sdk_about_settings(sdk_about_dict):
+    def _dedup_settings(reformatted_settings):
+        reformatted_settings_2 = {}
+        for setting in reformatted_settings:
+            name = setting.get('name')
+            if name in reformatted_settings_2:
+                existing_setting = reformatted_settings_2.get(name)
+                existing_setting['description'] = ', '.join([existing_setting['description'], setting.get('description')])
+            else:
+                reformatted_settings_2[name] = setting
+        return [value for key, value in reformatted_settings_2.items()]
+
+    @staticmethod
+    def _parse_sdk_about_settings(sdk_about_dict, enforce_desc=False):
         settings_raw = sdk_about_dict.get('settings', {})
         reformatted_settings = []
         settings_group_validation = []
         base_required = settings_raw.get('required', [])
         for settings in MeltanoUtil._traverse_schema_properties(settings_raw):
             description = settings.get('description')
-            if not settings.get('description'):
-                description = typer.prompt(f"[{settings.get('name')}] `description`", default=MeltanoUtil._default_description(settings.get('name')))
+            if not settings.get('description') :
+                if enforce_desc:
+                    description = typer.prompt(f"[{settings.get('name')}] `description`", default=MeltanoUtil._default_description(settings.get('name')))
+                else:
+                    if settings.get('name') == 'tag':
+                        description = 'Airbyte image tag'
+                    else:
+                        description = ''
             setting_details = {
                 'name': settings.get('name'),
                 'label': MeltanoUtil._get_label(settings.get('name')),
@@ -105,28 +144,44 @@ can be expected to take."""
             else:
                 kind = settings.get('type')
 
-            setting_details['kind'] = MeltanoUtil._parse_kind(kind, settings.get('name'))
+            if not kind:
+                if enforce_desc:
+                    kind = typer.prompt(f"[{settings.get('name')}] `kind`", default='string')
+                else:
+                    name = settings.get('name')
+                    print(f'No type found for: {name}. Defaulting to string')
+                    kind = 'string'
+
+            # raise Exception(settings)
+            kind, options = MeltanoUtil._parse_kind(kind, settings)
+            setting_details['kind'] = kind
+            if options:
+                setting_details['options'] = options
 
             reformatted_settings.append(setting_details)
             if settings.get('required'):
                 settings_group_validation.append(settings.get('name'))
-        return reformatted_settings, [list(set(settings_group_validation + base_required))], sdk_about_dict.get('capabilities')
+        deduped_settings = MeltanoUtil._dedup_settings(reformatted_settings)
+        return deduped_settings, [list(set(settings_group_validation + base_required))], sdk_about_dict.get('capabilities')
 
     @staticmethod
     def _traverse_schema_properties(schema, field_sep='.'):
         fields = []
-
         for key, value in schema.get('properties', {}).items():
-            val_type = value.get('type')
-            if val_type == 'object':
+            val_type = value.get('type', 'string')
+            if (val_type == 'object' or 'object' in val_type) and (value.get('properties') or value.get('oneOf')):
                 for subfield in MeltanoUtil._traverse_schema_properties(value):
                     sub_name = subfield.get('name')
                     full_name = f'{key}{field_sep}{sub_name}'
-                    reqs = value.get("required")
+                    reqs = value.get("required", [])
                     field = {
                         'name': full_name,
                         'description': subfield.get('description'),
                         'type': subfield.get('type'),
+                        'title': subfield.get('title'),
+                        'const': subfield.get('const'),
+                        'items': subfield.get('items'),
+                        'enum': subfield.get('enum'),
                     }
                     if 'required' in subfield:
                         # accept parent if it was set already
@@ -139,8 +194,17 @@ can be expected to take."""
                 fields.append({
                     'name': key,
                     'description': value.get('description'),
-                    'type': value.get('type')
+                    'type': value.get('type'),
+                    'title': value.get('title'),
+                    'const': value.get('const'),
+                    'items': value.get('items'),
+                    'enum': value.get('enum'),
                 })
+        for item in schema.get('oneOf', []):
+            for i in MeltanoUtil._traverse_schema_properties(item):
+                if i.get('const'):
+                    i['description'] = i.get('const') or item.get('title')
+                fields.append(i)
         return fields
 
 if __name__ == '__main__':

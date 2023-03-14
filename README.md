@@ -24,6 +24,11 @@ After writing output it excludes the repo_url from an output CSV so you can paus
 poetry run hub_utils add-bulk /path/to/csv_file
 ```
 
+## Add Airbyte
+
+```
+poetry run hub_utils add-airbyte
+```
 
 ## Tests
 
