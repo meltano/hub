@@ -13,7 +13,7 @@ import typer
 from ruamel.yaml import YAML
 
 from hub_utils.meltano_util import MeltanoUtil
-
+from hub_utils.yaml_lint import fix_yaml, run_yamllint
 
 class Kind(str, Enum):
     string = "string"
@@ -265,19 +265,14 @@ class Utilities:
             logo_file_name = definition['logo_url'].split('/')[-1]
             shutil.copyfile(image_path, f'{self.hub_root}/static/assets/logos/{plugin_type}/{logo_file_name}')
 
-    # def _reformat(self, plugin_type, plugin_name, variant):
-    #     for file_path in [
-    #         '_data/default_variants.yml',
-    #         '_data/maintainers.yml',
-    #         f'_data/meltano/{plugin_type}/{plugin_name}/{variant}.yml'
-    #     ]:
-    #         print(subprocess.run(
-    #             f"poetry run python {self.hub_root}/utility_scripts/plugin_definitions/yaml_lint_fix.py {self.hub_root}/{file_path}".split(" "),
-    #             cwd=self.hub_root,
-    #             stdout=subprocess.PIPE,
-    #             universal_newlines=True,
-    #             check=True,
-    #         ))
+    def _reformat(self, plugin_type, plugin_name, variant):
+        for file_path in [
+            '_data/default_variants.yml',
+            '_data/maintainers.yml',
+            f'_data/meltano/{plugin_type}/{plugin_name}/{variant}.yml'
+        ]:
+            fix_yaml(f"{self.hub_root}/{file_path}")
+            run_yamllint(f"{self.hub_root}/{file_path}")
 
     @staticmethod
     def _install_test(plugin_name, plugin_type, pip_url, namespace, executable):
@@ -327,7 +322,7 @@ class Utilities:
         variant_exists = self._handle_default_variant(plugin_name, definition['variant'], plugin_type)
         self._handle_maintainer(variant, repo_url)
         self._handle_logo(definition, plugin_type, variant_exists)
-        # self._reformat(plugin_type, plugin_name, variant)
+        self._reformat(plugin_type, plugin_name, variant)
         print(definition_path)
         print(f'Adds {plugin_type} {plugin_name} ({variant})\n\n')
 
@@ -372,7 +367,7 @@ class Utilities:
         variant_exists = self._handle_default_variant(plugin_name, variant, plugin_type)
         self._handle_maintainer(variant, repo_url)
         self._handle_logo(definition, plugin_type, variant_exists)
-        # self._reformat(plugin_type, plugin_name, variant)
+        self._reformat(plugin_type, plugin_name, variant)
         print(definition_path)
         print(f'Adds {plugin_type} {plugin_name} ({variant})\n\n')
 
@@ -503,7 +498,7 @@ class Utilities:
             sgv,
         )
         self._write_updated_def(plugin_name, plugin_variant, plugin_type, new_def)
-        # self._reformat(plugin_type, plugin_name, plugin_variant)
+        self._reformat(plugin_type, plugin_name, plugin_variant)
         print(f'\nUpdates {plugin_type} {plugin_name} ({plugin_variant})\n\n')
 
     def update_sdk(self, repo_url: str = None, definition_seed: dict = None):
