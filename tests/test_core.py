@@ -317,3 +317,13 @@ def test_airbyte_array_enum_string():
         "stream-maps",
         "schema-flattening"
     ]
+
+@pytest.mark.parametrize(
+    "input,expected",
+    [
+        ["aws_access_key_id", "AWS Access Key ID"],
+        ["db_name", "Database Name"],
+    ]
+)
+def test_get_label(input, expected):
+    assert MeltanoUtil()._get_label(input) == expected

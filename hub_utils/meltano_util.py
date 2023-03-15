@@ -68,8 +68,22 @@ class MeltanoUtil:
             return json.loads(about_content.stdout)
 
     @staticmethod
-    def _get_label(plugin_name, plugin_type=None):
-        return plugin_name.replace('_', ' ').replace('-', ' ').replace('.', ' ').title()
+    def _get_label(name):
+        new_label = []
+        for label_word in  name.replace('_', ' ').replace('-', ' ').replace('.', ' ').split(' '):
+            label_word = label_word.title()
+            new_label.append(
+                label_word.replace(
+                    'Aws', 'AWS'
+                ).replace(
+                    'Url', 'URL'
+                ).replace(
+                    'Id', 'ID'
+                ).replace(
+                    'Db', 'Database'
+                )
+            )
+        return " ".join(new_label)
 
     @staticmethod
     def _parse_kind(kind, settings, format=None):
