@@ -265,19 +265,19 @@ class Utilities:
             logo_file_name = definition['logo_url'].split('/')[-1]
             shutil.copyfile(image_path, f'{self.hub_root}/static/assets/logos/{plugin_type}/{logo_file_name}')
 
-    def _reformat(self, plugin_type, plugin_name, variant):
-        for file_path in [
-            '_data/default_variants.yml',
-            '_data/maintainers.yml',
-            f'_data/meltano/{plugin_type}/{plugin_name}/{variant}.yml'
-        ]:
-            print(subprocess.run(
-                f"poetry run python {self.hub_root}/utility_scripts/plugin_definitions/yaml_lint_fix.py {self.hub_root}/{file_path}".split(" "),
-                cwd=self.hub_root,
-                stdout=subprocess.PIPE,
-                universal_newlines=True,
-                check=True,
-            ))
+    # def _reformat(self, plugin_type, plugin_name, variant):
+    #     for file_path in [
+    #         '_data/default_variants.yml',
+    #         '_data/maintainers.yml',
+    #         f'_data/meltano/{plugin_type}/{plugin_name}/{variant}.yml'
+    #     ]:
+    #         print(subprocess.run(
+    #             f"poetry run python {self.hub_root}/utility_scripts/plugin_definitions/yaml_lint_fix.py {self.hub_root}/{file_path}".split(" "),
+    #             cwd=self.hub_root,
+    #             stdout=subprocess.PIPE,
+    #             universal_newlines=True,
+    #             check=True,
+    #         ))
 
     @staticmethod
     def _install_test(plugin_name, plugin_type, pip_url, namespace, executable):
@@ -327,7 +327,7 @@ class Utilities:
         variant_exists = self._handle_default_variant(plugin_name, definition['variant'], plugin_type)
         self._handle_maintainer(variant, repo_url)
         self._handle_logo(definition, plugin_type, variant_exists)
-        self._reformat(plugin_type, plugin_name, variant)
+        # self._reformat(plugin_type, plugin_name, variant)
         print(definition_path)
         print(f'Adds {plugin_type} {plugin_name} ({variant})\n\n')
 
@@ -372,7 +372,7 @@ class Utilities:
         variant_exists = self._handle_default_variant(plugin_name, variant, plugin_type)
         self._handle_maintainer(variant, repo_url)
         self._handle_logo(definition, plugin_type, variant_exists)
-        self._reformat(plugin_type, plugin_name, variant)
+        # self._reformat(plugin_type, plugin_name, variant)
         print(definition_path)
         print(f'Adds {plugin_type} {plugin_name} ({variant})\n\n')
 
@@ -462,9 +462,11 @@ class Utilities:
             }
             MeltanoUtil.help_test(executable, config=airbyte_config)
             try:
-                about_json = MeltanoUtil.sdk_about(executable, config=airbyte_config)
-                print(about_json)
-                return about_json
+                about_content = MeltanoUtil.sdk_about(executable, config=airbyte_config)
+                print(about_content)
+                about_json = about_content.split('Setup Instructions:')[0]
+                return json.loads(about_json)
+                # return about_json
                 # about_json = about_content.stdout.split('Setup Instructions:')[0]
                 # about_json = about_content.split('Setup Instructions:')[0]
                 # print(about_json)
@@ -509,7 +511,7 @@ class Utilities:
             sgv,
         )
         self._write_updated_def(plugin_name, plugin_variant, plugin_type, new_def)
-        self._reformat(plugin_type, plugin_name, plugin_variant)
+        # self._reformat(plugin_type, plugin_name, plugin_variant)
         print(f'\nUpdates {plugin_type} {plugin_name} ({plugin_variant})\n\n')
 
     def update_sdk(self, repo_url: str = None, definition_seed: dict = None):

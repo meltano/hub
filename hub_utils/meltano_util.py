@@ -47,7 +47,6 @@ class MeltanoUtil:
 
     @staticmethod
     def sdk_about(plugin_name, config=None):
-        about_content = ""
         if config:
             with tempfile.NamedTemporaryFile(mode="w+") as tmp:
                 print(tmp.name)
@@ -59,7 +58,7 @@ class MeltanoUtil:
                     universal_newlines=True,
                     check=True,
                 )
-                # return about_content
+                return about_content.stdout
         else:
             about_content = subprocess.run(
                 f"{plugin_name} --about --format=json".split(" "),
@@ -67,7 +66,7 @@ class MeltanoUtil:
                 universal_newlines=True,
                 check=True,
             )
-        return json.loads(about_content.stdout)
+            return json.loads(about_content.stdout)
 
     @staticmethod
     def _get_label(plugin_name, plugin_type=None):
