@@ -81,6 +81,8 @@ class MeltanoUtil:
                     'Id', 'ID'
                 ).replace(
                     'Db', 'Database'
+                ).replace(
+                    'Api', 'API'
                 )
             )
         return " ".join(new_label)

@@ -33,8 +33,15 @@ poetry run hub_utils add-airbyte
 
 ### Update SDK
 
+```
 poetry run hub_utils update-sdk --repo-url https://github.com/MeltanoLabs/tap-snowflake --auto-accept
+```
 
+### Refresh All SDK-based Variants
+
+```
+poetry run hub_utils refresh-sdk-variants --starting-yaml="/_data/meltano/extractors/tap-zendesk-sell/leag.yml"
+```
 
 ## Tests
 
