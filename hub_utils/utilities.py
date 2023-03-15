@@ -265,19 +265,19 @@ class Utilities:
             logo_file_name = definition['logo_url'].split('/')[-1]
             shutil.copyfile(image_path, f'{self.hub_root}/static/assets/logos/{plugin_type}/{logo_file_name}')
 
-    def _reformat(self, plugin_type, plugin_name, variant):
-        for file_path in [
-            '_data/default_variants.yml',
-            '_data/maintainers.yml',
-            f'_data/meltano/{plugin_type}/{plugin_name}/{variant}.yml'
-        ]:
-            print(subprocess.run(
-                f"poetry run python {self.hub_root}/utility_scripts/plugin_definitions/yaml_lint_fix.py {self.hub_root}/{file_path}".split(" "),
-                cwd=self.hub_root,
-                stdout=subprocess.PIPE,
-                universal_newlines=True,
-                check=True,
-            ))
+    # def _reformat(self, plugin_type, plugin_name, variant):
+    #     for file_path in [
+    #         '_data/default_variants.yml',
+    #         '_data/maintainers.yml',
+    #         f'_data/meltano/{plugin_type}/{plugin_name}/{variant}.yml'
+    #     ]:
+    #         print(subprocess.run(
+    #             f"poetry run python {self.hub_root}/utility_scripts/plugin_definitions/yaml_lint_fix.py {self.hub_root}/{file_path}".split(" "),
+    #             cwd=self.hub_root,
+    #             stdout=subprocess.PIPE,
+    #             universal_newlines=True,
+    #             check=True,
+    #         ))
 
     @staticmethod
     def _install_test(plugin_name, plugin_type, pip_url, namespace, executable):
@@ -327,12 +327,12 @@ class Utilities:
         variant_exists = self._handle_default_variant(plugin_name, definition['variant'], plugin_type)
         self._handle_maintainer(variant, repo_url)
         self._handle_logo(definition, plugin_type, variant_exists)
-        self._reformat(plugin_type, plugin_name, variant)
+        # self._reformat(plugin_type, plugin_name, variant)
         print(definition_path)
         print(f'Adds {plugin_type} {plugin_name} ({variant})\n\n')
 
     def add_airbyte(self, definition_seed: dict = None, enforce_desc: bool = True):
-        repo_url = 'https://github.com/z3z1ma/tap-airbyte'
+        repo_url = 'https://github.com/meltanolabs/tap-airbyte-wrapper'
         plugin_name = self._prompt("plugin name", 'tap-<source/x>')
         plugin_type = 'extractors'
         pip_url = f"git+{repo_url}.git"
@@ -372,7 +372,7 @@ class Utilities:
         variant_exists = self._handle_default_variant(plugin_name, variant, plugin_type)
         self._handle_maintainer(variant, repo_url)
         self._handle_logo(definition, plugin_type, variant_exists)
-        self._reformat(plugin_type, plugin_name, variant)
+        # self._reformat(plugin_type, plugin_name, variant)
         print(definition_path)
         print(f'Adds {plugin_type} {plugin_name} ({variant})\n\n')
 
@@ -449,34 +449,26 @@ class Utilities:
                             return json.loads(self._prompt("Provide --about output"))
         except Exception as e:
             print(e)
-        finally:
-            MeltanoUtil.remove(plugin_name, plugin_type)
 
     def _test_airbyte(self, plugin_name, plugin_type, pip_url, namespace, executable):
         try:
             airbyte_name = self._prompt("airbyte_name (e.g. source-s3)")
             MeltanoUtil.add(plugin_name, namespace, executable, pip_url, plugin_type)
-            MeltanoUtil.command(f'meltano config {plugin_name} set airbyte_spec.image airbyte/{airbyte_name}')
-            MeltanoUtil.command(f'meltano config {plugin_name} set airbyte_spec.tag latest')
-            MeltanoUtil.help_test(plugin_name)
+            airbyte_config = {
+                "airbyte_spec": {
+                    "image": f"airbyte/{airbyte_name}",
+                    "tag": "latest"
+                }
+            }
+            MeltanoUtil.help_test(executable, config=airbyte_config)
             try:
-                about_content = subprocess.run(
-                    f"poetry run meltano invoke {plugin_name} --about --format=json".split(" "),
-                    cwd=str(MeltanoUtil.get_cwd()) + '/test_meltano_project/',
-                    stdout=subprocess.PIPE,
-                    universal_newlines=True,
-                    check=True,
-                )
-                about_json = about_content.stdout.split('Setup Instructions:')[0]
-                print(about_json)
-                return json.loads(about_json)
+                return MeltanoUtil.sdk_about(executable, config=airbyte_config)
             except Exception as e:
+                print(e)
                 if self._prompt("Scrape failed! Provide as json?", True, type=bool):
                     return json.loads(self._prompt("Provide --about output"))
         except Exception as e:
             print(e)
-        finally:
-            MeltanoUtil.remove(plugin_name, plugin_type)
 
     def _update_base(self, repo_url, is_meltano_sdk=False):
         if not repo_url:
@@ -511,7 +503,7 @@ class Utilities:
             sgv,
         )
         self._write_updated_def(plugin_name, plugin_variant, plugin_type, new_def)
-        self._reformat(plugin_type, plugin_name, plugin_variant)
+        # self._reformat(plugin_type, plugin_name, plugin_variant)
         print(f'\nUpdates {plugin_type} {plugin_name} ({plugin_variant})\n\n')
 
     def update_sdk(self, repo_url: str = None, definition_seed: dict = None):
@@ -531,6 +523,6 @@ class Utilities:
 if __name__ == "__main__":
     util = Utilities(False)
     util.add_airbyte()
-    # util.update("https://github.com/Yoast/singer-tap-postmark")
+    # util.update_sdk("https://github.com/MeltanoLabs/tap-snowflake")
     # util.update_sdk("https://github.com/hotgluexyz/tap-procore")
     # util.add_bulk('/Users/pnadolny/Documents/Git/GitHub/pnadolny/hub-utils/other_scripts/export_edit.csv')
