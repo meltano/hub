@@ -77,7 +77,9 @@ class Utilities:
             return []
 
     @staticmethod
-    def _scrape_keywords(meltano_sdk):
+    def _scrape_keywords(meltano_sdk, existing=None):
+        if existing:
+            return str(existing)
         if meltano_sdk:
             return f"['meltano_sdk']"
         return "[]"
@@ -94,7 +96,9 @@ class Utilities:
         return name.replace('_', ' ').replace('-', ' ').title()
 
     @staticmethod
-    def _get_maintenance_status():
+    def _get_maintenance_status(existing=None):
+        if existing:
+            return existing
         return "active"
 
     def _build_settings(self, setting_list):
@@ -272,7 +276,7 @@ class Utilities:
             f'_data/meltano/{plugin_type}/{plugin_name}/{variant}.yml'
         ]:
             fix_yaml(f"{self.hub_root}/{file_path}")
-            run_yamllint(f"{self.hub_root}/{file_path}")
+            run_yamllint(f"{self.hub_root}/{file_path}", self.hub_root)
 
     @staticmethod
     def _install_test(plugin_name, plugin_type, pip_url, namespace, executable):
@@ -487,7 +491,7 @@ class Utilities:
         setting_names = [setting.get('name') for setting in existing_def.get('settings', [])]
         caps = self._string_to_literal(self._prompt("capabilities", existing_def.get('capabilities')))
         m_status = self._prompt("maintenance_status", existing_def.get('maintenance_status'))
-        keywords = self._string_to_literal(self._prompt("keywords", existing_def.get('keywords')))
+        keywords = self._string_to_literal(self._prompt("keywords", existing_def.get("keywords")))
         settings, sgv = self._build_settings(self._compile_settings(setting_names))
         new_def = self._merge_definitions(
             existing_def,
@@ -507,12 +511,13 @@ class Utilities:
         new_def = self._merge_definitions(
             existing_def,
             settings,
-            self._string_to_literal(self._prompt("keywords", self._scrape_keywords(True))),
-            self._prompt("maintenance_status", self._get_maintenance_status()),
+            self._string_to_literal(self._prompt("keywords", self._scrape_keywords(True, existing_def.get("keywords")))),
+            self._prompt("maintenance_status", existing_def.get('maintenance_status')),
             capabilities,
             settings_group_validation,
         )
         self._write_updated_def(plugin_name, plugin_variant, plugin_type, new_def)
+        self._reformat(plugin_type, plugin_name, plugin_variant)
         print(f'\nUpdates {plugin_type} {plugin_name} (SDK based - {plugin_variant})\n\n')
 
 if __name__ == "__main__":

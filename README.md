@@ -30,6 +30,12 @@ poetry run hub_utils add-bulk /path/to/csv_file
 poetry run hub_utils add-airbyte
 ```
 
+
+### Update SDK
+
+poetry run hub_utils update-sdk --repo-url https://github.com/MeltanoLabs/tap-snowflake --auto-accept
+
+
 ## Tests
 
 ```bash
