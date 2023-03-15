@@ -428,9 +428,11 @@ class Utilities:
         sgv
     ):
         new_def = existing_def.copy()
+        # TODO: keep description from existing if not in new
         new_def['settings'] = settings
         new_def['keywords'] = keywords
         new_def['maintenance_status'] = m_status
+        # TODO: clean using an enum, `sync` shouldnt be allowed
         new_def['capabilities'] = caps
         new_def['settings_group_validation'] = sgv
         return new_def
@@ -469,10 +471,10 @@ class Utilities:
         except Exception as e:
             print(e)
 
-    def _update_base(self, repo_url, is_meltano_sdk=False):
+    def _update_base(self, repo_url, plugin_name, is_meltano_sdk=False):
         if not repo_url:
             repo_url = self._prompt("repo_url")
-        plugin_name = self._prompt("plugin name", self._get_plugin_name(repo_url))
+        plugin_name = self._prompt("plugin name", plugin_name or self._get_plugin_name(repo_url))
         plugin_type = self._prompt("plugin type", self.get_plugin_type(repo_url))
         plugin_variant = self._prompt("plugin variant", self._get_plugin_variant(repo_url))
         existing_def = self._retrieve_def(plugin_name, plugin_variant, plugin_type)
@@ -505,8 +507,8 @@ class Utilities:
         self._reformat(plugin_type, plugin_name, plugin_variant)
         print(f'\nUpdates {plugin_type} {plugin_name} ({plugin_variant})\n\n')
 
-    def update_sdk(self, repo_url: str = None, definition_seed: dict = None):
-        repo_url, plugin_name, plugin_type, plugin_variant, existing_def, sdk_def = self._update_base(repo_url, is_meltano_sdk=True)
+    def update_sdk(self, repo_url: str = None, plugin_name: str = None):
+        repo_url, plugin_name, plugin_type, plugin_variant, existing_def, sdk_def = self._update_base(repo_url, plugin_name, is_meltano_sdk=True)
         settings, settings_group_validation, capabilities = MeltanoUtil._parse_sdk_about_settings(sdk_def)
         new_def = self._merge_definitions(
             existing_def,
