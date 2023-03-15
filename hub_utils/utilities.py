@@ -462,15 +462,7 @@ class Utilities:
             }
             MeltanoUtil.help_test(executable, config=airbyte_config)
             try:
-                about_content = MeltanoUtil.sdk_about(executable, config=airbyte_config)
-                print(about_content)
-                about_json = about_content.split('Setup Instructions:')[0]
-                return json.loads(about_json)
-                # return about_json
-                # about_json = about_content.stdout.split('Setup Instructions:')[0]
-                # about_json = about_content.split('Setup Instructions:')[0]
-                # print(about_json)
-                # return json.loads(about_json)
+                return MeltanoUtil.sdk_about(executable, config=airbyte_config)
             except Exception as e:
                 print(e)
                 if self._prompt("Scrape failed! Provide as json?", True, type=bool):

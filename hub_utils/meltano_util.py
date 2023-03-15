@@ -28,7 +28,6 @@ class MeltanoUtil:
     def help_test(plugin_name, config=None):
         if config:
             with tempfile.NamedTemporaryFile(mode="w+") as tmp:
-                print(tmp.name)
                 json.dump(config, tmp)
                 tmp.flush()
                 subprocess.run(
@@ -49,7 +48,6 @@ class MeltanoUtil:
     def sdk_about(plugin_name, config=None):
         if config:
             with tempfile.NamedTemporaryFile(mode="w+") as tmp:
-                print(tmp.name)
                 json.dump(config, tmp)
                 tmp.flush()
                 about_content = subprocess.run(
@@ -58,7 +56,8 @@ class MeltanoUtil:
                     universal_newlines=True,
                     check=True,
                 )
-                return about_content.stdout
+                about_json_str = about_content.stdout.split('Setup Instructions:')[0]
+                return json.loads(about_json_str)
         else:
             about_content = subprocess.run(
                 f"{plugin_name} --about --format=json".split(" "),
