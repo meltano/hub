@@ -22,6 +22,33 @@ class Kind(str, Enum):
     object = "object"
     array = "array"
 
+ALLOWED_CAPABILITIES_TAP = {
+    "catalog",
+    "properties",
+    "discover",
+    "state",
+    "about",
+    "stream-maps",
+    "activate-version",
+    "batch",
+    "schema-flattening",
+    "test",
+    "log-based",
+}
+
+ALLOWED_CAPABILITIES_TARGET = {
+    "about",
+    "stream-maps",
+    "activate-version",
+    "batch",
+    "schema-flattening",
+    "test",
+    "soft-delete",
+    "hard-delete",
+    "datatype-failsafe",
+    "record-flattening",
+}
+
 class Utilities:
 
     def __init__(self, auto_accept=False):
@@ -418,6 +445,30 @@ class Utilities:
         def_path = f'{self.hub_root}/_data/meltano/{plugin_type}/{plugin_name}/{plugin_variant}.yml'
         return self._read_yaml(def_path)
 
+    @staticmethod
+    def _merge_capabilities(existing_caps, capabilities):
+        new_caps = capabilities
+        if not capabilities:
+            new_caps = existing_caps
+        return [
+            cap for cap in new_caps
+            if cap in ALLOWED_CAPABILITIES_TAP.union(ALLOWED_CAPABILITIES_TARGET)
+        ]
+
+    @staticmethod
+    def _merge_settings(existing_settings, settings):
+        if not settings:
+            return existing_settings
+        new_settings = []
+        name_lookup = {setting.get("name"): setting for setting in settings}
+        name_lookup_existing = {setting.get("name"): setting for setting in existing_settings}
+        for name, setting in name_lookup.items():
+            if not setting.get("description"):
+                # If description is null from about, use existing
+                setting["description"] = name_lookup_existing.get(name).get("description")
+            new_settings.append(setting)
+        return settings
+
     def _merge_definitions(
         self,
         existing_def,
@@ -428,12 +479,10 @@ class Utilities:
         sgv
     ):
         new_def = existing_def.copy()
-        # TODO: keep description from existing if not in new
-        new_def['settings'] = settings
+        new_def['settings'] = self._merge_settings(existing_def.get("settings"), settings)
         new_def['keywords'] = keywords
         new_def['maintenance_status'] = m_status
-        # TODO: clean using an enum, `sync` shouldnt be allowed
-        new_def['capabilities'] = caps
+        new_def['capabilities'] = self._merge_capabilities(existing_def.get("capabilities"), caps)
         new_def['settings_group_validation'] = sgv
         return new_def
 
