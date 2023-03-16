@@ -52,12 +52,15 @@ def fix_yaml_dict_format(od):
 
 def fix_arrays(yml_dict):
     new_dict = copy.deepcopy(yml_dict)
-    new_sgv_list = []
 
     # Sort SGV
+    new_sgv_list = []
     for sgv_list in yml_dict.get("settings_group_validation"):
         new_sgv_list.append(sorted(sgv_list))
     new_dict["settings_group_validation"] = new_sgv_list
+
+    # Sort capabilities
+    new_dict["capabilities"] = sorted(yml_dict.get("capabilities"))
 
     # Sort Settings by Name
     new_settings = []
