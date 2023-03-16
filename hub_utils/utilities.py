@@ -70,6 +70,11 @@ class Utilities:
         with open(path, "w") as f:
             self.yaml.dump(content, f)
 
+    def _write_dict(self, path, content):
+        Path(os.path.dirname(path)).mkdir(parents=True, exist_ok=True)
+        with open(path, "w") as f:
+            json.dump(content, f)
+
     def _read_yaml(self, path):
         with open(path, "r") as f:
             data = self.yaml.load(f)

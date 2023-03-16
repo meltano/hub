@@ -43,6 +43,11 @@ poetry run hub_utils update-sdk --repo-url https://github.com/MeltanoLabs/tap-sn
 poetry run hub_utils refresh-sdk-variants --starting-yaml="/_data/meltano/extractors/tap-zendesk-sell/leag.yml"
 ```
 
+### Export All SDK-based Metadata
+
+```
+poetry run hub_utils extract-metadata --output-dir=/Users/pnadolny/Documents/Git/GitHub/pnadolny/hub-utils/data
+```
 ## Tests
 
 ```bash
