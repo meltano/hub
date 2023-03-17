@@ -6,6 +6,15 @@
     "type": "object",
     "additionalProperties": true,
     "properties": {
+        "capabilities": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "enum": [
+                    "stream-maps"
+                ]
+            }
+        },
         "mappings": {
             "description": "Name of the invokable mappings and their associated configs.",
             "type": "array",
