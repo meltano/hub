@@ -34,6 +34,9 @@ export default {
             <g-link class="nav__link" to="/loaders/">
               <h3>Loaders</h3>
             </g-link>
+            <g-link class="nav__link" to="/mappers/">
+              <h3>Mappers</h3>
+            </g-link>
             <g-link class="nav__link" to="/utilities/">
               <h3>Utilities</h3>
             </g-link>
