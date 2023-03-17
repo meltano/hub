@@ -2,9 +2,7 @@
   <Layout>
     <div class="plugins-overview w-full md:w-9/12 mx-auto">
       <p class="text-3xl py-4">Mappers</p>
-      <p>
-        Meltano mapper plugins allow you to transform data between extractors and loaders.
-      </p>
+      <p>Meltano mapper plugins allow you to transform data between extractors and loaders.</p>
       <div
         class="grid grid-cols-2 md:grid-cols-4 bg-slate-200 rounded-lg p-4 mt-4 md:m-4 gap-4 w-full place-items-stretch"
         role="list"

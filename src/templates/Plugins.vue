@@ -130,8 +130,8 @@
                 v-html="$page.plugins.definition_rendered"
               ></span>
               <span v-if="$page.plugins.pluginType === 'mapper'">
-                is a plugin for transforming data between an extractors and a loaders.
-                Commonly used for obfuscating, filtering, or removing sensitive data from streams.
+                is a plugin for transforming data between an extractors and a loaders. Commonly used
+                for obfuscating, filtering, or removing sensitive data from streams.
               </span>
 
               <span v-if="$page.plugins.pluginType === 'utility' && $page.plugins.ext_repo">
@@ -290,11 +290,9 @@
                     </a>
                   </li>
                   <li>
-                    See the 
-                    <a href="https://docs.meltano.com/guide/mappers">
-                      mappers documentation
-                    </a>
-                     or the plugin repo's README.md for more details on configuration.
+                    See the
+                    <a href="https://docs.meltano.com/guide/mappers"> mappers documentation </a>
+                    or the plugin repo's README.md for more details on configuration.
                   </li>
                 </ol>
               </div>
