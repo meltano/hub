@@ -1,0 +1,26 @@
+name: Metadata Refresh
+
+on:
+  workflow_dispatch:
+
+jobs:
+  metadata_refresh:
+    name: Metadata Refresh
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3.3.0
+
+    - name: Install hub_utils
+      run: pipx install git+https://github.com/pnadolny13/hub-utils.git@github_action_commands
+
+    - name: Get Variants List
+      id: get-variants-list
+      run: echo "VARIANTS=$(hub_utils get-variant-names $(pwd))" >> $GITHUB_OUTPUT
+
+    - name: Extract Metadata
+      run: hub_utils extract-metadata-v2 "${{ steps.get-variants-list.outputs.VARIANTS }}" $(pwd)/extract_data
+
+    - name: Translate and Merge
+      run: hub_utils translate "${{ steps.get-variants-list.outputs.VARIANTS }}" $(pwd)/extract_data
