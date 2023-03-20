@@ -130,7 +130,7 @@
                 v-html="$page.plugins.definition_rendered"
               ></span>
               <span v-if="$page.plugins.pluginType === 'mapper'">
-                is a plugin for transforming data between an extractors and a loaders. Commonly used
+                is a plugin for transforming data between an extractor and a loader. Commonly used
                 for obfuscating, filtering, or removing sensitive data from streams.
               </span>
 
