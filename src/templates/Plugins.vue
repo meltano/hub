@@ -129,6 +129,10 @@
                 v-if="$page.plugins.pluginType === 'file'"
                 v-html="$page.plugins.definition_rendered"
               ></span>
+              <span v-if="$page.plugins.pluginType === 'mapper'">
+                is a plugin for transforming data between an extractor and a loader. Commonly used
+                for obfuscating, filtering, or removing sensitive data from streams.
+              </span>
 
               <span v-if="$page.plugins.pluginType === 'utility' && $page.plugins.ext_repo">
                 <p class="text-3xl py-4">EDK Based Plugin</p>
@@ -268,6 +272,27 @@
                     <a href="https://docs.meltano.com/getting-started/part3">
                       Transform loaded data for analysis
                     </a>
+                  </li>
+                </ol>
+              </div>
+
+              <!-- Default mapper next steps -->
+              <div v-else-if="$page.plugins.pluginType == 'mapper'">
+                <p>
+                  Follow the remaining steps of the
+                  <a href="https://docs.meltano.com/getting-started/part4">Getting Started guide</a
+                  >:
+                </p>
+                <ol class="list-decimal list-inside pl-4">
+                  <li>
+                    <a href="https://docs.meltano.com/getting-started/part4">
+                      Inline Data Mapping
+                    </a>
+                  </li>
+                  <li>
+                    See the
+                    <a href="https://docs.meltano.com/guide/mappers"> mappers documentation </a>
+                    or the plugin repo's README.md for more details on configuration.
                   </li>
                 </ol>
               </div>
