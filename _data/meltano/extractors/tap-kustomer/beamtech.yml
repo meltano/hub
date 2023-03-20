@@ -1,16 +1,17 @@
-description: Customer Service CRM
-label: Kustomer
-name: tap-kustomer
-logo_url: /assets/logos/extractors/kustomer.png
-namespace: tap_kustomer
-variant: beamtech
-pip_url: git+https://github.com/beamtech/tap-kustomer.git
-repo: https://github.com/beamtech/tap-kustomer
-settings: []
 capabilities:
 - catalog
 - discover
+- state
+description: Customer Service CRM
 domain_url: https://api.kustomerapp.com/
-maintenance_status: unknown
 keywords:
 - api
+label: Kustomer
+logo_url: /assets/logos/extractors/kustomer.png
+maintenance_status: unknown
+name: tap-kustomer
+namespace: tap_kustomer
+pip_url: git+https://github.com/beamtech/tap-kustomer.git
+repo: https://github.com/beamtech/tap-kustomer
+settings: []
+variant: beamtech

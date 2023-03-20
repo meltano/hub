@@ -1,23 +1,20 @@
-name: tap-stripe
-label: Stripe
-description: Online payment processing for internet businesses
-namespace: tap_stripe
-logo_url: /assets/logos/extractors/stripe.png
-variant: singer-io
-repo: https://github.com/singer-io/tap-stripe
-pip_url: git+https://github.com/singer-io/tap-stripe.git
 capabilities:
 - catalog
 - discover
 - state
-settings_group_validation:
-- - account_id
-  - client_secret
-  - start_date
+description: Online payment processing for internet businesses
+domain_url: https://stripe.com/docs/api
+keywords:
+- api
+label: Stripe
+logo_url: /assets/logos/extractors/stripe.png
+maintenance_status: active
+name: tap-stripe
+namespace: tap_stripe
+pip_url: git+https://github.com/singer-io/tap-stripe.git
+repo: https://github.com/singer-io/tap-stripe
 settings:
-- name: account_id
-  label: Account ID
-  description: |
+- description: |
     #### How to get
 
     To get your account ID:
@@ -33,12 +30,10 @@ settings:
     ![Screenshot of account ID](/assets/images/tap-stripe/02-stripe-docs.png)
 
     3. Copy and paste it somewhere you can refer later on when configuring the tap.
+  label: Account ID
+  name: account_id
   placeholder: Ex. acct_1a2b3c4d5e
-- name: client_secret
-  kind: password
-  label: Secret API Key
-  placeholder: Ex. sk_live_1a2b3c4d5e
-  description: |
+- description: |
     #### How to get
 
     To get your secret API key:
@@ -51,12 +46,10 @@ settings:
 
     2. Under the `Standard keys` section, click on the button to `Create secret key`
 
-    :::tip No button?
-
-    If the "Create secret key" button is not available, a secret key may already have been generated before.
-    In this case, use the "Reveal live key token" button under "Token" and to the right of "Secret key". The token that appears is the secret key you can copy and paste into the data source configuration.
-
-    :::
+    > **Tip: No button?**
+    >
+    > If the "Create secret key" button is not available, a secret key may already have been generated before.
+    > In this case, use the "Reveal live key token" button under "Token" and to the right of "Secret key". The token that appears is the secret key you can copy and paste into the data source configuration.
 
     ![Screenshot of where Create secret key button is](/assets/images/tap-stripe/04-stripe-docs.png)
 
@@ -67,13 +60,18 @@ settings:
     4. Once you click on `Create`, you should be greeted with you new API key which you'll copy and paste into the data source configuration.
 
     ![Screenshot of the new API key](/assets/images/tap-stripe/06-stripe-docs.png)
-- name: start_date
-  label: Start Date
-  kind: date_iso8601
-  description: Determines how much historical data will be extracted. Please be aware
+  kind: password
+  label: Secret API Key
+  name: client_secret
+  placeholder: Ex. sk_live_1a2b3c4d5e
+- description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.
-domain_url: https://stripe.com/docs/api
-maintenance_status: active
-keywords:
-- api
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+settings_group_validation:
+- - account_id
+  - client_secret
+  - start_date
+variant: singer-io

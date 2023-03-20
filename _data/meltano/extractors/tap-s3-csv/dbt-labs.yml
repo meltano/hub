@@ -1,0 +1,17 @@
+capabilities:
+- catalog
+- discover
+- state
+description: Extract CSV files from S3
+domain_url: https://aws.amazon.com/s3/
+keywords:
+- api
+label: AWS S3 CSV
+logo_url: /assets/logos/extractors/s3-csv.png
+maintenance_status: unknown
+name: tap-s3-csv
+namespace: tap_s3_csv
+pip_url: git+https://github.com/dbt-labs/tap-s3-csv.git
+repo: https://github.com/dbt-labs/tap-s3-csv
+settings: []
+variant: dbt-labs

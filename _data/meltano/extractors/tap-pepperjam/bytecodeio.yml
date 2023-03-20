@@ -1,16 +1,17 @@
-description: Marketing Platform
-label: Pepperjam
-name: tap-pepperjam
-logo_url: /assets/logos/extractors/pepperjam.png
-namespace: tap_pepperjam
-variant: bytecodeio
-pip_url: git+https://github.com/bytecodeio/tap-pepperjam.git
-repo: https://github.com/bytecodeio/tap-pepperjam
-settings: []
 capabilities:
 - catalog
 - discover
+- state
+description: Marketing Platform
 domain_url: https://support.pepperjam.com/s/advertiser-api-documentation
-maintenance_status: unknown
 keywords:
 - api
+label: Pepperjam
+logo_url: /assets/logos/extractors/pepperjam.png
+maintenance_status: unknown
+name: tap-pepperjam
+namespace: tap_pepperjam
+pip_url: git+https://github.com/bytecodeio/tap-pepperjam.git
+repo: https://github.com/bytecodeio/tap-pepperjam
+settings: []
+variant: bytecodeio

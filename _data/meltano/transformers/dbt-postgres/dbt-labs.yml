@@ -1,88 +1,31 @@
-name: dbt-postgres
-label: dbt PostgreSQL
-executable: dbt
-namespace: dbt_postgres
-docs: https://docs.meltano.com/guide/transformation
-repo: https://github.com/dbt-labs/dbt-core
-pip_url: dbt-core~=1.1.0 dbt-postgres~=1.1.0
-variant: dbt-labs
-maintenance_status: active
-requires:
-  files:
-  - name: files-dbt-postgres
-    variant: meltano
-settings_preamble: |
-  Settings for dbt itself can be configured through [dbt_project.yml](https://docs.getdbt.com/reference/dbt_project.yml) as usual, which can be found at transform/dbt_project.yml in your Meltano project.  dbt also has [adapter-specific documentation for PostgreSQL](https://docs.getdbt.com/reference/resource-configs/postgres-configs).
-settings:
-- name: project_dir
-  label: Projects Directory
-  value: $MELTANO_PROJECT_ROOT/transform
-- name: profiles_dir
-  label: Profiles Directory
-  value: $MELTANO_PROJECT_ROOT/transform/profiles/postgres
-  env: DBT_PROFILES_DIR
-  # Postgres connection settings are set via `config:` blocks and mapped to `profiles.yml`
-- name: host
-  label: Host
-  kind: string
-  description: |
-    The postgres host to connect to.
-- name: user
-  label: User
-  kind: string
-  description: |
-    The user to connect as.
-- name: password
-  label: Password
-  kind: password
-  description: |
-    The password to connect with.
-- name: port
-  label: Port
-  kind: integer
-  description: |
-    The port to connect to.
-- name: dbname
-  label: Database
-  aliases: ["database"]
-  kind: string
-  description: |
-    The db to connect to.
-- name: schema
-  label: Schema
-  kind: string
-  description: |
-    The schema to use.
-- name: keepalives_idle
-  label: Keep Alives Idle
-  kind: integer
-  description: |
-    Seconds between TCP keepalive packets.
-- name: search_path
-  label: Search Path
-  kind: string
-  description: |
-    Overrides the default search path.
-- name: role
-  label: Role
-  kind: string
-  description: |
-    Role for dbt to assume when executing queries.
-- name: sslmode
-  label: SSL Mode
-  kind: array
-  description: |
-    SSL Mode used to connect to the database.
 commands:
+  build:
+    args: build
+    description: Will run your models, tests, snapshots and seeds in DAG order.
   clean:
     args: clean
-    description: Delete all folders in the clean-targets list (usually the dbt_modules and target directories.)
+    description: Delete all folders in the clean-targets list (usually the dbt_modules
+      and target directories.)
   compile:
     args: compile
-    description: Generates executable SQL from source model, test, and analysis files. Compiled SQL files are written to the target/ directory.
+    description: Generates executable SQL from source model, test, and analysis files.
+      Compiled SQL files are written to the target/ directory.
+  debug:
+    args: debug
+    description: Debug your DBT project and warehouse connection.
   deps:
     args: deps
     description: Pull the most recent version of the dependencies listed in packages.yml
+  docs-generate:
+    args: docs generate
+    description: Generate documentation for your project.
+  docs-serve:
+    args: docs serve
+    description: Serve documentation for your project. Make sure you ran `docs-generate`
+      first.
+  freshness:
+    args: source freshness
+    description: Check the freshness of your source data.
   run:
     args: run
     description: Compile SQL and execute against the current target database.
@@ -95,18 +38,80 @@ commands:
   test:
     args: test
     description: Runs tests on data in deployed models.
-  freshness:
-    args: source freshness
-    description: Check the freshness of your source data.
-  build:
-    args: build
-    description: Will run your models, tests, snapshots and seeds in DAG order.
-  docs-generate:
-    args: docs generate
-    description: Generate documentation for your project.
-  docs-serve:
-    args: docs serve
-    description: Serve documentation for your project. Make sure you ran `docs-generate` first.
-  debug:
-    args: debug
-    description: Debug your DBT project and warehouse connection.
+docs: https://docs.meltano.com/guide/transformation
+domain_url: https://www.getdbt.com/
+executable: dbt
+label: dbt PostgreSQL
+logo_url: /assets/logos/transformers/dbt.png
+maintenance_status: active
+name: dbt-postgres
+namespace: dbt_postgres
+pip_url: dbt-core~=1.3.0 dbt-postgres~=1.3.0
+repo: https://github.com/dbt-labs/dbt-core
+requires:
+  files:
+  - name: files-dbt-postgres
+    variant: meltano
+settings:
+- label: Projects Directory
+  name: project_dir
+  value: $MELTANO_PROJECT_ROOT/transform
+- env: DBT_PROFILES_DIR
+  label: Profiles Directory
+  name: profiles_dir
+  value: $MELTANO_PROJECT_ROOT/transform/profiles/postgres
+- description: |
+    The postgres host to connect to.
+  kind: string
+  label: Host
+  name: host
+- description: |
+    The user to connect as.
+  kind: string
+  label: User
+  name: user
+- description: |
+    The password to connect with.
+  kind: password
+  label: Password
+  name: password
+- description: |
+    The port to connect to.
+  kind: integer
+  label: Port
+  name: port
+- aliases:
+  - "database"
+  description: |
+    The db to connect to.
+  kind: string
+  label: Database
+  name: dbname
+- description: |
+    The schema to use.
+  kind: string
+  label: Schema
+  name: schema
+- description: |
+    Seconds between TCP keepalive packets.
+  kind: integer
+  label: Keep Alives Idle
+  name: keepalives_idle
+- description: |
+    Overrides the default search path.
+  kind: string
+  label: Search Path
+  name: search_path
+- description: |
+    Role for dbt to assume when executing queries.
+  kind: string
+  label: Role
+  name: role
+- description: |
+    SSL Mode used to connect to the database.
+  kind: array
+  label: SSL Mode
+  name: sslmode
+settings_preamble: |
+  Settings for dbt itself can be configured through [dbt_project.yml](https://docs.getdbt.com/reference/dbt_project.yml) as usual, which can be found at transform/dbt_project.yml in your Meltano project.  dbt also has [adapter-specific documentation for PostgreSQL](https://docs.getdbt.com/reference/resource-configs/postgres-configs).
+variant: dbt-labs

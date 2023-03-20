@@ -1,16 +1,16 @@
-description: Ecommerce Operations Platform
-label: Skubana
-name: tap-skubana
-logo_url: /assets/logos/extractors/skubana.png
-namespace: tap_skubana
-variant: singer-io
-pip_url: tap-skubana
-repo: https://github.com/singer-io/tap-skubana
-settings: []
 capabilities:
 - catalog
 - discover
+description: Ecommerce Operations Platform
 domain_url: https://documentation.skubana.com/
-maintenance_status: unknown
 keywords:
 - api
+label: Skubana
+logo_url: /assets/logos/extractors/skubana.png
+maintenance_status: unknown
+name: tap-skubana
+namespace: tap_skubana
+pip_url: tap-skubana
+repo: https://github.com/singer-io/tap-skubana
+settings: []
+variant: singer-io

@@ -1,16 +1,17 @@
-description: Foreign Exchnage Rates API
-label: Fixer
-name: tap-fixerio
-logo_url: /assets/logos/extractors/fixerio.png
-namespace: tap_fixerio
-variant: haaspt
-pip_url: git+https://github.com/haaspt/tap-fixerio.git
-repo: https://github.com/haaspt/tap-fixerio
-settings: []
 capabilities:
 - catalog
 - discover
+- state
+description: Foreign Exchnage Rates API
 domain_url: https://fixer.io/documentation
-maintenance_status: unknown
 keywords:
 - api
+label: Fixer
+logo_url: /assets/logos/extractors/fixerio.png
+maintenance_status: unknown
+name: tap-fixerio
+namespace: tap_fixerio
+pip_url: git+https://github.com/haaspt/tap-fixerio.git
+repo: https://github.com/haaspt/tap-fixerio
+settings: []
+variant: haaspt

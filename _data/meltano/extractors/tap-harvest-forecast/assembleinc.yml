@@ -1,16 +1,17 @@
-description: Time Tracking Software
-label: Harvest Forecast
-name: tap-harvest-forecast
-logo_url: /assets/logos/extractors/harvest-forecast.png
-namespace: tap_harvest_forecast
-variant: assembleinc
-pip_url: git+https://github.com/assembleinc/tap-harvest-forecast.git
-repo: https://github.com/assembleinc/tap-harvest-forecast
-settings: []
 capabilities:
 - catalog
 - discover
+- state
+description: Time Tracking Software
 domain_url: https://help.getharvest.com/api-v2/
-maintenance_status: unknown
 keywords:
 - api
+label: Harvest Forecast
+logo_url: /assets/logos/extractors/harvest-forecast.png
+maintenance_status: unknown
+name: tap-harvest-forecast
+namespace: tap_harvest_forecast
+pip_url: git+https://github.com/assembleinc/tap-harvest-forecast.git
+repo: https://github.com/assembleinc/tap-harvest-forecast
+settings: []
+variant: assembleinc

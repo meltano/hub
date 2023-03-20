@@ -1,16 +1,17 @@
-description: Ecommerce Platform
-label: BigCommerce
-name: tap-bigcommerce
-logo_url: /assets/logos/extractors/bigcommerce.png
-namespace: tap_bigcommerce
-variant: singer-io
-pip_url: tap-bigcommerce
-repo: https://github.com/singer-io/tap-bigcommerce
-settings: []
 capabilities:
 - catalog
 - discover
+- state
+description: Ecommerce Platform
 domain_url: https://www.bigcommerce.com/
-maintenance_status: unknown
 keywords:
 - api
+label: BigCommerce
+logo_url: /assets/logos/extractors/bigcommerce.png
+maintenance_status: unknown
+name: tap-bigcommerce
+namespace: tap_bigcommerce
+pip_url: tap-bigcommerce
+repo: https://github.com/singer-io/tap-bigcommerce
+settings: []
+variant: singer-io

@@ -1,33 +1,33 @@
-description: Data Science Platform
-label: Mode
-name: tap-mode
-logo_url: /assets/logos/extractors/mode.png
-namespace: tap_mode
-variant: franloza
-pip_url: git+https://github.com/franloza/tap-mode.git
-repo: https://github.com/franloza/tap-mode
 capabilities:
 - catalog
 - discover
 - state
+description: Data Science Platform
+domain_url: https://mode.com/developer/api-reference/
+keywords:
+- api
+label: Mode
+logo_url: /assets/logos/extractors/mode.png
+maintenance_status: active
+name: tap-mode
+namespace: tap_mode
+pip_url: git+https://github.com/franloza/tap-mode.git
+repo: https://github.com/franloza/tap-mode
+settings:
+- description: API access token. See how to obtain it from Mode [here](https://mode.com/developer/api-reference/authentication/)
+  kind: password
+  label: Auth Token
+  name: auth_token
+- description: Name of the Mode workspace
+  documentation: https://asknicely.asknice.ly/help/apidocs/auth
+  kind: password
+  label: Workspace
+  name: workspace
+- description: The name of your app and a contact email address should the API provider
+    need to contact you for any reason.
+  label: User Agent
+  name: user_agent
 settings_group_validation:
 - - auth_token
   - workspace
-settings:
-- name: auth_token
-  label: Auth Token
-  kind: password
-  description: API access token. See how to obtain it from Mode [here](https://mode.com/developer/api-reference/authentication/)
-- name: workspace
-  kind: password
-  label: Workspace
-  documentation: https://asknicely.asknice.ly/help/apidocs/auth
-  description: Name of the Mode workspace
-- name: user_agent
-  label: User Agent
-  description: The name of your app and a contact email address should the API provider
-    need to contact you for any reason.
-domain_url: https://mode.com/developer/api-reference/
-maintenance_status: active
-keywords:
-- api
+variant: franloza

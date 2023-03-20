@@ -1,34 +1,34 @@
-appsflyer:
-  type: tap
-  singer_name: tap-appsflyer #plugin_id
-  variants:
-    - name: singer-io
-      repo: https://github.com/singer-io/tap-appsflyer
-      pip_url: git+https://github.com/singer-io/tap-appsflyer.git
-      default: false
-      settings: []
-      maintenance_status: Unknown
 adwords:
+  singer_name: tap-adwords
   type: tap
-  singer_name: tap-adwords #plugin_id
   variants:
-    - name: meltano
-      repo: https://gitlab.com/meltano/tap-adwords
-      pip_url: git+https://gitlab.com/meltano/tap-adwords.git
-      default: false
-      settings: 
-        - name: fake_developer_token
-          kind: fake_password
-      maintenance_status: Unknown
-    - name: reachlocal
-      pip_url: git+https://github.com/reachlocal/tap-adwords.git
-      default: false
-      repo: https://github.com/reachlocal/tap-adwords
-      settings: []
-      maintenance_status: Unknown
-    - name: georgiyolovski
-      pip_url: git+https://github.com/georgiyolovski/tap-adwords.git
-      repo: https://github.com/georgiyolovski/tap-adwords
-      default: false
-      settings: []
-      maintenance_status: Unknown
+  - default: false
+    maintenance_status: Unknown
+    name: meltano
+    pip_url: git+https://gitlab.com/meltano/tap-adwords.git
+    repo: https://gitlab.com/meltano/tap-adwords
+    settings:
+    - kind: fake_password
+      name: fake_developer_token
+  - default: false
+    maintenance_status: Unknown
+    name: reachlocal
+    pip_url: git+https://github.com/reachlocal/tap-adwords.git
+    repo: https://github.com/reachlocal/tap-adwords
+    settings: []
+  - default: false
+    maintenance_status: Unknown
+    name: georgiyolovski
+    pip_url: git+https://github.com/georgiyolovski/tap-adwords.git
+    repo: https://github.com/georgiyolovski/tap-adwords
+    settings: []
+appsflyer:
+  singer_name: tap-appsflyer
+  type: tap
+  variants:
+  - default: false
+    maintenance_status: Unknown
+    name: singer-io
+    pip_url: git+https://github.com/singer-io/tap-appsflyer.git
+    repo: https://github.com/singer-io/tap-appsflyer
+    settings: []

@@ -1,16 +1,16 @@
-description: Authentication and Authorization Platform
-label: Auth0
-name: tap-auth0
-logo_url: /assets/logos/extractors/auth0.png
-namespace: tap_auth0
-variant: process-street
-pip_url: git+https://github.com/process-street/tap-auth0-logs-checkpoint.git
-repo: https://github.com/process-street/tap-auth0-logs-checkpoint
-settings: []
 capabilities:
 - catalog
 - discover
+description: Authentication and Authorization Platform
 domain_url: https://auth0.com/
-maintenance_status: unknown
 keywords:
 - api
+label: Auth0
+logo_url: /assets/logos/extractors/auth0.png
+maintenance_status: unknown
+name: tap-auth0
+namespace: tap_auth0
+pip_url: git+https://github.com/process-street/tap-auth0-logs-checkpoint.git
+repo: https://github.com/process-street/tap-auth0-logs-checkpoint
+settings: []
+variant: process-street

@@ -1,9 +1,11 @@
-name: files-dbt-redshift
-label: dbt Redshift
-namespace: files_dbt_redshift
-repo: https://github.com/meltano/files-dbt-redshift
-pip_url: git+https://github.com/meltano/files-dbt-redshift
-variant: meltano
-logo_url: /assets/logos/files/dbt-redshift.png
 definition: are bundled with the dbt-redshift transformer.
+domain_url: https://www.getdbt.com/
+hidden: true
+label: dbt Redshift
+logo_url: /assets/logos/files/dbt-redshift.png
 maintenance_status: active
+name: files-dbt-redshift
+namespace: files_dbt_redshift
+pip_url: git+https://github.com/meltano/files-dbt-redshift
+repo: https://github.com/meltano/files-dbt-redshift
+variant: meltano

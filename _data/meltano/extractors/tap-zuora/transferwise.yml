@@ -1,16 +1,49 @@
-description: Subscription Management Platform
-label: Zuora
-name: tap-zuora
-logo_url: /assets/logos/extractors/zuora.png
-namespace: tap_zuora
-variant: transferwise
-pip_url: pipelinewise-tap-zuora
-repo: https://github.com/transferwise/pipelinewise-tap-zuora
-settings: []
 capabilities:
 - catalog
 - discover
+- state
+description: Subscription Management Platform
 domain_url: https://www.zuora.com/
-maintenance_status: unknown
 keywords:
 - api
+label: Zuora
+logo_url: /assets/logos/extractors/zuora.png
+maintenance_status: active
+name: tap-zuora
+namespace: tap_zuora
+pip_url: pipelinewise-tap-zuora
+repo: https://github.com/transferwise/pipelinewise-tap-zuora
+settings:
+- description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: Whether to use a sandbox or not. Default, False.
+  kind: boolean
+  label: Sandbox
+  name: sandbox
+- description: Your username.
+  label: Username
+  name: username
+- description: The API type to use, e.g. `REST`.
+  label: API Type
+  name: api_type
+- description: Your password.
+  kind: password
+  label: Password
+  name: password
+- description: Whether to use a European client or not. Default, False.
+  kind: boolean
+  label: European
+  name: european
+- description: The partner ID.
+  label: Partner ID
+  name: partner_id
+settings_group_validation:
+- - start_date
+  - username
+  - api_type
+  - password
+variant: transferwise

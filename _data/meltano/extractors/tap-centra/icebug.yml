@@ -1,16 +1,16 @@
-description: Ecommerce Platform
-label: Centra
-name: tap-centra
-logo_url: /assets/logos/extractors/centra.png
-namespace: tap_centra
-variant: icebug
-pip_url: git+https://github.com/icebug/tap-centra.git
-repo: https://github.com/icebug/tap-centra
-settings: []
 capabilities:
 - catalog
 - discover
+description: Ecommerce Platform
 domain_url: https://www.centra.com/
-maintenance_status: unknown
 keywords:
 - api
+label: Centra
+logo_url: /assets/logos/extractors/centra.png
+maintenance_status: unknown
+name: tap-centra
+namespace: tap_centra
+pip_url: git+https://github.com/icebug/tap-centra.git
+repo: https://github.com/icebug/tap-centra
+settings: []
+variant: icebug

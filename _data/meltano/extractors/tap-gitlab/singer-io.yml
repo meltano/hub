@@ -1,16 +1,17 @@
-name: tap-gitlab
-label: GitLab
-description: Single application for the entire DevOps lifecycle
-namespace: tap_gitlab
-logo_url: /assets/logos/extractors/gitlab.png
-variant: singer-io
 capabilities:
 - catalog
 - discover
-settings: []
-settings_group_validation: []
+- state
+description: Single application for the entire DevOps lifecycle
+domain_url:
+keywords: []
+label: GitLab
+logo_url: /assets/logos/extractors/gitlab.png
+maintenance_status: unknown
+name: tap-gitlab
+namespace: tap_gitlab
 pip_url: tap-gitlab
 repo: https://github.com/singer-io/tap-gitlab
-domain_url:
-maintenance_status: unknown
-keywords: []
+settings: []
+settings_group_validation: []
+variant: singer-io

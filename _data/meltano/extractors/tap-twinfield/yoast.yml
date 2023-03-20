@@ -1,16 +1,42 @@
-description: Tax and Accounting Software
-label: Twinfield
-name: tap-twinfield
-logo_url: /assets/logos/extractors/twinfield.png
-namespace: tap_twinfield
-variant: yoast
-pip_url: git+https://github.com/Yoast/singer-tap-twinfield.git
-repo: https://github.com/Yoast/singer-tap-twinfield
-settings: []
 capabilities:
 - catalog
 - discover
+- state
+description: Tax and Accounting Software
 domain_url: https://accounting2.twinfield.com/webservices/documentation/#/ApiReference/Request/BrowseData
-maintenance_status: unknown
 keywords:
 - api
+label: Twinfield
+logo_url: /assets/logos/extractors/twinfield.png
+maintenance_status: inactive
+name: tap-twinfield
+namespace: tap_twinfield
+pip_url: git+https://github.com/Yoast/singer-tap-twinfield.git
+repo: https://github.com/Yoast/singer-tap-twinfield
+settings:
+- description: Your Twinfield office.
+  label: Office
+  name: office
+- description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: Your Twinfield organisation.
+  label: Organisation
+  name: organisation
+- description: Your Twinfield password.
+  kind: password
+  label: Password
+  name: password
+- description: Your Twinfield username.
+  label: Username
+  name: username
+settings_group_validation:
+- - office
+  - start_date
+  - organisation
+  - password
+  - username
+variant: yoast

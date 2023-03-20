@@ -1,16 +1,17 @@
-name: tap-pendo
-label: Pendo
-description: Product Experience and Digital Adoption Solutions
-namespace: tap_pendo
-logo_url: /assets/logos/extractors/pendo.png
-variant: alisa-aylward-toast
 capabilities:
 - catalog
 - discover
-settings: []
-settings_group_validation: []
+- state
+description: Product Experience and Digital Adoption Solutions
+domain_url:
+keywords: []
+label: Pendo
+logo_url: /assets/logos/extractors/pendo.png
+maintenance_status: unknown
+name: tap-pendo
+namespace: tap_pendo
 pip_url: git+https://github.com/alisa-aylward-toast/tap-pendo.git
 repo: https://github.com/alisa-aylward-toast/tap-pendo
-domain_url:
-maintenance_status: unknown
-keywords: []
+settings: []
+settings_group_validation: []
+variant: alisa-aylward-toast

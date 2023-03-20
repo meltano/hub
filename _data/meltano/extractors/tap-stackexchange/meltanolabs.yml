@@ -1,34 +1,45 @@
-description: The world’s largest programming community
-label: StackExchange
-name: tap-stackexchange
-logo_url: /assets/logos/extractors/stackexchange.png
-namespace: tap_stackexchange
-variant: meltanolabs
-pip_url: git+https://github.com/MeltanoLabs/tap-stackexchange.git
-repo: https://github.com/MeltanoLabs/tap-stackexchange
-settings_group_validation:
-- - tags
-  - site
-settings:
-- name: tags
-  label: Question tags
-  description: Question tags to retrieve.
-- name: site
-  label: Site
-  description: StackExchange site to look for questions.
-- name: key
-  label: Stack App key
-  kind: password
-  description: Key to receive a higher request quota.
-- name: start_date
-  label: Start date
-  kind: integer
-  description: The earliest record date to sync
 capabilities:
 - catalog
 - discover
 - state
-maintenance_status: active
+description: The world’s largest programming community
+domain_url: https://stackexchange.com
 keywords:
 - api
 - meltano_sdk
+- stackoverflow
+label: StackExchange
+logo_url: /assets/logos/extractors/stackexchange.png
+maintenance_status: active
+name: tap-stackexchange
+namespace: tap_stackexchange
+pip_url: git+https://github.com/MeltanoLabs/tap-stackexchange.git
+repo: https://github.com/MeltanoLabs/tap-stackexchange
+settings:
+- description: Question tags to retrieve.
+  kind: array
+  label: Question tags
+  name: tags
+- description: StackExchange site to look for questions.
+  documentation: https://stackexchange.com/sites
+  label: Site
+  name: site
+- description: Key to receive a higher request quota.
+  documentation: https://api.stackexchange.com/docs/authentication
+  kind: password
+  label: Stack App key
+  name: key
+- description: The earliest record date to sync
+  documentation: https://api.stackexchange.com/docs/dates
+  kind: integer
+  label: Start date
+  name: start_date
+- description: Custom API filter to apply to all requests
+  documentation: https://api.stackexchange.com/docs/filters
+  kind: string
+  label: Filter
+  name: filter
+settings_group_validation:
+- - tags
+  - site
+variant: meltanolabs

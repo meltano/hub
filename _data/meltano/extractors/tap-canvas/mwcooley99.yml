@@ -1,0 +1,49 @@
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+- schema-flattening
+domain_url: https://www.instructure.com/canvas
+keywords:
+- meltano_sdk
+label: Canvas
+logo_url: /assets/logos/extractors/canvas.png
+maintenance_status: active
+name: tap-canvas
+namespace: tap_canvas
+next_steps: ''
+pip_url: git+https://github.com/mwcooley99/tap-canvas.git
+repo: https://github.com/mwcooley99/tap-canvas
+settings:
+- description: The token to authenticate against the API service
+  kind: password
+  label: Api Key
+  name: api_key
+- description: Limit courses queried to courses that end after this date.
+  label: Course Ends After
+  name: course_ends_after
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+settings_group_validation:
+- - api_key
+settings_preamble: ''
+usage: ''
+variant: mwcooley99

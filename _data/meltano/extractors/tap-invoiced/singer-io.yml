@@ -1,16 +1,16 @@
-description: Automated Accounts Receivable Software Solution
-label: Invoiced
-name: tap-invoiced
-logo_url: /assets/logos/extractors/invoiced.png
-namespace: tap_invoiced
-variant: singer-io
-pip_url: tap-invoiced
-repo: https://github.com/singer-io/tap-invoiced
-settings: []
 capabilities:
 - catalog
 - discover
+description: Automated Accounts Receivable Software Solution
 domain_url: https://www.invoiced.com/
-maintenance_status: unknown
 keywords:
 - api
+label: Invoiced
+logo_url: /assets/logos/extractors/invoiced.png
+maintenance_status: unknown
+name: tap-invoiced
+namespace: tap_invoiced
+pip_url: tap-invoiced
+repo: https://github.com/singer-io/tap-invoiced
+settings: []
+variant: singer-io

@@ -1,0 +1,54 @@
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+- schema-flattening
+description: HR Platform
+domain_url: https://www.hibob.com/
+keywords:
+- meltano_sdk
+label: Hibob
+logo_url: /assets/logos/extractors/hibob.png
+maintenance_status: active
+name: tap-hibob
+namespace: tap_hibob
+next_steps: ''
+pip_url: git+https://github.com/potloc/tap-hibob.git
+repo: https://github.com/potloc/tap-hibob
+settings:
+- description: Authorization token for Auth2.0
+  kind: password
+  label: Authorization
+  name: authorization
+- description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  label: Start Date
+  name: start_date
+- description: The url for the API service
+  label: Api Url
+  name: api_url
+- description: Config object for stream maps capability.
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+settings_group_validation:
+- - authorization
+settings_preamble: ''
+usage: ''
+variant: potloc

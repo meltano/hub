@@ -1,16 +1,49 @@
-description: Human Capital Management Software
-label: Dayforce
-name: tap-dayforce
-logo_url: /assets/logos/extractors/dayforce.png
-namespace: tap_dayforce
-variant: goodeggs
-pip_url: git+https://github.com/goodeggs/tap-dayforce.git
-repo: https://github.com/goodeggs/tap-dayforce
-settings: []
 capabilities:
 - catalog
 - discover
+- state
+description: Human Capital Management Software
 domain_url: https://www.ceridian.com/products/dayforce
-maintenance_status: unknown
 keywords:
 - api
+label: Dayforce
+logo_url: /assets/logos/extractors/dayforce.png
+maintenance_status: active
+name: tap-dayforce
+namespace: tap_dayforce
+pip_url: git+https://github.com/goodeggs/tap-dayforce.git
+repo: https://github.com/goodeggs/tap-dayforce
+settings:
+- description: A valid client name (e.g. Company Name) that will be inserted into
+    the request URL.
+  label: Client Namespace
+  name: client_namespace
+- description: Whether to use a test environment, default False.
+  kind: boolean
+  label: Test
+  name: test
+- description: The Dayforce release, default 61.
+  label: Dayforce Release
+  name: dayforce_release
+- description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: A valid Dayforce web services user account password.
+  kind: password
+  label: Password
+  name: password
+- description: A valid Dayforce web services user account username.
+  label: Username
+  name: username
+- description: The api version to send requests to, default V1.
+  label: API Version
+  name: api_version
+settings_group_validation:
+- - client_namespace
+  - start_date
+  - password
+  - username
+variant: goodeggs

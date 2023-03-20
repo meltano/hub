@@ -1,16 +1,59 @@
-description: Time Tracking Software
-label: Harvest Forecast
-name: tap-harvest-forecast
-logo_url: /assets/logos/extractors/harvest-forecast.png
-namespace: tap_harvest_forecast
-variant: singer-io
-pip_url: tap-harvest-forecast
-repo: https://github.com/singer-io/tap-harvest-forecast
-settings: []
 capabilities:
 - catalog
 - discover
+- state
+description: Time Tracking Software
 domain_url: https://help.getharvest.com/api-v2/
-maintenance_status: unknown
 keywords:
 - api
+label: Harvest Forecast
+logo_url: /assets/logos/extractors/harvest-forecast.png
+maintenance_status: inactive
+name: tap-harvest-forecast
+namespace: tap_harvest_forecast
+pip_url: tap-harvest-forecast
+repo: https://github.com/singer-io/tap-harvest-forecast
+settings:
+- description: Your refresh token.
+  kind: password
+  label: Refresh Token
+  name: refresh_token
+- description: Your client secret.
+  kind: password
+  label: Client Secret
+  name: client_secret
+- description: The user agent to be sent with requests.
+  label: User Agent
+  name: user_agent
+- description: Your client ID.
+  kind: password
+  label: Client ID
+  name: client_id
+- description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: Your account ID.
+  label: Account ID
+  name: account_id
+- description: Date up to when historical data will be extracted.
+  kind: date_iso8601
+  label: End Date
+  name: end_date
+settings_group_validation:
+- - refresh_token
+  - client_secret
+  - client_id
+  - start_date
+  - account_id
+usage: |
+  As the Harvest Forecast API is [not yet public](https://help.getharvest.com/forecast/faqs/faq-list/api/), this tap is experimental and liable to break at any time. Please keep this in mind if you run into any issues (and submit a PR if you can fix something broken).
+
+  ### Retrieve Auth Credentials
+
+  Visit the [developer tools](https://id.getharvest.com/developers) page on Harvest's website and create a new oauth token.
+
+  Paste the Client ID you got from the above page in the url of a browser like https://id.getharvest.com/oauth2/authorize?client_id={OAUTH_CLIENT_ID}&response_type=code. Now you're able to login, click 'authorize app' and then are redirected to a url like this https://id.getharvest.com/oauth2/authorize?code={OAUTH_REFRESH_TOKEN}&scope=all. You will use this OAUTH_REFRESH_TOKEN in the following step to configure the oauth application.
+variant: singer-io

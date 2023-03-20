@@ -1,16 +1,17 @@
-description: B2B Sales Acceleration Software
-label: Exact Sales
-name: tap-exactsales
-logo_url: /assets/logos/extractors/exactsales.png
-namespace: tap_exactsales
-variant: rafaeljusi
-pip_url: git+https://github.com/rafaeljusi/tap-exactsales.git
-repo: https://github.com/rafaeljusi/tap-exactsales
-settings: []
 capabilities:
 - catalog
 - discover
+- state
+description: B2B Sales Acceleration Software
 domain_url: https://exactdev.docs.apiary.io/
-maintenance_status: unknown
 keywords:
 - api
+label: Exact Sales
+logo_url: /assets/logos/extractors/exactsales.png
+maintenance_status: unknown
+name: tap-exactsales
+namespace: tap_exactsales
+pip_url: git+https://github.com/rafaeljusi/tap-exactsales.git
+repo: https://github.com/rafaeljusi/tap-exactsales
+settings: []
+variant: rafaeljusi

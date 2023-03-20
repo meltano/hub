@@ -1,16 +1,17 @@
-description: Low-code Platform
-label: Quickbase
-name: tap-quickbase
-logo_url: /assets/logos/extractors/quickbase.png
-namespace: tap_quickbase
-variant: singer-io
-pip_url: tap-quickbase
-repo: https://github.com/singer-io/tap-quickbase
-settings: []
 capabilities:
 - catalog
 - discover
+- state
+description: Low-code Platform
 domain_url: https://help.quickbase.com/api-guide/intro.html
-maintenance_status: unknown
 keywords:
 - api
+label: Quickbase
+logo_url: /assets/logos/extractors/quickbase.png
+maintenance_status: unknown
+name: tap-quickbase
+namespace: tap_quickbase
+pip_url: tap-quickbase
+repo: https://github.com/singer-io/tap-quickbase
+settings: []
+variant: singer-io

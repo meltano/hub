@@ -1,0 +1,58 @@
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+- schema-flattening
+description: Job Search Software
+domain_url: https://secure.indeed.com/
+executable: tap-indeedsponsoredjobs
+keywords:
+- meltano_sdk
+label: Indeed
+logo_url: /assets/logos/extractors/indeed.png
+maintenance_status: active
+name: tap-indeed
+namespace: tap_indeed
+next_steps: ''
+pip_url: git+https://github.com/AutoIDM/tap-indeed.git
+repo: https://github.com/AutoIDM/tap-indeed
+settings:
+- description: client_id from https://secure.indeed.com/account/apikeys
+  kind: password
+  label: Client Id
+  name: client_id
+- description: client_secret from https://secure.indeed.com/account/apikeys
+  kind: password
+  label: Client Secret
+  name: client_secret
+- description: Defaults to today minus 365, only used for the stats endpoint
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+settings_group_validation:
+- - client_id
+  - client_secret
+  - start_date
+settings_preamble: ''
+usage: ''
+variant: autoidm

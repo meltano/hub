@@ -1,44 +1,45 @@
+capabilities:
+- catalog
+- discover
+- state
 description: Project Management Software
+domain_url: https://developer.atlassian.com/cloud/trello/rest/
+keywords:
+- api
 label: Trello
-name: tap-trello
 logo_url: /assets/logos/extractors/trello.png
+maintenance_status: unknown
+name: tap-trello
 namespace: tap_trello
-variant: singer-io
 pip_url: tap-trello
 repo: https://github.com/singer-io/tap-trello
 settings:
 - description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.
-  label: Start Date
   kind: date_iso8601
+  label: Start Date
   name: start_date
 - description: Your Trello Consumer Key
   kind: password
   label: Consumer Key
   name: consumer_key
 - description: Your Trello Consumer Secret
+  kind: password
   label: Consumer Secret
   name: consumer_secret
-  kind: password
 - description: Your Trello Access Token
+  kind: password
   label: Access Token
   name: access_token
-  kind: password
 - description: Your Trello Access Token Secret
+  kind: password
   label: Access Token
   name: access_token_secret
-  kind: password
-capabilities:
-- catalog
-- discover
 settings_group_validation:
 - - start_date
   - consumer_key
   - consumer_secret
   - access_token
   - access_token_secret
-domain_url: https://developer.atlassian.com/cloud/trello/rest/
-maintenance_status: unknown
-keywords:
-- api
+variant: singer-io

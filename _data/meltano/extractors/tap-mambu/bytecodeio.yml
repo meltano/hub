@@ -1,16 +1,17 @@
-description: SaaS cloud banking platform
-label: Mambu
-name: tap-mambu
-logo_url: /assets/logos/extractors/mambu.png
-namespace: tap_mambu
-variant: bytecodeio
-pip_url: git+https://github.com/bytecodeio/tap-mambu.git
-repo: https://github.com/bytecodeio/tap-mambu
-settings: []
 capabilities:
 - catalog
 - discover
+- state
+description: SaaS cloud banking platform
 domain_url: https://api.mambu.com/?shell
-maintenance_status: unknown
 keywords:
 - api
+label: Mambu
+logo_url: /assets/logos/extractors/mambu.png
+maintenance_status: unknown
+name: tap-mambu
+namespace: tap_mambu
+pip_url: git+https://github.com/bytecodeio/tap-mambu.git
+repo: https://github.com/bytecodeio/tap-mambu
+settings: []
+variant: bytecodeio

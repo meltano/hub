@@ -1,0 +1,29 @@
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+
+jobs:
+  lint:
+    name: Lint YAML files
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3.3.0
+
+    - name: Get changed files in the docs folder
+      id: changed-files
+      uses: tj-actions/changed-files@v35.7.0
+      with:
+        files: |
+          _data/**/*.yml
+
+    - name: Install yamllint
+      if: steps.changed-files.outputs.any_changed == 'true'
+      run: pipx install yamllint
+
+    - name: Lint YAML files
+      if: steps.changed-files.outputs.any_changed == 'true'
+      run: yamllint ${{ steps.changed-files.outputs.all_changed_files }}

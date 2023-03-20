@@ -1,16 +1,17 @@
-description: Open-source distributed event streaming platform
-label: Apache Kafka
-name: tap-kafka
-logo_url: /assets/logos/extractors/kafka.png
-namespace: tap_kafka
-variant: koszti
-pip_url: git+https://github.com/koszti/tap-kafka.git
-repo: https://github.com/koszti/tap-kafka
-settings: []
 capabilities:
 - catalog
 - discover
+- state
+description: Open-source distributed event streaming platform
 domain_url: https://kafka.apache.org/
-maintenance_status: unknown
 keywords:
 - database
+label: Apache Kafka
+logo_url: /assets/logos/extractors/kafka.png
+maintenance_status: unknown
+name: tap-kafka
+namespace: tap_kafka
+pip_url: git+https://github.com/koszti/tap-kafka.git
+repo: https://github.com/koszti/tap-kafka
+settings: []
+variant: koszti

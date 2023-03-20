@@ -1,29 +1,29 @@
-description: Web Hosting Platform
-label: Netlify
-name: tap-netlify
-logo_url: /assets/logos/extractors/netlify.png
-namespace: tap_netlify
-variant: franloza
-pip_url: git+https://github.com/franloza/tap-netlify.git
-repo: https://github.com/franloza/tap-netlify
 capabilities:
 - catalog
 - discover
 - state
-settings_group_validation:
-- - auth_token
-  - workspace
-settings:
-- name: auth_token
-  label: Auth Token
-  kind: password
-  description: API access token. See how to obtain it from Netlify UI [here](https://docs.netlify.com/cli/get-started/#obtain-a-token-in-the-netlify-ui)
-- name: user_agent
-  label: User Agent
-  description: The name of your app and a contact email address should the API provider
-    need to contact you for any reason.
+description: Web Hosting Platform
 domain_url: https://open-api.netlify.com/
-maintenance_status: active
 keywords:
 - api
 - meltano_sdk
+label: Netlify
+logo_url: /assets/logos/extractors/netlify.png
+maintenance_status: active
+name: tap-netlify
+namespace: tap_netlify
+pip_url: git+https://github.com/franloza/tap-netlify.git
+repo: https://github.com/franloza/tap-netlify
+settings:
+- description: API access token. See how to obtain it from Netlify UI [here](https://docs.netlify.com/cli/get-started/#obtain-a-token-in-the-netlify-ui)
+  kind: password
+  label: Auth Token
+  name: auth_token
+- description: The name of your app and a contact email address should the API provider
+    need to contact you for any reason.
+  label: User Agent
+  name: user_agent
+settings_group_validation:
+- - auth_token
+  - workspace
+variant: franloza

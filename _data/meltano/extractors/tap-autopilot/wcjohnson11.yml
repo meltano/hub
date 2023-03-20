@@ -1,16 +1,17 @@
-description: Marketing Automation Software
-label: Autopilot
-name: tap-autopilot
-logo_url: /assets/logos/extractors/autopilot.png
-namespace: tap_autopilot
-variant: wcjohnson11
-pip_url: git+https://github.com/wcjohnson11/tap-autopilot.git
-repo: https://github.com/wcjohnson11/tap-autopilot
-settings: []
 capabilities:
 - catalog
 - discover
+- state
+description: Marketing Automation Software
 domain_url: https://autopilotapp.com/
-maintenance_status: unknown
 keywords:
 - api
+label: Autopilot
+logo_url: /assets/logos/extractors/autopilot.png
+maintenance_status: unknown
+name: tap-autopilot
+namespace: tap_autopilot
+pip_url: git+https://github.com/wcjohnson11/tap-autopilot.git
+repo: https://github.com/wcjohnson11/tap-autopilot
+settings: []
+variant: wcjohnson11

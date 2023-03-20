@@ -1,16 +1,16 @@
-name: tap-pendo
-label: Pendo
-description: Product Experience and Digital Adoption Solutions
-namespace: tap_pendo
-logo_url: /assets/logos/extractors/pendo.png
-variant: jwalterclark
 capabilities:
 - catalog
 - discover
-settings: []
-settings_group_validation: []
+description: Product Experience and Digital Adoption Solutions
+domain_url:
+keywords: []
+label: Pendo
+logo_url: /assets/logos/extractors/pendo.png
+maintenance_status: unknown
+name: tap-pendo
+namespace: tap_pendo
 pip_url: git+https://github.com/jwalterclark/tap-pendo.git
 repo: https://github.com/jwalterclark/tap-pendo
-domain_url:
-maintenance_status: unknown
-keywords: []
+settings: []
+settings_group_validation: []
+variant: jwalterclark

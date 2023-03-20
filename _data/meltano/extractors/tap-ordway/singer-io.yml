@@ -1,16 +1,17 @@
-description: Billing and Revenue Automation Platform
-label: Ordway
-name: tap-ordway
-logo_url: /assets/logos/extractors/ordway.png
-namespace: tap_ordway
-variant: singer-io
-pip_url: tap-ordway
-repo: https://github.com/singer-io/tap-ordway
-settings: []
 capabilities:
 - catalog
 - discover
+- state
+description: Billing and Revenue Automation Platform
 domain_url: https://www.ordwaylabs.com/
-maintenance_status: unknown
 keywords:
 - api
+label: Ordway
+logo_url: /assets/logos/extractors/ordway.png
+maintenance_status: unknown
+name: tap-ordway
+namespace: tap_ordway
+pip_url: tap-ordway
+repo: https://github.com/singer-io/tap-ordway
+settings: []
+variant: singer-io

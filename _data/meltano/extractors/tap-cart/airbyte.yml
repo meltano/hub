@@ -1,0 +1,91 @@
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+- schema-flattening
+description: The Ecommerce Platform for Growing Brands
+domain_url: https://www.cart.com/
+executable: tap-airbyte
+keywords:
+- airbyte_protocol
+label: Cart.com
+logo_url: /assets/logos/extractors/cart.png
+maintenance_status: beta
+name: tap-cart
+namespace: tap_airbyte
+next_steps: ''
+pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
+repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-cart
+settings:
+- description: Airbyte image to run
+  kind: string
+  label: Airbyte Spec Image
+  name: airbyte_spec.image
+  value: airbyte/source-cart
+- description: Airbyte image tag
+  kind: string
+  label: Airbyte Spec Tag
+  name: airbyte_spec.tag
+  value: latest
+- description: Docker mounts to make available to the Airbyte container. Expects a
+    list of maps containing source, target, and type as is documented in the docker
+    --mount documentation
+  kind: array
+  label: Docker Mounts
+  name: docker_mounts
+- description: CENTRAL_API_ROUTER, SINGLE_STORE_ACCESS_TOKEN
+  kind: string
+  label: Airbyte Config Credentials Auth Type
+  name: airbyte_config.credentials.auth_type
+- description: Enter your application's User Name
+  kind: string
+  label: Airbyte Config Credentials User Name
+  name: airbyte_config.credentials.user_name
+- description: Enter your application's User Secret
+  kind: password
+  label: Airbyte Config Credentials User Secret
+  name: airbyte_config.credentials.user_secret
+- description: You can determine a site provisioning site Id by hitting https://site.com/store/sitemonitor.aspx
+    and reading the response param PSID
+  kind: password
+  label: Airbyte Config Credentials Site Id
+  name: airbyte_config.credentials.site_id
+- description: Access Token for making authenticated requests.
+  kind: password
+  label: Airbyte Config Credentials Access Token
+  name: airbyte_config.credentials.access_token
+- description: The name of Cart.com Online Store. All API URLs start with https://[mystorename.com]/api/v1/,
+    where [mystorename.com] is the domain name of your store.
+  kind: string
+  label: Airbyte Config Credentials Store Name
+  name: airbyte_config.credentials.store_name
+- description: The date from which you'd like to replicate the data
+  kind: string
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+settings_group_validation:
+- - airbyte_spec.image
+  - connector_config.start_date
+settings_preamble: ''
+usage: ''
+variant: airbyte

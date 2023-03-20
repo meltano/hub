@@ -1,15 +1,18 @@
-name: tap-shopify
-label: Shopify
-description: Ecommerce platform
-namespace: tap_shopify
-logo_url: /assets/logos/extractors/shopify.png
-variant: singer-io
-repo: https://github.com/singer-io/tap-shopify
-pip_url: tap-shopify
 capabilities:
 - catalog
 - discover
 - state
+description: Ecommerce platform
+domain_url: https://shopify.dev/docs/admin-api/rest/reference
+keywords:
+- api
+label: Shopify
+logo_url: /assets/logos/extractors/shopify.png
+maintenance_status: active
+name: tap-shopify
+namespace: tap_shopify
+pip_url: tap-shopify
+repo: https://github.com/singer-io/tap-shopify
 select:
 - abandoned_checkouts.*
 - collects.*
@@ -20,18 +23,14 @@ select:
 - products.*
 - transactions.*
 settings:
-- name: shop
-  label: Store Subdomain
-  placeholder: Ex. my-first-store
-  description: |
+- description: |
     The store subdomain, which can be derived from your Shopify admin URL.
 
     If your admin URL starts with `https://my-first-store.myshopify.com/`, your store subdomain is `my-first-store`.
-- name: api_key
-  kind: password
-  label: Private App API Password
-  placeholder: Ex. shppa_1a2b3c4d5e6f
-  description: |
+  label: Store Subdomain
+  name: shop
+  placeholder: Ex. my-first-store
+- description: |
     A Private App API Password or API Key generated using OAuth
 
     #### How to get
@@ -62,13 +61,14 @@ settings:
     2. The value that appears (starting with `shppa_`) is your API password. You can copy and paste it into the Meltano data source configuration.
 
     ![Screenshot of Shopify interface showing private app API password](/assets/images/tap-shopify/private-app-api-password.png)
-- name: start_date
-  label: Start Date
-  kind: date_iso8601
-  description: Determines how much historical data will be extracted. Please be aware
+  kind: password
+  label: Private App API Password
+  name: api_key
+  placeholder: Ex. shppa_1a2b3c4d5e6f
+- description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.
-domain_url: https://shopify.dev/docs/admin-api/rest/reference
-maintenance_status: inactive
-keywords:
-- api
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+variant: singer-io

@@ -1,16 +1,17 @@
-description: Content Management Platform
-label: Contentful
-name: tap-contentful
-logo_url: /assets/logos/extractors/contentful.png
-namespace: tap_contentful
-variant: dmzobel
-pip_url: git+https://github.com/dmzobel/tap-contentful.git
-repo: https://github.com/dmzobel/tap-contentful
-settings: []
 capabilities:
 - catalog
 - discover
+- state
+description: Content Management Platform
 domain_url: https://www.contentful.com/
-maintenance_status: unknown
 keywords:
 - api
+label: Contentful
+logo_url: /assets/logos/extractors/contentful.png
+maintenance_status: unknown
+name: tap-contentful
+namespace: tap_contentful
+pip_url: git+https://github.com/dmzobel/tap-contentful.git
+repo: https://github.com/dmzobel/tap-contentful
+settings: []
+variant: dmzobel

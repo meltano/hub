@@ -1,79 +1,31 @@
-name: dbt-bigquery
-label: dbt BigQuery
-executable: dbt
-namespace: dbt_bigquery
-docs: https://docs.meltano.com/guide/transformation
-repo: https://github.com/dbt-labs/dbt-bigquery
-pip_url: dbt-core~=1.1.0 dbt-bigquery~=1.1.0
-variant: dbt-labs
-maintenance_status: active
-requires:
-  files:
-  - name: files-dbt-bigquery
-    variant: meltano
-settings_preamble: |
-  Settings for dbt itself can be configured through [dbt_project.yml](https://docs.getdbt.com/reference/dbt_project.yml) as usual, which can be found at transform/dbt_project.yml in your Meltano project. dbt also has [adapter-specific documentation for BigQuery](https://docs.getdbt.com/reference/resource-configs/bigquery-configs).
-settings:
-- name: project_dir
-  label: Project Directory
-  value: $MELTANO_PROJECT_ROOT/transform
-- name: profiles_dir
-  label: Profiles Directory
-  value: $MELTANO_PROJECT_ROOT/transform/profiles/bigquery
-  env: DBT_PROFILES_DIR
-  # BigQuery connection settings are set via `config:` blocks and mapped to `profiles.yml`
-- name: auth_method
-  label: Authentication Method
-  kind: string
-  description: |
-    The auth method to use. One of: "oauth", "oauth-secrets", or "service-account"
-- name: project
-  label: Project
-  aliases: ["database"]
-  kind: string
-  description: |
-    The BigQuery project ID.
-- name: dataset
-  kind: string
-  aliases: ["schema"]
-  description: |
-    The dataset to use.
-- name: refresh_token
-  label: Refresh Token
-  kind: password
-  description: |
-    The refresh token, if authenticating via oauth-secrets method.
-- name: client_id
-  label: Client ID
-  aliases: ["user"]
-  kind: string
-  description: |
-    The client id to use, if authenticating via oauth-secrets method.
-- name: client_secret
-  label: Client Secret
-  aliases: ["password"]
-  kind: password
-  description: |
-    The client secret to use, if authenticating via oauth-secrets method.
-- name: token_uri
-  label: Token URI
-  kind: string
-  description: |
-    The token redirect URI
-- name: keyfile
-  kind: string
-  description: |
-    The path to the `keyfile.json`` to use, if authenticating via service-account method.
 commands:
+  build:
+    args: build
+    description: Will run your models, tests, snapshots and seeds in DAG order.
   clean:
     args: clean
-    description: Delete all folders in the clean-targets list (usually the dbt_modules and target directories.)
+    description: Delete all folders in the clean-targets list (usually the dbt_modules
+      and target directories.)
   compile:
     args: compile
-    description: Generates executable SQL from source model, test, and analysis files. Compiled SQL files are written to the target/ directory.
+    description: Generates executable SQL from source model, test, and analysis files.
+      Compiled SQL files are written to the target/ directory.
+  debug:
+    args: debug
+    description: Debug your DBT project and warehouse connection.
   deps:
     args: deps
     description: Pull the most recent version of the dependencies listed in packages.yml
+  docs-generate:
+    args: docs generate
+    description: Generate documentation for your project.
+  docs-serve:
+    args: docs serve
+    description: Serve documentation for your project. Make sure you ran `docs-generate`
+      first.
+  freshness:
+    args: source freshness
+    description: Check the freshness of your source data.
   run:
     args: run
     description: Compile SQL and execute against the current target database.
@@ -86,18 +38,74 @@ commands:
   test:
     args: test
     description: Runs tests on data in deployed models.
-  freshness:
-    args: source freshness
-    description: Check the freshness of your source data.
-  build:
-    args: build
-    description: Will run your models, tests, snapshots and seeds in DAG order.
-  docs-generate:
-    args: docs generate
-    description: Generate documentation for your project.
-  docs-serve:
-    args: docs serve
-    description: Serve documentation for your project. Make sure you ran `docs-generate` first.
-  debug:
-    args: debug
-    description: Debug your DBT project and warehouse connection.
+docs: https://docs.meltano.com/guide/transformation
+domain_url: https://www.getdbt.com/
+executable: dbt
+label: dbt BigQuery
+logo_url: /assets/logos/transformers/dbt.png
+maintenance_status: active
+name: dbt-bigquery
+namespace: dbt_bigquery
+pip_url: dbt-core~=1.3.0 dbt-bigquery~=1.3.0
+repo: https://github.com/dbt-labs/dbt-bigquery
+requires:
+  files:
+  - name: files-dbt-bigquery
+    variant: meltano
+settings:
+- label: Project Directory
+  name: project_dir
+  value: $MELTANO_PROJECT_ROOT/transform
+- env: DBT_PROFILES_DIR
+  label: Profiles Directory
+  name: profiles_dir
+  value: $MELTANO_PROJECT_ROOT/transform/profiles/bigquery
+- description: |
+    The auth method to use. One of: "oauth", "oauth-secrets", or "service-account"
+  kind: string
+  label: Authentication Method
+  name: auth_method
+- aliases:
+  - "database"
+  description: |
+    The BigQuery project ID.
+  kind: string
+  label: Project
+  name: project
+- aliases:
+  - "schema"
+  description: |
+    The dataset to use.
+  kind: string
+  name: dataset
+- description: |
+    The refresh token, if authenticating via oauth-secrets method.
+  kind: password
+  label: Refresh Token
+  name: refresh_token
+- aliases:
+  - "user"
+  description: |
+    The client id to use, if authenticating via oauth-secrets method.
+  kind: string
+  label: Client ID
+  name: client_id
+- aliases:
+  - "password"
+  description: |
+    The client secret to use, if authenticating via oauth-secrets method.
+  kind: password
+  label: Client Secret
+  name: client_secret
+- description: |
+    The token redirect URI
+  kind: string
+  label: Token URI
+  name: token_uri
+- description: |
+    The path to the `keyfile.json`` to use, if authenticating via service-account method.
+  kind: string
+  name: keyfile
+settings_preamble: |
+  Settings for dbt itself can be configured through [dbt_project.yml](https://docs.getdbt.com/reference/dbt_project.yml) as usual, which can be found at transform/dbt_project.yml in your Meltano project. dbt also has [adapter-specific documentation for BigQuery](https://docs.getdbt.com/reference/resource-configs/bigquery-configs).
+variant: dbt-labs

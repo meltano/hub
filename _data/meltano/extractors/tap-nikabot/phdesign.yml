@@ -1,16 +1,17 @@
-description: Time Tracking Software
-label: Nikabot
-name: tap-nikabot
-logo_url: /assets/logos/extractors/nikabot.png
-namespace: tap_nikabot
-variant: phdesign
-pip_url: git+https://github.com/phdesign/tap-nikabot.git
-repo: https://github.com/phdesign/tap-nikabot
-settings: []
 capabilities:
 - catalog
 - discover
+- state
+description: Time Tracking Software
 domain_url: https://api.nikabot.com/swagger-ui.html#/
-maintenance_status: unknown
 keywords:
 - api
+label: Nikabot
+logo_url: /assets/logos/extractors/nikabot.png
+maintenance_status: unknown
+name: tap-nikabot
+namespace: tap_nikabot
+pip_url: git+https://github.com/phdesign/tap-nikabot.git
+repo: https://github.com/phdesign/tap-nikabot
+settings: []
+variant: phdesign

@@ -1,0 +1,30 @@
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+description: Identity store
+domain_url: https://aws.amazon.com/cognito/
+keywords:
+- aws
+- api
+- meltano_sdk
+label: AWS Cognito
+logo_url: /assets/logos/extractors/aws-cognito.png
+maintenance_status: active
+name: tap-aws-cognito
+namespace: tap_aws_cognito
+next_steps: ''
+pip_url: git+https://github.com/manuelapilongo/tap-aws-cognito.git
+repo: https://github.com/manuelapilongo/tap-aws-cognito
+settings:
+- description: Cognito Pool Id
+  kind: password
+  label: Pool Id
+  name: pool_id
+settings_group_validation:
+- - pool_id
+settings_preamble: ''
+usage: ''
+variant: manuelapilongo

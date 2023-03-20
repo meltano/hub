@@ -1,38 +1,28 @@
-name: tap-zendesk
-label: Zendesk
-description: Support ticketing system & customer service platform
-namespace: tap_zendesk
-logo_url: /assets/logos/extractors/zendesk.png
-variant: singer-io
-repo: https://github.com/singer-io/tap-zendesk
-pip_url: tap-zendesk
 capabilities:
 - catalog
 - discover
 - state
-settings_group_validation:
-- - email
-  - api_token
-  - subdomain
-  - start_date
-- - access_token
-  - subdomain
-  - start_date
+description: Support ticketing system & customer service platform
+domain_url: https://developer.zendesk.com/rest_api
+keywords:
+- api
+label: Zendesk (Support)
+logo_url: /assets/logos/extractors/zendesk.png
+maintenance_status: inactive
+name: tap-zendesk
+namespace: tap_zendesk
+pip_url: tap-zendesk
+repo: https://github.com/singer-io/tap-zendesk
 settings:
-- name: email
-  label: Email
-  kind: email
-  placeholder: Ex. me@my-organization.com
-  description: |
+- description: |
     This is the email you use to login to your Zendesk dashboard.
 
     Not necessary when using OAuth authentication and setting [Access Token](#access-token).
-- name: api_token
-  kind: password
-  label: API Token
-  placeholder: Ex. *****************
-  documentation: https://support.zendesk.com/hc/en-us/articles/226022787-Generating-a-new-API-token-
-  description: |
+  kind: email
+  label: Email
+  name: email
+  placeholder: Ex. me@my-organization.com
+- description: |
     #### How to get
 
     1. Login to your Zendesk dashboard.
@@ -54,31 +44,41 @@ settings:
     6. Copy the API token since it will not be shown again
 
     7. Click `Save` button to complete API key creation
-- name: access_token
-  label: Access Token
+  documentation: https://support.zendesk.com/hc/en-us/articles/226022787-Generating-a-new-API-token-
   kind: password
-  documentation: https://support.zendesk.com/hc/en-us/articles/203663836
-  description: |
+  label: API Token
+  name: api_token
+  placeholder: Ex. *****************
+- description: |
     To use OAuth, you will need to fetch an `access_token` from a configured Zendesk integration.
 
     See <https://support.zendesk.com/hc/en-us/articles/203663836>.
-- name: subdomain
-  label: Zendesk Subdomain
-  placeholder: Ex. my-subdomain.zendesk.com
-  documentation: https://support.zendesk.com/hc/en-us/articles/221682747-Where-can-I-find-my-Zendesk-subdomain-
-  description: |
+  documentation: https://support.zendesk.com/hc/en-us/articles/203663836
+  kind: password
+  label: Access Token
+  name: access_token
+- description: |
     When visiting your Zendesk instance, the URL is structured as follows: `SUBDOMAIN.zendesk.com`.
 
     You'll need this subdomain when configuring the extractor.
 
     For example, if the URL is `meltano.zendesk.com`, then the subdomain is `meltano`.
-- name: start_date
-  label: Start Date
-  kind: date_iso8601
-  description: Determines how much historical data will be extracted. Please be aware
+  documentation: https://support.zendesk.com/hc/en-us/articles/221682747-Where-can-I-find-my-Zendesk-subdomain-
+  label: Zendesk Subdomain
+  name: subdomain
+  placeholder: Ex. my-subdomain.zendesk.com
+- description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.
-domain_url: https://developer.zendesk.com/rest_api
-maintenance_status: inactive
-keywords:
-- api
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+settings_group_validation:
+- - email
+  - api_token
+  - subdomain
+  - start_date
+- - access_token
+  - subdomain
+  - start_date
+variant: singer-io

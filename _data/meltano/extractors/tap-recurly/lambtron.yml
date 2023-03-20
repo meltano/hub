@@ -1,16 +1,43 @@
-description: Subscription Billing Platform
-label: Recurly
-name: tap-recurly
-logo_url: /assets/logos/extractors/recurly.png
-namespace: tap_recurly
-variant: lambtron
-pip_url: git+https://github.com/lambtron/tap-recurly.git
-repo: https://github.com/lambtron/tap-recurly
-settings: []
 capabilities:
 - catalog
 - discover
+- state
+description: Subscription Billing Platform
 domain_url: https://recurly.com/
-maintenance_status: unknown
 keywords:
 - api
+label: Recurly
+logo_url: /assets/logos/extractors/recurly.png
+maintenance_status: inactive
+name: tap-recurly
+namespace: tap_recurly
+pip_url: git+https://github.com/lambtron/tap-recurly.git
+repo: https://github.com/lambtron/tap-recurly
+settings:
+- description: The percentage of the rate limit dedicated to the tap. Default, 100.
+  kind: integer
+  label: Quota Limit
+  name: quota_limit
+- description: Your Recurly subdomain.
+  label: Subdomain
+  name: subdomain
+- description: The user agent to send with requests.
+  label: User Agent
+  name: user_agent
+- description: Your Recurly API key. See the [API docs](https://docs.recurly.com/docs/api-keys#section-find-or-generate-your-api-key)
+    for details on getting a key.
+  kind: password
+  label: API Key
+  name: api_key
+- description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+settings_group_validation:
+- - subdomain
+  - user_agent
+  - api_key
+  - start_date
+variant: lambtron

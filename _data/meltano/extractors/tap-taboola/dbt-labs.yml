@@ -1,0 +1,16 @@
+capabilities:
+- catalog
+- discover
+description: Mobile Campaign Manager
+domain_url: https://developers.taboola.com/backstage-api/reference
+keywords:
+- api
+label: Taboola Backstage
+logo_url: /assets/logos/extractors/taboola.png
+maintenance_status: unknown
+name: tap-taboola
+namespace: tap_taboola
+pip_url: git+https://github.com/dbt-labs/tap-taboola.git
+repo: https://github.com/dbt-labs/tap-taboola
+settings: []
+variant: dbt-labs

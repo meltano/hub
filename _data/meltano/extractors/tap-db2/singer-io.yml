@@ -1,16 +1,17 @@
-description: IMB Db2 Relational Database
-label: IBM Db2
-name: tap-db2
-logo_url: /assets/logos/extractors/db2.png
-namespace: tap_db2
-variant: singer-io
-pip_url: git+https://github.com/singer-io/tap-db2.git
-repo: https://github.com/singer-io/tap-db2
-settings: []
 capabilities:
 - catalog
 - discover
+- state
+description: IBM Db2 Relational Database
 domain_url: https://www.ibm.com/analytics/db2
-maintenance_status: unknown
 keywords:
 - database
+label: IBM Db2
+logo_url: /assets/logos/extractors/db2.png
+maintenance_status: unknown
+name: tap-db2
+namespace: tap_db2
+pip_url: git+https://github.com/singer-io/tap-db2.git
+repo: https://github.com/singer-io/tap-db2
+settings: []
+variant: singer-io

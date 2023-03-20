@@ -1,6 +1,27 @@
+capabilities:
+- stream-maps
+description: A map transformer which implements the Stream Maps capability from Meltano's
+  tap and target SDK.
+domain_url: https://docs.meltano.com/guide/mappers
+executable: meltano-map-transform
+keywords:
+- meltano_sdk
+label: Meltano Map Transformer
+logo_url: /assets/logos/mappers/meltano.png
+maintenance_status: active
 name: meltano-map-transformer
 namespace: meltano_map_transformer
-variant: meltano
+next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/meltano-map-transform.git
 repo: https://github.com/MeltanoLabs/meltano-map-transform
-executable: meltano-map-transform
+settings:
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+settings_group_validation:
+- - stream_maps
+settings_preamble: ''
+usage: ''
+variant: meltano

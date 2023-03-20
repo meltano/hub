@@ -1,16 +1,17 @@
-description: Customer Communication Platform
-label: FrontApp
-name: tap-frontapp
-logo_url: /assets/logos/extractors/frontapp.png
-namespace: tap_frontapp
-variant: singer-io
-pip_url: tap-frontapp
-repo: https://github.com/singer-io/tap-frontapp
-settings: []
 capabilities:
 - catalog
 - discover
+- state
+description: Customer Communication Platform
 domain_url: https://frontapp.com/
-maintenance_status: unknown
 keywords:
 - api
+label: FrontApp
+logo_url: /assets/logos/extractors/frontapp.png
+maintenance_status: unknown
+name: tap-frontapp
+namespace: tap_frontapp
+pip_url: tap-frontapp
+repo: https://github.com/singer-io/tap-frontapp
+settings: []
+variant: singer-io

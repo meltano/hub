@@ -1,0 +1,82 @@
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+- schema-flattening
+description: Sales Engagement Platform
+domain_url: https://salesloft.com/
+executable: tap-airbyte
+keywords:
+- airbyte_protocol
+label: Salesloft
+logo_url: /assets/logos/extractors/salesloft.png
+maintenance_status: beta
+name: tap-salesloft
+namespace: tap_airbyte
+next_steps: ''
+pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
+repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-salesloft
+settings:
+- description: Airbyte image to run
+  kind: string
+  label: Airbyte Spec Image
+  name: airbyte_spec.image
+  value: airbyte/source-salesloft
+- description: Airbyte image tag
+  kind: string
+  label: Airbyte Spec Tag
+  name: airbyte_spec.tag
+  value: latest
+- description: Docker mounts to make available to the Airbyte container. Expects a
+    list of maps containing source, target, and type as is documented in the docker
+    --mount documentation
+  kind: array
+  label: Docker Mounts
+  name: docker_mounts
+- description: The Client ID of your Salesloft developer application.
+  kind: password
+  label: Airbyte Config Client Id
+  name: airbyte_config.client_id
+- description: The Client Secret of your Salesloft developer application.
+  kind: password
+  label: Airbyte Config Client Secret
+  name: airbyte_config.client_secret
+- description: The token for obtaining a new access token.
+  kind: password
+  label: Airbyte Config Refresh Token
+  name: airbyte_config.refresh_token
+- description: The date from which you'd like to replicate data for Salesloft API,
+    in the format YYYY-MM-DDT00:00:00Z. All data generated after this date will be
+    replicated.
+  kind: string
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+settings_group_validation:
+- - connector_config.client_secret
+  - connector_config.start_date
+  - connector_config.client_id
+  - connector_config.refresh_token
+  - airbyte_spec.image
+settings_preamble: ''
+usage: ''
+variant: airbyte

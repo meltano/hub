@@ -1,9 +1,11 @@
-name: files-dbt-postgres
-label: dbt Postgres
-namespace: files_dbt_postgres
-repo: https://github.com/meltano/files-dbt-postgres
-pip_url: git+https://github.com/meltano/files-dbt-postgres
-variant: meltano
-logo_url: /assets/logos/files/dbt-postgres.png
 definition: are bundled with the dbt-postgres transformer.
+domain_url: https://www.getdbt.com/
+hidden: true
+label: dbt Postgres
+logo_url: /assets/logos/files/dbt-postgres.png
 maintenance_status: active
+name: files-dbt-postgres
+namespace: files_dbt_postgres
+pip_url: git+https://github.com/meltano/files-dbt-postgres
+repo: https://github.com/meltano/files-dbt-postgres
+variant: meltano

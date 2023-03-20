@@ -1,0 +1,124 @@
+commands:
+  build:
+    args: build
+    description: Will run your models, tests, snapshots and seeds in DAG order.
+  clean:
+    args: clean
+    description: Delete all folders in the clean-targets list (usually the dbt_modules
+      and target directories.)
+  compile:
+    args: compile
+    description: Generates executable SQL from source model, test, and analysis files.
+      Compiled SQL files are written to the target/ directory.
+  debug:
+    args: debug
+    description: Debug your DBT project and warehouse connection.
+  deps:
+    args: deps
+    description: Pull the most recent version of the dependencies listed in packages.yml
+  describe:
+    args: describe
+    description: Describe the
+    executable: dbt_extension
+  docs-generate:
+    args: docs generate
+    description: Generate documentation for your project.
+  docs-serve:
+    args: docs serve
+    description: Serve documentation for your project. Make sure you ran `docs-generate`
+      first.
+  freshness:
+    args: source freshness
+    description: Check the freshness of your source data.
+  initialize:
+    args: initialize
+    description: |
+      Initialize a new dbt project. This will create a dbt_project.yml file, a profiles.yml file, and models directory.
+    executable: dbt_extension
+  run:
+    args: run
+    description: Compile SQL and execute against the current target database.
+  seed:
+    args: seed
+    description: Load data from csv files into your data warehouse.
+  snapshot:
+    args: snapshot
+    description: Execute snapshots defined in your project.
+  test:
+    args: test
+    description: Runs tests on data in deployed models.
+definition: |
+  is an adapter-specific dbt [transformer](https://docs.meltano.com/concepts/plugins#transformers) for running SQL-based transformations on data stored in your warehouse.
+
+  This utility plugin is meant to be used in favor of the [dbt-snowflake transformer plugin type](/transformers/dbt-snowflake).
+  Note that this plugin can only be run as part of an ELT pipeline with the `meltano run` command. If you are using `meltano elt` you should use the [transformer](/transformers/) plugins. We do recommend migrating to `meltano run` as the transformer plugin type will be deprecated in a future major Meltano release.
+docs: https://docs.meltano.com/guide/transformation
+executable: dbt_invoker
+ext_repo: https://github.com/meltano/dbt-ext
+keywords:
+- meltano_edk
+label: dbt Snowflake
+logo_url: /assets/logos/utilities/dbt.png
+maintenance_status: active
+name: dbt-snowflake
+namespace: dbt_snowflake
+next_steps: |-
+  1. If you're running dbt for the first time in a new environment:
+
+    ```sh
+    # create a starter dbt_project.yml file, a profiles.yml file, and models directory
+    meltano invoke dbt-snowflake:initialize
+    ```
+pip_url: dbt-core~=1.3.0 dbt-snowflake~=1.3.0 git+https://github.com/meltano/dbt-ext.git@main
+repo: https://github.com/dbt-labs/dbt-snowflake
+settings:
+- description: Whether to skip pre-invoke hooks which automatically run dbt clean
+    and deps
+  env: DBT_EXT_SKIP_PRE_INVOKE
+  kind: boolean
+  label: Skip Pre-invoke
+  name: skip_pre_invoke
+  value: false
+- env: DBT_EXT_TYPE
+  label: dbt Profile type
+  name: type
+  value: snowflake
+- env: DBT_PROJECT_DIR
+  label: Projects Directory
+  name: project_dir
+  value: $MELTANO_PROJECT_ROOT/transform
+- env: DBT_PROFILES_DIR
+  label: Profiles Directory
+  name: profiles_dir
+  value: $MELTANO_PROJECT_ROOT/transform/profiles/snowflake
+- description: The snowflake account to connect to.
+  kind: string
+  label: Account
+  name: account
+- description: The user to connect as.
+  kind: string
+  label: User
+  name: user
+- description: The user password to authenticate with.
+  kind: password
+  label: Password
+  name: password
+- description: The user role to assume.
+  kind: string
+  label: Role
+  name: role
+- description: The compute warehouse to use when building models.
+  kind: string
+  label: Warehouse
+  name: warehouse
+- description: The database to create models in.
+  kind: string
+  label: Database
+  name: database
+- description: The schema to build models into by default.
+  kind: string
+  label: Schema
+  name: schema
+settings_preamble: |
+  Settings for dbt itself can be configured through [dbt_project.yml](https://docs.getdbt.com/reference/dbt_project.yml) as usual, which can be found at transform/dbt_project.yml in your Meltano project. dbt also has [adapter-specific documentation for Snowflake](https://docs.getdbt.com/reference/resource-configs/snowflake-configs).
+variant: dbt-labs

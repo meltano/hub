@@ -1,16 +1,23 @@
-description: Construction Management Software
-label: Acuite
-name: tap-acuite
-logo_url: /assets/logos/extractors/acuite.png
-namespace: tap_acuite
-variant: fostersdata
-pip_url: git+https://github.com/FostersData/tap-acuite.git
-repo: https://github.com/FostersData/tap-acuite
-settings: []
 capabilities:
-- catalog
+- properties
+- state
 - discover
+description: Construction Management Software
 domain_url: https://api.acuite.co.nz/swagger/ui/index#/
-maintenance_status: unknown
 keywords:
 - api
+label: Acuite
+logo_url: /assets/logos/extractors/acuite.png
+maintenance_status: active
+name: tap-acuite
+namespace: tap_acuite
+pip_url: git+https://github.com/FostersData/tap-acuite.git
+repo: https://github.com/FostersData/tap-acuite
+settings:
+- description: Your Acuite API Key.
+  kind: password
+  label: API Key
+  name: api_key
+settings_group_validation:
+- - api_key
+variant: fostersdata

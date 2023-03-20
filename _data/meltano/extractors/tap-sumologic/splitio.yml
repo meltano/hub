@@ -1,16 +1,53 @@
-description: Cloud Log Management, Monitoring, SIEM Tools
-label: Sumo Logic
-name: tap-sumologic
-logo_url: /assets/logos/extractors/sumologic.png
-namespace: tap_sumologic
-variant: splitio
-pip_url: git+https://github.com/splitio/tap-sumologic.git
-repo: https://github.com/splitio/tap-sumologic
-settings: []
 capabilities:
 - catalog
 - discover
+description: Cloud Log Management, Monitoring, SIEM Tools
 domain_url: https://www.sumologic.com/
-maintenance_status: unknown
 keywords:
 - api
+label: Sumo Logic
+logo_url: /assets/logos/extractors/sumologic.png
+maintenance_status: active
+name: tap-sumologic
+namespace: tap_sumologic
+pip_url: git+https://github.com/splitio/tap-sumologic.git
+repo: https://github.com/splitio/tap-sumologic
+settings:
+- description: "An array of objects containing the `query`, `table_name`, `max_lookback_day`,\
+    \ and `time_property`. E.g. { \"query\": \"_sourceCategory=prod/fastly/sdk | _timeslice\
+    \ 1d as day | count by day, api_key\", \"table_name\": \"my_table\", \"max_lookback_days\"\
+    : 10, \"time_property\": [\"day\"] }. The max_lookback_days by default is 7 days.\
+    \ Number of days it queries Sumologic back from today. Sumologic doesn't perform\
+    \ well when going to far back so use with caution. time_property: this is the\
+    \ field that has the time if any. It allows to track the last processed date."
+  kind: array
+  label: Tables
+  name: tables
+- description: The root url for requests, i.e. https://api.us2.sumologic.com/api.
+  label: Sumologic Root Url
+  name: sumologic_root_url
+- description: Your access key.
+  kind: password
+  label: Sumologic Access Key
+  name: sumologic_access_key
+- description: Your access ID.
+  kind: password
+  label: Sumologic Access Id
+  name: sumologic_access_id
+- description: Date up to when historical data will be extracted.
+  kind: date_iso8601
+  label: End Date
+  name: end_date
+- description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+settings_group_validation:
+- - tables
+  - sumologic_root_url
+  - sumologic_access_key
+  - sumologic_access_id
+  - start_date
+variant: splitio

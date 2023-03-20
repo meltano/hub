@@ -1,16 +1,29 @@
-description: Identity Provider
-label: Okta
-name: tap-okta
-logo_url: /assets/logos/extractors/okta.png
-namespace: tap_okta
-variant: isabella232
-pip_url: git+https://github.com/isabella232/tap-okta.git
-repo: https://github.com/isabella232/tap-okta
-settings: []
 capabilities:
+- state
 - catalog
 - discover
+description: Identity Provider
 domain_url: https://developer.okta.com/docs/reference/
-maintenance_status: unknown
 keywords:
 - api
+label: Okta
+logo_url: /assets/logos/extractors/okta.png
+maintenance_status: inactive
+name: tap-okta
+namespace: tap_okta
+pip_url: git+https://github.com/isabella232/tap-okta.git
+repo: https://github.com/isabella232/tap-okta
+settings:
+- description: The Okta API url to use for requests. E.g. http://<okta_url>/api/v1/.
+    Make sure to include the final slash.
+  label: Service Url
+  name: service_url
+- description: Your Okta API key. See the [Okta docs](https://developer.okta.com/docs/guides/create-an-api-token/main/)
+    for more details.
+  kind: password
+  label: API Key
+  name: api_key
+settings_group_validation:
+- - service_url
+  - api_key
+variant: isabella232

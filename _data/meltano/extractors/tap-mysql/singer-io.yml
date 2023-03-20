@@ -1,17 +1,25 @@
-name: tap-mysql
-label: MySQL / MariaDB
-description: MySQL / MariaDB database extractor
-namespace: tap_mysql
-logo_url: /assets/logos/extractors/mysql.png
-variant: singer-io
-pip_url: git+https://github.com/singer-io/tap-mysql.git
-repo: https://github.com/singer-io/tap-mysql
 capabilities:
 - catalog
 - discover
-settings_group_validation: []
-settings: []
+- state
+description: MySQL / MariaDB database extractor
 domain_url: https://www.mysql.com/
-maintenance_status: unknown
 keywords:
 - database
+label: MySQL / MariaDB
+logo_url: /assets/logos/extractors/mysql.png
+maintenance_status: unknown
+metadata:
+  '*':
+    replication-method: FULL_TABLE
+name: tap-mysql
+namespace: tap_mysql
+pip_url: git+https://github.com/singer-io/tap-mysql.git
+prereq: |
+  ### Usage Notes
+  This tap is configured to use `FULL_TABLE` replication by default.
+  See the [metadata configuration documentation](https://docs.meltano.com/concepts/plugins#metadata-extra) for more details.
+repo: https://github.com/singer-io/tap-mysql
+settings: []
+settings_group_validation: []
+variant: singer-io

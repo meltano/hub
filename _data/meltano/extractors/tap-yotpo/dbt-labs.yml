@@ -1,0 +1,17 @@
+capabilities:
+- catalog
+- discover
+- state
+description: eCommerce Marketing Platform
+domain_url: https://apidocs.yotpo.com/reference
+keywords:
+- api
+label: Yotpo
+logo_url: /assets/logos/extractors/yotpo.png
+maintenance_status: unknown
+name: tap-yotpo
+namespace: tap_yotpo
+pip_url: git+https://github.com/dbt-labs/tap-yotpo.git
+repo: https://github.com/dbt-labs/tap-yotpo
+settings: []
+variant: dbt-labs

@@ -1,16 +1,17 @@
-description: Business Communication Platform
-label: Microsoft Teams
-name: tap-ms-teams
-logo_url: /assets/logos/extractors/ms-teams.png
-namespace: tap_ms_teams
-variant: bytecodeio
-pip_url: git+https://github.com/bytecodeio/tap-ms-teams.git
-repo: https://github.com/bytecodeio/tap-ms-teams
-settings: []
 capabilities:
 - catalog
 - discover
+- state
+description: Business Communication Platform
 domain_url: https://docs.microsoft.com/en-us/graph/
-maintenance_status: unknown
 keywords:
 - api
+label: Microsoft Teams
+logo_url: /assets/logos/extractors/ms-teams.png
+maintenance_status: unknown
+name: tap-ms-teams
+namespace: tap_ms_teams
+pip_url: git+https://github.com/bytecodeio/tap-ms-teams.git
+repo: https://github.com/bytecodeio/tap-ms-teams
+settings: []
+variant: bytecodeio

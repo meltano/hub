@@ -1,16 +1,17 @@
-description: Venue Management Software
-label: Clubspeed
-name: tap-clubspeed
-logo_url: /assets/logos/extractors/clubspeed.png
-namespace: tap_clubspeed
-variant: lambtron
-pip_url: git+https://github.com/lambtron/tap-clubspeed.git
-repo: https://github.com/lambtron/tap-clubspeed
-settings: []
 capabilities:
 - catalog
 - discover
+- state
+description: Venue Management Software
 domain_url: https://clubspeed.com/
-maintenance_status: unknown
 keywords:
 - api
+label: Clubspeed
+logo_url: /assets/logos/extractors/clubspeed.png
+maintenance_status: unknown
+name: tap-clubspeed
+namespace: tap_clubspeed
+pip_url: git+https://github.com/lambtron/tap-clubspeed.git
+repo: https://github.com/lambtron/tap-clubspeed
+settings: []
+variant: lambtron

@@ -17,6 +17,7 @@
                 "name": {},
                 "pip_url": {},
                 "repo": {},
+                "ext_repo": {},
                 "namespace": {},
                 "label": {},
                 "description": {},
@@ -35,7 +36,8 @@
                 "next_steps": {},
                 "settings_preamble": {},
                 "usage": {},
-                "prereq": {}
+                "prereq": {},
+                "hidden": {}
             }
         }
     ]

@@ -1,16 +1,17 @@
-description: Retail Management Software
-label: BrightPearl
-name: tap-brightpearl
-logo_url: /assets/logos/extractors/brightpearl.png
-namespace: tap_brightpearl
-variant: zookal
-pip_url: git+https://github.com/Zookal/tap-brightpearl.git
-repo: https://github.com/Zookal/tap-brightpearl
-settings: []
 capabilities:
 - catalog
 - discover
+- state
+description: Retail Management Software
 domain_url: https://www.brightpearl.com/
-maintenance_status: unknown
 keywords:
 - api
+label: BrightPearl
+logo_url: /assets/logos/extractors/brightpearl.png
+maintenance_status: unknown
+name: tap-brightpearl
+namespace: tap_brightpearl
+pip_url: git+https://github.com/Zookal/tap-brightpearl.git
+repo: https://github.com/Zookal/tap-brightpearl
+settings: []
+variant: zookal

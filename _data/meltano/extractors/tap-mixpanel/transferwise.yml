@@ -1,16 +1,17 @@
-description: Product Analytics Tool
-label: Mixpanel
-name: tap-mixpanel
-logo_url: /assets/logos/extractors/mixpanel.png
-namespace: tap_mixpanel
-variant: transferwise
-pip_url: pipelinewise-tap-mixpanel
-repo: https://github.com/transferwise/pipelinewise-tap-mixpanel
-settings: []
 capabilities:
 - catalog
 - discover
+- state
+description: Product Analytics Tool
 domain_url: https://mixpanel.com/
-maintenance_status: active
 keywords:
 - api
+label: Mixpanel
+logo_url: /assets/logos/extractors/mixpanel.png
+maintenance_status: active
+name: tap-mixpanel
+namespace: tap_mixpanel
+pip_url: pipelinewise-tap-mixpanel
+repo: https://github.com/transferwise/pipelinewise-tap-mixpanel
+settings: []
+variant: transferwise

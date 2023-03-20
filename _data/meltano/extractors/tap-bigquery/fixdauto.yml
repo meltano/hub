@@ -1,17 +1,17 @@
-name: tap-bigquery
-label: BigQuery
-description: BigQuery data warehouse extractor
-namespace: tap_bigquery
-logo_url: /assets/logos/extractors/bigquery.png
-variant: fixdauto
-pip_url: git+https://github.com/fixdauto/tap-bigquery.git
-repo: https://github.com/fixdauto/tap-bigquery
-maintenance_status: unknown
 capabilities:
 - catalog
 - discover
-settings_group_validation: []
-settings: []
+description: BigQuery data warehouse extractor
 domain_url: https://cloud.google.com/bigquery
 keywords:
 - database
+label: BigQuery
+logo_url: /assets/logos/extractors/bigquery.png
+maintenance_status: unknown
+name: tap-bigquery
+namespace: tap_bigquery
+pip_url: git+https://github.com/fixdauto/tap-bigquery.git
+repo: https://github.com/fixdauto/tap-bigquery
+settings: []
+settings_group_validation: []
+variant: fixdauto

@@ -1,0 +1,87 @@
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+- schema-flattening
+description: Time Tracking Software
+domain_url: https://www.toggl.com/
+executable: tap-airbyte
+keywords:
+- airbyte_protocol
+label: Toggl
+logo_url: /assets/logos/extractors/toggl.png
+maintenance_status: beta
+name: tap-toggl
+namespace: tap_airbyte
+next_steps: ''
+pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
+repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-toggl
+settings:
+- description: Airbyte image to run
+  kind: string
+  label: Airbyte Spec Image
+  name: airbyte_spec.image
+  value: airbyte/source-toggl
+- description: Airbyte image tag
+  kind: string
+  label: Airbyte Spec Tag
+  name: airbyte_spec.tag
+  value: latest
+- description: Docker mounts to make available to the Airbyte container. Expects a
+    list of maps containing source, target, and type as is documented in the docker
+    --mount documentation
+  kind: array
+  label: Docker Mounts
+  name: docker_mounts
+- description: Your API Token. See <a href="https://developers.track.toggl.com/docs/authentication">here</a>.
+    The token is case sensitive.
+  kind: password
+  label: Airbyte Config Api Token
+  name: airbyte_config.api_token
+- description: Your organization id. See <a href="https://developers.track.toggl.com/docs/organization">here</a>.
+  kind: integer
+  label: Airbyte Config Organization Id
+  name: airbyte_config.organization_id
+- description: Your workspace id. See <a href="https://developers.track.toggl.com/docs/workspaces">here</a>.
+  kind: integer
+  label: Airbyte Config Workspace Id
+  name: airbyte_config.workspace_id
+- description: To retrieve time entries created after the given date (inclusive).
+  kind: string
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
+- description: To retrieve time entries created before the given date (inclusive).
+  kind: string
+  label: Airbyte Config End Date
+  name: airbyte_config.end_date
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+settings_group_validation:
+- - airbyte_spec
+  - airbyte_config.api_token
+  - airbyte_spec.image
+  - airbyte_config.start_date
+  - airbyte_config.organization_id
+  - airbyte_config.end_date
+  - airbyte_config.workspace_id
+settings_preamble: ''
+usage: ''
+variant: airbyte

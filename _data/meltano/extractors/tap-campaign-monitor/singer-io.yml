@@ -1,16 +1,35 @@
-description: Email Marketing and Automation Tools
-label: Campaign Monitor
-name: tap-campaign-monitor
-logo_url: /assets/logos/extractors/campaign-monitor.png
-namespace: tap_campaign_monitor
-variant: singer-io
-pip_url: tap-campaign-monitor
-repo: https://github.com/singer-io/tap-campaign-monitor
-settings: []
 capabilities:
 - catalog
 - discover
+- state
+description: Email Marketing and Automation Tools
 domain_url: https://www.campaignmonitor.com/
-maintenance_status: unknown
 keywords:
 - api
+label: Campaign Monitor
+logo_url: /assets/logos/extractors/campaign-monitor.png
+maintenance_status: inactive
+name: tap-campaign-monitor
+namespace: tap_campaign_monitor
+pip_url: tap-campaign-monitor
+repo: https://github.com/singer-io/tap-campaign-monitor
+settings:
+- description: Your Campaign Monitor client ID.
+  kind: password
+  label: Client ID
+  name: client_id
+- description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: Your Campaign Monitor refresh token.
+  kind: password
+  label: Refresh Token
+  name: refresh_token
+settings_group_validation:
+- - client_id
+  - start_date
+  - refresh_token
+variant: singer-io

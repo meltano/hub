@@ -1,16 +1,18 @@
-description: Project management software
-label: Clubhouse
-name: tap-clubhouse
-logo_url: /assets/logos/extractors/clubhouse.png
-namespace: tap_clubhouse
-variant: envoy
-pip_url: git+https://github.com/envoy/tap-clubhouse.git
-repo: https://github.com/envoy/tap-clubhouse
-settings: []
 capabilities:
 - catalog
 - discover
+- state
+description: Project management software
 domain_url: https://clubhouse.io/
-maintenance_status: unknown
+hidden: true
 keywords:
 - api
+label: Clubhouse
+logo_url: /assets/logos/extractors/clubhouse.png
+maintenance_status: unknown
+name: tap-clubhouse
+namespace: tap_clubhouse
+pip_url: git+https://github.com/envoy/tap-clubhouse.git
+repo: https://github.com/envoy/tap-clubhouse
+settings: []
+variant: envoy

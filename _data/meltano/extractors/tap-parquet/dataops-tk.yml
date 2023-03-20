@@ -1,17 +1,28 @@
-description: Columnar Storage Format
-label: Parquet
-name: tap-parquet
-logo_url: /assets/logos/extractors/parquet.png
-namespace: tap_parquet
-variant: dataops-tk
-pip_url: git+https://github.com/dataops-tk/tap-parquet.git
-repo: https://github.com/dataops-tk/tap-parquet
-settings: []
 capabilities:
 - catalog
+- state
 - discover
+description: Columnar Storage Format
 domain_url: https://parquet.apache.org/
-maintenance_status: unknown
 keywords:
 - file
 - meltano_sdk
+label: Parquet
+logo_url: /assets/logos/extractors/parquet.png
+maintenance_status: unknown
+name: tap-parquet
+namespace: tap_parquet
+pip_url: git+https://github.com/dataops-tk/tap-parquet.git
+repo: https://github.com/dataops-tk/tap-parquet
+settings:
+- description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  label: Start Date
+  name: start_date
+- description: The absolute path to a parquet source file.
+  label: Filepath
+  name: filepath
+settings_group_validation:
+- - filepath
+variant: dataops-tk

@@ -1,13 +1,13 @@
 description: Business Intelligence Tool
+domain_url: https://developers.rjmetrics.com/cloudbi/iapi.html
+keywords:
+- api
 label: Magento BI
-name: target-magentobi
 logo_url: /assets/logos/loaders/magentobi.png
+maintenance_status: unknown
+name: target-magentobi
 namespace: target_magentobi
-variant: singer-io
 pip_url: target-magentobi
 repo: https://github.com/singer-io/target-magentobi
 settings: []
-domain_url: https://developers.rjmetrics.com/cloudbi/iapi.html
-maintenance_status: unknown
-keywords:
-- api
+variant: singer-io

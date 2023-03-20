@@ -1,9 +1,11 @@
-name: files-dbt-snowflake
-label: dbt Snowflake
-namespace: files_dbt_snowflake
-repo: https://github.com/meltano/files-dbt-snowflake
-pip_url: git+https://github.com/meltano/files-dbt-snowflake
-variant: meltano
-logo_url: /assets/logos/files/dbt-snowflake.png
 definition: are bundled with the dbt-snowflake transformer.
+domain_url: https://www.getdbt.com/
+hidden: true
+label: dbt Snowflake
+logo_url: /assets/logos/files/dbt-snowflake.png
 maintenance_status: active
+name: files-dbt-snowflake
+namespace: files_dbt_snowflake
+pip_url: git+https://github.com/meltano/files-dbt-snowflake
+repo: https://github.com/meltano/files-dbt-snowflake
+variant: meltano

@@ -1,16 +1,17 @@
-description: Agile Project Management for GitHub
-label: ZenHub
-name: singer-tap-zenhub
-logo_url: /assets/logos/extractors/zenhub.png
-namespace: singer_tap_zenhub
-variant: chillu
-pip_url: git+https://github.com/chillu/singer-tap-zenhub.git
-repo: https://github.com/chillu/singer-tap-zenhub
-settings: []
 capabilities:
 - catalog
 - discover
+- state
+description: Agile Project Management for GitHub
 domain_url: https://github.com/ZenHubIO/API
-maintenance_status: unknown
 keywords:
 - api
+label: ZenHub
+logo_url: /assets/logos/extractors/zenhub.png
+maintenance_status: unknown
+name: singer-tap-zenhub
+namespace: singer_tap_zenhub
+pip_url: git+https://github.com/chillu/singer-tap-zenhub.git
+repo: https://github.com/chillu/singer-tap-zenhub
+settings: []
+variant: chillu

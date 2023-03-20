@@ -1,0 +1,155 @@
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+- schema-flattening
+description: Fully managed message queue
+domain_url: https://aws.amazon.com/sqs/
+executable: tap-airbyte
+keywords:
+- airbyte_protocol
+label: Amazon SQS
+logo_url: /assets/logos/extractors/amazon-sqs.png
+maintenance_status: beta
+name: tap-amazon-sqs
+namespace: tap_airbyte
+next_steps: ''
+pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
+repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-amazon-sqs
+settings:
+- description: Airbyte image to run
+  kind: string
+  label: Airbyte Spec Image
+  name: airbyte_spec.image
+  value: airbyte/source-amazon-sqs
+- description: Airbyte image tag
+  kind: string
+  label: Airbyte Spec Tag
+  name: airbyte_spec.tag
+  value: latest
+- description: Docker mounts to make available to the Airbyte container. Expects a
+    list of maps containing source, target, and type as is documented in the docker
+    --mount documentation
+  kind: array
+  label: Docker Mounts
+  name: docker_mounts
+- description: URL of the SQS Queue
+  kind: string
+  label: Airbyte Config Queue Url
+  name: airbyte_config.queue_url
+- description: AWS Region of the SQS Queue
+  kind: options
+  label: Airbyte Config Region
+  name: airbyte_config.region
+  options:
+  - label: Us East 1
+    value: us-east-1
+  - label: Us East 2
+    value: us-east-2
+  - label: Us West 1
+    value: us-west-1
+  - label: Us West 2
+    value: us-west-2
+  - label: Af South 1
+    value: af-south-1
+  - label: Ap East 1
+    value: ap-east-1
+  - label: Ap South 1
+    value: ap-south-1
+  - label: Ap Northeast 1
+    value: ap-northeast-1
+  - label: Ap Northeast 2
+    value: ap-northeast-2
+  - label: Ap Northeast 3
+    value: ap-northeast-3
+  - label: Ap Southeast 1
+    value: ap-southeast-1
+  - label: Ap Southeast 2
+    value: ap-southeast-2
+  - label: Ca Central 1
+    value: ca-central-1
+  - label: Cn North 1
+    value: cn-north-1
+  - label: Cn Northwest 1
+    value: cn-northwest-1
+  - label: Eu Central 1
+    value: eu-central-1
+  - label: Eu North 1
+    value: eu-north-1
+  - label: Eu South 1
+    value: eu-south-1
+  - label: Eu West 1
+    value: eu-west-1
+  - label: Eu West 2
+    value: eu-west-2
+  - label: Eu West 3
+    value: eu-west-3
+  - label: Sa East 1
+    value: sa-east-1
+  - label: Me South 1
+    value: me-south-1
+  - label: Us Gov East 1
+    value: us-gov-east-1
+  - label: Us Gov West 1
+    value: us-gov-west-1
+- description: 'If Enabled, messages will be deleted from the SQS Queue after being
+    read. If Disabled, messages are left in the queue and can be read more than once.
+    WARNING: Enabling this option can result in data loss in cases of failure, use
+    with caution, see documentation for more detail. '
+  kind: boolean
+  label: Airbyte Config Delete Messages
+  name: airbyte_config.delete_messages
+- description: Max amount of messages to get in one batch (10 max)
+  kind: integer
+  label: Airbyte Config Max Batch Size
+  name: airbyte_config.max_batch_size
+- description: Max amount of time in seconds to wait for messages in a single poll
+    (20 max)
+  kind: integer
+  label: Airbyte Config Max Wait Time
+  name: airbyte_config.max_wait_time
+- description: Comma separated list of Mesage Attribute names to return
+  kind: string
+  label: Airbyte Config Attributes To Return
+  name: airbyte_config.attributes_to_return
+- description: Modify the Visibility Timeout of the individual message from the Queue's
+    default (seconds).
+  kind: integer
+  label: Airbyte Config Visibility Timeout
+  name: airbyte_config.visibility_timeout
+- description: The Access Key ID of the AWS IAM Role to use for pulling messages
+  kind: password
+  label: Airbyte Config Access Key
+  name: airbyte_config.access_key
+- description: The Secret Key of the AWS IAM Role to use for pulling messages
+  kind: password
+  label: Airbyte Config Secret Key
+  name: airbyte_config.secret_key
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+settings_group_validation:
+- - connector_config.delete_messages
+  - airbyte_spec.image
+  - connector_config.queue_url
+  - connector_config.region
+settings_preamble: ''
+usage: ''
+variant: airbyte

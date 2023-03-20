@@ -1,42 +1,42 @@
-description: Business Intelligence Platform
-label: Tableau
-name: tap-tableau
-logo_url: /assets/logos/extractors/tableau.png
-namespace: tap_tableau
-variant: gthesheep
-pip_url: git+https://github.com/gthesheep/tap-tableau.git
-repo: https://github.com/gthesheep/tap-tableau
-settings_group_validation:
-- - server_url
-  - api_version
-  - site_url_id
-  - personal_access_token_name
-  - personal_access_token_secret
-settings:
-- name: server_url
-  label: Server URL
-  description: URL for your Tableau server
-- name: api_version
-  label: API Version
-  description: Version of the REST API to use
-- name: site_url_id
-  label: Site URL ID
-  description: Site ID if not main or using Tableau Online
-- name: personal_access_token_name
-  label: Personal access token name
-  description: API access token name
-- name: personal_access_token_secret
-  label: Personal access token secret
-  kind: password
-  description: API access token secret value
 capabilities:
 - catalog
 - discover
 - state
 - about
 - stream-maps
+description: Business Intelligence Platform
 domain_url: https://www.tableau.com/en-gb/developer/tools
-maintenance_status: active
 keywords:
 - api
 - meltano_sdk
+label: Tableau
+logo_url: /assets/logos/extractors/tableau.png
+maintenance_status: active
+name: tap-tableau
+namespace: tap_tableau
+pip_url: git+https://github.com/gthesheep/tap-tableau.git
+repo: https://github.com/gthesheep/tap-tableau
+settings:
+- description: URL for your Tableau server
+  label: Server URL
+  name: server_url
+- description: Version of the REST API to use
+  label: API Version
+  name: api_version
+- description: Site ID if not main or using Tableau Online
+  label: Site URL ID
+  name: site_url_id
+- description: API access token name
+  label: Personal access token name
+  name: personal_access_token_name
+- description: API access token secret value
+  kind: password
+  label: Personal access token secret
+  name: personal_access_token_secret
+settings_group_validation:
+- - server_url
+  - api_version
+  - site_url_id
+  - personal_access_token_name
+  - personal_access_token_secret
+variant: gthesheep

@@ -1,16 +1,17 @@
-description: Cloud-based Warehouse Management System (WMS)
-label: 3PLCentral
-name: tap-3plcentral
-logo_url: /assets/logos/extractors/3plcentral.png
-namespace: tap_3plcentral
-variant: bytecodeio
-pip_url: git+https://github.com/bytecodeio/tap-3plcentral.git
-repo: https://github.com/bytecodeio/tap-3plcentral
-settings: []
 capabilities:
 - catalog
 - discover
+- state
+description: Cloud-based Warehouse Management System (WMS)
 domain_url: https://www.3plcentral.com
-maintenance_status: unknown
 keywords:
 - api
+label: 3PLCentral
+logo_url: /assets/logos/extractors/3plcentral.png
+maintenance_status: unknown
+name: tap-3plcentral
+namespace: tap_3plcentral
+pip_url: git+https://github.com/bytecodeio/tap-3plcentral.git
+repo: https://github.com/bytecodeio/tap-3plcentral
+settings: []
+variant: bytecodeio

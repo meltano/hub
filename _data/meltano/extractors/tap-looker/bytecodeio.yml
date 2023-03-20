@@ -1,16 +1,17 @@
-description: Business Intelligence (BI) & Data Analytics Platform
-label: Looker
-name: tap-looker
-logo_url: /assets/logos/extractors/looker.png
-namespace: tap_looker
-variant: bytecodeio
-pip_url: git+https://github.com/bytecodeio/tap-looker.git
-repo: https://github.com/bytecodeio/tap-looker
-settings: []
 capabilities:
 - catalog
 - discover
+- state
+description: Business Intelligence (BI) & Data Analytics Platform
 domain_url: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1
-maintenance_status: unknown
 keywords:
 - api
+label: Looker
+logo_url: /assets/logos/extractors/looker.png
+maintenance_status: unknown
+name: tap-looker
+namespace: tap_looker
+pip_url: git+https://github.com/bytecodeio/tap-looker.git
+repo: https://github.com/bytecodeio/tap-looker
+settings: []
+variant: bytecodeio

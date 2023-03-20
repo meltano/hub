@@ -1,16 +1,17 @@
-description: Customer Communication Platform
-label: SendGrid
-name: tap-sendgrid
-logo_url: /assets/logos/extractors/sendgrid.png
-namespace: tap_sendgrid
-variant: codyss
-pip_url: git+https://github.com/codyss/tap-sendgrid.git
-repo: https://github.com/codyss/tap-sendgrid
-settings: []
 capabilities:
 - catalog
 - discover
+- state
+description: Customer Communication Platform
 domain_url: https://docs.sendgrid.com/docs/for-developers/sending-email/api-getting-started/
-maintenance_status: unknown
 keywords:
 - api
+label: SendGrid
+logo_url: /assets/logos/extractors/sendgrid.png
+maintenance_status: unknown
+name: tap-sendgrid
+namespace: tap_sendgrid
+pip_url: git+https://github.com/codyss/tap-sendgrid.git
+repo: https://github.com/codyss/tap-sendgrid
+settings: []
+variant: codyss

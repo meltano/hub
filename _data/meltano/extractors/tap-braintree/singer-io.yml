@@ -1,16 +1,17 @@
-description: Online Payment Solutions
-label: Braintree
-name: tap-braintree
-logo_url: /assets/logos/extractors/braintree.png
-namespace: tap_braintree
-variant: singer-io
-pip_url: tap-braintree
-repo: https://github.com/singer-io/tap-braintree
-settings: []
 capabilities:
 - catalog
 - discover
+- state
+description: Online Payment Solutions
 domain_url: https://developer.paypal.com/braintree/docs/start/overview
-maintenance_status: unknown
 keywords:
 - api
+label: Braintree
+logo_url: /assets/logos/extractors/braintree.png
+maintenance_status: unknown
+name: tap-braintree
+namespace: tap_braintree
+pip_url: tap-braintree
+repo: https://github.com/singer-io/tap-braintree
+settings: []
+variant: singer-io

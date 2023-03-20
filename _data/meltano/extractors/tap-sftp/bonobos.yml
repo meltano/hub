@@ -1,16 +1,17 @@
-description: File Transfer Protocl
-label: SFTP
-name: tap-sftp
-logo_url: /assets/logos/extractors/sftp.png
-namespace: tap_sftp
-variant: bonobos
-pip_url: git+https://github.com/bonobos/tap-sftp.git
-repo: https://github.com/bonobos/tap-sftp
-settings: []
 capabilities:
 - catalog
 - discover
+- state
+description: File Transfer Protocl
 domain_url: https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol
-maintenance_status: unknown
 keywords:
 - file
+label: SFTP
+logo_url: /assets/logos/extractors/sftp.png
+maintenance_status: unknown
+name: tap-sftp
+namespace: tap_sftp
+pip_url: git+https://github.com/bonobos/tap-sftp.git
+repo: https://github.com/bonobos/tap-sftp
+settings: []
+variant: bonobos

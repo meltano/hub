@@ -1,16 +1,17 @@
-description: Sales Email Automation
-label: PersistIQ
-name: tap-persistiq
-logo_url: /assets/logos/extractors/persistiq.png
-namespace: tap_persistiq
-variant: nickleomartin
-pip_url: git+https://github.com/NickLeoMartin/tap-persistiq.git
-repo: https://github.com/NickLeoMartin/tap-persistiq
-settings: []
 capabilities:
 - catalog
 - discover
+- state
+description: Sales Email Automation
 domain_url: https://apidocs.persistiq.com/#introduction
-maintenance_status: unknown
 keywords:
 - api
+label: PersistIQ
+logo_url: /assets/logos/extractors/persistiq.png
+maintenance_status: unknown
+name: tap-persistiq
+namespace: tap_persistiq
+pip_url: git+https://github.com/NickLeoMartin/tap-persistiq.git
+repo: https://github.com/NickLeoMartin/tap-persistiq
+settings: []
+variant: nickleomartin

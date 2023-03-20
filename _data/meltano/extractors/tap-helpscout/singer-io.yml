@@ -1,16 +1,49 @@
-description: Customer Service Software
-label: Helpscout
-name: tap-helpscout
-logo_url: /assets/logos/extractors/helpscout.png
-namespace: tap_helpscout
-variant: singer-io
-pip_url: tap-helpscout
-repo: https://github.com/singer-io/tap-helpscout
-settings: []
 capabilities:
 - catalog
 - discover
+- state
+description: Customer Service Software
 domain_url: https://developer.helpscout.com/mailbox-api/
-maintenance_status: unknown
 keywords:
 - api
+label: Helpscout
+logo_url: /assets/logos/extractors/helpscout.png
+maintenance_status: active
+name: tap-helpscout
+namespace: tap_helpscout
+pip_url: tap-helpscout
+repo: https://github.com/singer-io/tap-helpscout
+settings:
+- description: Your Help Scout client ID. Follow these instructions to [Create My
+    App](https://developer.helpscout.com/mailbox-api/overview/authentication/#oauth2-application)
+    in your User Profile of the HelpScout web console application.
+  kind: password
+  label: Client ID
+  name: client_id
+- description: The user agent to send with requests.
+  label: User Agent
+  name: user_agent
+- description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: Your Help Scout client secret. Follow these instructions to [Create
+    My App](https://developer.helpscout.com/mailbox-api/overview/authentication/#oauth2-application)
+    in your User Profile of the HelpScout web console application.
+  kind: password
+  label: Client Secret
+  name: client_secret
+- description: Your Help Scout refresh token. See the [refresh token docs](https://developer.helpscout.com/mailbox-api/overview/authentication/#4-refresh-access-token)
+    for more details.
+  kind: password
+  label: Refresh Token
+  name: refresh_token
+settings_group_validation:
+- - client_id
+  - user_agent
+  - start_date
+  - client_secret
+  - refresh_token
+variant: singer-io

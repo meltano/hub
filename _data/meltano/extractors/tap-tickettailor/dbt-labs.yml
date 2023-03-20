@@ -1,0 +1,16 @@
+capabilities:
+- catalog
+- discover
+description: Online Ticketing Platform
+domain_url: https://developers.tickettailor.com/#ticket-tailor-api
+keywords:
+- api
+label: Ticket Tailor
+logo_url: /assets/logos/extractors/tickettailor.png
+maintenance_status: unknown
+name: tap-tickettailor
+namespace: tap_tickettailor
+pip_url: git+https://github.com/dbt-labs/tap-tickettailor.git
+repo: https://github.com/dbt-labs/tap-tickettailor
+settings: []
+variant: dbt-labs

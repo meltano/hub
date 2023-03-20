@@ -1,0 +1,16 @@
+capabilities:
+- catalog
+- discover
+description: Community Experience Platform
+domain_url: https://docs.orbit.love/reference
+keywords:
+- api
+label: Orbit
+logo_url: /assets/logos/extractors/orbit.png
+maintenance_status: unknown
+name: tap-orbit
+namespace: tap_orbit
+pip_url: git+https://github.com/dbt-labs/tap-orbit.git
+repo: https://github.com/dbt-labs/tap-orbit
+settings: []
+variant: dbt-labs

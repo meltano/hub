@@ -1,6 +1,19 @@
+capabilities: []
+description: A Pipelinewise compatible map transformer plugin for transformations
+  between Singer taps and targets.
+domain_url: https://transferwise.github.io/pipelinewise/user_guide/transformations.html
+executable: transform-field
+keywords: []
+label: Pipelinewise Transform Field
+logo_url: /assets/logos/mappers/transferwise.png
+maintenance_status: inactive
 name: transform-field
 namespace: transform_field
-variant: transferwise
+next_steps: ''
 pip_url: pipelinewise-transform-field
 repo: https://github.com/transferwise/pipelinewise-transform-field
-executable: transform-field
+settings: []
+settings_group_validation: []
+settings_preamble: ''
+usage: ''
+variant: transferwise

@@ -1,85 +1,96 @@
-name: target-bigquery
-label: BigQuery
 description: BigQuery loader
-namespace: target_bigquery
-logo_url: /assets/logos/loaders/bigquery.png
-variant: adswerve
-repo: https://github.com/adswerve/target-bigquery
-pip_url: git+https://github.com/adswerve/target-bigquery.git@0.12.0
 dialect: bigquery
-target_schema: $TARGET_BIGQUERY_DATASET_ID
-settings_group_validation:
-- - project_id
-  - dataset_id
-  - location
-  - credentials_path
+domain_url: https://cloud.google.com/bigquery
+keywords:
+- database
+label: Google BigQuery
+logo_url: /assets/logos/loaders/bigquery.png
+maintenance_status: active
+name: target-bigquery
+namespace: target_bigquery
+pip_url: git+https://github.com/adswerve/target-bigquery.git@0.12.0
+prereq: |
+  Then, follow the steps in the ["Activate the Google BigQuery API" section of the repository's README](https://github.com/adswerve/target-bigquery#step-1-activate-the-google-bigquery-api).
+repo: https://github.com/adswerve/target-bigquery
 settings:
-- name: project_id
-  description: BigQuery project
+- description: BigQuery project
   label: Project ID
-- name: dataset_id
-  value: $MELTANO_EXTRACT__LOAD_SCHEMA
-  label: Dataset ID
-  description: |
+  name: project_id
+- description: |
     BigQuery dataset.
 
     The default value [will expand to](https://docs.meltano.com/guide/configuration.html#expansion-in-setting-values) the value of the [`load_schema` extra](https://docs.meltano.com/concepts/plugins#load-schema-extra) for the extractor used in the pipeline, which defaults to the extractor's namespace, e.g. `tap_gitlab` for [`tap-gitlab`](/extractors/gitlab).
-- name: location
-  description: Dataset Location. See https://cloud.google.com/bigquery/docs/locations.
-  value: US
-  label: Location
-- name: credentials_path
-  value: $MELTANO_PROJECT_ROOT/client_secrets.json
-  label: Credentials Path
-  description: |
+  label: Dataset ID
+  name: dataset_id
+  value: $MELTANO_EXTRACT__LOAD_SCHEMA
+- description: Dataset Location. See https://cloud.google.com/bigquery/docs/locations.
+  label: Region
+  name: location
+  placeholder: us-central1
+  value: us-central1
+- description: |
     Fully qualified path to `client_secrets.json` for your service account.
 
     See the ["Activate the Google BigQuery API" section of the repository's README](https://github.com/adswerve/target-bigquery#step-1-activate-the-google-bigquery-api) and <https://cloud.google.com/docs/authentication/production>.
 
     By default, this file is expected to be at the root of your project directory.
   env: GOOGLE_APPLICATION_CREDENTIALS
-- name: validate_records
-  kind: boolean
-  value: false
+  label: Credentials Path
+  name: credentials_path
+  value: $MELTANO_PROJECT_ROOT/client_secrets.json
+- kind: boolean
   label: Validate Records
-- name: add_metadata_columns
-  description: Add `_time_extracted` and `_time_loaded` metadata columns
-  kind: boolean
+  name: validate_records
   value: false
+- description: Add `_time_extracted` and `_time_loaded` metadata columns
+  kind: boolean
   label: Add Metadata Columns
-- name: replication_method
-  description: Replication method, `append` or `truncate`
+  name: add_metadata_columns
+  value: false
+- description: |
+    The Replication method can be:
+
+    `append`: Adding new rows to the table (Default value)
+    `truncate`: Deleting all previous rows and uploading the new ones to the table
+    `incremental`: Upserting new rows into the table, using the primary key given by the tap connector (if it finds an old row with same key, updates it. Otherwise it inserts the new row)
+
+    WARNING: It is not recommended to use the `incremental` option (which uses MERGE SQL statement). It might result in loss of production data, because historical records get updated. Instead, we recommend using the `append` replication method, which will preserve historical data.
   kind: options
+  label: Replication Method
+  name: replication_method
   options:
   - label: Append
     value: append
   - label: Truncate
     value: truncate
+  - label: Incremental
+    value: incremental
   value: append
-  label: Replication Method
-- name: table_prefix
-  description: Add prefix to table name
+- description: Add prefix to table name
   label: Table Prefix
-- name: table_suffix
-  description: Add suffix to table name
+  name: table_prefix
+- description: Add suffix to table name
   label: Table Suffix
-- name: max_cache
-  description: Maximum cache size in MB
-  value: 50
+  name: table_suffix
+- description: Maximum cache size in MB
   label: Max Cache
-- name: merge_state_messages
+  name: max_cache
+  value: 50
+- description: Whether to merge multiple state messages from the tap into the state
+    file or uses the last state message as the state file. Note that it is not recommended
+    to set this to true when using with Meltano as the merge behavior conflicts with
+    Meltano’s merge process.
   kind: boolean
-  description:
-    Whether to merge multiple state messages from the tap into the state
-    file or uses the last state message as the state file. Note that it is not recommended to set this to true when using with Meltano as the merge behavior conflicts with Meltano’s merge process.
   label: Merge State Messages
+  name: merge_state_messages
   value: false
-- name: table_config
-  description: A path to a file containing the definition of partitioning and clustering.
+- description: A path to a file containing the definition of partitioning and clustering.
   label: Table Config
-domain_url: https://cloud.google.com/bigquery
-maintenance_status: active
-keywords:
-- database
-prereq: |
-  Then, follow the steps in the ["Activate the Google BigQuery API" section of the repository's README](https://github.com/adswerve/target-bigquery#step-1-activate-the-google-bigquery-api).
+  name: table_config
+settings_group_validation:
+- - project_id
+  - dataset_id
+  - location
+  - credentials_path
+target_schema: $TARGET_BIGQUERY_DATASET_ID
+variant: adswerve

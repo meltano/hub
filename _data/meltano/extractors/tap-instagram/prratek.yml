@@ -1,11 +1,3 @@
-description: Social Networking platform
-label: Instagram
-name: tap-instagram
-logo_url: /assets/logos/extractors/instagram.png
-namespace: tap_instagram
-variant: prratek
-pip_url: tap-instagram
-repo: https://github.com/prratek/tap-instagram
 capabilities:
 - catalog
 - discover
@@ -13,18 +5,27 @@ capabilities:
 - about
 - stream-maps
 - schema-flattening
-settings:
-- name: ig_user_ids
-  kind: array
-  label: IG User IDs
-  description: Array of user IDs for Instagram Business users
-- name: access_token
-  kind: password
-  label: Access Token
-  description: A long-lived user access token. See README in Github Repo for more
-    details.
+description: Social Networking platform
 domain_url: https://developers.facebook.com/docs/instagram-api
-maintenance_status: active
+hidden: true
 keywords:
 - api
 - meltano_sdk
+label: Instagram
+logo_url: /assets/logos/extractors/instagram.png
+maintenance_status: active
+name: tap-instagram
+namespace: tap_instagram
+pip_url: tap-instagram
+repo: https://github.com/prratek/tap-instagram
+settings:
+- description: Array of user IDs for Instagram Business users
+  kind: array
+  label: IG User IDs
+  name: ig_user_ids
+- description: A long-lived user access token. See README in Github Repo for more
+    details.
+  kind: password
+  label: Access Token
+  name: access_token
+variant: prratek

@@ -1,0 +1,25 @@
+extractors:
+  tap-3plcentral: source-tplcentral
+  tap-apify: source-apify-dataset
+  tap-bamboohr: source-bamboo-hr
+  tap-clickup: source-clickup-api
+  tap-closeio: source-close-com
+  tap-coingecko: source-coingecko-coins
+  tap-exchangeratesapi: source-exchange-rates
+  tap-facebook: source-facebook-marketing
+  tap-feed: source-rss
+  tap-getpocket: source-pocket
+  tap-googleads: source-google-ads
+  tap-lever: source-lever-hiring
+  tap-mailjet: source-mailjet-mail
+  tap-ms-teams: source-microsoft-teams
+  tap-openweathermap: source-openweather
+  tap-paypal: source-paypal-transaction
+  tap-pinterest-ads: source-pinterest
+  tap-postmark: source-postmarkapp
+  tap-smartsheet: source-smartsheets
+  tap-snapchat-ads: source-snapchat-marketing
+  tap-tiktok: source-tiktok-marketing
+  tap-twilio: source-twilio-taskrouter
+  tap-youtube-analytics: source-youtube-analytics-business
+loaders:

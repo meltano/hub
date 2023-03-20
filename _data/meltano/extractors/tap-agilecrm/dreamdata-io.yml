@@ -1,16 +1,16 @@
-description: Customer Relationship Management System
-label: Agile CRM
-name: tap-agilecrm
-logo_url: /assets/logos/extractors/agilecrm.png
-namespace: tap_agilecrm
-variant: dreamdata-io
-pip_url: git+https://github.com/dreamdata-io/tap-agilecrm.git
-repo: https://github.com/dreamdata-io/tap-agilecrm
-settings: []
 capabilities:
 - catalog
 - discover
+description: Customer Relationship Management System
 domain_url: https://www.agilecrm.com/
-maintenance_status: unknown
 keywords:
 - api
+label: Agile CRM
+logo_url: /assets/logos/extractors/agilecrm.png
+maintenance_status: inactive
+name: tap-agilecrm
+namespace: tap_agilecrm
+pip_url: git+https://github.com/dreamdata-io/tap-agilecrm.git
+repo: https://github.com/dreamdata-io/tap-agilecrm
+settings: []
+variant: dreamdata-io

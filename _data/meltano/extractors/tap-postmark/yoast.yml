@@ -1,16 +1,29 @@
-description: Application Email Service
-label: Postmark
-name: tap-postmark
-logo_url: /assets/logos/extractors/postmark.png
-namespace: tap_postmark
-variant: yoast
-pip_url: git+https://github.com/Yoast/singer-tap-postmark.git
-repo: https://github.com/Yoast/singer-tap-postmark
-settings: []
 capabilities:
 - catalog
 - discover
+- state
+description: Application Email Service
 domain_url: https://postmarkapp.com/developer
-maintenance_status: unknown
 keywords:
 - api
+label: Postmark
+logo_url: /assets/logos/extractors/postmark.png
+maintenance_status: active
+name: tap-postmark
+namespace: tap_postmark
+pip_url: git+https://github.com/Yoast/singer-tap-postmark.git
+repo: https://github.com/Yoast/singer-tap-postmark
+settings:
+- description: Your Postmark server token.
+  kind: password
+  label: Postmark Server Token
+  name: postmark_server_token
+- description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+settings_group_validation:
+- - postmark_server_token
+variant: yoast

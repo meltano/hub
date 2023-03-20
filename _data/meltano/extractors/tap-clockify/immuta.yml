@@ -1,16 +1,16 @@
-description: Time Tracking Software
-label: Clockify
-name: tap-clockify
-logo_url: /assets/logos/extractors/clockify.png
-namespace: tap_clockify
-variant: immuta
-pip_url: git+https://github.com/immuta/tap-clockify.git
-repo: https://github.com/immuta/tap-clockify
-settings: []
 capabilities:
 - catalog
 - discover
+description: Time Tracking Software
 domain_url: https://clockify.me/
-maintenance_status: unknown
 keywords:
 - api
+label: Clockify
+logo_url: /assets/logos/extractors/clockify.png
+maintenance_status: unknown
+name: tap-clockify
+namespace: tap_clockify
+pip_url: git+https://github.com/immuta/tap-clockify.git
+repo: https://github.com/immuta/tap-clockify
+settings: []
+variant: immuta

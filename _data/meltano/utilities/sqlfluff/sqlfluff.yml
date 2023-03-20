@@ -1,22 +1,102 @@
-name: sqlfluff
-label: SQLFluff
-namespace: sqlfluff
-pip_url: sqlfluff[dbt]
-maintenance_status: active
-repo: https://github.com/sqlfluff/sqlfluff
-variant: sqlfluff
 commands:
-  lint:
-    args: lint
-    description: Lint SQL in transform models.
   fix:
     args: fix
     description: Automatically fix SQL files according to your defined rules.
   fix-force:
     args: fix --force
-    description: Automatically fix SQL files according to your defined rules (does not ask for confirmation).
+    description: Automatically fix SQL files according to your defined rules (does
+      not ask for confirmation).
+  lint:
+    args: lint
+    description: Lint SQL in transform models.
+definition: is a linting tool for SQL files, often used with dbt to enforce SQL code
+  standards.
+domain_url: https://www.sqlfluff.com/
+label: SQLFluff
 logo_url: /assets/logos/utilities/sqlfluff.png
-definition: is a linting tool for SQL files, often used with dbt to enforce SQL code standards.
+maintenance_status: active
+name: sqlfluff
+namespace: sqlfluff
 next_steps: |
-  1. Customize [the config files](https://docs.sqlfluff.com/en/stable/configuration.html) to match your team's style guide.
+  1. Update the pip_url in your meltano.yml by appending your dbt adapter (e.g. dbt-snowflake, etc.).
+
+      ```yaml
+      pip_url: sqlfluff sqlfluff-templater-dbt dbt-core dbt-snowflake
+      ```
+  1. Re-install the plugin with the updated pip_url:
+
+     ```sh
+     meltano install utility sqlfluff
+     ```
+  1. Create a `.sqlfluff` file in the root directory of your project using the sample content below.
+    You will need to put your dbt adapter name in for `dialect` and `profiles_dir` without the dbt prefix (e.g. snowflake).
+    This [config file](https://docs.sqlfluff.com/en/stable/configuration.html)
+    is where you can customize the linting rules to match your team's style guide.
+    SQLFluff comes with logic defaults so you will only need to override configurations you want to change.
+
+      ```
+      [sqlfluff]
+      templater = dbt
+      dialect = <your_dialect_name>
+
+      [sqlfluff:templater:dbt]
+      project_dir = transform
+      profiles_dir = transform/profiles/<your_dialect_name>
+      profile = meltano
+      ```
+  1. Create a `.sqlfluffignore` in the root directory of your project using the sample content below.
+    This makes sure SQLFluff ignores auto generated sql or installed packages.
+
+      ```
+      .meltano/
+      utilities/
+      transform/dbt_packages/
+      transform/target/
+      transform/dbt_modules/
+      transform/macros/
+      ```
+  1. Depending on your dbt adapter you will need to override your dbt environment variables using the `env` key so when SQLFluff calls dbt your
+    [profile.yml env vars](https://github.com/meltano/files-dbt-snowflake/blob/c8ae6cde35716b6ada3ccf8f9b6f116ba37b95fe/bundle/transform/profiles/snowflake/profiles.yml#L15)
+    are properly set.
+    Refer to the Meltano transformer [docs](https://hub.meltano.com/transformers/) for details on what variables are needed for your adapter.
+    An example for Snowflake is shown below.
+
+      ```yaml
+      utilities:
+      - name: sqlfluff
+        variant: sqlfluff
+        pip_url: sqlfluff sqlfluff-templater-dbt dbt-core dbt-snowflake
+        settings:
+        - name: user
+          env: DBT_SNOWFLAKE_USER
+        - name: password
+          kind: password
+          env: DBT_SNOWFLAKE_PASSWORD
+        - name: role
+          env: DBT_SNOWFLAKE_ROLE
+        - name: account
+          env: DBT_SNOWFLAKE_ACCOUNT
+        - name: warehouse
+          env: DBT_SNOWFLAKE_WAREHOUSE
+        - name: schema
+          env: DBT_SNOWFLAKE_SCHEMA
+          value: foo # This isnt used so we just put a placeholder by default
+        - name: database
+          env: DBT_SNOWFLAKE_DATABASE
+          value: foo # This isnt used so we just put a placeholder by default
+      ```
+  1. SqlFluff does still need access to your warehouse so you have to supply valid credentials similar
+    to your dbt configs which will live under your meltano.yml config and `.env` file.
+
+      ```sh
+      meltano config sqlfluff set user <your username>
+      meltano config sqlfluff set account <your account>
+      meltano config sqlfluff set role <your role>
+      meltano config sqlfluff set warehouse <your warehouse>
+      meltano config sqlfluff set password <your password>
+      ````
   1. Run `meltano invoke sqlfluff:lint` to lint your SQL files.
+  1. Run `meltano invoke sqlfluff:fix` to automatically fix your SQL files based on your linting rules.
+pip_url: sqlfluff sqlfluff-templater-dbt dbt-core
+repo: https://github.com/sqlfluff/sqlfluff
+variant: sqlfluff

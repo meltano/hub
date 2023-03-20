@@ -1,0 +1,45 @@
+capabilities:
+- catalog
+- discover
+- state
+- about
+- stream-maps
+description: Low-code Platform
+domain_url: https://help.quickbase.com/api-guide/intro.html
+keywords:
+- api
+- meltano_sdk
+label: Quickbase
+logo_url: /assets/logos/extractors/quickbase.png
+maintenance_status: active
+name: tap-quickbase
+namespace: tap_quickbase_json
+pip_url: git+https://github.com/MainspringEnergy/tap-quickbase-json.git
+repo: https://github.com/MainspringEnergy/tap-quickbase-json
+settings:
+- description: Your quickbase app URL, e.g., `<yourdomain>.quickbase.com`
+  kind: string
+  label: Quickbase Hostname
+  name: qb_hostname
+- description: Your quickbase app id
+  kind: string
+  label: Quickbase App Id
+  name: qb_appid
+- description: User token that has API access
+  kind: password
+  label: Quickbase user token
+  name: qb_user_token
+- description: Earliest date to start fetching data
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: List tables that should be included in the catalog (only needed for
+    orgs with a large number of tables where fetching the catalog is expensive).
+  kind: array
+  label: Table catalog restriction
+  name: table_catalog
+settings_group_validation:
+- - qb_hostname
+  - qb_appid
+  - qb_user_token
+variant: mainspringenergy

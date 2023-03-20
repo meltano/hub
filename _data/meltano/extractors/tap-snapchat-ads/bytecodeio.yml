@@ -1,16 +1,17 @@
-description: Social Media Platform
-label: Snapchat Ads
-name: tap-snapchat-ads
-logo_url: /assets/logos/extractors/snapchat-ads.png
-namespace: tap_snapchat_ads
-variant: bytecodeio
-pip_url: git+https://github.com/bytecodeio/tap-snapchat-ads.git
-repo: https://github.com/bytecodeio/tap-snapchat-ads
-settings: []
 capabilities:
 - catalog
 - discover
+- state
+description: Social Media Platform
 domain_url: https://developers.snapchat.com/docs/
-maintenance_status: unknown
 keywords:
 - api
+label: Snapchat Ads
+logo_url: /assets/logos/extractors/snapchat-ads.png
+maintenance_status: unknown
+name: tap-snapchat-ads
+namespace: tap_snapchat_ads
+pip_url: git+https://github.com/bytecodeio/tap-snapchat-ads.git
+repo: https://github.com/bytecodeio/tap-snapchat-ads
+settings: []
+variant: bytecodeio

@@ -1,0 +1,208 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: IBM Plex Sans, "Helvetica Neue", sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  background: url("../images/meltano-background.jpeg");
+  color: #fff;
+}
+
+main {
+  display: flex;
+  flex-grow: 1;
+}
+
+header,
+main,
+footer {
+  flex-shrink: 0;
+}
+
+.inline-code-block {
+  display: inline;
+  padding: 3px;
+}
+
+/* BUTTONS AND LINKS */
+
+.nav__link {
+  color: #3438bf;
+  text-decoration: none;
+}
+
+.primary-button {
+  margin: 25px auto;
+  background: #d9042b;
+  color: #fff;
+  border-radius: 38px;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+/* PLUGIN PAGES (e.g. ../extractors) */
+
+.plugins-overview {
+  min-width: 70%;
+}
+
+.plugins-overview h1,
+.plugins-overview p {
+  margin-left: 25px;
+  margin-right: 25px;
+  text-align: center;
+}
+
+.plugins-list {
+  width: 100%;
+  height: auto;
+  background: #ffffff;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  padding-left: 0;
+  text-align: center;
+  margin: 40px auto 80px;
+}
+
+.plugins-list .page-single-plugin {
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  margin: 20px auto;
+  flex-basis: 50%;
+}
+
+.plugins-list .page-single-plugin:hover {
+  border-bottom: 5px solid #02a5a5;
+}
+
+.plugins-list .page-single-plugin a {
+  color: #3438bf;
+  text-decoration: none;
+}
+
+.plugins-list .pager-container {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  margin: 20px auto;
+}
+
+.plugins-list .pager-container .active {
+  background-color: #c0c0c4;
+}
+
+.plugins-list .pager-container__link {
+  text-align: center;
+  padding: 0.6rem 1.2rem;
+  color: #3438bf;
+  text-decoration: none;
+}
+
+/* TEMPLATES PAGES (e.g. ../utilities/airflow/) */
+
+.single-plugin-overview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 75%;
+}
+
+.single-plugin-overview h1 {
+  font-size: 2.5em;
+}
+
+.single-plugin-overview a {
+  color: #3438bf;
+  text-decoration: none;
+}
+
+.single-plugin-detail {
+  background: #ffffff;
+  color: #29292f;
+  display: flex;
+  flex-wrap: wrap;
+  word-wrap: break-word;
+  width: 100%;
+  text-align: left;
+}
+
+.single-plugin-detail .single-plugin-top-bar {
+  width: 100%;
+  border-bottom: 2px solid #62626e;
+  background: #fff;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.single-plugin-detail .single-plugin-main {
+  width: 100%;
+  text-align: left;
+  padding: 0 10px;
+}
+
+.single-plugin-detail .single-plugin-main pre {
+  margin: 20px auto;
+}
+
+.single-plugin-detail .single-plugin-main pre code {
+  display: inline-block;
+}
+
+.single-plugin-detail .single-plugin-aside {
+  width: 100%;
+  background: #f1f1f2;
+  word-break: break-word;
+}
+
+.single-plugin-detail .single-plugin-aside h4 {
+  color: #62626e;
+  margin: 10px auto;
+}
+
+.single-plugin-detail .single-plugin-aside .link-box {
+  display: flex;
+}
+
+.single-plugin-detail .single-plugin-aside .link-box .aside-icon {
+  width: 20px;
+  margin-right: 10px;
+}
+
+/* MEDIA QUERIES */
+
+@media (min-width: 768px) {
+  .plugins-overview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .plugins-overview h1 {
+    font-size: 2.5em;
+  }
+
+  .plugins-overview h1,
+  .plugins-overview p {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .plugins-list .page-single-plugin {
+    flex-basis: 20%;
+  }
+
+  .single-plugin-detail {
+    margin: 40px auto 80px;
+  }
+}

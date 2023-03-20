@@ -1,0 +1,16 @@
+capabilities:
+- catalog
+- discover
+description: Project and Resource Management Software
+domain_url: http://developer.mavenlink.com/
+keywords:
+- api
+label: Mavenlink
+logo_url: /assets/logos/extractors/mavenlink.png
+maintenance_status: unknown
+name: tap-mavenlink
+namespace: tap_mavenlink
+pip_url: git+https://github.com/dbt-labs/tap-mavenlink.git
+repo: https://github.com/dbt-labs/tap-mavenlink
+settings: []
+variant: dbt-labs
