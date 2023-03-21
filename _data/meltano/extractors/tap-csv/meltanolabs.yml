@@ -1,7 +1,6 @@
 capabilities:
 - discover
 - catalog
-- state
 description: Generic data extractor of CSV (comma separated value) files
 domain_url: https://en.wikipedia.org/wiki/Comma-separated_values
 keywords:
@@ -54,6 +53,11 @@ settings:
   label: CSV Files Definition
   name: csv_files_definition
   placeholder: Ex. files-def.json
+- description: When True, add the metadata columns (`_sdc_source_file`, `_sdc_source_file_mtime`,
+    `_sdc_source_lineno`) to output.
+  kind: boolean
+  label: Add Metadata Columns
+  name: add_metadata_columns
 settings_group_validation:
 - - files
 - - csv_files_definition
