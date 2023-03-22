@@ -17,25 +17,37 @@ settings:
 - description: Client Id for your application from Asana
   kind: string
   name: client_id
+  label: Client ID
 - description: Client Secret for your application from Asana
   kind: password
   name: client_secret
+  label: Client Secret
 - description: The redirect URI for oauth flow completion, this is provided by Asana
     during oauth setup
   kind: string
   name: redirect_uri
   placeholder: Ex. urn:xxxx:xx:oauth:2.0:oob
+  label: Redirect URI
 - description: |
     Full instructions for how to generate client credentials
     and subsequently the refresh token via curl or postman here
     https://developers.asana.com/docs/oauth
   kind: oauth
   name: refresh_token
+  label: Refresh Token
 - description: The date from which to start syncing records
   kind: date_iso8601
   name: start_date
+  label: Start Date
 - description: The timeout in seconds for a request to the Asana API
   kind: integer
   name: request_timeout
   value: 30
+  label: Request Timeout
+settings_group_validation:
+- - start_date
+  - client_id
+  - client_secret
+  - redirect_uri
+  - refresh_token
 variant: singer-io
