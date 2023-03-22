@@ -34,6 +34,7 @@ jobs:
       AWS_SECRET_ACCESS_KEY: "${{secrets.AWS_SECRET_ACCESS_KEY }}"
       AWS_SESSION_TOKEN: "${{secrets.AWS_SESSION_TOKEN }}"
     strategy:
+      fail-fast: false
       matrix: ${{ fromJson(needs.sdk_variants.outputs.matrix) }}
     steps:
     - uses: actions/checkout@v3.3.0
