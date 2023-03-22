@@ -14,6 +14,10 @@ jobs:
 
       - name: testing
         run: hub_utils get-variant-names $(pwd)
+
+      - name: testing 2
+        run: ls
+
       - name: Get Variants List
         id: get-variants-list
         run: echo $(pwd) && echo "VARIANTS=$(hub_utils get-variant-names $(pwd))" >> $GITHUB_OUTPUT
