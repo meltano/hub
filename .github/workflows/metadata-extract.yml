@@ -12,9 +12,11 @@ jobs:
       - name: Install hub_utils
         run: pipx install git+https://github.com/pnadolny13/hub-utils.git@github_action_commands
 
+      - name: testing
+        run: hub_utils get-variant-names $(pwd)
       - name: Get Variants List
         id: get-variants-list
-        run: echo pwd && echo "VARIANTS=$(hub_utils get-variant-names $(pwd))" >> $GITHUB_OUTPUT
+        run: echo $(pwd) && echo "VARIANTS=$(hub_utils get-variant-names $(pwd))" >> $GITHUB_OUTPUT
 
       - name: Set Dynamic Matrix
         id: setmatrix
