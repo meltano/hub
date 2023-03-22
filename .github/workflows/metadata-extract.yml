@@ -14,7 +14,7 @@ jobs:
 
       - name: Get Variants List
         id: get-variants-list
-        run: echo "VARIANTS=$(hub_utils get-variant-names $(pwd))" >> $GITHUB_OUTPUT
+        run: echo pwd && echo "VARIANTS=$(hub_utils get-variant-names $(pwd))" >> $GITHUB_OUTPUT
 
       - name: Set Dynamic Matrix
         id: setmatrix
