@@ -1,0 +1,41 @@
+name: Metadata Extract
+
+on:
+  workflow_dispatch:
+
+jobs:
+  sdk_variants:
+    runs-on: ubuntu-latest
+    outputs:
+       matrix: ${{ steps.setmatrix.outputs.matrix }}
+    steps:
+      - name: Install hub_utils
+        run: pipx install git+https://github.com/pnadolny13/hub-utils.git@github_action_commands
+
+      - name: Get Variants List
+        id: get-variants-list
+        run: echo "VARIANTS=$(hub_utils get-variant-names $(pwd))" >> $GITHUB_OUTPUT
+
+      - name: Set Dynamic Matrix
+        id: setmatrix
+        # ${{ steps.get-variants-list.outputs.VARIANTS }}
+        # matrixStringifiedObject="{\"include\":[{\"source-name\":\"extractors/tap-snowflake/meltanolabs.yml\"},{\"source-name\":\"extractors/tap-cloudwatch/meltanolabs.yml\"}]}"
+
+        run: |
+           matrixStringifiedObject="{\"include\":[{\"source-name\":\"extractors/tap-snowflake/meltanolabs.yml\"}]}"
+           echo "::set-output name=matrix::$matrixStringifiedObject"
+
+  metadata_extract_sdk:
+    name: Metadata Extract SDK
+    needs: sdk_variants
+    runs-on: ubuntu-latest
+    strategy:
+      matrix: ${{ fromJson(needs.sdk_variants.outputs.matrix) }}
+    steps:
+    - uses: actions/checkout@v3.3.0
+
+    - name: Install hub_utils
+      run: pipx install git+https://github.com/pnadolny13/hub-utils.git@github_action_commands
+
+    - name: Extract Metadata
+      run: hub_utils extract-metadata-v2 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.source-name }}" $(pwd)/extract_data

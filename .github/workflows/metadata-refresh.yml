@@ -4,23 +4,125 @@ on:
   workflow_dispatch:
 
 jobs:
+  # extract_airbyte:
+  #   runs-on: ubuntu-latest
+  #   strategy:
+  #     matrix:
+  #       source-name: ['source-s3', 'source-kafka']
+  #   container:
+  #     image: airbyte/${{ matrix.source-name }}:latest
+  #   steps:
+  #     - name: Get Airbyte Spec
+  #       run: $AIRBYTE_ENTRYPOINT spec > extractor--${{ matrix.source-name }}--airbyte.json
+  #       id: get-airbyte-stdout
+  #     - name: Print
+  #       run: cat extractor--${{ matrix.source-name }}--airbyte.json
+
+  # metadata_refresh_pr:
+  #   name: Metadata Refresh PR
+  #   needs: metadata_refresh
+
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #   - uses: actions/checkout@v3.3.0
+
+  #   - name: Get current date
+  #     id: date
+  #     run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+
+  #   - name: Create Pull Request
+  #     # This runs every time, even if theres failures. If theres no changes it wont open a PR.
+  #     if: always()
+  #     uses: peter-evans/create-pull-request@v4
+  #     with:
+  #       token: ${{ secrets.PAT }}
+  #       commit-message: Refresh plugin metadata ${{ steps.date.outputs.date }}
+  #       committer: GitHub <noreply@github.com>
+  #       author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+  #       signoff: false
+  #       branch: hub-bot-metadata-${{ github.run_id }}-${{ github.run_number }}-${{ github.run_attempt }}
+  #       delete-branch: false
+  #       title: '[Hub Bot] Refresh metadata ${{ steps.date.outputs.date }}'
+  #       body: |
+  #         Test
+  #         - testing
+  #       assignees: pnadolny13
+  #       reviewers: pnadolny13
+  #       draft: true
+
+  sdk_variants:
+    runs-on: ubuntu-latest
+    outputs:
+       matrix: ${{ steps.setmatrix.outputs.matrix }}
+    steps:
+      - name: Install hub_utils
+        run: pipx install git+https://github.com/pnadolny13/hub-utils.git@github_action_commands
+
+      - name: Get Variants List
+        id: get-variants-list
+        run: echo "VARIANTS=$(hub_utils get-variant-names $(pwd))" >> $GITHUB_OUTPUT
+
+      - name: Set Dynamic Matrix
+        id: setmatrix
+        # ${{ steps.get-variants-list.outputs.VARIANTS }}
+        # matrixStringifiedObject="{\"include\":[{\"source-name\":\"extractors/tap-snowflake/meltanolabs.yml\"},{\"source-name\":\"extractors/tap-cloudwatch/meltanolabs.yml\"}]}"
+
+        run: |
+           matrixStringifiedObject="{\"include\":[{\"source-name\":\"extractors/tap-snowflake/meltanolabs.yml\"}]}"
+           echo "::set-output name=matrix::$matrixStringifiedObject"
+
   metadata_refresh:
     name: Metadata Refresh
-
+    needs: sdk_variants
     runs-on: ubuntu-latest
-
+    strategy:
+      matrix: ${{ fromJson(needs.sdk_variants.outputs.matrix) }}
     steps:
     - uses: actions/checkout@v3.3.0
 
     - name: Install hub_utils
       run: pipx install git+https://github.com/pnadolny13/hub-utils.git@github_action_commands
 
-    - name: Get Variants List
-      id: get-variants-list
-      run: echo "VARIANTS=$(hub_utils get-variant-names $(pwd))" >> $GITHUB_OUTPUT
-
-    - name: Extract Metadata
-      run: hub_utils extract-metadata-v2 "${{ steps.get-variants-list.outputs.VARIANTS }}" $(pwd)/extract_data
-
     - name: Translate and Merge
-      run: hub_utils translate "${{ steps.get-variants-list.outputs.VARIANTS }}" $(pwd)/extract_data
+      run: HUB_ROOT_PATH=$(pwd) hub_utils translate "/home/runner/work/hub/hub/_data/meltano/${{ matrix.source-name }}" $(pwd)/extract_data
+
+    # - name: Commit changes
+    #   uses: EndBug/add-and-commit@v9
+    #   with:
+    #     add: '_data/meltano/*.yml'
+    #     fetch: true
+    #     push: false
+    #     # push: 'origin hub-bot-metadata-${{ github.run_id }}-${{ github.run_number }}-${{ github.run_attempt }} --set-upstream --force'
+    #     # message: 'Hub bot update: ${{ matrix.source-name }}'
+    #     # TODO get this working
+    #     new_branch: hub-bot-metadata-${{ github.run_id }}-${{ github.run_number }}-${{ github.run_attempt }}
+
+    - name: Git Log
+      run: |
+        git config --global user.name "pnadolny13"
+        git config --global user.email "patnadolny@gmail.com"
+
+        git checkout -b hub-bot-metadata-${{ github.run_id }}-${{ github.run_number }}-${{ github.run_attempt }}
+        git add -A
+        git commit -m "testing CI commit manually"
+        git status
+        git push --set-upstream origin hub-bot-metadata-${{ github.run_id }}-${{ github.run_number }}-${{ github.run_attempt }}
+
+    # - name: Git Log
+    #   run: git checkout -b hub-bot-metadata-${{ github.run_id }}-${{ github.run_number }}-${{ github.run_attempt }}
+
+    # - name: Git Log
+    #   run: git status
+
+    # - name: Git Add
+    #   run: git add _data/meltano/*.yml
+
+    # - name: Git Add
+    #   run: git commit -m "testing CI commit manually"
+
+    # - name: Git Log 2
+    #   run: git log
+
+    # - name: Git Log 3
+    #   run: git push --set-upstream origin hub-bot-metadata-${{ github.run_id }}-${{ github.run_number }}-${{ github.run_attempt }}
