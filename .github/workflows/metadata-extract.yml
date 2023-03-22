@@ -29,6 +29,11 @@ jobs:
     name: Metadata Extract SDK
     needs: sdk_variants
     runs-on: ubuntu-latest
+    env:
+      AWS_S3_BUCKET: "${{secrets.AWS_S3_BUCKET }}"
+      AWS_ACCESS_KEY_ID: "${{secrets.AWS_ACCESS_KEY_ID }}"
+      AWS_SECRET_ACCESS_KEY: "${{secrets.AWS_SECRET_ACCESS_KEY }}"
+      AWS_SESSION_TOKEN: "${{secrets.AWS_SESSION_TOKEN }}"
     strategy:
       matrix: ${{ fromJson(needs.sdk_variants.outputs.matrix) }}
     steps:
