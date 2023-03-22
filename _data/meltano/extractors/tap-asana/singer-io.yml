@@ -16,13 +16,16 @@ repo: https://github.com/singer-io/tap-asana
 settings:
 - description: Client Id for your application from Asana
   kind: string
+  label: Client ID
   name: client_id
 - description: Client Secret for your application from Asana
   kind: password
+  label: Client Secret
   name: client_secret
 - description: The redirect URI for oauth flow completion, this is provided by Asana
     during oauth setup
   kind: string
+  label: Redirect URI
   name: redirect_uri
   placeholder: Ex. urn:xxxx:xx:oauth:2.0:oob
 - description: |
@@ -30,12 +33,21 @@ settings:
     and subsequently the refresh token via curl or postman here
     https://developers.asana.com/docs/oauth
   kind: oauth
+  label: Refresh Token
   name: refresh_token
 - description: The date from which to start syncing records
   kind: date_iso8601
+  label: Start Date
   name: start_date
 - description: The timeout in seconds for a request to the Asana API
   kind: integer
+  label: Request Timeout
   name: request_timeout
   value: 30
+settings_group_validation:
+- - start_date
+  - client_id
+  - client_secret
+  - redirect_uri
+  - refresh_token
 variant: singer-io
