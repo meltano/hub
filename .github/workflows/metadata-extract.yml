@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  sdk_variants:
+  get_variants_list:
     runs-on: ubuntu-latest
     outputs:
        matrix: ${{ steps.setmatrix.outputs.matrix }}
@@ -14,19 +14,39 @@ jobs:
       - name: Install hub_utils
         run: pipx install git+https://github.com/pnadolny13/hub-utils.git@github_action_commands
 
-      - name: Get Variants List
-        id: get-variants-list
-        run: echo "VARIANTS=$(hub_utils get-variant-names $(pwd))" >> $GITHUB_OUTPUT
+      - name: Get Variants List - SDK Extractors
+        id: get-variants-list-sdk-ex
+        run: echo "VARIANTS_SDK_EX=$(hub_utils get-variant-names $(pwd) --plugin-type=extractors --metadata-type=sdk)" >> $GITHUB_OUTPUT
 
-      - name: Set Dynamic Matrix
-        id: setmatrix
+      - name: Set Dynamic Matrix - SDK Extractors
+        id: setmatrix_sdk_ex
         run: |
-           matrixStringifiedObject="{\"include\": ${{ steps.get-variants-list.outputs.VARIANTS }}}"
-           echo "::set-output name=matrix::$matrixStringifiedObject"
+           matrixStringifiedObject="{\"include\": ${{ steps.get-variants-list-sdk-ex.outputs.VARIANTS_SDK_EX }}}"
+           echo "::set-output name=sdk_ex_matrix::$matrixStringifiedObject"
 
-  metadata_extract_sdk:
-    name: Metadata Extract SDK
-    needs: sdk_variants
+      - name: Get Variants List - SDK Loaders
+        id: get-variants-list-sdk-loaders
+        run: echo "VARIANTS_SDK_LOADERS=$(hub_utils get-variant-names $(pwd) --plugin-type=loaders --metadata-type=sdk)" >> $GITHUB_OUTPUT
+
+      - name: Set Dynamic Matrix - SDK Loaders
+        id: setmatrix_sdk_loaders
+        run: |
+           matrixStringifiedObject="{\"include\": ${{ steps.get-variants-list-sdk-loaders.outputs.VARIANTS_SDK_LOADERS }}}"
+           echo "::set-output name=sdk_loaders_matrix::$matrixStringifiedObject"
+
+      - name: Get Variants List - Airbyte
+        id: get-variants-list-airbyte
+        run: echo "VARIANTS_AIRBYTE=$(hub_utils get-variant-names $(pwd) --metadata-type=airbyte)" >> $GITHUB_OUTPUT
+
+      - name: Set Dynamic Airbyte Matrix
+        id: setmatrix_airbyte
+        run: |
+           matrixStringifiedObject="{\"include\": ${{ steps.get-variants-list-airbyte.outputs.VARIANTS_AIRBYTE }}}"
+           echo "::set-output name=airbyte_matrix::$matrixStringifiedObject"
+
+  metadata_extract_sdk_ex:
+    name: Metadata Extract - SDK Extractors
+    needs: get_variants_list
     runs-on: ubuntu-latest
     env:
       AWS_S3_BUCKET: "${{secrets.AWS_S3_BUCKET }}"
@@ -35,7 +55,7 @@ jobs:
       AWS_SESSION_TOKEN: "${{secrets.AWS_SESSION_TOKEN }}"
     strategy:
       fail-fast: false
-      matrix: ${{ fromJson(needs.sdk_variants.outputs.matrix) }}
+      matrix: ${{ fromJson(needs.get_variants_list.outputs.sdk_ex_matrix) }}
     steps:
     - uses: actions/checkout@v3.3.0
 
@@ -44,3 +64,47 @@ jobs:
 
     - name: Extract Metadata
       run: hub_utils extract-metadata-v2 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.source-name }}" $(pwd)/extract_data
+
+  metadata_extract_sdk_loaders:
+    name: Metadata Extract - SDK Loaders
+    needs: get_variants_list
+    runs-on: ubuntu-latest
+    env:
+      AWS_S3_BUCKET: "${{secrets.AWS_S3_BUCKET }}"
+      AWS_ACCESS_KEY_ID: "${{secrets.AWS_ACCESS_KEY_ID }}"
+      AWS_SECRET_ACCESS_KEY: "${{secrets.AWS_SECRET_ACCESS_KEY }}"
+      AWS_SESSION_TOKEN: "${{secrets.AWS_SESSION_TOKEN }}"
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJson(needs.get_variants_list.outputs.sdk_loaders_matrix) }}
+    steps:
+    - uses: actions/checkout@v3.3.0
+
+    - name: Install hub_utils
+      run: pipx install git+https://github.com/pnadolny13/hub-utils.git@github_action_commands
+
+    - name: Extract Metadata
+      run: hub_utils extract-metadata-v2 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.source-name }}" $(pwd)/extract_data
+
+  metadata_extract_airbyte:
+    name: Metadata Extract Airbyte
+    needs: get_variants_list
+    runs-on: ubuntu-latest
+    env:
+      AWS_S3_BUCKET: "${{secrets.AWS_S3_BUCKET }}"
+      AWS_ACCESS_KEY_ID: "${{secrets.AWS_ACCESS_KEY_ID }}"
+      AWS_SECRET_ACCESS_KEY: "${{secrets.AWS_SECRET_ACCESS_KEY }}"
+      AWS_SESSION_TOKEN: "${{secrets.AWS_SESSION_TOKEN }}"
+    strategy:
+      matrix:
+        matrix: ${{ fromJson(needs.get_variants_list.outputs.airbyte_matrix) }}
+    container:
+      image: airbyte/${{ matrix.source-name }}:latest
+    steps:
+      - name: Get Airbyte Spec
+        run: $AIRBYTE_ENTRYPOINT spec > extractor--${{ matrix.source-name }}--airbyte.json
+        id: get-airbyte-stdout
+      - name: Print
+        run: cat extractor--${{ matrix.source-name }}--airbyte.json
+      - name: Python
+        run: python --version
