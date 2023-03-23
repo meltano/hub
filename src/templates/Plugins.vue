@@ -168,7 +168,7 @@
                     </ul>
                   </span>
                   <div>
-                    <p class="text-3xl pb-4 pt-20 font-bold" id="getting-started">Getting Started</p>
+                    <p class="text-3xl pb-4 pt-20 font-bold font-hg" id="getting-started">Getting Started</p>
                     <PluginPrereqSection
                       :plugin="$page.plugins"
                       :plugin_type="$page.plugins.pluginType"

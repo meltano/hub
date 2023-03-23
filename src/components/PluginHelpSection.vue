@@ -1,13 +1,13 @@
 <template>
   <div class="help-module">
-    <p class="text-3xl pb-4 pt-20 font-bold" id="contribute">Something missing?</p>
+    <p class="text-3xl pb-4 pt-20 font-bold font-hg" id="contribute">Something missing?</p>
     <p>This page is generated from a YAML file that you can contribute changes to.</p>
     <a
       v-if="name"
       :href="`https://github.com/meltano/hub/blob/main/_data/meltano/${plugin_type_plural}/${name}/${variant}.yml`"
       >Edit it on GitHub!</a
     >
-    <p class="text-3xl pb-4 pt-20 font-bold" id="looking-for-help">Looking for help?</p>
+    <p class="text-3xl pb-4 pt-20 font-bold font-hg" id="looking-for-help">Looking for help?</p>
     <div v-if="$page.plugins.keywords.includes('airbyte_protocol')">
       If you're having trouble getting the
       {{ name }} {{ plugin_type }} to work, read the

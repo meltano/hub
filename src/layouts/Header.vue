@@ -158,6 +158,7 @@ export default {
   display: none;
   position: relative;
   padding: 16px 4px;
+  font-family: "IBM Plex Sans",
 }
 
 .dropdown-content {

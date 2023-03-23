@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p class="text-3xl pb-4 pt-20 font-bold" id="capabilities">Capabilities</p>
+    <p class="text-3xl pb-4 pt-20 font-bold font-hg" id="capabilities">Capabilities</p>
     <span class="space-y-3" v-if="capabilities && capabilities.length">
       <p>
         The current capabilities for
