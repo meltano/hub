@@ -312,6 +312,7 @@ extractors:
   tap-pagerduty: goodeggs
   tap-pardot: singer-io
   tap-parquet: dataops-tk
+  tap-partnerize: voxmedia
   tap-partnerstack: airbyte
   tap-partoo: gendarmerienationale
   tap-paypal: yoast
