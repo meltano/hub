@@ -17,4 +17,8 @@ export default function main(Vue, { head }) {
   head.script.push({
     src: "https://buttons.github.io/buttons.js",
   });
+  head.meta.push({
+    name: 'viewport',
+    content: 'width=device-width, initial-scale=1'
+  })
 }

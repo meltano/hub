@@ -24,9 +24,43 @@ module.exports = {
       "4xl": "2.25rem",
       "5xl": "3rem",
       "6xl": "4rem",
-      "7xl": "5rem",
+      "7xl": "5rem"
     },
-    extend: {},
+    extend: {
+      borderRadius: {
+        'none': '0',       
+        'full': '9999px'
+      },
+      colors: {
+        white: {
+          DEFAULT: "#ffffff",
+          "07": "rgba(255, 255, 255, 0.7)"
+        },
+        transparent: {
+          DEFAULT: "transparent",
+        },
+        blue: {
+          DEFAULT: "#3A64FA",
+          light: "#18C3FA"
+        },
+        purple: {
+          DEFAULT: "#311772",
+          50: "#E9E5FB",
+          lila: "#DAD1FE",
+          hub: "#E9E5FB",
+        },
+        par: {
+          DEFAULT: "#080216",
+        }
+      },
+      screens: {
+        '2xl': {'min': '1536px'},
+        'xl': {'min': '1280px'},
+        'lg': {'min': '1024px'},
+        'md': {'min': '768px'},
+        'sm': {'min': '640px'},
+      }
+    },
     // safelist: [{ pattern: /.*/, variants: ["lg", "md", "sm", "hover"] }],
   },
   // eslint-disable-next-line global-require

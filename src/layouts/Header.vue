@@ -9,14 +9,17 @@ export default {
 };
 </script>
 <template>
-  <header class="header">
+  <header class="header max-w-7xl w-full mx-auto">
     <div class="top-nav">
-      <div class="py-3">
-        <g-link to="/" class="flex">
+      <div class="py-5 lg:py-6 xl:py-7 lg:w-1/3 xl:w-1/4">
+        <g-link to="/" class="block logo-wrap">
           <g-image src="../assets/images/meltano-logo.svg" class="logo-img" />
         </g-link>
       </div>
-      <nav class="nav">
+      <div class="flex-grow w-full pl-4 hidden xl:block lg:w-1/3 xl:w-1/2">
+        <Search />
+      </div>
+      <nav class="nav lg:w-2/3 xl:w-1/4">
         <button class="hamburger"></button>
         <div class="mx-2">
           <a href="https://github.com/meltano/meltano"
@@ -26,7 +29,7 @@ export default {
           /></a>
         </div>
         <div class="dropdown">
-          <a class="page-link" href="#">Plugins</a>
+          <a class="page-link pointer-events-none" href="#">Plugins</a>
           <div class="dropdown-content">
             <g-link class="nav__link" to="/extractors">
               <h3>Extractors</h3>
@@ -46,7 +49,7 @@ export default {
           </div>
         </div>
         <div class="dropdown">
-          <a class="page-link" href="#">Singer</a>
+          <a class="page-link pointer-events-none" href="#">Singer</a>
           <div class="dropdown-content">
             <g-link class="nav__link" to="/extractors">
               <h3>Taps</h3>
@@ -66,7 +69,7 @@ export default {
           </div>
         </div>
         <div class="dropdown">
-          <a class="page-link" href="#">Documentation</a>
+          <a class="page-link pointer-events-none" href="#">Documentation</a>
           <div class="dropdown-content">
             <g-link class="nav__link" to="/add-a-tap">
               <h3>Add a Tap/Target</h3>
@@ -78,15 +81,20 @@ export default {
         </div>
       </nav>
     </div>
-    <div class="bottom-search">
+    <div class="bottom-search block xl:hidden px-4 mt-4 max-w-2xl mx-auto">
       <Search />
     </div>
   </header>
 </template>
 
 <style lang="scss">
-.logo-img {
-  width: 150px;
+.logo-wrap {
+  display: block;
+  flex-grow: 1;
+}
+
+.logo-img, .logo-wrap {
+  width: 135px;
   @media (min-width: 768px) {
     width: 200px;
   }
@@ -104,8 +112,10 @@ export default {
   }
 }
 .header {
+  position: relative;
+  z-index: 20;
   display: flex;
-  background: #fff;
+  background: transparent;
   flex-wrap: wrap;
 
   .top-nav {
@@ -114,7 +124,6 @@ export default {
     justify-content: space-between;
     padding: 0 20px;
     align-items: center;
-    border-bottom: 2px solid #f1f1f2;
 
     nav {
       display: flex;
@@ -130,7 +139,8 @@ export default {
   }
 
   a {
-    color: #3438bf;
+    color: #080216;
+    font-weight: 500;
     text-decoration: none;
   }
 
@@ -144,26 +154,43 @@ export default {
 }
 
 .dropdown {
+  cursor: pointer;
   display: none;
   position: relative;
+  padding: 16px 4px;
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
-  overflow: auto;
+  // overflow: auto;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   text-align: center;
   justify-content: center;
   width: auto;
   height: auto;
-  right: 0;
+  top: 48px;
+  right: 50%;
   flex-wrap: wrap;
+  z-index: 10;
+
+  &::after {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    left: 50%;
+    margin-left: -14px;
+    content: "";
+    display: block;
+    transform: rotate(45deg) translateY(-10px);
+    background-color: #1E1E1E;
+    z-index: 0;
+  }
 }
 
 .dropdown-content a {
   display: flex;
-  color: #3438bf;
+  color: #ffffff;
   text-decoration: none;
   width: 180px;
   padding: 10px 5px;
@@ -173,12 +200,14 @@ export default {
 
 .dropdown:hover .dropdown-content {
   display: flex;
-  background: #fff;
+  transform: translateX(50%);
+  margin-left: 60px;
+  background: #1E1E1E;
 }
 
 .dropdown-content a:hover {
-  color: #fff;
-  background-color: #3438bf;
+  color: #18C3FA;
+  // background-color: #3438bf;
 }
 
 @media (min-width: 391px) {
@@ -193,6 +222,7 @@ export default {
 @media (min-width: 1000px) {
   .header {
     .dropdown {
+      padding: 12px 8px;
       .page-link {
         margin: 0 10px;
       }
