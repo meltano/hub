@@ -1,0 +1,39 @@
+capabilities:
+- catalog
+- discover
+- state
+- about
+- stream-maps
+description: Partnerize API
+domain_url: https://api-docs.partnerize.com/partner
+keywords:
+- api
+- meltano_sdk
+- partnerize
+label: Partnerize
+logo_url: /assets/logos/extractors/partnerize.png
+maintenance_status: active
+name: tap-partnerize
+namespace: tap_partnerize
+pip_url: git+https://github.com/voxmedia/tap-partnerize.git
+repo: https://github.com/voxmedia/tap-partnerize
+settings:
+- description: The username to authenticate the Partnerize account
+  label: Username
+  name: username
+- description: The password to authenticate the Partnerize account
+  kind: password
+  label: Password
+  name: password
+- description: The partner id
+  label: Publisher ID
+  name: publisher_id
+- description: The earliest record date to retrieve
+  label: Start Date
+  name: start_date
+settings_group_validation:
+- - username
+  - password
+  - publisher_id
+  - start_date
+variant: voxmedia
