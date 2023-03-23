@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <div class="plugins-overview">
-      <p class="text-3xl md:text-4xl pb-4 pt-8 font-bold">Welcome to MeltanoHub for Singer</p>
+      <p class="text-3xl md:text-5xl pb-4 pt-8 font-bold font-pjs text-purple">Welcome to MeltanoHub for Singer</p>
       <p>
         MeltanoHub for Singer is the leading destination for the Singer Community to discover taps,
         targets, and other valuable resources. Read the
@@ -19,7 +19,7 @@
         <li class="page-single-plugin">spec</li>
       </ul>
 
-      <p class="text-3xl md:text-4xl pb-4 pt-8 font-bold">API Resources</p>
+      <p class="text-3xl md:text-5xl pb-4 pt-8 font-bold font-pjs text-purple">API Resources</p>
       <p>
         MeltanoHub for Singer is built for the entire Singer community. We have several resources
         available at a versioned endpoint that can be used by other organizations to build a catalog

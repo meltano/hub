@@ -29,7 +29,7 @@ export default {
           /></a>
         </div>
         <div class="dropdown">
-          <a class="page-link pointer-events-none" href="#">Plugins</a>
+          <a class="page-link" href="#">Plugins</a>
           <div class="dropdown-content">
             <g-link class="nav__link" to="/extractors">
               <h3>Extractors</h3>
@@ -49,7 +49,7 @@ export default {
           </div>
         </div>
         <div class="dropdown">
-          <a class="page-link pointer-events-none" href="#">Singer</a>
+          <a class="page-link" href="#">Singer</a>
           <div class="dropdown-content">
             <g-link class="nav__link" to="/extractors">
               <h3>Taps</h3>
@@ -69,7 +69,7 @@ export default {
           </div>
         </div>
         <div class="dropdown">
-          <a class="page-link pointer-events-none" href="#">Documentation</a>
+          <a class="page-link" href="#">Documentation</a>
           <div class="dropdown-content">
             <g-link class="nav__link" to="/add-a-tap">
               <h3>Add a Tap/Target</h3>
@@ -158,16 +158,15 @@ export default {
   display: none;
   position: relative;
   padding: 16px 4px;
-  font-family: "IBM Plex Sans",
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 500;
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
   border-radius: 5px;
-  // overflow: auto;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  text-align: center;
   justify-content: center;
   width: auto;
   height: auto;
@@ -195,8 +194,7 @@ export default {
   color: #ffffff;
   text-decoration: none;
   width: 180px;
-  padding: 10px 5px;
-  text-align: center;
+  padding: 10px 16px;
   flex-direction: column;
 }
 

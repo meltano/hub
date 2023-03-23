@@ -1,11 +1,13 @@
 <template>
   <Layout>
     <div class="plugins-overview w-full max-w-7xl mx-auto">
-      <p class="text-3xl md:text-4xl pb-4 pt-8 font-bold">Utilities</p>
-      <p>
-        Meltano utilities plugins allow virtually any open source data tool to be integrated with
-        your data project.
-      </p>
+      <p class="text-3xl md:text-5xl pb-4 pt-8 font-bold font-pjs text-purple">Utilities</p>
+      <div class="max-w-3xl mx-auto">
+        <p>
+          Meltano utilities plugins allow virtually any open source data tool to be integrated with
+          your data project.
+        </p>
+      </div>
       <div
         class="grid grid-cols-2 md:grid-cols-4 rounded-lg p-4 mt-4 md:m-4 gap-4 w-full place-items-stretch"
         role="list"

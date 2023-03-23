@@ -5,7 +5,7 @@ body {
 }
 
 body {
-  font-family: "IBM Plex Sans", "Helvetica Neue", sans-serif;
+  font-weight: 400;
   margin: 0;
   padding: 0;
   line-height: 1.5; 
@@ -49,12 +49,24 @@ footer {
 
 /* PLUGIN PAGES (e.g. ../extractors) */
 
-.plugins-overview h1,
-.plugins-overview p {
+.plugins-overview h1 {
   margin-left: 25px;
   margin-right: 25px;
   text-align: center;
-  font-family: "Hanken Grotesk";
+  font-weight: 600;
+  font-family: 'Plus Jakarta Sans', sans-serif; 
+}
+
+.plugins-overview  > p {
+  font-weight: 600;
+  font-family: 'Plus Jakarta Sans', sans-serif; 
+  text-align: center;
+}
+
+.plugins-overview  > div > p {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-weight: 400;
+  text-align: center;
 }
 
 .plugins-list {
@@ -217,14 +229,34 @@ footer {
   }
 }
 
+/* 
+font-family: 'Hanken Grotesk', sans-serif;
+font-family: 'IBM Plex Mono', monospace;
+font-family: 'Inter', sans-serif;
+font-family: 'Plus Jakarta Sans', sans-serif; 
+*/
+.font-pjs {
+  font-family: 'Plus Jakarta Sans', sans-serif; 
+}
+
 .font-hg {
-  font-family: "Hanken Grotesk";
+  font-family: 'Hanken Grotesk', sans-serif;
 }
 .font-ibm {
-  font-family: "IBM Plex Mono";
+  font-family: 'IBM Plex Mono', monospace;
 }
 
 pre[class*="language-"] {
-  overflow: scroll !important;
+  overflow-x: scroll !important;
   width: 100%;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  font-family: 'Plus Jakarta Sans', sans-serif; 
+  color: #311772;
 }

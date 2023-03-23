@@ -38,14 +38,14 @@
                 </div>
               </td>
               <td>
-                <p class="text-3xl lg:text-4xl pt-6 lg:pt-8 pb-4 lg:pb-6 font-hg font-bold">
+                <p class="text-3xl lg:text-5xl pt-6 lg:pt-8 pb-4 lg:pb-6 font-bold font-pjs text-purple">
                   {{ $page.plugins.label }}
                 </p>
-                <p class="text-lg lg:text-2xl">
+                <p class="text-lg">
                   <code>{{ $page.plugins.name }} ({{ $page.plugins.variant }} variant)</code>
                 </p>
                 <p>
-                  <b>{{ $page.plugins.description }}</b>
+                  <b class="font-hg">{{ $page.plugins.description }}</b>
                 </p>
               </td>
             </tr>
@@ -138,7 +138,7 @@
                       for obfuscating, filtering, or removing sensitive data from streams.
                     </span>
                     <span v-if="$page.plugins.pluginType === 'utility' && $page.plugins.ext_repo">
-                      <p class="text-3xl md:text-4xl pb-4 pt-8 font-bold">EDK Based Plugin</p>
+                      <p class="text-3xl md:text-5xl pb-4 pt-8 font-bold font-pjs text-purple">EDK Based Plugin</p>
                       This utility is based on the Meltano Extension Developer Kit (EDK) which is the
                       preferred way to build and add non-Singer plugins to Meltano Hub. For more
                       information about the EDK, please read

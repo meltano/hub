@@ -409,26 +409,8 @@ export default {
 </script>
 
 <style>
-  /* FONTS */
-
-  @font-face {
-    font-family: "Hanken Grotesk";
-    src: url("../assets/fonts/HankenGrotesk-Regular.woff2") format("woff2"), url("../assets/fonts/HankenGrotesk-Regular.woff") format("woff");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: "IBM Plex Mono";
-    src: url("../assets/fonts/IBMPlexMono-Regular.woff2") format("woff2"), url("../assets/fonts/IBMPlexMono-Regular.woff") format("woff");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-  }
-
   .p3 {
-    font-family: "Hanken Grotesk";
+    font-family: 'Hanken Grotesk', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -436,7 +418,7 @@ export default {
   }
 
   .btn {
-    font-family: "IBM Plex Mono";
+    font-family: 'IBM Plex Mono', monospace;
     -webkit-transition: all 0.2s ease;
     -moz-transition: all 0.2s ease;
     -ms-transition: all 0.2s ease;
@@ -486,7 +468,7 @@ export default {
   }
 
   .footer-col-title {
-    font-family: "IBM Plex Mono";
+    font-family: 'IBM Plex Mono', monospace;
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -523,7 +505,7 @@ export default {
 
   .footer-list-title {
     margin: 0;
-    font-family: "IBM Plex Mono";
+    font-family: 'IBM Plex Mono', monospace;
     font-style: normal;
     font-weight: 400;
     font-size: 15px;
@@ -532,7 +514,7 @@ export default {
   }
 
   .footer-list-info {
-    font-family: "Hanken Grotesk";
+    font-family: 'Hanken Grotesk', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 13px;
@@ -624,7 +606,7 @@ export default {
   }
 
   .footer-legal a {
-    font-family: "IBM Plex Mono";
+    font-family: 'IBM Plex Mono', monospace;
     font-style: normal;
     font-weight: 400;
     font-size: 14px;

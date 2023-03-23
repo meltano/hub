@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <div class="home-details mx-auto">
-      <p class="text-5xl tracking-wide mb-3">Welcome to Meltano Hub</p>
+      <p class="text-5xl tracking-wide font-pjs font-bold text-purple mb-3">Welcome to Meltano Hub</p>
       <p class="text-xl mb-2 max-w-3xl mx-auto">
         <a class="underline hover:no-underline hover:text-blue" href="https://meltano.com" target="_blank">Meltano</a> is your CLI for ELT+. Open source,
         flexible, scales to your needs &mdash; with a data engineering workflow you'll love.

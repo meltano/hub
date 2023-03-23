@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <div class="plugins-overview w-full max-w-7xl mx-auto">
-      <p class="text-3xl md:text-4xl pb-4 pt-8 font-bold">Extractors</p>
+      <p class="text-3xl md:text-5xl pb-4 pt-8 font-bold font-pjs text-purple">Extractors</p>
       <div class="max-w-3xl mx-auto">
         <p class="mb-4">
           Meltano lets you easily extract data out of arbitrary sources (databases, SaaS APIs, and
