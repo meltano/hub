@@ -99,14 +99,17 @@ jobs:
       AWS_SECRET_ACCESS_KEY: "${{secrets.AWS_SECRET_ACCESS_KEY }}"
       AWS_SESSION_TOKEN: "${{secrets.AWS_SESSION_TOKEN }}"
     strategy:
+      fail-fast: false
       matrix: ${{ fromJson(needs.get_variants_list.outputs.airbyte_matrix) }}
     container:
-      image: ${{ matrix.image-name }}:latest
+      image: airbyte/${{ matrix.source-name }}:latest
     steps:
+      - name: Print
+        run: printenv
       - name: Get Airbyte Spec
-        run: $AIRBYTE_ENTRYPOINT spec > extractor--${{ matrix.plugin-name }}--airbyte.json
+        run: $AIRBYTE_ENTRYPOINT spec > extractor--${{ matrix.source-name }}--airbyte.json
         id: get-airbyte-stdout
       - name: Print
-        run: cat extractor--${{ matrix.plugin-name }}--airbyte.json
+        run: cat extractor--${{ matrix.source-name }}--airbyte.json
       - name: Python
         run: python --version
