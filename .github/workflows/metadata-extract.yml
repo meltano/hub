@@ -115,6 +115,7 @@ jobs:
 
   metadata_extract_airbyte_p2:
     name: Airbyte - Part 2 Metadata Extract
+    if: ${{ always() }}
     needs: [metadata_extract_airbyte_p1, get_variants_list]
     runs-on: ubuntu-latest
     env:
