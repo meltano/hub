@@ -413,7 +413,7 @@ export default {
 
   @font-face {
     font-family: "Hanken Grotesk";
-    src: url("/fonts/HankenGrotesk-Regular.woff2") format("woff2"), url("/fonts/HankenGrotesk-Regular.woff") format("woff");
+    src: url("../assets/fonts/HankenGrotesk-Regular.woff2") format("woff2"), url("../assets/fonts/HankenGrotesk-Regular.woff") format("woff");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -421,7 +421,7 @@ export default {
 
   @font-face {
     font-family: "IBM Plex Mono";
-    src: url("/assets/fonts/IBMPlexMono-Regular.woff2") format("woff2"), url("/assets/fonts/IBMPlexMono-Regular.woff") format("woff");
+    src: url("../assets/fonts/IBMPlexMono-Regular.woff2") format("woff2"), url("../assets/fonts/IBMPlexMono-Regular.woff") format("woff");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -456,7 +456,7 @@ export default {
     max-width: 100%;
     position: relative;
     overflow-x: hidden;
-    background-image: url(/assets/images/footer-light-bg.webp);
+    background-image: url(../assets/images/footer-light-bg.webp);
   }
 
   .footer-container {
