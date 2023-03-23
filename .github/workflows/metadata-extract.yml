@@ -66,7 +66,7 @@ jobs:
   #     run: pipx install git+https://github.com/pnadolny13/hub-utils.git@github_action_commands
 
   #   - name: Extract Metadata
-  #     run: hub_utils extract-metadata-v2 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.source-name }}" $(pwd)/extract_data
+  #     run: hub_utils extract-metadata-v2 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" $(pwd)/extract_data
 
   # metadata_extract_sdk_loaders:
   #   name: SDK Loaders - Metadata Extract
@@ -87,7 +87,7 @@ jobs:
   #     run: pipx install git+https://github.com/pnadolny13/hub-utils.git@github_action_commands
 
   #   - name: Extract Metadata
-  #     run: hub_utils extract-metadata-v2 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.source-name }}" $(pwd)/extract_data
+  #     run: hub_utils extract-metadata-v2 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" $(pwd)/extract_data
 
   metadata_extract_airbyte:
     name: Airbyte - Metadata Extract
@@ -101,12 +101,12 @@ jobs:
     strategy:
       matrix: ${{ fromJson(needs.get_variants_list.outputs.airbyte_matrix) }}
     container:
-      image: airbyte/${{ matrix.source-name }}:latest
+      image: ${{ matrix.image-name }}:latest
     steps:
       - name: Get Airbyte Spec
-        run: $AIRBYTE_ENTRYPOINT spec > extractor--${{ matrix.source-name }}--airbyte.json
+        run: $AIRBYTE_ENTRYPOINT spec > extractor--${{ matrix.plugin-name }}--airbyte.json
         id: get-airbyte-stdout
       - name: Print
-        run: cat extractor--${{ matrix.source-name }}--airbyte.json
+        run: cat extractor--${{ matrix.plugin-name }}--airbyte.json
       - name: Python
         run: python --version
