@@ -28,6 +28,10 @@ settings:
   kind: string
   label: Path
   name: path
+- description: AWS Bucket Region
+  kind: string
+  label: AWS Region
+  name: aws_region
 - description: "Determines the folder-structure. Alternatives are: 'simple', 'date_hierarchy'\
     \ and 'both'."
   kind: string
