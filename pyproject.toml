@@ -12,6 +12,7 @@ typer = {extras = ["all"], version = "^0.6.1"}
 ruamel-yaml = "^0.17.21"
 meltano = "^2.11.1"
 yamllint = "^1.28.0"
+boto3 = "^1.26.96"
 
 
 [tool.poetry.group.dev.dependencies]

@@ -80,6 +80,11 @@ class Utilities:
             data = self.yaml.load(f)
         return data
 
+    def _read_json(self, path):
+        with open(path, "r") as f:
+            data = json.load(f)
+        return data
+
     @staticmethod
     def _get_plugin_name(repo_url: str):
         return repo_url.split("/")[-1]
@@ -491,17 +496,21 @@ class Utilities:
         new_def['settings_group_validation'] = sgv
         return new_def
 
+    def _test_exception(self, plugin_name, plugin_type, pip_url, namespace, executable, is_meltano_sdk):
+        if self._prompt("Run install test?", True, type=bool):
+            self._install_test(plugin_name, plugin_type, pip_url, namespace, executable)
+        if is_meltano_sdk:
+            if self._prompt("Scrape SDK --about settings?", True, type=bool):
+                try:
+                    return MeltanoUtil.sdk_about(plugin_name)
+                except Exception as e:
+                    if self._prompt("Scrape failed! Provide as json?", True, type=bool):
+                        return json.loads(self._prompt("Provide --about output"))
+
+
     def _test(self, plugin_name, plugin_type, pip_url, namespace, executable, is_meltano_sdk):
         try:
-            if self._prompt("Run install test?", True, type=bool):
-                self._install_test(plugin_name, plugin_type, pip_url, namespace, executable)
-            if is_meltano_sdk:
-                if self._prompt("Scrape SDK --about settings?", True, type=bool):
-                    try:
-                        return MeltanoUtil.sdk_about(plugin_name)
-                    except Exception as e:
-                        if self._prompt("Scrape failed! Provide as json?", True, type=bool):
-                            return json.loads(self._prompt("Provide --about output"))
+            self._test_exception(plugin_name, plugin_type, pip_url, namespace, executable, is_meltano_sdk)
         except Exception as e:
             print(e)
 
