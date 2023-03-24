@@ -82,7 +82,7 @@ jobs:
         python-version: '3.9'
 
     - name: Install hub_utils
-      run: pipx install git+https://github.com/pnadolny13/hub-utils.git@github_action_commands --python $(which python)
+      run: pipx uninstall hub_utils ; pipx install git+https://github.com/pnadolny13/hub-utils.git@github_action_commands --python $(which python)
       
     - name: Extract Metadata (3.9)
       if: always() && (steps.extract_310.outcome == 'failure')
@@ -97,7 +97,7 @@ jobs:
         python-version: '3.8'
 
     - name: Install hub_utils
-      run: pipx install git+https://github.com/pnadolny13/hub-utils.git@github_action_commands --python $(which python)
+      run: pipx uninstall hub_utils ; pipx install git+https://github.com/pnadolny13/hub-utils.git@github_action_commands --python $(which python)
 
     - name: Extract Metadata (3.8)
       if: always() && (steps.extract_39.outcome == 'failure')
