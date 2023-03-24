@@ -6,28 +6,43 @@ export default {
   components: {
     Search,
   },
+  data() {
+    return {
+    showMobileMenu: false,
+    };
+  },
+  methods: {
+    showMenu() {
+      this.showMobileMenu = !this.showMobileMenu;
+    },
+  },
 };
+
 </script>
 <template>
   <header class="header max-w-7xl w-full mx-auto">
-    <div class="top-nav">
+    <div class="top-nav flex-wrap">
       <div class="py-5 lg:py-6 xl:py-7 lg:w-1/3 xl:w-1/4">
         <g-link to="/" class="block logo-wrap">
           <g-image src="../assets/images/meltano-logo.svg" class="logo-img" />
         </g-link>
       </div>
-      <div class="flex-grow w-full pl-4 hidden xl:block lg:w-1/3 xl:w-1/2">
+      <div class="w-full px-4 hidden xl:block lg:w-1/3 xl:w-5/12">
         <Search />
       </div>
-      <nav class="nav lg:w-2/3 xl:w-1/4">
-        <button class="hamburger"></button>
-        <div class="mx-2">
-          <a href="https://github.com/meltano/meltano"
-            ><img
-              alt="Forks"
-              :src="`https://img.shields.io/github/stars/meltano/meltano?style=social`"
-          /></a>
-        </div>
+      
+      <!-- <div class="mx-2">
+        <a href="https://github.com/meltano/meltano"
+          ><img
+            alt="Forks"
+            :src="`https://img.shields.io/github/stars/meltano/meltano?style=social`"
+        /></a>
+      </div> -->
+      <button class="hamburger block md:hidden" @click="showMenu()"></button>
+      <nav class="flex md:shrink md:flex md:flex-row w-full md:w-auto lg:w-auto xl:w-1/4 lg:justify-around justify-center"
+        :class="this.showMobileMenu ? 'flex' : 'hidden'"
+      >
+       
         <div class="dropdown">
           <a class="page-link" href="#">Plugins</a>
           <div class="dropdown-content">
@@ -126,7 +141,7 @@ export default {
     align-items: center;
 
     nav {
-      display: flex;
+      // display: flex;
       align-items: center;
     }
     nav span:first-of-type {
@@ -150,14 +165,14 @@ export default {
     height: 40px;
     color: #3438bf;
     border: none;
+    background-position: center;
   }
 }
 
 .dropdown {
   cursor: pointer;
-  display: none;
   position: relative;
-  padding: 16px 4px;
+  padding: 16px 8px;
   font-family: 'IBM Plex Mono', monospace;
   font-weight: 500;
 }
@@ -210,13 +225,13 @@ export default {
   // background-color: #3438bf;
 }
 
-@media (min-width: 391px) {
+@media (min-width: 640px) {
   .dropdown {
     display: inline-block;
   }
-  .hamburger {
-    display: none;
-  }
+  // .hamburger {
+  //   display: none;
+  // }
 }
 
 @media (min-width: 1000px) {
