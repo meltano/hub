@@ -65,76 +65,106 @@ jobs:
     - name: Install hub_utils
       run: pipx install git+https://github.com/pnadolny13/hub-utils.git@github_action_commands
 
-    - name: Extract Metadata
+    - name: Install Python 3.10
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Extract Metadata (3.10)
+      id: extract_310
+      run: hub_utils extract-metadata-v2 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" $(pwd)/extract_data
+      continue-on-error: true
+
+    - name: Install Python 3.9 (Only if 3.10 failed)
+      if: always() && (steps.extract_310.outcome == 'failure')
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Extract Metadata (3.9)
+      if: always() && (steps.extract_310.outcome == 'failure')
+      id: extract_39
+      run: hub_utils extract-metadata-v2 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" $(pwd)/extract_data
+      continue-on-error: true
+
+    - name: Install Python 3.8 (Only if 3.9 failed)
+      if: always() && (steps.extract_39.outcome == 'failure')
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.8'
+
+    - name: Extract Metadata (3.8)
+      if: always() && (steps.extract_39.outcome == 'failure')
+      id: extract_38
       run: hub_utils extract-metadata-v2 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" $(pwd)/extract_data
 
-  metadata_extract_sdk_loaders:
-    name: SDK Loaders - Metadata Extract
-    needs: get_variants_list
-    runs-on: ubuntu-latest
-    env:
-      AWS_S3_BUCKET: "${{secrets.AWS_S3_BUCKET }}"
-      AWS_ACCESS_KEY_ID: "${{secrets.AWS_ACCESS_KEY_ID }}"
-      AWS_SECRET_ACCESS_KEY: "${{secrets.AWS_SECRET_ACCESS_KEY }}"
-      AWS_SESSION_TOKEN: "${{secrets.AWS_SESSION_TOKEN }}"
-    strategy:
-      fail-fast: false
-      matrix: ${{ fromJson(needs.get_variants_list.outputs.sdk_loaders_matrix) }}
-    steps:
-    - uses: actions/checkout@v3.3.0
+  # metadata_extract_sdk_loaders:
+  #   name: SDK Loaders - Metadata Extract
+  #   needs: get_variants_list
+  #   runs-on: ubuntu-latest
+  #   env:
+  #     AWS_S3_BUCKET: "${{secrets.AWS_S3_BUCKET }}"
+  #     AWS_ACCESS_KEY_ID: "${{secrets.AWS_ACCESS_KEY_ID }}"
+  #     AWS_SECRET_ACCESS_KEY: "${{secrets.AWS_SECRET_ACCESS_KEY }}"
+  #     AWS_SESSION_TOKEN: "${{secrets.AWS_SESSION_TOKEN }}"
+  #   strategy:
+  #     fail-fast: false
+  #     matrix: ${{ fromJson(needs.get_variants_list.outputs.sdk_loaders_matrix) }}
+  #   steps:
+  #   - uses: actions/checkout@v3.3.0
 
-    - name: Install hub_utils
-      run: pipx install git+https://github.com/pnadolny13/hub-utils.git@github_action_commands
+  #   - name: Install hub_utils
+  #     run: pipx install git+https://github.com/pnadolny13/hub-utils.git@github_action_commands
 
-    - name: Extract Metadata
-      run: hub_utils extract-metadata-v2 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" $(pwd)/extract_data
+  #   - name: Extract Metadata
+  #     run: hub_utils extract-metadata-v2 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" $(pwd)/extract_data
 
-  metadata_extract_airbyte_p1:
-    name: Airbyte - Part 1 Metadata Extract 
-    needs: get_variants_list
-    runs-on: ubuntu-latest
-    env:
-      AWS_S3_BUCKET: "${{secrets.AWS_S3_BUCKET }}"
-      AWS_ACCESS_KEY_ID: "${{secrets.AWS_ACCESS_KEY_ID }}"
-      AWS_SECRET_ACCESS_KEY: "${{secrets.AWS_SECRET_ACCESS_KEY }}"
-      AWS_SESSION_TOKEN: "${{secrets.AWS_SESSION_TOKEN }}"
-    strategy:
-      fail-fast: false
-      matrix: ${{ fromJson(needs.get_variants_list.outputs.airbyte_matrix) }}
-    container:
-      image: airbyte/${{ matrix.source-name }}:latest
-    steps:
-      - name: Get Airbyte Spec
-        run: |
-          $AIRBYTE_ENTRYPOINT spec | grep '^.*"type":\s*"SPEC".*$' > extractor--${{ matrix.source-name }}--airbyte.json
-        id: get-airbyte-stdout
-      - uses: actions/upload-artifact@v3
-        with:
-          name: extractor--${{ matrix.source-name }}--airbyte.json
-          path: extractor--${{ matrix.source-name }}--airbyte.json
+  # metadata_extract_airbyte_p1:
+  #   name: Airbyte - Part 1 Metadata Extract 
+  #   needs: get_variants_list
+  #   runs-on: ubuntu-latest
+  #   env:
+  #     AWS_S3_BUCKET: "${{secrets.AWS_S3_BUCKET }}"
+  #     AWS_ACCESS_KEY_ID: "${{secrets.AWS_ACCESS_KEY_ID }}"
+  #     AWS_SECRET_ACCESS_KEY: "${{secrets.AWS_SECRET_ACCESS_KEY }}"
+  #     AWS_SESSION_TOKEN: "${{secrets.AWS_SESSION_TOKEN }}"
+  #   strategy:
+  #     fail-fast: false
+  #     matrix: ${{ fromJson(needs.get_variants_list.outputs.airbyte_matrix) }}
+  #   container:
+  #     image: airbyte/${{ matrix.source-name }}:latest
+  #   steps:
+  #     - name: Get Airbyte Spec
+  #       run: |
+  #         $AIRBYTE_ENTRYPOINT spec | grep '^.*"type":\s*"SPEC".*$' > extractor--${{ matrix.source-name }}--airbyte.json
+  #       id: get-airbyte-stdout
+  #     - uses: actions/upload-artifact@v3
+  #       with:
+  #         name: extractor--${{ matrix.source-name }}--airbyte.json
+  #         path: extractor--${{ matrix.source-name }}--airbyte.json
 
-  metadata_extract_airbyte_p2:
-    name: Airbyte - Part 2 Metadata Extract
-    if: ${{ always() }}
-    needs: [metadata_extract_airbyte_p1, get_variants_list]
-    runs-on: ubuntu-latest
-    env:
-      AWS_S3_BUCKET: "${{secrets.AWS_S3_BUCKET }}"
-      AWS_ACCESS_KEY_ID: "${{secrets.AWS_ACCESS_KEY_ID }}"
-      AWS_SECRET_ACCESS_KEY: "${{secrets.AWS_SECRET_ACCESS_KEY }}"
-      AWS_SESSION_TOKEN: "${{secrets.AWS_SESSION_TOKEN }}"
-    strategy:
-      fail-fast: false
-      matrix: ${{ fromJson(needs.get_variants_list.outputs.airbyte_matrix) }}
-    steps:
-      - uses: actions/checkout@v2
+  # metadata_extract_airbyte_p2:
+  #   name: Airbyte - Part 2 Metadata Extract
+  #   if: ${{ always() }}
+  #   needs: [metadata_extract_airbyte_p1, get_variants_list]
+  #   runs-on: ubuntu-latest
+  #   env:
+  #     AWS_S3_BUCKET: "${{secrets.AWS_S3_BUCKET }}"
+  #     AWS_ACCESS_KEY_ID: "${{secrets.AWS_ACCESS_KEY_ID }}"
+  #     AWS_SECRET_ACCESS_KEY: "${{secrets.AWS_SECRET_ACCESS_KEY }}"
+  #     AWS_SESSION_TOKEN: "${{secrets.AWS_SESSION_TOKEN }}"
+  #   strategy:
+  #     fail-fast: false
+  #     matrix: ${{ fromJson(needs.get_variants_list.outputs.airbyte_matrix) }}
+  #   steps:
+  #     - uses: actions/checkout@v2
 
-      - uses: actions/download-artifact@v3
-        with:
-          name: extractor--${{ matrix.source-name }}--airbyte.json
+  #     - uses: actions/download-artifact@v3
+  #       with:
+  #         name: extractor--${{ matrix.source-name }}--airbyte.json
 
-      - name: Install hub_utils
-        run: pipx install git+https://github.com/pnadolny13/hub-utils.git@github_action_commands
+  #     - name: Install hub_utils
+  #       run: pipx install git+https://github.com/pnadolny13/hub-utils.git@github_action_commands
 
-      - name: Upload Metadata
-        run: hub_utils upload-airbyte "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" extractor--${{ matrix.source-name }}--airbyte.json
+  #     - name: Upload Metadata
+  #       run: hub_utils upload-airbyte "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" extractor--${{ matrix.source-name }}--airbyte.json
