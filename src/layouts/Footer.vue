@@ -47,7 +47,7 @@
                     />
                   </svg>
                 </a>
-                <div class="newsletter-mini-box">
+                <div class="newsletter-mini-box hidden">
                   <p class="p3">Stay current with all things Meltano</p>
                   <a href="#" class="btn clear-btn">Subscribe</a>
                   <svg class="newsletter-min-box-glow" xmlns="http://www.w3.org/2000/svg" width="123" height="2" viewBox="0 0 123 2" fill="none">

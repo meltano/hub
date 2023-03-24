@@ -260,3 +260,14 @@ pre[class*="language-"] {
   font-family: 'Plus Jakarta Sans', sans-serif; 
   color: #311772;
 }
+
+.brackets {
+  position: relative;
+  display: inline-block;
+}
+.brackets:before,
+.brackets:after
+ {
+  content: "/";
+  color: #f963bc;
+}

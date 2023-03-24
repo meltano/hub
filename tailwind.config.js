@@ -53,6 +53,9 @@ module.exports = {
           DEFAULT: "#080216",
         }
       },
+      opacity: {
+        '15': '.15',
+      },
       screens: {
         '2xl': {'min': '1536px'},
         'xl': {'min': '1280px'},
