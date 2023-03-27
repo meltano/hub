@@ -16,7 +16,7 @@ def test_sdk_about_parsing_1():
     assert settings == [
         {
             "name": "client_id",
-            "label": "Client Id",
+            "label": "Client ID",
             "description": "",
             "kind": "password"
         },
@@ -67,7 +67,7 @@ def test_sdk_about_parsing_2():
         },
         {
             "name": "federation.api_url",
-            "label": "Federation Api Url",
+            "label": "Federation API URL",
             "description": "The url of the meshObject API (excluding the /api prefix!)",
             "kind": "string"
         },
@@ -191,13 +191,13 @@ def test_sdk_about_parsing_airbyte():
         },
         {
             "name": "connector_config.provider.aws_access_key_id",
-            "label": "Connector Config Provider Aws Access Key Id",
+            "label": "Connector Config Provider AWS Access Key ID",
             "description": "In order to access private Buckets stored on AWS S3, this connector requires credentials with the proper permissions. If accessing publicly available data, this field is not necessary.",
             "kind": "password"
         },
         {
             "name": "connector_config.provider.aws_secret_access_key",
-            "label": "Connector Config Provider Aws Secret Access Key",
+            "label": "Connector Config Provider AWS Secret Access Key",
             "description": "In order to access private Buckets stored on AWS S3, this connector requires credentials with the proper permissions. If accessing publicly available data, this field is not necessary.",
             "kind": "password"
         },

@@ -1,2 +1,7 @@
 
 *.pyc
+raw_data/
+.tox
+.coverage
+.vscode/settings.json
+http_cache.sqlite

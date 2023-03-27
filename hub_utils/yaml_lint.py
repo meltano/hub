@@ -1,9 +1,9 @@
+import collections
+import copy
 import os
 import subprocess
 import sys
 from collections import OrderedDict
-import copy
-import collections
 
 from ruamel.yaml import YAML
 

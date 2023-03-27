@@ -1,22 +1,17 @@
 import os
-import boto3
 from pathlib import Path
 
-class S3:
+import boto3
 
+
+class S3:
     def __init__(self):
         self._client = self._create_client()
 
     def _create_client(self):
-        aws_access_key_id = os.environ.get(
-            "AWS_ACCESS_KEY_ID"
-        )
-        aws_secret_access_key = os.environ.get(
-            "AWS_SECRET_ACCESS_KEY"
-        )
-        aws_session_token = os.environ.get(
-            "AWS_SESSION_TOKEN"
-        )
+        aws_access_key_id = os.environ.get("AWS_ACCESS_KEY_ID")
+        aws_secret_access_key = os.environ.get("AWS_SECRET_ACCESS_KEY")
+        aws_session_token = os.environ.get("AWS_SESSION_TOKEN")
         aws_profile = os.environ.get("AWS_PROFILE")
 
         # AWS credentials based authentication
@@ -37,7 +32,9 @@ class S3:
         prefix = "/".join(components[:-1])
         file_name = components[-1]
         hash_id = file_name.split("--")[0]
-        objs = self._client.list_objects_v2(Bucket=s3_bucket, Prefix=prefix).get('Contents', [])
+        objs = self._client.list_objects_v2(Bucket=s3_bucket, Prefix=prefix).get(
+            "Contents", []
+        )
         existing_hashes = [os.path.basename(obj["Key"]).split("--")[0] for obj in objs]
         return hash_id in existing_hashes
 
@@ -45,8 +42,13 @@ class S3:
         self._client.upload_file(local_file_path, bucket, prefix)
 
     def download_latest(self, bucket, prefix, local_file_path):
-        objs = self._client.list_objects_v2(Bucket=bucket, Prefix=prefix)['Contents']
-        latest = sorted([os.path.basename(obj["Key"]).replace(".json", "").split("--")[1] for obj in objs])[-1]
+        objs = self._client.list_objects_v2(Bucket=bucket, Prefix=prefix)["Contents"]
+        latest = sorted(
+            [
+                os.path.basename(obj["Key"]).replace(".json", "").split("--")[1]
+                for obj in objs
+            ]
+        )[-1]
         Path(os.path.dirname(local_file_path)).mkdir(parents=True, exist_ok=True)
         self._client.download_file(bucket, f"{prefix}/{latest}.json", local_file_path)
 
