@@ -543,7 +543,7 @@
             <a href="https://meltano.com/">© Meltano 2023</a>
           </div>
           <div class="footer-social">
-            <a href="https://github.com/meltano/meltano" target="_blank"
+            <a href="https://github.com/meltano/hub" target="_blank"
               ><svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="23"
