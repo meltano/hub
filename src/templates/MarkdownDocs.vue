@@ -1,8 +1,8 @@
 <template>
   <Layout>
-    <div class="flex flex-col items-center w-full">
+    <div class="flex flex-col items-center w-full px-5">
       <div
-        class="bg-white border text-black p-4 my-7 mx-10 prose max-w-screen-lg rounded-lg"
+        class="bg-white border text-black p-4 lg:p-10 my-8 lg:my-12 mx-4 prose max-w-4xl rounded-lg font-hg border border-purple/15 w-full"
         v-html="$page.markdown.content"
       />
     </div>

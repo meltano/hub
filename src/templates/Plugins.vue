@@ -1,15 +1,16 @@
 <template>
   <Layout>
-    <div class="single-plugin-overview md:mx-36 sm:mx-0">
+    <div class="single-plugin-overview max-w-7xl mx-auto w-full px-4">
       <div class="single-plugin-detail">
         <div class="single-plugin-top-bar">
           <table>
             <tr>
-              <td style="padding: 25px">
+              <td class="p-5 lg:p-9">
                 <a
                   v-if="$page.plugins.domain_url"
                   :href="$page.plugins.domain_url"
                   target="_blank"
+                  class="bg-white flex justify-center lg:w-48 lg:h-48 w-24 h-24"
                   rel="noopener noreferrer"
                 >
                   <g-image
@@ -20,6 +21,7 @@
                         ''
                       )}`)
                     "
+                    style="object-position: center; object-fit: contain"
                   />
                 </a>
                 <div v-else>
@@ -35,322 +37,348 @@
                 </div>
               </td>
               <td>
-                <p class="text-3xl py-8">
+                <p
+                  class="text-3xl lg:text-5xl pt-6 lg:pt-8 pb-4 lg:pb-6 font-bold font-pjs text-purple"
+                >
                   {{ $page.plugins.label }}
                 </p>
-                <p class="text-2xl">
+                <p class="text-lg">
                   <code>{{ $page.plugins.name }} ({{ $page.plugins.variant }} variant)</code>
                 </p>
                 <p>
-                  <b>{{ $page.plugins.description }}</b>
+                  <b class="font-hg">{{ $page.plugins.description }}</b>
                 </p>
               </td>
             </tr>
           </table>
         </div>
-        <div class="flex flex-col lg:flex-row w-screen sm:w-auto">
-          <div class="p-5">
-            <p>
-              The {{ $page.plugins.name }}
-              <a
-                :href="
-                  'https://docs.meltano.com/concepts/plugins#' + $page.plugins.pluginTypePlural
-                "
-                >{{ $page.plugins.pluginType }}</a
-              >
-              <span v-if="$page.plugins.pluginType === 'extractor'">
-                pulls data from
-                <a :href="$page.plugins.domain_url">{{ $page.plugins.label }}</a> that can then be
-                sent to a destination using a <g-link to="/loaders">loader</g-link>.</span
-              >
-              <span
-                v-if="
-                  $page.plugins.pluginType === 'extractor' &&
-                  $page.plugins.keywords.includes('airbyte_protocol')
-                "
-              >
-                <p class="text-3xl py-4" id="airbyte-preview">Airbyte Usage Notice</p>
-
-                This connector uses
-                <g-link to="https://github.com/meltanolabs/tap-airbyte-wrapper"
-                  >tap-airbyte-wrapper</g-link
-                >
-                to call the underlying Airbyte source Docker container. This means
-                <i>you must</i> have <a :href="'https://www.docker.com/'">Docker</a> installed and
-                running prior to usage. We also recommend using Meltano version 2.13.0 or later.
-                <br /><br />
-                Container-based connectors <i>can introduce deployment challenges</i> including the
-                potential need to run Docker-in-Docker (not currently supported by services like AWS
-                ECS, Meltano Cloud, etc. see
-                <a
-                  :href="'https://docs.meltano.com/guide/advanced-topics#am-i-able-to-put-my-meltano-project-with-airbyte-connectors-in-production'"
-                  >FAQ</a
-                >
-                and
-                <g-link to="https://docs.airbyte.com/deploying-airbyte/on-aws-ecs/"
-                  >Airbyte's ECS deployment docs</g-link
-                >
-                for more details). Before using this variant we recommend considering if/how you
-                will be able to deploy container-based connectors to production. <br /><br />
-
-                For more context on how this Airbyte integration works please checkout out the
-                <a
-                  :href="'https://docs.meltano.com/guide/advanced-topics#airbyte-connector-integration-faq'"
-                  >FAQ in the Meltano Docs</a
-                >.
-                <br />
-                <!-- For more detailed information on this connector, checkout the link to the documentation on the <a :href="`https://docs.airbyte.com/integrations/sources/${name.replace('tap-','')}`">source connector page</a>. -->
-              </span>
-              <span
-                class="prose"
-                v-if="$page.plugins.pluginType === 'extractor'"
-                v-html="$page.plugins.definition_rendered"
-              ></span>
-              <span v-if="$page.plugins.pluginType === 'loader'">
-                sends data into <a :href="$page.plugins.domain_url">{{ $page.plugins.label }}</a>
-                after it was pulled from a source using an
-                <g-link to="/extractors">extractor</g-link></span
-              >
-              <span v-if="$page.plugins.pluginType === 'transformer'">
-                is a plugin for running SQL-based transformations on data stored in your
-                warehouse.</span
-              >
-              <span v-if="$page.plugins.pluginType === 'orchestrator'">
-                allows for workflows to be programmatically authored, scheduled, and
-                monitored.</span
-              >
-              <span
-                class="prose"
-                v-if="$page.plugins.pluginType === 'utility'"
-                v-html="$page.plugins.definition_rendered"
-              ></span>
-              <span
-                class="prose"
-                v-if="$page.plugins.pluginType === 'file'"
-                v-html="$page.plugins.definition_rendered"
-              ></span>
-              <span v-if="$page.plugins.pluginType === 'mapper'">
-                is a plugin for transforming data between an extractor and a loader. Commonly used
-                for obfuscating, filtering, or removing sensitive data from streams.
-              </span>
-
-              <span v-if="$page.plugins.pluginType === 'utility' && $page.plugins.ext_repo">
-                <p class="text-3xl py-4">EDK Based Plugin</p>
-
-                This utility is based on the Meltano Extension Developer Kit (EDK) which is the
-                preferred way to build and add non-Singer plugins to Meltano Hub. For more
-                information about the EDK, please read
-                <a href="https://docs.meltano.com/guide/advanced-topics#extension-developer-kit-edk"
-                  >this section of the Meltano docs</a
-                >. If you have any feedback or suggestions, add them to the
-                <g-link to="https://github.com/meltano/edk/">EDK repo</g-link>.
-              </span>
-            </p>
-            <span class="space-y-3" v-if="filteredVariants && filteredVariants.length > 1">
-              <p class="text-2xl">Available Variants</p>
-              <ul class="list-disc list-inside pl-4">
-                <li v-for="(variant, index) in filteredVariants" v-bind:key="index">
-                  <g-link :to="variant.node.path" v-if="variant.node.path !== $page.plugins.path">{{
-                    variant.node.variant
-                  }}</g-link>
-                  <span v-else>{{ variant.node.variant }}</span>
-                  <span v-if="variant.node.isDefault"> (default)</span>
-                  <span v-if="variant.node.keywords.includes('meltano_sdk')">
-                    <img
-                      class="inline pl-2"
-                      alt="Built with the Meltano SDK"
-                      src="https://img.shields.io/badge/-Meltano%20SDK-blueviolet"
-                    />
+        <div class="w-full">
+          <div class="flex flex-col-reverse lg:flex-row -mx-2">
+            <div class="px-2 w-full lg:w-8/12 mt-4 lg:mt-0">
+              <div class="p-5 content-body">
+                <div class="max-w-2xl xl:max-w-3xl inner-body rounded p-4">
+                  <p>
+                    The {{ $page.plugins.name }}
+                    <a
+                      :href="
+                        'https://docs.meltano.com/concepts/plugins#' +
+                        $page.plugins.pluginTypePlural
+                      "
+                      >{{ $page.plugins.pluginType }}</a
+                    >
+                    <span v-if="$page.plugins.pluginType === 'extractor'">
+                      pulls data from
+                      <a :href="$page.plugins.domain_url">{{ $page.plugins.label }}</a> that can
+                      then be sent to a destination using a
+                      <g-link to="/loaders">loader</g-link>.</span
+                    >
+                    <span
+                      v-if="
+                        $page.plugins.pluginType === 'extractor' &&
+                        $page.plugins.keywords.includes('airbyte_protocol')
+                      "
+                    >
+                      <p class="text-3xl pb-4 pt-20 font-bold" id="airbyte-preview">
+                        Airbyte Usage Notice
+                      </p>
+                      This connector uses
+                      <g-link to="https://github.com/meltanolabs/tap-airbyte-wrapper"
+                        >tap-airbyte-wrapper</g-link
+                      >
+                      to call the underlying Airbyte source Docker container. This means
+                      <i>you must</i> have <a :href="'https://www.docker.com/'">Docker</a> installed
+                      and running prior to usage. We also recommend using Meltano version 2.13.0 or
+                      later. <br /><br />
+                      Container-based connectors
+                      <i>can introduce deployment challenges</i> including the potential need to run
+                      Docker-in-Docker (not currently supported by services like AWS ECS, Meltano
+                      Cloud, etc. see
+                      <a
+                        :href="'https://docs.meltano.com/guide/advanced-topics#am-i-able-to-put-my-meltano-project-with-airbyte-connectors-in-production'"
+                        >FAQ</a
+                      >
+                      and
+                      <g-link to="https://docs.airbyte.com/deploying-airbyte/on-aws-ecs/"
+                        >Airbyte's ECS deployment docs</g-link
+                      >
+                      for more details). Before using this variant we recommend considering if/how
+                      you will be able to deploy container-based connectors to production.
+                      <br /><br />
+                      For more context on how this Airbyte integration works please checkout out the
+                      <a
+                        :href="'https://docs.meltano.com/guide/advanced-topics#airbyte-connector-integration-faq'"
+                        >FAQ in the Meltano Docs</a
+                      >.
+                      <br />
+                      <!-- For more detailed information on this connector, checkout the link to the documentation on the <a :href="`https://docs.airbyte.com/integrations/sources/${name.replace('tap-','')}`">source connector page</a>. -->
+                    </span>
+                    <span
+                      class="prose"
+                      v-if="$page.plugins.pluginType === 'extractor'"
+                      v-html="$page.plugins.definition_rendered"
+                    ></span>
+                    <span v-if="$page.plugins.pluginType === 'loader'">
+                      sends data into
+                      <a :href="$page.plugins.domain_url">{{ $page.plugins.label }}</a>
+                      after it was pulled from a source using an
+                      <g-link to="/extractors">extractor</g-link></span
+                    >
+                    <span v-if="$page.plugins.pluginType === 'transformer'">
+                      is a plugin for running SQL-based transformations on data stored in your
+                      warehouse.</span
+                    >
+                    <span v-if="$page.plugins.pluginType === 'orchestrator'">
+                      allows for workflows to be programmatically authored, scheduled, and
+                      monitored.</span
+                    >
+                    <span
+                      class="prose"
+                      v-if="$page.plugins.pluginType === 'utility'"
+                      v-html="$page.plugins.definition_rendered"
+                    ></span>
+                    <span
+                      class="prose"
+                      v-if="$page.plugins.pluginType === 'file'"
+                      v-html="$page.plugins.definition_rendered"
+                    ></span>
+                    <span v-if="$page.plugins.pluginType === 'mapper'">
+                      is a plugin for transforming data between an extractor and a loader. Commonly
+                      used for obfuscating, filtering, or removing sensitive data from streams.
+                    </span>
+                    <span v-if="$page.plugins.pluginType === 'utility' && $page.plugins.ext_repo">
+                      <p class="text-3xl md:text-5xl pb-4 pt-8 font-bold font-pjs text-purple">
+                        EDK Based Plugin
+                      </p>
+                      This utility is based on the Meltano Extension Developer Kit (EDK) which is
+                      the preferred way to build and add non-Singer plugins to Meltano Hub. For more
+                      information about the EDK, please read
+                      <a
+                        href="https://docs.meltano.com/guide/advanced-topics#extension-developer-kit-edk"
+                        >this section of the Meltano docs</a
+                      >. If you have any feedback or suggestions, add them to the
+                      <g-link to="https://github.com/meltano/edk/">EDK repo</g-link>.
+                    </span>
+                  </p>
+                  <span class="space-y-3" v-if="filteredVariants && filteredVariants.length > 1">
+                    <p class="text-2xl">Available Variants</p>
+                    <ul class="list-disc list-inside pl-4">
+                      <li v-for="(variant, index) in filteredVariants" v-bind:key="index">
+                        <g-link
+                          :to="variant.node.path"
+                          v-if="variant.node.path !== $page.plugins.path"
+                          >{{ variant.node.variant }}</g-link
+                        >
+                        <span v-else>{{ variant.node.variant }}</span>
+                        <span v-if="variant.node.isDefault"> (default)</span>
+                        <span v-if="variant.node.keywords.includes('meltano_sdk')">
+                          <img
+                            class="inline pl-2"
+                            alt="Built with the Meltano SDK"
+                            src="https://img.shields.io/badge/-Meltano%20SDK-blueviolet"
+                          />
+                        </span>
+                      </li>
+                    </ul>
                   </span>
-                </li>
-              </ul>
-            </span>
-            <div>
-              <p class="text-3xl py-4" id="getting-started">Getting Started</p>
-              <PluginPrereqSection
-                :plugin="$page.plugins"
-                :plugin_type="$page.plugins.pluginType"
-              />
-              <p class="text-xl py-3" id="installation">Installation and configuration</p>
-              <ol class="list-decimal list-inside pl-4">
-                <li>
-                  Add the {{ $page.plugins.name }} {{ $page.plugins.pluginType }} to your project
-                  using
-                  <a href="https://docs.meltano.com/reference/command-line-interface#add">
-                    <pre class="inline-code-block"><code>meltano add</code></pre>
-                  </a>
-                  :
-                </li>
-                <pre
-                  class="prose language-bash rounded-md"
-                ><code >meltano add {{ $page.plugins.pluginType }} {{ $page.plugins.name }}<span v-if="!$page.plugins.isDefault"> --variant {{ $page.plugins.variant }}</span></code></pre>
-                <span>
-                  <li>
-                    Configure the {{ $page.plugins.name }} <a href="#settings">settings</a> using
-                    <a href="https://docs.meltano.com/reference/command-line-interface#config">
-                      <pre class="inline-code-block"><code>meltano config</code></pre>
-                    </a>
-                    :
-                  </li>
-                  <pre
-                    class="prose language-bash rounded-md"
-                  ><code >meltano config {{ $page.plugins.name }} set --interactive</code></pre>
-                </span>
-                <span v-if="$page.plugins.pluginType === 'extractor'">
-                  <li>
-                    Test that extractor settings are valid using
-                    <a href="https://docs.meltano.com/reference/command-line-interface#config">
-                      <pre class="inline-code-block"><code>meltano config</code></pre>
-                    </a>
-                    :
-                  </li>
-                  <pre
-                    class="prose language-bash rounded-md"
-                  ><code >meltano config {{ $page.plugins.name }} test</code></pre>
-                </span>
-              </ol>
-              <p class="text-xl py-3">Next steps</p>
-              <div
-                v-if="$page.plugins.next_steps_rendered"
-                v-html="$page.plugins.next_steps_rendered"
-                class="prose"
-              ></div>
-              <!-- extractors default next steps -->
-              <div v-else-if="$page.plugins.pluginType == 'extractor'">
-                <p>
-                  Follow the remaining steps of the
-                  <a href="https://docs.meltano.com/getting-started/part1">Getting Started guide</a
-                  >:
-                </p>
-                <ol class="list-decimal list-inside pl-4">
-                  <li>
-                    <a
-                      href="https://docs.meltano.com/getting-started/part1#select-entities-and-attributes-to-extract"
-                      >Select entities and attributes to extract</a
-                    >
-                  </li>
-                  <li>
-                    <a href="https://docs.meltano.com/getting-started/part2"
-                      >Add a loader to send data to a destination</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="https://docs.meltano.com/getting-started/part2#run-your-data-integration-el-pipeline"
-                      >Run a data integration (EL) pipeline</a
-                    >
-                  </li>
-                </ol>
+                  <div>
+                    <p class="text-3xl pb-4 pt-20 font-bold font-hg" id="getting-started">
+                      Getting Started
+                    </p>
+                    <PluginPrereqSection
+                      :plugin="$page.plugins"
+                      :plugin_type="$page.plugins.pluginType"
+                    />
+                    <p class="text-xl py-3" id="installation">Installation and configuration</p>
+                    <ol class="list-decimal list-inside pl-4">
+                      <li>
+                        Add the {{ $page.plugins.name }} {{ $page.plugins.pluginType }} to your
+                        project using
+                        <a href="https://docs.meltano.com/reference/command-line-interface#add">
+                          <pre class="inline-code-block"><code>meltano add</code></pre>
+                        </a>
+                        :
+                      </li>
+                      <pre
+                        class="prose language-bash rounded-md"
+                      ><code >meltano add {{ $page.plugins.pluginType }} {{ $page.plugins.name }}<span v-if="!$page.plugins.isDefault"> --variant {{ $page.plugins.variant }}</span></code></pre>
+                      <span>
+                        <li>
+                          Configure the {{ $page.plugins.name }}
+                          <a href="#settings">settings</a> using
+                          <a
+                            href="https://docs.meltano.com/reference/command-line-interface#config"
+                          >
+                            <pre class="inline-code-block"><code>meltano config</code></pre>
+                          </a>
+                          :
+                        </li>
+                        <pre
+                          class="prose language-bash rounded-md"
+                        ><code >meltano config {{ $page.plugins.name }} set --interactive</code></pre>
+                      </span>
+                      <span v-if="$page.plugins.pluginType === 'extractor'">
+                        <li>
+                          Test that extractor settings are valid using
+                          <a
+                            href="https://docs.meltano.com/reference/command-line-interface#config"
+                          >
+                            <pre class="inline-code-block"><code>meltano config</code></pre>
+                          </a>
+                          :
+                        </li>
+                        <pre
+                          class="prose language-bash rounded-md"
+                        ><code >meltano config {{ $page.plugins.name }} test</code></pre>
+                      </span>
+                    </ol>
+                    <p class="text-xl py-3">Next steps</p>
+                    <div
+                      v-if="$page.plugins.next_steps_rendered"
+                      v-html="$page.plugins.next_steps_rendered"
+                      class="prose"
+                    ></div>
+                    <!-- extractors default next steps -->
+                    <div v-else-if="$page.plugins.pluginType == 'extractor'">
+                      <p>
+                        Follow the remaining steps of the
+                        <a href="https://docs.meltano.com/getting-started/part1"
+                          >Getting Started guide</a
+                        >:
+                      </p>
+                      <ol class="list-decimal list-inside pl-4">
+                        <li>
+                          <a
+                            href="https://docs.meltano.com/getting-started/part1#select-entities-and-attributes-to-extract"
+                            >Select entities and attributes to extract</a
+                          >
+                        </li>
+                        <li>
+                          <a href="https://docs.meltano.com/getting-started/part2"
+                            >Add a loader to send data to a destination</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://docs.meltano.com/getting-started/part2#run-your-data-integration-el-pipeline"
+                            >Run a data integration (EL) pipeline</a
+                          >
+                        </li>
+                      </ol>
+                    </div>
+                    <!-- loaders default next steps -->
+                    <div v-else-if="$page.plugins.pluginType == 'loader'">
+                      <p>
+                        Follow the remaining steps of the
+                        <a href="https://docs.meltano.com/getting-started/part1"
+                          >Getting Started guide</a
+                        >:
+                      </p>
+                      <ol class="list-decimal list-inside pl-4">
+                        <li>
+                          <a
+                            href="https://docs.meltano.com/getting-started/part2#run-your-data-integration-el-pipeline"
+                            >Run a data integration (EL) pipeline</a
+                          >
+                        </li>
+                      </ol>
+                    </div>
+                    <!-- Default transformers next steps -->
+                    <div v-else-if="$page.plugins.pluginType == 'transformer'">
+                      <p>
+                        Follow the remaining steps of the
+                        <a href="https://docs.meltano.com/getting-started/part3"
+                          >Getting Started guide</a
+                        >:
+                      </p>
+                      <ol class="list-decimal list-inside pl-4">
+                        <li>
+                          <a href="https://docs.meltano.com/getting-started/part3">
+                            Transform loaded data for analysis
+                          </a>
+                        </li>
+                      </ol>
+                    </div>
+                    <!-- Default mapper next steps -->
+                    <div v-else-if="$page.plugins.pluginType == 'mapper'">
+                      <p>
+                        Follow the remaining steps of the
+                        <a href="https://docs.meltano.com/getting-started/part4"
+                          >Getting Started guide</a
+                        >:
+                      </p>
+                      <ol class="list-decimal list-inside pl-4">
+                        <li>
+                          <a href="https://docs.meltano.com/getting-started/part4">
+                            Inline Data Mapping
+                          </a>
+                        </li>
+                        <li>
+                          See the
+                          <a href="https://docs.meltano.com/guide/mappers">
+                            mappers documentation
+                          </a>
+                          or the plugin repo's README.md for more details on configuration.
+                        </li>
+                      </ol>
+                    </div>
+                    <!-- No next steps defined for this plugin. -->
+                    <div v-else></div>
+                    <!-- Help section -->
+                    <p>
+                      If you run into any issues,
+                      <a href="#looking-for-help">learn how to get help</a>.
+                    </p>
+                  </div>
+                  <div>
+                    <PluginCapabilitiesSection
+                      :capabilities="$page.plugins.capabilities"
+                      :name="$page.plugins.name"
+                      :plugin_type="$page.plugins.pluginType"
+                    />
+                    <PluginSettingsSection
+                      :settings="$page.plugins.settings"
+                      :name="$page.plugins.name"
+                      :plugin_type_plural="$page.plugins.pluginTypePlural"
+                      :variant="$page.plugins.variant"
+                      :preamble="$page.plugins.settings_preamble_rendered"
+                    />
+                    <PluginCommandsSection
+                      :commands="$page.plugins.commands"
+                      :name="$page.plugins.name"
+                      :plugin_type="$page.plugins.pluginType"
+                    />
+                    <div
+                      class="prose mt-3 p-2"
+                      v-if="$page.plugins.usage"
+                      v-html="$page.plugins.usage_rendered"
+                    ></div>
+                    <PluginHelpSection
+                      :name="$page.plugins.name"
+                      :variant="$page.plugins.variant"
+                      :repo="$page.plugins.repo"
+                      :plugin_type="$page.plugins.pluginType"
+                      :plugin_type_plural="$page.plugins.pluginTypePlural"
+                    />
+                  </div>
+                </div>
               </div>
-
-              <!-- loaders default next steps -->
-              <div v-else-if="$page.plugins.pluginType == 'loader'">
-                <p>
-                  Follow the remaining steps of the
-                  <a href="https://docs.meltano.com/getting-started/part1">Getting Started guide</a
-                  >:
-                </p>
-                <ol class="list-decimal list-inside pl-4">
-                  <li>
-                    <a
-                      href="https://docs.meltano.com/getting-started/part2#run-your-data-integration-el-pipeline"
-                      >Run a data integration (EL) pipeline</a
-                    >
-                  </li>
-                </ol>
-              </div>
-
-              <!-- Default transformers next steps -->
-              <div v-else-if="$page.plugins.pluginType == 'transformer'">
-                <p>
-                  Follow the remaining steps of the
-                  <a href="https://docs.meltano.com/getting-started/part3">Getting Started guide</a
-                  >:
-                </p>
-                <ol class="list-decimal list-inside pl-4">
-                  <li>
-                    <a href="https://docs.meltano.com/getting-started/part3">
-                      Transform loaded data for analysis
-                    </a>
-                  </li>
-                </ol>
-              </div>
-
-              <!-- Default mapper next steps -->
-              <div v-else-if="$page.plugins.pluginType == 'mapper'">
-                <p>
-                  Follow the remaining steps of the
-                  <a href="https://docs.meltano.com/getting-started/part4">Getting Started guide</a
-                  >:
-                </p>
-                <ol class="list-decimal list-inside pl-4">
-                  <li>
-                    <a href="https://docs.meltano.com/getting-started/part4">
-                      Inline Data Mapping
-                    </a>
-                  </li>
-                  <li>
-                    See the
-                    <a href="https://docs.meltano.com/guide/mappers"> mappers documentation </a>
-                    or the plugin repo's README.md for more details on configuration.
-                  </li>
-                </ol>
-              </div>
-              <!-- No next steps defined for this plugin. -->
-              <div v-else></div>
-
-              <!-- Help section -->
-              <p>
-                If you run into any issues, <a href="#looking-for-help">learn how to get help</a>.
-              </p>
             </div>
-            <div>
-              <PluginCapabilitiesSection
-                :capabilities="$page.plugins.capabilities"
-                :name="$page.plugins.name"
-                :plugin_type="$page.plugins.pluginType"
-              />
-              <PluginSettingsSection
-                :settings="$page.plugins.settings"
-                :name="$page.plugins.name"
-                :plugin_type_plural="$page.plugins.pluginTypePlural"
-                :variant="$page.plugins.variant"
-                :preamble="$page.plugins.settings_preamble_rendered"
-              />
-              <PluginCommandsSection
-                :commands="$page.plugins.commands"
-                :name="$page.plugins.name"
-                :plugin_type="$page.plugins.pluginType"
-              />
-              <div
-                class="prose mt-3 p-2"
-                v-if="$page.plugins.usage"
-                v-html="$page.plugins.usage_rendered"
-              ></div>
-              <PluginHelpSection
-                :name="$page.plugins.name"
-                :variant="$page.plugins.variant"
-                :repo="$page.plugins.repo"
-                :plugin_type="$page.plugins.pluginType"
-                :plugin_type_plural="$page.plugins.pluginTypePlural"
-              />
-            </div>
+            <PluginSidebar
+              :name="$page.plugins.name"
+              :domain_url="$page.plugins.domain_url"
+              :repo="$page.plugins.repo"
+              :maintenance_status="$page.plugins.maintenance_status"
+              :keywords="$page.plugins.keywords"
+              :variant="$page.plugins.variant"
+              :is_default="$page.plugins.isDefault"
+              :metrics="$page.plugins.metrics"
+              :plugin_type="$page.plugins.pluginType"
+              :maintainer="$page.plugins.maintainer"
+              :pip_url="$page.plugins.pip_url"
+              :airbyte_name="$page.plugins.airbyte_name"
+              :ext_repo="$page.plugins.ext_repo"
+            />
           </div>
-          <PluginSidebar
-            :name="$page.plugins.name"
-            :domain_url="$page.plugins.domain_url"
-            :repo="$page.plugins.repo"
-            :maintenance_status="$page.plugins.maintenance_status"
-            :keywords="$page.plugins.keywords"
-            :variant="$page.plugins.variant"
-            :is_default="$page.plugins.isDefault"
-            :metrics="$page.plugins.metrics"
-            :plugin_type="$page.plugins.pluginType"
-            :maintainer="$page.plugins.maintainer"
-            :pip_url="$page.plugins.pip_url"
-            :airbyte_name="$page.plugins.airbyte_name"
-            :ext_repo="$page.plugins.ext_repo"
-          />
         </div>
       </div>
     </div>
