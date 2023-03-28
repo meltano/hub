@@ -116,7 +116,7 @@
                   <a href="https://meltano.com/overview/">
                     <p class="footer-list-title">Overview</p>
                     <p class="footer-list-info">
-                      CLI & version control for ELT without limitations
+                      The only EL tool built for data engineers
                     </p>
                   </a>
                 </li>
@@ -146,7 +146,7 @@
                   </svg>
                   <a href="https://meltano.com/cloud/">
                     <p class="footer-list-title">Meltano/Cloud</p>
-                    <p class="footer-list-info">You build the pipelines, we keep them running</p>
+                    <p class="footer-list-info">You build the pipelines, we manage the infrastructure</p>
                   </a>
                 </li>
                 <li>
@@ -176,7 +176,7 @@
                   <a href="https://sdk.meltano.com/en/latest/">
                     <p class="footer-list-title">Meltano/SDK</p>
                     <p class="footer-list-info">
-                      The fastest way to build custom data extractors and loaders
+                      Build a connector for any data source under the sun
                     </p>
                   </a>
                 </li>
@@ -206,7 +206,7 @@
                   </svg>
                   <a href="https://hub.meltano.com/extractors/">
                     <p class="footer-list-title">Meltano/Hub</p>
-                    <p class="footer-list-info">Extract, Load & Transform</p>
+                    <p class="footer-list-info">Connectors for 550+ sources and destinations</p>
                   </a>
                 </li>
                 <li>
@@ -242,6 +242,7 @@
                   </svg>
                   <a href="https://meltano.com/pricing">
                     <p class="footer-list-title">Pricing</p>
+                    <p class="footer-list-info">Pay only for the workloads you run, no matter how much the data volume grows</p>
                   </a>
                 </li>
               </ul>
@@ -281,8 +282,7 @@
                   <a href="https://meltano.com/community/">
                     <p class="footer-list-title">Community</p>
                     <p class="footer-list-info">
-                      Meltano is an open-source project with a thriving community of data
-                      professionals.
+                      Join 3,000+ data professionals on Slack and GitHub
                     </p>
                   </a>
                 </li>
@@ -311,10 +311,9 @@
                     </g>
                   </svg>
                   <a href="https://docs.meltano.com/">
-                    <p class="footer-list-title">Docs</p>
+                    <p class="footer-list-title">Documentation</p>
                     <p class="footer-list-info">
-                      Here you'll learn how to use Meltano, how Meltano is built, and where to get
-                      started
+                      Learn how to use Meltano and where to get started
                     </p>
                   </a>
                 </li>
@@ -344,7 +343,7 @@
                   </svg>
                   <a href="https://meltano.com/blog/">
                     <p class="footer-list-title">Blog</p>
-                    <p class="footer-list-info">Meltano & Data Insights & News</p>
+                    <p class="footer-list-info">Stay up to date on Meltano and data engineering</p>
                   </a>
                 </li>
                 <li>
@@ -378,8 +377,7 @@
                   <a href="https://meltano.com/partners/">
                     <p class="footer-list-title">Partners</p>
                     <p class="footer-list-info">
-                      Our trusted consulting partners help you take Meltano and Singer into
-                      production
+                      Bring in help to build connectors and take Meltano into production
                     </p>
                   </a>
                 </li>
@@ -424,7 +422,7 @@
                   <a href="https://meltano.com/about/">
                     <p class="footer-list-title">About</p>
                     <p class="footer-list-info">
-                      We love data, software development best practices, and dragons!
+                      We bring together data, software development workflows, and dragons!
                     </p>
                   </a>
                 </li>
@@ -455,8 +453,7 @@
                   <a href="https://meltano.com/press/">
                     <p class="footer-list-title">Media/Press</p>
                     <p class="footer-list-info">
-                      Meltano related news, press releases, our media kit (logos), and how to get in
-                      touch
+                      Related news, press releases, and logos
                     </p>
                   </a>
                 </li>
@@ -490,7 +487,7 @@
                   </svg>
                   <a href="https://boards.greenhouse.io/meltano">
                     <p class="footer-list-title">Careers</p>
-                    <p class="footer-list-info">Current Job Openings</p>
+                    <p class="footer-list-info">Join Melty and team on our mission to unshackle data engineers everywhere!git sta</p>
                   </a>
                 </li>
                 <li>
