@@ -1,7 +1,9 @@
 <template>
   <Layout>
     <div class="plugins-overview">
-      <p class="text-3xl md:text-5xl pb-4 pt-8 font-bold font-pjs text-purple">Plugin Maintainers</p>
+      <p class="text-3xl md:text-5xl pb-4 pt-8 font-bold font-pjs text-purple">
+        Plugin Maintainers
+      </p>
       <ul class="list-disc list-inside plugins-list">
         <li
           v-for="(edge, index) in $page.allMaintainers.edges"

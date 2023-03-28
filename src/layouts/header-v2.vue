@@ -39,7 +39,7 @@ export default {
       </div> -->
       <button class="hamburger block md:hidden" @click="showMenu()"></button>
       <nav
-        class="flex md:shrink md:flex md:flex-row w-full md:w-auto lg:w-auto xl:w-1/4 lg:justify-around justify-center"
+        class="flex md:shrink md:flex md:flex-row w-full md:w-auto lg:w-auto xl:w-1/4 justify-around"
         :class="this.showMobileMenu ? 'flex' : 'hidden'"
       >
         <div class="dropdown">
@@ -172,7 +172,7 @@ export default {
 .dropdown {
   cursor: pointer;
   position: relative;
-  padding: 16px 8px;
+  padding: 16px 4px;
   font-family: "IBM Plex Mono", monospace;
   font-weight: 500;
 }

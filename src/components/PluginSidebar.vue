@@ -1,8 +1,6 @@
 <template>
   <div class="px-2 w-full lg:w-4/12">
-    <div
-      class="single-plugin-aside order-first lg:order-last p-5"
-    >
+    <div class="single-plugin-aside order-first lg:order-last p-5">
       <div class="px-4 aside-inner space-y-4">
         <div>
           <p class="text-lg py-2">Install</p>
@@ -71,8 +69,11 @@
               v-else-if="repoType === 'gitlab'"
               class="w-8 h-4 inline gap-x-11"
               src="../assets/images/gitlab-brands.svg"
-            /><img v-else class="w-8 h-4 inline gap-x-11" src="../assets/images/git-alt-brands.svg" /><a
-              :href="repo"
+            /><img
+              v-else
+              class="w-8 h-4 inline gap-x-11"
+              src="../assets/images/git-alt-brands.svg"
+            /><a :href="repo"
               ><img
                 class="inline gap-x-11"
                 :alt="repo"
@@ -154,8 +155,11 @@
               v-else-if="repoType === 'gitlab'"
               class="w-8 h-4 inline gap-x-11"
               src="../assets/images/gitlab-brands.svg"
-            /><img v-else class="w-8 h-4 inline gap-x-11" src="../assets/images/git-alt-brands.svg" /><a
-              :href="ext_repo"
+            /><img
+              v-else
+              class="w-8 h-4 inline gap-x-11"
+              src="../assets/images/git-alt-brands.svg"
+            /><a :href="ext_repo"
               ><img
                 class="inline gap-x-11"
                 :alt="ext_repo"

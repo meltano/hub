@@ -17,7 +17,7 @@ export default function main(Vue, { head }) {
   head.link.push({
     rel: "preconnect",
     href: "https://fonts.gstatic.com",
-    crossorigin: true
+    crossorigin: true,
   });
   head.link.push({
     rel: "stylesheet",
@@ -27,7 +27,7 @@ export default function main(Vue, { head }) {
     src: "https://buttons.github.io/buttons.js",
   });
   head.meta.push({
-    name: 'viewport',
-    content: 'width=device-width, initial-scale=1'
-  })
+    name: "viewport",
+    content: "width=device-width, initial-scale=1",
+  });
 }

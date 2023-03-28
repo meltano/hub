@@ -1,7 +1,9 @@
 <template>
   <Layout>
     <div class="plugins-overview">
-      <p class="text-3xl md:text-5xl pb-4 pt-8 font-bold font-pjs text-purple">Welcome to MeltanoHub for Singer</p>
+      <p class="text-3xl md:text-5xl pb-4 pt-8 font-bold font-pjs text-purple">
+        Welcome to MeltanoHub for Singer
+      </p>
       <p>
         MeltanoHub for Singer is the leading destination for the Singer Community to discover taps,
         targets, and other valuable resources. Read the
