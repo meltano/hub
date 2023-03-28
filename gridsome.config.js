@@ -6,7 +6,7 @@
 
 module.exports = {
   siteName: "Meltano Hub",
-  icon: "./src/meltano-favicon-192x192.png",
+  icon: "./src/assets/images/favicon.png",
   plugins: [
     {
       use: "gridsome-plugin-tailwindcss",
