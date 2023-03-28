@@ -488,8 +488,7 @@
                   <a href="https://boards.greenhouse.io/meltano">
                     <p class="footer-list-title">Careers</p>
                     <p class="footer-list-info">
-                      Join Melty and team on our mission to unshackle data engineers everywhere!git
-                      sta
+                      Join Melty and team on our mission to unshackle data engineers everywhere!
                     </p>
                   </a>
                 </li>
