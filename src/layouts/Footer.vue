@@ -115,9 +115,7 @@
                   </svg>
                   <a href="https://meltano.com/overview/">
                     <p class="footer-list-title">Overview</p>
-                    <p class="footer-list-info">
-                      The only EL tool built for data engineers
-                    </p>
+                    <p class="footer-list-info">The only EL tool built for data engineers</p>
                   </a>
                 </li>
                 <li>
@@ -146,7 +144,9 @@
                   </svg>
                   <a href="https://meltano.com/cloud/">
                     <p class="footer-list-title">Meltano/Cloud</p>
-                    <p class="footer-list-info">You build the pipelines, we manage the infrastructure</p>
+                    <p class="footer-list-info">
+                      You build the pipelines, we manage the infrastructure
+                    </p>
                   </a>
                 </li>
                 <li>
@@ -242,7 +242,9 @@
                   </svg>
                   <a href="https://meltano.com/pricing">
                     <p class="footer-list-title">Pricing</p>
-                    <p class="footer-list-info">Pay only for the workloads you run, no matter how much the data volume grows</p>
+                    <p class="footer-list-info">
+                      Pay only for the workloads you run, no matter how much the data volume grows
+                    </p>
                   </a>
                 </li>
               </ul>
@@ -452,9 +454,7 @@
                   </svg>
                   <a href="https://meltano.com/press/">
                     <p class="footer-list-title">Media/Press</p>
-                    <p class="footer-list-info">
-                      Related news, press releases, and logos
-                    </p>
+                    <p class="footer-list-info">Related news, press releases, and logos</p>
                   </a>
                 </li>
                 <li>
@@ -487,7 +487,10 @@
                   </svg>
                   <a href="https://boards.greenhouse.io/meltano">
                     <p class="footer-list-title">Careers</p>
-                    <p class="footer-list-info">Join Melty and team on our mission to unshackle data engineers everywhere!git sta</p>
+                    <p class="footer-list-info">
+                      Join Melty and team on our mission to unshackle data engineers everywhere!git
+                      sta
+                    </p>
                   </a>
                 </li>
                 <li>
