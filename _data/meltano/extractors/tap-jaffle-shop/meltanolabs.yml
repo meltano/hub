@@ -5,7 +5,7 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
-description: The Jaffle Shop Generator, aka "jafgen" is a python-based data generated
+description: The Jaffle Shop Generator, aka "jafgen" is a python-based data generator
   created by dbt Labs.
 domain_url: https://github.com/dbt-labs/jaffle-shop-generator
 executable: tap-jaffle-shop
@@ -51,5 +51,17 @@ settings_group_validation:
 - - stream_name_prefix
   - years
 settings_preamble: ''
-usage: ''
+usage: |
+  This dataset generator will simulate real-looking data for the following streams:
+    - `stores`
+    - `customers`
+    - `products`
+    - `orders`
+    - `items`
+    - `supplies`
+
+  You can apply the `years` config to generate more or less data according to your needs.
+
+  Note: This tap supports `state` but does not yet support incremental refresh. Each sync
+  operation will generate a new dataset.
 variant: meltanolabs
