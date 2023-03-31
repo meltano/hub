@@ -221,6 +221,7 @@ extractors:
   tap-ip2whois: airbyte
   tap-ireckonu: mashey
   tap-iterable: lambtron
+  tap-jaffle-shop: meltanolabs
   tap-jdbc: airbyte
   tap-jira: singer-io
   tap-k6-cloud: airbyte
