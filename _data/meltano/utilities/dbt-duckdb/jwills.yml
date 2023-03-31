@@ -97,6 +97,7 @@ settings:
   kind: string
   label: Path
   name: path
+  value: "${MELTANO_PROJECT_ROOT}/output/warehouse.duckdb"
 - description: Specify the schema to write into.
   kind: string
   label: Schema
