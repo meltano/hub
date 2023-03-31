@@ -43,6 +43,7 @@ settings:
   kind: string
   label: Stream Name Prefix
   name: stream_name_prefix
+  value: "tap_jaffle_shop-raw_"
 - description: The number of years to simulate data for.
   kind: integer
   label: Years
