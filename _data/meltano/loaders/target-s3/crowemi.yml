@@ -11,7 +11,7 @@ keywords:
 - file
 label: S3 (Multi Format)
 logo_url: /assets/logos/loaders/s3.png
-maintenance_status: active
+maintenance_status: development
 name: target-s3
 namespace: target_s3
 next_steps: ''
@@ -124,6 +124,7 @@ settings:
 settings_group_validation:
 - - aws_region
   - bucket
+  - format_type
 settings_preamble: ''
 usage: ''
 variant: crowemi
