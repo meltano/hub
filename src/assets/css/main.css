@@ -5,12 +5,10 @@ body {
 }
 
 body {
-  font-family: IBM Plex Sans, "Helvetica Neue", sans-serif;
+  font-weight: 400;
   margin: 0;
   padding: 0;
-  line-height: 1.5;
-  background: url("../images/meltano-background.jpeg");
-  color: #fff;
+  line-height: 1.5; 
 }
 
 main {
@@ -22,6 +20,7 @@ header,
 main,
 footer {
   flex-shrink: 0;
+  z-index: 11;
 }
 
 .inline-code-block {
@@ -50,14 +49,23 @@ footer {
 
 /* PLUGIN PAGES (e.g. ../extractors) */
 
-.plugins-overview {
-  min-width: 70%;
-}
-
-.plugins-overview h1,
-.plugins-overview p {
+.plugins-overview h1 {
   margin-left: 25px;
   margin-right: 25px;
+  text-align: center;
+  font-weight: 600;
+  font-family: 'Plus Jakarta Sans', sans-serif; 
+}
+
+.plugins-overview  > p {
+  font-weight: 600;
+  font-family: 'Plus Jakarta Sans', sans-serif; 
+  text-align: center;
+}
+
+.plugins-overview  > div > p {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-weight: 400;
   text-align: center;
 }
 
@@ -115,7 +123,6 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 75%;
 }
 
 .single-plugin-overview h1 {
@@ -123,12 +130,12 @@ footer {
 }
 
 .single-plugin-overview a {
-  color: #3438bf;
+  color: #3438bf; 
   text-decoration: none;
 }
 
 .single-plugin-detail {
-  background: #ffffff;
+  margin: 40px auto 80px;
   color: #29292f;
   display: flex;
   flex-wrap: wrap;
@@ -139,16 +146,28 @@ footer {
 
 .single-plugin-detail .single-plugin-top-bar {
   width: 100%;
-  border-bottom: 2px solid #62626e;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(49, 23, 114, 0.15);
+  margin-bottom: 16px;
   text-align: left;
-  padding-left: 10px;
+  border-radius: 5px;
 }
 
 .single-plugin-detail .single-plugin-main {
   width: 100%;
   text-align: left;
   padding: 0 10px;
+}
+
+.single-plugin-detail .content-body {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(49, 23, 114, 0.15);
+  border-radius: 5px;
+  backdrop-filter: blur(13px);
+}
+
+.single-plugin-detail .inner-body {
+  background-image: linear-gradient(30deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.7) 70%, #ffffff 100%);
 }
 
 .single-plugin-detail .single-plugin-main pre {
@@ -161,8 +180,15 @@ footer {
 
 .single-plugin-detail .single-plugin-aside {
   width: 100%;
-  background: #f1f1f2;
+  height: 100%;
+  background: rgba(49, 23, 114, 0.05);
   word-break: break-word;
+  border: 1px solid rgba(49, 23, 114, 0.15);
+  border-radius: 5px;
+}
+
+.single-plugin-detail .single-plugin-aside .aside-inner {
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.2) 70%, rgba(255, 255, 255, 0) 100%);
 }
 
 .single-plugin-detail .single-plugin-aside h4 {
@@ -201,8 +227,47 @@ footer {
   .plugins-list .page-single-plugin {
     flex-basis: 20%;
   }
+}
 
-  .single-plugin-detail {
-    margin: 40px auto 80px;
-  }
+/* 
+font-family: 'Hanken Grotesk', sans-serif;
+font-family: 'IBM Plex Mono', monospace;
+font-family: 'Inter', sans-serif;
+font-family: 'Plus Jakarta Sans', sans-serif; 
+*/
+.font-pjs {
+  font-family: 'Plus Jakarta Sans', sans-serif; 
+}
+
+.font-hg {
+  font-family: 'Hanken Grotesk', sans-serif;
+}
+.font-ibm {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+pre[class*="language-"] {
+  overflow-x: scroll !important;
+  width: 100%;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  font-family: 'Plus Jakarta Sans', sans-serif; 
+  color: #311772;
+}
+
+.brackets {
+  position: relative;
+  display: inline-block;
+}
+.brackets:before,
+.brackets:after
+ {
+  content: "/";
+  color: #f963bc;
 }

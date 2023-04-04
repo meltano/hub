@@ -14,6 +14,7 @@ settings:
   label: File Path
   name: filepath
   placeholder: /path/to/local/duckdb.file
+  value: ${MELTANO_PROJECT_ROOT}/output/warehouse.duckdb
 - description: Maximum number of rows in each batch. At the end of each batch, the
     rows in the batch are loaded into DuckDB.
   kind: integer

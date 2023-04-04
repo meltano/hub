@@ -221,6 +221,7 @@ extractors:
   tap-ip2whois: airbyte
   tap-ireckonu: mashey
   tap-iterable: lambtron
+  tap-jaffle-shop: meltanolabs
   tap-jdbc: airbyte
   tap-jira: singer-io
   tap-k6-cloud: airbyte
@@ -532,7 +533,7 @@ loaders:
   target-apprise: autoidm
   target-athena: meltanolabs
   target-azureblobstorage: shrutikaponde-vc
-  target-bigquery: adswerve
+  target-bigquery: z3z1ma
   target-cassandra: coeff
   target-csv: hotgluexyz
   target-datadotworld: datadotworld

@@ -11,10 +11,23 @@ export default function main(Vue, { head }) {
   Vue.component("Layout", DefaultLayout);
   // Set font to IBM Plex Sans
   head.link.push({
+    rel: "preconnect",
+    href: "https://fonts.googleapis.com",
+  });
+  head.link.push({
+    rel: "preconnect",
+    href: "https://fonts.gstatic.com",
+    crossorigin: true,
+  });
+  head.link.push({
     rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css?family=IBM+Plex+Mono|IBM+Plex+Sans&display=swap",
+    href: "https://fonts.googleapis.com/css2?family=Hanken+Grotesk&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700&display=swap",
   });
   head.script.push({
     src: "https://buttons.github.io/buttons.js",
+  });
+  head.meta.push({
+    name: "viewport",
+    content: "width=device-width, initial-scale=1",
   });
 }
