@@ -485,6 +485,7 @@ class Utilities:
             f"{plugin_name}/{plugin_variant}.yml"
         )
         self._write_yaml(def_path, definition)
+        self._reformat(plugin_type, plugin_name, plugin_variant)
 
     def _iterate_existing_settings(self, plugin_name, plugin_variant, plugin_type):
         def_path = (
@@ -552,7 +553,7 @@ class Utilities:
         self, plugin_name, plugin_type, pip_url, namespace, executable, is_meltano_sdk
     ):
         try:
-            self._test_exception(
+            return self._test_exception(
                 plugin_name, plugin_type, pip_url, namespace, executable, is_meltano_sdk
             )
         except Exception as e:
