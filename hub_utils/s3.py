@@ -49,8 +49,8 @@ class S3:
                 for obj in objs
             ]
         )[-1]
+        latest_name = [
+            obj["Key"] for obj in objs if obj["Key"].endswith(f"{latest}.json")
+        ][0]
         Path(os.path.dirname(local_file_path)).mkdir(parents=True, exist_ok=True)
-        self._client.download_file(bucket, f"{prefix}/{latest}.json", local_file_path)
-
-    def get_latest(self, bucket, prefix, local_file_path):
-        self._client.download_file(bucket, prefix, local_file_path)
+        self._client.download_file(bucket, latest_name, local_file_path)
