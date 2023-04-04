@@ -51,6 +51,7 @@ jobs:
     name: SDK Extractors - Metadata Extract
     needs: get_variants_list
     runs-on: ubuntu-latest
+    environment: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && 'production' || 'preview' }}
     env:
       AWS_S3_BUCKET: "${{secrets.HUB_METADATA_S3_BUCKET }}"
     strategy:
@@ -106,6 +107,7 @@ jobs:
     name: SDK Loaders - Metadata Extract
     needs: get_variants_list
     runs-on: ubuntu-latest
+    environment: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && 'production' || 'preview' }}
     env:
       AWS_S3_BUCKET: "${{secrets.HUB_METADATA_S3_BUCKET }}"
     strategy:
@@ -182,6 +184,7 @@ jobs:
     if: ${{ always() }}
     needs: [metadata_extract_airbyte_p1, get_variants_list]
     runs-on: ubuntu-latest
+    environment: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && 'production' || 'preview' }}
     env:
       AWS_S3_BUCKET: "${{secrets.HUB_METADATA_S3_BUCKET }}"
     strategy:
