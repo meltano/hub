@@ -245,3 +245,15 @@ def translate_sdk(
         )
         util._write_updated_def(p_name, p_variant, p_type, new_def)
         util._reformat(p_type, p_name, p_variant)
+
+
+# GITHUB ACTIONS
+@app.command()
+def download_metadata(
+    yaml_file: str,
+    local_path: str,
+):
+    util = Utilities()
+    suffix = util.get_suffix(yaml_file)
+    local_file_path = f"{local_path}/{suffix}.json"
+    S3().download_latest(os.environ.get("AWS_S3_BUCKET"), suffix, local_file_path)
