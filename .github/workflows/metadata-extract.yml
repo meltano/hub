@@ -57,6 +57,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix: ${{ fromJson(needs.get_variants_list.outputs.sdk_ex_matrix) }}
+    permissions:
+      id-token: write # This is required for requesting the JWT
     steps:
     - uses: actions/checkout@v3.3.0
 
@@ -113,6 +115,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix: ${{ fromJson(needs.get_variants_list.outputs.sdk_loaders_matrix) }}
+    permissions:
+      id-token: write # This is required for requesting the JWT
     steps:
     - uses: actions/checkout@v3.3.0
 
@@ -190,6 +194,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix: ${{ fromJson(needs.get_variants_list.outputs.airbyte_matrix) }}
+    permissions:
+      id-token: write # This is required for requesting the JWT
     steps:
       - uses: actions/checkout@v2
 
