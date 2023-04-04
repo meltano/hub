@@ -2,6 +2,17 @@ name: Metadata Extract
 
 on:
   workflow_dispatch:
+    inputs:
+      environment:
+        description: 'The environment to run the workflow in'
+        required: true
+        type: choice
+        default: 'preview'
+        options:
+          - 'preview'
+          - 'production'
+  # schedule:
+  #   - cron: '0 0 * * *' # Run at midnight UTC
 
 jobs:
   get_variants_list:
@@ -51,7 +62,7 @@ jobs:
     name: SDK Extractors - Metadata Extract
     needs: get_variants_list
     runs-on: ubuntu-latest
-    environment: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && 'production' || 'preview' }}
+    environment: ${{ github.event.inputs.environment = 'production' || github.event_name == 'schedule' && 'production' || 'preview' }}
     env:
       AWS_S3_BUCKET: "${{secrets.HUB_METADATA_S3_BUCKET }}"
     strategy:
@@ -109,7 +120,7 @@ jobs:
     name: SDK Loaders - Metadata Extract
     needs: get_variants_list
     runs-on: ubuntu-latest
-    environment: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && 'production' || 'preview' }}
+    environment: ${{ github.event.inputs.environment = 'production' || github.event_name == 'schedule' && 'production' || 'preview' }}
     env:
       AWS_S3_BUCKET: "${{secrets.HUB_METADATA_S3_BUCKET }}"
     strategy:
@@ -188,7 +199,7 @@ jobs:
     if: ${{ always() }}
     needs: [metadata_extract_airbyte_p1, get_variants_list]
     runs-on: ubuntu-latest
-    environment: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && 'production' || 'preview' }}
+    environment: ${{ github.event.inputs.environment = 'production' || github.event_name == 'schedule' && 'production' || 'preview' }}
     env:
       AWS_S3_BUCKET: "${{secrets.HUB_METADATA_S3_BUCKET }}"
     strategy:
