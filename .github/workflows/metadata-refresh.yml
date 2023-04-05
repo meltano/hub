@@ -46,9 +46,24 @@ jobs:
     - name: Merge Raw JSON and Existing Definition
       run: hub_utils merge-metadata $(pwd) "/home/runner/work/downloaded_data"
 
-    - name: Commit changes
-      uses: EndBug/add-and-commit@v9
+    - name: Get current date
+      id: date
+      run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v4
       with:
-        add: '_data/meltano/*.yml'
-        message: 'Hub bot update'
-        new_branch: hub-bot-metadata-${{ github.run_id }}-${{ github.run_number }}-${{ github.run_attempt }}
+        token: ${{ secrets.GH_PAT }}
+        commit-message: Refresh plugin metadata ${{ steps.date.outputs.date }}
+        committer: GitHub <noreply@github.com>
+        author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+        signoff: false
+        branch: hub-bot-metadata-${{ steps.date.outputs.date }}-${{ github.run_id }}-${{ github.run_number }}-${{ github.run_attempt }}
+        delete-branch: true
+        title: '[Hub Bot] Refresh metadata ${{ steps.date.outputs.date }}'
+        body: |
+          Test
+          - testing
+        assignees: pnadolny13
+        reviewers: pnadolny13
+        draft: false
