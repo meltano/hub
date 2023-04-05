@@ -64,5 +64,5 @@ settings:
     `{datestamp}`. Defaults to "UTC". For a list of possible values, please see -https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   label: Timestamp Timezone
   name: timestamp_timezone
-variant: meltanolabs
 settings_group_validation: []
+variant: meltanolabs
