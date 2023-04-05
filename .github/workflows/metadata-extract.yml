@@ -2,6 +2,17 @@ name: Metadata Extract
 
 on:
   workflow_dispatch:
+    inputs:
+      environment:
+        description: 'The environment to run the workflow in'
+        required: true
+        type: choice
+        default: 'preview'
+        options:
+          - 'preview'
+          - 'production'
+  # schedule:
+  #   - cron: '0 0 * * *' # Run at midnight UTC
 
 jobs:
   get_variants_list:
@@ -51,16 +62,23 @@ jobs:
     name: SDK Extractors - Metadata Extract
     needs: get_variants_list
     runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.environment == 'production' || github.event_name == 'schedule' && 'production' || 'preview' }}
     env:
-      AWS_S3_BUCKET: "${{secrets.AWS_S3_BUCKET }}"
-      AWS_ACCESS_KEY_ID: "${{secrets.AWS_ACCESS_KEY_ID }}"
-      AWS_SECRET_ACCESS_KEY: "${{secrets.AWS_SECRET_ACCESS_KEY }}"
-      AWS_SESSION_TOKEN: "${{secrets.AWS_SESSION_TOKEN }}"
+      AWS_S3_BUCKET: "${{secrets.HUB_METADATA_S3_BUCKET }}"
     strategy:
       fail-fast: false
       matrix: ${{ fromJson(needs.get_variants_list.outputs.sdk_ex_matrix) }}
+    permissions:
+      id-token: write # This is required for requesting the JWT
     steps:
     - uses: actions/checkout@v3.3.0
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v2.0.0
+      with:
+        role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+        aws-region: us-west-2
+        role-session-name: "GitHubActions"
 
     - name: Install hub_utils
       run: pipx install git+https://github.com/pnadolny13/hub-utils.git
@@ -102,16 +120,23 @@ jobs:
     name: SDK Loaders - Metadata Extract
     needs: get_variants_list
     runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.environment == 'production' || github.event_name == 'schedule' && 'production' || 'preview' }}
     env:
-      AWS_S3_BUCKET: "${{secrets.AWS_S3_BUCKET }}"
-      AWS_ACCESS_KEY_ID: "${{secrets.AWS_ACCESS_KEY_ID }}"
-      AWS_SECRET_ACCESS_KEY: "${{secrets.AWS_SECRET_ACCESS_KEY }}"
-      AWS_SESSION_TOKEN: "${{secrets.AWS_SESSION_TOKEN }}"
+      AWS_S3_BUCKET: "${{secrets.HUB_METADATA_S3_BUCKET }}"
     strategy:
       fail-fast: false
       matrix: ${{ fromJson(needs.get_variants_list.outputs.sdk_loaders_matrix) }}
+    permissions:
+      id-token: write # This is required for requesting the JWT
     steps:
     - uses: actions/checkout@v3.3.0
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v2.0.0
+      with:
+        role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+        aws-region: us-west-2
+        role-session-name: "GitHubActions"
 
     - name: Install hub_utils
       run: pipx install git+https://github.com/pnadolny13/hub-utils.git
@@ -154,11 +179,6 @@ jobs:
     name: Airbyte - Part 1 Metadata Extract 
     needs: get_variants_list
     runs-on: ubuntu-latest
-    env:
-      AWS_S3_BUCKET: "${{secrets.AWS_S3_BUCKET }}"
-      AWS_ACCESS_KEY_ID: "${{secrets.AWS_ACCESS_KEY_ID }}"
-      AWS_SECRET_ACCESS_KEY: "${{secrets.AWS_SECRET_ACCESS_KEY }}"
-      AWS_SESSION_TOKEN: "${{secrets.AWS_SESSION_TOKEN }}"
     strategy:
       fail-fast: false
       matrix: ${{ fromJson(needs.get_variants_list.outputs.airbyte_matrix) }}
@@ -179,16 +199,23 @@ jobs:
     if: ${{ always() }}
     needs: [metadata_extract_airbyte_p1, get_variants_list]
     runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.environment == 'production' || github.event_name == 'schedule' && 'production' || 'preview' }}
     env:
-      AWS_S3_BUCKET: "${{secrets.AWS_S3_BUCKET }}"
-      AWS_ACCESS_KEY_ID: "${{secrets.AWS_ACCESS_KEY_ID }}"
-      AWS_SECRET_ACCESS_KEY: "${{secrets.AWS_SECRET_ACCESS_KEY }}"
-      AWS_SESSION_TOKEN: "${{secrets.AWS_SESSION_TOKEN }}"
+      AWS_S3_BUCKET: "${{secrets.HUB_METADATA_S3_BUCKET }}"
     strategy:
       fail-fast: false
       matrix: ${{ fromJson(needs.get_variants_list.outputs.airbyte_matrix) }}
+    permissions:
+      id-token: write # This is required for requesting the JWT
     steps:
       - uses: actions/checkout@v2
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2.0.0
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+          aws-region: us-west-2
+          role-session-name: "GitHubActions"
 
       - uses: actions/download-artifact@v3
         with:
