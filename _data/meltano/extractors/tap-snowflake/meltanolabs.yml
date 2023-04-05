@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Extractor for Snowflake data warehouse
 domain_url: https://www.snowflake.com/
 keywords:
@@ -19,14 +19,6 @@ next_steps: ''
 pip_url: meltanolabs-tap-snowflake
 repo: https://github.com/MeltanoLabs/tap-snowflake
 settings:
-- description: The login name for your Snowflake user.
-  kind: string
-  label: User
-  name: user
-- description: The password for your Snowflake user.
-  kind: password
-  label: Password
-  name: password
 - description: Your account identifier. See [Account Identifiers](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html).
   kind: string
   label: Account
@@ -35,27 +27,6 @@ settings:
   kind: string
   label: Database
   name: database
-- description: The initial schema for the Snowflake session.
-  kind: string
-  label: Schema
-  name: schema
-- description: The initial warehouse for the session.
-  kind: string
-  label: Warehouse
-  name: warehouse
-- description: The initial role for the session.
-  kind: string
-  label: Role
-  name: role
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
 - description: "'True' to enable schema flattening and automatically expand nested\
     \ properties."
   kind: boolean
@@ -65,10 +36,39 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: The password for your Snowflake user.
+  kind: password
+  label: Password
+  name: password
+- description: The initial role for the session.
+  kind: string
+  label: Role
+  name: role
+- description: The initial schema for the Snowflake session.
+  kind: string
+  label: Schema
+  name: schema
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: The login name for your Snowflake user.
+  kind: string
+  label: User
+  name: user
+- description: The initial warehouse for the session.
+  kind: string
+  label: Warehouse
+  name: warehouse
 settings_group_validation:
-- - password
+- - account
+  - password
   - user
-  - account
 settings_preamble: ''
 usage: ''
 variant: meltanolabs

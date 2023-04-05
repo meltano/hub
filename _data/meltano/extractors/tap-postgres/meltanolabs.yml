@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: PostgreSQL database extractor
 domain_url: https://www.postgresql.org/
 keywords:
@@ -19,19 +19,6 @@ next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-postgres.git
 repo: https://github.com/MeltanoLabs/tap-postgres
 settings:
-- description: Example postgresql://postgres:postgres@localhost:5432/postgres
-  kind: string
-  label: Sqlalchemy Url
-  name: sqlalchemy_url
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
 - description: "'True' to enable schema flattening and automatically expand nested\
     \ properties."
   kind: boolean
@@ -41,6 +28,19 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: Example postgresql://postgres:postgres@localhost:5432/postgres
+  kind: string
+  label: Sqlalchemy Url
+  name: sqlalchemy_url
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
 - - sqlalchemy_url
 settings_preamble: ''

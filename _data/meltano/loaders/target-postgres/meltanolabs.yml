@@ -1,7 +1,7 @@
 capabilities:
 - about
-- stream-maps
 - schema-flattening
+- stream-maps
 description: PostgreSQL database loader
 dialect: postgres
 domain_url: https://www.postgresql.org/
@@ -18,67 +18,26 @@ next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/target-postgres.git
 repo: https://github.com/MeltanoLabs/target-postgres
 settings:
-- description: Hostname for postgres instance. Note if sqlalchemy_url is set this
-    will be ignored.
-  kind: string
-  label: Host
-  name: host
-- description: The port on which postgres is awaiting connection. Note if sqlalchemy_url
-    is set this will be ignored. Defaults to 5432
-  kind: integer
-  label: Port
-  name: port
-- description: User name used to authenticate. Note if sqlalchemy_url is set this
-    will be ignored.
-  kind: string
-  label: User
-  name: user
-- description: Password used to authenticate. Note if sqlalchemy_url is set this will
-    be ignored.
-  kind: password
-  label: Password
-  name: password
-- description: Database name. Note if sqlalchemy_url is set this will be ignored.
-  kind: string
-  label: Database
-  name: database
-- description: SQLAlchemy connection string. This will override using host, user,
-    password, port, dialect. Note that you must esacpe password special characters
-    properly see https://docs.sqlalchemy.org/en/20/core/engines.html#escaping-special-characters-such-as-signs-in-passwords
-  kind: string
-  label: Sqlalchemy Url
-  name: sqlalchemy_url
-- description: Dialect+driver see https://docs.sqlalchemy.org/en/20/core/engines.html.
-    Generally just leave this alone. Note if sqlalchemy_url is set this will be ignored.
-  kind: string
-  label: Dialect+Driver
-  name: dialect+driver
-- description: 'Postgres schema to send data to, example: tap-clickup'
-  kind: string
-  label: Default Target Schema
-  name: default_target_schema
-  value: $MELTANO_EXTRACT__LOAD_SCHEMA
-- description: When activate version is sent from a tap this specefies if we should
-    delete the records that don't match, or mark them with a date in the `_sdc_deleted_at`
-    column.
-  kind: boolean
-  label: Hard Delete
-  name: hard_delete
 - description: Note that this must be enabled for activate_version to work!This adds
     _sdc_extracted_at, _sdc_batched_at, and more to every table. See https://sdk.meltano.com/en/latest/implementation/record_metadata.html
     for more information.
   kind: boolean
   label: Add Record Metadata
   name: add_record_metadata
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
+- description: Database name. Note if sqlalchemy_url is set this will be ignored.
+  kind: string
+  label: Database
+  name: database
+- description: 'Postgres schema to send data to, example: tap-clickup'
+  kind: string
+  label: Default Target Schema
+  name: default_target_schema
+  value: $MELTANO_EXTRACT__LOAD_SCHEMA
+- description: Dialect+driver see https://docs.sqlalchemy.org/en/20/core/engines.html.
+    Generally just leave this alone. Note if sqlalchemy_url is set this will be ignored.
+  kind: string
+  label: Dialect+Driver
+  name: dialect+driver
 - description: "'True' to enable schema flattening and automatically expand nested\
     \ properties."
   kind: boolean
@@ -88,6 +47,47 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: When activate version is sent from a tap this specefies if we should
+    delete the records that don't match, or mark them with a date in the `_sdc_deleted_at`
+    column.
+  kind: boolean
+  label: Hard Delete
+  name: hard_delete
+- description: Hostname for postgres instance. Note if sqlalchemy_url is set this
+    will be ignored.
+  kind: string
+  label: Host
+  name: host
+- description: Password used to authenticate. Note if sqlalchemy_url is set this will
+    be ignored.
+  kind: password
+  label: Password
+  name: password
+- description: The port on which postgres is awaiting connection. Note if sqlalchemy_url
+    is set this will be ignored. Defaults to 5432
+  kind: integer
+  label: Port
+  name: port
+- description: SQLAlchemy connection string. This will override using host, user,
+    password, port, dialect. Note that you must esacpe password special characters
+    properly see https://docs.sqlalchemy.org/en/20/core/engines.html#escaping-special-characters-such-as-signs-in-passwords
+  kind: string
+  label: Sqlalchemy Url
+  name: sqlalchemy_url
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User name used to authenticate. Note if sqlalchemy_url is set this
+    will be ignored.
+  kind: string
+  label: User
+  name: user
 settings_group_validation:
 - []
 settings_preamble: ''

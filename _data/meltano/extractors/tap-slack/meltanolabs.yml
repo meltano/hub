@@ -1,8 +1,8 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
+- catalog
+- discover
+- state
 - stream-maps
 description: Team communication tool
 domain_url: https://api.slack.com/
@@ -61,6 +61,34 @@ settings:
   kind: password
   label: API Key
   name: api_key
+- description: Whether the bot user should attempt to join channels that it has not
+    yet joined. The bot user must be a member of the channel to retrieve messages.
+  kind: boolean
+  label: Auto Join Channels
+  name: auto_join_channels
+- description: An array of the types of conversations the tap will attempt to extract
+    data from. Must be one of 'public_channel', 'mpim', 'private_channel', or 'im'.
+    Note that the Slack app must have the appropriate privileges and be a member of
+    the conversations to sync messages.
+  kind: array
+  label: Channel Types
+  name: channel_types
+- description: A list of channel IDs that should not be retrieved. Excluding overrides
+    a selected setting, so if a channel is included in both selected and excluded,
+    it will be excluded.
+  kind: array
+  label: Excluded Channels
+  name: excluded_channels
+- description: Whether to include streams that require admin privileges or not. If
+    the user does not have the proper scopes then the tap will throw and exception.
+  kind: boolean
+  label: Include Admin Streams
+  name: include_admin_streams
+- description: A list of channel IDs that should be retrieved. If not defined then
+    all are selected.
+  kind: array
+  label: Selected Channels
+  name: selected_channels
 - description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.
@@ -72,34 +100,6 @@ settings:
   kind: integer
   label: Thread Lookback Days
   name: thread_lookback_days
-- description: An array of the types of conversations the tap will attempt to extract
-    data from. Must be one of 'public_channel', 'mpim', 'private_channel', or 'im'.
-    Note that the Slack app must have the appropriate privileges and be a member of
-    the conversations to sync messages.
-  kind: array
-  label: Channel Types
-  name: channel_types
-- description: Whether the bot user should attempt to join channels that it has not
-    yet joined. The bot user must be a member of the channel to retrieve messages.
-  kind: boolean
-  label: Auto Join Channels
-  name: auto_join_channels
-- description: A list of channel IDs that should be retrieved. If not defined then
-    all are selected.
-  kind: array
-  label: Selected Channels
-  name: selected_channels
-- description: A list of channel IDs that should not be retrieved. Excluding overrides
-    a selected setting, so if a channel is included in both selected and excluded,
-    it will be excluded.
-  kind: array
-  label: Excluded Channels
-  name: excluded_channels
-- description: Whether to include streams that require admin privileges or not. If the user does
-    not have the proper scopes then the tap will throw and exception.
-  kind: boolean
-  label: Include Admin Streams
-  name: include_admin_streams
 settings_group_validation:
 - - api_key
 variant: meltanolabs
