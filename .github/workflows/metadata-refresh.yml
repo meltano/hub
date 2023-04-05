@@ -19,7 +19,7 @@ jobs:
   metadata_refresh:
     name: Metadata Refresh
     runs-on: ubuntu-latest
-    environment: ${{ github.event.inputs.environment == 'production' || github.event_name == 'schedule' && 'production' || 'preview' }}
+    environment: ${{ github.event.inputs.environment || github.event_name == 'schedule' && 'production' || 'preview' }}
     env:
       AWS_S3_BUCKET: "${{secrets.HUB_METADATA_S3_BUCKET }}"
     permissions:
@@ -53,7 +53,7 @@ jobs:
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v4
       with:
-        token: ${{ secrets.GH_PAT }}
+        token: ${{ secrets.MELTYBOT_GITHUB_AUTH_TOKEN }}
         commit-message: Refresh plugin metadata ${{ steps.date.outputs.date }}
         committer: GitHub <noreply@github.com>
         author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
@@ -62,8 +62,7 @@ jobs:
         delete-branch: true
         title: '[Hub Bot] Refresh metadata ${{ steps.date.outputs.date }}'
         body: |
-          Test
-          - testing
+          Updates Plugin Definitions
         assignees: pnadolny13
         reviewers: pnadolny13
         draft: false
