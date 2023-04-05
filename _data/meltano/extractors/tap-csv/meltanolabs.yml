@@ -1,6 +1,6 @@
 capabilities:
-- discover
 - catalog
+- discover
 description: Generic data extractor of CSV (comma separated value) files
 domain_url: https://en.wikipedia.org/wiki/Comma-separated_values
 keywords:
@@ -14,6 +14,28 @@ namespace: tap_csv
 pip_url: git+https://github.com/MeltanoLabs/tap-csv.git
 repo: https://github.com/MeltanoLabs/tap-csv
 settings:
+- description: When True, add the metadata columns (`_sdc_source_file`, `_sdc_source_file_mtime`,
+    `_sdc_source_lineno`) to output.
+  kind: boolean
+  label: Add Metadata Columns
+  name: add_metadata_columns
+- description: |
+    Project-relative path to JSON file holding array of objects as described under [Files](#files) - with `entity`, `path`, `keys`, and other optional keys:
+
+    ```json
+    [
+      {
+        "entity": "<entity>",
+        "path": "<path>",
+        "keys": ["<key>"],
+      },
+      // ...
+    ]
+    ```
+  documentation: https://github.com/MeltanoLabs/tap-csv#settings
+  label: CSV Files Definition
+  name: csv_files_definition
+  placeholder: Ex. files-def.json
 - description: |
     Array of objects with `entity`, `path`, `keys`, and `encoding` [Optional] keys:
 
@@ -36,28 +58,6 @@ settings:
   kind: array
   label: Files
   name: files
-- description: |
-    Project-relative path to JSON file holding array of objects as described under [Files](#files) - with `entity`, `path`, `keys`, and other optional keys:
-
-    ```json
-    [
-      {
-        "entity": "<entity>",
-        "path": "<path>",
-        "keys": ["<key>"],
-      },
-      // ...
-    ]
-    ```
-  documentation: https://github.com/MeltanoLabs/tap-csv#settings
-  label: CSV Files Definition
-  name: csv_files_definition
-  placeholder: Ex. files-def.json
-- description: When True, add the metadata columns (`_sdc_source_file`, `_sdc_source_file_mtime`,
-    `_sdc_source_lineno`) to output.
-  kind: boolean
-  label: Add Metadata Columns
-  name: add_metadata_columns
 settings_group_validation:
 - - files
 - - csv_files_definition
