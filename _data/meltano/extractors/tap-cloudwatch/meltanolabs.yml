@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: AWS Application and Infrastructure Monitoring
 domain_url: https://aws.amazon.com/cloudwatch/
 executable: tap-cloudwatch
@@ -23,6 +23,19 @@ settings:
   kind: password
   label: AWS Access Key Id
   name: aws_access_key_id
+- description: The complete URL to use for the constructed client.
+  kind: string
+  label: AWS Endpoint Url
+  name: aws_endpoint_url
+- description: The AWS credentials profile name to use. The profile must be configured
+    and accessible.
+  kind: string
+  label: AWS Profile
+  name: aws_profile
+- description: 'The AWS region name (e.g. us-east-1) '
+  kind: string
+  label: AWS Region Name
+  name: aws_region_name
 - description: The secret key for your AWS account.
   kind: password
   label: AWS Secret Access Key
@@ -32,38 +45,6 @@ settings:
   kind: password
   label: AWS Session Token
   name: aws_session_token
-- description: The AWS credentials profile name to use. The profile must be configured
-    and accessible.
-  kind: string
-  label: AWS Profile
-  name: aws_profile
-- description: The complete URL to use for the constructed client.
-  kind: string
-  label: AWS Endpoint Url
-  name: aws_endpoint_url
-- description: 'The AWS region name (e.g. us-east-1) '
-  kind: string
-  label: AWS Region Name
-  name: aws_region_name
-- description: The earliest record date to sync
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
-- description: The last record date to sync. This tap uses a 5 minute buffer to allow
-    Cloudwatch logs to arrive in full. If you request data from current time it will
-    automatically adjust your end_date to now - 5 mins.
-  kind: date_iso8601
-  label: End Date
-  name: end_date
-- description: The log group on which to perform the query.
-  kind: string
-  label: Log Group Name
-  name: log_group_name
-- description: The query string to use. For more information, see [CloudWatch Logs
-    Insights Query Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
-  kind: string
-  label: Query
-  name: query
 - description: The size of the time window to query by, default 3,600 seconds (i.e.
     1 hour). If the result set for a batch is greater than the max limit of 10,000
     records then the tap will query the same window again where >= the most recent
@@ -76,15 +57,12 @@ settings:
   kind: integer
   label: Batch Increment S
   name: batch_increment_s
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
+- description: The last record date to sync. This tap uses a 5 minute buffer to allow
+    Cloudwatch logs to arrive in full. If you request data from current time it will
+    automatically adjust your end_date to now - 5 mins.
+  kind: date_iso8601
+  label: End Date
+  name: end_date
 - description: "'True' to enable schema flattening and automatically expand nested\
     \ properties."
   kind: boolean
@@ -94,10 +72,32 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: The log group on which to perform the query.
+  kind: string
+  label: Log Group Name
+  name: log_group_name
+- description: The query string to use. For more information, see [CloudWatch Logs
+    Insights Query Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
+  kind: string
+  label: Query
+  name: query
+- description: The earliest record date to sync
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
 - - log_group_name
-  - start_date
   - query
+  - start_date
 settings_preamble: ''
 usage: ''
 variant: meltanolabs

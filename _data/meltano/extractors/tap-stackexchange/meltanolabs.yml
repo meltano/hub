@@ -16,30 +16,30 @@ namespace: tap_stackexchange
 pip_url: git+https://github.com/MeltanoLabs/tap-stackexchange.git
 repo: https://github.com/MeltanoLabs/tap-stackexchange
 settings:
-- description: Question tags to retrieve.
-  kind: array
-  label: Question tags
-  name: tags
-- description: StackExchange site to look for questions.
-  documentation: https://stackexchange.com/sites
-  label: Site
-  name: site
-- description: Key to receive a higher request quota.
-  documentation: https://api.stackexchange.com/docs/authentication
-  kind: password
-  label: Stack App key
-  name: key
-- description: The earliest record date to sync
-  documentation: https://api.stackexchange.com/docs/dates
-  kind: integer
-  label: Start date
-  name: start_date
 - description: Custom API filter to apply to all requests
   documentation: https://api.stackexchange.com/docs/filters
   kind: string
   label: Filter
   name: filter
+- description: Key to receive a higher request quota.
+  documentation: https://api.stackexchange.com/docs/authentication
+  kind: password
+  label: Stack App key
+  name: key
+- description: StackExchange site to look for questions.
+  documentation: https://stackexchange.com/sites
+  label: Site
+  name: site
+- description: The earliest record date to sync
+  documentation: https://api.stackexchange.com/docs/dates
+  kind: integer
+  label: Start date
+  name: start_date
+- description: Question tags to retrieve.
+  kind: array
+  label: Question tags
+  name: tags
 settings_group_validation:
-- - tags
-  - site
+- - site
+  - tags
 variant: meltanolabs

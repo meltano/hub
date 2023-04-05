@@ -14,6 +14,14 @@ namespace: target_yaml
 pip_url: git+https://github.com/MeltanoLabs/target-yaml.git
 repo: https://github.com/MeltanoLabs/target-yaml
 settings:
+- description: A python format string to use when outputting the `{datestamp}` string.
+    For reference, see - https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes
+  label: Datestamp Format
+  name: datestamp_format
+- description: Text string to use for a yaml template file. This text will be used
+    to create a new file if the destination file does not exist.
+  label: Default Yaml Template
+  name: default_yaml_template
 - description: |
     The scheme with which output files will be named. Naming scheme may leverage any of the following substitutions:
      - `{stream_name}`
@@ -21,23 +29,14 @@ settings:
      - `{timestamp}`
   label: File Naming Scheme
   name: file_naming_scheme
-- description: A python format string to use when outputting the `{datestamp}` string.
-    For reference, see - https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes
-  label: Datestamp Format
-  name: datestamp_format
-- description: A python format string to use when outputting the `{datestamp}` string.
-    For reference, see - https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes
-  label: Timestamp Format
-  name: timestamp_format
-- description: The timezone code or name to use when generating `{timestamp}` and
-    `{datestamp}`. Defaults to "UTC". For a list of possible values, please see -https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-  label: Timestamp Timezone
-  name: timestamp_timezone
-- description: Allows inline stream transformations and aliasing. For more information
-    see - https://sdk.meltano.com/en/latest/stream_maps.html
-  kind: object
-  label: Stream Maps
-  name: stream_maps
+- description: |
+    Determines the overwrite behavior if destination file already exists.
+    Must be one of the following string values:
+      - `append_records` (default): append records at the insertion point
+      - `replace_records`: replace all records at the insertion point
+      - `replace_file`: replace entire file using `default_yaml_template`
+  label: Overwrite Behavior
+  name: overwrite_behavior
 - description: |
     A jsonpath string determining the insertion point for new records.
     Currently, this must be the path to a map key which will be populated by a list of records.  For example "$.metrics" will populate the file with `metrics - [{<record1>},{<record2>},...]`  For JSONPath syntax help, see - https://jsonpath.com
@@ -52,16 +51,18 @@ settings:
     property is omitted, records will not be sorted.
   label: Record Sort Property Name
   name: record_sort_property_name
-- description: |
-    Determines the overwrite behavior if destination file already exists.
-    Must be one of the following string values:
-      - `append_records` (default): append records at the insertion point
-      - `replace_records`: replace all records at the insertion point
-      - `replace_file`: replace entire file using `default_yaml_template`
-  label: Overwrite Behavior
-  name: overwrite_behavior
-- description: Text string to use for a yaml template file. This text will be used
-    to create a new file if the destination file does not exist.
-  label: Default Yaml Template
-  name: default_yaml_template
+- description: Allows inline stream transformations and aliasing. For more information
+    see - https://sdk.meltano.com/en/latest/stream_maps.html
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: A python format string to use when outputting the `{datestamp}` string.
+    For reference, see - https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes
+  label: Timestamp Format
+  name: timestamp_format
+- description: The timezone code or name to use when generating `{timestamp}` and
+    `{datestamp}`. Defaults to "UTC". For a list of possible values, please see -https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  label: Timestamp Timezone
+  name: timestamp_timezone
+settings_group_validation: []
 variant: meltanolabs
