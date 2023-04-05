@@ -55,7 +55,7 @@ def fix_arrays(yml_dict):
 
     # Sort SGV
     new_sgv_list = []
-    for sgv_list in yml_dict.get("settings_group_validation"):
+    for sgv_list in yml_dict.get("settings_group_validation", []):
         new_sgv_list.append(sorted(sgv_list))
     new_dict["settings_group_validation"] = new_sgv_list
 

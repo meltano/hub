@@ -137,7 +137,8 @@ def test_sdk_about_parsing_airbyte():
             "name": "airbyte_spec.tag",
             "label": "Airbyte Spec Tag",
             "description": "",
-            "kind": "string"
+            "kind": "string",
+            "value": "latest"
         },
         {
             "name": "connector_config.dataset",
@@ -162,7 +163,8 @@ def test_sdk_about_parsing_airbyte():
             "name": "connector_config.format.delimiter",
             "label": "Connector Config Format Delimiter",
             "description": "The character delimiting individual cells in the CSV data. This may only be a 1-character string. For tab-delimited data enter '\\t'.",
-            "kind": "string"
+            "kind": "string",
+            "value": ","
         },
         {
             "name": "connector_config.format.columns",
@@ -174,14 +176,16 @@ def test_sdk_about_parsing_airbyte():
             "name": "connector_config.format.buffer_size",
             "label": "Connector Config Format Buffer Size",
             "description": "Perform read buffering when deserializing individual column chunks. By default every group column will be loaded fully to memory. This option can help avoid out-of-memory errors if your data is particularly wide.",
-            "kind": "integer"
+            "kind": "integer",
+            "value": 2
         },
         # End after tweaks
         {
             "name": "connector_config.schema",
             "label": "Connector Config Schema",
             "description": "Optionally provide a schema to enforce, as a valid JSON string. Ensure this is a mapping of <strong>{ \"column\" : \"type\" }</strong>, where types are valid <a href=\"https://json-schema.org/understanding-json-schema/reference/type.html\" target=\"_blank\">JSON Schema datatypes</a>. Leave as {} to auto-infer the schema.",
-            "kind": "string"
+            "kind": "string",
+            "value": "{}"
         },
         {
             "name": "connector_config.provider.bucket",
@@ -328,3 +332,76 @@ def test_airbyte_array_enum_string():
 )
 def test_get_label(input, expected):
     assert MeltanoUtil()._get_label(input) == expected
+
+
+def test_sdk_about_parsing_default():
+    input = {
+        "settings": {
+            "type": "object",
+            "properties": {
+                "test": {
+                    "type": [
+                        "string"
+                    ],
+                    "default": "my default",
+                    "description": "my description"
+                }
+            },
+            "required": []
+        }
+    }
+    settings, _, _ = MeltanoUtil._parse_sdk_about_settings(input)
+    assert settings == [
+        {
+            "name": "test",
+            "label": "Test",
+            "description": "my description",
+            "kind": "string",
+            "value": "my default"
+        }
+    ]
+
+
+def test_sdk_about_parsing_skip_default_dates():
+    input = {
+        "settings": {
+            "type": "object",
+            "properties": {
+                "start_date": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "format": "date-time",
+                    "default": "2020-04-04T19:54:26.375510Z",
+                    "description": "The description"
+                },
+                "end_date": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "format": "date-time",
+                    "default": "2020-04-04T19:54:26.375510Z",
+                    "description": "The description"
+                }
+            },
+            "required": []
+        }
+        
+    }
+    settings, _, _ = MeltanoUtil._parse_sdk_about_settings(input)
+    assert settings == [
+        {
+            "name": "start_date",
+            "label": "Start Date",
+            "description": "The description",
+            "kind": "date_iso8601",
+        },
+        {
+            "name": "end_date",
+            "label": "End Date",
+            "description": "The description",
+            "kind": "date_iso8601",
+        }
+    ]

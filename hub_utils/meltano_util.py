@@ -159,52 +159,63 @@ class MeltanoUtil:
         return [value for key, value in reformatted_settings_2.items()]
 
     @staticmethod
+    def _handle_description(description, name, enforce_desc):
+        if not description:
+            if enforce_desc:
+                description = typer.prompt(
+                    f"[{name}] `description`",
+                    default=MeltanoUtil._default_description(name),
+                )
+            else:
+                if name == "tag":
+                    description = "Airbyte image tag"
+                else:
+                    description = ""
+        return description
+
+    @staticmethod
+    def _get_kind_from_type(type, name, enforce_desc):
+        if isinstance(type, list):
+            kind = [s_type for s_type in type if s_type != "null"][0]
+        else:
+            kind = type
+
+        if not kind:
+            if enforce_desc:
+                kind = typer.prompt(f"[{name}] `kind`", default="string")
+            else:
+                name = name
+                print(f"No type found for: {name}. Defaulting to string")
+                kind = "string"
+        return kind
+
+    @staticmethod
     def _parse_sdk_about_settings(sdk_about_dict, enforce_desc=False):
         settings_raw = sdk_about_dict.get("settings", {})
         reformatted_settings = []
         settings_group_validation = []
         base_required = settings_raw.get("required", [])
         for settings in MeltanoUtil._traverse_schema_properties(settings_raw):
-            description = settings.get("description")
-            if not settings.get("description"):
-                if enforce_desc:
-                    description = typer.prompt(
-                        f"[{settings.get('name')}] `description`",
-                        default=MeltanoUtil._default_description(settings.get("name")),
-                    )
-                else:
-                    if settings.get("name") == "tag":
-                        description = "Airbyte image tag"
-                    else:
-                        description = ""
+            name = settings.get("name")
+            description = MeltanoUtil._handle_description(
+                settings.get("description"), name, enforce_desc
+            )
             setting_details = {
-                "name": settings.get("name"),
-                "label": MeltanoUtil._get_label(settings.get("name")),
+                "name": name,
+                "label": MeltanoUtil._get_label(name),
                 "description": description,
             }
-            if isinstance(settings.get("type"), list):
-                kind = [s_type for s_type in settings.get("type") if s_type != "null"][
-                    0
-                ]
-            else:
-                kind = settings.get("type")
+            kind = MeltanoUtil._get_kind_from_type(
+                settings.get("type"), name, enforce_desc
+            )
 
-            if not kind:
-                if enforce_desc:
-                    kind = typer.prompt(
-                        f"[{settings.get('name')}] `kind`", default="string"
-                    )
-                else:
-                    name = settings.get("name")
-                    print(f"No type found for: {name}. Defaulting to string")
-                    kind = "string"
-
-            # raise Exception(settings)
             kind, options = MeltanoUtil._parse_kind(kind, settings)
             setting_details["kind"] = kind
             if options:
                 setting_details["options"] = options
-
+            if settings.get("default"):
+                if kind != "date_iso8601":
+                    setting_details["value"] = settings.get("default")
             reformatted_settings.append(setting_details)
             if settings.get("required"):
                 settings_group_validation.append(settings.get("name"))
@@ -230,6 +241,7 @@ class MeltanoUtil:
                     field = {
                         "name": full_name,
                         "description": subfield.get("description"),
+                        "default": subfield.get("default"),
                         "type": subfield.get("type"),
                         "title": subfield.get("title"),
                         "const": subfield.get("const"),
@@ -248,6 +260,7 @@ class MeltanoUtil:
                     {
                         "name": key,
                         "description": value.get("description"),
+                        "default": value.get("default"),
                         "type": value.get("type"),
                         "title": value.get("title"),
                         "const": value.get("const"),

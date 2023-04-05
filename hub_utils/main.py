@@ -12,6 +12,26 @@ from hub_utils.yaml_lint import find_all_yamls
 
 app = typer.Typer()
 
+SDK_SUFFIX_LIST = [
+    "extractors/tap-circle-ci/meltanolabs",
+    "extractors/tap-cloudwatch/meltanolabs",
+    "extractors/tap-csv/meltanolabs",
+    "extractors/tap-dbt/meltanolabs",
+    "extractors/tap-duckdb/meltanolabs",
+    "extractors/tap-github/meltanolabs",
+    "extractors/tap-google-analytics/meltanolabs",
+    "extractors/tap-jaffle-shop/meltanolabs",
+    "extractors/tap-messagebird/meltanolabs",
+    "extractors/tap-postgres/meltanolabs",
+    "extractors/tap-slack/meltanolabs",
+    "extractors/tap-snowflake/meltanolabs",
+    "extractors/tap-stackexchange/meltanolabs",
+    "loaders/target-csv/meltanolabs",
+    "loaders/target-postgres/meltanolabs",
+    "loaders/target-snowflake/meltanolabs",
+    "loaders/target-yaml/meltanolabs",
+]
+
 
 @app.callback()
 def callback():
@@ -250,10 +270,47 @@ def translate_sdk(
 # GITHUB ACTIONS
 @app.command()
 def download_metadata(
-    yaml_file: str,
     local_path: str,
+    variant_path_list: str = None,
 ):
     util = Utilities()
-    suffix = util.get_suffix(yaml_file)
-    local_file_path = f"{local_path}/{suffix}.json"
-    S3().download_latest(os.environ.get("AWS_S3_BUCKET"), suffix, local_file_path)
+    s3 = S3()
+    if not variant_path_list:
+        variant_path_list = ",".join(SDK_SUFFIX_LIST)
+    for yaml_file in variant_path_list.split(","):
+        suffix = util.get_suffix(yaml_file)
+        local_file_path = f"{local_path}/{suffix}.json"
+        s3.download_latest(os.environ.get("AWS_S3_BUCKET"), suffix, local_file_path)
+
+
+# GITHUB ACTIONS
+@app.command()
+def merge_metadata(
+    hub_root: str,
+    local_path: str,
+    variant_path_list: str = None,
+):
+    if not variant_path_list:
+        variant_path_list = ",".join(
+            [f"{hub_root}/_data/meltano/{suffix}.yml" for suffix in SDK_SUFFIX_LIST]
+        )
+    util = Utilities()
+    for yaml_file in variant_path_list.split(","):
+        suffix = util.get_suffix(yaml_file)
+        local_file_path = f"{local_path}/{suffix}.json"
+        new_extract_json = util._read_json(local_file_path)
+        existing_def = util._read_yaml(yaml_file)
+        (
+            new_settings,
+            new_settings_group_validation,
+            new_capabilities,
+        ) = MeltanoUtil._parse_sdk_about_settings(new_extract_json)
+        util.merge_and_update(
+            existing_def,
+            new_extract_json.get("name"),
+            util.get_plugin_type_from_suffix(suffix),
+            util.get_plugin_variant_from_suffix(suffix),
+            new_settings,
+            new_capabilities,
+            new_settings_group_validation,
+        )

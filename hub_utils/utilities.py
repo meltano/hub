@@ -12,7 +12,13 @@ import typer
 from ruamel.yaml import YAML
 
 from hub_utils.meltano_util import MeltanoUtil
-from hub_utils.yaml_lint import fix_yaml, run_yamllint
+
+from hub_utils.yaml_lint import (  # isort:skip
+    fix_arrays,
+    fix_yaml,
+    fix_yaml_dict_format,
+    run_yamllint,
+)
 
 
 class Kind(str, Enum):
@@ -104,6 +110,14 @@ class Utilities:
             return "extractors"
         if "target-" in plugin_name:
             return "loaders"
+
+    @staticmethod
+    def get_plugin_type_from_suffix(suffix: str):
+        return suffix.split("/")[0]
+
+    @staticmethod
+    def get_plugin_variant_from_suffix(suffix: str):
+        return suffix.split("/")[2]
 
     @staticmethod
     def _boilerplate_capabilities(plugin_type):
@@ -485,7 +499,6 @@ class Utilities:
             f"{plugin_name}/{plugin_variant}.yml"
         )
         self._write_yaml(def_path, definition)
-        self._reformat(plugin_type, plugin_name, plugin_variant)
 
     def _iterate_existing_settings(self, plugin_name, plugin_variant, plugin_type):
         def_path = (
@@ -507,19 +520,29 @@ class Utilities:
 
     @staticmethod
     def _merge_settings(existing_settings, settings):
-        if not settings:
-            return existing_settings
         new_settings = []
         name_lookup = {setting.get("name"): setting for setting in settings}
         name_lookup_existing = {
             setting.get("name"): setting for setting in existing_settings
         }
         for name, setting in name_lookup.items():
-            if not setting.get("description"):
-                # If description is null from about, use existing
-                setting["description"] = name_lookup_existing.get(name).get(
-                    "description"
-                )
+            existing_desc = name_lookup_existing.get(name, {}).get("description", "")
+            if not setting.get("description") or (
+                len(existing_desc) > len(setting.get("description"))
+                and "\n" in existing_desc
+            ):
+                # If the --about description is null, keep existing.
+                # If the existing description is longer and has new line characters
+                # then its probably a custom/manual override so keep it.
+                setting["description"] = existing_desc
+            # TODO: if existing is much longer we might want to keep it
+            existing_value = name_lookup_existing.get(name, {}).get("value", "")
+            if existing_value.startswith("$MELTANO"):
+                setting["value"] = existing_value
+            for attrib in ["placeholder", "documentation"]:
+                attrib_value = name_lookup_existing.get(name, {}).get(attrib, "")
+                if attrib_value:
+                    setting[attrib] = attrib_value
             new_settings.append(setting)
         return settings
 
@@ -533,7 +556,8 @@ class Utilities:
         new_def["capabilities"] = self._merge_capabilities(
             existing_def.get("capabilities"), caps
         )
-        new_def["settings_group_validation"] = sgv
+        if sgv and sgv[0]:
+            new_def["settings_group_validation"] = sgv
         return new_def
 
     def _test_exception(
@@ -662,6 +686,29 @@ class Utilities:
         self._reformat(plugin_type, plugin_name, plugin_variant)
         print(
             f"\nUpdates {plugin_type} {plugin_name} (SDK based - {plugin_variant})\n\n"
+        )
+
+    def merge_and_update(
+        self,
+        existing_def,
+        plugin_name,
+        plugin_type,
+        plugin_variant,
+        new_settings,
+        new_capabilities,
+        new_settings_group_validation,
+    ):
+        merged_def = self._merge_definitions(
+            existing_def,
+            new_settings,
+            existing_def.get("keywords"),
+            existing_def.get("maintenance_status"),
+            new_capabilities,
+            new_settings_group_validation,
+        )
+        merged_def_formatted = fix_arrays(fix_yaml_dict_format(merged_def))
+        self._write_updated_def(
+            plugin_name, plugin_variant, plugin_type, merged_def_formatted
         )
 
     @staticmethod
