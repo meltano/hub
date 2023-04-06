@@ -295,6 +295,7 @@ def merge_metadata(
             [f"{hub_root}/_data/meltano/{suffix}.yml" for suffix in SDK_SUFFIX_LIST]
         )
     util = Utilities()
+    util.hub_root = hub_root
     for yaml_file in variant_path_list.split(","):
         suffix = util.get_suffix(yaml_file)
         local_file_path = f"{local_path}/{suffix}.json"
