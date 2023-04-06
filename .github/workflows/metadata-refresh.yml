@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: ${{ github.event.inputs.environment || github.event_name == 'schedule' && 'production' || 'preview' }}
     env:
-      AWS_S3_BUCKET: "${{secrets.HUB_METADATA_S3_BUCKET }}"
+      AWS_S3_BUCKET: "${{ secrets.HUB_METADATA_S3_BUCKET }}"
     permissions:
       id-token: write # This is required for requesting the JWT
     steps:
@@ -60,7 +60,7 @@ jobs:
         signoff: false
         branch: hub-bot-metadata-${{ steps.date.outputs.date }}-${{ github.run_id }}-${{ github.run_number }}-${{ github.run_attempt }}
         delete-branch: true
-        title: '[Hub Bot] Refresh metadata ${{ steps.date.outputs.date }}'
+        title: 'chore: [Hub Bot] Refresh metadata ${{ steps.date.outputs.date }}'
         body: |
           Updates Plugin Definitions
         assignees: pnadolny13
