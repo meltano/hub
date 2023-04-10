@@ -562,6 +562,7 @@ loaders:
   target-snowflake: transferwise
   target-sqlite: meltanolabs
   target-stitch: singer-io
+  target-timeplus: timeplus-io
   target-yaml: meltanolabs
 mappers:
   meltano-map-transformer: meltano
