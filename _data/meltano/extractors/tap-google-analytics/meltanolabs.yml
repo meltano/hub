@@ -2,6 +2,7 @@ capabilities:
 - about
 - catalog
 - discover
+- schema-flattening
 - state
 - stream-maps
 description: App and website analytics platform hosted by Google
@@ -20,13 +21,22 @@ settings:
 - description: |
     Follow the above steps for [Key File Location](#key-file-location) but instead of providing a path you can provide the serialized json directly. This can be useful for ephemeral runtime environments where its easier to provide an environment variable instead of a file.
   kind: object
-  label: Client Secrets JSON
+  label: Client Secrets
   name: client_secrets
   placeholder: Ex. client_secrets.json
-- description: Date up to when historical data will be extracted.
+- description: The last record date to sync
   kind: date_iso8601
   label: End Date
   name: end_date
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
 - description: |
     #### How to get
 
@@ -85,28 +95,28 @@ settings:
     2. Next, visit the [Google Analytics API](https://console.developers.google.com/apis/api/analytics.googleapis.com/overview) dashboard, make sure that the project you used in the previous step is selected, and enable this API as well.
 
       ![Screenshot of Google Analytics API](/assets/images/tap-google-analytics/05-ga-api.png)
-  kind: file
-  label: Client Secrets File Location
+  kind: password
+  label: Key File Location
   name: key_file_location
   placeholder: Ex. $MELTANO_PROJECT_ROOT/client_secrets.json
-- description: See https://developers.google.com/analytics/devguides/reporting/core/v4/authorization#OAuth2Authorizing.
+- description: Google Analytics Access Token
   kind: password
-  label: OAuth Access Token
+  label: Oauth Credentials Access Token
   name: oauth_credentials.access_token
 - description: |
     See <https://developers.google.com/analytics/devguides/reporting/core/v4/authorization#OAuth2Authorizing>.
 
     Takes precedence over [Key File Location](#key-file-location) if both are specified.
   kind: password
-  label: OAuth Client ID
+  label: Oauth Credentials Client ID
   name: oauth_credentials.client_id
-- description: See https://developers.google.com/analytics/devguides/reporting/core/v4/authorization#OAuth2Authorizing.
+- description: Google Analytics Client Secret
   kind: password
-  label: OAuth Client Secret
+  label: Oauth Credentials Client Secret
   name: oauth_credentials.client_secret
-- description: See https://developers.google.com/analytics/devguides/reporting/core/v4/authorization#OAuth2Authorizing.
+- description: Google Analytics Refresh Token
   kind: password
-  label: OAuth Refresh Token
+  label: Oauth Credentials Refresh Token
   name: oauth_credentials.refresh_token
 - description: |
     Project-relative path to JSON file with the definition of the reports to be generated.
@@ -165,15 +175,23 @@ settings:
       }
     ]
     ```
+  kind: string
   label: Reports
   name: reports
   placeholder: Ex. my_report_definition.json
-- description: This property determines how much historical data will be extracted.
-    Please be aware that the larger the time period and amount of data, the longer
-    the initial extraction can be expected to take.
+- description: The earliest record date to sync
   kind: date_iso8601
   label: Start Date
   name: start_date
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 - description: |
     The ID for the view to fetch data from.
 
@@ -192,20 +210,11 @@ settings:
     ![Screenshot of open account selector](/assets/images/tap-google-analytics/account-selector-open.png)
 
     4. You will see the View ID displayed inside the selector below the name of the view (e.g. "All Web Site Data"): `188274549`
+  kind: password
   label: View ID
   name: view_id
   placeholder: Ex. 198343027
 settings_group_validation:
-- - key_file_location
-  - start_date
-  - view_id
-- - client_secrets
-  - start_date
-  - view_id
-- - oauth_credentials.access_token
-  - oauth_credentials.client_id
-  - oauth_credentials.client_secret
-  - oauth_credentials.refresh_token
-  - start_date
+- - start_date
   - view_id
 variant: meltanolabs
