@@ -50,7 +50,7 @@ settings_preamble: ''
 usage: |
   ### Target Authentication and Authorization
 
-  You need to create a free account at https://timeplus.com. Sign up with a Google or Microsoft ID, then create a new workspace with a random ID and a friendly name. Then you will be redirected to https://us.timeplus.cloud/wsId1234/console 
+  You need to create a free account at https://timeplus.com. Sign up with a Google or Microsoft ID, then create a new workspace with a random ID and a friendly name. Then you will be redirected to https://us.timeplus.cloud/wsId1234/console
 
   You need to create an API key to access Timeplus REST API. To do so:
 
