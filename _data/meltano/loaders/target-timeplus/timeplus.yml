@@ -47,5 +47,19 @@ settings_group_validation:
 - - apikey
   - endpoint
 settings_preamble: ''
-usage: ''
+usage: |
+  ### Target Authentication and Authorization
+
+  You need to create a free account at https://timeplus.com. Sign up with a Google or Microsoft ID, then create a new workspace with a random ID and a friendly name. Then you will be redirected to https://us.timeplus.cloud/wsId1234/console 
+
+  You need to create an API key to access Timeplus REST API. To do so:
+
+  1. Click the user icon on the top-right corner.
+  2. Choose Personal Settings
+  3. Choose the 2nd tab API Key Management
+  4. Click the Create API Key button
+  5. Set a readable name and choose an expiration date
+  6. Save the API key securely in your computer. You are not going to retrieve the plain text key again in the console.
+
+  For more details, please check https://docs.timeplus.com/docs/quickstart-ingest-api
 variant: timeplus
