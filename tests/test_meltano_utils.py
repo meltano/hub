@@ -328,6 +328,7 @@ def test_airbyte_array_enum_string():
         ["aws_access_key_id", "AWS Access Key ID"],
         ["db_name", "Database Name"],
         ["api_url", "API URL"],
+        ["oauth_credentials.client_secret", "OAuth Credentials Client Secret"]
     ]
 )
 def test_get_label(input, expected):

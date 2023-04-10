@@ -89,6 +89,7 @@ class MeltanoUtil:
                 .replace("Id", "ID")
                 .replace("Db", "Database")
                 .replace("Api", "API")
+                .replace("Oauth", "OAuth")
             )
         return " ".join(new_label)
 
