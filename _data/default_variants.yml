@@ -414,6 +414,7 @@ extractors:
   tap-smaily: airbyte
   tap-smartengage: airbyte
   tap-smartsheet: brooklyn-data
+  tap-smoke-test: meltano
   tap-sms: jboltron3000
   tap-snapchat-ads: singer-io
   tap-snapengage: pathlight
