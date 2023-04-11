@@ -40,6 +40,10 @@ settings:
     Google Sheet.
   label: Child Sheet Name
   name: child_sheet_name
+- description: Optionally set one or more columns from within your Google Sheet to
+    be primary keys for your table. Chosen columns cannot contain null values.
+  name: key_properties
+  label: Key Properties
 settings_group_validation:
 - - oauth_credentials.client_id
   - oauth_credentials.client_secret
