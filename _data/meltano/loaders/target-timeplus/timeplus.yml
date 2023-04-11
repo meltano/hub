@@ -1,0 +1,66 @@
+capabilities:
+- about
+- schema-flattening
+- stream-maps
+description: Streaming-first real-time analytics platform.
+domain_url: https://www.timeplus.com/
+executable: target-timeplus
+keywords:
+- meltano_sdk
+label: Timeplus
+logo_url: /assets/logos/loaders/timeplus.png
+maintenance_status: beta
+name: target-timeplus
+namespace: target_timeplus
+next_steps: ''
+pip_url: git+https://github.com/timeplus-io/target-timeplus.git
+repo: https://github.com/timeplus-io/target-timeplus
+settings:
+- description: Personal API Key. Check https://docs.timeplus.com/docs/quickstart-ingest-api
+    for more details.
+  kind: password
+  label: API Key
+  name: apikey
+- description: Timeplus workspace endpoint
+  kind: string
+  label: Endpoint
+  name: endpoint
+  value: https://us.timeplus.cloud/wsId1234
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+settings_group_validation:
+- - apikey
+  - endpoint
+settings_preamble: ''
+usage: |
+  ### Target Authentication and Authorization
+
+  You need to create a free account at https://timeplus.com. Sign up with a Google or Microsoft ID, then create a new workspace with a random ID and a friendly name. Then you will be redirected to https://us.timeplus.cloud/wsId1234/console
+
+  You need to create an API key to access Timeplus REST API. To do so:
+
+  1. Click the user icon on the top-right corner.
+  2. Choose Personal Settings
+  3. Choose the 2nd tab API Key Management
+  4. Click the Create API Key button
+  5. Set a readable name and choose an expiration date
+  6. Save the API key securely in your computer. You are not going to retrieve the plain text key again in the console.
+
+  For more details, please check https://docs.timeplus.com/docs/quickstart-ingest-api
+variant: timeplus
