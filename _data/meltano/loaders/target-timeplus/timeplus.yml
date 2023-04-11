@@ -16,7 +16,8 @@ next_steps: ''
 pip_url: git+https://github.com/timeplus-io/target-timeplus.git
 repo: https://github.com/timeplus-io/target-timeplus
 settings:
-- description: Personal API key
+- description: Personal API Key. Check https://docs.timeplus.com/docs/quickstart-ingest-api
+    for more details.
   kind: password
   label: API Key
   name: apikey
