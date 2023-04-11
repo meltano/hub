@@ -21,11 +21,11 @@ repo: https://github.com/meltanolabs/tap-cloudwatch
 settings:
 - description: The access key for your AWS account.
   kind: password
-  label: AWS Access Key Id
+  label: AWS Access Key ID
   name: aws_access_key_id
 - description: The complete URL to use for the constructed client.
   kind: string
-  label: AWS Endpoint Url
+  label: AWS Endpoint URL
   name: aws_endpoint_url
 - description: The AWS credentials profile name to use. The profile must be configured
     and accessible.
@@ -57,6 +57,7 @@ settings:
   kind: integer
   label: Batch Increment S
   name: batch_increment_s
+  value: 3600
 - description: The last record date to sync. This tap uses a 5 minute buffer to allow
     Cloudwatch logs to arrive in full. If you request data from current time it will
     automatically adjust your end_date to now - 5 mins.

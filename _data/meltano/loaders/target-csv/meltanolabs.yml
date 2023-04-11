@@ -1,5 +1,6 @@
 capabilities:
 - about
+- schema-flattening
 - stream-maps
 description: CSV loader
 domain_url: ''
@@ -20,12 +21,23 @@ settings:
   kind: string
   label: Datestamp Format
   name: datestamp_format
+  value: '%Y-%m-%d'
 - description: "The scheme with which output files will be named. Naming scheme may\
     \ leverage any of the following substitutions: \n\n- `{stream_name}`- `{datestamp}`-\
     \ `{timestamp}`"
   kind: string
   label: File Naming Scheme
   name: file_naming_scheme
+  value: '{stream_name}.csv'
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
 - description: Optional path prefix which will be prepended to the file path indicated
     by `file_naming_schema`.
   kind: string
@@ -38,11 +50,16 @@ settings:
   kind: string
   label: Overwrite Behavior
   name: overwrite_behavior
+  value: replace_file
 - description: "A property in the record which will be used as a sort key.\n\nIf this\
     \ property is omitted, records will not be sorted."
   kind: string
   label: Record Sort Property Name
   name: record_sort_property_name
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
 - description: 'Allows inline stream transformations and aliasing. For more information
     see: https://sdk.meltano.com/en/latest/stream_maps.html'
   kind: object
@@ -53,12 +70,14 @@ settings:
   kind: string
   label: Timestamp Format
   name: timestamp_format
+  value: '%Y-%m-%d.T%H%M%S'
 - description: "The timezone code or name to use when generating `{timestamp}` and\
     \ `{datestamp}`. Defaults to 'UTC'. For a list of possible values, please see:\
     \ https://en.wikipedia.org/wiki/List_of_tz_database_time_zones"
   kind: string
   label: Timestamp Timezone
   name: timestamp_timezone
+  value: UTC
 settings_group_validation:
 - []
 settings_preamble: ''

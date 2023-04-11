@@ -3,6 +3,7 @@ capabilities:
 - catalog
 - discover
 - schema-flattening
+- state
 - stream-maps
 description: An omnichannel communications platform, built for global scale.
 domain_url: https://www.messagebird.com
@@ -21,7 +22,7 @@ settings:
 - description: The token to authenticate against the API service. Test keys are not
     supported for Conversations see https://support.messagebird.com/hc/en-us/articles/360000670709-What-is-the-difference-between-a-live-key-and-a-test-key-
   kind: password
-  label: Api Key
+  label: API Key
   name: api_key
 - description: "'True' to enable schema flattening and automatically expand nested\
     \ properties."
@@ -32,8 +33,8 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: The sync start date that determines how much historical data will be
-    extracted. ISO8601 format of date. Defaults, 3 years ago.
+- description: When to pull records starting at what date. ISO8601 format of date,
+    defaults to 3 years ago.
   kind: date_iso8601
   label: Start Date
   name: start_date

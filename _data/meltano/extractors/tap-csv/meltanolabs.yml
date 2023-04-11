@@ -33,7 +33,8 @@ settings:
     ]
     ```
   documentation: https://github.com/MeltanoLabs/tap-csv#settings
-  label: CSV Files Definition
+  kind: string
+  label: Csv Files Definition
   name: csv_files_definition
   placeholder: Ex. files-def.json
 - description: |
