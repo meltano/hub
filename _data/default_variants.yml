@@ -476,6 +476,7 @@ extractors:
   tap-us-census: airbyte
   tap-uservoice: singer-io
   tap-vantage: airbyte
+  tap-veeqo: matatika
   tap-visma-economic: airbyte
   tap-vitally: airbyte
   tap-vnda-ecommerce: muriloo
