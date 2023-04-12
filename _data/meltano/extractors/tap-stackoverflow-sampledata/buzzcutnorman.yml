@@ -1,6 +1,4 @@
 capabilities:
-- state
-- catalog
 - discover
 description: Tap for the Stack Overflow XML dump files available at Archive.org.  Intended
   as a loader plugin testing aid.
