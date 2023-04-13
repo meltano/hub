@@ -98,7 +98,7 @@ jobs:
 
     - name: Abort if installation failed
       if: steps.plugin-install.outputs.failed == '1'
-      uses: actions/github-script@v3
+      uses: actions/github-script@v6
       with:
         script: |
             core.setFailed('Plugin installation failed')
