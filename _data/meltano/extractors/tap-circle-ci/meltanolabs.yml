@@ -20,8 +20,9 @@ repo: https://github.com/MeltanoLabs/tap-circle-ci
 settings:
 - description: The API base URL to use for requests. Default, https://circleci.com/api/v2.
   kind: string
-  label: Base Url
+  label: Base URL
   name: base_url
+  value: https://circleci.com/api/v2
 - description: 'Organization slug in the form vcs-slug/org-name. Example: org-slug=gh/CircleCI-Public'
   kind: string
   label: Org Slug
@@ -35,6 +36,7 @@ settings:
   kind: string
   label: User Agent
   name: user_agent
+  value: tap-circle-ci/0.1.1 Singer tap for the CircleCI API.
 settings_group_validation:
 - - org_slug
   - token
