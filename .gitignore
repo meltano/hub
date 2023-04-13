@@ -1,4 +1,5 @@
 node_modules
+.yarn
 .cache
 src/.temp
 dist
@@ -10,4 +11,3 @@ dist
 .vscode
 .idea
 _hub_api*
-.yarn
