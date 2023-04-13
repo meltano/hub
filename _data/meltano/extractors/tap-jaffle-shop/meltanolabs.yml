@@ -20,6 +20,30 @@ next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-jaffle-shop.git
 repo: https://github.com/MeltanoLabs/tap-jaffle-shop
 settings:
+- description: ''
+  kind: options
+  label: Batch Config Encoding Compression
+  name: batch_config.encoding.compression
+  options:
+  - label: Gzip
+    value: gzip
+  - label: None
+    value: none
+- description: ''
+  kind: options
+  label: Batch Config Encoding Format
+  name: batch_config.encoding.format
+  options:
+  - label: Jsonl
+    value: jsonl
+- description: ''
+  kind: string
+  label: Batch Config Storage Prefix
+  name: batch_config.storage.prefix
+- description: ''
+  kind: string
+  label: Batch Config Storage Root
+  name: batch_config.storage.root
 - description: "'True' to enable schema flattening and automatically expand nested\
     \ properties."
   kind: boolean
@@ -48,6 +72,7 @@ settings:
   kind: integer
   label: Years
   name: years
+  value: 1
 settings_group_validation:
 - - stream_name_prefix
   - years

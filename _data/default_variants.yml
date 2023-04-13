@@ -345,6 +345,7 @@ extractors:
   tap-prometheus: miroapp
   tap-pubg: autoidm
   tap-public-apis: airbyte
+  tap-pulumi-cloud: meltanolabs
   tap-punk-api: airbyte
   tap-purecloud: rumeau
   tap-pypi: airbyte
@@ -476,6 +477,7 @@ extractors:
   tap-us-census: airbyte
   tap-uservoice: singer-io
   tap-vantage: airbyte
+  tap-veeqo: matatika
   tap-visma-economic: airbyte
   tap-vitally: airbyte
   tap-vnda-ecommerce: muriloo

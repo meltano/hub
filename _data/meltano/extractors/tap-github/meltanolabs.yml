@@ -28,7 +28,17 @@ settings:
   kind: password
   label: Auth Token
   name: auth_token
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
 - description: The log level of the API response metrics.
+  kind: string
   label: Metrics Log Level
   name: metrics_log_level
 - description: An array of strings containing the github organizations to be included
@@ -51,20 +61,25 @@ settings:
   label: Searches
   name: searches
 - description: Set to true to skip API calls for the parent streams (such as repositories)
-    if it is not selected but children are.
+    if it is not selected but children are
   kind: boolean
   label: Skip Parent Streams
   name: skip_parent_streams
-- kind: date_iso8601
+- description: ''
+  kind: date_iso8601
   label: Start Date
   name: start_date
-- kind: object
+- description: ''
+  kind: object
   label: Stream Map Config
   name: stream_map_config
-- kind: object
+- description: ''
+  kind: object
   label: Stream Maps
   name: stream_maps
-- label: User Agent
+- description: ''
+  kind: string
+  label: User Agent
   name: user_agent
 - description: A list of GitHub user ids.
   kind: array
