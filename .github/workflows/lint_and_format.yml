@@ -16,7 +16,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16.x
-          cache: "yarn"
       - run: yarn install --frozen-lockfile
       - run: yarn lint:check
 
@@ -30,6 +29,5 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16.x
-          cache: "yarn"
       - run: yarn install --frozen-lockfile
       - run: yarn format:check
