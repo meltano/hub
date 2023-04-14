@@ -35,6 +35,7 @@ module.exports = {
         white: {
           DEFAULT: "#ffffff",
           "07": "rgba(255, 255, 255, 0.7)",
+          fade: "rgba(255, 255, 255, 0.2)",
         },
         transparent: {
           DEFAULT: "transparent",

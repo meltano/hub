@@ -1,8 +1,8 @@
 <template>
   <Layout>
-    <div class="plugins-overview w-full max-w-7xl mx-auto">
-      <p class="text-3xl md:text-5xl pb-4 pt-8 font-bold font-pjs text-purple">Extractors</p>
-      <div class="max-w-3xl mx-auto">
+    <div class="w-full mx-auto plugins-overview max-w-7xl">
+      <p class="pt-8 pb-4 text-3xl font-bold md:text-5xl font-pjs text-purple">Extractors</p>
+      <div class="max-w-3xl mx-auto mb-4">
         <p class="mb-4">
           Meltano lets you easily extract data out of arbitrary sources (databases, SaaS APIs, and
           file formats) using Singer taps, which take the role of your project’s extractor plugins.
@@ -14,33 +14,79 @@
           >.
         </p>
       </div>
+
+      <div>
+        <h1>URL Segments</h1>
+        <ul>
+          <li v-for="(segment, index) in urlSegments" :key="index">{{ segment }}</li>
+        </ul>
+      </div>
+
+      <div class="w-full mt-4 md:m-4" role="list">
+        <div class="p-4 mx-4 border rounded-lg bg-white-fade border-white-70">
+          <p class="pt-2 pb-4 text-2xl font-bold text-center md:text-3xl font-pjs text-purple">
+            Most Popular
+          </p>
+          <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
+            <div
+              v-for="node in topWeightedNodes(8)"
+              :key="node.id"
+              class="p-2 overflow-hidden border rounded-md text-slate-800 hover:bg-white bg-white-07 md:p-4 border-purple/10"
+            >
+              <g-link
+                class="grid w-full grid-rows-2 gap-2 align-self-center place-items-center"
+                :to="node.path.split('--')[0]"
+              >
+                <div class="block w-full row-span-4 text-center bg-white">
+                  <g-image
+                    v-if="node.logo_url"
+                    :src="
+                      require(`!!assets-loader?width=175&height=24&fit=inside!@logos/${node.logo_url.replace(
+                        '/assets/logos/',
+                        ''
+                      )}`)
+                    "
+                    class="py-2 mx-auto"
+                  />
+                </div>
+                <div class="grid content-end self-stretch">
+                  <p class="text-xs font-bold text-center lg:text-sm text-clip">
+                    {{ node.label }}
+                  </p>
+                </div>
+              </g-link>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div
-        class="grid grid-cols-2 md:grid-cols-4 rounded-lg p-4 mt-4 md:m-4 gap-4 w-full place-items-stretch"
+        class="grid w-full grid-cols-2 gap-4 p-4 mt-4 rounded-lg md:grid-cols-4 md:m-4 place-items-stretch"
         role="list"
       >
         <div
           v-for="edge in $page.allPlugins.edges"
           :key="edge.node.id"
-          class="rounded-md text-slate-800 h-48 hover:bg-white bg-white-07 p-2 md:p-4 overflow-hidden border border-purple/10"
+          class="h-48 p-2 overflow-hidden border rounded-md text-slate-800 hover:bg-white bg-white-07 md:p-4 border-purple/10"
         >
           <g-link
-            class="grid grid-rows-6 align-self-center place-items-center h-40 w-full"
+            class="grid w-full h-40 grid-rows-6 align-self-center place-items-center"
             :to="edge.node.path.split('--')[0]"
           >
-            <div class="grid place-self-center row-span-4 h-24 w-full bg-white">
+            <div class="grid w-full h-24 row-span-4 bg-white place-self-center">
               <g-image
                 v-if="edge.node.logo_url"
                 :src="
-                  require(`!!assets-loader?width=175&height=80&fit=inside!@logos/${edge.node.logo_url.replace(
+                  require(`!!assets-loader?width=100&height=80&fit=inside!@logos/${edge.node.logo_url.replace(
                     '/assets/logos/',
                     ''
                   )}`)
                 "
-                class="place-self-center"
+                class="object-contain place-self-center"
               />
             </div>
-            <div class="grid content-end row-span-5 self-stretch">
-              <p class="font-bold underline text-xs lg:text-md justify-self-center text-clip">
+            <div class="grid content-end self-stretch row-span-5">
+              <p class="text-xs font-bold underline lg:text-md justify-self-center text-clip">
                 {{ edge.node.label }}
               </p>
             </div>
@@ -48,7 +94,7 @@
         </div>
         <Pager
           :info="$page.allPlugins.pageInfo"
-          class="pager-container text-black m-4 col-span-2 md:col-span-4 mx-auto"
+          class="col-span-2 m-4 mx-auto text-black pager-container md:col-span-4"
           linkClass="pager-container__link px-2.5 py-1 hover:text-sky-300"
           activeLinkClass="bg-blue text-white rounded-full"
         />
@@ -65,11 +111,108 @@ export default {
   components: {
     Pager,
   },
+  methods: {
+    processNodes({ edges }, maxValues, allExecsValues, allProjectsValues) {
+      function percentile(x, arr) {
+        arr.sort((a, b) => a - b);
+        const index = arr.indexOf(x);
+        const p = (100 * index) / (arr.length - 1);
+        return Math.ceil(p);
+      }
+      const processedEdges = edges.map(({ node }) => {
+        const projectWeightFactor = 2;
+        const thisExecs = node.metrics.ALL_EXECS;
+        const thisProjects = node.metrics.ALL_PROJECTS;
+        const allExecsPercentile = percentile(thisExecs, allExecsValues);
+        const allProjectsPercentile = percentile(thisProjects, allProjectsValues);
+        const weight = allExecsPercentile + allProjectsPercentile * projectWeightFactor;
+
+        return {
+          ...node,
+          metrics: {
+            ...node.metrics,
+            ALL_EXECS_PERCENTILE: allExecsPercentile,
+            ALL_PROJECTS_PERCENTILE: allProjectsPercentile,
+            WEIGHT: weight,
+          },
+        };
+      });
+      return processedEdges.sort((a, b) => b.metrics.WEIGHT - a.metrics.WEIGHT);
+    },
+    topWeightedNodes(num = 8) {
+      return this.processedNodes.slice(0, num);
+    },
+  },
+  computed: {
+    processedNodes() {
+      return this.processNodes(
+        this.$page.mostUsedPlugins,
+        this.maxValues,
+        this.allExecsValues,
+        this.allProjectsValues
+      );
+    },
+    allExecsValues() {
+      return this.$page.mostUsedPlugins.edges.map((edge) => edge.node.metrics.ALL_EXECS);
+    },
+    allProjectsValues() {
+      return this.$page.mostUsedPlugins.edges.map((edge) => edge.node.metrics.ALL_PROJECTS);
+    },
+    maxValues() {
+      const allExecsValues = this.$page.mostUsedPlugins.edges.map(
+        (edge) => edge.node.metrics.ALL_EXECS
+      );
+      const allProjectsValues = this.$page.mostUsedPlugins.edges.map(
+        (edge) => edge.node.metrics.ALL_PROJECTS
+      );
+
+      const maxAllExecs = Math.max(...allExecsValues.filter((value) => value !== null));
+      const maxAllProjects = Math.max(...allProjectsValues.filter((value) => value !== null));
+      return { maxAllExecs, maxAllProjects };
+    },
+    urlSegments() {
+      return this.$route.path.split("/").filter((segment) => segment);
+    },
+  },
 };
 </script>
 
 <page-query lang="graphql">
 query ($page: Int) {
+  mostUsedPlugins: allPlugins(
+    sortBy: "metrics.ALL_PROJECTS"
+    order: DESC
+    filter: {
+      isDefault: { eq: true }
+      pluginType: { eq: "extractor" }
+      hidden: { ne: true }
+      keywords: { contains: "meltano_sdk" }
+      maintenance_status: { eq: "active" }
+      metrics: { ALL_EXECS: { gt: 0 }, ALL_PROJECTS: { gt: 0 } }
+    }
+  ) {
+    edges {
+      node {
+        id
+        description
+        path
+        label
+        name
+        pluginType
+        logo_url
+        namespace
+        variant
+        pip_url
+        repo
+        maintenance_status
+        keywords
+        metrics {
+          ALL_EXECS
+          ALL_PROJECTS
+        }
+      }
+    }
+  }
   allPlugins(
     perPage: 100
     page: $page
