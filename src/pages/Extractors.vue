@@ -16,19 +16,24 @@
       </div>
 
       <!-- Accordion -->
-      <div class="w-full mt-4 md:m-4" role="list">
-        <div class="p-4 mx-4 border rounded-lg bg-white-fade border-white-70">
+      <div class="w-full md:m-4" role="list">
+        <div class="px-4 pt-2 mx-4 border rounded-lg bg-white-fade border-white-70">
           <div class="flex flex-col">
-            <div class="flex items-center justify-center w-full px-4 py-2">
-              <h1 class="text-lg font-semibold">Most Used</h1>
-              <button @click="toggleContent" class="focus:outline-none">
+            <div class="flex items-center justify-center w-full px-4">
+              <h2 class="text-xl font-bold text-center md:text-2xl font-pjs text-purple">
+                Most Popular
+              </h2>
+              <button
+                @click="toggleContent"
+                class="relative focus:outline-none text-purple top-[5px]"
+              >
                 <svg
                   :class="chevronClass"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="currentColor"
-                  width="40"
-                  height="40"
+                  width="24"
+                  height="24"
                 >
                   <path
                     fill-rule="evenodd"
@@ -38,63 +43,40 @@
                 </svg>
               </button>
             </div>
-            <div
-              v-if="expanded"
-              class="p-4 transition-all duration-300 ease-in-out bg-gray-100 border-t border-gray-200"
-            >
-              <!-- Content goes here -->
-              my content
+            <div class="grid grid-cols-2 gap-4 pb-6 mt-4 md:grid-cols-4" v-if="expanded">
+              <div
+                v-for="node in topWeightedNodes(8)"
+                :key="node.id"
+                class="p-2 overflow-hidden border rounded-md text-slate-800 hover:bg-white bg-white-07 md:p-4 border-purple/10"
+              >
+                <g-link
+                  class="grid w-full grid-rows-2 gap-2 align-self-center place-items-center"
+                  :to="node.path.split('--')[0]"
+                >
+                  <div class="block w-full row-span-4 text-center bg-white">
+                    <g-image
+                      v-if="node.logo_url"
+                      :src="
+                        require(`!!assets-loader?width=175&height=24&fit=inside!@logos/${node.logo_url.replace(
+                          '/assets/logos/',
+                          ''
+                        )}`)
+                      "
+                      class="py-2 mx-auto"
+                    />
+                  </div>
+                  <div class="grid content-end self-stretch">
+                    <p class="text-xs font-bold text-center lg:text-sm text-clip">
+                      {{ node.label }}
+                    </p>
+                  </div>
+                </g-link>
+              </div>
             </div>
           </div>
         </div>
       </div>
       <!-- /Accordion -->
-
-      <div>
-        <h1>URL Segments</h1>
-        <ul>
-          <li v-for="(segment, index) in urlSegments" :key="index">{{ segment }}</li>
-        </ul>
-      </div>
-
-      <div class="w-full mt-4 md:m-4" role="list">
-        <div class="p-4 mx-4 border rounded-lg bg-white-fade border-white-70">
-          <p class="pt-2 pb-4 text-2xl font-bold text-center md:text-3xl font-pjs text-purple">
-            Most Popular
-          </p>
-          <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
-            <div
-              v-for="node in topWeightedNodes(8)"
-              :key="node.id"
-              class="p-2 overflow-hidden border rounded-md text-slate-800 hover:bg-white bg-white-07 md:p-4 border-purple/10"
-            >
-              <g-link
-                class="grid w-full grid-rows-2 gap-2 align-self-center place-items-center"
-                :to="node.path.split('--')[0]"
-              >
-                <div class="block w-full row-span-4 text-center bg-white">
-                  <g-image
-                    v-if="node.logo_url"
-                    :src="
-                      require(`!!assets-loader?width=175&height=24&fit=inside!@logos/${node.logo_url.replace(
-                        '/assets/logos/',
-                        ''
-                      )}`)
-                    "
-                    class="py-2 mx-auto"
-                  />
-                </div>
-                <div class="grid content-end self-stretch">
-                  <p class="text-xs font-bold text-center lg:text-sm text-clip">
-                    {{ node.label }}
-                  </p>
-                </div>
-              </g-link>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <div
         class="grid w-full grid-cols-2 gap-4 p-4 mt-4 rounded-lg md:grid-cols-4 md:m-4 place-items-stretch"
         role="list"
@@ -144,8 +126,11 @@ import { Pager } from "gridsome";
 export default {
   data() {
     return {
-      expanded: false,
+      expanded: true,
     };
+  },
+  renderTriggerd() {
+    this.expanded = this.urlSegments.length === 1;
   },
   name: "ExtractorsPage",
   components: {
@@ -189,8 +174,8 @@ export default {
   computed: {
     chevronClass() {
       return this.expanded
-        ? "transform rotate-180 transition-transform duration-300"
-        : "transition-transform duration-300";
+        ? "relative bottom-1 transform rotate-180 transition-transform duration-300"
+        : "relative bottom-1 transition-transform duration-300";
     },
     processedNodes() {
       return this.processNodes(
@@ -217,9 +202,6 @@ export default {
       const maxAllExecs = Math.max(...allExecsValues.filter((value) => value !== null));
       const maxAllProjects = Math.max(...allProjectsValues.filter((value) => value !== null));
       return { maxAllExecs, maxAllProjects };
-    },
-    urlSegments() {
-      return this.$route.path.split("/").filter((segment) => segment);
     },
   },
 };
