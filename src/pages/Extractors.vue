@@ -15,6 +15,41 @@
         </p>
       </div>
 
+      <!-- Accordion -->
+      <div class="w-full mt-4 md:m-4" role="list">
+        <div class="p-4 mx-4 border rounded-lg bg-white-fade border-white-70">
+          <div class="flex flex-col">
+            <div class="flex items-center justify-center w-full px-4 py-2">
+              <h1 class="text-lg font-semibold">Most Used</h1>
+              <button @click="toggleContent" class="focus:outline-none">
+                <svg
+                  :class="chevronClass"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  width="40"
+                  height="40"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div
+              v-if="expanded"
+              class="p-4 transition-all duration-300 ease-in-out bg-gray-100 border-t border-gray-200"
+            >
+              <!-- Content goes here -->
+              my content
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /Accordion -->
+
       <div>
         <h1>URL Segments</h1>
         <ul>
@@ -107,11 +142,19 @@
 import { Pager } from "gridsome";
 
 export default {
+  data() {
+    return {
+      expanded: false,
+    };
+  },
   name: "ExtractorsPage",
   components: {
     Pager,
   },
   methods: {
+    toggleContent() {
+      this.expanded = !this.expanded;
+    },
     processNodes({ edges }, maxValues, allExecsValues, allProjectsValues) {
       function percentile(x, arr) {
         arr.sort((a, b) => a - b);
@@ -144,6 +187,11 @@ export default {
     },
   },
   computed: {
+    chevronClass() {
+      return this.expanded
+        ? "transform rotate-180 transition-transform duration-300"
+        : "transition-transform duration-300";
+    },
     processedNodes() {
       return this.processNodes(
         this.$page.mostUsedPlugins,
