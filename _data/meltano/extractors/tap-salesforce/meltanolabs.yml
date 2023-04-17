@@ -11,7 +11,7 @@ logo_url: /assets/logos/extractors/salesforce.png
 maintenance_status: active
 name: tap-salesforce
 namespace: tap_salesforce
-pip_url: git+https://github.com/meltanolabs/tap-salesforce.git@v1.5.0
+pip_url: git+https://github.com/meltanolabs/tap-salesforce.git@v1.5.1
 repo: https://github.com/meltanolabs/tap-salesforce
 select:
 - Lead.*
