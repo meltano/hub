@@ -537,7 +537,7 @@ class Utilities:
                 setting["description"] = existing_desc
             # TODO: if existing is much longer we might want to keep it
             existing_value = name_lookup_existing.get(name, {}).get("value", "")
-            if existing_value.startswith("$MELTANO"):
+            if str(existing_value).startswith("$MELTANO"):
                 setting["value"] = existing_value
             for attrib in ["placeholder", "documentation"]:
                 attrib_value = name_lookup_existing.get(name, {}).get(attrib, "")
