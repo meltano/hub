@@ -5,20 +5,28 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
-description: PostgreSQL database extractor
-domain_url: https://www.postgresql.org/
+description: Customer Support Software
+domain_url: https://developer.freshdesk.com/api/
+executable: tap-freshdesk
 keywords:
 - meltano_sdk
-- database
-label: Postgres
-logo_url: /assets/logos/extractors/postgres.png
+label: Freshdesk
+logo_url: /assets/logos/extractors/freshdesk.png
 maintenance_status: development
-name: tap-postgres
-namespace: tap_postgres
+name: tap-freshdesk
+namespace: tap_freshdesk
 next_steps: ''
-pip_url: git+https://github.com/MeltanoLabs/tap-postgres.git
-repo: https://github.com/MeltanoLabs/tap-postgres
+pip_url: git+https://github.com/acarter24/tap-freshdesk.git
+repo: https://github.com/acarter24/tap-freshdesk
 settings:
+- description: The token to authenticate against the API service
+  kind: password
+  label: API Key
+  name: api_key
+- description: The url for the API service
+  kind: string
+  label: Domain
+  name: domain
 - description: "'True' to enable schema flattening and automatically expand nested\
     \ properties."
   kind: boolean
@@ -28,10 +36,10 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: Example postgresql://postgres:postgres@localhost:5432/postgres
-  kind: string
-  label: Sqlalchemy URL
-  name: sqlalchemy_url
+- description: The earliest record date to sync
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
 - description: User-defined config values to be used within map expressions.
   kind: object
   label: Stream Map Config
@@ -42,7 +50,7 @@ settings:
   label: Stream Maps
   name: stream_maps
 settings_group_validation:
-- - sqlalchemy_url
+- - api_key
 settings_preamble: ''
 usage: ''
-variant: meltanolabs
+variant: acarter24

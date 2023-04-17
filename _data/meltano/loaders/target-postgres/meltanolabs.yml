@@ -24,6 +24,7 @@ settings:
   kind: boolean
   label: Add Record Metadata
   name: add_record_metadata
+  value: true
 - description: Database name. Note if sqlalchemy_url is set this will be ignored.
   kind: string
   label: Database
@@ -38,6 +39,7 @@ settings:
   kind: string
   label: Dialect+Driver
   name: dialect+driver
+  value: postgresql+psycopg2
 - description: "'True' to enable schema flattening and automatically expand nested\
     \ properties."
   kind: boolean
@@ -64,15 +66,16 @@ settings:
   label: Password
   name: password
 - description: The port on which postgres is awaiting connection. Note if sqlalchemy_url
-    is set this will be ignored. Defaults to 5432
+    is set this will be ignored.
   kind: integer
   label: Port
   name: port
+  value: 5432
 - description: SQLAlchemy connection string. This will override using host, user,
     password, port, dialect. Note that you must esacpe password special characters
     properly see https://docs.sqlalchemy.org/en/20/core/engines.html#escaping-special-characters-such-as-signs-in-passwords
   kind: string
-  label: Sqlalchemy Url
+  label: Sqlalchemy URL
   name: sqlalchemy_url
 - description: User-defined config values to be used within map expressions.
   kind: object

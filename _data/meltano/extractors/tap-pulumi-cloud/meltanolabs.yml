@@ -1,0 +1,64 @@
+capabilities:
+- about
+- catalog
+- discover
+- schema-flattening
+- stream-maps
+description: Fully-managed Infrastructure as Code platform
+domain_url: https://www.pulumi.com/product/pulumi-cloud/
+executable: tap-pulumi-cloud
+keywords:
+- meltano_sdk
+label: Pulumi Cloud
+logo_url: /assets/logos/extractors/pulumi-cloud.png
+maintenance_status: beta
+name: tap-pulumi-cloud
+namespace: tap_pulumi_cloud
+next_steps: ''
+pip_url: git+https://github.com/MeltanoLabs/tap-pulumi-cloud.git
+repo: https://github.com/MeltanoLabs/tap-pulumi-cloud
+settings:
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: List of organizations to sync
+  kind: array
+  label: Organizations
+  name: organizations
+- description: Cache expiration time in seconds
+  kind: integer
+  label: Requests Cache Config Expire After
+  name: requests_cache.config.expire_after
+- description: Enable requests cache
+  kind: boolean
+  label: Requests Cache Enabled
+  name: requests_cache.enabled
+- description: Earliest datetime to get data from
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: API Token for Pulumi Cloud
+  kind: password
+  label: Token
+  name: token
+settings_group_validation:
+- - organizations
+  - token
+settings_preamble: ''
+usage: ''
+variant: meltanolabs

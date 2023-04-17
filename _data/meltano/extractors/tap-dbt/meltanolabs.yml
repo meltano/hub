@@ -20,15 +20,17 @@ repo: https://github.com/meltanolabs/tap-dbt
 settings:
 - description: dbt Cloud account IDs
   kind: array
-  label: Account Ids
+  label: Account IDs
   name: account_ids
 - description: API key for the dbt Cloud API
   kind: password
-  label: Api Key
+  label: API Key
   name: api_key
 - description: Base URL for the dbt Cloud API
-  label: Base Url
+  kind: string
+  label: Base URL
   name: base_url
+  value: https://cloud.getdbt.com/api/v2
 - description: "'True' to enable schema flattening and automatically expand nested\
     \ properties."
   kind: boolean
@@ -48,8 +50,10 @@ settings:
   label: Stream Maps
   name: stream_maps
 - description: User-Agent to make requests with
+  kind: string
   label: User Agent
   name: user_agent
+  value: tap-dbt/0.4.0 Singer tap for the dbt Cloud API.
 settings_group_validation:
 - - account_ids
   - api_key
