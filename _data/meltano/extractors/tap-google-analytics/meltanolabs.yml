@@ -24,7 +24,7 @@ settings:
   label: Client Secrets
   name: client_secrets
   placeholder: Ex. client_secrets.json
-- description: Date up to when historical data will be extracted.
+- description: The last record date to sync
   kind: date_iso8601
   label: End Date
   name: end_date
@@ -99,7 +99,7 @@ settings:
   label: Key File Location
   name: key_file_location
   placeholder: Ex. $MELTANO_PROJECT_ROOT/client_secrets.json
-- description: Google Analytics Access Token. See https://developers.google.com/analytics/devguides/reporting/core/v4/authorization#OAuth2Authorizing.
+- description: Google Analytics Access Token
   kind: password
   label: OAuth Credentials Access Token
   name: oauth_credentials.access_token
@@ -110,11 +110,11 @@ settings:
   kind: password
   label: OAuth Credentials Client ID
   name: oauth_credentials.client_id
-- description: Google Analytics Client Secret. See https://developers.google.com/analytics/devguides/reporting/core/v4/authorization#OAuth2Authorizing.
+- description: Google Analytics Client Secret
   kind: password
   label: OAuth Credentials Client Secret
   name: oauth_credentials.client_secret
-- description: Google Analytics Refresh Token. See https://developers.google.com/analytics/devguides/reporting/core/v4/authorization#OAuth2Authorizing.
+- description: Google Analytics Refresh Token
   kind: password
   label: OAuth Credentials Refresh Token
   name: oauth_credentials.refresh_token
@@ -179,9 +179,7 @@ settings:
   label: Reports
   name: reports
   placeholder: Ex. my_report_definition.json
-- description: This property determines how much historical data will be extracted. Please
-    be aware that the larger the time period and amount of data, the longer the initial
-    extraction can be expected to take.
+- description: The earliest record date to sync
   kind: date_iso8601
   label: Start Date
   name: start_date
@@ -217,16 +215,6 @@ settings:
   name: view_id
   placeholder: Ex. 198343027
 settings_group_validation:
-- - key_file_location
-  - start_date
-  - view_id
-- - client_secrets
-  - start_date
-  - view_id
-- - oauth_credentials.access_token
-  - oauth_credentials.client_id
-  - oauth_credentials.client_secret
-  - oauth_credentials.refresh_token
-  - start_date
+- - start_date
   - view_id
 variant: meltanolabs
