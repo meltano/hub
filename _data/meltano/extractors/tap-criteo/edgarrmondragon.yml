@@ -3,7 +3,6 @@ capabilities:
 - catalog
 - discover
 - schema-flattening
-- state
 - stream-maps
 description: Advertising Platform
 domain_url: https://www.criteo.com/
