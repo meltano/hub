@@ -28,8 +28,8 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: Example postgresql://postgres:postgres@localhost:5432/postgres
-  kind: string
+- description: Example postgresql://[username]:[password]@localhost:5432/[db_name]
+  kind: password
   label: Sqlalchemy URL
   name: sqlalchemy_url
 - description: User-defined config values to be used within map expressions.
@@ -44,5 +44,24 @@ settings:
 settings_group_validation:
 - - sqlalchemy_url
 settings_preamble: ''
-usage: ''
+usage: |
+  ## Incremental Replication
+
+  ```yaml
+  - name: tap-postgres
+    variant: meltanolabs
+    pip_url: git+https://github.com/MeltanoLabs/tap-postgres.git
+    config:
+      sqlalchemy_url: postgresql://meltano_user:password@localhost:5432/my_postgres_db
+    select:
+    - <my_schema>-<my_table>.*
+    metadata:
+      <my_schema>-<my_table>:
+        replication-method: INCREMENTAL
+        replication_key: key
+        key_properties:
+        - key
+  ```
+
+  See the [replication docs](https://docs.meltano.com/guide/integration) for more details.
 variant: meltanolabs
