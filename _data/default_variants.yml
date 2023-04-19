@@ -108,7 +108,7 @@ extractors:
   tap-copper: airbyte
   tap-courier: airbyte
   tap-cqc-org-uk: birdiecare
-  tap-criteo: jude188
+  tap-criteo: edgarrmondragon
   tap-crossbeam: singer-io
   tap-csv: meltanolabs
   tap-currencyfreaks: spacecowboy
@@ -415,6 +415,7 @@ extractors:
   tap-smaily: airbyte
   tap-smartengage: airbyte
   tap-smartsheet: brooklyn-data
+  tap-smoke-test: meltano
   tap-sms: jboltron3000
   tap-snapchat-ads: singer-io
   tap-snapengage: pathlight
