@@ -113,9 +113,9 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: This flag determines whether the data types of incoming data elements should be validated. 
-    When set `True`, a schema is created from the first record and all subsequent records that don't 
-    match that data type are cast. Default False.
+- description: This flag determines whether the data types of incoming data elements
+    should be validated. When set `True`, a schema is created from the first record
+    and all subsequent records that don't match that data type are cast. Default False.
   kind: boolean
   label: Format Format Parquet Validate
   name: format.format_parquet.validate
