@@ -15,8 +15,8 @@ maintenance_status: active
 name: tap-gmail
 namespace: tap_gmail
 next_steps: ''
-pip_url: git+https://github.com/kgpayne/tap-gmail.git
-repo: https://github.com/kgpayne/tap-gmail
+pip_url: meltanolabs-tap-gmail
+repo: https://github.com/MeltanoLabs/tap-gmail
 settings:
 - description: Your google client_id
   kind: password
@@ -60,4 +60,4 @@ settings_group_validation:
 - []
 settings_preamble: ''
 usage: ''
-variant: kgpayne
+variant: meltanolabs
