@@ -68,34 +68,38 @@ settings:
   - label: Microsecond
     value: microsecond
   value: day
-- description: ''
+- description: Your AWS access key ID.
   kind: password
   label: Cloud Provider AWS AWS Access Key ID
   name: cloud_provider.aws.aws_access_key_id
-- description: ''
-  kind: password
+- description: Your AWS access key ID.
+  kind: string
   label: Cloud Provider AWS AWS Bucket
   name: cloud_provider.aws.aws_bucket
-- description: ''
-  kind: password
+- description: The AWS endpoint url to use for testing purposes.
+  kind: string
   label: Cloud Provider AWS AWS Endpoint Override
   name: cloud_provider.aws.aws_endpoint_override
-- description: ''
-  kind: password
+- description: Your AWS profile name to optionally use for auth.
+  kind: string
   label: Cloud Provider AWS AWS Profile Name
   name: cloud_provider.aws.aws_profile_name
-- description: ''
-  kind: password
+- description: Your AWS region.
+  kind: string
   label: Cloud Provider AWS AWS Region
   name: cloud_provider.aws.aws_region
-- description: ''
+- description: Your AWS secret access key.
   kind: password
   label: Cloud Provider AWS AWS Secret Access Key
   name: cloud_provider.aws.aws_secret_access_key
-- description: ''
-  kind: password
+- description: The cloud provider type to use.
+  kind: string
   label: Cloud Provider Cloud Provider Type
   name: cloud_provider.cloud_provider_type
+  options:
+  - label: AWS
+    value: aws
+  value: aws
 - description: A flag indictating to flatten records.
   kind: boolean
   label: Flatten Records
@@ -109,19 +113,13 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: ''
-  kind: object
-  label: Format Format Csv
-  name: format.format_csv
-- description: ''
-  kind: object
-  label: Format Format Json
-  name: format.format_json
-- description: ''
+- description: This flag determines whether the data types of incoming data elements should be validated. 
+    When set `True`, a schema is created from the first record and all subsequent records that don't 
+    match that data type are cast. Default False.
   kind: boolean
   label: Format Format Parquet Validate
   name: format.format_parquet.validate
-- description: ''
+- description: The format type of the output files.
   kind: options
   label: Format Format Type
   name: format.format_type
