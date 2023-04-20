@@ -1,32 +1,43 @@
 capabilities:
+- about
 - catalog
 - discover
 - state
+- stream-maps
 description: Online payment processing for internet businesses
 domain_url: https://stripe.com/docs/api
+executable: tap-stripe
 keywords:
 - api
+- meltano_sdk
 label: Stripe
 logo_url: /assets/logos/extractors/stripe.png
 maintenance_status: active
 name: tap-stripe
 namespace: tap_stripe
+next_steps: ''
 pip_url: git+https://github.com/prratek/tap-stripe.git
 repo: https://github.com/prratek/tap-stripe
 settings:
-- kind: password
-  label: Secret API Key
+- description: Your Stripe Account ID.
+  kind: password
+  label: Account ID
+  name: account_id
+  placeholder: Ex. acct_1a2b3c4d5e
+- description: Your Stripe API key.
+  kind: password
+  label: API Key
   name: api_key
   placeholder: Ex. sk_live_1a2b3c4d5e
 - description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.
   kind: date_iso8601
+  label: Start Date
   name: start_date
-- label: Account ID
-  name: account_id
-  placeholder: Ex. acct_1a2b3c4d5e
 settings_group_validation:
 - - api_key
   - start_date
+settings_preamble: ''
+usage: ''
 variant: prratek
