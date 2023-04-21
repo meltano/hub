@@ -18,7 +18,6 @@ settings:
     assumed.
   label: GitLab Instance
   name: api_url
-  protected: true
   value: https://gitlab.com
 - description: |
     GitLab personal access token or other API token.
