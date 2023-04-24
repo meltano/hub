@@ -27,6 +27,6 @@ settings:
   label: City Name
   name: city_name
 settings_group_validation:
-- client_identifier
-- city_name
+- - client_identifier
+  - city_name
 variant: andrejakobsen
