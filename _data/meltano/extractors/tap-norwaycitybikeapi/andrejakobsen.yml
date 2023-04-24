@@ -12,9 +12,9 @@ keywords:
   - bike-sharing
   - GBFS
 label: Norway City Bike API
-logo_url: /assets/logos/extractors/norwaycitybike.png
-maintenance_status: beta # Options: active, beta, development, inactive, unknown
-name: tap-norwaycitybikeapi # The unique name of the connector
+logo_url: /assets/logos/extractors/norwaycitybikeapi.png
+maintenance_status: beta
+name: tap-norwaycitybikeapi
 namespace: tap_norwaycitybikeapi
 pip_url: tap-norwaycitybikeapi
 repo: https://github.com/andrejakobsen/tap-norwaycitybikeapi
