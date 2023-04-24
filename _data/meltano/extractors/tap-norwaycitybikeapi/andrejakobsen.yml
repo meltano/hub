@@ -1,0 +1,32 @@
+capabilities:
+- state
+- catalog
+- discover
+- about
+- stream-maps
+description: Oslo, Trondheim and Bergen City Bike APIs provide live bike-sharing data
+domain_url: https://oslobysykkel.no/en/open-data/realtime
+keywords:
+- api
+- meltano_sdk
+- bike-sharing
+- GBFS
+label: Norway City Bike API
+logo_url: /assets/logos/extractors/norwaycitybikeapi.png
+maintenance_status: beta
+name: tap-norwaycitybikeapi
+namespace: tap_norwaycitybikeapi
+pip_url: tap-norwaycitybikeapi
+repo: https://github.com/andrejakobsen/tap-norwaycitybikeapi
+settings:
+- description: The value should contain your company/organization name, follwed by
+    a dash and the application's name.
+  label: Client-Identifier Header
+  name: client_identifier
+- description: "Choose between three Norwegian cities: Trondheim, Oslo and Bergen"
+  label: City Name
+  name: city_name
+settings_group_validation:
+- - client_identifier
+  - city_name
+variant: andrejakobsen
