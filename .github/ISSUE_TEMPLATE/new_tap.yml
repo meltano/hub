@@ -64,59 +64,63 @@ body:
   attributes:
     value: |
       ```yaml
+      capabilities:
+      # Chose the capabilities that the connector supports
+      # Checkout for a list and details - https://hub.meltano.com/singer/docs#singer-connector-capabilities
+      # Tap Capability Options
+      - about
+      - activate-version
+      - batch
+      - stream-maps
+      - schema-flattening
+      - catalog
+      - properties
+      - discover
+      - state
+      - test
+      - log-based
+
+      # Target Capability Options
+      - about
+      - activate-version
+      - batch
+      - stream-maps
+      - schema-flattening
+      - soft-delete
+      - hard-delete
+      - datatype-failsafe
+      - record-flattening
       description: General description of what the company behind the API does
+      domain_url: URL of the developer documentation or website
+      # Attributes about the plugin for easier searching. Include `meltano_sdk` here if built using the SDK.
+      # Other examples could be source type: `api`, `file`, `database`, etc. or cloud name `aws`, `gcp`, etc.
+      keywords:
+      - api
+      - meltano_sdk
       label: Properly formatted label of the connector e.g. GitLab
-      name: The unique name of the connector
       logo_url: /assets/logos/extractors/gitlab.png
+      maintenance_status: "Options: active, beta, development, inactive, unknown"
+      name: The unique name of the connector
       namespace: The namespace e.g. tap_gitlab
-      variant: Name of the GitHub/GitLab namespace
       pip_url: git+<git_url>.git or pip install name
       repo: repo URL
-      capabilities:
-        # Chose the capabilities that the connector supports
-        # Checkout for a list and details - https://hub.meltano.com/singer/docs#singer-connector-capabilities
-        # Tap Capability Options
-        - about
-        - activate-version
-        - batch
-        - stream-maps
-        - schema-flattening
-        - catalog
-        - properties
-        - discover
-        - state
-        - test
-        - log-based
-        # Target Capability Options
-        - about
-        - activate-version
-        - batch
-        - stream-maps
-        - schema-flattening
-        - soft-delete
-        - hard-delete
-        - datatype-failsafe
-        - record-flattening
+      settings:
+      - description: The API key for this source.
+        kind: password
+        label: API Key
+        name: api_key
+      - description: Start date of when to start retrieve data from.
+        kind: string
+        label: Start date
+        name: start_date
+      - description: Some other setting
+        kind: string
+        label: My Other Setting
+        name: my_other_setting
       settings_group_validation:
       # The set of required settings.
       - - api_key
         - start_date
-      settings:
-      - name: api_key
-        label: API Key
-        kind: password
-        description: The API key for this source.
-      - name: start_date
-        label: Start date
-        description: Start date of when to start retrieve data from.
-      - name: my_other_setting
-        label: My Other Setting
-        description: Some other setting
-      domain_url: URL of the developer documentation or website
-      maintenance_status: "Options: active, beta, development, inactive, unknown"
-      keywords:
-      # Attributes about the plugin for easier searching. Include `meltano_sdk` here if built using the SDK.
-      # Other examples could be source type: `api`, `file`, `database`, etc. or cloud name `aws`, `gcp`, etc.
-      - api
-      - meltano_sdk
+      variant: Name of the GitHub/GitLab namespace
+
       ```
