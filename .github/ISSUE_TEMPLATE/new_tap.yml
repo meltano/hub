@@ -48,7 +48,7 @@ body:
 
       - Add your yaml config file in `/_data/meltano/<extractors or loaders>` by clicking "New File" in the left sidebar Explorer view.
 
-        [Explorer View](https://github.com/meltano/hub/blob/main/.github/ISSUE_TEMPLATE/images/add-new-file.png)
+        ![Explorer View](./images/add-new-file.png)
         
         You can use the sample below to get started.
 
@@ -56,7 +56,7 @@ body:
 
       - Commit your changes in the Source Control view
 
-        [Source Control View](https://github.com/meltano/hub/blob/main/.github/ISSUE_TEMPLATE/images/commit.png)
+        ![Source Control View](https://github.com/meltano/hub/blob/main/.github/ISSUE_TEMPLATE/images/commit.png)
 
       - You'll be prompted to create a fork since you don't have access to edit directly. This automatically create a fork under your organization or username.
 
