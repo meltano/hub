@@ -28,8 +28,8 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: Example postgresql://postgres:postgres@localhost:5432/postgres
-  kind: string
+- description: Example postgresql://[username]:[password]@localhost:5432/[db_name]
+  kind: password
   label: Sqlalchemy URL
   name: sqlalchemy_url
 - description: User-defined config values to be used within map expressions.

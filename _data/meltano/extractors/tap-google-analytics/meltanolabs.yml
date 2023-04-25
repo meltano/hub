@@ -217,6 +217,16 @@ settings:
   name: view_id
   placeholder: Ex. 198343027
 settings_group_validation:
-- - start_date
+- - key_file_location
+  - start_date
+  - view_id
+- - client_secrets
+  - start_date
+  - view_id
+- - oauth_credentials.access_token
+  - oauth_credentials.client_id
+  - oauth_credentials.client_secret
+  - oauth_credentials.refresh_token
+  - start_date
   - view_id
 variant: meltanolabs
