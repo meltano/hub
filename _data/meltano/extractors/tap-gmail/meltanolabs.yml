@@ -7,7 +7,6 @@ capabilities:
 - schema-flattening
 description: Email service provided by Google
 domain_url: https://www.google.com/gmail/about/
-hidden: true
 keywords:
 - meltano_sdk
 label: GMail
@@ -61,4 +60,4 @@ settings_group_validation:
 - []
 settings_preamble: ''
 usage: ''
-variant: kgpayne
+variant: meltanolabs

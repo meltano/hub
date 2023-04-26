@@ -1,0 +1,31 @@
+capabilities:
+- catalog
+- discover
+- state
+- about
+- stream-maps
+description: Multi-Channel Inventory and Shipping Platform for Ecommerce
+domain_url: https://veeqo.com/
+keywords:
+- api
+- e-commerce
+- matatika
+- meltano_sdk
+label: Veeqo
+logo_url: /assets/logos/extractors/veeqo.png
+maintenance_status: active
+name: tap-veeqo
+namespace: tap_veeqo
+pip_url: git+https://github.com/Matatika/tap-veeqo.git@v0.1.0
+repo: https://github.com/Matatika/tap-veeqo
+settings:
+- description: |-
+    The user API key.
+
+    See [Generating your API keys](https://developer.veeqo.com/docs#/introduction/authentication/generating-your-api-keys) for more information.
+  kind: password
+  label: API key
+  name: api_key
+settings_group_validation:
+- - api_key
+variant: matatika

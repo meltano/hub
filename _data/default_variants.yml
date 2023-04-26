@@ -108,7 +108,7 @@ extractors:
   tap-copper: airbyte
   tap-courier: airbyte
   tap-cqc-org-uk: birdiecare
-  tap-criteo: jude188
+  tap-criteo: edgarrmondragon
   tap-crossbeam: singer-io
   tap-csv: meltanolabs
   tap-currencyfreaks: spacecowboy
@@ -179,7 +179,7 @@ extractors:
   tap-gladly: harrystech
   tap-glassfrog: airbyte
   tap-gleantap: radico
-  tap-gmail: kgpayne
+  tap-gmail: meltanolabs
   tap-gmail-csv: food-spotter
   tap-gnews: airbyte
   tap-gocardless: airbyte
@@ -293,6 +293,7 @@ extractors:
   tap-nhl: bicks-bapa-roob
   tap-nice-incontact: singer-io
   tap-nikabot: phdesign
+  tap-norwaycitybikeapi: andrejakobsen
   tap-notion: airbyte
   tap-nytimes: airbyte
   tap-officernd: cschouten
@@ -345,6 +346,7 @@ extractors:
   tap-prometheus: miroapp
   tap-pubg: autoidm
   tap-public-apis: airbyte
+  tap-pulumi-cloud: meltanolabs
   tap-punk-api: airbyte
   tap-purecloud: rumeau
   tap-pypi: airbyte
@@ -414,6 +416,7 @@ extractors:
   tap-smaily: airbyte
   tap-smartengage: airbyte
   tap-smartsheet: brooklyn-data
+  tap-smoke-test: meltano
   tap-sms: jboltron3000
   tap-snapchat-ads: singer-io
   tap-snapengage: pathlight
@@ -476,6 +479,7 @@ extractors:
   tap-us-census: airbyte
   tap-uservoice: singer-io
   tap-vantage: airbyte
+  tap-veeqo: matatika
   tap-visma-economic: airbyte
   tap-vitally: airbyte
   tap-vnda-ecommerce: muriloo
@@ -535,6 +539,7 @@ loaders:
   target-azureblobstorage: shrutikaponde-vc
   target-bigquery: z3z1ma
   target-cassandra: coeff
+  target-chromadb: meltanolabs
   target-csv: hotgluexyz
   target-datadotworld: datadotworld
   target-duckdb: jwills
@@ -562,6 +567,7 @@ loaders:
   target-snowflake: transferwise
   target-sqlite: meltanolabs
   target-stitch: singer-io
+  target-timeplus: timeplus
   target-yaml: meltanolabs
 mappers:
   meltano-map-transformer: meltano

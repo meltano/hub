@@ -25,10 +25,12 @@ settings:
   kind: boolean
   label: Add Record Metadata
   name: add_record_metadata
+  value: true
 - description: Whether to remove batch files after processing.
   kind: boolean
   label: Clean Up Batch Files
   name: clean_up_batch_files
+  value: true
 - description: The initial database for the Snowflake session.
   kind: string
   label: Database

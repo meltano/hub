@@ -5,25 +5,28 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
-description: An omnichannel communications platform, built for global scale.
-domain_url: https://www.messagebird.com
+description: Customer Support Software
+domain_url: https://developer.freshdesk.com/api/
+executable: tap-freshdesk
 keywords:
 - meltano_sdk
-- api
-label: Messagebird
-logo_url: /assets/logos/extractors/messagebird.png
+label: Freshdesk
+logo_url: /assets/logos/extractors/freshdesk.png
 maintenance_status: development
-name: tap-messagebird
-namespace: tap_messagebird
+name: tap-freshdesk
+namespace: tap_freshdesk
 next_steps: ''
-pip_url: tap-messagebird
-repo: https://github.com/MeltanoLabs/tap-messagebird
+pip_url: git+https://github.com/acarter24/tap-freshdesk.git
+repo: https://github.com/acarter24/tap-freshdesk
 settings:
-- description: The token to authenticate against the API service. Test keys are not
-    supported for Conversations see https://support.messagebird.com/hc/en-us/articles/360000670709-What-is-the-difference-between-a-live-key-and-a-test-key-
+- description: The token to authenticate against the API service
   kind: password
   label: API Key
   name: api_key
+- description: The url for the API service
+  kind: string
+  label: Domain
+  name: domain
 - description: "'True' to enable schema flattening and automatically expand nested\
     \ properties."
   kind: boolean
@@ -33,8 +36,7 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: When to pull records starting at what date. ISO8601 format of date,
-    defaults to 3 years ago.
+- description: The earliest record date to sync
   kind: date_iso8601
   label: Start Date
   name: start_date
@@ -51,4 +53,4 @@ settings_group_validation:
 - - api_key
 settings_preamble: ''
 usage: ''
-variant: meltanolabs
+variant: acarter24
