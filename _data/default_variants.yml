@@ -188,7 +188,7 @@ extractors:
   tap-google-directory: airbyte
   tap-google-pagespeed-insights: airbyte
   tap-google-search-console: singer-io
-  tap-google-sheets: singer-io
+  tap-google-sheets: matatika
   tap-google-webfonts: airbyte
   tap-google-workspace-admin-reports: airbyte
   tap-googleads: matatika
@@ -401,7 +401,7 @@ extractors:
   tap-sharepointsites: storebrand
   tap-shiphero: singer-io
   tap-shipstation: mashey
-  tap-shopify: singer-io
+  tap-shopify: matatika
   tap-shortcut: edgarrmondragon
   tap-shortio: airbyte
   tap-showpad: z3z1ma
@@ -556,7 +556,7 @@ loaders:
   target-oracle: radbrt
   target-pardot: anelendata
   target-parquet: estrategiahq
-  target-postgres: transferwise
+  target-postgres: meltanolabs
   target-redshift: transferwise
   target-s3: crowemi
   target-s3-avro: faumel
