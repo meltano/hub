@@ -86,6 +86,7 @@ settings:
     https://www.mongodb.com/docs/manual/reference/change-events/#operation-types. Note that the list
     of allowed_values for this property includes some values not available to all MongoDB versions.
   kind: array
+  label: Operation Types
   name: operation_types
   value:
   - create
