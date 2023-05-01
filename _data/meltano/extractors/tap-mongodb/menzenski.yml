@@ -50,6 +50,7 @@ settings:
 - description: |
     An optional prefix which will be added to each stream name.
   kind: string
+  label: Prefix
   name: prefix
   value: ''
 - description: |
