@@ -21,6 +21,7 @@ repo: https://github.com/menzenski/tap-mongodb
 settings:
 - description: Database name from which records will be extracted.
   kind: string
+  label: Database
   name: database
 - description: |
     MongoDB connection string. See
