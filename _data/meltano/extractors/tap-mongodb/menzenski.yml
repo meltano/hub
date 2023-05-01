@@ -58,6 +58,7 @@ settings:
     not provide it unless you are using incremental replication. Defaults to epoch zero time `1970-01-01` if
     tap uses incremental replication method.
   kind: date_iso8601
+  label: Start Date
   name: start_date
   value: '1970-01-01'
 - description: |
