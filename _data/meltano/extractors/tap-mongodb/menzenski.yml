@@ -45,6 +45,7 @@ settings:
     the string `{\"tls\":\"true\",\"tlsCAFile\":\"my-ca-bundle.pem\"}`, the options
     `tls=true&tlsCAFile=my-ca-bundle.pem` will be passed to the MongoClient.
   kind: string
+  label: DocumentDB Credential JSON Extra Options
   name: documentdb_credential_json_extra_options
 - description: |
     An optional prefix which will be added to each stream name.
