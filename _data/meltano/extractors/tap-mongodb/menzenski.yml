@@ -37,6 +37,7 @@ settings:
     The password from this JSON object will be url-encoded by the tap before opening the database connection.
     (This config setting exists to support use of AWS SecretsManager to manage a MongoDB/DocumentDB credenial).
   kind: password
+  label: DocumentDB Credential JSON String
   name: documentdb_credential_json_string
 - description: |
     String (serialized JSON object) containing string-string key-value pairs which will be added to the
