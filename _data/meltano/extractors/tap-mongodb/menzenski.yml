@@ -19,51 +19,49 @@ next_steps: ''
 pip_url: git+https://github.com/menzenski/tap-mongodb.git
 repo: https://github.com/menzenski/tap-mongodb
 settings:
-- name: database
+- description: Database name from which records will be extracted.
   kind: string
-  description: Database name from which records will be extracted.
-- name: mongodb_connection_string
-  kind: password
-  description: |
+  name: database
+- description: |
     MongoDB connection string. See
     https://www.mongodb.com/docs/manual/reference/connection-string/#connection-string-uri-format for specification.
     The password included in this string should be url-encoded. The tap will not url-encode it.
-- name: documentdb_credential_json_string
   kind: password
-  description: |
+  name: mongodb_connection_string
+- description: |
     String (serialized JSON object) with keys 'username', 'password', 'engine', 'host', 'port',
     'dbClusterIdentifier' or 'dbName', 'ssl'. See example at
     https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_secret_json_structure.html#reference_secret_json_structure_docdb.
     The password from this JSON object will be url-encoded by the tap before opening the database connection.
     (This config setting exists to support use of AWS SecretsManager to manage a MongoDB/DocumentDB credenial).
-- name: documentdb_credential_json_extra_options
-  kind: string
-  description: |
+  kind: password
+  name: documentdb_credential_json_string
+- description: |
     String (serialized JSON object) containing string-string key-value pairs which will be added to the
     connection string options when using documentdb_credential_json_string. For example, when set to
     the string `{\"tls\":\"true\",\"tlsCAFile\":\"my-ca-bundle.pem\"}`, the options
     `tls=true&tlsCAFile=my-ca-bundle.pem` will be passed to the MongoClient.
-- name: prefix
   kind: string
-  description: |
+  name: documentdb_credential_json_extra_options
+- description: |
     An optional prefix which will be added to each stream name.
+  kind: string
+  name: prefix
   value: ''
-- name: start_date
-  kind: date_iso8601
-  value: '1970-01-01'
-  description: |
+- description: |
     Start date - used for incremental replication only. Log based replication does not support this setting - do
     not provide it unless you are using incremental replication. Defaults to epoch zero time `1970-01-01` if
     tap uses incremental replication method.
-- name: add_record_metadata
-  kind: boolean
-  description: |
+  kind: date_iso8601
+  name: start_date
+  value: '1970-01-01'
+- description: |
     When True, _sdc metadata fields will be added to records produced by this tap. If the tap is run in log-based
     replication mode, if this setting is enabled, the `_sdc_extracted_at` and `_sdc_deleted_at` timestamps on records
     will be set to the cluster time value from the database change stream event.
-- name: allow_modify_change_streams
   kind: boolean
-  description: |
+  name: add_record_metadata
+- description: |
     In AWS DocumentDB (unlike MongoDB), change streams must be enabled specifically (see
     https://docs.aws.amazon.com/documentdb/latest/developerguide/change_streams.html#change_streams-enabling
     ). If attempting to open a change stream against a collection on which change streams have not been
@@ -72,13 +70,15 @@ settings:
     operation. Note: if this setting is enabled, the credential the tap is using must have the `modifyChangeStreams`
     permission. Second note: use of this setting, and of change streams in general, may incur additional costs in
     AWS DocumentDB.
-- name: operation_types
-  kind: array
-  description: |
+  kind: boolean
+  name: allow_modify_change_streams
+- description: |
     List of MongoDB change stream operation types to include in tap output. The default behavior is to
     limit to document-level operation types. See full list of operation types at
     https://www.mongodb.com/docs/manual/reference/change-events/#operation-types. Note that the list
     of allowed_values for this property includes some values not available to all MongoDB versions.
+  kind: array
+  name: operation_types
   value:
   - create
   - delete
