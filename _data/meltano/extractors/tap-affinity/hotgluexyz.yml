@@ -11,7 +11,7 @@ executable: tap-affinity
 keywords:
 - meltano_sdk
 label: Affinity
-logo_url: /assets/logos/extractors/affinity.png
+logo_url: /assets/logos/extractors/affinity.svg
 maintenance_status: active
 name: tap-affinity
 namespace: tap_affinity

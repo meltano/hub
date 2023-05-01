@@ -10,7 +10,7 @@ executable: tap-cin7
 keywords:
 - meltano_sdk
 label: Cin7
-logo_url: /assets/logos/extractors/cin7.png
+logo_url: /assets/logos/extractors/cin7.svg
 maintenance_status: active
 name: tap-cin7
 namespace: tap_cin7
