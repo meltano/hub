@@ -28,6 +28,7 @@ settings:
     https://www.mongodb.com/docs/manual/reference/connection-string/#connection-string-uri-format for specification.
     The password included in this string should be url-encoded. The tap will not url-encode it.
   kind: password
+  label: MongoDB Connection String
   name: mongodb_connection_string
 - description: |
     String (serialized JSON object) with keys 'username', 'password', 'engine', 'host', 'port',
