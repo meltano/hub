@@ -78,6 +78,7 @@ settings:
     permission. Second note: use of this setting, and of change streams in general, may incur additional costs in
     AWS DocumentDB.
   kind: boolean
+  label: Allow Modify Change Streams
   name: allow_modify_change_streams
 - description: |
     List of MongoDB change stream operation types to include in tap output. The default behavior is to
