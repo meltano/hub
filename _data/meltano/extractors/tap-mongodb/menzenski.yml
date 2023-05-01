@@ -66,6 +66,7 @@ settings:
     replication mode, if this setting is enabled, the `_sdc_extracted_at` and `_sdc_deleted_at` timestamps on records
     will be set to the cluster time value from the database change stream event.
   kind: boolean
+  label: Add Record Metadata
   name: add_record_metadata
 - description: |
     In AWS DocumentDB (unlike MongoDB), change streams must be enabled specifically (see
