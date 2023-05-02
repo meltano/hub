@@ -23,7 +23,7 @@ extractors:
   tap-amazon-advertising: dbt-labs
   tap-amazon-associates: voxmedia
   tap-amazon-mws: dbt-labs
-  tap-amazon-sp: singer-io
+  tap-amazon-sp: hotgluexyz
   tap-amazon-sqs: airbyte
   tap-amplitude: airbyte
   tap-anaplan: matthew-skinner
