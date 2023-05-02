@@ -19,7 +19,8 @@ next_steps: ''
 pip_url: meltanolabs-tap-snowflake
 repo: https://github.com/MeltanoLabs/tap-snowflake
 settings:
-- description: Your account identifier. See [Account Identifiers](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html).
+- description: Your account identifier. See [Account 
+    Identifiers](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html).
   kind: string
   label: Account
   name: account

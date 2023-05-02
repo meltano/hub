@@ -78,7 +78,8 @@ settings:
   label: Log Group Name
   name: log_group_name
 - description: The query string to use. For more information, see [CloudWatch Logs
-    Insights Query Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
+    Insights Query 
+    Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
   kind: string
   label: Query
   name: query

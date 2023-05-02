@@ -28,10 +28,36 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: Example postgresql://[username]:[password]@localhost:5432/[db_name]
-  kind: password
+- description: Example postgresql://postgres:postgres@localhost:5432/postgres
+  kind: string
   label: Sqlalchemy URL
   name: sqlalchemy_url
+- description: Enable an ssh tunnel (also known as bastion host), see the other ssh_tunnel.*
+    properties for more details
+  kind: boolean
+  label: Ssh Tunnel Enable
+  name: ssh_tunnel.enable
+- description: Host of the bastion host, this is the host we'll connect to via ssh
+  kind: string
+  label: Ssh Tunnel Host
+  name: ssh_tunnel.host
+- description: Port to connect to bastion host
+  kind: integer
+  label: Ssh Tunnel Port
+  name: ssh_tunnel.port
+  value: 22
+- description: Private Key for authentication to the bastion host
+  kind: password
+  label: Ssh Tunnel Private Key
+  name: ssh_tunnel.private_key
+- description: Private Key Password, leave None if no password is set
+  kind: password
+  label: Ssh Tunnel Private Key Password
+  name: ssh_tunnel.private_key_password
+- description: Username to connect to bastion host
+  kind: string
+  label: Ssh Tunnel Username
+  name: ssh_tunnel.username
 - description: User-defined config values to be used within map expressions.
   kind: object
   label: Stream Map Config
@@ -43,6 +69,11 @@ settings:
   name: stream_maps
 settings_group_validation:
 - - sqlalchemy_url
+  - ssh_tunnel.enable
+  - ssh_tunnel.host
+  - ssh_tunnel.port
+  - ssh_tunnel.private_key
+  - ssh_tunnel.username
 settings_preamble: ''
 usage: |
   ## Incremental Replication

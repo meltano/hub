@@ -99,7 +99,8 @@ settings:
   label: Key File Location
   name: key_file_location
   placeholder: Ex. $MELTANO_PROJECT_ROOT/client_secrets.json
-- description: Google Analytics Access Token. See https://developers.google.com/analytics/devguides/reporting/core/v4/authorization#OAuth2Authorizing.
+- description: Google Analytics Access Token. See 
+    https://developers.google.com/analytics/devguides/reporting/core/v4/authorization#OAuth2Authorizing.
   kind: password
   label: OAuth Credentials Access Token
   name: oauth_credentials.access_token
@@ -110,11 +111,13 @@ settings:
   kind: password
   label: OAuth Credentials Client ID
   name: oauth_credentials.client_id
-- description: Google Analytics Client Secret. See https://developers.google.com/analytics/devguides/reporting/core/v4/authorization#OAuth2Authorizing.
+- description: Google Analytics Client Secret. See 
+    https://developers.google.com/analytics/devguides/reporting/core/v4/authorization#OAuth2Authorizing.
   kind: password
   label: OAuth Credentials Client Secret
   name: oauth_credentials.client_secret
-- description: Google Analytics Refresh Token. See https://developers.google.com/analytics/devguides/reporting/core/v4/authorization#OAuth2Authorizing.
+- description: Google Analytics Refresh Token. See 
+    https://developers.google.com/analytics/devguides/reporting/core/v4/authorization#OAuth2Authorizing.
   kind: password
   label: OAuth Credentials Refresh Token
   name: oauth_credentials.refresh_token
@@ -217,16 +220,6 @@ settings:
   name: view_id
   placeholder: Ex. 198343027
 settings_group_validation:
-- - key_file_location
-  - start_date
-  - view_id
-- - client_secrets
-  - start_date
-  - view_id
-- - oauth_credentials.access_token
-  - oauth_credentials.client_id
-  - oauth_credentials.client_secret
-  - oauth_credentials.refresh_token
-  - start_date
+- - start_date
   - view_id
 variant: meltanolabs
