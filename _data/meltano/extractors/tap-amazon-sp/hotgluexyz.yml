@@ -14,7 +14,7 @@ keywords:
 label: Amazon Selling Partner (SP)
 logo_url: /assets/logos/extractors/amazon-sp.png
 maintenance_status: active
-name: tap-amazon-seller
+name: tap-amazon-sp
 namespace: tap_amazon_seller
 next_steps: ''
 pip_url: git+https://gitlab.com/hotglue/tap-amazon-seller.git
