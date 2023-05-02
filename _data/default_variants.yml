@@ -207,7 +207,7 @@ extractors:
   tap-google-pagespeed-insights: airbyte
   tap-google-play: hotgluexyz
   tap-google-search-console: singer-io
-  tap-google-sheets: singer-io
+  tap-google-sheets: matatika
   tap-google-webfonts: airbyte
   tap-google-workspace-admin-reports: airbyte
   tap-googleads: matatika
@@ -437,7 +437,7 @@ extractors:
   tap-shipbob: hotgluexyz
   tap-shiphero: singer-io
   tap-shipstation: mashey
-  tap-shopify: singer-io
+  tap-shopify: matatika
   tap-shortcut: edgarrmondragon
   tap-shortio: airbyte
   tap-showpad: z3z1ma
