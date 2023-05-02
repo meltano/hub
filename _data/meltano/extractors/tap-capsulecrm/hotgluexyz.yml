@@ -31,7 +31,7 @@ settings:
   kind: password
   label: Client Secret
   name: client_secret
-- description: The seconds until the token expires. 
+- description: The seconds until the token expires.
   kind: integer
   label: Expires In
   name: expires_in

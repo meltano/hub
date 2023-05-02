@@ -5,7 +5,8 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
-description: Billing infrastructure that helps software companies launch, iterate, and scale their usage-based business models.
+description: Billing infrastructure that helps software companies launch, iterate,
+  and scale their usage-based business models.
 domain_url: https://metronome.com/
 executable: tap-metronome
 keywords:
@@ -29,7 +30,7 @@ settings:
   name: billing_provider_type
   value: stripe
 - description: A comma separated list of Metronome customer IDs to fetch usage for.
-    If absent, usage for all customers will be returned. 
+    If absent, usage for all customers will be returned.
   kind: string
   label: Customers
   name: customers

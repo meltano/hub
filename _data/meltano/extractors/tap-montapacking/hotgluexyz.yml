@@ -32,7 +32,8 @@ settings:
   kind: password
   label: Password
   name: password
-- description: The pagination token used for replication if no incremental state is found.
+- description: The pagination token used for replication if no incremental state is
+    found.
   kind: password
   label: Since ID
   name: since_id

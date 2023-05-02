@@ -5,7 +5,8 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
-description: Media player, media library, mobile device management utility, and the client app for the iTunes Store
+description: Media player, media library, mobile device management utility, and the
+  client app for the iTunes Store
 domain_url: https://www.apple.com/itunes/
 executable: tap-itunes
 keywords:
