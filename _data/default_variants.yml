@@ -199,6 +199,7 @@ extractors:
   tap-google-analytics: meltanolabs
   tap-google-directory: airbyte
   tap-google-pagespeed-insights: airbyte
+  tap-google-play: hotgluexyz
   tap-google-search-console: singer-io
   tap-google-sheets: singer-io
   tap-google-webfonts: airbyte
