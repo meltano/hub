@@ -144,6 +144,7 @@ extractors:
   tap-dynamics-finance: hotgluexyz
   tap-dynamodb: singer-io
   tap-ebay: dbt-labs
+  tap-ecwid: hotgluexyz
   tap-elasticsearch: airbyte
   tap-eloqua: singer-io
   tap-emailoctopus: airbyte
