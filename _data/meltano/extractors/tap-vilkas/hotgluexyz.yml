@@ -1,0 +1,51 @@
+capabilities:
+- about
+- catalog
+- discover
+- schema-flattening
+- state
+- stream-maps
+description: e-Commerce solutions, web design, SEO, digital marketing, and web services.
+domain_url: https://www.vilkas.fi/
+executable: tap-vilkas
+keywords:
+- meltano_sdk
+label: Vilkas
+logo_url: /assets/logos/extractors/vilkas.svg
+maintenance_status: active
+name: tap-vilkas
+namespace: tap_vilkas
+next_steps: ''
+pip_url: git+https://gitlab.com/hotglue/tap-vilkas.git
+repo: https://gitlab.com/hotglue/tap-vilkas
+settings:
+- description: The API base URL.
+  kind: string
+  label: Base URL
+  name: base_url
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: The earliest record date to sync
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability.
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+settings_group_validation:
+- - base_url
+settings_preamble: ''
+usage: ''
+variant: hotgluexyz

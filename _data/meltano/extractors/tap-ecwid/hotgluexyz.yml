@@ -1,0 +1,58 @@
+capabilities:
+- about
+- catalog
+- discover
+- schema-flattening
+- state
+- stream-maps
+description: Software-as-a-service e-commerce company that provides online selling
+  solutions for small businesses
+domain_url: https://www.ecwid.com/
+executable: tap-ecwid
+keywords:
+- meltano_sdk
+label: Ecwid
+logo_url: /assets/logos/extractors/ecwid.svg
+maintenance_status: active
+name: tap-ecwid
+namespace: tap_ecwid
+next_steps: ''
+pip_url: git+https://gitlab.com/hotglue/tap-ecwid.git
+repo: https://gitlab.com/hotglue/tap-ecwid
+settings:
+- description: The url for the API service
+  kind: string
+  label: API URL
+  name: api_url
+  value: https://app.ecwid.com/api/v3
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: The token to authenticate against the API service
+  kind: password
+  label: Secret Key
+  name: secret_key
+- description: Your Ecwid store ID.
+  kind: integer
+  label: Storeid
+  name: storeid
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability.
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+settings_group_validation:
+- - secret_key
+  - storeid
+settings_preamble: ''
+usage: ''
+variant: hotgluexyz

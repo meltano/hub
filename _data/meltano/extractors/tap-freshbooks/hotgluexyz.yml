@@ -1,0 +1,72 @@
+capabilities:
+- about
+- catalog
+- discover
+- schema-flattening
+- state
+- stream-maps
+description: Cloud-based accounting software for small and medium-sized businesses
+domain_url: https://www.freshbooks.com/
+executable: tap-freshbooks
+keywords:
+- meltano_sdk
+label: FreshBooks
+logo_url: /assets/logos/extractors/freshbooks.svg
+maintenance_status: active
+name: tap-freshbooks
+namespace: tap_freshbooks
+next_steps: ''
+pip_url: git+https://gitlab.com/hotglue/tap-freshbooks.git
+repo: https://gitlab.com/hotglue/tap-freshbooks
+settings:
+- description: The token to authenticate against the API service
+  kind: password
+  label: Access Token
+  name: access_token
+- description: Your FreshBooks API client ID.
+  kind: password
+  label: Client ID
+  name: client_id
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: The API redirect URI.
+  kind: string
+  label: Redirect URI
+  name: redirect_uri
+- description: Your FreshBooks API refresh token.
+  kind: password
+  label: Refresh Token
+  name: refresh_token
+- description: Your FreshBooks API secret ID.
+  kind: password
+  label: Secret ID
+  name: secret_id
+- description: The earliest record date to sync
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+settings_group_validation:
+- - access_token
+  - client_id
+  - redirect_uri
+  - refresh_token
+  - secret_id
+settings_preamble: ''
+usage: ''
+variant: hotgluexyz

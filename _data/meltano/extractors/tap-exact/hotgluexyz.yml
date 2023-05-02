@@ -1,0 +1,46 @@
+capabilities:
+- catalog
+- discover
+- state
+description: Cloud business software for SMEs and their accountants
+domain_url: https://www.exact.com/
+executable: tap-exact
+keywords:
+- meltano_sdk
+label: Exact
+logo_url: /assets/logos/extractors/exact.svg
+maintenance_status: active
+name: tap-exact
+namespace: tap_exact
+next_steps: ''
+pip_url: git+https://gitlab.com/hotglue/tap-exact.git
+repo: https://gitlab.com/hotglue/tap-exact
+settings:
+- description: The token to authenticate against the API service
+  kind: password
+  label: Access Token
+  name: access_token
+- description: Your Exact refresh token.
+  kind: password
+  label: Refresh Token
+  name: refresh_token
+- description: Your Exact client ID.
+  kind: password
+  label: Client ID
+  name: client_id
+- description: Your Exact client secret.
+  kind: password
+  label: Client Secret
+  name: client_secret
+- description: The Exact current division.
+  kind: string
+  label: Current Division
+  name: current_division
+settings_group_validation:
+- - refresh_token
+  - client_id
+  - client_secret
+  - current_division
+settings_preamble: ''
+usage: ''
+variant: hotgluexyz

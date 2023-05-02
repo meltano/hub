@@ -1,0 +1,49 @@
+capabilities:
+- about
+- catalog
+- discover
+- schema-flattening
+- state
+- stream-maps
+description: Relationship intelligence platform built to expand and evolve the traditional
+  CRM
+domain_url: https://www.affinity.co/
+executable: tap-affinity
+keywords:
+- meltano_sdk
+label: Affinity
+logo_url: /assets/logos/extractors/affinity.svg
+maintenance_status: active
+name: tap-affinity
+namespace: tap_affinity
+next_steps: ''
+pip_url: git+https://gitlab.com/hotglue/tap-affinity.git
+repo: https://gitlab.com/hotglue/tap-affinity
+settings:
+- description: The token to authenticate against the API service
+  kind: password
+  label: API Key
+  name: api_key
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+settings_group_validation:
+- - api_key
+settings_preamble: ''
+usage: ''
+variant: hotgluexyz
