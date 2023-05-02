@@ -143,6 +143,7 @@ extractors:
   tap-duckdb: meltanolabs
   tap-dv-360: airbyte
   tap-dynamics: dreamdata-io
+  tap-dynamics-bc: hotgluexyz
   tap-dynamics-finance: hotgluexyz
   tap-dynamodb: singer-io
   tap-ebay: dbt-labs
