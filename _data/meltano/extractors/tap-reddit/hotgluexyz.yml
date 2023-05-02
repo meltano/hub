@@ -1,0 +1,72 @@
+capabilities:
+- about
+- catalog
+- discover
+- schema-flattening
+- state
+- stream-maps
+description: Online platform that enables users to submit links, create content, and have discussions about the topics of their interest.
+domain_url: https://www.reddit.com/
+executable: tap-reddit
+keywords:
+- meltano_sdk
+label: Reddit
+logo_url: /assets/logos/extractors/reddit.svg
+maintenance_status: active
+name: tap-reddit
+namespace: tap_reddit
+next_steps: ''
+pip_url: git+https://gitlab.com/hotglue/tap-reddit.git
+repo: https://gitlab.com/hotglue/tap-reddit
+settings:
+- description: Your Reddit API client ID.
+  kind: password
+  label: Client ID
+  name: client_id
+- description: Your Reddit API client secret.
+  kind: password
+  label: Client Secret
+  name: client_secret
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: Your Reddit API redirect URI.
+  kind: string
+  label: Redirect URI
+  name: redirect_uri
+  value: https://hotglue.com/callback
+- description: Your Reddit API refresh token.
+  kind: password
+  label: Refresh Token
+  name: refresh_token
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability.
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: The subreddit to filter by.
+  kind: string
+  label: Subreddit
+  name: subreddit
+- description: The user agent to send with requests.
+  kind: string
+  label: User Agent
+  name: user_agent
+  value: 'Python: Hotglue:0.01 by (/u/hotglue)'
+settings_group_validation:
+- - client_id
+  - client_secret
+  - refresh_token
+  - subreddit
+settings_preamble: ''
+usage: ''
+variant: hotgluexyz
