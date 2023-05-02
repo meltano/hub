@@ -181,6 +181,7 @@ extractors:
   tap-freshdesk: singer-io
   tap-freshsales: airbyte
   tap-freshservice: airbyte
+  tap-freshworks: hotgluexyz
   tap-frontapp: singer-io
   tap-fulfil: fulfilio
   tap-fullstory: singer-io
