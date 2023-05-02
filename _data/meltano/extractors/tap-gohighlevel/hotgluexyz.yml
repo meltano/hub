@@ -1,0 +1,67 @@
+capabilities:
+- about
+- catalog
+- discover
+- schema-flattening
+- state
+- stream-maps
+description: All-In-One Sales & Marketing Platform
+domain_url: https://www.gohighlevel.com/
+executable: tap-gohighlevel
+keywords:
+- meltano_sdk
+label: Gohighlevel
+logo_url: /assets/logos/extractors/gohighlevel.png
+maintenance_status: active
+name: tap-gohighlevel
+namespace: tap_gohighlevel
+next_steps: ''
+pip_url: git+https://gitlab.com/hotglue/tap-gohighlevel.git
+repo: https://gitlab.com/hotglue/tap-gohighlevel
+settings:
+- description: The url for the API service
+  kind: string
+  label: API URL
+  name: api_url
+  value: https://services.leadconnectorhq.com/
+- description: Client ID for the API service
+  kind: password
+  label: Client ID
+  name: client_id
+- description: Client Secret for the API service
+  kind: password
+  label: Client Secret
+  name: client_secret
+- description: Expiration time in seconds for the API service
+  kind: integer
+  label: Expires In
+  name: expires_in
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: Refresh token for the API service
+  kind: password
+  label: Refresh Token
+  name: refresh_token
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability.
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+settings_group_validation:
+- - client_id
+  - client_secret
+  - expires_in
+  - refresh_token
+settings_preamble: ''
+usage: ''
+variant: hotgluexyz
