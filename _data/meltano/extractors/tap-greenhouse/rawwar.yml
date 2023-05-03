@@ -16,7 +16,7 @@ namespace: tap_greenhouse
 pip_url: git+https://github.com/rawwar/tap-greenhouse.git
 repo: https://github.com/rawwar/tap-greenhouse
 settings:
-- description: [API token](https://developers.greenhouse.io/harvest.html#authentication) for a greenhouse account.
+- description: Your Greenhouse [API Key](https://developers.greenhouse.io/harvest.html#authentication).
   kind: password
   label: Basic Authentication Token
   name: auth_token
