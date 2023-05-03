@@ -24,5 +24,5 @@ settings:
   label: Greenhouse Harvest API URL
   name: api_url
 settings_group_validation:
-- auth_token
+- - auth_token
 variant: rawwar
