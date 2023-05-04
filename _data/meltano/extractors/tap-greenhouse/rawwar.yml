@@ -2,7 +2,9 @@ capabilities:
 - about
 - catalog
 - discover
+- schema-flattening
 - state
+- stream-maps
 description: Application Tracking System (ATS)
 domain_url: https://developers.greenhouse.io/harvest.html
 keywords:
