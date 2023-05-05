@@ -24,7 +24,7 @@ settings:
   kind: password
   label: Access Token
   name: access_token
-- description: This identifies the app used to connect to HubSpot.
+- description: The client ID used for authentication.
   documentation: https://developers.hubspot.com/docs/api/working-with-oauth
   label: Client ID
   name: client_id
