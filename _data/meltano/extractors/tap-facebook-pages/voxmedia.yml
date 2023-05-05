@@ -7,6 +7,7 @@ capabilities:
 - schema-flattening
 description: Facebook Pages API
 domain_url: https://developers.facebook.com/docs/pages/
+hidden: true
 keywords:
 - meltano_sdk
 label: Facebook Pages
