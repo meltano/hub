@@ -12,7 +12,7 @@ keywords:
 - meltano_sdk
 label: Greenhouse
 logo_url: /assets/logos/extractors/greenhouse.png
-maintenance_status: active
+maintenance_status: beta
 name: tap-greenhouse
 namespace: tap_greenhouse
 pip_url: git+https://github.com/rawwar/tap-greenhouse.git
