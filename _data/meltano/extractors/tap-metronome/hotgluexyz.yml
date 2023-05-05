@@ -1,0 +1,77 @@
+capabilities:
+- about
+- catalog
+- discover
+- schema-flattening
+- state
+- stream-maps
+description: Billing infrastructure that helps software companies launch, iterate,
+  and scale their usage-based business models.
+domain_url: https://metronome.com/
+executable: tap-metronome
+keywords:
+- meltano_sdk
+label: Metronome
+logo_url: /assets/logos/extractors/metronome.svg
+maintenance_status: active
+name: tap-metronome
+namespace: tap_metronome
+next_steps: ''
+pip_url: git+https://gitlab.com/hotglue/tap-metronome.git
+repo: https://gitlab.com/hotglue/tap-metronome
+settings:
+- description: The token to authenticate against the API service
+  kind: password
+  label: Auth Token
+  name: auth_token
+- description: The Metronome billing provider type (aws_marketplace, stripe, or netsuite).
+  kind: password
+  label: Billing Provider Type
+  name: billing_provider_type
+  value: stripe
+- description: A comma separated list of Metronome customer IDs to fetch usage for.
+    If absent, usage for all customers will be returned.
+  kind: string
+  label: Customers
+  name: customers
+- description: Date up to when historical data will be extracted.
+  kind: date_iso8601
+  label: End Date
+  name: end_date
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: "Determines how much historical data will be extracted. Please be aware\n\
+    that the larger the time period and amount of data, the longer the initial extraction\n\
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability.
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: |
+    A window_size of "day" or "hour" will return the usage for the specified
+    period segmented into daily or hourly aggregates. A window_size of "none"
+    will return a single usage aggregate for the entirety of the specified
+    period. (hour, day, or none).
+  kind: string
+  label: Window Size
+  name: window_size
+  value: day
+settings_group_validation:
+- - auth_token
+settings_preamble: ''
+usage: ''
+variant: hotgluexyz

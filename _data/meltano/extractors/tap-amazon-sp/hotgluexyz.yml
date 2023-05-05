@@ -1,0 +1,96 @@
+capabilities:
+- about
+- catalog
+- discover
+- schema-flattening
+- state
+- stream-maps
+description: Amazon selling partners programmatic access to their Amazon Seller Central
+  account data
+domain_url: https://developer-docs.amazon.com/sp-api/
+executable: tap-amazon-seller
+keywords:
+- meltano_sdk
+label: Amazon Selling Partner (SP)
+logo_url: /assets/logos/extractors/amazon-sp.png
+maintenance_status: active
+name: tap-amazon-sp
+namespace: tap_amazon_seller
+next_steps: ''
+pip_url: git+https://gitlab.com/hotglue/tap-amazon-seller.git
+repo: https://gitlab.com/hotglue/tap-amazon-seller
+settings:
+- description: Your AWS access key.
+  kind: password
+  label: AWS Access Key
+  name: aws_access_key
+- description: Your AWS secret key.
+  kind: password
+  label: AWS Secret Key
+  name: aws_secret_key
+- description: Your AWS client secret.
+  kind: password
+  label: Client Secret
+  name: client_secret
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: Your AWS LWA client ID.
+  kind: password
+  label: Lwa Client ID
+  name: lwa_client_id
+- description: An array of Marketplace Country Code values. Default ["US"].
+  kind: array
+  label: Marketplaces
+  name: marketplaces
+- description: An array of processing statuses.
+  kind: array
+  label: Processing Status
+  name: processing_status
+  value:
+  - IN_QUEUE
+  - IN_PROGRESS
+- description: Your AWS refresh token.
+  kind: password
+  label: Refresh Token
+  name: refresh_token
+- description: An array of report types.
+  kind: array
+  label: Report Types
+  name: report_types
+  value:
+  - GET_LEDGER_DETAIL_VIEW_DATA
+  - GET_MERCHANT_LISTINGS_ALL_DATA
+- description: Your AWS role ARN.
+  kind: string
+  label: Role Arn
+  name: role_arn
+- description: Whether to using a sandbox or not.
+  kind: boolean
+  label: Sandbox
+  name: sandbox
+  value: false
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability.
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+settings_group_validation:
+- - aws_access_key
+  - aws_secret_key
+  - client_secret
+  - lwa_client_id
+  - refresh_token
+  - role_arn
+settings_preamble: ''
+usage: ''
+variant: hotgluexyz

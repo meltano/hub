@@ -1,0 +1,75 @@
+capabilities:
+- about
+- catalog
+- discover
+- schema-flattening
+- state
+- stream-maps
+description: Inventory management and Manufacturing ERP system
+domain_url: https://www.fishbowlinventory.com/
+executable: tap-fishbowl
+keywords:
+- meltano_sdk
+label: Fishbowl
+logo_url: /assets/logos/extractors/fishbowl.png
+maintenance_status: active
+name: tap-fishbowl
+namespace: tap_fishbowl
+next_steps: ''
+pip_url: git+https://gitlab.com/hotglue/tap-fishbowl.git
+repo: https://gitlab.com/hotglue/tap-fishbowl
+settings:
+- description: App id
+  kind: password
+  label: App ID
+  name: app_id
+- description: The App name registered and approved in the Fishbowl Client
+  kind: string
+  label: App Name
+  name: app_name
+- description: The token to authenticate against the API service
+  kind: password
+  label: Auth Token
+  name: auth_token
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: The URL instance for API's base_url
+  kind: string
+  label: Instance
+  name: instance
+- description: username's password
+  kind: password
+  label: Password
+  name: password
+- description: The earliest record date to sync
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability.
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: Registered username on the Fishbowl's server
+  kind: string
+  label: Username
+  name: username
+settings_group_validation:
+- - app_id
+  - app_name
+  - instance
+  - password
+  - username
+settings_preamble: ''
+usage: ''
+variant: hotgluexyz

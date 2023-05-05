@@ -4,7 +4,7 @@
       type="text"
       name="search"
       id="search"
-      placeholder="Search 550+ connectors and tools"
+      placeholder="Search 600+ connectors and tools"
       class="search-bar text-black text-sm bg-transparent pl-4 border-solid border-blue border rounded-[9999px] py-1.5 w-full placeholder:text-par placeholder:font-light font-ibm focus-visible:outline-0"
       ref="searchBar"
       :value="search"
