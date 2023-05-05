@@ -18,6 +18,9 @@ name: tap-github
 namespace: tap_github
 pip_url: git+https://github.com/MeltanoLabs/tap-github.git
 repo: https://github.com/MeltanoLabs/tap-github
+select:
+- "*.*"
+- "!traffic_*.*"
 settings:
 - description: List of GitHub tokens to authenticate with. Streams will loop through
     them when hitting rate limits.
