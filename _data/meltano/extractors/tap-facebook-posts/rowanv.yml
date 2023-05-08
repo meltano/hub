@@ -4,6 +4,7 @@ capabilities:
 - state
 description: Facebook Posts Graph API
 domain_url: https://developers.facebook.com/docs/graph-api
+hidden: true
 keywords:
 - api
 label: Facebook Posts
