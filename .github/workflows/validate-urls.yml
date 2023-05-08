@@ -1,0 +1,32 @@
+name: Validate URLS
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *' # Run at midnight UTC
+
+jobs:
+
+  metadata_refresh:
+    name: Metadata Refresh
+    runs-on: ubuntu-latest
+    environment: 'production'
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@v3.5.2
+      - name: Get invalid URLS
+        id: urls
+        run: |
+          output=$(python utility_scripts/plugin_definitions/check_links.py)
+          echo "::set-output name=invalid_urls::$output"
+
+      - uses: JasonEtco/create-an-issue@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.MELTYBOT_GITHUB_AUTH_TOKEN }}
+          INVALID_URLS: ${{ steps.urls.outputs.invalid_urls }}
+        with:
+          # assignees: pnadolny13
+          filename: .github/invalid_urls.md
+          update_existing: true
