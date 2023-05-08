@@ -30,7 +30,7 @@ def find_all_yamls(f_path="_data/", INCLUDED_FILES=None):
     for root, subdirs, files in os.walk(f_path):
         for file in files:
             relative_path = os.path.join(root, file)
-            if file.endswith(".yml") and relative_path not in EXCLUDED_FILES and "angaza" in file:
+            if file.endswith(".yml") and relative_path not in EXCLUDED_FILES:
                 yield relative_path
         for subdir in subdirs:
             find_all_yamls(os.path.join(root, f_path, subdir))
