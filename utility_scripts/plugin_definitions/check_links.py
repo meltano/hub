@@ -3,6 +3,11 @@ import os
 import re
 
 import requests
+from ruamel.yaml import YAML
+
+yaml = YAML()
+yaml.preserve_quotes = True
+yaml.default_flow_style = False
 
 EXCLUDED_FILES = [
     "_data/scraped.yml",
@@ -13,13 +18,20 @@ EXCLUDED_FILES = [
     "_data/variant_metrics.yml",
 ]
 
+URL_KEYS = [
+    "repo",
+    "domain_url",
+    "ext_repo",
+]
+
 def test_urls(yml_path):
     with open(yml_path, "r") as plugin_file:
         bad_urls = []
-        plugin_data = plugin_file.read()
-        all_urls = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', plugin_data)
-        urls = {url.removesuffix('.git').removesuffix(')') for url in all_urls if "://localhost" not in url}
-        for url in urls:
+        plugin_data = yaml.load(plugin_file)
+        for key in URL_KEYS:
+            if key not in plugin_data:
+                continue
+            url = plugin_data[key]
             try:
                 resp = requests.get(url)
             except Exception as ex:
@@ -31,7 +43,7 @@ def test_urls(yml_path):
         return bad_urls
 
 
-def find_all_yamls(f_path="_data/", INCLUDED_FILES=None):
+def find_all_yamls(f_path="_data/"):
     for root, subdirs, files in os.walk(f_path):
         for file in files:
             relative_path = os.path.join(root, file)

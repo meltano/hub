@@ -3,7 +3,7 @@ name: Validate URLs
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0 * * *' # Run at midnight UTC
+    - cron: '0 13 * * 1'
 
 jobs:
 
@@ -16,10 +16,27 @@ jobs:
       issues: write
     steps:
       - uses: actions/checkout@v3.5.2
-      - name: Get invalid URLS
+
+      - name: Setup Python
+        uses: actions/setup-python@v4.5.0
+        with:
+          python-version: 3.9
+          architecture: x64
+
+      - name: Upgrade pip
+        run: |
+          pip install pip poetry
+          pip --version
+          poetry --version
+
+      - name: Poetry install
+        run: |
+          poetry install
+
+      - name: Get invalid URLs
         id: urls
         run: |
-          output=$(python utility_scripts/plugin_definitions/check_links.py)
+          output=$(poetry run python utility_scripts/plugin_definitions/check_links.py)
           echo "INVALID_URL<<EOF" >> $GITHUB_ENV
           echo "$output" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
@@ -29,6 +46,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.MELTYBOT_GITHUB_AUTH_TOKEN }}
           INVALID_URLS: ${{ env.INVALID_URL }}
         with:
-          # assignees: pnadolny13
           filename: .github/ISSUE_TEMPLATE/invalid_urls.md
           update_existing: true
