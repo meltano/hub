@@ -20,13 +20,14 @@ jobs:
         id: urls
         run: |
           output=$(python utility_scripts/plugin_definitions/check_links.py)
-          escaped_output=$(printf %q "$output")
-          echo "::set-output name=invalid_urls::$escaped_output"
-
+          echo "::set-output name=invalid_urls::$output"
+          echo "INVALID_URL<<EOF" >> $GITHUB_ENV
+          echo "$output" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
       - uses: JasonEtco/create-an-issue@v2
         env:
           GITHUB_TOKEN: ${{ secrets.MELTYBOT_GITHUB_AUTH_TOKEN }}
-          INVALID_URLS: ${{ steps.urls.outputs.invalid_urls }}
+          INVALID_URLS: ${{ senv.INVALID_URL }}
         with:
           # assignees: pnadolny13
           filename: .github/ISSUE_TEMPLATE/invalid_urls.md
