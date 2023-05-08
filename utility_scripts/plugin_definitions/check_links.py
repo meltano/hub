@@ -14,7 +14,6 @@ EXCLUDED_FILES = [
 ]
 
 def test_urls(yml_path):
-    print(f"Checking: {yml_path}")
     with open(yml_path, "r") as plugin_file:
         bad_urls = []
         plugin_data = plugin_file.read()
@@ -49,4 +48,9 @@ if __name__ == "__main__":
         if bad_urls:
             path = yaml_file.split("_data/meltano/")[1]
             bad_links[f"https://github.com/meltano/hub/blob/main/_data/meltano/{path}"] = bad_urls
-    print(json.dumps(bad_links))
+    output = ""
+    for file_name, urls in bad_links.items():
+        output += f"- {file_name}\n"
+        for url in urls:
+            output += f"  - {url}\n"
+    print(output)
