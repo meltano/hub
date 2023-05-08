@@ -20,7 +20,8 @@ jobs:
         id: urls
         run: |
           output=$(python utility_scripts/plugin_definitions/check_links.py)
-          echo '::set-output name=invalid_urls::"$output"'
+          escaped_output=$(printf %q "$output")
+          echo "::set-output name=invalid_urls::$escaped_output"
 
       - uses: JasonEtco/create-an-issue@v2
         env:
