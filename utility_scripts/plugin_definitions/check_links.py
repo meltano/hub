@@ -18,9 +18,14 @@ def test_urls(yml_path):
         bad_urls = []
         plugin_data = plugin_file.read()
         all_urls = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', plugin_data)
-        urls = {url.rstrip('.git') for url in all_urls}
+        urls = {url.removesuffix('.git').removesuffix(')') for url in all_urls if "://localhost" not in url}
         for url in urls:
-            resp = requests.get(url)
+            try:
+                resp = requests.get(url)
+            except Exception as ex:
+                bad_urls.append(url)
+                continue
+
             if resp.status_code != 200:
                 bad_urls.append(url)
         return bad_urls
