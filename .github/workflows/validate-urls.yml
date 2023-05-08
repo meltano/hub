@@ -24,6 +24,7 @@ jobs:
           echo "$output" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
       - uses: JasonEtco/create-an-issue@v2
+        if: env.INVALID_URL != ''
         env:
           GITHUB_TOKEN: ${{ secrets.MELTYBOT_GITHUB_AUTH_TOKEN }}
           INVALID_URLS: ${{ env.INVALID_URL }}
