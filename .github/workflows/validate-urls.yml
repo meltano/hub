@@ -1,4 +1,4 @@
-name: Validate URLS
+name: Validate URLs
 
 on:
   workflow_dispatch:
@@ -7,8 +7,8 @@ on:
 
 jobs:
 
-  metadata_refresh:
-    name: Metadata Refresh
+  validate_urls:
+    name: Validate URLs
     runs-on: ubuntu-latest
     environment: 'production'
     permissions:
@@ -28,5 +28,5 @@ jobs:
           INVALID_URLS: ${{ steps.urls.outputs.invalid_urls }}
         with:
           # assignees: pnadolny13
-          filename: .github/invalid_urls.md
+          filename: .github/ISSUE_TEMPLATE/invalid_urls.md
           update_existing: true
