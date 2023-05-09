@@ -20,7 +20,6 @@ EXCLUDED_FILES = [
 
 URL_KEYS = [
     "repo",
-    "domain_url",
     "ext_repo",
 ]
 
@@ -29,9 +28,9 @@ def test_urls(yml_path):
         bad_urls = []
         plugin_data = yaml.load(plugin_file)
         for key in URL_KEYS:
-            if key not in plugin_data:
+            url = plugin_data.get(key)
+            if not url:
                 continue
-            url = plugin_data[key]
             try:
                 resp = requests.get(url)
             except Exception as ex:
