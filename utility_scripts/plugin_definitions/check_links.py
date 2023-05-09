@@ -1,6 +1,4 @@
-import json
 import os
-import re
 
 import requests
 from ruamel.yaml import YAML
@@ -23,7 +21,7 @@ URL_KEYS = [
     "ext_repo",
 ]
 
-def test_urls(yml_path):
+def validate_urls(yml_path):
     with open(yml_path, "r") as plugin_file:
         bad_urls = []
         plugin_data = yaml.load(plugin_file)
@@ -55,12 +53,12 @@ def find_all_yamls(f_path="_data/"):
 if __name__ == "__main__":
     """
     This script iterates all the plugin definition files and checks
-    their urls to make sure they are valid. Returning a dictionary
-    of bad links.
+    their urls to make sure they are valid. Returning bad links formatted
+    as bullets and sub-bullets for populating the invalid_urls.md template.
     """
     bad_links = {}
     for yaml_file in find_all_yamls():
-        bad_urls = test_urls(yaml_file)
+        bad_urls = validate_urls(yaml_file)
         if bad_urls:
             path = yaml_file.split("_data/meltano/")[1]
             bad_links[f"https://github.com/meltano/hub/blob/main/_data/meltano/{path}"] = bad_urls
