@@ -343,7 +343,7 @@ class Utilities:
     @staticmethod
     def _install_test(plugin_name, plugin_type, pip_url, namespace, executable):
         MeltanoUtil.add(plugin_name, namespace, executable, pip_url, plugin_type)
-        MeltanoUtil.help_test(plugin_name)
+        MeltanoUtil.help_test(executable)
 
     def add(self, repo_url: str = None, definition_seed: dict = None):
         if not repo_url:
@@ -568,7 +568,7 @@ class Utilities:
         if is_meltano_sdk:
             if self._prompt("Scrape SDK --about settings?", True, type=bool):
                 try:
-                    return MeltanoUtil.sdk_about(plugin_name)
+                    return MeltanoUtil.sdk_about(executable)
                 except Exception:
                     if self._prompt("Scrape failed! Provide as json?", True, type=bool):
                         return json.loads(self._prompt("Provide --about output"))
@@ -710,6 +710,7 @@ class Utilities:
         self._write_updated_def(
             plugin_name, plugin_variant, plugin_type, merged_def_formatted
         )
+        self._reformat(plugin_type, plugin_name, plugin_variant)
 
     @staticmethod
     def get_suffix(yaml_file):
