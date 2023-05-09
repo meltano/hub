@@ -31,8 +31,8 @@ settings:
   label: Base URL
   name: base_url
   value: https://cloud.getdbt.com/api/v2
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
