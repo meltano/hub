@@ -17,12 +17,21 @@ namespace: tap_facebook_pages
 next_steps: ''
 pip_url: git+https://github.com/voxmedia/tap-facebook-pages.git
 repo: https://github.com/voxmedia/tap-facebook-pages
+select:
+- '*.*'
+- '!post_insights.*'
+- '!video_insights_lifetime.*'
+- '!video_insights_daily.*'
+- '!all_posts.*'
+- '!all_videos.*'
+- '!recent_post_insights.*'
 settings:
 - description: Long-lived user access token with access to all pages.
   kind: password
   label: User Token
   name: user_token
-- description: "An array of objects containing keys `id` and `access_token`. E.g. [{'id': 'abc', 'access_token': 'def'}]"
+- description: "An array of objects containing keys `id` and `access_token`. E.g.\
+    \ [{'id': 'abc', 'access_token': 'def'}]"
   kind: array
   label: Pages
   name: pages
@@ -56,6 +65,13 @@ settings:
   name: flattening_max_depth
 settings_group_validation:
 - - user_token
-settings_preamble: ''
+settings_preamble: |
+  This tap has default selection criteria to exclude streams that have custom logic in them.
+  This is because the tap developers have a use case that requires them to query their data
+  warehouse prior to running replication for a few of the streams. Since this logic is hard
+  coded for their particular use case, those streams should be excluded by default for anyone
+  else using the tap.
+
+  See https://github.com/voxmedia/tap-facebook-pages/issues/8 for more details.
 usage: ''
 variant: voxmedia
