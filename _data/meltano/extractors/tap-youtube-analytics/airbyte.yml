@@ -17,13 +17,13 @@ name: tap-youtube-analytics
 namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-youtube-analytics-business
+repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-youtube-analytics
 settings:
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
   name: airbyte_spec.image
-  value: airbyte/source-youtube-analytics-business
+  value: airbyte/source-youtube-analytics
 - description: Airbyte image tag
   kind: string
   label: Airbyte Spec Tag
