@@ -7,7 +7,6 @@ domain_url: https://prometheus.io/
 executable: tap-prometheus
 keywords:
 - database
-- monitoring
 label: Prometheus
 logo_url: /assets/logos/extractors/prometheus.png
 maintenance_status: active
@@ -22,13 +21,31 @@ settings:
   label: Auth Password
   name: auth.password
 - description: HTTP basic auth username
+  kind: string
   label: Auth Username
   name: auth.username
 - description: The Prometheus API endpoint URL - do not include the obligatory /api/v1
     suffix in here, the tap will add this itself
+  kind: string
   label: Endpoint
   name: endpoint
-- description: Definition of individual prometheus metric query streams.
+- description: |
+    Definition of individual prometheus metric query streams.
+    A sample config to calculate daily online peak by customer and environment:
+
+    ```yaml
+    - name: online_peak
+      query: sum(sessions_count)
+      batch: '10000'
+      step: 120s
+      labels:
+        type: object
+        properties:
+          customer:
+            type: string
+          environment:
+            type: string
+    ```
   kind: array
   label: Metrics
   name: metrics
