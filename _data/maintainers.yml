@@ -865,6 +865,10 @@ pys933:
 quantile-development:
   label: Quantile Development
   url: https://github.com/dagster-io
+quantile-taps:
+  label: quantile-taps
+  name: quantile-taps
+  url: https://github.com/quantile-taps
 quickbi:
   label: QuickBI Oy
   name: quickbi
