@@ -1,0 +1,63 @@
+capabilities:
+- about
+- catalog
+- discover
+- schema-flattening
+- state
+- stream-maps
+description: Talent Acquisition Platform
+domain_url: https://recruitee.com/
+executable: tap-recruitee
+keywords:
+- meltano_sdk
+- api
+label: Recruitee
+logo_url: /assets/logos/extractors/recruitee.png
+maintenance_status: development
+name: tap-recruitee
+namespace: tap_recruitee
+next_steps: ''
+pip_url: git+https://github.com/rawwar/tap-recruitee.git
+repo: https://github.com/rawwar/tap-recruitee
+settings:
+- description: The url for the API service
+  kind: string
+  label: API URL
+  name: api_url
+  value: https://api.mysample.com
+- description: The token to authenticate against the API service
+  kind: password
+  label: Auth Token
+  name: auth_token
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: Project IDs to replicate
+  kind: array
+  label: Project IDs
+  name: project_ids
+- description: The earliest record date to sync
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+settings_group_validation:
+- - auth_token
+  - project_ids
+settings_preamble: ''
+usage: ''
+variant: rawwar
