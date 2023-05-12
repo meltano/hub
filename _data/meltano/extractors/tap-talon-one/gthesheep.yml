@@ -1,45 +1,45 @@
 capabilities:
- - about
- - catalog
- - discover
- - state
- - stream-maps
- description: Enterprise Promotion Platform
- domain_url: https://www.talon.one/
- executable: tap-talon-one
- keywords:
- - meltano_sdk
- - api
- label: Talon One
- logo_url: /assets/logos/extractors/talon-one.png
- maintenance_status: active
- name: tap-talon-one
- namespace: tap_talonone
- next_steps: ''
- pip_url: git+https://github.com/GtheSheep/tap-talon-one.git
- repo: https://github.com/GtheSheep/tap-talon-one
- settings:
- - description: The token to authenticate against the API service
-   kind: password
-   label: Auth Token
-   name: auth_token
- - description: The earliest record date to sync
-   kind: date_iso8601
-   label: Start Date
-   name: start_date
- - description: The base URL for your Talon One account
-   kind: string
-   label: API URL
-   name: api_url
- - description: The ID for your account
-   kind: integer
-   label: Account ID
-   name: account_id
+- about
+- catalog
+- discover
+- state
+- stream-maps
+description: Enterprise Promotion Platform
+domain_url: https://www.talon.one/
+executable: tap-talon-one
+keywords:
+- meltano_sdk
+- api
+label: Talon One
+logo_url: /assets/logos/extractors/talon-one.png
+maintenance_status: active
+name: tap-talon-one
+namespace: tap_talonone
+next_steps: ''
+pip_url: git+https://github.com/GtheSheep/tap-talon-one.git
+repo: https://github.com/GtheSheep/tap-talon-one
+settings:
+- description: The token to authenticate against the API service
+  kind: password
+  label: Auth Token
+  name: auth_token
+- description: The earliest record date to sync
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: The base URL for your Talon One account
+  kind: string
+  label: API URL
+  name: api_url
+- description: The ID for your account
+  kind: integer
+  label: Account ID
+  name: account_id
 settings_group_validation:
 - - auth_token
   - start_date
   - api_url
   - account_id
- settings_preamble: ''
- usage: ''
- variant: gthesheep
+settings_preamble: ''
+usage: ''
+variant: gthesheep
