@@ -45,8 +45,8 @@ settings_group_validation:
   - refresh_token
   - account_identifier
   - start_date
-variant: gthesheep
 usage: |
   Compared to the taps using the Netsuite SOAP API, the REST based Netsuite tap is less complete,
   fewer datasets and transaction types are available due to still being marked as "Beta" endpoints,
   these can be added to the tap as Netsuite move them out of Beta
+variant: gthesheep
