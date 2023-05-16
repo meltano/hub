@@ -160,7 +160,7 @@ extractors:
   tap-exchangeratehost: anelendata
   tap-exchangeratesapi: singer-io
   tap-fabdb: dwallace0723
-  tap-facebook: singer-io
+  tap-facebook: meltanolabs
   tap-facebook-pages: goes-funky
   tap-facebook-posts: rowanv
   tap-facebook-reviews: packlane
@@ -266,7 +266,7 @@ extractors:
   tap-lever: dbt-labs
   tap-lightdash: gthesheep
   tap-linear: getoslash
-  tap-linkedin-ads: singer-io
+  tap-linkedin-ads: meltanolabs
   tap-linkedin-pages: airbyte
   tap-linnworks: airbyte
   tap-listen360: radico
