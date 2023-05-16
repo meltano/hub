@@ -78,7 +78,7 @@
                         $page.plugins.keywords.includes('airbyte_protocol')
                       "
                     >
-                      <p class="text-3xl pb-4 pt-15 font-bold" id="airbyte-preview">
+                      <p class="text-3xl pb-4 pt-8 font-bold" id="airbyte-preview">
                         Airbyte Usage Notice
                       </p>
                       This connector uses
@@ -181,7 +181,7 @@
                     </ul>
                   </span>
                   <div>
-                    <p class="text-3xl pb-4 pt-15 font-bold font-hg" id="getting-started">
+                    <p class="text-3xl pb-4 pt-8 font-bold font-hg" id="getting-started">
                       Getting Started
                     </p>
                     <PluginPrereqSection
