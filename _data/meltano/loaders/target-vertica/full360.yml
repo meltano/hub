@@ -1,0 +1,138 @@
+capabilities:
+- record-flattening
+description: Data Warehouse and Unified Analytics Platform
+domain_url: https://www.vertica.com/
+executable: target-vertica
+keywords:
+- database
+label: Vertica
+logo_url: /assets/logos/loaders/vertica.png
+maintenance_status: active
+name: target-vertica
+namespace: target_vertica
+next_steps: ''
+pip_url: git+https://github.com/full360/pipelinewise-target-vertica.git
+repo: https://github.com/full360/pipelinewise-target-vertica
+settings:
+- description: Metadata columns add extra row level information about data ingestion's,
+    (i.e. when was the row read in source, when was inserted or deleted in vertica
+    etc.) Metadata columns are creating automatically by adding extra columns to the
+    tables with a column prefix _SDC_. The column names are following the stitch naming
+    conventions documented at https://www.stitchdata.com/docs/data-structure/integration-schemas#sdc-columns.
+    Enabling metadata columns will flag the deleted rows by setting the _SDC_DELETED_AT
+    metadata column. Without the add_metadata_columns option the deleted rows from
+    singer taps will not be recognizable in Vertica.
+  kind: boolean
+  label: Add Metadata Columns
+  name: add_metadata_columns
+  value: false
+- description: Maximum number of rows in each batch. At the end of each batch, the
+    rows in the batch are loaded into Vertica.
+  kind: integer
+  label: Batch Size Rows
+  name: batch_size_rows
+  value: 100000
+- description: Object type RECORD items from taps can be transformed to flattened
+    columns by creating columns automatically. When value is 0 (default) then flattening
+    functionality is turned off.
+  kind: integer
+  label: Data Flattening Max Level
+  name: data_flattening_max_level
+  value: 0
+- description: Vertica database name
+  kind: string
+  label: Database Name
+  name: dbname
+- description: Name of the schema where the tables will be created. If schema_mapping
+    is not defined then every stream sent by the tap is loaded into this schema.
+  kind: string
+  label: Default Target Schema
+  name: default_target_schema
+- description: Grant USAGE privilege on newly created schemas and grant SELECT privilege
+    on newly created
+  kind: string
+  label: Default Target Schema Select Permission
+  name: default_target_schema_select_permission
+- description: 'Flush and load every stream into Vertica when one batch is full. Warning:
+    This may trigger the COPY command to use files with low number of records.'
+  kind: boolean
+  label: Flush All Streams
+  name: flush_all_streams
+  value: false
+- description: When hard_delete option is true then DELETE SQL commands will be performed
+    in Vertica to delete rows in tables. It's achieved by continuously checking the
+    _SDC_DELETED_AT metadata column sent by the singer tap. Due to deleting rows requires
+    metadata columns, hard_delete option automatically enables the add_metadata_columns
+    option as well.
+  kind: boolean
+  label: Hard Delete
+  name: hard_delete
+  value: false
+- description: Vertica host
+  kind: string
+  label: Host
+  name: host
+- description: Max number of parallel threads to use when flushing tables.
+  kind: integer
+  label: Max Parallelism
+  name: max_parallelism
+  value: 16
+- description: The number of threads used to flush tables. 0 will create a thread
+    for each stream, up to parallelism_max. -1 will create a thread for each CPU core.
+    Any other positive number will create that number of threads, up to parallelism_max.
+  kind: integer
+  label: Parallelism
+  name: parallelism
+  value: 0
+- description: Vertica password
+  kind: password
+  label: Password
+  name: password
+- description: Vertica port
+  kind: integer
+  label: Port
+  name: port
+- description: Log based and Incremental replications on tables with no Primary Key
+    cause duplicates when merging UPDATE events. When set to true, stop loading data
+    if no Primary Key is defined.
+  kind: boolean
+  label: Primary Key Required
+  name: primary_key_required
+  value: true
+- description: 'Useful if you want to load multiple streams from one tap to multiple
+    Vertica schemas. If the tap sends the stream_id in <schema_name>-<table_name>
+    format then this option overwrites the default_target_schema value. Note, that
+    using schema_mapping you can overwrite the default_target_schema_select_permission
+    value to grant SELECT permissions to different groups per schemas or optionally
+    you can create indices automatically for the replicated tables. Note: This is
+    an experimental feature and recommended to use via PipelineWise YAML files that
+    will generate the object mapping in the right JSON format. For further info check
+    a PipelineWise YAML Example.'
+  kind: object
+  label: Schema Mapping
+  name: schema_mapping
+- description: Directory of temporary CSV files with RECORD messages.
+  kind: string
+  label: Temp Directory
+  name: temp_dir
+- description: Vertica user
+  kind: string
+  label: User
+  name: user
+- description: Validate every single record message to the corresponding JSON schema.
+    This option is disabled by default and invalid RECORD messages will fail only
+    at load time by Vertica. Enabling this option will detect invalid records earlier
+    but could cause performance degradation.
+  kind: boolean
+  label: Validate Records
+  name: validate_records
+  value: false
+settings_group_validation:
+- - dbname
+  - host
+  - password
+  - port
+  - user
+settings_preamble: ''
+usage: ''
+variant: full360

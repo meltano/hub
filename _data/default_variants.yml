@@ -619,6 +619,7 @@ loaders:
   target-sqlite: meltanolabs
   target-stitch: singer-io
   target-timeplus: timeplus
+  target-vertica: full360
   target-yaml: meltanolabs
 mappers:
   meltano-map-transformer: meltano
