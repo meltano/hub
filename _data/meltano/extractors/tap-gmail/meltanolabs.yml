@@ -1,0 +1,63 @@
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+- schema-flattening
+description: Email service provided by Google
+domain_url: https://www.google.com/gmail/about/
+keywords:
+- meltano_sdk
+label: GMail
+logo_url: /assets/logos/extractors/gmail.png
+maintenance_status: active
+name: tap-gmail
+namespace: tap_gmail
+next_steps: ''
+pip_url: meltanolabs-tap-gmail
+repo: https://github.com/MeltanoLabs/tap-gmail
+settings:
+- description: Your google client_id
+  kind: password
+  label: Oauth Credentials Client Id
+  name: oauth_credentials.client_id
+- description: Your google client_secret
+  kind: password
+  label: Oauth Credentials Client Secret
+  name: oauth_credentials.client_secret
+- description: Your google refresh token
+  kind: password
+  label: Oauth Credentials Refresh Token
+  name: oauth_credentials.refresh_token
+- description: Your Gmail User ID
+  kind: password
+  label: User Id
+  name: user_id
+- description: Include messages from SPAM and TRASH in the results.
+  kind: boolean
+  label: Messages Include Spam Trash
+  name: messages.include_spam_trash
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+settings_group_validation:
+- []
+settings_preamble: ''
+usage: ''
+variant: meltanolabs

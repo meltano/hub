@@ -1,7 +1,7 @@
 capabilities:
 - about
-- stream-maps
 - schema-flattening
+- stream-maps
 description: BigQuery loader
 domain_url: https://cloud.google.com/bigquery
 executable: target-bigquery
@@ -34,18 +34,25 @@ settings:
   kind: string
   label: Dataset
   name: dataset
+- description: The target dataset/bucket location to materialize data into.
+  kind: string
+  label: Location
+  name: location
 - description: The maximum number of rows to send in a single batch or commit.
   kind: integer
   label: Batch Size
   name: batch_size
+- description: Fail the entire load job if any row fails to insert.
+  kind: boolean
+  label: Fail Fast
+  name: fail_fast
 - description: Default timeout for batch_job and gcs_stage derived LoadJobs.
   kind: integer
   label: Timeout
   name: timeout
 - description: Determines whether to denormalize the data before writing to BigQuery.
     A false value will write data using a fixed JSON column based schema, while a
-    true value will write data using a dynamic schema derived from the tap. Denormalization
-    is only supported for the batch_job, streaming_insert, and gcs_stage methods.
+    true value will write data using a dynamic schema derived from the tap.
   kind: boolean
   label: Denormalized
   name: denormalized
@@ -54,7 +61,7 @@ settings:
   label: Method
   name: method
   options:
-  - label: Storage Write Api
+  - label: Storage Write API
     value: storage_write_api
   - label: Batch Job
     value: batch_job
@@ -86,7 +93,7 @@ settings:
   - label: Hour
     value: hour
 - description: Determines whether to cluster on the key properties from the tap. Defaults
-    to false.
+    to false. When false, clustering will be based on _sdc_batched_at instead.
   kind: boolean
   label: Cluster On Key Properties
   name: cluster_on_key_properties
@@ -119,11 +126,42 @@ settings:
   kind: boolean
   label: Options Process Pool
   name: options.process_pool
-- description: By default, each sink type has a preconfigured max worker limit. This
-    sets an override for maximum number of workers per stream.
+- description: By default, each sink type has a preconfigured max worker pool limit.
+    This sets an override for maximum number of workers in the pool.
   kind: integer
   label: Options Max Workers
   name: options.max_workers
+- description: Determines if we should upsert. Defaults to false. A value of true
+    will write to a temporary table and then merge into the target table (upsert).
+    This requires the target table to be unique on the key properties. A value of
+    false will write to the target table directly (append). A value of an array of
+    strings will evaluate the strings in order using fnmatch. At the end of the array,
+    the value of the last match will be used. If not matched, the default value is
+    false (append).
+  kind: string
+  label: Upsert
+  name: upsert
+- description: Determines if the target table should be overwritten on load. Defaults
+    to false. A value of true will write to a temporary table and then overwrite the
+    target table inside a transaction (so it is safe). A value of false will write
+    to the target table directly (append). A value of an array of strings will evaluate
+    the strings in order using fnmatch. At the end of the array, the value of the
+    last match will be used. If not matched, the default value is false. This is mutually
+    exclusive with the `upsert` option. If both are set, `upsert` will take precedence.
+  kind: string
+  label: Overwrite
+  name: overwrite
+- description: This option is only used if `upsert` is enabled for a stream. The selection
+    criteria for the stream's candidacy is the same as upsert. If the stream is marked
+    for deduping before upsert, we will create a _session scoped temporary table during
+    the merge transaction to dedupe the ingested records. This is useful for streams
+    that are not unique on the key properties during an ingest but are unique in the
+    source system. Data lake ingestion is often a good example of this where the same
+    unique record may exist in the lake at different points in time from different
+    extracts.
+  kind: string
+  label: Dedupe Before Upsert
+  name: dedupe_before_upsert
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
@@ -143,9 +181,9 @@ settings:
   label: Flattening Max Depth
   name: flattening_max_depth
 settings_group_validation:
-- - project
+- - dataset
   - method
-  - dataset
+  - project
 settings_preamble: ''
 usage: ''
 variant: z3z1ma

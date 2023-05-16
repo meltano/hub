@@ -1,0 +1,30 @@
+capabilities:
+- about
+- catalog
+- discover
+- schema-flattening
+- state
+- stream-maps
+description: Application Tracking System (ATS)
+domain_url: https://developers.greenhouse.io/harvest.html
+keywords:
+- api
+- meltano_sdk
+label: Greenhouse
+logo_url: /assets/logos/extractors/greenhouse.png
+maintenance_status: beta
+name: tap-greenhouse
+namespace: tap_greenhouse
+pip_url: git+https://github.com/rawwar/tap-greenhouse.git
+repo: https://github.com/rawwar/tap-greenhouse
+settings:
+- description: Your Greenhouse [API Key](https://developers.greenhouse.io/harvest.html#authentication).
+  kind: password
+  label: Basic Authentication Token
+  name: auth_token
+- description: URL for Greenhouse Harvest API
+  label: Greenhouse Harvest API URL
+  name: api_url
+settings_group_validation:
+- - auth_token
+variant: rawwar

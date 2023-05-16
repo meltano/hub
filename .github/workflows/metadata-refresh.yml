@@ -1,0 +1,65 @@
+name: Metadata Refresh
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'The environment to run the workflow in'
+        required: true
+        type: choice
+        default: 'preview'
+        options:
+          - 'preview'
+          - 'production'
+  # schedule:
+  #   - cron: '0 0 * * *' # Run at midnight UTC
+
+jobs:
+
+  metadata_refresh:
+    name: Metadata Refresh
+    runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.environment || github.event_name == 'schedule' && 'production' || 'preview' }}
+    env:
+      AWS_S3_BUCKET: "${{ secrets.HUB_METADATA_S3_BUCKET }}"
+    permissions:
+      id-token: write # This is required for requesting the JWT
+    steps:
+    - uses: actions/checkout@v3.5.2
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v2.0.0
+      with:
+        role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+        aws-region: us-west-2
+        role-session-name: "GitHubActions"
+
+    - name: Install hub_utils
+      run: pipx install git+https://github.com/pnadolny13/hub-utils.git@main
+
+    - name: Download Raw JSON Output
+      run: hub_utils download-metadata "/home/runner/work/downloaded_data"
+
+    - name: Merge Raw JSON and Existing Definition
+      run: hub_utils merge-metadata $(pwd) "/home/runner/work/downloaded_data"
+
+    - name: Get current date
+      id: date
+      run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v5
+      with:
+        token: ${{ secrets.MELTYBOT_GITHUB_AUTH_TOKEN }}
+        commit-message: Refresh plugin metadata ${{ steps.date.outputs.date }}
+        committer: GitHub <noreply@github.com>
+        author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+        signoff: false
+        branch: hub-bot-metadata-${{ steps.date.outputs.date }}-${{ github.run_id }}-${{ github.run_number }}-${{ github.run_attempt }}
+        delete-branch: true
+        title: 'chore: [Hub Bot] Refresh metadata ${{ steps.date.outputs.date }}'
+        body: |
+          Updates Plugin Definitions
+        assignees: pnadolny13
+        reviewers: pnadolny13
+        draft: false

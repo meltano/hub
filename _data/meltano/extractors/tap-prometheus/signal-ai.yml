@@ -1,0 +1,55 @@
+capabilities:
+- catalog
+- discover
+description: Monitoring System and Time Series Database
+domain_url: https://prometheus.io/
+executable: tap-prometheus
+keywords:
+- database
+label: Prometheus
+logo_url: /assets/logos/extractors/prometheus.png
+maintenance_status: active
+name: tap-prometheus
+namespace: tap_prometheus
+next_steps: ''
+pip_url: git+https://github.com/signal-ai/tap-prometheus.git
+repo: https://github.com/signal-ai/tap-prometheus
+settings:
+- description: Can optionally be set to false to explicitly disable TLS verification,
+    else it will be inferred from the schema of the proemtheus_endpoint.
+  kind: boolean
+  label: Enable SSL
+  name: enable_ssl
+- description: The Prometheus API endpoint URL.
+  label: Prometheus Endpoint
+  name: prometheus_endpoint
+  placeholder: http://example-prometheus-net
+- description: |
+    A mapping of query name and its promql query.
+    For example:
+
+    ```yaml
+    queries:
+      count_by_job: count(up) by (job)
+    ```
+  kind: object
+  label: Queries
+  name: queries
+- description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: The name of the stream.
+  label: Stream Name
+  name: stream_name
+  value: prometheus
+settings_group_validation:
+- - prometheus_endpoint
+  - queries
+  - start_date
+  - stream_name
+settings_preamble: ''
+usage: ''
+variant: signal-ai

@@ -1,7 +1,10 @@
 capabilities:
+- about
 - catalog
 - discover
+- schema-flattening
 - state
+- stream-maps
 description: The world’s largest programming community
 domain_url: https://stackexchange.com
 keywords:
@@ -16,30 +19,51 @@ namespace: tap_stackexchange
 pip_url: git+https://github.com/MeltanoLabs/tap-stackexchange.git
 repo: https://github.com/MeltanoLabs/tap-stackexchange
 settings:
-- description: Question tags to retrieve.
-  kind: array
-  label: Question tags
-  name: tags
-- description: StackExchange site to look for questions.
-  documentation: https://stackexchange.com/sites
-  label: Site
-  name: site
-- description: Key to receive a higher request quota.
-  documentation: https://api.stackexchange.com/docs/authentication
-  kind: password
-  label: Stack App key
-  name: key
-- description: The earliest record date to sync
-  documentation: https://api.stackexchange.com/docs/dates
-  kind: integer
-  label: Start date
-  name: start_date
 - description: Custom API filter to apply to all requests
   documentation: https://api.stackexchange.com/docs/filters
   kind: string
   label: Filter
   name: filter
+  value: '!6VvPDzOeLJfUL'
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: Pass this to receive a higher request quota
+  documentation: https://api.stackexchange.com/docs/authentication
+  kind: password
+  label: Key
+  name: key
+- description: StackExchange site
+  documentation: https://stackexchange.com/sites
+  kind: string
+  label: Site
+  name: site
+  value: stackoverflow.com
+- description: The earliest record date to sync
+  documentation: https://api.stackexchange.com/docs/dates
+  kind: integer
+  label: Start Date
+  name: start_date
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: Question tags
+  kind: array
+  label: Tags
+  name: tags
 settings_group_validation:
-- - tags
-  - site
+- - site
+  - tags
 variant: meltanolabs

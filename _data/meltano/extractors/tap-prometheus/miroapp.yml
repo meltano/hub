@@ -3,6 +3,7 @@ capabilities:
 - discover
 description: Monitoring System and Time Series Database
 domain_url: https://prometheus.io/
+hidden: true
 keywords:
 - database
 label: Prometheus

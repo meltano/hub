@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Analytics Engineering Platform
 domain_url: https://www.getdbt.com/product/
 keywords:
@@ -18,29 +18,19 @@ namespace: tap_dbt
 pip_url: git+https://github.com/meltanolabs/tap-dbt.git
 repo: https://github.com/meltanolabs/tap-dbt
 settings:
-- description: API key for the dbt Cloud API
-  kind: password
-  label: Api Key
-  name: api_key
 - description: dbt Cloud account IDs
   kind: array
-  label: Account Ids
+  label: Account IDs
   name: account_ids
+- description: API key for the dbt Cloud API
+  kind: password
+  label: API Key
+  name: api_key
 - description: Base URL for the dbt Cloud API
-  label: Base Url
+  kind: string
+  label: Base URL
   name: base_url
-- description: User-Agent to make requests with
-  label: User Agent
-  name: user_agent
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
+  value: https://cloud.getdbt.com/api/v2
 - description: "'True' to enable schema flattening and automatically expand nested\
     \ properties."
   kind: boolean
@@ -50,7 +40,27 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: Page size to use in limit= url parameter
+  kind: integer
+  label: Page Size
+  name: page_size
+  value: 5000
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User-Agent to make requests with
+  kind: string
+  label: User Agent
+  name: user_agent
+  value: tap-dbt/0.0.0 Singer tap for the dbt Cloud API.
 settings_group_validation:
-- - api_key
-  - account_ids
+- - account_ids
+  - api_key
+  - page_size
 variant: meltanolabs

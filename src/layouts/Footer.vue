@@ -206,7 +206,7 @@
                   </svg>
                   <a href="https://hub.meltano.com/extractors/">
                     <p class="footer-list-title">Meltano/Hub</p>
-                    <p class="footer-list-info">Connectors for 550+ sources and destinations</p>
+                    <p class="footer-list-info">Connectors for 600+ sources and destinations</p>
                   </a>
                 </li>
                 <li>

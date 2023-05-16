@@ -1,7 +1,7 @@
 capabilities:
 - about
-- stream-maps
 - schema-flattening
+- stream-maps
 description: AWS S3 (Multi Format)
 domain_url: https://aws.amazon.com/s3/
 executable: target-s3
@@ -18,53 +18,11 @@ next_steps: ''
 pip_url: git+https://github.com/crowemi/target-s3.git
 repo: https://github.com/crowemi/target-s3
 settings:
-- description: The aws secret access key for auth to S3.
-  kind: password
-  label: Aws Access Key
-  name: aws_access_key
-- description: The aws secret access key for auth to S3.
-  kind: password
-  label: Aws Secret Access Key
-  name: aws_secret_access_key
-- description: The aws region to target
-  kind: string
-  label: Aws Region
-  name: aws_region
-- description: The aws bucket to target.
-  kind: string
-  label: Bucket
-  name: bucket
-- description: The prefix for the key.
-  kind: string
-  label: Prefix
-  name: prefix
-- description: A flag to append the date to the key prefix.
-  kind: boolean
-  label: Append Date To Prefix
-  name: append_date_to_prefix
-- description: The grain of the date to append to the prefix.
-  kind: options
-  label: Append Date To Prefix Grain
-  name: append_date_to_prefix_grain
-  options:
-  - label: Year
-    value: year
-  - label: Month
-    value: month
-  - label: Day
-    value: day
-  - label: Hour
-    value: hour
-  - label: Minute
-    value: minute
-  - label: Second
-    value: second
-  - label: Microsecond
-    value: microsecond
 - description: A flag to append the date to the key filename.
   kind: boolean
   label: Append Date To Filename
   name: append_date_to_filename
+  value: true
 - description: The grain of the date to append to the filename.
   kind: options
   label: Append Date To Filename Grain
@@ -84,34 +42,68 @@ settings:
     value: second
   - label: Microsecond
     value: microsecond
-- description: The format of the storage object.
+  value: day
+- description: A flag to append the date to the key prefix.
+  kind: boolean
+  label: Append Date To Prefix
+  name: append_date_to_prefix
+  value: true
+- description: The grain of the date to append to the prefix.
   kind: options
-  label: Format Type
-  name: format_type
+  label: Append Date To Prefix Grain
+  name: append_date_to_prefix_grain
   options:
-  - label: Parquet
-    value: parquet
-  - label: CSV
-    value: csv
-  - label: JSON
-    value: json
+  - label: Year
+    value: year
+  - label: Month
+    value: month
+  - label: Day
+    value: day
+  - label: Hour
+    value: hour
+  - label: Minute
+    value: minute
+  - label: Second
+    value: second
+  - label: Microsecond
+    value: microsecond
+  value: day
+- description: Your AWS access key ID.
+  kind: password
+  label: Cloud Provider AWS AWS Access Key ID
+  name: cloud_provider.aws.aws_access_key_id
+- description: Your AWS access key ID.
+  kind: string
+  label: Cloud Provider AWS AWS Bucket
+  name: cloud_provider.aws.aws_bucket
+- description: The AWS endpoint url to use for testing purposes.
+  kind: string
+  label: Cloud Provider AWS AWS Endpoint Override
+  name: cloud_provider.aws.aws_endpoint_override
+- description: Your AWS profile name to optionally use for auth.
+  kind: string
+  label: Cloud Provider AWS AWS Profile Name
+  name: cloud_provider.aws.aws_profile_name
+- description: Your AWS region.
+  kind: string
+  label: Cloud Provider AWS AWS Region
+  name: cloud_provider.aws.aws_region
+- description: Your AWS secret access key.
+  kind: password
+  label: Cloud Provider AWS AWS Secret Access Key
+  name: cloud_provider.aws.aws_secret_access_key
+- description: The cloud provider type to use.
+  kind: string
+  label: Cloud Provider Cloud Provider Type
+  name: cloud_provider.cloud_provider_type
+  options:
+  - label: AWS
+    value: aws
+  value: aws
 - description: A flag indictating to flatten records.
   kind: boolean
   label: Flatten Records
   name: flatten_records
-- description: A flag indictating to set dytpe to string.
-  kind: boolean
-  label: Set Dtype String
-  name: set_dtype_string
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
 - description: "'True' to enable schema flattening and automatically expand nested\
     \ properties."
   kind: boolean
@@ -121,9 +113,47 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: This flag determines whether the data types of incoming data elements
+    should be validated. When set `True`, a schema is created from the first record
+    and all subsequent records that don't match that data type are cast. Default False.
+  kind: boolean
+  label: Format Format Parquet Validate
+  name: format.format_parquet.validate
+- description: The format type of the output files.
+  kind: options
+  label: Format Format Type
+  name: format.format_type
+  options:
+  - label: Parquet
+    value: parquet
+  - label: Json
+    value: json
+- description: A flag indicating whether to append _process_date to record.
+  kind: boolean
+  label: Include Process Date
+  name: include_process_date
+- description: The prefix for the key.
+  kind: string
+  label: Prefix
+  name: prefix
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: The S3 key stream name override.
+  kind: password
+  label: Stream Name Path Override
+  name: stream_name_path_override
 settings_group_validation:
-- - aws_region
-  - bucket
+- - cloud_provider.aws.aws_bucket
+  - cloud_provider.aws.aws_region
+  - cloud_provider.cloud_provider_type
+  - format.format_type
 settings_preamble: ''
 usage: ''
 variant: crowemi

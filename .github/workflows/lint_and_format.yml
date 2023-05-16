@@ -11,13 +11,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3.5.0
+      - uses: actions/checkout@v3.5.2
       - name: Use Node.js v16
         uses: actions/setup-node@v3
         with:
           node-version: 16.x
           cache: "yarn"
-      - run: yarn install --frozen-lockfile
+      - run: yarn install --immutable
       - run: yarn lint:check
 
   format:
@@ -25,11 +25,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3.5.0
+      - uses: actions/checkout@v3.5.2
       - name: Use Node.js v16
         uses: actions/setup-node@v3
         with:
           node-version: 16.x
           cache: "yarn"
-      - run: yarn install --frozen-lockfile
+      - run: yarn install --immutable
       - run: yarn format:check

@@ -7,6 +7,7 @@ capabilities:
 - schema-flattening
 description: Email service provided by Google
 domain_url: https://www.google.com/gmail/about/
+hidden: true
 keywords:
 - meltano_sdk
 label: GMail
@@ -15,8 +16,8 @@ maintenance_status: active
 name: tap-gmail
 namespace: tap_gmail
 next_steps: ''
-pip_url: git+https://github.com/kgpayne/tap-gmail.git
-repo: https://github.com/kgpayne/tap-gmail
+pip_url: meltanolabs-tap-gmail
+repo: https://github.com/MeltanoLabs/tap-gmail
 settings:
 - description: Your google client_id
   kind: password

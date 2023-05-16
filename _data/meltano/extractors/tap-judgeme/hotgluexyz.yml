@@ -1,0 +1,52 @@
+capabilities:
+- about
+- catalog
+- discover
+- schema-flattening
+- state
+- stream-maps
+description: Product reviews for your e-commerce store
+domain_url: https://judge.me/
+executable: tap-judgeme
+keywords:
+- meltano_sdk
+label: Judge.me
+logo_url: /assets/logos/extractors/judgeme.png
+maintenance_status: active
+name: tap-judgeme
+namespace: tap_judgeme
+next_steps: ''
+pip_url: git+https://gitlab.com/hotglue/tap-judgeme.git
+repo: https://gitlab.com/hotglue/tap-judgeme
+settings:
+- description: The token to authenticate against the API service
+  kind: password
+  label: Auth Token
+  name: auth_token
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: Your Judge.me shop domain.
+  kind: string
+  label: Shop Domain
+  name: shop_domain
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability.
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+settings_group_validation:
+- - auth_token
+  - shop_domain
+settings_preamble: ''
+usage: ''
+variant: hotgluexyz
