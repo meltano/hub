@@ -70,6 +70,10 @@
               class="w-8 h-4 inline gap-x-11"
               src="../assets/images/gitlab-brands.svg"
             /><img
+              v-else-if="repoType === 'bitbucket'"
+              class="w-8 h-4 inline gap-x-11"
+              src="../assets/images/bitbucket-brands.svg"
+            /><img
               v-else
               class="w-8 h-4 inline gap-x-11"
               src="../assets/images/git-alt-brands.svg"
@@ -82,7 +86,7 @@
             </a>
           </div>
         </div>
-        <div v-if="!$page.plugins.keywords.includes('airbyte_protocol')">
+        <div v-if="!$page.plugins.keywords.includes('airbyte_protocol') && repoType !== 'bitbucket'">
           <ul class="list-disc list-inside shields space-y-1">
             <li>
               <img
@@ -269,7 +273,13 @@ export default {
     },
     repoType() {
       // Some plugins are hosted on github, some on gitlab
-      return this.repo.includes("github.com") ? "github" : "gitlab";
+      if (this.repo.includes("github.com")){
+        return "github"
+      } else if (this.repo.includes("gitlab.com")) {
+        return "gitlab";
+      } else if (this.repo.includes("bitbucket.org")) {
+        return "bitbucket";
+      };
     },
     parsedEDKRepo() {
       // For some plugin variants, either the `variant` or `name` doesn't match the GH repo
