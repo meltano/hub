@@ -160,7 +160,7 @@ class Utilities:
             )
             kind = self._prompt(
                 f"[{setting}] `kind`",
-                default_val=MeltanoUtil._parse_kind("string", {"name": setting}),
+                default_val=MeltanoUtil._parse_kind("string", {"name": setting})[0],
             )
             description = self._prompt(
                 f"[{setting}] `description`",
@@ -174,8 +174,7 @@ class Utilities:
                 "label": label,
                 "description": description,
             }
-            if kind != "string":
-                setting_details["kind"] = kind
+            setting_details["kind"] = kind
             settings.append(setting_details)
             if required:
                 settings_group_validation.append(setting)
