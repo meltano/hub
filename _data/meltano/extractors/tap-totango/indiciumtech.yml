@@ -19,10 +19,6 @@ name: tap-totango
 namespace: tap_totango
 next_steps: |
   You should create a [Totango API personal access token](https://support.totango.com/hc/en-us/articles/203036939-Personal-Access-Token-and-Service-ID) and provide it as the `auth_token` setting for the tap.
-
-  We recommend passing it as an environment variable. For instance, when using the tap with Meltano you should add the following line to your `.env` file:
-
-  `export TAP_TOTANGO_AUTH_TOKEN=< YOUR_PERSONAL_ACCESS_TOKEN >`
 pip_url: git+https://bitbucket.org/indiciumtech/tap-totango.git
 repo: https://bitbucket.org/indiciumtech/tap-totango
 settings:
@@ -165,11 +161,5 @@ settings_group_validation:
   - users_terms
 settings_preamble: |
   Each endpoint from the [Totango Search API](https://support.totango.com/hc/en-us/sections/360005893212-Totango-API) requires some parameters with the same name for the query, such as `terms`, `count`, and `offset`. In these cases, we provide settings namespaced by the stream name (e.g. `accounts_terms`,  `users_offset` , etc.).
-usage: |
-  You can easily run `tap-totango` by itself or in a pipeline using [Meltano](https://meltano.com/).
-
-  - Test invocation:
-  `meltano invoke tap-totango --version`
-  - run a test `run` pipeline:
-  `meltano run tap-totango target-jsonl`
+usage: ''
 variant: indiciumtech
