@@ -166,9 +166,9 @@
                         <g-link
                           :to="variant.node.path"
                           v-if="variant.node.path !== $page.plugins.path"
-                          >{{ variant.node.label }}</g-link
+                          >{{ variant.node.maintainer }}</g-link
                         >
-                        <span v-else>{{ variant.node.label }}</span>
+                        <span v-else>{{ variant.node.maintainer }}</span>
                         <span v-if="variant.node.isDefault"> (default)</span>
                         <span v-if="variant.node.keywords.includes('meltano_sdk')">
                           <img
