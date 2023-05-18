@@ -86,7 +86,9 @@
             </a>
           </div>
         </div>
-        <div v-if="!$page.plugins.keywords.includes('airbyte_protocol') && repoType !== 'bitbucket'">
+        <div
+          v-if="!$page.plugins.keywords.includes('airbyte_protocol') && repoType !== 'bitbucket'"
+        >
           <ul class="list-disc list-inside shields space-y-1">
             <li>
               <img
@@ -273,13 +275,15 @@ export default {
     },
     repoType() {
       // Some plugins are hosted on github, some on gitlab
-      if (this.repo.includes("github.com")){
-        return "github"
+      let repoType = "";
+      if (this.repo.includes("github.com")) {
+        repoType = "github";
       } else if (this.repo.includes("gitlab.com")) {
-        return "gitlab";
+        repoType = "gitlab";
       } else if (this.repo.includes("bitbucket.org")) {
-        return "bitbucket";
-      };
+        repoType = "bitbucket";
+      }
+      return repoType;
     },
     parsedEDKRepo() {
       // For some plugin variants, either the `variant` or `name` doesn't match the GH repo
