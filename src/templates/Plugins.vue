@@ -166,9 +166,9 @@
                         <g-link
                           :to="variant.node.path"
                           v-if="variant.node.path !== $page.plugins.path"
-                          >{{ variant.node.maintainer }}</g-link
+                          >{{ variant.node.maintainer.label }}</g-link
                         >
-                        <span v-else>{{ variant.node.maintainer }}</span>
+                        <span v-else>{{ variant.node.maintainer.label }}</span>
                         <span v-if="variant.node.isDefault"> (default)</span>
                         <span v-if="variant.node.keywords.includes('meltano_sdk')">
                           <img
@@ -484,6 +484,10 @@ query Plugins($path: String!, $name: String!) {
         isDefault
         keywords
         pluginType
+        maintainer {
+          name
+          label
+        }
       }
     }
   }
