@@ -22,7 +22,7 @@ keywords:
 - nbconvert
 label: Jupyter Notebook
 logo_url: /assets/logos/utilities/notebook.png
-maintenance_status: development
+maintenance_status: beta
 name: notebook
 namespace: notebook
 pip_url: git+https://github.com/Matatika/utility-notebook.git
