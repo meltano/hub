@@ -11,7 +11,7 @@ keywords:
 - meltano_sdk
 label: Sybase
 logo_url: /assets/logos/extractors/sybase.png
-maintenance_status: development
+maintenance_status: beta
 name: tap-sybase
 namespace: tap_sybase
 next_steps: ''

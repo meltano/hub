@@ -14,7 +14,7 @@ keywords:
 - meltano_sdk
 label: Bitso
 logo_url: /assets/logos/extractors/bitso.svg
-maintenance_status: development
+maintenance_status: active
 name: tap-bitso
 namespace: tap_bitso
 pip_url: git+https://github.com/edgarrmondragon/tap-bitso.git
