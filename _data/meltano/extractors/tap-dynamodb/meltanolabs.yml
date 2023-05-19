@@ -13,7 +13,7 @@ keywords:
 - aws
 label: DynamoDB
 logo_url: /assets/logos/extractors/dynamodb.png
-maintenance_status: beta
+maintenance_status: active
 name: tap-dynamodb
 namespace: tap_dynamodb
 next_steps: ''

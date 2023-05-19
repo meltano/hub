@@ -13,7 +13,7 @@ keywords:
 - database
 label: DuckDB
 logo_url: /assets/logos/extractors/duckdb.png
-maintenance_status: development
+maintenance_status: beta
 name: tap-duckdb
 namespace: tap_duckdb
 next_steps: ''
