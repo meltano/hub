@@ -132,7 +132,7 @@ export default {
             .join(" ")
             .toLowerCase()
             .includes(this.search.toLowerCase().trim());
-        })
+        }).sort((a, b) => a.node.name.localeCompare(b.node.name))
       );
     },
   },
