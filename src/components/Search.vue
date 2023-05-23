@@ -132,7 +132,15 @@ export default {
             .join(" ")
             .toLowerCase()
             .includes(this.search.toLowerCase().trim());
-        }).sort((a, b) => a.node.name.localeCompare(b.node.name))
+        }).sort((a, b) => {
+          // First compare by pluginType
+          const typeCompare = a.node.pluginType.localeCompare(b.node.pluginType);
+          if (typeCompare !== 0) {
+            return typeCompare;
+          }
+          // If pluginType is the same, compare by name
+          return a.node.name.localeCompare(b.node.name);
+        })
       );
     },
   },
