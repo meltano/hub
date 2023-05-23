@@ -1,0 +1,31 @@
+capabilities:
+- catalog
+- discover
+- state
+description: Email Marketing and SMS Marketing Platform
+domain_url: https://apidocs.klaviyo.com/reference/metrics
+keywords:
+- api
+label: Klaviyo
+logo_url: /assets/logos/extractors/klaviyo.png
+maintenance_status: active
+name: tap-klaviyo
+namespace: tap_klaviyo
+pip_url: git+https://github.com/singer-io/tap-klaviyo.git
+repo: https://github.com/singer-io/tap-klaviyo
+settings:
+- description: Klaviyo API Key
+  kind: password
+  label: API Key
+  name: api_key
+- description: Klaviyo user agent
+  kind: string
+  label: User Agent
+  name: user_agent
+- description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+variant: singer-io
