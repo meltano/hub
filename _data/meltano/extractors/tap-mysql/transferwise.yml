@@ -62,7 +62,7 @@ settings:
     Can be either 'mysql' or 'mariadb'.
   label: Engine
   name: engine
-  value: 'mysql'
+  value: mysql
 - description: Whether the MySQL/MariaDB connection should use SSL.
   kind: boolean
   label: SSL
@@ -87,10 +87,10 @@ settings:
   label: Session SQLs
   name: session_sqls
   value:
-  - "SET @@session.time_zone='+0:00'"
-  - "SET @@session.wait_timeout=28800"
-  - "SET @@session.net_read_timeout=3600"
-  - "SET @@session.innodb_lock_wait_timeout=3600"
+  - SET @@session.time_zone='+0:00'
+  - SET @@session.wait_timeout=28800
+  - SET @@session.net_read_timeout=3600
+  - SET @@session.innodb_lock_wait_timeout=3600
 settings_group_validation:
 - - host
   - port

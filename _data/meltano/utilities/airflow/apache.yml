@@ -1,7 +1,7 @@
 commands:
   create-admin:
-    args: "users create --username admin --firstname FIRST_NAME --lastname LAST_NAME\
-      \ --role Admin --email admin@example.org"
+    args: users create --username admin --firstname FIRST_NAME --lastname LAST_NAME
+      --role Admin --email admin@example.org
     description: Create an Airflow user with admin privileges.
   describe:
     args: describe

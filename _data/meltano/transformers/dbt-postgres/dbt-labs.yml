@@ -81,7 +81,7 @@ settings:
   label: Port
   name: port
 - aliases:
-  - "database"
+  - database
   description: |
     The db to connect to.
   kind: string

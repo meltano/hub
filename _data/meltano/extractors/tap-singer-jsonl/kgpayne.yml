@@ -15,7 +15,8 @@ next_steps: ''
 pip_url: tap-singer-jsonl
 repo: https://github.com/kgpayne/tap-singer-jsonl
 settings:
-- description: The source configuration to use when reading `.singer.gz` files. Currently `local` and `s3` are supported.
+- description: The source configuration to use when reading `.singer.gz` files. Currently
+    `local` and `s3` are supported.
   kind: string
   label: Source
   name: source
@@ -29,12 +30,15 @@ settings:
   kind: array
   label: Folders
   name: local.folders
-- description: Whether to scan directories recursively when discovering `.singer.gz` files.
+- description: Whether to scan directories recursively when discovering `.singer.gz`
+    files.
   kind: boolean
   label: Recursive
   name: local.recursive
   value: false
-- description: Array of file paths to singer-formatted files. **Note:** extension is ignored, and compression is inferred automatically by `smart_open`. Both `local.folders` and `local.paths` can be specified together.
+- description: Array of file paths to singer-formatted files. **Note:** extension
+    is ignored, and compression is inferred automatically by `smart_open`. Both `local.folders`
+    and `local.paths` can be specified together.
   kind: array
   label: Paths
   name: local.paths
@@ -46,7 +50,9 @@ settings:
   kind: string
   label: Prefix
   name: s3.prefix
-- description: S3 file paths to singer-formatted files. **Note:** extension is ignored, and compression is inferred automatically by `smart_open`. Both `s3.prefix` and `s3.paths` can be specified together.
+- description: S3 file paths to singer-formatted files. **Note:** extension is ignored,
+    and compression is inferred automatically by `smart_open`. Both `s3.prefix` and
+    `s3.paths` can be specified together.
   kind: array
   label: Paths
   name: s3.paths
