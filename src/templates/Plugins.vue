@@ -160,15 +160,15 @@
                     </span>
                   </p>
                   <span class="space-y-3" v-if="filteredVariants && filteredVariants.length > 1">
-                    <p class="text-2xl">Available Variants</p>
+                    <p class="text-2xl">Alternate Implementations</p>
                     <ul class="list-disc list-inside pl-4">
                       <li v-for="(variant, index) in filteredVariants" v-bind:key="index">
                         <g-link
                           :to="variant.node.path"
                           v-if="variant.node.path !== $page.plugins.path"
-                          >{{ variant.node.variant }}</g-link
+                          >{{ variant.node.maintainer.label }}</g-link
                         >
-                        <span v-else>{{ variant.node.variant }}</span>
+                        <span v-else>{{ variant.node.maintainer.label }}</span>
                         <span v-if="variant.node.isDefault"> (default)</span>
                         <span v-if="variant.node.keywords.includes('meltano_sdk')">
                           <img
@@ -484,6 +484,10 @@ query Plugins($path: String!, $name: String!) {
         isDefault
         keywords
         pluginType
+        maintainer {
+          name
+          label
+        }
       }
     }
   }
