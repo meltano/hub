@@ -4,6 +4,8 @@ capabilities:
 - discover
 description: Recruiting Management Tool
 domain_url: https://developers.greenhouse.io/harvest.html
+# Hidden due to install failure https://github.com/meltano/hub/issues/993
+hidden: true
 keywords:
 - api
 label: Greenhouse
