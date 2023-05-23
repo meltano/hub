@@ -160,7 +160,7 @@
                     </span>
                   </p>
                   <span class="space-y-3" v-if="filteredVariants && filteredVariants.length > 1">
-                    <p class="text-2xl">Available Variants</p>
+                    <p class="text-2xl">Alternate Implementations</p>
                     <ul class="list-disc list-inside pl-4">
                       <li v-for="(variant, index) in filteredVariants" v-bind:key="index">
                         <g-link
