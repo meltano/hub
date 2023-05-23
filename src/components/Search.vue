@@ -120,27 +120,29 @@ export default {
     searchResults() {
       const pluginCollections = [this.$static.allPlugins];
       return pluginCollections.flatMap((coll) =>
-        coll.edges.filter((plugin) => {
-          const pluginTextFields = [
-            plugin.node.name,
-            plugin.node.name.replace("-", " "),
-            plugin.node.description,
-            plugin.node.label,
-            plugin.node.keywords?.join(" "),
-          ];
-          return pluginTextFields
-            .join(" ")
-            .toLowerCase()
-            .includes(this.search.toLowerCase().trim());
-        }).sort((a, b) => {
-          // First compare by pluginType
-          const typeCompare = a.node.pluginType.localeCompare(b.node.pluginType);
-          if (typeCompare !== 0) {
-            return typeCompare;
-          }
-          // If pluginType is the same, compare by name
-          return a.node.name.localeCompare(b.node.name);
-        })
+        coll.edges
+          .filter((plugin) => {
+            const pluginTextFields = [
+              plugin.node.name,
+              plugin.node.name.replace("-", " "),
+              plugin.node.description,
+              plugin.node.label,
+              plugin.node.keywords?.join(" "),
+            ];
+            return pluginTextFields
+              .join(" ")
+              .toLowerCase()
+              .includes(this.search.toLowerCase().trim());
+          })
+          .sort((a, b) => {
+            // First compare by pluginType
+            const typeCompare = a.node.pluginType.localeCompare(b.node.pluginType);
+            if (typeCompare !== 0) {
+              return typeCompare;
+            }
+            // If pluginType is the same, compare by name
+            return a.node.name.localeCompare(b.node.name);
+          })
       );
     },
   },
