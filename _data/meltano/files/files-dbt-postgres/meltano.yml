@@ -9,3 +9,4 @@ namespace: files_dbt_postgres
 pip_url: git+https://github.com/meltano/files-dbt-postgres
 repo: https://github.com/meltano/files-dbt-postgres
 variant: meltano
+quality: gold

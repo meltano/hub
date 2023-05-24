@@ -271,3 +271,4 @@ settings_group_validation:
   - customer_ids
   - start_date
 variant: meltano
+quality: gold

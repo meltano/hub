@@ -9,3 +9,4 @@ namespace: files_dbt_bigquery
 pip_url: git+https://github.com/meltano/files-dbt-bigquery
 repo: https://github.com/meltano/files-dbt-bigquery
 variant: meltano
+quality: gold

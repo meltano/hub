@@ -5,3 +5,4 @@ repo: https://gitlab.com/meltano/dbt-tap-google-analytics
 variant: meltano
 vars:
   schema: "{{ env_var('DBT_SOURCE_SCHEMA','tap_google_analytics') }}"
+quality: gold

@@ -5,3 +5,4 @@ repo: https://gitlab.com/meltano/dbt-tap-facebook
 variant: meltano
 vars:
   schema: "{{ env_var('DBT_SOURCE_SCHEMA', 'tap_facebook') }}"
+quality: gold

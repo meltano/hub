@@ -6,3 +6,4 @@ variant: meltano
 vars:
   livemode: false
   schema: "{{ env_var('DBT_SOURCE_SCHEMA','tap_stripe') }}"
+quality: gold

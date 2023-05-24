@@ -47,3 +47,4 @@ settings:
   name: ge_home
   value: $MELTANO_PROJECT_ROOT/utilities/great_expectations
 variant: great-expectations
+quality: unknown

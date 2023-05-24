@@ -27,3 +27,4 @@ settings:
   kind: date_iso8601
   name: start_date
 variant: meltano
+quality: gold

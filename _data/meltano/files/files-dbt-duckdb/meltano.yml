@@ -9,3 +9,4 @@ namespace: files_dbt_duckdb
 pip_url: git+https://github.com/meltano/files-dbt-duckdb
 repo: https://github.com/meltano/files-dbt-duckdb
 variant: meltano
+quality: gold

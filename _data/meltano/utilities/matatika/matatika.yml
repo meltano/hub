@@ -54,3 +54,4 @@ pip_url: git+https://github.com/Matatika/matatika-ext.git@v0.6.0
 repo: https://github.com/Matatika/matatika-ce
 usage: For help, try `meltano invoke matatika --help` (or `--help` on any subcommand).
 variant: matatika
+quality: bronze

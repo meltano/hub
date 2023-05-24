@@ -50,3 +50,4 @@ settings:
   name: repository_dir
   value: $MELTANO_PROJECT_ROOT/orchestrate/dagster
 variant: quantile-development
+quality: unknown

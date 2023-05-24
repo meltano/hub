@@ -8,3 +8,4 @@ namespace: files_docker_compose
 pip_url: git+https://github.com/meltano/files-docker-compose.git
 repo: https://github.com/meltano/files-docker-compose
 variant: meltano
+quality: gold

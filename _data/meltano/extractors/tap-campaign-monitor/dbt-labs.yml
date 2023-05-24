@@ -14,3 +14,4 @@ pip_url: git+https://github.com/dbt-labs/tap-campaign-monitor.git
 repo: https://github.com/dbt-labs/tap-campaign-monitor
 settings: []
 variant: dbt-labs
+quality: unknown

@@ -9,3 +9,4 @@ namespace: files_dbt
 pip_url: git+https://github.com/meltano/files-dbt.git@config-version-2
 repo: https://github.com/meltano/files-dbt
 variant: meltano
+quality: gold

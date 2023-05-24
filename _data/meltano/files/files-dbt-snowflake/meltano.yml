@@ -9,3 +9,4 @@ namespace: files_dbt_snowflake
 pip_url: git+https://github.com/meltano/files-dbt-snowflake
 repo: https://github.com/meltano/files-dbt-snowflake
 variant: meltano
+quality: gold

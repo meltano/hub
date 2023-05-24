@@ -142,3 +142,4 @@ settings:
 settings_preamble: |
   Settings for dbt itself can be configured through [dbt_project.yml](https://docs.getdbt.com/reference/dbt_project.yml) as usual, which can be found at transform/dbt_project.yml in your Meltano project. dbt also has [adapter-specific documentation for BigQuery](https://docs.getdbt.com/reference/resource-configs/bigquery-configs).
 variant: dbt-labs
+quality: unknown
