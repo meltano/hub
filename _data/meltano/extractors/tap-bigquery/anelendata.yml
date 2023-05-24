@@ -36,6 +36,7 @@ settings:
   label: Credentials Path
   name: credentials_path
   value: $MELTANO_PROJECT_ROOT/client_secrets.json
+  env: GOOGLE_APPLICATION_CREDENTIALS
 - description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.
