@@ -75,6 +75,7 @@ def add_airbyte(repo_url: str = None, auto_accept: bool = typer.Option(False)):
     util = Utilities(auto_accept)
     util.add_airbyte(repo_url)
 
+
 @app.command()
 def add_hotglue(repo_url: str = None, auto_accept: bool = typer.Option(False)):
     util = Utilities(auto_accept)
@@ -86,30 +87,40 @@ def add_hotglue(repo_url: str = None, auto_accept: bool = typer.Option(False)):
     resp = requests.get(url)
     if resp.status_code != 200:
         ext = ".png"
-        url = f"https://s3.amazonaws.com/cdn.hotglue.xyz/images/logos/{service_name}{ext}"
+        url = (
+            f"https://s3.amazonaws.com/cdn.hotglue.xyz/images/logos/{service_name}{ext}"
+        )
         resp = requests.get(url)
         if resp.status_code != 200:
             ext = ".jpeg"
-            url = f"https://s3.amazonaws.com/cdn.hotglue.xyz/images/logos/{service_name}{ext}"
+            url = (
+                "https://s3.amazonaws.com/cdn.hotglue.xyz/"
+                f"images/logos/{service_name}{ext}"
+            )
             resp = requests.get(url)
             if resp.status_code != 200:
                 ext = ".webp"
-                url = f"https://s3.amazonaws.com/cdn.hotglue.xyz/images/logos/{service_name}{ext}"
+                url = (
+                    f"https://s3.amazonaws.com/cdn.hotglue.xyz/images"
+                    f"/logos/{service_name}{ext}"
+                )
                 resp = requests.get(url)
                 if resp.status_code != 200:
                     print(f"Unable to find logo for {service_name}")
-                    return   
-    with open(f"{util.hub_root}/static/assets/logos/extractors/{service_name}{ext}", "wb") as f:
+                    return
+    with open(
+        f"{util.hub_root}/static/assets/logos/extractors/{service_name}{ext}", "wb"
+    ) as f:
         f.write(resp.content)
 
+
 @app.command()
-def sdk_variants_csv(
-):
+def sdk_variants_csv():
     util = Utilities(True)
     base_repo_path = os.path.dirname(os.path.dirname(__file__))
-    with open(f"{base_repo_path}/sdk.csv", 'w') as csvfile: 
+    with open(f"{base_repo_path}/sdk.csv", "w") as csvfile:
         csvwriter = csv.writer(csvfile)
-        csvwriter.writerow(["plugin_type", "name", "variant", "sdk"]) 
+        csvwriter.writerow(["plugin_type", "name", "variant", "sdk"])
 
         for yaml_file in find_all_yamls(f_path=f"{util.hub_root}/_data/meltano/"):
             data = util._read_yaml(yaml_file)
@@ -119,6 +130,7 @@ def sdk_variants_csv(
             if "keywords" in data and "meltano_sdk" in data.get("keywords"):
                 sdk = True
             csvwriter.writerow([p_type, p_name, p_variant, sdk])
+
 
 @app.command()
 def refresh_sdk_variants(
