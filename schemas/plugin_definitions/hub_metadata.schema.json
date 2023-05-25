@@ -4,9 +4,6 @@
     "title": "JSON Schema for hub metadata in plugin definitions.",
     "type": "object",
     "additionalProperties": true,
-    "required": [
-        "quality"
-    ],
     "properties": {
         "maintenance_status": {
             "type": "string",
