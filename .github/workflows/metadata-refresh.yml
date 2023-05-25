@@ -11,8 +11,8 @@ on:
         options:
           - 'preview'
           - 'production'
-  # schedule:
-  #   - cron: '0 0 * * *' # Run at midnight UTC
+  schedule:
+    - cron: '0 12 * * 1' # Run at midnight UTC on Mondays
 
 jobs:
 
