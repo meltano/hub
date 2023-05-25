@@ -71,6 +71,29 @@ def update_sdk(
 
 
 @app.command()
+def update_quality(
+    metrics_file_path: str,
+):
+    util = Utilities(True)
+    usage_metrics = util._read_yaml(metrics_file_path)["metrics"]
+    for yaml_file in find_all_yamls(f_path=f"{util.hub_root}/_data/meltano/"):
+        if yaml_file.split("/")[-3] not in ("extractors", "loaders"):
+            continue
+        data = util._read_yaml(yaml_file)
+        is_sdk_based = False
+
+        if "keywords" in data and "meltano_sdk" in data.get("keywords"):
+            is_sdk_based = True
+        usage_count = usage_metrics.get(data["repo"], {}).get("ALL_PROJECTS", 0)
+        # TODO: Calculate responsiveness
+        responsiveness = "high"
+        data["quality"] = MeltanoUtil.get_quality(
+            data["variant"], is_sdk_based, usage_count, responsiveness
+        )
+        util._write_yaml(yaml_file, data)
+
+
+@app.command()
 def add_airbyte(repo_url: str = None, auto_accept: bool = typer.Option(False)):
     util = Utilities(auto_accept)
     util.add_airbyte(repo_url)

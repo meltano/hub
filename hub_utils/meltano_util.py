@@ -77,6 +77,70 @@ class MeltanoUtil:
             return json.loads(about_content.stdout)
 
     @staticmethod
+    def _get_maintainer(
+        variant,
+    ):
+        maintainer = "community"
+        if variant in ["meltano", "meltanolabs"]:
+            maintainer = "official"
+        elif variant in ["matatika", "autoidm", "hotglue", "hotgluexyz"]:
+            maintainer = "partner"
+        return maintainer
+
+    @staticmethod
+    def _evaluate_official(is_sdk_based, usage_count, responsiveness) -> bool:
+        quality = "bronze"
+        if is_sdk_based:
+            quality = "gold"
+        elif usage_count >= 1 and responsiveness != "low":
+            quality = "silver"
+        return quality
+
+    @staticmethod
+    def _evaluate_partner(is_sdk_based, usage_count, responsiveness) -> bool:
+        quality = "bronze"
+        if is_sdk_based:
+            quality = "gold"
+        elif usage_count >= 1 and responsiveness != "low":
+            quality = "silver"
+        return quality
+
+    @staticmethod
+    def _evaluate_community(variant, is_sdk_based, usage_count, responsiveness) -> bool:
+        legacy_partners = ["singer-io", "airbyte", "transferwise"]
+        quality = "unknown"
+        if is_sdk_based and usage_count >= 6 and responsiveness != "low":
+            quality = "gold"
+        elif is_sdk_based:
+            quality = "silver"
+        elif usage_count >= 1 and responsiveness != "low":
+            quality = "silver"
+        elif usage_count >= 6 and variant in legacy_partners:
+            quality = "silver"
+        elif usage_count >= 1:
+            quality = "bronze"
+        elif variant in legacy_partners:
+            quality = "bronze"
+        return quality
+
+    @staticmethod
+    def get_quality(variant, is_sdk_based, usage_count, responsiveness):
+        maintainer = MeltanoUtil._get_maintainer(variant)
+        if maintainer == "official":
+            quality = MeltanoUtil._evaluate_official(
+                is_sdk_based, usage_count, responsiveness
+            )
+        elif maintainer == "partner":
+            quality = MeltanoUtil._evaluate_partner(
+                is_sdk_based, usage_count, responsiveness
+            )
+        elif maintainer == "community":
+            quality = MeltanoUtil._evaluate_community(
+                variant, is_sdk_based, usage_count, responsiveness
+            )
+        return quality
+
+    @staticmethod
     def _get_label(name):
         new_label = []
         for label_word in (

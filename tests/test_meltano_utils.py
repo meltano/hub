@@ -406,3 +406,82 @@ def test_sdk_about_parsing_skip_default_dates():
             "kind": "date_iso8601",
         }
     ]
+
+
+@pytest.mark.parametrize(
+    "input,expected",
+    [
+        # Official
+        [["meltanolabs", True, 0, "low"], "gold"],
+        [["meltanolabs", True, 0, "medium"], "gold"],
+        [["meltanolabs", True, 0, "high"], "gold"],
+        [["meltanolabs", True, 1, "low"], "gold"],
+        [["meltanolabs", True, 1, "medium"], "gold"],
+        [["meltanolabs", True, 1, "high"], "gold"],
+        [["meltanolabs", True, 6, "low"], "gold"],
+        [["meltanolabs", True, 6, "medium"], "gold"],
+        [["meltanolabs", True, 6, "high"], "gold"],
+        [["meltanolabs", False, 0, "low"], "bronze"],
+        [["meltanolabs", False, 0, "medium"], "bronze"],
+        [["meltanolabs", False, 0, "high"], "bronze"],
+        [["meltanolabs", False, 1, "low"], "bronze"],
+        [["meltanolabs", False, 1, "medium"], "silver"],
+        [["meltanolabs", False, 1, "high"], "silver"],
+        [["meltanolabs", False, 6, "low"], "bronze"],
+        [["meltanolabs", False, 6, "medium"], "silver"],
+        [["meltanolabs", False, 6, "high"], "silver"],
+
+        # Partner
+        [["matatika", True, 0, "low"], "gold"],
+        [["matatika", True, 0, "medium"], "gold"],
+        [["matatika", True, 0, "high"], "gold"],
+        [["matatika", True, 1, "low"], "gold"],
+        [["matatika", True, 1, "medium"], "gold"],
+        [["matatika", True, 1, "high"], "gold"],
+        [["matatika", True, 6, "low"], "gold"],
+        [["matatika", True, 6, "medium"], "gold"],
+        [["matatika", True, 6, "high"], "gold"],
+        [["matatika", False, 0, "low"], "bronze"],
+        [["matatika", False, 0, "medium"], "bronze"],
+        [["matatika", False, 0, "high"], "bronze"],
+        [["matatika", False, 1, "low"], "bronze"],
+        [["matatika", False, 1, "medium"], "silver"],
+        [["matatika", False, 1, "high"], "silver"],
+        [["matatika", False, 6, "low"], "bronze"],
+        [["matatika", False, 6, "medium"], "silver"],
+        [["matatika", False, 6, "high"], "silver"],
+
+        # Community
+        [["foobar", True, 0, "low"], "silver"],
+        [["foobar", True, 0, "medium"], "silver"],
+        [["foobar", True, 0, "high"], "silver"],
+        [["foobar", True, 1, "low"], "silver"],
+        [["foobar", True, 1, "medium"], "silver"],
+        [["foobar", True, 1, "high"], "silver"],
+        [["foobar", True, 6, "low"], "silver"],
+        [["foobar", True, 6, "medium"], "gold"],
+        [["foobar", True, 6, "high"], "gold"],
+        [["foobar", False, 0, "low"], "unknown"],
+        [["foobar", False, 0, "medium"], "unknown"],
+        [["foobar", False, 0, "high"], "unknown"],
+        [["foobar", False, 1, "low"], "bronze"],
+        [["foobar", False, 1, "medium"], "silver"],
+        [["foobar", False, 1, "high"], "silver"],
+        [["foobar", False, 6, "low"], "bronze"],
+        [["foobar", False, 6, "medium"], "silver"],
+        [["foobar", False, 6, "high"], "silver"],
+
+        # Singer
+        [["singer-io", False, 0, "low"], "bronze"],
+
+        # Airbyte
+        [["airbyte", False, 0, "low"], "bronze"],
+
+        # Transferwise
+        [["transferwise", False, 6, "low"], "silver"],
+        [["transferwise", False, 1, "medium"], "silver"],
+        [["transferwise", False, 0, "low"], "bronze"],
+    ]
+)
+def test_get_quality(input, expected):
+    assert MeltanoUtil.get_quality(*input) == expected, input
