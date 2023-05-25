@@ -34,6 +34,7 @@ settings:
     See the ["Activate the Google BigQuery API" section of the repository's README](https://github.com/anelendata/tap-bigquery#step-1-activate-the-google-bigquery-api) and <https://cloud.google.com/docs/authentication/production>.
 
     By default, this file is expected to be at the root of your project directory.
+  env: GOOGLE_APPLICATION_CREDENTIALS
   label: Credentials Path
   name: credentials_path
   value: $MELTANO_PROJECT_ROOT/client_secrets.json
