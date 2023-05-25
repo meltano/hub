@@ -16,6 +16,7 @@ name: tap-hibob
 namespace: tap_hibob
 next_steps: ''
 pip_url: git+https://github.com/potloc/tap-hibob.git
+quality: silver
 repo: https://github.com/potloc/tap-hibob
 settings:
 - description: Authorization token for Auth2.0
@@ -52,4 +53,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: potloc
-quality: silver

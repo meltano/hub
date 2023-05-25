@@ -14,6 +14,7 @@ name: tap-apaleo
 namespace: tap_apaleo
 next_steps: ''
 pip_url: git+https://github.com/felixkoch/tap-apaleo.git
+quality: silver
 repo: https://github.com/felixkoch/tap-apaleo
 settings:
 - description: Your Client Id.
@@ -36,4 +37,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: felixkoch
-quality: silver

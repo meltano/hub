@@ -11,6 +11,7 @@ maintenance_status: inactive
 name: tap-fixerio
 namespace: tap_fixerio
 pip_url: tap-fixerio
+quality: bronze
 repo: https://github.com/singer-io/tap-fixerio
 settings:
 - description: The base rate to which others will be converted.
@@ -35,4 +36,3 @@ settings:
 settings_group_validation:
 - - access_key
 variant: singer-io
-quality: bronze

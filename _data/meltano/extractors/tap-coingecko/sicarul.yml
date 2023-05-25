@@ -15,6 +15,7 @@ name: tap-coingecko
 namespace: tap_coingecko
 next_steps: ''
 pip_url: git+https://github.com/sicarul/tap-coingecko.git
+quality: silver
 repo: https://github.com/sicarul/tap-coingecko
 settings:
 - description: The name of the token to import the price history of
@@ -55,4 +56,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: sicarul
-quality: silver

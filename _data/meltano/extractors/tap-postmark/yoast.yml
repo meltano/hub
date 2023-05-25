@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-postmark
 namespace: tap_postmark
 pip_url: git+https://github.com/Yoast/singer-tap-postmark.git
+quality: silver
 repo: https://github.com/Yoast/singer-tap-postmark
 settings:
 - description: Your Postmark server token.
@@ -27,4 +28,3 @@ settings:
 settings_group_validation:
 - - postmark_server_token
 variant: yoast
-quality: silver

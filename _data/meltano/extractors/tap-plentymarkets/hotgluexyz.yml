@@ -17,6 +17,7 @@ name: tap-plentymarkets
 namespace: tap_plentymarkets
 next_steps: ''
 pip_url: git+https://gitlab.com/hotglue/tap-plentymarkets.git
+quality: gold
 repo: https://gitlab.com/hotglue/tap-plentymarkets
 settings:
 - description: The plentymarkets API URL.
@@ -55,4 +56,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: hotgluexyz
-quality: gold

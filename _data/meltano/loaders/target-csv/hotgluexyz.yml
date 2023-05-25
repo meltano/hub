@@ -7,6 +7,7 @@ maintenance_status: active
 name: target-csv
 namespace: target_csv
 pip_url: git+https://github.com/hotgluexyz/target-csv.git
+quality: silver
 repo: https://github.com/hotgluexyz/target-csv
 settings:
 - description: |
@@ -48,4 +49,3 @@ settings:
     value: "'"
   value: "'"
 variant: hotgluexyz
-quality: silver

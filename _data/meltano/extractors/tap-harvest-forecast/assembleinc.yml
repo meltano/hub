@@ -12,7 +12,7 @@ maintenance_status: unknown
 name: tap-harvest-forecast
 namespace: tap_harvest_forecast
 pip_url: git+https://github.com/assembleinc/tap-harvest-forecast.git
+quality: unknown
 repo: https://github.com/assembleinc/tap-harvest-forecast
 settings: []
 variant: assembleinc
-quality: unknown

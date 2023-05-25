@@ -16,6 +16,7 @@ name: tap-dbf
 namespace: tap_dbf
 next_steps: ''
 pip_url: git+https://github.com/edgarrmondragon/tap-dbf.git
+quality: silver
 repo: https://github.com/edgarrmondragon/tap-dbf
 settings:
 - description: The file path.
@@ -51,4 +52,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: edgarrmondragon
-quality: silver

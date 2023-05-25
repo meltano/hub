@@ -14,6 +14,7 @@ name: tap-oracle
 namespace: tap_oracle
 next_steps: ''
 pip_url: git+https://github.com/s7clarke10/pipelinewise-tap-oracle.git
+quality: silver
 repo: https://github.com/s7clarke10/pipelinewise-tap-oracle
 settings:
 - description: |
@@ -132,4 +133,3 @@ usage: |
   For more details about getting log based replication configured, see the
   [Log based replication section](https://github.com/s7clarke10/pipelinewise-tap-oracle/blob/master/README.md#log-based-replication) of the repo's README.
 variant: s7clarke10
-quality: silver

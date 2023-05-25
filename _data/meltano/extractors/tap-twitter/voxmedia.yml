@@ -16,6 +16,7 @@ name: tap-twitter
 namespace: tap_twitter
 next_steps: ''
 pip_url: git+https://github.com/voxmedia/tap-twitter.git
+quality: silver
 repo: https://github.com/voxmedia/tap-twitter
 settings:
 - description: 'The bearer token to authenticate against the Twitter API using the
@@ -41,4 +42,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: voxmedia
-quality: silver

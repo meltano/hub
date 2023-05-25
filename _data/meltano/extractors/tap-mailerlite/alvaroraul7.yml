@@ -17,6 +17,7 @@ name: tap-mailerlite
 namespace: tap_mailerlite
 next_steps: ''
 pip_url: git+https://github.com/AlvaroRaul7/tap-mailerlite.git
+quality: silver
 repo: https://github.com/AlvaroRaul7/tap-mailerlite
 settings:
 - description: The token to authenticate against the API service
@@ -50,4 +51,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: alvaroraul7
-quality: silver

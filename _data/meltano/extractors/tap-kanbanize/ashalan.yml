@@ -11,7 +11,7 @@ maintenance_status: unknown
 name: tap-kanbanize
 namespace: tap_kanbanize
 pip_url: git+https://github.com/ashalan/tap-kanbanize.git
+quality: silver
 repo: https://github.com/ashalan/tap-kanbanize
 settings: []
 variant: ashalan
-quality: silver

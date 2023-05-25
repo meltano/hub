@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-outreach
 namespace: tap_outreach
 pip_url: git+https://github.com/singer-io/tap-outreach.git
+quality: silver
 repo: https://github.com/singer-io/tap-outreach
 settings:
 - description: Determines how much historical data will be extracted. Please be aware
@@ -48,4 +49,3 @@ settings_group_validation:
   - redirect_uri
   - refresh_token
 variant: singer-io
-quality: silver

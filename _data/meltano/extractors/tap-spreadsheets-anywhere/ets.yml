@@ -27,6 +27,7 @@ maintenance_status: active
 name: tap-spreadsheets-anywhere
 namespace: tap_spreadsheets_anywhere
 pip_url: git+https://github.com/ets/tap-spreadsheets-anywhere.git
+quality: silver
 repo: https://github.com/ets/tap-spreadsheets-anywhere
 settings:
 - description: |
@@ -145,4 +146,3 @@ usage: |
         start_date: '2020-01-01T00:00:00Z'
   ```
 variant: ets
-quality: silver

@@ -11,7 +11,7 @@ maintenance_status: unknown
 name: tap-insightly
 namespace: tap_insightly
 pip_url: git+https://github.com/FostersData/tap-insightly.git
+quality: unknown
 repo: https://github.com/FostersData/tap-insightly
 settings: []
 variant: fostersdata
-quality: unknown

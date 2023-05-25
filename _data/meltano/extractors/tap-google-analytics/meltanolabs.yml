@@ -16,6 +16,7 @@ maintenance_status: active
 name: tap-google-analytics
 namespace: tap_google_analytics
 pip_url: git+https://github.com/MeltanoLabs/tap-google-analytics.git
+quality: gold
 repo: https://github.com/MeltanoLabs/tap-google-analytics
 settings:
 - description: |
@@ -230,4 +231,3 @@ settings_group_validation:
   - start_date
   - view_id
 variant: meltanolabs
-quality: gold

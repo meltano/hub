@@ -17,6 +17,7 @@ name: tap-aws-cognito
 namespace: tap_aws_cognito
 next_steps: ''
 pip_url: git+https://github.com/manuelapilongo/tap-aws-cognito.git
+quality: silver
 repo: https://github.com/manuelapilongo/tap-aws-cognito
 settings:
 - description: Cognito Pool Id
@@ -28,4 +29,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: manuelapilongo
-quality: silver

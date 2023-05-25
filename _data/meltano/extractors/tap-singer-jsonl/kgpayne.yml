@@ -13,6 +13,7 @@ name: tap-singer-jsonl
 namespace: tap_singer_jsonl
 next_steps: ''
 pip_url: tap-singer-jsonl
+quality: silver
 repo: https://github.com/kgpayne/tap-singer-jsonl
 settings:
 - description: The source configuration to use when reading `.singer.gz` files. Currently
@@ -66,4 +67,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: kgpayne
-quality: silver

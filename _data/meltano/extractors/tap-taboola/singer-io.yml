@@ -11,7 +11,7 @@ maintenance_status: unknown
 name: tap-taboola
 namespace: tap_taboola
 pip_url: tap-taboola
+quality: bronze
 repo: https://github.com/singer-io/tap-taboola
 settings: []
 variant: singer-io
-quality: bronze

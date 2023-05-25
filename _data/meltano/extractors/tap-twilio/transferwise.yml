@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-twilio
 namespace: tap_twilio
 pip_url: git+https://github.com/transferwise/pipelinewise-tap-twilio.git
+quality: silver
 repo: https://github.com/transferwise/pipelinewise-tap-twilio
 settings:
 - description: This is the String ID of your account which can be found in the account
@@ -45,4 +46,3 @@ settings_group_validation:
   - start_date
   - user_agent
 variant: transferwise
-quality: silver

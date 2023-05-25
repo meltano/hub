@@ -13,6 +13,7 @@ name: tap-prometheus
 namespace: tap_prometheus
 next_steps: ''
 pip_url: git+https://github.com/signal-ai/tap-prometheus.git
+quality: unknown
 repo: https://github.com/signal-ai/tap-prometheus
 settings:
 - description: Can optionally be set to false to explicitly disable TLS verification,
@@ -53,4 +54,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: signal-ai
-quality: unknown

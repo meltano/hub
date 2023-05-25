@@ -15,6 +15,7 @@ maintenance_status: active
 name: tap-talkable
 namespace: tap_talkable
 pip_url: git+https://github.com/gthesheep/tap-talkable.git
+quality: silver
 repo: https://github.com/gthesheep/tap-talkable
 settings:
 - description: API Token gained from Talkable
@@ -32,4 +33,3 @@ settings_group_validation:
   - site_slug
   - start_date
 variant: gthesheep
-quality: silver

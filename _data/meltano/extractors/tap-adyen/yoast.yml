@@ -12,6 +12,7 @@ maintenance_status: inactive
 name: tap-adyen
 namespace: tap_adyen
 pip_url: git+https://github.com/Yoast/singer-tap-adyen.git
+quality: unknown
 repo: https://github.com/Yoast/singer-tap-adyen
 settings:
 - description: Your company account.
@@ -52,4 +53,3 @@ usage: |
     - Payment accounting
     - Settlement_details
 variant: yoast
-quality: unknown

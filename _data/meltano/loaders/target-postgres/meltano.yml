@@ -10,6 +10,7 @@ maintenance_status: active
 name: target-postgres
 namespace: target_postgres
 pip_url: git+https://github.com/meltano/target-postgres.git
+quality: silver
 repo: https://github.com/meltano/target-postgres
 settings:
 - aliases:
@@ -77,4 +78,3 @@ usage: |
   has specific recommendations on setting the `LDFLAGS` and/or `CPPFLAGS` environment variables.
   Set those prior to running `meltano add loader target-postgres`.
 variant: meltano
-quality: silver

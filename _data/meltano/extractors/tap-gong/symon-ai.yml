@@ -17,6 +17,7 @@ name: tap-gong
 namespace: tap_gong
 next_steps: ''
 pip_url: git+https://github.com/symon-ai/tap-gong.git
+quality: silver
 repo: https://github.com/symon-ai/tap-gong
 settings:
 - description: Gong access key
@@ -63,4 +64,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: symon-ai
-quality: silver

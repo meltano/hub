@@ -17,6 +17,7 @@ name: tap-gmail
 namespace: tap_gmail
 next_steps: ''
 pip_url: meltanolabs-tap-gmail
+quality: silver
 repo: https://github.com/MeltanoLabs/tap-gmail
 settings:
 - description: Your google client_id
@@ -62,4 +63,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: kgpayne
-quality: silver

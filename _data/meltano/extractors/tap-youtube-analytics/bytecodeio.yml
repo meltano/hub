@@ -12,7 +12,7 @@ maintenance_status: unknown
 name: tap-youtube-analytics
 namespace: tap_youtube_analytics
 pip_url: git+https://github.com/bytecodeio/tap-youtube-analytics.git
+quality: unknown
 repo: https://github.com/bytecodeio/tap-youtube-analytics
 settings: []
 variant: bytecodeio
-quality: unknown

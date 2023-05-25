@@ -17,6 +17,7 @@ name: tap-mongodb
 namespace: tap_mongodb
 next_steps: ''
 pip_url: git+https://github.com/menzenski/tap-mongodb.git
+quality: silver
 repo: https://github.com/menzenski/tap-mongodb
 settings:
 - description: Database name from which records will be extracted.
@@ -138,4 +139,3 @@ settings_preamble: |
   prefer different behavior, please open an issue with the tap.
 usage: ''
 variant: menzenski
-quality: silver

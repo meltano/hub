@@ -16,6 +16,7 @@ name: tap-apachelog
 namespace: tap_apachelog
 next_steps: ''
 pip_url: git+https://github.com/omelark/tap-apachelog.git
+quality: silver
 repo: https://github.com/omelark/tap-apachelog
 settings:
 - description: An array of Apache log file stream settings.
@@ -49,4 +50,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: omelark
-quality: silver

@@ -12,6 +12,7 @@ maintenance_status: inactive
 name: tap-zendesk
 namespace: tap_zendesk
 pip_url: tap-zendesk
+quality: silver
 repo: https://github.com/singer-io/tap-zendesk
 settings:
 - description: |
@@ -82,4 +83,3 @@ settings_group_validation:
   - subdomain
   - start_date
 variant: singer-io
-quality: silver

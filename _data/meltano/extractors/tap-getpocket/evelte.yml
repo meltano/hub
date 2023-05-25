@@ -16,6 +16,7 @@ name: tap-getpocket
 namespace: tap_getpocket
 next_steps: ''
 pip_url: git+https://github.com/evelte/tap-getpocket.git
+quality: silver
 repo: https://github.com/evelte/tap-getpocket
 settings:
 - description: The consumer key used in the authentication flow
@@ -50,4 +51,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: evelte
-quality: silver

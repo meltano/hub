@@ -11,6 +11,7 @@ maintenance_status: active
 name: tap-stackoverflow-sampledata
 namespace: tap_stackoverflow_sampledata
 pip_url: git+https://github.com/BuzzCutNorman/tap-stackoverflow-sampledata.git
+quality: silver
 repo: https://github.com/BuzzCutNorman/tap-stackoverflow-sampledata
 settings:
 - description: A path to the StackOverflow XML data files.
@@ -30,4 +31,3 @@ settings:
   label: Storage Prefix
   name: batch_config.storage.prefix
 variant: buzzcutnorman
-quality: silver

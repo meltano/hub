@@ -17,6 +17,7 @@ name: tap-cloudwatch
 namespace: tap_cloudwatch
 next_steps: ''
 pip_url: git+https://github.com/meltanolabs/tap-cloudwatch.git
+quality: gold
 repo: https://github.com/meltanolabs/tap-cloudwatch
 settings:
 - description: The access key for your AWS account.
@@ -102,4 +103,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: meltanolabs
-quality: gold

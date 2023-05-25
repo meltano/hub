@@ -15,6 +15,7 @@ name: tap-mailjet
 namespace: tap_mailjet
 next_steps: ''
 pip_url: git+https://github.com/Somtom/tap-mailjet.git
+quality: silver
 repo: https://github.com/Somtom/tap-mailjet
 settings:
 - description: API key to authenticate against the API service
@@ -51,4 +52,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: somtom
-quality: silver

@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-pipedrive
 namespace: tap_pipedrive
 pip_url: tap-pipedrive
+quality: silver
 repo: https://github.com/singer-io/tap-pipedrive
 settings:
 - description: Your Pipedrive API token.
@@ -35,4 +36,3 @@ settings_group_validation:
 - - api_token
   - start_date
 variant: singer-io
-quality: silver

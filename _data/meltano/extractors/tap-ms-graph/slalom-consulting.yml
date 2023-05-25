@@ -16,6 +16,7 @@ name: tap-ms-graph
 namespace: tap_ms_graph
 next_steps: ''
 pip_url: git+https://github.com/Slalom-Consulting/tap-ms-graph.git
+quality: silver
 repo: https://github.com/Slalom-Consulting/tap-ms-graph
 settings:
 - description: The directory tenant that you want to request permission from. The
@@ -76,4 +77,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: slalom-consulting
-quality: silver

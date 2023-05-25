@@ -17,6 +17,7 @@ name: tap-capsulecrm
 namespace: tap_capsulecrm
 next_steps: ''
 pip_url: git+https://gitlab.com/hotglue/tap-capsulecrm.git
+quality: gold
 repo: https://gitlab.com/hotglue/tap-capsulecrm
 settings:
 - description: Your Capsule access token.
@@ -63,4 +64,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: hotgluexyz
-quality: gold

@@ -12,6 +12,7 @@ maintenance_status: inactive
 name: tap-lever
 namespace: tap_lever
 pip_url: git+https://github.com/dbt-labs/tap-lever.git
+quality: silver
 repo: https://github.com/dbt-labs/tap-lever
 settings:
 - description: The user agent to send with requests.
@@ -32,4 +33,3 @@ settings_group_validation:
 - - start_date
   - token
 variant: dbt-labs
-quality: silver

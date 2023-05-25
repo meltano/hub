@@ -15,6 +15,7 @@ name: tap-atinternet
 namespace: tap_atinternet
 next_steps: ''
 pip_url: git+https://github.com/GendarmerieNationale/tap-atinternet.git
+quality: silver
 repo: https://github.com/GendarmerieNationale/tap-atinternet
 settings:
 - description: AT Internet API key
@@ -65,4 +66,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: gendarmerienationale
-quality: silver

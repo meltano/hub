@@ -17,6 +17,7 @@ name: tap-typeform
 namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
+quality: silver
 repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-typeform
 settings:
 - description: Airbyte image to run
@@ -77,4 +78,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: airbyte
-quality: silver

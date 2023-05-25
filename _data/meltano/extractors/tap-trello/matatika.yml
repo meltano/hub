@@ -13,6 +13,7 @@ maintenance_status: active
 name: tap-trello
 namespace: tap_trello
 pip_url: git+https://github.com/Matatika/tap-trello.git
+quality: gold
 repo: https://github.com/Matatika/tap-trello
 settings:
 - description: Your Trello developer API key. [How to get your developer API key](https://github.com/Matatika/tap-trello#source-authentication-and-authorization)
@@ -29,4 +30,3 @@ settings:
   label: Start Date
   name: start_date
 variant: matatika
-quality: gold

@@ -12,7 +12,7 @@ maintenance_status: unknown
 name: tap-ordway
 namespace: tap_ordway
 pip_url: tap-ordway
+quality: silver
 repo: https://github.com/singer-io/tap-ordway
 settings: []
 variant: singer-io
-quality: silver

@@ -11,8 +11,8 @@ maintenance_status: unknown
 name: tap-twilio
 namespace: tap_twilio
 pip_url: git+https://github.com/bytecodeio/tap-twilio.git
+quality: unknown
 repo: https://github.com/bytecodeio/tap-twilio
 settings: []
 settings_group_validation: []
 variant: bytecodeio
-quality: unknown

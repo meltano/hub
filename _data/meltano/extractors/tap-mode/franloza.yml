@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-mode
 namespace: tap_mode
 pip_url: git+https://github.com/franloza/tap-mode.git
+quality: unknown
 repo: https://github.com/franloza/tap-mode
 settings:
 - description: API access token. See how to obtain it from Mode [here](https://mode.com/developer/api-reference/authentication/)
@@ -31,4 +32,3 @@ settings_group_validation:
 - - auth_token
   - workspace
 variant: franloza
-quality: unknown

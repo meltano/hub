@@ -12,6 +12,7 @@ maintenance_status: inactive
 name: tap-campaign-monitor
 namespace: tap_campaign_monitor
 pip_url: tap-campaign-monitor
+quality: silver
 repo: https://github.com/singer-io/tap-campaign-monitor
 settings:
 - description: Your Campaign Monitor client ID.
@@ -33,4 +34,3 @@ settings_group_validation:
   - start_date
   - refresh_token
 variant: singer-io
-quality: silver

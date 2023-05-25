@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-dayforce
 namespace: tap_dayforce
 pip_url: git+https://github.com/goodeggs/tap-dayforce.git
+quality: unknown
 repo: https://github.com/goodeggs/tap-dayforce
 settings:
 - description: A valid client name (e.g. Company Name) that will be inserted into
@@ -47,4 +48,3 @@ settings_group_validation:
   - password
   - username
 variant: goodeggs
-quality: unknown

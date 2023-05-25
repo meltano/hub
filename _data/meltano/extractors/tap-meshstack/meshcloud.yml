@@ -15,6 +15,7 @@ name: tap-meshstack
 namespace: tap_meshstack
 next_steps: ''
 pip_url: git+https://github.com/meshcloud/tap-meshstack.git
+quality: silver
 repo: https://github.com/meshcloud/tap-meshstack
 settings:
 - description: The HTTP basic auth user to authenticate against the meshObject API
@@ -68,4 +69,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: meshcloud
-quality: silver

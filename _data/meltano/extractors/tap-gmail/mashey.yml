@@ -11,7 +11,7 @@ maintenance_status: unknown
 name: tap-gmail
 namespace: tap_gmail
 pip_url: git+https://github.com/Mashey/tap-gmail.git
+quality: unknown
 repo: https://github.com/Mashey/tap-gmail
 settings: []
 variant: mashey
-quality: unknown

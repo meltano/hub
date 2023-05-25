@@ -13,6 +13,7 @@ maintenance_status: active
 name: tap-powerbi-metadata
 namespace: tap_powerbi_metadata
 pip_url: git+https://github.com/dataops-tk/tap-powerbi-metadata.git
+quality: silver
 repo: https://github.com/dataops-tk/tap-powerbi-metadata
 settings:
 - description: The unique identifier for the Power BI tenant.
@@ -43,4 +44,3 @@ settings_group_validation:
   - tenant_id
   - client_id
 variant: dataops-tk
-quality: silver

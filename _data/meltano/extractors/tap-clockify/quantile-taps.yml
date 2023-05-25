@@ -17,6 +17,7 @@ name: tap-clockify
 namespace: tap_clockify
 next_steps: ''
 pip_url: git+https://github.com/quantile-taps/tap-clockify.git
+quality: silver
 repo: https://github.com/quantile-taps/tap-clockify
 settings:
 - description: Your Clockify API Key.
@@ -39,4 +40,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: quantile-taps
-quality: silver

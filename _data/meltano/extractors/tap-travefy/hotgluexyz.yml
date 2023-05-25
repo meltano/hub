@@ -17,6 +17,7 @@ name: tap-travefy
 namespace: tap_travefy
 next_steps: ''
 pip_url: git+https://gitlab.com/hotglue/tap-travefy.git
+quality: gold
 repo: https://gitlab.com/hotglue/tap-travefy
 settings:
 - description: The url for the API service
@@ -59,4 +60,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: hotgluexyz
-quality: gold

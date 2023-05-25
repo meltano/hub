@@ -17,6 +17,7 @@ name: tap-keap
 namespace: tap_keap
 next_steps: ''
 pip_url: git+https://gitlab.com/hotglue/tap-keap.git
+quality: gold
 repo: https://gitlab.com/hotglue/tap-keap
 settings:
 - description: Your Keap access token.
@@ -64,4 +65,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: hotgluexyz
-quality: gold

@@ -11,7 +11,7 @@ maintenance_status: unknown
 name: tap-indeed
 namespace: tap_indeed
 pip_url: git+https://github.com/aroder/tap-indeed.git
+quality: unknown
 repo: https://github.com/aroder/tap-indeed
 settings: []
 variant: aroder
-quality: unknown

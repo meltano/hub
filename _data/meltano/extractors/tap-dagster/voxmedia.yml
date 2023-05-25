@@ -16,6 +16,7 @@ name: tap-dagster
 namespace: tap_dagster
 next_steps: ''
 pip_url: git+https://github.com/voxmedia/tap-dagster.git
+quality: silver
 repo: https://github.com/voxmedia/tap-dagster
 settings:
 - description: The token to authenticate against the API service
@@ -53,4 +54,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: voxmedia
-quality: silver

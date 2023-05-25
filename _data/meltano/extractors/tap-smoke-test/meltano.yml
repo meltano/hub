@@ -17,6 +17,7 @@ name: tap-smoke-test
 namespace: tap_smoke_test
 next_steps: ''
 pip_url: git+https://github.com/meltano/tap-smoke-test.git
+quality: gold
 repo: https://github.com/meltano/tap-smoke-test
 settings:
 - description: "'True' to enable schema flattening and automatically expand nested\
@@ -65,4 +66,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: meltano
-quality: gold

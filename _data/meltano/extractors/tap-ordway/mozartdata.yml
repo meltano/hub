@@ -12,7 +12,7 @@ maintenance_status: unknown
 name: tap-ordway
 namespace: tap_ordway
 pip_url: git+https://github.com/MozartData/tap-ordway.git
+quality: silver
 repo: https://github.com/MozartData/tap-ordway
 settings: []
 variant: mozartdata
-quality: silver

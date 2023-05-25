@@ -11,7 +11,7 @@ maintenance_status: unknown
 name: tap-invoiced
 namespace: tap_invoiced
 pip_url: git+https://github.com/Invoiced/tap-invoiced.git
+quality: silver
 repo: https://github.com/Invoiced/tap-invoiced
 settings: []
 variant: invoiced
-quality: silver

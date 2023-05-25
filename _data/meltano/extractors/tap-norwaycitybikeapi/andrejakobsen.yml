@@ -17,6 +17,7 @@ maintenance_status: active
 name: tap-norwaycitybikeapi
 namespace: tap_norwaycitybikeapi
 pip_url: tap-norwaycitybikeapi
+quality: gold
 repo: https://github.com/andrejakobsen/tap-norwaycitybikeapi
 settings:
 - description: The value should contain your company/organization name, follwed by
@@ -30,4 +31,3 @@ settings_group_validation:
 - - client_identifier
   - city_name
 variant: andrejakobsen
-quality: gold

@@ -15,6 +15,7 @@ name: tap-amazon-mws
 namespace: tap_amazon_mws
 next_steps: ''
 pip_url: git+https://github.com/adswerve/singer-tap-amazon-mws.git
+quality: unknown
 repo: https://github.com/adswerve/singer-tap-amazon-mws
 settings:
 - description: Your Amazon MWS access key.
@@ -61,4 +62,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: adswerve
-quality: unknown

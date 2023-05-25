@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-slack
 namespace: tap_slack
 pip_url: git+https://github.com/Mashey/tap-slack.git
+quality: silver
 repo: https://github.com/Mashey/tap-slack
 settings:
 - description: |
@@ -75,4 +76,3 @@ settings:
   name: date_window_size
   value: 7
 variant: mashey
-quality: silver

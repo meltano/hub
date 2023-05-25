@@ -12,6 +12,7 @@ maintenance_status: inactive
 name: tap-outbrain
 namespace: tap_outbrain
 pip_url: git+https://github.com/dbt-labs/tap-outbrain.git
+quality: silver
 repo: https://github.com/dbt-labs/tap-outbrain
 settings:
 - description: The Outbrain password to go along with username.
@@ -42,4 +43,3 @@ settings_group_validation:
   - username
   - account_id
 variant: dbt-labs
-quality: silver

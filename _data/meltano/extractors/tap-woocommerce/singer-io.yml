@@ -11,7 +11,7 @@ maintenance_status: unknown
 name: tap-woocommerce
 namespace: tap_woocommerce
 pip_url: tap-woocommerce
+quality: bronze
 repo: https://github.com/singer-io/tap-woocommerce
 settings: []
 variant: singer-io
-quality: bronze

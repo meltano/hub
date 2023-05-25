@@ -17,6 +17,7 @@ maintenance_status: active
 name: tap-github
 namespace: tap_github
 pip_url: git+https://github.com/MeltanoLabs/tap-github.git
+quality: gold
 repo: https://github.com/MeltanoLabs/tap-github
 select:
 - '*.*'
@@ -99,4 +100,3 @@ settings_group_validation:
 - - user_usernames
 - - user_ids
 variant: meltanolabs
-quality: gold

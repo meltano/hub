@@ -11,7 +11,7 @@ maintenance_status: unknown
 name: tap-tickettailor
 namespace: tap_tickettailor
 pip_url: git+https://github.com/dbt-labs/tap-tickettailor.git
+quality: unknown
 repo: https://github.com/dbt-labs/tap-tickettailor
 settings: []
 variant: dbt-labs
-quality: unknown

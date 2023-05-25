@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-fastly
 namespace: tap_fastly
 pip_url: git+https://github.com/splitio/tap-fastly.git
+quality: unknown
 repo: https://github.com/splitio/tap-fastly
 settings:
 - description: Fastly token for authenticating with the API.
@@ -29,4 +30,3 @@ settings_group_validation:
 - - api_token
   - start_date
 variant: splitio
-quality: unknown

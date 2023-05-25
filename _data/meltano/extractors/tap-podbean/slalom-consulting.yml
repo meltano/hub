@@ -16,6 +16,7 @@ name: tap-podbean
 namespace: tap_podbean
 next_steps: ''
 pip_url: git+https://github.com/Slalom-Consulting/tap-podbean.git
+quality: silver
 repo: https://github.com/Slalom-Consulting/tap-podbean
 settings:
 - description: The client identifier to authenticate against the API service.
@@ -71,4 +72,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: slalom-consulting
-quality: silver

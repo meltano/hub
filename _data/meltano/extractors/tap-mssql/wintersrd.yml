@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-mssql
 namespace: tap_mssql
 pip_url: tap-mssql
+quality: silver
 repo: https://github.com/wintersrd/pipelinewise-tap-mssql
 settings:
 - description: Your MSSQL server host.
@@ -59,4 +60,3 @@ settings_group_validation:
   - user
   - password
 variant: wintersrd
-quality: silver

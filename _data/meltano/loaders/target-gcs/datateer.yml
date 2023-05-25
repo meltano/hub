@@ -10,6 +10,7 @@ maintenance_status: active
 name: target-gcs
 namespace: target_gcs
 pip_url: git+https://github.com/Datateer/target-gcs.git
+quality: silver
 repo: https://github.com/Datateer/target-gcs
 settings:
 - description: The name of the GCS Bucket to sync the stream to
@@ -41,4 +42,3 @@ settings_group_validation:
 - - bucket_name
   - credentials_file
 variant: datateer
-quality: silver

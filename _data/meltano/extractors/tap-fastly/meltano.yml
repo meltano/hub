@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-fastly
 namespace: tap_fastly
 pip_url: git+https://gitlab.com/meltano/tap-fastly.git
+quality: bronze
 repo: https://gitlab.com/meltano/tap-fastly
 settings:
 - kind: password
@@ -22,4 +23,3 @@ settings:
   label: Start Date
   name: start_date
 variant: meltano
-quality: bronze

@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-klaviyo
 namespace: tap_klaviyo
 pip_url: git+https://github.com/singer-io/tap-klaviyo.git
+quality: bronze
 repo: https://github.com/singer-io/tap-klaviyo
 settings:
 - description: Klaviyo API Key
@@ -29,4 +30,3 @@ settings:
   label: Start Date
   name: start_date
 variant: singer-io
-quality: bronze

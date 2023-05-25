@@ -12,6 +12,7 @@ maintenance_status: inactive
 name: tap-eloqua
 namespace: tap_eloqua
 pip_url: tap-eloqua
+quality: bronze
 repo: https://github.com/singer-io/tap-eloqua
 settings:
 - description: The bulk page size. Default, 5000.
@@ -52,4 +53,3 @@ settings_group_validation:
   - refresh_token
   - start_date
 variant: singer-io
-quality: bronze

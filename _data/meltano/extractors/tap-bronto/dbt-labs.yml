@@ -11,7 +11,7 @@ maintenance_status: unknown
 name: tap-bronto
 namespace: tap_bronto
 pip_url: git+https://github.com/dbt-labs/tap-bronto.git
+quality: unknown
 repo: https://github.com/dbt-labs/tap-bronto
 settings: []
 variant: dbt-labs
-quality: unknown

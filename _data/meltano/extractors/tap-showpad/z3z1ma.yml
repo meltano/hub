@@ -17,6 +17,7 @@ name: tap-showpad
 namespace: tap_showpad
 next_steps: ''
 pip_url: git+https://github.com/z3z1ma/tap-showpad.git
+quality: silver
 repo: https://github.com/z3z1ma/tap-showpad
 settings:
 - description: The token to authenticate against the API service
@@ -51,4 +52,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: z3z1ma
-quality: silver

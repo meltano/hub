@@ -12,7 +12,7 @@ maintenance_status: unknown
 name: tap-3plcentral
 namespace: tap_3plcentral
 pip_url: git+https://github.com/bytecodeio/tap-3plcentral.git
+quality: unknown
 repo: https://github.com/bytecodeio/tap-3plcentral
 settings: []
 variant: bytecodeio
-quality: unknown

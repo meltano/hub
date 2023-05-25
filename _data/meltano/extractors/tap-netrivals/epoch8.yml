@@ -16,6 +16,7 @@ name: tap-netrivals
 namespace: tap_netrivals
 next_steps: ''
 pip_url: git+https://github.com/epoch8/tap-netrivals.git
+quality: silver
 repo: https://github.com/epoch8/tap-netrivals
 settings:
 - description: The token to authenticate against the API service
@@ -48,4 +49,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: epoch8
-quality: silver

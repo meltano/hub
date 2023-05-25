@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-hubspot
 namespace: tap_hubspot
 pip_url: git+https://github.com/singer-io/tap-hubspot.git
+quality: silver
 repo: https://github.com/singer-io/tap-hubspot
 settings:
 - description: This is the URL that the user will be redirected to after they authorize
@@ -57,4 +58,3 @@ settings_group_validation:
 - - hapikey
   - start_date
 variant: singer-io
-quality: silver

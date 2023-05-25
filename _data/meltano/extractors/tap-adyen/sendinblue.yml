@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-adyen
 namespace: tap_adyen
 pip_url: git+https://github.com/sendinblue/singer-tap-adyen.git
+quality: unknown
 repo: https://github.com/sendinblue/singer-tap-adyen
 settings:
 - description: Your company account.
@@ -62,4 +63,3 @@ usage: |
     - Payment accounting
     - Settlement_details
 variant: sendinblue
-quality: unknown

@@ -12,7 +12,7 @@ maintenance_status: unknown
 name: tap-basecone
 namespace: tap_basecone
 pip_url: git+https://github.com/Yoast/singer-tap-basecone.git
+quality: unknown
 repo: https://github.com/Yoast/singer-tap-basecone
 settings: []
 variant: yoast
-quality: unknown

@@ -15,6 +15,7 @@ maintenance_status: active
 name: tap-googleads
 namespace: tap_googleads
 pip_url: git+https://github.com/Matatika/tap-googleads.git
+quality: gold
 repo: https://github.com/Matatika/tap-googleads
 settings:
 - description: OAuth Client ID (Required)  - [Obtain your credentials](https://developers.google.com/adwords/api/docs/guides/authentication)
@@ -72,4 +73,3 @@ settings:
   label: OAuth Credentials Refresh Proxy URL Auth
   name: oauth_credentials.refresh_proxy_url_auth
 variant: matatika
-quality: gold

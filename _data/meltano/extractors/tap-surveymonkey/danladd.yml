@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-surveymonkey
 namespace: tap_surveymonkey
 pip_url: git+https://gitlab.com/danladd/tap-surveymonkey.git
+quality: silver
 repo: https://gitlab.com/danladd/tap-surveymonkey
 settings:
 - description: Your Access Token for SurveyMonkey
@@ -33,4 +34,3 @@ settings:
   label: Drop Free Text Answers
   name: drop_open_ended_text
 variant: danladd
-quality: silver

@@ -18,6 +18,7 @@ pip_url: >
   python-dateutil==2.7.3
   requests==2.20.0
   singer-python==5.3.3
+quality: unknown
 repo: https://github.com/Tahasadiki/tap-recruitee
 settings:
 - description: The url for the API service
@@ -43,4 +44,3 @@ settings_group_validation:
   - start_date
   - url
 variant: tahasadiki
-quality: unknown

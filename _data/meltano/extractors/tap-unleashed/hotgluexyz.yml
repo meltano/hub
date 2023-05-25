@@ -18,6 +18,7 @@ name: tap-unleashed
 namespace: tap_unleashed
 next_steps: ''
 pip_url: git+https://gitlab.com/hotglue/tap-unleashed.git
+quality: gold
 repo: https://gitlab.com/hotglue/tap-unleashed
 settings:
 - description: Your Unleashed API Auth ID.
@@ -55,4 +56,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: hotgluexyz
-quality: gold

@@ -17,6 +17,7 @@ name: tap-messagebird
 namespace: tap_messagebird
 next_steps: ''
 pip_url: tap-messagebird
+quality: gold
 repo: https://github.com/MeltanoLabs/tap-messagebird
 settings:
 - description: The token to authenticate against the API service. Test keys are not
@@ -52,4 +53,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: meltanolabs
-quality: gold

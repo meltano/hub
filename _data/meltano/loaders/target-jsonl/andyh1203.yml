@@ -8,6 +8,7 @@ maintenance_status: active
 name: target-jsonl
 namespace: target_jsonl
 pip_url: target-jsonl
+quality: silver
 repo: https://github.com/andyh1203/target-jsonl
 settings:
 - description: |
@@ -43,4 +44,3 @@ settings:
   label: Custom File Name Override
   name: custom_name
 variant: andyh1203
-quality: silver

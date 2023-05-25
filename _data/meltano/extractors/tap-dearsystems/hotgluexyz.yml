@@ -17,6 +17,7 @@ name: tap-dearsystems
 namespace: tap_dearsystems
 next_steps: ''
 pip_url: git+https://gitlab.com/hotglue/tap-dearsystems.git
+quality: gold
 repo: https://gitlab.com/hotglue/tap-dearsystems
 settings:
 - description: Your DEAR systems API Account ID.
@@ -54,4 +55,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: hotgluexyz
-quality: gold

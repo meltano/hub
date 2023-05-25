@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-mongodb
 namespace: tap_mongodb
 pip_url: tap-mongodb
+quality: silver
 repo: https://github.com/singer-io/tap-mongodb
 settings:
 - description: The MongoDB host URL.
@@ -64,4 +65,3 @@ settings_group_validation:
   - password
   - database
 variant: singer-io
-quality: silver

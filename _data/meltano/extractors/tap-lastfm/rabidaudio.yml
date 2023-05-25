@@ -16,6 +16,7 @@ name: tap-lastfm
 namespace: tap_lastfm
 next_steps: ''
 pip_url: git+https://github.com/rabidaudio/tap-lastfm.git
+quality: silver
 repo: https://github.com/rabidaudio/tap-lastfm
 settings:
 - description: The API key to authenticate against the API service
@@ -61,4 +62,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: rabidaudio
-quality: silver

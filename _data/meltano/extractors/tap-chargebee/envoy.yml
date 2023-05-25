@@ -11,8 +11,8 @@ maintenance_status: unknown
 name: tap-chargebee
 namespace: tap_chargebee
 pip_url: git+https://github.com/envoy/tap-chargebee.git
+quality: unknown
 repo: https://github.com/envoy/tap-chargebee
 settings: []
 settings_group_validation: []
 variant: envoy
-quality: unknown

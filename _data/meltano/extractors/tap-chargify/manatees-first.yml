@@ -11,7 +11,7 @@ maintenance_status: unknown
 name: tap-chargify
 namespace: tap_chargify
 pip_url: git+https://github.com/manatees-first/tap-chargify.git
+quality: unknown
 repo: https://github.com/manatees-first/tap-chargify
 settings: []
 variant: manatees-first
-quality: unknown

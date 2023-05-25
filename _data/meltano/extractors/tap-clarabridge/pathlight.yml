@@ -11,7 +11,7 @@ maintenance_status: unknown
 name: tap-clarabridge
 namespace: tap_clarabridge
 pip_url: git+https://github.com/Pathlight/tap-clarabridge.git
+quality: unknown
 repo: https://github.com/Pathlight/tap-clarabridge
 settings: []
 variant: pathlight
-quality: unknown

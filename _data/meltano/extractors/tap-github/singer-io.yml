@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-github
 namespace: tap_github
 pip_url: tap-github
+quality: silver
 repo: https://github.com/singer-io/tap-github
 settings:
 - description: Personal access token used to authenticate with GitHub. The token can
@@ -34,4 +35,3 @@ settings_group_validation:
   - repository
   - start_date
 variant: singer-io
-quality: silver

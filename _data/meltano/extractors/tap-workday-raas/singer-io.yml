@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-workday-raas
 namespace: tap_workday_raas
 pip_url: tap-workday-raas
+quality: silver
 repo: https://github.com/singer-io/tap-workday-raas
 settings:
 - description: A JSON string containing a list of objects containing the report_name
@@ -40,4 +41,3 @@ usage: |-
   "[{\"report_name\": \"abitrary_name\", \"report_url\": \"https://...\"}, ...]"
   ```
 variant: singer-io
-quality: silver

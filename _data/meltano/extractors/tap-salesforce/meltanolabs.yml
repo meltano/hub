@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-salesforce
 namespace: tap_salesforce
 pip_url: git+https://github.com/meltanolabs/tap-salesforce.git@v1.5.1
+quality: silver
 repo: https://github.com/meltanolabs/tap-salesforce
 select:
 - Lead.*
@@ -123,4 +124,3 @@ settings_group_validation:
   - refresh_token
   - start_date
 variant: meltanolabs
-quality: silver

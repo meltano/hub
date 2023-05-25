@@ -11,7 +11,7 @@ maintenance_status: unknown
 name: tap-purecloud
 namespace: tap_purecloud
 pip_url: git+https://github.com/mynarskip/tap-purecloud.git
+quality: unknown
 repo: https://github.com/mynarskip/tap-purecloud
 settings: []
 variant: mynarskip
-quality: unknown

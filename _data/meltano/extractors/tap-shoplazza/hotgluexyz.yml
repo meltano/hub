@@ -17,6 +17,7 @@ name: tap-shoplazza
 namespace: tap_shoplazza
 next_steps: ''
 pip_url: git+https://gitlab.com/hotglue/tap-shoplazza.git
+quality: gold
 repo: https://gitlab.com/hotglue/tap-shoplazza
 settings:
 - description: The token to authenticate against the API service
@@ -49,4 +50,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: hotgluexyz
-quality: gold

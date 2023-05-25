@@ -15,6 +15,7 @@ name: tap-tiktok-business
 namespace: tap_tiktok_business
 next_steps: ''
 pip_url: git+https://github.com/hkuffel/tap-tiktok-business.git
+quality: silver
 repo: https://github.com/hkuffel/tap-tiktok-business
 settings:
 - description: Client ID for the TikTok Business API
@@ -66,4 +67,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: hkuffel
-quality: silver

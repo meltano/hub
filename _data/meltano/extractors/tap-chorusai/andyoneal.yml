@@ -15,6 +15,7 @@ name: tap-chorusai
 namespace: tap_chorusai
 next_steps: ''
 pip_url: git+https://github.com/andyoneal/tap-chorusai.git
+quality: silver
 repo: https://github.com/andyoneal/tap-chorusai
 settings:
 - description: The token to authenticate against the API service
@@ -47,4 +48,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: andyoneal
-quality: silver

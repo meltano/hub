@@ -13,6 +13,7 @@ name: tap-db2
 namespace: tap_db2
 next_steps: ''
 pip_url: git+https://github.com/mjsqu/tap-db2.git
+quality: silver
 repo: https://github.com/mjsqu/tap-db2
 settings:
 - description: The database name.
@@ -60,4 +61,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: mjsqu
-quality: silver

@@ -10,6 +10,7 @@ maintenance_status: inactive
 name: tap-exchangeratesapi
 namespace: tap_exchangeratesapi
 pip_url: tap-exchangeratesapi
+quality: silver
 repo: https://github.com/singer-io/tap-exchangeratesapi
 settings:
 - description: The base currency code, default 'USD'.
@@ -24,4 +25,3 @@ settings:
 settings_group_validation:
 - []
 variant: singer-io
-quality: silver

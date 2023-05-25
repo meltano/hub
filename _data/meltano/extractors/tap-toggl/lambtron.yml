@@ -12,7 +12,7 @@ maintenance_status: unknown
 name: tap-toggl
 namespace: tap_toggl
 pip_url: git+https://github.com/lambtron/tap-toggl.git
+quality: unknown
 repo: https://github.com/lambtron/tap-toggl
 settings: []
 variant: lambtron
-quality: unknown

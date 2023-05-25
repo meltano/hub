@@ -13,6 +13,7 @@ maintenance_status: active
 name: tap-rickandmorty
 namespace: tap_rickandmorty
 pip_url: git+https://github.com/clrcrl/tap-rickandmorty.git
+quality: silver
 repo: https://github.com/clrcrl/tap-rickandmorty
 settings:
 - description: The date to start syncing data from.
@@ -22,4 +23,3 @@ settings:
 settings_group_validation:
 - []
 variant: clrcrl
-quality: silver

@@ -12,6 +12,7 @@ maintenance_status: inactive
 name: tap-recurly
 namespace: tap_recurly
 pip_url: git+https://github.com/lambtron/tap-recurly.git
+quality: unknown
 repo: https://github.com/lambtron/tap-recurly
 settings:
 - description: The percentage of the rate limit dedicated to the tap. Default, 100.
@@ -41,4 +42,3 @@ settings_group_validation:
   - api_key
   - start_date
 variant: lambtron
-quality: unknown

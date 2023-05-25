@@ -12,7 +12,7 @@ maintenance_status: unknown
 name: tap-mambu
 namespace: tap_mambu
 pip_url: git+https://github.com/bytecodeio/tap-mambu.git
+quality: silver
 repo: https://github.com/bytecodeio/tap-mambu
 settings: []
 variant: bytecodeio
-quality: silver

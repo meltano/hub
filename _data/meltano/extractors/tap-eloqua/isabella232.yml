@@ -11,7 +11,7 @@ maintenance_status: unknown
 name: tap-eloqua
 namespace: tap_eloqua
 pip_url: git+https://github.com/isabella232/tap-eloqua.git
+quality: unknown
 repo: https://github.com/isabella232/tap-eloqua
 settings: []
 variant: isabella232
-quality: unknown

@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-klaviyo
 namespace: tap_klaviyo
 pip_url: git+https://github.com/hotgluexyz/tap-klaviyo.git
+quality: silver
 repo: https://github.com/hotgluexyz/tap-klaviyo
 settings:
 - description: Klaviyo API Key
@@ -29,4 +30,3 @@ settings:
   label: Start Date
   name: start_date
 variant: hotgluexyz
-quality: silver

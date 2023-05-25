@@ -18,6 +18,7 @@ name: tap-athena
 namespace: tap_athena
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-athena.git
+quality: gold
 repo: https://github.com/MeltanoLabs/tap-athena
 settings:
 - description: AWS access key ID
@@ -67,4 +68,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: meltanolabs
-quality: gold

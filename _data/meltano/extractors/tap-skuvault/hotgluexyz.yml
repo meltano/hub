@@ -17,6 +17,7 @@ name: tap-skuvault
 namespace: tap_skuvault
 next_steps: ''
 pip_url: git+https://gitlab.com/hotglue/tap-skuvault.git
+quality: gold
 repo: https://gitlab.com/hotglue/tap-skuvault
 settings:
 - description: "'True' to enable schema flattening and automatically expand nested\
@@ -57,4 +58,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: hotgluexyz
-quality: gold

@@ -17,6 +17,7 @@ name: tap-salesforce-commerce
 namespace: tap_salesforce_commerce
 next_steps: ''
 pip_url: git+https://gitlab.com/hotglue/tap-salesforce-commerce.git
+quality: gold
 repo: https://gitlab.com/hotglue/tap-salesforce-commerce
 settings:
 - description: Your Salesforce Client ID.
@@ -61,4 +62,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: hotgluexyz
-quality: gold

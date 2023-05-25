@@ -12,6 +12,7 @@ maintenance_status: inactive
 name: tap-impact
 namespace: tap_impact
 pip_url: tap-impact
+quality: silver
 repo: https://github.com/singer-io/tap-impact
 settings:
 - description: "Determines how much historical data will be extracted. Please be aware\n\
@@ -47,4 +48,3 @@ settings_group_validation:
   - api_catalog
   - auth_token
 variant: singer-io
-quality: silver

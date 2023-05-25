@@ -8,8 +8,8 @@ maintenance_status: unknown
 name: tap-adwords
 namespace: tap_adwords
 pip_url: git+https://github.com/georgiyolovski/tap-adwords.git
+quality: unknown
 repo: https://github.com/georgiyolovski/tap-adwords
 settings: []
 settings_group_validation: []
 variant: georgiyolovski
-quality: unknown

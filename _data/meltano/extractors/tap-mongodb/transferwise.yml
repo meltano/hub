@@ -13,6 +13,7 @@ maintenance_status: active
 name: tap-mongodb
 namespace: tap_mongodb
 pip_url: pipelinewise-tap-mongodb
+quality: silver
 repo: https://github.com/transferwise/pipelinewise-tap-mongodb
 settings:
 - description: The MongoDB password.
@@ -77,4 +78,3 @@ settings_group_validation:
   - auth_database
   - database
 variant: transferwise
-quality: silver

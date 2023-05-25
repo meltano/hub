@@ -18,6 +18,7 @@ maintenance_status: active
 name: tap-smartsheet
 namespace: tap_smartsheet
 pip_url: git+https://github.com/brooklyn-data/tap-smartsheet.git
+quality: silver
 repo: https://github.com/brooklyn-data/tap-smartsheet
 settings:
 - description: The token to authenticate against the API service
@@ -25,4 +26,3 @@ settings:
   label: Smartsheet Access Token
   name: smartsheet_access_token
 variant: brooklyn-data
-quality: silver

@@ -15,6 +15,7 @@ name: tap-planfix
 namespace: tap_planfix
 next_steps: ''
 pip_url: git+https://github.com/epoch8/tap-planfix.git
+quality: silver
 repo: https://github.com/epoch8/tap-planfix
 settings:
 - description: Planfiix Url
@@ -45,4 +46,3 @@ settings_group_validation: []
 settings_preamble: ''
 usage: ''
 variant: epoch8
-quality: silver

@@ -21,6 +21,7 @@ prereq: |
 
   Instead, use the `transferwise` variants that were made to be used with this extractor:
   [`target-postgres`](/loaders/postgres--transferwise) and [`target-snowflake`](/loaders/snowflake--transferwise).
+quality: silver
 repo: https://github.com/transferwise/pipelinewise-tap-mysql
 settings:
 - description: The MySQL/MariaDB hostname.
@@ -97,4 +98,3 @@ settings_group_validation:
   - user
   - password
 variant: transferwise
-quality: silver

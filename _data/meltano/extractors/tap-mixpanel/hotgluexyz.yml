@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-mixpanel
 namespace: tap_mixpanel
 pip_url: git+https://github.com/hotgluexyz/tap-mixpanel.git
+quality: silver
 repo: https://github.com/hotgluexyz/tap-mixpanel
 settings:
 - description: Mixpanel Project API Secret
@@ -49,4 +50,3 @@ settings:
   label: Start Date
   name: start_date
 variant: hotgluexyz
-quality: silver

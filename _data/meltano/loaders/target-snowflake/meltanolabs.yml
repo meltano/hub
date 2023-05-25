@@ -15,6 +15,7 @@ name: target-snowflake
 namespace: target_snowflake
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/target-snowflake.git
+quality: gold
 repo: https://github.com/MeltanoLabs/target-snowflake
 settings:
 - description: Your account identifier. See [Account Identifiers](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html).
@@ -85,4 +86,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: meltanolabs
-quality: gold

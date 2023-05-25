@@ -13,7 +13,7 @@ maintenance_status: unknown
 name: tap-twitter
 namespace: tap_twitter
 pip_url: git+https://github.com/bernietai/tap-twitter.git
+quality: unknown
 repo: https://github.com/bernietai/tap-twitter
 settings: []
 variant: bernietai
-quality: unknown

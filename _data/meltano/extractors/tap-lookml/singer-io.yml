@@ -12,7 +12,7 @@ maintenance_status: unknown
 name: tap-lookml
 namespace: tap_lookml
 pip_url: tap-lookml
+quality: bronze
 repo: https://github.com/singer-io/tap-lookml
 settings: []
 variant: singer-io
-quality: bronze

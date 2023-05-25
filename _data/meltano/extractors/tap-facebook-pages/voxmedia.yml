@@ -16,6 +16,7 @@ name: tap-facebook-pages
 namespace: tap_facebook_pages
 next_steps: ''
 pip_url: git+https://github.com/voxmedia/tap-facebook-pages.git
+quality: silver
 repo: https://github.com/voxmedia/tap-facebook-pages
 select:
 - '*.*'
@@ -75,4 +76,3 @@ settings_preamble: |
   See https://github.com/voxmedia/tap-facebook-pages/issues/8 for more details.
 usage: ''
 variant: voxmedia
-quality: silver

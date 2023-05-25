@@ -17,6 +17,7 @@ name: tap-sailthru
 namespace: tap_sailthru
 next_steps: ''
 pip_url: git+https://github.com/voxmedia/tap-sailthru.git
+quality: silver
 repo: https://github.com/voxmedia/tap-sailthru
 settings:
 - description: Name of the sailthru account
@@ -68,4 +69,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: voxmedia
-quality: silver

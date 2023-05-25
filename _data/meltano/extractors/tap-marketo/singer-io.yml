@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-marketo
 namespace: tap_marketo
 pip_url: git+https://github.com/singer-io/tap-marketo.git
+quality: silver
 repo: https://github.com/singer-io/tap-marketo
 settings:
 - description: Endpoint URL. See https://developers.marketo.com/rest-api/base-url/.
@@ -31,4 +32,3 @@ settings:
   label: Start Date
   name: start_date
 variant: singer-io
-quality: silver

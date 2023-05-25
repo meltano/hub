@@ -11,7 +11,7 @@ maintenance_status: unknown
 name: tap-taboola
 namespace: tap_taboola
 pip_url: git+https://github.com/dbt-labs/tap-taboola.git
+quality: unknown
 repo: https://github.com/dbt-labs/tap-taboola
 settings: []
 variant: dbt-labs
-quality: unknown

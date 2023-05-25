@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-mambu
 namespace: tap_mambu
 pip_url: tap-mambu
+quality: silver
 repo: https://github.com/singer-io/tap-mambu
 settings:
 - description: Your Mambu API key.
@@ -61,4 +62,3 @@ settings_group_validation:
   - username
   - password
 variant: singer-io
-quality: silver

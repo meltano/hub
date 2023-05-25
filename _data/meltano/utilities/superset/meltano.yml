@@ -22,7 +22,6 @@ commands:
     executable: gunicorn
 definition: |
   is a modern data exploration and visualization platform.
-
 description: A modern, enterprise-ready business intelligence web application.
 docs: https://docs.meltano.com/guide/analysis
 domain_url: https://superset.apache.org/

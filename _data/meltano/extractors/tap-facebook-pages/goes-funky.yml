@@ -15,6 +15,7 @@ maintenance_status: active
 name: tap-facebook-pages
 namespace: tap_facebook_pages
 pip_url: git+https://github.com/goes-funky/tap-facebook-pages.git
+quality: silver
 repo: https://github.com/goes-funky/tap-facebook-pages
 settings:
 - description: A list of page IDs.
@@ -36,4 +37,3 @@ settings_group_validation:
   - page_ids
   - access_token
 variant: goes-funky
-quality: silver

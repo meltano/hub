@@ -12,7 +12,7 @@ maintenance_status: unknown
 name: tap-autopilot
 namespace: tap_autopilot
 pip_url: tap-autopilot
+quality: bronze
 repo: https://github.com/singer-io/tap-autopilot
 settings: []
 variant: singer-io
-quality: bronze

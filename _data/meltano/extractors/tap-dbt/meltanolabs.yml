@@ -16,6 +16,7 @@ maintenance_status: active
 name: tap-dbt
 namespace: tap_dbt
 pip_url: git+https://github.com/meltanolabs/tap-dbt.git
+quality: gold
 repo: https://github.com/meltanolabs/tap-dbt
 settings:
 - description: dbt Cloud account IDs
@@ -64,4 +65,3 @@ settings_group_validation:
   - api_key
   - page_size
 variant: meltanolabs
-quality: gold

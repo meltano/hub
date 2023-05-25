@@ -11,7 +11,7 @@ maintenance_status: unknown
 name: tap-chargify
 namespace: tap_chargify
 pip_url: git+https://github.com/andylu-test/tap-chargify.git
+quality: unknown
 repo: https://github.com/andylu-test/tap-chargify
 settings: []
 variant: andylu-test
-quality: unknown

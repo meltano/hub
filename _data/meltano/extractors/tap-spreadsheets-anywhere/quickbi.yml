@@ -11,8 +11,8 @@ maintenance_status: unknown
 name: tap-spreadsheets-anywhere
 namespace: tap_spreadsheets_anywhere
 pip_url: git+https://github.com/quickbi/tap-spreadsheets-anywhere.git
+quality: silver
 repo: https://github.com/quickbi/tap-spreadsheets-anywhere
 settings: []
 settings_group_validation: []
 variant: quickbi
-quality: silver

@@ -8,7 +8,7 @@ maintenance_status: unknown
 name: target-parquet
 namespace: target_parquet
 pip_url: git+https://github.com/mirelagrigoras/target-parquet.git
+quality: silver
 repo: https://github.com/mirelagrigoras/target-parquet
 settings: []
 variant: mirelagrigoras
-quality: silver

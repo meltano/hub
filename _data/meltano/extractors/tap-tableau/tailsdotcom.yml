@@ -13,6 +13,7 @@ name: tap-tableau
 namespace: tap_tableau_server
 next_steps: ''
 pip_url: git+https://github.com/tailsdotcom/tap-tableau-server.git
+quality: silver
 repo: https://github.com/tailsdotcom/tap-tableau-server
 settings:
 - description: Your Tableau host.
@@ -45,4 +46,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: tailsdotcom
-quality: silver

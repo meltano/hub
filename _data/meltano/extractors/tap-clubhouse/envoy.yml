@@ -13,7 +13,7 @@ maintenance_status: unknown
 name: tap-clubhouse
 namespace: tap_clubhouse
 pip_url: git+https://github.com/envoy/tap-clubhouse.git
+quality: unknown
 repo: https://github.com/envoy/tap-clubhouse
 settings: []
 variant: envoy
-quality: unknown

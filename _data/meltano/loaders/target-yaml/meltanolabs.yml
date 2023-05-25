@@ -13,6 +13,7 @@ maintenance_status: active
 name: target-yaml
 namespace: target_yaml
 pip_url: git+https://github.com/MeltanoLabs/target-yaml.git
+quality: gold
 repo: https://github.com/MeltanoLabs/target-yaml
 settings:
 - description: 'A python format string to use when outputting the `{datestamp}` string.
@@ -95,4 +96,3 @@ settings:
   value: UTC
 settings_group_validation: []
 variant: meltanolabs
-quality: gold

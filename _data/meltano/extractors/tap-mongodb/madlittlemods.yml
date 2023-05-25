@@ -12,8 +12,8 @@ maintenance_status: unknown
 name: tap-mongodb
 namespace: tap_mongodb
 pip_url: git+https://github.com/MadLittleMods/tap-mongodb.git
+quality: unknown
 repo: https://github.com/MadLittleMods/tap-mongodb
 settings: []
 settings_group_validation: []
 variant: madlittlemods
-quality: unknown

@@ -17,6 +17,7 @@ name: tap-eventbrite
 namespace: tap_eventbrite
 next_steps: ''
 pip_url: git+https://gitlab.com/hotglue/tap-eventbrite.git
+quality: gold
 repo: https://gitlab.com/hotglue/tap-eventbrite
 settings:
 - description: Your Eventbrite API key.
@@ -49,4 +50,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: hotgluexyz
-quality: gold

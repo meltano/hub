@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-ask-nicely
 namespace: tap_ask_nicely
 pip_url: git+https://github.com/Mashey/tap-ask-nicely.git
+quality: unknown
 repo: https://github.com/Mashey/tap-ask-nicely
 settings:
 - description: The subdomain of your Ask Nicely account.
@@ -26,4 +27,3 @@ settings_group_validation:
 - - subdomain
   - api_key
 variant: mashey
-quality: unknown

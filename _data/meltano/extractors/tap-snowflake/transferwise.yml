@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-snowflake
 namespace: tap_snowflake
 pip_url: pipelinewise-tap-snowflake
+quality: silver
 repo: https://github.com/transferwise/pipelinewise-tap-snowflake
 settings:
 - description: Snowflake account name (i.e. `rtXXXXX.eu-central-1`)
@@ -67,4 +68,3 @@ settings_group_validation:
   - private_key_path
   - private_key_passphrase
 variant: transferwise
-quality: silver

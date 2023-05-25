@@ -17,6 +17,7 @@ name: tap-ordoro
 namespace: tap_ordoro
 next_steps: ''
 pip_url: git+https://gitlab.com/hotglue/tap-ordoro.git
+quality: gold
 repo: https://gitlab.com/hotglue/tap-ordoro
 settings:
 - description: The url for the API service
@@ -60,4 +61,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: hotgluexyz
-quality: gold

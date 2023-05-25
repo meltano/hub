@@ -16,6 +16,7 @@ name: target-bigquery
 namespace: target_bigquery
 next_steps: ''
 pip_url: git+https://github.com/z3z1ma/target-bigquery.git
+quality: gold
 repo: https://github.com/z3z1ma/target-bigquery
 settings:
 - description: The path to a gcp credentials json file.
@@ -187,4 +188,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: z3z1ma
-quality: gold

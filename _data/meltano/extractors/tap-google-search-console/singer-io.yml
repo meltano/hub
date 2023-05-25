@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-google-search-console
 namespace: tap_google_search_console
 pip_url: tap-google-search-console
+quality: silver
 repo: https://github.com/singer-io/tap-google-search-console
 settings:
 - description: Your refresh token.
@@ -43,4 +44,3 @@ settings_group_validation:
   - client_id
   - user_agent
 variant: singer-io
-quality: silver

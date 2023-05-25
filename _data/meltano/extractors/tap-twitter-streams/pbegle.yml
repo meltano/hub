@@ -12,6 +12,7 @@ maintenance_status: inactive
 name: tap-twitter-streams
 namespace: tap_twitter_streams
 pip_url: git+https://github.com/pbegle/tap-twitter-streams.git
+quality: silver
 repo: https://github.com/pbegle/tap-twitter-streams
 settings:
 - description: Your Twitter bearer token.
@@ -27,4 +28,3 @@ settings_group_validation:
 - - bearer_token
   - rules
 variant: pbegle
-quality: silver

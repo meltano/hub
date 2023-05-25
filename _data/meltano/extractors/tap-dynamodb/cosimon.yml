@@ -12,7 +12,7 @@ maintenance_status: unknown
 name: tap-dynamodb
 namespace: tap_dynamodb
 pip_url: git+https://github.com/cosimon/tap-dynamodb.git
+quality: unknown
 repo: https://github.com/cosimon/tap-dynamodb
 settings: []
 variant: cosimon
-quality: unknown

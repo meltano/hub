@@ -15,6 +15,7 @@ maintenance_status: active
 name: tap-awin
 namespace: tap_awin
 pip_url: git+https://github.com/gthesheep/tap-awin.git
+quality: silver
 repo: https://github.com/gthesheep/tap-awin
 settings:
 - description: API Token for the Awin API
@@ -32,4 +33,3 @@ settings_group_validation:
   - lookback_days
   - start_date
 variant: gthesheep
-quality: silver

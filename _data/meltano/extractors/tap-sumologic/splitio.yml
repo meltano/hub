@@ -11,6 +11,7 @@ maintenance_status: active
 name: tap-sumologic
 namespace: tap_sumologic
 pip_url: git+https://github.com/splitio/tap-sumologic.git
+quality: unknown
 repo: https://github.com/splitio/tap-sumologic
 settings:
 - description: "An array of objects containing the `query`, `table_name`, `max_lookback_day`,\
@@ -51,4 +52,3 @@ settings_group_validation:
   - sumologic_access_id
   - start_date
 variant: splitio
-quality: unknown

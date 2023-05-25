@@ -9,6 +9,7 @@ maintenance_status: inactive
 name: target-cassandra
 namespace: target_cassandra
 pip_url: git+https://github.com/coeff/target-cassandra.git
+quality: unknown
 repo: https://github.com/coeff/target-cassandra
 settings:
 - description: Your Cassandra username.
@@ -31,4 +32,3 @@ settings_group_validation:
   - password
   - contact_points
 variant: coeff
-quality: unknown

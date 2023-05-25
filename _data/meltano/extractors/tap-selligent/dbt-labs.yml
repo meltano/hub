@@ -11,7 +11,7 @@ maintenance_status: unknown
 name: tap-selligent
 namespace: tap_selligent
 pip_url: git+https://github.com/dbt-labs/tap-selligent.git
+quality: unknown
 repo: https://github.com/dbt-labs/tap-selligent
 settings: []
 variant: dbt-labs
-quality: unknown

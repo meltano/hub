@@ -10,8 +10,8 @@ maintenance_status: active
 name: tap-slack
 namespace: tap_slack
 pip_url: pipelinewise-tap-slack
+quality: silver
 repo: https://github.com/transferwise/pipelinewise-tap-slack
 settings: []
 settings_group_validation: []
 variant: transferwise
-quality: silver

@@ -14,6 +14,7 @@ maintenance_status: active
 name: tap-shopify
 namespace: tap_shopify
 pip_url: git+https://github.com/Matatika/tap-shopify.git
+quality: gold
 repo: https://github.com/Matatika/tap-shopify
 settings:
 - description: Your access token to authenticate with the Shopify API.
@@ -39,4 +40,3 @@ settings_group_validation:
 - - access_token
   - store
 variant: matatika
-quality: gold

@@ -11,8 +11,8 @@ maintenance_status: unknown
 name: tap-recharge
 namespace: tap_recharge
 pip_url: git+https://github.com/bytecodeio/tap-recharge.git
+quality: unknown
 repo: https://github.com/bytecodeio/tap-recharge
 settings: []
 settings_group_validation: []
 variant: bytecodeio
-quality: unknown

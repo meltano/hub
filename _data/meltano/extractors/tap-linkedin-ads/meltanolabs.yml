@@ -17,6 +17,7 @@ name: tap-linkedin-ads
 namespace: tap_linkedin_ads
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-linkedin-ads.git
+quality: gold
 repo: https://github.com/MeltanoLabs/tap-linkedin-ads
 settings:
 - description: The token to authenticate against the API service
@@ -84,4 +85,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: meltanolabs
-quality: gold

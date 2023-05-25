@@ -18,6 +18,7 @@ maintenance_status: active
 name: tap-gainsightpx
 namespace: tap_gainsightpx
 pip_url: git+https://github.com/Widen/tap-gainsightpx.git
+quality: silver
 repo: https://github.com/Widen/tap-gainsightpx
 settings:
 - description: The base url for GainsightPX service. See GainsightPX docs.
@@ -62,4 +63,3 @@ settings_group_validation:
   - start_date
   - end_date
 variant: widen
-quality: silver

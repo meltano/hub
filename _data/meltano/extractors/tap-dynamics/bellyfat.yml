@@ -11,7 +11,7 @@ maintenance_status: unknown
 name: tap-dynamics
 namespace: tap_dynamics
 pip_url: git+https://github.com/bellyfat/tap-dynamics-crm.git
+quality: unknown
 repo: https://github.com/bellyfat/tap-dynamics-crm
 settings: []
 variant: bellyfat
-quality: unknown

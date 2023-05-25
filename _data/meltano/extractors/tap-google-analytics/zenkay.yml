@@ -11,8 +11,8 @@ maintenance_status: unknown
 name: tap-google-analytics
 namespace: tap_google_analytics
 pip_url: git+https://github.com/zenkay/tap-google-analytics.git
+quality: unknown
 repo: https://github.com/zenkay/tap-google-analytics
 settings: []
 settings_group_validation: []
 variant: zenkay
-quality: unknown

@@ -15,6 +15,7 @@ name: tap-decentraland-api
 namespace: tap_decentraland_api
 next_steps: ''
 pip_url: git+https://github.com/decentraland/tap-decentraland-api.git
+quality: silver
 repo: https://github.com/decentraland/tap-decentraland-api
 settings:
 - description: Api Url
@@ -67,4 +68,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: decentraland
-quality: silver

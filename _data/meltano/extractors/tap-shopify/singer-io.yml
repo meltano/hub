@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-shopify
 namespace: tap_shopify
 pip_url: tap-shopify
+quality: silver
 repo: https://github.com/singer-io/tap-shopify
 select:
 - abandoned_checkouts.*
@@ -72,4 +73,3 @@ settings:
   label: Start Date
   name: start_date
 variant: singer-io
-quality: silver

@@ -11,7 +11,7 @@ maintenance_status: unknown
 name: tap-sms
 namespace: tap_sms
 pip_url: git+https://github.com/jboltron3000/tap-SMS.git
+quality: unknown
 repo: https://github.com/jboltron3000/tap-SMS
 settings: []
 variant: jboltron3000
-quality: unknown

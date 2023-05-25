@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-zendesk
 namespace: tap_zendesk
 pip_url: git+https://gitlab.com/hotglue/tap-zendesk.git
+quality: bronze
 repo: https://gitlab.com/hotglue/tap-zendesk
 settings:
 - description: This is the email you use to login to your Zendesk dashboard. For API
@@ -121,4 +122,3 @@ usage: |
           - slas
   ```
 variant: hotgluexyz
-quality: bronze

@@ -16,6 +16,7 @@ name: tap-anvil
 namespace: tap_anvil
 next_steps: ''
 pip_url: git+https://github.com/svinstech/tap-anvil.git
+quality: silver
 repo: https://github.com/svinstech/tap-anvil
 settings:
 - description: The API key to use to authenticate against Anvil
@@ -45,4 +46,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: svinstech
-quality: silver

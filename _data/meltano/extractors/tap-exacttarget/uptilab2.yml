@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-exacttarget
 namespace: tap_exacttarget
 pip_url: git+https://github.com/uptilab2/tap-exacttarget.git
+quality: unknown
 repo: https://github.com/uptilab2/tap-exacttarget
 settings:
 - description: A boolean option whether to sync data extension.
@@ -70,4 +71,3 @@ usage: |-
 
   If you select the subscriber stream, you MUST select list_subscriber as well. subscriber is replicated through list_subscriber.
 variant: uptilab2
-quality: unknown

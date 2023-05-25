@@ -17,6 +17,7 @@ name: tap-cin7
 namespace: tap_cin7
 next_steps: ''
 pip_url: git+https://gitlab.com/hotglue/tap-cin7.git
+quality: gold
 repo: https://gitlab.com/hotglue/tap-cin7
 settings:
 - description: api_key
@@ -37,4 +38,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: hotgluexyz
-quality: gold

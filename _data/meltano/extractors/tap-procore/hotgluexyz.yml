@@ -13,6 +13,7 @@ maintenance_status: active
 name: tap-procore
 namespace: tap_procore
 pip_url: git+https://github.com/hotgluexyz/tap-procore.git
+quality: gold
 repo: https://github.com/hotgluexyz/tap-procore
 settings:
 - description: Your Procore client Id.
@@ -47,4 +48,3 @@ settings_group_validation:
   - client_id
   - refresh_token
 variant: hotgluexyz
-quality: gold

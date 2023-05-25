@@ -16,6 +16,7 @@ name: tap-criteo
 namespace: tap_criteo
 next_steps: ''
 pip_url: git+https://github.com/edgarrmondragon/tap-criteo.git
+quality: silver
 repo: https://github.com/edgarrmondragon/tap-criteo
 settings:
 - description: An array of advertiser IDs to extract data for.
@@ -84,4 +85,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: edgarrmondragon
-quality: silver

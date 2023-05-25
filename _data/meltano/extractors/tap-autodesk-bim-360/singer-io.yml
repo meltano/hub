@@ -11,7 +11,7 @@ maintenance_status: unknown
 name: tap-autodesk-bim-360
 namespace: tap_autodesk_bim_360
 pip_url: tap-autodesk-bim-360
+quality: bronze
 repo: https://github.com/singer-io/tap-autodesk-bim-360
 settings: []
 variant: singer-io
-quality: bronze

@@ -11,7 +11,7 @@ maintenance_status: unknown
 name: tap-wordpress-reviews
 namespace: tap_wordpress_reviews
 pip_url: git+https://github.com/Yoast/singer-tap-wordpress-reviews.git
+quality: unknown
 repo: https://github.com/Yoast/singer-tap-wordpress-reviews
 settings: []
 variant: yoast
-quality: unknown

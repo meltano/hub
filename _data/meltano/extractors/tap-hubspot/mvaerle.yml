@@ -11,8 +11,8 @@ maintenance_status: unknown
 name: tap-hubspot
 namespace: tap_hubspot
 pip_url: git+https://github.com/mvaerle/tap-hubspot.git
+quality: silver
 repo: https://github.com/mvaerle/tap-hubspot
 settings: []
 settings_group_validation: []
 variant: mvaerle
-quality: silver

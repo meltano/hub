@@ -11,7 +11,7 @@ maintenance_status: unknown
 name: tap-oracle
 namespace: tap_oracle
 pip_url: git+https://github.com/mpcarter/pipelinewise-tap-oracle.git
+quality: unknown
 repo: https://github.com/mpcarter/pipelinewise-tap-oracle
 settings: []
 variant: mpcarter
-quality: unknown

@@ -12,8 +12,8 @@ maintenance_status: unknown
 name: tap-csv
 namespace: tap_csv
 pip_url: git+https://github.com/robertjmoore/tap-csv.git
+quality: unknown
 repo: https://github.com/robertjmoore/tap-csv
 settings: []
 settings_group_validation: []
 variant: robertjmoore
-quality: unknown

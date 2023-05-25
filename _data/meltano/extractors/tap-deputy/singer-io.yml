@@ -11,7 +11,7 @@ maintenance_status: unknown
 name: tap-deputy
 namespace: tap_deputy
 pip_url: tap-deputy
+quality: silver
 repo: https://github.com/singer-io/tap-deputy
 settings: []
 variant: singer-io
-quality: silver

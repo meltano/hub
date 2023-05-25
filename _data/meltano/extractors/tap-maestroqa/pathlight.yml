@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-maestroqa
 namespace: tap_maestroqa
 pip_url: git+https://github.com/Pathlight/tap-maestroqa.git
+quality: silver
 repo: https://github.com/Pathlight/tap-maestroqa
 settings:
 - description: Determines how much historical data will be extracted. Please be aware
@@ -28,4 +29,3 @@ settings_group_validation:
 - - api_token
 - - start_date
 variant: pathlight
-quality: silver

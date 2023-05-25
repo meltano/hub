@@ -13,6 +13,7 @@ maintenance_status: active
 name: tap-udemy-for-business
 namespace: tap_udemy_for_business
 pip_url: git+https://github.com/immuta/tap-udemy-for-business.git
+quality: silver
 repo: https://github.com/immuta/tap-udemy-for-business
 settings:
 - name: client_id
@@ -24,4 +25,3 @@ settings:
 - kind: date_iso8601
   name: start_date
 variant: immuta
-quality: silver

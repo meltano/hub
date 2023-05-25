@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-sftp
 namespace: tap_sftp
 pip_url: git+https://github.com/MeltanoLabs/tap-sftp.git
+quality: silver
 repo: https://github.com/MeltanoLabs/tap-sftp
 settings:
 - description: The SFTP server hostname.
@@ -66,4 +67,3 @@ settings_group_validation:
   - tables
   - start_date
 variant: meltanolabs
-quality: silver

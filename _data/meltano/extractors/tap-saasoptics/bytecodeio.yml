@@ -12,7 +12,7 @@ maintenance_status: unknown
 name: tap-saasoptics
 namespace: tap_saasoptics
 pip_url: git+https://github.com/bytecodeio/tap-saasoptics.git
+quality: unknown
 repo: https://github.com/bytecodeio/tap-saasoptics
 settings: []
 variant: bytecodeio
-quality: unknown

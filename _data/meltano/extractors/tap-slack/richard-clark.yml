@@ -11,8 +11,8 @@ maintenance_status: unknown
 name: tap-slack
 namespace: tap_slack
 pip_url: git+https://github.com/richard-clark/tap-slack.git
+quality: unknown
 repo: https://github.com/richard-clark/tap-slack
 settings: []
 settings_group_validation: []
 variant: richard-clark
-quality: unknown

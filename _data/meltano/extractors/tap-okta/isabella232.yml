@@ -12,6 +12,7 @@ maintenance_status: inactive
 name: tap-okta
 namespace: tap_okta
 pip_url: git+https://github.com/isabella232/tap-okta.git
+quality: unknown
 repo: https://github.com/isabella232/tap-okta
 settings:
 - description: The Okta API url to use for requests. E.g. http://<okta_url>/api/v1/.
@@ -27,4 +28,3 @@ settings_group_validation:
 - - service_url
   - api_key
 variant: isabella232
-quality: unknown

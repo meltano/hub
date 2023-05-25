@@ -13,6 +13,7 @@ maintenance_status: unknown
 name: tap-parquet
 namespace: tap_parquet
 pip_url: git+https://github.com/dataops-tk/tap-parquet.git
+quality: gold
 repo: https://github.com/dataops-tk/tap-parquet
 settings:
 - description: "Determines how much historical data will be extracted. Please be aware\n\
@@ -26,4 +27,3 @@ settings:
 settings_group_validation:
 - - filepath
 variant: dataops-tk
-quality: gold

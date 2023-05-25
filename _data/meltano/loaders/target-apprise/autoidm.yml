@@ -112,6 +112,7 @@ maintenance_status: active
 name: target-apprise
 namespace: target_apprise
 pip_url: target-apprise
+quality: gold
 repo: https://github.com/AutoIDM/target-apprise
 settings:
 - description: Array of apprise URIs
@@ -121,4 +122,3 @@ settings:
 settings_group_validation:
 - - uris
 variant: autoidm
-quality: gold

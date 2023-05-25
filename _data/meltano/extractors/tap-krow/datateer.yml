@@ -15,6 +15,7 @@ name: tap-krow
 namespace: tap_krow
 next_steps: ''
 pip_url: git+https://github.com/Datateer/tap-krow.git
+quality: silver
 repo: https://github.com/Datateer/tap-krow
 settings:
 - description: Your KROW API key.
@@ -46,4 +47,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: datateer
-quality: silver

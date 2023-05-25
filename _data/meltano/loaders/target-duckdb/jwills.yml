@@ -7,6 +7,7 @@ maintenance_status: active
 name: target-duckdb
 namespace: target_duckdb
 pip_url: target-duckdb~=0.4
+quality: silver
 repo: https://github.com/jwills/target-duckdb
 settings:
 - description: Path to the local DuckDB file.
@@ -92,4 +93,3 @@ settings_group_validation:
 - - filepath
   - default_target_schema
 variant: jwills
-quality: silver

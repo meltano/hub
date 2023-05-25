@@ -12,8 +12,8 @@ maintenance_status: unknown
 name: tap-facebook
 namespace: tap_facebook
 pip_url: git+https://github.com/hbellala/tap-facebook.git
+quality: silver
 repo: https://github.com/hbellala/tap-facebook
 settings: []
 settings_group_validation: []
 variant: hbellala
-quality: silver

@@ -17,6 +17,7 @@ name: tap-wix
 namespace: tap_wix
 next_steps: ''
 pip_url: git+https://gitlab.com/hotglue/tap-wix.git
+quality: gold
 repo: https://gitlab.com/hotglue/tap-wix
 settings:
 - description: Your Wix access token.
@@ -63,4 +64,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: hotgluexyz
-quality: gold

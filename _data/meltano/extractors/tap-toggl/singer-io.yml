@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-toggl
 namespace: tap_toggl
 pip_url: git+https://github.com/singer-io/tap-toggl.git
+quality: silver
 repo: https://github.com/singer-io/tap-toggl
 settings:
 - description: The Toggl API token.
@@ -39,4 +40,3 @@ settings_group_validation:
   - start_date
   - user_agent
 variant: singer-io
-quality: silver

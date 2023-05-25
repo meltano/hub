@@ -12,6 +12,7 @@ maintenance_status: inactive
 name: tap-ms-teams
 namespace: tap_ms_teams
 pip_url: tap-ms-teams
+quality: bronze
 repo: https://github.com/singer-io/tap-ms-teams
 settings:
 - description: The user agent to send with requests.
@@ -99,4 +100,3 @@ usage: |
     - User > User.Read.All
   16. Click Add permissions
 variant: singer-io
-quality: bronze

@@ -10,6 +10,7 @@ maintenance_status: active
 name: target-sqlite
 namespace: target_sqlite
 pip_url: git+https://gitlab.com/meltano/target-sqlite.git
+quality: bronze
 repo: https://gitlab.com/meltano/target-sqlite
 settings:
 - description: Name of the SQLite database file to be used or created, relative to
@@ -29,4 +30,3 @@ settings:
 settings_group_validation:
 - - batch_size
 variant: meltano
-quality: bronze

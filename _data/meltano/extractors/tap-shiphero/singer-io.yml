@@ -12,7 +12,7 @@ maintenance_status: unknown
 name: tap-shiphero
 namespace: tap_shiphero
 pip_url: tap-shiphero
+quality: bronze
 repo: https://github.com/singer-io/tap-shiphero
 settings: []
 variant: singer-io
-quality: bronze

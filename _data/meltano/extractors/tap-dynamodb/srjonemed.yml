@@ -11,7 +11,7 @@ maintenance_status: unknown
 name: tap-dynamodb
 namespace: tap_dynamodb
 pip_url: git+https://github.com/srjonemed/tap-dynamodb.git
+quality: unknown
 repo: https://github.com/srjonemed/tap-dynamodb
 settings: []
 variant: srjonemed
-quality: unknown

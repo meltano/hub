@@ -11,6 +11,7 @@ name: tap-apple-search-ads
 namespace: tap_apple_search_ads
 next_steps: ''
 pip_url: git+https://github.com/mighty-digital/tap-apple-search-ads.git
+quality: silver
 repo: https://github.com/mighty-digital/tap-apple-search-ads
 settings:
 - description: Apple Search Ads Organization ID, obtained from Apple Search Ads console.
@@ -43,4 +44,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: mighty-digital
-quality: silver

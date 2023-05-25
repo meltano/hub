@@ -19,6 +19,7 @@ name: tap-mongodb
 namespace: tap_mongodb
 next_steps: ''
 pip_url: git+https://github.com/z3z1ma/tap-mongodb.git
+quality: gold
 repo: https://github.com/z3z1ma/tap-mongodb
 settings:
 - description: These props are passed directly to pymongo MongoClient allowing the
@@ -97,4 +98,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: z3z1ma
-quality: gold

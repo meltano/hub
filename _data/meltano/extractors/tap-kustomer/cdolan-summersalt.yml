@@ -12,7 +12,7 @@ maintenance_status: unknown
 name: tap-kustomer
 namespace: tap_kustomer
 pip_url: git+https://github.com/cdolan-summersalt/tap-kustomer.git
+quality: unknown
 repo: https://github.com/cdolan-summersalt/tap-kustomer
 settings: []
 variant: cdolan-summersalt
-quality: unknown

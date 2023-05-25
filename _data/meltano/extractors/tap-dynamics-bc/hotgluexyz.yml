@@ -17,6 +17,7 @@ name: tap-dynamics-bc
 namespace: tap_dynamics_bc
 next_steps: ''
 pip_url: git+https://gitlab.com/hotglue/tap-dynamics-bc.git
+quality: gold
 repo: https://gitlab.com/hotglue/tap-dynamics-bc
 settings:
 - description: Your Dynamics access token.
@@ -69,4 +70,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: hotgluexyz
-quality: gold

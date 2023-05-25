@@ -17,6 +17,7 @@ name: tap-freshbooks
 namespace: tap_freshbooks
 next_steps: ''
 pip_url: git+https://gitlab.com/hotglue/tap-freshbooks.git
+quality: gold
 repo: https://gitlab.com/hotglue/tap-freshbooks
 settings:
 - description: The token to authenticate against the API service
@@ -70,4 +71,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: hotgluexyz
-quality: gold

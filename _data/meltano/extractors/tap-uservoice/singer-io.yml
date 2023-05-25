@@ -11,7 +11,7 @@ maintenance_status: unknown
 name: tap-uservoice
 namespace: tap_uservoice
 pip_url: tap-uservoice
+quality: bronze
 repo: https://github.com/singer-io/tap-uservoice
 settings: []
 variant: singer-io
-quality: bronze

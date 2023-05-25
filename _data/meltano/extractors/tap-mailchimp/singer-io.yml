@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-mailchimp
 namespace: tap_mailchimp
 pip_url: tap-mailchimp
+quality: silver
 repo: https://github.com/singer-io/tap-mailchimp
 settings:
 - description: Time for which request should wait to get response. Default, 300.
@@ -50,4 +51,3 @@ settings_group_validation:
 - - start_date
   - access_token
 variant: singer-io
-quality: silver

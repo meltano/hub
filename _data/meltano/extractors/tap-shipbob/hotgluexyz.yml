@@ -17,6 +17,7 @@ name: tap-shipbob
 namespace: tap_shipbob
 next_steps: ''
 pip_url: git+https://gitlab.com/hotglue/tap-shipbob.git
+quality: gold
 repo: https://gitlab.com/hotglue/tap-shipbob
 settings:
 - description: The token to authenticate against the API service
@@ -49,4 +50,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: hotgluexyz
-quality: gold

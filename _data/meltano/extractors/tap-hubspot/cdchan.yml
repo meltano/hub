@@ -11,8 +11,8 @@ maintenance_status: unknown
 name: tap-hubspot
 namespace: tap_hubspot
 pip_url: git+https://github.com/cdchan/tap-hubspot.git
+quality: unknown
 repo: https://github.com/cdchan/tap-hubspot
 settings: []
 settings_group_validation: []
 variant: cdchan
-quality: unknown

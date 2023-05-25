@@ -18,6 +18,7 @@ name: tap-jaffle-shop
 namespace: tap_jaffle_shop
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-jaffle-shop.git
+quality: gold
 repo: https://github.com/MeltanoLabs/tap-jaffle-shop
 settings:
 - description: ''
@@ -91,4 +92,3 @@ usage: |
   Note: This tap supports `state` but does not yet support incremental refresh. Each sync
   operation will generate a new dataset.
 variant: meltanolabs
-quality: gold

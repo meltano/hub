@@ -17,6 +17,7 @@ name: tap-rest-api-msdk
 namespace: tap_rest_api_msdk
 next_steps: ''
 pip_url: tap-rest-api-msdk
+quality: gold
 repo: https://github.com/Widen/tap-rest-api-msdk
 settings:
 - description: the base url/endpoint for the desired api
@@ -154,4 +155,3 @@ usage: |
     - '*.*'
   ```
 variant: widen
-quality: gold

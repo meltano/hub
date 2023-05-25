@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-pagerduty
 namespace: tap_pagerduty
 pip_url: git+https://github.com/goodeggs/tap-pagerduty.git
+quality: silver
 repo: https://github.com/goodeggs/tap-pagerduty
 settings:
 - description: A valid Pagerduty REST API key. See https://support.pagerduty.com/docs/api-access-keys.
@@ -43,4 +44,3 @@ settings_group_validation:
   - email
   - since
 variant: goodeggs
-quality: silver

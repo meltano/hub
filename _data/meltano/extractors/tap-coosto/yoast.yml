@@ -12,7 +12,7 @@ maintenance_status: unknown
 name: tap-coosto
 namespace: tap_coosto
 pip_url: git+https://github.com/Yoast/singer-tap-coosto.git
+quality: unknown
 repo: https://github.com/Yoast/singer-tap-coosto
 settings: []
 variant: yoast
-quality: unknown

@@ -17,6 +17,7 @@ name: tap-faire
 namespace: tap_faire
 next_steps: ''
 pip_url: git+https://gitlab.com/hotglue/tap-faire.git
+quality: gold
 repo: https://gitlab.com/hotglue/tap-faire
 settings:
 - description: The token to authenticate against the API service
@@ -54,4 +55,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: hotgluexyz
-quality: gold

@@ -12,8 +12,8 @@ maintenance_status: unknown
 name: tap-google-analytics
 namespace: tap_google_analytics
 pip_url: git+https://github.com/saidtezel/tap-google-analytics.git
+quality: silver
 repo: https://github.com/saidtezel/tap-google-analytics
 settings: []
 settings_group_validation: []
 variant: saidtezel
-quality: silver

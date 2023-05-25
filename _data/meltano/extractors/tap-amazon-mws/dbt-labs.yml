@@ -11,7 +11,7 @@ maintenance_status: unknown
 name: tap-amazon-mws
 namespace: tap_amazon_mws
 pip_url: git+https://github.com/dbt-labs/tap-amazon-mws.git
+quality: silver
 repo: https://github.com/dbt-labs/tap-amazon-mws
 settings: []
 variant: dbt-labs
-quality: silver

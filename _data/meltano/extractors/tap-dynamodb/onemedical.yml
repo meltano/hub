@@ -12,7 +12,7 @@ maintenance_status: unknown
 name: tap-dynamodb
 namespace: tap_dynamodb
 pip_url: git+https://github.com/onemedical/tap-dynamodb.git
+quality: unknown
 repo: https://github.com/onemedical/tap-dynamodb
 settings: []
 variant: onemedical
-quality: unknown

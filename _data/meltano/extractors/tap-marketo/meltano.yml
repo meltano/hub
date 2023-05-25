@@ -13,6 +13,7 @@ maintenance_status: active
 name: tap-marketo
 namespace: tap_marketo
 pip_url: git+https://gitlab.com/meltano/tap-marketo.git
+quality: bronze
 repo: https://gitlab.com/meltano/tap-marketo
 settings:
 - name: endpoint
@@ -27,4 +28,3 @@ settings:
   kind: date_iso8601
   name: start_date
 variant: meltano
-quality: bronze

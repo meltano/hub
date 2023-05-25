@@ -17,6 +17,7 @@ name: tap-fishbowl
 namespace: tap_fishbowl
 next_steps: ''
 pip_url: git+https://gitlab.com/hotglue/tap-fishbowl.git
+quality: gold
 repo: https://gitlab.com/hotglue/tap-fishbowl
 settings:
 - description: App id
@@ -73,4 +74,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: hotgluexyz
-quality: gold

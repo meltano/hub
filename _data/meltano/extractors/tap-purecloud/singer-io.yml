@@ -11,7 +11,7 @@ maintenance_status: unknown
 name: tap-purecloud
 namespace: tap_purecloud
 pip_url: tap-purecloud
+quality: silver
 repo: https://github.com/singer-io/tap-purecloud
 settings: []
 variant: singer-io
-quality: silver

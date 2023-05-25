@@ -13,6 +13,7 @@ maintenance_status: active
 name: tap-feed
 namespace: tap_feed
 pip_url: tap-feed
+quality: silver
 repo: https://github.com/jawats/tap-feed
 settings:
 - description: A list of one or more feed paths.
@@ -41,4 +42,3 @@ settings_group_validation:
   - feed_entry_fields
   - feed_entry_replication_key
 variant: jawats
-quality: silver

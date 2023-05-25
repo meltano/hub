@@ -13,6 +13,7 @@ maintenance_status: unknown
 name: tap-csv
 namespace: tap_csv
 pip_url: git+https://gitlab.com/meltano/tap-csv.git
+quality: silver
 repo: https://gitlab.com/meltano/tap-csv
 settings:
 - description: Array of objects with `entity`, `file`, and `keys` keys
@@ -28,4 +29,3 @@ settings_group_validation:
 - - files
 - - csv_files_definition
 variant: meltano
-quality: silver

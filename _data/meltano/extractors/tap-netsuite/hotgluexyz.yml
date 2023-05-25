@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-netsuite
 namespace: tap_netsuite
 pip_url: git+https://github.com/hotgluexyz/tap-netsuite.git
+quality: silver
 repo: https://github.com/hotgluexyz/tap-netsuite
 settings:
 - description: Your account Id. This can be found under Setup -> Company -> Company
@@ -67,4 +68,3 @@ settings_group_validation:
   - ns_token_secret
   - select_fields_by_default
 variant: hotgluexyz
-quality: silver

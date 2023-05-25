@@ -13,6 +13,7 @@ maintenance_status: active
 name: tap-aws-cost-explorer
 namespace: tap_aws_cost_explorer
 pip_url: git+https://github.com/albert-marrero/tap-aws-cost-explorer.git
+quality: silver
 repo: https://github.com/albert-marrero/tap-aws-cost-explorer
 settings:
 - description: Your AWS Account Access Key.
@@ -46,4 +47,3 @@ settings_group_validation:
   - granularity
   - metrics
 variant: albert-marrero
-quality: silver

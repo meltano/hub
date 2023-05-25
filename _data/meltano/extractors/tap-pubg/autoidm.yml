@@ -16,6 +16,7 @@ maintenance_status: development
 name: tap-pubg
 namespace: tap_pubg
 pip_url: git+https://github.com/AutoIDM/tap-pubg.git
+quality: gold
 repo: https://github.com/AutoIDM/tap-pubg
 settings:
 - description: The token to authenticate against the API service
@@ -28,4 +29,3 @@ settings:
   kind: string
   name: platform
 variant: autoidm
-quality: gold

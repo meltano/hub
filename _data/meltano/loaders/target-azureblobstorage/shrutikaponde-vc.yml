@@ -9,6 +9,7 @@ maintenance_status: inactive
 name: target-azureblobstorage
 namespace: target_azureblobstorage
 pip_url: git+https://github.com/shrutikaponde-vc/target-azureblobstorage.git
+quality: silver
 repo: https://github.com/shrutikaponde-vc/target-azureblobstorage
 settings:
 - description: Your Azure blob storage account name.
@@ -26,4 +27,3 @@ settings_group_validation:
   - account_key
   - container_name
 variant: shrutikaponde-vc
-quality: silver

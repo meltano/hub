@@ -12,6 +12,7 @@ name: tap-ccxt
 namespace: tap_ccxt
 next_steps: ''
 pip_url: git+https://github.com/superkeyio/tap-ccxt.git
+quality: silver
 repo: https://github.com/superkeyio/tap-ccxt
 settings:
 - description: An array of objects containing - `id` and `pairs` see an example in
@@ -24,4 +25,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: superkeyio
-quality: silver

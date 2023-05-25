@@ -10,6 +10,7 @@ name: target-s3-csv
 namespace: pipelinewise_target_s3_csv
 next_steps: ''
 pip_url: git+https://github.com/transferwise/pipelinewise-target-s3-csv.git
+quality: silver
 repo: https://github.com/transferwise/pipelinewise-target-s3-csv
 settings:
 - description: If not provided, AWS_ACCESS_KEY_ID environment variable will be used.
@@ -88,4 +89,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: transferwise
-quality: silver

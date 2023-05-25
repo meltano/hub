@@ -12,7 +12,7 @@ maintenance_status: unknown
 name: tap-rakuten
 namespace: tap_rakuten
 pip_url: git+https://github.com/chrisgoddard/tap-rakuten.git
+quality: unknown
 repo: https://github.com/chrisgoddard/tap-rakuten
 settings: []
 variant: chrisgoddard
-quality: unknown

@@ -16,6 +16,7 @@ name: tap-aftership
 namespace: tap_aftership
 next_steps: ''
 pip_url: git+https://github.com/harrystech/tap-aftership.git
+quality: silver
 repo: https://github.com/harrystech/tap-aftership
 settings:
 - description: The token to authenticate against the API service
@@ -53,4 +54,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: harrystech
-quality: silver

@@ -11,6 +11,7 @@ maintenance_status: active
 name: tap-dbt-artifacts
 namespace: tap_dbt_artifacts
 pip_url: git+https://github.com/prratek/tap-dbt-artifacts.git
+quality: unknown
 repo: https://github.com/prratek/tap-dbt-artifacts
 settings:
 - description: The full path to your dbt project's target directory.
@@ -19,4 +20,3 @@ settings:
   name: dbt_target_dir
   placeholder: Ex. "/path/to/dbt/target"
 variant: prratek
-quality: unknown

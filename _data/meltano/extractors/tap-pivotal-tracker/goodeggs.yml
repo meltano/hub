@@ -12,7 +12,7 @@ maintenance_status: unknown
 name: tap-pivotal-tracker
 namespace: tap_pivotal_tracker
 pip_url: git+https://github.com/goodeggs/tap-pivotal-tracker.git
+quality: unknown
 repo: https://github.com/goodeggs/tap-pivotal-tracker
 settings: []
 variant: goodeggs
-quality: unknown

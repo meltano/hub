@@ -12,7 +12,7 @@ maintenance_status: unknown
 name: singer-tap-zenhub
 namespace: singer_tap_zenhub
 pip_url: git+https://github.com/chillu/singer-tap-zenhub.git
+quality: unknown
 repo: https://github.com/chillu/singer-tap-zenhub
 settings: []
 variant: chillu
-quality: unknown

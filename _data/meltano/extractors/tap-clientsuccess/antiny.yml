@@ -16,6 +16,7 @@ name: tap-clientsuccess
 namespace: tap_clientsuccess
 next_steps: ''
 pip_url: git+https://github.com/antiny/tap-clientsuccess.git
+quality: silver
 repo: https://github.com/antiny/tap-clientsuccess
 settings:
 - description: The username to authenticate against the API service
@@ -53,4 +54,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: antiny
-quality: silver

@@ -13,6 +13,7 @@ name: tap-pingboard
 namespace: tap_pingboard
 next_steps: ''
 pip_url: git+https://github.com/immuta/tap-pingboard.git
+quality: unknown
 repo: https://github.com/immuta/tap-pingboard
 settings:
 - description: Client Secret for Pingboard
@@ -34,4 +35,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: immuta
-quality: unknown

@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-s3-csv
 namespace: tap_s3_csv
 pip_url: pipelinewise-tap-s3-csv
+quality: silver
 repo: https://github.com/transferwise/pipelinewise-tap-s3-csv
 settings:
 - description: S3 Access Key Id. If not provided, aws_profile or AWS_ACCESS_KEY_ID
@@ -57,4 +58,3 @@ settings_group_validation:
   - tables
   - start_date
 variant: transferwise
-quality: silver

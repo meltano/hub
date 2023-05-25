@@ -12,6 +12,7 @@ maintenance_status: inactive
 name: tap-strava
 namespace: tap_strava
 pip_url: git+https://github.com/briansloane/tap-strava.git
+quality: unknown
 repo: https://github.com/briansloane/tap-strava
 settings:
 - description: Your Strava client ID.
@@ -48,4 +49,3 @@ settings_group_validation:
   - access_token
   - code
 variant: briansloane
-quality: unknown

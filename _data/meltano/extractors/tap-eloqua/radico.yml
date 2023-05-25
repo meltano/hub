@@ -12,7 +12,7 @@ maintenance_status: unknown
 name: tap-eloqua
 namespace: tap_eloqua
 pip_url: git+https://github.com/Radico/tap-eloqua.git
+quality: unknown
 repo: https://github.com/Radico/tap-eloqua
 settings: []
 variant: radico
-quality: unknown

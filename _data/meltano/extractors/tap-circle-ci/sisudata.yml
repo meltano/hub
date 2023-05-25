@@ -11,7 +11,7 @@ maintenance_status: unknown
 name: tap-circle-ci
 namespace: tap_circle_ci
 pip_url: git+https://github.com/sisudata/tap-circle-ci.git
+quality: unknown
 repo: https://github.com/sisudata/tap-circle-ci
 settings: []
 variant: sisudata
-quality: unknown

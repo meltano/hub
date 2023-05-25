@@ -16,6 +16,7 @@ name: tap-amazon-associates
 namespace: tap_amazon_associates
 next_steps: ''
 pip_url: git+https://github.com/voxmedia/tap-amazon-associates.git
+quality: silver
 repo: https://github.com/voxmedia/tap-amazon-associates
 settings:
 - description: Amazon Associates username
@@ -57,4 +58,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: voxmedia
-quality: silver

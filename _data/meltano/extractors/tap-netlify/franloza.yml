@@ -13,6 +13,7 @@ maintenance_status: active
 name: tap-netlify
 namespace: tap_netlify
 pip_url: git+https://github.com/franloza/tap-netlify.git
+quality: silver
 repo: https://github.com/franloza/tap-netlify
 settings:
 - description: API access token. See how to obtain it from Netlify UI [here](https://docs.netlify.com/cli/get-started/#obtain-a-token-in-the-netlify-ui)
@@ -27,4 +28,3 @@ settings_group_validation:
 - - auth_token
   - workspace
 variant: franloza
-quality: silver

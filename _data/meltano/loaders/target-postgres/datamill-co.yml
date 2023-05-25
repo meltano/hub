@@ -17,6 +17,7 @@ prereq: |
   If you've installed PostgreSQL, you should already have it, but you can also install it by itself using the
   [`libpq-dev` package](https://pkgs.org/download/libpq-dev) on Ubuntu/Debian or the
   [`libpq` Homebrew formula](https://formulae.brew.sh/formula/libpq) on macOS.
+quality: silver
 repo: https://github.com/datamill-co/target-postgres
 settings:
 - label: Host
@@ -196,4 +197,3 @@ usage: |
   has specific recommendations on setting the `LDFLAGS` and/or `CPPFLAGS` environment variables.
   Set those prior to running `meltano add loader target-postgres`.
 variant: datamill-co
-quality: silver

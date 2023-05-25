@@ -13,6 +13,7 @@ name: tap-square
 namespace: tap_square
 next_steps: ''
 pip_url: git+https://github.com/singer-io/tap-square.git
+quality: silver
 repo: https://github.com/singer-io/tap-square
 settings:
 - description: The user agent to send with requests.
@@ -48,4 +49,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: singer-io
-quality: silver

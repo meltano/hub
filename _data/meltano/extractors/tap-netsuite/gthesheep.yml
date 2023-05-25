@@ -15,6 +15,7 @@ maintenance_status: beta
 name: tap-netsuite
 namespace: tap_netsuite
 pip_url: git+https://github.com/GtheSheep/tap-netsuite-rest.git
+quality: silver
 repo: https://github.com/GtheSheep/tap-netsuite-rest
 settings:
 - description: Your Client ID for token based authentication consumer key for REST
@@ -51,4 +52,3 @@ usage: |
   fewer datasets and transaction types are available due to still being marked as "Beta" endpoints,
   these can be added to the tap as Netsuite move them out of Beta
 variant: gthesheep
-quality: silver

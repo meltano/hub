@@ -13,6 +13,7 @@ name: target-iomete
 namespace: target_iomete
 next_steps: ''
 pip_url: git+https://github.com/iomete/singer-target-iomete.git
+quality: silver
 repo: https://github.com/iomete/singer-target-iomete
 settings:
 - description: iomete User
@@ -160,4 +161,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: iomete
-quality: silver

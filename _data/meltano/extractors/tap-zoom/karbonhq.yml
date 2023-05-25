@@ -11,8 +11,8 @@ maintenance_status: unknown
 name: tap-zoom
 namespace: tap_zoom
 pip_url: git+https://github.com/karbonhq/singer-tap-zoom.git
+quality: unknown
 repo: https://github.com/karbonhq/singer-tap-zoom
 settings: []
 settings_group_validation: []
 variant: karbonhq
-quality: unknown

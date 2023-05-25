@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-quickbooks
 namespace: tap_quickbooks
 pip_url: git+https://github.com/hotgluexyz/tap-quickbooks.git
+quality: silver
 repo: https://github.com/hotgluexyz/tap-quickbooks
 settings:
 - label: Realm ID
@@ -62,4 +63,3 @@ settings_group_validation:
   - realmId
   - start_date
 variant: hotgluexyz
-quality: silver

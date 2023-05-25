@@ -16,6 +16,7 @@ name: tap-tradera
 namespace: tap_tradera
 next_steps: ''
 pip_url: git+https://github.com/kgpayne/tap-tradera.git
+quality: silver
 repo: https://github.com/kgpayne/tap-tradera
 settings:
 - description: The Tradera.com developer app ID
@@ -54,4 +55,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: kgpayne
-quality: silver

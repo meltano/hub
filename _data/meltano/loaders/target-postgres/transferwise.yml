@@ -9,6 +9,7 @@ maintenance_status: active
 name: target-postgres
 namespace: target_postgres
 pip_url: pipelinewise-target-postgres
+quality: silver
 repo: https://github.com/transferwise/pipelinewise-target-postgres
 settings:
 - description: PostgreSQL host
@@ -173,4 +174,3 @@ usage: |
   has specific recommendations on setting the `LDFLAGS` and/or `CPPFLAGS` environment variables.
   Set those prior to running `meltano add loader target-postgres`.
 variant: transferwise
-quality: silver

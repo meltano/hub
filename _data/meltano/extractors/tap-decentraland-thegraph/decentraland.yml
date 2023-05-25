@@ -15,6 +15,7 @@ name: tap-decentraland-thegraph
 namespace: tap_decentraland_thegraph
 next_steps: ''
 pip_url: git+https://github.com/decentraland/tap-decentraland-thegraph.git
+quality: silver
 repo: https://github.com/decentraland/tap-decentraland-thegraph
 settings:
 - description: The start updated at date to use.
@@ -68,4 +69,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: decentraland
-quality: silver

@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-fabdb
 namespace: tap_fabdb
 pip_url: git+https://github.com/dwallace0723/tap-fabdb.git
+quality: unknown
 repo: https://github.com/dwallace0723/tap-fabdb
 settings:
 - description: Optional API Key used for authentication.
@@ -20,4 +21,3 @@ settings:
   label: API Key
   name: api_key
 variant: dwallace0723
-quality: unknown

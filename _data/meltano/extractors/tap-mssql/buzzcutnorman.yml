@@ -17,6 +17,7 @@ name: tap-mssql
 namespace: tap_mssql
 next_steps: ''
 pip_url: git+https://github.com/BuzzCutNorman/tap-mssql.git
+quality: gold
 repo: https://github.com/BuzzCutNorman/tap-mssql
 settings:
 - description: The Dialect of SQLAlchamey
@@ -86,4 +87,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: buzzcutnorman
-quality: gold

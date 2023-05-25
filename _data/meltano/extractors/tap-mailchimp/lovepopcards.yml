@@ -12,6 +12,7 @@ maintenance_status: inactive
 name: tap-mailchimp
 namespace: tap_mailchimp
 pip_url: git+https://github.com/lovepopcards/tap-mailchimp.git
+quality: unknown
 repo: https://github.com/lovepopcards/tap-mailchimp
 settings:
 - description: Lag in days for campaign reporting. Optional, default is 3.
@@ -88,4 +89,3 @@ settings_group_validation:
   - start_date
   - user_name
 variant: lovepopcards
-quality: unknown

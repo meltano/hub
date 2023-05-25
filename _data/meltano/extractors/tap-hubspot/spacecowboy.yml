@@ -14,6 +14,7 @@ maintenance_status: unknown
 name: tap-hubspot
 namespace: tap_hubspot
 pip_url: git+https://github.com/spacecowboy/tap-hubspot.git
+quality: gold
 repo: https://github.com/spacecowboy/tap-hubspot
 settings:
 - description: This is API key for your HubSpot account
@@ -28,4 +29,3 @@ settings_group_validation:
 - - hapikey
   - start_date
 variant: spacecowboy
-quality: gold

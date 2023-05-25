@@ -12,7 +12,7 @@ maintenance_status: unknown
 name: tap-google-search-console
 namespace: tap_google_search_console
 pip_url: git+https://github.com/bytecodeio/tap-google-search-console.git
+quality: unknown
 repo: https://github.com/bytecodeio/tap-google-search-console
 settings: []
 variant: bytecodeio
-quality: unknown

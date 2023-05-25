@@ -14,6 +14,7 @@ name: tap-partoo
 namespace: tap_partoo
 next_steps: ''
 pip_url: git+https://github.com/GendarmerieNationale/tap-partoo.git
+quality: silver
 repo: https://github.com/GendarmerieNationale/tap-partoo
 settings:
 - description: Partoo API Key
@@ -31,4 +32,3 @@ settings_group_validation:
 settings_preamble: ''
 usage: ''
 variant: gendarmerienationale
-quality: silver

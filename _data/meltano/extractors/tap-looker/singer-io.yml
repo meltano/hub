@@ -12,6 +12,7 @@ maintenance_status: inactive
 name: tap-looker
 namespace: tap_looker
 pip_url: tap-looker
+quality: silver
 repo: https://github.com/singer-io/tap-looker
 settings:
 - description: Your [API3 Keys](https://docs.looker.com/admin-options/settings/users#api3_keys)
@@ -66,4 +67,3 @@ usage: |
   - Transformations: Remove can nodes; IDs to string; fix JSON validation errors (datatypes)
   - ALL JSON schema generated from Looker API Swagger Definitions
 variant: singer-io
-quality: silver

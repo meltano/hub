@@ -17,6 +17,7 @@ maintenance_status: active
 name: tap-instagram
 namespace: tap_instagram
 pip_url: tap-instagram
+quality: silver
 repo: https://github.com/prratek/tap-instagram
 settings:
 - description: Array of user IDs for Instagram Business users
@@ -29,4 +30,3 @@ settings:
   label: Access Token
   name: access_token
 variant: prratek
-quality: silver

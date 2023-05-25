@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-lotr
 namespace: tap_lotr
 pip_url: git+https://github.com/mattarderne/tap-lotr.git
+quality: silver
 repo: https://github.com/mattarderne/tap-lotr
 settings:
 - description: Access token obtained from the [account page](https://the-one-api.dev/account)
@@ -20,4 +21,3 @@ settings:
 settings_group_validation:
 - - api_key
 variant: mattarderne
-quality: silver

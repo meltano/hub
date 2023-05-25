@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-zuora
 namespace: tap_zuora
 pip_url: pipelinewise-tap-zuora
+quality: silver
 repo: https://github.com/transferwise/pipelinewise-tap-zuora
 settings:
 - description: "Determines how much historical data will be extracted. Please be aware\n\
@@ -47,4 +48,3 @@ settings_group_validation:
   - api_type
   - password
 variant: transferwise
-quality: silver

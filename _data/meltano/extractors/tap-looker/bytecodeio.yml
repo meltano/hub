@@ -12,7 +12,7 @@ maintenance_status: unknown
 name: tap-looker
 namespace: tap_looker
 pip_url: git+https://github.com/bytecodeio/tap-looker.git
+quality: unknown
 repo: https://github.com/bytecodeio/tap-looker
 settings: []
 variant: bytecodeio
-quality: unknown

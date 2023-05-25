@@ -8,6 +8,7 @@ maintenance_status: active
 name: target-miso
 namespace: target_miso
 pip_url: target-miso
+quality: unknown
 repo: https://github.com/MisoAI/target-miso
 settings:
 - description: The path to directory of template files.
@@ -32,4 +33,3 @@ settings_group_validation:
   - api_key
   - use_async
 variant: misoai
-quality: unknown

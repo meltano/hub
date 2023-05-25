@@ -12,7 +12,7 @@ maintenance_status: unknown
 name: tap-pepperjam
 namespace: tap_pepperjam
 pip_url: tap-pepperjam
+quality: silver
 repo: https://github.com/singer-io/tap-pepperjam
 settings: []
 variant: singer-io
-quality: silver

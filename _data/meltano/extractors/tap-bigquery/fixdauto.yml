@@ -11,8 +11,8 @@ maintenance_status: unknown
 name: tap-bigquery
 namespace: tap_bigquery
 pip_url: git+https://github.com/fixdauto/tap-bigquery.git
+quality: unknown
 repo: https://github.com/fixdauto/tap-bigquery
 settings: []
 settings_group_validation: []
 variant: fixdauto
-quality: unknown
