@@ -19,7 +19,8 @@ next_steps: ''
 pip_url: meltanolabs-tap-snowflake
 repo: https://github.com/MeltanoLabs/tap-snowflake
 settings:
-- description: Your account identifier. See [Account Identifiers](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html).
+- description: Your account identifier. See [Account 
+    Identifiers](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html).
   kind: string
   label: Account
   name: account
@@ -27,8 +28,8 @@ settings:
   kind: string
   label: Database
   name: database
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -57,6 +58,13 @@ settings:
   kind: object
   label: Stream Maps
   name: stream_maps
+- description: 'An array of the table names that you want to sync. The table names
+    should be fully qualified, including schema and table name. NOTE: this limits
+    discovery to the tables specified, for performance reasons. Do not specify `tables`
+    if you intend to discover the entire available catalog.'
+  kind: array
+  label: Tables
+  name: tables
 - description: The login name for your Snowflake user.
   kind: string
   label: User
