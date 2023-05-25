@@ -69,11 +69,6 @@ settings:
   name: stream_maps
 settings_group_validation:
 - - sqlalchemy_url
-  - ssh_tunnel.enable
-  - ssh_tunnel.host
-  - ssh_tunnel.port
-  - ssh_tunnel.private_key
-  - ssh_tunnel.username
 settings_preamble: ''
 usage: |
   ## Incremental Replication
