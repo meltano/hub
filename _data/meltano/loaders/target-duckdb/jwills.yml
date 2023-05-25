@@ -89,6 +89,6 @@ settings:
   label: Temporary Directory
   name: temp_dir
 settings_group_validation:
-- - 'filepath'
-  - 'default_target_schema'
+- - filepath
+  - default_target_schema
 variant: jwills
