@@ -24,6 +24,7 @@ SKIP_FIELDS = [
     "settings_preamble",
     "usage",
     "prereq",
+    "quality",
 ]
 
 SKIP_FIELDS_BY_TYPE = {

@@ -10,9 +10,9 @@ commands:
         POSTGRES_USER: warehouse
       image: postgres:15
       ports:
-        "5432": "5432/tcp"
+        '5432': 5432/tcp
       volumes:
-      - "$MELTANO_PROJECT_ROOT/.meltano/utilities/postgres/data/:/var/lib/postgresql/data"
+      - $MELTANO_PROJECT_ROOT/.meltano/utilities/postgres/data/:/var/lib/postgresql/data
 definition: is a containerized instance of Postgres useful for local development.
 description: The World's Most Advanced Open Source Relational Database.
 docs: https://www.postgresql.org/

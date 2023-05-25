@@ -10,9 +10,9 @@ commands:
         PWD: /
       image: metabase/metabase:latest
       ports:
-        "3000": "3000/tcp"
+        '3000': 3000/tcp
       volumes:
-      - "$MELTANO_PROJECT_ROOT/.meltano/utilities/metabase/data/:/metabase-data"
+      - $MELTANO_PROJECT_ROOT/.meltano/utilities/metabase/data/:/metabase-data
 description: Metabase is the easy, open-source way for everyone in your company to
   ask questions and learn from data.
 docs: https://www.metabase.com/

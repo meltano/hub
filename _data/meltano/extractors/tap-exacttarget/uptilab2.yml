@@ -17,11 +17,13 @@ settings:
   kind: boolean
   label: Discover Data Extension
   name: discover_data_extension
-- description: A setting to alter the replication method to incremental mode. This can also be done using the tap's [stream metadata settings](https://docs.meltano.com/guide/integration#replication-methods).
+- description: A setting to alter the replication method to incremental mode. This
+    can also be done using the tap's [stream metadata settings](https://docs.meltano.com/guide/integration#replication-methods).
   kind: boolean
   label: Incremental Mode Send
   name: incremental_mode_send
-- description: The amount of days to offset the start date or bookmarked date by. The value is an integer in days. Default, None.
+- description: The amount of days to offset the start date or bookmarked date by.
+    The value is an integer in days. Default, None.
   kind: integer
   label: Offset Start Date (Days)
   name: offset_start_date

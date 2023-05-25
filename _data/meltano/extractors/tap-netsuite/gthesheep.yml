@@ -23,7 +23,8 @@ settings:
   kind: password
   label: NetSuite Client ID
   name: client_id
-- description: Your Client Secret for token based authentication consumer key for REST connection.
+- description: Your Client Secret for token based authentication consumer key for
+    REST connection.
   kind: password
   label: NetSuite Client Secret
   name: client_secret
