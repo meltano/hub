@@ -14,3 +14,4 @@ pip_url: git+https://github.com/dbt-labs/tap-bronto.git
 repo: https://github.com/dbt-labs/tap-bronto
 settings: []
 variant: dbt-labs
+quality: unknown

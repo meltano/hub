@@ -44,3 +44,4 @@ settings_group_validation:
   - access_token
   - start_date
 variant: meltano
+quality: bronze

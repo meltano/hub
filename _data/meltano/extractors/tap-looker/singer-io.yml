@@ -66,3 +66,4 @@ usage: |
   - Transformations: Remove can nodes; IDs to string; fix JSON validation errors (datatypes)
   - ALL JSON schema generated from Looker API Swagger Definitions
 variant: singer-io
+quality: unknown

@@ -124,3 +124,4 @@ settings_group_validation:
   - refresh_token
   - start_date
 variant: meltano
+quality: bronze
