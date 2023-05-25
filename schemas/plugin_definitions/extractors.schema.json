@@ -46,7 +46,10 @@
                 "settings_preamble": {},
                 "usage": {},
                 "prereq": {}
-            }
+            },
+            "required": [
+                "quality"
+            ]
         }
     ]
 }
