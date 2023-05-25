@@ -14,4 +14,4 @@ pip_url: git+https://github.com/singer-io/tap-crossbeam.git
 repo: https://github.com/singer-io/tap-crossbeam
 settings: []
 variant: singer-io
-quality: unknown
+quality: bronze

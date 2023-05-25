@@ -42,4 +42,4 @@ settings_group_validation:
   - api_key
   - api_secret
 variant: singer-io
-quality: unknown
+quality: bronze

@@ -36,4 +36,4 @@ settings_group_validation:
   - app_key
   - start_date
 variant: singer-io
-quality: unknown
+quality: bronze

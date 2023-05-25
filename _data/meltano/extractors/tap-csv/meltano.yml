@@ -28,4 +28,4 @@ settings_group_validation:
 - - files
 - - csv_files_definition
 variant: meltano
-quality: bronze
+quality: silver

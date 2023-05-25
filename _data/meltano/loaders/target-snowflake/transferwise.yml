@@ -279,4 +279,4 @@ usage: |
 
   Target connectors version the columns. See the [versioning columns docs](https://transferwise.github.io/pipelinewise/user_guide/schema_changes.html#versioning-columns) for syntax.
 variant: transferwise
-quality: unknown
+quality: silver

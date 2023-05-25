@@ -14,4 +14,4 @@ pip_url: git+https://github.com/dbt-labs/tap-liveperson.git
 repo: https://github.com/dbt-labs/tap-liveperson
 settings: []
 variant: dbt-labs
-quality: unknown
+quality: silver

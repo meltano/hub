@@ -61,4 +61,4 @@ settings_group_validation:
   - user_login_id
   - facility_id
 variant: singer-io
-quality: unknown
+quality: bronze

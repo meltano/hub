@@ -56,4 +56,4 @@ settings_group_validation:
   - view_id
   - start_date
 variant: meltano
-quality: bronze
+quality: silver

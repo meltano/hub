@@ -43,4 +43,4 @@ settings_group_validation:
   - access_token
   - access_token_secret
 variant: singer-io
-quality: unknown
+quality: bronze

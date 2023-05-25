@@ -14,4 +14,4 @@ pip_url: tap-emarsys
 repo: https://github.com/singer-io/tap-emarsys
 settings: []
 variant: singer-io
-quality: unknown
+quality: bronze

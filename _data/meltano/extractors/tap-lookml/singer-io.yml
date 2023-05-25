@@ -15,4 +15,4 @@ pip_url: tap-lookml
 repo: https://github.com/singer-io/tap-lookml
 settings: []
 variant: singer-io
-quality: unknown
+quality: bronze

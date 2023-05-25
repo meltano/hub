@@ -244,4 +244,4 @@ settings_group_validation:
   - aws_session_token
 target_schema: $TARGET_REDSHIFT_DEFAULT_TARGET_SCHEMA
 variant: transferwise
-quality: unknown
+quality: silver

@@ -58,4 +58,4 @@ settings_group_validation:
   - schema
 target_schema: $TARGET_SNOWFLAKE_SCHEMA
 variant: meltano
-quality: bronze
+quality: silver

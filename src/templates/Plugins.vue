@@ -44,6 +44,9 @@
                 </p>
                 <p class="text-lg">
                   <code>{{ $page.plugins.name }} ({{ $page.plugins.variant }} variant)</code>
+                  <span v-if="$page.plugins.quality == 'gold'">🥇</span>
+                  <span v-if="$page.plugins.quality == 'silver'">🥈</span>
+                  <span v-if="$page.plugins.quality == 'bronze'">🥉</span>
                 </p>
                 <p>
                   <b class="font-hg">{{ $page.plugins.description }}</b>
@@ -177,6 +180,9 @@
                             src="https://img.shields.io/badge/-Meltano%20SDK-blueviolet"
                           />
                         </span>
+                        <span v-if="variant.node.quality == 'gold'">🥇</span>
+                        <span v-if="variant.node.quality == 'silver'">🥈</span>
+                        <span v-if="variant.node.quality == 'bronze'">🥉</span>
                       </li>
                     </ul>
                   </span>
@@ -461,6 +467,7 @@ query Plugins($path: String!, $name: String!) {
     }
     prereq
     prereq_rendered
+    quality
     settings_preamble
     settings_preamble_rendered
     usage
@@ -484,6 +491,7 @@ query Plugins($path: String!, $name: String!) {
         isDefault
         keywords
         pluginType
+        quality
         maintainer {
           name
           label

@@ -18,4 +18,4 @@ namespace: tap_carbon_intensity
 pip_url: git+https://gitlab.com/meltano/tap-carbon-intensity.git
 repo: https://gitlab.com/meltano/tap-carbon-intensity
 variant: meltano
-quality: bronze
+quality: silver
