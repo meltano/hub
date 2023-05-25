@@ -11,4 +11,3 @@ repo: https://github.com/meltano/files-airflow
 update:
   orchestrate/dags/meltano.py: true
 variant: meltano
-quality: gold

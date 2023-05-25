@@ -7,4 +7,3 @@ vars:
   entry_table: "{{ env_var('DBT_SOURCE_SCHEMA', 'tap_carbon_intensity') }}.entry"
   generationmix_table: "{{ env_var('DBT_SOURCE_SCHEMA', 'tap_carbon_intensity') }}.generationmix"
   region_table: "{{ env_var('DBT_SOURCE_SCHEMA', 'tap_carbon_intensity') }}.region"
-quality: gold

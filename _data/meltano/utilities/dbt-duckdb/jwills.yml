@@ -106,4 +106,3 @@ settings:
 settings_preamble: |
   Settings for dbt itself can be configured through [dbt_project.yml](https://docs.getdbt.com/reference/dbt_project.yml) as usual, which can be found at transform/dbt_project.yml in your Meltano project.
 variant: jwills
-quality: unknown

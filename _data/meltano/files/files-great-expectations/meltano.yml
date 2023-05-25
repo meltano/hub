@@ -8,4 +8,3 @@ namespace: files_great_expectations
 pip_url: git+https://github.com/meltano/files-great-expectations
 repo: https://github.com/meltano/files-great-expectations
 variant: meltano
-quality: gold

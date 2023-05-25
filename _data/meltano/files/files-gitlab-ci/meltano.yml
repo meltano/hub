@@ -8,4 +8,3 @@ namespace: files_gitlab_ci
 pip_url: git+https://github.com/meltano/files-gitlab-ci.git
 repo: https://github.com/meltano/files-gitlab-ci
 variant: meltano
-quality: gold

@@ -164,4 +164,3 @@ settings_preamble: |
   Each endpoint from the [Totango Search API](https://support.totango.com/hc/en-us/sections/360005893212-Totango-API) requires some parameters with the same name for the query, such as `terms`, `count`, and `offset`. In these cases, we provide settings namespaced by the stream name (e.g. `accounts_terms`,  `users_offset` , etc.).
 usage: ''
 variant: indiciumtech
-quality: silver

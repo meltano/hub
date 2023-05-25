@@ -6,4 +6,3 @@ variant: meltano
 vars:
   schema: "{{ env_var('DBT_SOURCE_SCHEMA', 'tap_gitlab') }}"
   ultimate_license: "{{ env_var('GITLAB_API_ULTIMATE_LICENSE', False) }}"
-quality: gold

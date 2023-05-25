@@ -91,4 +91,3 @@ usage: |
   Note: This tap supports `state` but does not yet support incremental refresh. Each sync
   operation will generate a new dataset.
 variant: meltanolabs
-quality: gold

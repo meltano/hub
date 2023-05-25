@@ -196,4 +196,3 @@ usage: |
   has specific recommendations on setting the `LDFLAGS` and/or `CPPFLAGS` environment variables.
   Set those prior to running `meltano add loader target-postgres`.
 variant: datamill-co
-quality: unknown
