@@ -58,6 +58,13 @@ settings:
   kind: object
   label: Stream Maps
   name: stream_maps
+- description: 'An array of the table names that you want to sync. The table names
+    should be fully qualified, including schema and table name. NOTE: this limits
+    discovery to the tables specified, for performance reasons. Do not specify `tables`
+    if you intend to discover the entire available catalog.'
+  kind: array
+  label: Tables
+  name: tables
 - description: The login name for your Snowflake user.
   kind: string
   label: User
