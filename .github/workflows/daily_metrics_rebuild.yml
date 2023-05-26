@@ -2,7 +2,7 @@ name: nightly-netlify-build
 
 on:
   schedule:
-    - cron: "15 9 * * *"
+    - cron: "15 13 * * *"
   workflow_dispatch:
 
 jobs:
