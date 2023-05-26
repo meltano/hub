@@ -11,7 +11,7 @@ maintenance_status: unknown
 name: tap-webcrawl
 namespace: tap_webcrawl
 pip_url: git+https://github.com/anelendata/tap-webcrawl.git
-quality: silver
+quality: unknown
 repo: https://github.com/anelendata/tap-webcrawl
 settings: []
 variant: anelendata

@@ -11,7 +11,7 @@ maintenance_status: unknown
 name: tap-facebook
 namespace: tap_facebook
 pip_url: git+https://github.com/primedata-ai/tap-facebook.git
-quality: unknown
+quality: silver
 repo: https://github.com/primedata-ai/tap-facebook
 settings: []
 settings_group_validation: []
