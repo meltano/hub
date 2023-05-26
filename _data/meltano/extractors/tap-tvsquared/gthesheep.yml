@@ -15,6 +15,7 @@ name: tap-tvsquared
 namespace: tap_tvsquared
 next_steps: ''
 pip_url: git+https://github.com/GtheSheep/tap-tvsquared.git
+quality: silver
 repo: https://github.com/GtheSheep/tap-tvsquared
 settings:
 - description: Partner domain for your TVSquared account

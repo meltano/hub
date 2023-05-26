@@ -135,6 +135,7 @@ metadata:
 name: tap-bing-ads
 namespace: tap_bing_ads
 pip_url: tap-bing-ads
+quality: silver
 repo: https://github.com/singer-io/tap-bing-ads
 settings:
 - description: See https://docs.microsoft.com/en-us/advertising/guides/get-started#get-developer-token.

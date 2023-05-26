@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-klaviyo
 namespace: tap_klaviyo
 pip_url: git+https://github.com/codyss/tap-klaviyo.git
+quality: silver
 repo: https://github.com/codyss/tap-klaviyo
 settings: []
 variant: codyss

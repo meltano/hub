@@ -17,6 +17,7 @@ name: tap-dotykacka
 namespace: tap_dotykacka
 next_steps: ''
 pip_url: git+https://gitlab.com/hotglue/tap-dotykacka.git
+quality: gold
 repo: https://gitlab.com/hotglue/tap-dotykacka
 settings:
 - description: Your Dotykacka API access token.

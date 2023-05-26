@@ -17,6 +17,7 @@ name: tap-snapchat-ads
 namespace: tap_snapchat_ads
 next_steps: ''
 pip_url: git+https://github.com/GtheSheep/tap-snapchat-ads.git
+quality: silver
 repo: https://github.com/GtheSheep/tap-snapchat-ads
 settings:
 - description: Client ID used to authenticate against the API.

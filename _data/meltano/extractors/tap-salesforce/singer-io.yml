@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-salesforce
 namespace: tap_salesforce
 pip_url: tap-salesforce
+quality: silver
 repo: https://github.com/singer-io/tap-salesforce
 settings: []
 settings_group_validation: []

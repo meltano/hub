@@ -18,6 +18,7 @@ name: tap-affinity
 namespace: tap_affinity
 next_steps: ''
 pip_url: git+https://gitlab.com/hotglue/tap-affinity.git
+quality: gold
 repo: https://gitlab.com/hotglue/tap-affinity
 settings:
 - description: The token to authenticate against the API service

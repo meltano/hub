@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-gitlab
 namespace: tap_gitlab
 pip_url: tap-gitlab
+quality: silver
 repo: https://github.com/singer-io/tap-gitlab
 settings: []
 settings_group_validation: []

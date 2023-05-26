@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-auth0
 namespace: tap_auth0
 pip_url: git+https://github.com/nickhould/tap-auth0.git
+quality: unknown
 repo: https://github.com/nickhould/tap-auth0
 settings: []
 variant: nickhould

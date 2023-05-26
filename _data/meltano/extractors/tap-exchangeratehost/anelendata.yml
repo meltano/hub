@@ -10,6 +10,7 @@ maintenance_status: unknown
 name: tap-exchangeratehost
 namespace: tap_exchangeratehost
 pip_url: git+https://github.com/anelendata/tap-exchangeratehost.git
+quality: silver
 repo: https://github.com/anelendata/tap-exchangeratehost
 settings:
 - description: Determines how much historical data will be extracted. Please be aware

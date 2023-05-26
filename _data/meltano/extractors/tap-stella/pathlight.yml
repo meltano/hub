@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-stella
 namespace: tap_stella
 pip_url: git+https://github.com/Pathlight/tap-stella.git
+quality: unknown
 repo: https://github.com/Pathlight/tap-stella
 settings: []
 variant: pathlight

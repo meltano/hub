@@ -14,6 +14,7 @@ namespace: tap_bigquery
 pip_url: tap-bigquery
 prereq: |
   Additionally you should follow the steps in the ["Activate the Google BigQuery API" section](https://github.com/anelendata/tap-bigquery#step-1-activate-the-google-bigquery-api) of the repository's README.
+quality: silver
 repo: https://github.com/anelendata/tap-bigquery
 settings:
 - description: |

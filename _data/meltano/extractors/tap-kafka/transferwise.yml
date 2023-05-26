@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-kafka
 namespace: tap_kafka
 pip_url: pipelinewise-tap-kafka
+quality: silver
 repo: https://github.com/transferwise/pipelinewise-tap-kafka
 settings:
 - description: Name of kafka topics to subscribe to

@@ -17,6 +17,7 @@ name: tap-talon-one
 namespace: tap_talonone
 next_steps: ''
 pip_url: git+https://github.com/GtheSheep/tap-talon-one.git
+quality: silver
 repo: https://github.com/GtheSheep/tap-talon-one
 settings:
 - description: The token to authenticate against the API service

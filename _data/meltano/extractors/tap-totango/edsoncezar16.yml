@@ -20,6 +20,7 @@ namespace: tap_totango
 next_steps: |
   You should create a [Totango API personal access token](https://support.totango.com/hc/en-us/articles/203036939-Personal-Access-Token-and-Service-ID) and provide it as the `auth_token` setting for the tap.
 pip_url: tap-totango
+quality: silver
 repo: https://github.com/edsoncezar16/tap-totango
 settings:
 - description: Filter the events stream results for a specific account.

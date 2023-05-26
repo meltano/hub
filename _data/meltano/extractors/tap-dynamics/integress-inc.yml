@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-dynamics
 namespace: tap_dynamics
 pip_url: git+https://github.com/integress-inc/tap-dynamics-crm.git
+quality: unknown
 repo: https://github.com/integress-inc/tap-dynamics-crm
 settings: []
 variant: integress-inc

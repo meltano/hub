@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-twitter-ads
 namespace: tap_twitter_ads
 pip_url: git+https://github.com/bytecodeio/tap-twitter-ads.git
+quality: unknown
 repo: https://github.com/bytecodeio/tap-twitter-ads
 settings: []
 variant: bytecodeio

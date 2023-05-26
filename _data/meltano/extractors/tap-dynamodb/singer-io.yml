@@ -13,6 +13,7 @@ maintenance_status: unknown
 name: tap-dynamodb
 namespace: tap_dynamodb
 pip_url: tap-dynamodb
+quality: silver
 repo: https://github.com/singer-io/tap-dynamodb
 settings:
 - description: The AWS account ID used to connect to DynamoDB.

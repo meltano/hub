@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-bigcommerce
 namespace: tap_bigcommerce
 pip_url: tap-bigcommerce
+quality: bronze
 repo: https://github.com/singer-io/tap-bigcommerce
 settings: []
 variant: singer-io

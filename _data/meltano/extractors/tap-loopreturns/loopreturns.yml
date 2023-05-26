@@ -12,6 +12,7 @@ maintenance_status: inactive
 name: tap-loopreturns
 namespace: tap_loopreturns
 pip_url: git+https://github.com/LoopReturns/tap-loopreturns.git
+quality: silver
 repo: https://github.com/LoopReturns/tap-loopreturns
 settings:
 - description: The user agent to send with API requests.

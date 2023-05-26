@@ -12,6 +12,7 @@ maintenance_status: inactive
 name: tap-mailgun
 namespace: tap_mailgun
 pip_url: git+https://github.com/streetteam/tap-mailgun.git
+quality: silver
 repo: https://github.com/streetteam/tap-mailgun
 settings:
 - description: Authentication is required when using the Mailgun API, you can find

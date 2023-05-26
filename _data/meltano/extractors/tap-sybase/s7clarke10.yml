@@ -16,6 +16,7 @@ name: tap-sybase
 namespace: tap_sybase
 next_steps: ''
 pip_url: git+https://github.com/s7clarke10/tap-sybase-sdk.git
+quality: silver
 repo: https://github.com/s7clarke10/tap-sybase-sdk
 settings:
 - description: The user name used to connect to the Sybase database

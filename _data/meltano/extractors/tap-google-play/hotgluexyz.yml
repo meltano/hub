@@ -17,6 +17,7 @@ name: tap-google-play
 namespace: tap_google_play
 next_steps: ''
 pip_url: git+https://gitlab.com/hotglue/tap-google-play.git
+quality: gold
 repo: https://gitlab.com/hotglue/tap-google-play
 settings:
 - description: Your Google Play App ID.

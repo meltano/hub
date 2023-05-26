@@ -15,6 +15,7 @@ maintenance_status: active
 name: tap-mercadopago
 namespace: tap_mercadopago
 pip_url: git+https://github.com/a-rusi/tap-mercadopago.git
+quality: silver
 repo: https://github.com/a-rusi/tap-mercadopago
 settings:
 - description: API authorization token. You can find more info on how to obtain it

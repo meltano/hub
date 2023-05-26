@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-prometheus
 namespace: tap_prometheus
 pip_url: git+https://github.com/miroapp/tap-prometheus.git
+quality: silver
 repo: https://github.com/miroapp/tap-prometheus
 settings: []
 variant: miroapp

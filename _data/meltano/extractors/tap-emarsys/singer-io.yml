@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-emarsys
 namespace: tap_emarsys
 pip_url: tap-emarsys
+quality: bronze
 repo: https://github.com/singer-io/tap-emarsys
 settings: []
 variant: singer-io

@@ -17,6 +17,7 @@ name: tap-picqer
 namespace: tap_picqer
 next_steps: ''
 pip_url: git+https://gitlab.com/hotglue/tap-picqer.git
+quality: gold
 repo: https://gitlab.com/hotglue/tap-picqer
 settings:
 - description: The token to authenticate against the API service

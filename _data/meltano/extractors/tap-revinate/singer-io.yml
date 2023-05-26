@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-revinate
 namespace: tap_revinate
 pip_url: tap-revinate
+quality: bronze
 repo: https://github.com/singer-io/tap-revinate
 settings: []
 variant: singer-io

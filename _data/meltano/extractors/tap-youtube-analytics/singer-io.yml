@@ -12,6 +12,7 @@ maintenance_status: inactive
 name: tap-youtube-analytics
 namespace: tap_youtube_analytics
 pip_url: tap-youtube-analytics
+quality: silver
 repo: https://github.com/singer-io/tap-youtube-analytics
 settings:
 - description: The unique channel IDs in a comma delimited list.

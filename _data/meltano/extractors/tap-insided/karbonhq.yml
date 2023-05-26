@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-insided
 namespace: tap_insided
 pip_url: git+https://github.com/karbonhq/singer-tap-insided.git
+quality: unknown
 repo: https://github.com/karbonhq/singer-tap-insided
 settings: []
 variant: karbonhq

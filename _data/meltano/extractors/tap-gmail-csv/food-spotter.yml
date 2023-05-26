@@ -12,6 +12,7 @@ maintenance_status: inactive
 name: tap-gmail-csv
 namespace: tap_gmail_csv
 pip_url: git+https://github.com/food-spotter/tap-gmail-csv.git
+quality: unknown
 repo: https://github.com/food-spotter/tap-gmail-csv
 settings:
 - description: A Google generated pickle file encoded in base64 for authentication.

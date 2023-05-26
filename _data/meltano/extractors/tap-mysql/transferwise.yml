@@ -18,6 +18,7 @@ prereq: |
   Note that this extractor is incompatible with the `datamill-co` [variants](https://docs.meltano.com/concepts/plugins#variants)
   of [`target-postgres`](/loaders/postgres--datamill-co) and [`target-snowflake`](/loaders/snowflake--datamill-co),
   because they don't support stream names that include the source schema in addition to the table name: `<schema>-<table>`, e.g. `public-accounts`.
+quality: silver
 repo: https://github.com/transferwise/pipelinewise-tap-mysql
 settings:
 - description: The MySQL/MariaDB hostname.

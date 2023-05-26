@@ -12,6 +12,7 @@ name: target-singer-jsonl
 namespace: target_singer_jsonl
 next_steps: ''
 pip_url: target-singer-jsonl
+quality: silver
 repo: https://github.com/kgpayne/target-singer-jsonl
 settings:
 - description: The destination configuration to use. Currently `local` and `s3` are

@@ -15,6 +15,7 @@ maintenance_status: active
 name: tap-monday
 namespace: tap_monday
 pip_url: git+https://github.com/gthesheep/tap-monday.git
+quality: silver
 repo: https://github.com/gthesheep/tap-monday
 settings:
 - description: API Token gained from Monday.com authorisation process

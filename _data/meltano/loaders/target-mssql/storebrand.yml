@@ -14,6 +14,7 @@ name: target-mssql
 namespace: target_mssql
 next_steps: ''
 pip_url: git+https://github.com/storebrand/target-mssql.git
+quality: gold
 repo: https://github.com/storebrand/target-mssql
 settings:
 - description: SQLAlchemy connection string

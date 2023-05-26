@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-redshift
 namespace: tap_redshift
 pip_url: git+https://github.com/datadotworld/tap-redshift.git
+quality: unknown
 repo: https://github.com/datadotworld/tap-redshift
 settings: []
 variant: datadotworld

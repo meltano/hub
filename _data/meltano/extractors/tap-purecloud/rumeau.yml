@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-purecloud
 namespace: tap_purecloud
 pip_url: git+https://github.com/rumeau/tap-purecloud.git
+quality: silver
 repo: https://github.com/rumeau/tap-purecloud
 settings: []
 variant: rumeau

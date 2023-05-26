@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-google-sheets
 namespace: tap_google_sheets
 pip_url: git+https://github.com/singer-io/tap-google-sheets.git
+quality: silver
 repo: https://github.com/singer-io/tap-google-sheets
 settings:
 - description: This is the ID setup via the Google Cloud API.

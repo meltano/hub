@@ -13,6 +13,7 @@ maintenance_status: unknown
 name: tap-abcfinancial
 namespace: tap_abcfinancial
 pip_url: git+https://github.com/dmzobel/tap-abcfinancial.git
+quality: unknown
 repo: https://github.com/dmzobel/tap-abcfinancial
 settings: []
 variant: dmzobel

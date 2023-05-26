@@ -16,6 +16,7 @@ maintenance_status: active
 name: tap-newrelic
 namespace: tap_newrelic
 pip_url: git+https://github.com/fixdauto/tap-newrelic.git
+quality: silver
 repo: https://github.com/fixdauto/tap-newrelic
 settings:
 - description: Your Newrelic [API key](https://docs.newrelic.com/docs/apis/nerdgraph/get-started/introduction-new-relic-nerdgraph/#explorer).

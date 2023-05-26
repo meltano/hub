@@ -13,6 +13,7 @@ name: target-s3-parquet
 namespace: target_s3_parquet
 next_steps: ''
 pip_url: git+https://github.com/gupy-io/target-s3-parquet.git
+quality: gold
 repo: https://github.com/gupy-io/target-s3-parquet
 settings:
 - description: The s3 path to the target output file

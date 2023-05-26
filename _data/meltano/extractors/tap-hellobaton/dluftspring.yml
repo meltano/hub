@@ -15,6 +15,7 @@ maintenance_status: active
 name: tap-hellobaton
 namespace: tap_hellobaton
 pip_url: git+https://github.com/dluftspring/tap-hellobaton.git
+quality: silver
 repo: https://github.com/dluftspring/tap-hellobaton
 settings:
 - description: Company name used in the api url

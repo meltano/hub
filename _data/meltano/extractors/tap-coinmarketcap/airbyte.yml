@@ -17,6 +17,7 @@ name: tap-coinmarketcap
 namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
+quality: silver
 repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-coinmarketcap
 settings:
 - description: Airbyte image to run

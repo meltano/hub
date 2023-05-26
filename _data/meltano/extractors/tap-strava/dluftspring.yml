@@ -16,6 +16,7 @@ maintenance_status: active
 name: tap-strava
 namespace: tap_strava
 pip_url: git+https://github.com/dluftspring/tap-strava.git
+quality: gold
 repo: https://github.com/dluftspring/tap-strava
 settings:
 - description: Your Strava application unique identifier.

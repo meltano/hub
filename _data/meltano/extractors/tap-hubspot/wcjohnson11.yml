@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-hubspot
 namespace: tap_hubspot
 pip_url: git+https://github.com/wcjohnson11/tap-hubspot.git
+quality: unknown
 repo: https://github.com/wcjohnson11/tap-hubspot
 settings: []
 settings_group_validation: []

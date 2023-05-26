@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-uservoice
 namespace: tap_uservoice
 pip_url: git+https://github.com/dbt-labs/tap-uservoice.git
+quality: unknown
 repo: https://github.com/dbt-labs/tap-uservoice
 settings: []
 variant: dbt-labs

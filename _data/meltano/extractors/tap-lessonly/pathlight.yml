@@ -12,6 +12,7 @@ name: tap-lessonly
 namespace: tap_lessonly
 next_steps: ''
 pip_url: git+https://github.com/Pathlight/tap-lessonly.git
+quality: unknown
 repo: https://github.com/Pathlight/tap-lessonly
 settings:
 - description: Your Lessonly API key.

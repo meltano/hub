@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-pendo
 namespace: tap_pendo
 pip_url: git+https://github.com/singer-io/tap-pendo.git
+quality: silver
 repo: https://github.com/singer-io/tap-pendo
 settings:
 - description: 'This is the integration key generated via the Pendo website: Settings

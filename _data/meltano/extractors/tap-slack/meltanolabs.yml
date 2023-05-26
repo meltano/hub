@@ -55,6 +55,7 @@ prereq: |
   ```bash
   curl -X GET -H 'Authorization: Bearer <Your Token>' https://slack.com/api/conversations.list?exclude_archived=False
   ```
+quality: gold
 repo: https://github.com/MeltanoLabs/tap-slack
 settings:
 - description: The token to authenticate against the Slack API service

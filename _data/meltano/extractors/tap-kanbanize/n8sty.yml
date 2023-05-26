@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-kanbanize
 namespace: tap_kanbanize
 pip_url: git+https://github.com/n8sty/tap-kanbanize.git
+quality: silver
 repo: https://github.com/n8sty/tap-kanbanize
 settings: []
 variant: n8sty

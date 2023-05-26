@@ -11,6 +11,7 @@ maintenance_status: active
 name: target-athena
 namespace: target_athena
 pip_url: git+https://github.com/MeltanoLabs/target-athena.git
+quality: silver
 repo: https://github.com/MeltanoLabs/target-athena
 settings:
 - description: The name of the Athena database to connect to.

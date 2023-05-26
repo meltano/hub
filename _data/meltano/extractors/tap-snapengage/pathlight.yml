@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-snapengage
 namespace: tap_snapengage
 pip_url: git+https://github.com/Pathlight/tap-snapengage.git
+quality: unknown
 repo: https://github.com/Pathlight/tap-snapengage
 settings: []
 variant: pathlight

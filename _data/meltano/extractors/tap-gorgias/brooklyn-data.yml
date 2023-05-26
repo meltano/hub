@@ -15,6 +15,7 @@ maintenance_status: active
 name: tap-gorgias
 namespace: tap_gorgias
 pip_url: git+https://github.com/brooklyn-data/tap-gorgias.git
+quality: gold
 repo: https://github.com/brooklyn-data/tap-gorgias
 settings:
 - description: Subdomain (<subdomain>.gorgias.com) - required

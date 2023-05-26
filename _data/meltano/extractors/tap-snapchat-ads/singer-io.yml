@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-snapchat-ads
 namespace: tap_snapchat_ads
 pip_url: tap-snapchat-ads
+quality: silver
 repo: https://github.com/singer-io/tap-snapchat-ads
 settings:
 - description: An array of account IDs to sync.

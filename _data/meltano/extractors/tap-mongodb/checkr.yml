@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-mongodb
 namespace: tap_mongodb
 pip_url: git+https://github.com/checkr/tap-mongodb.git
+quality: unknown
 repo: https://github.com/checkr/tap-mongodb
 settings: []
 settings_group_validation: []

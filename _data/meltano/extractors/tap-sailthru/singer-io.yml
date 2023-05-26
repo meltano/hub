@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-sailthru
 namespace: tap_sailthru
 pip_url: tap-sailthru
+quality: bronze
 repo: https://github.com/singer-io/tap-sailthru
 settings:
 - description: The user agent to send with requests for logging purposes.

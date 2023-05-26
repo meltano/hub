@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-wordpress-stats
 namespace: tap_wordpress_stats
 pip_url: git+https://github.com/Yoast/singer-tap-wordpress-stats.git
+quality: unknown
 repo: https://github.com/Yoast/singer-tap-wordpress-stats
 settings: []
 variant: yoast

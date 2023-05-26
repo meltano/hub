@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-oracle
 namespace: tap_oracle
 pip_url: pipelinewise-tap-oracle
+quality: silver
 repo: https://github.com/transferwise/pipelinewise-tap-oracle
 settings:
 - description: Your Oracle SID.

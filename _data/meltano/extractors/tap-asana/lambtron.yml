@@ -12,6 +12,7 @@ maintenance_status: inactive
 name: tap-asana
 namespace: tap_asana
 pip_url: git+https://github.com/lambtron/tap-asana.git
+quality: unknown
 repo: https://github.com/lambtron/tap-asana
 settings:
 - description: Client Id for your application from Asana

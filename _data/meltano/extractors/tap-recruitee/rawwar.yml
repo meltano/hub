@@ -18,6 +18,7 @@ name: tap-recruitee
 namespace: tap_recruitee
 next_steps: ''
 pip_url: git+https://github.com/rawwar/tap-recruitee.git
+quality: silver
 repo: https://github.com/rawwar/tap-recruitee
 settings:
 - description: The url for the API service

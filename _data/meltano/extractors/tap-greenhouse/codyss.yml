@@ -4,7 +4,6 @@ capabilities:
 - discover
 description: Recruiting Management Tool
 domain_url: https://developers.greenhouse.io/harvest.html
-# Hidden due to install failure https://github.com/meltano/hub/issues/993
 hidden: true
 keywords:
 - api
@@ -14,6 +13,7 @@ maintenance_status: inactive
 name: tap-greenhouse
 namespace: tap_greenhouse
 pip_url: git+https://github.com/codyss/tap-greenhouse.git
+quality: unknown
 repo: https://github.com/codyss/tap-greenhouse
 settings:
 - description: Your Greenhouse [API Key](https://developers.greenhouse.io/harvest.html#authentication).

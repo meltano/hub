@@ -12,6 +12,7 @@ maintenance_status: inactive
 name: tap-saasoptics
 namespace: tap_saasoptics
 pip_url: git+https://github.com/anelendata/tap-saasoptics.git
+quality: silver
 repo: https://github.com/anelendata/tap-saasoptics
 settings:
 - description: Everything before .saasoptics.com. in the SaaSOptics URL.

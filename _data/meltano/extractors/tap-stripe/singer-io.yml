@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-stripe
 namespace: tap_stripe
 pip_url: git+https://github.com/singer-io/tap-stripe.git
+quality: silver
 repo: https://github.com/singer-io/tap-stripe
 settings:
 - description: |

@@ -17,6 +17,7 @@ name: tap-postgres
 namespace: tap_postgres
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-postgres.git
+quality: gold
 repo: https://github.com/MeltanoLabs/tap-postgres
 settings:
 - description: "'True' to enable schema flattening and automatically expand nested\

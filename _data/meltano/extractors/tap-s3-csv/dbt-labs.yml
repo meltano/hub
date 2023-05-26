@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-s3-csv
 namespace: tap_s3_csv
 pip_url: git+https://github.com/dbt-labs/tap-s3-csv.git
+quality: unknown
 repo: https://github.com/dbt-labs/tap-s3-csv
 settings: []
 variant: dbt-labs

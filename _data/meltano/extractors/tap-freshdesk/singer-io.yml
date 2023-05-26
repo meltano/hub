@@ -10,6 +10,7 @@ maintenance_status: active
 name: tap-freshdesk
 namespace: tap_freshdesk
 pip_url: tap-freshdesk
+quality: silver
 repo: https://github.com/singer-io/tap-freshdesk
 settings:
 - description: Your Freshdesk subdomain.

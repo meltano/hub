@@ -12,6 +12,7 @@ maintenance_status: inactive
 name: tap-urban-airship
 namespace: tap_urban_airship
 pip_url: tap-urban-airship
+quality: bronze
 repo: https://github.com/singer-io/tap-urban-airship
 settings:
 - description: Your Airship App secret.

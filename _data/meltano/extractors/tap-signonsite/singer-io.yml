@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-signonsite
 namespace: tap_signonsite
 pip_url: tap-signonsite
+quality: bronze
 repo: https://github.com/singer-io/tap-signonsite
 settings: []
 variant: singer-io

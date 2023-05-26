@@ -17,6 +17,7 @@ name: tap-fortnox
 namespace: tap_fortnox
 next_steps: ''
 pip_url: git+https://gitlab.com/hotglue/tap-fortnox.git
+quality: gold
 repo: https://gitlab.com/hotglue/tap-fortnox
 settings:
 - description: Your Fortnox Client ID.

@@ -17,6 +17,7 @@ maintenance_status: active
 name: tap-stackexchange
 namespace: tap_stackexchange
 pip_url: git+https://github.com/MeltanoLabs/tap-stackexchange.git
+quality: gold
 repo: https://github.com/MeltanoLabs/tap-stackexchange
 settings:
 - description: Custom API filter to apply to all requests

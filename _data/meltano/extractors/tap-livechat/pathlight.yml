@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-livechat
 namespace: tap_livechat
 pip_url: git+https://github.com/Pathlight/tap-livechat.git
+quality: unknown
 repo: https://github.com/Pathlight/tap-livechat
 settings: []
 variant: pathlight

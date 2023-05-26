@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-referral-saasquatch
 namespace: tap_referral_saasquatch
 pip_url: tap-referral-saasquatch
+quality: bronze
 repo: https://github.com/singer-io/tap-referral-saasquatch
 settings: []
 variant: singer-io

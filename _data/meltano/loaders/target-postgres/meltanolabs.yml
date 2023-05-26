@@ -16,6 +16,7 @@ name: target-postgres
 namespace: target_postgres
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/target-postgres.git
+quality: gold
 repo: https://github.com/MeltanoLabs/target-postgres
 settings:
 - description: Note that this must be enabled for activate_version to work!This adds

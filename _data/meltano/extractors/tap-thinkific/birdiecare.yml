@@ -15,6 +15,7 @@ maintenance_status: active
 name: tap-thinkific
 namespace: tap_thinkific
 pip_url: git+https://github.com/birdiecare/tap-thinkific.git
+quality: silver
 repo: https://github.com/birdiecare/tap-thinkific
 settings:
 - description: Thinkific API key - see https://developers.thinkific.com/api/api-key-auth/

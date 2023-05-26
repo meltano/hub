@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-dynamodb
 namespace: tap_dynamodb
 pip_url: git+https://github.com/fixdauto/tap-dynamodb.git
+quality: unknown
 repo: https://github.com/fixdauto/tap-dynamodb
 settings: []
 variant: fixdauto

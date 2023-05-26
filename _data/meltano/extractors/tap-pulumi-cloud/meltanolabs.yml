@@ -16,6 +16,7 @@ name: tap-pulumi-cloud
 namespace: tap_pulumi_cloud
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-pulumi-cloud.git
+quality: gold
 repo: https://github.com/MeltanoLabs/tap-pulumi-cloud
 settings:
 - description: "'True' to enable schema flattening and automatically expand nested\

@@ -9,6 +9,7 @@ maintenance_status: inactive
 name: target-datadotworld
 namespace: target_datadotworld
 pip_url: git+https://github.com/datadotworld/target-datadotworld.git
+quality: unknown
 repo: https://github.com/datadotworld/target-datadotworld
 settings:
 - description: Your API token.
