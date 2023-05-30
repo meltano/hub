@@ -37,7 +37,7 @@ settings:
   label: Docker Mounts
   name: docker_mounts
 - description: Pokemon requested from the API.
-  kind: string
+  kind: array
   label: Airbyte Config Pokemon Name
   name: airbyte_config.pokemon_name
 - description: Config object for stream maps capability. For more information check
