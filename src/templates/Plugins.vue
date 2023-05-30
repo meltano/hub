@@ -500,8 +500,8 @@ query Plugins($path: String!, $name: String!) {
     usage
     usage_rendered
     metrics {
-      ALL_PROJECTS
-      ALL_EXECS
+      all_projects
+      all_execs
     }
     maintainer {
       name

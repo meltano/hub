@@ -192,19 +192,19 @@
           </ul>
         </div>
         <!-- <div v-if="metrics  (keywords ?? []).includes('meltano_sdk')"> -->
-        <div v-if="metrics && (metrics.ALL_EXECS || metrics.ALL_PROJECTS)">
+        <div v-if="metrics && (metrics.all_execs || metrics.all_projects)">
           <p class="text-lg">Meltano Stats</p>
           <ul class="list-disc list-inside shields space-y-1">
-            <li v-if="metrics.ALL_EXECS">
+            <li v-if="metrics.all_execs">
               <img
                 alt="Total Executions (Last 3 Months)"
-                :src="`https://img.shields.io/badge/Total%20Executions%20(Last%203%20Months)-${metrics.ALL_EXECS.toLocaleString()}-c0c0c4`"
+                :src="`https://img.shields.io/badge/Total%20Executions%20(Last%203%20Months)-${metrics.all_execs.toLocaleString()}-c0c0c4`"
               />
             </li>
-            <li v-if="metrics.ALL_PROJECTS">
+            <li v-if="metrics.all_projects">
               <img
                 alt="Projects (Last 3 Months)"
-                :src="`https://img.shields.io/badge/Projects%20(Last%203%20Months)-${metrics.ALL_PROJECTS.toLocaleString()}-c0c0c4`"
+                :src="`https://img.shields.io/badge/Projects%20(Last%203%20Months)-${metrics.all_projects.toLocaleString()}-c0c0c4`"
               />
             </li>
           </ul>
