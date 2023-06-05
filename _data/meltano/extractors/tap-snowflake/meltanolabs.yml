@@ -20,7 +20,8 @@ pip_url: meltanolabs-tap-snowflake
 quality: gold
 repo: https://github.com/MeltanoLabs/tap-snowflake
 settings:
-- description: Your account identifier. See [Account Identifiers](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html).
+- description: Your account identifier. See [Account 
+    Identifiers](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html).
   kind: string
   label: Account
   name: account
@@ -28,8 +29,8 @@ settings:
   kind: string
   label: Database
   name: database
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

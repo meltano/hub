@@ -32,8 +32,8 @@ settings:
   label: Base URL
   name: base_url
   value: https://cloud.getdbt.com/api/v2
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -59,7 +59,7 @@ settings:
   kind: string
   label: User Agent
   name: user_agent
-  value: tap-dbt/0.0.0 Singer tap for the dbt Cloud API.
+  value: tap-dbt/0.7.0 Singer tap for the dbt Cloud API.
 settings_group_validation:
 - - account_ids
   - api_key
