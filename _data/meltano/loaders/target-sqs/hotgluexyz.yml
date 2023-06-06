@@ -13,9 +13,9 @@ maintenance_status: active
 name: target-sqs
 namespace: target_sqs
 next_steps: ''
-pip_url: git+https://gitlab.com/pnadolny13/target-sqs.git@bump_sdk_and_refresh_settings
+pip_url: git+https://gitlab.com/hotglue/target-sqs.git
 quality: silver
-repo: https://gitlab.com/pnadolny13/target-sqs
+repo: https://gitlab.com/hotglue/target-sqs
 settings:
 - description: The access key for your AWS account.
   kind: password
