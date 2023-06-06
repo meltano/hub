@@ -618,6 +618,7 @@ loaders:
   target-singer-jsonl: kgpayne
   target-snowflake: transferwise
   target-sqlite: meltanolabs
+  target-sqs: hotgluexyz
   target-stitch: singer-io
   target-timeplus: timeplus
   target-vertica: full360
