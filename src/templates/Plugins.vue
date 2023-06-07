@@ -88,7 +88,7 @@
                       <g-link to="/loaders">loader</g-link>.</span
                     >
                       <span
-                        v-if="$page.plugins.hidden === 'true'"
+                        v-if="$page.plugins.hidden === true"
                       >
                         <p class="text-3xl pb-4 pt-8 font-bold" id="hidden-warning">
                           This plugin is deprecated and not recommended for use. 
