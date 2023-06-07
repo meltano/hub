@@ -87,6 +87,15 @@
                       then be sent to a destination using a
                       <g-link to="/loaders">loader</g-link>.</span
                     >
+                      <span
+                        v-if="$page.plugins.hidden === 'true'"
+                      >
+                        <p class="text-3xl pb-4 pt-8 font-bold" id="hidden-warning">
+                          This plugin is deprecated and not recommended for use. 
+                          Please use another variant.
+                        </p>
+
+                      </span>                    
                     <span
                       v-if="
                         $page.plugins.pluginType === 'extractor' &&
@@ -430,6 +439,7 @@ export default {
   metaInfo() {
     return {
       title: this.$page.plugins.name,
+      content: this.$page.plugins.hidden ? 'noindex' : 'index',
     };
   },
   name: "PluginsTemplate",
