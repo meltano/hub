@@ -473,7 +473,8 @@ query Plugins($path: String!, $name: String!) {
     airbyte_name
     path
     logo_url
-    namespace
+    namespace 
+    hidden
     next_steps
     next_steps_rendered
     variant
