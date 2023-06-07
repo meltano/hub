@@ -1,0 +1,50 @@
+capabilities:
+- about
+- schema-flattening
+- stream-maps
+description: Columnar Storage Format
+domain_url: https://parquet.apache.org/
+executable: target-parquet
+keywords:
+- meltano_sdk
+- file
+label: Parquet
+logo_url: /assets/logos/loaders/parquet.png
+maintenance_status: active
+name: target-parquet
+namespace: target_parquet
+next_steps: ''
+pip_url: git+https://gitlab.com/hotglue/target-parquet.git
+quality: silver
+repo: https://gitlab.com/hotglue/target-parquet
+settings:
+- description: The scheme with which output files will be named
+  kind: string
+  label: File Naming Scheme
+  name: file_naming_scheme
+- description: The path to the target output file
+  kind: string
+  label: Filepath
+  name: filepath
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability.
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+settings_group_validation:
+- []
+settings_preamble: ''
+usage: ''
+variant: hotgluexyz
