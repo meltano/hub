@@ -437,10 +437,27 @@ import PluginPrereqSection from "../components/PluginPrereqSection.vue";
 
 export default {
   metaInfo() {
-    return {
-      title: this.$page.plugins.name,
-      content: this.$page.plugins.hidden ? 'noindex' : 'index',
-    };
+    if (this.$page.plugins.hidden) {
+      return {
+        title: this.$page.plugins.name,
+        meta: [
+          {
+            name: 'robots',
+            content: 'noindex'
+          }
+        ]
+      };
+    } else {
+      return {
+        title: this.$page.plugins.name,
+        meta: [
+          {
+            name: 'robots',
+            content: 'all'
+          }
+        ]
+      };
+    }
   },
   name: "PluginsTemplate",
   components: {
