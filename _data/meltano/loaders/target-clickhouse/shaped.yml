@@ -2,7 +2,6 @@ capabilities:
 - about
 - schema-flattening
 - stream-maps
-- target-schema
 description: Clickhouse Database
 domain_url: https://www.clickhouse.com/
 executable: target-clickhouse
