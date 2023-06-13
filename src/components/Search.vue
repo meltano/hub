@@ -99,7 +99,11 @@
         </div>
 
         <div v-else>
-          <p class="text-amber-800 p-4">Your search didn't return any results. Please try again.</p>
+          <a href="https://github.com/MeltanoLabs/Singer-Most-Wanted">
+            <p class="text-amber-800 p-4">
+              Don't see the connector you're looking for? Open an issue to let us know.
+            </p>
+          </a>
         </div>
       </div>
     </transition>
