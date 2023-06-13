@@ -21,7 +21,7 @@ settings:
   kind: string
   label: SQLAlchemyUrl
   name: sqlalchemyurl
-settings_group_validation:
+settings_group_validation: []
 target_schema: $TARGET_CLICKHOUSE_SCHEMA
 usage: |
   ## Troubleshooting
