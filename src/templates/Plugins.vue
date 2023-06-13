@@ -87,15 +87,12 @@
                       then be sent to a destination using a
                       <g-link to="/loaders">loader</g-link>.</span
                     >
-                      <span
-                        v-if="$page.plugins.hidden === true"
-                      >
-                        <p class="text-3xl pb-4 pt-8 font-bold" id="hidden-warning">
-                          This plugin is deprecated and not recommended for use. 
-                          Please use another variant.
-                        </p>
-
-                      </span>                    
+                    <span v-if="$page.plugins.hidden === true">
+                      <p class="text-3xl pb-4 pt-8 font-bold" id="hidden-warning">
+                        This plugin is deprecated and not recommended for use. Please use another
+                        variant.
+                      </p>
+                    </span>
                     <span
                       v-if="
                         $page.plugins.pluginType === 'extractor' &&
@@ -442,20 +439,20 @@ export default {
         title: this.$page.plugins.name,
         meta: [
           {
-            name: 'robots',
-            content: 'noindex'
-          }
-        ]
+            name: "robots",
+            content: "noindex",
+          },
+        ],
       };
     } else {
       return {
         title: this.$page.plugins.name,
         meta: [
           {
-            name: 'robots',
-            content: 'all'
-          }
-        ]
+            name: "robots",
+            content: "all",
+          },
+        ],
       };
     }
   },
@@ -490,7 +487,7 @@ query Plugins($path: String!, $name: String!) {
     airbyte_name
     path
     logo_url
-    namespace 
+    namespace
     hidden
     next_steps
     next_steps_rendered
