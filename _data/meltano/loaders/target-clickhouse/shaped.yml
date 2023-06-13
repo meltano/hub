@@ -1,7 +1,7 @@
 description: Clickhouse Database Loader
 dialect: clickhouse
 domain_url: https://www.clickhouse.com/
-hidden: true
+hidden: false
 keywords:
 - database
 label: ClickHouse
