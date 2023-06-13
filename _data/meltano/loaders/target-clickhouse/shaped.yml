@@ -1,0 +1,30 @@
+description: Clickhouse Database Loader
+dialect: clickhouse
+domain_url: https://www.clickhouse.com/
+hidden: true
+keywords:
+- database
+label: ClickHouse
+logo_url: /assets/logos/targets/clickhouse.png
+maintenance_status: active
+name: target-clickhouse
+namespace: target_clickhouse
+pip_url: git+https://github.com/shaped-ai/target-clickhouse.git
+quality: silver
+repo: https://github.com/shaped-ai/target-clickhouse.git
+settings:
+- description: |
+    Lets you set `user`, `password`, `host`, `port`, and `dbname` in one
+    go using a `clickhouse://` URI.
+
+    Takes precedence over the other settings when set.
+  kind: sqlalchemyurl
+  label: SQLAlchemyUrl
+  name: sqlalchemyurl
+settings_group_validation:
+target_schema: $TARGET_CLICKHOUSE_SCHEMA
+usage: |
+  ## Troubleshooting
+
+  TODO
+variant: shaped
