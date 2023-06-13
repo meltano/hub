@@ -18,7 +18,7 @@ settings:
     go using a `clickhouse://` URI.
 
     Takes precedence over the other settings when set.
-  kind: sqlalchemyurl
+  kind: string
   label: SQLAlchemyUrl
   name: sqlalchemyurl
 settings_group_validation:
