@@ -103,7 +103,7 @@
             <p class="text-amber-800 p-4">
               Don't see the connector you're looking for? Open an issue to let us know.
             </p>
-            <img class="w-8 p-4 inline gap-x-11" src="../assets/images/external-link.svg" />
+            <img class="w-8 h-4 inline gap-x-11" src="../assets/images/external-link.svg" />
           </a>
         </div>
       </div>
