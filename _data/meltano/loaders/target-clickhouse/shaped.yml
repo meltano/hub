@@ -13,6 +13,7 @@ logo_url: /assets/logos/loaders/clickhouse.png
 maintenance_status: active
 name: target-clickhouse
 namespace: target_clickhouse
+quality: unknown
 next_steps: ''
 pip_url: git+https://github.com/shaped-ai/target-clickhouse.git
 repo: https://github.com/shaped-ai/target-clickhouse
