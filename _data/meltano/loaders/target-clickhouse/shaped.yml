@@ -1,30 +1,51 @@
-description: Clickhouse Database Loader
-dialect: clickhouse
+capabilities:
+- about
+- schema-flattening
+- stream-maps
+- target-schema
+description: Clickhouse Database
 domain_url: https://www.clickhouse.com/
-hidden: false
+executable: target-clickhouse
 keywords:
+- meltano_sdk
 - database
-label: ClickHouse
-logo_url: /assets/logos/targets/clickhouse.png
+label: Clickhouse
+logo_url: /assets/logos/loaders/clickhouse.png
 maintenance_status: active
 name: target-clickhouse
 namespace: target_clickhouse
+next_steps: ''
 pip_url: git+https://github.com/shaped-ai/target-clickhouse.git
-quality: silver
-repo: https://github.com/shaped-ai/target-clickhouse.git
+repo: https://github.com/shaped-ai/target-clickhouse
 settings:
-- description: |
-    Lets you set `user`, `password`, `host`, `port`, and `dbname` in one
-    go using a `clickhouse://` URI.
-
-    Takes precedence over the other settings when set.
+- description: The default target database schema name to use for all streams.
   kind: string
-  label: SQLAlchemyUrl
-  name: sqlalchemyurl
-settings_group_validation: []
-target_schema: $TARGET_CLICKHOUSE_SCHEMA
-usage: |
-  ## Troubleshooting
-
-  TODO
+  label: Default Target Schema
+  name: default_target_schema
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: SQLAlchemy connection string
+  kind: password
+  label: SQLAlchemy URL
+  name: sqlalchemy_url
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+settings_group_validation:
+- - sqlalchemy_url
+settings_preamble: ''
+usage: ''
 variant: shaped-ai
