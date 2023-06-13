@@ -98,7 +98,7 @@
           </div>
         </div>
 
-        <div v-else>
+        <div v-else class="flex items-center">
           <a href="https://github.com/MeltanoLabs/Singer-Most-Wanted">
             <img class="w-8 h-4 inline gap-x-11" src="../assets/images/external-link.svg" />
             <p class="text-amber-800 p-4">
