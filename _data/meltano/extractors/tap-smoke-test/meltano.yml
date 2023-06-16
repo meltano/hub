@@ -56,7 +56,7 @@ settings:
     ```yaml
     streams:
     - stream_name: animals
-      input_filename: https://github.com/meltano/tap-smoke-test/blob/main/demo-data/animals-data.jsonl
+      input_filename: https://raw.githubusercontent.com/meltano/tap-smoke-test/main/demo-data/animals-data.jsonl
     ```
   kind: array
   label: Streams
