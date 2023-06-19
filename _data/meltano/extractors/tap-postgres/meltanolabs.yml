@@ -20,8 +20,8 @@ pip_url: git+https://github.com/MeltanoLabs/tap-postgres.git
 quality: gold
 repo: https://github.com/MeltanoLabs/tap-postgres
 settings:
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -30,7 +30,7 @@ settings:
   label: Flattening Max Depth
   name: flattening_max_depth
 - description: Example postgresql://[username]:[password]@localhost:5432/[db_name]
-  kind: password
+  kind: string
   label: Sqlalchemy URL
   name: sqlalchemy_url
 - description: Enable an ssh tunnel (also known as bastion host), see the other ssh_tunnel.*
