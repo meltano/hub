@@ -230,6 +230,7 @@ class Utilities:
             "namespace": namespace,
             "next_steps": "",
             "pip_url": pip_url,
+            "quality": self._prompt("quality", "unknown"),
             "repo": repo_url,
             "settings": settings,
             "settings_group_validation": settings_group_validation,
