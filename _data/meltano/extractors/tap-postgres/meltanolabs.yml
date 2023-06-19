@@ -30,7 +30,7 @@ settings:
   label: Flattening Max Depth
   name: flattening_max_depth
 - description: Example postgresql://[username]:[password]@localhost:5432/[db_name]
-  kind: string
+  kind: password
   label: Sqlalchemy URL
   name: sqlalchemy_url
 - description: Enable an ssh tunnel (also known as bastion host), see the other ssh_tunnel.*
