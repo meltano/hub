@@ -18,7 +18,7 @@ pip_url: git+https://github.com/MeltanoLabs/target-snowflake.git
 quality: unknown
 repo: https://github.com/MeltanoLabs/target-snowflake
 settings:
-- description: Your account identifier. See [Account 
+- description: Your account identifier. See [Account
     Identifiers](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html).
   kind: string
   label: Account
