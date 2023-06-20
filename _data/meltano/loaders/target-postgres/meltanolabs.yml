@@ -41,8 +41,8 @@ settings:
   label: Dialect+Driver
   name: dialect+driver
   value: postgresql+psycopg2
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -74,7 +74,8 @@ settings:
   value: 5432
 - description: SQLAlchemy connection string. This will override using host, user,
     password, port, dialect. Note that you must esacpe password special characters
-    properly see https://docs.sqlalchemy.org/en/20/core/engines.html#escaping-special-characters-such-as-signs-in-passwords
+    properly see
+     https://docs.sqlalchemy.org/en/20/core/engines.html#escaping-special-characters-such-as-signs-in-passwords
   kind: string
   label: Sqlalchemy URL
   name: sqlalchemy_url
