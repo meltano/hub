@@ -15,7 +15,7 @@ name: target-parquet
 namespace: target_parquet
 next_steps: ''
 pip_url: git+https://gitlab.com/hotglue/target-parquet.git
-quality: silver
+quality: gold
 repo: https://gitlab.com/hotglue/target-parquet
 settings:
 - description: The scheme with which output files will be named

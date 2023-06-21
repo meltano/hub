@@ -19,7 +19,7 @@ name: tap-saasoptics
 namespace: tap_saasoptics
 next_steps: ''
 pip_url: git+https://github.com/datarts-tech/tap-saasoptics.git
-quality: unknown
+quality: silver
 repo: https://github.com/datarts-tech/tap-saasoptics
 settings:
 - description: The account_name is everything between `.saasoptics.com.` and `api`
