@@ -84,7 +84,7 @@ def update_quality(
 
         if "keywords" in data and "meltano_sdk" in data.get("keywords"):
             is_sdk_based = True
-        usage_count = usage_metrics.get(data["repo"], {}).get("ALL_PROJECTS", 0)
+        usage_count = usage_metrics.get(data["repo"], {}).get("all_projects", 0)
         # TODO: Calculate responsiveness
         responsiveness = "high"
         data["quality"] = MeltanoUtil.get_quality(
