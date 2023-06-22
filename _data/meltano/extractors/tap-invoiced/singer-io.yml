@@ -11,7 +11,7 @@ maintenance_status: unknown
 name: tap-invoiced
 namespace: tap_invoiced
 pip_url: tap-invoiced
-quality: silver
+quality: bronze
 repo: https://github.com/singer-io/tap-invoiced
 settings: []
 variant: singer-io

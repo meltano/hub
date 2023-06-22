@@ -12,7 +12,7 @@ maintenance_status: unknown
 name: tap-trustpilot
 namespace: tap_trustpilot
 pip_url: git+https://github.com/dbt-labs/tap-trustpilot.git
-quality: unknown
+quality: silver
 repo: https://github.com/dbt-labs/tap-trustpilot
 settings: []
 variant: dbt-labs

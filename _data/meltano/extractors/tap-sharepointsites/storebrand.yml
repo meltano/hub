@@ -18,7 +18,7 @@ name: tap-sharepointsites
 namespace: tap_sharepointsites
 next_steps: ''
 pip_url: tap-sharepointsites
-quality: silver
+quality: gold
 repo: https://github.com/storebrand/tap-sharepointsites
 settings:
 - description: The url for the API service

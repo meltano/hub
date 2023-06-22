@@ -14,7 +14,7 @@ name: target-oracle
 namespace: target_oracle
 next_steps: ''
 pip_url: git+https://github.com/radbrt/target-oracle.git
-quality: silver
+quality: gold
 repo: https://github.com/radbrt/target-oracle
 settings:
 - description: SQLAlchemy connection string

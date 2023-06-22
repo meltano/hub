@@ -18,7 +18,7 @@ name: tap-spacex-api
 namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
-quality: silver
+quality: bronze
 repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-spacex-api
 settings:
 - description: Airbyte image to run

@@ -12,7 +12,7 @@ maintenance_status: active
 name: tap-closeio
 namespace: tap_closeio
 pip_url: tap-closeio
-quality: silver
+quality: bronze
 repo: https://github.com/singer-io/tap-closeio
 settings:
 - description: The start_date is the date at which the tap will begin syncing data.
