@@ -371,7 +371,7 @@ extractors:
   tap-podbean: slalom-consulting
   tap-pokeapi: airbyte
   tap-polygon-stock-api: airbyte
-  tap-postgres: transferwise
+  tap-postgres: meltanolabs
   tap-posthog: airbyte
   tap-postmark: yoast
   tap-powerbi: hotgluexyz
@@ -464,7 +464,7 @@ extractors:
   tap-sms: jboltron3000
   tap-snapchat-ads: singer-io
   tap-snapengage: pathlight
-  tap-snowflake: transferwise
+  tap-snowflake: meltanolabs
   tap-solarvista: matatika
   tap-sonar-cloud: airbyte
   tap-spacex-api: airbyte
@@ -609,7 +609,7 @@ loaders:
   target-oracle: radbrt
   target-pardot: anelendata
   target-parquet: estrategiahq
-  target-postgres: transferwise
+  target-postgres: meltanolabs
   target-redshift: transferwise
   target-s3: crowemi
   target-s3-avro: faumel
@@ -617,7 +617,7 @@ loaders:
   target-s3-parquet: gupy-io
   target-salesforce: dan-ladd
   target-singer-jsonl: kgpayne
-  target-snowflake: transferwise
+  target-snowflake: meltanolabs
   target-sqlite: meltanolabs
   target-sqs: hotgluexyz
   target-stitch: singer-io
