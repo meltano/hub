@@ -74,7 +74,7 @@ settings:
   value: 5432
 - description: SQLAlchemy connection string. This will override using host, user,
     password, port, dialect, and all ssl settings. Note that you must escape password
-    special characters properly. See 
+    special characters properly. See
     https://docs.sqlalchemy.org/en/20/core/engines.html#escaping-special-characters-such-as-signs-in-passwords
   kind: string
   label: Sqlalchemy URL
@@ -114,7 +114,7 @@ settings:
   kind: boolean
   label: Ssl Enable
   name: ssl_enable
-- description: SSL Protection method, see [postgres 
+- description: SSL Protection method, see [postgres
     documentation](https://www.postgresql.org/docs/current/libpq-ssl.html#LIBPQ-SSL-PROTECTION)
     for more information. Must be one of disable, allow, prefer, require, verify-ca,
     or verify-full. Note if sqlalchemy_url is set this will be ignored.

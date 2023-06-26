@@ -21,7 +21,7 @@ pip_url: meltanolabs-tap-snowflake
 quality: gold
 repo: https://github.com/MeltanoLabs/tap-snowflake
 settings:
-- description: Your account identifier. See [Account 
+- description: Your account identifier. See [Account
     Identifiers](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html).
   kind: string
   label: Account
