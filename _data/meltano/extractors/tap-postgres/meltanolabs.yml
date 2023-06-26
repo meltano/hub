@@ -20,6 +20,10 @@ pip_url: git+https://github.com/MeltanoLabs/tap-postgres.git
 quality: gold
 repo: https://github.com/MeltanoLabs/tap-postgres
 settings:
+- description: Database name. Note if sqlalchemy_url is set this will be ignored.
+  kind: string
+  label: Database
+  name: database
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -29,8 +33,24 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: Example postgresql://[username]:[password]@localhost:5432/[db_name]
+- description: Hostname for postgres instance. Note if sqlalchemy_url is set this
+    will be ignored.
+  kind: string
+  label: Host
+  name: host
+- description: Password used to authenticate. Note if sqlalchemy_url is set this will
+    be ignored.
   kind: password
+  label: Password
+  name: password
+- description: The port on which postgres is awaiting connection. Note if sqlalchemy_url
+    is set this will be ignored.
+  kind: integer
+  label: Port
+  name: port
+  value: 5432
+- description: Example postgresql://[username]:[password]@localhost:5432/[db_name]
+  kind: string
   label: Sqlalchemy URL
   name: sqlalchemy_url
 - description: Enable an ssh tunnel (also known as bastion host), see the other ssh_tunnel.*
@@ -68,6 +88,11 @@ settings:
   kind: object
   label: Stream Maps
   name: stream_maps
+- description: User name used to authenticate. Note if sqlalchemy_url is set this
+    will be ignored.
+  kind: string
+  label: User
+  name: user
 settings_group_validation:
 - - sqlalchemy_url
 settings_preamble: ''
