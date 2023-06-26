@@ -75,7 +75,7 @@ settings:
 - description: SQLAlchemy connection string. This will override using host, user,
     password, port, dialect, and all ssl settings. Note that you must escape password
     special characters properly. See
-    https://docs.sqlalchemy.org/en/20/core/engines.html#escaping-special-characters-such-as-signs-in-passwords
+     https://docs.sqlalchemy.org/en/20/core/engines.html#escaping-special-characters-such-as-signs-in-passwords
   kind: string
   label: Sqlalchemy URL
   name: sqlalchemy_url
