@@ -15,8 +15,8 @@ maintenance_status: active
 name: tap-theme-parks
 namespace: tap_theme_parks
 pip_url: git+https://github.com/DanielPDWalker/tap-theme-parks.git
-repo: https://github.com/DanielPDWalker/tap-theme-parks
 quality: bronze
+repo: https://github.com/DanielPDWalker/tap-theme-parks
 settings:
 - description: Array of string, containing IDs or slugs of Destinations, parks, attractions,
     shows or restaurants.
