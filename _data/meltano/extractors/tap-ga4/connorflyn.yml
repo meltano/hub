@@ -57,6 +57,10 @@ settings:
   kind: password
   label: OAuth Credentials Refresh Token
   name: oauth_credentials.refresh_token
+- description: Google Analytics Property ID
+  kind: password
+  label: Property ID
+  name: property_id
 - description: Google Analytics Reports Definition
   kind: string
   label: Reports
@@ -74,13 +78,9 @@ settings:
   kind: object
   label: Stream Maps
   name: stream_maps
-- description: Google Analytics View ID
-  kind: password
-  label: View ID
-  name: view_id
 settings_group_validation:
-- - start_date
-  - view_id
+- - property_id
+  - start_date
 settings_preamble: ''
 usage: ''
 variant: connorflyn
