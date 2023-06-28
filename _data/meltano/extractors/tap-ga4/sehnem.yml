@@ -20,10 +20,18 @@ pip_url: git+https://github.com/sehnem/tap-google-analytics.git
 quality: silver
 repo: https://github.com/sehnem/tap-google-analytics
 settings:
-- description: Google Analytics Client Secrets Dictionary
-  kind: object
-  label: Client Secrets
-  name: client_secrets
+- description: Google Analytics Access Token
+  kind: password
+  label: Access Token
+  name: access_token
+- description: Google Analytics Client ID
+  kind: password
+  label: Client ID
+  name: client_id
+- description: Google Analytics Client Secret
+  kind: password
+  label: Client Secret
+  name: client_secret
 - description: The last record date to sync
   kind: date_iso8601
   label: End Date
@@ -37,26 +45,14 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: File Path to Google Analytics Client Secrets
+- description: Google Analytics Property ID
   kind: password
-  label: Key File Location
-  name: key_file_location
-- description: Google Analytics Access Token
-  kind: password
-  label: OAuth Credentials Access Token
-  name: oauth_credentials.access_token
-- description: Google Analytics Client ID
-  kind: password
-  label: OAuth Credentials Client ID
-  name: oauth_credentials.client_id
-- description: Google Analytics Client Secret
-  kind: password
-  label: OAuth Credentials Client Secret
-  name: oauth_credentials.client_secret
+  label: Property ID
+  name: property_id
 - description: Google Analytics Refresh Token
   kind: password
-  label: OAuth Credentials Refresh Token
-  name: oauth_credentials.refresh_token
+  label: Refresh Token
+  name: refresh_token
 - description: Google Analytics Reports Definition
   kind: string
   label: Reports
@@ -74,13 +70,12 @@ settings:
   kind: object
   label: Stream Maps
   name: stream_maps
-- description: Google Analytics View ID
-  kind: password
-  label: View ID
-  name: view_id
 settings_group_validation:
-- - start_date
-  - view_id
+- - client_id
+  - client_secret
+  - property_id
+  - refresh_token
+  - start_date
 settings_preamble: ''
 usage: ''
 variant: sehnem
