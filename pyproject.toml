@@ -25,13 +25,14 @@ flake8 = "^6.0.0"
 pydocstyle = "^6.3.0"
 mypy = "^1.1.1"
 moto = "^4.1.6"
+typer-cli = "^0.0.13"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-hub_utils = 'hub_utils.main:app'
+hub-utils = 'hub_utils.main:app'
 
 [tool.pytest.ini_options]
 minversion = "6.0"

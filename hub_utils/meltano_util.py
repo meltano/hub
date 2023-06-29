@@ -339,24 +339,3 @@ class MeltanoUtil:
                     i["description"] = i.get("const") or item.get("title")
                 fields.append(i)
         return fields
-
-
-if __name__ == "__main__":
-    m = MeltanoUtil()
-
-    # plugin_name = "tap-amazon-sp"
-    # namespace = "tap_amazon_sp",
-    # pip_url = "git+https://github.com/singer-io/tap-amazon-sp.git"
-    # plugin_type = "extractors"
-    # is_meltano_sdk = False
-
-    plugin_name = "tap-cqc-org-uk"
-    namespace = ("tap_cqc_org_uk",)
-    pip_url = "git+https://github.com/birdiecare/tap-cqc-org-uk.git"
-    plugin_type = "extractors"
-    is_meltano_sdk = False
-
-    MeltanoUtil.add(plugin_name, namespace, pip_url, plugin_type)
-    MeltanoUtil.help_test(plugin_name)
-    if is_meltano_sdk:
-        MeltanoUtil.sdk_about(plugin_name)
