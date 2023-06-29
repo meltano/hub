@@ -18,7 +18,7 @@ name: tap-mailchimp
 namespace: tap_mailchimp
 next_steps: ''
 pip_url: git+https://github.com/acarter24/tap-mailchimp.git
-quality: bronze
+quality: silver
 repo: https://github.com/acarter24/tap-mailchimp
 settings:
 - description: The token to authenticate against the API service
