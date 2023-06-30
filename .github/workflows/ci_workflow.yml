@@ -49,7 +49,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install poetry==1.2.*
     - name: Clone Hub repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         repository: meltano/hub
         path: hub_repo
