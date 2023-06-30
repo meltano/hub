@@ -55,6 +55,7 @@ $ hub-utils [OPTIONS] COMMAND [ARGS]...
 * `update-definition`: Update the definition of a tap or target...
 * `update-quality`: Update the quality of all taps and targets...
 * `upload-airbyte`: NOTE: USED FOR...
+* `yamllint`: Run yamllint on all yamls in the hub or a...
 
 ## `hub-utils add`
 
@@ -246,6 +247,25 @@ $ hub-utils upload-airbyte [OPTIONS] VARIANT_PATH_LIST ARTIFACT_NAME
 
 * `VARIANT_PATH_LIST`: [required]
 * `ARTIFACT_NAME`: [required]
+
+**Options**:
+
+* `--help`: Show this message and exit.
+
+## `hub-utils yamllint`
+
+Run yamllint on all yamls in the hub or a specific path.
+
+**Usage**:
+
+```console
+$ hub-utils yamllint [OPTIONS] ACTION:{fix|lint} PATH
+```
+
+**Arguments**:
+
+* `ACTION:{fix|lint}`: [required]
+* `PATH`: [required]
 
 **Options**:
 

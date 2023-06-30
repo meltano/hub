@@ -332,7 +332,7 @@ class Utilities:
 
     def _reformat(self, file_path):
         fix_yaml(file_path)
-        run_yamllint(file_path, self.hub_root)
+        run_yamllint(file_path)
 
     def _reformat_all(self, plugin_type, plugin_name, variant):
         for file_path in [
