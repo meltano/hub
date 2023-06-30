@@ -3,6 +3,7 @@ import csv
 import hashlib
 import json
 import os
+from copy import copy
 from datetime import datetime
 
 
