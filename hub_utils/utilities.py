@@ -60,7 +60,7 @@ class Utilities:
     def __init__(self, auto_accept=False):
         self.yaml = YAML()
         self.auto_accept = auto_accept
-        self.hub_root = os.getenv("HUB_ROOT_PATH")
+        self.hub_root = os.environ["HUB_ROOT_PATH"]
         self.default_variants_path = f"{self.hub_root}/_data/default_variants.yml"
         self.maintainers_path = f"{self.hub_root}/_data/maintainers.yml"
 
@@ -72,9 +72,11 @@ class Utilities:
         else:
             return typer.prompt(question, type=type)
 
-    def _write_yaml(self, path, content):
+    def _write_yaml(self, path, content, reformat=False):
         with open(path, "w") as f:
             self.yaml.dump(content, f)
+            if reformat:
+                self._reformat(path)
 
     def _write_dict(self, path, content):
         Path(os.path.dirname(path)).mkdir(parents=True, exist_ok=True)
@@ -328,14 +330,17 @@ class Utilities:
                 f"{self.hub_root}/static/assets/logos/{plugin_type}/{logo_file_name}",
             )
 
-    def _reformat(self, plugin_type, plugin_name, variant):
+    def _reformat(self, file_path):
+        fix_yaml(file_path)
+        run_yamllint(file_path, self.hub_root)
+
+    def _reformat_all(self, plugin_type, plugin_name, variant):
         for file_path in [
             "_data/default_variants.yml",
             "_data/maintainers.yml",
             f"_data/meltano/{plugin_type}/{plugin_name}/{variant}.yml",
         ]:
-            fix_yaml(f"{self.hub_root}/{file_path}")
-            run_yamllint(f"{self.hub_root}/{file_path}", self.hub_root)
+            self._reformat(f"{self.hub_root}/{file_path}")
 
     @staticmethod
     def _install_test(plugin_name, plugin_type, pip_url, namespace, executable):
@@ -343,8 +348,6 @@ class Utilities:
         MeltanoUtil.help_test(executable)
 
     def add(self, repo_url: str = None, definition_seed: dict = None):
-        if not repo_url:
-            repo_url = self._prompt("repo_url")
         plugin_name = self._prompt("plugin name", self._get_plugin_name(repo_url))
         plugin_type = self._prompt("plugin type", self.get_plugin_type(repo_url))
         pip_url = self._prompt("pip_url", f"git+{repo_url}.git")
@@ -392,7 +395,7 @@ class Utilities:
         )
         self._handle_maintainer(variant, repo_url)
         self._handle_logo(definition, plugin_type, variant_exists)
-        self._reformat(plugin_type, plugin_name, variant)
+        self._reformat_all(plugin_type, plugin_name, variant)
         print(definition_path)
         print(f"Adds {plugin_type} {plugin_name} ({variant})\n\n")
 
@@ -447,7 +450,7 @@ class Utilities:
         variant_exists = self._handle_default_variant(plugin_name, variant, plugin_type)
         self._handle_maintainer(variant, repo_url)
         self._handle_logo(definition, plugin_type, variant_exists)
-        self._reformat(plugin_type, plugin_name, variant)
+        self._reformat_all(plugin_type, plugin_name, variant)
         print(definition_path)
         print(f"Adds {plugin_type} {plugin_name} ({variant})\n\n")
 
@@ -471,7 +474,7 @@ class Utilities:
             f"{self.hub_root}/_data/meltano/{plugin_type}/"
             f"{plugin_name}/{plugin_variant}.yml"
         )
-        self._write_yaml(def_path, definition)
+        self._write_yaml(def_path, definition, reformat=True)
 
     def _iterate_existing_settings(self, plugin_name, plugin_variant, plugin_type):
         def_path = (
@@ -625,7 +628,6 @@ class Utilities:
             sgv,
         )
         self._write_updated_def(plugin_name, plugin_variant, plugin_type, new_def)
-        self._reformat(plugin_type, plugin_name, plugin_variant)
         print(f"\nUpdates {plugin_type} {plugin_name} ({plugin_variant})\n\n")
 
     def update_sdk(self, repo_url: str = None, plugin_name: str = None):
@@ -656,7 +658,6 @@ class Utilities:
             settings_group_validation,
         )
         self._write_updated_def(plugin_name, plugin_variant, plugin_type, new_def)
-        self._reformat(plugin_type, plugin_name, plugin_variant)
         print(
             f"\nUpdates {plugin_type} {plugin_name} (SDK based - {plugin_variant})\n\n"
         )
@@ -683,7 +684,6 @@ class Utilities:
         self._write_updated_def(
             plugin_name, plugin_variant, plugin_type, merged_def_formatted
         )
-        self._reformat(plugin_type, plugin_name, plugin_variant)
 
     @staticmethod
     def get_suffix(yaml_file):
