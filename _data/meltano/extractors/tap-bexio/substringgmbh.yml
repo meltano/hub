@@ -15,6 +15,7 @@ name: tap-bexio
 namespace: tap_bexio
 next_steps: ''
 pip_url: git+https://github.com/substringgmbh/tap-bexio.git
+quality: silver
 repo: https://github.com/substringgmbh/tap-bexio
 settings:
 - description: The token to authenticate against the API service

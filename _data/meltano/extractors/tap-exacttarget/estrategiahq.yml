@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-exacttarget
 namespace: tap_exacttarget
 pip_url: git+https://github.com/estrategiahq/tap-exacttarget.git
+quality: unknown
 repo: https://github.com/estrategiahq/tap-exacttarget
 settings: []
 variant: estrategiahq

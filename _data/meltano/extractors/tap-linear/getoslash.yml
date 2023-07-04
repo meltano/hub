@@ -15,6 +15,7 @@ name: tap-linear
 namespace: tap_linear
 next_steps: ''
 pip_url: git+https://github.com/getoslash/tap-linear.git
+quality: silver
 repo: https://github.com/getoslash/tap-linear
 settings:
 - description: The token to authenticate against the API service

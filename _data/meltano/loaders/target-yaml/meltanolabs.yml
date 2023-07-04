@@ -13,6 +13,7 @@ maintenance_status: active
 name: target-yaml
 namespace: target_yaml
 pip_url: git+https://github.com/MeltanoLabs/target-yaml.git
+quality: gold
 repo: https://github.com/MeltanoLabs/target-yaml
 settings:
 - description: 'A python format string to use when outputting the `{datestamp}` string.
@@ -34,8 +35,8 @@ settings:
   kind: string
   label: File Naming Scheme
   name: file_naming_scheme
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -60,14 +61,14 @@ settings:
   label: Record Insert Jsonpath
   name: record_insert_jsonpath
   value: $.metrics
-- description: "A property in the record which will be used as the dictionary key.\n\
-    \nIf this property is provided, records will be written as key-value objects;\
-    \ if omitted, records are written as a list."
+- description: "A property in the record which will be used as the dictionary key.\n
+    \nIf this property is provided, records will be written as key-value objects;
+    if omitted, records are written as a list."
   kind: password
   label: Record Key Property Name
   name: record_key_property_name
-- description: "A property in the record which will be used as a sort key.\n\nIf this\
-    \ property is omitted, records will not be sorted."
+- description: "A property in the record which will be used as a sort key.\n\nIf this
+    property is omitted, records will not be sorted."
   kind: string
   label: Record Sort Property Name
   name: record_sort_property_name
@@ -86,9 +87,8 @@ settings:
   label: Timestamp Format
   name: timestamp_format
   value: '%Y-%m-%d.T%H%M%S'
-- description: "The timezone code or name to use when generating `{timestamp}` and\
-    \ `{datestamp}`. Defaults to 'UTC'. For a list of possible values, please see:\
-    \ https://en.wikipedia.org/wiki/List_of_tz_database_time_zones"
+- description: "The timezone code or name to use when generating `{timestamp}` and
+    `{datestamp}`. Defaults to 'UTC'. For a list of possible values, please see: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones"
   kind: string
   label: Timestamp Timezone
   name: timestamp_timezone

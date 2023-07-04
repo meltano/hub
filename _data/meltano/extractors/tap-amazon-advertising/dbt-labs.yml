@@ -12,6 +12,7 @@ maintenance_status: inactive
 name: tap-amazon-advertising
 namespace: tap_amazon_advertising
 pip_url: git+https://github.com/dbt-labs/tap-amazon-advertising.git
+quality: unknown
 repo: https://github.com/dbt-labs/tap-amazon-advertising
 settings:
 - description: Your profile ID.

@@ -97,14 +97,14 @@ settings:
   label: Authentication Method
   name: auth_method
 - aliases:
-  - "database"
+  - database
   description: |
     The BigQuery project ID.
   kind: string
   label: Project
   name: project
 - aliases:
-  - "schema"
+  - schema
   description: |
     The dataset to use.
   kind: string
@@ -116,14 +116,14 @@ settings:
   label: Refresh Token
   name: refresh_token
 - aliases:
-  - "user"
+  - user
   description: |
     The client id to use, if authenticating via oauth-secrets method.
   kind: string
   label: Client ID
   name: client_id
 - aliases:
-  - "password"
+  - password
   description: |
     The client secret to use, if authenticating via oauth-secrets method.
   kind: password

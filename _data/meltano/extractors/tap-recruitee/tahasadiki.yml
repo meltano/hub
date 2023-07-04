@@ -1,6 +1,7 @@
 capabilities:
 - catalog
 - discover
+- state
 description: Talent Acquisition Platform
 domain_url: https://recruitee.com/
 keywords:
@@ -10,7 +11,36 @@ logo_url: /assets/logos/extractors/recruitee.png
 maintenance_status: unknown
 name: tap-recruitee
 namespace: tap_recruitee
-pip_url: git+https://github.com/Tahasadiki/tap-recruitee.git
+pip_url: >
+  git+https://github.com/Tahasadiki/tap-recruitee.git
+  attrs==18.1.0
+  backoff==1.3.2
+  python-dateutil==2.7.3
+  requests==2.20.0
+  singer-python==5.3.3
+quality: unknown
 repo: https://github.com/Tahasadiki/tap-recruitee
-settings: []
+settings:
+- description: The url for the API service
+  kind: string
+  label: URL
+  name: url
+  value: https://api.recruitee.com/
+- description: The earliest record date to sync
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: The token to authenticate against the API service
+  kind: password
+  label: Auth Token
+  name: auth_token
+- description: The Recruitee company ID.
+  kind: string
+  label: Company ID
+  name: company_id
+settings_group_validation:
+- - auth_token
+  - company_id
+  - start_date
+  - url
 variant: tahasadiki

@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-frontapp
 namespace: tap_frontapp
 pip_url: tap-frontapp
+quality: silver
 repo: https://github.com/singer-io/tap-frontapp
 settings: []
 variant: singer-io

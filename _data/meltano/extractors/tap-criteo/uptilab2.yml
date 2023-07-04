@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-criteo
 namespace: tap_criteo
 pip_url: git+https://github.com/uptilab2/tap-criteo.git
+quality: unknown
 repo: https://github.com/uptilab2/tap-criteo
 settings: []
 variant: uptilab2

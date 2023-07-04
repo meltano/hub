@@ -1,5 +1,6 @@
 capabilities:
 - about
+- batch
 - catalog
 - discover
 - schema-flattening
@@ -12,20 +13,46 @@ keywords:
 - api
 label: Messagebird
 logo_url: /assets/logos/extractors/messagebird.png
-maintenance_status: development
+maintenance_status: active
 name: tap-messagebird
 namespace: tap_messagebird
 next_steps: ''
 pip_url: tap-messagebird
+quality: gold
 repo: https://github.com/MeltanoLabs/tap-messagebird
 settings:
 - description: The token to authenticate against the API service. Test keys are not
-    supported for Conversations see https://support.messagebird.com/hc/en-us/articles/360000670709-What-is-the-difference-between-a-live-key-and-a-test-key-
+    supported for Conversations see
+     https://support.messagebird.com/hc/en-us/articles/360000670709-What-is-the-difference-between-a-live-key-and-a-test-key-
   kind: password
   label: API Key
   name: api_key
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: Compression format to use for batch files.
+  kind: options
+  label: Batch Config Encoding Compression
+  name: batch_config.encoding.compression
+  options:
+  - label: Gzip
+    value: gzip
+  - label: None
+    value: none
+- description: Format to use for batch files.
+  kind: options
+  label: Batch Config Encoding Format
+  name: batch_config.encoding.format
+  options:
+  - label: Jsonl
+    value: jsonl
+- description: Prefix to use when writing batch files.
+  kind: string
+  label: Batch Config Storage Prefix
+  name: batch_config.storage.prefix
+- description: Root path to use when writing batch files.
+  kind: string
+  label: Batch Config Storage Root
+  name: batch_config.storage.root
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-contentful
 namespace: tap_contentful
 pip_url: git+https://github.com/dmzobel/tap-contentful.git
+quality: unknown
 repo: https://github.com/dmzobel/tap-contentful
 settings: []
 variant: dmzobel

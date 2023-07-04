@@ -17,6 +17,7 @@ name: tap-followupboss
 namespace: tap_followupboss
 next_steps: ''
 pip_url: git+https://gitlab.com/hotglue/tap-followupboss.git
+quality: gold
 repo: https://gitlab.com/hotglue/tap-followupboss
 settings:
 - description: The url for the API service

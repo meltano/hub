@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-five9
 namespace: tap_five9
 pip_url: git+https://github.com/Pathlight/tap-five9.git
+quality: silver
 repo: https://github.com/Pathlight/tap-five9
 settings: []
 variant: pathlight

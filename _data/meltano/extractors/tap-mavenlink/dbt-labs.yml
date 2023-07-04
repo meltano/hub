@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-mavenlink
 namespace: tap_mavenlink
 pip_url: git+https://github.com/dbt-labs/tap-mavenlink.git
+quality: silver
 repo: https://github.com/dbt-labs/tap-mavenlink
 settings: []
 variant: dbt-labs

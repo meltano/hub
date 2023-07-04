@@ -1,0 +1,42 @@
+capabilities:
+- about
+- catalog
+- discover
+- state
+- stream-maps
+description: Time Tracking Software
+domain_url: https://clockify.me/
+executable: tap-clockify
+keywords:
+- api
+- meltano_sdk
+label: Clockify
+logo_url: /assets/logos/extractors/clockify.png
+maintenance_status: active
+name: tap-clockify
+namespace: tap_clockify
+next_steps: ''
+pip_url: git+https://github.com/quantile-taps/tap-clockify.git
+quality: silver
+repo: https://github.com/quantile-taps/tap-clockify
+settings:
+- description: Your Clockify API Key.
+  kind: password
+  label: API Key
+  name: api_key
+- description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: Your Clockify workspace.
+  kind: string
+  label: Workspace
+  name: workspace
+settings_group_validation:
+- - api_key
+  - workspace
+settings_preamble: ''
+usage: ''
+variant: quantile-taps

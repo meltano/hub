@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-centra
 namespace: tap_centra
 pip_url: git+https://github.com/icebug/tap-centra.git
+quality: unknown
 repo: https://github.com/icebug/tap-centra
 settings: []
 variant: icebug

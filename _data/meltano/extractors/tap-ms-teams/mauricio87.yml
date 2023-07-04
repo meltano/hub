@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-ms-teams
 namespace: tap_ms_teams
 pip_url: git+https://github.com/mauricio87/tap-ms-teams.git
+quality: unknown
 repo: https://github.com/mauricio87/tap-ms-teams
 settings: []
 variant: mauricio87

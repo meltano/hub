@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-purecloud
 namespace: tap_purecloud
 pip_url: git+https://github.com/drewbanin/tap-purecloud.git
+quality: unknown
 repo: https://github.com/drewbanin/tap-purecloud
 settings: []
 variant: drewbanin

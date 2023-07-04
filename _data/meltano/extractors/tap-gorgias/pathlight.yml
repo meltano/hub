@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-gorgias
 namespace: tap_gorgias
 pip_url: git+https://github.com/Pathlight/tap-gorgias.git
+quality: unknown
 repo: https://github.com/Pathlight/tap-gorgias
 settings: []
 variant: pathlight

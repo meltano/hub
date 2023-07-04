@@ -70,6 +70,10 @@
               class="w-8 h-4 inline gap-x-11"
               src="../assets/images/gitlab-brands.svg"
             /><img
+              v-else-if="repoType === 'bitbucket'"
+              class="w-8 h-4 inline gap-x-11"
+              src="../assets/images/bitbucket-brands.svg"
+            /><img
               v-else
               class="w-8 h-4 inline gap-x-11"
               src="../assets/images/git-alt-brands.svg"
@@ -82,7 +86,9 @@
             </a>
           </div>
         </div>
-        <div v-if="!$page.plugins.keywords.includes('airbyte_protocol')">
+        <div
+          v-if="!$page.plugins.keywords.includes('airbyte_protocol') && repoType !== 'bitbucket'"
+        >
           <ul class="list-disc list-inside shields space-y-1">
             <li>
               <img
@@ -186,19 +192,19 @@
           </ul>
         </div>
         <!-- <div v-if="metrics  (keywords ?? []).includes('meltano_sdk')"> -->
-        <div v-if="metrics && (metrics.ALL_EXECS || metrics.ALL_PROJECTS)">
+        <div v-if="metrics && (metrics.all_execs || metrics.all_projects)">
           <p class="text-lg">Meltano Stats</p>
           <ul class="list-disc list-inside shields space-y-1">
-            <li v-if="metrics.ALL_EXECS">
+            <li v-if="metrics.all_execs">
               <img
                 alt="Total Executions (Last 3 Months)"
-                :src="`https://img.shields.io/badge/Total%20Executions%20(Last%203%20Months)-${metrics.ALL_EXECS.toLocaleString()}-c0c0c4`"
+                :src="`https://img.shields.io/badge/Total%20Executions%20(Last%203%20Months)-${metrics.all_execs.toLocaleString()}-c0c0c4`"
               />
             </li>
-            <li v-if="metrics.ALL_PROJECTS">
+            <li v-if="metrics.all_projects">
               <img
                 alt="Projects (Last 3 Months)"
-                :src="`https://img.shields.io/badge/Projects%20(Last%203%20Months)-${metrics.ALL_PROJECTS.toLocaleString()}-c0c0c4`"
+                :src="`https://img.shields.io/badge/Projects%20(Last%203%20Months)-${metrics.all_projects.toLocaleString()}-c0c0c4`"
               />
             </li>
           </ul>
@@ -269,7 +275,15 @@ export default {
     },
     repoType() {
       // Some plugins are hosted on github, some on gitlab
-      return this.repo.includes("github.com") ? "github" : "gitlab";
+      let repoType = "";
+      if (this.repo.includes("github.com")) {
+        repoType = "github";
+      } else if (this.repo.includes("gitlab.com")) {
+        repoType = "gitlab";
+      } else if (this.repo.includes("bitbucket.org")) {
+        repoType = "bitbucket";
+      }
+      return repoType;
     },
     parsedEDKRepo() {
       // For some plugin variants, either the `variant` or `name` doesn't match the GH repo

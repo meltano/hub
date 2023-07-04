@@ -12,6 +12,7 @@ maintenance_status: inactive
 name: tap-sklik
 namespace: tap_sklik
 pip_url: git+https://github.com/polar-analytics/tap-sklik.git
+quality: unknown
 repo: https://github.com/polar-analytics/tap-sklik
 settings:
 - description: Date up to when historical data will be extracted.

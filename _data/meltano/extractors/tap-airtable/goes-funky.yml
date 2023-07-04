@@ -11,6 +11,7 @@ maintenance_status: active
 name: tap-airtable
 namespace: tap_airtable
 pip_url: git+https://github.com/goes-funky/tap-airtable.git
+quality: silver
 repo: https://github.com/goes-funky/tap-airtable
 settings:
 - description: Airtable Token

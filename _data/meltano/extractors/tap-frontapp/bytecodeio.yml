@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-frontapp
 namespace: tap_frontapp
 pip_url: git+https://github.com/bytecodeio/tap-frontapp.git
+quality: unknown
 repo: https://github.com/bytecodeio/tap-frontapp
 settings: []
 variant: bytecodeio

@@ -13,6 +13,7 @@ maintenance_status: active
 name: tap-thunderboard
 namespace: tap_thunderboard
 pip_url: git+https://github.com/Matatika/tap-thunderboard
+quality: gold
 repo: https://github.com/Matatika/tap-thunderboard
 settings:
 - description: "'dump' mode scans for devices and dumps measurements continuously\n\

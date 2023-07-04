@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-walkscore
 namespace: tap_walkscore
 pip_url: git+https://github.com/Radico/tap-walkscore.git
+quality: unknown
 repo: https://github.com/Radico/tap-walkscore
 settings: []
 variant: radico

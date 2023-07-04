@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-sftp
 namespace: tap_sftp
 pip_url: git+https://github.com/bonobos/tap-sftp.git
+quality: unknown
 repo: https://github.com/bonobos/tap-sftp
 settings: []
 variant: bonobos

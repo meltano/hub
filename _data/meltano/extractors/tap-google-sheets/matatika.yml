@@ -14,6 +14,7 @@ maintenance_status: active
 name: tap-google-sheets
 namespace: tap_google_sheets
 pip_url: git+https://github.com/Matatika/tap-google-sheets.git
+quality: gold
 repo: https://github.com/Matatika/tap-google-sheets
 settings:
 - description: Google OAuth Client ID

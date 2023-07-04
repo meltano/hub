@@ -15,6 +15,7 @@ maintenance_status: active
 name: tap-spotify
 namespace: tap_spotify
 pip_url: git+https://github.com/Matatika/tap-spotify.git
+quality: gold
 repo: https://github.com/Matatika/tap-spotify
 settings:
 - description: App client ID

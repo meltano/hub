@@ -7,10 +7,11 @@ keywords:
 - api
 label: Clockify
 logo_url: /assets/logos/extractors/clockify.png
-maintenance_status: unknown
+maintenance_status: inactive
 name: tap-clockify
 namespace: tap_clockify
 pip_url: git+https://github.com/immuta/tap-clockify.git
+quality: silver
 repo: https://github.com/immuta/tap-clockify
 settings: []
 variant: immuta

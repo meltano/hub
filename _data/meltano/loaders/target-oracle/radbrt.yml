@@ -9,11 +9,12 @@ keywords:
 - database
 label: Oracle
 logo_url: /assets/logos/loaders/oracle.png
-maintenance_status: development
+maintenance_status: active
 name: target-oracle
 namespace: target_oracle
 next_steps: ''
 pip_url: git+https://github.com/radbrt/target-oracle.git
+quality: gold
 repo: https://github.com/radbrt/target-oracle
 settings:
 - description: SQLAlchemy connection string

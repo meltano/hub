@@ -17,6 +17,7 @@ maintenance_status: active
 name: tap-sleeper
 namespace: tap_sleeper
 pip_url: tap-sleeper
+quality: silver
 repo: https://github.com/collinprather/tap-sleeper
 settings:
 - description: Professional sport league, ie nfl, nba, etc

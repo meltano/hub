@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-spreadsheets-anywhere
 namespace: tap_spreadsheets_anywhere
 pip_url: git+https://github.com/laurentS/tap-spreadsheets-anywhere.git
+quality: unknown
 repo: https://github.com/laurentS/tap-spreadsheets-anywhere
 settings: []
 settings_group_validation: []

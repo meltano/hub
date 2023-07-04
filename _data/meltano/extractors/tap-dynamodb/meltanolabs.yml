@@ -13,11 +13,12 @@ keywords:
 - aws
 label: DynamoDB
 logo_url: /assets/logos/extractors/dynamodb.png
-maintenance_status: beta
+maintenance_status: active
 name: tap-dynamodb
 namespace: tap_dynamodb
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-dynamodb.git
+quality: gold
 repo: https://github.com/MeltanoLabs/tap-dynamodb
 settings:
 - description: The access key for your AWS account.

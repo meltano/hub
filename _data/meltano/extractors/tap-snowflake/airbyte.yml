@@ -18,6 +18,7 @@ name: tap-snowflake
 namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
+quality: silver
 repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-snowflake
 settings:
 - description: Airbyte image to run
@@ -41,22 +42,6 @@ settings:
   label: Airbyte Config Credentials Auth Type
   name: airbyte_config.credentials.auth_type
   value: username/password
-# - description: The Client ID of your Snowflake developer application.
-#   kind: password
-#   label: Connector Config Credentials Client Id
-#   name: connector_config.credentials.client_id
-# - description: The Client Secret of your Snowflake developer application.
-#   kind: password
-#   label: Connector Config Credentials Client Secret
-#   name: connector_config.credentials.client_secret
-# - description: Access Token for making authenticated requests.
-#   kind: password
-#   label: Connector Config Credentials Access Token
-#   name: connector_config.credentials.access_token
-# - description: Refresh Token for making authenticated requests.
-#   kind: password
-#   label: Connector Config Credentials Refresh Token
-#   name: connector_config.credentials.refresh_token
 - description: The username you created to allow Airbyte to access the database.
   kind: string
   label: Airbyte Config Credentials Username

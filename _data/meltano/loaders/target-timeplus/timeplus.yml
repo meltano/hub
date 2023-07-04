@@ -14,6 +14,7 @@ name: target-timeplus
 namespace: target_timeplus
 next_steps: ''
 pip_url: git+https://github.com/timeplus-io/target-timeplus.git
+quality: silver
 repo: https://github.com/timeplus-io/target-timeplus
 settings:
 - description: Personal API Key. Check https://docs.timeplus.com/docs/quickstart-ingest-api

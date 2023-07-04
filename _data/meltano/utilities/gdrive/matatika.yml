@@ -11,7 +11,7 @@ keywords:
 - google drive
 label: Google Drive
 logo_url: /assets/logos/utilities/gdrive.png
-maintenance_status: development
+maintenance_status: beta
 name: gdrive
 namespace: gdrive
 pip_url: git+https://github.com/Matatika/utility-gdrive.git

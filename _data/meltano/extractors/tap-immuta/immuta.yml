@@ -15,6 +15,7 @@ maintenance_status: active
 name: tap-immuta
 namespace: tap_immuta
 pip_url: git+https://github.com/immuta/tap-immuta.git
+quality: silver
 repo: https://github.com/immuta/tap-immuta
 settings:
 - description: Immuta hostname, e.g. https://my-immuta.my-domain.com

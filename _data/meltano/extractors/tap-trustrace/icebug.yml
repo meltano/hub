@@ -14,6 +14,7 @@ name: tap-trustrace
 namespace: tap_trustrace
 next_steps: ''
 pip_url: git+https://github.com/icebug/tap-trustrace.git
+quality: silver
 repo: https://github.com/icebug/tap-trustrace
 settings:
 - description: The token to authenticate against the API service

@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-asana
 namespace: tap_asana
 pip_url: tap-asana
+quality: silver
 repo: https://github.com/singer-io/tap-asana
 settings:
 - description: Client Id for your application from Asana

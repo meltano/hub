@@ -15,6 +15,7 @@ maintenance_status: inactive
 name: target-bigquery
 namespace: target_bigquery
 pip_url: pipelinewise-target-bigquery
+quality: silver
 repo: https://github.com/transferwise/pipelinewise-target-bigquery
 settings:
 - description: |

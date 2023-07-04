@@ -21,5 +21,5 @@ extractors:
   tap-snapchat-ads: source-snapchat-marketing
   tap-tiktok: source-tiktok-marketing
   tap-twilio: source-twilio-taskrouter
-  tap-youtube-analytics: source-youtube-analytics-business
+  tap-zendesk: source-zendesk-support
 loaders:

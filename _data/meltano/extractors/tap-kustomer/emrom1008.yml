@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-kustomer
 namespace: tap_kustomer
 pip_url: git+https://github.com/emrom1008/tap-kustomer.git
+quality: unknown
 repo: https://github.com/emrom1008/tap-kustomer
 settings: []
 variant: emrom1008

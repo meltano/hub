@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-woocommerce
 namespace: tap_woocommerce
 pip_url: git+https://github.com/hotgluexyz/tap-woocommerce.git
+quality: silver
 repo: https://github.com/hotgluexyz/tap-woocommerce
 settings:
 - description: WooCommerce Site URL

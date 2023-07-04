@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-helpscout
 namespace: tap_helpscout
 pip_url: tap-helpscout
+quality: bronze
 repo: https://github.com/singer-io/tap-helpscout
 settings:
 - description: Your Help Scout client ID. Follow these instructions to [Create My

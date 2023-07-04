@@ -15,6 +15,7 @@ name: tap-bamboohr
 namespace: autoidm_tap_bamboohr
 next_steps: ''
 pip_url: git+https://github.com/AutoIDM/autoidm-tap-bamboohr.git
+quality: gold
 repo: https://github.com/AutoIDM/autoidm-tap-bamboohr
 settings:
 - description: Token gathered from BambooHR, instructions are [here](https://documentation.bamboohr.com/docs#section-authentication)

@@ -12,6 +12,7 @@ maintenance_status: inactive
 name: tap-holidays
 namespace: tap_holidays
 pip_url: git+https://github.com/goodeggs/tap-holidays.git
+quality: silver
 repo: https://github.com/goodeggs/tap-holidays
 settings:
 - description: A valid Holiday API key.

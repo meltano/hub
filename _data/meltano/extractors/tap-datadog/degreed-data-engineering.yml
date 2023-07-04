@@ -15,6 +15,7 @@ name: tap-datadog
 namespace: tap_datadog
 next_steps: ''
 pip_url: git+https://github.com/degreed-data-engineering/tap-datadog.git
+quality: silver
 repo: https://github.com/degreed-data-engineering/tap-datadog
 settings:
 - description: DD-API-KEY

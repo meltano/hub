@@ -15,6 +15,7 @@ maintenance_status: active
 name: tap-megaphone
 namespace: tap_megaphone
 pip_url: tap-megaphone
+quality: silver
 repo: https://github.com/yujoy/tap-megaphone
 settings:
 - description: API Token required for authorization. See README in Github Repo for

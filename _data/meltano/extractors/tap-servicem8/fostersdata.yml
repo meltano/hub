@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-servicem8
 namespace: tap_servicem8
 pip_url: git+https://github.com/FostersData/tap-servicem8.git
+quality: unknown
 repo: https://github.com/FostersData/tap-servicem8
 settings: []
 variant: fostersdata

@@ -17,6 +17,7 @@ name: tap-judgeme
 namespace: tap_judgeme
 next_steps: ''
 pip_url: git+https://gitlab.com/hotglue/tap-judgeme.git
+quality: gold
 repo: https://gitlab.com/hotglue/tap-judgeme
 settings:
 - description: The token to authenticate against the API service

@@ -16,6 +16,7 @@ name: tap-bigmarker
 namespace: tap_bigmarker
 next_steps: ''
 pip_url: git+https://github.com/manuelapilongo/tap-bigmarker.git
+quality: silver
 repo: https://github.com/manuelapilongo/tap-bigmarker
 settings:
 - description: The token to authenticate against the API service

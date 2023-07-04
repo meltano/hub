@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-activecampaign
 namespace: tap_activecampaign
 pip_url: tap-activecampaign
+quality: silver
 repo: https://github.com/singer-io/tap-activecampaign
 settings:
 - description: The ActiveCampaign API URL.

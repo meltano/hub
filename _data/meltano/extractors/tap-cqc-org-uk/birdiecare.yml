@@ -15,6 +15,7 @@ name: tap-cqc-org-uk
 namespace: tap_cqc_org_uk
 next_steps: ''
 pip_url: git+https://github.com/birdiecare/tap-cqc-org-uk.git
+quality: silver
 repo: https://github.com/birdiecare/tap-cqc-org-uk
 settings:
 - description: Partner Code

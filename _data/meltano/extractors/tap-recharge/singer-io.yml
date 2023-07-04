@@ -12,6 +12,7 @@ maintenance_status: inactive
 name: tap-recharge
 namespace: tap_recharge
 pip_url: tap-recharge==1.0.3
+quality: bronze
 repo: https://github.com/singer-io/tap-recharge
 settings:
 - description: Private API Token

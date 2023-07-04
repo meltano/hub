@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-paypal
 namespace: tap_paypal
 pip_url: git+https://github.com/Yoast/singer-tap-paypal.git
+quality: silver
 repo: https://github.com/Yoast/singer-tap-paypal
 settings:
 - description: Your PayPal secret key.

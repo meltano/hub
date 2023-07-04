@@ -17,6 +17,7 @@ name: tap-smoke-test
 namespace: tap_smoke_test
 next_steps: ''
 pip_url: git+https://github.com/meltano/tap-smoke-test.git
+quality: gold
 repo: https://github.com/meltano/tap-smoke-test
 settings:
 - description: "'True' to enable schema flattening and automatically expand nested\
@@ -55,7 +56,7 @@ settings:
     ```yaml
     streams:
     - stream_name: animals
-      input_filename: https://github.com/meltano/tap-smoke-test/blob/main/demo-data/animals-data.jsonl
+      input_filename: https://raw.githubusercontent.com/meltano/tap-smoke-test/main/demo-data/animals-data.jsonl
     ```
   kind: array
   label: Streams

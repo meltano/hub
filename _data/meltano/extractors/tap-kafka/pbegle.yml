@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-kafka
 namespace: tap_kafka
 pip_url: git+https://github.com/pbegle/tap-kafka.git
+quality: unknown
 repo: https://github.com/pbegle/tap-kafka
 settings: []
 variant: pbegle

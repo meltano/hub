@@ -18,6 +18,7 @@ name: tap-itunes
 namespace: tap_itunes
 next_steps: ''
 pip_url: git+https://gitlab.com/hotglue/tap-itunes.git
+quality: gold
 repo: https://gitlab.com/hotglue/tap-itunes
 settings:
 - description: Your iTunes App ID.

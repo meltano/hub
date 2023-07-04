@@ -16,6 +16,7 @@ maintenance_status: active
 name: tap-clickup
 namespace: tap_clickup
 pip_url: tap-clickup
+quality: gold
 repo: https://github.com/AutoIDM/tap-clickup
 settings:
 - description: 'Example: pk_12345'

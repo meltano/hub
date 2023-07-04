@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-appsflyer
 namespace: tap_appsflyer
 pip_url: tap-appsflyer
+quality: silver
 repo: https://github.com/singer-io/tap-appsflyer
 settings:
 - description: The user agent to send with requests.

@@ -11,6 +11,7 @@ maintenance_status: active
 name: tap-zendesk
 namespace: tap_zendesk
 pip_url: pipelinewise-tap-zendesk
+quality: silver
 repo: https://github.com/transferwise/pipelinewise-tap-zendesk
 settings: []
 settings_group_validation: []

@@ -17,6 +17,7 @@ name: tap-cloudwatch
 namespace: tap_cloudwatch
 next_steps: ''
 pip_url: git+https://github.com/meltanolabs/tap-cloudwatch.git
+quality: gold
 repo: https://github.com/meltanolabs/tap-cloudwatch
 settings:
 - description: The access key for your AWS account.
@@ -64,8 +65,8 @@ settings:
   kind: date_iso8601
   label: End Date
   name: end_date
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -78,7 +79,8 @@ settings:
   label: Log Group Name
   name: log_group_name
 - description: The query string to use. For more information, see [CloudWatch Logs
-    Insights Query Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
+    Insights Query
+     Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
   kind: string
   label: Query
   name: query

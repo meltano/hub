@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-harvest
 namespace: tap_harvest
 pip_url: tap-harvest
+quality: silver
 repo: https://github.com/singer-io/tap-harvest
 settings:
 - description: The request timeout length, default 300.

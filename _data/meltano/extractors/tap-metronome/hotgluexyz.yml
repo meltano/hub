@@ -18,6 +18,7 @@ name: tap-metronome
 namespace: tap_metronome
 next_steps: ''
 pip_url: git+https://gitlab.com/hotglue/tap-metronome.git
+quality: gold
 repo: https://gitlab.com/hotglue/tap-metronome
 settings:
 - description: The token to authenticate against the API service

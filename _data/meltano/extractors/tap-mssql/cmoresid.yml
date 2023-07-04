@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-mssql
 namespace: tap_mssql
 pip_url: git+https://github.com/cmoresid/tap-mssql.git
+quality: silver
 repo: https://github.com/cmoresid/tap-mssql
 settings: []
 variant: cmoresid

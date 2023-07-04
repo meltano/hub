@@ -11,6 +11,7 @@ name: target-s3-avro
 namespace: target_s3_avro
 next_steps: ''
 pip_url: git+https://github.com/faumel/target-s3-avro.git
+quality: silver
 repo: https://github.com/faumel/target-s3-avro
 settings:
 - description: Whether or not to verify SSL certificates.

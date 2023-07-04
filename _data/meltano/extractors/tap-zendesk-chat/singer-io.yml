@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-zendesk-chat
 namespace: tap_zendesk_chat
 pip_url: tap-zendesk-chat
+quality: silver
 repo: https://github.com/singer-io/tap-zendesk-chat
 settings:
 - description: The user agent to send with requests.

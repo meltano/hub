@@ -12,6 +12,7 @@ maintenance_status: inactive
 name: tap-3plcentral
 namespace: tap_3plcentral
 pip_url: tap-3plcentral
+quality: bronze
 repo: https://github.com/singer-io/tap-3plcentral
 settings:
 - description: Your client ID.

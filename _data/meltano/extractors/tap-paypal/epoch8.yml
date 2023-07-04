@@ -16,6 +16,7 @@ name: tap-paypal
 namespace: tap_paypal
 next_steps: ''
 pip_url: git+https://github.com/epoch8/tap-paypal.git
+quality: silver
 repo: https://github.com/epoch8/tap-paypal
 settings:
 - description: Your PayPal client ID.

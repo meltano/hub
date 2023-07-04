@@ -16,6 +16,7 @@ name: tap-emarsys
 namespace: tap_emarsys
 next_steps: ''
 pip_url: git+https://github.com/GtheSheep/tap-emarsys.git
+quality: silver
 repo: https://github.com/GtheSheep/tap-emarsys
 settings:
 - description: The username obtained for the API user

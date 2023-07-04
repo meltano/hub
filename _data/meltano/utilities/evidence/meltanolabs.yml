@@ -5,7 +5,8 @@ commands:
     executable: evidence_extension
   build-strict:
     args: build --strict
-    description: Build your Evidence, but fail if there are errors in components. Commonly used in CI/CD.
+    description: Build your Evidence, but fail if there are errors in components.
+      Commonly used in CI/CD.
     executable: evidence_extension
   describe:
     args: describe
@@ -213,9 +214,9 @@ settings:
   label: Send Anonymous Usage Stats
   name: send_anonymous_usage_stats
   options:
-  - value: 'yes'
-  - value: 'no'
-  value: 'yes'
+  - value: yes
+  - value: no
+  value: yes
 settings_group_validation:
 - - home_dir
 - - home_dir

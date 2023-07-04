@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-density
 namespace: tap_density
 pip_url: git+https://github.com/envoy/tap-density.git
+quality: unknown
 repo: https://github.com/envoy/tap-density
 settings: []
 variant: envoy

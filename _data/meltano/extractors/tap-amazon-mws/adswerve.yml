@@ -1,16 +1,64 @@
 capabilities:
 - catalog
 - discover
+- state
 description: Amazon API for Selling Automation
 domain_url: https://developer.amazonservices.com/
+executable: singer-tap-amazon-mws
 keywords:
+- amazon
 - api
 label: Amazon MWS
 logo_url: /assets/logos/extractors/amazon-mws.png
-maintenance_status: unknown
+maintenance_status: inactive
 name: tap-amazon-mws
 namespace: tap_amazon_mws
+next_steps: ''
 pip_url: git+https://github.com/adswerve/singer-tap-amazon-mws.git
+quality: unknown
 repo: https://github.com/adswerve/singer-tap-amazon-mws
-settings: []
+settings:
+- description: Your Amazon MWS access key.
+  kind: password
+  label: Access Key
+  name: access_key
+- description: Date up to when historical data will be extracted.
+  kind: date_iso8601
+  label: End Date
+  name: end_date
+- description: The start date to use when syncing inventory data.
+  kind: date_iso8601
+  label: Inventory Start Date
+  name: inventory_start_date
+- description: Your Amazon MWS marketplace IDs to sync data from.
+  kind: array
+  label: Marketplace IDs
+  name: marketplace_ids
+- description: Your Amazon MWS region.
+  kind: string
+  label: Region
+  name: region
+- description: Your Amazon MWS secret key.
+  kind: password
+  label: Secret Key
+  name: secret_key
+- description: Your Amazon MWS seller ID.
+  kind: password
+  label: Seller ID
+  name: seller_id
+- description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+settings_group_validation:
+- - access_key
+  - marketplace_ids
+  - region
+  - secret_key
+  - seller_id
+  - start_date
+settings_preamble: ''
+usage: ''
 variant: adswerve

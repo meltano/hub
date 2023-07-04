@@ -20,6 +20,7 @@ prereq: |
   ```
 
   See the [documentation](https://github.com/transferwise/pipelinewise-target-snowflake#pre-requirements) for more details on other optional objects and how to create them.
+quality: silver
 repo: https://github.com/transferwise/pipelinewise-target-snowflake
 settings:
 - description: Snowflake account name (i.e. `rtXXXXX.eu-central-1`)

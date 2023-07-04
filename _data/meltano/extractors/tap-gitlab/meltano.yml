@@ -13,6 +13,7 @@ maintenance_status: active
 name: tap-gitlab
 namespace: tap_gitlab
 pip_url: git+https://gitlab.com/meltano/tap-gitlab.git
+quality: silver
 repo: https://gitlab.com/meltano/tap-gitlab
 settings:
 - description: GitLab API/instance URL. When an API path is omitted, `/api/v4/` is

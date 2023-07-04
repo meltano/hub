@@ -17,6 +17,7 @@ name: tap-gohighlevel
 namespace: tap_gohighlevel
 next_steps: ''
 pip_url: git+https://gitlab.com/hotglue/tap-gohighlevel.git
+quality: gold
 repo: https://gitlab.com/hotglue/tap-gohighlevel
 settings:
 - description: The url for the API service

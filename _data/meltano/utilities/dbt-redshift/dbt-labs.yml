@@ -123,7 +123,7 @@ settings:
   label: Port
   name: port
 - aliases:
-  - "database"
+  - database
   description: |
     The name of the db to connect to.
   kind: string

@@ -10,6 +10,7 @@ maintenance_status: unknown
 name: tap-postgres
 namespace: tap_postgres
 pip_url: tap-postgres
+quality: silver
 repo: https://github.com/singer-io/tap-postgres
 settings: []
 settings_group_validation: []

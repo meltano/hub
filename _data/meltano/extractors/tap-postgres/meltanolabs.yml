@@ -12,15 +12,20 @@ keywords:
 - database
 label: Postgres
 logo_url: /assets/logos/extractors/postgres.png
-maintenance_status: development
+maintenance_status: active
 name: tap-postgres
 namespace: tap_postgres
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-postgres.git
+quality: gold
 repo: https://github.com/MeltanoLabs/tap-postgres
 settings:
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: Database name. Note if sqlalchemy_url is set this will be ignored.
+  kind: string
+  label: Database
+  name: database
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -28,8 +33,24 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: Example postgresql://[username]:[password]@localhost:5432/[db_name]
+- description: Hostname for postgres instance. Note if sqlalchemy_url is set this
+    will be ignored.
+  kind: string
+  label: Host
+  name: host
+- description: Password used to authenticate. Note if sqlalchemy_url is set this will
+    be ignored.
   kind: password
+  label: Password
+  name: password
+- description: The port on which postgres is awaiting connection. Note if sqlalchemy_url
+    is set this will be ignored.
+  kind: integer
+  label: Port
+  name: port
+  value: 5432
+- description: Example postgresql://[username]:[password]@localhost:5432/[db_name]
+  kind: string
   label: Sqlalchemy URL
   name: sqlalchemy_url
 - description: Enable an ssh tunnel (also known as bastion host), see the other ssh_tunnel.*
@@ -67,13 +88,13 @@ settings:
   kind: object
   label: Stream Maps
   name: stream_maps
+- description: User name used to authenticate. Note if sqlalchemy_url is set this
+    will be ignored.
+  kind: string
+  label: User
+  name: user
 settings_group_validation:
 - - sqlalchemy_url
-  - ssh_tunnel.enable
-  - ssh_tunnel.host
-  - ssh_tunnel.port
-  - ssh_tunnel.private_key
-  - ssh_tunnel.username
 settings_preamble: ''
 usage: |
   ## Incremental Replication
