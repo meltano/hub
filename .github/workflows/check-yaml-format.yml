@@ -20,10 +20,10 @@ jobs:
         files: |
           _data/**/*.yml
 
-    - name: Install hub-utils
+    - name: Install yamllint
       if: steps.changed-files.outputs.any_changed == 'true'
-      run: pipx install git+https://github.com/meltano/hub-utils.git
+      run: pipx install yamllint
 
     - name: Lint YAML files
       if: steps.changed-files.outputs.any_changed == 'true'
-      run: hub-utils yamllint lint ${{ steps.changed-files.outputs.all_changed_files }}
+      run: yamllint ${{ steps.changed-files.outputs.all_changed_files }}
