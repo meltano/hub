@@ -1,5 +1,3 @@
-import collections
-import copy
 import os
 import subprocess
 import sys
@@ -10,7 +8,6 @@ from ruamel.yaml import YAML
 yaml = YAML()
 yaml.preserve_quotes = True
 yaml.default_flow_style = False
-
 
 def insert_newlines(string, every=160):
     # TODO: this is not working because editing strings causes them
@@ -50,29 +47,6 @@ def fix_yaml_dict_format(od):
     return dict(res)
 
 
-def fix_arrays(yml_dict):
-    new_dict = copy.deepcopy(yml_dict)
-
-    # Sort SGV
-    new_sgv_list = []
-    for sgv_list in yml_dict.get("settings_group_validation", []):
-        new_sgv_list.append(sorted(sgv_list))
-    new_dict["settings_group_validation"] = new_sgv_list
-
-    # Sort capabilities
-    new_dict["capabilities"] = sorted(yml_dict.get("capabilities", []))
-
-    # Sort Settings by Name
-    new_settings = []
-    settings = yml_dict.get("settings", [])
-    lookup = {setting.get("name"): setting for setting in settings}
-    for _, setting in collections.OrderedDict(sorted(lookup.items())).items():
-        new_settings.append(dict(collections.OrderedDict(sorted(setting.items()))))
-    new_dict["settings"] = new_settings
-
-    return new_dict
-
-
 def fix_yaml(yml_path):
     """
     Reads in the yaml file and attempts to fix it before
@@ -82,13 +56,7 @@ def fix_yaml(yml_path):
     with open(yml_path, "r") as plugin_file:
         plugin_data = yaml.load(plugin_file)
     with open(yml_path, "w") as plugin_file:
-        updated_dict = plugin_data
-        if os.path.basename(yml_path) not in (
-            "maintainers.yml",
-            "default_variants.yml",
-        ):
-            updated_dict = fix_arrays(updated_dict)
-        updated_dict = fix_yaml_dict_format(updated_dict)
+        updated_dict = fix_yaml_dict_format(plugin_data)
         yaml.dump(updated_dict, plugin_file)
 
 
