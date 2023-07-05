@@ -11,8 +11,8 @@ logo_url: /assets/logos/extractors/csv.png
 maintenance_status: active
 name: tap-csv
 namespace: tap_csv
-pip_url: git+https://github.com/MeltanoLabs/tap-csv.git
 quality: gold
+pip_url: git+https://github.com/MeltanoLabs/tap-csv.git
 repo: https://github.com/MeltanoLabs/tap-csv
 settings:
 - description: When True, add the metadata columns (`_sdc_source_file`, `_sdc_source_file_mtime`,
