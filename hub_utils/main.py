@@ -5,6 +5,7 @@ import os
 from copy import copy
 from datetime import datetime
 from enum import Enum
+from typing import List
 
 import requests
 import typer
@@ -81,18 +82,16 @@ class YamlLint(str, Enum):
 
 
 @app.command()
-def yamllint(action: YamlLint, path: str):
+def yamllint(action: YamlLint, paths: List[str]):
     """
     Run yamllint on all yamls in the hub or a specific path.
     """
-    if path:
-        paths = [path]
-    else:
+    if not paths:
         paths = list(find_all_yamls())
 
     for path in paths:
         if action == YamlLint.lint:
-            run_yamllint(path)
+            run_yamllint(path, error_if_fail=True)
         elif action == YamlLint.fix:
             fix_yaml(path)
 

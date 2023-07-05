@@ -259,13 +259,13 @@ Run yamllint on all yamls in the hub or a specific path.
 **Usage**:
 
 ```console
-$ hub-utils yamllint [OPTIONS] ACTION:{fix|lint} PATH
+$ hub-utils yamllint [OPTIONS] ACTION:{fix|lint} PATHS...
 ```
 
 **Arguments**:
 
 * `ACTION:{fix|lint}`: [required]
-* `PATH`: [required]
+* `PATHS...`: [required]
 
 **Options**:
 
