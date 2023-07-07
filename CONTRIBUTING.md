@@ -7,11 +7,10 @@ for more information on contributing to Meltano.
 
 We believe that everyone can contribute and we welcome all contributions.
 If you're not sure what to work on, here are some [ideas to get you started](https://github.com/meltano/hub/issues?q=is%3Aissue+is%3Aopen+label%3A%22Accepting+Pull+Requests%22)
-  
+
 Chat with us in [#contributing](https://meltano.slack.com/archives/C013Z450LCD) on [Slack](https://meltano.com/slack).
 
 Contributors are expected to follow our [Code of Conduct](https://docs.meltano.com/contribute/#code-of-conduct).
-
 
 ## hub-utils CLI
 
@@ -20,7 +19,6 @@ This can sometimes make it difficult for our team and community members to contr
 To help with this we created a [hub-utils CLI](https://github.com/meltano/hub-utils) that offers an interactive CLI interface for common operations.
 For example it will help you add or update plugins, along the way it will prompt for information it needs to fulfil the plugin definition and if the plugin is SDK based it will scrape most of the information for you so you don't need to provide it.
 It does it's best to default to the correct answers and fill common descriptions (i.e. start_date) and labels for you.
-
 
 This assumes you already have pipx installed, see the meltano [install-pipx docs](https://docs.meltano.com/guide/installation-guide#install-pipx) for details.
 
