@@ -94,7 +94,9 @@ def fix_yaml(yml_path):
 
 def run_yamllint(path, error_if_fail=False):
     print(f"Linting: {path}")
-    subprocess.run(f"yamllint {path} -c .yamllint.yaml".split(" "), check=error_if_fail)
+    subprocess.run(
+        f"pipx run yamllint {path} -c .yamllint.yaml".split(" "), check=error_if_fail
+    )
 
 
 def find_all_yamls(f_path="_data/"):

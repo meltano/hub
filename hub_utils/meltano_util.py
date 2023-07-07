@@ -206,6 +206,14 @@ class MeltanoUtil:
             )
         if setting == "end_date":
             return "Date up to when historical data will be extracted."
+        elif setting == "batch_config.encoding.format":
+            return "Format to use for batch files."
+        elif setting == "batch_config.encoding.compression":
+            return "Compression format to use for batch files."
+        elif setting == "batch_config.storage.root":
+            return "Root path to use when writing batch files."
+        elif setting == "batch_config.storage.prefix":
+            return "Prefix to use when writing batch files."
         else:
             return None
 
