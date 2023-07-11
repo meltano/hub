@@ -1,3 +1,4 @@
+capabilities: []
 commands:
   build:
     args: build
@@ -69,52 +70,14 @@ next_steps: |-
     # create a starter dbt_project.yml file, a profiles.yml file, and models directory
     meltano invoke dbt-bigquery:initialize
     ```
-pip_url: dbt-core~=1.3.0 dbt-bigquery~=1.3.0 git+https://github.com/meltano/dbt-ext.git@main
+pip_url: dbt-core~=1.5.0 dbt-bigquery~=1.5.0 git+https://github.com/meltano/dbt-ext.git@main
 repo: https://github.com/dbt-labs/dbt-bigquery
 settings:
-- description: Whether to skip pre-invoke hooks which automatically run dbt clean
-    and deps
-  env: DBT_EXT_SKIP_PRE_INVOKE
-  kind: boolean
-  label: Skip Pre-invoke
-  name: skip_pre_invoke
-  value: false
-- env: DBT_EXT_TYPE
-  label: dbt Profile Type
-  name: type
-  value: bigquery
-- env: DBT_PROJECT_DIR
-  label: Project Directory
-  name: project_dir
-  value: $MELTANO_PROJECT_ROOT/transform
-- env: DBT_PROFILES_DIR
-  label: Profiles Directory
-  name: profiles_dir
-  value: $MELTANO_PROJECT_ROOT/transform/profiles/bigquery
 - description: |
     The auth method to use. One of: "oauth", "oauth-secrets", or "service-account"
   kind: string
   label: Authentication Method
   name: auth_method
-- aliases:
-  - database
-  description: |
-    The BigQuery project ID.
-  kind: string
-  label: Project
-  name: project
-- aliases:
-  - schema
-  description: |
-    The dataset to use.
-  kind: string
-  label: Dataset
-  name: dataset
-- description: |
-    The refresh token, if authenticating via oauth-secrets method.
-  kind: password
-  label: Refresh Token
-  name: refresh_token
 - aliases:
   - user
   description: |
@@ -129,16 +92,60 @@ settings:
   kind: password
   label: Client Secret
   name: client_secret
-- description: |
-    The token redirect URI
+- aliases:
+  - schema
+  description: |
+    The dataset to use.
   kind: string
-  label: Token URI
-  name: token_uri
+  label: Dataset
+  name: dataset
 - description: |
     The path to the `keyfile.json`` to use, if authenticating via service-account method.
   kind: string
   label: Keyfile
   name: keyfile
+- env: DBT_PROFILES_DIR
+  label: Profiles Directory
+  name: profiles_dir
+  value: $MELTANO_PROJECT_ROOT/transform/profiles/bigquery
+- aliases:
+  - database
+  description: |
+    The BigQuery project ID.
+  kind: string
+  label: Project
+  name: project
+- env: DBT_PROJECT_DIR
+  label: Project Directory
+  name: project_dir
+  value: $MELTANO_PROJECT_ROOT/transform
+- description: |
+    The refresh token, if authenticating via oauth-secrets method.
+  kind: password
+  label: Refresh Token
+  name: refresh_token
+- description: Whether to skip pre-invoke hooks which automatically run dbt clean
+    and deps
+  env: DBT_EXT_SKIP_PRE_INVOKE
+  kind: boolean
+  label: Skip Pre-invoke
+  name: skip_pre_invoke
+  value: false
+- env: DBT_TARGET_PATH
+  kind: string
+  label: Target Path
+  name: target_path
+  value: $MELTANO_PROJECT_ROOT/.meltano/transformers/dbt/target
+- description: |
+    The token redirect URI
+  kind: string
+  label: Token URI
+  name: token_uri
+- env: DBT_EXT_TYPE
+  label: dbt Profile Type
+  name: type
+  value: bigquery
+settings_group_validation: []
 settings_preamble: |
   Settings for dbt itself can be configured through [dbt_project.yml](https://docs.getdbt.com/reference/dbt_project.yml) as usual, which can be found at transform/dbt_project.yml in your Meltano project. dbt also has [adapter-specific documentation for BigQuery](https://docs.getdbt.com/reference/resource-configs/bigquery-configs).
 variant: dbt-labs
