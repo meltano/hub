@@ -22,46 +22,51 @@ prereq: |
 quality: silver
 repo: https://github.com/transferwise/pipelinewise-tap-mysql
 settings:
-- description: The MySQL/MariaDB hostname.
-  label: Host
-  name: host
-  value: localhost
-- description: The MySQL/MariaDB port.
-  kind: integer
-  label: Port
-  name: port
-  value: 3306
-- description: The MySQL/MariaDB username.
-  label: User
-  name: user
-- description: The MySQL/MariaDB password.
-  kind: password
-  label: Password
-  name: password
-- description: The MySQL/MariaDB database name.
-  label: Database
-  name: database
 - description: Cursor class used by PyMYSQL.
   label: Cursor Class
   name: cursorclass
-- description: Used as the slave id when this tap is connecting to the server.
-  kind: integer
-  label: Server ID
-  name: server_id
-- description: Comma separated list of schemas to extract tables only from particular
-    schemas and to improve data extraction performance.
-  label: Filter DBs
-  name: filter_dbs
-- description: Flag to enable log based replication using GTID.
-  kind: boolean
-  label: Use GTID
-  name: use_gtid
-  value: false
+- description: The MySQL/MariaDB database name.
+  label: Database
+  name: database
 - description: Indicate which flavor the server is, used for LOG_BASED with GTID.
     Can be either 'mysql' or 'mariadb'.
   label: Engine
   name: engine
   value: mysql
+- description: Comma separated list of schemas to extract tables only from particular
+    schemas and to improve data extraction performance.
+  label: Filter DBs
+  name: filter_dbs
+- description: The MySQL/MariaDB hostname.
+  label: Host
+  name: host
+  value: localhost
+- description: Override match hostname for Google cloud.
+  label: Internal Hostname
+  name: internal_hostname
+- description: The MySQL/MariaDB password.
+  kind: password
+  label: Password
+  name: password
+- description: The MySQL/MariaDB port.
+  kind: integer
+  label: Port
+  name: port
+  value: 3306
+- description: Used as the slave id when this tap is connecting to the server.
+  kind: integer
+  label: Server ID
+  name: server_id
+- description: List of SQL commands to run when a connection made. This allows to
+    set session variables dynamically, like timeouts.
+  kind: array
+  label: Session SQLs
+  name: session_sqls
+  value:
+  - SET @@session.time_zone='+0:00'
+  - SET @@session.wait_timeout=28800
+  - SET @@session.net_read_timeout=3600
+  - SET @@session.innodb_lock_wait_timeout=3600
 - description: Whether the MySQL/MariaDB connection should use SSL.
   kind: boolean
   label: SSL
@@ -77,19 +82,19 @@ settings:
 - description: Key for self-signed SSL.
   label: SSL Key
   name: ssl_key
-- description: Override match hostname for Google cloud.
-  label: Internal Hostname
-  name: internal_hostname
-- description: List of SQL commands to run when a connection made. This allows to
-    set session variables dynamically, like timeouts.
-  kind: array
-  label: Session SQLs
-  name: session_sqls
-  value:
-  - SET @@session.time_zone='+0:00'
-  - SET @@session.wait_timeout=28800
-  - SET @@session.net_read_timeout=3600
-  - SET @@session.innodb_lock_wait_timeout=3600
+- description: Flag to enable log based replication using GTID.
+  kind: boolean
+  label: Use GTID
+  name: use_gtid
+  value: false
+- description: The MySQL/MariaDB username.
+  label: User
+  name: user
+settings_group_validation:
+- - host
+  - password
+  - port
+  - user
 settings_preamble: |
   #### Setup
 
@@ -110,9 +115,4 @@ settings_preamble: |
         key_properties:
         - key
   ```
-settings_group_validation:
-- - host
-  - port
-  - user
-  - password
 variant: transferwise
