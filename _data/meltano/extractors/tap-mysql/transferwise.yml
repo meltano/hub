@@ -9,15 +9,16 @@ keywords:
 label: MySQL/MariaDB
 logo_url: /assets/logos/extractors/mysql.png
 maintenance_status: active
+metadata:
+  '*':
+    replication-method: FULL_TABLE
 name: tap-mysql
 namespace: tap_mysql
 pip_url: pipelinewise-tap-mysql
 prereq: |
-  #### Known limitations
-
-  Note that this extractor is incompatible with the `datamill-co` [variants](https://docs.meltano.com/concepts/plugins#variants)
-  of [`target-postgres`](/loaders/postgres--datamill-co) and [`target-snowflake`](/loaders/snowflake--datamill-co),
-  because they don't support stream names that include the source schema in addition to the table name: `<schema>-<table>`, e.g. `public-accounts`.
+  ### Usage Notes
+  This tap is configured to use `FULL_TABLE` replication by default.
+  See the [setting metadata documentation](https://docs.meltano.com/guide/integration#setting-metadata) for more details and instructions on using `INCREMENTAL` replication.
 quality: silver
 repo: https://github.com/transferwise/pipelinewise-tap-mysql
 settings:
@@ -89,6 +90,26 @@ settings:
   - SET @@session.wait_timeout=28800
   - SET @@session.net_read_timeout=3600
   - SET @@session.innodb_lock_wait_timeout=3600
+settings_preamble: |
+  #### Setup
+
+  ## Incremental Replication
+
+  ```yaml
+  - name: tap-mysql
+    variant: transferwise
+    pip_url: pipelinewise-tap-mysql
+    config:
+      user: meltano
+    select:
+    - <my_schema>-<my_table>.*
+    metadata:
+      <my_schema>-<my_table>:
+        replication-method: INCREMENTAL
+        replication_key: key
+        key_properties:
+        - key
+  ```
 settings_group_validation:
 - - host
   - port
