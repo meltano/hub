@@ -1,6 +1,5 @@
 commands:
   refresh:
-    args: refresh $TABLEAU_DATASOURCE_LUID
     description: Refresh a Tableau datasource.
 definition: |
   Tableau is a widely used data visualisation and exploration tool.
@@ -12,6 +11,7 @@ executable: tableau_invoker
 ext_repo: https://github.com/gabilew/tableau-ext
 keywords:
 - analysis
+- meltano_edk
 label: Tableau
 logo_url: /assets/logos/utilities/tableau.png
 maintenance_status: active
@@ -21,7 +21,7 @@ next_steps: |
   1. For username/password auth you can skip this step but for API token auth you will need
   to generate an API token on your Tableau server to authenticate any requests:
   [Tableau API Auth Docs](https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_concepts_auth.htm)
-pip_url: requests==^2.28.2
+pip_url: git+https://github.com/gabilew/tableau-ext
 repo: https://github.com/gabilew/tableau-ext
 settings:
 - description: Base URL for the Tableau server you are trying to reach.
@@ -44,9 +44,12 @@ settings:
 - description: Personal token name generated on the Tableau site.
   label: Token Name
   name: TOKEN_NAME
-- description: Person token secret generated on the Tableau site.
+- description: Personal token secret generated on the Tableau site.
   kind: password
   label: Token Secret
   name: TOKEN_SECRET
+- description: LUID of the Tableau datasource
+  label: Datasource LUID
+  name: DATASOURCE_LUID
 usage: ""
 variant: gabilew
