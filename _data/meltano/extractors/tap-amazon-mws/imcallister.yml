@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-amazon-mws
 namespace: tap_amazon_mws
 pip_url: git+https://github.com/imcallister/singer-tap-amazon-mws.git
+quality: unknown
 repo: https://github.com/imcallister/singer-tap-amazon-mws
 settings: []
 variant: imcallister

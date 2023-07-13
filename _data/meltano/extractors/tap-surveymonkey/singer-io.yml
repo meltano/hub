@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-surveymonkey
 namespace: tap_surveymonkey
 pip_url: tap-surveymonkey
+quality: silver
 repo: https://github.com/singer-io/tap-surveymonkey
 settings: []
 variant: singer-io

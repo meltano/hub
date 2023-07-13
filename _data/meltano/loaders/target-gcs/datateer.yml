@@ -10,6 +10,7 @@ maintenance_status: active
 name: target-gcs
 namespace: target_gcs
 pip_url: git+https://github.com/Datateer/target-gcs.git
+quality: silver
 repo: https://github.com/Datateer/target-gcs
 settings:
 - description: The name of the GCS Bucket to sync the stream to
@@ -24,7 +25,7 @@ settings:
 - description: The date formate for the export date used in the bucket key path
   kind: string
   name: date_format
-  value: "%Y-%m-%d"
+  value: '%Y-%m-%d'
 - description: This is the base key prefix which lets you define where the stream
     will write to in the bucket. By default, we use `meltano/${MELTANO_EXTRACT__LOAD_SCHEMA}/`
     which is derived from the tap. For example tap-jira would end up in meltano/tap_jira/...
@@ -36,7 +37,7 @@ settings:
     convention uses hive style partitioning
   kind: string
   name: key_naming_convention
-  value: "{stream}/export_date={date}/{timestamp}.jsonl"
+  value: '{stream}/export_date={date}/{timestamp}.jsonl'
 settings_group_validation:
 - - bucket_name
   - credentials_file

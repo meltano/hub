@@ -8,6 +8,7 @@ maintenance_status: unknown
 name: target-magentobi
 namespace: target_magentobi
 pip_url: target-magentobi
+quality: bronze
 repo: https://github.com/singer-io/target-magentobi
 settings: []
 variant: singer-io

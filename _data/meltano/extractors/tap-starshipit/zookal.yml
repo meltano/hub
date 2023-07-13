@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-starshipit
 namespace: tap_starshipit
 pip_url: git+https://github.com/Zookal/tap-starshipit.git
+quality: unknown
 repo: https://github.com/Zookal/tap-starshipit
 settings: []
 variant: zookal

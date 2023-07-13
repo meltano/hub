@@ -15,6 +15,7 @@ maintenance_status: active
 name: tap-tiktok
 namespace: tap_tiktok
 pip_url: git+https://github.com/gthesheep/tap-tiktok.git
+quality: gold
 repo: https://github.com/gthesheep/tap-tiktok
 settings:
 - description: API Token gained from Tiktok

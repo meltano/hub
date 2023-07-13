@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-sentry
 namespace: tap_sentry
 pip_url: git+https://github.com/valulucchesi/tap-sentry.git
+quality: silver
 repo: https://github.com/valulucchesi/tap-sentry
 settings: []
 variant: valulucchesi

@@ -13,6 +13,7 @@ maintenance_status: active
 name: tap-csv
 namespace: tap_csv
 pip_url: git+https://github.com/hotgluexyz/tap-csv.git
+quality: silver
 repo: https://github.com/hotgluexyz/tap-csv
 settings: []
 settings_group_validation: []

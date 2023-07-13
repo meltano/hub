@@ -13,17 +13,18 @@ keywords:
 - GBFS
 label: Norway City Bike API
 logo_url: /assets/logos/extractors/norwaycitybikeapi.png
-maintenance_status: beta
+maintenance_status: active
 name: tap-norwaycitybikeapi
 namespace: tap_norwaycitybikeapi
 pip_url: tap-norwaycitybikeapi
+quality: gold
 repo: https://github.com/andrejakobsen/tap-norwaycitybikeapi
 settings:
 - description: The value should contain your company/organization name, follwed by
     a dash and the application's name.
   label: Client-Identifier Header
   name: client_identifier
-- description: "Choose between three Norwegian cities: Trondheim, Oslo and Bergen"
+- description: 'Choose between three Norwegian cities: Trondheim, Oslo and Bergen'
   label: City Name
   name: city_name
 settings_group_validation:

@@ -15,6 +15,7 @@ name: target-bigquery
 namespace: target_bigquery
 next_steps: ''
 pip_url: git+https://github.com/YouCruit/youcruit-target-bigquery.git
+quality: gold
 repo: https://github.com/YouCruit/youcruit-target-bigquery
 settings:
 - description: Google project id

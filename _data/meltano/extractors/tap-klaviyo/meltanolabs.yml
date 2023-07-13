@@ -18,6 +18,7 @@ name: tap-klaviyo
 namespace: tap_klaviyo
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-klaviyo.git
+quality: gold
 repo: https://github.com/MeltanoLabs/tap-klaviyo
 settings:
 - description: The token to authenticate against the API service

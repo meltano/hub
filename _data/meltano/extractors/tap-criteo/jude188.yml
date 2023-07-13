@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-criteo
 namespace: tap_criteo
 pip_url: git+https://github.com/Jude188/tap-criteo.git
+quality: silver
 repo: https://github.com/Jude188/tap-criteo
 settings: []
 variant: jude188

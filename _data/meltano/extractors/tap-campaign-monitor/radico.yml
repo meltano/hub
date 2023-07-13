@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-campaign-monitor
 namespace: tap_campaign_monitor
 pip_url: git+https://github.com/Radico/tap-campaignmonitor.git
+quality: unknown
 repo: https://github.com/Radico/tap-campaignmonitor
 settings: []
 variant: radico

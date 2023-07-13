@@ -12,11 +12,12 @@ keywords:
 - database
 label: Microsoft SQL Server
 logo_url: /assets/logos/extractors/mssql.png
-maintenance_status: development
+maintenance_status: active
 name: tap-mssql
 namespace: tap_mssql
 next_steps: ''
 pip_url: git+https://github.com/BuzzCutNorman/tap-mssql.git
+quality: gold
 repo: https://github.com/BuzzCutNorman/tap-mssql
 settings:
 - description: The Dialect of SQLAlchamey

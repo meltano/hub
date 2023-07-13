@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-chargify
 namespace: tap_chargify
 pip_url: git+https://github.com/chrishumphries/tap-chargify.git
+quality: unknown
 repo: https://github.com/chrishumphries/tap-chargify
 settings: []
 variant: chrishumphries

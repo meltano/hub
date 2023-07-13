@@ -13,6 +13,7 @@ maintenance_status: active
 name: tap-typeform
 namespace: tap_typeform
 pip_url: git+https://github.com/albert-marrero/tap-typeform.git
+quality: gold
 repo: https://github.com/albert-marrero/tap-typeform
 settings:
 - description: Your personal access token for Typeform's API.

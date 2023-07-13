@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-ebay
 namespace: tap_ebay
 pip_url: git+https://github.com/dbt-labs/tap-ebay.git
+quality: unknown
 repo: https://github.com/dbt-labs/tap-ebay
 settings: []
 variant: dbt-labs

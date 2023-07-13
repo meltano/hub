@@ -9,6 +9,7 @@ maintenance_status: active
 name: target-stitch
 namespace: target_stitch
 pip_url: target-stitch
+quality: silver
 repo: https://github.com/singer-io/target-stitch
 settings:
 - description: Your Stitch client ID.

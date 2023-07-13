@@ -91,7 +91,7 @@ settings:
     option along with `ui.port`.
   label: UI Bind Host
   name: ui.bind_host
-  value: "0.0.0.0"
+  value: 0.0.0.0
 - description: Port used by `meltano invoke superset:ui`. Used in the `gunicorn` `--bind`
     option along with `ui.bind_host`.
   label: UI Port

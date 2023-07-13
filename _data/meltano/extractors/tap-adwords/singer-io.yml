@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-adwords
 namespace: tap_adwords
 pip_url: git+https://github.com/singer-io/tap-adwords.git
+quality: silver
 repo: https://github.com/singer-io/tap-adwords
 select:
 - campaigns.*

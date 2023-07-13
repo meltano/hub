@@ -16,6 +16,7 @@ name: tap-hotjar
 namespace: tap_hotjar
 next_steps: ''
 pip_url: git+https://github.com/epoch8/tap-hotjar.git
+quality: silver
 repo: https://github.com/epoch8/tap-hotjar
 settings:
 - description: User email

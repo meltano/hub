@@ -12,6 +12,7 @@ maintenance_status: inactive
 name: tap-appfigures
 namespace: tap_appfigures
 pip_url: git+https://github.com/singer-io/tap-appfigures.git
+quality: silver
 repo: https://github.com/singer-io/tap-appfigures
 settings:
 - description: Determines how much historical data will be extracted. Please be aware

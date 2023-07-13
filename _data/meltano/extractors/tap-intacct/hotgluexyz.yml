@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-intacct
 namespace: tap_intacct
 pip_url: git+https://github.com/hotgluexyz/tap-intacct.git
+quality: silver
 repo: https://github.com/hotgluexyz/tap-intacct
 settings:
 - label: Company ID

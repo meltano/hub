@@ -13,11 +13,12 @@ keywords:
 - airbyte_protocol
 label: Airbyte Protocol Wrapper
 logo_url: /assets/logos/extractors/airbyte.png
-maintenance_status: beta
+maintenance_status: active
 name: tap-airbyte-wrapper
 namespace: tap_airbyte_wrapper
 next_steps: ''
 pip_url: git+https://github.com/meltanolabs/tap-airbyte-wrapper.git
+quality: gold
 repo: https://github.com/meltanolabs/tap-airbyte-wrapper
 settings:
 - description: Airbyte image to run

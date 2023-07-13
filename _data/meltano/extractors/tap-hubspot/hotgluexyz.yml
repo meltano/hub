@@ -17,6 +17,7 @@ maintenance_status: active
 name: tap-hubspot
 namespace: tap_hubspot
 pip_url: git+https://gitlab.com/hotglue/tap-hubspot-beta.git
+quality: gold
 repo: https://gitlab.com/hotglue/tap-hubspot-beta
 settings:
 - description: HubSpot Access token. See the <a href="https://developers.hubspot.com/docs/api/private-apps">Hubspot

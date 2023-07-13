@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-sling
 namespace: tap_sling
 pip_url: tap-sling
+quality: bronze
 repo: https://github.com/singer-io/tap-sling
 settings: []
 variant: singer-io

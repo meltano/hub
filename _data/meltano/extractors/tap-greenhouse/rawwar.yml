@@ -16,6 +16,7 @@ maintenance_status: beta
 name: tap-greenhouse
 namespace: tap_greenhouse
 pip_url: git+https://github.com/rawwar/tap-greenhouse.git
+quality: gold
 repo: https://github.com/rawwar/tap-greenhouse
 settings:
 - description: Your Greenhouse [API Key](https://developers.greenhouse.io/harvest.html#authentication).

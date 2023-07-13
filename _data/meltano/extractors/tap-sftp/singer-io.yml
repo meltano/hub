@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-sftp
 namespace: tap_sftp
 pip_url: tap-sftp
+quality: bronze
 repo: https://github.com/singer-io/tap-sftp
 settings:
 - description: The SFTP server hostname.

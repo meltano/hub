@@ -4,8 +4,8 @@ commands:
     container_spec:
       image: clickhouse/clickhouse-server:latest
       ports:
-        "8123": "8123"
-        "9000": "9000"
+        '8123': '8123'
+        '9000': '9000'
 definition: is a containerized instance of Clickhouse useful for local development.
 description: Open source, column-oriented data warehouse.
 docs: https://clickhouse.com/docs/

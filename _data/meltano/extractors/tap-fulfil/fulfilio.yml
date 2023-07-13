@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-fulfil
 namespace: tap_fulfil
 pip_url: git+https://github.com/fulfilio/tap-fulfil.git
+quality: unknown
 repo: https://github.com/fulfilio/tap-fulfil
 settings: []
 variant: fulfilio

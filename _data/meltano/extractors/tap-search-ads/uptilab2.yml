@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-search-ads
 namespace: tap_search_ads
 pip_url: git+https://github.com/uptilab2/tap-search-ads.git
+quality: silver
 repo: https://github.com/uptilab2/tap-search-ads
 settings: []
 variant: uptilab2

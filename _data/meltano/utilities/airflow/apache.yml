@@ -1,7 +1,7 @@
 commands:
   create-admin:
-    args: "users create --username admin --firstname FIRST_NAME --lastname LAST_NAME\
-      \ --role Admin --email admin@example.org"
+    args: users create --username admin --firstname FIRST_NAME --lastname LAST_NAME
+      --role Admin --email admin@example.org
     description: Create an Airflow user with admin privileges.
   describe:
     args: describe
@@ -19,7 +19,6 @@ definition: |
   is an [orchestrator](https://docs.meltano.com/concepts/plugins#orchestrators) that allows for workflows to be programmatically authored, scheduled, and monitored.
 
   This utility plugin is meant to be used in favor of the [Airflow orchestrator plugin type](/orchestrators/airflow).
-
 docs: https://docs.meltano.com/guide/orchestration
 executable: airflow_invoker
 ext_repo: https://github.com/meltano/airflow-ext

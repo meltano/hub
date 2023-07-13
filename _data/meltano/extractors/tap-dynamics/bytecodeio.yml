@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-dynamics
 namespace: tap_dynamics
 pip_url: git+https://github.com/bytecodeio/tap-dynamics.git
+quality: unknown
 repo: https://github.com/bytecodeio/tap-dynamics
 settings: []
 variant: bytecodeio

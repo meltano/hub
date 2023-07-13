@@ -17,6 +17,7 @@ name: tap-indeed
 namespace: tap_indeed
 next_steps: ''
 pip_url: git+https://github.com/AutoIDM/tap-indeed.git
+quality: gold
 repo: https://github.com/AutoIDM/tap-indeed
 settings:
 - description: client_id from https://secure.indeed.com/account/apikeys

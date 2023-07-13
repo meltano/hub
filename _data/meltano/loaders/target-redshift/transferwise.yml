@@ -16,6 +16,7 @@ maintenance_status: active
 name: target-redshift
 namespace: target_redshift
 pip_url: pipelinewise-target-redshift
+quality: silver
 repo: https://github.com/transferwise/pipelinewise-target-redshift
 settings:
 - description: Redshift host

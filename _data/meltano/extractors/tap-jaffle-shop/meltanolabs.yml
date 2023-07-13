@@ -18,6 +18,7 @@ name: tap-jaffle-shop
 namespace: tap_jaffle_shop
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-jaffle-shop.git
+quality: gold
 repo: https://github.com/MeltanoLabs/tap-jaffle-shop
 settings:
 - description: ''
@@ -44,8 +45,8 @@ settings:
   kind: string
   label: Batch Config Storage Root
   name: batch_config.storage.root
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

@@ -17,6 +17,7 @@ name: tap-powerbi
 namespace: tap_powerbi
 next_steps: ''
 pip_url: git+https://gitlab.com/hotglue/tap-powerbi.git
+quality: gold
 repo: https://gitlab.com/hotglue/tap-powerbi
 settings:
 - description: Your Power BI Client ID.

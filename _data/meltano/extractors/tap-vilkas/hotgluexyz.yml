@@ -17,6 +17,7 @@ name: tap-vilkas
 namespace: tap_vilkas
 next_steps: ''
 pip_url: git+https://gitlab.com/hotglue/tap-vilkas.git
+quality: gold
 repo: https://gitlab.com/hotglue/tap-vilkas
 settings:
 - description: The API base URL.

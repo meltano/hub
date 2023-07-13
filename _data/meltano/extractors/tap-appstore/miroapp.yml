@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-appstore
 namespace: tap_appstore
 pip_url: git+https://github.com/miroapp/tap-appstore.git
+quality: silver
 repo: https://github.com/miroapp/tap-appstore
 settings:
 - description: Appstore vendor number.

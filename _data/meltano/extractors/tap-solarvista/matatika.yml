@@ -13,6 +13,7 @@ maintenance_status: active
 name: tap-solarvista
 namespace: tap_solarvista
 pip_url: git+https://github.com/Matatika/tap-solarvista.git
+quality: silver
 repo: https://github.com/Matatika/tap-solarvista
 settings:
 - description: The Datasources to sync from Solarvista. Leave list blank to use the

@@ -9,6 +9,7 @@ maintenance_status: active
 name: target-parquet
 namespace: target_parquet
 pip_url: git+https://github.com/estrategiahq/target-parquet.git
+quality: silver
 repo: https://github.com/estrategiahq/target-parquet
 settings:
 - description: A boolean of whether to disable Singer anonymous tracking.

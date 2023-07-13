@@ -12,6 +12,7 @@ maintenance_status: active
 name: target-airtable
 namespace: target_airtable
 pip_url: git+https://github.com/hotgluexyz/target-airtable.git
+quality: gold
 repo: https://github.com/hotgluexyz/target-airtable
 settings:
 - description: Your Airtable API token.

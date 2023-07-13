@@ -13,6 +13,7 @@ maintenance_status: inactive
 name: tap-salesforce
 namespace: tap_salesforce
 pip_url: git+https://gitlab.com/meltano/tap-salesforce.git@v1.5.0
+quality: silver
 repo: https://gitlab.com/meltano/tap-salesforce
 select:
 - Lead.*

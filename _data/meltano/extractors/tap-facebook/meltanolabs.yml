@@ -17,6 +17,7 @@ name: tap-facebook
 namespace: tap_facebook
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-facebook.git
+quality: gold
 repo: https://github.com/MeltanoLabs/tap-facebook
 settings:
 - description: The token to authenticate against the API.

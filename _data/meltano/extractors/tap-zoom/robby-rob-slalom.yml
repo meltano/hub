@@ -17,6 +17,7 @@ name: tap-zoom
 namespace: tap_zoom
 next_steps: ''
 pip_url: git+https://github.com/robby-rob-slalom/tap-zoom.git
+quality: silver
 repo: https://github.com/robby-rob-slalom/tap-zoom
 settings:
 - description: The token to authenticate against the API service

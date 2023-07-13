@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-workramp
 namespace: tap_workramp
 pip_url: git+https://github.com/Pathlight/tap-workramp.git
+quality: unknown
 repo: https://github.com/Pathlight/tap-workramp
 settings: []
 variant: pathlight

@@ -12,6 +12,7 @@ maintenance_status: inactive
 name: tap-shipstation
 namespace: tap_shipstation
 pip_url: git+https://github.com/Mashey/tap-shipstation.git
+quality: silver
 repo: https://github.com/Mashey/tap-shipstation
 settings:
 - description: Your ShipStation API Key

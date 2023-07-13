@@ -10,14 +10,16 @@ keywords:
 - database
 label: Snowflake
 logo_url: /assets/logos/loaders/snowflake.png
-maintenance_status: beta
+maintenance_status: active
 name: target-snowflake
 namespace: target_snowflake
 next_steps: ''
-pip_url: git+https://github.com/MeltanoLabs/target-snowflake.git
+pip_url: meltanolabs-target-snowflake
+quality: gold
 repo: https://github.com/MeltanoLabs/target-snowflake
 settings:
-- description: Your account identifier. See [Account Identifiers](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html).
+- description: Your account identifier. See [Account 
+    Identifiers](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html).
   kind: string
   label: Account
   name: account
@@ -39,8 +41,8 @@ settings:
   kind: string
   label: Default Target Schema
   name: default_target_schema
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -82,6 +84,33 @@ settings_group_validation:
   - database
   - password
   - user
-settings_preamble: ''
+settings_preamble: |
+  ### Snowflake Account Quickstart
+
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/9vEFxw-0nxI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+  This target has an interactive feature that will help you get a Snowflake account initialized with everything needed to get started loading data.
+
+  - User
+  - Role
+  - Warehouse
+  - Database
+  - Proper grants
+  
+  If you don't have a Snowflake account yet you can sign up for a [free trial](https://trial.snowflake.com/).
+
+  Run the following command to get started with the interactive CLI. The CLI will print the SQL queries it is planning to run and confirm with you before it makes any changes.
+
+  ```bash
+  meltano invoke target-snowflake --initialize
+  ```
+
+  The CLI will ask you to provide information about the new user/role/etc. you want to create but it will also need SYSADMIN credentials to execute the queries. You should prepare the following inputs:
+
+  - Account (e.g. `lqnwlrc-onb17812`)
+  - User that has SYSADMIN and SECURITYADMIN access. These comes default with the user that created the Snowflake account.
+  - The password for your SYSADMIN user.
+  
+  After the CLI is done, you should have a new user/role/etc. created and ready to use. You can now use the CLI to load data into Snowflake.
 usage: ''
 variant: meltanolabs

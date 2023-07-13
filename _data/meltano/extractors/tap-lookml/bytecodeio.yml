@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-lookml
 namespace: tap_lookml
 pip_url: git+https://github.com/bytecodeio/tap-lookml.git
+quality: unknown
 repo: https://github.com/bytecodeio/tap-lookml
 settings: []
 variant: bytecodeio

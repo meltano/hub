@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-xero
 namespace: tap_xero
 pip_url: tap-xero
+quality: silver
 repo: https://github.com/singer-io/tap-xero
 settings:
 - description: Determines how much historical data will be extracted. Please be aware

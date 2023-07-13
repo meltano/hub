@@ -18,6 +18,7 @@ name: tap-openexchangerates
 namespace: tap_openexchangerates
 next_steps: ''
 pip_url: git+https://github.com/Penny-AI/tap-openexchangerates.git
+quality: silver
 repo: https://github.com/Penny-AI/tap-openexchangerates
 settings:
 - description: Your unique App ID

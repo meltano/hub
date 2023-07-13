@@ -11,6 +11,7 @@ maintenance_status: active
 name: tap-rockgympro
 namespace: tap_rockgympro
 pip_url: git+https://github.com/cinchio/tap-rockgympro.git
+quality: unknown
 repo: https://github.com/cinchio/tap-rockgympro
 settings: []
 variant: cinchio

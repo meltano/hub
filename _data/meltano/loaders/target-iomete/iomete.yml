@@ -5,7 +5,7 @@ description: Serverless lakehouse platform.
 domain_url: https://iomete.com/
 executable: singer-target-iomete
 keywords:
-- 'lakehouse'
+- lakehouse
 label: IOMETE
 logo_url: /assets/logos/loaders/iomete.png
 maintenance_status: active
@@ -13,6 +13,7 @@ name: target-iomete
 namespace: target_iomete
 next_steps: ''
 pip_url: git+https://github.com/iomete/singer-target-iomete.git
+quality: silver
 repo: https://github.com/iomete/singer-target-iomete
 settings:
 - description: iomete User

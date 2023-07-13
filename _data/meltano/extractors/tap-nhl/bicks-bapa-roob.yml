@@ -15,6 +15,7 @@ name: tap-nhl
 namespace: tap_nhl
 next_steps: ''
 pip_url: git+https://github.com/bicks-bapa-roob/tap-nhl.git
+quality: silver
 repo: https://github.com/bicks-bapa-roob/tap-nhl
 settings:
 - description: "Determines how much historical data will be extracted. Please be aware\n\

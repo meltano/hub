@@ -17,6 +17,7 @@ name: tap-stripe
 namespace: tap_stripe
 next_steps: ''
 pip_url: git+https://github.com/prratek/tap-stripe.git
+quality: silver
 repo: https://github.com/prratek/tap-stripe
 settings:
 - description: Your Stripe Account ID.

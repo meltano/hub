@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-liveperson
 namespace: tap_liveperson
 pip_url: git+https://github.com/dbt-labs/tap-liveperson.git
+quality: silver
 repo: https://github.com/dbt-labs/tap-liveperson
 settings: []
 variant: dbt-labs

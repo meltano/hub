@@ -15,6 +15,7 @@ name: tap-brillium
 namespace: tap_brillium
 next_steps: ''
 pip_url: git+https://github.com/manuelapilongo/tap-brillium.git
+quality: silver
 repo: https://github.com/manuelapilongo/tap-brillium
 settings:
 - description: The key to authenticate against the API service

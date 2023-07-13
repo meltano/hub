@@ -15,12 +15,10 @@ pip_url: pipelinewise-tap-mysql
 prereq: |
   #### Known limitations
 
-  Note that this extractor is incompatible with the default `datamill-co` [variants](https://docs.meltano.com/concepts/plugins#variants)
+  Note that this extractor is incompatible with the `datamill-co` [variants](https://docs.meltano.com/concepts/plugins#variants)
   of [`target-postgres`](/loaders/postgres--datamill-co) and [`target-snowflake`](/loaders/snowflake--datamill-co),
   because they don't support stream names that include the source schema in addition to the table name: `<schema>-<table>`, e.g. `public-accounts`.
-
-  Instead, use the `transferwise` variants that were made to be used with this extractor:
-  [`target-postgres`](/loaders/postgres--transferwise) and [`target-snowflake`](/loaders/snowflake--transferwise).
+quality: silver
 repo: https://github.com/transferwise/pipelinewise-tap-mysql
 settings:
 - description: The MySQL/MariaDB hostname.
@@ -62,7 +60,7 @@ settings:
     Can be either 'mysql' or 'mariadb'.
   label: Engine
   name: engine
-  value: 'mysql'
+  value: mysql
 - description: Whether the MySQL/MariaDB connection should use SSL.
   kind: boolean
   label: SSL
@@ -87,10 +85,10 @@ settings:
   label: Session SQLs
   name: session_sqls
   value:
-  - "SET @@session.time_zone='+0:00'"
-  - "SET @@session.wait_timeout=28800"
-  - "SET @@session.net_read_timeout=3600"
-  - "SET @@session.innodb_lock_wait_timeout=3600"
+  - SET @@session.time_zone='+0:00'
+  - SET @@session.wait_timeout=28800
+  - SET @@session.net_read_timeout=3600
+  - SET @@session.innodb_lock_wait_timeout=3600
 settings_group_validation:
 - - host
   - port

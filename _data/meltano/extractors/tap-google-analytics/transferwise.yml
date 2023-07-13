@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-google-analytics
 namespace: tap_google_analytics
 pip_url: pipelinewise-tap-google-analytics
+quality: bronze
 repo: https://github.com/transferwise/pipelinewise-tap-google-analytics
 settings: []
 settings_group_validation: []

@@ -12,6 +12,7 @@ maintenance_status: inactive
 name: tap-platformpurple
 namespace: tap_platformpurple
 pip_url: tap-platformpurple
+quality: bronze
 repo: https://github.com/singer-io/tap-platformpurple
 settings:
 - description: Your Platform Purple environment name.

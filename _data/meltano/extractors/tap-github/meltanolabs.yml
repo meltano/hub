@@ -17,10 +17,11 @@ maintenance_status: active
 name: tap-github
 namespace: tap_github
 pip_url: git+https://github.com/MeltanoLabs/tap-github.git
+quality: gold
 repo: https://github.com/MeltanoLabs/tap-github
 select:
-- "*.*"
-- "!traffic_*.*"
+- '*.*'
+- '!traffic_*.*'
 settings:
 - description: List of GitHub tokens to authenticate with. Streams will loop through
     them when hitting rate limits.
@@ -31,8 +32,8 @@ settings:
   kind: password
   label: Auth Token
   name: auth_token
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

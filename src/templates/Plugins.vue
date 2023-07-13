@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <div class="single-plugin-overview max-w-7xl mx-auto w-full px-4">
+    <div class="w-full px-4 mx-auto single-plugin-overview max-w-7xl">
       <div class="single-plugin-detail">
         <div class="single-plugin-top-bar">
           <table>
@@ -10,7 +10,7 @@
                   v-if="$page.plugins.domain_url"
                   :href="$page.plugins.domain_url"
                   target="_blank"
-                  class="bg-white flex justify-center lg:w-48 lg:h-48 w-24 h-24"
+                  class="flex justify-center w-24 h-24 bg-white lg:w-48 lg:h-48"
                   rel="noopener noreferrer"
                 >
                   <g-image
@@ -38,12 +38,27 @@
               </td>
               <td>
                 <p
-                  class="text-3xl lg:text-5xl pt-6 lg:pt-8 pb-4 lg:pb-6 font-bold font-pjs text-purple"
+                  class="pt-6 pb-4 text-3xl font-bold lg:text-5xl lg:pt-8 lg:pb-6 font-pjs text-purple"
                 >
                   {{ $page.plugins.label }}
                 </p>
                 <p class="text-lg">
                   <code>{{ $page.plugins.name }} ({{ $page.plugins.variant }} variant)</code>
+                  <span v-if="$page.plugins.quality == 'gold'"
+                    ><a href="https://docs.meltano.com/cloud/connectors#connector-quality-matrix"
+                      >🥇</a
+                    ></span
+                  >
+                  <span v-if="$page.plugins.quality == 'silver'"
+                    ><a href="https://docs.meltano.com/cloud/connectors#connector-quality-matrix"
+                      >🥈</a
+                    ></span
+                  >
+                  <span v-if="$page.plugins.quality == 'bronze'"
+                    ><a href="https://docs.meltano.com/cloud/connectors#connector-quality-matrix"
+                      >🥉</a
+                    ></span
+                  >
                 </p>
                 <p>
                   <b class="font-hg">{{ $page.plugins.description }}</b>
@@ -53,10 +68,10 @@
           </table>
         </div>
         <div class="w-full">
-          <div class="flex flex-col-reverse lg:flex-row -mx-2">
-            <div class="px-2 w-full lg:w-8/12 mt-4 lg:mt-0">
+          <div class="flex flex-col-reverse -mx-2 lg:flex-row">
+            <div class="w-full px-2 mt-4 lg:w-8/12 lg:mt-0">
               <div class="p-5 content-body">
-                <div class="max-w-2xl xl:max-w-3xl inner-body rounded p-4">
+                <div class="max-w-2xl p-4 rounded xl:max-w-3xl inner-body">
                   <p>
                     The {{ $page.plugins.name }}
                     <a
@@ -72,13 +87,19 @@
                       then be sent to a destination using a
                       <g-link to="/loaders">loader</g-link>.</span
                     >
+                    <span v-if="$page.plugins.hidden === true">
+                      <p class="pt-8 pb-4 text-3xl font-bold" id="hidden-warning">
+                        This plugin is deprecated and not recommended for use. Please use another
+                        variant.
+                      </p>
+                    </span>
                     <span
                       v-if="
                         $page.plugins.pluginType === 'extractor' &&
                         $page.plugins.keywords.includes('airbyte_protocol')
                       "
                     >
-                      <p class="text-3xl pb-4 pt-8 font-bold" id="airbyte-preview">
+                      <p class="pt-8 pb-4 text-3xl font-bold" id="airbyte-preview">
                         Airbyte Usage Notice
                       </p>
                       This connector uses
@@ -146,7 +167,7 @@
                       used for obfuscating, filtering, or removing sensitive data from streams.
                     </span>
                     <span v-if="$page.plugins.pluginType === 'utility' && $page.plugins.ext_repo">
-                      <p class="text-3xl md:text-5xl pb-4 pt-8 font-bold font-pjs text-purple">
+                      <p class="pt-8 pb-4 text-3xl font-bold md:text-5xl font-pjs text-purple">
                         EDK Based Plugin
                       </p>
                       This utility is based on the Meltano Extension Developer Kit (EDK) which is
@@ -160,15 +181,15 @@
                     </span>
                   </p>
                   <span class="space-y-3" v-if="filteredVariants && filteredVariants.length > 1">
-                    <p class="text-2xl">Available Variants</p>
-                    <ul class="list-disc list-inside pl-4">
+                    <p class="text-2xl">Alternate Implementations</p>
+                    <ul class="pl-4 list-disc list-inside">
                       <li v-for="(variant, index) in filteredVariants" v-bind:key="index">
                         <g-link
                           :to="variant.node.path"
                           v-if="variant.node.path !== $page.plugins.path"
-                          >{{ variant.node.variant }}</g-link
+                          >{{ variant.node.maintainer.label }}</g-link
                         >
-                        <span v-else>{{ variant.node.variant }}</span>
+                        <span v-else>{{ variant.node.maintainer.label }}</span>
                         <span v-if="variant.node.isDefault"> (default)</span>
                         <span v-if="variant.node.keywords.includes('meltano_sdk')">
                           <img
@@ -177,19 +198,37 @@
                             src="https://img.shields.io/badge/-Meltano%20SDK-blueviolet"
                           />
                         </span>
+                        <span v-if="variant.node.quality == 'gold'"
+                          ><a
+                            href="https://docs.meltano.com/cloud/connectors#connector-quality-matrix"
+                            >🥇</a
+                          ></span
+                        >
+                        <span v-if="variant.node.quality == 'silver'"
+                          ><a
+                            href="https://docs.meltano.com/cloud/connectors#connector-quality-matrix"
+                            >🥈</a
+                          ></span
+                        >
+                        <span v-if="variant.node.quality == 'bronze'"
+                          ><a
+                            href="https://docs.meltano.com/cloud/connectors#connector-quality-matrix"
+                            >🥉</a
+                          ></span
+                        >
                       </li>
                     </ul>
                   </span>
                   <div>
-                    <p class="text-3xl pb-4 pt-8 font-bold font-hg" id="getting-started">
+                    <p class="pt-8 pb-4 text-3xl font-bold font-hg" id="getting-started">
                       Getting Started
                     </p>
                     <PluginPrereqSection
                       :plugin="$page.plugins"
                       :plugin_type="$page.plugins.pluginType"
                     />
-                    <p class="text-xl py-3" id="installation">Installation and configuration</p>
-                    <ol class="list-decimal list-inside pl-4">
+                    <p class="py-3 text-xl" id="installation">Installation and configuration</p>
+                    <ol class="pl-4 list-decimal list-inside">
                       <li>
                         Add the {{ $page.plugins.name }} {{ $page.plugins.pluginType }} to your
                         project using
@@ -199,7 +238,7 @@
                         :
                       </li>
                       <pre
-                        class="prose language-bash rounded-md"
+                        class="prose rounded-md language-bash"
                       ><code >meltano add {{ $page.plugins.pluginType }} {{ $page.plugins.name }}<span v-if="!$page.plugins.isDefault"> --variant {{ $page.plugins.variant }}</span></code></pre>
                       <span>
                         <li>
@@ -213,7 +252,7 @@
                           :
                         </li>
                         <pre
-                          class="prose language-bash rounded-md"
+                          class="prose rounded-md language-bash"
                         ><code >meltano config {{ $page.plugins.name }} set --interactive</code></pre>
                       </span>
                       <span v-if="$page.plugins.pluginType === 'extractor'">
@@ -227,11 +266,11 @@
                           :
                         </li>
                         <pre
-                          class="prose language-bash rounded-md"
+                          class="prose rounded-md language-bash"
                         ><code >meltano config {{ $page.plugins.name }} test</code></pre>
                       </span>
                     </ol>
-                    <p class="text-xl py-3">Next steps</p>
+                    <p class="py-3 text-xl">Next steps</p>
                     <div
                       v-if="$page.plugins.next_steps_rendered"
                       v-html="$page.plugins.next_steps_rendered"
@@ -245,7 +284,7 @@
                           >Getting Started guide</a
                         >:
                       </p>
-                      <ol class="list-decimal list-inside pl-4">
+                      <ol class="pl-4 list-decimal list-inside">
                         <li>
                           <a
                             href="https://docs.meltano.com/getting-started/part1#select-entities-and-attributes-to-extract"
@@ -273,7 +312,7 @@
                           >Getting Started guide</a
                         >:
                       </p>
-                      <ol class="list-decimal list-inside pl-4">
+                      <ol class="pl-4 list-decimal list-inside">
                         <li>
                           <a
                             href="https://docs.meltano.com/getting-started/part2#run-your-data-integration-el-pipeline"
@@ -290,7 +329,7 @@
                           >Getting Started guide</a
                         >:
                       </p>
-                      <ol class="list-decimal list-inside pl-4">
+                      <ol class="pl-4 list-decimal list-inside">
                         <li>
                           <a href="https://docs.meltano.com/getting-started/part3">
                             Transform loaded data for analysis
@@ -306,7 +345,7 @@
                           >Getting Started guide</a
                         >:
                       </p>
-                      <ol class="list-decimal list-inside pl-4">
+                      <ol class="pl-4 list-decimal list-inside">
                         <li>
                           <a href="https://docs.meltano.com/getting-started/part4">
                             Inline Data Mapping
@@ -348,7 +387,7 @@
                       :plugin_type="$page.plugins.pluginType"
                     />
                     <div
-                      class="prose mt-3 p-2"
+                      class="p-2 mt-3 prose"
                       v-if="$page.plugins.usage"
                       v-html="$page.plugins.usage_rendered"
                     ></div>
@@ -397,6 +436,12 @@ export default {
   metaInfo() {
     return {
       title: this.$page.plugins.name,
+      meta: [
+        {
+          name: "robots",
+          content: this.$page.plugins.hidden ? "noindex" : "all",
+        },
+      ],
     };
   },
   name: "PluginsTemplate",
@@ -431,6 +476,7 @@ query Plugins($path: String!, $name: String!) {
     path
     logo_url
     namespace
+    hidden
     next_steps
     next_steps_rendered
     variant
@@ -461,13 +507,14 @@ query Plugins($path: String!, $name: String!) {
     }
     prereq
     prereq_rendered
+    quality
     settings_preamble
     settings_preamble_rendered
     usage
     usage_rendered
     metrics {
-      ALL_PROJECTS
-      ALL_EXECS
+      all_projects
+      all_execs
     }
     maintainer {
       name
@@ -484,6 +531,11 @@ query Plugins($path: String!, $name: String!) {
         isDefault
         keywords
         pluginType
+        quality
+        maintainer {
+          name
+          label
+        }
       }
     }
   }

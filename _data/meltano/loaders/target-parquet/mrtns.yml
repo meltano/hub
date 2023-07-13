@@ -8,6 +8,7 @@ maintenance_status: unknown
 name: target-parquet
 namespace: target_parquet
 pip_url: git+https://github.com/mrtns/target-parquet.git
+quality: unknown
 repo: https://github.com/mrtns/target-parquet
 settings: []
 variant: mrtns

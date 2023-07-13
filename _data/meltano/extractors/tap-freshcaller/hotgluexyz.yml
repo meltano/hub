@@ -18,6 +18,7 @@ name: tap-freshcaller
 namespace: tap_freshcaller
 next_steps: ''
 pip_url: git+https://gitlab.com/hotglue/tap-freshcaller.git
+quality: gold
 repo: https://gitlab.com/hotglue/tap-freshcaller
 settings:
 - description: Your Freshcaller API key.

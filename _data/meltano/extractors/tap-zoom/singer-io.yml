@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-zoom
 namespace: tap_zoom
 pip_url: tap-zoom
+quality: silver
 repo: https://github.com/singer-io/tap-zoom
 settings: []
 settings_group_validation: []

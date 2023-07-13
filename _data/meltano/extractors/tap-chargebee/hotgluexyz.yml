@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-chargebee
 namespace: tap_chargebee
 pip_url: git+https://github.com/hotgluexyz/tap-chargebee.git
+quality: silver
 repo: https://github.com/hotgluexyz/tap-chargebee
 settings:
 - description: Your Chargebee API Key

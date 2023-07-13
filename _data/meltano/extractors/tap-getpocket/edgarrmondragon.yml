@@ -16,6 +16,7 @@ maintenance_status: active
 name: tap-getpocket
 namespace: tap_getpocket
 pip_url: git+https://github.com/edgarrmondragon/tap-getpocket.git
+quality: silver
 repo: https://github.com/edgarrmondragon/tap-getpocket
 settings:
 - description: Pocket application consumer key

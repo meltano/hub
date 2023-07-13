@@ -13,6 +13,7 @@ maintenance_status: active
 name: tap-peloton
 namespace: tap_peloton
 pip_url: git+https://github.com/MeltanoLabs/tap-peloton.git
+quality: gold
 repo: https://github.com/MeltanoLabs/tap-peloton
 settings:
 - description: The email you use to log into Peloton.

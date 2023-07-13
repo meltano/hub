@@ -12,6 +12,7 @@ name: target-vertica
 namespace: target_vertica
 next_steps: ''
 pip_url: git+https://github.com/full360/pipelinewise-target-vertica.git
+quality: silver
 repo: https://github.com/full360/pipelinewise-target-vertica
 settings:
 - description: Metadata columns add extra row level information about data ingestion's,

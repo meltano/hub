@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-zenefits
 namespace: tap_zenefits
 pip_url: git+https://github.com/Mashey/tap-zenefits.git
+quality: silver
 repo: https://github.com/Mashey/tap-zenefits
 settings: []
 variant: mashey

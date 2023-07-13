@@ -13,6 +13,7 @@ maintenance_status: unknown
 name: tap-facebook-posts
 namespace: tap_facebook_posts
 pip_url: git+https://github.com/rowanv/tap-facebook-posts.git
+quality: silver
 repo: https://github.com/rowanv/tap-facebook-posts
 settings: []
 variant: rowanv

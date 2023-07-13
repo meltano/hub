@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-twilio
 namespace: tap_twilio
 pip_url: tap-twilio
+quality: silver
 repo: https://github.com/singer-io/tap-twilio
 settings: []
 settings_group_validation: []

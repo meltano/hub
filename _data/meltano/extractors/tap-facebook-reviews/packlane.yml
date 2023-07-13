@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-facebook-reviews
 namespace: tap_facebook_reviews
 pip_url: git+https://github.com/Packlane/tap-facebook-reviews.git
+quality: unknown
 repo: https://github.com/Packlane/tap-facebook-reviews
 settings: []
 variant: packlane

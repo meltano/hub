@@ -17,6 +17,7 @@ name: tap-magento
 namespace: tap_magento
 next_steps: ''
 pip_url: git+https://gitlab.com/hotglue/tap-magento.git
+quality: gold
 repo: https://gitlab.com/hotglue/tap-magento
 settings:
 - description: The token to authenticate against the API service

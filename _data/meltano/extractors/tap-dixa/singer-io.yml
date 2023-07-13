@@ -11,6 +11,7 @@ name: tap-dixa
 namespace: tap_dixa
 next_steps: ''
 pip_url: git+https://github.com/singer-io/tap-dixa.git
+quality: bronze
 repo: https://github.com/singer-io/tap-dixa
 settings:
 - description: Your dixa API token, see the docs https://docs.dixa.io/docs/tutorial-create-an-api-token/.

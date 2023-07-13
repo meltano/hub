@@ -13,6 +13,7 @@ maintenance_status: active
 name: tap-pinterest-ads
 namespace: tap_pinterest_ads
 pip_url: git+https://github.com/gthesheep/tap-pinterest-ads.git
+quality: silver
 repo: https://github.com/gthesheep/tap-pinterest-ads
 settings:
 - description: App ID for your Pinterest App

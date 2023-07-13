@@ -18,6 +18,7 @@ name: tap-kustomer
 namespace: tap_kustomer
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-kustomer.git
+quality: gold
 repo: https://github.com/MeltanoLabs/tap-kustomer
 settings:
 - description: The API KEY to authenticate against the API service

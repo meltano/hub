@@ -16,6 +16,7 @@ name: tap-miro
 namespace: tap_miro
 next_steps: ''
 pip_url: git+https://github.com/Slalom-Consulting/tap-miro.git
+quality: silver
 repo: https://github.com/Slalom-Consulting/tap-miro
 settings:
 - description: Access token.

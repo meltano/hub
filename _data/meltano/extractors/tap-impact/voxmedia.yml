@@ -17,6 +17,7 @@ name: tap-impact
 namespace: tap_impact
 next_steps: ''
 pip_url: git+https://github.com/voxmedia/tap-impact-publisher.git
+quality: silver
 repo: https://github.com/voxmedia/tap-impact-publisher
 settings:
 - description: The token to authenticate against the API service

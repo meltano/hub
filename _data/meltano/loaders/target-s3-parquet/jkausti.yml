@@ -14,6 +14,7 @@ name: target-s3-parquet
 namespace: target_s3_parquet
 next_steps: ''
 pip_url: git+https://github.com/jkausti/target-s3.git
+quality: gold
 repo: https://github.com/jkausti/target-s3
 settings:
 - description: AWS Access Key ID used to authenticate programmatically to S3.

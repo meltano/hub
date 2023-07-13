@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-okta
 namespace: tap_okta
 pip_url: git+https://github.com/rshah-amplify/tap-okta.git
+quality: unknown
 repo: https://github.com/rshah-amplify/tap-okta
 settings: []
 variant: rshah-amplify

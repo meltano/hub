@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-acuite
 namespace: tap_acuite
 pip_url: git+https://github.com/FostersData/tap-acuite.git
+quality: unknown
 repo: https://github.com/FostersData/tap-acuite
 settings:
 - description: Your Acuite API Key.

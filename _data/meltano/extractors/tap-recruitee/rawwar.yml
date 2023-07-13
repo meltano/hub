@@ -13,22 +13,28 @@ keywords:
 - api
 label: Recruitee
 logo_url: /assets/logos/extractors/recruitee.png
-maintenance_status: development
+maintenance_status: active
 name: tap-recruitee
 namespace: tap_recruitee
 next_steps: ''
 pip_url: git+https://github.com/rawwar/tap-recruitee.git
+quality: silver
 repo: https://github.com/rawwar/tap-recruitee
 settings:
 - description: The url for the API service
   kind: string
   label: API URL
   name: api_url
-  value: https://api.mysample.com
+  value: https://api.recruitee.com
 - description: The token to authenticate against the API service
   kind: password
   label: Auth Token
   name: auth_token
+- description: Company ID for the account to be used
+  kind: integer
+  label: Company ID
+  name: company_id
+  value: 0
 - description: "'True' to enable schema flattening and automatically expand nested\
     \ properties."
   kind: boolean
@@ -57,7 +63,6 @@ settings:
   name: stream_maps
 settings_group_validation:
 - - auth_token
-  - project_ids
 settings_preamble: ''
 usage: ''
 variant: rawwar

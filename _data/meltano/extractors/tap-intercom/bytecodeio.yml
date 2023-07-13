@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-intercom
 namespace: tap_intercom
 pip_url: git+https://github.com/bytecodeio/tap-intercom.git
+quality: unknown
 repo: https://github.com/bytecodeio/tap-intercom
 settings: []
 variant: bytecodeio

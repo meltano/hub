@@ -13,6 +13,7 @@ maintenance_status: active
 name: tap-adwords
 namespace: tap_adwords
 pip_url: git+https://gitlab.com/meltano/tap-adwords.git
+quality: bronze
 repo: https://gitlab.com/meltano/tap-adwords
 select:
 - campaigns.*
