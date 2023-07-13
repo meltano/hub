@@ -1,5 +1,6 @@
 commands:
   refresh:
+    args: refresh
     description: Refresh a Tableau datasource.
 definition: |
   Tableau is a widely used data visualisation and exploration tool.
