@@ -9,6 +9,9 @@ keywords:
 label: Microsoft SQL Server
 logo_url: /assets/logos/extractors/mssql.png
 maintenance_status: active
+metadata:
+  '*':
+    replication-method: FULL_TABLE
 name: tap-mssql
 namespace: tap_mssql
 pip_url: tap-mssql
