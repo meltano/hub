@@ -8,8 +8,8 @@ capabilities:
 description: App and website analytics platform hosted by Google (GA4)
 domain_url: https://developers.google.com/analytics/devguides/reporting/data/v1
 executable: tap-google-analytics
-hidden: true
 keywords:
+- api
 - meltano_sdk
 label: Google Analytics (GA4)
 logo_url: /assets/logos/extractors/ga4.png
@@ -17,9 +17,9 @@ maintenance_status: active
 name: tap-ga4
 namespace: tap_ga4
 next_steps: ''
-pip_url: git+https://github.com/connorflyn/tap-google-analytics-v4.git
-quality: bronze
-repo: https://github.com/connorflyn/tap-google-analytics-v4
+pip_url: git+https://github.com/MeltanoLabs/tap-google-analytics.git
+quality: gold
+repo: https://github.com/MeltanoLabs/tap-google-analytics
 settings:
 - description: Google Analytics Client Secrets Dictionary
   kind: object
@@ -29,8 +29,8 @@ settings:
   kind: date_iso8601
   label: End Date
   name: end_date
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -82,6 +82,16 @@ settings:
 settings_group_validation:
 - - property_id
   - start_date
+  - client_secrets
+- - property_id
+  - start_date
+  - key_file_location
+- - property_id
+  - start_date
+  - oauth_credentials.access_token
+  - oauth_credentials.client_id
+  - oauth_credentials.client_secret
+  - oauth_credentials.refresh_token
 settings_preamble: ''
 usage: ''
-variant: connorflyn
+variant: meltanolabs
