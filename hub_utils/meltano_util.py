@@ -154,6 +154,8 @@ class MeltanoUtil:
                 .replace("Db", "Database")
                 .replace("Api", "API")
                 .replace("Oauth", "OAuth")
+                .replace("Ssh", "SSH")
+                .replace("Ssl", "SSL")
             )
         return " ".join(new_label)
 
