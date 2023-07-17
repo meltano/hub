@@ -108,14 +108,14 @@ settings:
     identity. Can be provided either as the certificate itself (in .env) or as a filepath
     to the certificate. Note if sqlalchemy_url is set this will be ignored.
   kind: string
-  label: Ssl Certificate Authority
+  label: SSL Certificate Authority
   name: ssl_certificate_authority
   value: ~/.postgresql/root.crl
 - description: The certificate that should be used to verify your identity to the
     server. Can be provided either as the certificate itself (in .env) or as a filepath
     to the certificate. Note if sqlalchemy_url is set this will be ignored.
   kind: string
-  label: Ssl Client Certificate
+  label: SSL Client Certificate
   name: ssl_client_certificate
   value: ~/.postgresql/postgresql.crt
 - description: Whether or not to provide client-side certificates as a method of authentication
@@ -123,13 +123,13 @@ settings:
     customization. To use SSL to verify the server's identity, use ssl_enable instead.
     Note if sqlalchemy_url is set this will be ignored.
   kind: boolean
-  label: Ssl Client Certificate Enable
+  label: SSL Client Certificate Enable
   name: ssl_client_certificate_enable
 - description: The private key for the certificate you provided. Can be provided either
     as the certificate itself (in .env) or as a filepath to the certificate. Note
     if sqlalchemy_url is set this will be ignored.
   kind: password
-  label: Ssl Client Private Key
+  label: SSL Client Private Key
   name: ssl_client_private_key
   value: ~/.postgresql/postgresql.key
 - description: Whether or not to use ssl to verify the server's identity. Use ssl_certificate_authority
@@ -137,14 +137,14 @@ settings:
     yourself to the server, use ssl_client_certificate_enable instead. Note if sqlalchemy_url
     is set this will be ignored.
   kind: boolean
-  label: Ssl Enable
+  label: SSL Enable
   name: ssl_enable
 - description: SSL Protection method, see [postgres 
     documentation](https://www.postgresql.org/docs/current/libpq-ssl.html#LIBPQ-SSL-PROTECTION)
     for more information. Must be one of disable, allow, prefer, require, verify-ca,
     or verify-full. Note if sqlalchemy_url is set this will be ignored.
   kind: string
-  label: Ssl Mode
+  label: SSL Mode
   name: ssl_mode
   value: verify-full
 - description: The folder in which to store SSL certificates provided as raw values.
@@ -152,7 +152,7 @@ settings:
     must be written to a file before it can be used. This configuration option determines
     where that file is created.
   kind: string
-  label: Ssl Storage Directory
+  label: SSL Storage Directory
   name: ssl_storage_directory
   value: .secrets
 - description: User-defined config values to be used within map expressions.

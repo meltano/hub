@@ -82,28 +82,28 @@ settings:
 - description: Enable an ssh tunnel (also known as bastion host), see the other ssh_tunnel.*
     properties for more details
   kind: boolean
-  label: Ssh Tunnel Enable
+  label: SSH Tunnel Enable
   name: ssh_tunnel.enable
 - description: Host of the bastion host, this is the host we'll connect to via ssh
   kind: string
-  label: Ssh Tunnel Host
+  label: SSH Tunnel Host
   name: ssh_tunnel.host
 - description: Port to connect to bastion host
   kind: integer
-  label: Ssh Tunnel Port
+  label: SSH Tunnel Port
   name: ssh_tunnel.port
   value: 22
 - description: Private Key for authentication to the bastion host
   kind: password
-  label: Ssh Tunnel Private Key
+  label: SSH Tunnel Private Key
   name: ssh_tunnel.private_key
 - description: Private Key Password, leave None if no password is set
   kind: password
-  label: Ssh Tunnel Private Key Password
+  label: SSH Tunnel Private Key Password
   name: ssh_tunnel.private_key_password
 - description: Username to connect to bastion host
   kind: string
-  label: Ssh Tunnel Username
+  label: SSH Tunnel Username
   name: ssh_tunnel.username
 - description: The certificate authority that should be used to verify the server's
     identity. Can be provided either as the certificate itself (in .env) or as a filepath
