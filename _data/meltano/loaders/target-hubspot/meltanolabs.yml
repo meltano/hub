@@ -1,0 +1,78 @@
+capabilities:
+- about
+- schema-flattening
+- stream-maps
+description: Inbound Marketing software
+domain_url: https://developers.hubspot.com/docs/api/overview
+executable: target-hubspot
+keywords:
+- meltano_sdk
+label: HubSpot
+logo_url: /assets/logos/loaders/hubspot.png
+maintenance_status: beta
+name: target-hubspot
+namespace: target_hubspot
+next_steps: ''
+pip_url: git+https://github.com/MeltanoLabs/target-hubspot.git
+quality: silver
+repo: https://github.com/MeltanoLabs/target-hubspot
+settings:
+- description: Your HubSpot private app API access token. See the [docs](https://developers.hubspot.com/docs/api/private-apps)
+    for more details.
+  kind: password
+  label: Access Token
+  name: access_token
+- description: An array including an object entry for each column in your import file
+    stream.
+  kind: array
+  label: Column Mapping
+  name: column_mapping
+- description: The format for dates included in the import file stream.
+  kind: options
+  label: Date Format
+  name: date_format
+  options:
+  - label: Month Day Year
+    value: MONTH_DAY_YEAR
+  - label: Year Month Day
+    value: YEAR_MONTH_DAY
+  - label: Day Month Year
+    value: DAY_MONTH_YEAR
+  value: YEAR_MONTH_DAY
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: Used to indicate whether the import should create and update, only
+    create, or only update records for a certain object or activity.
+  kind: options
+  label: Import Operations
+  name: import_operations
+  options:
+  - label: Create
+    value: CREATE
+  - label: Update
+    value: UPDATE
+  - label: Upsert
+    value: UPSERT
+  value: UPDATE
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+settings_group_validation:
+- - access_token
+  - column_mapping
+settings_preamble: ''
+usage: ''
+variant: meltanolabs

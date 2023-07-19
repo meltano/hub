@@ -602,6 +602,7 @@ loaders:
   target-elasticsearch: dtmirizzi
   target-gcs: datateer
   target-gsheet: singer-io
+  target-hubspot: meltanolabs
   target-iomete: iomete
   target-jsonl: andyh1203
   target-kinesis: prontopro
