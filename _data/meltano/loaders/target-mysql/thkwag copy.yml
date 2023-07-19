@@ -1,0 +1,84 @@
+capabilities:
+- about
+- schema-flattening
+- stream-maps
+description: Singer target for MySQL
+domain_url: https://github.com/thkwag/target-mysql
+executable: target-mysql
+keywords:
+- meltano_sdk
+label: Mysql
+logo_url: /assets/logos/loaders/mysql.png
+maintenance_status: active
+name: target-mysql
+namespace: target_mysql
+next_steps: ''
+pip_url: thk-target-mysql
+quality: unknown
+repo: https://github.com/thkwag/target-mysql
+settings:
+- description: Allow column alter
+  kind: boolean
+  label: Allow Column Alter
+  name: allow_column_alter
+- description: MySQL database
+  kind: string
+  label: Database
+  name: database
+- description: The default target database schema name to use for all streams.
+  kind: string
+  label: Default Target Schema
+  name: default_target_schema
+- description: SQLAlchemy driver name
+  kind: string
+  label: Driver Name
+  name: driver_name
+  value: mysql
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: MySQL host
+  kind: string
+  label: Host
+  name: host
+- description: Lower case table names
+  kind: boolean
+  label: Lower Case Table Names
+  name: lower_case_table_names
+  value: true
+- description: MySQL password
+  kind: password
+  label: Password
+  name: password
+- description: MySQL port
+  kind: string
+  label: Port
+  name: port
+- description: SQLAlchemy connection string
+  kind: string
+  label: Sqlalchemy URL
+  name: sqlalchemy_url
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: MySQL username
+  kind: string
+  label: Username
+  name: username
+settings_group_validation:
+- []
+settings_preamble: ''
+usage: ''
+variant: thk
