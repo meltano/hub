@@ -15,12 +15,12 @@ settings:
   label: Connection Path
   name: path
   placeholder: /path/to/local/file.duckdb
-  value: ${MELTANO_PROJECT_ROOT}/output/warehouse.duckdb
 - description: Alias of `path`.
   kind: string
   label: File Path
   name: filepath
   placeholder: /path/to/local/file.duckdb
+  value: ${MELTANO_PROJECT_ROOT}/output/warehouse.duckdb
 - description: The database name to write to; this will be inferred from the path property if it is not specified.
   kind: string
   label: Database
