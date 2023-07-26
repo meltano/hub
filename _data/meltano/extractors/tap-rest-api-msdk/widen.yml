@@ -1,10 +1,11 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- batch
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: REST API
 domain_url: https://docs.python-requests.org/en/latest/
 keywords:
@@ -20,59 +21,77 @@ pip_url: tap-rest-api-msdk
 quality: gold
 repo: https://github.com/Widen/tap-rest-api-msdk
 settings:
+- description: Used for the OAuth2 authentication method. This is the end-point for
+    the authentication server used to exchange the authorization codes for a access
+    token.
+  kind: password
+  label: Access Token URL
+  name: access_token_url
+- description: 'A object of API Key/Value pairs used by the api_key auth method Example:
+    { X-API-KEY: my secret value}.'
+  kind: object
+  label: API Keys
+  name: api_keys
 - description: the base url/endpoint for the desired api
   kind: string
   label: API URL
   name: api_url
-- description: a jsonpath string representing the path to the 'next page' token. Defaults
-    to `$.next_page`
-  kind: password
-  label: Next Page Token Path
-  name: next_page_token_path
-- description: the pagination style to use for requests. Defaults to `default`
+- description: 'The method of authentication used by the API. Supported options include
+    oauth: for OAuth2 authentication, basic: Basic Header authorization - base64-encoded
+    username + password config items, api_key: for API Keys in the header e.g. X-API-KEY,bearer_token:
+    for Bearer token authorization, aws: for AWS Authentication.Defaults to no_auth
+    which will take authentication parameters passed via the headersconfig.'
   kind: string
-  label: Pagination Request Style
-  name: pagination_request_style
-- description: the pagination style to use for response. Defaults to `default`
-  kind: string
-  label: Pagination Response Style
-  name: pagination_response_style
-- description: the size of each page in records. Defaults to None
-  kind: integer
-  label: Pagination Page Size
-  name: pagination_page_size
-- description: the path appended to the `api_url`. Stream-level path will overwrite
-    top-level path
-  kind: string
-  label: Path
-  name: path
-- description: an object providing the `params` in a `requests.get` method. Stream
-    level params will be mergedwith top-level params with stream level params overwritingtop-level
-    params with the same key.
+  label: Auth Method
+  name: auth_method
+  value: no_auth
+- description: 'An object of aws credentials to authenticate to access AWS services.
+    This example is to access the AWS OpenSearch service. Example: { aws_access_key_id:
+    my_aws_key_id, aws_secret_access_key: my_aws_secret_access_key, aws_region: us-east-1,
+    aws_service: es, use_signed_credentials: true} '
   kind: object
-  label: Params
-  name: params
-- description: An object of headers to pass into the api calls. Stream levelheaders
-    will be merged with top-level params with streamlevel params overwriting top-level
-    params with the same key
-  kind: object
-  label: Headers
-  name: headers
-- description: a jsonpath string representing the path in the requests response that
-    contains the records to process. Defaults to `$[*]`. Stream level records_path
-    will overwrite the top-level records_path
+  label: AWS Credentials
+  name: aws_credentials
+- description: Compression format to use for batch files.
+  kind: options
+  label: Batch Config Encoding Compression
+  name: batch_config.encoding.compression
+  options:
+  - label: Gzip
+    value: gzip
+  - label: None
+    value: none
+- description: Format to use for batch files.
+  kind: options
+  label: Batch Config Encoding Format
+  name: batch_config.encoding.format
+  options:
+  - label: Jsonl
+    value: jsonl
+- description: Prefix to use when writing batch files.
   kind: string
-  label: Records Path
-  name: records_path
-- description: a list of the json keys of the primary key for the stream.
-  kind: array
-  label: Primary Keys
-  name: primary_keys
-- description: the json key of the replication key. Note that this should be an incrementing
-    integer or datetime object.
+  label: Batch Config Storage Prefix
+  name: batch_config.storage.prefix
+- description: Root path to use when writing batch files.
+  kind: string
+  label: Batch Config Storage Root
+  name: batch_config.storage.root
+- description: Used for the Bearer Authentication method, which uses a token as part
+    of the authorization header for authentication.
   kind: password
-  label: Replication Key
-  name: replication_key
+  label: Bearer Token
+  name: bearer_token
+- description: Used for the OAuth2 authentication method. The public application ID
+    that's assigned for Authentication. The client_id should accompany a client_secret.
+  kind: password
+  label: Client ID
+  name: client_id
+- description: Used for the OAuth2 authentication method. The client_secret is a secret
+    known only to the application and the authorization server. It is essential the
+    application's own password.
+  kind: password
+  label: Client Secret
+  name: client_secret
 - description: This tap automatically flattens the entire json structure and builds
     keys based on the corresponding paths.; Keys, whether composite or otherwise,
     listed in this dictionary will not be recursively flattened, but instead their
@@ -82,10 +101,164 @@ settings:
   kind: array
   label: Except Keys
   name: except_keys
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: Used for the OAuth2 authentication method. The grant_type is required
+    to describe the OAuth2 flow. Flows support by this tap include client_credentials,
+    refresh_token, password.
+  kind: string
+  label: Grant Type
+  name: grant_type
+- description: An object of headers to pass into the api calls. Stream levelheaders
+    will be merged with top-level params with streamlevel params overwriting top-level
+    params with the same key.
+  kind: object
+  label: Headers
+  name: headers
+- description: a jsonpath string representing the path to the 'next page' token. Defaults
+    to `$.next_page`
+  kind: password
+  label: Next Page Token Path
+  name: next_page_token_path
 - description: number of records used to infer the stream's schema. Defaults to 50.
   kind: integer
   label: Num Inference Records
   name: num_inference_records
+  value: 50
+- description: Used for OAuth2 authentication method. This optional setting is a timer
+    for the expiration of a token in seconds. If not set the OAuth will use the default
+    expiration set in the token by the authorization server.
+  kind: integer
+  label: OAuth Expiration Secs
+  name: oauth_expiration_secs
+- description: 'A object of Key/Value pairs for additional oauth config parameters
+    which may be required by the authorization server.Example: {resource: https://analysis.windows.net/powerbi/api}.'
+  kind: object
+  label: OAuth Extras
+  name: oauth_extras
+- description: The name of the param that indicates the limit/per_page. Defaults to
+    None
+  kind: string
+  label: Pagination Limit Per Page Param
+  name: pagination_limit_per_page_param
+- description: The name of the param that indicates the page/offset. Defaults to None
+  kind: string
+  label: Pagination Next Page Param
+  name: pagination_next_page_param
+- description: the size of each page in records. Defaults to None
+  kind: integer
+  label: Pagination Page Size
+  name: pagination_page_size
+- description: the pagination style to use for requests. Defaults to `default`
+  kind: string
+  label: Pagination Request Style
+  name: pagination_request_style
+  value: default
+- description: the pagination style to use for response. Defaults to `default`
+  kind: string
+  label: Pagination Response Style
+  name: pagination_response_style
+  value: default
+- description: limits the max number of records. Defaults to None
+  kind: integer
+  label: Pagination Results Limit
+  name: pagination_results_limit
+- description: The name of the param that indicates the total limit e.g. total, count.
+    Defaults to total
+  kind: string
+  label: Pagination Total Limit Param
+  name: pagination_total_limit_param
+  value: total
+- description: an object providing the `params` in a `requests.get` method. Stream
+    level params will be mergedwith top-level params with stream level params overwritingtop-level
+    params with the same key.
+  kind: object
+  label: Params
+  name: params
+- description: Used for a number of authentication methods that use a user password
+    combination for authentication.
+  kind: password
+  label: Password
+  name: password
+- description: the path appended to the `api_url`. Stream-level path will overwrite
+    top-level path
+  kind: string
+  label: Path
+  name: path
+- description: a list of the json keys of the primary key for the stream.
+  kind: array
+  label: Primary Keys
+  name: primary_keys
+- description: a jsonpath string representing the path in the requests response that
+    contains the records to process. Defaults to `$[*]`. Stream level records_path
+    will overwrite the top-level records_path
+  kind: string
+  label: Records Path
+  name: records_path
+- description: Used for the OAuth2 authentication method. This is optional as the
+    redirect_uri may be part of the token returned by the authentication server. If
+    a redirect_uri is provided, it determines where the API server redirects the user
+    after the user completes the authorization flow.
+  kind: string
+  label: Redirect Uri
+  name: redirect_uri
+- description: An OAuth2 Refresh Token is a string that the OAuth2 client can use
+    to get a new access token without the user's interaction.
+  kind: password
+  label: Refresh Token
+  name: refresh_token
+- description: the json response field representing the replication key.Note that
+    this should be an incrementing integer or datetime object.
+  kind: password
+  label: Replication Key
+  name: replication_key
+- description: Used for the OAuth2 authentication method. The scope is optional, it
+    is a mechanism to limit the amount of access that is granted to an access token.
+    One or more scopes can be provided delimited by a space.
+  kind: string
+  label: Scope
+  name: scope
+- description: "An optional field name which can be used for querying specific records
+    from supported API's. The intend for this parameter is to continue incrementally
+    processing from a previous state. Example `last-updated`. Note: You must also
+    set the replication_key, where the replication_key isjson response representation
+    of the API `source_search_field`. You shouldalso supply the `source_search_query`,
+    `replication_key` and `start_date`."
+  kind: string
+  label: Source Search Field
+  name: source_search_field
+- description: "An optional query template to be issued against the API.Substitute
+    the query field you are querying against with $last_run_date. Atrun-time, the
+    tap will dynamically update the token with either the `start_date`or the last
+    bookmark / state value. A simple template Example for FHIR API's: gt$last_run_date.
+    A more complex example against an Opensearch API, {\"bool\": {\"filter\": [{\"\
+    range\": { \"meta.lastUpdated\": { \"gt\": \"$last_run_date\" }}}] }} .Note: Any
+    required double quotes in the query template must be escaped."
+  kind: string
+  label: Source Search Query
+  name: source_search_query
+- description: An optional field. Normally required when using thereplication_key.
+    This is the initial starting date when using adate based replication key and there
+    is no state available.
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 - description: |
     An array of streams, designed for separate paths using thesame base url.
 
@@ -106,26 +279,18 @@ settings:
   kind: array
   label: Streams
   name: streams
-- description: Config object for stream maps capability.
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: sends the request parameters in the request body.This is normally not
+    required, a few API's like OpenSearchrequire this. Defaults to `False`
   kind: boolean
-  label: Flattening Enabled
-  name: flattening_enabled
-- description: The max depth to flatten schemas.
-  kind: integer
-  label: Flattening Max Depth
-  name: flattening_max_depth
+  label: Use Request Body Not Params
+  name: use_request_body_not_params
+- description: Used for a number of authentication methods that use a user password
+    combination for authentication.
+  kind: string
+  label: Username
+  name: username
 settings_group_validation:
 - - api_url
-  - streams
 settings_preamble: ''
 usage: |
   ## Examples
