@@ -1,0 +1,109 @@
+capabilities:
+- about
+- batch
+- catalog
+- discover
+- schema-flattening
+- state
+- stream-maps
+description: Issue and Project Tracking Software
+domain_url: https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/
+executable: tap-jira
+keywords:
+- meltano_sdk
+label: Jira
+logo_url: /assets/logos/extractors/jira.png
+maintenance_status: active
+name: tap-jira
+namespace: tap_jira
+next_steps: ''
+pip_url: git+https://github.com/MeltanoLabs/tap-jira.git
+quality: silver
+repo: https://github.com/MeltanoLabs/tap-jira
+settings:
+- description: The authentication type to use.
+  kind: string
+  label: Auth Flow
+  name: auth.flow
+  options:
+  - label: OAuth
+    value: oauth
+  - label: Password
+    value: password
+- description: The Jira API access token if using OAuth auth flow.
+  kind: password
+  label: Auth Access Token
+  name: auth.access_token
+- description: The Jira username if using the user/pass auth flow.
+  kind: string
+  label: Auth Username
+  name: auth.username
+- description: The Jira password if using the user/pass auth flow.
+  kind: password
+  label: Auth Password
+  name: auth.password
+- description: Compression format to use for batch files.
+  kind: options
+  label: Batch Config Encoding Compression
+  name: batch_config.encoding.compression
+  options:
+  - label: Gzip
+    value: gzip
+  - label: None
+    value: none
+- description: Format to use for batch files.
+  kind: options
+  label: Batch Config Encoding Format
+  name: batch_config.encoding.format
+  options:
+  - label: Jsonl
+    value: jsonl
+- description: Prefix to use when writing batch files.
+  kind: string
+  label: Batch Config Storage Prefix
+  name: batch_config.storage.prefix
+- description: Root path to use when writing batch files.
+  kind: string
+  label: Batch Config Storage Root
+  name: batch_config.storage.root
+- description: Site URL
+  kind: string
+  label: Domain
+  name: domain
+- description: Latest record date to sync
+  kind: date_iso8601
+  label: End Date
+  name: end_date
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: Earliest record date to sync
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+settings_group_validation:
+- - auth.flow
+  - auth.username
+  - auth.password
+  - domain
+- - auth.flow
+  - auth.access_token
+  - domain
+settings_preamble: ''
+usage: ''
+variant: meltanolabs
