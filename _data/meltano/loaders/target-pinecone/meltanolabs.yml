@@ -1,0 +1,86 @@
+capabilities:
+- about
+- schema-flattening
+- stream-maps
+description: Vector Database for Vector Search
+domain_url: https://www.pinecone.io/
+executable: target-pinecone
+keywords:
+- meltano_sdk
+- ai
+- vector_store
+label: Pinecone
+logo_url: /assets/logos/loaders/pinecone.png
+maintenance_status: beta
+name: target-pinecone
+namespace: target_pinecone
+next_steps: ''
+pip_url: git+https://github.com/MeltanoLabs/target-pinecone.git
+quality: silver
+repo: https://github.com/MeltanoLabs/target-pinecone
+settings:
+- description: Your Pinecone API key.
+  kind: password
+  label: API Key
+  name: api_key
+- description: The amount of dimensions to use if creating a new index. An index is
+    only created if it doesn't already exist. The default is `1536` which is the dimensions
+    of the embeddings using OpenAI's text-embedding-ada-002 model.
+  kind: integer
+  label: Dimensions
+  name: dimensions
+  value: 1536
+- description: The property containing the document text in the input records.
+  kind: string
+  label: Document Text Property
+  name: document_text_property
+  value: text
+- description: The property containing the embeddings in the input records.
+  kind: string
+  label: Embeddings Property
+  name: embeddings_property
+  value: embeddings
+- description: Your Pinecone index name to write data to.
+  kind: string
+  label: Environment
+  name: environment
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: Your Pinecone index name to write data to.
+  kind: string
+  label: Index Name
+  name: index_name
+- description: The property containing the document metadata in the input records.
+  kind: string
+  label: Metadata Property
+  name: metadata_property
+  value: metadata
+- description: The key in the Pinecone metadata entry that will contain the text document.
+  kind: password
+  label: Pinecone Metadata Text Key
+  name: pinecone_metadata_text_key
+  value: text
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+settings_group_validation:
+- - api_key
+  - document_text_property
+  - index_name
+  - pinecone_metadata_text_key
+settings_preamble: ''
+usage: ''
+variant: meltanolabs
