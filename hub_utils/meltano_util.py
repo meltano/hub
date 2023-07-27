@@ -227,7 +227,10 @@ class MeltanoUtil:
             if name in reformatted_settings_2:
                 existing_setting = reformatted_settings_2.get(name)
                 existing_setting["description"] = ", ".join(
-                    [existing_setting["description"], setting.get("description")]
+                    [
+                        existing_setting["description"],
+                        MeltanoUtil._clean_description(setting.get("description")),
+                    ]
                 )
             else:
                 reformatted_settings_2[name] = setting
@@ -273,7 +276,9 @@ class MeltanoUtil:
         for settings in MeltanoUtil._traverse_schema_properties(settings_raw):
             name = settings.get("name")
             description = MeltanoUtil._handle_description(
-                settings.get("description"), name, enforce_desc
+                MeltanoUtil._clean_description(settings.get("description")),
+                name,
+                enforce_desc,
             )
             setting_details = {
                 "name": name,
@@ -288,7 +293,7 @@ class MeltanoUtil:
             setting_details["kind"] = kind
             if options:
                 setting_details["options"] = options
-            if settings.get("default"):
+            if settings.get("default") is not None:
                 if kind != "date_iso8601":
                     setting_details["value"] = settings.get("default")
             reformatted_settings.append(setting_details)
@@ -315,7 +320,9 @@ class MeltanoUtil:
                     reqs = value.get("required", [])
                     field = {
                         "name": full_name,
-                        "description": subfield.get("description"),
+                        "description": MeltanoUtil._clean_description(
+                            subfield.get("description")
+                        ),
                         "default": subfield.get("default"),
                         "type": subfield.get("type"),
                         "title": subfield.get("title"),
@@ -334,7 +341,9 @@ class MeltanoUtil:
                 fields.append(
                     {
                         "name": key,
-                        "description": value.get("description"),
+                        "description": MeltanoUtil._clean_description(
+                            value.get("description")
+                        ),
                         "default": value.get("default"),
                         "type": value.get("type"),
                         "title": value.get("title"),
@@ -349,3 +358,55 @@ class MeltanoUtil:
                     i["description"] = i.get("const") or item.get("title")
                 fields.append(i)
         return fields
+
+    @staticmethod
+    def _split_sentence_endings(word_list):
+        desc_list_clean = []
+        for word in word_list:
+            if len(word.split(".")) > 1:
+                if not any(
+                    keyword in word
+                    for keyword in ("http", "ssh", "ssl", "e.g.", '"', "`")
+                ):
+                    desc_list_clean.extend(word.replace(".", ". ").split())
+                    continue
+            desc_list_clean.append(word)
+        return " ".join(desc_list_clean)
+
+    @staticmethod
+    def _last_element(lst):
+        if lst:
+            return lst[-1]
+        else:
+            return ""
+
+    @staticmethod
+    def _capitalize(cleaned_sentence):
+        capital_list = cleaned_sentence.split(". ")
+        clean_capital_list = []
+        for elem in capital_list:
+            sentence_list = elem.split()
+            last_elem = MeltanoUtil._last_element(clean_capital_list)
+            if (
+                sentence_list[0][0].isupper()
+                or sentence_list[0][0] == "'"
+                or last_elem.endswith("e.g")
+                or last_elem.endswith("i.e")
+            ):
+                clean_capital_list.append(" ".join(sentence_list))
+            else:
+                sentence_list[0] = sentence_list[0].capitalize()
+                clean_capital_list.append(" ".join(sentence_list))
+
+        return ". ".join(clean_capital_list)
+
+    @staticmethod
+    def _clean_description(description):
+        if not description:
+            return description
+
+        # Add a space after sentence ending periods
+        desc_list = description.split()
+        cleaned_sentence = MeltanoUtil._split_sentence_endings(desc_list)
+        cleaned_description = MeltanoUtil._capitalize(cleaned_sentence)
+        return cleaned_description

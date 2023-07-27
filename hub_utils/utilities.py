@@ -511,6 +511,10 @@ class Utilities:
                 # If the existing description is longer and has new line characters
                 # then its probably a custom/manual override so keep it.
                 setting["description"] = existing_desc
+            else:
+                setting["description"] = MeltanoUtil._clean_description(
+                    setting["description"]
+                )
             # TODO: if existing is much longer we might want to keep it
             existing_value = name_lookup_existing.get(name, {}).get("value", "")
             if str(existing_value).startswith("$MELTANO"):

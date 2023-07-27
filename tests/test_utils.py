@@ -225,6 +225,32 @@ def test_merge_and_update(patch):
                 }
             ],
         ],
+        [
+            [
+                {
+                    "name": "add_metadata_columns",
+                    "description": "Nothing really",
+                    "label": "Add Metadata Columns",
+                    "kind": "boolean",
+                }
+            ],
+            [
+                {
+                    "name": "add_metadata_columns",
+                    "description": "the tap description.With some formatting issues. this one too.also this one.",
+                    "label": "Add Metadata Columns",
+                    "kind": "boolean",
+                }
+            ],
+            [
+                {
+                    "name": "add_metadata_columns",
+                    "description": "The tap description. With some formatting issues. This one too. Also this one.",
+                    "label": "Add Metadata Columns",
+                    "kind": "boolean",
+                }
+            ],
+        ],
     ],
 )
 def test_merge_settings(existing, new, expected):

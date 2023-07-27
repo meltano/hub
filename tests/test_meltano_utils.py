@@ -126,7 +126,7 @@ def test_sdk_about_parsing_airbyte():
 
     settings, settings_group_validation, capabilities = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
     print(json.dumps(settings))
-    assert settings == [
+    expected_settings = [
         {
             "name": "airbyte_spec.image",
             "label": "Airbyte Spec Image",
@@ -156,7 +156,7 @@ def test_sdk_about_parsing_airbyte():
         {
             "name": "connector_config.format.filetype",
             "label": "Connector Config Format Filetype",
-            "description": "csv, parquet",
+            "description": "Csv, Parquet",
             "kind": "string"
         },
         {
@@ -209,13 +209,15 @@ def test_sdk_about_parsing_airbyte():
             "name": "connector_config.provider.path_prefix",
             "label": "Connector Config Provider Path Prefix",
             "description": "By providing a path-like prefix (e.g. myFolder/thisTable/) under which all the relevant files sit, we can optimize finding these in S3. This is optional but recommended if your bucket contains many folders/files which you don't need to replicate.",
-            "kind": "password"
+            "kind": "password",
+            "value": ""
         },
         {
             "name": "connector_config.provider.endpoint",
             "label": "Connector Config Provider Endpoint",
             "description": "Endpoint to an S3 compatible service. Leave empty to use AWS.",
-            "kind": "password"
+            "kind": "password",
+            "value": ""
         },
         {
             "name": "stream_maps",
@@ -242,6 +244,8 @@ def test_sdk_about_parsing_airbyte():
             "kind": "integer"
         }
     ]
+    for i, setting in enumerate(settings):
+        assert setting == expected_settings[i], setting
     assert set(settings_group_validation[0]) == set(
         [
             "airbyte_spec.image",
@@ -356,9 +360,37 @@ def test_sdk_about_parsing_default():
         {
             "name": "test",
             "label": "Test",
-            "description": "my description",
+            "description": "My description",
             "kind": "string",
             "value": "my default"
+        }
+    ]
+
+
+def test_sdk_about_parsing_default_bool():
+    input = {
+        "settings": {
+            "type": "object",
+            "properties": {
+                "test": {
+                    "type": [
+                        "string"
+                    ],
+                    "default": False,
+                    "description": "my description"
+                }
+            },
+            "required": []
+        }
+    }
+    settings, _, _ = MeltanoUtil._parse_sdk_about_settings(input)
+    assert settings == [
+        {
+            "name": "test",
+            "label": "Test",
+            "description": "My description",
+            "kind": "string",
+            "value": False
         }
     ]
 

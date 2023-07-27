@@ -58,7 +58,7 @@ def callback():
     ```bash
     poetry run pytest -v
 
-    poetry run pytest -v tests/test_core.py::test_sdk_about_parsing_1
+    poetry run pytest -v tests/test_meltano_utils.py::test_sdk_about_parsing_1
     ```
 
     **Refreshing This README**
