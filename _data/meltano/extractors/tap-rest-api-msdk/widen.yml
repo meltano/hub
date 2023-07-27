@@ -101,6 +101,7 @@ settings:
   kind: array
   label: Except Keys
   name: except_keys
+  value: []
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -182,6 +183,7 @@ settings:
   kind: object
   label: Params
   name: params
+  value: {}
 - description: Used for a number of authentication methods that use a user password
     combination for authentication.
   kind: password
@@ -284,6 +286,7 @@ settings:
   kind: boolean
   label: Use Request Body Not Params
   name: use_request_body_not_params
+  value: false
 - description: Used for a number of authentication methods that use a user password
     combination for authentication.
   kind: string
