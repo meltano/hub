@@ -13,6 +13,7 @@ module.exports = {
 
       options: {
         tailwindConfig: "./tailwind.config.js",
+        shouldImport: true,
       },
     },
     {
