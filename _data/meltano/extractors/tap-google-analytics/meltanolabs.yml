@@ -10,12 +10,12 @@ domain_url: https://developers.google.com/analytics/devguides/reporting/core/v4/
 keywords:
 - api
 - meltano_sdk
-label: Google Analytics
+label: Google Analytics (Universal Analytics API - Deprecated)
 logo_url: /assets/logos/extractors/google-analytics.png
 maintenance_status: active
 name: tap-google-analytics
 namespace: tap_google_analytics
-pip_url: git+https://github.com/MeltanoLabs/tap-google-analytics.git
+pip_url: git+https://github.com/MeltanoLabs/tap-google-analytics.git@main_deprecated_ua
 quality: gold
 repo: https://github.com/MeltanoLabs/tap-google-analytics
 settings:
@@ -232,6 +232,5 @@ settings_group_validation:
   - oauth_credentials.client_secret
   - oauth_credentials.refresh_token
   - start_date
-  - view_id
   - view_id
 variant: meltanolabs

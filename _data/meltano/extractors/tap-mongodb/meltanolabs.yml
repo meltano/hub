@@ -7,7 +7,6 @@ capabilities:
 description: General purpose, document-based, distributed database.
 domain_url: https://www.mongodb.com/
 executable: tap-mongodb
-hidden: true
 keywords:
 - meltano_sdk
 - database
@@ -148,4 +147,4 @@ settings_preamble: |
   as well, as the change stream in that case is opened with the option `full_document="updateLookup"`. If you would
   prefer different behavior, please open an issue with the tap.
 usage: ''
-variant: menzenski
+variant: meltanolabs

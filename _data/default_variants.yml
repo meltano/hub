@@ -107,7 +107,7 @@ extractors:
   tap-commercetools: airbyte
   tap-configcat: airbyte
   tap-confluence: edgarrmondragon
-  tap-contentful: dmzobel
+  tap-contentful: gthesheep
   tap-convertkit: airbyte
   tap-convex: airbyte
   tap-coosto: yoast
@@ -190,7 +190,7 @@ extractors:
   tap-frontapp: singer-io
   tap-fulfil: fulfilio
   tap-fullstory: singer-io
-  tap-ga4: singer-io
+  tap-ga4: meltanolabs
   tap-gainsightpx: widen
   tap-genesys: airbyte
   tap-getlago: airbyte
@@ -248,7 +248,7 @@ extractors:
   tap-itunes: hotgluexyz
   tap-jaffle-shop: meltanolabs
   tap-jdbc: airbyte
-  tap-jira: singer-io
+  tap-jira: meltanolabs
   tap-jotform: hotgluexyz
   tap-judgeme: hotgluexyz
   tap-k6-cloud: airbyte
@@ -602,6 +602,7 @@ loaders:
   target-elasticsearch: dtmirizzi
   target-gcs: datateer
   target-gsheet: singer-io
+  target-hubspot: meltanolabs
   target-iomete: iomete
   target-jsonl: andyh1203
   target-kinesis: prontopro
@@ -609,6 +610,7 @@ loaders:
   target-miso: misoai
   target-mongodb: hotgluexyz
   target-mssql: storebrand
+  target-mysql: thkwag
   target-oracle: radbrt
   target-pardot: anelendata
   target-parquet: estrategiahq
