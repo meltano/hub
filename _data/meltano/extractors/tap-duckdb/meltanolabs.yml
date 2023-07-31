@@ -30,7 +30,7 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: Path to .duckdb file
+- description: Path to. Duckdb file
   kind: string
   label: Path
   name: path
