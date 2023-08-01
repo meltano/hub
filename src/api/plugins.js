@@ -1,6 +1,6 @@
-const write = require("write");
 const path = require("path");
 const fs = require("fs");
+const write = require("write");
 const yaml = require("js-yaml");
 const { gql } = require("graphql-tag");
 
