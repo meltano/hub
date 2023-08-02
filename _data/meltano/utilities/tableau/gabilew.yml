@@ -3,7 +3,7 @@ commands:
     args: refresh
     description: Refresh a Tableau datasource.
 definition: |
-  Tableau is a widely used data visualisation and exploration tool.
+  is used to trigger a refresh of a Tableau data source once the data has been updated. Usually this is run in a pipeline following a transformation (i.e. dbt) step that altered the data that Tableau is connected to.
 
 description: A modern, enterprise-ready business intelligence tool.
 docs: https://github.com/gabilew/tableau-ext
