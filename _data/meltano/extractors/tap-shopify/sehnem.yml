@@ -1,0 +1,46 @@
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+- schema-flattening
+- batch
+description: Ecommerce platform
+domain_url: https://shopify.com/
+keywords:
+- meltano_sdk
+- GraphQL
+label: Shopify (GraphQL)
+logo_url: /assets/logos/extractors/shopify.png
+maintenance_status: beta
+name: tap-shopify
+namespace: tap_shopify
+pip_url: git+https://github.com/sehnem/tap-shopify.git
+quality: silver
+repo: https://github.com/sehnem/tap-shopify
+settings:
+- description: The token to authenticate against the API service.
+  kind: password
+  label: Access Token
+  name: access_token
+- description: Your Shopify store id, use the prefix of your admin url. e.g. https://[store].myshopify.com/admin.
+  kind: string
+  label: Store
+  name: store
+- description: Optional - Start date to sync from.
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: Optional - The version of the shopify api to use, default is 2023-04.
+  kind: string
+  label: API Version
+  name: api_version
+- description: Optional - Whether to use bulk endpoints or not, default is false.
+  kind: boolean
+  label: Bulk
+  name: bulk
+settings_group_validation:
+- - access_token
+  - store
+variant: sehnem
