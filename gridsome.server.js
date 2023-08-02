@@ -6,8 +6,8 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 const fs = require("fs");
-const yaml = require("js-yaml");
 const path = require("path");
+const yaml = require("js-yaml");
 const marked = require("marked");
 const buildJSONApi = require("./src/api/plugins");
 
