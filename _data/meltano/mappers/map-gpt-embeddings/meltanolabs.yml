@@ -6,7 +6,7 @@ executable: map-gpt-embeddings
 keywords:
 - meltano_sdk
 label: Map GPT Embeddings
-logo_url: /assets/logos/mappers/map-gpt-embeddings.png
+logo_url: /assets/logos/mappers/map-gpt-embeddings.svg
 maintenance_status: beta
 name: map-gpt-embeddings
 namespace: map_gpt_embeddings
