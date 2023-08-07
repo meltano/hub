@@ -20,7 +20,7 @@ pip_url: git+https://github.com/meltanolabs/tap-dbt.git
 quality: gold
 repo: https://github.com/meltanolabs/tap-dbt
 settings:
-- description: dbt Cloud account IDs
+- description: Dbt Cloud account IDs
   kind: array
   label: Account IDs
   name: account_ids
@@ -84,7 +84,7 @@ settings:
   kind: string
   label: User Agent
   name: user_agent
-  value: tap-dbt/0.8.2.dev6+b32efea Singer tap for the dbt Cloud API.
+  value: tap-dbt/0.8.2.dev9+4861890 Singer tap for the dbt Cloud API.
 settings_group_validation:
 - - account_ids
   - api_key
