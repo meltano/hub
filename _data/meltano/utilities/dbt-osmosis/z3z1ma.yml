@@ -1,30 +1,13 @@
 commands:
-  compose:
-    args: compose --project-dir ${MELTANO_PROJECT_ROOT}/transform --profiles-dir ${MELTANO_PROJECT_ROOT}/transform/profiles/${ADAPTER}
-    description: A slimmer version of `run` used in precommit hooks
-  diff:
-    args: diff --project-dir ${MELTANO_PROJECT_ROOT}/transform --profiles-dir ${MELTANO_PROJECT_ROOT}/transform/profiles/${ADAPTER}
-    description: Diff a dbt model from git HEAD to inspect changes as you develop,
-      requires -m [MODEL]
-  diff-cache:
-    args: diff --project-dir ${MELTANO_PROJECT_ROOT}/transform --profiles-dir ${MELTANO_PROJECT_ROOT}/transform/profiles/${ADAPTER}
-      --temp-table
-    description: |
-      Diff a query from git HEAD to inspect changes as you develop caching the HEAD rev of the model
-      to a schema called `dbt_diff`, requires -m [MODEL]
-  run:
-    args: run --project-dir ${MELTANO_PROJECT_ROOT}/transform --profiles-dir ${MELTANO_PROJECT_ROOT}/transform/profiles/${ADAPTER}
-    description: Organizes all dbt schema yaml files and cascadingly inherits documentation
-      to keep it DRY.
-  server:
-    args: server --register-project --project-dir ${MELTANO_PROJECT_ROOT}/transform
-      --profiles-dir ${MELTANO_PROJECT_ROOT}/transform/profiles/${ADAPTER}
-    description: |
-      Start a server exposing two primary endpoints. /compile and /run which receive POST
-      requests and compile or run dbt SQL against your dbt profile. It is significantly faster
-      and simpler than dbt RPC and internally does not rely on it. This server is compatible with
-      https://github.com/innoverio/vscode-dbt-power-user providing VS code users interactive
-      query previews via a simple ▶️ button or Cmd+Enter.
+  document:
+    args: yaml document --project-dir ${MELTANO_PROJECT_ROOT}/transform --profiles-dir ${MELTANO_PROJECT_ROOT}/transform/profiles/${ADAPTER}
+    description: Inherit documentation from parent models to child models cascadingly
+  organize:
+    args: yaml organize --project-dir ${MELTANO_PROJECT_ROOT}/transform --profiles-dir ${MELTANO_PROJECT_ROOT}/transform/profiles/${ADAPTER}
+    description: Organizes all dbt schema yaml files based on declarative rules in the dbt_project.yml, create yaml files as needed
+  refactor:
+    args: yaml refactor --project-dir ${MELTANO_PROJECT_ROOT}/transform --profiles-dir ${MELTANO_PROJECT_ROOT}/transform/profiles/${ADAPTER}
+    description: Organizes all dbt schema yaml files AND cascadingly inherits documentation from parent models to child models, create yaml files as needed
   workbench:
     args: workbench --project-dir ${MELTANO_PROJECT_ROOT}/transform --profiles-dir
       ${MELTANO_PROJECT_ROOT}/transform/profiles/${ADAPTER}
@@ -33,13 +16,7 @@ commands:
       or author a model from scratch. The workbench allows you to write dbt with instant
       compile-as-you-type functionality. Spin it up or tear it down as needed.
 definition: |
-  is a tool to supercharge [dbt](https://docs.getdbt.com/) development by providing 4 key functions.
-  1. A workbench for a REPL like development experience for dbt models
-  2. The ability to diff model outputs across file revisions
-  3. Automation which manages generating, updating, and propagating documentation for your
-  `schema.yml` files.
-  4. A FastAPI dbt server which principally integrates with the
-  [VSCode dbt power user extension](https://github.com/innoverio/vscode-dbt-power-user).
+  is a tool to supercharge [dbt](https://docs.getdbt.com/) development primarily by providing automated YAML management
 domain_url: https://github.com/z3z1ma/dbt-osmosis
 executable: dbt-osmosis
 keywords:
@@ -64,6 +41,9 @@ next_steps: |
 
   4. Ensure you additionally add `adapter: ...` to your dbt-osmosis config for the built
   in commands to work. ie for Bigquery, `adapter: bigquery`
+
+  5. Because of the modified `pip_url`, you should copy the commands from the hub to your local plugin definition for convenience
+  https://github.com/meltano/hub/blob/main/_data/meltano/utilities/dbt-osmosis/z3z1ma.yml
 pip_url: dbt-osmosis
 repo: https://github.com/z3z1ma/dbt-osmosis
 settings:
