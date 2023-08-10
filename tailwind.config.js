@@ -53,6 +53,24 @@ module.exports = {
           DEFAULT: "#080216",
         },
       },
+      keyframes: {
+        fly: {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "25%": { transform: "translateY(30px)" },
+          "40%": { transform: "translateY(20px)" },
+          "75%": { transform: "translateY(40px)" },
+        },
+        flyx: {
+          "0%, 100%": { transform: "translateX(0px)" },
+
+          "50%": { transform: "translateX(50px)" },
+          "55%": { transform: "translateX(50px)" },
+        },
+      },
+      animation: {
+        fly: "fly 8s ease-in-out infinite",
+        flyx: "flyx 15s ease infinite",
+      },
       opacity: {
         15: ".15",
       },
