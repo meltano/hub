@@ -199,9 +199,6 @@ export default {
     IconMagnifier,
     IconGear,
   },
-  metaInfo: {
-    title: "Hero Connectors",
-  },
   name: "HeroConnectors",
   data() {
     return {

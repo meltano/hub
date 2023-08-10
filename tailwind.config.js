@@ -34,7 +34,12 @@ module.exports = {
       colors: {
         white: {
           DEFAULT: "#ffffff",
-          "07": "rgba(255, 255, 255, 0.7)",
+        },
+        grey: {
+          medium: "#B5B4BA",
+        },
+        green: {
+          DEFAULT: "#99CE55",
         },
         transparent: {
           DEFAULT: "transparent",
@@ -42,15 +47,27 @@ module.exports = {
         blue: {
           DEFAULT: "#3A64FA",
           light: "#18C3FA",
+          300: "#B1D5F8",
+        },
+        pink: {
+          DEFAULT: "#F963BC",
         },
         purple: {
           DEFAULT: "#311772",
+          10: "#E2DBFE",
+          25: "#EEEBF7",
           50: "#E9E5FB",
           lila: "#DAD1FE",
           hub: "#E9E5FB",
+          300: "#9A82F7",
+          200: "#C5B6FF",
+          100: "#E7E2FA",
         },
-        par: {
+        black: {
           DEFAULT: "#080216",
+        },
+        smoke: {
+          DEFAULT: "#F6F4FE",
         },
       },
       keyframes: {
