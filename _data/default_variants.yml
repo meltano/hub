@@ -54,6 +54,7 @@ extractors:
   tap-bamboohr: autoidm
   tap-basecone: yoast
   tap-bazaarvoice: gthesheep
+  tap-beautifulsoup: meltanolabs
   tap-bexio: substringgmbh
   tap-bigcommerce: singer-io
   tap-bigmarker: manuelapilongo
@@ -77,6 +78,7 @@ extractors:
   tap-capsulecrm: hotgluexyz
   tap-carbon-intensity: meltano
   tap-cart: airbyte
+  tap-cassandra: datarts-tech
   tap-ccxt: superkeyio
   tap-centra: icebug
   tap-chargebee: hotgluexyz
@@ -106,7 +108,7 @@ extractors:
   tap-commercetools: airbyte
   tap-configcat: airbyte
   tap-confluence: edgarrmondragon
-  tap-contentful: dmzobel
+  tap-contentful: gthesheep
   tap-convertkit: airbyte
   tap-convex: airbyte
   tap-coosto: yoast
@@ -189,6 +191,7 @@ extractors:
   tap-frontapp: singer-io
   tap-fulfil: fulfilio
   tap-fullstory: singer-io
+  tap-ga4: meltanolabs
   tap-gainsightpx: widen
   tap-genesys: airbyte
   tap-getlago: airbyte
@@ -246,7 +249,7 @@ extractors:
   tap-itunes: hotgluexyz
   tap-jaffle-shop: meltanolabs
   tap-jdbc: airbyte
-  tap-jira: singer-io
+  tap-jira: meltanolabs
   tap-jotform: hotgluexyz
   tap-judgeme: hotgluexyz
   tap-k6-cloud: airbyte
@@ -281,7 +284,7 @@ extractors:
   tap-lotr: mattarderne
   tap-maestroqa: pathlight
   tap-magento: hotgluexyz
-  tap-mailchimp: singer-io
+  tap-mailchimp: acarter24
   tap-mailerlite: alvaroraul7
   tap-mailersend: airbyte
   tap-mailgun: streetteam
@@ -371,7 +374,7 @@ extractors:
   tap-podbean: slalom-consulting
   tap-pokeapi: airbyte
   tap-polygon-stock-api: airbyte
-  tap-postgres: transferwise
+  tap-postgres: meltanolabs
   tap-posthog: airbyte
   tap-postmark: yoast
   tap-powerbi: hotgluexyz
@@ -420,7 +423,7 @@ extractors:
   tap-rockgympro: cinchio
   tap-s3: airbyte
   tap-s3-csv: transferwise
-  tap-saasoptics: anelendata
+  tap-saasoptics: datarts-tech
   tap-sailthru: singer-io
   tap-salesforce: meltanolabs
   tap-salesforce-commerce: hotgluexyz
@@ -464,7 +467,7 @@ extractors:
   tap-sms: jboltron3000
   tap-snapchat-ads: singer-io
   tap-snapengage: pathlight
-  tap-snowflake: transferwise
+  tap-snowflake: meltanolabs
   tap-solarvista: matatika
   tap-sonar-cloud: airbyte
   tap-spacex-api: airbyte
@@ -493,6 +496,7 @@ extractors:
   tap-teamwork: immuta
   tap-tempo: airbyte
   tap-the-guardian-api: airbyte
+  tap-theme-parks: danielpdwalker
   tap-thinkific: birdiecare
   tap-thunderboard: matatika
   tap-tickettailor: dbt-labs
@@ -599,6 +603,7 @@ loaders:
   target-elasticsearch: dtmirizzi
   target-gcs: datateer
   target-gsheet: singer-io
+  target-hubspot: meltanolabs
   target-iomete: iomete
   target-jsonl: andyh1203
   target-kinesis: prontopro
@@ -606,10 +611,12 @@ loaders:
   target-miso: misoai
   target-mongodb: hotgluexyz
   target-mssql: storebrand
+  target-mysql: thkwag
   target-oracle: radbrt
   target-pardot: anelendata
   target-parquet: estrategiahq
-  target-postgres: transferwise
+  target-pinecone: meltanolabs
+  target-postgres: meltanolabs
   target-redshift: transferwise
   target-s3: crowemi
   target-s3-avro: faumel
@@ -617,7 +624,7 @@ loaders:
   target-s3-parquet: gupy-io
   target-salesforce: dan-ladd
   target-singer-jsonl: kgpayne
-  target-snowflake: transferwise
+  target-snowflake: meltanolabs
   target-sqlite: meltanolabs
   target-sqs: hotgluexyz
   target-stitch: singer-io
@@ -669,3 +676,4 @@ utilities:
   postgres: postgres
   sqlfluff: sqlfluff
   superset: meltano
+  tableau: gabilew

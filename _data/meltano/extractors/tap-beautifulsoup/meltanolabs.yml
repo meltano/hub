@@ -1,0 +1,84 @@
+capabilities:
+- about
+- catalog
+- discover
+- schema-flattening
+- state
+- stream-maps
+description: Python library for pulling data out of HTML and XML files.
+domain_url: https://www.crummy.com/software/BeautifulSoup/bs4/doc/
+executable: tap-beautifulsoup
+keywords:
+- meltano_sdk
+label: BeautifulSoup
+logo_url: /assets/logos/extractors/beautifulsoup.png
+maintenance_status: beta
+name: tap-beautifulsoup
+namespace: tap_beautifulsoup
+next_steps: ''
+pip_url: git+https://github.com/MeltanoLabs/tap-beautifulsoup.git
+quality: silver
+repo: https://github.com/MeltanoLabs/tap-beautifulsoup
+settings:
+- description: Attempt to download all pages recursively into the output directory
+    prior to parsing files. Set this to False if you've previously run `wget -r -A.
+    Html https://sdk.meltano.com/en/latest/`
+  kind: boolean
+  label: Download Recursively
+  name: download_recursively
+  value: true
+- description: This dict contains all the kwargs that should be passed to the [`find_all`](https://www.crummy.com/software/BeautifulSoup/bs4/doc/#find-all)
+    call in order to extract text from the pages.
+  kind: object
+  label: Find All Kwargs
+  name: find_all_kwargs
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: The file path of where to write the intermediate downloaded HTML files
+    to.
+  kind: string
+  label: Output Folder
+  name: output_folder
+  value: output
+- description: The BeautifulSoup parser to use.
+  kind: options
+  label: Parser
+  name: parser
+  options:
+  - label: Html Parser
+    value: html.parser
+  value: html.parser
+- description: The site you'd like to scrape. The tap will download all pages recursively
+    into the output directory prior to parsing files.
+  kind: string
+  label: Site URL
+  name: site_url
+- description: The name of the source you're scraping. This will be used as the stream
+    name.
+  kind: string
+  label: Source Name
+  name: source_name
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+settings_group_validation:
+- - output_folder
+  - parser
+  - site_url
+  - source_name
+settings_preamble: ''
+usage: ''
+variant: meltanolabs

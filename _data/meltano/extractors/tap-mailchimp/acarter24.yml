@@ -1,0 +1,59 @@
+capabilities:
+- about
+- catalog
+- discover
+- schema-flattening
+- state
+- stream-maps
+description: Integrated Marketing Platform
+domain_url: https://mailchimp.com/developer/marketing/api/
+executable: tap-mailchimp
+keywords:
+- api
+- meltano_sdk
+label: Mailchimp
+logo_url: /assets/logos/extractors/mailchimp.png
+maintenance_status: active
+name: tap-mailchimp
+namespace: tap_mailchimp
+next_steps: ''
+pip_url: git+https://github.com/acarter24/tap-mailchimp.git
+quality: silver
+repo: https://github.com/acarter24/tap-mailchimp
+settings:
+- description: The token to authenticate against the API service
+  kind: password
+  label: API Key
+  name: api_key
+- description: Your Mailchimp DC
+  kind: string
+  label: Data Center
+  name: dc
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: The earliest record date to sync
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+settings_group_validation:
+- - api_key
+  - dc
+settings_preamble: ''
+usage: ''
+variant: acarter24

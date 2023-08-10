@@ -10,12 +10,12 @@ domain_url: https://developers.google.com/analytics/devguides/reporting/core/v4/
 keywords:
 - api
 - meltano_sdk
-label: Google Analytics
+label: Google Analytics (Universal Analytics API - Deprecated)
 logo_url: /assets/logos/extractors/google-analytics.png
 maintenance_status: active
 name: tap-google-analytics
 namespace: tap_google_analytics
-pip_url: git+https://github.com/MeltanoLabs/tap-google-analytics.git
+pip_url: git+https://github.com/MeltanoLabs/tap-google-analytics.git@main_deprecated_ua
 quality: gold
 repo: https://github.com/MeltanoLabs/tap-google-analytics
 settings:
@@ -29,8 +29,8 @@ settings:
   kind: date_iso8601
   label: End Date
   name: end_date
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -100,7 +100,8 @@ settings:
   label: Key File Location
   name: key_file_location
   placeholder: Ex. $MELTANO_PROJECT_ROOT/client_secrets.json
-- description: Google Analytics Access Token. See https://developers.google.com/analytics/devguides/reporting/core/v4/authorization#OAuth2Authorizing.
+- description: Google Analytics Access Token. See 
+    https://developers.google.com/analytics/devguides/reporting/core/v4/authorization#OAuth2Authorizing.
   kind: password
   label: OAuth Credentials Access Token
   name: oauth_credentials.access_token
@@ -111,11 +112,13 @@ settings:
   kind: password
   label: OAuth Credentials Client ID
   name: oauth_credentials.client_id
-- description: Google Analytics Client Secret. See https://developers.google.com/analytics/devguides/reporting/core/v4/authorization#OAuth2Authorizing.
+- description: Google Analytics Client Secret. See 
+    https://developers.google.com/analytics/devguides/reporting/core/v4/authorization#OAuth2Authorizing.
   kind: password
   label: OAuth Credentials Client Secret
   name: oauth_credentials.client_secret
-- description: Google Analytics Refresh Token. See https://developers.google.com/analytics/devguides/reporting/core/v4/authorization#OAuth2Authorizing.
+- description: Google Analytics Refresh Token. See 
+    https://developers.google.com/analytics/devguides/reporting/core/v4/authorization#OAuth2Authorizing.
   kind: password
   label: OAuth Credentials Refresh Token
   name: oauth_credentials.refresh_token

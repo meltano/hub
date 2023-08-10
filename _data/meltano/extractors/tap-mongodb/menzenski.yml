@@ -7,6 +7,7 @@ capabilities:
 description: General purpose, document-based, distributed database.
 domain_url: https://www.mongodb.com/
 executable: tap-mongodb
+hidden: true
 keywords:
 - meltano_sdk
 - database
@@ -16,9 +17,9 @@ maintenance_status: active
 name: tap-mongodb
 namespace: tap_mongodb
 next_steps: ''
-pip_url: git+https://github.com/menzenski/tap-mongodb.git
+pip_url: git+https://github.com/MeltanoLabs/tap-mongodb.git
 quality: silver
-repo: https://github.com/menzenski/tap-mongodb
+repo: https://github.com/MeltanoLabs/tap-mongodb
 settings:
 - description: Database name from which records will be extracted.
   kind: string
@@ -48,6 +49,15 @@ settings:
   kind: string
   label: DocumentDB Credential JSON Extra Options
   name: documentdb_credential_json_extra_options
+- description: |
+    Parameter passed to MongoClient 'datetime_conversion' parameter. See documentation at
+    https://pymongo.readthedocs.io/en/stable/examples/datetimes.html#handling-out-of-range-datetimes
+    for details. The default value is `'datetime'`, which will throw a `bson.errors.InvalidBSON` error
+    if a document contains a date outside the range of `datetime.MINYEAR` (year 1) to `datetime.MAXYEAR` (9999).
+  kind: string
+  label: Datetime Conversion
+  name: datetime_conversion
+  value: datetime
 - description: |
     An optional prefix which will be added to each stream name.
   kind: string

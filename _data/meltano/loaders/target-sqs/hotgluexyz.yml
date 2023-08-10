@@ -14,7 +14,7 @@ name: target-sqs
 namespace: target_sqs
 next_steps: ''
 pip_url: git+https://gitlab.com/hotglue/target-sqs.git
-quality: silver
+quality: gold
 repo: https://gitlab.com/hotglue/target-sqs
 settings:
 - description: The access key for your AWS account.

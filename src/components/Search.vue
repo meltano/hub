@@ -31,25 +31,25 @@
       </svg>
     </div>
     <transition
-      enter-active-class="transform transition duration-200 ease-custom"
-      enter-class="-translate-y-1/2 scale-y-0 opacity-0"
-      enter-to-class="translate-y-0 scale-y-100 opacity-100"
-      leave-active-class="transform transition duration-300 ease-custom"
-      leave-class="translate-y-0 scale-y-100 opacity-100"
-      leave-to-class="-translate-y-1/2 scale-y-0 opacity-0"
+      enter-active-class="transition duration-200 transform ease-custom"
+      enter-class="scale-y-0 -translate-y-1/2 opacity-0"
+      enter-to-class="scale-y-100 translate-y-0 opacity-100"
+      leave-active-class="transition duration-300 transform ease-custom"
+      leave-class="scale-y-100 translate-y-0 opacity-100"
+      leave-to-class="scale-y-0 -translate-y-1/2 opacity-0"
     >
       <div
-        class="absolute overflow-scroll max-h-96 mt-12 mx-auto justify-self-center grid grid-cols-1 grid-span-1 w-full bg-slate-100 z-40 shadow-lg py-2"
+        class="absolute z-40 grid w-full grid-cols-1 py-2 mx-auto mt-12 overflow-scroll shadow-lg max-h-96 justify-self-center grid-span-1 bg-slate-100"
         v-if="search != '' && (searchFocused || hoveringOnSearchOptions)"
       >
         <div
           v-if="searchResults.length > 0 && (searchFocused || hoveringOnSearchOptions)"
-          class="grid grid-cols-1 grid-span-1 justify-self-center w-full rounded gap-2 px-3"
+          class="grid w-full grid-cols-1 gap-2 px-3 rounded grid-span-1 justify-self-center"
         >
           <div
             v-for="plugin in searchResults.slice(0, 10)"
             :key="plugin.node.id"
-            class="grid grid-cols-1 grid-span-1 place-self-start w-full"
+            class="grid w-full grid-cols-1 grid-span-1 place-self-start"
             @mouseover="hoveringOnSearchOptions = true"
             @mouseleave="hoveringOnSearchOptions = false"
             @click="
@@ -60,7 +60,7 @@
           >
             <g-link
               :to="plugin.node.path.split('--')[0]"
-              class="grid grid-cols-12 bg-white rounded w-full align-self-center h-full hover:bg-slate-200"
+              class="grid w-full h-full grid-cols-12 bg-white rounded align-self-center hover:bg-slate-200"
             >
               <div class="grid h-full col-span-3 p-4 place-items-center">
                 <g-image
@@ -79,14 +79,14 @@
                   "
                 />
               </div>
-              <div class="grid align-items-center grid-rows-3 col-span-9 p-3">
-                <div class="flex space-x-3 pt-1">
-                  <p class="font-bold text-black text-lg underline place-self-center">
+              <div class="grid col-span-9 grid-rows-3 p-3 align-items-center">
+                <div class="flex pt-1 space-x-3">
+                  <p class="text-lg font-bold text-black underline place-self-center">
                     {{ plugin.node.label }}
                   </p>
                   <div class="place-self-center">
                     <span
-                      class="bg-sky-100 text-sm text-center rounded-lg place-self-center py-1 px-2"
+                      class="px-2 py-1 text-sm text-center rounded-lg bg-sky-100 place-self-center"
                     >
                       {{ plugin.node.pluginType }}
                     </span>
@@ -98,8 +98,16 @@
           </div>
         </div>
 
-        <div v-else>
-          <p class="text-amber-800 p-4">Your search didn't return any results. Please try again.</p>
+        <div v-else class="block px-2">
+          <a
+            href="https://github.com/MeltanoLabs/Singer-Most-Wanted"
+            class="flex items-center w-full bg-white rounded-md"
+          >
+            <img class="h-4 ml-4" src="../assets/images/external-link.svg" />
+            <p class="p-4 text-amber-800 hover:text-amber-700">
+              Don't see the connector you're looking for? Open an issue to let us know.
+            </p>
+          </a>
         </div>
       </div>
     </transition>

@@ -15,7 +15,7 @@ name: target-clickhouse
 namespace: target_clickhouse
 next_steps: ''
 pip_url: git+https://github.com/shaped-ai/target-clickhouse.git
-quality: unknown
+quality: silver
 repo: https://github.com/shaped-ai/target-clickhouse
 settings:
 - description: The default target database schema name to use for all streams.
