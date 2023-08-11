@@ -11,6 +11,7 @@
 
     <div class="grid grid-cols-6 gap-2 my-10 md:grid-cols-8 lg:grid-cols-12">
       <div v-for="(item, index) in logos" :key="index + 'item'">
+        <!-- TODO: Add URLs -->
         <a
           href="#"
           class="flex items-center justify-center bg-white rounded-sm hover:shadow-lg aspect-square"
@@ -112,6 +113,7 @@ import logo70 from "../../assets/images/connectors/logo-70.svg";
 import logo71 from "../../assets/images/connectors/logo-71.svg";
 import logo72 from "../../assets/images/connectors/logo-72.svg";
 
+/* Add URLs */
 const btns = [
   { name: "Explore Connectors", url: "#", icon: IconMagnifier },
   { name: "Build a Connector", url: "#", icon: IconGear },

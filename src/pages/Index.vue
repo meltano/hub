@@ -4,6 +4,7 @@
       <Hero />
       <HeroConnectors />
       <TextAndCode />
+      <FavoriteTools />
     </div>
   </Layout>
 </template>
@@ -12,6 +13,7 @@
 import Hero from "../components/home/Hero.vue";
 import HeroConnectors from "../components/home/HeroConnectors.vue";
 import TextAndCode from "../components/home/TextAndCode.vue";
+import FavoriteTools from "../components/home/FavoriteTools.vue";
 
 const items = [
   { name: "Browse Extractors", url: "/extractors", svg: "cyl.svg", icon: "Extractor.svg" },
@@ -28,6 +30,7 @@ export default {
     Hero,
     HeroConnectors,
     TextAndCode,
+    FavoriteTools,
   },
   data() {
     return {
