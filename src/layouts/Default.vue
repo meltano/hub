@@ -1,6 +1,6 @@
 <script>
 import FooterLayout from "./Footer.vue";
-import HeaderLayout from "./Header.vue";
+import HeaderLayout from "../components/Header.vue";
 
 export default {
   components: { FooterLayout, HeaderLayout },
@@ -16,10 +16,10 @@ export default {
         <slot />
       </main>
       <FooterLayout />
-      <div class="absolute hidden lg:block left-cloud left-0 top-0 z-0 w-1/12 max-w-xs">
+      <div class="absolute top-0 left-0 z-0 hidden w-1/12 max-w-xs lg:block left-cloud">
         <g-image src="../assets/images/left-cloud.png" width="250" />
       </div>
-      <div class="absolute hidden lg:block right-cloud right-0 top-0 z-0 w-1/5 mx-w-lg">
+      <div class="absolute top-0 right-0 z-0 hidden w-1/5 lg:block right-cloud mx-w-lg">
         <g-image src="../assets/images/right-cloud.png" class="float-right" width="350" />
       </div>
     </div>
