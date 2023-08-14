@@ -183,9 +183,9 @@ settings:
   label: Reports
   name: reports
   placeholder: Ex. my_report_definition.json
-- description: This property determines how much historical data will be extracted.Please
-    be aware that the larger the time period and amount of data, the longer the initial
-    extraction can be expected to take.
+- description: This property determines how much historical data will be extracted.
+    Please be aware that the larger the time period and amount of data, the longer
+    the initial extraction can be expected to take.
   kind: date_iso8601
   label: Start Date
   name: start_date
@@ -221,16 +221,6 @@ settings:
   name: view_id
   placeholder: Ex. 198343027
 settings_group_validation:
-- - key_file_location
-  - start_date
-  - view_id
-- - client_secrets
-  - start_date
-  - view_id
-- - oauth_credentials.access_token
-  - oauth_credentials.client_id
-  - oauth_credentials.client_secret
-  - oauth_credentials.refresh_token
-  - start_date
+- - start_date
   - view_id
 variant: meltanolabs
