@@ -632,6 +632,7 @@ loaders:
   target-vertica: full360
   target-yaml: meltanolabs
 mappers:
+  map-gpt-embeddings: meltanolabs
   meltano-map-transformer: meltano
   transform-field: transferwise
 orchestrators:
