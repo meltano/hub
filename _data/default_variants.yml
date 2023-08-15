@@ -660,6 +660,7 @@ utilities:
   cron: meltano
   dagster: quantile-development
   datahub: datahub-project
+  dbt-artifacts: matatika
   dbt-bigquery: dbt-labs
   dbt-dry-run: autotraderuk
   dbt-duckdb: jwills
