@@ -1,7 +1,7 @@
 capabilities:
 - about
-- stream-maps
 - schema-flattening
+- stream-maps
 description: Cloud Database
 domain_url: https://www.oracle.com/database/
 keywords:
@@ -17,21 +17,17 @@ pip_url: git+https://github.com/radbrt/target-oracle.git
 quality: gold
 repo: https://github.com/radbrt/target-oracle
 settings:
-- description: SQLAlchemy connection string
-  kind: password
-  label: Sqlalchemy Url
-  name: sqlalchemy_url
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: Oracle database
+  kind: string
+  label: Database
+  name: database
+- description: SQLAlchemy driver name
+  kind: string
+  label: Driver Name
+  name: driver_name
+  value: oracle+cx_oracle
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -39,8 +35,47 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: Oracle host
+  kind: string
+  label: Host
+  name: host
+- description: Oracle password
+  kind: password
+  label: Password
+  name: password
+- description: Oracle port
+  kind: string
+  label: Port
+  name: port
+- description: Use float data type for numbers (otherwise number type is used)
+  kind: boolean
+  label: Prefer Float Over Numeric
+  name: prefer_float_over_numeric
+  value: false
+- description: SQLAlchemy connection string
+  kind: string
+  label: Sqlalchemy URL
+  name: sqlalchemy_url
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: Oracle username
+  kind: string
+  label: Username
+  name: username
 settings_group_validation:
 - - sqlalchemy_url
+- - user
+  - password
+  - host
+  - port
+  - database
 settings_preamble: ''
 usage: ''
 variant: radbrt
