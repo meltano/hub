@@ -19,7 +19,7 @@ name: tap-mysql
 namespace: tap_mysql
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-mysql.git
-quality: silver
+quality: unknown
 repo: https://github.com/MeltanoLabs/tap-mysql
 settings:
 - description: Compression format to use for batch files.
