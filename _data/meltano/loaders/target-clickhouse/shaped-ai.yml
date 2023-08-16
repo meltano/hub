@@ -48,11 +48,11 @@ settings:
   kind: object
   label: Stream Maps
   name: stream_maps
-- description: 'True' to enable hard delete for activate_version operation.
+- description: "'True' to enable hard delete for activate_version operation."
   kind: boolean
   label: Hard Delete
   name: hard_delete
-- description: 'True' to include record metadata in tables.
+- description: "'True' to include record metadata in tables."
   kind: boolean
   label: Add Record Metadata
   name: add_record_metadata
