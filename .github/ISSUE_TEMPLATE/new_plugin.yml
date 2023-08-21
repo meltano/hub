@@ -28,7 +28,7 @@ body:
       - files
 
 - type: input
-  id: name
+  id: repository_url
   attributes:
     label: Repository URL
     description: The URL for the repository that contains the plugin code
@@ -37,7 +37,7 @@ body:
     required: true
 
 - type: input
-  id: name
+  id: extension_repository_url
   attributes:
     label: Extension Repository URL
     description: The URL for the plugin extension repository. Only for utility plugins.
