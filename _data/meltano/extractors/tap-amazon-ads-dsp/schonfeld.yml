@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-amazon-ads-dsp
 namespace: tap_amazon_ads_dsp
 pip_url: git+https://github.com/schonfeld/tap-amazon-ads-dsp.git
+quality: unknown
 repo: https://github.com/schonfeld/tap-amazon-ads-dsp
 settings: []
 variant: schonfeld

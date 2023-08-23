@@ -1,0 +1,65 @@
+capabilities:
+- properties
+- discover
+- state
+description: Business Management Software
+domain_url: https://www.netsuite.com/
+keywords:
+- api
+- meltano_sdk
+label: NetSuite (SOAP)
+logo_url: /assets/logos/extractors/netsuite.png
+maintenance_status: beta
+name: tap-netsuite
+namespace: tap_netsuite
+pip_url: git+https://github.com/sehnem/tap-netsuite.git
+quality: silver
+repo: https://github.com/sehnem/tap-netsuite
+settings:
+- description: Your account Id. This can be found under Setup -> Company -> Company
+    Information. Look for Account Id. Note "_SB" is for Sandbox account.
+  label: NetSuite Account
+  name: account
+- description: Your consumer key for token based authentication consumer key for SOAP
+    connection. Visit the https://support.cazoomi.com/hc/en-us/articles/360010093392-How-to-Setup-NetSuite-Token-Based-Authentication-as-Authentication-Type
+    for details.
+  kind: password
+  label: NetSuite Consumer Key
+  name: consumer_key
+- description: Your consumer secret for token based authentication consumer key for
+    SOAP connection. Visit the https://support.cazoomi.com/hc/en-us/articles/360010093392-How-to-Setup-NetSuite-Token-Based-Authentication-as-Authentication-Type
+    for details.
+  kind: password
+  label: NetSuite Consumer Secret
+  name: consumer_secret
+- description: Your token key for token based authentication consumer key for SOAP
+    connection. Visit the https://support.cazoomi.com/hc/en-us/articles/360010093392-How-to-Setup-NetSuite-Token-Based-Authentication-as-Authentication-Type
+    for details.
+  kind: password
+  label: NetSuite Token Key
+  name: token_key
+- description: Your token secret for token based authentication consumer key for SOAP
+    connection. Visit the https://support.cazoomi.com/hc/en-us/articles/360010093392-How-to-Setup-NetSuite-Token-Based-Authentication-as-Authentication-Type
+    for details.
+  kind: password
+  label: NetSuite Token Secret
+  name: token_secret
+- description: When new fields are discovered in NetSuite objects, the cache_wsdl
+    key describes whether or not to create a cache of the WSDL files.
+  kind: boolean
+  label: Cache WSDL
+  name: cache_wsdl
+- description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+settings_group_validation:
+- - account
+  - consumer_key
+  - consumer_secret
+  - token_key
+  - token_secret
+  - cache_wsdl
+variant: sehnem

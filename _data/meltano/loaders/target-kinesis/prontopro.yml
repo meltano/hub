@@ -8,6 +8,7 @@ maintenance_status: unknown
 name: target-kinesis
 namespace: target_kinesis
 pip_url: git+https://github.com/ProntoPro/target-kinesis.git
+quality: unknown
 repo: https://github.com/ProntoPro/target-kinesis
 settings:
 - description: The name of the Kinesis stream to write to.

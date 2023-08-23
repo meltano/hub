@@ -11,8 +11,8 @@ on:
         options:
           - 'preview'
           - 'production'
-  # schedule:
-  #   - cron: '0 0 * * *' # Run at midnight UTC
+  schedule:
+    - cron: '0 9 * * 1' # Run at midnight UTC on Mondays
 
 jobs:
   get_variants_list:
@@ -23,14 +23,14 @@ jobs:
       airbyte_matrix: ${{ steps.setmatrix_airbyte.outputs.airbyte_matrix }}
 
     steps:
-      - uses: actions/checkout@v3.5.0
+      - uses: actions/checkout@v3.5.3
 
-      - name: Install hub_utils
-        run: pipx install git+https://github.com/pnadolny13/hub-utils.git
+      - name: Install hub-utils
+        run: pipx install git+https://github.com/meltano/hub-utils.git
 
       - name: Get Variants List - SDK Extractors
         id: get-variants-list-sdk-ex
-        run: echo "VARIANTS_SDK_EX=$(hub_utils get-variant-names $(pwd) --plugin-type=extractors --metadata-type=sdk)" >> $GITHUB_OUTPUT
+        run: echo "VARIANTS_SDK_EX=$(hub-utils get-variant-names $(pwd) --plugin-type=extractors --metadata-type=sdk)" >> $GITHUB_OUTPUT
 
       - name: Set Dynamic Matrix - SDK Extractors
         id: setmatrix_sdk_ex
@@ -40,7 +40,7 @@ jobs:
 
       - name: Get Variants List - SDK Loaders
         id: get-variants-list-sdk-loaders
-        run: echo "VARIANTS_SDK_LOADERS=$(hub_utils get-variant-names $(pwd) --plugin-type=loaders --metadata-type=sdk)" >> $GITHUB_OUTPUT
+        run: echo "VARIANTS_SDK_LOADERS=$(hub-utils get-variant-names $(pwd) --plugin-type=loaders --metadata-type=sdk)" >> $GITHUB_OUTPUT
 
       - name: Set Dynamic Matrix - SDK Loaders
         id: setmatrix_sdk_loaders
@@ -50,7 +50,7 @@ jobs:
 
       - name: Get Variants List - Airbyte
         id: get-variants-list-airbyte
-        run: echo "VARIANTS_AIRBYTE=$(hub_utils get-variant-names $(pwd) --metadata-type=airbyte)" >> $GITHUB_OUTPUT
+        run: echo "VARIANTS_AIRBYTE=$(hub-utils get-variant-names $(pwd) --metadata-type=airbyte)" >> $GITHUB_OUTPUT
 
       - name: Set Dynamic Airbyte Matrix
         id: setmatrix_airbyte
@@ -71,17 +71,17 @@ jobs:
     permissions:
       id-token: write # This is required for requesting the JWT
     steps:
-    - uses: actions/checkout@v3.5.0
+    - uses: actions/checkout@v3.5.3
 
     - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v2.0.0
+      uses: aws-actions/configure-aws-credentials@v2.2.0
       with:
         role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
         aws-region: us-west-2
         role-session-name: "GitHubActions"
 
-    - name: Install hub_utils
-      run: pipx install git+https://github.com/pnadolny13/hub-utils.git
+    - name: Install hub-utils
+      run: pipx install git+https://github.com/meltano/hub-utils.git
 
     - name: Install Python 3.10
       uses: actions/setup-python@v4
@@ -90,7 +90,7 @@ jobs:
 
     - name: Extract Metadata (3.10)
       id: extract_310
-      run: hub_utils extract-sdk-metadata-to-s3 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" $(pwd)/extract_data
+      run: hub-utils extract-sdk-metadata-to-s3 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" $(pwd)/extract_data
       continue-on-error: true
 
     - name: Install Python 3.9 (Only if 3.10 failed)
@@ -102,7 +102,7 @@ jobs:
     - name: Extract Metadata (3.9)
       if: always() && (steps.extract_310.outcome == 'failure')
       id: extract_39
-      run: hub_utils extract-sdk-metadata-to-s3 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" $(pwd)/extract_data
+      run: hub-utils extract-sdk-metadata-to-s3 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" $(pwd)/extract_data
       continue-on-error: true
 
     - name: Install Python 3.8 (Only if 3.9 failed)
@@ -114,7 +114,7 @@ jobs:
     - name: Extract Metadata (3.8)
       if: always() && (steps.extract_39.outcome == 'failure')
       id: extract_38
-      run: hub_utils extract-sdk-metadata-to-s3 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" $(pwd)/extract_data
+      run: hub-utils extract-sdk-metadata-to-s3 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" $(pwd)/extract_data
 
   metadata_extract_sdk_loaders:
     name: SDK Loaders - Metadata Extract
@@ -129,17 +129,17 @@ jobs:
     permissions:
       id-token: write # This is required for requesting the JWT
     steps:
-    - uses: actions/checkout@v3.5.0
+    - uses: actions/checkout@v3.5.3
 
     - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v2.0.0
+      uses: aws-actions/configure-aws-credentials@v2.2.0
       with:
         role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
         aws-region: us-west-2
         role-session-name: "GitHubActions"
 
-    - name: Install hub_utils
-      run: pipx install git+https://github.com/pnadolny13/hub-utils.git
+    - name: Install hub-utils
+      run: pipx install git+https://github.com/meltano/hub-utils.git
 
     - name: Install Python 3.10
       uses: actions/setup-python@v4
@@ -148,7 +148,7 @@ jobs:
 
     - name: Extract Metadata (3.10)
       id: extract_310
-      run: hub_utils extract-sdk-metadata-to-s3 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" $(pwd)/extract_data
+      run: hub-utils extract-sdk-metadata-to-s3 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" $(pwd)/extract_data
       continue-on-error: true
 
     - name: Install Python 3.9 (Only if 3.10 failed)
@@ -160,7 +160,7 @@ jobs:
     - name: Extract Metadata (3.9)
       if: always() && (steps.extract_310.outcome == 'failure')
       id: extract_39
-      run: hub_utils extract-sdk-metadata-to-s3 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" $(pwd)/extract_data
+      run: hub-utils extract-sdk-metadata-to-s3 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" $(pwd)/extract_data
       continue-on-error: true
 
     - name: Install Python 3.8 (Only if 3.9 failed)
@@ -172,7 +172,7 @@ jobs:
     - name: Extract Metadata (3.8)
       if: always() && (steps.extract_39.outcome == 'failure')
       id: extract_38
-      run: hub_utils extract-sdk-metadata-to-s3 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" $(pwd)/extract_data
+      run: hub-utils extract-sdk-metadata-to-s3 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" $(pwd)/extract_data
 
 
   metadata_extract_airbyte_p1:
@@ -208,10 +208,10 @@ jobs:
     permissions:
       id-token: write # This is required for requesting the JWT
     steps:
-      - uses: actions/checkout@v3.5.0
+      - uses: actions/checkout@v3.5.3
 
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v2.0.0
+        uses: aws-actions/configure-aws-credentials@v2.2.0
         with:
           role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
           aws-region: us-west-2
@@ -221,8 +221,8 @@ jobs:
         with:
           name: extractor--${{ matrix.source-name }}--airbyte.json
 
-      - name: Install hub_utils
-        run: pipx install git+https://github.com/pnadolny13/hub-utils.git
+      - name: Install hub-utils
+        run: pipx install git+https://github.com/meltano/hub-utils.git
 
       - name: Upload Metadata
-        run: hub_utils upload-airbyte "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" extractor--${{ matrix.source-name }}--airbyte.json
+        run: hub-utils upload-airbyte "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" extractor--${{ matrix.source-name }}--airbyte.json

@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-postgres
 namespace: tap_postgres
 pip_url: pipelinewise-tap-postgres
+quality: silver
 repo: https://github.com/transferwise/pipelinewise-tap-postgres
 settings:
 - description: PostgreSQL host

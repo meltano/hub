@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-chargify
 namespace: tap_chargify
 pip_url: tap-chargify
+quality: silver
 repo: https://github.com/singer-io/tap-chargify
 settings:
 - description: 'The subdomain of your Chargify site. For example: If the full URL

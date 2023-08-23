@@ -9,9 +9,13 @@ keywords:
 label: Microsoft SQL Server
 logo_url: /assets/logos/extractors/mssql.png
 maintenance_status: active
+metadata:
+  '*':
+    replication-method: FULL_TABLE
 name: tap-mssql
 namespace: tap_mssql
 pip_url: tap-mssql
+quality: silver
 repo: https://github.com/wintersrd/pipelinewise-tap-mssql
 settings:
 - description: Your MSSQL server host.
@@ -53,6 +57,18 @@ settings:
     and make an appropriate substitution for utf8 like cp1252.
   label: Characterset
   name: characterset
+- description: |
+    The ability to output decimal, float, and integer data as strings to avoid loss of precision.
+  kind: boolean
+  label: Use Singer Decimal
+  name: use_singer_decimal
+- description: |
+    This allows fetching records in batches speeding up network traffic.
+    Recommend a setting of `10000` records.
+  kind: integer
+  label: Cursor Array Size
+  name: cursor_array_size
+  value: 1
 settings_group_validation:
 - - host
   - database

@@ -1,0 +1,52 @@
+capabilities:
+- catalog
+- discover
+- state
+description: Contact Center Management Platform
+domain_url: https://developer.genesys.cloud/api/rest/v2/
+executable: tap-purecloud
+keywords:
+- api
+label: Genesys Cloud
+logo_url: /assets/logos/extractors/purecloud.png
+maintenance_status: active
+name: tap-purecloud
+namespace: tap_purecloud
+next_steps: ''
+pip_url: git+https://github.com/Pathlight/tap-purecloud.git
+quality: silver
+repo: https://github.com/Pathlight/tap-purecloud
+settings:
+- description: Your API client ID for authentication.
+  kind: password
+  label: Client ID
+  name: client_id
+- description: Your API Client secret for authentication.
+  kind: password
+  label: Client Secret
+  name: client_secret
+- description: Your API domain. The string to add following "https://api." in API
+    requests.
+  kind: string
+  label: Domain
+  name: domain
+- description: The amount of weeks to extend beyond the current date in order to generate
+    the end_date parameter for syncing data.
+  kind: integer
+  label: Schedule Lookahead Weeks
+  name: schedule_lookahead_weeks
+  value: 5
+- description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+settings_group_validation:
+- - client_id
+  - client_secret
+  - domain
+  - start_date
+settings_preamble: ''
+usage: ''
+variant: pathlight

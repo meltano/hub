@@ -13,6 +13,7 @@ name: target-salesforce
 namespace: target_salesforce
 next_steps: ''
 pip_url: git+https://github.com/dan-ladd/target-salesforce.git
+quality: gold
 repo: https://github.com/dan-ladd/target-salesforce
 settings:
 - description: OAuth client_id

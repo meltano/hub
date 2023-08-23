@@ -12,11 +12,12 @@ keywords:
 - meltano_sdk
 label: Freshdesk
 logo_url: /assets/logos/extractors/freshdesk.png
-maintenance_status: development
+maintenance_status: active
 name: tap-freshdesk
 namespace: tap_freshdesk
 next_steps: ''
 pip_url: git+https://github.com/acarter24/tap-freshdesk.git
+quality: gold
 repo: https://github.com/acarter24/tap-freshdesk
 settings:
 - description: The token to authenticate against the API service

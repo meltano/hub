@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-saasoptics
 namespace: tap_saasoptics
 pip_url: tap-saasoptics
+quality: silver
 repo: https://github.com/singer-io/tap-saasoptics
 settings: []
 variant: singer-io

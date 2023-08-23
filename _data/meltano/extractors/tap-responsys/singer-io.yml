@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-responsys
 namespace: tap_responsys
 pip_url: tap-responsys
+quality: bronze
 repo: https://github.com/singer-io/tap-responsys
 settings: []
 variant: singer-io

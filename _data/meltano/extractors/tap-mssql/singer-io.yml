@@ -20,6 +20,7 @@ prereq: |
   be able to use this with Meltano.
 
   For more information, please see the `tap-mssql` readme: https://github.com/singer-io/tap-mssql#requirements
+quality: silver
 repo: https://github.com/singer-io/tap-mssql
 settings: []
 variant: singer-io

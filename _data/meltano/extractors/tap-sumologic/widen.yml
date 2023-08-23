@@ -17,6 +17,7 @@ name: tap-sumologic
 namespace: tap_sumologic
 next_steps: ''
 pip_url: git+https://github.com/Widen/tap-sumologic.git
+quality: silver
 repo: https://github.com/Widen/tap-sumologic
 settings:
 - description: The access id for authenticating against the Sumologic API.

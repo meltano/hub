@@ -14,6 +14,7 @@ name: tap-nice-incontact
 namespace: tap_nice_incontact
 next_steps: ''
 pip_url: git+https://github.com/singer-io/tap-nice-incontact.git
+quality: bronze
 repo: https://github.com/singer-io/tap-nice-incontact
 settings:
 - description: NICE inContact API version. Default is "21.0"

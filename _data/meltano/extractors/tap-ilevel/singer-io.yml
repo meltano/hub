@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-ilevel
 namespace: tap_ilevel
 pip_url: tap-ilevel
+quality: bronze
 repo: https://github.com/singer-io/tap-ilevel
 settings: []
 variant: singer-io

@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-pardot
 namespace: tap_pardot
 pip_url: tap-pardot
+quality: silver
 repo: https://github.com/singer-io/tap-pardot
 settings:
 - description: Your access token. See [this helpful article](https://medium.com/@bpmmendis94/obtain-access-refresh-tokens-from-salesforce-rest-api-a324fe4ccd9b)

@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-helpshift
 namespace: tap_helpshift
 pip_url: git+https://github.com/Pathlight/tap-helpshift.git
+quality: unknown
 repo: https://github.com/Pathlight/tap-helpshift
 settings: []
 variant: pathlight

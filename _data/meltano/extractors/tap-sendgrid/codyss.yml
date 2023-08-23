@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-sendgrid
 namespace: tap_sendgrid
 pip_url: git+https://github.com/codyss/tap-sendgrid.git
+quality: silver
 repo: https://github.com/codyss/tap-sendgrid
 settings: []
 variant: codyss

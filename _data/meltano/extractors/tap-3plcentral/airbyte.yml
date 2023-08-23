@@ -6,17 +6,18 @@ capabilities:
 - stream-maps
 - schema-flattening
 description: Cloud-based Warehouse Management System (WMS)
-domain_url: https://www.3plcentral.com
+domain_url: https://www.extensiv.com/extensiv-3pl-warehouse-manager
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
-label: 3PLCentral
+label: Extensiv 3PL Warehouse Manager
 logo_url: /assets/logos/extractors/3plcentral.png
 maintenance_status: beta
 name: tap-3plcentral
 namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
+quality: bronze
 repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-tplcentral
 settings:
 - description: Airbyte image to run

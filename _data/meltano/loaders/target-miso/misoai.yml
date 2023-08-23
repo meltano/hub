@@ -8,6 +8,7 @@ maintenance_status: active
 name: target-miso
 namespace: target_miso
 pip_url: target-miso
+quality: silver
 repo: https://github.com/MisoAI/target-miso
 settings:
 - description: The path to directory of template files.

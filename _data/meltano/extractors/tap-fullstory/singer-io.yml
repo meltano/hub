@@ -11,6 +11,7 @@ maintenance_status: inactive
 name: tap-fullstory
 namespace: tap_fullstory
 pip_url: tap-fullstory
+quality: silver
 repo: https://github.com/singer-io/tap-fullstory
 settings:
 - description: "Determines how much historical data will be extracted. Please be aware\n\

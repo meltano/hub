@@ -10,6 +10,7 @@ maintenance_status: unknown
 name: tap-pendo
 namespace: tap_pendo
 pip_url: git+https://github.com/jwalterclark/tap-pendo.git
+quality: unknown
 repo: https://github.com/jwalterclark/tap-pendo
 settings: []
 settings_group_validation: []

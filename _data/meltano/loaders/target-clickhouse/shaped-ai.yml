@@ -1,0 +1,63 @@
+capabilities:
+- about
+- schema-flattening
+- stream-maps
+description: Loader for Clickhouse database.
+domain_url: https://www.clickhouse.com/
+executable: target-clickhouse
+keywords:
+- meltano_sdk
+- database
+label: Clickhouse
+logo_url: /assets/logos/loaders/clickhouse.png
+maintenance_status: beta
+name: target-clickhouse
+namespace: target_clickhouse
+next_steps: ''
+pip_url: git+https://github.com/shaped-ai/target-clickhouse.git
+quality: silver
+repo: https://github.com/shaped-ai/target-clickhouse
+settings:
+- description: The SQLAlchemy connection string for the ClickHouse database
+  kind: password
+  label: SQLAlchemy URL
+  name: sqlalchemy_url
+- description: The name of the table to write to. Defaults to stream name.
+  kind: string
+  label: Table Name
+  name: table_name
+- description: The default target database schema name to use for all streams.
+  kind: string
+  label: Default Target Schema
+  name: default_target_schema
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: "'True' to enable hard delete for activate_version operation."
+  kind: boolean
+  label: Hard Delete
+  name: hard_delete
+- description: "'True' to include record metadata in tables."
+  kind: boolean
+  label: Add Record Metadata
+  name: add_record_metadata
+settings_group_validation:
+- - sqlalchemy_url
+settings_preamble: ''
+usage: ''
+variant: shaped-ai

@@ -12,6 +12,7 @@ maintenance_status: inactive
 name: tap-iterable
 namespace: tap_iterable
 pip_url: git+https://github.com/lambtron/tap-iterable.git
+quality: silver
 repo: https://github.com/lambtron/tap-iterable
 settings:
 - description: Iterable Server-side API Key with standard permissions. See [API Keys

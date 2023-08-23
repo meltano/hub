@@ -13,6 +13,7 @@ name: tap-wrike
 namespace: tap_wrike
 next_steps: ''
 pip_url: git+https://github.com/potloc/tap-wrike.git
+quality: silver
 repo: https://github.com/potloc/tap-wrike
 settings:
 - description: Your Wrike refresh token, if using OAuth2 credentials.

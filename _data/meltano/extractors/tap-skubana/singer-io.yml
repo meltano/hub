@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-skubana
 namespace: tap_skubana
 pip_url: tap-skubana
+quality: bronze
 repo: https://github.com/singer-io/tap-skubana
 settings: []
 variant: singer-io

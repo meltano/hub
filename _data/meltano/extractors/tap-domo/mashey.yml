@@ -12,6 +12,7 @@ maintenance_status: inactive
 name: tap-domo
 namespace: tap_domo
 pip_url: git+https://github.com/Mashey/tap-domo.git
+quality: silver
 repo: https://github.com/Mashey/tap-domo
 settings:
 - description: The specs of the tables to sync. See the [sample config](https://github.com/Mashey/tap-domo/blob/daff2b708f945ac21363b7f6f1ab789ace3a339e/sample_config.json#L8)

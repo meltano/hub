@@ -15,6 +15,7 @@ maintenance_status: active
 name: tap-zendesk-sell
 namespace: tap_zendesk_sell
 pip_url: git+https://github.com/leag/tap-zendesk-sell.git
+quality: silver
 repo: https://github.com/leag/tap-zendesk-sell
 settings:
 - description: Token to authenticate against the API service

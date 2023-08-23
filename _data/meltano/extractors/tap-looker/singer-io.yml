@@ -12,6 +12,7 @@ maintenance_status: inactive
 name: tap-looker
 namespace: tap_looker
 pip_url: tap-looker
+quality: silver
 repo: https://github.com/singer-io/tap-looker
 settings:
 - description: Your [API3 Keys](https://docs.looker.com/admin-options/settings/users#api3_keys)

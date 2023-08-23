@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-db2
 namespace: tap_db2
 pip_url: git+https://github.com/singer-io/tap-db2.git
+quality: silver
 repo: https://github.com/singer-io/tap-db2
 settings: []
 variant: singer-io

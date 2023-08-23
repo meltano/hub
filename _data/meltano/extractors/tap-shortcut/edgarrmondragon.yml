@@ -14,10 +14,11 @@ keywords:
 - meltano_sdk
 label: Shortcut (formerly Clubhouse)
 logo_url: /assets/logos/extractors/shortcut.png
-maintenance_status: development
+maintenance_status: active
 name: tap-shortcut
 namespace: tap_shortcut
 pip_url: git+https://github.com/edgarrmondragon/tap-shortcut.git
+quality: silver
 repo: https://github.com/edgarrmondragon/tap-shortcut
 settings:
 - description: Shortcut API Token

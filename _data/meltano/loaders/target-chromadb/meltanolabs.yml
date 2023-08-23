@@ -1,0 +1,71 @@
+capabilities:
+- about
+- schema-flattening
+- stream-maps
+description: The open-source embedding database
+domain_url: https://www.trychroma.com/
+executable: target-chromadb
+keywords:
+- meltano_sdk
+label: Chromadb
+logo_url: /assets/logos/loaders/chromadb.png
+maintenance_status: beta
+name: target-chromadb
+namespace: target_chromadb
+next_steps: ''
+pip_url: git+https://github.com/meltanolabs/target-chromadb.git
+quality: gold
+repo: https://github.com/meltanolabs/target-chromadb
+settings:
+- description: The Chroma collection name. Collections are where you'll store your
+    embeddings, documents, and any additional metadata.
+  kind: string
+  label: Collection Name
+  name: collection_name
+  value: vector-db
+- description: The directory where Chroma will store its database files on disk, and
+    load them on start.
+  kind: string
+  label: Database Directory
+  name: db_directory
+  value: output
+- description: The property containing the document text.
+  kind: string
+  label: Document Text Property
+  name: document_text_property
+  value: page_content
+- description: The property containing the embeddings.
+  kind: string
+  label: Embeddings Property
+  name: embeddings_property
+  value: embeddings
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: The property containing the document metadata.
+  kind: string
+  label: Metadata Property
+  name: metadata_property
+  value: metadata
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+settings_group_validation:
+- - collection_name
+  - db_directory
+  - document_text_property
+settings_preamble: ''
+usage: ''
+variant: meltanolabs

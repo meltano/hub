@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-linkedin-ads
 namespace: tap_linkedin_ads
 pip_url: tap-linkedin-ads
+quality: silver
 repo: https://github.com/singer-io/tap-linkedin-ads
 settings:
 - description: A comma separated list of account IDs, e.g. "id1, id2, id3"

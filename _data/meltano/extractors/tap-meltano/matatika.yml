@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-meltano
 namespace: tap_meltano
 pip_url: git+https://github.com/Matatika/tap-meltano.git
+quality: gold
 repo: https://github.com/Matatika/tap-meltano
 settings:
 - description: The target Meltano project's database URI

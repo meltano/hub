@@ -5,12 +5,13 @@ description: App and website analytics platform hosted by Google
 domain_url: https://developers.google.com/analytics/devguides/reporting/core/v4/
 keywords:
 - api
-label: Google Analytics
+label: Google Analytics (Universal Analytics API - Deprecated)
 logo_url: /assets/logos/extractors/google-analytics.png
 maintenance_status: unknown
 name: tap-google-analytics
 namespace: tap_google_analytics
 pip_url: git+https://github.com/zenkay/tap-google-analytics.git
+quality: unknown
 repo: https://github.com/zenkay/tap-google-analytics
 settings: []
 settings_group_validation: []

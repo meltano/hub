@@ -12,6 +12,7 @@ maintenance_status: inactive
 name: tap-sendgrid
 namespace: tap_sendgrid
 pip_url: tap-sendgrid
+quality: silver
 repo: https://github.com/singer-io/tap-sendgrid
 settings:
 - description: Your SendGrid [API Key](https://app.sendgrid.com/settings/api_keys).

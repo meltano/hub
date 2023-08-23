@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-trello
 namespace: tap_trello
 pip_url: tap-trello
+quality: bronze
 repo: https://github.com/singer-io/tap-trello
 settings:
 - description: Determines how much historical data will be extracted. Please be aware

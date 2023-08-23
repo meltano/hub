@@ -9,6 +9,7 @@ maintenance_status: active
 name: target-sqlite
 namespace: target_sqlite
 pip_url: git+https://github.com/MeltanoLabs/target-sqlite.git
+quality: silver
 repo: https://github.com/MeltanoLabs/target-sqlite
 settings:
 - description: |

@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-ringcentral
 namespace: tap_ringcentral
 pip_url: git+https://github.com/dbt-labs/tap-ringcentral.git
+quality: unknown
 repo: https://github.com/dbt-labs/tap-ringcentral
 settings: []
 variant: dbt-labs

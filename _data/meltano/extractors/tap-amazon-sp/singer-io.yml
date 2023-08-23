@@ -2,7 +2,7 @@ capabilities:
 - catalog
 - discover
 - state
-domain_url: ''
+domain_url: https://developer-docs.amazon.com/sp-api/
 keywords: []
 label: Amazon Selling Partner (SP)
 logo_url: /assets/logos/extractors/amazon-sp.png
@@ -11,6 +11,7 @@ name: tap-amazon-sp
 namespace: tap_amazon_sp
 next_steps: ''
 pip_url: git+https://github.com/singer-io/tap-amazon-sp.git
+quality: silver
 repo: https://github.com/singer-io/tap-amazon-sp
 settings:
 - description: Your AWS access key.

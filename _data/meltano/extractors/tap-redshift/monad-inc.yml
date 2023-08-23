@@ -13,6 +13,7 @@ name: tap-redshift
 namespace: tap_redshift
 next_steps: ''
 pip_url: git+https://github.com/Monad-Inc/tap-redshift.git
+quality: silver
 repo: https://github.com/Monad-Inc/tap-redshift
 settings:
 - description: Your Redshift host name.

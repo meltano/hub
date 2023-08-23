@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-yotpo
 namespace: tap_yotpo
 pip_url: tap-yotpo
+quality: silver
 repo: https://github.com/singer-io/tap-yotpo
 settings:
 - description: Your API secret. Can be found in your Yotpo settings.

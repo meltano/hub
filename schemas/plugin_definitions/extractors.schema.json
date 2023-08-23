@@ -37,6 +37,7 @@
                 "schema": {},
                 "select": {},
                 "maintenance_status": {},
+                "quality": {},
                 "domain_url": {},
                 "keywords": {},
                 "requires": {},
@@ -45,7 +46,10 @@
                 "settings_preamble": {},
                 "usage": {},
                 "prereq": {}
-            }
+            },
+            "required": [
+                "quality"
+            ]
         }
     ]
 }

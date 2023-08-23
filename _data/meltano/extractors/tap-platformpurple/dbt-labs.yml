@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-platformpurple
 namespace: tap_platformpurple
 pip_url: git+https://github.com/dbt-labs/tap-platformpurple.git
+quality: unknown
 repo: https://github.com/dbt-labs/tap-platformpurple
 settings: []
 variant: dbt-labs

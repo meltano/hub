@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-eloqua
 namespace: tap_eloqua
 pip_url: git+https://github.com/timvisher/tap-eloqua.git
+quality: unknown
 repo: https://github.com/timvisher/tap-eloqua
 settings: []
 variant: timvisher

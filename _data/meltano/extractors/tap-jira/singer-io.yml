@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-jira
 namespace: tap_jira
 pip_url: git+https://github.com/singer-io/tap-jira.git
+quality: silver
 repo: https://github.com/singer-io/tap-jira
 settings:
 - description: Your Jira username.

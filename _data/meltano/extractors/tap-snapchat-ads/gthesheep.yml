@@ -17,6 +17,7 @@ name: tap-snapchat-ads
 namespace: tap_snapchat_ads
 next_steps: ''
 pip_url: git+https://github.com/GtheSheep/tap-snapchat-ads.git
+quality: silver
 repo: https://github.com/GtheSheep/tap-snapchat-ads
 settings:
 - description: Client ID used to authenticate against the API.
@@ -40,7 +41,8 @@ settings:
   label: Swipe Up Attribution Window
   name: swipe_up_attribution_window
   value: 28_DAY
-- description: Attribution window for views 1_HOUR, 3_HOUR, 6_HOUR, 1_DAY (default), 7_DAY, 28_DAY
+- description: Attribution window for views 1_HOUR, 3_HOUR, 6_HOUR, 1_DAY (default),
+    7_DAY, 28_DAY
   kind: string
   label: View Attribution Window
   name: view_attribution_window
@@ -61,7 +63,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested properties."
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

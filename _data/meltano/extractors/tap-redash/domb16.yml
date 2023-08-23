@@ -11,6 +11,7 @@ maintenance_status: inactive
 name: tap-redash
 namespace: tap_redash
 pip_url: git+https://github.com/domb16/tap-redash.git
+quality: unknown
 repo: https://github.com/domb16/tap-redash
 settings:
 - description: Your login url. E.g. https://reports.replace-with-org-name.com/login.

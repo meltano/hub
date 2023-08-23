@@ -6,11 +6,51 @@ Let's build together! Please see our [Contributor Guide](https://docs.meltano.co
 for more information on contributing to Meltano.
 
 We believe that everyone can contribute and we welcome all contributions.
-If you're not sure what to work on, here are some [ideas to get you started](https://github.com/meltano/meltano/issues?q=is%3Aissue+is%3Aopen+label%3A%22accepting+merge+requests%22+).
+If you're not sure what to work on, here are some [ideas to get you started](https://github.com/meltano/hub/issues?q=is%3Aissue+is%3Aopen+label%3A%22Accepting+Pull+Requests%22)
 
 Chat with us in [#contributing](https://meltano.slack.com/archives/C013Z450LCD) on [Slack](https://meltano.com/slack).
 
 Contributors are expected to follow our [Code of Conduct](https://docs.meltano.com/contribute/#code-of-conduct).
+
+## hub-utils CLI
+
+MeltanoHub has some conventions and patterns that need to be followed in order for the plugin pages to render properly and CI tests to pass.
+This can sometimes make it difficult for our team and community members to contribute changes.
+To help with this we created a [hub-utils CLI](https://github.com/meltano/hub-utils) that offers an interactive CLI interface for common operations.
+For example it will help you add or update plugins, along the way it will prompt for information it needs to fulfil the plugin definition and if the plugin is SDK based it will scrape most of the information for you so you don't need to provide it.
+It does it's best to default to the correct answers and fill common descriptions (i.e. start_date) and labels for you.
+
+This assumes you already have pipx installed, see the meltano [install-pipx docs](https://docs.meltano.com/guide/installation-guide#install-pipx) for details.
+
+```bash
+pipx install git+https://github.com/meltano/hub-utils.git
+```
+
+The CLI assumes your terminal is in the root of the hub repository, if you need to run it outside the hub repository root you can set the path using the `HUB_ROOT_PATH` environment variable.
+
+## Add or Updating Plugins
+
+To add a new plugin or variant of an existing one, run the following command and provide any input that it prompts for.
+
+```bash
+hub-utils add
+```
+
+To update an existing variant, run the following command and provide any input that it prompts for.
+
+```bash
+hub-utils update-definition
+```
+
+If you chose to make any manual changes to the yaml files, make sure you run the yaml linters to fix any linting violations before creating a PR.
+
+```bash
+# Automatically attempt to fix any lint violations
+hub-utils yamllint fix _data/meltano/extractors/tap-3plcentral/bytecodeio.yml
+
+# Check for lint violations
+hub-utils yamllint lint _data/meltano/extractors/tap-3plcentral/bytecodeio.yml
+```
 
 ## Automated plugin testing
 
@@ -33,31 +73,6 @@ For more information about slash commands and slash command dispatch:
 ```console
 yarn
 yarn add --global @gridsome/cli
-```
-
-### Linters
-
-You can use `pre-commit` to run the linters before committing.
-
-```console
-pipx install pre-commit
-pre-commit install
-```
-
-This will run the linters on all files that are staged for commit. Included linters:
-
-- [yamlllint](https://yamllint.readthedocs.io/en/stable/)
-
-Theres a utility script that makes a best effort to help reformat yaml files to conform to the
-yamllint rules.
-To use the script run:
-
-```bash
-# Run on a single file
-poetry run python utility_scripts/plugin_definitions/yaml_lint_fix.py _data/meltano/extractors/tap-3plcentral/bytecodeio.yml
-
-# Run on all .yml files in the `_data/` directory including subdirectories
-poetry run python utility_scripts/plugin_definitions/yaml_lint_fix.py
 ```
 
 ## Build and serve the project

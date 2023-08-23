@@ -12,6 +12,7 @@ maintenance_status: inactive
 name: tap-harvest-forecast
 namespace: tap_harvest_forecast
 pip_url: tap-harvest-forecast
+quality: silver
 repo: https://github.com/singer-io/tap-harvest-forecast
 settings:
 - description: Your refresh token.

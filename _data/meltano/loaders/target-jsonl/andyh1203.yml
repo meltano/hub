@@ -8,6 +8,7 @@ maintenance_status: active
 name: target-jsonl
 namespace: target_jsonl
 pip_url: target-jsonl
+quality: silver
 repo: https://github.com/andyh1203/target-jsonl
 settings:
 - description: |

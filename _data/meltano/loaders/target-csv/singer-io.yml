@@ -7,6 +7,7 @@ maintenance_status: inactive
 name: target-csv
 namespace: target_csv
 pip_url: target-csv
+quality: silver
 repo: https://github.com/singer-io/target-csv
 settings:
 - description: Sets the destination path the CSV files are written to, relative to

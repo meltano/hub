@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-pagerduty
 namespace: tap_pagerduty
 pip_url: git+https://github.com/jacksonh/tap-pagerduty.git
+quality: unknown
 repo: https://github.com/jacksonh/tap-pagerduty
 settings: []
 variant: jacksonh

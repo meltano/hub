@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-intercom
 namespace: tap_intercom
 pip_url: tap-intercom
+quality: silver
 repo: https://github.com/singer-io/tap-intercom
 settings:
 - description: The user agent to send with requests.

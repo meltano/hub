@@ -17,6 +17,7 @@ name: tap-segment
 namespace: tap_segment
 next_steps: ''
 pip_url: git+https://github.com/GtheSheep/tap-segment.git
+quality: silver
 repo: https://github.com/GtheSheep/tap-segment
 settings:
 - description: The token to authenticate against the API service

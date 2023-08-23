@@ -3,15 +3,16 @@ capabilities:
 - discover
 - state
 description: Cloud-based Warehouse Management System (WMS)
-domain_url: https://www.3plcentral.com
+domain_url: https://www.extensiv.com/extensiv-3pl-warehouse-manager
 keywords:
 - api
-label: 3PLCentral
+label: Extensiv 3PL Warehouse Manager
 logo_url: /assets/logos/extractors/3plcentral.png
 maintenance_status: inactive
 name: tap-3plcentral
 namespace: tap_3plcentral
 pip_url: tap-3plcentral
+quality: bronze
 repo: https://github.com/singer-io/tap-3plcentral
 settings:
 - description: Your client ID.

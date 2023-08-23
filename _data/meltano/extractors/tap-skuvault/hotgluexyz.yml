@@ -1,0 +1,60 @@
+capabilities:
+- about
+- catalog
+- discover
+- schema-flattening
+- state
+- stream-maps
+description: Cloud-based inventory and warehouse management system
+domain_url: https://www.skuvault.com/
+executable: tap-skuvault
+keywords:
+- meltano_sdk
+label: SkuVault
+logo_url: /assets/logos/extractors/skuvault.webp
+maintenance_status: active
+name: tap-skuvault
+namespace: tap_skuvault
+next_steps: ''
+pip_url: git+https://gitlab.com/hotglue/tap-skuvault.git
+quality: gold
+repo: https://gitlab.com/hotglue/tap-skuvault
+settings:
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: Your SkuVault API password.
+  kind: password
+  label: Password
+  name: password
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability.
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: Your SkuVault tenant token.
+  kind: password
+  label: Tenant Token
+  name: tenant_token
+- description: Your SkuVault user token..
+  kind: password
+  label: User Token
+  name: user_token
+- description: Your SkuVault API username.
+  kind: string
+  label: Username
+  name: username
+settings_group_validation:
+- []
+settings_preamble: ''
+usage: ''
+variant: hotgluexyz

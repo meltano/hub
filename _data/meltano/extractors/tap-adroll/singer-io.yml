@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-adroll
 namespace: tap_adroll
 pip_url: git+https://github.com/singer-io/tap-adroll.git
+quality: silver
 repo: https://github.com/singer-io/tap-adroll
 settings:
 - description: Determines how much historical data will be extracted. Please be aware

@@ -15,6 +15,7 @@ name: tap-mindstamp
 namespace: tap_mindstamp
 next_steps: ''
 pip_url: git+https://github.com/manuelapilongo/tap-mindstamp.git
+quality: silver
 repo: https://github.com/manuelapilongo/tap-mindstamp
 settings:
 - description: The token to authenticate against the API service

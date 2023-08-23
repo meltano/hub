@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-exacttarget
 namespace: tap_exacttarget
 pip_url: tap-exacttarget
+quality: silver
 repo: https://github.com/singer-io/tap-exacttarget
 settings:
 - description: The batch size to request, default 2500.

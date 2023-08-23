@@ -10,6 +10,7 @@ maintenance_status: unknown
 name: tap-zendesk
 namespace: tap_zendesk
 pip_url: git+https://github.com/Radico/tap-zendesk.git
+quality: silver
 repo: https://github.com/Radico/tap-zendesk
 settings: []
 settings_group_validation: []

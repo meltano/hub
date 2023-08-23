@@ -13,6 +13,7 @@ maintenance_status: active
 name: tap-bazaarvoice
 namespace: tap_bazaarvoice
 pip_url: git+https://github.com/gthesheep/tap-bazaarvoice.git
+quality: silver
 repo: https://github.com/gthesheep/tap-bazaarvoice
 settings:
 - description: API Token gained from Bazaarvoice

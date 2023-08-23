@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-forecast
 namespace: tap_forecast
 pip_url: git+https://github.com/uptilab2/tap-forecast.git
+quality: unknown
 repo: https://github.com/uptilab2/tap-forecast
 settings: []
 variant: uptilab2

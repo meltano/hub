@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-auth0
 namespace: tap_auth0
 pip_url: git+https://github.com/process-street/tap-auth0-logs-checkpoint.git
+quality: unknown
 repo: https://github.com/process-street/tap-auth0-logs-checkpoint
 settings: []
 variant: process-street

@@ -1,0 +1,86 @@
+name: 🚰 New Plugin
+description: Request a new Plugin to Meltano Hub
+title: "Add Plugin: <insert plugin name>"
+labels: [valuestream/Hub]
+assignees: [tayloramurphy, pnadolny13]
+
+body:
+- type: markdown
+  attributes:
+    value: |
+      ## New Plugin Request
+
+      Please fill out the following information to request a new plugin to be added to the Meltano Hub.
+      
+      If you'd like you can follow the steps in the [CONTRIBUTING.md](https://github.com/meltano/hub/blob/main/CONTRIBUTING.md) to add it yourself,
+      otherwise someone on the Meltano team will get it added.
+
+- type: dropdown
+  id: plugin_type
+  attributes:
+    label: What is the plugin type?
+    multiple: true
+    options:
+      - extractor
+      - loader
+      - utility
+      - mapper
+      - files
+
+- type: input
+  id: repository_url
+  attributes:
+    label: Repository URL
+    description: The URL for the repository that contains the plugin code
+    placeholder: ex. https://github.com/MeltanoLabs/tap-github
+  validations:
+    required: true
+
+- type: input
+  id: extension_repository_url
+  attributes:
+    label: Extension Repository URL
+    description: The URL for the plugin extension repository. Only for utility plugins.
+    placeholder: ex. https://github.com/meltano/airflow-ext
+  validations:
+    required: false
+
+- type: input
+  id: description
+  attributes:
+    label: Description
+    description: General description of what the company behind the API or database does
+    placeholder: ex. Online Marketing Platform
+  validations:
+    required: true
+
+- type: input
+  id: url
+  attributes:
+    label: Domain URL
+    description: URL of the developer documentation or website
+    placeholder: ex. https://developers.hubspot.com/docs/api/overview
+  validations:
+    required: true
+
+- type: textarea
+  attributes:
+    label: Logo Image
+    description: |
+      Upload a logo image for the new plugin. The ideal image is an SVG or PNG, has no text over the logo, and has a transparent background.
+
+      Sometimes and image already exists, for example if an extractor is listed on the MeltanoHub and you want to add a loader.
+      In that case, you can leave a note of what existing plugin to use.
+
+      Tip: You can attach images by clicking this area to highlight it and then dragging files in.
+  validations:
+    required: false
+
+- type: textarea
+  attributes:
+    label: Any other notes?
+    description: |
+      Links? References? Anything that will give us more context. 
+
+  validations:
+    required: false

@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-yotpo
 namespace: tap_yotpo
 pip_url: git+https://github.com/bombas/tap-yotpo.git
+quality: unknown
 repo: https://github.com/bombas/tap-yotpo
 settings: []
 variant: bombas

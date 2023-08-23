@@ -1,0 +1,60 @@
+capabilities:
+- catalog
+- discover
+- state
+description: App and website analytics platform hosted by Google (GA4)
+domain_url: https://developers.google.com/analytics/devguides/reporting/data/v1
+executable: tap-ga4
+keywords:
+- api
+label: Google Analytics (GA4)
+logo_url: /assets/logos/extractors/ga4.png
+maintenance_status: active
+name: tap-ga4
+namespace: tap_ga4
+next_steps: ''
+pip_url: git+https://github.com/singer-io/tap-ga4.git
+quality: bronze
+repo: https://github.com/singer-io/tap-ga4
+settings:
+- description: Google Analytics Account ID
+  kind: string
+  label: Account ID
+  name: account_id
+- description: Google Analytics Client ID
+  kind: password
+  label: OAuth Client ID
+  name: oauth_client_id
+- description: Google Analytics Client Secret
+  kind: password
+  label: OAuth Client Secret
+  name: oauth_client_secret
+- description: The GA4 property ID to sync data from.
+  kind: string
+  label: Property ID
+  name: property_id
+- description: Google Analytics Refresh Token
+  kind: password
+  label: Refresh Token
+  name: refresh_token
+- description: Google Analytics Reports Definition
+  kind: string
+  label: Report Definitions
+  name: report_definitions
+- description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+settings_group_validation:
+- - account_id
+  - oauth_client_id
+  - oauth_client_secret
+  - property_id
+  - refresh_token
+  - report_definitions
+  - start_date
+settings_preamble: ''
+usage: ''
+variant: singer-io

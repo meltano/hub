@@ -1,0 +1,54 @@
+capabilities:
+- about
+- catalog
+- discover
+- state
+- stream-maps
+description: Business Management Software
+domain_url: https://www.netsuite.com/
+keywords:
+- api
+- meltano_sdk
+label: NetSuite
+logo_url: /assets/logos/extractors/netsuite.png
+maintenance_status: beta
+name: tap-netsuite
+namespace: tap_netsuite
+pip_url: git+https://github.com/GtheSheep/tap-netsuite-rest.git
+quality: silver
+repo: https://github.com/GtheSheep/tap-netsuite-rest
+settings:
+- description: Your Client ID for token based authentication consumer key for REST
+    connection. Visit the https://support.cazoomi.com/hc/en-us/articles/360010093392-How-to-Setup-NetSuite-Token-Based-Authentication-as-Authentication-Type
+    for details.
+  kind: password
+  label: NetSuite Client ID
+  name: client_id
+- description: Your Client Secret for token based authentication consumer key for
+    REST connection.
+  kind: password
+  label: NetSuite Client Secret
+  name: client_secret
+- description: Refresh token obtained from the OAuth2 user flow
+  kind: password
+  label: Refresh Token
+  name: refresh_token
+- description: Account identifier, taken from your Netsuite URL
+  kind: password
+  label: Account Identifier
+  name: account_identifier
+- description: The earliest record date to sync
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+settings_group_validation:
+- - client_id
+  - client_secret
+  - refresh_token
+  - account_identifier
+  - start_date
+usage: |
+  Compared to the taps using the Netsuite SOAP API, the REST based Netsuite tap is less complete,
+  fewer datasets and transaction types are available due to still being marked as "Beta" endpoints,
+  these can be added to the tap as Netsuite move them out of Beta
+variant: gthesheep

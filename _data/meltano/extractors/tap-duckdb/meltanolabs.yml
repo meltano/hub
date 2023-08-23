@@ -13,15 +13,16 @@ keywords:
 - database
 label: DuckDB
 logo_url: /assets/logos/extractors/duckdb.png
-maintenance_status: development
+maintenance_status: beta
 name: tap-duckdb
 namespace: tap_duckdb
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-duckdb.git
+quality: gold
 repo: https://github.com/MeltanoLabs/tap-duckdb
 settings:
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

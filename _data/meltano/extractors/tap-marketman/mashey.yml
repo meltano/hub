@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-marketman
 namespace: tap_marketman
 pip_url: git+https://github.com/Mashey/tap-marketman.git
+quality: unknown
 repo: https://github.com/Mashey/tap-marketman
 settings: []
 variant: mashey

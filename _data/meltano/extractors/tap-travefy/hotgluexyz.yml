@@ -1,0 +1,62 @@
+capabilities:
+- about
+- catalog
+- discover
+- schema-flattening
+- state
+- stream-maps
+description: Itinerary Management For Travel Professionals
+domain_url: https://travefy.com/
+executable: tap-travefy
+keywords:
+- meltano_sdk
+label: Travefy
+logo_url: /assets/logos/extractors/travefy.png
+maintenance_status: active
+name: tap-travefy
+namespace: tap_travefy
+next_steps: ''
+pip_url: git+https://gitlab.com/hotglue/tap-travefy.git
+quality: gold
+repo: https://gitlab.com/hotglue/tap-travefy
+settings:
+- description: The url for the API service
+  kind: string
+  label: API URL
+  name: api_url
+  value: https://api.travefy.com
+- description: "'True' to enable schema flattening and automatically expand nested\
+    \ properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: The private key to authenticate against the API service
+  kind: password
+  label: Private Key
+  name: private_key
+- description: The public key to authenticate against the API service
+  kind: password
+  label: Public Key
+  name: public_key
+- description: Define if sandbox is TRUE or FAlse. Default is TRUE
+  kind: boolean
+  label: Sandbox
+  name: sandbox
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability.
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+settings_group_validation:
+- - private_key
+  - public_key
+settings_preamble: ''
+usage: ''
+variant: hotgluexyz

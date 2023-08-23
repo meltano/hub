@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-sailthru
 namespace: tap_sailthru
 pip_url: git+https://github.com/bytecodeio/tap-sailthru.git
+quality: unknown
 repo: https://github.com/bytecodeio/tap-sailthru
 settings: []
 variant: bytecodeio

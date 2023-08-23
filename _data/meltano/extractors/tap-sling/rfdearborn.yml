@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-sling
 namespace: tap_sling
 pip_url: git+https://github.com/rfdearborn/tap-sling.git
+quality: unknown
 repo: https://github.com/rfdearborn/tap-sling
 settings: []
 variant: rfdearborn

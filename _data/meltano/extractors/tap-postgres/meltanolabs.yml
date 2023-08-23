@@ -1,5 +1,6 @@
 capabilities:
 - about
+- batch
 - catalog
 - discover
 - schema-flattening
@@ -12,15 +13,44 @@ keywords:
 - database
 label: Postgres
 logo_url: /assets/logos/extractors/postgres.png
-maintenance_status: development
+maintenance_status: active
 name: tap-postgres
 namespace: tap_postgres
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-postgres.git
+quality: gold
 repo: https://github.com/MeltanoLabs/tap-postgres
 settings:
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: Compression format to use for batch files.
+  kind: options
+  label: Batch Config Encoding Compression
+  name: batch_config.encoding.compression
+  options:
+  - label: Gzip
+    value: gzip
+  - label: None
+    value: none
+- description: Format to use for batch files.
+  kind: options
+  label: Batch Config Encoding Format
+  name: batch_config.encoding.format
+  options:
+  - label: Jsonl
+    value: jsonl
+- description: Prefix to use when writing batch files.
+  kind: string
+  label: Batch Config Storage Prefix
+  name: batch_config.storage.prefix
+- description: Root path to use when writing batch files.
+  kind: string
+  label: Batch Config Storage Root
+  name: batch_config.storage.root
+- description: Database name. Note if sqlalchemy_url is set this will be ignored.
+  kind: string
+  label: Database
+  name: database
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -28,10 +58,103 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: Example postgresql://postgres:postgres@localhost:5432/postgres
+- description: Hostname for postgres instance. Note if sqlalchemy_url is set this
+    will be ignored.
+  kind: string
+  label: Host
+  name: host
+- description: Password used to authenticate. Note if sqlalchemy_url is set this will
+    be ignored.
+  kind: password
+  label: Password
+  name: password
+- description: The port on which postgres is awaiting connection. Note if sqlalchemy_url
+    is set this will be ignored.
+  kind: integer
+  label: Port
+  name: port
+  value: 5432
+- description: Example postgresql://[username]:[password]@localhost:5432/[db_name]
   kind: string
   label: Sqlalchemy URL
   name: sqlalchemy_url
+- description: Enable an ssh tunnel (also known as bastion host), see the other ssh_tunnel.*
+    properties for more details
+  kind: boolean
+  label: SSH Tunnel Enable
+  name: ssh_tunnel.enable
+- description: Host of the bastion host, this is the host we'll connect to via ssh
+  kind: string
+  label: SSH Tunnel Host
+  name: ssh_tunnel.host
+- description: Port to connect to bastion host
+  kind: integer
+  label: SSH Tunnel Port
+  name: ssh_tunnel.port
+  value: 22
+- description: Private Key for authentication to the bastion host
+  kind: password
+  label: SSH Tunnel Private Key
+  name: ssh_tunnel.private_key
+- description: Private Key Password, leave None if no password is set
+  kind: password
+  label: SSH Tunnel Private Key Password
+  name: ssh_tunnel.private_key_password
+- description: Username to connect to bastion host
+  kind: string
+  label: SSH Tunnel Username
+  name: ssh_tunnel.username
+- description: The certificate authority that should be used to verify the server's
+    identity. Can be provided either as the certificate itself (in .env) or as a filepath
+    to the certificate. Note if sqlalchemy_url is set this will be ignored.
+  kind: string
+  label: SSL Certificate Authority
+  name: ssl_certificate_authority
+  value: ~/.postgresql/root.crl
+- description: The certificate that should be used to verify your identity to the
+    server. Can be provided either as the certificate itself (in .env) or as a filepath
+    to the certificate. Note if sqlalchemy_url is set this will be ignored.
+  kind: string
+  label: SSL Client Certificate
+  name: ssl_client_certificate
+  value: ~/.postgresql/postgresql.crt
+- description: Whether or not to provide client-side certificates as a method of authentication
+    to the server. Use ssl_client_certificate and ssl_client_private_key for further
+    customization. To use SSL to verify the server's identity, use ssl_enable instead.
+    Note if sqlalchemy_url is set this will be ignored.
+  kind: boolean
+  label: SSL Client Certificate Enable
+  name: ssl_client_certificate_enable
+- description: The private key for the certificate you provided. Can be provided either
+    as the certificate itself (in .env) or as a filepath to the certificate. Note
+    if sqlalchemy_url is set this will be ignored.
+  kind: password
+  label: SSL Client Private Key
+  name: ssl_client_private_key
+  value: ~/.postgresql/postgresql.key
+- description: Whether or not to use ssl to verify the server's identity. Use ssl_certificate_authority
+    and ssl_mode for further customization. To use a client certificate to authenticate
+    yourself to the server, use ssl_client_certificate_enable instead. Note if sqlalchemy_url
+    is set this will be ignored.
+  kind: boolean
+  label: SSL Enable
+  name: ssl_enable
+- description: SSL Protection method, see [postgres 
+    documentation](https://www.postgresql.org/docs/current/libpq-ssl.html#LIBPQ-SSL-PROTECTION)
+    for more information. Must be one of disable, allow, prefer, require, verify-ca,
+    or verify-full. Note if sqlalchemy_url is set this will be ignored.
+  kind: string
+  label: SSL Mode
+  name: ssl_mode
+  value: verify-full
+- description: The folder in which to store SSL certificates provided as raw values.
+    When a certificate/key is provided as a raw value instead of as a filepath, it
+    must be written to a file before it can be used. This configuration option determines
+    where that file is created.
+  kind: string
+  label: SSL Storage Directory
+  name: ssl_storage_directory
+  value: .secrets
 - description: User-defined config values to be used within map expressions.
   kind: object
   label: Stream Map Config
@@ -41,8 +164,32 @@ settings:
   kind: object
   label: Stream Maps
   name: stream_maps
+- description: User name used to authenticate. Note if sqlalchemy_url is set this
+    will be ignored.
+  kind: string
+  label: User
+  name: user
 settings_group_validation:
 - - sqlalchemy_url
 settings_preamble: ''
-usage: ''
+usage: |
+  ## Incremental Replication
+
+  ```yaml
+  - name: tap-postgres
+    variant: meltanolabs
+    pip_url: git+https://github.com/MeltanoLabs/tap-postgres.git
+    config:
+      sqlalchemy_url: postgresql://meltano_user:password@localhost:5432/my_postgres_db
+    select:
+    - <my_schema>-<my_table>.*
+    metadata:
+      <my_schema>-<my_table>:
+        replication-method: INCREMENTAL
+        replication_key: key
+        key_properties:
+        - key
+  ```
+
+  See the [replication docs](https://docs.meltano.com/guide/integration) for more details.
 variant: meltanolabs

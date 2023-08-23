@@ -15,6 +15,7 @@ maintenance_status: active
 name: tap-dash-hudson
 namespace: tap_dash_hudson
 pip_url: git+https://github.com/gthesheep/tap-dash-hudson.git
+quality: silver
 repo: https://github.com/gthesheep/tap-dash-hudson
 settings:
 - description: API key gained from the Dash Hudson UI

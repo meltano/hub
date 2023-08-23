@@ -10,6 +10,7 @@ logo_url: /assets/logos/loaders/mongodb.png
 name: target-mongodb
 namespace: target_mongodb
 pip_url: git+https://gitlab.com/hotglue/target-mongodb.git
+quality: gold
 repo: https://gitlab.com/hotglue/target-mongodb
 settings:
 - description: Connection string in the format mongodb://[${MONGO_USERNAME:${MONGO_PASSWORD}@]mongodb0.example.com:PORT

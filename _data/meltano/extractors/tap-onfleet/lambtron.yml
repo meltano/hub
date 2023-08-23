@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-onfleet
 namespace: tap_onfleet
 pip_url: git+https://github.com/lambtron/tap-onfleet.git
+quality: unknown
 repo: https://github.com/lambtron/tap-onfleet
 settings: []
 variant: lambtron

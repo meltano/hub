@@ -11,6 +11,7 @@ maintenance_status: active
 name: tap-salesforce
 namespace: tap_salesforce
 pip_url: pipelinewise-tap-salesforce
+quality: silver
 repo: https://github.com/transferwise/pipelinewise-tap-salesforce
 settings: []
 settings_group_validation: []

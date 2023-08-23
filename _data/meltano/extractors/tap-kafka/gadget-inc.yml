@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-kafka
 namespace: tap_kafka
 pip_url: git+https://github.com/gadget-inc/tap-kafka.git
+quality: silver
 repo: https://github.com/gadget-inc/tap-kafka
 settings: []
 variant: gadget-inc

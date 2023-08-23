@@ -14,6 +14,7 @@ name: target-elasticsearch
 namespace: target_elasticsearch
 next_steps: ''
 pip_url: target-elasticsearch
+quality: silver
 repo: https://github.com/dtmirizzi/target-elasticsearch
 settings:
 - description: http scheme used for connecting to elasticsearch
@@ -74,7 +75,7 @@ settings:
   kind: string
   label: Index Format
   name: index_format
-  value: 'ecs-{{ stream_name }}-{{ current_timestamp_daily }}'
+  value: ecs-{{ stream_name }}-{{ current_timestamp_daily }}
 - description: |
     Index Schema Fields allows you to specify specific record values via jsonpath
     from the stream to be used in index formulation.

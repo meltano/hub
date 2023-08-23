@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-ujet
 namespace: tap_ujet
 pip_url: git+https://github.com/bytecodeio/tap-ujet.git
+quality: unknown
 repo: https://github.com/bytecodeio/tap-ujet
 settings: []
 variant: bytecodeio

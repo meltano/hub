@@ -12,6 +12,7 @@ maintenance_status: inactive
 name: tap-twinfield
 namespace: tap_twinfield
 pip_url: git+https://github.com/Yoast/singer-tap-twinfield.git
+quality: unknown
 repo: https://github.com/Yoast/singer-tap-twinfield
 settings:
 - description: Your Twinfield office.

@@ -11,6 +11,7 @@ maintenance_status: unknown
 name: tap-google-sheets
 namespace: tap_google_sheets
 pip_url: git+https://github.com/dcaribou/tap-gsheets.git
+quality: silver
 repo: https://github.com/dcaribou/tap-gsheets
 settings: []
 settings_group_validation: []

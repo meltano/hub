@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-mixpanel
 namespace: tap_mixpanel
 pip_url: git+https://github.com/bytecodeio/tap-mixpanel.git
+quality: unknown
 repo: https://github.com/bytecodeio/tap-mixpanel
 settings: []
 variant: bytecodeio

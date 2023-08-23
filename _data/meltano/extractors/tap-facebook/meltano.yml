@@ -13,6 +13,7 @@ maintenance_status: active
 name: tap-facebook
 namespace: tap_facebook
 pip_url: git+https://gitlab.com/meltano/tap-facebook.git
+quality: silver
 repo: https://gitlab.com/meltano/tap-facebook
 settings:
 - description: Your Facebook Ads Account ID

@@ -12,6 +12,7 @@ maintenance_status: active
 name: tap-bls
 namespace: tap_bls
 pip_url: git+https://github.com/frasermarlow/tap-bls.git
+quality: silver
 repo: https://github.com/frasermarlow/tap-bls
 settings:
 - description: An option you will find in the API documentation but setting this to

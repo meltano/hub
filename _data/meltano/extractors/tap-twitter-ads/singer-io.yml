@@ -12,6 +12,7 @@ maintenance_status: unknown
 name: tap-twitter-ads
 namespace: tap_twitter_ads
 pip_url: tap-twitter-ads
+quality: silver
 repo: https://github.com/singer-io/tap-twitter-ads
 settings:
 - description: OAuth 1.0a credentials - Consumer Key
