@@ -149,8 +149,8 @@ export default {
       }
       const processedEdges = edges.map(({ node }) => {
         const projectWeightFactor = 2;
-        const thisExecs = node.metrics.ALL_EXECS;
-        const thisProjects = node.metrics.ALL_PROJECTS;
+        const thisExecs = node.metrics.all_execs;
+        const thisProjects = node.metrics.all_projects;
         const allExecsPercentile = percentile(thisExecs, allExecsValues);
         const allProjectsPercentile = percentile(thisProjects, allProjectsValues);
         const weight = allExecsPercentile + allProjectsPercentile * projectWeightFactor;
@@ -186,17 +186,17 @@ export default {
       );
     },
     allExecsValues() {
-      return this.$page.mostUsedPlugins.edges.map((edge) => edge.node.metrics.ALL_EXECS);
+      return this.$page.mostUsedPlugins.edges.map((edge) => edge.node.metrics.all_execs);
     },
     allProjectsValues() {
-      return this.$page.mostUsedPlugins.edges.map((edge) => edge.node.metrics.ALL_PROJECTS);
+      return this.$page.mostUsedPlugins.edges.map((edge) => edge.node.metrics.all_projects);
     },
     maxValues() {
       const allExecsValues = this.$page.mostUsedPlugins.edges.map(
-        (edge) => edge.node.metrics.ALL_EXECS
+        (edge) => edge.node.metrics.all_execs
       );
       const allProjectsValues = this.$page.mostUsedPlugins.edges.map(
-        (edge) => edge.node.metrics.ALL_PROJECTS
+        (edge) => edge.node.metrics.all_projects
       );
 
       const maxAllExecs = Math.max(...allExecsValues.filter((value) => value !== null));
@@ -210,7 +210,7 @@ export default {
 <page-query lang="graphql">
 query ($page: Int) {
   mostUsedPlugins: allPlugins(
-    sortBy: "metrics.ALL_PROJECTS"
+    sortBy: "metrics.all_projects"
     order: DESC
     filter: {
       isDefault: { eq: true }
@@ -218,7 +218,7 @@ query ($page: Int) {
       hidden: { ne: true }
       keywords: { contains: "meltano_sdk" }
       maintenance_status: { eq: "active" }
-      metrics: { ALL_EXECS: { gt: 0 }, ALL_PROJECTS: { gt: 0 } }
+      metrics: { all_execs: { gt: 0 }, all_projects: { gt: 0 } }
     }
   ) {
     edges {
@@ -237,8 +237,8 @@ query ($page: Int) {
         maintenance_status
         keywords
         metrics {
-          ALL_EXECS
-          ALL_PROJECTS
+          all_execs
+          all_projects
         }
       }
     }
