@@ -20,6 +20,7 @@ settings:
   kind: boolean
   label: Add Metadata Columns
   name: add_metadata_columns
+  value: false
 - description: |
     Project-relative path to JSON file holding array of objects as described under [Files](#files) - with `entity`, `path`, `keys`, and other optional keys:
 
