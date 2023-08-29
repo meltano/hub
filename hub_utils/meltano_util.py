@@ -363,7 +363,14 @@ class MeltanoUtil:
     def _split_sentence_endings(word_list):
         desc_list_clean = []
         for word in word_list:
-            if len(word.split(".")) > 1:
+            if any(i in word for i in ["i.e.", "e.g."]):
+                desc_list_clean.append(word)
+                continue
+            elif len(word.split(".")) > 1 and not word.startswith("."):
+                if word.split(".")[0][-1].isnumeric() and word.split(".")[1][0].isnumeric():
+                    # its numeric
+                    desc_list_clean.append(word)
+                    continue
                 if not any(
                     keyword in word
                     for keyword in ("http", "ssh", "ssl", "e.g.", '"', "`")
@@ -409,4 +416,5 @@ class MeltanoUtil:
         desc_list = description.split()
         cleaned_sentence = MeltanoUtil._split_sentence_endings(desc_list)
         cleaned_description = MeltanoUtil._capitalize(cleaned_sentence)
+        cleaned_description = cleaned_description.replace("Dbt", "dbt")
         return cleaned_description

@@ -517,3 +517,18 @@ def test_sdk_about_parsing_skip_default_dates():
 )
 def test_get_quality(input, expected):
     assert MeltanoUtil.get_quality(*input) == expected, input
+
+
+@pytest.mark.parametrize(
+    "input,expected",
+    [
+        ["foo.Test.", "Foo. Test."],
+        ["default 3,600 seconds (i.e. 1 hour). Something.", "Default 3,600 seconds (i.e. 1 hour). Something."],
+        ["Data was scanned ~1.5 times for that batch.", "Data was scanned ~1.5 times for that batch."],
+        ["dbt is the best. Dbt is good.", "dbt is the best. dbt is good."],
+        ["Path to .duckdb file", "Path to .duckdb file"],
+        ["Foo .env file.", "Foo .env file."]
+    ]
+)
+def test_clean_description(input, expected):
+    assert MeltanoUtil._clean_description(input) == expected
