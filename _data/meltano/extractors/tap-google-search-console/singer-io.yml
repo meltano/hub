@@ -38,9 +38,13 @@ settings:
 - description: The user agent to send along with the API requests.
   label: User Agent
   name: user_agent
+- description: The start date of sync in UTC format for all streams.
+  label: Start Date
+  name: start_date
 settings_group_validation:
 - - refresh_token
   - client_secret
   - client_id
   - user_agent
+  - start_date
 variant: singer-io
