@@ -601,7 +601,7 @@ class Utilities:
         )
         return repo_url, plugin_name, plugin_type, plugin_variant, existing_def, sdk_def
 
-    def update(self, repo_url: str = None, definition_seed: dict = None):
+    def update(self, repo_url: str = None, plugin_name: str = None):
         (
             repo_url,
             plugin_name,
@@ -609,7 +609,7 @@ class Utilities:
             plugin_variant,
             existing_def,
             sdk_def,
-        ) = self._update_base(repo_url)
+        ) = self._update_base(repo_url, plugin_name)
         setting_names = [
             setting.get("name") for setting in existing_def.get("settings", [])
         ]

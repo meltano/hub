@@ -177,7 +177,7 @@ def update_definition(
     if util._prompt("is_meltano_sdk", True, type=bool):
         util.update_sdk(repo_url, plugin_name)
     else:
-        util.update(repo_url)
+        util.update(repo_url, plugin_name)
 
 
 @app.command()
