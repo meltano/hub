@@ -21,7 +21,7 @@ pip_url: git+https://github.com/rawwar/tap-recruitee.git
 quality: silver
 repo: https://github.com/rawwar/tap-recruitee
 settings:
-- description: The url for the API service
+- description: API URL for tap recruitee
   kind: string
   label: API URL
   name: api_url
@@ -30,13 +30,12 @@ settings:
   kind: password
   label: Auth Token
   name: auth_token
-- description: Company ID for the account to be used
+- description: Company id
   kind: integer
   label: Company ID
   name: company_id
-  value: 0
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -44,14 +43,6 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: Project IDs to replicate
-  kind: array
-  label: Project IDs
-  name: project_ids
-- description: The earliest record date to sync
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
 - description: User-defined config values to be used within map expressions.
   kind: object
   label: Stream Map Config
@@ -63,6 +54,7 @@ settings:
   name: stream_maps
 settings_group_validation:
 - - auth_token
+  - company_id
 settings_preamble: ''
 usage: ''
 variant: rawwar

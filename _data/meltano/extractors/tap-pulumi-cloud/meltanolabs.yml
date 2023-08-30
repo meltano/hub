@@ -1,8 +1,10 @@
 capabilities:
 - about
+- batch
 - catalog
 - discover
 - schema-flattening
+- state
 - stream-maps
 description: Fully-managed Infrastructure as Code platform
 domain_url: https://www.pulumi.com/product/pulumi-cloud/
@@ -19,8 +21,32 @@ pip_url: git+https://github.com/MeltanoLabs/tap-pulumi-cloud.git
 quality: gold
 repo: https://github.com/MeltanoLabs/tap-pulumi-cloud
 settings:
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: Compression format to use for batch files.
+  kind: options
+  label: Batch Config Encoding Compression
+  name: batch_config.encoding.compression
+  options:
+  - label: Gzip
+    value: gzip
+  - label: None
+    value: none
+- description: Format to use for batch files.
+  kind: options
+  label: Batch Config Encoding Format
+  name: batch_config.encoding.format
+  options:
+  - label: Jsonl
+    value: jsonl
+- description: Prefix to use when writing batch files.
+  kind: string
+  label: Batch Config Storage Prefix
+  name: batch_config.storage.prefix
+- description: Root path to use when writing batch files.
+  kind: string
+  label: Batch Config Storage Root
+  name: batch_config.storage.root
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -40,6 +66,7 @@ settings:
   kind: boolean
   label: Requests Cache Enabled
   name: requests_cache.enabled
+  value: false
 - description: Earliest datetime to get data from
   kind: date_iso8601
   label: Start Date

@@ -1,7 +1,7 @@
 capabilities:
 - about
-- stream-maps
 - schema-flattening
+- stream-maps
 description: For loading data into BigQuery.
 domain_url: https://cloud.google.com/bigquery/
 executable: target-bigquery
@@ -18,55 +18,32 @@ pip_url: git+https://github.com/YouCruit/youcruit-target-bigquery.git
 quality: gold
 repo: https://github.com/YouCruit/youcruit-target-bigquery
 settings:
-- description: Google project id
-  kind: password
-  label: Project Id
-  name: project_id
-- description: Dataset to load data into
-  kind: string
-  label: Dataset
-  name: dataset
-- description: Dataset location
-  kind: string
-  label: Location
-  name: location
-- description: Optional prefix to add to table names
-  kind: string
-  label: Table Prefix
-  name: table_prefix
+- description: Add Singer Data Capture (SDC) metadata to records
+  kind: boolean
+  label: Add Record Metadata
+  name: add_record_metadata
+  value: true
+- description: Only append data; don't overwrite existing data
+  kind: boolean
+  label: Append Only
+  name: append_only
+  value: false
 - description: Maximum size of batches when records are streamed in. BATCH messages
     are not affected by this property.
   kind: integer
   label: Batch Size
   name: batch_size
-- description: Maximum time in minutes between state messages when records are streamed
-    in. BATCH messages are not affected by this property.
-  kind: integer
-  label: Max Batch Age
-  name: max_batch_age
-- description: Add Singer Data Capture (SDC) metadata to records
-  kind: boolean
-  label: Add Record Metadata
-  name: add_record_metadata
+  value: 100000
+- description: Dataset to load data into
+  kind: string
+  label: Dataset
+  name: dataset
 - description: Default partition column for all streams
   kind: string
   label: Default Partition Column
   name: default_partition_column
-- description: Stream specific configs. Like partition keys.
-  kind: array
-  label: Table Configs
-  name: table_configs
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -74,9 +51,45 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: Dataset location
+  kind: string
+  label: Location
+  name: location
+- description: Maximum time in minutes between state messages when records are streamed
+    in. BATCH messages are not affected by this property.
+  kind: integer
+  label: Max Batch Age
+  name: max_batch_age
+  value: 5.0
+- description: Google project id
+  kind: password
+  label: Project ID
+  name: project_id
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: Stream specific configs. Like partition keys.
+  kind: array
+  label: Table Configs
+  name: table_configs
+- description: Optional prefix to add to table names
+  kind: string
+  label: Table Prefix
+  name: table_prefix
+- description: If tables should be truncated before new data is loaded
+  kind: boolean
+  label: Truncate Before Load
+  name: truncate_before_load
+  value: false
 settings_group_validation:
-- - project_id
-  - dataset
+- - dataset
+  - project_id
 settings_preamble: ''
 usage: ''
 variant: youcruit

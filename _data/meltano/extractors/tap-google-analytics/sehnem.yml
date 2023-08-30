@@ -5,32 +5,38 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
-description: Business Management Software
-domain_url: https://www.netsuite.com/
+description: App and website analytics platform hosted by Google (GA4)
+domain_url: https://developers.google.com/analytics/devguides/reporting/data/v1
+executable: tap-google-analytics
+hidden: true
 keywords:
-- api
 - meltano_sdk
-label: NetSuite
-logo_url: /assets/logos/extractors/netsuite.png
-maintenance_status: beta
-name: tap-netsuite
-namespace: tap_netsuite
-pip_url: git+https://github.com/GtheSheep/tap-netsuite-rest.git
+label: Google Analytics (GA4)
+logo_url: /assets/logos/extractors/ga4.png
+maintenance_status: active
+name: tap-ga4
+namespace: tap_ga4
+next_steps: ''
+pip_url: git+https://github.com/sehnem/tap-google-analytics.git
 quality: silver
-repo: https://github.com/GtheSheep/tap-netsuite-rest
+repo: https://github.com/sehnem/tap-google-analytics
 settings:
-- description: Account identifier, taken from your Netsuite URL
+- description: Google Analytics Access Token
   kind: password
-  label: Account IDentifier
-  name: account_identifier
-- description: Client ID
+  label: Access Token
+  name: access_token
+- description: Google Analytics Client ID
   kind: password
   label: Client ID
   name: client_id
-- description: App secret key
+- description: Google Analytics Client Secret
   kind: password
   label: Client Secret
   name: client_secret
+- description: The last record date to sync
+  kind: date_iso8601
+  label: End Date
+  name: end_date
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -40,10 +46,18 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: Refresh token obtained from the OAuth2 user flow
+- description: Google Analytics Property ID
+  kind: password
+  label: Property ID
+  name: property_id
+- description: Google Analytics Refresh Token
   kind: password
   label: Refresh Token
   name: refresh_token
+- description: Google Analytics Reports Definition
+  kind: string
+  label: Reports
+  name: reports
 - description: The earliest record date to sync
   kind: date_iso8601
   label: Start Date
@@ -58,13 +72,11 @@ settings:
   label: Stream Maps
   name: stream_maps
 settings_group_validation:
-- - account_identifier
-  - client_id
+- - client_id
   - client_secret
+  - property_id
   - refresh_token
   - start_date
-usage: |
-  Compared to the taps using the Netsuite SOAP API, the REST based Netsuite tap is less complete,
-  fewer datasets and transaction types are available due to still being marked as "Beta" endpoints,
-  these can be added to the tap as Netsuite move them out of Beta
-variant: gthesheep
+settings_preamble: ''
+usage: ''
+variant: sehnem

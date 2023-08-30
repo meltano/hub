@@ -1,8 +1,8 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
+- catalog
+- discover
+- state
 - stream-maps
 domain_url: https://memberful.com/
 keywords:
@@ -18,9 +18,11 @@ quality: silver
 repo: https://github.com/prratek/tap-memberful
 settings:
 - description: The token to authenticate against the API service
-  label: Api Key
+  kind: password
+  label: API Key
   name: api_key
 - description: The earliest record date to sync
+  kind: date_iso8601
   label: Start Date
   name: start_date
 settings_group_validation:

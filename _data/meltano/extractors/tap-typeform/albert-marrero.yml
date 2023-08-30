@@ -1,7 +1,9 @@
 capabilities:
+- about
 - catalog
 - discover
 - state
+- stream-maps
 description: Survey and Form Software
 domain_url: https://developer.typeform.com/
 keywords:

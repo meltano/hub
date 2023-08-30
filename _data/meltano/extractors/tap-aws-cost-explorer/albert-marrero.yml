@@ -1,7 +1,9 @@
 capabilities:
+- about
 - catalog
 - discover
 - state
+- stream-maps
 description: Amazon Web Services
 domain_url: https://aws.amazon.com/aws-cost-management/aws-cost-explorer/
 keywords:
@@ -17,20 +19,16 @@ quality: silver
 repo: https://github.com/albert-marrero/tap-aws-cost-explorer
 settings:
 - description: Your AWS Account Access Key.
+  kind: password
   label: Access Key
   name: access_key
-- description: Your AWS Account Secret Key.
-  kind: password
-  label: Secret Key
-  name: secret_key
-- description: The start date for retrieving Amazon Web Services cost.
-  label: Start Date
-  name: start_date
 - description: The end date for retrieving Amazon Web Services cost.
+  kind: date_iso8601
   label: End Date
   name: end_date
 - description: Sets the Amazon Web Services cost granularity to MONTHLY or DAILY ,
     or HOURLY.
+  kind: string
   label: Granularity
   name: granularity
 - description: Which metrics are returned in the query. Valid values are AmortizedCost,
@@ -39,11 +37,23 @@ settings:
   kind: array
   label: Metrics
   name: metrics
+- description: Your AWS Account Secret Key.
+  kind: password
+  label: Secret Key
+  name: secret_key
+- description: Your AWS Account Session Token if required for authentication.
+  kind: password
+  label: Session Token
+  name: session_token
+- description: The start date for retrieving Amazon Web Services cost.
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
 settings_group_validation:
 - - access_key
-  - secret_key
-  - start_date
   - end_date
   - granularity
   - metrics
+  - secret_key
+  - start_date
 variant: albert-marrero

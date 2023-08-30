@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 domain_url: https://www.tvsquared.com/
 keywords:
 - meltano_sdk
@@ -18,35 +18,12 @@ pip_url: git+https://github.com/GtheSheep/tap-tvsquared.git
 quality: silver
 repo: https://github.com/GtheSheep/tap-tvsquared
 settings:
-- description: Partner domain for your TVSquared account
-  label: Partner Domain
-  name: partner_domain
 - description: Number for your account API, i.e. https://api-xx.tvsquared.com
   kind: integer
-  label: Api Number
+  label: API Number
   name: api_number
-- description: Username for authentication
-  label: Username
-  name: username
-- description: Password for authentication
-  kind: password
-  label: Password
-  name: password
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
-    can be expected to take."
-  label: Start Date
-  name: start_date
-- description: Config object for stream maps capability.
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -54,11 +31,37 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: Partner domain for your TVSquared account
+  kind: string
+  label: Partner Domain
+  name: partner_domain
+- description: Password for authentication
+  kind: password
+  label: Password
+  name: password
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability.
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: Username for authentication
+  kind: string
+  label: Username
+  name: username
 settings_group_validation:
-- - password
+- - api_number
   - partner_domain
+  - password
   - username
-  - api_number
 settings_preamble: ''
 usage: ''
 variant: gthesheep

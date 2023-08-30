@@ -1,5 +1,6 @@
 capabilities:
 - about
+- batch
 - catalog
 - discover
 - schema-flattening
@@ -28,25 +29,48 @@ settings:
   kind: string
   label: Accounts
   name: accounts
-- description: LinkedInAds API Version
+- description: Compression format to use for batch files.
+  kind: options
+  label: Batch Config Encoding Compression
+  name: batch_config.encoding.compression
+  options:
+  - label: Gzip
+    value: gzip
+  - label: None
+    value: none
+- description: Format to use for batch files.
+  kind: options
+  label: Batch Config Encoding Format
+  name: batch_config.encoding.format
+  options:
+  - label: Jsonl
+    value: jsonl
+- description: Prefix to use when writing batch files.
   kind: string
-  label: API Version
-  name: api_version
-  value: '202207'
+  label: Batch Config Storage Prefix
+  name: batch_config.storage.prefix
+- description: Root path to use when writing batch files.
+  kind: string
+  label: Batch Config Storage Root
+  name: batch_config.storage.root
 - description: LinkedInAds Campaign ID
   kind: string
   label: Campaign
   name: campaign
-- description: client secret key
-  kind: password
-  label: Client Secret
-  name: client_secret
+- description: LinkedInAds Campaign Group ID. Used for the campaign_group stream
+  kind: string
+  label: Campaign Group
+  name: campaign_group
+- description: LinkedInAds Creative ID. Used for the creative stream
+  kind: string
+  label: Creative
+  name: creative
 - description: The latest record date to sync
   kind: date_iso8601
   label: End Date
   name: end_date
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -58,10 +82,6 @@ settings:
   kind: string
   label: Owner
   name: owner
-- description: Generated token, bearer auth
-  kind: password
-  label: Refresh Token
-  name: refresh_token
 - description: The earliest record date to sync
   kind: date_iso8601
   label: Start Date
@@ -82,6 +102,12 @@ settings:
   value: tap-linkedin-ads <api_user_email@your_company.com>
 settings_group_validation:
 - - access_token
+  - accounts
+  - campaign
+  - campaign_group
+  - creative
+  - owner
+  - start_date
 settings_preamble: ''
 usage: ''
 variant: meltanolabs

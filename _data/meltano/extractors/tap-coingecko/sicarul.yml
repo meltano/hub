@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 domain_url: https://www.coingecko.com/
 keywords:
 - meltano_sdk
@@ -18,29 +18,13 @@ pip_url: git+https://github.com/sicarul/tap-coingecko.git
 quality: silver
 repo: https://github.com/sicarul/tap-coingecko
 settings:
-- description: The name of the token to import the price history of
-  label: Token
-  name: token
 - description: Coingecko's api url
-  label: Api Url
+  kind: string
+  label: API URL
   name: api_url
-- description: First date to obtain token price for
-  label: Start Date
-  name: start_date
-- description: Number of seconds to wait between requests
-  kind: integer
-  label: Wait Time Between Requests
-  name: wait_time_between_requests
-- description: Config object for stream maps capability.
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+  value: https://api.coingecko.com/api/v3
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -48,10 +32,32 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: First date to obtain token price for
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability.
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: The name of the token to import the price history of
+  kind: password
+  label: Token
+  name: token
+  value: ethereum
+- description: Number of seconds to wait between requests
+  kind: integer
+  label: Wait Time Between Requests
+  name: wait_time_between_requests
+  value: 5
 settings_group_validation:
-- - token
-  - api_url
+- - api_url
   - start_date
+  - token
   - wait_time_between_requests
 settings_preamble: ''
 usage: ''

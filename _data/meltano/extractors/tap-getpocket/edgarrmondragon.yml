@@ -1,10 +1,11 @@
 capabilities:
+- about
+- batch
 - catalog
 - discover
-- state
-- about
-- stream-maps
 - schema-flattening
+- state
+- stream-maps
 description: Your own private corner of the web to spend quality time with great articles.
 domain_url: https://getpocket.com/
 keywords:
@@ -19,24 +20,40 @@ pip_url: git+https://github.com/edgarrmondragon/tap-getpocket.git
 quality: silver
 repo: https://github.com/edgarrmondragon/tap-getpocket
 settings:
-- description: Pocket application consumer key
-  documentation: https://getpocket.com/developer/docs/authentication
-  kind: password
-  label: Consumer Key
-  name: consumer_key
-- description: Pocket application access token
+- description: Pocket user access token
   documentation: https://getpocket.com/developer/docs/authentication
   kind: password
   label: Access Token
   name: access_token
-- description: Start date for data extraction
+- description: Compression format to use for batch files.
+  kind: options
+  label: Batch Config Encoding Compression
+  name: batch_config.encoding.compression
+  options:
+  - label: Gzip
+    value: gzip
+  - label: None
+    value: none
+- description: Format to use for batch files.
+  kind: options
+  label: Batch Config Encoding Format
+  name: batch_config.encoding.format
+  options:
+  - label: Jsonl
+    value: jsonl
+- description: Prefix to use when writing batch files.
   kind: string
-  label: Start Date
-  name: start_date
-- description: Extract favorite items
-  kind: boolean
-  label: Favorite
-  name: favorite
+  label: Batch Config Storage Prefix
+  name: batch_config.storage.prefix
+- description: Root path to use when writing batch files.
+  kind: string
+  label: Batch Config Storage Root
+  name: batch_config.storage.root
+- description: Pocket application key
+  documentation: https://getpocket.com/developer/docs/authentication
+  kind: password
+  label: Consumer Key
+  name: consumer_key
 - description: >
     Extract items of a specific content type.
     Leave out to sync all content types.
@@ -50,23 +67,52 @@ settings:
     value: video
   - label: Image
     value: image
-- description: Extract items of a specific state
+- description: Set to `true` to sync only favorite items, `false` to sync only non-favorite
+    items, or omit to sync all items
+  kind: boolean
+  label: Favorite
+  name: favorite
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: The earliest record datetime to sync as a UNIX timestamp
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: Type of item state to sync. By default, all states are synced.
   kind: options
   label: State
   name: state
   options:
-  - label: Unread
-    value: unread
   - label: Archive
     value: archive
+  - label: Unread
+    value: unread
   - label: All
     value: all
-- description: >
-    Extract items of a specific tag. Use `_untagged_` to extract items without tags
+  value: all
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: The tag to sync. By default, all tags are synced. Use `_untagged_`
+    to sync untagged items.
   kind: string
   label: Tag
   name: tag
 settings_group_validation:
-- - consumer_key
-  - access_token
+- - access_token
+  - consumer_key
+  - state
 variant: edgarrmondragon

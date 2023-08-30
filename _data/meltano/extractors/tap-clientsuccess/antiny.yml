@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Customer Success Software
 domain_url: https://www.clientsuccess.com/
 keywords:
@@ -19,28 +19,13 @@ pip_url: git+https://github.com/antiny/tap-clientsuccess.git
 quality: silver
 repo: https://github.com/antiny/tap-clientsuccess
 settings:
-- description: The username to authenticate against the API service
-  kind: string
-  label: Username
-  name: username
-- description: The password to authenticate against the API service
-  kind: password
-  label: Password
-  name: password
 - description: The url for the API service
   kind: string
-  label: Api Url
+  label: API URL
   name: api_url
-- description: Config object for stream maps capability.
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+  value: https://api.clientsuccess.com/v1
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -48,9 +33,25 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: The password to authenticate against the API service
+  kind: password
+  label: Password
+  name: password
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability.
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: The username to authenticate against the API service
+  kind: string
+  label: Username
+  name: username
 settings_group_validation:
-- - username
-  - password
+- - password
+  - username
 settings_preamble: ''
 usage: ''
 variant: antiny

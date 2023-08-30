@@ -1,7 +1,10 @@
 capabilities:
+- about
 - catalog
 - discover
+- schema-flattening
 - state
+- stream-maps
 description: Generic tap for RSS and Atom feeds
 domain_url: https://en.wikipedia.org/wiki/RSS
 keywords:
@@ -16,29 +19,54 @@ pip_url: tap-feed
 quality: silver
 repo: https://github.com/jawats/tap-feed
 settings:
-- description: A list of one or more feed paths.
-  kind: array
-  label: Feed Urls
-  name: feed_urls
-- description: A list of feed level data fields to capture.
-  kind: array
-  label: Feed Fields
-  name: feed_fields
 - description: A list of entry level data fields to capture.
   kind: array
   label: Feed Entry Fields
   name: feed_entry_fields
+  value:
+  - id
+  - title
+  - link
 - description: The field used to determine new records, typically 'published' or 'updated'.
-  kind: string
+  kind: password
   label: Feed Entry Replication Key
   name: feed_entry_replication_key
-- description: The earliest record date to sync.
+  value: published
+- description: A list of feed level data fields to capture.
+  kind: array
+  label: Feed Fields
+  name: feed_fields
+  value:
+  - title
+- description: A list of one or more feed paths.
+  kind: array
+  label: Feed URLs
+  name: feed_urls
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: The earliest record date to sync
   kind: date_iso8601
   label: Start Date
   name: start_date
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - feed_urls
-  - feed_fields
-  - feed_entry_fields
+- - feed_entry_fields
   - feed_entry_replication_key
+  - feed_fields
+  - feed_urls
 variant: jawats

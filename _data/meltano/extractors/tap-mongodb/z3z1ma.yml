@@ -1,11 +1,11 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
-- schema-flattening
 - batch
+- catalog
+- discover
+- schema-flattening
+- state
+- stream-maps
 description: General purpose, document-based, distributed database.
 domain_url: https://www.mongodb.com/
 executable: tap-mongodb
@@ -22,40 +22,59 @@ pip_url: git+https://github.com/z3z1ma/tap-mongodb.git
 quality: gold
 repo: https://github.com/z3z1ma/tap-mongodb
 settings:
+- description: Batch configuration as defined [here](https://sdk.meltano.com/en/latest/batch.html#batch-configuration).
+  kind: object
+  label: Batch Config
+  name: batch_config
+- description: A list of databases to exclude. If this list is empty, no databases
+    will be excluded.
+  kind: array
+  label: Database Excludes
+  name: database_excludes
+- description: A list of databases to include. If this list is empty, all databases
+    will be included.
+  kind: array
+  label: Database Includes
+  name: database_includes
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: The maximum number of documents to sample when inferring the schema.
+    This is only used when infer_schema is true.
+  kind: integer
+  label: Infer Schema Max Docs
+  name: infer_schema_max_docs
+  value: 2000
 - description: These props are passed directly to pymongo MongoClient allowing the
     tap user full flexibility not provided in other Mongo taps since every kwarg can
     be tuned.
   kind: object
   label: Mongo
   name: mongo
-- description: Optionally add a prefix for all streams, useful if ingesting from multiple
-    shards/clusters via independent tap-mongodb configs. This is applied during catalog
-    generation. Regenerate the catalog to apply a new stream prefix.
+- description: Optional file path, useful if reading mongo configuration from a file.
   kind: string
-  label: Stream Prefix
-  name: stream_prefix
+  label: Mongo File Location
+  name: mongo_file_location
+  value: ''
 - description: This setting allows the tap to continue processing if a document is
     missing the replication key. Useful if a very small percentage of documents are
     missing the property.
   kind: boolean
   label: Optional Replication Key
   name: optional_replication_key
-- description: A list of databases to include. If this list is empty, all databases
-    will be included.
-  kind: array
-  label: Database Includes
-  name: database_includes
-- description: A list of databases to exclude. If this list is empty, no databases
-    will be excluded.
-  kind: array
-  label: Database Excludes
-  name: database_excludes
-- description: "The strategy to use for schema resolution. Defaults to 'raw'. The\
-    \ 'raw' strategy uses a relaxed schema using additionalProperties: true to accept\
-    \ the document as-is leaving the target to respect it. Useful for blob or jsonl.\
-    \ The 'envelope' strategy will envelope the document under a key named `document`.\
-    \ The target should use a variant type for this key. The 'infer' strategy will\
-    \ infer the schema from the data based on a configurable number of documents."
+  value: false
+- description: "The strategy to use for schema resolution. Defaults to 'raw'. The
+    'raw' strategy uses a relaxed schema using additionalProperties: true to accept
+    the document as-is leaving the target to respect it. Useful for blob or jsonl.
+    The 'envelope' strategy will envelope the document under a key named `document`.
+    The target should use a variant type for this key. The 'infer' strategy will infer
+    the schema from the data based on a configurable number of documents."
   kind: options
   label: Strategy
   name: strategy
@@ -66,33 +85,23 @@ settings:
     value: envelope
   - label: Infer
     value: infer
-- description: The maximum number of documents to sample when inferring the schema.
-    This is only used when infer_schema is true.
-  kind: integer
-  label: Infer Schema Max Docs
-  name: infer_schema_max_docs
+  value: raw
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: Batch configuration as defined [here](https://sdk.meltano.com/en/latest/batch.html#batch-configuration).
-  kind: object
-  label: Batch Config
-  name: batch_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
-  kind: boolean
-  label: Flattening Enabled
-  name: flattening_enabled
-- description: The max depth to flatten schemas.
-  kind: integer
-  label: Flattening Max Depth
-  name: flattening_max_depth
+- description: Optionally add a prefix for all streams, useful if ingesting from multiple
+    shards/clusters via independent tap-mongodb configs. This is applied during catalog
+    generation. Regenerate the catalog to apply a new stream prefix.
+  kind: string
+  label: Stream Prefix
+  name: stream_prefix
+  value: ''
 settings_group_validation:
 - - mongo
 settings_preamble: ''

@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Apache Webserver Log Files
 domain_url: https://httpd.apache.org/docs/current/logs.html
 keywords:
@@ -19,24 +19,16 @@ pip_url: git+https://github.com/omelark/tap-apachelog.git
 quality: silver
 repo: https://github.com/omelark/tap-apachelog
 settings:
+- description: A path to the JSON file holding an array of file settings.
+  kind: string
+  label: Apachelog Files Definition
+  name: apachelog_files_definition
 - description: An array of Apache log file stream settings.
   kind: array
   label: Files
   name: files
-- description: A path to the JSON file holding an array of file settings.
-  label: Apachelog Files Definition
-  name: apachelog_files_definition
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -44,9 +36,18 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - files
-  - apachelog_files_definition
+- - apachelog_files_definition
+  - files
 settings_preamble: ''
 usage: ''
 variant: omelark

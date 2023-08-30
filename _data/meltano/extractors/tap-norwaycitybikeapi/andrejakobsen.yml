@@ -1,8 +1,9 @@
 capabilities:
-- state
+- about
 - catalog
 - discover
-- about
+- schema-flattening
+- state
 - stream-maps
 description: Oslo, Trondheim and Bergen City Bike APIs provide live bike-sharing data
 domain_url: https://oslobysykkel.no/en/open-data/realtime
@@ -20,14 +21,55 @@ pip_url: tap-norwaycitybikeapi
 quality: gold
 repo: https://github.com/andrejakobsen/tap-norwaycitybikeapi
 settings:
-- description: The value should contain your company/organization name, follwed by
-    a dash and the application's name.
-  label: Client-Identifier Header
-  name: client_identifier
-- description: 'Choose between three Norwegian cities: Trondheim, Oslo and Bergen'
+- description: Name of Norwegian city having City Bikes. Currently only available
+    for Trondheim, Oslo and Bergen.
+  kind: options
   label: City Name
   name: city_name
+  options:
+  - label: Oslo
+    value: oslo
+  - label: Bergen
+    value: bergen
+  - label: Trondheim
+    value: trondheim
+  - label: Oslo
+    value: Oslo
+  - label: Bergen
+    value: Bergen
+  - label: Trondheim
+    value: Trondheim
+  - label: Oslo
+    value: OSLO
+  - label: Bergen
+    value: BERGEN
+  - label: Trondheim
+    value: TRONDHEIM
+  value: oslo
+- description: The value should contain your company/organization name, follwed by
+    a dash and the application's name.
+  kind: password
+  label: Client IDentifier
+  name: client_identifier
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - client_identifier
-  - city_name
+- - city_name
+  - client_identifier
 variant: andrejakobsen

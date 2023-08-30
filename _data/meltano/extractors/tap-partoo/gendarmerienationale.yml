@@ -1,8 +1,8 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
+- catalog
+- discover
+- state
 - stream-maps
 domain_url: https://www.partoo.co/
 keywords:
@@ -19,11 +19,12 @@ repo: https://github.com/GendarmerieNationale/tap-partoo
 settings:
 - description: Partoo API Key
   kind: password
-  label: Api Key
+  label: API Key
   name: api_key
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
     can be expected to take."
+  kind: date_iso8601
   label: Start Date
   name: start_date
 settings_group_validation:

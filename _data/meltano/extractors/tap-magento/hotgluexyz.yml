@@ -24,8 +24,8 @@ settings:
   kind: password
   label: Access Token
   name: access_token
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -58,11 +58,11 @@ settings:
   label: Username
   name: username
 settings_group_validation:
-- - store_url
+- - password
+  - store_url
   - username
-  - password
-- - store_url
-  - access_token
+- - access_token
+  - store_url
 settings_preamble: ''
 usage: ''
 variant: hotgluexyz

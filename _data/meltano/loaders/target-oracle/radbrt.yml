@@ -54,7 +54,7 @@ settings:
   value: false
 - description: SQLAlchemy connection string
   kind: string
-  label: SQLAlchemy URL
+  label: Sqlalchemy URL
   name: sqlalchemy_url
 - description: User-defined config values to be used within map expressions.
   kind: object
@@ -71,11 +71,11 @@ settings:
   name: username
 settings_group_validation:
 - - sqlalchemy_url
-- - user
-  - password
+- - database
   - host
+  - password
   - port
-  - database
+  - user
 settings_preamble: ''
 usage: ''
 variant: radbrt

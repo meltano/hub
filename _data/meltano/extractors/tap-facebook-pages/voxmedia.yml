@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Facebook Pages API
 domain_url: https://developers.facebook.com/docs/pages/
 keywords:
@@ -27,36 +27,8 @@ select:
 - '!all_videos.*'
 - '!recent_post_insights.*'
 settings:
-- description: Long-lived user access token with access to all pages.
-  kind: password
-  label: User Token
-  name: user_token
-- description: "An array of objects containing keys `id` and `access_token`. E.g.\
-    \ [{'id': 'abc', 'access_token': 'def'}]"
-  kind: array
-  label: Pages
-  name: pages
-- description: Start date for fetching historical data.
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
-- description: The lookback period for fetching insights data. Defaults to 12 months,
-    meaning that we fetch insights only for the last 12 months and for posts published
-    within the last 12 months.
-  kind: integer
-  label: Insights Lookback Months
-  name: insights_lookback_months
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -64,6 +36,48 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: The lookback period for fetching insights data. Defaults to 12 months,
+    meaning that we fetch insights only for the last 12 months and for posts published
+    within the last 12 months.
+  kind: integer
+  label: Insights Lookback Months
+  name: insights_lookback_months
+  value: 24
+- description: "An array of objects containing keys `id` and `access_token`. E.g.
+    [{'id': 'abc', 'access_token': 'def'}]"
+  kind: array
+  label: Pages
+  name: pages
+- description: Start date for fetching historical data.
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: Long-lived user access token with access to all pages.
+  kind: password
+  label: User Token
+  name: user_token
+- description: The name of the video created timestamp field
+  kind: password
+  label: Video Created At Field
+  name: video_created_at_field
+- description: The name of the video ID field
+  kind: password
+  label: Video ID Field
+  name: video_id_field
+- description: The table name used to fetch video IDs from in the form of project.
+    Schema. Table_name
+  kind: password
+  label: Videos Table Name
+  name: videos_table_name
 settings_group_validation:
 - - user_token
 settings_preamble: |

@@ -59,8 +59,8 @@ settings:
   kind: array
   label: Custom Fields
   name: custom_fields
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -85,7 +85,7 @@ settings:
   kind: object
   label: Stream Maps
   name: stream_maps
-- description: tap-saasoptics <api_user_email@your_company.com>.
+- description: Tap-saasoptics <api_user_email@your_company. Com>.
   kind: string
   label: User Agent
   name: user_agent

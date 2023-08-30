@@ -1,7 +1,9 @@
 capabilities:
+- about
 - catalog
 - discover
 - state
+- stream-maps
 description: E-commerce User Content Platform
 domain_url: https://developer.bazaarvoice.com/conversations-api/home
 keywords:
@@ -16,22 +18,27 @@ pip_url: git+https://github.com/gthesheep/tap-bazaarvoice.git
 quality: silver
 repo: https://github.com/gthesheep/tap-bazaarvoice
 settings:
-- description: API Token gained from Bazaarvoice
+- description: The api key obtained from Bazaarvoice
   kind: password
   label: API Key
   name: api_key
-- description: Bazaarvoice environment (staging/ production)
-  label: Environment
-  name: environment
-- description: API Version, i.e. "5.4"
+- description: Version of the API to use, i.e. '5.4'
+  kind: string
   label: API Version
   name: api_version
-- description: Page size for pagination, default 10
-  label: Page size
+- description: Environment to run in, must be one of staging/production
+  kind: string
+  label: Environment
+  name: environment
+  value: production
+- description: Page size for pagination
+  kind: integer
+  label: Page Size
   name: page_size
+  value: 10
 settings_group_validation:
 - - api_key
-  - environment
   - api_version
+  - environment
   - page_size
 variant: gthesheep

@@ -29,20 +29,162 @@ settings:
   label: Append Date To Filename Grain
   name: append_date_to_filename_grain
   options:
-  - label: Year
-    value: year
-  - label: Month
-    value: month
-  - label: Day
-    value: day
-  - label: Hour
-    value: hour
-  - label: Minute
-    value: minute
-  - label: Second
-    value: second
-  - label: Microsecond
-    value: microsecond
+  - label: D
+    value: d
+  - label: I
+    value: i
+  - label: C
+    value: c
+  - label: T
+    value: t
+  - label: ' '
+    value: _
+  - label: K
+    value: k
+  - label: E
+    value: e
+  - label: Y
+    value: y
+  - label: S
+    value: s
+  - label: (
+    value: (
+  - label: '['
+    value: '['
+  - label: "'"
+    value: "'"
+  - label: Y
+    value: y
+  - label: E
+    value: e
+  - label: A
+    value: a
+  - label: R
+    value: r
+  - label: "'"
+    value: "'"
+  - label: ','
+    value: ','
+  - label: ' '
+    value: ' '
+  - label: "'"
+    value: "'"
+  - label: M
+    value: m
+  - label: O
+    value: o
+  - label: N
+    value: n
+  - label: T
+    value: t
+  - label: H
+    value: h
+  - label: "'"
+    value: "'"
+  - label: ','
+    value: ','
+  - label: ' '
+    value: ' '
+  - label: "'"
+    value: "'"
+  - label: D
+    value: d
+  - label: A
+    value: a
+  - label: Y
+    value: y
+  - label: "'"
+    value: "'"
+  - label: ','
+    value: ','
+  - label: ' '
+    value: ' '
+  - label: "'"
+    value: "'"
+  - label: H
+    value: h
+  - label: O
+    value: o
+  - label: U
+    value: u
+  - label: R
+    value: r
+  - label: "'"
+    value: "'"
+  - label: ','
+    value: ','
+  - label: ' '
+    value: ' '
+  - label: "'"
+    value: "'"
+  - label: M
+    value: m
+  - label: I
+    value: i
+  - label: N
+    value: n
+  - label: U
+    value: u
+  - label: T
+    value: t
+  - label: E
+    value: e
+  - label: "'"
+    value: "'"
+  - label: ','
+    value: ','
+  - label: ' '
+    value: ' '
+  - label: "'"
+    value: "'"
+  - label: S
+    value: s
+  - label: E
+    value: e
+  - label: C
+    value: c
+  - label: O
+    value: o
+  - label: N
+    value: n
+  - label: D
+    value: d
+  - label: "'"
+    value: "'"
+  - label: ','
+    value: ','
+  - label: ' '
+    value: ' '
+  - label: "'"
+    value: "'"
+  - label: M
+    value: m
+  - label: I
+    value: i
+  - label: C
+    value: c
+  - label: R
+    value: r
+  - label: O
+    value: o
+  - label: S
+    value: s
+  - label: E
+    value: e
+  - label: C
+    value: c
+  - label: O
+    value: o
+  - label: N
+    value: n
+  - label: D
+    value: d
+  - label: "'"
+    value: "'"
+  - label: ']'
+    value: ']'
+  - label: )
+    value: )
   value: day
 - description: A flag to append the date to the key prefix.
   kind: boolean
@@ -54,59 +196,201 @@ settings:
   label: Append Date To Prefix Grain
   name: append_date_to_prefix_grain
   options:
-  - label: Year
-    value: year
-  - label: Month
-    value: month
-  - label: Day
-    value: day
-  - label: Hour
-    value: hour
-  - label: Minute
-    value: minute
-  - label: Second
-    value: second
-  - label: Microsecond
-    value: microsecond
+  - label: D
+    value: d
+  - label: I
+    value: i
+  - label: C
+    value: c
+  - label: T
+    value: t
+  - label: ' '
+    value: _
+  - label: K
+    value: k
+  - label: E
+    value: e
+  - label: Y
+    value: y
+  - label: S
+    value: s
+  - label: (
+    value: (
+  - label: '['
+    value: '['
+  - label: "'"
+    value: "'"
+  - label: Y
+    value: y
+  - label: E
+    value: e
+  - label: A
+    value: a
+  - label: R
+    value: r
+  - label: "'"
+    value: "'"
+  - label: ','
+    value: ','
+  - label: ' '
+    value: ' '
+  - label: "'"
+    value: "'"
+  - label: M
+    value: m
+  - label: O
+    value: o
+  - label: N
+    value: n
+  - label: T
+    value: t
+  - label: H
+    value: h
+  - label: "'"
+    value: "'"
+  - label: ','
+    value: ','
+  - label: ' '
+    value: ' '
+  - label: "'"
+    value: "'"
+  - label: D
+    value: d
+  - label: A
+    value: a
+  - label: Y
+    value: y
+  - label: "'"
+    value: "'"
+  - label: ','
+    value: ','
+  - label: ' '
+    value: ' '
+  - label: "'"
+    value: "'"
+  - label: H
+    value: h
+  - label: O
+    value: o
+  - label: U
+    value: u
+  - label: R
+    value: r
+  - label: "'"
+    value: "'"
+  - label: ','
+    value: ','
+  - label: ' '
+    value: ' '
+  - label: "'"
+    value: "'"
+  - label: M
+    value: m
+  - label: I
+    value: i
+  - label: N
+    value: n
+  - label: U
+    value: u
+  - label: T
+    value: t
+  - label: E
+    value: e
+  - label: "'"
+    value: "'"
+  - label: ','
+    value: ','
+  - label: ' '
+    value: ' '
+  - label: "'"
+    value: "'"
+  - label: S
+    value: s
+  - label: E
+    value: e
+  - label: C
+    value: c
+  - label: O
+    value: o
+  - label: N
+    value: n
+  - label: D
+    value: d
+  - label: "'"
+    value: "'"
+  - label: ','
+    value: ','
+  - label: ' '
+    value: ' '
+  - label: "'"
+    value: "'"
+  - label: M
+    value: m
+  - label: I
+    value: i
+  - label: C
+    value: c
+  - label: R
+    value: r
+  - label: O
+    value: o
+  - label: S
+    value: s
+  - label: E
+    value: e
+  - label: C
+    value: c
+  - label: O
+    value: o
+  - label: N
+    value: n
+  - label: D
+    value: d
+  - label: "'"
+    value: "'"
+  - label: ']'
+    value: ']'
+  - label: )
+    value: )
   value: day
 - description: Your AWS access key ID.
   kind: password
   label: Cloud Provider AWS AWS Access Key ID
   name: cloud_provider.aws.aws_access_key_id
 - description: Your AWS access key ID.
-  kind: string
+  kind: password
   label: Cloud Provider AWS AWS Bucket
   name: cloud_provider.aws.aws_bucket
 - description: The AWS endpoint url to use for testing purposes.
-  kind: string
+  kind: password
   label: Cloud Provider AWS AWS Endpoint Override
   name: cloud_provider.aws.aws_endpoint_override
 - description: Your AWS profile name to optionally use for auth.
-  kind: string
+  kind: password
   label: Cloud Provider AWS AWS Profile Name
   name: cloud_provider.aws.aws_profile_name
 - description: Your AWS region.
-  kind: string
+  kind: password
   label: Cloud Provider AWS AWS Region
   name: cloud_provider.aws.aws_region
 - description: Your AWS secret access key.
   kind: password
   label: Cloud Provider AWS AWS Secret Access Key
   name: cloud_provider.aws.aws_secret_access_key
+- description: ''
+  kind: password
+  label: Cloud Provider AWS AWS Session Token
+  name: cloud_provider.aws.aws_session_token
 - description: The cloud provider type to use.
-  kind: string
+  kind: password
   label: Cloud Provider Cloud Provider Type
   name: cloud_provider.cloud_provider_type
-  options:
-  - label: AWS
-    value: aws
-  value: aws
 - description: A flag indictating to flatten records.
   kind: boolean
   label: Flatten Records
   name: flatten_records
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -114,12 +398,21 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: ''
+  kind: object
+  label: Format Format Csv
+  name: format.format_csv
+- description: ''
+  kind: object
+  label: Format Format Json
+  name: format.format_json
 - description: This flag determines whether the data types of incoming data elements
     should be validated. When set `True`, a schema is created from the first record
     and all subsequent records that don't match that data type are cast. Default False.
   kind: boolean
   label: Format Format Parquet Validate
   name: format.format_parquet.validate
+  value: false
 - description: The format type of the output files.
   kind: options
   label: Format Format Type
@@ -133,6 +426,13 @@ settings:
   kind: boolean
   label: Include Process Date
   name: include_process_date
+  value: false
+- description: A flag (only works if append_date_to_prefix is enabled) to have partitioning
+    name formatted e.g. 'year=2023/month=01/day=01'.
+  kind: boolean
+  label: Partition Name Enabled
+  name: partition_name_enabled
+  value: false
 - description: The prefix for the key.
   kind: string
   label: Prefix

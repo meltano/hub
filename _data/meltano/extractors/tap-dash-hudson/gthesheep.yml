@@ -1,8 +1,9 @@
 capabilities:
+- about
 - catalog
 - discover
+- schema-flattening
 - state
-- about
 - stream-maps
 description: Social Media Marketing Platform
 domain_url: https://developer.dashhudson.com/#section/APIs
@@ -18,19 +19,43 @@ pip_url: git+https://github.com/gthesheep/tap-dash-hudson.git
 quality: silver
 repo: https://github.com/gthesheep/tap-dash-hudson
 settings:
-- description: API key gained from the Dash Hudson UI
+- description: The token to authenticate against the API service
   kind: password
   label: API Key
   name: api_key
-- description: Unique identifier for your Dash Hudson brand
+- description: Brand IDs to query for
+  kind: integer
   label: Brand ID
   name: brand_id
-- description: Start date as of when to collect metrics from
-  label: Start date
+- description: End date to collect metrics for
+  kind: date_iso8601
+  label: End Date
+  name: end_date
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: Start date to collect metrics from
+  kind: date_iso8601
+  label: Start Date
   name: start_date
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
 - - api_key
   - brand_id
-  - start_date
   - end_date
+  - start_date
 variant: gthesheep
