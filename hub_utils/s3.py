@@ -42,7 +42,9 @@ class S3:
         self._client.upload_file(local_file_path, bucket, prefix)
 
     def download_latest(self, bucket, prefix, local_file_path):
-        objs = self._client.list_objects_v2(Bucket=bucket, Prefix=prefix).get("Contents")
+        objs = self._client.list_objects_v2(Bucket=bucket, Prefix=prefix).get(
+            "Contents"
+        )
         if not objs:
             return
         latest = sorted(
