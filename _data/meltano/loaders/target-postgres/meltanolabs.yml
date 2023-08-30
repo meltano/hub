@@ -56,6 +56,7 @@ settings:
   kind: boolean
   label: Hard Delete
   name: hard_delete
+  value: false
 - description: Hostname for postgres instance. Note if sqlalchemy_url is set this
     will be ignored.
   kind: string
@@ -84,6 +85,7 @@ settings:
   kind: boolean
   label: SSH Tunnel Enable
   name: ssh_tunnel.enable
+  value: false
 - description: Host of the bastion host, this is the host we'll connect to via ssh
   kind: string
   label: SSH Tunnel Host
@@ -126,6 +128,7 @@ settings:
   kind: boolean
   label: SSL Client Certificate Enable
   name: ssl_client_certificate_enable
+  value: false
 - description: The private key for the certificate you provided. Can be provided either
     as the certificate itself (in .env) or as a filepath to the certificate. Note
     if sqlalchemy_url is set this will be ignored.
@@ -140,6 +143,7 @@ settings:
   kind: boolean
   label: SSL Enable
   name: ssl_enable
+  value: false
 - description: SSL Protection method, see [postgres 
     documentation](https://www.postgresql.org/docs/current/libpq-ssl.html#LIBPQ-SSL-PROTECTION)
     for more information. Must be one of disable, allow, prefer, require, verify-ca,

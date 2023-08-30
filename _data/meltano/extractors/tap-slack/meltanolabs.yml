@@ -68,6 +68,7 @@ settings:
   kind: boolean
   label: Auto Join Channels
   name: auto_join_channels
+  value: false
 - description: Compression format to use for batch files.
   kind: options
   label: Batch Config Encoding Compression
@@ -121,6 +122,7 @@ settings:
   kind: boolean
   label: Include Admin Streams
   name: include_admin_streams
+  value: false
 - description: A list of channel IDs that should be retrieved. If not defined then
     all are selected.
   kind: array

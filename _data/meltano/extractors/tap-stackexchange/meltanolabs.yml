@@ -89,6 +89,7 @@ settings:
   kind: array
   label: Tags
   name: tags
+  value: []
 settings_group_validation:
 - - site
   - tags
