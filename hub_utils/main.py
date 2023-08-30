@@ -395,12 +395,15 @@ def merge_metadata(
             new_settings_group_validation,
             new_capabilities,
         ) = MeltanoUtil._parse_sdk_about_settings(new_extract_json)
-        util.merge_and_update(
-            existing_def,
-            new_extract_json.get("name"),
-            util.get_plugin_type_from_suffix(suffix),
-            util.get_plugin_variant_from_suffix(suffix),
-            new_settings,
-            new_capabilities,
-            new_settings_group_validation,
-        )
+        try:
+            util.merge_and_update(
+                existing_def,
+                new_extract_json.get("name"),
+                util.get_plugin_type_from_suffix(suffix),
+                util.get_plugin_variant_from_suffix(suffix),
+                new_settings,
+                new_capabilities,
+                new_settings_group_validation,
+            )
+        except Exception as e:
+            print(f"Error merging {suffix}: {e}")
