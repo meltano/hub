@@ -367,7 +367,11 @@ class MeltanoUtil:
                 desc_list_clean.append(word)
                 continue
             elif len(word.split(".")) > 1 and not word.startswith("."):
-                if word.split(".")[0][-1].isnumeric() and word.split(".")[1] and word.split(".")[1][0].isnumeric():
+                if (
+                    word.split(".")[0][-1].isnumeric()
+                    and word.split(".")[1]
+                    and word.split(".")[1][0].isnumeric()
+                ):
                     # its numeric
                     desc_list_clean.append(word)
                     continue

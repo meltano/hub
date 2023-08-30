@@ -64,6 +64,40 @@ class Utilities:
         self.default_variants_path = f"{self.hub_root}/_data/default_variants.yml"
         self.maintainers_path = f"{self.hub_root}/_data/maintainers.yml"
 
+    def get_variant_names(self, plugin_type, metadata_type):
+        from hub_utils.yaml_lint import find_all_yamls
+
+        formatted_output = []
+        for yaml_file in find_all_yamls(f_path=f"{self.hub_root}/_data/meltano/"):
+            data = self._read_yaml(yaml_file)
+            if plugin_type and yaml_file.split("/")[-3] not in plugin_type.split(","):
+                continue
+
+            if metadata_type == "sdk":
+                if "meltano_sdk" not in data.get("keywords", []):
+                    continue
+                suffix = "/".join(yaml_file.split("/")[-3:])
+                formatted_output.append({"plugin-name": suffix})
+
+            if metadata_type == "airbyte":
+                if "airbyte_protocol" not in data.get("keywords", []):
+                    continue
+                suffix = "/".join(yaml_file.split("/")[-3:])
+                image_name = [
+                    setting.get("value")
+                    for setting in data.get("settings")
+                    if setting.get("name") == "airbyte_spec.image"
+                ][0]
+                if not image_name:
+                    continue
+                formatted_output.append(
+                    {
+                        "plugin-name": suffix,
+                        "source-name": image_name.replace("airbyte/", ""),
+                    }
+                )
+        return formatted_output
+
     def _prompt(self, question, default_val=None, type=None):
         if self.auto_accept:
             return default_val

@@ -98,6 +98,7 @@ $ hub-utils download-metadata [OPTIONS] LOCAL_PATH
 **Options**:
 
 * `--variant-path-list TEXT`
+* `--all-sdk / --no-all-sdk`: [default: no-all-sdk]
 * `--help`: Show this message and exit.
 
 ## `hub-utils extract-sdk-metadata-to-s3`

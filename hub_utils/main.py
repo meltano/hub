@@ -249,36 +249,9 @@ def get_variant_names(
     Generate a list of variant names for a given set of filters.
     The list will be formatted as escaped JSON to be used by Github Actions.
     """
-    formatted_output = []
     util = Utilities(True)
-    for yaml_file in find_all_yamls(f_path=f"{hub_root}/_data/meltano/"):
-        data = util._read_yaml(yaml_file)
-        if plugin_type and yaml_file.split("/")[-3] not in plugin_type.split(","):
-            continue
-
-        if metadata_type == "sdk":
-            if "meltano_sdk" not in data.get("keywords", []):
-                continue
-            suffix = "/".join(yaml_file.split("/")[-3:])
-            formatted_output.append({"plugin-name": suffix})
-
-        if metadata_type == "airbyte":
-            if "airbyte_protocol" not in data.get("keywords", []):
-                continue
-            suffix = "/".join(yaml_file.split("/")[-3:])
-            image_name = [
-                setting.get("value")
-                for setting in data.get("settings")
-                if setting.get("name") == "airbyte_spec.image"
-            ][0]
-            if not image_name:
-                continue
-            formatted_output.append(
-                {
-                    "plugin-name": suffix,
-                    "source-name": image_name.replace("airbyte/", ""),
-                }
-            )
+    util.hub_root = hub_root
+    formatted_output = util.get_variant_names(plugin_type, metadata_type)
     print(json.dumps(formatted_output).replace('"', '\\"'))
 
 
@@ -358,6 +331,7 @@ def upload_airbyte(
 def download_metadata(
     local_path: str,
     variant_path_list: str = None,
+    all_sdk: bool = False,
 ):
     """
     NOTE: USED FOR
@@ -368,6 +342,13 @@ def download_metadata(
     s3 = S3()
     if not variant_path_list:
         variant_path_list = ",".join(SDK_SUFFIX_LIST)
+    if all_sdk:
+        variant_path_list = ",".join(
+            [
+                i["plugin-name"].split(".yml")[0]
+                for i in util.get_variant_names(None, "sdk")
+            ]
+        )
     for yaml_file in variant_path_list.split(","):
         suffix = util.get_suffix(yaml_file)
         local_file_path = f"{local_path}/{suffix}.json"
