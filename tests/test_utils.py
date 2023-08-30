@@ -75,6 +75,104 @@ def test_merge_and_update(patch):
     )
 
 
+
+@patch.object(Utilities, "_write_updated_def")
+def test_merge_and_update_manual_sgv(patch):
+    utils = Utilities()
+    variant = utils.merge_and_update(
+        {
+            "keywords": ["keys"],
+            "maintenance_status": "active",
+            "settings": [
+                {
+                    "name": "add_metadata_columns",
+                    "description": "The description",
+                    "label": "Add Metadata Columns",
+                    "kind": "boolean",
+                }
+            ],
+            "settings_group_validation": [
+                [
+                    "key_file_location",
+                    "start_date",
+                    "view_id"
+                ],
+                [
+                    "client_secrets",
+                    "start_date",
+                    "view_id"
+                ],
+                [
+                    "oauth_credentials.access_token",
+                    "oauth_credentials.client_id",
+                    "oauth_credentials.client_secret",
+                    "oauth_credentials.refresh_token",
+                    "start_date",
+                    "view_id"
+                ]
+            ]
+        },
+        "tap-csv",
+        "extractors",
+        "meltanolabs",
+        [
+            {
+                "name": "add_metadata_columns",
+                "description": "The description",
+                "label": "Add Metadata Columns",
+                "kind": "boolean",
+            }
+        ],
+        ["catalog", "discover"],
+        [
+            [
+                "files",
+            ],
+            [
+                "csv_files_definition",
+            ],
+        ],
+    )
+    patch.assert_called_with(
+        "tap-csv",
+        "meltanolabs",
+        "extractors",
+        {
+            "capabilities": ["catalog", "discover"],
+            "keywords": ["keys"],
+            "maintenance_status": "active",
+            "settings": [
+                {
+                    "description": "The description",
+                    "kind": "boolean",
+                    "label": "Add Metadata Columns",
+                    "name": "add_metadata_columns",
+                }
+            ],
+            "settings_group_validation": [
+                [
+                    "key_file_location",
+                    "start_date",
+                    "view_id"
+                ],
+                [
+                    "client_secrets",
+                    "start_date",
+                    "view_id"
+                ],
+                [
+                    "oauth_credentials.access_token",
+                    "oauth_credentials.client_id",
+                    "oauth_credentials.client_secret",
+                    "oauth_credentials.refresh_token",
+                    "start_date",
+                    "view_id"
+                ]
+            ]
+        },
+    )
+
+
 @pytest.mark.parametrize(
     "existing,new,expected",
     [

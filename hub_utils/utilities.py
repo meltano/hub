@@ -536,8 +536,9 @@ class Utilities:
         new_def["capabilities"] = self._merge_capabilities(
             existing_def.get("capabilities"), caps
         )
-        if sgv and sgv[0]:
-            new_def["settings_group_validation"] = sgv
+        if len(str(sgv)) > len(str(existing_def.get("settings_group_validation"))):
+            if sgv and sgv[0]:
+                new_def["settings_group_validation"] = sgv
         return new_def
 
     def _test_exception(
