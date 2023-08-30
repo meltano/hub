@@ -19,11 +19,11 @@ pip_url: git+https://github.com/kgpayne/tap-tradera.git
 quality: silver
 repo: https://github.com/kgpayne/tap-tradera
 settings:
-- description: The Tradera. Com developer app ID
+- description: The Tradera.com developer app ID
   kind: password
   label: App ID
   name: app_id
-- description: The Tradera. Com developer app key
+- description: The Tradera.com developer app key
   kind: password
   label: App Key
   name: app_key
