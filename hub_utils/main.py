@@ -385,6 +385,9 @@ def merge_metadata(
     for yaml_file in variant_path_list.split(","):
         suffix = util.get_suffix(yaml_file)
         local_file_path = f"{local_path}/{suffix}.json"
+        if not os.path.exists(local_file_path):
+            print(f"Skipping {suffix} as it does not exist locally")
+            continue
         new_extract_json = util._read_json(local_file_path)
         existing_def = util._read_yaml(yaml_file)
         (
