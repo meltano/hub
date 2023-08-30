@@ -528,7 +528,8 @@ def test_get_quality(input, expected):
         ["dbt is the best. Dbt is good.", "dbt is the best. dbt is good."],
         ["Path to .duckdb file", "Path to .duckdb file"],
         ["Foo .env file.", "Foo .env file."],
-        ["By (e.g. myFolder/thisTable/) sit, S3. This is replicate.", "By (e.g. myFolder/thisTable/) sit, S3. This is replicate."]
+        ["By (e.g. myFolder/thisTable/) sit, S3. This is replicate.", "By (e.g. myFolder/thisTable/) sit, S3. This is replicate."],
+        [["foo.Test."], ""],
     ]
 )
 def test_clean_description(input, expected):

@@ -415,6 +415,8 @@ class MeltanoUtil:
     def _clean_description(description):
         if not description:
             return description
+        if not isinstance(description, str):
+            return ""
 
         # Add a space after sentence ending periods
         desc_list = description.split()
