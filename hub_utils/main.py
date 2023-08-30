@@ -361,6 +361,7 @@ def merge_metadata(
     hub_root: str,
     local_path: str,
     variant_path_list: str = None,
+    all_sdk: bool = True,
 ):
     """
     NOTE: USED FOR
@@ -374,6 +375,13 @@ def merge_metadata(
         )
     util = Utilities()
     util.hub_root = hub_root
+    if all_sdk:
+        variant_path_list = ",".join(
+            [
+                f"{hub_root}/_data/meltano/{i['plugin-name']}"
+                for i in util.get_variant_names(None, "sdk")
+            ]
+        )
     for yaml_file in variant_path_list.split(","):
         suffix = util.get_suffix(yaml_file)
         local_file_path = f"{local_path}/{suffix}.json"
