@@ -331,7 +331,7 @@ def upload_airbyte(
 def download_metadata(
     local_path: str,
     variant_path_list: str = None,
-    all_sdk: bool = False,
+    all_sdk: bool = True,
 ):
     """
     NOTE: USED FOR
