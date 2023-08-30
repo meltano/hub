@@ -17,7 +17,20 @@ namespace: tap_pinterest_ads
 pip_url: git+https://github.com/gthesheep/tap-pinterest-ads.git
 quality: silver
 repo: https://github.com/gthesheep/tap-pinterest-ads
-settings: []
+settings:
+- description: App ID for your Pinterest App
+  label: Client ID
+  name: client_id
+- description: App secret key
+  label: Client Secret
+  name: client_secret
+- description: Refresh token obtained from the OAuth user flow, described [here](https://developers.pinterest.com/docs/api/v5/#tag/Authentication)
+  kind: password
+  label: Refresh Token
+  name: refresh_token
+- description: Start date to collect ad analytics from
+  label: Start Date
+  name: start_date
 settings_group_validation:
 - - client_id
   - client_secret
