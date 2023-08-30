@@ -49,6 +49,12 @@ settings:
   kind: string
   label: Database
   name: database
+- description: If an array of schema names is provided, the tap will only process
+    the specified Postgres schemas and ignore others. If left blank, the tap automatically
+    determines ALL available Postgres schemas.
+  kind: array
+  label: Filter Schemas
+  name: filter_schemas
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -78,21 +84,22 @@ settings:
   kind: string
   label: Sqlalchemy URL
   name: sqlalchemy_url
-- description: Enable an ssh tunnel (also known as bastion host), see the other ssh_tunnel.*
-    properties for more details
+- description: Enable an ssh tunnel (also known as bastion server), see the other
+    ssh_tunnel.* properties for more details
   kind: boolean
   label: SSH Tunnel Enable
   name: ssh_tunnel.enable
-- description: Host of the bastion host, this is the host we'll connect to via ssh
+  value: false
+- description: Host of the bastion server, this is the host we'll connect to via ssh
   kind: string
   label: SSH Tunnel Host
   name: ssh_tunnel.host
-- description: Port to connect to bastion host
+- description: Port to connect to bastion server
   kind: integer
   label: SSH Tunnel Port
   name: ssh_tunnel.port
   value: 22
-- description: Private Key for authentication to the bastion host
+- description: Private Key for authentication to the bastion server
   kind: password
   label: SSH Tunnel Private Key
   name: ssh_tunnel.private_key
@@ -100,7 +107,7 @@ settings:
   kind: password
   label: SSH Tunnel Private Key Password
   name: ssh_tunnel.private_key_password
-- description: Username to connect to bastion host
+- description: Username to connect to bastion server
   kind: string
   label: SSH Tunnel Username
   name: ssh_tunnel.username
@@ -125,6 +132,7 @@ settings:
   kind: boolean
   label: SSL Client Certificate Enable
   name: ssl_client_certificate_enable
+  value: false
 - description: The private key for the certificate you provided. Can be provided either
     as the certificate itself (in .env) or as a filepath to the certificate. Note
     if sqlalchemy_url is set this will be ignored.
@@ -139,6 +147,7 @@ settings:
   kind: boolean
   label: SSL Enable
   name: ssl_enable
+  value: false
 - description: SSL Protection method, see [postgres 
     documentation](https://www.postgresql.org/docs/current/libpq-ssl.html#LIBPQ-SSL-PROTECTION)
     for more information. Must be one of disable, allow, prefer, require, verify-ca,
