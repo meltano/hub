@@ -19,44 +19,98 @@ pip_url: git+https://github.com/z3z1ma/target-bigquery.git
 quality: gold
 repo: https://github.com/z3z1ma/target-bigquery
 settings:
-- description: The path to a gcp credentials json file.
-  kind: string
-  label: Credentials Path
-  name: credentials_path
-- description: A JSON string of your service account JSON file.
-  kind: string
-  label: Credentials Json
-  name: credentials_json
-- description: The target GCP project to materialize data into.
-  kind: string
-  label: Project
-  name: project
-- description: The target dataset to materialize data into.
-  kind: string
-  label: Dataset
-  name: dataset
-- description: The target dataset/bucket location to materialize data into.
-  kind: string
-  label: Location
-  name: location
 - description: The maximum number of rows to send in a single batch or commit.
   kind: integer
   label: Batch Size
   name: batch_size
-- description: Fail the entire load job if any row fails to insert.
+  value: 500
+- description: The GCS bucket to use for staging data. Only used if method is gcs_stage.
+  kind: string
+  label: Bucket
+  name: bucket
+- description: Determines whether to cluster on the key properties from the tap. Defaults
+    to false. When false, clustering will be based on _sdc_batched_at instead.
   kind: boolean
-  label: Fail Fast
-  name: fail_fast
-- description: Default timeout for batch_job and gcs_stage derived LoadJobs.
-  kind: integer
-  label: Timeout
-  name: timeout
+  label: Cluster On Key Properties
+  name: cluster_on_key_properties
+  value: false
+- description: Add an underscore when a column starts with a digit
+  kind: boolean
+  label: Column Name Transforms Add Underscore When Invalid
+  name: column_name_transforms.add_underscore_when_invalid
+  value: false
+- description: Lowercase column names
+  kind: boolean
+  label: Column Name Transforms Lower
+  name: column_name_transforms.lower
+  value: false
+- description: Quote columns during DDL generation
+  kind: boolean
+  label: Column Name Transforms Quote
+  name: column_name_transforms.quote
+  value: false
+- description: Convert columns to snake case
+  kind: boolean
+  label: Column Name Transforms Snake Case
+  name: column_name_transforms.snake_case
+  value: false
+- description: A JSON string of your service account JSON file.
+  kind: string
+  label: Credentials Json
+  name: credentials_json
+- description: The path to a gcp credentials json file.
+  kind: string
+  label: Credentials Path
+  name: credentials_path
+- description: The target dataset to materialize data into.
+  kind: string
+  label: Dataset
+  name: dataset
+- description: This option is only used if `upsert` is enabled for a stream. The selection
+    criteria for the stream's candidacy is the same as upsert. If the stream is marked
+    for deduping before upsert, we will create a _session scoped temporary table during
+    the merge transaction to dedupe the ingested records. This is useful for streams
+    that are not unique on the key properties during an ingest but are unique in the
+    source system. Data lake ingestion is often a good example of this where the same
+    unique record may exist in the lake at different points in time from different
+    extracts.
+  kind: string
+  label: Dedupe Before Upsert
+  name: dedupe_before_upsert
+  value: false
 - description: Determines whether to denormalize the data before writing to BigQuery.
     A false value will write data using a fixed JSON column based schema, while a
     true value will write data using a dynamic schema derived from the tap.
   kind: boolean
   label: Denormalized
   name: denormalized
+  value: false
+- description: Fail the entire load job if any row fails to insert.
+  kind: boolean
+  label: Fail Fast
+  name: fail_fast
+  value: true
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: Determines whether to generate a view based on the SCHEMA message parsed
+    from the tap. Only valid if denormalized=false meaning you are using the fixed
+    JSON column based schema.
+  kind: boolean
+  label: Generate View
+  name: generate_view
+  value: false
+- description: The target dataset/bucket location to materialize data into.
+  kind: string
+  label: Location
+  name: location
+  value: US
 - description: The method to use for writing to BigQuery.
   kind: options
   label: Method
@@ -70,16 +124,38 @@ settings:
     value: gcs_stage
   - label: Streaming Insert
     value: streaming_insert
-- description: Determines whether to generate a view based on the SCHEMA message parsed
-    from the tap. Only valid if denormalized=false meaning you are using the fixed
-    JSON column based schema.
+  value: storage_write_api
+- description: By default, each sink type has a preconfigured max worker pool limit.
+    This sets an override for maximum number of workers in the pool.
+  kind: integer
+  label: Options Max Workers
+  name: options.max_workers
+- description: By default we use an autoscaling threadpool to write to BigQuery. If
+    set to true, we will use a process pool.
   kind: boolean
-  label: Generate View
-  name: generate_view
-- description: The GCS bucket to use for staging data. Only used if method is gcs_stage.
+  label: Options Process Pool
+  name: options.process_pool
+  value: false
+- description: By default, we use the default stream (Committed mode) in the storage_write_api
+    load method which results in streaming records which are immediately available
+    and is generally fastest. If this is set to true, we will use the application
+    created streams (Committed mode) to transactionally batch data on STATE messages
+    and at end of pipe.
+  kind: boolean
+  label: Options Storage Write Batch Mode
+  name: options.storage_write_batch_mode
+  value: false
+- description: Determines if the target table should be overwritten on load. Defaults
+    to false. A value of true will write to a temporary table and then overwrite the
+    target table inside a transaction (so it is safe). A value of false will write
+    to the target table directly (append). A value of an array of strings will evaluate
+    the strings in order using fnmatch. At the end of the array, the value of the
+    last match will be used. If not matched, the default value is false. This is mutually
+    exclusive with the `upsert` option. If both are set, `upsert` will take precedence.
   kind: string
-  label: Bucket
-  name: bucket
+  label: Overwrite
+  name: overwrite
+  value: false
 - description: The granularity of the partitioning strategy. Defaults to month.
   kind: options
   label: Partition Granularity
@@ -93,45 +169,31 @@ settings:
     value: day
   - label: Hour
     value: hour
-- description: Determines whether to cluster on the key properties from the tap. Defaults
-    to false. When false, clustering will be based on _sdc_batched_at instead.
-  kind: boolean
-  label: Cluster On Key Properties
-  name: cluster_on_key_properties
-- description: Lowercase column names
-  kind: boolean
-  label: Column Name Transforms Lower
-  name: column_name_transforms.lower
-- description: Quote columns during DDL generation
-  kind: boolean
-  label: Column Name Transforms Quote
-  name: column_name_transforms.quote
-- description: Add an underscore when a column starts with a digit
-  kind: boolean
-  label: Column Name Transforms Add Underscore When Invalid
-  name: column_name_transforms.add_underscore_when_invalid
-- description: Convert columns to snake case
-  kind: boolean
-  label: Column Name Transforms Snake Case
-  name: column_name_transforms.snake_case
-- description: By default, we use the default stream (Committed mode) in the storage_write_api
-    load method which results in streaming records which are immediately available
-    and is generally fastest. If this is set to true, we will use the application
-    created streams (Committed mode) to transactionally batch data on STATE messages
-    and at end of pipe.
-  kind: boolean
-  label: Options Storage Write Batch Mode
-  name: options.storage_write_batch_mode
-- description: By default we use an autoscaling threadpool to write to BigQuery. If
-    set to true, we will use a process pool.
-  kind: boolean
-  label: Options Process Pool
-  name: options.process_pool
-- description: By default, each sink type has a preconfigured max worker pool limit.
-    This sets an override for maximum number of workers in the pool.
+  value: month
+- description: The target GCP project to materialize data into.
+  kind: string
+  label: Project
+  name: project
+- description: The version of the schema resolver to use. Defaults to 1. Version 2
+    uses JSON as a fallback during denormalization. This only has an effect if denormalized=true
   kind: integer
-  label: Options Max Workers
-  name: options.max_workers
+  label: Schema Resolver Version
+  name: schema_resolver_version
+  value: 1
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: Default timeout for batch_job and gcs_stage derived LoadJobs.
+  kind: integer
+  label: Timeout
+  name: timeout
+  value: 600
 - description: Determines if we should upsert. Defaults to false. A value of true
     will write to a temporary table and then merge into the target table (upsert).
     This requires the target table to be unique on the key properties. A value of
@@ -142,45 +204,7 @@ settings:
   kind: string
   label: Upsert
   name: upsert
-- description: Determines if the target table should be overwritten on load. Defaults
-    to false. A value of true will write to a temporary table and then overwrite the
-    target table inside a transaction (so it is safe). A value of false will write
-    to the target table directly (append). A value of an array of strings will evaluate
-    the strings in order using fnmatch. At the end of the array, the value of the
-    last match will be used. If not matched, the default value is false. This is mutually
-    exclusive with the `upsert` option. If both are set, `upsert` will take precedence.
-  kind: string
-  label: Overwrite
-  name: overwrite
-- description: This option is only used if `upsert` is enabled for a stream. The selection
-    criteria for the stream's candidacy is the same as upsert. If the stream is marked
-    for deduping before upsert, we will create a _session scoped temporary table during
-    the merge transaction to dedupe the ingested records. This is useful for streams
-    that are not unique on the key properties during an ingest but are unique in the
-    source system. Data lake ingestion is often a good example of this where the same
-    unique record may exist in the lake at different points in time from different
-    extracts.
-  kind: string
-  label: Dedupe Before Upsert
-  name: dedupe_before_upsert
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
-  kind: boolean
-  label: Flattening Enabled
-  name: flattening_enabled
-- description: The max depth to flatten schemas.
-  kind: integer
-  label: Flattening Max Depth
-  name: flattening_max_depth
+  value: false
 settings_group_validation:
 - - dataset
   - method

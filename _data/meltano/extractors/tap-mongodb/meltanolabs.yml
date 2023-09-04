@@ -1,8 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
+- batch
+- catalog
+- discover
+- schema-flattening
+- state
 - stream-maps
 description: General purpose, document-based, distributed database.
 domain_url: https://www.mongodb.com/
@@ -20,57 +22,6 @@ pip_url: git+https://github.com/MeltanoLabs/tap-mongodb.git
 quality: silver
 repo: https://github.com/MeltanoLabs/tap-mongodb
 settings:
-- description: Database name from which records will be extracted.
-  kind: string
-  label: Database
-  name: database
-- description: |
-    MongoDB connection string. See
-    https://www.mongodb.com/docs/manual/reference/connection-string/#connection-string-uri-format for specification.
-    The password included in this string should be url-encoded. The tap will not url-encode it.
-  kind: password
-  label: MongoDB Connection String
-  name: mongodb_connection_string
-- description: |
-    String (serialized JSON object) with keys 'username', 'password', 'engine', 'host', 'port',
-    'dbClusterIdentifier' or 'dbName', 'ssl'. See example at
-    https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_secret_json_structure.html#reference_secret_json_structure_docdb.
-    The password from this JSON object will be url-encoded by the tap before opening the database connection.
-    (This config setting exists to support use of AWS SecretsManager to manage a MongoDB/DocumentDB credenial).
-  kind: password
-  label: DocumentDB Credential JSON String
-  name: documentdb_credential_json_string
-- description: |
-    String (serialized JSON object) containing string-string key-value pairs which will be added to the
-    connection string options when using documentdb_credential_json_string. For example, when set to
-    the string `{\"tls\":\"true\",\"tlsCAFile\":\"my-ca-bundle.pem\"}`, the options
-    `tls=true&tlsCAFile=my-ca-bundle.pem` will be passed to the MongoClient.
-  kind: string
-  label: DocumentDB Credential JSON Extra Options
-  name: documentdb_credential_json_extra_options
-- description: |
-    Parameter passed to MongoClient 'datetime_conversion' parameter. See documentation at
-    https://pymongo.readthedocs.io/en/stable/examples/datetimes.html#handling-out-of-range-datetimes
-    for details. The default value is `'datetime'`, which will throw a `bson.errors.InvalidBSON` error
-    if a document contains a date outside the range of `datetime.MINYEAR` (year 1) to `datetime.MAXYEAR` (9999).
-  kind: string
-  label: Datetime Conversion
-  name: datetime_conversion
-  value: datetime
-- description: |
-    An optional prefix which will be added to each stream name.
-  kind: string
-  label: Prefix
-  name: prefix
-  value: ''
-- description: |
-    Start date - used for incremental replication only. Log based replication does not support this setting - do
-    not provide it unless you are using incremental replication. Defaults to epoch zero time `1970-01-01` if
-    tap uses incremental replication method.
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
-  value: '1970-01-01'
 - description: |
     When True, _sdc metadata fields will be added to records produced by this tap. If the tap is run in log-based
     replication mode, if this setting is enabled, the `_sdc_extracted_at` and `_sdc_deleted_at` timestamps on records
@@ -78,6 +29,7 @@ settings:
   kind: boolean
   label: Add Record Metadata
   name: add_record_metadata
+  value: false
 - description: |
     In AWS DocumentDB (unlike MongoDB), change streams must be enabled specifically (see
     https://docs.aws.amazon.com/documentdb/latest/developerguide/change_streams.html#change_streams-enabling
@@ -90,6 +42,88 @@ settings:
   kind: boolean
   label: Allow Modify Change Streams
   name: allow_modify_change_streams
+  value: false
+- description: Compression format to use for batch files.
+  kind: options
+  label: Batch Config Encoding Compression
+  name: batch_config.encoding.compression
+  options:
+  - label: Gzip
+    value: gzip
+  - label: None
+    value: none
+- description: Format to use for batch files.
+  kind: options
+  label: Batch Config Encoding Format
+  name: batch_config.encoding.format
+  options:
+  - label: Jsonl
+    value: jsonl
+- description: Prefix to use when writing batch files.
+  kind: string
+  label: Batch Config Storage Prefix
+  name: batch_config.storage.prefix
+- description: Root path to use when writing batch files.
+  kind: string
+  label: Batch Config Storage Root
+  name: batch_config.storage.root
+- description: Database name from which records will be extracted.
+  kind: string
+  label: Database
+  name: database
+- description: "Parameter passed to MongoClient 'datetime_conversion' parameter. See
+    documentation at https://pymongo.readthedocs.io/en/stable/examples/datetimes.html#handling-out-of-range-datetimes
+    for details. The default value is 'datetime', which will throw a bson. Errors.
+    InvalidBson error if a document contains a date outside the range of datetime.
+    MINYEAR (year 1) to datetime. MAXYEAR (9999). The allowed values correspond to
+    the enumeration members here: https://github.com/mongodb/mongo-python-driver/blob/e23eb7691e6e2905a77fc39a114d000ddf057e47/bson/codec_options.py#L192-L224
+    (they will be uppercased by the tap)."
+  kind: options
+  label: Datetime Conversion
+  name: datetime_conversion
+  options:
+  - label: Datetime Ms
+    value: datetime_ms
+  - label: Datetime
+    value: datetime
+  - label: Datetime Auto
+    value: datetime_auto
+  - label: Datetime Clamp
+    value: datetime_clamp
+  value: datetime
+- description: |
+    String (serialized JSON object) containing string-string key-value pairs which will be added to the
+    connection string options when using documentdb_credential_json_string. For example, when set to
+    the string `{\"tls\":\"true\",\"tlsCAFile\":\"my-ca-bundle.pem\"}`, the options
+    `tls=true&tlsCAFile=my-ca-bundle.pem` will be passed to the MongoClient.
+  kind: string
+  label: Documentdb Credential Json Extra Options
+  name: documentdb_credential_json_extra_options
+- description: |
+    String (serialized JSON object) with keys 'username', 'password', 'engine', 'host', 'port',
+    'dbClusterIdentifier' or 'dbName', 'ssl'. See example at
+    https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_secret_json_structure.html#reference_secret_json_structure_docdb.
+    The password from this JSON object will be url-encoded by the tap before opening the database connection.
+    (This config setting exists to support use of AWS SecretsManager to manage a MongoDB/DocumentDB credenial).
+  kind: string
+  label: Documentdb Credential Json String
+  name: documentdb_credential_json_string
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: |
+    MongoDB connection string. See
+    https://www.mongodb.com/docs/manual/reference/connection-string/#connection-string-uri-format for specification.
+    The password included in this string should be url-encoded. The tap will not url-encode it.
+  kind: string
+  label: Mongodb Connection String
+  name: mongodb_connection_string
 - description: |
     List of MongoDB change stream operation types to include in tap output. The default behavior is to
     limit to document-level operation types. See full list of operation types at
@@ -104,14 +138,37 @@ settings:
   - insert
   - replace
   - update
+- description: |
+    An optional prefix which will be added to each stream name.
+  kind: string
+  label: Prefix
+  name: prefix
+  value: ''
+- description: Start date. This is used for incremental replication only. Log based
+    replication does not support this setting - do not provide it unless using the
+    incremental replication method. Defaults to epoch zero time 1970-01-01 if tap
+    uses incremental replication method.
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: Stream map config. See https://sdk.meltano.com/en/latest/stream_maps.html
+    for documentation.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Stream maps. See https://sdk.meltano.com/en/latest/stream_maps.html
+    for documentation.
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - mongodb_connection_string
-  - database
-- - documentdb_credential_json_string
-  - database
-- - documentdb_credential_json_string
+- - database
+  - mongodb_connection_string
+- - database
+  - documentdb_credential_json_string
+- - database
   - documentdb_credential_json_extra_options
-  - database
+  - documentdb_credential_json_string
 settings_preamble: |
   This tap supports incremental replication and log-based replication - log-based replication leverages the
   MongoDB/DocumentDB Change Streams API. You will need to indicate the replication strategy in your meltano.yml file.

@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Visual collaboration platform
 domain_url: https://miro.com/
 keywords:
@@ -19,37 +19,16 @@ pip_url: git+https://github.com/Slalom-Consulting/tap-miro.git
 quality: silver
 repo: https://github.com/Slalom-Consulting/tap-miro
 settings:
-- description: Access token.
+- description: Access token for API.
   kind: password
   label: Access Token
   name: access_token
-- description: The ID of an Organization.
-  kind: password
-  label: Organization Id
-  name: organization_id
-- description: 'The response limit for paginated API streams. (Range: 0-100)'
-  kind: integer
-  label: Limit
-  name: limit
-- description: The User agent to present to the API.
-  kind: string
-  label: User Agent
-  name: user_agent
 - description: Override the url for the API service.
   kind: string
-  label: Api Url
+  label: API URL
   name: api_url
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -57,9 +36,35 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: 'The response limit for paginated API streams. (range: 0-100)'
+  kind: integer
+  label: Limit
+  name: limit
+  value: 100
+- description: The ID of an Organization.
+  kind: password
+  label: Organization ID
+  name: organization_id
+- description: ''
+  kind: array
+  label: Stream Config
+  name: stream_config
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: The User agent to present to the API.
+  kind: string
+  label: User Agent
+  name: user_agent
 settings_group_validation:
-- - organization_id
-  - access_token
+- - access_token
+  - organization_id
 settings_preamble: ''
 usage: ''
 variant: slalom-consulting

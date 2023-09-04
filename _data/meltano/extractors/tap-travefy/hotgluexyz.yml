@@ -25,8 +25,8 @@ settings:
   label: API URL
   name: api_url
   value: https://api.travefy.com
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

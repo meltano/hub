@@ -1,8 +1,8 @@
 capabilities:
+- about
 - catalog
 - discover
 - state
-- about
 - stream-maps
 description: Fantasy Football app, whose api also serves the latest player news, statuses,
   practice updates, and aggregate stats about which players are trending on their
@@ -20,17 +20,24 @@ pip_url: tap-sleeper
 quality: silver
 repo: https://github.com/collinprather/tap-sleeper
 settings:
-- description: Professional sport league, ie nfl, nba, etc
-  label: Sport
-  name: sport
 - description: Unique identifier for the sleeper league
+  kind: password
   label: League ID
   name: league_id
-- description: Total hours to lookback when requesting the current trending players
-  label: Trending Player Lookback Hours
-  name: trending_players_lookback_hours
+- description: Professional sport league, ie nfl, nba, etc
+  kind: string
+  label: Sport
+  name: sport
+  value: nfl
 - description: Total number of players to return when requesting the current trending
     players
+  kind: integer
   label: Trending Players Limit
   name: trending_players_limit
+- description: Total hours to lookback when requesting the current trending players
+  kind: integer
+  label: Trending Players Lookback Hours
+  name: trending_players_lookback_hours
+settings_group_validation:
+- - sport
 variant: collinprather

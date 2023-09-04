@@ -1,8 +1,8 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
+- catalog
+- discover
+- state
 - stream-maps
 description: Social Networking Website
 domain_url: https://developer.twitter.com/en
@@ -19,23 +19,23 @@ pip_url: git+https://github.com/voxmedia/tap-twitter.git
 quality: silver
 repo: https://github.com/voxmedia/tap-twitter
 settings:
-- description: 'The bearer token to authenticate against the Twitter API using the
-    OAuth 2.0 flow outlined here - https://developer.twitter.com/en/docs/authentication/oauth-2-0/application-only '
+- description: The bearer token to authenticate against the Twitter API using the
+    OAuth 2.0 flow outlined here - https://developer.twitter.com/en/docs/authentication/oauth-2-0/application-only
   kind: password
   label: Bearer Token
   name: bearer_token
-- description: List of user IDs of Twitter accounts for which to fetch data
-  kind: array
-  label: User Ids
-  name: user_ids
-- description: List of URL patterns for which to fetch tweets
-  kind: array
-  label: Url Patterns
-  name: url_patterns
 - description: The earliest record date to sync
   kind: date_iso8601
   label: Start Date
   name: start_date
+- description: List of URL patterns for which to fetch tweets
+  kind: array
+  label: URL Patterns
+  name: url_patterns
+- description: List of user IDs of Twitter accounts for which to fetch data
+  kind: array
+  label: User IDs
+  name: user_ids
 settings_group_validation:
 - - bearer_token
   - user_ids

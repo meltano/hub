@@ -1,7 +1,9 @@
 capabilities:
+- about
 - catalog
 - discover
 - state
+- stream-maps
 description: Web Hosting Platform
 domain_url: https://open-api.netlify.com/
 keywords:
@@ -16,14 +18,17 @@ pip_url: git+https://github.com/franloza/tap-netlify.git
 quality: silver
 repo: https://github.com/franloza/tap-netlify
 settings:
-- description: API access token. See how to obtain it from Netlify UI [here](https://docs.netlify.com/cli/get-started/#obtain-a-token-in-the-netlify-ui)
+- description: API access token. See how to obtain it from Netlify UI 
+    [here](https://docs.netlify.com/cli/get-started/#obtain-a-token-in-the-netlify-ui)
   kind: password
   label: Auth Token
   name: auth_token
 - description: The name of your app and a contact email address should the API provider
     need to contact you for any reason.
+  kind: string
   label: User Agent
   name: user_agent
+  value: Tap-Netlify
 settings_group_validation:
 - - auth_token
   - workspace

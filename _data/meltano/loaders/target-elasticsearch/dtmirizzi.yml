@@ -1,7 +1,7 @@
 capabilities:
 - about
-- stream-maps
 - schema-flattening
+- stream-maps
 description: Free and Open, Distributed, RESTful Search Engine
 domain_url: https://github.com/elastic/elasticsearch
 executable: target-elasticsearch
@@ -17,45 +17,32 @@ pip_url: target-elasticsearch
 quality: silver
 repo: https://github.com/dtmirizzi/target-elasticsearch
 settings:
-- description: http scheme used for connecting to elasticsearch
-  kind: string
-  label: Scheme
-  name: scheme
-  value: http
-- description: host used to connect to elasticsearch
+- description: Api key for auth key authorization
+  kind: password
+  label: API Key
+  name: api_key
+- description: Api key id for auth key authorization
+  kind: password
+  label: API Key ID
+  name: api_key_id
+- description: Bearer token for bearer authorization
+  kind: password
+  label: Bearer Token
+  name: bearer_token
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: Host used to connect to elasticsearch
   kind: string
   label: Host
   name: host
   value: localhost
-- description: port used to connect to elasticsearch
-  kind: integer
-  label: Port
-  name: port
-  value: 9200
-- description: basic auth username
-  kind: string
-  label: Username
-  name: username
-- description: basic auth password
-  kind: password
-  label: Password
-  name: password
-- description: bearer token for bearer authorization
-  kind: password
-  label: Bearer Token
-  name: bearer_token
-- description: api key id for auth key authorization
-  kind: password
-  label: API Key Id
-  name: api_key_id
-- description: api key for auth key authorization
-  kind: password
-  label: API Key
-  name: api_key
-- description: location of the the SSL certificate for cert verification ie. `/some/path`
-  kind: string
-  label: SSL CA File
-  name: ssl_ca_file
 - description: |
     Index Format is used to handle custom index formatting such as specifying `-latest` index.
 
@@ -75,7 +62,7 @@ settings:
   kind: string
   label: Index Format
   name: index_format
-  value: ecs-{{ stream_name }}-{{ current_timestamp_daily }}
+  value: ecs-{{ stream_name }}-{{ current_timestamp_daily}}
 - description: |
     Index Schema Fields allows you to specify specific record values via jsonpath
     from the stream to be used in index formulation.
@@ -98,24 +85,37 @@ settings:
   kind: object
   label: Metadata Fields
   name: metadata_fields
+- description: Basic auth password
+  kind: password
+  label: Password
+  name: password
+- description: Port use to connect to elasticsearch
+  kind: integer
+  label: Port
+  name: port
+  value: 9200
+- description: Http scheme used for connecting to elasticsearch
+  kind: string
+  label: Scheme
+  name: scheme
+  value: http
+- description: Location of the the SSL certificate for cert verification ie. `/some/path`
+  kind: string
+  label: SSL Ca File
+  name: ssl_ca_file
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties. Elastic also naturally does this so this setting is less important."
-  kind: boolean
-  label: Flattening Enabled
-  name: flattening_enabled
-- description: The max depth to flatten schemas.
-  kind: integer
-  label: Flattening Max Depth
-  name: flattening_max_depth
+- description: Basic auth username
+  kind: string
+  label: Username
+  name: username
 settings_group_validation:
 - - host
   - port

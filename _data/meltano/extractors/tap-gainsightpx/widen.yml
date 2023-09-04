@@ -1,12 +1,13 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: User tracking in web apps
-domain_url: https://support.gainsight.com/PX/API_for_Developers/02Usage_of_Different_APIs/Work_with_the_Gainsight_PX_REST_API
+domain_url: 
+  https://support.gainsight.com/PX/API_for_Developers/02Usage_of_Different_APIs/Work_with_the_Gainsight_PX_REST_API
 keywords:
 - api
 - gainsight
@@ -21,45 +22,55 @@ pip_url: git+https://github.com/Widen/tap-gainsightpx.git
 quality: silver
 repo: https://github.com/Widen/tap-gainsightpx
 settings:
-- description: The base url for GainsightPX service. See GainsightPX docs.
-  documentation: https://support.gainsight.com/PX/API_for_Developers/02Usage_of_Different_APIs/Work_with_the_Gainsight_PX_REST_API
-  label: API URI
-  name: api_url
-- description: The api key to authenticate against the GainsightPX service.
-  documentation: https://support.gainsight.com/PX/API_for_Developers/02Usage_of_Different_APIs/Work_with_the_Gainsight_PX_REST_API
+- description: The api key to authenticate against the GainsightPX service
+  documentation: 
+    https://support.gainsight.com/PX/API_for_Developers/02Usage_of_Different_APIs/Work_with_the_Gainsight_PX_REST_API
   kind: password
   label: API Key
   name: api_key
-- description: The number of records to return from the API in single page.Default
-    and max varies based on the endpoint
-  label: Page Size
-  name: page_size
-- description: The earliest record date to sync (inclusive '>='). ISO Format.
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
+- description: The base url for GainsightPX service. See GainsightPX docs.
+  documentation: 
+    https://support.gainsight.com/PX/API_for_Developers/02Usage_of_Different_APIs/Work_with_the_Gainsight_PX_REST_API
+  kind: string
+  label: API URL
+  name: api_url
+  value: https://api.aptrinsic.com/v1
 - description: The latest record date to sync (inclusive '<='). ISO format.
   kind: date_iso8601
   label: End Date
   name: end_date
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
 - description: The max depth to flatten schemas.
+  kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: The number of records to return from the API in single page. Default
+    and max varies based on the endpoint.
+  kind: integer
+  label: Page Size
+  name: page_size
+  value: 500
+- description: The earliest record date to sync (inclusive '>='). ISO Format
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - api_url
-  - api_key
+- - api_key
+  - api_url
+  - end_date
   - page_size
   - start_date
-  - end_date
 variant: widen

@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Free Podcast hosting and Monetizing Platform
 domain_url: https://www.podbean.com/
 keywords:
@@ -19,45 +19,25 @@ pip_url: git+https://github.com/Slalom-Consulting/tap-podbean.git
 quality: silver
 repo: https://github.com/Slalom-Consulting/tap-podbean
 settings:
+- description: Override the API service base URL.
+  kind: string
+  label: API URL
+  name: api_url
+- description: 'Expiraton in seconds for auth. (range: 60-604800)'
+  kind: integer
+  label: Auth Expiration
+  name: auth_expiration
+  value: 300
 - description: The client identifier to authenticate against the API service.
   kind: password
-  label: Client Id
+  label: Client ID
   name: client_id
 - description: The client secret to authenticate against the API service.
   kind: password
   label: Client Secret
   name: client_secret
-- description: The earliest datetime (UTC) to sync records.
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
-- description: 'Expiraton in seconds for auth. (Range: 60-604800)'
-  kind: integer
-  label: Auth Expiration
-  name: auth_expiration
-- description: 'The number of records to return per page. (Range: 0-100)'
-  kind: integer
-  label: Limit
-  name: limit
-- description: User agent to present to the API.
-  kind: string
-  label: User Agent
-  name: user_agent
-- description: Override the API service base URL.
-  kind: string
-  label: Api Url
-  name: api_url
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -65,10 +45,32 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: 'The number of records to return per page. (range: 0-100)'
+  kind: integer
+  label: Limit
+  name: limit
+  value: 100
+- description: The earliest datetime (UTC) to sync records.
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User agent to present to the API.
+  kind: string
+  label: User Agent
+  name: user_agent
 settings_group_validation:
-- - start_date
-  - client_id
+- - client_id
   - client_secret
+  - start_date
 settings_preamble: ''
 usage: ''
 variant: slalom-consulting

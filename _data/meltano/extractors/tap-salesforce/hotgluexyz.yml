@@ -5,37 +5,29 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
-description: Small Business CRM & Automation
-domain_url: https://keap.com/
-executable: tap-keap
+description: Cloud-based commerce solution
+domain_url: https://www.salesforce.com/products/commerce-cloud/overview/
+executable: tap-salesforce-commerce
 keywords:
 - meltano_sdk
-label: Keap
-logo_url: /assets/logos/extractors/keap.svg
+label: Salesforce Commerce
+logo_url: /assets/logos/extractors/salesforce-commerce.png
 maintenance_status: active
-name: tap-keap
-namespace: tap_keap
+name: tap-salesforce-commerce
+namespace: tap_salesforce_commerce
 next_steps: ''
-pip_url: git+https://gitlab.com/hotglue/tap-keap.git
+pip_url: git+https://gitlab.com/hotglue/tap-salesforce-commerce.git
 quality: gold
-repo: https://gitlab.com/hotglue/tap-keap
+repo: https://gitlab.com/hotglue/tap-salesforce-commerce
 settings:
-- description: Your Keap access token.
-  kind: password
-  label: Access Token
-  name: access_token
-- description: Your Keap Client ID.
+- description: Your Salesforce Client ID.
   kind: password
   label: Client ID
   name: client_id
-- description: Your Keap Client Secret.
+- description: Your Salesforce Client Secret.
   kind: password
   label: Client Secret
   name: client_secret
-- description: The integer of how long until your Keap token expires.
-  kind: integer
-  label: Expires In
-  name: expires_in
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -45,9 +37,13 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: Determines how much historical data will be extracted. Please be aware
-    that the larger the time period and amount of data, the longer the initial extraction
-    can be expected to take.
+- description: Your Salesforce Site ID.
+  kind: password
+  label: Site ID
+  name: site_id
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
+    can be expected to take."
   kind: date_iso8601
   label: Start Date
   name: start_date
@@ -62,6 +58,7 @@ settings:
 settings_group_validation:
 - - client_id
   - client_secret
+  - site_id
 settings_preamble: ''
 usage: ''
 variant: hotgluexyz

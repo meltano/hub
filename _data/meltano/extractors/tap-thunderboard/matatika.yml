@@ -1,9 +1,13 @@
 capabilities:
+- about
 - catalog
 - discover
+- state
+- stream-maps
 description: Silicon Labs Thunderboard tap that collect environmental data - temperature,
   uv, ambient light - from a physical device.
-domain_url: https://www.silabs.com/community/projects.entry.html/2017/03/08/thunderboard_sensew-Scqr
+domain_url: 
+  https://www.silabs.com/community/projects.entry.html/2017/03/08/thunderboard_sensew-Scqr
 keywords:
 - file
 - meltano_sdk
@@ -16,25 +20,30 @@ pip_url: git+https://github.com/Matatika/tap-thunderboard
 quality: gold
 repo: https://github.com/Matatika/tap-thunderboard
 settings:
-- description: "'dump' mode scans for devices and dumps measurements continuously\n\
-    \n'file' mode processes the `filename` in the `dataDirectory`"
-  label: Mode
-  name: mode
-- description: The local directory where thunderboard data can be found (Required
-    for 'file' `mode`)
-  label: Data Directory
+- description: The local directory where thunderboard data can be found
+  kind: string
+  label: Datadirectory
   name: dataDirectory
-- description: The name of the file in the `dataDirectory` to be processed (Required
-    for 'file' `mode`)
+- description: An optional device id to limit output from discovered thunderboards
+  kind: password
+  label: Deviceid
+  name: deviceId
+- description: The name of the file in the data directory to be processed
+  kind: string
   label: Filename
   name: filename
-- description: Remove file contents after processing (Optional. Default - true)
+- description: "'dump' mode scans for devices and dumps measurements continuously\n\
+    \n'file' mode processes the `filename` in the `dataDirectory`"
+  kind: string
+  label: Mode
+  name: mode
+- description: 'Optionally cleanup the file contents after processing (Default: True)'
   kind: boolean
   label: Truncate
   name: truncate
   value: true
-- description: Limit output from discovered thunderboards to a specific `deviceId`
-    (Optional)
-  label: Device ID
-  name: deviceId
+settings_group_validation:
+- - dataDirectory
+  - filename
+  - mode
 variant: matatika

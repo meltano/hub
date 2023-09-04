@@ -1,10 +1,10 @@
 capabilities:
 - about
-- state
 - catalog
 - discover
-- stream-maps
 - schema-flattening
+- state
+- stream-maps
 description: Zammad is a web-based, open source user support/ticketing solution.
 domain_url: https://zammad.org/
 keywords:
@@ -22,29 +22,16 @@ pip_url: tap-zammad
 quality: silver
 repo: https://github.com/Lawiss/tap-zammad
 settings:
-- description: The earliest record date to sync
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
 - description: The base url of the Zammad API
   kind: string
-  label: Api Base Url
+  label: API Base URL
   name: api_base_url
 - description: The token to authenticate against the Zammad API
   kind: password
   label: Auth Token
   name: auth_token
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -52,7 +39,20 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: The earliest record date to sync
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - auth_token
-  - api_base_url
+- - api_base_url
+  - auth_token
 variant: lawiss

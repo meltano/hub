@@ -1,4 +1,5 @@
 capabilities:
+- about
 - discover
 description: Tap for the Stack Overflow XML dump files available at Archive.org.  Intended
   as a loader plugin testing aid.
@@ -14,20 +15,43 @@ pip_url: git+https://github.com/BuzzCutNorman/tap-stackoverflow-sampledata.git
 quality: silver
 repo: https://github.com/BuzzCutNorman/tap-stackoverflow-sampledata
 settings:
-- description: A path to the StackOverflow XML data files.
-  label: Data Directory
-  name: stackoverflow_data_directory
-- description: Batch file format. Currently the only format is 'jsonl'.
-  label: Encoding Format
-  name: batch_config.encoding.format
-- description: Batch file compression. Currently the only compression options is 'gzip'.
-  label: Encoding Compression
+- description: Currently the only compression options is gzip
+  kind: string
+  label: Batch Config Encoding Compression
   name: batch_config.encoding.compression
-- description: The directory you want batch messages to be placed in. For example,
-    `file://test/batches`.
-  label: Storage Root Directory
-  name: batch_config.storage.root
-- description: What prefix you want your messages to have. For example, `test-batch-`.
-  label: Storage Prefix
+- description: Currently the only format is jsonl
+  kind: string
+  label: Batch Config Encoding Format
+  name: batch_config.encoding.format
+- description: 'What prefix you want your messages to have example: test-batch-'
+  kind: string
+  label: Batch Config Storage Prefix
   name: batch_config.storage.prefix
+- description: 'The directory you want batch messages to be placed in example: file://test/batches'
+  kind: string
+  label: Batch Config Storage Root
+  name: batch_config.storage.root
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: A path to the StackOverflow XML data files.
+  kind: string
+  label: Stackoverflow Data Directory
+  name: stackoverflow_data_directory
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+settings_group_validation: []
 variant: buzzcutnorman

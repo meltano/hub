@@ -18,33 +18,33 @@ repo: https://github.com/hotgluexyz/tap-procore
 settings:
 - description: Your Procore client Id.
   kind: password
-  label: Client Id
+  label: Client ID
   name: client_id
 - description: Your Procore client secret.
   kind: password
   label: Client Secret
   name: client_secret
-- description: Your Procore refresh token.
-  kind: password
-  label: Refresh Token
-  name: refresh_token
-- description: The redirect URI to send with requests.
-  kind: string
-  label: Redirect Uri
-  name: redirect_uri
 - description: A boolean whether using a Sandbox or not. Default False.
   kind: boolean
   label: Is Sandbox
   name: is_sandbox
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
+- description: The redirect URI to send with requests.
+  kind: string
+  label: Redirect Uri
+  name: redirect_uri
+- description: Your Procore refresh token.
+  kind: password
+  label: Refresh Token
+  name: refresh_token
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
     can be expected to take."
   kind: date_iso8601
   label: Start Date
   name: start_date
 settings_group_validation:
-- - client_secret
+- - client_id
+  - client_secret
   - redirect_uri
-  - client_id
   - refresh_token
 variant: hotgluexyz

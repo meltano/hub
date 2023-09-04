@@ -27,10 +27,10 @@ settings:
   name: api_key
 - description: Your Mailchimp DC
   kind: string
-  label: Data Center
+  label: Dc
   name: dc
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

@@ -1,8 +1,8 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
+- catalog
+- discover
+- state
 - stream-maps
 domain_url: https://degreed.com/
 keywords:
@@ -17,28 +17,32 @@ pip_url: git+https://github.com/the-prairie/tap-degreed.git
 quality: silver
 repo: https://github.com/the-prairie/tap-degreed
 settings:
+- description: The url for the API service
+  kind: string
+  label: API URL
+  name: api_url
+  value: https://degreed.com/oauth/token
 - description: The token to authenticate against the API service
   kind: password
-  label: Client Id
+  label: Client ID
   name: client_id
 - description: The token to authenticate against the API service
   kind: password
   label: Client Secret
   name: client_secret
-- description: The url for the API service
-  label: Api Url
-  name: api_url
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
-    can be expected to take."
-  label: Start Date
-  name: start_date
 - description: The earliest record date to sync. Expected format YYYY-mm-dd.
+  kind: date_iso8601
   label: End Date
   name: end_date
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
 settings_group_validation:
-- - client_secret
-  - client_id
+- - client_id
+  - client_secret
 settings_preamble: ''
 usage: ''
 variant: the-prairie

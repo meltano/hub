@@ -50,6 +50,12 @@ settings:
   kind: string
   label: Database
   name: database
+- description: If an array of schema names is provided, the tap will only process
+    the specified MySQL schemas and ignore others. If left blank, the tap automatically
+    determines ALL available MySQL schemas.
+  kind: array
+  label: Filter Schemas
+  name: filter_schemas
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean

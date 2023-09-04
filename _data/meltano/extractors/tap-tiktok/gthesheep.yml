@@ -1,8 +1,9 @@
 capabilities:
+- about
 - catalog
 - discover
+- schema-flattening
 - state
-- about
 - stream-maps
 description: Social Media Marketing Platform
 domain_url: https://ads.tiktok.com/marketing_api/homepage
@@ -18,16 +19,40 @@ pip_url: git+https://github.com/gthesheep/tap-tiktok.git
 quality: gold
 repo: https://github.com/gthesheep/tap-tiktok
 settings:
-- description: API Token gained from Tiktok
+- description: The token to authenticate against the API service
   kind: password
-  label: API Key
-  name: api_key
-- description: Identifier for the advertiser to extract data for
+  label: Access Token
+  name: access_token
+- description: Advertiser ID
+  kind: password
   label: Advertiser ID
   name: advertiser_id
-- description: Start date as of when to collect metrics from
-  label: Start date
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: If true then deleted status entities will also be returned
+  kind: boolean
+  label: Include Deleted
+  name: include_deleted
+  value: true
+- description: The earliest record date to sync
+  kind: date_iso8601
+  label: Start Date
   name: start_date
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability.
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
 - - access_token
   - advertiser_id

@@ -1,6 +1,9 @@
 capabilities:
+- about
 - catalog
 - discover
+- state
+- stream-maps
 description: Lord of the Rings API
 domain_url: https://the-one-api.dev/
 keywords:
@@ -15,9 +18,23 @@ pip_url: git+https://github.com/mattarderne/tap-lotr.git
 quality: silver
 repo: https://github.com/mattarderne/tap-lotr
 settings:
-- description: Access token obtained from the [account page](https://the-one-api.dev/account)
+- description: The token to authenticate against the API service
+  kind: password
   label: API Key
   name: api_key
+- description: The url for the API service
+  kind: string
+  label: API URL
+  name: api_url
+  value: https://api.mysample.com
+- description: Project IDs to replicate
+  kind: array
+  label: Project IDs
+  name: project_ids
+- description: The earliest record date to sync
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
 settings_group_validation:
 - - api_key
 variant: mattarderne
