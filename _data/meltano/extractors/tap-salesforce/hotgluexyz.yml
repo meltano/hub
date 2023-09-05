@@ -1,0 +1,64 @@
+capabilities:
+- about
+- catalog
+- discover
+- schema-flattening
+- state
+- stream-maps
+description: Cloud-based commerce solution
+domain_url: https://www.salesforce.com/products/commerce-cloud/overview/
+executable: tap-salesforce-commerce
+keywords:
+- meltano_sdk
+label: Salesforce Commerce
+logo_url: /assets/logos/extractors/salesforce-commerce.png
+maintenance_status: active
+name: tap-salesforce-commerce
+namespace: tap_salesforce_commerce
+next_steps: ''
+pip_url: git+https://gitlab.com/hotglue/tap-salesforce-commerce.git
+quality: gold
+repo: https://gitlab.com/hotglue/tap-salesforce-commerce
+settings:
+- description: Your Salesforce Client ID.
+  kind: password
+  label: Client ID
+  name: client_id
+- description: Your Salesforce Client Secret.
+  kind: password
+  label: Client Secret
+  name: client_secret
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: Your Salesforce Site ID.
+  kind: password
+  label: Site ID
+  name: site_id
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability.
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+settings_group_validation:
+- - client_id
+  - client_secret
+  - site_id
+settings_preamble: ''
+usage: ''
+variant: hotgluexyz
