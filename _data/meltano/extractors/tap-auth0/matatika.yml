@@ -1,8 +1,9 @@
 capabilities:
+- about
 - catalog
 - discover
+- schema-flattening
 - state
-- about
 - stream-maps
 description: Authentication and Authorization Platform
 domain_url: https://auth0.com/
@@ -24,21 +25,40 @@ settings:
   name: client_id
 - description: App client secret
   kind: password
-  label: Client secret
+  label: Client Secret
   name: client_secret
 - description: Tenant domain
+  kind: string
   label: Domain
   name: domain
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
 - description: Job poll interval (ms)
   kind: integer
-  label: Job poll interval
+  label: Job Poll Interval Ms
   name: job_poll_interval_ms
   value: 2000
 - description: Maximum job poll count
   kind: integer
-  label: Maximum job poll count
+  label: Job Poll Max Count
   name: job_poll_max_count
   value: 10
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
 - - client_id
   - client_secret

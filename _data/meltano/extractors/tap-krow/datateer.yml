@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 domain_url: https://krow.ai/
 keywords:
 - meltano_sdk
@@ -20,21 +20,15 @@ repo: https://github.com/Datateer/tap-krow
 settings:
 - description: Your KROW API key.
   kind: password
-  label: Api Key
+  label: API Key
   name: api_key
 - description: Your KROW url.
-  label: Api Url Base
+  kind: string
+  label: API URL Base
   name: api_url_base
-- description: Config object for stream maps capability.
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+  value: https://industry-staging.herokuapp.com/v1
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -42,6 +36,15 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
 - - api_key
 settings_preamble: ''

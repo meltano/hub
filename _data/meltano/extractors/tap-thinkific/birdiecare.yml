@@ -1,8 +1,9 @@
 capabilities:
-- state
+- about
 - catalog
 - discover
-- about
+- schema-flattening
+- state
 - stream-maps
 description: Online courses and membership sites.
 domain_url: https://developers.thinkific.com/api/using-the-api
@@ -18,18 +19,35 @@ pip_url: git+https://github.com/birdiecare/tap-thinkific.git
 quality: silver
 repo: https://github.com/birdiecare/tap-thinkific
 settings:
-- description: Thinkific API key - see https://developers.thinkific.com/api/api-key-auth/
-    for details.
+- description: Thinkific API key. See https://developers.thinkific.com/api/api-key-auth.
   kind: password
   label: API Key
   name: api_key
-- description: Subdomain of the Thinkific site.
-  label: Subdomain
-  name: subdomain
-- description: Only course enrollments created or updated after this date will be
-    downloaded.
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: Only sync records updated after this date.
+  kind: date_iso8601
   label: Start Date
   name: start_date
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability.
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: Subdomain of the Thinkific site. See https://developers.thinkific.com/api/api-key-auth.
+  kind: string
+  label: Subdomain
+  name: subdomain
 settings_group_validation:
 - - api_key
   - subdomain

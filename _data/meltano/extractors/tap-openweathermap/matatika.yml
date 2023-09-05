@@ -1,7 +1,10 @@
 capabilities:
+- about
 - catalog
 - discover
+- schema-flattening
 - state
+- stream-maps
 description: Current and Forecast Weather Data Collection
 domain_url: https://openweathermap.org/api
 keywords:
@@ -17,22 +20,43 @@ pip_url: git+https://github.com/Matatika/tap-openweathermap.git
 quality: gold
 repo: https://github.com/Matatika/tap-openweathermap
 settings:
-- description: App API Key
+- description: API Key is a required parameter to query the api endpoints
   kind: password
   label: API Key
   name: api_key
-- description: City name to get current weather for
+- description: City name that you want to get weather for
+  kind: string
   label: Current Weather City Name
   name: current_weather_city_name
-- description: City longtitude to get forecast data
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: Lattitude of city to get forecast for
+  kind: string
+  label: Forecast Weather Lattitude
+  name: forecast_weather_lattitude
+- description: Longitude of city to get forecast for
+  kind: string
   label: Forecast Weather Longitude
   name: forecast_weather_longitude
-- description: City lattitude to get forecast data
-  label: Forecast Weather Latitude
-  name: forecast_weather_lattitude
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
 - - api_key
   - current_weather_city_name
-  - forecast_weather_longitude
   - forecast_weather_lattitude
+  - forecast_weather_longitude
 variant: matatika

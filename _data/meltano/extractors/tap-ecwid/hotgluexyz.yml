@@ -26,8 +26,8 @@ settings:
   label: API URL
   name: api_url
   value: https://app.ecwid.com/api/v3
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

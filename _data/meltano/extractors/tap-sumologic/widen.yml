@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Cloud Log Management, Monitoring, SIEM Tools
 domain_url: https://www.sumologic.com/
 keywords:
@@ -22,46 +22,19 @@ repo: https://github.com/Widen/tap-sumologic
 settings:
 - description: The access id for authenticating against the Sumologic API.
   kind: password
-  label: Access Id
+  label: Access ID
   name: access_id
 - description: The access key for authenticating against the Sumologic API.
   kind: password
   label: Access Key
   name: access_key
-- description: The Sumologic endpoint for your deployment.
-  kind: string
-  label: Root Url
-  name: root_url
-- description: 'The earliest record date to sync. Sets the `from` parameter for all
-    queries. Format: YYYY-MM-DDTHH:mm:ss'
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
 - description: 'The latest record date to sync. Sets the `to` parameter for all queries.
     Format: YYYY-MM-DDTHH:mm:ss'
   kind: date_iso8601
   label: End Date
   name: end_date
-- description: The time zone for the queries. Sets the `timeZone` parameter for all
-    queries
-  kind: string
-  label: Time Zone
-  name: time_zone
-- description: The list of configs for each table/query/stream.
-  kind: array
-  label: Tables
-  name: tables
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -69,9 +42,38 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: The Sumologic endpoint for your deployment.
+  kind: string
+  label: Root URL
+  name: root_url
+  value: https://api.sumologic.com/api
+- description: 'The earliest record date to sync. Sets the `from` parameter for all
+    queries. Format: YYYY-MM-DDTHH:mm:ss'
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: The list of configs for each table/query/stream.
+  kind: array
+  label: Tables
+  name: tables
+- description: The time zone for the queries. Sets the `timeZone` parameter for all
+    queries
+  kind: string
+  label: Time Zone
+  name: time_zone
+  value: UTC
 settings_group_validation:
-- - access_key
-  - access_id
+- - access_id
+  - access_key
   - tables
 settings_preamble: ''
 usage: ''

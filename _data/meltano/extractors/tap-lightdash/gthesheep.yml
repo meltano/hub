@@ -1,8 +1,9 @@
 capabilities:
+- about
 - catalog
 - discover
+- schema-flattening
 - state
-- about
 - stream-maps
 description: Business Intelligence Platform
 domain_url: https://github.com/lightdash/lightdash
@@ -18,12 +19,15 @@ pip_url: git+https://github.com/gthesheep/tap-lightdash.git
 quality: silver
 repo: https://github.com/gthesheep/tap-lightdash
 settings:
-- description: URL of your Lightdash instance
-  label: URL
-  name: url
-- description: Username to authenticate with
-  label: Username
-  name: username
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
 - description: Password for authentication
   kind: password
   label: Password
@@ -32,9 +36,26 @@ settings:
   kind: password
   label: Personal Access Token
   name: personal_access_token
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: URL of your Lightdash instance
+  kind: string
+  label: URL
+  name: url
+- description: Username to authenticate with
+  kind: string
+  label: Username
+  name: username
 settings_group_validation:
-- - url
-  - username
-  - password
+- - password
   - personal_access_token
+  - url
+  - username
 variant: gthesheep

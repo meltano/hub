@@ -1,7 +1,9 @@
 capabilities:
+- about
 - catalog
 - discover
 - state
+- stream-maps
 description: Advertising Platform
 domain_url: https://developers.pinterest.com/docs/api/v5/
 keywords:

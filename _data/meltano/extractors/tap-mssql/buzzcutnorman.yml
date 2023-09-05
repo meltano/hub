@@ -1,10 +1,11 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- batch
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Microsoft SQL Server
 domain_url: https://www.microsoft.com/en-us/sql-server/sql-server-2019
 keywords:
@@ -20,61 +21,46 @@ pip_url: git+https://github.com/BuzzCutNorman/tap-mssql.git
 quality: gold
 repo: https://github.com/BuzzCutNorman/tap-mssql
 settings:
-- description: The Dialect of SQLAlchamey
+- description: Currently the only compression options is gzip
   kind: string
-  label: Dialect
-  name: dialect
-- description: The Python Driver you will be using to connect to the SQL server
+  label: Batch Config Encoding Compression
+  name: batch_config.encoding.compression
+- description: Currently the only format is jsonl
   kind: string
-  label: Driver Type
-  name: driver_type
-- description: The FQDN of the Host serving out the SQL Instance
+  label: Batch Config Encoding Format
+  name: batch_config.encoding.format
+- description: 'What prefix you want your messages to have example: test-batch-'
   kind: string
-  label: Host
-  name: host
-- description: The port on which SQL awaiting connection
-  kind: integer
-  label: Port
-  name: port
-- description: The User Account who has been granted access to the SQL Server
+  label: Batch Config Storage Prefix
+  name: batch_config.storage.prefix
+- description: 'The directory you want batch messages to be placed in example: file://test/batches'
   kind: string
-  label: User
-  name: user
-- description: The Password for the User account
-  kind: password
-  label: Password
-  name: password
+  label: Batch Config Storage Root
+  name: batch_config.storage.root
 - description: The Default database for this connection
   kind: string
   label: Database
   name: database
-- description: 'SQLAlchemy Engine Paramaters: fast_executemany, future'
-  kind: object
-  label: Sqlalchemy Eng Params
-  name: sqlalchemy_eng_params
-- description: 'SQLAlchemy URL Query options: driver, TrustServerCertificate'
-  kind: object
-  label: Sqlalchemy Url Query
-  name: sqlalchemy_url_query
-- description: Optional Batch Message configuration
-  kind: object
-  label: Batch Config
-  name: batch_config
-- description: The earliest record date to sync
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: The Dialect of SQLAlchamey
+  kind: options
+  label: Dialect
+  name: dialect
+  options:
+  - label: Mssql
+    value: mssql
+  value: mssql
+- description: The Python Driver you will be using to connect to the SQL server
+  kind: options
+  label: Driver Type
+  name: driver_type
+  options:
+  - label: Pyodbc
+    value: pyodbc
+  - label: Pymssql
+    value: pymssql
+  value: pymssql
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -82,8 +68,63 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: Turn on Higher Defined(HD) JSON Schema types to assist Targets
+  kind: boolean
+  label: Hd Jsonschema Types
+  name: hd_jsonschema_types
+  value: false
+- description: The FQDN of the Host serving out the SQL Instance
+  kind: string
+  label: Host
+  name: host
+- description: The Password for the User account
+  kind: password
+  label: Password
+  name: password
+- description: The port on which SQL awaiting connection
+  kind: integer
+  label: Port
+  name: port
+- description: 'Fast Executemany Mode: True, False'
+  kind: string
+  label: Sqlalchemy Eng Params Fast Executemany
+  name: sqlalchemy_eng_params.fast_executemany
+- description: 'Run the engine in 2.0 mode: True, False'
+  kind: string
+  label: Sqlalchemy Eng Params Future
+  name: sqlalchemy_eng_params.future
+- description: This is a Yes No option
+  kind: string
+  label: Sqlalchemy URL Query Trustservercertificate
+  name: sqlalchemy_url_query.TrustServerCertificate
+- description: The Driver to use when connection should match the Driver Type
+  kind: string
+  label: Sqlalchemy URL Query Driver
+  name: sqlalchemy_url_query.driver
+- description: The earliest record date to sync
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: The User Account who has been granted access to the SQL Server
+  kind: string
+  label: User
+  name: user
 settings_group_validation:
-- []
+- - database
+  - dialect
+  - driver_type
+  - host
+  - password
+  - user
 settings_preamble: ''
 usage: ''
 variant: buzzcutnorman

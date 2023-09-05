@@ -1,8 +1,8 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
+- catalog
+- discover
+- state
 - stream-maps
 domain_url: https://www.zoho.com/sprints/
 keywords:
@@ -18,19 +18,21 @@ quality: gold
 repo: https://github.com/AutoIDM/tap-zohosprints
 settings:
 - description: The API URL
+  kind: string
   label: API URL
   name: api_url
-- description: The OAuth URL
-  label: OAuth URL
-  name: oauth_url
 - description: Your client ID.
   kind: password
-  label: Client Id
+  label: Client ID
   name: client_id
 - description: Your client secret.
   kind: password
   label: Client Secret
   name: client_secret
+- description: The OAuth URL
+  kind: string
+  label: OAuth URL
+  name: oauth_url
 - description: Your refresh token.
   kind: password
   label: Refresh Token
@@ -38,14 +40,15 @@ settings:
 - description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.
+  kind: date_iso8601
   label: Start Date
   name: start_date
 settings_group_validation:
-- - refresh_token
-  - api_url
-  - oauth_url
-  - client_secret
+- - api_url
   - client_id
+  - client_secret
+  - oauth_url
+  - refresh_token
 settings_preamble: ''
 usage: ''
 variant: autoidm

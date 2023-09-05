@@ -1,8 +1,8 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
+- catalog
+- discover
+- state
 - stream-maps
 description: Business Software for Small Businesses and Startups
 domain_url: https://www.bexio.com/
@@ -22,9 +22,10 @@ settings:
   kind: password
   label: Auth Token
   name: auth_token
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
     can be expected to take."
+  kind: date_iso8601
   label: Start Date
   name: start_date
 settings_group_validation:

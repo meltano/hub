@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Fitness Social Network
 domain_url: https://developers.strava.com/docs/reference/
 keywords:
@@ -19,30 +19,48 @@ pip_url: git+https://github.com/dluftspring/tap-strava.git
 quality: silver
 repo: https://github.com/dluftspring/tap-strava
 settings:
-- description: Your Strava application unique identifier.
+- description: The integer identifier of your Strava application
   kind: password
   label: Client ID
   name: client_id
-- description: Your Strava client secret.
+- description: String secret of your strava application
   kind: password
   label: Client Secret
   name: client_secret
-- description: Your Strava refresh token. Requires at minimum `activity:read` permissions.
+- description: End date for the data sync in YYYY-MM-DD format
+  kind: date_iso8601
+  label: End Date
+  name: end_date
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: Scoped refresh token obtained from the Strava oauth flow
   kind: password
   label: Refresh Token
   name: refresh_token
-- description: The date to start pulling data from. (Optional)
+- description: Start date for the data sync in YYYY-MM-DD format
   kind: date_iso8601
   label: Start Date
   name: start_date
-- description: The date to stop pulling data from. (Optional)
-  kind: date_iso8601
-  label: End date
-  name: end_date
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
 - - client_id
   - client_secret
+  - end_date
   - refresh_token
   - start_date
-  - end_date
 variant: dluftspring

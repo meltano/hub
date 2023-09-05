@@ -1,6 +1,7 @@
 capabilities:
 - catalog
 - discover
+- state
 description: Online Survey Tool
 domain_url: https://developer.surveymonkey.com/api/v3/
 keywords:
@@ -19,18 +20,29 @@ settings:
   kind: password
   label: Access Token
   name: access_token
+- description: If true, drop free text answers from survey responses (Deafult = False)
+  kind: boolean
+  label: Drop Open Ended Text
+  name: drop_open_ended_text
+- description: Number of results for paginated endpoints (Default = 100)
+  kind: integer
+  label: Per Page
+  name: per_page
+  value: 100
 - description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.
   kind: date_iso8601
   label: Start Date
   name: start_date
-- description: Number of results for paginated endpoints (Default = 100)
-  kind: integer
-  label: Results Per Page
-  name: per_page
-- description: If true, drop free text answers from survey responses (Deafult = False)
-  kind: boolean
-  label: Drop Free Text Answers
-  name: drop_open_ended_text
+- description: ''
+  kind: object
+  label: Stream Map Settings
+  name: stream_map_settings
+- description: ''
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+settings_group_validation:
+- - access_token
 variant: danladd

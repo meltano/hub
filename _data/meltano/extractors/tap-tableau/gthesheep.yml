@@ -1,8 +1,9 @@
 capabilities:
+- about
 - catalog
 - discover
+- schema-flattening
 - state
-- about
 - stream-maps
 description: Business Intelligence Platform
 domain_url: https://www.tableau.com/en-gb/developer/tools
@@ -18,26 +19,48 @@ pip_url: git+https://github.com/gthesheep/tap-tableau.git
 quality: gold
 repo: https://github.com/gthesheep/tap-tableau
 settings:
-- description: URL for your Tableau server
-  label: Server URL
-  name: server_url
-- description: Version of the REST API to use
+- description: Version of REST API to use
+  kind: string
   label: API Version
   name: api_version
-- description: Site ID if not main or using Tableau Online
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: Name for the personal access token for authentication
+  kind: password
+  label: Personal Access Token Name
+  name: personal_access_token_name
+- description: Personal access token for authentication
+  kind: password
+  label: Personal Access Token Secret
+  name: personal_access_token_secret
+- description: Server URL for your Tableau instance
+  kind: string
+  label: Server URL
+  name: server_url
+- description: Site ID to query
+  kind: password
   label: Site URL ID
   name: site_url_id
-- description: API access token name
-  label: Personal access token name
-  name: personal_access_token_name
-- description: API access token secret value
-  kind: password
-  label: Personal access token secret
-  name: personal_access_token_secret
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - server_url
-  - api_version
-  - site_url_id
+- - api_version
   - personal_access_token_name
   - personal_access_token_secret
+  - server_url
+  - site_url_id
 variant: gthesheep

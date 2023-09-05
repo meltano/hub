@@ -74,27 +74,31 @@ settings:
   label: Cloud Provider AWS AWS Access Key ID
   name: cloud_provider.aws.aws_access_key_id
 - description: Your AWS access key ID.
-  kind: string
+  kind: password
   label: Cloud Provider AWS AWS Bucket
   name: cloud_provider.aws.aws_bucket
 - description: The AWS endpoint url to use for testing purposes.
-  kind: string
+  kind: password
   label: Cloud Provider AWS AWS Endpoint Override
   name: cloud_provider.aws.aws_endpoint_override
 - description: Your AWS profile name to optionally use for auth.
-  kind: string
+  kind: password
   label: Cloud Provider AWS AWS Profile Name
   name: cloud_provider.aws.aws_profile_name
 - description: Your AWS region.
-  kind: string
+  kind: password
   label: Cloud Provider AWS AWS Region
   name: cloud_provider.aws.aws_region
 - description: Your AWS secret access key.
   kind: password
   label: Cloud Provider AWS AWS Secret Access Key
   name: cloud_provider.aws.aws_secret_access_key
+- description: ''
+  kind: password
+  label: Cloud Provider AWS AWS Session Token
+  name: cloud_provider.aws.aws_session_token
 - description: The cloud provider type to use.
-  kind: string
+  kind: password
   label: Cloud Provider Cloud Provider Type
   name: cloud_provider.cloud_provider_type
   options:
@@ -120,6 +124,7 @@ settings:
   kind: boolean
   label: Format Format Parquet Validate
   name: format.format_parquet.validate
+  value: false
 - description: The format type of the output files.
   kind: options
   label: Format Format Type
@@ -133,6 +138,13 @@ settings:
   kind: boolean
   label: Include Process Date
   name: include_process_date
+  value: false
+- description: A flag (only works if append_date_to_prefix is enabled) to have partitioning
+    name formatted e.g. 'year=2023/month=01/day=01'.
+  kind: boolean
+  label: Partition Name Enabled
+  name: partition_name_enabled
+  value: false
 - description: The prefix for the key.
   kind: string
   label: Prefix

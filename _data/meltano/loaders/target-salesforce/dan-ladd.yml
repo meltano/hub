@@ -1,7 +1,7 @@
 capabilities:
 - about
-- stream-maps
 - schema-flattening
+- stream-maps
 description: CRM
 domain_url: https://www.salesforce.com/
 keywords:
@@ -16,53 +16,43 @@ pip_url: git+https://github.com/dan-ladd/target-salesforce.git
 quality: gold
 repo: https://github.com/dan-ladd/target-salesforce
 settings:
+- description: How to handle incomming records by default (insert/update/upsert/delete/hard_delete)
+  kind: options
+  label: Action
+  name: action
+  options:
+  - label: Insert
+    value: insert
+  - label: Update
+    value: update
+  - label: Delete
+    value: delete
+  - label: Hard Delete
+    value: hard_delete
+  - label: Upsert
+    value: upsert
+  value: update
+- description: Allows the target to continue persisting if a record fails to commit
+  kind: boolean
+  label: Allow Failures
+  name: allow_failures
+  value: false
 - description: OAuth client_id
   kind: password
-  label: Client Id
+  label: Client ID
   name: client_id
 - description: OAuth client_secret
   kind: password
   label: Client Secret
   name: client_secret
-- description: OAuth refresh_token
-  kind: password
-  label: Refresh Token
-  name: refresh_token
-- description: User/password username
+- description: Your Salesforce instance domain. Use 'login' (default) or 'test' (sandbox),
+    or Salesforce My domain.
   kind: string
-  label: Username
-  name: username
-- description: User/password password
-  kind: password
-  label: Password
-  name: password
-- description: User/password generated security token. Reset under your Account Settings
-  kind: password
-  label: Security Token
-  name: security_token
-- description: Is the Salesforce instance a sandbox
-  kind: boolean
-  label: Is Sandbox
-  name: is_sandbox
-- description: How to handle incomming records by default (insert/update/upsert/delete/hard_delete)
-  kind: string
-  label: Action
-  name: action
-- description: Allows the target to continue persisting if a record fails to commit.
-  kind: boolean
-  label: Allow Failures
-  name: allow_failures
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+  label: Domain
+  name: domain
+  value: login
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -70,6 +60,36 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: "DEPRECATED: Use domain. Is_sandbox-false = 'login', is_sandbox-True
+    = 'test'"
+  kind: boolean
+  label: Is Sandbox
+  name: is_sandbox
+- description: User/password username
+  kind: password
+  label: Password
+  name: password
+- description: OAuth refresh_token
+  kind: password
+  label: Refresh Token
+  name: refresh_token
+- description: User/password generated security token. Reset under your Account Settings
+  kind: password
+  label: Security Token
+  name: security_token
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User/password username
+  kind: string
+  label: Username
+  name: username
 settings_group_validation:
 - []
 settings_preamble: ''
