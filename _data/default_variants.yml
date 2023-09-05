@@ -56,12 +56,14 @@ extractors:
   tap-basecone: yoast
   tap-bazaarvoice: gthesheep
   tap-beautifulsoup: meltanolabs
+  tap-betterstack: edgarrmondragon
   tap-bexio: substringgmbh
   tap-bigcommerce: singer-io
   tap-bigmarker: manuelapilongo
   tap-bigquery: anelendata
   tap-billwerk: bi-media
   tap-bing-ads: singer-io
+  tap-bitly: edgarrmondragon
   tap-bitso: edgarrmondragon
   tap-bling-erp: muriloo
   tap-bls: frasermarlow
@@ -86,6 +88,7 @@ extractors:
   tap-chargify: singer-io
   tap-chartmogul: airbyte
   tap-chatitive: codyss
+  tap-checkly: edgarrmondragon
   tap-chorusai: andyoneal
   tap-cin7: hotgluexyz
   tap-circle-ci: sisudata
@@ -194,6 +197,7 @@ extractors:
   tap-fullstory: singer-io
   tap-ga4: meltanolabs
   tap-gainsightpx: widen
+  tap-geekbot: edgarrmondragon
   tap-genesys: airbyte
   tap-getlago: airbyte
   tap-getpocket: evelte
@@ -321,6 +325,7 @@ extractors:
   tap-mysql: transferwise
   tap-n8n: airbyte
   tap-nasa: airbyte
+  tap-neon: edgarrmondragon
   tap-netlify: franloza
   tap-netohq: hotgluexyz
   tap-netrivals: epoch8
@@ -365,6 +370,7 @@ extractors:
   tap-picqer: hotgluexyz
   tap-pingboard: immuta
   tap-pinterest-ads: gthesheep
+  tap-pipedream: edgarrmondragon
   tap-pipedrive: singer-io
   tap-pivotal-tracker: goodeggs
   tap-plaid: airbyte
@@ -390,6 +396,7 @@ extractors:
   tap-pulumi-cloud: meltanolabs
   tap-punk-api: airbyte
   tap-purecloud: pathlight
+  tap-pushbullet: edgarrmondragon
   tap-pypi: airbyte
   tap-qls: hotgluexyz
   tap-qonto: airbyte
@@ -469,6 +476,7 @@ extractors:
   tap-snapchat-ads: singer-io
   tap-snapengage: pathlight
   tap-snowflake: meltanolabs
+  tap-socketdev: edgarrmondragon
   tap-solarvista: matatika
   tap-sonar-cloud: airbyte
   tap-spacex-api: airbyte

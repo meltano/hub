@@ -1,0 +1,33 @@
+capabilities:
+- catalog
+- discover
+- state
+- about
+- stream-maps
+- schema-flattening
+description: SMS on PC and more.
+docs: https://docs.pushbullet.com
+domain_url: https://pushbullet.com
+keywords:
+- api
+- meltano_sdk
+label: Pushbullet
+logo_url: /assets/logos/extractors/pushbullet.svg
+maintenance_status: active
+name: tap-pushbullet
+namespace: tap-pushbullet
+pip_url: git+https://github.com/edgarrmondragon/tap-pushbullet.git
+quality: silver
+repo: https://github.com/edgarrmondragon/tap-pushbullet
+settings:
+- description: API Key for Pushbullet
+  kind: password
+  label: API Key
+  name: api_key
+- description: Earliest datetime to get data from
+  kind: integer
+  label: Start Date
+  name: start_date
+settings_group_validation:
+- - api_key
+variant: edgarrmondragon

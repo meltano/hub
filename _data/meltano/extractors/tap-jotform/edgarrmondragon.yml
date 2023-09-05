@@ -1,0 +1,51 @@
+capabilities:
+- catalog
+- discover
+- state
+- about
+- stream-maps
+- schema-flattening
+description: Serverless Postgres.
+docs: https://api.jotform.com/docs
+domain_url: https://www.jotform.com
+keywords:
+- api
+- meltano_sdk
+label: Jotform
+logo_url: /assets/logos/extractors/jotform.svg
+maintenance_status: active
+name: tap-jotform
+namespace: tap-jotform
+pip_url: tap-jotform
+quality: silver
+repo: https://github.com/edgarrmondragon/tap-jotform
+settings:
+- description: API Key for Jotform
+  documentation: https://api.jotform.com/docs/#authentication
+  kind: password
+  label: API Key
+  name: api_key
+- description: Override this value for Jotform Enterprise subdomains or EU customers
+  kind: string
+  label: API URL
+  name: api_url
+  value: https://api.jotform.com
+- description: User agent to use for requests
+  kind: string
+  label: User Agent
+  name: user_agent
+- description: Start date for collecting data
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: Enable requests cache
+  kind: boolean
+  label: Requests Cache Enabled
+  name: requests_cache.enabled
+- description: Requests cache expire after
+  kind: integer
+  label: Requests Cache Expire After
+  name: requests_cache.config.expire_after
+settings_group_validation:
+- - api_key
+variant: edgarrmondragon

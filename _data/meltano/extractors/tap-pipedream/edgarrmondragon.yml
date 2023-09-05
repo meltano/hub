@@ -1,0 +1,33 @@
+capabilities:
+- catalog
+- discover
+- state
+- about
+- stream-maps
+- schema-flattening
+description: Serverless Postgres.
+docs: https://pipedream.com/docs/api
+domain_url: https://pipedream.com
+keywords:
+- api
+- meltano_sdk
+label: Pipedream
+logo_url: /assets/logos/extractors/pipedream.jpeg
+maintenance_status: active
+name: tap-pipedream
+namespace: tap-pipedream
+pip_url: tap-pipedream
+quality: silver
+repo: https://github.com/edgarrmondragon/tap-pipedream
+settings:
+- description: API Token for Pipedream
+  kind: password
+  label: API Token
+  name: token
+- description: List of organization IDs to get data from
+  kind: array
+  label: Organizations
+  name: organizations
+settings_group_validation:
+- - token
+variant: edgarrmondragon

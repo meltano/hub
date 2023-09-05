@@ -1,0 +1,29 @@
+capabilities:
+- catalog
+- discover
+- state
+- about
+- stream-maps
+- schema-flattening
+description: Better Stack lets you see inside any stack, debug any issue, and resolve any incident.
+docs: https://betterstack.com/docs/uptime/api/getting-started-with-uptime-api/
+domain_url: https://betterstack.com
+keywords:
+- api
+- meltano_sdk
+label: Better Stack
+logo_url: /assets/logos/extractors/betterstack.png
+maintenance_status: active
+name: tap-betterstack
+namespace: tap_betterstack
+pip_url: tap-betterstack
+quality: silver
+repo: https://github.com/edgarrmondragon/tap-betterstack
+settings:
+- description: Better Stack API Token
+  kind: password
+  label: API Token
+  name: token
+settings_group_validation:
+- - token
+variant: edgarrmondragon

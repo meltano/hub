@@ -1,0 +1,33 @@
+capabilities:
+- catalog
+- discover
+- state
+- about
+- stream-maps
+- schema-flattening
+description: Create short links, QR Codes, and Link-in-bio pages. Share them anywhere.
+docs: https://dev.bitly.com
+domain_url: https://bitly.com
+keywords:
+- api
+- meltano_sdk
+label: Bitly
+logo_url: /assets/logos/extractors/bitly.svg
+maintenance_status: active
+name: tap-bitly
+namespace: tap_bitly
+pip_url: tap-bitly
+quality: silver
+repo: https://github.com/edgarrmondragon/tap-bitly
+settings:
+- description: API Token for Bitly
+  kind: password
+  label: API Token
+  name: token
+- description: Include Paid Streams (`webhooks`)
+  kind: boolean
+  label: Include Paid Streams
+  name: include_paid_streams
+settings_group_validation:
+- - token
+variant: edgarrmondragon

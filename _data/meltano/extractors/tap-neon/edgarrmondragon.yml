@@ -1,0 +1,29 @@
+capabilities:
+- catalog
+- discover
+- state
+- about
+- stream-maps
+- schema-flattening
+description: Serverless Postgres.
+docs: https://api-docs.neon.tech/reference/getting-started-with-neon-api
+domain_url: https://neon.tech
+keywords:
+- api
+- meltano_sdk
+label: Neon
+logo_url: /assets/logos/extractors/neon.png
+maintenance_status: active
+name: tap-neon
+namespace: tap-neon
+pip_url: tap-neon
+quality: silver
+repo: https://github.com/edgarrmondragon/tap-neon
+settings:
+- description: API Key for Neon Serverless Postgres
+  kind: password
+  label: Neon API Key
+  name: api_key
+settings_group_validation:
+- - api_key
+variant: edgarrmondragon

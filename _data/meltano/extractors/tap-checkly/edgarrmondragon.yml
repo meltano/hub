@@ -1,0 +1,38 @@
+capabilities:
+- catalog
+- discover
+- state
+- about
+- stream-maps
+- schema-flattening
+description: Code, test, and deploy synthetic monitoring at scale.
+docs: https://developers.checklyhq.com/reference
+domain_url: https://www.checklyhq.com
+keywords:
+- api
+- meltano_sdk
+label: Checkly
+logo_url: /assets/logos/extractors/checkly.svg
+maintenance_status: active
+name: tap-checkly
+namespace: tap-checkly
+pip_url: tap-checkly
+quality: silver
+repo: https://github.com/edgarrmondragon/tap-checkly
+settings:
+- description: Checkly Account ID
+  kind: string
+  label: Account ID
+  name: account_id
+- description: API Token for Checkly
+  kind: password
+  label: API Token
+  name: token
+- description: Earliest datetime to get data from
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+settings_group_validation:
+- - account_id
+  - token
+variant: edgarrmondragon

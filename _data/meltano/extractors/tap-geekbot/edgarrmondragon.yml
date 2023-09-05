@@ -1,0 +1,29 @@
+capabilities:
+- catalog
+- discover
+- state
+- about
+- stream-maps
+- schema-flattening
+description: Asynchronous stand-up meetings in Slack & Microsoft Teams.
+docs: https://geekbot.com/developers
+domain_url: https://geekbot.com
+keywords:
+- api
+- meltano_sdk
+label: Geekbot
+logo_url: /assets/logos/extractors/geekbot.svg
+maintenance_status: active
+name: tap-geekbot
+namespace: tap-geekbot
+pip_url: tap-geekbot
+quality: silver
+repo: https://github.com/edgarrmondragon/tap-geekbot
+settings:
+- description: API Key for Geekbot
+  kind: password
+  label: API Key
+  name: api_key
+settings_group_validation:
+- - api_key
+variant: edgarrmondragon
