@@ -1,5 +1,6 @@
 capabilities:
 - about
+- batch
 - catalog
 - discover
 - schema-flattening
@@ -19,13 +20,57 @@ pip_url: git+https://github.com/rawwar/tap-greenhouse.git
 quality: gold
 repo: https://github.com/rawwar/tap-greenhouse
 settings:
-- description: Your Greenhouse [API Key](https://developers.greenhouse.io/harvest.html#authentication).
-  kind: password
-  label: Basic Authentication Token
-  name: auth_token
-- description: URL for Greenhouse Harvest API
-  label: Greenhouse Harvest API URL
+- description: The url for the API service
+  kind: string
+  label: API URL
   name: api_url
+  value: https://harvest.greenhouse.io/v1/
+- description: The token to authenticate against the API service
+  kind: password
+  label: Auth Token
+  name: auth_token
+- description: ''
+  kind: options
+  label: Batch Config Encoding Compression
+  name: batch_config.encoding.compression
+  options:
+  - label: Gzip
+    value: gzip
+  - label: None
+    value: none
+- description: ''
+  kind: options
+  label: Batch Config Encoding Format
+  name: batch_config.encoding.format
+  options:
+  - label: Jsonl
+    value: jsonl
+- description: ''
+  kind: string
+  label: Batch Config Storage Prefix
+  name: batch_config.storage.prefix
+- description: ''
+  kind: string
+  label: Batch Config Storage Root
+  name: batch_config.storage.root
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
 - - auth_token
 variant: rawwar

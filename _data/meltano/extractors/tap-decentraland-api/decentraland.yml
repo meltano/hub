@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 domain_url: ''
 keywords:
 - meltano_sdk
@@ -19,43 +19,37 @@ quality: silver
 repo: https://github.com/decentraland/tap-decentraland-api
 settings:
 - description: Api Url
-  label: Api Url
+  kind: string
+  label: API URL
   name: api_url
-- description: Coingecko Url
-  label: Coingecko Url
-  name: coingecko_url
+  value: https://api.decentraland.org
+- description: ''
+  kind: string
+  label: Builder API URL
+  name: builder_api_url
+  value: https://builder-api.decentraland.org/v1
+- description: ''
+  kind: string
+  label: Catalysts Start Date
+  name: catalysts_start_date
+  value: '2000-01-01'
 - description: Coingecko Start Date
+  kind: string
   label: Coingecko Start Date
   name: coingecko_start_date
+  value: '2017-10-28'
+- description: Coingecko Url
+  kind: string
+  label: Coingecko URL
+  name: coingecko_url
+  value: https://api.coingecko.com/api/v3
 - description: Events Api Url
-  label: Events Api Url
+  kind: string
+  label: Events API URL
   name: events_api_url
-- description: Governance Snapshot Api Url
-  label: Governance Snapshot Api Url
-  name: governance_snapshot_api_url
-- description: Governance Aragon Api Url
-  label: Governance Aragon Api Url
-  name: governance_aragon_api_url
-- description: Peer Api Url
-  label: Peer Api Url
-  name: peer_api_url
-- description: Scenes Per Run
-  kind: integer
-  label: Scenes Per Run
-  name: scenes_per_run
-- description: Smart Items Url
-  label: Smart Items Url
-  name: smart_items_url
-- description: Config object for stream maps capability.
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+  value: https://events.decentraland.org/api
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -63,6 +57,45 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: Governance Aragon Api Url
+  kind: string
+  label: Governance Aragon API URL
+  name: governance_aragon_api_url
+  value: https://api.thegraph.com/subgraphs/name/aragon/aragon-voting-mainnet
+- description: Governance Snapshot Api Url
+  kind: string
+  label: Governance Snapshot API URL
+  name: governance_snapshot_api_url
+  value: https://governance.decentraland.org/api
+- description: Peer Api Url
+  kind: string
+  label: Peer API URL
+  name: peer_api_url
+  value: https://peer-lb.decentraland.org
+- description: ''
+  kind: string
+  label: Places API URL
+  name: places_api_url
+  value: https://places.decentraland.org/api
+- description: Scenes Per Run
+  kind: integer
+  label: Scenes Per Run
+  name: scenes_per_run
+  value: 2000
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: Sync content after certain snapshot date in unix timestamp
+  kind: integer
+  label: Sync Content After
+  name: sync_content_after
+  value: 1680998400000
 settings_group_validation:
 - []
 settings_preamble: ''

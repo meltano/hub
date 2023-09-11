@@ -1,7 +1,7 @@
 capabilities:
 - catalog
-- state
 - discover
+- state
 description: BI Data Visuialization Tool
 domain_url: https://powerbi.microsoft.com/
 keywords:
@@ -16,31 +16,31 @@ pip_url: git+https://github.com/dataops-tk/tap-powerbi-metadata.git
 quality: silver
 repo: https://github.com/dataops-tk/tap-powerbi-metadata
 settings:
-- description: The unique identifier for the Power BI tenant.
-  kind: password
-  label: Tenant ID
-  name: tenant_id
 - description: The unique client ID for the Power BI tenant.
   kind: password
   label: Client ID
   name: client_id
-- description: Username to use in the flow.
-  kind: string
-  label: Username
-  name: username
 - description: Password to use in the auth flow.
   kind: password
   label: Password
   name: password
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
     can be expected to take."
   kind: date_iso8601
   label: Start Date
   name: start_date
+- description: The unique identifier for the Power BI tenant.
+  kind: password
+  label: Tenant ID
+  name: tenant_id
+- description: Username to use in the flow.
+  kind: string
+  label: Username
+  name: username
 settings_group_validation:
-- - password
-  - username
+- - client_id
+  - password
   - tenant_id
-  - client_id
+  - username
 variant: dataops-tk

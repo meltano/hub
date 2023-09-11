@@ -2,7 +2,6 @@ capabilities:
 - about
 - schema-flattening
 - stream-maps
-- target-schema
 description: Open-source relational database management system
 domain_url: https://www.mysql.com/
 executable: target-mysql
@@ -23,6 +22,7 @@ settings:
   kind: boolean
   label: Allow Column Alter
   name: allow_column_alter
+  value: false
 - description: MySQL database
   kind: string
   label: Database
@@ -62,6 +62,11 @@ settings:
   kind: string
   label: Port
   name: port
+- description: Replace null to blank
+  kind: boolean
+  label: Replace Null
+  name: replace_null
+  value: false
 - description: SQLAlchemy connection string
   kind: string
   label: Sqlalchemy URL

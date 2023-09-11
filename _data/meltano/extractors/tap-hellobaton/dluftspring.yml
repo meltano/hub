@@ -1,8 +1,9 @@
 capabilities:
+- about
 - catalog
 - discover
+- schema-flattening
 - state
-- about
 - stream-maps
 description: Customer onboarding software for managing software implementations
 domain_url: https://app.hellobaton.com/api/redoc/
@@ -18,16 +19,36 @@ pip_url: git+https://github.com/dluftspring/tap-hellobaton.git
 quality: silver
 repo: https://github.com/dluftspring/tap-hellobaton
 settings:
-- description: Company name used in the api url
+- description: The token to authenticate against the API service
+  kind: password
+  label: API Key
+  name: api_key
+- description: Company instance to add to the base url
   kind: string
   label: Company
   name: company
-- description: Credentials used to connect to the source
-  kind: string
-  label: API Key
-  name: api_key
-- description: Optional user agent string to use during api calls
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability.
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User agent string
   kind: string
   label: User Agent
   name: user_agent
+settings_group_validation:
+- - api_key
+  - company
 variant: dluftspring

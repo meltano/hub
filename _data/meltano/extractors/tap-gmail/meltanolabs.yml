@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Email service provided by Google
 domain_url: https://www.google.com/gmail/about/
 keywords:
@@ -19,37 +19,8 @@ pip_url: meltanolabs-tap-gmail
 quality: gold
 repo: https://github.com/MeltanoLabs/tap-gmail
 settings:
-- description: Your google client_id
-  kind: password
-  label: Oauth Credentials Client Id
-  name: oauth_credentials.client_id
-- description: Your google client_secret
-  kind: password
-  label: Oauth Credentials Client Secret
-  name: oauth_credentials.client_secret
-- description: Your google refresh token
-  kind: password
-  label: Oauth Credentials Refresh Token
-  name: oauth_credentials.refresh_token
-- description: Your Gmail User ID
-  kind: password
-  label: User Id
-  name: user_id
-- description: Include messages from SPAM and TRASH in the results.
-  kind: boolean
-  label: Messages Include Spam Trash
-  name: messages.include_spam_trash
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -57,6 +28,44 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: Include messages from SPAM and TRASH in the results.
+  kind: boolean
+  label: Messages Include Spam Trash
+  name: messages.include_spam_trash
+  value: false
+- description: Only return messages matching the specified query. Supports the same
+    query format as the Gmail search box. For example, "from:someuser@example.com
+    rfc822msgid:<somemsgid@example.com> is:unread". Parameter cannot be used when
+    accessing the api using the gmail. Metadata scope. Https://developers. Google.
+    Com/gmail/api/reference/rest/v1/users. Messages/list#query-parameters
+  kind: string
+  label: Messages Q
+  name: messages.q
+- description: Your google client_id
+  kind: password
+  label: OAuth Credentials Client ID
+  name: oauth_credentials.client_id
+- description: Your google client_secret
+  kind: password
+  label: OAuth Credentials Client Secret
+  name: oauth_credentials.client_secret
+- description: Your google refresh token
+  kind: password
+  label: OAuth Credentials Refresh Token
+  name: oauth_credentials.refresh_token
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: Your Gmail User ID
+  kind: password
+  label: User ID
+  name: user_id
 settings_group_validation:
 - []
 settings_preamble: ''

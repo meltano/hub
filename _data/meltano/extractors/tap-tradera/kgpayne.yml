@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Online Marketplace
 domain_url: https://www.tradera.com/en
 keywords:
@@ -21,27 +21,14 @@ repo: https://github.com/kgpayne/tap-tradera
 settings:
 - description: The Tradera.com developer app ID
   kind: password
-  label: App Id
+  label: App ID
   name: app_id
 - description: The Tradera.com developer app key
   kind: password
   label: App Key
   name: app_key
-- description: Simple Search
-  kind: array
-  label: Searches
-  name: searches
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -49,9 +36,30 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: Path to items list CSV.
+  kind: string
+  label: Items File Path
+  name: items_file_path
+- description: File glob pattern to items list CSV.
+  kind: string
+  label: Items File Pattern
+  name: items_file_pattern
+- description: Simple Search
+  kind: array
+  label: Searches
+  name: searches
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - app_key
-  - app_id
+- - app_id
+  - app_key
 settings_preamble: ''
 usage: ''
 variant: kgpayne

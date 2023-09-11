@@ -1,8 +1,8 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
+- catalog
+- discover
+- state
 - stream-maps
 description: Assessment platform
 domain_url: https://www.brillium.com/
@@ -20,24 +20,24 @@ repo: https://github.com/manuelapilongo/tap-brillium
 settings:
 - description: The key to authenticate against the API service
   kind: password
-  label: Api Key
+  label: API Key
   name: api_key
+- description: Brillium Api Version. Default to latest available
+  kind: string
+  label: API Version
+  name: api_version
 - description: The base url for the API service
   kind: string
   label: Base Uri
   name: base_uri
-- description: User Agent to use for requests
-  kind: string
-  label: User Agent
-  name: user_agent
-- description: Brillium Api Version. Default to latest available
-  kind: string
-  label: Api Version
-  name: api_version
 - description: The earliest record date to sync
   kind: date_iso8601
   label: Start Date
   name: start_date
+- description: User Agent to use for requests
+  kind: string
+  label: User Agent
+  name: user_agent
 settings_group_validation:
 - - api_key
   - base_uri

@@ -1,12 +1,13 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Microsoft Graph REST API
-domain_url: https://learn.microsoft.com/en-us/graph/api/overview?view=graph-rest-1.0&preserve-view=true
+domain_url: 
+  https://learn.microsoft.com/en-us/graph/api/overview?view=graph-rest-1.0&preserve-view=true
 keywords:
 - meltano_sdk
 label: Microsoft Graph
@@ -19,50 +20,37 @@ pip_url: git+https://github.com/Slalom-Consulting/tap-ms-graph.git
 quality: silver
 repo: https://github.com/Slalom-Consulting/tap-ms-graph
 settings:
-- description: The directory tenant that you want to request permission from. The
-    value can be in GUID or a friendly name format.
-  kind: string
-  label: Tenant
-  name: tenant
-- description: The application ID that the Azure app registration portal assigned
-    when you registered your app.
-  kind: password
-  label: Client Id
-  name: client_id
-- description: The client secret that you generated for your app in the app registration
-    portal.
-  kind: password
-  label: Client Secret
-  name: client_secret
-- description: Custom configuration for streams.
-  kind: array
-  label: Stream Config
-  name: stream_config
-- description: The version of the Microsoft Graph API to use
-  kind: string
-  label: Api Version
-  name: api_version
-- description: Override the Azure AD authentication base URL. Required if using a
-    national cloud.
-  kind: string
-  label: Auth Url
-  name: auth_url
 - description: Override the Graph API service base URL. Required if using a national
     cloud.
   kind: string
-  label: Api Url
+  label: API URL
   name: api_url
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: The version of the Microsoft Graph API to use.
+  kind: options
+  label: API Version
+  name: api_version
+  options:
+  - label: V1 0
+    value: v1.0
+  - label: Beta
+    value: beta
+  value: v1.0
+- description: Override the Azure AD authentication base URL. Required if using a
+    national cloud.
+  kind: string
+  label: Auth URL
+  name: auth_url
+- description: The application ID that the Azure app registration portal assigned
+    to the registered app.
+  kind: password
+  label: Client ID
+  name: client_id
+- description: The client secret generated for the app in the app registration portal.
+  kind: password
+  label: Client Secret
+  name: client_secret
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -70,10 +58,33 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: Include '@odata_type' field when returned from API.
+  kind: boolean
+  label: Include Odata Type
+  name: include_odata_type
+  value: false
+- description: Custom configuration for streams.
+  kind: object
+  label: Stream Config
+  name: stream_config
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: The directory tenant to request permission from. The value can be in
+    GUID or a friendly name format.
+  kind: string
+  label: Tenant
+  name: tenant
 settings_group_validation:
-- - client_secret
+- - client_id
+  - client_secret
   - tenant
-  - client_id
 settings_preamble: ''
 usage: ''
 variant: slalom-consulting

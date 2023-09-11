@@ -1,8 +1,8 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
+- catalog
+- discover
+- state
 - stream-maps
 description: Omnichannel Customer Engagement Platform
 domain_url: https://emarsys.com/
@@ -19,21 +19,22 @@ pip_url: git+https://github.com/GtheSheep/tap-emarsys.git
 quality: silver
 repo: https://github.com/GtheSheep/tap-emarsys
 settings:
-- description: The username obtained for the API user
-  kind: string
-  label: Username
-  name: username
+- description: The language ID for data to be retrieved in
+  kind: password
+  label: Language ID
+  name: language_id
+  value: en
 - description: The secret obtained for the API user
   kind: password
   label: Secret
   name: secret
-- description: The language ID for data to be retrieved in
-  kind: password
-  label: Language Id
-  name: language_id
+- description: The username obtained for the API user
+  kind: string
+  label: Username
+  name: username
 settings_group_validation:
-- - username
-  - secret
+- - secret
+  - username
 settings_preamble: ''
 usage: ''
 variant: gthesheep

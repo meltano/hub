@@ -1,8 +1,8 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
+- catalog
+- discover
+- state
 - stream-maps
 description: Your own private corner of the web to spend quality time with great articles.
 domain_url: https://getpocket.com/
@@ -19,35 +19,41 @@ pip_url: git+https://github.com/evelte/tap-getpocket.git
 quality: silver
 repo: https://github.com/evelte/tap-getpocket
 settings:
-- description: The consumer key used in the authentication flow
-  kind: password
-  label: Consumer Key
-  name: consumer_key
 - description: Access token to authenticate against the API service. Follow instructions
     in README to get
   kind: password
   label: Access Token
   name: access_token
-- description: The earliest record date to sync
-  label: Start Date
-  name: start_date
+- description: The consumer key used in the authentication flow
+  kind: password
+  label: Consumer Key
+  name: consumer_key
+- description: Whether to retrieve only basic information or all data about each item
+  kind: string
+  label: Detail Type
+  name: detail_type
+  value: complete
 - description: Whether to retrieve only favorited, unfavorited or all items
   kind: boolean
   label: Favorite
   name: favorite
+- description: The earliest record date to sync
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
 - description: Whether to retrieve only unread, archived or all items
+  kind: string
   label: State
   name: state
-- description: Whether to retrieve only basic information or all data about each item
-  label: Detail Type
-  name: detail_type
+  value: all
 - description: Only return items with this tag_name. Use _untagged_ to get only untagged
     items
+  kind: string
   label: Tag
   name: tag
 settings_group_validation:
-- - consumer_key
-  - access_token
+- - access_token
+  - consumer_key
 settings_preamble: ''
 usage: ''
 variant: evelte

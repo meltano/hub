@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 domain_url: ''
 keywords:
 - meltano_sdk
@@ -20,37 +20,16 @@ repo: https://github.com/GendarmerieNationale/tap-atinternet
 settings:
 - description: AT Internet API key
   kind: password
-  label: Api Key
+  label: API Key
   name: api_key
-- description: AT Internet secret key
-  kind: password
-  label: Secret Key
-  name: secret_key
-- description: Site ID (can be queried at https://dataquery.atinternet-solutions.com/)
-  kind: integer
-  label: Site Id
-  name: site_id
-- description: Start syncing data from that date
-  label: Start Date
-  name: start_date
-- description: Max number of results per page (up to 10000)
-  kind: integer
-  label: Max Results
-  name: max_results
 - description: Optional. If not empty, filter and extract only the pages with this
     string in the 'page_full_name'
+  kind: string
   label: Filter Str
   name: filter_str
-- description: Config object for stream maps capability.
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+  value: ''
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -58,11 +37,36 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: Max number of results per page (up to 10000)
+  kind: integer
+  label: Max Results
+  name: max_results
+  value: 5000
+- description: AT Internet secret key
+  kind: password
+  label: Secret Key
+  name: secret_key
+- description: Site ID (can be queried at https://dataquery.atinternet-solutions.com/)
+  kind: integer
+  label: Site ID
+  name: site_id
+- description: Start syncing data from that date
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability.
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - site_id
-  - api_key
-  - start_date
+- - api_key
   - secret_key
+  - site_id
+  - start_date
 settings_preamble: ''
 usage: ''
 variant: gendarmerienationale

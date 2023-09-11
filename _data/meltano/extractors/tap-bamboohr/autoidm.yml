@@ -1,8 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
+- batch
+- catalog
+- discover
+- schema-flattening
+- state
 - stream-maps
 description: HR Platform
 domain_url: https://www.bamboohr.com/
@@ -22,17 +24,71 @@ settings:
   kind: password
   label: Auth Token
   name: auth_token
-- description: subdomain from BambooHR
-  label: Subdomain
-  name: subdomain
-- description: CustomReport full body definition, example in meltano.yml, same format
+- description: Compression format to use for batch files.
+  kind: options
+  label: Batch Config Encoding Compression
+  name: batch_config.encoding.compression
+  options:
+  - label: Gzip
+    value: gzip
+  - label: None
+    value: none
+- description: Format to use for batch files.
+  kind: options
+  label: Batch Config Encoding Format
+  name: batch_config.encoding.format
+  options:
+  - label: Jsonl
+    value: jsonl
+- description: Prefix to use when writing batch files.
+  kind: string
+  label: Batch Config Storage Prefix
+  name: batch_config.storage.prefix
+- description: Root path to use when writing batch files.
+  kind: string
+  label: Batch Config Storage Root
+  name: batch_config.storage.root
+- description: CustomReport full body definition, example in meltano. Yml, same format
     as the Body for the POST request [here](https://documentation.bamboohr.com/reference/request-custom-report-1)
   kind: array
   label: Custom Reports
   name: custom_reports
+- description: ''
+  kind: options
+  label: Field Mismatch
+  name: field_mismatch
+  options:
+  - label: Fail
+    value: fail
+  - label: Ignore
+    value: ignore
+  value: fail
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: Subdomain from BambooHR
+  kind: string
+  label: Subdomain
+  name: subdomain
 settings_group_validation:
-- - subdomain
-  - auth_token
+- - auth_token
+  - field_mismatch
+  - subdomain
 settings_preamble: ''
 usage: ''
 variant: autoidm

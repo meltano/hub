@@ -20,11 +20,11 @@ pip_url: git+https://gitlab.com/hotglue/tap-cin7.git
 quality: gold
 repo: https://gitlab.com/hotglue/tap-cin7
 settings:
-- description: api_key
+- description: Api_key
   kind: password
   label: API Key
   name: api_key
-- description: api_password
+- description: Api_password
   kind: password
   label: API Password
   name: api_password

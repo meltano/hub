@@ -1,5 +1,6 @@
 capabilities:
 - about
+- stream-maps
 description: General purpose, document-based, distributed database.
 domain_url: https://www.mongodb.com/
 keywords:
@@ -7,6 +8,7 @@ keywords:
 - database
 label: MongoDB
 logo_url: /assets/logos/loaders/mongodb.png
+maintenance_status: active
 name: target-mongodb
 namespace: target_mongodb
 pip_url: git+https://gitlab.com/hotglue/target-mongodb.git

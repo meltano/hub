@@ -24,8 +24,8 @@ settings:
   kind: password
   label: Access Token
   name: access_token
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -35,7 +35,7 @@ settings:
   name: flattening_max_depth
 - description: The redirect URI for the API.
   kind: string
-  label: Redirect URI
+  label: Redirect Uri
   name: redirect_uri
 - description: Your Zoho Books refresh token.
   kind: password

@@ -21,8 +21,8 @@ pip_url: git+https://gitlab.com/hotglue/tap-stamped.git
 quality: gold
 repo: https://gitlab.com/hotglue/tap-stamped
 settings:
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

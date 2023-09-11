@@ -1,8 +1,9 @@
 capabilities:
+- about
 - catalog
 - discover
+- schema-flattening
 - state
-- about
 - stream-maps
 description: Work operating platform for projects and workflows
 domain_url: https://api.developer.monday.com/docs
@@ -18,13 +19,33 @@ pip_url: git+https://github.com/gthesheep/tap-monday.git
 quality: silver
 repo: https://github.com/gthesheep/tap-monday
 settings:
-- description: API Token gained from Monday.com authorisation process
+- description: The token to authenticate against the API service
   kind: password
-  label: API Token
+  label: Auth Token
   name: auth_token
-- description: Number of boards to retrieve per page
+- description: The number of boards to fetch at once
+  kind: integer
   label: Board Limit
   name: board_limit
+  value: 10
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
 - - auth_token
   - board_limit

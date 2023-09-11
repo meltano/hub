@@ -17,8 +17,7 @@ pip_url: git+https://github.com/timeplus-io/target-timeplus.git
 quality: silver
 repo: https://github.com/timeplus-io/target-timeplus
 settings:
-- description: Personal API Key. Check https://docs.timeplus.com/docs/quickstart-ingest-api
-    for more details.
+- description: Personal API key
   kind: password
   label: API Key
   name: apikey
@@ -27,8 +26,8 @@ settings:
   label: Endpoint
   name: endpoint
   value: https://us.timeplus.cloud/wsId1234
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

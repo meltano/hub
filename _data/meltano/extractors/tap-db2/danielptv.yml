@@ -1,0 +1,72 @@
+capabilities:
+- about
+- catalog
+- discover
+- state
+- stream-maps
+description: IBM DB2 Relational Database
+domain_url: https://www.ibm.com/products/db2
+executable: tap-db2
+keywords:
+- meltano_sdk
+- ELT
+- IBM DB2
+- DB2
+label: IBM DB2
+logo_url: /assets/logos/extractors/db2.png
+maintenance_status: active
+name: tap-db2
+namespace: tap_db2
+next_steps: ''
+pip_url: git+https://github.com/danielptv/tap-db2.git
+quality: silver
+repo: https://github.com/danielptv/tap-db2
+settings:
+- description: Additional parameters to be appended to the connection string. This
+    is an array of objects. Each object must contain the keys 'key' and 'value'.
+  kind: array
+  label: Connection Parameters
+  name: connection_parameters
+- description: The DB2 database.
+  kind: string
+  label: Database
+  name: database
+- description: The encryption method. Valid values are 'encrypted_verify_certificate'
+    and 'none'.
+  kind: string
+  label: Encryption Method
+  name: encryption.encryption_method
+- description: The path to the SSL server certificate.
+  kind: string
+  label: SSL Server Certificate
+  name: encryption.ssl_server_certificate
+- description: The DB2 hostname.
+  kind: string
+  label: Host
+  name: host
+- description: The DB2 password.
+  kind: password
+  label: Password
+  name: password
+- description: The DB2 port.
+  kind: string
+  label: Port
+  name: port
+- description: The DB2 schema.
+  kind: string
+  label: Schema
+  name: schema
+- description: The DB2 username.
+  kind: string
+  label: User
+  name: user
+settings_group_validation:
+- - database
+  - encryption.encryption_method
+  - host
+  - password
+  - port
+  - user
+settings_preamble: ''
+usage: ''
+variant: danielptv

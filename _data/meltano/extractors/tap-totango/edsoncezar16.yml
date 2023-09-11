@@ -28,7 +28,7 @@ settings:
   label: Account ID
   name: account_id
 - description: The maximum number of accounts to return in the accounts result set.
-    The max. value for count is 1000.
+    The max. Value for count is 1000.
   kind: integer
   label: Accounts Count
   name: accounts_count
@@ -38,6 +38,7 @@ settings:
   kind: array
   label: Accounts Fields
   name: accounts_fields
+  value: []
 - description: 'Record number (0 states "start at record 0"). The record size can
     be defined using the count parameter (and limited to 1000). Tip: To page through
     results, ask for 1000 records (count: 1000). If you receive 1000 records, assume
@@ -46,6 +47,7 @@ settings:
   kind: integer
   label: Accounts Offset
   name: accounts_offset
+  value: 0
 - description: Field name to sort the accounts stream results set by.
   kind: string
   label: Accounts Sort By
@@ -66,21 +68,24 @@ settings:
   kind: array
   label: Accounts Terms
   name: accounts_terms
-- description: The url for the API services. https://api.totango.com is for US services,
+  value: []
+- description: The url for the API services. Https://api. Totango. Com is for US services,
     whereas https://api-eu1.totango.com is for EU services.
   kind: options
   label: API URL
   name: api_url
   options:
-  - value: https://api.totango.com
-  - value: https://api-eu1.totango.com
+  - label: https://api.totango.com
+    value: https://api.totango.com
+  - label: 'https://api-eu1.totango.com '
+    value: 'https://api-eu1.totango.com '
   value: https://api.totango.com
 - description: The token to authenticate against the API service
   kind: password
   label: Auth Token
   name: auth_token
 - description: The maximum number of accounts to return in the events result set.
-    The max. value for count is 1000.
+    The max. Value for count is 1000.
   kind: integer
   label: Events Count
   name: events_count
@@ -89,13 +94,15 @@ settings:
   kind: integer
   label: Events Offset
   name: events_offset
+  value: 0
 - description: An array containing filter conditions to use for the events stream
     search.
   kind: array
   label: Events Terms
   name: events_terms
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+  value: []
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -113,7 +120,7 @@ settings:
   label: Stream Maps
   name: stream_maps
 - description: The maximum number of users to return in the users result set. The
-    max. value for count is 1000.
+    max. Value for count is 1000.
   kind: integer
   label: Users Count
   name: users_count
@@ -123,14 +130,16 @@ settings:
   kind: array
   label: Users Fields
   name: users_fields
+  value: []
 - description: 'Record number (0 states "start at record 0"). The record size can
     be defined using the count parameter (and limited to 1000). Tip: To page through
     results, ask for 1000 records (count: 1000). If you receive 1000 records, assume
     there’s more, in which case you want to pull the next 1000 records (offset: 1000…then
-    2000…etc.). Repeat paging until the number of records returned is less than 1000.'
+    2000…etc. ). Repeat paging until the number of records returned is less than 1000.'
   kind: integer
   label: Users Offset
   name: users_offset
+  value: 0
 - description: Field name to sort the users stream results set by.
   kind: string
   label: Users Sort By
@@ -150,6 +159,7 @@ settings:
   kind: array
   label: Users Terms
   name: users_terms
+  value: []
 settings_group_validation:
 - - accounts_fields
   - accounts_terms

@@ -1,6 +1,9 @@
 capabilities:
+- about
 - catalog
 - discover
+- state
+- stream-maps
 description: Meltano job information
 domain_url: https://docs.meltano.com/
 keywords:
@@ -15,8 +18,10 @@ pip_url: git+https://github.com/Matatika/tap-meltano.git
 quality: gold
 repo: https://github.com/Matatika/tap-meltano
 settings:
-- description: The target Meltano project's database URI
+- description: Meltano Database URI you want to get jobs from
   kind: password
-  label: Meltano Database URI
+  label: Meltano Database Uri
   name: meltano_database_uri
+settings_group_validation:
+- - meltano_database_uri
 variant: matatika

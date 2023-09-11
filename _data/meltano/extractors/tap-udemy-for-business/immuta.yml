@@ -1,9 +1,14 @@
 capabilities:
-- state
+- about
+- batch
 - catalog
 - discover
+- schema-flattening
+- state
+- stream-maps
 description: Online Learning Platform
-domain_url: https://business-support.udemy.com/hc/en-us/articles/360005792753-Udemy-Business-API-Reference
+domain_url: 
+  https://business-support.udemy.com/hc/en-us/articles/360005792753-Udemy-Business-API-Reference
 keywords:
 - api
 - meltano_sdk
@@ -16,12 +21,71 @@ pip_url: git+https://github.com/immuta/tap-udemy-for-business.git
 quality: silver
 repo: https://github.com/immuta/tap-udemy-for-business
 settings:
-- name: client_id
-- kind: password
+- description: Compression format to use for batch files.
+  kind: options
+  label: Batch Config Encoding Compression
+  name: batch_config.encoding.compression
+  options:
+  - label: Gzip
+    value: gzip
+  - label: None
+    value: none
+- description: Format to use for batch files.
+  kind: options
+  label: Batch Config Encoding Format
+  name: batch_config.encoding.format
+  options:
+  - label: Jsonl
+    value: jsonl
+- description: Prefix to use when writing batch files.
+  kind: string
+  label: Batch Config Storage Prefix
+  name: batch_config.storage.prefix
+- description: Root path to use when writing batch files.
+  kind: string
+  label: Batch Config Storage Root
+  name: batch_config.storage.root
+- description: ''
+  kind: password
+  label: Client ID
+  name: client_id
+- description: ''
+  kind: password
+  label: Client Secret
   name: client_secret
-- kind: integer
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: ''
+  kind: integer
+  label: Organization ID
   name: organization_id
-- name: organization_name
-- kind: date_iso8601
+- description: ''
+  kind: string
+  label: Organization Name
+  name: organization_name
+- description: ''
+  kind: date_iso8601
+  label: Start Date
   name: start_date
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+settings_group_validation:
+- - client_id
+  - client_secret
+  - organization_id
+  - organization_name
 variant: immuta

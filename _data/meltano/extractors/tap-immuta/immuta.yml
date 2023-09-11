@@ -1,8 +1,8 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
+- catalog
+- discover
+- state
 - stream-maps
 description: Data Governance Solutions
 domain_url: https://www.immuta.com/
@@ -18,19 +18,20 @@ pip_url: git+https://github.com/immuta/tap-immuta.git
 quality: silver
 repo: https://github.com/immuta/tap-immuta
 settings:
+- description: User-generated Immuta API Key.
+  kind: password
+  label: API Key
+  name: api_key
 - description: Immuta hostname, e.g. https://my-immuta.my-domain.com
   kind: string
   label: Hostname
   name: hostname
-- description: User-generated Immuta API Key.
-  kind: password
-  label: Api Key
-  name: api_key
 - description: Should be set to something that includes a contact email address should
     the API provider need to contact you for any reason.
   kind: string
   label: User Agent
   name: user_agent
+  value: tap-immuta
 settings_group_validation:
 - - api_key
   - hostname

@@ -1,8 +1,8 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
+- catalog
+- discover
+- state
 - stream-maps
 domain_url: https://trustrace.com/
 keywords:
@@ -19,7 +19,7 @@ repo: https://github.com/icebug/tap-trustrace
 settings:
 - description: The token to authenticate against the API service
   kind: password
-  label: Api Key
+  label: API Key
   name: api_key
 settings_group_validation:
 - - api_key

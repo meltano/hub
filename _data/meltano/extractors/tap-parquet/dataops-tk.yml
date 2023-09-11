@@ -1,7 +1,7 @@
 capabilities:
 - catalog
-- state
 - discover
+- state
 description: Columnar Storage Format
 domain_url: https://parquet.apache.org/
 keywords:
@@ -16,14 +16,16 @@ pip_url: git+https://github.com/dataops-tk/tap-parquet.git
 quality: bronze
 repo: https://github.com/dataops-tk/tap-parquet
 settings:
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
-    can be expected to take."
-  label: Start Date
-  name: start_date
 - description: The absolute path to a parquet source file.
+  kind: string
   label: Filepath
   name: filepath
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
 settings_group_validation:
 - - filepath
 variant: dataops-tk

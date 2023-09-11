@@ -1,8 +1,11 @@
 capabilities:
+- about
+- batch
 - catalog
 - discover
-- properties
+- schema-flattening
 - state
+- stream-maps
 description: Inbound Marketing software
 domain_url: https://legacydocs.hubspot.com/docs/overview
 keywords:
@@ -17,15 +20,62 @@ pip_url: git+https://github.com/spacecowboy/tap-hubspot.git
 quality: gold
 repo: https://github.com/spacecowboy/tap-hubspot
 settings:
-- description: This is API key for your HubSpot account
+- description: ''
+  kind: string
+  label: Batch Config Encoding Compression
+  name: batch_config.encoding.compression
+- description: ''
+  kind: string
+  label: Batch Config Encoding Format
+  name: batch_config.encoding.format
+- description: ''
+  kind: string
+  label: Batch Config Storage Prefix
+  name: batch_config.storage.prefix
+  value: ''
+- description: ''
+  kind: string
+  label: Batch Config Storage Root
+  name: batch_config.storage.root
+- description: Size of batch files
+  kind: integer
+  label: Batch Size
+  name: batch_size
+  value: 1000000
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: HubSpot private app token
   kind: password
   label: HubSpot API Key
   name: hapikey
-- description: This is the cutoff date for syncing historical data.
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
+- description: Set to True to avoid using the search API - implies full table replication
+  kind: boolean
+  label: No Search
+  name: no_search
+  value: false
+- description: Starts incremental stream from this updated timestamp
+  kind: string
+  label: Start From
+  name: start_from
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - hapikey
-  - start_date
+- - batch_config.encoding.compression
+  - batch_config.encoding.format
+  - batch_config.storage.root
+  - hapikey
 variant: spacecowboy

@@ -2,8 +2,6 @@ capabilities:
 - catalog
 - discover
 - state
-- about
-- stream-maps
 description: Facebook Pages API
 domain_url: https://developers.facebook.com/docs/pages/
 keywords:
@@ -18,22 +16,22 @@ pip_url: git+https://github.com/goes-funky/tap-facebook-pages.git
 quality: silver
 repo: https://github.com/goes-funky/tap-facebook-pages
 settings:
-- description: A list of page IDs.
-  documentation: https://www.facebook.com/help/1503421039731588
-  kind: array
-  label: Page IDs
-  name: page_ids
 - description: User access token to authenticate with the API.
   documentation: https://developers.facebook.com/docs/facebook-login/access-tokens/#usertokens
   kind: password
   label: Access Token
   name: access_token
+- description: A list of page IDs.
+  documentation: https://www.facebook.com/help/1503421039731588
+  kind: array
+  label: Page IDs
+  name: page_ids
 - description: The date to start syncing data from.
   kind: date_iso8601
   label: Start Date
   name: start_date
 settings_group_validation:
-- - start_date
+- - access_token
   - page_ids
-  - access_token
+  - start_date
 variant: goes-funky

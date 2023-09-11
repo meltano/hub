@@ -15,19 +15,19 @@ pip_url: git+https://github.com/hotgluexyz/target-airtable.git
 quality: gold
 repo: https://github.com/hotgluexyz/target-airtable
 settings:
-- description: Your Airtable API token.
-  kind: password
-  label: API Token
-  name: token
 - description: The Airtable base ID. Airtable base IDs begin with "app".
-  kind: string
+  kind: password
   label: Base ID
   name: base_id
 - description: Airtable Records URL, defaults to https://api.airtable.com/v0
   kind: string
   label: Records URL
   name: records_url
+- description: Your Airtable API token.
+  kind: password
+  label: Token
+  name: token
 settings_group_validation:
-- - token
-  - base_id
+- - base_id
+  - token
 variant: hotgluexyz

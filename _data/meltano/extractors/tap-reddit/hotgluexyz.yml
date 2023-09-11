@@ -29,8 +29,8 @@ settings:
   kind: password
   label: Client Secret
   name: client_secret
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -40,7 +40,7 @@ settings:
   name: flattening_max_depth
 - description: Your Reddit API redirect URI.
   kind: string
-  label: Redirect URI
+  label: Redirect Uri
   name: redirect_uri
   value: https://hotglue.com/callback
 - description: Your Reddit API refresh token.
@@ -63,7 +63,7 @@ settings:
   kind: string
   label: User Agent
   name: user_agent
-  value: 'Python: Hotglue:0.01 by (/u/hotglue)'
+  value: 'Python: Hotglue:0.01 by (/u/hotglue) '
 settings_group_validation:
 - - client_id
   - client_secret

@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: SAP Sybase Relational Database
 domain_url: https://infocenter.sybase.com/help/index.jsp
 keywords:
@@ -19,27 +19,67 @@ pip_url: git+https://github.com/s7clarke10/tap-sybase-sdk.git
 quality: silver
 repo: https://github.com/s7clarke10/tap-sybase-sdk
 settings:
-- description: The user name used to connect to the Sybase database
+- description: "The characterset for the database / source system. The default is
+    `utf8`, however older databases might use a charactersets like cp1252 for the
+    encoding. If you have errors with a UnicodeDecodeError: 'utf-8' codec can't decode
+    byte .... Then a solution is examine the characterset of the source database /
+    system and make an appropriate substitution for utf8 like cp1252."
   kind: string
-  label: User
-  name: user
-- description: The password for the connecting user to the Sybase database
-  kind: password
-  label: Password
-  name: password
+  label: Characterset
+  name: characterset
+  value: utf8
+- description: To make use of fetchmany(x) instead of fetchone(), use cursor_array_size
+    with an integer value indicating the number of rows to pull. This can help in
+    some architectures by pulling more rows into memory. The default if omitted is
+    1, the tap will still use fetchmany, but with an argument of 1, under the assumption
+    that like cp1252.
+  kind: integer
+  label: Cursor Array Size
+  name: cursor_array_size
+  value: 1
+- description: To filter the discovery to a particular schema within a database. This
+    is useful if you have a large number of schemas and wish to speed up the discovery.
+  kind: string
+  label: Filter Databases
+  name: filter_dbs
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
 - description: The host name or IP Address running the Sybase Database
   kind: string
   label: Host
   name: host
+- description: The password for the connecting user to the Sybase database
+  kind: password
+  label: Password
+  name: password
 - description: The port that the database is running on, defaults to port 2638
   kind: integer
   label: Port
   name: port
-- description: To filter the discovery to a particular schema within a database. This
-    is useful if you have a large number of schemas and wish to speed up the discovery.
+  value: 2638
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: Set the version of TDS to use when communicating with Sybase Server
+    (the default is None). This is used by pymssql with connecting and fetching data
+    from Sybase databases. See the pymssql documentation and FreeTDS documentation
+    for more details.
   kind: string
-  label: Filter Dbs
-  name: filter_dbs
+  label: Tds Version
+  name: tds_version
 - description: To emit a date as a date without a time component or time without an
     UTC offset. This is helpful to avoid time conversions or to just work with a date
     datetype in the target database. If this boolean config item is not set, the default
@@ -49,54 +89,19 @@ settings:
   kind: boolean
   label: Use Date Datatype
   name: use_date_datatype
-- description: Set the version of TDS to use when communicating with Sybase Server
-    (the default is None). This is used by pymssql with connecting and fetching data
-    from Sybase databases. See the pymssql documentation and FreeTDS documentation
-    for more  details.
-  kind: string
-  label: Tds Version
-  name: tds_version
-- description: "The characterset for the database / source system. The default is\
-    \ `utf8`, however older databases might use a charactersets like cp1252 for the\
-    \ encoding. If you have errors with a UnicodeDecodeError: 'utf-8' codec can't\
-    \ decode byte .... then a solution is examine the characterset of the source database\
-    \ / system and make an appropriate substitution for utf8 like cp1252."
-  kind: string
-  label: Characterset
-  name: characterset
-- description: To make use of fetchmany(x) instead of fetchone(), use cursor_array_size
-    with an integer value indicating the number of rows to pull. This can help in
-    some architectures by pulling more rows into memory. The default if omitted is
-    1, the tap will still use fetchmany, but with an argument of 1, under the assumption
-    that  like cp1252.
-  kind: integer
-  label: Cursor Array Size
-  name: cursor_array_size
-- description: To emit all numeric values as strings and treat floats as string data
+  value: false
+- description: O emit all numeric values as strings and treat floats as string data
     types for the target, set use_singer_decimal to true. The resulting SCHEMA message
     will contain an attribute in additionalProperties containing the scale and precision
     of the discovered property
   kind: boolean
   label: Use Singer Decimal
   name: use_singer_decimal
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
-  kind: boolean
-  label: Flattening Enabled
-  name: flattening_enabled
-- description: The max depth to flatten schemas.
-  kind: integer
-  label: Flattening Max Depth
-  name: flattening_max_depth
+  value: false
+- description: The user name used to connect to the Sybase database
+  kind: string
+  label: User
+  name: user
 settings_group_validation:
 - - host
   - password

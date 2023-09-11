@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Amazon’s affiliate marketing program
 domain_url: https://affiliate-program.amazon.com/
 keywords:
@@ -19,32 +19,13 @@ pip_url: git+https://github.com/voxmedia/tap-amazon-associates.git
 quality: silver
 repo: https://github.com/voxmedia/tap-amazon-associates
 settings:
-- description: Amazon Associates username
-  label: Username
-  name: username
-- description: Amazon Associates password
-  kind: password
-  label: Password
-  name: password
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
-    can be expected to take."
-  label: Start Date
-  name: start_date
 - description: The url for the API service
-  label: Api Url
+  kind: string
+  label: API URL
   name: api_url
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+  value: https://assoc-datafeeds-na.amazon.com
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -52,6 +33,29 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: Amazon Associates password
+  kind: password
+  label: Password
+  name: password
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: Amazon Associates username
+  kind: string
+  label: Username
+  name: username
 settings_group_validation:
 - - password
   - username

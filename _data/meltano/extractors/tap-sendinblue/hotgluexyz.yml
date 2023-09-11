@@ -1,6 +1,9 @@
 capabilities:
+- about
 - catalog
 - discover
+- state
+- stream-maps
 description: Relationship Marketing Platform
 domain_url: https://www.sendinblue.com/
 keywords:
@@ -15,14 +18,14 @@ pip_url: git+https://github.com/hotgluexyz/tap-sendinblue.git
 quality: gold
 repo: https://github.com/hotgluexyz/tap-sendinblue
 settings:
-- description: Sendinblue API Key
+- description: The token to authenticate against the API service
   kind: password
   label: API Key
   name: api_key
-- description: Determines how much historical data will be extracted. Please be aware
-    that the larger the time period and amount of data, the longer the initial extraction
-    can be expected to take.
+- description: The earliest record date to sync
   kind: date_iso8601
   label: Start Date
   name: start_date
+settings_group_validation:
+- - api_key
 variant: hotgluexyz

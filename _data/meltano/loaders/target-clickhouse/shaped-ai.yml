@@ -18,20 +18,16 @@ pip_url: git+https://github.com/shaped-ai/target-clickhouse.git
 quality: silver
 repo: https://github.com/shaped-ai/target-clickhouse
 settings:
-- description: The SQLAlchemy connection string for the ClickHouse database
-  kind: password
-  label: SQLAlchemy URL
-  name: sqlalchemy_url
-- description: The name of the table to write to. Defaults to stream name.
-  kind: string
-  label: Table Name
-  name: table_name
+- description: Add metadata to records.
+  kind: boolean
+  label: Add Record Metadata
+  name: add_record_metadata
 - description: The default target database schema name to use for all streams.
   kind: string
   label: Default Target Schema
   name: default_target_schema
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -39,6 +35,10 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: The SQLAlchemy connection string for the ClickHouse database
+  kind: string
+  label: Sqlalchemy URL
+  name: sqlalchemy_url
 - description: User-defined config values to be used within map expressions.
   kind: object
   label: Stream Map Config
@@ -48,14 +48,10 @@ settings:
   kind: object
   label: Stream Maps
   name: stream_maps
-- description: "'True' to enable hard delete for activate_version operation."
-  kind: boolean
-  label: Hard Delete
-  name: hard_delete
-- description: "'True' to include record metadata in tables."
-  kind: boolean
-  label: Add Record Metadata
-  name: add_record_metadata
+- description: The name of the table to write to. Defaults to stream name.
+  kind: string
+  label: Table Name
+  name: table_name
 settings_group_validation:
 - - sqlalchemy_url
 settings_preamble: ''

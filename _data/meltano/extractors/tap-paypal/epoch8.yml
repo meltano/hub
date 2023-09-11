@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Online Payments System
 domain_url: https://www.paypal.com/us/home
 keywords:
@@ -21,31 +21,18 @@ repo: https://github.com/epoch8/tap-paypal
 settings:
 - description: Your PayPal client ID.
   kind: password
-  label: Client Id
+  label: Client ID
   name: client_id
 - description: The token to authenticate against the API service
   kind: password
   label: Client Secret
   name: client_secret
-- description: '%Y-%m-%d'
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
-- description: '%Y-%m-%d'
+- description: '%y-%m-%d'
   kind: date_iso8601
   label: End Date
   name: end_date
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -53,9 +40,22 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: '%y-%m-%d'
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - client_secret
-  - client_id
+- - client_id
+  - client_secret
 settings_preamble: ''
 usage: ''
 variant: epoch8

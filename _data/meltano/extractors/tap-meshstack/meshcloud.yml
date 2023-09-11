@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 domain_url: ''
 keywords:
 - meltano_sdk
@@ -18,40 +18,26 @@ pip_url: git+https://github.com/meshcloud/tap-meshstack.git
 quality: silver
 repo: https://github.com/meshcloud/tap-meshstack
 settings:
-- description: The HTTP basic auth user to authenticate against the meshObject API
-    for federation
-  label: Federation Auth Username
-  name: federation.auth.username
+- description: Path to a public SSL certificate used to verify connection to meshStack
+  kind: string
+  label: Cert Path
+  name: cert_path
+- description: The url of the meshObject API (excluding the /api prefix!)
+  kind: string
+  label: Federation API URL
+  name: federation.api_url
 - description: The HTTP basic auth password to authenticate against the meshObject
     API for federation
   kind: password
   label: Federation Auth Password
   name: federation.auth.password
-- description: The url of the meshObject API (excluding the /api prefix!)
-  label: Federation Api Url
-  name: federation.api_url
 - description: The HTTP basic auth user to authenticate against the meshObject API
-    for kraken
-  label: Kraken Auth Username
-  name: kraken.auth.username
-- description: The HTTP basic auth password to authenticate against the meshObject
-    API for kraken
-  kind: password
-  label: Kraken Auth Password
-  name: kraken.auth.password
-- description: The url of the meshObject API (excluding the /api prefix!)
-  label: Kraken Api Url
-  name: kraken.api_url
-- description: Config object for stream maps capability.
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+    for federation
+  kind: string
+  label: Federation Auth Username
+  name: federation.auth.username
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -59,13 +45,37 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: The url of the meshObject API (excluding the /api prefix!)
+  kind: string
+  label: Kraken API URL
+  name: kraken.api_url
+- description: The HTTP basic auth password to authenticate against the meshObject
+    API for kraken
+  kind: password
+  label: Kraken Auth Password
+  name: kraken.auth.password
+- description: The HTTP basic auth user to authenticate against the meshObject API
+    for kraken
+  kind: string
+  label: Kraken Auth Username
+  name: kraken.auth.username
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability.
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - federation.auth.username
-  - federation.auth.password
+- - federation
   - federation.api_url
-  - kraken.auth.username
-  - kraken.auth.password
+  - federation.auth.password
+  - federation.auth.username
+  - kraken
   - kraken.api_url
+  - kraken.auth.password
+  - kraken.auth.username
 settings_preamble: ''
 usage: ''
 variant: meshcloud

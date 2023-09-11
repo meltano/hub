@@ -25,13 +25,12 @@ settings:
   kind: string
   label: AWS Region
   name: aws_region
-  value: us-east-1
 - description: The secret key for your AWS account.
   kind: password
   label: AWS Secret Key
   name: aws_secret_key
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -39,12 +38,6 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: The SQS MessageGroupId. It is the tag that specifies that a message
-    belongs to a specific message group. This parameter applies only to FIFO (first-in-first-out)
-    queues.
-  kind: string
-  label: Path Prefix
-  name: path_prefix
 - description: The SQS queue name.
   kind: string
   label: Queue Name
@@ -53,8 +46,7 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability.
   kind: object
   label: Stream Maps
   name: stream_maps

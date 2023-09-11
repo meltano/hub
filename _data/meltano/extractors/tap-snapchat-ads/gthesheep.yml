@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Social Media Platform
 domain_url: https://developers.snapchat.com/docs/
 keywords:
@@ -20,51 +20,16 @@ pip_url: git+https://github.com/GtheSheep/tap-snapchat-ads.git
 quality: silver
 repo: https://github.com/GtheSheep/tap-snapchat-ads
 settings:
-- description: Client ID used to authenticate against the API.
+- description: Client ID
   kind: password
   label: Client ID
   name: client_id
-- description: Client secret used to authenticate against the API.
+- description: Client Secret
   kind: password
   label: Client Secret
   name: client_secret
-- description: Refresh token used to authenticate against the API.
-  kind: password
-  label: Refresh Token
-  name: refresh_token
-- description: Start date for stats collection.
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
-- description: Attribution window for swipe ups 1_DAY, 7_DAY, 28_DAY (default).
-  kind: string
-  label: Swipe Up Attribution Window
-  name: swipe_up_attribution_window
-  value: 28_DAY
-- description: Attribution window for views 1_HOUR, 3_HOUR, 6_HOUR, 1_DAY (default),
-    7_DAY, 28_DAY
-  kind: string
-  label: View Attribution Window
-  name: view_attribution_window
-- description: User agent to set on requests
-  kind: string
-  label: User Agent
-  name: user_agent
-- description: List of lowercase 2-letter ISO Country Codes for Ads Targeting
-  kind: array
-  label: Targeting Country Codes
-  name: targeting_country_codes
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -72,10 +37,47 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: Refresh token
+  kind: password
+  label: Refresh Token
+  name: refresh_token
+- description: Start date for stats
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: 'Attribution window for swipe ups: 1_DAY, 7_DAY, 28_DAY (default)'
+  kind: string
+  label: Swipe Up Attribution Window
+  name: swipe_up_attribution_window
+  value: 28_DAY
+- description: List of lower - case 2 - letter ISO Country Codes for Ads Targeting.
+  kind: array
+  label: Targeting Country Codes
+  name: targeting_country_codes
+  value: []
+- description: User agent
+  kind: string
+  label: User Agent
+  name: user_agent
+- description: 'Attribution window for views: 1_HOUR, 3_HOUR, 6_HOUR, 1_DAY (default),
+    7_DAY, 28_DAY'
+  kind: string
+  label: View Attribution Window
+  name: view_attribution_window
+  value: 1_DAY
 settings_group_validation:
-- - refresh_token
+- - client_id
   - client_secret
-  - client_id
+  - refresh_token
 settings_preamble: ''
 usage: ''
 variant: gthesheep

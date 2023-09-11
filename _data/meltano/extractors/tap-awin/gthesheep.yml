@@ -1,8 +1,8 @@
 capabilities:
+- about
 - catalog
 - discover
 - state
-- about
 - stream-maps
 description: Affiliate Marketing Network
 domain_url: https://wiki.awin.com/index.php/API
@@ -18,16 +18,24 @@ pip_url: git+https://github.com/gthesheep/tap-awin.git
 quality: silver
 repo: https://github.com/gthesheep/tap-awin
 settings:
-- description: API Token for the Awin API
+- description: The token to authenticate against the API service
   kind: password
-  label: API token
+  label: API Token
   name: api_token
-- description: Number of days to lookback for transaction updates
-  label: Lookback days
+- description: Number of days to lookback to re-sync transactions
+  kind: integer
+  label: Lookback Days
   name: lookback_days
-- description: Start date as of when to collect transactions from
-  label: Start date
+  value: 30
+- description: The earliest transaction date to sync
+  kind: date_iso8601
+  label: Start Date
   name: start_date
+- description: Timezone to use
+  kind: string
+  label: Timezone
+  name: timezone
+  value: Europe/London
 settings_group_validation:
 - - api_token
   - lookback_days

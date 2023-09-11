@@ -3,6 +3,7 @@ capabilities:
 - catalog
 - discover
 - schema-flattening
+- state
 - stream-maps
 description: Advertising Platform
 domain_url: https://www.criteo.com/
@@ -31,8 +32,8 @@ settings:
   kind: password
   label: Client Secret
   name: client_secret
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

@@ -1,7 +1,8 @@
 capabilities:
-- catalog
 - about
+- catalog
 - discover
+- schema-flattening
 - state
 - stream-maps
 description: Virtual wallet and payments platform
@@ -18,26 +19,43 @@ pip_url: git+https://github.com/a-rusi/tap-mercadopago.git
 quality: silver
 repo: https://github.com/a-rusi/tap-mercadopago
 settings:
-- description: API authorization token. You can find more info on how to obtain it
-    [here](https://www.mercadopago.com.ar/developers/en/guides/overview)
+- description: The token to authenticate against the API service
   kind: password
   label: Auth Token
   name: auth_token
-- description: The earliest record date to sync (default is yesterday).
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
-- description: The latest record date to sync (default is the current date)
+- description: URL of the Mercado Pago API (default = https://api.mercadopago.com/v1)
+  kind: string
+  label: Base URL
+  name: base_url
+  value: https://api.mercadopago.com/v1
+- description: The latest record date to sync (default = NOW)
   kind: date_iso8601
   label: End Date
   name: end_date
-- description: URL of the Mercado Pago API (default is https://api.mercadopago.com/v1")
-  kind: string
-  label: Base Url
-  name: base_url
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: The earliest record date to sync (default is yesterday)
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability.
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
 - - auth_token
-  - start_date
-  - end_date
   - base_url
+  - end_date
+  - start_date
 variant: a-rusi
