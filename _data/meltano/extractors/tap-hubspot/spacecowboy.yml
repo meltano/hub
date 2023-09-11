@@ -53,7 +53,7 @@ settings:
   name: flattening_max_depth
 - description: HubSpot private app token
   kind: password
-  label: HubSpot API Key
+  label: Hapikey
   name: hapikey
 - description: Set to True to avoid using the search API - implies full table replication
   kind: boolean

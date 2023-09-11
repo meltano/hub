@@ -16,7 +16,7 @@ quality: gold
 repo: https://gitlab.com/hotglue/target-mongodb
 settings:
 - description: Connection string in the format mongodb://[${MONGO_USERNAME:${MONGO_PASSWORD}@]mongodb0.example.com:PORT
-  kind: password
+  kind: string
   label: Connection String
   name: connection_string
 - description: Name of the target db inside your mongoDB

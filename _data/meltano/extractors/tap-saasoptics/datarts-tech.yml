@@ -85,7 +85,7 @@ settings:
   kind: object
   label: Stream Maps
   name: stream_maps
-- description: tap-saasoptics <api_user_email@your_company.com>.
+- description: Tap-saasoptics <api_user_email@your_company. Com>.
   kind: string
   label: User Agent
   name: user_agent

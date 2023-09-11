@@ -5,29 +5,38 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
-description: Cloud-based accounting software for small and medium-sized businesses
-domain_url: https://www.freshbooks.com/
-executable: tap-freshbooks
+description: App and website analytics platform hosted by Google (GA4)
+domain_url: https://developers.google.com/analytics/devguides/reporting/data/v1
+executable: tap-google-analytics
+hidden: true
 keywords:
 - meltano_sdk
-label: FreshBooks
-logo_url: /assets/logos/extractors/freshbooks.svg
+label: Google Analytics (GA4)
+logo_url: /assets/logos/extractors/ga4.png
 maintenance_status: active
-name: tap-freshbooks
-namespace: tap_freshbooks
+name: tap-ga4
+namespace: tap_ga4
 next_steps: ''
-pip_url: git+https://gitlab.com/hotglue/tap-freshbooks.git
-quality: gold
-repo: https://gitlab.com/hotglue/tap-freshbooks
+pip_url: git+https://github.com/sehnem/tap-google-analytics.git
+quality: silver
+repo: https://github.com/sehnem/tap-google-analytics
 settings:
-- description: The token to authenticate against the API service
+- description: Google Analytics Access Token
   kind: password
   label: Access Token
   name: access_token
-- description: Your FreshBooks API client ID.
+- description: Google Analytics Client ID
   kind: password
   label: Client ID
   name: client_id
+- description: Google Analytics Client Secret
+  kind: password
+  label: Client Secret
+  name: client_secret
+- description: The last record date to sync
+  kind: date_iso8601
+  label: End Date
+  name: end_date
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -37,18 +46,18 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: The API redirect URI.
-  kind: string
-  label: Redirect Uri
-  name: redirect_uri
-- description: Your FreshBooks API refresh token.
+- description: Google Analytics Property ID
+  kind: password
+  label: Property ID
+  name: property_id
+- description: Google Analytics Refresh Token
   kind: password
   label: Refresh Token
   name: refresh_token
-- description: Your FreshBooks API secret ID.
-  kind: password
-  label: Secret ID
-  name: secret_id
+- description: Google Analytics Reports Definition
+  kind: string
+  label: Reports
+  name: reports
 - description: The earliest record date to sync
   kind: date_iso8601
   label: Start Date
@@ -63,11 +72,11 @@ settings:
   label: Stream Maps
   name: stream_maps
 settings_group_validation:
-- - access_token
-  - client_id
-  - redirect_uri
+- - client_id
+  - client_secret
+  - property_id
   - refresh_token
-  - secret_id
+  - start_date
 settings_preamble: ''
 usage: ''
-variant: hotgluexyz
+variant: sehnem
