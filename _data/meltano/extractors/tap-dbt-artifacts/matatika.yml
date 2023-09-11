@@ -1,0 +1,24 @@
+capabilities:
+- catalog
+- discover
+description: dbt Artifact Files
+domain_url: https://docs.getdbt.com/reference/artifacts/dbt-artifacts#when-are-artifacts-produced
+hidden: true
+keywords:
+- file
+label: dbt Artifacts
+logo_url: /assets/logos/extractors/dbt-artifacts.png
+maintenance_status: active
+name: tap-dbt-artifacts
+namespace: tap_dbt_artifacts
+pip_url: git+https://github.com/Matatika/tap-dbt-artifacts.git
+quality: bronze
+repo: https://github.com/Matatika/tap-dbt-artifacts
+settings:
+- description: The full path to your dbt project's target directory.
+  kind: string
+  label: dbt Target Dir
+  name: dbt_target_dir
+  placeholder: Ex. "/path/to/dbt/target"
+  value: .meltano/transformers/dbt/target
+variant: matatika
