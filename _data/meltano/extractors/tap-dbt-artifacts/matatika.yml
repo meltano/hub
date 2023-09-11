@@ -3,6 +3,7 @@ capabilities:
 - discover
 description: dbt Artifact Files
 domain_url: https://docs.getdbt.com/reference/artifacts/dbt-artifacts#when-are-artifacts-produced
+hidden: true
 keywords:
 - file
 label: dbt Artifacts
