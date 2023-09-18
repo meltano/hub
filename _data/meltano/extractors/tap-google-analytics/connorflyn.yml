@@ -8,8 +8,8 @@ capabilities:
 description: App and website analytics platform hosted by Google (GA4)
 domain_url: https://developers.google.com/analytics/devguides/reporting/data/v1
 executable: tap-google-analytics
+hidden: true
 keywords:
-- api
 - meltano_sdk
 label: Google Analytics (GA4)
 logo_url: /assets/logos/extractors/ga4.png
@@ -17,9 +17,9 @@ maintenance_status: active
 name: tap-ga4
 namespace: tap_ga4
 next_steps: ''
-pip_url: git+https://github.com/MeltanoLabs/tap-google-analytics.git
-quality: gold
-repo: https://github.com/MeltanoLabs/tap-google-analytics
+pip_url: git+https://github.com/connorflyn/tap-google-analytics-v4.git
+quality: bronze
+repo: https://github.com/connorflyn/tap-google-analytics-v4
 settings:
 - description: Google Analytics Client Secrets Dictionary
   kind: object
@@ -62,70 +62,10 @@ settings:
   kind: password
   label: Property ID
   name: property_id
-- description: |
-    Google Analytics Reports Definition.
-    The tap uses the [default reports definition](https://github.com/MeltanoLabs/tap-google-analytics/blob/main/tap_google_analytics/defaults/default_report_definition.json)
-    if this field is not provided.
-    A project-relative path to JSON file with the definition of the reports to be generated.
-
-    See <https://ga-dev-tools.google/ga4/dimensions-metrics-explorer/> for valid dimensions and metrics.
-
-    The JSON structure expected is as follows:
-
-    ```json
-    [
-      { "name" : "name of stream to be used",
-        "dimensions" :
-        [
-          "Google Analytics Dimension",
-          "Another Google Analytics Dimension",
-          // ... up to 7 dimensions per stream ...
-        ],
-        "metrics" :
-        [
-          "Google Analytics Metric",
-          "Another Google Analytics Metric",
-          // ... up to 10 metrics per stream ...
-        ]
-      },
-      // ... as many streams / reports as the user wants ...
-    ]
-    ```
-
-    For example, if you want to extract user stats per day in a `users_per_day` stream and session stats per day and country in a `sessions_per_country_day` stream:
-
-    ```json
-    [
-      { "name" : "users_per_day",
-        "dimensions" :
-        [
-          "date"
-        ],
-        "metrics" :
-        [
-          "newUsers",
-          "active1DayUsers"
-        ]
-      },
-      { "name" : "sessions_per_country_day",
-        "dimensions" :
-        [
-          "date",
-          "country"
-        ],
-        "metrics" :
-        [
-          "sessions",
-          "sessionsPerUser",
-          "avgSessionDuration"
-        ]
-      }
-    ]
-    ```
+- description: Google Analytics Reports Definition
   kind: string
   label: Reports
   name: reports
-  placeholder: Ex. my_report_definition.json
 - description: The earliest record date to sync
   kind: date_iso8601
   label: Start Date
@@ -140,18 +80,8 @@ settings:
   label: Stream Maps
   name: stream_maps
 settings_group_validation:
-- - client_secrets
-  - property_id
-  - start_date
-- - key_file_location
-  - property_id
-  - start_date
-- - oauth_credentials.access_token
-  - oauth_credentials.client_id
-  - oauth_credentials.client_secret
-  - oauth_credentials.refresh_token
-  - property_id
+- - property_id
   - start_date
 settings_preamble: ''
 usage: ''
-variant: meltanolabs
+variant: connorflyn

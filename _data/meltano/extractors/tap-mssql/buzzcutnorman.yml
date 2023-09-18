@@ -95,6 +95,10 @@ settings:
   name: sqlalchemy_eng_params.future
 - description: This is a Yes No option
   kind: string
+  label: Sqlalchemy URL Query Multisubnetfailover
+  name: sqlalchemy_url_query.MultiSubnetFailover
+- description: This is a Yes No option
+  kind: string
   label: Sqlalchemy URL Query Trustservercertificate
   name: sqlalchemy_url_query.TrustServerCertificate
 - description: The Driver to use when connection should match the Driver Type
