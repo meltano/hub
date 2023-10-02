@@ -1,0 +1,60 @@
+capabilities: []
+description: Hadoop File System - Parquet
+domain_url: https://arrow.apache.org/docs/python/generated/pyarrow.fs.HadoopFileSystem.html
+executable: target-hdfs
+keywords: []
+label: HDFS
+logo_url: /assets/logos/loaders/hdfs.png
+maintenance_status: active
+name: target-hdfs
+namespace: target_hdfs
+next_steps: ''
+pip_url: git+https://github.com/Automattic/target-hdfs.git
+quality: silver
+repo: https://github.com/Automattic/target-hdfs
+settings:
+- description: The compression extension to include in the file names.
+  kind: string
+  label: Compression Extension
+  name: compression_extension
+- description: The compression method to use.
+  kind: string
+  label: Compression Method
+  name: compression_method
+- description: The prefix to add to each output file.
+  kind: string
+  label: File Prefix
+  name: file_prefix
+- description: The size of the output files.
+  kind: integer
+  label: File Size Mb
+  name: file_size_mb
+- description: The separator to use in the file name.
+  kind: string
+  label: Filename Separator
+  name: filename_separator
+- description: The destination path in HDFS.
+  kind: string
+  label: Hdfs Destination Path
+  name: hdfs_destination_path
+- description: The max size of the queue.
+  kind: integer
+  label: Max Queue Size
+  name: max_queue_size
+- description: A partition value to use for separating output files.
+  kind: string
+  label: Partitions
+  name: partitions
+- description: The number of rows per file.
+  kind: integer
+  label: Rows Per File
+  name: rows_per_file
+- description: Whether to put stream data in separate folders or not.
+  kind: boolean
+  label: Streams In Separate Folder
+  name: streams_in_separate_folder
+settings_group_validation:
+- []
+settings_preamble: ''
+usage: ''
+variant: automattic

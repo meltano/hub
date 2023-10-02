@@ -604,6 +604,7 @@ loaders:
   target-elasticsearch: dtmirizzi
   target-gcs: datateer
   target-gsheet: singer-io
+  target-hdfs: automattic
   target-hubspot: meltanolabs
   target-iomete: iomete
   target-jsonl: andyh1203
