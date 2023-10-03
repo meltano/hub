@@ -3,7 +3,7 @@ description: Hadoop File System - Parquet
 domain_url: https://arrow.apache.org/docs/python/generated/pyarrow.fs.HadoopFileSystem.html
 executable: target-hdfs
 keywords: []
-label: HDFS
+label: HDFS Parquet
 logo_url: /assets/logos/loaders/hdfs.png
 maintenance_status: active
 name: target-hdfs
