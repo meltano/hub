@@ -5,12 +5,12 @@ capabilities:
 - discover
 - schema-flattening
 - stream-maps
-description: Statistics Norway Klass API
+description: Stastistics Norway Classifications and Codelists
 domain_url: https://data.ssb.no/api/klass/v1/api-guide.html
 executable: tap-ssb-klass
 keywords:
 - meltano_sdk
-label: Stastistics Norway Classifications and Codelists
+label: SSB Klass API
 logo_url: /assets/logos/extractors/ssb-klass.png
 maintenance_status: active
 name: tap-ssb-klass

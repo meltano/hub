@@ -12,7 +12,7 @@ domain_url: https://www.ssb.no/en/api/pxwebapi
 executable: tap-pxwebapi
 keywords:
 - meltano_sdk
-label: Official statistics through PxWebApi
+label: PxWeb API
 logo_url: /assets/logos/extractors/pxwebapi.png
 maintenance_status: active
 name: tap-pxwebapi
