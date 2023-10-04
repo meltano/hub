@@ -1,0 +1,23 @@
+description: Statistics Norway Klass API
+domain_url: https://data.ssb.no/api/klass/v1/api-guide.html
+executable: tap-ssb-klass
+keywords: []
+label: Stastistics Norway Classifications and Codelists
+logo_url: /assets/logos/extractors/ssb-klass.png
+maintenance_status: active
+name: tap-ssb-klass
+namespace: tap_ssb_klass
+next_steps: ''
+pip_url: git+https://github.com/storebrand/tap-ssb-klass.git
+quality: silver
+repo: https://github.com/storebrand/tap-ssb-klass
+settings:
+- name: classifications
+  kind: array
+- name: correspondences
+  kind: array
+settings_group_validation:
+- []
+settings_preamble: ''
+usage: ''
+variant: storebrand

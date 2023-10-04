@@ -1,0 +1,23 @@
+description: PxWebApi - API for official statistics used by Statistical offices in several Nordic countries
+domain_url: https://www.ssb.no/en/api/pxwebapi
+executable: tap-ssb-klass
+keywords: []
+label: Official statistics through PxWebApi
+logo_url: /assets/logos/extractors/pxwebapi.png
+maintenance_status: active
+name: tap-ssb-klass
+namespace: tap_ssb_klass
+next_steps: ''
+pip_url: git+https://github.com/storebrand/tap-pxwebapi.git
+quality: silver
+repo: https://github.com/storebrand/tap-pxwebapi
+settings:
+- name: base_url
+  kind: string
+- name: tables
+  kind: array
+settings_group_validation:
+- []
+settings_preamble: ''
+usage: ''
+variant: storebrand
