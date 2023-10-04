@@ -20,14 +20,14 @@ pip_url: git+https://github.com/storebrand/tap-ssb-klass.git
 quality: silver
 repo: https://github.com/storebrand/tap-ssb-klass
 settings:
-- kind: array
-  name: classifications
+- description: Array of classification specifications to read
+  kind: array
   label: Classifications
-  description: Array of classification specifications to read
-- kind: array
-  name: correspondences
+  name: classifications
+- description: Array of corresponcence specifications to read
+  kind: array
   label: Correspondences
-  description: Array of corresponcence specifications to read
+  name: correspondences
 settings_group_validation:
 - []
 settings_preamble: ''

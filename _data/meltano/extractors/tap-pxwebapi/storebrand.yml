@@ -22,15 +22,15 @@ pip_url: git+https://github.com/storebrand/tap-pxwebapi.git
 quality: silver
 repo: https://github.com/storebrand/tap-pxwebapi
 settings:
-- kind: string
-  name: base_url
+- description: Base URL for the API endpoint.
+  kind: string
   label: Base URL
-  description: Base URL for the API endpoint.
+  name: base_url
   value: https://data.ssb.no/api/v0/
-- kind: array
-  name: tables
+- description: An array of table specifications to read.
+  kind: array
   label: Tables
-  description: An array of table specifications to read.
+  name: tables
 settings_group_validation:
 - []
 settings_preamble: ''
