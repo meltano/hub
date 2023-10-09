@@ -1,9 +1,12 @@
+---
 commands:
   refresh:
     args: refresh
     description: Refresh a PowerBI Dataset
-definition: |
-  is used to trigger a refresh of a PowerBI dataset. Usually this is run in a pipeline following a transformation (i.e. dbt) step that altered the data that PowerBI is connected to.
+definition: >
+  is used to trigger a refresh of a PowerBI dataset. Usually this is
+  run in a pipeline following a transformation (i.e. dbt) step that altered the
+  data that PowerBI is connected to.
 description: A modern, enterprise-ready business intelligence tool.
 docs: https://github.com/lgrosjean/powerbi-ext
 domain_url: https://www.tableau.com/
@@ -18,8 +21,10 @@ logo_url: /assets/logos/utilities/powerbi.png
 maintenance_status: active
 name: powerbi
 namespace: powerbi
-next_steps: |
-  1. Create a PowerBI Service Principal and retrieve your `tenant_id`, `client_id` and `client_secret`.
+next_steps: >
+  1. Create a PowerBI Service Principal and retrieve your `tenant_id`,
+  `client_id` and `client_secret`.
+
   To generate such secret and allow it to deal with your instance, follow [Azure documentation](https://learn.microsoft.com/en-us/power-bi/developer/embedded/embed-service-principal)
 pip_url: git+https://github.com/lgrosjean/powerbi-ext
 repo: https://github.com/lgrosjean/powerbi-ext
