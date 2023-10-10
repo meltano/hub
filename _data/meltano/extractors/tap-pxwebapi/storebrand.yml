@@ -1,0 +1,38 @@
+capabilities:
+- about
+- batch
+- catalog
+- discover
+- schema-flattening
+- state
+- stream-maps
+description: PxWebApi - API for official statistics used by Statistical offices in
+  several Nordic countries.
+domain_url: https://www.ssb.no/en/api/pxwebapi
+executable: tap-pxwebapi
+keywords:
+- meltano_sdk
+label: PxWeb API
+logo_url: /assets/logos/extractors/pxwebapi.png
+maintenance_status: active
+name: tap-pxwebapi
+namespace: tap_pxwebapi
+next_steps: ''
+pip_url: git+https://github.com/storebrand/tap-pxwebapi.git
+quality: silver
+repo: https://github.com/storebrand/tap-pxwebapi
+settings:
+- description: Base URL for the API endpoint.
+  kind: string
+  label: Base URL
+  name: base_url
+  value: https://data.ssb.no/api/v0/
+- description: An array of table specifications to read.
+  kind: array
+  label: Tables
+  name: tables
+settings_group_validation:
+- []
+settings_preamble: ''
+usage: ''
+variant: storebrand

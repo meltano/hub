@@ -390,6 +390,7 @@ extractors:
   tap-pulumi-cloud: meltanolabs
   tap-punk-api: airbyte
   tap-purecloud: pathlight
+  tap-pxwebapi: storebrand
   tap-pypi: airbyte
   tap-qls: hotgluexyz
   tap-qonto: airbyte
@@ -475,6 +476,7 @@ extractors:
   tap-spotify: matatika
   tap-spreadsheets-anywhere: ets
   tap-square: hotgluexyz
+  tap-ssb-klass: storebrand
   tap-stackexchange: meltanolabs
   tap-stackoverflow-sampledata: buzzcutnorman
   tap-stamped: hotgluexyz
