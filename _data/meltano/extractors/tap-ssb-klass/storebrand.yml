@@ -1,0 +1,35 @@
+capabilities:
+- about
+- batch
+- catalog
+- discover
+- schema-flattening
+- stream-maps
+description: Stastistics Norway Classifications and Codelists
+domain_url: https://data.ssb.no/api/klass/v1/api-guide.html
+executable: tap-ssb-klass
+keywords:
+- meltano_sdk
+label: SSB Klass API
+logo_url: /assets/logos/extractors/ssb-klass.png
+maintenance_status: active
+name: tap-ssb-klass
+namespace: tap_ssb_klass
+next_steps: ''
+pip_url: git+https://github.com/storebrand/tap-ssb-klass.git
+quality: silver
+repo: https://github.com/storebrand/tap-ssb-klass
+settings:
+- description: Array of classification specifications to read
+  kind: array
+  label: Classifications
+  name: classifications
+- description: Array of corresponcence specifications to read
+  kind: array
+  label: Correspondences
+  name: correspondences
+settings_group_validation:
+- []
+settings_preamble: ''
+usage: ''
+variant: storebrand
