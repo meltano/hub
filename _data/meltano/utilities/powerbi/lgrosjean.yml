@@ -1,0 +1,51 @@
+commands:
+  refresh:
+    args: refresh
+    description: Refresh a PowerBI Dataset
+definition: >
+  is used to trigger a refresh of a PowerBI dataset. Usually this is
+  run in a pipeline following a transformation (i.e. dbt) step that altered the
+  data that PowerBI is connected to.
+description: Microsoft Power BI is a data analytics solution from Microsoft
+docs: https://github.com/lgrosjean/powerbi-ext
+domain_url: https://powerbi.microsoft.com/
+executable: powerbi-ext
+ext_repo: https://github.com/lgrosjean/powerbi-ext
+keywords:
+- analysis
+- meltano_edk
+- powerbi
+label: PowerBI
+logo_url: /assets/logos/utilities/powerbi.png
+maintenance_status: active
+name: powerbi
+namespace: powerbi
+next_steps: >
+  1. Create a PowerBI Service Principal and retrieve your `tenant_id`,
+  `client_id` and `client_secret`.
+
+  To generate such secret and allow it to deal with your instance, follow [Azure documentation](https://learn.microsoft.com/en-us/power-bi/developer/embedded/embed-service-principal)
+pip_url: git+https://github.com/lgrosjean/powerbi-ext
+repo: https://github.com/lgrosjean/powerbi-ext
+settings:
+- description: PowerBI Service Principal Tenant ID
+  kind: password
+  label: Tenant ID
+  name: TENANT_ID
+- description: PowerBI Service Principal Client ID
+  kind: password
+  label: Client ID
+  name: CLIENT_ID
+- description: PowerBI Service Principal Client Secret
+  kind: password
+  label: Client Secret
+  name: CLIENT_SECRET
+- description: ID of the workspace containing the dataset to refresh
+  label: Workspace ID
+  name: WORKSPACE_ID
+- description: ID of the dataset to refresh
+  kind: string
+  label: Dataset ID
+  name: DATASET_ID
+usage: ""
+variant: lgrosjean
