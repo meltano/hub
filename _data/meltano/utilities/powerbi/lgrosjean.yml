@@ -6,7 +6,7 @@ definition: >
   is used to trigger a refresh of a PowerBI dataset. Usually this is
   run in a pipeline following a transformation (i.e. dbt) step that altered the
   data that PowerBI is connected to.
-description: Microsoft Power BI is a data analytifs solution from Microsoft
+description: Microsoft Power BI is a data analytics solution from Microsoft
 docs: https://github.com/lgrosjean/powerbi-ext
 domain_url: https://powerbi.microsoft.com/
 executable: powerbi-ext
