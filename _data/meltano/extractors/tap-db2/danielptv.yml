@@ -23,19 +23,26 @@ quality: silver
 repo: https://github.com/danielptv/tap-db2
 settings:
 - description: Additional parameters to be appended to the connection string. This
-    is an array of objects. Each object must contain the keys 'key' and 'value'.
-  kind: array
+    is an objects containing key-value pairs.
+  kind: object
   label: Connection Parameters
   name: connection_parameters
 - description: The DB2 database.
   kind: string
   label: Database
   name: database
-- description: The encryption method. Valid values are 'encrypted_verify_certificate'
-    and 'none'.
+- description: The full path to the client keystore database.
   kind: string
-  label: Encryption Method
-  name: encryption.encryption_method
+  label: SSL Client Keystore DB
+  name: encryption.ssl_client_key_store_db.database
+- description: The full path to the client key stash.
+  kind: string
+  label: SSL Client Keystore DB Key Stash
+  name: encryption.ssl_client_key_store_db.key_stash
+- description: The keystore password.
+  kind: password
+  label: SSL Client Keystore DB Password
+  name: encryption.ssl_client_key_store_db.password
 - description: The path to the SSL server certificate.
   kind: string
   label: SSL Server Certificate
@@ -52,10 +59,21 @@ settings:
   kind: string
   label: Port
   name: port
+- description: Partition query into smaller subsets. Useful when working with DB2
+    that has set strict resource limits per query. Only works for streams with numeric
+    primary keys.
+  kind: object
+  label: Query Partitioning
+  name: query_partitioning
 - description: The DB2 schema.
   kind: string
   label: Schema
   name: schema
+- description: Additional execution options to be passed to SQLAlchemy. This is an
+    objects containing key-value pairs.
+  kind: string
+  label: SQLAlchemy execution options
+  name: sqlalchemy_execution_options
 - description: The DB2 username.
   kind: string
   label: User
