@@ -48,7 +48,7 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: The number of records to return from the API in single page. Default
+- description: The number of records to return from the API in single page.Default
     and max varies based on the endpoint.
   kind: integer
   label: Page Size

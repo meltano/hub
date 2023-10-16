@@ -45,8 +45,8 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: A list of dictionaries for specifing additional configurations for
-    a specified stream.
+- description: A list of dictionaries for specifing additional             configurations
+    for a specified stream.
   kind: array
   label: Stream Config
   name: stream_config

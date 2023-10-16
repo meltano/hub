@@ -17,15 +17,15 @@ pip_url: target-elasticsearch
 quality: silver
 repo: https://github.com/dtmirizzi/target-elasticsearch
 settings:
-- description: Api key for auth key authorization
+- description: api key for auth key authorization
   kind: password
   label: API Key
   name: api_key
-- description: Api key id for auth key authorization
+- description: api key id for auth key authorization
   kind: password
   label: API Key ID
   name: api_key_id
-- description: Bearer token for bearer authorization
+- description: bearer token for bearer authorization
   kind: password
   label: Bearer Token
   name: bearer_token
@@ -38,68 +38,57 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: Host used to connect to elasticsearch
+- description: host used to connect to elasticsearch
   kind: string
   label: Host
   name: host
   value: localhost
-- description: |
-    Index Format is used to handle custom index formatting such as specifying `-latest` index.
-
-    ie. the default index string defined as `ecs-{{ stream_name }}-{{ current_timestamp_daily}}` -> `ecs-animals-2022-12-25` where the stream name was animals
-
-    Default options:
-    Daily `{{ current_timestamp_daily }}` -> 2022-12-25,
-    Monthly `{{ current_timestamp_monthly }}`->  2022-12,
-    Yearly `{{ current_timestamp_yearly }}` -> 2022.
-
-    You can also use fields mapped in `index_schema_fields` such as `{{ x }}` or `{{ timestamp }}`.
-
-    There are also helper functions such as:
-    to daily `{{ to_daily(timestamp) }}`,
-    to monthly `{{ to_monthly(timestamp) }}`,
-    to yearly `{{ to_yearly(timestamp) }}`
+- description: "Index Format is used to handle custom index formatting such as specifying
+    `-latest` index.\n    ie. the default index string defined as:\n    `ecs-{{ stream_name
+    }}-{{ current_timestamp_daily}}` -> `ecs-animals-2022-12-25` where the stream
+    name was animals\n\n    Default options:\n    Daily `{{ current_timestamp_daily
+    }}` -> 2022-12-25,\n    Monthly `{{ current_timestamp_monthly }}`->  2022-12,\n\
+    \    Yearly `{{ current_timestamp_yearly }}` -> 2022.\n    You can also use fields
+    mapped in `index_schema_fields` such as `{{ x }}` or `{{ timestamp }}`.\n\n  \
+    \  There are also helper functions such as:\n    to daily `{{ to_daily(timestamp)
+    }}`,\n    to monthly `{{ to_monthly(timestamp) }}`,\n    to yearly `{{ to_yearly(timestamp)
+    }}`\n            "
   kind: string
   label: Index Format
   name: index_format
   value: ecs-{{ stream_name }}-{{ current_timestamp_daily}}
-- description: |
-    Index Schema Fields allows you to specify specific record values via jsonpath
-    from the stream to be used in index formulation.
-
-    ie. if the stream record looks like `{"id": "1", "created_at": "12-13-202000:01:43Z"}`
-    and we want to index the record via create time.
-    we could specify a mapping like `index_timestamp: created_at`
-    in the `index_format` we could use a template like `ecs-animals-{{ to_daily(index_timestamp) }}`
-    this would put this record onto the index  `ecs-animals-2020-12-13`
+- description: "Index Schema Fields allows you to specify specific record values via
+    jsonpath\n    from the stream to be used in index formulation.\n    ie. if the
+    stream record looks like `{\"id\": \"1\", \"created_at\": \"12-13-202000:01:43Z\"\
+    }`\n    and we want to index the record via create time.\n    we could specify
+    a mapping like `index_timestamp: created_at`\n    in the `index_format` we could
+    use a template like `ecs-animals-{{ to_daily(index_timestamp) }}`\n    this would
+    put this record onto the index  `ecs-animals-2020-12-13`"
   kind: object
   label: Index Schema Fields
   name: index_schema_fields
-- description: |
-    Metadata Fields can be used to pull out specific fields via jsonpath to be
-    used on for [ecs metadata patters](https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-fields.html)
-
-    This would best be used for data that has a primary key.
-    ie. `{"guid": 102, "foo": "bar"}`
-    then create a mapping of `_id: guid`
+- description: "Metadata Fields can be used to pull out specific fields via jsonpath
+    to be\n    used on for [ecs metadata patters](https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-fields.html)\n\
+    \    This would best be used for data that has a primary key.\n    ie. `{\"guid\"\
+    : 102, \"foo\": \"bar\"}`\n    then create a mapping of `_id: guid"
   kind: object
   label: Metadata Fields
   name: metadata_fields
-- description: Basic auth password
+- description: basic auth password
   kind: password
   label: Password
   name: password
-- description: Port use to connect to elasticsearch
+- description: port use to connect to elasticsearch
   kind: integer
   label: Port
   name: port
   value: 9200
-- description: Http scheme used for connecting to elasticsearch
+- description: http scheme used for connecting to elasticsearch
   kind: string
   label: Scheme
   name: scheme
   value: http
-- description: Location of the the SSL certificate for cert verification ie. `/some/path`
+- description: location of the the SSL certificate for cert verification ie. `/some/path`
   kind: string
   label: SSL Ca File
   name: ssl_ca_file
@@ -112,7 +101,7 @@ settings:
   kind: object
   label: Stream Maps
   name: stream_maps
-- description: Basic auth username
+- description: basic auth username
   kind: string
   label: Username
   name: username

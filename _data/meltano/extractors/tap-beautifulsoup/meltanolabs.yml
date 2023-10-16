@@ -21,8 +21,8 @@ quality: silver
 repo: https://github.com/MeltanoLabs/tap-beautifulsoup
 settings:
 - description: Attempt to download all pages recursively into the output directory
-    prior to parsing files. Set this to False if you've previously run `wget -r -A.
-    Html https://sdk.meltano.com/en/latest/`
+    prior to parsing files. Set this to False if you've previously run `wget -r -A.html
+    https://sdk.meltano.com/en/latest/`
   kind: boolean
   label: Download Recursively
   name: download_recursively

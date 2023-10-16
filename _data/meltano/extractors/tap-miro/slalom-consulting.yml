@@ -36,7 +36,7 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: 'The response limit for paginated API streams. (range: 0-100)'
+- description: 'The response limit for paginated API streams. (Range: 0-100)'
   kind: integer
   label: Limit
   name: limit

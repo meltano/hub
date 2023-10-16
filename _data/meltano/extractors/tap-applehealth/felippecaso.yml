@@ -45,7 +45,7 @@ settings:
   kind: string
   label: Batch Config Storage Root
   name: batch_config.storage.root
-- description: The file path of the export. Xml file
+- description: The file path of the export.xml file
   kind: string
   label: File Path
   name: file_path

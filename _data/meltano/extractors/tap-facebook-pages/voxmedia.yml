@@ -73,8 +73,7 @@ settings:
   kind: password
   label: Video ID Field
   name: video_id_field
-- description: The table name used to fetch video IDs from in the form of project.
-    Schema. Table_name
+- description: The table name used to fetch video IDs from in the form of project.schema.table_name
   kind: password
   label: Videos Table Name
   name: videos_table_name

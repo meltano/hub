@@ -26,14 +26,14 @@ settings:
   kind: date_iso8601
   label: End Date
   name: end_date
-- description: Sets the Amazon Web Services cost granularity to MONTHLY or DAILY ,
-    or HOURLY.
+- description: Sets the Amazon Web Services cost granularity to                         MONTHLY
+    or DAILY , or HOURLY.
   kind: string
   label: Granularity
   name: granularity
-- description: Which metrics are returned in the query. Valid values are AmortizedCost,
-    BlendedCost, NetAmortizedCost, NetUnblendedCost, NormalizedUsageAmount, UnblendedCost,
-    and UsageQuantity.
+- description: Which metrics are returned in the query. Valid                         values
+    are AmortizedCost, BlendedCost,                         NetAmortizedCost, NetUnblendedCost,                         NormalizedUsageAmount,
+    UnblendedCost, and                         UsageQuantity.
   kind: array
   label: Metrics
   name: metrics

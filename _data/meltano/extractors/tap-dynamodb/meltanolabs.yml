@@ -30,7 +30,7 @@ settings:
   kind: string
   label: AWS Assume Role Arn
   name: aws_assume_role_arn
-- description: The default AWS region name (e.g. us-east-1)
+- description: 'The default AWS region name (e.g. us-east-1) '
   kind: string
   label: AWS Default Region
   name: aws_default_region

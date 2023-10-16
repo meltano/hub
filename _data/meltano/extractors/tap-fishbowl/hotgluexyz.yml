@@ -45,7 +45,7 @@ settings:
   kind: string
   label: Instance
   name: instance
-- description: Username's password
+- description: username's password
   kind: password
   label: Password
   name: password

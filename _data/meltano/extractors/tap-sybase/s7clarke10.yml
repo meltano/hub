@@ -22,7 +22,7 @@ settings:
 - description: "The characterset for the database / source system. The default is
     `utf8`, however older databases might use a charactersets like cp1252 for the
     encoding. If you have errors with a UnicodeDecodeError: 'utf-8' codec can't decode
-    byte .... Then a solution is examine the characterset of the source database /
+    byte .... then a solution is examine the characterset of the source database /
     system and make an appropriate substitution for utf8 like cp1252."
   kind: string
   label: Characterset
@@ -32,7 +32,7 @@ settings:
     with an integer value indicating the number of rows to pull. This can help in
     some architectures by pulling more rows into memory. The default if omitted is
     1, the tap will still use fetchmany, but with an argument of 1, under the assumption
-    that like cp1252.
+    that  like cp1252.
   kind: integer
   label: Cursor Array Size
   name: cursor_array_size
@@ -76,7 +76,7 @@ settings:
 - description: Set the version of TDS to use when communicating with Sybase Server
     (the default is None). This is used by pymssql with connecting and fetching data
     from Sybase databases. See the pymssql documentation and FreeTDS documentation
-    for more details.
+    for more  details.
   kind: string
   label: Tds Version
   name: tds_version
@@ -90,7 +90,7 @@ settings:
   label: Use Date Datatype
   name: use_date_datatype
   value: false
-- description: O emit all numeric values as strings and treat floats as string data
+- description: o emit all numeric values as strings and treat floats as string data
     types for the target, set use_singer_decimal to true. The resulting SCHEMA message
     will contain an attribute in additionalProperties containing the scale and precision
     of the discovered property

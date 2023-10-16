@@ -1,0 +1,72 @@
+capabilities:
+- about
+- schema-flattening
+- stream-maps
+description: AWS S3 - Apache Parquet File Format
+domain_url: https://aws.amazon.com/s3/
+executable: target-s3
+keywords:
+- meltano_sdk
+label: S3 Parquet
+logo_url: /assets/logos/loaders/s3-parquet.png
+maintenance_status: active
+name: target-s3-parquet
+namespace: target_s3_parquet
+next_steps: ''
+pip_url: git+https://github.com/jkausti/target-s3.git
+quality: gold
+repo: https://github.com/jkausti/target-s3
+settings:
+- description: AWS Access Key ID used to authenticate programmatically to S3.
+  kind: password
+  label: AWS Access Key ID
+  name: AWS_ACCESS_KEY_ID
+- description: AWS Secret Access Key used to authenticate programmatically to S3.
+  kind: password
+  label: AWS Secret Access Key
+  name: AWS_SECRET_ACCESS_KEY
+- description: Specfies the region in which your S3 bucket exists.
+  kind: string
+  label: AWS Region
+  name: aws_region
+- description: Specifies the filetype to store the data as. Only parquet supported
+    atm. *REQUIRED*
+  kind: string
+  label: Filetype
+  name: filetype
+  value: parquet
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: "Determines the folder-structure. Alternatives are: 'simple', 'date_hierarchy'
+    and 'both'."
+  kind: string
+  label: Folder Structure
+  name: folder_structure
+  value: simple
+- description: The path to where the data should be stored. *REQUIRED*
+  kind: string
+  label: Path
+  name: path
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+settings_group_validation:
+- - filetype
+  - folder_structure
+  - path
+settings_preamble: ''
+usage: ''
+variant: jkausti

@@ -39,7 +39,7 @@ settings:
   name: flattening_max_depth
 - description: The API redirect URI.
   kind: string
-  label: Redirect URII
+  label: Redirect Uri
   name: redirect_uri
 - description: Your FreshBooks API refresh token.
   kind: password

@@ -32,7 +32,7 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: Platform, ie steam
+- description: platform, ie steam
   kind: string
   label: Platform
   name: platform

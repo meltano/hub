@@ -32,7 +32,7 @@ settings:
   kind: password
   label: API Secret
   name: api_secret
-- description: Which chunk to feed into List Members
+- description: which chunk to feed into List Members
   kind: integer
   label: Chunk Number
   name: chunk_number
@@ -73,7 +73,7 @@ settings:
   kind: password
   label: Table ID
   name: table_id
-- description: User agent for http requests
+- description: user agent for http requests
   kind: string
   label: User Agent
   name: user_agent

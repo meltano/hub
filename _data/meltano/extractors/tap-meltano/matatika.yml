@@ -19,7 +19,7 @@ quality: gold
 repo: https://github.com/Matatika/tap-meltano
 settings:
 - description: Meltano Database URI you want to get jobs from
-  kind: password
+  kind: string
   label: Meltano Database Uri
   name: meltano_database_uri
 settings_group_validation:

@@ -74,10 +74,10 @@ settings:
   name: database
 - description: "Parameter passed to MongoClient 'datetime_conversion' parameter. See
     documentation at https://pymongo.readthedocs.io/en/stable/examples/datetimes.html#handling-out-of-range-datetimes
-    for details. The default value is 'datetime', which will throw a bson. Errors.
-    InvalidBson error if a document contains a date outside the range of datetime.
-    MINYEAR (year 1) to datetime. MAXYEAR (9999). The allowed values correspond to
-    the enumeration members here: https://github.com/mongodb/mongo-python-driver/blob/e23eb7691e6e2905a77fc39a114d000ddf057e47/bson/codec_options.py#L192-L224
+    for details. The default value is 'datetime', which will throw a bson.errors.InvalidBson
+    error if a document contains a date outside the range of datetime.MINYEAR (year
+    1) to datetime.MAXYEAR (9999). The allowed values correspond to the enumeration
+    members here: https://github.com/mongodb/mongo-python-driver/blob/e23eb7691e6e2905a77fc39a114d000ddf057e47/bson/codec_options.py#L192-L224
     (they will be uppercased by the tap)."
   kind: options
   label: Datetime Conversion

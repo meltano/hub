@@ -29,10 +29,10 @@ settings:
   kind: string
   label: Authorization
   name: authorization
-- description: Https://sdk. Meltano. Com/en/latest/classes/singer_sdk. Reststream.
-    Html#singer_sdk. Reststream. Backoff_max_tries Default value is set to 5, making
-    dynamic This is an exponential backoff - 2, 4, 8, 16, 32 -> Setting the number
-    of retries allows us to circumvente rate limits.
+- description: "\n                https://sdk.meltano.com/en/latest/classes/singer_sdk.RESTStream.html#singer_sdk.RESTStream.backoff_max_tries\n\
+    \                Default value is set to 5, making dynamic\n                This
+    is an exponential backoff - 2, 4, 8, 16, 32\n                -> Setting the number
+    of retries allows us to circumvente rate limits.\n            "
   kind: integer
   label: Backoff Max Tries
   name: backoff_max_tries

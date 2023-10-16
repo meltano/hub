@@ -28,7 +28,7 @@ settings:
   label: Base URL
   name: base_url
   value: https://api.mercadopago.com/v1
-- description: The latest record date to sync (default = NOW)
+- description: "The latest record date to sync (default\n            = NOW)"
   kind: date_iso8601
   label: End Date
   name: end_date

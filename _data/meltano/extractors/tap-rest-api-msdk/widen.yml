@@ -32,14 +32,14 @@ settings:
   kind: object
   label: API Keys
   name: api_keys
-- description: The base url/endpoint for the desired api
+- description: the base url/endpoint for the desired api
   kind: string
   label: API URL
   name: api_url
 - description: 'The method of authentication used by the API. Supported options include
     oauth: for OAuth2 authentication, basic: Basic Header authorization - base64-encoded
     username + password config items, api_key: for API Keys in the header e.g. X-API-KEY,bearer_token:
-    for Bearer token authorization, aws: for AWS Authentication. Defaults to no_auth
+    for Bearer token authorization, aws: for AWS Authentication.Defaults to no_auth
     which will take authentication parameters passed via the headersconfig.'
   kind: string
   label: Auth Method
@@ -48,7 +48,7 @@ settings:
 - description: 'An object of aws credentials to authenticate to access AWS services.
     This example is to access the AWS OpenSearch service. Example: { aws_access_key_id:
     my_aws_key_id, aws_secret_access_key: my_aws_secret_access_key, aws_region: us-east-1,
-    aws_service: es, use_signed_credentials: true}'
+    aws_service: es, use_signed_credentials: true} '
   kind: object
   label: AWS Credentials
   name: aws_credentials
@@ -93,7 +93,7 @@ settings:
   label: Client Secret
   name: client_secret
 - description: This tap automatically flattens the entire json structure and builds
-    keys based on the corresponding paths. ; Keys, whether composite or otherwise,
+    keys based on the corresponding paths.; Keys, whether composite or otherwise,
     listed in this dictionary will not be recursively flattened, but instead their
     values will be; turned into a json string and processed in that format. This is
     also automatically done for any lists within the records; therefore, records are
@@ -123,12 +123,12 @@ settings:
   kind: object
   label: Headers
   name: headers
-- description: A jsonpath string representing the path to the 'next page' token. Defaults
+- description: a jsonpath string representing the path to the 'next page' token. Defaults
     to `$.next_page`
   kind: password
   label: Next Page Token Path
   name: next_page_token_path
-- description: Number of records used to infer the stream's schema. Defaults to 50.
+- description: number of records used to infer the stream's schema. Defaults to 50.
   kind: integer
   label: Num Inference Records
   name: num_inference_records
@@ -140,7 +140,7 @@ settings:
   label: OAuth Expiration Secs
   name: oauth_expiration_secs
 - description: 'A object of Key/Value pairs for additional oauth config parameters
-    which may be required by the authorization server. Example: {resource: https://analysis.windows.net/powerbi/api}.'
+    which may be required by the authorization server.Example: {resource: https://analysis.windows.net/powerbi/api}.'
   kind: object
   label: OAuth Extras
   name: oauth_extras
@@ -153,21 +153,21 @@ settings:
   kind: string
   label: Pagination Next Page Param
   name: pagination_next_page_param
-- description: The size of each page in records. Defaults to None
+- description: the size of each page in records. Defaults to None
   kind: integer
   label: Pagination Page Size
   name: pagination_page_size
-- description: The pagination style to use for requests. Defaults to `default`
+- description: the pagination style to use for requests. Defaults to `default`
   kind: string
   label: Pagination Request Style
   name: pagination_request_style
   value: default
-- description: The pagination style to use for response. Defaults to `default`
+- description: the pagination style to use for response. Defaults to `default`
   kind: string
   label: Pagination Response Style
   name: pagination_response_style
   value: default
-- description: Limits the max number of records. Defaults to None
+- description: limits the max number of records. Defaults to None
   kind: integer
   label: Pagination Results Limit
   name: pagination_results_limit
@@ -177,7 +177,7 @@ settings:
   label: Pagination Total Limit Param
   name: pagination_total_limit_param
   value: total
-- description: An object providing the `params` in a `requests.get` method. Stream
+- description: an object providing the `params` in a `requests.get` method. Stream
     level params will be mergedwith top-level params with stream level params overwritingtop-level
     params with the same key.
   kind: object
@@ -189,16 +189,16 @@ settings:
   kind: password
   label: Password
   name: password
-- description: The path appended to the `api_url`. Stream-level path will overwrite
+- description: the path appended to the `api_url`. Stream-level path will overwrite
     top-level path
   kind: string
   label: Path
   name: path
-- description: A list of the json keys of the primary key for the stream.
+- description: a list of the json keys of the primary key for the stream.
   kind: array
   label: Primary Keys
   name: primary_keys
-- description: A jsonpath string representing the path in the requests response that
+- description: a jsonpath string representing the path in the requests response that
     contains the records to process. Defaults to `$[*]`. Stream level records_path
     will overwrite the top-level records_path
   kind: string
@@ -216,7 +216,7 @@ settings:
   kind: password
   label: Refresh Token
   name: refresh_token
-- description: The json response field representing the replication key. Note that
+- description: the json response field representing the replication key.Note that
     this should be an incrementing integer or datetime object.
   kind: password
   label: Replication Key
@@ -236,12 +236,12 @@ settings:
   kind: string
   label: Source Search Field
   name: source_search_field
-- description: "An optional query template to be issued against the API. Substitute
+- description: "An optional query template to be issued against the API.Substitute
     the query field you are querying against with $last_run_date. Atrun-time, the
     tap will dynamically update the token with either the `start_date`or the last
     bookmark / state value. A simple template Example for FHIR API's: gt$last_run_date.
     A more complex example against an Opensearch API, {\"bool\": {\"filter\": [{\"\
-    range\": { \"meta.lastUpdated\": { \"gt\": \"$last_run_date\" }}}] }}. Note: Any
+    range\": { \"meta.lastUpdated\": { \"gt\": \"$last_run_date\" }}}] }} .Note: Any
     required double quotes in the query template must be escaped."
   kind: string
   label: Source Search Query
@@ -281,8 +281,8 @@ settings:
   kind: array
   label: Streams
   name: streams
-- description: Sends the request parameters in the request body. This is normally
-    not required, a few API's like OpenSearchrequire this. Defaults to `False`
+- description: sends the request parameters in the request body.This is normally not
+    required, a few API's like OpenSearchrequire this. Defaults to `False`
   kind: boolean
   label: Use Request Body Not Params
   name: use_request_body_not_params

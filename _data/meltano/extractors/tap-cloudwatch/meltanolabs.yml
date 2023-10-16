@@ -34,7 +34,7 @@ settings:
   kind: string
   label: AWS Profile
   name: aws_profile
-- description: The AWS region name (e.g. us-east-1)
+- description: 'The AWS region name (e.g. us-east-1) '
   kind: string
   label: AWS Region Name
   name: aws_region_name

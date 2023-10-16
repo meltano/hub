@@ -60,7 +60,7 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: "DEPRECATED: Use domain. Is_sandbox-false = 'login', is_sandbox-True
+- description: "DEPRECATED: Use domain. is_sandbox-False = 'login', is_sandbox-True
     = 'test'"
   kind: boolean
   label: Is Sandbox

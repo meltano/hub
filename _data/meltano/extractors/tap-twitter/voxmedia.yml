@@ -19,8 +19,8 @@ pip_url: git+https://github.com/voxmedia/tap-twitter.git
 quality: silver
 repo: https://github.com/voxmedia/tap-twitter
 settings:
-- description: The bearer token to authenticate against the Twitter API using the
-    OAuth 2.0 flow outlined here - https://developer.twitter.com/en/docs/authentication/oauth-2-0/application-only
+- description: 'The bearer token to authenticate against the Twitter API using the
+    OAuth 2.0 flow outlined here - https://developer.twitter.com/en/docs/authentication/oauth-2-0/application-only '
   kind: password
   label: Bearer Token
   name: bearer_token

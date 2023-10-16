@@ -60,7 +60,7 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: Enabled Shopify plus account endpoints. )
+- description: Enabled Shopify plus account endpoints.)
   kind: boolean
   label: Is Plus Account
   name: is_plus_account
@@ -69,7 +69,7 @@ settings:
   label: Start Date
   name: start_date
 - description: Shopify store id, use the prefix of your admin url e.g. https://[your
-    store]. Myshopify. Com/admin
+    store].myshopify.com/admin
   kind: string
   label: Store
   name: store

@@ -23,7 +23,7 @@ settings:
   kind: string
   label: API URL
   name: api_url
-- description: 'Expiraton in seconds for auth. (range: 60-604800)'
+- description: 'Expiraton in seconds for auth. (Range: 60-604800)'
   kind: integer
   label: Auth Expiration
   name: auth_expiration
@@ -45,7 +45,7 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: 'The number of records to return per page. (range: 0-100)'
+- description: 'The number of records to return per page. (Range: 0-100)'
   kind: integer
   label: Limit
   name: limit

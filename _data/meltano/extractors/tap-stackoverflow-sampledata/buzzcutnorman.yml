@@ -23,11 +23,11 @@ settings:
   kind: string
   label: Batch Config Encoding Format
   name: batch_config.encoding.format
-- description: 'What prefix you want your messages to have example: test-batch-'
+- description: "What prefix you want your messages to have\nexample: test-batch-"
   kind: string
   label: Batch Config Storage Prefix
   name: batch_config.storage.prefix
-- description: 'The directory you want batch messages to be placed in example: file://test/batches'
+- description: "the directory you want batch messages to be placed in\nexample: file://test/batches"
   kind: string
   label: Batch Config Storage Root
   name: batch_config.storage.root

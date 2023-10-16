@@ -28,7 +28,7 @@ settings:
   kind: string
   label: API Version
   name: api_version
-  value: 2023-04
+  value: 2023-10
 - description: Compression format to use for batch files.
   kind: options
   label: Batch Config Encoding Compression
@@ -57,7 +57,7 @@ settings:
   kind: boolean
   label: Bulk
   name: bulk
-  value: false
+  value: true
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -89,6 +89,11 @@ settings:
   kind: object
   label: Stream Maps
   name: stream_maps
+- description: To use numeric ids instead of the graphql format ids.
+  kind: boolean
+  label: Use Numeric IDs
+  name: use_numeric_ids
+  value: false
 settings_group_validation:
 - - access_token
   - store

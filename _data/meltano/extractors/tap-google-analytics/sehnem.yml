@@ -5,29 +5,35 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
-description: Online Payments System
-domain_url: https://www.paypal.com/us/home
+description: App and website analytics platform hosted by Google (GA4)
+domain_url: https://developers.google.com/analytics/devguides/reporting/data/v1
+executable: tap-google-analytics
+hidden: true
 keywords:
 - meltano_sdk
-label: Paypal
-logo_url: /assets/logos/extractors/paypal.png
+label: Google Analytics (GA4)
+logo_url: /assets/logos/extractors/ga4.png
 maintenance_status: active
-name: tap-paypal
-namespace: tap_paypal
+name: tap-ga4
+namespace: tap_ga4
 next_steps: ''
-pip_url: git+https://github.com/epoch8/tap-paypal.git
+pip_url: git+https://github.com/sehnem/tap-google-analytics.git
 quality: silver
-repo: https://github.com/epoch8/tap-paypal
+repo: https://github.com/sehnem/tap-google-analytics
 settings:
-- description: Your PayPal client ID.
+- description: Google Analytics Access Token
+  kind: password
+  label: Access Token
+  name: access_token
+- description: Google Analytics Client ID
   kind: password
   label: Client ID
   name: client_id
-- description: The token to authenticate against the API service
+- description: Google Analytics Client Secret
   kind: password
   label: Client Secret
   name: client_secret
-- description: '%Y-%m-%d'
+- description: The last record date to sync
   kind: date_iso8601
   label: End Date
   name: end_date
@@ -40,7 +46,19 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: '%Y-%m-%d'
+- description: Google Analytics Property ID
+  kind: password
+  label: Property ID
+  name: property_id
+- description: Google Analytics Refresh Token
+  kind: password
+  label: Refresh Token
+  name: refresh_token
+- description: Google Analytics Reports Definition
+  kind: string
+  label: Reports
+  name: reports
+- description: The earliest record date to sync
   kind: date_iso8601
   label: Start Date
   name: start_date
@@ -56,6 +74,9 @@ settings:
 settings_group_validation:
 - - client_id
   - client_secret
+  - property_id
+  - refresh_token
+  - start_date
 settings_preamble: ''
 usage: ''
-variant: epoch8
+variant: sehnem

@@ -18,7 +18,7 @@ pip_url: git+https://github.com/meshcloud/tap-meshstack.git
 quality: silver
 repo: https://github.com/meshcloud/tap-meshstack
 settings:
-- description: Path to a public SSL certificate used to verify connection to meshStack
+- description: path to a public SSL certificate used to verify connection to meshStack
   kind: string
   label: Cert Path
   name: cert_path
