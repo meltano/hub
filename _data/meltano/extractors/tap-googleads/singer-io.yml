@@ -1,0 +1,76 @@
+capabilities:
+- catalog
+- discover
+- state
+description: Google Advertising Platform
+domain_url: https://ads.google.com
+executable: tap-google-ads
+hidden: true
+keywords:
+- api
+label: Google Ads
+logo_url: /assets/logos/extractors/googleads.png
+maintenance_status: active
+name: tap-googleads
+namespace: tap_googleads
+pip_url: git+https://github.com/singer-io/tap-google-ads.git
+quality: silver
+repo: https://github.com/singer-io/tap-google-ads
+settings:
+- description: A list of dicts containing account IDs to replicate data from.
+  label: Account ID(s)
+  name: login_customer_ids
+  placeholder: '[{"customerId": "1234567890", "loginCustomerId": "0987654321"}]'
+- description: Your Developer Token for Google AdWord Application
+  kind: password
+  label: Developer Token
+  name: developer_token
+  placeholder: Ex. *****************
+- description: Your Google OAuth Client ID
+  kind: password
+  label: OAuth Client ID
+  name: oauth_client_id
+  placeholder: Ex. 123456789012345.apps.googleusercontent.com
+- description: Your Google OAuth Client Secret
+  kind: password
+  label: OAuth Client Secret
+  name: oauth_client_secret
+  placeholder: Ex. *****************
+- description: The Refresh Token generated through the OAuth flow run using your OAuth
+    Client and your Developer Token
+  kind: oauth
+  label: Refresh Token
+  name: refresh_token
+- description: A comma-separated list of Ad Account IDs to replicate data from
+  label: Account ID(s)
+  name: customer_ids
+  placeholder: Ex. 1234567890,1234567891,1234567892
+- description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
+  kind: date_iso8601
+  name: start_date
+- description: Date up to when historical data will be extracted.
+  kind: date_iso8601
+  name: end_date
+- description: How many Days before the Start Date to fetch data for Performance Reports
+  kind: integer
+  label: Conversion Window Days
+  name: conversion_window_days
+  value: 0
+- description: The request timeout in seconds.
+  kind: integer
+  label: Request Timeout (s)
+  name: request_timeout
+  value: 900
+settings_group_validation:
+- - developer_token
+  - oauth_client_id
+  - oauth_client_secret
+  - refresh_token
+  - user_agent
+  - customer_ids
+  - start_date
+  - login_customer_ids
+usage: ''
+variant: singer-io
