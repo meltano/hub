@@ -16,7 +16,8 @@ def test_download_metadata(patch):
 
     download_metadata(
         local_path,
-        hub_yml_path,
+        variant_path_list=hub_yml_path,
+        all_sdk=False,
     )
     patch.assert_called_with(
         expected_bucket,
@@ -37,7 +38,8 @@ def test_download_metadata_list(patch):
 
     download_metadata(
         local_path,
-        hub_yml_path,
+        variant_path_list=hub_yml_path,
+        all_sdk=False,
     )
     patch.assert_has_calls([
         call(
