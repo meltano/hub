@@ -17,7 +17,6 @@ extractors:
   tap-aha: airbyte
   tap-airbyte-wrapper: meltanolabs
   tap-airtable: goes-funky
-  tap-alloydb: airbyte
   tap-alpha-vantage: airbyte
   tap-amazon-ads-dsp: singer-io
   tap-amazon-advertising: dbt-labs
