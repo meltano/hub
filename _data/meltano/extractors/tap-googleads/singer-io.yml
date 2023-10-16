@@ -5,7 +5,6 @@ capabilities:
 description: Google Advertising Platform
 domain_url: https://ads.google.com
 executable: tap-google-ads
-hidden: true
 keywords:
 - api
 label: Google Ads
