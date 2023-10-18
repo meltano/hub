@@ -15,7 +15,7 @@ logo_url: /assets/logos/extractors/shopify.png
 maintenance_status: active
 name: tap-shopify
 namespace: tap_shopify
-pip_url: git+https://github.com/Matatika/tap-shopify.git@v0.2.0
+pip_url: git+https://github.com/Matatika/tap-shopify.git@v0.3.0
 quality: gold
 repo: https://github.com/Matatika/tap-shopify
 settings:
