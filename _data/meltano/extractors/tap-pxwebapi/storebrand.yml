@@ -22,17 +22,59 @@ pip_url: git+https://github.com/storebrand/tap-pxwebapi.git
 quality: silver
 repo: https://github.com/storebrand/tap-pxwebapi
 settings:
-- description: Base URL for the API endpoint.
+- description: Base API URL
   kind: string
   label: Base URL
   name: base_url
   value: https://data.ssb.no/api/v0/
-- description: An array of table specifications to read.
+- description: Compression format to use for batch files.
+  kind: options
+  label: Batch Config Encoding Compression
+  name: batch_config.encoding.compression
+  options:
+  - label: Gzip
+    value: gzip
+  - label: None
+    value: none
+- description: Format to use for batch files.
+  kind: options
+  label: Batch Config Encoding Format
+  name: batch_config.encoding.format
+  options:
+  - label: Jsonl
+    value: jsonl
+- description: Prefix to use when writing batch files.
+  kind: string
+  label: Batch Config Storage Prefix
+  name: batch_config.storage.prefix
+- description: Root path to use when writing batch files.
+  kind: string
+  label: Batch Config Storage Root
+  name: batch_config.storage.root
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: Tables to read
   kind: array
   label: Tables
   name: tables
 settings_group_validation:
-- []
+- - tables
 settings_preamble: ''
 usage: ''
 variant: storebrand

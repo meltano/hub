@@ -2,7 +2,6 @@ capabilities:
 - about
 - catalog
 - discover
-- state
 - stream-maps
 description: IBM DB2 Relational Database
 domain_url: https://www.ibm.com/products/db2
@@ -32,25 +31,41 @@ settings:
   label: Database
   name: database
 - description: The full path to the client keystore database.
-  kind: string
-  label: SSL Client Keystore DB
+  kind: password
+  label: Encryption SSL Client Key Store Database Database
   name: encryption.ssl_client_key_store_db.database
 - description: The full path to the client key stash.
-  kind: string
-  label: SSL Client Keystore DB Key Stash
+  kind: password
+  label: Encryption SSL Client Key Store Database Key Stash
   name: encryption.ssl_client_key_store_db.key_stash
 - description: The keystore password.
   kind: password
-  label: SSL Client Keystore DB Password
+  label: Encryption SSL Client Key Store Database Password
   name: encryption.ssl_client_key_store_db.password
 - description: The path to the SSL server certificate.
   kind: string
-  label: SSL Server Certificate
+  label: Encryption SSL Server Certificate
   name: encryption.ssl_server_certificate
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
 - description: The DB2 hostname.
   kind: string
   label: Host
   name: host
+- description: Ignore DB2-supplied user tables. For more info check out [Db2-supplied
+    user 
+    tables](https://www.ibm.com/docs/en/db2-for-zos/12?topic=db2-supplied-user-tables).
+  kind: boolean
+  label: Ignore Supplied Tables
+  name: ignore_supplied_tables
+  value: true
 - description: The DB2 password.
   kind: password
   label: Password
@@ -71,16 +86,25 @@ settings:
   name: schema
 - description: Additional execution options to be passed to SQLAlchemy. This is an
     objects containing key-value pairs.
-  kind: string
-  label: SQLAlchemy execution options
+  kind: object
+  label: Sqlalchemy Execution Options
   name: sqlalchemy_execution_options
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 - description: The DB2 username.
   kind: string
   label: User
   name: user
 settings_group_validation:
 - - database
-  - encryption.encryption_method
+  - encryption.ssl_client_key_store_db.database
   - host
   - password
   - port

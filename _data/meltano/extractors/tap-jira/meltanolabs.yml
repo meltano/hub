@@ -98,11 +98,11 @@ settings:
   name: stream_maps
 settings_group_validation:
 - - auth.flow
-  - auth.username
   - auth.password
+  - auth.username
   - domain
-- - auth.flow
-  - auth.access_token
+- - auth.access_token
+  - auth.flow
   - domain
 settings_preamble: ''
 usage: ''

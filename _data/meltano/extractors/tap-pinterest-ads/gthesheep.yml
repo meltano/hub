@@ -18,17 +18,24 @@ pip_url: git+https://github.com/gthesheep/tap-pinterest-ads.git
 quality: silver
 repo: https://github.com/gthesheep/tap-pinterest-ads
 settings:
-- description: App ID for your Pinterest App
+- description: App ID
+  kind: password
   label: Client ID
   name: client_id
 - description: App secret key
+  kind: password
   label: Client Secret
   name: client_secret
-- description: Refresh token obtained from the OAuth user flow, described [here](https://developers.pinterest.com/docs/api/v5/#tag/Authentication)
+- description: Set to True once backfilled in order to reduce API calls per day
+  kind: boolean
+  label: Is Backfilled
+  name: is_backfilled
+- description: Refresh token obtained from the OAuth user flow
   kind: password
   label: Refresh Token
   name: refresh_token
-- description: Start date to collect ad analytics from
+- description: Date to start collection analytics from
+  kind: date_iso8601
   label: Start Date
   name: start_date
 settings_group_validation:
