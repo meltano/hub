@@ -49,6 +49,12 @@ settings:
   kind: string
   label: Database
   name: database
+- description: 'Defaults to false, if true, date, and timestamp fields will be Strings.
+    If you see ValueError: Year is out of range, try setting this to True.'
+  kind: boolean
+  label: Dates As String
+  name: dates_as_string
+  value: false
 - description: If an array of schema names is provided, the tap will only process
     the specified Postgres schemas and ignore others. If left blank, the tap automatically
     determines ALL available Postgres schemas.

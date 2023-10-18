@@ -54,6 +54,14 @@ settings:
   kind: password
   label: Password
   name: password
+- description: Passphrase to decrypt private key if encrypted.
+  kind: password
+  label: Private Key Passphrase
+  name: private_key_passphrase
+- description: Path to file containing private key.
+  kind: password
+  label: Private Key Path
+  name: private_key_path
 - description: The initial role for the session.
   kind: string
   label: Role

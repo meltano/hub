@@ -20,10 +20,6 @@ pip_url: git+https://gitlab.com/hotglue/tap-vilkas.git
 quality: gold
 repo: https://gitlab.com/hotglue/tap-vilkas
 settings:
-- description: The API base URL.
-  kind: string
-  label: Base URL
-  name: base_url
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
