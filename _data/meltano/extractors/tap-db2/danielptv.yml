@@ -1,4 +1,7 @@
 capabilities:
+- about
+- catalog
+- discover
 - stream-maps
 description: IBM DB2 Relational Database
 domain_url: https://www.ibm.com/products/db2
