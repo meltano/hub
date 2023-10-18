@@ -19,7 +19,7 @@ repo: https://github.com/timeplus-io/target-timeplus
 settings:
 - description: Personal API key
   kind: password
-  label: APIkey
+  label: API Key
   name: apikey
 - description: Timeplus workspace endpoint
   kind: string

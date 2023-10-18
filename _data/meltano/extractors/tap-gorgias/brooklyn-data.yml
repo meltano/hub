@@ -54,7 +54,7 @@ settings:
   kind: object
   label: Stream Maps
   name: stream_maps
-- description: Subdomain (<subdomain>. Gorgias. Com)
+- description: Subdomain (<subdomain>.gorgias.com)
   kind: string
   label: Subdomain
   name: subdomain

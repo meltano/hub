@@ -34,7 +34,7 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: Klaviyo API endpoint revision. Https://developers. Klaviyo. Com/en/docs/api_versioning_and_deprecation_policy#versioning
+- description: Klaviyo API endpoint revision.https://developers.klaviyo.com/en/docs/api_versioning_and_deprecation_policy#versioning
   kind: string
   label: Revision
   name: revision
