@@ -1,7 +1,9 @@
 capabilities:
 - about
+- batch
 - catalog
 - discover
+- schema-flattening
 - state
 - stream-maps
 description: NoSQL Database
