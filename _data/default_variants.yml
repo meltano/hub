@@ -17,7 +17,6 @@ extractors:
   tap-aha: airbyte
   tap-airbyte-wrapper: meltanolabs
   tap-airtable: goes-funky
-  tap-alloydb: airbyte
   tap-alpha-vantage: airbyte
   tap-amazon-ads-dsp: singer-io
   tap-amazon-advertising: dbt-labs
@@ -249,7 +248,6 @@ extractors:
   tap-iterable: lambtron
   tap-itunes: hotgluexyz
   tap-jaffle-shop: meltanolabs
-  tap-jdbc: airbyte
   tap-jira: meltanolabs
   tap-jotform: hotgluexyz
   tap-judgeme: hotgluexyz

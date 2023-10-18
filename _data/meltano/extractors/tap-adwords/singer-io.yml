@@ -4,6 +4,7 @@ capabilities:
 - state
 description: Advertising Platform
 domain_url: https://developers.google.com/adwords/api/
+hidden: true
 keywords:
 - api
 label: Google Ads

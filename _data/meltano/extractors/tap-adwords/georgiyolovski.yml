@@ -2,6 +2,7 @@ capabilities:
 - catalog
 - discover
 description: Advertising Platform
+hidden: true
 label: Google Ads
 logo_url: /assets/logos/extractors/adwords.png
 maintenance_status: unknown
