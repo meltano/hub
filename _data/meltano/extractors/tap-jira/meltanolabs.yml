@@ -22,6 +22,7 @@ quality: silver
 repo: https://github.com/MeltanoLabs/tap-jira
 settings:
 - description: The authentication type to use.
+  kind: string
   label: Auth Flow
   name: auth.flow
   options:
