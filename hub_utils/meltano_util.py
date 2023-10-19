@@ -417,8 +417,6 @@ class MeltanoUtil:
             return description
         if not isinstance(description, str):
             return ""
-        # TODO: https://github.com/meltano/hub-utils/issues/105
-        return description
 
         # Add a space after sentence ending periods
         desc_list = description.split()
