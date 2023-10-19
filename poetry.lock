@@ -376,20 +376,20 @@ use-chardet-on-py3 = ["chardet (>=3.0.2,<6)"]
 
 [[package]]
 name = "ruamel-yaml"
-version = "0.17.35"
+version = "0.17.36"
 description = "ruamel.yaml is a YAML parser/emitter that supports roundtrip preservation of comments, seq/map flow style, and map key order"
 optional = false
 python-versions = ">=3"
 files = [
-    {file = "ruamel.yaml-0.17.35-py3-none-any.whl", hash = "sha256:b105e3e6fc15b41fdb201ba1b95162ae566a4ef792b9f884c46b4ccc5513a87a"},
-    {file = "ruamel.yaml-0.17.35.tar.gz", hash = "sha256:801046a9caacb1b43acc118969b49b96b65e8847f29029563b29ac61d02db61b"},
+    {file = "ruamel.yaml-0.17.36-py3-none-any.whl", hash = "sha256:9d0a8ae7050ce0065bab51d4f0b000aa8afa91e8e04d1364bc304491f4f25943"},
+    {file = "ruamel.yaml-0.17.36.tar.gz", hash = "sha256:497d9f12c32e3201b12e897f1c7756bea59a7c50461daff66781598c48a7f289"},
 ]
 
 [package.dependencies]
 "ruamel.yaml.clib" = {version = ">=0.2.7", markers = "platform_python_implementation == \"CPython\" and python_version < \"3.13\""}
 
 [package.extras]
-docs = ["ryd"]
+docs = ["mercurial (>5.7)", "ryd"]
 jinja2 = ["ruamel.yaml.jinja2 (>=0.2)"]
 
 [[package]]
@@ -498,4 +498,4 @@ dev = ["doc8", "flake8", "flake8-import-order", "rstcheck[sphinx]", "sphinx"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "5ece40661c46697959c6860e708fdc7bebb2fdc6e722ec55e79bf679ab0e00e8"
+content-hash = "60236e02e6b7330114b5dad8dbbc1d302c62e8a59c473772796e8093f89b5d37"
