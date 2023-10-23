@@ -21,27 +21,10 @@ pip_url: git+https://github.com/MeltanoLabs/tap-jira.git
 quality: silver
 repo: https://github.com/MeltanoLabs/tap-jira
 settings:
-- description: The authentication type to use.
+- description: ''
   kind: string
-  label: Auth Flow
-  name: auth.flow
-  options:
-  - label: OAuth
-    value: oauth
-  - label: Password
-    value: password
-- description: The Jira API access token if using OAuth auth flow.
-  kind: password
-  label: Auth Access Token
-  name: auth.access_token
-- description: The Jira username if using the user/pass auth flow.
-  kind: string
-  label: Auth Username
-  name: auth.username
-- description: The Jira password if using the user/pass auth flow.
-  kind: password
-  label: Auth Password
-  name: auth.password
+  label: Auth
+  name: auth
 - description: Compression format to use for batch files.
   kind: options
   label: Batch Config Encoding Compression
