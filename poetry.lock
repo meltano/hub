@@ -376,13 +376,13 @@ use-chardet-on-py3 = ["chardet (>=3.0.2,<6)"]
 
 [[package]]
 name = "ruamel-yaml"
-version = "0.18.2"
+version = "0.18.3"
 description = "ruamel.yaml is a YAML parser/emitter that supports roundtrip preservation of comments, seq/map flow style, and map key order"
 optional = false
 python-versions = ">=3"
 files = [
-    {file = "ruamel.yaml-0.18.2-py3-none-any.whl", hash = "sha256:92076ac8a83dbf44ca661dbed3c935229c8cbc2f10b05959dd3bd5292d8353d3"},
-    {file = "ruamel.yaml-0.18.2.tar.gz", hash = "sha256:9bce33f7a814cea4c29a9c62fe872d2363d6220b767891d956eacea8fa5e6fe8"},
+    {file = "ruamel.yaml-0.18.3-py3-none-any.whl", hash = "sha256:b5d119e1f9678cf90b58f64bbd2a4e78af76860ae39fab3e73323e622b462df9"},
+    {file = "ruamel.yaml-0.18.3.tar.gz", hash = "sha256:36dbbe90390d977f957436570d2bd540bfd600e6ec5a1ea42bcdb9fc7963d802"},
 ]
 
 [package.dependencies]
@@ -498,4 +498,4 @@ dev = ["doc8", "flake8", "flake8-import-order", "rstcheck[sphinx]", "sphinx"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "fbe97463e25fcfc3816c8b38a68ab5d4f8aab19b54e6322a192cf2feca14c4a4"
+content-hash = "492f903f3518a53d57e90357dcc5c4952f8f728b08f78f839f273f4fb184440d"
