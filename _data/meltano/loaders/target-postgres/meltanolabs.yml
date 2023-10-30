@@ -62,6 +62,21 @@ settings:
   kind: string
   label: Host
   name: host
+- description: The method to use when loading data into the destination. `append-only`
+    will always write all input records whether that records already exists or not.
+    `upsert` will update existing records and insert new records. `overwrite` will
+    delete all existing records and insert all input records.
+  kind: options
+  label: Load Method
+  name: load_method
+  options:
+  - label: Append Only
+    value: append-only
+  - label: Upsert
+    value: upsert
+  - label: Overwrite
+    value: overwrite
+  value: append-only
 - description: Password used to authenticate. Note if sqlalchemy_url is set this will
     be ignored.
   kind: password

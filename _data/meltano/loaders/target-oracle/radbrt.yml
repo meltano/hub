@@ -35,6 +35,11 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: Do not alter types of existing columns
+  kind: boolean
+  label: Freeze Schema
+  name: freeze_schema
+  value: false
 - description: Oracle host
   kind: string
   label: Host

@@ -42,6 +42,11 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: Page size for pagination
+  kind: integer
+  label: Page Size
+  name: page_size
+  value: 10000
 - description: The earliest record date to sync
   kind: date_iso8601
   label: Start Date

@@ -19,6 +19,10 @@ pip_url: git+https://github.com/crowemi/target-s3.git
 quality: gold
 repo: https://github.com/crowemi/target-s3
 settings:
+- description: Add metadata to records.
+  kind: boolean
+  label: Add Record Metadata
+  name: add_record_metadata
 - description: A flag to append the date to the key filename.
   kind: boolean
   label: Append Date To Filename
@@ -29,20 +33,162 @@ settings:
   label: Append Date To Filename Grain
   name: append_date_to_filename_grain
   options:
-  - label: Year
-    value: year
-  - label: Month
-    value: month
-  - label: Day
-    value: day
-  - label: Hour
-    value: hour
-  - label: Minute
-    value: minute
-  - label: Second
-    value: second
-  - label: Microsecond
-    value: microsecond
+  - label: D
+    value: d
+  - label: I
+    value: i
+  - label: C
+    value: c
+  - label: T
+    value: t
+  - label: ' '
+    value: _
+  - label: K
+    value: k
+  - label: E
+    value: e
+  - label: Y
+    value: y
+  - label: S
+    value: s
+  - label: (
+    value: (
+  - label: '['
+    value: '['
+  - label: "'"
+    value: "'"
+  - label: Y
+    value: y
+  - label: E
+    value: e
+  - label: A
+    value: a
+  - label: R
+    value: r
+  - label: "'"
+    value: "'"
+  - label: ','
+    value: ','
+  - label: ' '
+    value: ' '
+  - label: "'"
+    value: "'"
+  - label: M
+    value: m
+  - label: O
+    value: o
+  - label: N
+    value: n
+  - label: T
+    value: t
+  - label: H
+    value: h
+  - label: "'"
+    value: "'"
+  - label: ','
+    value: ','
+  - label: ' '
+    value: ' '
+  - label: "'"
+    value: "'"
+  - label: D
+    value: d
+  - label: A
+    value: a
+  - label: Y
+    value: y
+  - label: "'"
+    value: "'"
+  - label: ','
+    value: ','
+  - label: ' '
+    value: ' '
+  - label: "'"
+    value: "'"
+  - label: H
+    value: h
+  - label: O
+    value: o
+  - label: U
+    value: u
+  - label: R
+    value: r
+  - label: "'"
+    value: "'"
+  - label: ','
+    value: ','
+  - label: ' '
+    value: ' '
+  - label: "'"
+    value: "'"
+  - label: M
+    value: m
+  - label: I
+    value: i
+  - label: N
+    value: n
+  - label: U
+    value: u
+  - label: T
+    value: t
+  - label: E
+    value: e
+  - label: "'"
+    value: "'"
+  - label: ','
+    value: ','
+  - label: ' '
+    value: ' '
+  - label: "'"
+    value: "'"
+  - label: S
+    value: s
+  - label: E
+    value: e
+  - label: C
+    value: c
+  - label: O
+    value: o
+  - label: N
+    value: n
+  - label: D
+    value: d
+  - label: "'"
+    value: "'"
+  - label: ','
+    value: ','
+  - label: ' '
+    value: ' '
+  - label: "'"
+    value: "'"
+  - label: M
+    value: m
+  - label: I
+    value: i
+  - label: C
+    value: c
+  - label: R
+    value: r
+  - label: O
+    value: o
+  - label: S
+    value: s
+  - label: E
+    value: e
+  - label: C
+    value: c
+  - label: O
+    value: o
+  - label: N
+    value: n
+  - label: D
+    value: d
+  - label: "'"
+    value: "'"
+  - label: ']'
+    value: ']'
+  - label: )
+    value: )
   value: day
 - description: A flag to append the date to the key prefix.
   kind: boolean
@@ -54,20 +200,162 @@ settings:
   label: Append Date To Prefix Grain
   name: append_date_to_prefix_grain
   options:
-  - label: Year
-    value: year
-  - label: Month
-    value: month
-  - label: Day
-    value: day
-  - label: Hour
-    value: hour
-  - label: Minute
-    value: minute
-  - label: Second
-    value: second
-  - label: Microsecond
-    value: microsecond
+  - label: D
+    value: d
+  - label: I
+    value: i
+  - label: C
+    value: c
+  - label: T
+    value: t
+  - label: ' '
+    value: _
+  - label: K
+    value: k
+  - label: E
+    value: e
+  - label: Y
+    value: y
+  - label: S
+    value: s
+  - label: (
+    value: (
+  - label: '['
+    value: '['
+  - label: "'"
+    value: "'"
+  - label: Y
+    value: y
+  - label: E
+    value: e
+  - label: A
+    value: a
+  - label: R
+    value: r
+  - label: "'"
+    value: "'"
+  - label: ','
+    value: ','
+  - label: ' '
+    value: ' '
+  - label: "'"
+    value: "'"
+  - label: M
+    value: m
+  - label: O
+    value: o
+  - label: N
+    value: n
+  - label: T
+    value: t
+  - label: H
+    value: h
+  - label: "'"
+    value: "'"
+  - label: ','
+    value: ','
+  - label: ' '
+    value: ' '
+  - label: "'"
+    value: "'"
+  - label: D
+    value: d
+  - label: A
+    value: a
+  - label: Y
+    value: y
+  - label: "'"
+    value: "'"
+  - label: ','
+    value: ','
+  - label: ' '
+    value: ' '
+  - label: "'"
+    value: "'"
+  - label: H
+    value: h
+  - label: O
+    value: o
+  - label: U
+    value: u
+  - label: R
+    value: r
+  - label: "'"
+    value: "'"
+  - label: ','
+    value: ','
+  - label: ' '
+    value: ' '
+  - label: "'"
+    value: "'"
+  - label: M
+    value: m
+  - label: I
+    value: i
+  - label: N
+    value: n
+  - label: U
+    value: u
+  - label: T
+    value: t
+  - label: E
+    value: e
+  - label: "'"
+    value: "'"
+  - label: ','
+    value: ','
+  - label: ' '
+    value: ' '
+  - label: "'"
+    value: "'"
+  - label: S
+    value: s
+  - label: E
+    value: e
+  - label: C
+    value: c
+  - label: O
+    value: o
+  - label: N
+    value: n
+  - label: D
+    value: d
+  - label: "'"
+    value: "'"
+  - label: ','
+    value: ','
+  - label: ' '
+    value: ' '
+  - label: "'"
+    value: "'"
+  - label: M
+    value: m
+  - label: I
+    value: i
+  - label: C
+    value: c
+  - label: R
+    value: r
+  - label: O
+    value: o
+  - label: S
+    value: s
+  - label: E
+    value: e
+  - label: C
+    value: c
+  - label: O
+    value: o
+  - label: N
+    value: n
+  - label: D
+    value: d
+  - label: "'"
+    value: "'"
+  - label: ']'
+    value: ']'
+  - label: )
+    value: )
   value: day
 - description: Your AWS access key ID.
   kind: password
@@ -101,16 +389,8 @@ settings:
   kind: password
   label: Cloud Provider Cloud Provider Type
   name: cloud_provider.cloud_provider_type
-  options:
-  - label: AWS
-    value: aws
-  value: aws
-- description: A flag indictating to flatten records.
-  kind: boolean
-  label: Flatten Records
-  name: flatten_records
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -118,6 +398,21 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: ''
+  kind: object
+  label: Format Format Csv
+  name: format.format_csv
+- description: ''
+  kind: object
+  label: Format Format Json
+  name: format.format_json
+- description: Set true if you want to declare schema of the resulting parquet file
+    based on taps. Doesn't work with 'anyOf' types or when complex data is not defined
+    at element level. Doesn't work with validate option for now.
+  kind: boolean
+  label: Format Format Parquet Get Schema From Tap
+  name: format.format_parquet.get_schema_from_tap
+  value: false
 - description: This flag determines whether the data types of incoming data elements
     should be validated. When set `True`, a schema is created from the first record
     and all subsequent records that don't match that data type are cast. Default False.
@@ -139,6 +434,21 @@ settings:
   label: Include Process Date
   name: include_process_date
   value: false
+- description: The method to use when loading data into the destination. `append-only`
+    will always write all input records whether that records already exists or not.
+    `upsert` will update existing records and insert new records. `overwrite` will
+    delete all existing records and insert all input records.
+  kind: options
+  label: Load Method
+  name: load_method
+  options:
+  - label: Append Only
+    value: append-only
+  - label: Upsert
+    value: upsert
+  - label: Overwrite
+    value: overwrite
+  value: append-only
 - description: A flag (only works if append_date_to_prefix is enabled) to have partitioning
     name formatted e.g. 'year=2023/month=01/day=01'.
   kind: boolean

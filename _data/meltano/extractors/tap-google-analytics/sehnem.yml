@@ -1,0 +1,82 @@
+capabilities:
+- about
+- catalog
+- discover
+- schema-flattening
+- state
+- stream-maps
+description: App and website analytics platform hosted by Google (GA4)
+domain_url: https://developers.google.com/analytics/devguides/reporting/data/v1
+executable: tap-google-analytics
+hidden: true
+keywords:
+- meltano_sdk
+label: Google Analytics (GA4)
+logo_url: /assets/logos/extractors/ga4.png
+maintenance_status: active
+name: tap-ga4
+namespace: tap_ga4
+next_steps: ''
+pip_url: git+https://github.com/sehnem/tap-google-analytics.git
+quality: silver
+repo: https://github.com/sehnem/tap-google-analytics
+settings:
+- description: Google Analytics Access Token
+  kind: password
+  label: Access Token
+  name: access_token
+- description: Google Analytics Client ID
+  kind: password
+  label: Client ID
+  name: client_id
+- description: Google Analytics Client Secret
+  kind: password
+  label: Client Secret
+  name: client_secret
+- description: The last record date to sync
+  kind: date_iso8601
+  label: End Date
+  name: end_date
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: Google Analytics Property ID
+  kind: password
+  label: Property ID
+  name: property_id
+- description: Google Analytics Refresh Token
+  kind: password
+  label: Refresh Token
+  name: refresh_token
+- description: Google Analytics Reports Definition
+  kind: string
+  label: Reports
+  name: reports
+- description: The earliest record date to sync
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+settings_group_validation:
+- - client_id
+  - client_secret
+  - property_id
+  - refresh_token
+  - start_date
+settings_preamble: ''
+usage: ''
+variant: sehnem
