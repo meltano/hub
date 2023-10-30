@@ -7,7 +7,7 @@ authors = ["Meltano Team"]
 [tool.poetry.dependencies]
 python = "^3.9"
 jsonschema = "^4.17.3"
-"ruamel.yaml" = "^0.18.2"
+"ruamel.yaml" = "^0.18.3"
 yamllint = "^1.32.0"
 requests = "^2.31.0"
 
