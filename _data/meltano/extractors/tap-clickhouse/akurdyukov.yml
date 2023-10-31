@@ -1,0 +1,116 @@
+capabilities:
+- about
+- batch
+- catalog
+- discover
+- schema-flattening
+- state
+- stream-maps
+description: Fast Open-Source OLAP DBMS
+domain_url: https://clickhouse.com/
+executable: tap-clickhouse
+keywords:
+- meltano_sdk
+label: ClickHouse
+logo_url: /assets/logos/extractors/clickhouse.png
+maintenance_status: active
+name: tap-clickhouse
+namespace: tap_clickhouse
+next_steps: ''
+pip_url: git+https://github.com/akurdyukov/tap-clickhouse.git
+quality: silver
+repo: https://github.com/akurdyukov/tap-clickhouse
+settings:
+- description: Compression format to use for batch files.
+  kind: options
+  label: Batch Config Encoding Compression
+  name: batch_config.encoding.compression
+  options:
+  - label: Gzip
+    value: gzip
+  - label: None
+    value: none
+- description: Format to use for batch files.
+  kind: options
+  label: Batch Config Encoding Format
+  name: batch_config.encoding.format
+  options:
+  - label: Jsonl
+    value: jsonl
+- description: Prefix to use when writing batch files.
+  kind: string
+  label: Batch Config Storage Prefix
+  name: batch_config.storage.prefix
+- description: Root path to use when writing batch files.
+  kind: string
+  label: Batch Config Storage Root
+  name: batch_config.storage.root
+- description: Database name
+  kind: string
+  label: Database
+  name: database
+  value: default
+- description: Driver type
+  kind: options
+  label: Driver
+  name: driver
+  options:
+  - label: Http
+    value: http
+  - label: Native
+    value: native
+  - label: Asynch
+    value: asynch
+  value: http
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: Database host
+  kind: string
+  label: Host
+  name: host
+  value: localhost
+- description: Username password
+  kind: password
+  label: Password
+  name: password
+- description: Database connection port
+  kind: integer
+  label: Port
+  name: port
+  value: 8123
+- description: Should the connection be secure
+  kind: boolean
+  label: Secure
+  name: secure
+  value: false
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: Database user
+  kind: string
+  label: Username
+  name: username
+  value: default
+- description: Should secure connection need to verify SSL/TLS
+  kind: boolean
+  label: Verify
+  name: verify
+  value: true
+settings_group_validation:
+- - password
+settings_preamble: ''
+usage: ''
+variant: akurdyukov
