@@ -15,7 +15,7 @@ maintenance_status: active
 name: target-postgres
 namespace: target_postgres
 next_steps: ''
-pip_url: meltanolabs-target-postgres~=0.0.7
+pip_url: meltanolabs-target-postgres
 quality: gold
 repo: https://github.com/MeltanoLabs/target-postgres
 settings:
