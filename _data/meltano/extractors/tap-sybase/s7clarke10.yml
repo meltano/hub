@@ -8,16 +8,16 @@ capabilities:
 description: SAP Sybase Relational Database
 domain_url: https://infocenter.sybase.com/help/index.jsp
 keywords:
-- meltano_sdk
+- database
 label: Sybase
 logo_url: /assets/logos/extractors/sybase.png
 maintenance_status: beta
 name: tap-sybase
 namespace: tap_sybase
 next_steps: ''
-pip_url: git+https://github.com/s7clarke10/tap-sybase-sdk.git
+pip_url: git+https://github.com/s7clarke10/tap-sybase.git
 quality: silver
-repo: https://github.com/s7clarke10/tap-sybase-sdk
+repo: https://github.com/s7clarke10/tap-sybase
 settings:
 - description: "The characterset for the database / source system. The default is
     `utf8`, however older databases might use a charactersets like cp1252 for the
@@ -32,11 +32,15 @@ settings:
     with an integer value indicating the number of rows to pull. This can help in
     some architectures by pulling more rows into memory. The default if omitted is
     1, the tap will still use fetchmany, but with an argument of 1, under the assumption
-    that like cp1252.
+    that fetchmany(1)==fetchone().
   kind: integer
   label: Cursor Array Size
   name: cursor_array_size
   value: 1
+- description: The name of the Sybase database e.g. example_db.
+  kind: string
+  label: Database
+  name: database
 - description: To filter the discovery to a particular schema within a database. This
     is useful if you have a large number of schemas and wish to speed up the discovery.
   kind: string
@@ -80,6 +84,7 @@ settings:
   kind: string
   label: Tds Version
   name: tds_version
+  value: none
 - description: To emit a date as a date without a time component or time without an
     UTC offset. This is helpful to avoid time conversions or to just work with a date
     datetype in the target database. If this boolean config item is not set, the default
@@ -90,10 +95,11 @@ settings:
   label: Use Date Datatype
   name: use_date_datatype
   value: false
-- description: O emit all numeric values as strings and treat floats as string data
+- description: To emit all numeric values as strings and treat floats as string data
     types for the target, set use_singer_decimal to true. The resulting SCHEMA message
     will contain an attribute in additionalProperties containing the scale and precision
-    of the discovered property
+    of the discovered property. We recommend setting this value to `true` for accurate
+    ingestion of floats and decimal data.
   kind: boolean
   label: Use Singer Decimal
   name: use_singer_decimal
