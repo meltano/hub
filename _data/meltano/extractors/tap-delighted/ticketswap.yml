@@ -6,8 +6,8 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
-description: A tap for the Delighted source that does not use airbyte, uses the python
-  Delighted library.
+description: A tap for the Delighted API built on the Singer SDK and the
+  Delighted Python client library.
 domain_url: ticketswap.com
 executable: tap-delighted
 keywords:
