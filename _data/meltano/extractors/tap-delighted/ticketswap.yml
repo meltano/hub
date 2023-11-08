@@ -8,7 +8,7 @@ capabilities:
 - stream-maps
 description: A tap for the Delighted API built on the Singer SDK and the
   Delighted Python client library.
-domain_url: ticketswap.com
+domain_url: https://delighted.com/
 executable: tap-delighted
 keywords:
 - meltano_sdk
