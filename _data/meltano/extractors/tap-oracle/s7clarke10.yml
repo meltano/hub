@@ -82,10 +82,14 @@ settings:
     service_name.
   label: SID
   name: sid
-- description: The scan window size when using log based replication. Default, None.
-  kind: integer
-  label: Scn Window Size
-  name: scn_window_size
+- description: Your Oracle SID. If connecting directly to an instance, otherwise use
+    service_name.
+  label: SID
+  name: sid
+- description: Determines which Oracle Library Driver and mode is used by tap-oracle.
+    cx=CX_Oracle, thin=oracleDB (No SQL Client), thick=oracleDB (SQL Client). Default, cx.
+  label: Oracle Python Driver Type / Mode
+  name: ora_python_driver_type
 - description: A boolean whether to use ORA_ROWSCN to bookmark progress in case replication
     is interrupted. ORA_ROWSCN returns an Oracle SCN which is a System Change Number.
     This is a unique identifier for a particular change (i.e. a transaction). Default,
