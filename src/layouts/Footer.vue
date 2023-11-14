@@ -137,37 +137,6 @@
                     />
                     <g>
                       <path
-                        d="M8 19.25C8 22.4256 10.5744 25 13.75 25L24 25C26.2091 25 28 23.2091 28 21C28 19.7368 27.4145 18.7331 26.5 18C26.5 14.134 23.366 11 19.5001 11C17.3476 11 15.5341 11.993 14.25 13.5214C14.0852 13.5072 13.9185 13.5 13.75 13.5C10.5744 13.5 8 16.0744 8 19.25Z"
-                        fill="#B5B4BA"
-                      />
-                    </g>
-                  </svg>
-                  <a href="https://meltano.com/cloud/">
-                    <p class="footer-list-title">Meltano/Cloud</p>
-                    <p class="footer-list-info">
-                      You build the pipelines, we manage the infrastructure
-                    </p>
-                  </a>
-                </li>
-                <li>
-                  <svg
-                    class="footer-list-icon"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="36"
-                    height="36"
-                    viewBox="0 0 36 36"
-                    fill="none"
-                  >
-                    <rect
-                      class="footer-icon-frame"
-                      width="36"
-                      height="36"
-                      rx="18"
-                      fill="white"
-                      fill-opacity="0.1"
-                    />
-                    <g>
-                      <path
                         d="M25.9167 22.8072V13.6024L17.9586 9L10 13.6024V22.8072L17.9586 27.4096L25.9167 22.8072Z"
                         fill="#B5B4BA"
                       />
@@ -207,44 +176,6 @@
                   <a href="https://hub.meltano.com/extractors/">
                     <p class="footer-list-title">Meltano/Hub</p>
                     <p class="footer-list-info">Connectors for 600+ sources and destinations</p>
-                  </a>
-                </li>
-                <li>
-                  <svg
-                    class="footer-list-icon"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="36"
-                    height="36"
-                    viewBox="0 0 36 36"
-                    fill="none"
-                  >
-                    <rect
-                      class="footer-icon-frame"
-                      width="36"
-                      height="36"
-                      rx="18"
-                      fill="white"
-                      fill-opacity="0.1"
-                    />
-                    <g>
-                      <path
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                        d="M13.7385 13.8701C13.2713 14.2499 13 14.82 13 15.4221V25.9998C13 27.1044 13.8954 27.9998 15 27.9998H22C23.1046 27.9998 24 27.1044 24 25.9998V15.4221C24 14.82 23.7287 14.2499 23.2615 13.8701L19.7615 11.0252C19.0266 10.4278 17.9734 10.4278 17.2385 11.0252L13.7385 13.8701ZM18.5 15.9998C19.3284 15.9998 20 15.3282 20 14.4998C20 13.6713 19.3284 12.9998 18.5 12.9998C17.6716 12.9998 17 13.6713 17 14.4998C17 15.3282 17.6716 15.9998 18.5 15.9998Z"
-                        fill="#B5B4BA"
-                      />
-                      <path
-                        d="M18.5 14C20.433 14 22 12.433 22 10.5C22 8.567 20.433 7 18.5 7C16.567 7 15 8.567 15 10.5"
-                        stroke="#B5B4BA"
-                        stroke-linecap="round"
-                      />
-                    </g>
-                  </svg>
-                  <a href="https://meltano.com/pricing">
-                    <p class="footer-list-title">Pricing</p>
-                    <p class="footer-list-info">
-                      Pay only for the workloads you run, no matter how much the data volume grows
-                    </p>
                   </a>
                 </li>
               </ul>
