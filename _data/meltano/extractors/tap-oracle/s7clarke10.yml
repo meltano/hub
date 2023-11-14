@@ -86,6 +86,19 @@ settings:
   kind: integer
   label: Scn Window Size
   name: scn_window_size
+- description: Determines which Oracle Library Driver and mode is used by tap-oracle.
+    cx=CX_Oracle, thin=oracleDB (No SQL Client), thick=oracleDB (SQL Client). Default, cx.
+  kind: options
+  label: Oracle Python Driver Type / Mode
+  name: ora_python_driver_type
+  options:
+  - label: CX Oracle
+    value: cx
+  - label: oracleDB (No SQL Client)
+    value: thin
+  - label: oracleDB (SQL Client)
+    value: thick
+  value: cx
 - description: A boolean whether to use ORA_ROWSCN to bookmark progress in case replication
     is interrupted. ORA_ROWSCN returns an Oracle SCN which is a System Change Number.
     This is a unique identifier for a particular change (i.e. a transaction). Default,
