@@ -98,6 +98,7 @@ settings:
     value: thin
   - label: oracleDB (SQL Client)
     value: thick
+  value: cx
 - description: A boolean whether to use ORA_ROWSCN to bookmark progress in case replication
     is interrupted. ORA_ROWSCN returns an Oracle SCN which is a System Change Number.
     This is a unique identifier for a particular change (i.e. a transaction). Default,
