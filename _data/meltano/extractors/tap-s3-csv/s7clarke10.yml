@@ -11,7 +11,7 @@ logo_url: /assets/logos/extractors/s3-csv.png
 maintenance_status: active
 name: tap-s3-csv
 namespace: tap_s3_csv
-pip_url: pipelinewise-tap-s3-csv
+pip_url: git+https://github.com/s7clarke10/pipelinewise-tap-s3-csv.git
 quality: silver
 repo: https://github.com/s7clarke10/pipelinewise-tap-s3-csv
 settings:
