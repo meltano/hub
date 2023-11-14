@@ -8,11 +8,11 @@ authors = ["Meltano Team"]
 python = "^3.9"
 jsonschema = "^4.17.3"
 "ruamel.yaml" = "^0.18.5"
-yamllint = "^1.32.0"
+yamllint = "^1.33.0"
 requests = "^2.31.0"
 
 [tool.poetry.dev-dependencies]
-black = "^23.10.1"
+black = "^23.11.0"
 isort = "^5.12.0"
 
 [build-system]
