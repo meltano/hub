@@ -1,0 +1,127 @@
+capabilities:
+- about
+- batch
+- catalog
+- discover
+- schema-flattening
+- state
+- stream-maps
+description: Code hosting platform
+domain_url: https://docs.github.com/en/rest
+keywords:
+- api
+- free service
+- meltano_sdk
+label: GitHub
+logo_url: /assets/logos/extractors/github.png
+maintenance_status: active
+name: tap-github
+namespace: tap_github
+pip_url: git+https://github.com/MeltanoLabs/tap-github.git
+quality: gold
+repo: https://github.com/MeltanoLabs/tap-github
+select:
+- '*.*'
+- '!traffic_*.*'
+settings:
+- description: List of GitHub tokens to authenticate with. Streams will loop through
+    them when hitting rate limits.
+  kind: array
+  label: Additional Auth Tokens
+  name: additional_auth_tokens
+- description: GitHub token to authenticate with.
+  kind: password
+  label: Auth Token
+  name: auth_token
+- description: Compression format to use for batch files.
+  kind: options
+  label: Batch Config Encoding Compression
+  name: batch_config.encoding.compression
+  options:
+  - label: Gzip
+    value: gzip
+  - label: None
+    value: none
+- description: Format to use for batch files.
+  kind: options
+  label: Batch Config Encoding Format
+  name: batch_config.encoding.format
+  options:
+  - label: Jsonl
+    value: jsonl
+- description: Prefix to use when writing batch files.
+  kind: string
+  label: Batch Config Storage Prefix
+  name: batch_config.storage.prefix
+- description: Root path to use when writing batch files.
+  kind: string
+  label: Batch Config Storage Root
+  name: batch_config.storage.root
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: The log level of the API response metrics.
+  kind: string
+  label: Metrics Log Level
+  name: metrics_log_level
+- description: An array of strings containing the github organizations to be included
+  kind: array
+  label: Organizations
+  name: organizations
+- description: Add a buffer to avoid consuming all query points for the token at hand.
+    Defaults to 1000.
+  kind: integer
+  label: Rate Limit Buffer
+  name: rate_limit_buffer
+- description: An array of strings containing the github repos to be included
+  kind: array
+  label: Repositories
+  name: repositories
+- description: An array of search descriptor objects with the following properties.
+    "name" - a human readable name for the search query. "query" -  a github search
+    string (generally the same as would come after ?q= in the URL)
+  kind: array
+  label: Searches
+  name: searches
+- description: Set to true to skip API calls for the parent streams (such as repositories)
+    if it is not selected but children are
+  kind: boolean
+  label: Skip Parent Streams
+  name: skip_parent_streams
+- description: ''
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: ''
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: ''
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: ''
+  kind: string
+  label: User Agent
+  name: user_agent
+- description: A list of GitHub user ids.
+  kind: array
+  label: User IDs
+  name: user_ids
+- description: A list of GithHub usernames.
+  kind: array
+  label: User Usernames
+  name: user_usernames
+settings_group_validation:
+- - repositories
+- - organizations
+- - searches
+- - user_usernames
+- - user_ids
+variant: meltanolabs

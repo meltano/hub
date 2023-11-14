@@ -332,6 +332,7 @@ def download_metadata(
     local_path: str,
     variant_path_list: str = None,
     all_sdk: bool = True,
+    ignore_list_str: str = "",
 ):
     """
     NOTE: USED FOR
@@ -340,6 +341,7 @@ def download_metadata(
     """
     util = Utilities()
     s3 = S3()
+    ignore_list = ignore_list_str.split(",")
     if not variant_path_list:
         variant_path_list = ",".join(SDK_SUFFIX_LIST)
     if all_sdk:
@@ -347,9 +349,12 @@ def download_metadata(
             [
                 i["plugin-name"].split(".yml")[0]
                 for i in util.get_variant_names(None, "sdk")
+                if i["plugin-name"].split(".yml")[0] not in ignore_list
             ]
         )
     for yaml_file in variant_path_list.split(","):
+        if not yaml_file:
+            continue
         suffix = util.get_suffix(yaml_file)
         local_file_path = f"{local_path}/{suffix}.json"
         s3.download_latest(os.environ.get("AWS_S3_BUCKET"), suffix, local_file_path)

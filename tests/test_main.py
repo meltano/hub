@@ -26,6 +26,34 @@ def test_download_metadata(patch):
     )
 
 @patch.object(S3, "download_latest")
+def test_download_metadata_ignore(patch):
+
+    expected_bucket = "TEST_BUCKET"
+    os.environ["AWS_S3_BUCKET"] = expected_bucket
+    local_path = f"{PATH}/data/output_path"
+    hub_yml_path = f"{PATH}/data/hub_data/_data/extractors/tap-csv/meltanolabs.yml"
+    os.environ["HUB_ROOT_PATH"] = f"./tests/"
+    download_metadata(
+        local_path,
+        # variant_path_list=hub_yml_path,
+        all_sdk=True,
+        ignore_list_str="extractors/tap-hubspot/hotgluexyz"
+    )
+    assert patch.call_count == 2
+    patch.assert_has_calls([
+        call(
+            expected_bucket,
+        "extractors/tap-hubspot/meltanolabs",
+        f"{local_path}/extractors/tap-hubspot/meltanolabs.json"
+        ),
+        call(
+            expected_bucket,
+        "extractors/tap-github/meltanolabs",
+        f"{local_path}/extractors/tap-github/meltanolabs.json"
+        )
+    ])
+
+@patch.object(S3, "download_latest")
 def test_download_metadata_list(patch):
 
     expected_bucket = "TEST_BUCKET"
