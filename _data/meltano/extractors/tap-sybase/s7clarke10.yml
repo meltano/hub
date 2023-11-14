@@ -84,7 +84,6 @@ settings:
   kind: string
   label: Tds Version
   name: tds_version
-  value: none
 - description: To emit a date as a date without a time component or time without an
     UTC offset. This is helpful to avoid time conversions or to just work with a date
     datetype in the target database. If this boolean config item is not set, the default
