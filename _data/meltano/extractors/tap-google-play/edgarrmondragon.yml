@@ -12,7 +12,7 @@ executable: tap-google-play
 keywords:
 - meltano_sdk
 label: Google Play
-logo_url: /assets/logos/extractors/google-play.png
+logo_url: /assets/logos/extractors/google-play.svg
 maintenance_status: active
 name: tap-google-play
 namespace: tap_google_play
