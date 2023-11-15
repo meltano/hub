@@ -58,7 +58,6 @@ settings:
   kind: string
   label: Backoff Type
   name: backoff_type
-  value: none
 - description: 'The header parameter to inspect for a backoff time.
     Optional: Defaults to `Retry-After`.'
   kind: string
@@ -168,17 +167,14 @@ settings:
   kind: string
   label: Pagination Limit Per Page Param
   name: pagination_limit_per_page_param
-  value: none
 - description: The name of the param that indicates the page/offset. Defaults to `None`.
   kind: string
   label: Pagination Next Page Param
   name: pagination_next_page_param
-  value: none
 - description: The size of each page in records. Defaults to `None`.
   kind: integer
   label: Pagination Page Size
   name: pagination_page_size
-  value: none
 - description: The pagination style to use for requests. Defaults to `default`.
   kind: string
   label: Pagination Request Style
@@ -193,7 +189,6 @@ settings:
   kind: integer
   label: Pagination Results Limit
   name: pagination_results_limit
-  value: none
 - description: The name of the param that indicates the total limit e.g. `total`, `count`.
     Defaults to `total`.
   kind: string
