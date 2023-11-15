@@ -89,6 +89,9 @@ settings:
   name: stream_maps
 settings_group_validation:
 - - access_token
+- - client_id
+  - client_secret
+  - refresh_token
 settings_preamble: ''
 usage: ''
 variant: meltanolabs
