@@ -19,7 +19,7 @@ name: tap-parquet
 namespace: tap_parquet
 next_steps: ''
 pip_url: git+https://github.com/AE-nv/tap-parquet.git
-quality: unknown
+quality: silver
 repo: https://github.com/AE-nv/tap-parquet
 settings:
 - description: Determines how much historical data will be extracted. Please be aware
