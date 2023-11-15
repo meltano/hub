@@ -1,0 +1,36 @@
+name: tap-parquet
+variant: ae-nv
+label: Parquet
+logo_url: /assets/logos/extractors/parquet.png
+capabilities:
+- catalog
+- state
+- discover
+- about
+- stream-maps
+- schema-flattening
+- batch
+description: Columnar Storage Format
+domain_url: https://parquet.apache.org/
+keywords:
+- file
+- meltano_sdk
+maintenance_status: active
+namespace: tap_parquet
+pip_url: git+https://github.com/AE-nv/tap-parquet.git
+quality: unknown
+repo: https://github.com/AE-nv/tap-parquet
+settings:
+- name: start_date
+  label: Start Date
+  description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
+  kind: date_iso8601
+- name: filepath
+  label: Filepath
+  description: The absolute path to a parquet source file.
+  kind: string
+settings_group_validation:
+- - filepath
+executable: tap-parquet
