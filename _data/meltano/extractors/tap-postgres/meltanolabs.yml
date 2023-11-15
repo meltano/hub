@@ -55,6 +55,19 @@ settings:
   label: Dates As String
   name: dates_as_string
   value: false
+- description: Replication method to use if there is not a catalog entry to override
+    this choice. One of `FULL_TABLE`, `INCREMENTAL`, or `LOG_BASED`.
+  kind: options
+  label: Default Replication Method
+  name: default_replication_method
+  options:
+  - label: Full Table
+    value: FULL_TABLE
+  - label: Incremental
+    value: INCREMENTAL
+  - label: Log Based
+    value: LOG_BASED
+  value: FULL_TABLE
 - description: If an array of schema names is provided, the tap will only process
     the specified Postgres schemas and ignore others. If left blank, the tap automatically
     determines ALL available Postgres schemas.
