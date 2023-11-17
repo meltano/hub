@@ -6,8 +6,7 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
-description: ' This tap imports Code Coverage data from Codecov, to allow to analyze
-  and report on it on your own Data Warehouse.'
+description: Imports Code Coverage data from Codecov
 domain_url: https://about.codecov.io/
 executable: tap-codecov
 keywords:
