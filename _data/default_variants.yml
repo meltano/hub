@@ -263,7 +263,7 @@ extractors:
   tap-kwanko: uptilab2
   tap-kyriba: airbyte
   tap-lastfm: rabidaudio
-  tap-launchdarkly: airbyte
+  tap-launchdarkly: pulumi
   tap-lemlist: airbyte
   tap-lessonly: pathlight
   tap-lever: dbt-labs
