@@ -24,8 +24,7 @@ settings:
   kind: password
   label: Auth Token
   name: auth_token
-- description: Which environment to get activation data for (Usually a production
-    environment)
+- description: Environment to get activation data for
   kind: string
   label: Environment
   name: environment
