@@ -102,6 +102,7 @@ extractors:
   tap-cockroachdb: airbyte
   tap-coda: airbyte
   tap-codat: singer-io
+  tap-codecov: pulumi
   tap-coin-api: airbyte
   tap-coingecko: sicarul
   tap-coinmarketcap: airbyte
