@@ -5,8 +5,7 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
-description: This tap allows you to obtain Feature Flags from LaunchDarkly to be able
-  to detect which users/customers/etc have different feature flags activated.
+description: Obtain Feature Flags from LaunchDarkly
 domain_url: https://launchdarkly.com/
 executable: tap-launchdarkly
 keywords:
