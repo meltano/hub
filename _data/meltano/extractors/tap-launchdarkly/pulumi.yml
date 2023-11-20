@@ -24,10 +24,12 @@ settings:
   kind: password
   label: Auth Token
   name: auth_token
-- description: Environment to get activation data for
+- description: Which environment to get activation data for (Usually a production
+    environment)
   kind: string
   label: Environment
   name: environment
+  value: production
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
