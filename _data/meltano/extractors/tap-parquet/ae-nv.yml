@@ -6,25 +6,22 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
-description: Inbound Marketing software
-domain_url: https://developers.hubspot.com/docs/api/overview
-executable: tap-hubspot
+description: Columnar Storage Format
+domain_url: https://parquet.apache.org/
+executable: tap-parquet
 keywords:
+- file
 - meltano_sdk
-label: Hubspot
-logo_url: /assets/logos/extractors/hubspot.png
+label: Parquet
+logo_url: /assets/logos/extractors/parquet.png
 maintenance_status: active
-name: tap-hubspot
-namespace: tap_hubspot
+name: tap-parquet
+namespace: tap_parquet
 next_steps: ''
-pip_url: git+https://github.com/MeltanoLabs/tap-hubspot.git
-quality: gold
-repo: https://github.com/MeltanoLabs/tap-hubspot
+pip_url: git+https://github.com/AE-nv/tap-parquet.git
+quality: silver
+repo: https://github.com/AE-nv/tap-parquet
 settings:
-- description: Token to authenticate against the API service
-  kind: password
-  label: Access Token
-  name: access_token
 - description: Compression format to use for batch files.
   kind: options
   label: Batch Config Encoding Compression
@@ -49,18 +46,10 @@ settings:
   kind: string
   label: Batch Config Storage Root
   name: batch_config.storage.root
-- description: The OAuth app client ID.
-  kind: password
-  label: Client ID
-  name: client_id
-- description: The OAuth app client secret.
-  kind: password
-  label: Client Secret
-  name: client_secret
-- description: Latest record date to sync
-  kind: date_iso8601
-  label: End Date
-  name: end_date
+- description: The absolute path to a parquet source file.
+  kind: string
+  label: Filepath
+  name: filepath
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -70,11 +59,9 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: The OAuth app refresh token.
-  kind: password
-  label: Refresh Token
-  name: refresh_token
-- description: Earliest record date to sync
+- description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
   kind: date_iso8601
   label: Start Date
   name: start_date
@@ -88,10 +75,5 @@ settings:
   label: Stream Maps
   name: stream_maps
 settings_group_validation:
-- - access_token
-- - client_id
-  - client_secret
-  - refresh_token
-settings_preamble: ''
-usage: ''
-variant: meltanolabs
+- - filepath
+variant: ae-nv

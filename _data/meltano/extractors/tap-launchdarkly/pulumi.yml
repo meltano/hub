@@ -5,34 +5,31 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
-description: Enterprise Promotion Platform
-domain_url: https://www.talon.one/
-executable: tap-talon-one
+description: Obtain Feature Flags from LaunchDarkly
+domain_url: https://launchdarkly.com/
+executable: tap-launchdarkly
 keywords:
 - meltano_sdk
-- api
-label: Talon One
-logo_url: /assets/logos/extractors/talon-one.png
+label: Launchdarkly
+logo_url: /assets/logos/extractors/launchdarkly.png
 maintenance_status: active
-name: tap-talon-one
-namespace: tap_talonone
+name: tap-launchdarkly
+namespace: tap_launchdarkly
 next_steps: ''
-pip_url: git+https://github.com/GtheSheep/tap-talon-one.git
-quality: silver
-repo: https://github.com/GtheSheep/tap-talon-one
+pip_url: git+https://github.com/pulumi/tap-launchdarkly.git
+quality: bronze
+repo: https://github.com/pulumi/tap-launchdarkly
 settings:
-- description: The ID for your account
-  kind: integer
-  label: Account ID
-  name: account_id
-- description: The base URL for your Talon One account
-  kind: string
-  label: API URL
-  name: api_url
 - description: The token to authenticate against the API service
   kind: password
   label: Auth Token
   name: auth_token
+- description: Which environment to get activation data for (Usually a production
+    environment)
+  kind: string
+  label: Environment
+  name: environment
+  value: production
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -42,15 +39,6 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: Page size for pagination
-  kind: integer
-  label: Page Size
-  name: page_size
-  value: 10000
-- description: The earliest record date to sync
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
 - description: User-defined config values to be used within map expressions.
   kind: object
   label: Stream Map Config
@@ -61,10 +49,8 @@ settings:
   label: Stream Maps
   name: stream_maps
 settings_group_validation:
-- - account_id
-  - api_url
-  - auth_token
-  - start_date
+- - auth_token
+  - environment
 settings_preamble: ''
 usage: ''
-variant: gthesheep
+variant: pulumi
