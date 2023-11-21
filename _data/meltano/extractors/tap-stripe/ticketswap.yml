@@ -7,7 +7,7 @@ capabilities:
 - state
 - stream-maps
 description: Online payment processing for internet businesses
-domain_url: ticketswap.com
+domain_url: https://stripe.com/docs/api
 executable: tap-stripe
 keywords:
 - meltano_sdk
