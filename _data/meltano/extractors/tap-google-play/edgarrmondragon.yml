@@ -6,25 +6,25 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
-description: Inbound Marketing software
-domain_url: https://developers.hubspot.com/docs/api/overview
-executable: tap-hubspot
+description: Digital distribution service operated and developed by Google
+domain_url: https://play.google.com/store/games
+executable: tap-google-play
 keywords:
 - meltano_sdk
-label: Hubspot
-logo_url: /assets/logos/extractors/hubspot.png
+label: Google Play
+logo_url: /assets/logos/extractors/google-play.svg
 maintenance_status: active
-name: tap-hubspot
-namespace: tap_hubspot
+name: tap-google-play
+namespace: tap_google_play
 next_steps: ''
-pip_url: git+https://github.com/MeltanoLabs/tap-hubspot.git
+pip_url: git+https://github.com/edgarrmondragon/tap-google-play.git
 quality: gold
-repo: https://github.com/MeltanoLabs/tap-hubspot
+repo: https://github.com/edgarrmondragon/tap-google-play
 settings:
-- description: Token to authenticate against the API service
+- description: The app ID to extract reviews from
   kind: password
-  label: Access Token
-  name: access_token
+  label: App ID
+  name: app_id
 - description: Compression format to use for batch files.
   kind: options
   label: Batch Config Encoding Compression
@@ -49,18 +49,6 @@ settings:
   kind: string
   label: Batch Config Storage Root
   name: batch_config.storage.root
-- description: The OAuth app client ID.
-  kind: password
-  label: Client ID
-  name: client_id
-- description: The OAuth app client secret.
-  kind: password
-  label: Client Secret
-  name: client_secret
-- description: Latest record date to sync
-  kind: date_iso8601
-  label: End Date
-  name: end_date
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -70,11 +58,7 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: The OAuth app refresh token.
-  kind: password
-  label: Refresh Token
-  name: refresh_token
-- description: Earliest record date to sync
+- description: The date to start extracting reviews from
   kind: date_iso8601
   label: Start Date
   name: start_date
@@ -88,10 +72,7 @@ settings:
   label: Stream Maps
   name: stream_maps
 settings_group_validation:
-- - access_token
-- - client_id
-  - client_secret
-  - refresh_token
+- - app_id
 settings_preamble: ''
 usage: ''
-variant: meltanolabs
+variant: edgarrmondragon

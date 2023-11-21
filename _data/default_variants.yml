@@ -102,6 +102,7 @@ extractors:
   tap-cockroachdb: airbyte
   tap-coda: airbyte
   tap-codat: singer-io
+  tap-codecov: pulumi
   tap-coin-api: airbyte
   tap-coingecko: sicarul
   tap-coinmarketcap: airbyte
@@ -211,7 +212,7 @@ extractors:
   tap-google-analytics: meltanolabs
   tap-google-directory: airbyte
   tap-google-pagespeed-insights: airbyte
-  tap-google-play: hotgluexyz
+  tap-google-play: edgarrmondragon
   tap-google-search-console: singer-io
   tap-google-sheets: matatika
   tap-google-webfonts: airbyte
@@ -262,7 +263,7 @@ extractors:
   tap-kwanko: uptilab2
   tap-kyriba: airbyte
   tap-lastfm: rabidaudio
-  tap-launchdarkly: airbyte
+  tap-launchdarkly: pulumi
   tap-lemlist: airbyte
   tap-lessonly: pathlight
   tap-lever: dbt-labs
@@ -349,7 +350,7 @@ extractors:
   tap-outreach: singer-io
   tap-pagerduty: goodeggs
   tap-pardot: singer-io
-  tap-parquet: dataops-tk
+  tap-parquet: ae-nv
   tap-partnerize: voxmedia
   tap-partnerstack: airbyte
   tap-partoo: gendarmerienationale

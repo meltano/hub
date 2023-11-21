@@ -39,7 +39,7 @@ settings:
 - description: 'The method of authentication used by the API. Supported options include
     oauth: for OAuth2 authentication, basic: Basic Header authorization - base64-encoded
     username + password config items, api_key: for API Keys in the header e.g. X-API-KEY,bearer_token:
-    for Bearer token authorization, aws: for AWS Authentication. Defaults to no_auth
+    for Bearer token authorization, aws: for AWS Authentication. Defaults to `no_auth`
     which will take authentication parameters passed via the headersconfig.'
   kind: string
   label: Auth Method
@@ -52,6 +52,24 @@ settings:
   kind: object
   label: AWS Credentials
   name: aws_credentials
+- description: 'The style of Backoff [message|header] applied to rate limited APIs.
+    Backoff times (seconds) come from response either the `message` or `header`.
+    Optional: Defaults to `None`.'
+  kind: string
+  label: Backoff Type
+  name: backoff_type
+- description: 'The header parameter to inspect for a backoff time.
+    Optional: Defaults to `Retry-After`.'
+  kind: string
+  label: Backoff Param
+  name: backoff_param
+  value: 'Retry-After'
+- description: 'An additional extension (seconds) to the backoff time over and above a jitter value -
+    use where an API is not precise in its backoff times. Optional: Defaults to `0`.'
+  kind: string
+  label: Backoff Time Extension
+  name: backoff_time_extension
+  value: 0
 - description: Compression format to use for batch files.
   kind: options
   label: Batch Config Encoding Compression
@@ -93,7 +111,7 @@ settings:
   label: Client Secret
   name: client_secret
 - description: This tap automatically flattens the entire json structure and builds
-    keys based on the corresponding paths. ; Keys, whether composite or otherwise,
+    keys based on the corresponding paths. Keys, whether composite or otherwise,
     listed in this dictionary will not be recursively flattened, but instead their
     values will be; turned into a json string and processed in that format. This is
     also automatically done for any lists within the records; therefore, records are
@@ -117,18 +135,18 @@ settings:
   kind: string
   label: Grant Type
   name: grant_type
-- description: An object of headers to pass into the api calls. Stream levelheaders
+- description: An object of headers to pass into the api calls. Stream level headers
     will be merged with top-level params with streamlevel params overwriting top-level
     params with the same key.
   kind: object
   label: Headers
   name: headers
 - description: A jsonpath string representing the path to the 'next page' token. Defaults
-    to `$.next_page`
+    to `$.next_page` for the `jsonpath_paginator` paginator only otherwise `None`.
   kind: password
   label: Next Page Token Path
   name: next_page_token_path
-- description: Number of records used to infer the stream's schema. Defaults to 50.
+- description: Number of records used to infer the stream's schema. Defaults to `50`.
   kind: integer
   label: Num Inference Records
   name: num_inference_records
@@ -145,41 +163,41 @@ settings:
   label: OAuth Extras
   name: oauth_extras
 - description: The name of the param that indicates the limit/per_page. Defaults to
-    None
+    `None`.
   kind: string
   label: Pagination Limit Per Page Param
   name: pagination_limit_per_page_param
-- description: The name of the param that indicates the page/offset. Defaults to None
+- description: The name of the param that indicates the page/offset. Defaults to `None`.
   kind: string
   label: Pagination Next Page Param
   name: pagination_next_page_param
-- description: The size of each page in records. Defaults to None
+- description: The size of each page in records. Defaults to `None`.
   kind: integer
   label: Pagination Page Size
   name: pagination_page_size
-- description: The pagination style to use for requests. Defaults to `default`
+- description: The pagination style to use for requests. Defaults to `default`.
   kind: string
   label: Pagination Request Style
   name: pagination_request_style
   value: default
-- description: The pagination style to use for response. Defaults to `default`
+- description: The pagination style to use for response. Defaults to `default`.
   kind: string
   label: Pagination Response Style
   name: pagination_response_style
   value: default
-- description: Limits the max number of records. Defaults to None
+- description: Limits the max number of records. Defaults to `None`.
   kind: integer
   label: Pagination Results Limit
   name: pagination_results_limit
-- description: The name of the param that indicates the total limit e.g. total, count.
-    Defaults to total
+- description: The name of the param that indicates the total limit e.g. `total`, `count`.
+    Defaults to `total`.
   kind: string
   label: Pagination Total Limit Param
   name: pagination_total_limit_param
   value: total
 - description: An object providing the `params` in a `requests.get` method. Stream
-    level params will be mergedwith top-level params with stream level params overwritingtop-level
-    params with the same key.
+    level params will be merged with top-level params with stream level params
+    overwriting top-level params with the same key.
   kind: object
   label: Params
   name: params
@@ -230,28 +248,34 @@ settings:
 - description: "An optional field name which can be used for querying specific records
     from supported API's. The intend for this parameter is to continue incrementally
     processing from a previous state. Example `last-updated`. Note: You must also
-    set the replication_key, where the replication_key isjson response representation
-    of the API `source_search_field`. You shouldalso supply the `source_search_query`,
+    set the replication_key, where the replication_key is json response representation
+    of the API `source_search_field`. You should also supply the `source_search_query`,
     `replication_key` and `start_date`."
   kind: string
   label: Source Search Field
   name: source_search_field
-- description: "An optional query template to be issued against the API. Substitute
-    the query field you are querying against with $last_run_date. Atrun-time, the
-    tap will dynamically update the token with either the `start_date`or the last
-    bookmark / state value. A simple template Example for FHIR API's: gt$last_run_date.
-    A more complex example against an Opensearch API, {\"bool\": {\"filter\": [{\"\
-    range\": { \"meta.lastUpdated\": { \"gt\": \"$last_run_date\" }}}] }}. Note: Any
-    required double quotes in the query template must be escaped."
+- description: 'An optional query template to be issued against the API. Substitute
+    the query field you are querying against with $last_run_date. At run-time, the
+    tap will dynamically update the token with either the `start_date` or the last
+    bookmark / state value. A simple template Example for FHIR APIs: gt$last_run_date.
+    A more complex example against an Opensearch API, `"{\"bool\": {\"filter\":
+     [{\"range\": { \"meta.lastUpdated\": { \"gt\": \"$last_run_date\" }}}] }}"`.
+    Note: Any required double quotes in the query template must be escaped.'
   kind: string
   label: Source Search Query
   name: source_search_query
-- description: An optional field. Normally required when using thereplication_key.
+- description: An optional field. Normally required when using the replication_key.
     This is the initial starting date when using adate based replication key and there
     is no state available.
   kind: date_iso8601
   label: Start Date
   name: start_date
+- description: 'An additional extension which will emit the whole message into an
+    field. Optional: Defaults to `False`.'
+  kind: boolean
+  label: Store Raw JSON Message
+  name: store_raw_json_message
+  value: false
 - description: User-defined config values to be used within map expressions.
   kind: object
   label: Stream Map Config
@@ -269,20 +293,20 @@ settings:
     Parameters that appear at the stream-level will overwrite their top-level counterparts except where noted below:
 
     - name: required: name of the stream.
-    - path: optional: the path appended to the api_url.
-    - params: optional: an object of objects that provide the params in a requests.get method. Stream level params will be merged with top-level params with stream level params overwriting top-level params with the same key.
+    - path: optional: the path appended to the `api_url`.
+    - params: optional: an object of objects that provide the `params` in a `requests.get` method. Stream level params will be merged with top-level params with stream level params overwriting top-level params with the same key.
     - headers: optional: an object of headers to pass into the api calls. Stream level headers will be merged with top-level params with stream level params overwriting top-level params with the same key
-    - records_path: optional: a jsonpath string representing the path in the requests response that contains the records to process. Defaults to $[*].
+    - records_path: optional: a jsonpath string representing the path in the requests response that contains the records to process. Defaults to `$[*]`.
     - primary_keys: required: a list of the json keys of the primary key for the stream.
     - replication_key: optional: the json key of the replication key. Note that this should be an incrementing integer or datetime object.
     - except_keys: This tap automatically flattens the entire json structure and builds keys based on the corresponding paths. Keys, whether composite or otherwise, listed in this dictionary will not be recursively flattened, but instead their values will be turned into a json string and processed in that format. This is also automatically done for any lists within the records; therefore, records are not duplicated for each item in lists.
-    - num_inference_keys: optional: number of records used to infer the stream's schema. Defaults to 50.
-    - schema: optional: A valid Singer schema or a path-like string that provides the path to a .json file that contains a valid Singer schema. If provided, the schema will not be inferred from the results of an api call.
+    - num_inference_keys: optional: number of records used to infer the stream's schema. Defaults to `50`.
+    - schema: optional: A valid Singer schema or a path-like string that provides the path to a `.json` file that contains a valid Singer schema. If provided, the schema will not be inferred from the results of an api call.
   kind: array
   label: Streams
   name: streams
 - description: Sends the request parameters in the request body. This is normally
-    not required, a few API's like OpenSearchrequire this. Defaults to `False`
+    not required, a few API's like OpenSearch require this. Defaults to `False`.
   kind: boolean
   label: Use Request Body Not Params
   name: use_request_body_not_params
