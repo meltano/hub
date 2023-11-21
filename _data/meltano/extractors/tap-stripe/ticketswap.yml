@@ -6,7 +6,7 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
-description: A Meltano SDK tap for Stripe data.
+description: Online payment processing for internet businesses
 domain_url: ticketswap.com
 executable: tap-stripe
 keywords:
