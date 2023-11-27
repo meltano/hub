@@ -5,6 +5,7 @@ capabilities:
 description: AWS S3 - Apache Parquet File Format
 domain_url: https://aws.amazon.com/s3/
 executable: target-s3
+hidden: true
 keywords:
 - meltano_sdk
 label: S3 Parquet
