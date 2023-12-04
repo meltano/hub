@@ -8,7 +8,7 @@ executable: tap-exact
 keywords:
 - meltano_sdk
 label: Exact
-logo_url: /assets/logos/extractors/exact.png
+logo_url: /assets/logos/extractors/exact.svg
 maintenance_status: active
 name: tap-exact
 namespace: tap_exact
