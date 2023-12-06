@@ -1,0 +1,32 @@
+capabilities:
+- about
+- batch
+- catalog
+- discover
+- schema-flattening
+- state
+- stream-maps
+description: Highest class of international racing for open-wheel single-seater formula racing cars
+domain_url: https://www.formula1.com/
+keywords:
+- api
+- ergast
+- f1
+- formula 1
+- formula one
+- meltano_sdk
+label: Formula 1
+logo_url: /assets/logos/extractors/f1.png
+maintenance_status: active
+name: tap-f1
+namespace: tap_f1
+pip_url: git+https://github.com/ReubenFrankel/tap-f1.git
+quality: bronze
+repo: https://github.com/ReubenFrankel/tap-f1
+settings:
+- description: Date to sync data from (defaults to the first day of the current year - e.g. `2023-01-01`)
+  kind: date_iso8601
+  label: Start date
+  name: start_date
+settings_group_validation: []
+variant: reubenf
