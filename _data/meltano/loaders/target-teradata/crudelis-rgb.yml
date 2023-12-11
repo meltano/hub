@@ -2,7 +2,6 @@ capabilities:
 - about
 - schema-flattening
 - stream-maps
-- target-schema
 description: Multi-cloud data platform for enterprise analytics
 domain_url: https://docs.teradata.com/
 executable: target-teradata
