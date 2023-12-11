@@ -49,6 +49,8 @@ settings:
   options:
   - label: Jsonl
     value: jsonl
+  - label: Parquet
+    value: parquet
 - description: Prefix to use when writing batch files.
   kind: string
   label: Batch Config Storage Prefix
@@ -84,7 +86,7 @@ settings:
   kind: string
   label: User Agent
   name: user_agent
-  value: tap-dbt/0.9.1.dev10+43e1914 Singer tap for the dbt Cloud API.
+  value: tap-dbt/0.9.1.dev20+1feee09 Singer tap for the dbt Cloud API.
 settings_group_validation:
 - - account_ids
   - api_key
