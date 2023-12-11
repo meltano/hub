@@ -63,6 +63,8 @@ settings:
   options:
   - label: Jsonl
     value: jsonl
+  - label: Parquet
+    value: parquet
 - description: Prefix to use when writing batch files.
   kind: string
   label: Batch Config Storage Prefix
