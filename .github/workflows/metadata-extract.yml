@@ -84,7 +84,7 @@ jobs:
       run: pipx install git+https://github.com/meltano/hub-utils.git
 
     - name: Install Python 3.10
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: '3.10'
 
@@ -95,7 +95,7 @@ jobs:
 
     - name: Install Python 3.9 (Only if 3.10 failed)
       if: always() && (steps.extract_310.outcome == 'failure')
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: '3.9'
 
@@ -107,7 +107,7 @@ jobs:
 
     - name: Install Python 3.8 (Only if 3.9 failed)
       if: always() && (steps.extract_39.outcome == 'failure')
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: '3.8'
 
@@ -142,7 +142,7 @@ jobs:
       run: pipx install git+https://github.com/meltano/hub-utils.git
 
     - name: Install Python 3.10
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: '3.10'
 
@@ -153,7 +153,7 @@ jobs:
 
     - name: Install Python 3.9 (Only if 3.10 failed)
       if: always() && (steps.extract_310.outcome == 'failure')
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: '3.9'
 
@@ -165,7 +165,7 @@ jobs:
 
     - name: Install Python 3.8 (Only if 3.9 failed)
       if: always() && (steps.extract_39.outcome == 'failure')
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: '3.8'
 
