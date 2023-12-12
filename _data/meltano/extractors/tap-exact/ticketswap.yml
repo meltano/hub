@@ -33,10 +33,10 @@ settings:
   kind: string
   label: Tokens S3 Key
   name: tokens_s3_key
-- description: The Exact division
-  kind: string
-  label: Division
-  name: division
+- description: The Exact divisions
+  kind: array
+  label: Divisions
+  name: divisions
 - description: Compression format to use for batch files.
   kind: options
   label: Batch Config Encoding Compression
