@@ -83,6 +83,7 @@ settings:
   name: stream_maps
 settings_group_validation:
 - []
-settings_preamble: ''
+settings_preamble: |
+  Because of the fact that the old refresh token is invalidated after a new access token is requested (the access token expires after 10 minutes), this tap stores the access and refresh tokens in S3. You can use `tokens_s3_bucket` and `tokens_s3_key` to specify where you want to put the `tokens.json` file.
 usage: ''
 variant: ticketswap
