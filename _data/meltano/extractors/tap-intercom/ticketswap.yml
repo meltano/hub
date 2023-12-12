@@ -7,7 +7,7 @@ capabilities:
 - state
 - stream-maps
 description: A Singer Tap for Intercom, built with the Meltano Tap SDK
-domain_url: ticketswap.com
+domain_url: https://developers.intercom.com/intercom-api-reference/v1.4/reference
 executable: tap-intercom
 keywords:
 - meltano_sdk
