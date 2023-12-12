@@ -1,0 +1,69 @@
+capabilities:
+- about
+- schema-flattening
+- stream-maps
+description: Multi-cloud data platform for enterprise analytics
+domain_url: https://docs.teradata.com/
+executable: target-teradata
+keywords:
+- meltano_sdk
+label: Teradata
+logo_url: /assets/logos/loaders/teradata.png
+maintenance_status: beta
+name: target-teradata
+namespace: target_teradata
+next_steps: ''
+pip_url: git+https://github.com/Crudelis-rgb/target-teradata.git
+quality: silver
+repo: https://github.com/Crudelis-rgb/target-teradata
+settings:
+- description: Add metadata to records.
+  kind: boolean
+  label: Add Record Metadata
+  name: add_record_metadata
+- description: The default target database schema name to use for all streams.
+  kind: string
+  label: Default Target Schema
+  name: default_target_schema
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: The method to use when loading data into the destination. `append-only`
+    will always write all input records whether that records already exists or not.
+    `upsert` will update existing records and insert new records. `overwrite` will
+    delete all existing records and insert all input records.
+  kind: options
+  label: Load Method
+  name: load_method
+  options:
+  - label: Append Only
+    value: append-only
+  - label: Upsert
+    value: upsert
+  - label: Overwrite
+    value: overwrite
+  value: append-only
+- description: SQLAlchemy connection string
+  kind: string
+  label: Sqlalchemy URL
+  name: sqlalchemy_url
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+settings_group_validation:
+- []
+settings_preamble: ''
+usage: ''
+variant: crudelis-rgb

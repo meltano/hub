@@ -6,25 +6,25 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
-description: Sales Enablement Platform
-domain_url: https://www.showpad.com/
-executable: tap-showpad
+description: Highest class of international racing for open-wheel single-seater formula
+  racing cars
+domain_url: https://www.formula1.com/
 keywords:
+- api
+- ergast
+- f1
+- formula 1
+- formula one
 - meltano_sdk
-label: Showpad
-logo_url: /assets/logos/extractors/showpad.png
+label: Formula 1
+logo_url: /assets/logos/extractors/f1.png
 maintenance_status: active
-name: tap-showpad
-namespace: tap_showpad
-next_steps: ''
-pip_url: git+https://github.com/z3z1ma/tap-showpad.git
-quality: silver
-repo: https://github.com/z3z1ma/tap-showpad
+name: tap-f1
+namespace: tap_f1
+pip_url: git+https://github.com/ReubenFrankel/tap-f1.git
+quality: bronze
+repo: https://github.com/ReubenFrankel/tap-f1
 settings:
-- description: The token to authenticate against the API service
-  kind: password
-  label: API Key
-  name: api_key
 - description: Compression format to use for batch files.
   kind: options
   label: Batch Config Encoding Compression
@@ -60,6 +60,11 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: Date to sync data from (defaults to the first day of the current year
+    - e.g. `2023-01-01`)
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
 - description: User-defined config values to be used within map expressions.
   kind: object
   label: Stream Map Config
@@ -69,13 +74,5 @@ settings:
   kind: object
   label: Stream Maps
   name: stream_maps
-- description: The subdomain of your Showpad instance
-  kind: string
-  label: Subdomain
-  name: subdomain
-settings_group_validation:
-- - api_key
-  - subdomain
-settings_preamble: ''
-usage: ''
-variant: z3z1ma
+settings_group_validation: []
+variant: reubenf
