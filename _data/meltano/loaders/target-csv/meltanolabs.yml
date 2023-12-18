@@ -17,12 +17,20 @@ pip_url: git+https://github.com/MeltanoLabs/target-csv.git
 quality: gold
 repo: https://github.com/MeltanoLabs/target-csv
 settings:
+- description: Add metadata to records.
+  kind: boolean
+  label: Add Record Metadata
+  name: add_record_metadata
 - description: 'A python format string to use when outputting the `{datestamp}` string.
     For reference, see: https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes'
   kind: string
   label: Datestamp Format
   name: datestamp_format
   value: '%Y-%m-%d'
+- description: The character to use for escaping special characters.
+  kind: string
+  label: Escape Character
+  name: escape_character
 - description: "The scheme with which output files will be named. Naming scheme may
     leverage any of the following substitutions: \n\n- `{stream_name}`- `{datestamp}`-
     `{timestamp}`"
@@ -39,6 +47,21 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: The method to use when loading data into the destination. `append-only`
+    will always write all input records whether that records already exists or not.
+    `upsert` will update existing records and insert new records. `overwrite` will
+    delete all existing records and insert all input records.
+  kind: options
+  label: Load Method
+  name: load_method
+  options:
+  - label: Append Only
+    value: append-only
+  - label: Upsert
+    value: upsert
+  - label: Overwrite
+    value: overwrite
+  value: append-only
 - description: Optional path prefix which will be prepended to the file path indicated
     by `file_naming_schema`.
   kind: string
