@@ -22,7 +22,7 @@ settings:
   kind: string
   label: API URL
   name: api_url
-  value: https://api.opensea.io/api/v1
+  value: https://api.opensea.io/api/v2
 - description: Your OpenSea auth token.
   kind: password
   label: Auth Token
@@ -31,6 +31,7 @@ settings:
   kind: string
   label: Collections
   name: collections
+  value: dcl-names
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
