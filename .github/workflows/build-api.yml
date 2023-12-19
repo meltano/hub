@@ -68,7 +68,7 @@ jobs:
         poetry run python utility_scripts/api/api_schema_validate.py
 
     - name: Upload artifacts
-      uses: actions/upload-artifact@v3.1.2
+      uses: actions/upload-artifact@v4
       with:
         name: hub-api-files
         path: "_hub_api/*"
@@ -89,7 +89,7 @@ jobs:
         aws-region: us-west-2
         role-session-name: "GitHubActions"
     - name: Download artifacts
-      uses: actions/download-artifact@v3.0.2
+      uses: actions/download-artifact@v4
       with:
         name: hub-api-files
         path: "_hub_api"

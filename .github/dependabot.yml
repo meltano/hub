@@ -5,7 +5,7 @@ updates:
     schedule:
       interval: daily
       time: "12:00"
-      timezone: "UTC"
+      timezone: "Etc/UTC"
     reviewers: [meltano/engineering]
     labels: [deps]
   - package-ecosystem: github-actions
@@ -14,3 +14,7 @@ updates:
       interval: weekly
     reviewers: [meltano/engineering]
     labels: [deps]
+    groups:
+      artifacts:
+        patterns:
+          - "actions/*-load-artifact"

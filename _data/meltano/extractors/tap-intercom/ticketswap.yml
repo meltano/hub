@@ -6,26 +6,25 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
-description: Email Marketing and SMS Marketing Platform
-domain_url: https://apidocs.klaviyo.com/reference/metrics
-executable: tap-klaviyo
+description: Conversational Relationship Platform
+domain_url: https://developers.intercom.com/intercom-api-reference/v1.4/reference
+executable: tap-intercom
 keywords:
-- api
 - meltano_sdk
-label: Klaviyo
-logo_url: /assets/logos/extractors/klaviyo.png
+label: Intercom
+logo_url: /assets/logos/extractors/intercom.png
 maintenance_status: active
-name: tap-klaviyo
-namespace: tap_klaviyo
+name: tap-intercom
+namespace: tap_intercom
 next_steps: ''
-pip_url: git+https://github.com/MeltanoLabs/tap-klaviyo.git
-quality: gold
-repo: https://github.com/MeltanoLabs/tap-klaviyo
+pip_url: git+https://github.com/TicketSwap/tap-intercom.git
+quality: bronze
+repo: https://github.com/TicketSwap/tap-intercom
 settings:
-- description: The token to authenticate against the API service
+- description: The access token to authenticate against the API service
   kind: password
-  label: Auth Token
-  name: auth_token
+  label: Access Token
+  name: access_token
 - description: Compression format to use for batch files.
   kind: options
   label: Batch Config Encoding Compression
@@ -42,8 +41,6 @@ settings:
   options:
   - label: Jsonl
     value: jsonl
-  - label: Parquet
-    value: parquet
 - description: Prefix to use when writing batch files.
   kind: string
   label: Batch Config Storage Prefix
@@ -61,10 +58,6 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: Klaviyo API endpoint revision. https://developers.klaviyo.com/en/docs/api_versioning_and_deprecation_policy#versioning
-  kind: string
-  label: Revision
-  name: revision
 - description: The earliest record date to sync
   kind: date_iso8601
   label: Start Date
@@ -79,8 +72,7 @@ settings:
   label: Stream Maps
   name: stream_maps
 settings_group_validation:
-- - auth_token
-  - revision
+- - access_token
 settings_preamble: ''
 usage: ''
-variant: meltanolabs
+variant: ticketswap
