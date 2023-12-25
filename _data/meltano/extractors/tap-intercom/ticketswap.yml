@@ -21,7 +21,7 @@ pip_url: git+https://github.com/TicketSwap/tap-intercom.git
 quality: bronze
 repo: https://github.com/TicketSwap/tap-intercom
 settings:
-- description: The access token to authenticate against the API service
+- description: The key to authenticate against the API service
   kind: password
   label: Access Token
   name: access_token
@@ -41,6 +41,8 @@ settings:
   options:
   - label: Jsonl
     value: jsonl
+  - label: Parquet
+    value: parquet
 - description: Prefix to use when writing batch files.
   kind: string
   label: Batch Config Storage Prefix

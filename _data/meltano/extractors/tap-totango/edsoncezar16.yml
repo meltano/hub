@@ -43,7 +43,7 @@ settings:
     be defined using the count parameter (and limited to 1000). Tip: To page through
     results, ask for 1000 records (count: 1000). If you receive 1000 records, assume
     there’s more, in which case you want to pull the next 1000 records (offset: 1000…then
-    2000…etc.). Repeat paging until the number of records returned is less than 1000.'
+    2000…etc. ). Repeat paging until the number of records returned is less than 1000.'
   kind: integer
   label: Accounts Offset
   name: accounts_offset
@@ -75,9 +75,9 @@ settings:
   label: API URL
   name: api_url
   options:
-  - label: https://api.totango.com
+  - label: Https://API Totango Com
     value: https://api.totango.com
-  - label: 'https://api-eu1.totango.com '
+  - label: 'Https://API Eu1 Totango Com '
     value: 'https://api-eu1.totango.com '
   value: https://api.totango.com
 - description: The token to authenticate against the API service
