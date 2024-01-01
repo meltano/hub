@@ -86,7 +86,7 @@ settings:
   kind: string
   label: User Agent
   name: user_agent
-  value: tap-dbt/0.9.1.dev22+7d053e2 Singer tap for the dbt Cloud API.
+  value: tap-dbt/0.9.1.dev26+e377024 Singer tap for the dbt Cloud API.
 settings_group_validation:
 - - account_ids
   - api_key

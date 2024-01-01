@@ -46,6 +46,11 @@ settings:
   kind: string
   label: Batch Config Storage Root
   name: batch_config.storage.root
+- description: The fetch size when syncing data from Cassandra.
+  kind: integer
+  label: Fetch Size
+  name: fetch_size
+  value: 10000
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -65,7 +70,7 @@ settings:
   name: keyspace
 - description: The local_dc parameter should be the name of the datacenter.
   kind: string
-  label: Local Datacenter
+  label: Local Dc
   name: local_dc
 - description: Should be a total number of attempts to be made before giving up.
   kind: integer
@@ -76,7 +81,7 @@ settings:
   kind: password
   label: Password
   name: password
-- description: The server-side port to open connections to. Defaults to 9042..
+- description: The server-side port to open connections to. Defaults to 9042. .
   kind: integer
   label: Port
   name: port
@@ -91,7 +96,7 @@ settings:
   label: Reconnect Delay
   name: reconnect_delay
   value: 60
-- description: Request timeout used when not overridden in Session.execute().
+- description: Request timeout used when not overridden in Session. Execute().
   kind: integer
   label: Request Timeout
   name: request_timeout

@@ -27,6 +27,11 @@ settings:
   label: Datestamp Format
   name: datestamp_format
   value: '%Y-%m-%d'
+- description: Filesystem path where to store output files. Alias for `output_path`
+    to be compatible with the `hotgluexyz` variant.
+  kind: string
+  label: Destination Path
+  name: destination_path
 - description: The character to use for escaping special characters.
   kind: string
   label: Escape Character
@@ -62,8 +67,12 @@ settings:
   - label: Overwrite
     value: overwrite
   value: append-only
-- description: Optional path prefix which will be prepended to the file path indicated
-    by `file_naming_schema`.
+- description: Filesystem path where to store output files. By default, the current
+    working directory will be used.
+  kind: string
+  label: Output Path
+  name: output_path
+- description: DEPRECATED. Filesystem path where to store output files.
   kind: string
   label: Output Path Prefix
   name: output_path_prefix
