@@ -46,6 +46,8 @@ settings:
   options:
   - label: Jsonl
     value: jsonl
+  - label: Parquet
+    value: parquet
 - description: Prefix to use when writing batch files.
   kind: string
   label: Batch Config Storage Prefix
@@ -89,6 +91,19 @@ settings:
   kind: object
   label: Stream Maps Config
   name: stream_maps_config
+- description: "The level of type conformance to apply to streams (see: https://sdk.meltano.com/en/latest/classes/singer_sdk.Stream.html#singer_sdk.Stream.TYPE_CONFORMANCE_LEVEL).
+    Defaults to 'root_only'. Must be one of: 'none', 'root_only', 'recursive'"
+  kind: options
+  label: Stream Type Conformance
+  name: stream_type_conformance
+  options:
+  - label: None
+    value: none
+  - label: Root Only
+    value: root_only
+  - label: Recursive
+    value: recursive
+  value: root_only
 - description: The user-agent string provided on outgoing requests
   kind: string
   label: User Agent

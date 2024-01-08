@@ -17,6 +17,10 @@ pip_url: target-elasticsearch
 quality: silver
 repo: https://github.com/dtmirizzi/target-elasticsearch
 settings:
+- description: Add metadata to records.
+  kind: boolean
+  label: Add Record Metadata
+  name: add_record_metadata
 - description: Api key for auth key authorization
   kind: password
   label: API Key
@@ -29,6 +33,10 @@ settings:
   kind: password
   label: Bearer Token
   name: bearer_token
+- description: Encoded api key for auth key authorization
+  kind: password
+  label: Encoded API Key
+  name: encoded_api_key
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -75,6 +83,21 @@ settings:
   kind: object
   label: Index Schema Fields
   name: index_schema_fields
+- description: The method to use when loading data into the destination. `append-only`
+    will always write all input records whether that records already exists or not.
+    `upsert` will update existing records and insert new records. `overwrite` will
+    delete all existing records and insert all input records.
+  kind: options
+  label: Load Method
+  name: load_method
+  options:
+  - label: Append Only
+    value: append-only
+  - label: Upsert
+    value: upsert
+  - label: Overwrite
+    value: overwrite
+  value: append-only
 - description: |
     Metadata Fields can be used to pull out specific fields via jsonpath to be
     used on for [ecs metadata patters](https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-fields.html)

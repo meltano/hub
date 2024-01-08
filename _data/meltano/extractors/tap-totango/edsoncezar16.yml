@@ -43,7 +43,7 @@ settings:
     be defined using the count parameter (and limited to 1000). Tip: To page through
     results, ask for 1000 records (count: 1000). If you receive 1000 records, assume
     there’s more, in which case you want to pull the next 1000 records (offset: 1000…then
-    2000…etc.). Repeat paging until the number of records returned is less than 1000.'
+    2000…etc. ). Repeat paging until the number of records returned is less than 1000.'
   kind: integer
   label: Accounts Offset
   name: accounts_offset
