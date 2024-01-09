@@ -77,8 +77,7 @@ settings:
   kind: object
   label: Stream Maps
   name: stream_maps
-settings_group_validation:
-- - app_id
+settings_group_validation: []
 settings_preamble: ''
 usage: ''
 variant: edgarrmondragon
