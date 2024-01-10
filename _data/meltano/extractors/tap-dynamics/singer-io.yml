@@ -1,0 +1,69 @@
+capabilities:
+- catalog
+- discover
+- state
+description: CRM Platform
+domain_url: 
+  https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/use-microsoft-dynamics-365-web-api
+executable: tap-ms-dynamics
+keywords:
+- api
+label: Dynamics
+logo_url: /assets/logos/extractors/ms-dynamics.png
+maintenance_status: active
+name: tap-dynamics
+namespace: tap_ms_dynamics
+next_steps: ''
+pip_url: git+https://github.com/singer-io/tap-ms-dynamics.git
+quality: silver
+repo: https://github.com/singer-io/tap-ms-dynamics
+settings:
+- description: 'The API version. Example: "9.2"'
+  kind: string
+  label: Api Version
+  name: api_version
+- description: The Azure AD app client id
+  kind: password
+  label: Client Id
+  name: client_id
+- description: The Azure AD app client secret
+  kind: password
+  label: Client Secret
+  name: client_secret
+- description: The maximum number of records per page to request for pagination
+  kind: integer
+  label: Max Pagesize
+  name: max_pagesize
+- description: 'The MS Dynamics 365 domain URI for environment. Example: https://<org-name>.<region>.dynamics.com'
+  kind: string
+  label: Organization Uri
+  name: organization_uri
+- description: The Azure AD app redirect URI
+  kind: string
+  label: Redirect Uri
+  name: redirect_uri
+- description: The OAuth2.0 refresh token (see Authentication README Authentication
+    section for more details).
+  kind: password
+  label: Refresh Token
+  name: refresh_token
+- description: The default value to use if no bookmark exists for an endpoint
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: 'Process and email for API logging purposes. Example: tap-dynamics
+    <api_user_email@your_company.com>'
+  kind: string
+  label: User Agent
+  name: user_agent
+settings_group_validation:
+- - client_id
+  - client_secret
+  - organization_uri
+  - redirect_uri
+  - refresh_token
+  - start_date
+  - user_agent
+settings_preamble: ''
+usage: ''
+variant: singer-io
