@@ -6,25 +6,26 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
-description: Conversational Relationship Platform
-domain_url: https://developers.intercom.com/intercom-api-reference/v1.4/reference
-executable: tap-intercom
+description: Extract content and user sessions from Userflow, a tool for making app
+  tours, checklists and surveys.
+domain_url: https://userflow.com/
+executable: tap-userflow
 keywords:
 - meltano_sdk
-label: Intercom
-logo_url: /assets/logos/extractors/intercom.png
+label: Userflow
+logo_url: /assets/logos/extractors/userflow.png
 maintenance_status: active
-name: tap-intercom
-namespace: tap_intercom
+name: tap-userflow
+namespace: tap_userflow
 next_steps: ''
-pip_url: git+https://github.com/TicketSwap/tap-intercom.git
-quality: bronze
-repo: https://github.com/TicketSwap/tap-intercom
+pip_url: kingalban-tap-userflow
+quality: unknown
+repo: https://github.com/kingalban/tap-userflow
 settings:
-- description: The key to authenticate against the API service
+- description: The token to authenticate against the API service
   kind: password
-  label: Access Token
-  name: access_token
+  label: Auth Token
+  name: auth_token
 - description: Compression format to use for batch files.
   kind: options
   label: Batch Config Encoding Compression
@@ -60,10 +61,10 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: The earliest record date to sync
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
+- description: Limit items per stream
+  kind: integer
+  label: Limit
+  name: limit
 - description: User-defined config values to be used within map expressions.
   kind: object
   label: Stream Map Config
@@ -73,8 +74,13 @@ settings:
   kind: object
   label: Stream Maps
   name: stream_maps
+- description: The user agent to present to the API
+  kind: string
+  label: User Agent
+  name: user_agent
+  value: Singer.io Tap
 settings_group_validation:
-- - access_token
+- - auth_token
 settings_preamble: ''
 usage: ''
-variant: ticketswap
+variant: kingalban

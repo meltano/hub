@@ -46,6 +46,11 @@ settings:
   kind: string
   label: Batch Config Storage Root
   name: batch_config.storage.root
+- description: The fetch size when syncing data from Cassandra.
+  kind: integer
+  label: Fetch Size
+  name: fetch_size
+  value: 10000
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
