@@ -91,7 +91,8 @@ settings:
   kind: array
   label: Tags
   name: tags
-  value: []
+  value:
+  - LimeSurvey
 settings_group_validation:
 - - site
   - tags
