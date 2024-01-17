@@ -60,6 +60,10 @@ settings:
   label: Fs Root
   name: fs_root
   value: file://
+- description: ''
+  kind: password
+  label: Gcs Token
+  name: gcs.token
 - description: A boolean whether to ignore missing memofile.
   kind: boolean
   label: Ignore Missing Memofile

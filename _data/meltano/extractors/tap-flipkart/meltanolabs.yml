@@ -47,11 +47,11 @@ settings:
   kind: string
   label: Batch Config Storage Root
   name: batch_config.storage.root
-- description: The client ID
+- description: The Flipkart API client ID.
   kind: password
   label: Client ID
   name: client_id
-- description: The client secret
+- description: The Flipkart API client secret.
   kind: password
   label: Client Secret
   name: client_secret

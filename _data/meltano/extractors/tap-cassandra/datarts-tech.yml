@@ -38,6 +38,8 @@ settings:
   options:
   - label: Jsonl
     value: jsonl
+  - label: Parquet
+    value: parquet
 - description: Prefix to use when writing batch files.
   kind: string
   label: Batch Config Storage Prefix
@@ -81,7 +83,7 @@ settings:
   kind: password
   label: Password
   name: password
-- description: The server-side port to open connections to. Defaults to 9042..
+- description: The server-side port to open connections to. Defaults to 9042. .
   kind: integer
   label: Port
   name: port
@@ -90,7 +92,6 @@ settings:
   kind: integer
   label: Protocol Version
   name: protocol_version
-  value: 65
 - description: Floating point number of seconds to wait inbetween each attempt.
   kind: integer
   label: Reconnect Delay
@@ -100,7 +101,12 @@ settings:
   kind: integer
   label: Request Timeout
   name: request_timeout
-  value: 100
+- description: When set to `True` skipping partitions when faced ReadTimout or ReadFailure
+    errors.
+  kind: boolean
+  label: Skip Hot Partitions
+  name: skip_hot_partitions
+  value: false
 - description: The earliest record date to sync.
   kind: date_iso8601
   label: Start Date
