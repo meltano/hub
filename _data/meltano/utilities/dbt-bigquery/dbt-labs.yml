@@ -69,7 +69,7 @@ next_steps: |-
     # create a starter dbt_project.yml file, a profiles.yml file, and models directory
     meltano invoke dbt-bigquery:initialize
     ```
-pip_url: dbt-core~=1.5.2 dbt-bigquery~=1.5.2 git+https://github.com/meltano/dbt-ext.git@main
+pip_url: dbt-core~=1.7.0 dbt-bigquery~=1.7.0 git+https://github.com/meltano/dbt-ext.git@main
 repo: https://github.com/dbt-labs/dbt-bigquery
 settings:
 - description: |
