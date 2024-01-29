@@ -8,12 +8,12 @@ keywords:
 - api
 label: Apple AppStore
 logo_url: /assets/logos/extractors/appstore.png
-maintenance_status: unknown
+maintenance_status: active
 name: tap-appstore
 namespace: tap_appstore
-pip_url: git+https://github.com/miroapp/tap-appstore.git
+pip_url: git+https://github.com/Automattic/tap-appstore.git
 quality: silver
-repo: https://github.com/miroapp/tap-appstore
+repo: https://github.com/Automattic/tap-appstore
 settings:
 - description: You can find your vendor number in https://developer.apple.com/help/app-store-connect/getting-paid/view-payments-and-proceeds.
   label: Vendor
@@ -39,4 +39,4 @@ settings_group_validation:
   - start_date
   - key_id
   - key_file
-variant: miroapp
+variant: automattic
