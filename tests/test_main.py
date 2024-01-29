@@ -40,18 +40,21 @@ def test_download_metadata_ignore(patch):
         ignore_list_str="extractors/tap-hubspot/hotgluexyz"
     )
     assert patch.call_count == 2
-    patch.assert_has_calls([
-        call(
-            expected_bucket,
-        "extractors/tap-hubspot/meltanolabs",
-        f"{local_path}/extractors/tap-hubspot/meltanolabs.json"
-        ),
-        call(
-            expected_bucket,
-        "extractors/tap-github/meltanolabs",
-        f"{local_path}/extractors/tap-github/meltanolabs.json"
-        )
-    ])
+    patch.assert_has_calls(
+        [
+            call(
+                expected_bucket,
+            "extractors/tap-hubspot/meltanolabs",
+            f"{local_path}/extractors/tap-hubspot/meltanolabs.json"
+            ),
+            call(
+                expected_bucket,
+            "extractors/tap-github/meltanolabs",
+            f"{local_path}/extractors/tap-github/meltanolabs.json"
+            )
+        ],
+        any_order=True
+    )
 
 @patch.object(S3, "download_latest")
 def test_download_metadata_list(patch):

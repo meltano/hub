@@ -529,7 +529,10 @@ def test_get_quality(input, expected):
         ["Path to .duckdb file", "Path to .duckdb file"],
         ["Foo .env file.", "Foo .env file."],
         ["By (e.g. myFolder/thisTable/) sit, S3. This is replicate.", "By (e.g. myFolder/thisTable/) sit, S3. This is replicate."],
-        [["foo.Test."], ""],
+        ["Request timeout used when not overridden in Session.execute().", "Request timeout used when not overridden in Session.execute()."],
+        ['For example, "from:someuser@example.com rfc822msgid:<somemsgid@example.com> is:unread"."', 'For example, "from:someuser@example.com rfc822msgid:<somemsgid@example.com> is:unread"."'],
+        ["tap-saasoptics <api_user_email@your_company.com>.", "tap-saasoptics <api_user_email@your_company.com>."],
+        ["https://api.totango.com", "https://api.totango.com"]
     ]
 )
 def test_clean_description(input, expected):

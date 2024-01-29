@@ -377,7 +377,16 @@ class MeltanoUtil:
                     continue
                 if not any(
                     keyword in word
-                    for keyword in ("http", "ssh", "ssl", "e.g.", '"', "`")
+                    for keyword in (
+                        "http",
+                        "ssh",
+                        "ssl",
+                        "e.g.",
+                        '"',
+                        "`",
+                        "()",
+                        ".com",
+                    )
                 ):
                     desc_list_clean.extend(word.replace(".", ". ").split())
                     continue
@@ -403,6 +412,9 @@ class MeltanoUtil:
                 or sentence_list[0][0] == "'"
                 or last_elem.endswith("e.g")
                 or last_elem.endswith("i.e")
+                or sentence_list[0].startswith("tap-")
+                or sentence_list[0].startswith("target-")
+                or sentence_list[0].startswith("http")
             ):
                 clean_capital_list.append(" ".join(sentence_list))
             else:
