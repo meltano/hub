@@ -271,6 +271,10 @@ datateer:
   name: datateer
   url: https://github.com/datateer
 dbt-labs:
+  label: dbt Athena
+  name: dbt-athena
+  url: https://github.com/dbt-athena
+dbt-labs:
   label: dbt Labs
   name: dbt-labs
   url: https://www.getdbt.com/
