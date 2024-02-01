@@ -1,0 +1,212 @@
+commands:
+  build:
+    args: build
+    description: Will run your models, tests, snapshots and seeds in DAG order.
+  clean:
+    args: clean
+    description: Delete all folders in the clean-targets list (usually the dbt_modules
+      and target directories.)
+  compile:
+    args: compile
+    description: Generates executable SQL from source model, test, and analysis files.
+      Compiled SQL files are written to the target/ directory.
+  debug:
+    args: debug
+    description: Debug your DBT project and warehouse connection.
+  deps:
+    args: deps
+    description: Pull the most recent version of the dependencies listed in packages.yml
+  describe:
+    args: describe
+    description: Describe the
+    executable: dbt_extension
+  docs-generate:
+    args: docs generate
+    description: Generate documentation for your project.
+  docs-serve:
+    args: docs serve
+    description: Serve documentation for your project. Make sure you ran `docs-generate`
+      first.
+  freshness:
+    args: source freshness
+    description: Check the freshness of your source data.
+  initialize:
+    args: initialize
+    description: |
+      Initialize a new dbt project. This will create a dbt_project.yml file, a profiles.yml file, and models directory.
+    executable: dbt_extension
+  run:
+    args: run
+    description: Compile SQL and execute against the current target database.
+  seed:
+    args: seed
+    description: Load data from csv files into your data warehouse.
+  snapshot:
+    args: snapshot
+    description: Execute snapshots defined in your project.
+  test:
+    args: test
+    description: Runs tests on data in deployed models.
+definition: |
+  is an adapter-specific dbt [transformer](https://docs.meltano.com/concepts/plugins#transformers) for running SQL-based transformations on data stored in your warehouse.
+
+  This utility plugin is meant to be used in favor of the [dbt-athena transformer plugin type](/transformers/dbt-athena).
+  Note that this plugin can only be run as part of an ELT pipeline with the `meltano run` command. If you are using `meltano elt` you should use the [transformer](/transformers/) plugins. We do recommend migrating to `meltano run` as the transformer plugin type will be deprecated in a future major Meltano release.
+docs: https://docs.meltano.com/guide/transformation
+executable: dbt_invoker
+ext_repo: https://github.com/meltano/dbt-ext
+keywords:
+- meltano_edk
+label: dbt Athena
+logo_url: /assets/logos/utilities/dbt.png
+maintenance_status: active
+name: dbt-athena
+namespace: dbt_athena
+next_steps: |-
+  1. If you're running dbt for the first time in a new environment:
+
+    ```sh
+    # create a starter dbt_project.yml file, a profiles.yml file, and models directory
+    meltano invoke dbt-athena:initialize
+    ```
+pip_url: dbt-core~=1.7.5 dbt-athena-community~=1.7.1 git+https://github.com/meltano/dbt-ext.git@main
+repo: https://github.com/dbt-athena/dbt-athena
+settings:
+- description: |
+    Access key ID of the user performing 
+    requests.
+    Ex. `AKIAIOSFODNN7EXAMPLE`
+  kind: password
+  label: AWS Access Key ID
+  name: aws_access_key_id
+- description: |
+    Profile to use from your AWS shared credentials file.
+    Ex. `my-profile`
+  kind: string
+  label: AWS Profile Name
+  name: aws_profile_name
+- description: |
+    Secret access key of the user performing requests.
+    Ex. `wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY`
+  kind: password
+  label: AWS Secret Access Key
+  name: aws_secret_access_key
+- description: |
+    Specify the database (Data catalog) to 
+    build models into (lowercase only).
+    Ex. `awsdatacatalog`
+  kind: string
+  label: Database
+  name: database
+- description: |
+    Flag if debug message with Athena query 
+    state is needed.
+    Ex. `false`
+  kind: boolean
+  label: Debug Query State
+  name: debug_query_state
+- description: |
+    Default LF tags for new database if it's created by dbt.
+    Ex. `tag_key: tag_value`
+  kind: string
+  label: LF Tags Database
+  name: lf_tags_database
+- description: |
+    Number of times to retry boto3 requests (e.g. deleting S3 files for materialized tables).
+    Ex. `5`
+  kind: integer
+  label: Number of Boto3 Retries
+  name: num_boto3_retries
+- description: |
+    Number of times to retry a failing query.
+    Ex. `3`
+  kind: integer
+  label: Work Group
+  name: num_retries
+- description: |
+    Interval in seconds to use for polling 
+    the status of query results in Athena.
+    Ex. `5`
+  kind: integer
+  label: Poll Interval
+  name: poll_interval
+- env: DBT_PROFILES_DIR
+  label: Profiles Directory
+  name: profiles_dir
+  value: $MELTANO_PROJECT_ROOT/transform/profiles/athena
+- env: DBT_PROJECT_DIR
+  label: Project Directory
+  name: project_dir
+  value: $MELTANO_PROJECT_ROOT/transform
+- description: |
+    AWS region of your Athena instance.
+    Ex. `eu-west-1`
+  kind: string
+  label: Region Name
+  name: region_name
+- description: |
+    Prefix for storing tables, if different from 
+    the connection's s3_staging_dir. 
+    Ex. `s3://bucket2/dbt/`
+  kind: string
+  label: S3 Data Directory
+  name: s3_data_dir
+- description: |
+    How to generate table paths in s3_data_dir.
+    Ex. `schema_table_unique`
+  kind: string
+  label: S3 Data Naming
+  name: s3_data_naming
+- description: |
+    S3 location to store Athena query results and 
+    metadata. 
+    Ex. `s3://bucket/dbt/`
+  kind: string
+  label: S3 Staging Directory
+  name: s3_staging_dir
+- description: |
+    Prefix for storing temporary tables, if 
+    different from the connection's s3_data_dir.
+    Ex. `s3://bucket3/dbt/`
+  kind: string
+  label: S3 Temporary Table Directory
+  name: s3_tmp_table_dir
+- description: |
+    Specify the schema (Athena database) to 
+    build models into (lowercase only).
+    Ex. `dbt`
+  kind: string
+  label: Schema
+  name: schema
+- description: |
+    Dictionary containing boto3 ExtraArgs when uploading to S3.
+    Ex. `{"ACL": "bucket-owner-full-control"}`
+  kind: string
+  label: Seed S3 Upload Arguments
+  name: seed_s3_upload_args
+- description: Whether to skip pre-invoke hooks which automatically run dbt clean
+    and deps
+  env: DBT_EXT_SKIP_PRE_INVOKE
+  kind: boolean
+  label: Skip Pre-invoke
+  name: skip_pre_invoke
+  value: false
+- env: DBT_TARGET_PATH
+  kind: string
+  label: Target Path
+  name: target_path
+  value: $MELTANO_PROJECT_ROOT/.meltano/transformers/dbt/target
+- env: DBT_EXT_TYPE
+  label: dbt Profile type
+  name: type
+  value: athena
+- description: |
+    Identifier of Athena workgroup.
+    Ex. `my-custom-workgroup`
+  kind: string
+  label: Work Group
+  name: work_group
+settings_group_validation: []
+settings_preamble: |
+  Settings for dbt itself can be configured through [dbt_project.yml](https://docs.getdbt.com/reference/dbt_project.yml) as usual, which can be found at transform/dbt_project.yml in your Meltano project.
+variant: dbt-athena
