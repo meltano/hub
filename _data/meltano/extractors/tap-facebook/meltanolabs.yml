@@ -33,8 +33,8 @@ settings:
   kind: string
   label: API Version
   name: api_version
-  value: v16.0
-- description: ''
+  value: v18.0
+- description: Compression format to use for batch files.
   kind: options
   label: Batch Config Encoding Compression
   name: batch_config.encoding.compression
@@ -43,18 +43,20 @@ settings:
     value: gzip
   - label: None
     value: none
-- description: ''
+- description: Format to use for batch files.
   kind: options
   label: Batch Config Encoding Format
   name: batch_config.encoding.format
   options:
   - label: Jsonl
     value: jsonl
-- description: ''
+  - label: Parquet
+    value: parquet
+- description: Prefix to use when writing batch files.
   kind: string
   label: Batch Config Storage Prefix
   name: batch_config.storage.prefix
-- description: ''
+- description: Root path to use when writing batch files.
   kind: string
   label: Batch Config Storage Root
   name: batch_config.storage.root
