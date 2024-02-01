@@ -69,7 +69,7 @@ next_steps: |-
     # create a starter dbt_project.yml file, a profiles.yml file, and models directory
     meltano invoke dbt-athena:initialize
     ```
-pip_url: dbt-core~=1.7.5 dbt-athena-community~=1.7.1 git+https://github.com/meltano/dbt-ext.git@main
+pip_url: dbt-core dbt-athena-community git+https://github.com/meltano/dbt-ext.git@main
 repo: https://github.com/dbt-athena/dbt-athena
 settings:
 - description: |
