@@ -669,8 +669,8 @@ utilities:
   cron: meltano
   dagster: quantile-development
   datahub: datahub-project
-  dbt-athena: dbt-athena
   dbt-artifacts: matatika
+  dbt-athena: dbt-athena
   dbt-bigquery: dbt-labs
   dbt-dry-run: autotraderuk
   dbt-duckdb: jwills
