@@ -73,6 +73,13 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: A list of insight report definitions. See the [Ad Insights 
+    docs](https://developers.facebook.com/docs/marketing-api/reference/adgroup/insights)
+    for more details.
+  kind: array
+  label: Insight Reports List
+  name: insight_reports_list
+  value: []
 - description: The earliest record date to sync
   kind: date_iso8601
   label: Start Date

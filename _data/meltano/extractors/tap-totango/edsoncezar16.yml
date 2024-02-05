@@ -69,7 +69,7 @@ settings:
   label: Accounts Terms
   name: accounts_terms
   value: []
-- description: The url for the API services. Https://api. Totango. Com is for US services,
+- description: The url for the API services. https://api.totango.com is for US services,
     whereas https://api-eu1.totango.com is for EU services.
   kind: options
   label: API URL

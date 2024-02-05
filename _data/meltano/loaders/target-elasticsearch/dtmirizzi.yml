@@ -117,7 +117,7 @@ settings:
   label: Port
   name: port
   value: 9200
-- description: Http scheme used for connecting to elasticsearch
+- description: http scheme used for connecting to elasticsearch
   kind: string
   label: Scheme
   name: scheme
