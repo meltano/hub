@@ -16,7 +16,7 @@ jobs:
     steps:
       - name: Slash Command Dispatch
         id: command-dispatch
-        uses: peter-evans/slash-command-dispatch@v3
+        uses: peter-evans/slash-command-dispatch@v4
         with:
           # https://github.com/peter-evans/slash-command-dispatch
           token: ${{ secrets.MELTYBOT_GITHUB_AUTH_TOKEN }}
