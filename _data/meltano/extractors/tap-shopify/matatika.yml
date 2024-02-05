@@ -69,7 +69,7 @@ settings:
   label: Start Date
   name: start_date
 - description: Shopify store id, use the prefix of your admin url e.g. https://[your
-    store]. Myshopify. Com/admin
+    store].myshopify.com/admin
   kind: string
   label: Store
   name: store
