@@ -20,6 +20,7 @@ maintenance_status: active
 name: tap-msaccess
 namespace: tap_msaccess
 pip_url: git+https://github.com/Matatika/tap-msaccess.git
+quality: gold
 repo: https://github.com/Matatika/tap-msaccess
 settings:
 - name: database_file
