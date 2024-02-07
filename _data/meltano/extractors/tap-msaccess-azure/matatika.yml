@@ -23,6 +23,7 @@ maintenance_status: active
 name: tap-msaccess-azure
 namespace: tap_msaccess
 pip_url: git+https://github.com/Matatika/tap-msaccess.git fsspec[adlfs]
+quality: gold
 repo: https://github.com/Matatika/tap-msaccess
 settings:
 - description: Local or URL path to a Microsoft Access database `.mdb` or `.accdb` file
