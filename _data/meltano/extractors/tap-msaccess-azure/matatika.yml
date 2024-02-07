@@ -22,7 +22,7 @@ logo_url: /assets/logos/extractors/msaccess.png
 maintenance_status: active
 name: tap-msaccess-azure
 namespace: tap_msaccess
-pip_url: git+https://github.com/Matatika/tap-msaccess.git fsspec[adlfs]
+pip_url: git+https://github.com/Matatika/tap-msaccess.git fsspec[abfs]
 quality: gold
 repo: https://github.com/Matatika/tap-msaccess
 settings:
