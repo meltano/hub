@@ -27,7 +27,7 @@ pip_url: git+https://github.com/Matatika/tap-msaccess.git@v0.1.0 fsspec[http]
 quality: gold
 repo: https://github.com/Matatika/tap-msaccess
 settings:
-- description: Local or URL path to a Microsoft Access database `.mdb` or `.accdb` file
+- description: Local path or URL to a Microsoft Access database `.mdb` or `.accdb` file
   kind: string
   label: Database file
   name: database_file
