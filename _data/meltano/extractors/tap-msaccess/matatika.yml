@@ -20,7 +20,7 @@ logo_url: /assets/logos/extractors/msaccess.png
 maintenance_status: active
 name: tap-msaccess
 namespace: tap_msaccess
-pip_url: git+https://github.com/Matatika/tap-msaccess.git
+pip_url: git+https://github.com/Matatika/tap-msaccess.git@v0.1.0
 quality: gold
 repo: https://github.com/Matatika/tap-msaccess
 settings:
