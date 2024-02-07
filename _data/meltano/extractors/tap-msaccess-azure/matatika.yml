@@ -8,27 +8,38 @@ capabilities:
 - stream-maps
 description: Database management system from Microsoft that combines the relational Access Database Engine with a graphical user interface and software-development tools
 domain_url: https://www.microsoft.com/en-gb/microsoft-365/access
+executable: tap-msaccess
 keywords:
+- azure
 - database
 - db
 - fsspec
 - meltano_sdk
 - microsoft access
 - ms access
-label: Microsoft Access
+label: Microsoft Access Azure
 logo_url: /assets/logos/extractors/msaccess.png
 maintenance_status: active
-name: tap-msaccess
+name: tap-msaccess-azure
 namespace: tap_msaccess
-pip_url: git+https://github.com/Matatika/tap-msaccess.git
-quality: gold
+pip_url: git+https://github.com/Matatika/tap-msaccess.git fsspec[adlfs]
 repo: https://github.com/Matatika/tap-msaccess
 settings:
 - description: Local or URL path to a Microsoft Access database `.mdb` or `.accdb` file
   kind: string
   label: Database file
   name: database_file
+- description: Azure storage account name
+  kind: string
+  label: Account name
+  name: account_name
+- description: Azure storage account access key
+  kind: string
+  label: Account key
+  name: account_key
+  sensitive: true
 settings_group_validation:
 - - database_file
-usage: To connect to a remote database file, check out [`tap-msaccess-anywhere`](/extractors/tap-msaccess-anywhere) or the domain-specific `tap-msaccess` derivations (e.g. [`tap-msaccess-azure`](/extractors/tap-msaccess-azure))
+  - account_name
+  - account_key
 variant: matatika
