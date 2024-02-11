@@ -185,7 +185,7 @@ settings_preamble: |
   ```yaml
   metadata:
     '*':
-      replication-key: _id
+      replication-key: replication_key
       replication-method: LOG_BASED
   ```
 
