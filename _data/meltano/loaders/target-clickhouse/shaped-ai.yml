@@ -22,10 +22,54 @@ settings:
   kind: boolean
   label: Add Record Metadata
   name: add_record_metadata
+- description: The cluster to create tables in. This is passed as the `clickhouse_cluster`
+    argument when creating a table. [documentation](https://clickhouse.com/docs/en/sql-reference/distributed-ddl)
+    can be found here.
+  kind: string
+  label: Cluster Name
+  name: cluster_name
+- description: Database name
+  kind: string
+  label: Database
+  name: database
+  value: default
 - description: The default target database schema name to use for all streams.
   kind: string
   label: Default Target Schema
   name: default_target_schema
+- description: Driver type
+  kind: options
+  label: Driver
+  name: driver
+  options:
+  - label: Http
+    value: http
+  - label: Native
+    value: native
+  - label: Asynch
+    value: asynch
+  value: http
+- description: The engine type to use for the table.
+  kind: options
+  label: Engine Type
+  name: engine_type
+  options:
+  - label: Mergetree
+    value: MergeTree
+  - label: Replacingmergetree
+    value: ReplacingMergeTree
+  - label: Summingmergetree
+    value: SummingMergeTree
+  - label: Aggregatingmergetree
+    value: AggregatingMergeTree
+  - label: Replicatedmergetree
+    value: ReplicatedMergeTree
+  - label: Replicatedreplacingmergetree
+    value: ReplicatedReplacingMergeTree
+  - label: Replicatedsummingmergetree
+    value: ReplicatedSummingMergeTree
+  - label: Replicatedaggregatingmergetree
+    value: ReplicatedAggregatingMergeTree
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -35,6 +79,11 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: Database host
+  kind: string
+  label: Host
+  name: host
+  value: localhost
 - description: The method to use when loading data into the destination. `append-only`
     will always write all input records whether that records already exists or not.
     `upsert` will update existing records and insert new records. `overwrite` will
@@ -50,7 +99,33 @@ settings:
   - label: Overwrite
     value: overwrite
   value: append-only
-- description: The SQLAlchemy connection string for the ClickHouse database
+- description: Run 'OPTIMIZE TABLE' after data insert. Useful whentable engine removes
+    duplicate rows.
+  kind: boolean
+  label: Optimize After
+  name: optimize_after
+  value: false
+- description: Username password
+  kind: password
+  label: Password
+  name: password
+- description: Database connection port
+  kind: integer
+  label: Port
+  name: port
+  value: 8123
+- description: The `replica_name` for replicated tables. This is required when using
+    any of the replication engines.
+  kind: string
+  label: Replica Name
+  name: replica_name
+- description: Should the connection be secure
+  kind: boolean
+  label: Secure
+  name: secure
+  value: false
+- description: The SQLAlchemy connection string for the ClickHouse database. Used
+    if set, otherwise separate settings are used
   kind: string
   label: Sqlalchemy URL
   name: sqlalchemy_url
@@ -67,6 +142,23 @@ settings:
   kind: string
   label: Table Name
   name: table_name
+- description: The table path for replicated tables. This is required when using any
+    of the replication engines. Check out the 
+    [documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/replication#replicatedmergetree-parameters)
+    for more information. Use `$table_name` to substitute the table name.
+  kind: string
+  label: Table Path
+  name: table_path
+- description: Database user
+  kind: string
+  label: Username
+  name: username
+  value: default
+- description: Should secure connection need to verify SSL/TLS
+  kind: boolean
+  label: Verify
+  name: verify
+  value: true
 settings_group_validation:
 - - sqlalchemy_url
 settings_preamble: ''
