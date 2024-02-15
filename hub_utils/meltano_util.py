@@ -259,7 +259,9 @@ class MeltanoUtil:
             kind = type
 
         if not kind:
-            if enforce_desc:
+            if name == "faker_config.locale":
+                kind = "array"
+            elif enforce_desc:
                 kind = typer.prompt(f"[{name}] `kind`", default="string")
             else:
                 name = name

@@ -537,3 +537,22 @@ def test_get_quality(input, expected):
 )
 def test_clean_description(input, expected):
     assert MeltanoUtil._clean_description(input) == expected
+
+
+def test_sdk_about_parsing_faker_configs():
+    sdk_about_dict = _read_data('faker_configs.json')
+    settings, _, _ = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
+    assert settings ==  [
+        {
+            "name": "faker_config.seed",
+            "label": "Faker Config Seed",
+            "description": "Value to seed the Faker generator for deterministic output: https://faker.readthedocs.io/en/master/#seeding-the-generator",
+            "kind": "string"
+        },
+        {
+            "name": "faker_config.locale",
+            "label": "Faker Config Locale",
+            "description": "One or more LCID locale strings to produce localized output for: https://faker.readthedocs.io/en/master/#localization",
+            "kind": "array"
+        }
+    ]
