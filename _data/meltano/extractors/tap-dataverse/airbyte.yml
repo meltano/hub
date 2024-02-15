@@ -11,9 +11,9 @@ executable: tap-airbyte
 keywords:
 - airbyte_protocol
 label: Microsoft Dataverse
-logo_url: /assets/logos/extractors/microsoft-dataverse.png
+logo_url: /assets/logos/extractors/dataverse.png
 maintenance_status: beta
-name: tap-microsoft-dataverse
+name: tap-dataverse
 namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
