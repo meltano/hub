@@ -20,7 +20,8 @@
                     "datatype-failsafe",
                     "record-flattening",
                     "schema-flattening",
-                    "target-schema"
+                    "target-schema",
+                    "validate-records"
                 ]
             }
         },
