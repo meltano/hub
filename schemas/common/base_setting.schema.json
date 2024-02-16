@@ -143,6 +143,16 @@
         "docs": {
             "type": "string",
             "description": "A URL to the documentation for this plugin"
+        },
+        "hidden": {
+            "type": "boolean",
+            "description": "A hidden setting should not be user-configurable",
+            "default": false
+        },
+        "sensitive": {
+            "type": "boolean",
+            "description": "A sensitive setting is redacted in command output",
+            "default": false
         }
     }
 }
