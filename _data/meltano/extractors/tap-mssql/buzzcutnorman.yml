@@ -79,9 +79,9 @@ settings:
   name: host
 - description: The Password for the User account
   kind: password
-  sensitive: true
   label: Password
   name: password
+  sensitive: true
 - description: The port on which SQL awaiting connection
   kind: integer
   label: Port
