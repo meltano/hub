@@ -32,14 +32,17 @@ settings:
   label: Database
   name: database
 - description: The full path to the client keystore database.
+  kind: password
   label: Encryption SSL Client Key Store Database Database
   name: encryption.ssl_client_key_store_db.database
   sensitive: true
 - description: The full path to the client key stash.
+  kind: password
   label: Encryption SSL Client Key Store Database Key Stash
   name: encryption.ssl_client_key_store_db.key_stash
   sensitive: true
 - description: The keystore password.
+  kind: password
   label: Encryption SSL Client Key Store Database Password
   name: encryption.ssl_client_key_store_db.password
   sensitive: true
@@ -78,6 +81,7 @@ settings:
   name: ignore_views
   value: false
 - description: The DB2 password.
+  kind: password
   label: Password
   name: password
   sensitive: true
