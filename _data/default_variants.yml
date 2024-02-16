@@ -127,6 +127,7 @@ extractors:
   tap-dash-hudson: gthesheep
   tap-datadog: degreed-data-engineering
   tap-datascope: airbyte
+  tap-dataverse: mjsqu
   tap-dayforce: goodeggs
   tap-db2: mjsqu
   tap-dbf: edgarrmondragon
@@ -307,7 +308,6 @@ extractors:
   tap-messagebird: meltanolabs
   tap-metabase: airbyte
   tap-metronome: hotgluexyz
-  tap-microsoft-dataverse: airbyte
   tap-mindstamp: manuelapilongo
   tap-miro: slalom-consulting
   tap-mixpanel: hotgluexyz
