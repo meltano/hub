@@ -1,0 +1,110 @@
+capabilities:
+- about
+- schema-flattening
+- stream-maps
+- validate-records
+description: Columnar Storage Format
+domain_url: https://parquet.apache.org/
+executable: target-parquet
+keywords:
+- file
+- meltano_sdk
+label: Parquet
+logo_url: /assets/logos/loaders/parquet.png
+maintenance_status: active
+name: target-parquet
+namespace: target_parquet
+next_steps: ''
+pip_url: git+https://github.com/Automattic/target-parquet.git
+quality: silver
+repo: https://github.com/Automattic/target-parquet
+settings:
+- description: Add metadata to records.
+  kind: boolean
+  label: Add Record Metadata
+  name: add_record_metadata
+- description: (default - gzip) Compression methods have to be supported by Pyarrow,
+    and currently the compression modes available are - snappy, zstd, brotli and gzip.
+  kind: string
+  label: Compression Method
+  name: compression_method
+  value: gzip
+- description: Destination Path
+  kind: string
+  label: Destination Path
+  name: destination_path
+- description: Extra fields to add to the flattened record. (e.g. extra_col1=value1,extra_col2=value2)
+  kind: string
+  label: Extra Fields
+  name: extra_fields
+- description: Extra fields types. (e.g. extra_col1=string,extra_col2=integer)
+  kind: string
+  label: Extra Fields Types
+  name: extra_fields_types
+- description: 'One or more LCID locale strings to produce localized output for: https://faker.readthedocs.io/en/master/#localization'
+  kind: array
+  label: Faker Config Locale
+  name: faker_config.locale
+- description: 'Value to seed the Faker generator for deterministic output: https://faker.readthedocs.io/en/master/#seeding-the-generator'
+  kind: string
+  label: Faker Config Seed
+  name: faker_config.seed
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: The method to use when loading data into the destination. `append-only`
+    will always write all input records whether that records already exists or not.
+    `upsert` will update existing records and insert new records. `overwrite` will
+    delete all existing records and insert all input records.
+  kind: options
+  label: Load Method
+  name: load_method
+  options:
+  - label: Append Only
+    value: append-only
+  - label: Upsert
+    value: upsert
+  - label: Overwrite
+    value: overwrite
+  value: append-only
+- description: Max records to write in one batch. It can control the memory usage
+    of the target.
+  kind: integer
+  label: Max Batch Size
+  name: max_batch_size
+  value: 10000
+- description: Max size of pyarrow table in MB (before writing to parquet file). It
+    can control the memory usage of the target.
+  kind: integer
+  label: Max Pyarrow Table Size
+  name: max_pyarrow_table_size
+  value: 800
+- description: Extra fields to add to the flattened record. (e.g. extra_col1,extra_col2)
+  kind: string
+  label: Partition Cols
+  name: partition_cols
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: Whether to validate the schema of the incoming streams.
+  kind: boolean
+  label: Validate Records
+  name: validate_records
+  value: true
+settings_group_validation:
+- []
+settings_preamble: ''
+usage: ''
+variant: automattic
