@@ -8,13 +8,14 @@ on:
     branches:
     - main
   workflow_dispatch:
-    hub-url:
-      description: The base URL of the Meltano Hub site
-      required: true
-      default: 'https://hub.meltano.com'
-    api-url:
-      description: The base URL of the Hub API
-      required: true
+    inputs:
+      hub-url:
+        description: The base URL of the Meltano Hub site
+        required: true
+        default: 'https://hub.meltano.com'
+      api-url:
+        description: The base URL of the Hub API
+        required: true
 
 jobs:
   build:
@@ -83,7 +84,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4.1.1
     - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v4.0.1
+      uses: aws-actions/configure-aws-credentials@v4.0.2
       with:
         role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
         aws-region: us-west-2
