@@ -2,7 +2,6 @@ capabilities:
 - about
 - schema-flattening
 - stream-maps
-- validate-records
 description: Columnar Storage Format
 domain_url: https://parquet.apache.org/
 executable: target-parquet

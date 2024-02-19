@@ -52,7 +52,7 @@ settings:
   label: Batch Config Storage Root
   name: batch_config.storage.root
 - description: 'One or more LCID locale strings to produce localized output for: https://faker.readthedocs.io/en/master/#localization'
-  kind: string
+  kind: array
   label: Faker Config Locale
   name: faker_config.locale
 - description: 'Value to seed the Faker generator for deterministic output: https://faker.readthedocs.io/en/master/#seeding-the-generator'

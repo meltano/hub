@@ -40,7 +40,7 @@ settings:
   label: Secret Key
   name: secret_key
 - description: Your Ecwid store ID.
-  kind: integer
+  kind: password
   label: Storeid
   name: storeid
 - description: User-defined config values to be used within map expressions.
