@@ -298,6 +298,8 @@ class MeltanoUtil:
             if settings.get("default") is not None:
                 if kind != "date_iso8601":
                     setting_details["value"] = settings.get("default")
+            if kind == "password":
+                setting_details["sensitive"] = "true"
             reformatted_settings.append(setting_details)
             if settings.get("required"):
                 settings_group_validation.append(settings.get("name"))

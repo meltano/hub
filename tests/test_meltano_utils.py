@@ -18,13 +18,15 @@ def test_sdk_about_parsing_1():
             "name": "client_id",
             "label": "Client ID",
             "description": "",
-            "kind": "password"
+            "kind": "password",
+            "sensitive": "true",
         },
         {
             "name": "client_secret",
             "label": "Client Secret",
             "description": "",
-            "kind": "password"
+            "kind": "password",
+            "sensitive": "true",
         },
         {
             "name": "start_date",
@@ -63,7 +65,8 @@ def test_sdk_about_parsing_2():
             "name": "federation.auth.password",
             "label": "Federation Auth Password",
             "description": "The HTTP basic auth password to authenticate against the meshObject API for federation",
-            "kind": "password"
+            "kind": "password",
+            "sensitive": "true",
         },
         {
             "name": "federation.api_url",
@@ -191,25 +194,29 @@ def test_sdk_about_parsing_airbyte():
             "name": "connector_config.provider.bucket",
             "label": "Connector Config Provider Bucket",
             "description": "Name of the S3 bucket where the file(s) exist.",
-            "kind": "password"
+            "kind": "password",
+            "sensitive": "true",
         },
         {
             "name": "connector_config.provider.aws_access_key_id",
             "label": "Connector Config Provider AWS Access Key ID",
             "description": "In order to access private Buckets stored on AWS S3, this connector requires credentials with the proper permissions. If accessing publicly available data, this field is not necessary.",
-            "kind": "password"
+            "kind": "password",
+            "sensitive": "true",
         },
         {
             "name": "connector_config.provider.aws_secret_access_key",
             "label": "Connector Config Provider AWS Secret Access Key",
             "description": "In order to access private Buckets stored on AWS S3, this connector requires credentials with the proper permissions. If accessing publicly available data, this field is not necessary.",
-            "kind": "password"
+            "kind": "password",
+            "sensitive": "true",
         },
         {
             "name": "connector_config.provider.path_prefix",
             "label": "Connector Config Provider Path Prefix",
             "description": "By providing a path-like prefix (e.g. myFolder/thisTable/) under which all the relevant files sit, we can optimize finding these in S3. This is optional but recommended if your bucket contains many folders/files which you don't need to replicate.",
             "kind": "password",
+            "sensitive": "true",
             "value": ""
         },
         {
@@ -217,6 +224,7 @@ def test_sdk_about_parsing_airbyte():
             "label": "Connector Config Provider Endpoint",
             "description": "Endpoint to an S3 compatible service. Leave empty to use AWS.",
             "kind": "password",
+            "sensitive": "true",
             "value": ""
         },
         {
