@@ -18,7 +18,7 @@ name: tap-instantly-ai
 namespace: tap_instantly_ai
 next_steps: ''
 pip_url: git+https://github.com/strvcom/tap-instantly-ai.git
-quality: unknown
+quality: silver
 repo: https://github.com/strvcom/tap-instantly-ai
 settings:
 - description: The API key to authenticate against the API service
