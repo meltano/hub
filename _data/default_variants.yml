@@ -127,6 +127,7 @@ extractors:
   tap-dash-hudson: gthesheep
   tap-datadog: degreed-data-engineering
   tap-datascope: airbyte
+  tap-dataverse: mjsqu
   tap-dayforce: goodeggs
   tap-db2: mjsqu
   tap-dbf: edgarrmondragon
@@ -243,6 +244,7 @@ extractors:
   tap-insided: karbonhq
   tap-insightly: fostersdata
   tap-instagram: voxmedia
+  tap-instantly-ai: strvcom
   tap-intacct: hotgluexyz
   tap-intercom: singer-io
   tap-intruder: airbyte
@@ -307,7 +309,6 @@ extractors:
   tap-messagebird: meltanolabs
   tap-metabase: airbyte
   tap-metronome: hotgluexyz
-  tap-microsoft-dataverse: airbyte
   tap-mindstamp: manuelapilongo
   tap-miro: slalom-consulting
   tap-mixpanel: hotgluexyz
@@ -626,7 +627,7 @@ loaders:
   target-mysql: thkwag
   target-oracle: radbrt
   target-pardot: anelendata
-  target-parquet: estrategiahq
+  target-parquet: automattic
   target-pinecone: meltanolabs
   target-postgres: meltanolabs
   target-redshift: transferwise
