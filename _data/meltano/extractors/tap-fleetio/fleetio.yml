@@ -25,12 +25,12 @@ settings:
   kind: password
   label: Account Token
   name: account_token
-  sensitive: 'true'
+  sensitive: true
 - description: The token to authenticate against the Fleetio API
   kind: password
   label: API Token
   name: api_token
-  sensitive: 'true'
+  sensitive: true
 - description: Fleetio API base url
   kind: string
   label: API URL
