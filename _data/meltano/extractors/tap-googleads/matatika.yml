@@ -24,10 +24,12 @@ settings:
   kind: password
   label: Customer ID
   name: customer_id
+  sensitive: 'true'
 - description: Developer Token (Required) - [Obtain your developer token](https://developers.google.com/google-ads/api/docs/first-call/dev-token)
   kind: password
   label: Developer Token
   name: developer_token
+  sensitive: 'true'
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -42,16 +44,19 @@ settings:
   kind: password
   label: OAuth Credentials Client ID
   name: oauth_credentials.client_id
+  sensitive: 'true'
 - description: OAuth Client Secret (Required) - [Obtain your 
     credentials](https://developers.google.com/adwords/api/docs/guides/authentication)
   kind: password
   label: OAuth Credentials Client Secret
   name: oauth_credentials.client_secret
+  sensitive: 'true'
 - description: OAuth Refresh Token (Required) - [Obtain your 
     credentials](https://developers.google.com/adwords/api/docs/guides/authentication)
   kind: password
   label: OAuth Credentials Refresh Token
   name: oauth_credentials.refresh_token
+  sensitive: 'true'
 - description: User-defined config values to be used within map expressions.
   kind: object
   label: Stream Map Config

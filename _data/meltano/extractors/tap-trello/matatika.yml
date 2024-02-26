@@ -24,6 +24,7 @@ settings:
   kind: password
   label: Access Token
   name: access_token
+  sensitive: 'true'
 - description: Compression format to use for batch files.
   kind: options
   label: Batch Config Encoding Compression
@@ -54,6 +55,7 @@ settings:
   kind: password
   label: Developer API Key
   name: developer_api_key
+  sensitive: 'true'
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean

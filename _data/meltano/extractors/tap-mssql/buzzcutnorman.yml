@@ -81,7 +81,7 @@ settings:
   kind: password
   label: Password
   name: password
-  sensitive: true
+  sensitive: 'true'
 - description: The port on which SQL awaiting connection
   kind: integer
   label: Port

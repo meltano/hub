@@ -27,6 +27,7 @@ settings:
   kind: password
   label: Account ID
   name: account_id
+  sensitive: 'true'
 - description: The maximum number of accounts to return in the accounts result set.
     The max. Value for count is 1000.
   kind: integer
@@ -75,15 +76,16 @@ settings:
   label: API URL
   name: api_url
   options:
-  - label: https://api.totango.com
+  - label: Https://API Totango Com
     value: https://api.totango.com
-  - label: 'https://api-eu1.totango.com '
+  - label: 'Https://API Eu1 Totango Com '
     value: 'https://api-eu1.totango.com '
   value: https://api.totango.com
 - description: The token to authenticate against the API service
   kind: password
   label: Auth Token
   name: auth_token
+  sensitive: 'true'
 - description: The maximum number of accounts to return in the events result set.
     The max. Value for count is 1000.
   kind: integer
