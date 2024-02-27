@@ -28,6 +28,7 @@ settings:
   kind: password
   label: API Key
   name: api_key
+  sensitive: true
 - description: The base url for GainsightPX service. See GainsightPX docs.
   documentation: 
     https://support.gainsight.com/PX/API_for_Developers/02Usage_of_Different_APIs/Work_with_the_Gainsight_PX_REST_API

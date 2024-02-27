@@ -24,10 +24,12 @@ settings:
   kind: password
   label: Access Key
   name: access_key
+  sensitive: true
 - description: Gong access key secret
   kind: password
   label: Access Key Secret
   name: access_key_secret
+  sensitive: true
 - description: Date up to when historical data will be extracted.
   kind: date_iso8601
   label: End Date

@@ -71,7 +71,7 @@ settings:
     value: LOG_BASED
   value: FULL_TABLE
 - description: 'One or more LCID locale strings to produce localized output for: https://faker.readthedocs.io/en/master/#localization'
-  kind: string
+  kind: array
   label: Faker Config Locale
   name: faker_config.locale
 - description: 'Value to seed the Faker generator for deterministic output: https://faker.readthedocs.io/en/master/#seeding-the-generator'
@@ -103,6 +103,7 @@ settings:
   kind: password
   label: Password
   name: password
+  sensitive: true
 - description: The port on which postgres is awaiting connection. Note if sqlalchemy_url
     is set this will be ignored.
   kind: integer
@@ -132,10 +133,12 @@ settings:
   kind: password
   label: SSH Tunnel Private Key
   name: ssh_tunnel.private_key
+  sensitive: true
 - description: Private Key Password, leave None if no password is set
   kind: password
   label: SSH Tunnel Private Key Password
   name: ssh_tunnel.private_key_password
+  sensitive: true
 - description: Username to connect to bastion server
   kind: string
   label: SSH Tunnel Username
@@ -168,6 +171,7 @@ settings:
   kind: password
   label: SSL Client Private Key
   name: ssl_client_private_key
+  sensitive: true
   value: ~/.postgresql/postgresql.key
 - description: Whether or not to use ssl to verify the server's identity. Use ssl_certificate_authority
     and ssl_mode for further customization. To use a client certificate to authenticate

@@ -22,6 +22,7 @@ settings:
   kind: password
   label: API Key
   name: api_key
+  sensitive: true
 - description: Version of the API to use, i.e. '5.4'
   kind: string
   label: API Version

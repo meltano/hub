@@ -53,7 +53,7 @@ settings:
   label: Batch Config Storage Root
   name: batch_config.storage.root
 - description: 'One or more LCID locale strings to produce localized output for: https://faker.readthedocs.io/en/master/#localization'
-  kind: string
+  kind: array
   label: Faker Config Locale
   name: faker_config.locale
 - description: 'Value to seed the Faker generator for deterministic output: https://faker.readthedocs.io/en/master/#seeding-the-generator'
@@ -87,11 +87,12 @@ settings:
   kind: password
   label: Token
   name: token
+  sensitive: true
 - description: User-Agent header
   kind: string
   label: User Agent
   name: user_agent
-  value: tap-circle-ci/0.1.1 Singer tap for the CircleCI API.
+  value: tap-circle-ci/[could not be detected] Singer tap for the CircleCI API.
 settings_group_validation:
 - - org_slug
   - token

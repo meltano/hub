@@ -23,6 +23,7 @@ settings:
   kind: password
   label: API Key
   name: api_key
+  sensitive: true
 - description: Company instance to add to the base url
   kind: string
   label: Company

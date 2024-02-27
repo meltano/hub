@@ -24,6 +24,7 @@ settings:
   kind: password
   label: Bearer Token
   name: bearer_token
+  sensitive: true
 - description: The earliest record date to sync
   kind: date_iso8601
   label: Start Date

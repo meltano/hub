@@ -48,10 +48,12 @@ settings:
   kind: password
   label: Client ID
   name: client_id
+  sensitive: true
 - description: App client secret
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
 - description: Tenant domain
   kind: string
   label: Domain

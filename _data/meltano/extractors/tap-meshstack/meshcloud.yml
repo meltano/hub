@@ -31,6 +31,7 @@ settings:
   kind: password
   label: Federation Auth Password
   name: federation.auth.password
+  sensitive: true
 - description: The HTTP basic auth user to authenticate against the meshObject API
     for federation
   kind: string
@@ -54,6 +55,7 @@ settings:
   kind: password
   label: Kraken Auth Password
   name: kraken.auth.password
+  sensitive: true
 - description: The HTTP basic auth user to authenticate against the meshObject API
     for kraken
   kind: string

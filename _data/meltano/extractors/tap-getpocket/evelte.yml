@@ -24,10 +24,12 @@ settings:
   kind: password
   label: Access Token
   name: access_token
+  sensitive: true
 - description: The consumer key used in the authentication flow
   kind: password
   label: Consumer Key
   name: consumer_key
+  sensitive: true
 - description: Whether to retrieve only basic information or all data about each item
   kind: string
   label: Detail Type

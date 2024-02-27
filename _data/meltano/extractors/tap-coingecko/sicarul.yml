@@ -48,6 +48,7 @@ settings:
   kind: password
   label: Token
   name: token
+  sensitive: true
   value: ethereum
 - description: Number of seconds to wait between requests
   kind: integer

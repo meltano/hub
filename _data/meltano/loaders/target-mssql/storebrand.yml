@@ -42,6 +42,7 @@ settings:
   kind: password
   label: Password
   name: password
+  sensitive: true
 - description: SQL Server port
   kind: string
   label: Port

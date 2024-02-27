@@ -67,6 +67,7 @@ settings:
   kind: password
   label: Record Key Property Name
   name: record_key_property_name
+  sensitive: true
 - description: "A property in the record which will be used as a sort key.\n\nIf this
     property is omitted, records will not be sorted."
   kind: string

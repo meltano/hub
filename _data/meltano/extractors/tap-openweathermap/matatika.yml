@@ -24,6 +24,7 @@ settings:
   kind: password
   label: API Key
   name: api_key
+  sensitive: true
 - description: City name that you want to get weather for
   kind: string
   label: Current Weather City Name

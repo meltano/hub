@@ -32,10 +32,12 @@ settings:
   kind: password
   label: Password
   name: password
+  sensitive: true
 - description: The partner id
   kind: password
   label: Publisher ID
   name: publisher_id
+  sensitive: true
 - description: The earliest record date to retrieve
   kind: date_iso8601
   label: Start Date

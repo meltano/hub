@@ -34,10 +34,12 @@ settings:
   kind: password
   label: Private Key
   name: private_key
+  sensitive: true
 - description: Your Stamped API public key.
   kind: password
   label: Public Key
   name: public_key
+  sensitive: true
 - description: Your Stamped store hash.
   kind: string
   label: Store Hash

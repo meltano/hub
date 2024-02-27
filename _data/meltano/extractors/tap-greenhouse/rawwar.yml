@@ -29,6 +29,7 @@ settings:
   kind: password
   label: Auth Token
   name: auth_token
+  sensitive: true
 - description: ''
   kind: options
   label: Batch Config Encoding Compression

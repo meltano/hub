@@ -23,10 +23,12 @@ settings:
   kind: password
   label: App ID
   name: app_id
+  sensitive: true
 - description: The Tradera.com developer app key
   kind: password
   label: App Key
   name: app_key
+  sensitive: true
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean

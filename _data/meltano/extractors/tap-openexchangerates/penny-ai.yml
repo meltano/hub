@@ -25,6 +25,7 @@ settings:
   kind: password
   label: App ID
   name: app_id
+  sensitive: true
 - description: 'Change base currency (3-letter code, default: USD)'
   kind: string
   label: Base

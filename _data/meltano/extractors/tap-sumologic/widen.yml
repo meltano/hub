@@ -25,10 +25,12 @@ settings:
   kind: password
   label: Access ID
   name: access_id
+  sensitive: true
 - description: The access key for authenticating against the Sumologic API.
   kind: password
   label: Access Key
   name: access_key
+  sensitive: true
 - description: Compression format to use for batch files.
   kind: options
   label: Batch Config Encoding Compression

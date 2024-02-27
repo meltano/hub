@@ -23,6 +23,7 @@ settings:
   kind: password
   label: API Key
   name: api_key
+  sensitive: true
 - description: Email address to authenticate with
   kind: string
   label: Email Address

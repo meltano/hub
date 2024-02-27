@@ -48,6 +48,7 @@ settings:
   kind: password
   label: Password
   name: password
+  sensitive: true
 - description: Oracle port
   kind: string
   label: Port

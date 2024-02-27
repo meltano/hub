@@ -23,6 +23,7 @@ settings:
   kind: password
   label: Auth Token
   name: auth_token
+  sensitive: true
 - description: The number of boards to fetch at once
   kind: integer
   label: Board Limit

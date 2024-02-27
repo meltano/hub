@@ -24,6 +24,7 @@ settings:
   kind: password
   label: API Token
   name: api_token
+  sensitive: true
 - description: The url to use for requests, e.g. https://your-domain.atlassian.net/wiki/rest/api.
   kind: string
   label: Base URL

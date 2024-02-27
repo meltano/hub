@@ -22,6 +22,7 @@ settings:
   kind: password
   label: API Key
   name: api_key
+  sensitive: true
 - description: The url for the API service
   kind: string
   label: API URL

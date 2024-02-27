@@ -23,6 +23,7 @@ settings:
   kind: password
   label: Auth Token
   name: auth_token
+  sensitive: true
 - description: The name of your app and a contact email address should the API provider
     need to contact you for any reason.
   kind: string

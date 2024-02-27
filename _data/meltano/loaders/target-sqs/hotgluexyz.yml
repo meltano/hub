@@ -21,6 +21,7 @@ settings:
   kind: password
   label: AWS Access Key
   name: aws_access_key
+  sensitive: true
 - description: The AWS region name (e.g. us-east-1)
   kind: string
   label: AWS Region
@@ -29,6 +30,7 @@ settings:
   kind: password
   label: AWS Secret Key
   name: aws_secret_key
+  sensitive: true
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean

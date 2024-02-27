@@ -22,6 +22,7 @@ settings:
   kind: password
   label: API Key
   name: api_key
+  sensitive: true
 - description: Immuta hostname, e.g. https://my-immuta.my-domain.com
   kind: string
   label: Hostname

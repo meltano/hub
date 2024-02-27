@@ -25,6 +25,7 @@ settings:
   kind: password
   label: Access Token
   name: access_token
+  sensitive: true
 - description: Compression format to use for batch files.
   kind: options
   label: Batch Config Encoding Compression
@@ -53,10 +54,12 @@ settings:
   kind: password
   label: Client ID
   name: client_id
+  sensitive: true
 - description: The OAuth app client secret.
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
 - description: Latest record date to sync
   kind: date_iso8601
   label: End Date
@@ -74,6 +77,7 @@ settings:
   kind: password
   label: Refresh Token
   name: refresh_token
+  sensitive: true
 - description: Earliest record date to sync
   kind: date_iso8601
   label: Start Date

@@ -23,14 +23,17 @@ settings:
   kind: password
   label: Account IDentifier
   name: account_identifier
+  sensitive: true
 - description: Client ID
   kind: password
   label: Client ID
   name: client_id
+  sensitive: true
 - description: App secret key
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -44,6 +47,7 @@ settings:
   kind: password
   label: Refresh Token
   name: refresh_token
+  sensitive: true
 - description: The earliest record date to sync
   kind: date_iso8601
   label: Start Date
