@@ -5,13 +5,14 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
-description: Digital distribution service operated and developed by Google
+description: Digital distribution service operated and developed by Google.
+  This tap uses a scraper to extract reviews from the Google Play Store.
 domain_url: https://play.google.com/store/games?pli=1
 executable: tap-google-play
 keywords:
 - meltano_sdk
-label: Google Play
-logo_url: /assets/logos/extractors/google-play.svg
+label: Google Play (Reviews Scraper)
+logo_url: /assets/logos/extractors/playstore.png
 maintenance_status: active
 name: tap-google-play
 namespace: tap_google_play
