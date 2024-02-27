@@ -7,29 +7,21 @@ capabilities:
 - state
 - stream-maps
 description: Digital distribution service operated and developed by Google.
-  This tap uses a scraper to extract reviews from the Google Play Store.
+  This tap uses the data exported to your GCS bucket.
 domain_url: https://play.google.com/store/games
-executable: tap-google-play
+executable: tap-playstore
 keywords:
 - meltano_sdk
-label: Google Play (Reviews Scraper)
+label: Google Play Store (GCS Export)
 logo_url: /assets/logos/extractors/playstore.png
 maintenance_status: active
-name: tap-google-play
-namespace: tap_google_play
+name: tap-playstore
+namespace: tap_playstore
 next_steps: ''
-pip_url: git+https://github.com/edgarrmondragon/tap-google-play.git
-quality: gold
-repo: https://github.com/edgarrmondragon/tap-google-play
+pip_url: git+https://github.com/haleemur/tap-playstore.git
+quality: silver
+repo: https://github.com/haleemur/tap-playstore
 settings:
-- description: The app ID to extract reviews from.
-  kind: password
-  label: App ID
-  name: app_id
-- description: A list of app IDs to extract reviews from.
-  kind: array
-  label: App ID List
-  name: app_id_list
 - description: Compression format to use for batch files.
   kind: options
   label: Batch Config Encoding Compression
@@ -56,6 +48,23 @@ settings:
   kind: string
   label: Batch Config Storage Root
   name: batch_config.storage.root
+- description: The GCS Bucket where Play Console Reports are stored.
+  kind: string
+  label: Bucket Name
+  name: bucket_name
+- description: 'The most recent record date to sync. NOTE: this has not been implemented
+    yet.'
+  kind: date_iso8601
+  label: End Date
+  name: end_date
+- description: 'One or more LCID locale strings to produce localized output for: https://faker.readthedocs.io/en/master/#localization'
+  kind: array
+  label: Faker Config Locale
+  name: faker_config.locale
+- description: 'Value to seed the Faker generator for deterministic output: https://faker.readthedocs.io/en/master/#seeding-the-generator'
+  kind: string
+  label: Faker Config Seed
+  name: faker_config.seed
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -65,7 +74,15 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: The date to start extracting reviews from
+- description: Google Cloud Service Account JSON file
+  kind: string
+  label: Service Account Json File
+  name: service_account_json_file
+- description: Google Cloud Service Account JSON string
+  kind: string
+  label: Service Account Json Str
+  name: service_account_json_str
+- description: The earliest record date to sync
   kind: date_iso8601
   label: Start Date
   name: start_date
@@ -78,7 +95,9 @@ settings:
   kind: object
   label: Stream Maps
   name: stream_maps
-settings_group_validation: []
+settings_group_validation:
+- - bucket_name
+  - start_date
 settings_preamble: ''
 usage: ''
-variant: edgarrmondragon
+variant: haleemur
