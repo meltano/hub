@@ -18,7 +18,7 @@ name: tap-fleetio
 namespace: tap_fleetio
 next_steps: ''
 pip_url: git+https://github.com/fleetio/tap-fleetio.git
-quality: unknown
+quality: silver
 repo: https://github.com/fleetio/tap-fleetio
 settings:
 - description: Account Token
