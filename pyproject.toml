@@ -23,7 +23,7 @@ coverage = "^7.2.2"
 isort = "^5.12.0"
 flake8 = "^6.1.0"
 pydocstyle = "^6.3.0"
-mypy = "^1.1.1"
+mypy = "^1.8.0"
 moto = "^4.1.6"
 typer-cli = "^0.0.13"
 
