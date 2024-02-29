@@ -47,7 +47,7 @@ settings:
 
     See https://support.zendesk.com/hc/en-us/articles/226022787-Generating-a-new-API-token- for more details about generating an API Token.
   documentation: https://support.zendesk.com/hc/en-us/articles/226022787-Generating-a-new-API-token-
-  kind: password
+  sensitive: true
   label: API Token
   name: api_token
   placeholder: Ex. *****************
@@ -56,7 +56,7 @@ settings:
 
     See <https://support.zendesk.com/hc/en-us/articles/203663836>.
   documentation: https://support.zendesk.com/hc/en-us/articles/203663836
-  kind: password
+  sensitive: true
   label: Access Token
   name: access_token
 - description: |
