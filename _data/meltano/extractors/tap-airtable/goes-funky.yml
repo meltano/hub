@@ -15,7 +15,7 @@ quality: silver
 repo: https://github.com/goes-funky/tap-airtable
 settings:
 - description: Airtable Token
-  kind: password
+  sensitive: true
   label: Token
   name: token
 - description: Airtable metadata URL, at the time of the update - "https://api.airtable.com/v2/meta/"
