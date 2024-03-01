@@ -1,4 +1,3 @@
-capabilities: []
 commands:
   document:
     args: yaml document --project-dir ${MELTANO_PROJECT_ROOT}/transform --profiles-dir

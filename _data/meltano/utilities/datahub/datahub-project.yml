@@ -1,4 +1,3 @@
-capabilities: []
 commands:
   ingest-dbt:
     args: ingest run --config ${MELTANO_PROJECT_ROOT}/utilities/datahub/dbt.dhub.yml
