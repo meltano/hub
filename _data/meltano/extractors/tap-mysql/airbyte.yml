@@ -18,7 +18,8 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: silver
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-mysql
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-mysql
 settings:
 - description: Airbyte image to run
   kind: string
@@ -56,10 +57,11 @@ settings:
   kind: password
   label: Airbyte Config Password
   name: airbyte_config.password
-- description: "Additional properties to pass to the JDBC URL string when connecting\
-    \ to the database formatted as 'key=value' pairs separated by the symbol '&'.\
-    \ (example: key1=value1&key2=value2&key3=value3). For more information read about\
-    \ <a href=\"https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-reference-jdbc-url-format.html\"\
+  sensitive: true
+- description: "Additional properties to pass to the JDBC URL string when connecting
+    to the database formatted as 'key=value' pairs separated by the symbol '&'. (example:
+    key1=value1&key2=value2&key3=value3). For more information read about <a href=\"\
+    https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-reference-jdbc-url-format.html\"\
     >JDBC URL parameters</a>."
   kind: string
   label: Airbyte Config Jdbc Url Params
@@ -90,12 +92,14 @@ settings:
   kind: password
   label: Airbyte Config Ssl Mode Client Key
   name: airbyte_config.ssl_mode.client_key
+  sensitive: true
 - description: Password for keystorage. This field is optional. If you do not add
     it - the password will be generated automatically., Password for keystorage. This
     field is optional. If you do not add it - the password will be generated automatically.
   kind: password
   label: Airbyte Config Ssl Mode Client Key Password
   name: airbyte_config.ssl_mode.client_key_password
+  sensitive: true
 - description: STANDARD, CDC
   kind: string
   label: Airbyte Config Replication Method Method
@@ -136,10 +140,12 @@ settings:
   kind: password
   label: Airbyte Config Tunnel Method Ssh Key
   name: airbyte_config.tunnel_method.ssh_key
+  sensitive: true
 - description: OS-level password for logging into the jump server host
   kind: password
   label: Airbyte Config Tunnel Method Tunnel User Password
   name: airbyte_config.tunnel_method.tunnel_user_password
+  sensitive: true
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
@@ -149,8 +155,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

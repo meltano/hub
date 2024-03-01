@@ -18,7 +18,8 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-pocket
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-pocket
 settings:
 - description: Airbyte image to run
   kind: string
@@ -40,10 +41,12 @@ settings:
   kind: password
   label: Airbyte Config Consumer Key
   name: airbyte_config.consumer_key
+  sensitive: true
 - description: The user's Pocket access token.
   kind: password
   label: Airbyte Config Access Token
   name: airbyte_config.access_token
+  sensitive: true
 - description: Select the state of the items to retrieve.
   kind: options
   label: Airbyte Config State
@@ -118,8 +121,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

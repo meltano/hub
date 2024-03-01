@@ -18,6 +18,7 @@ settings:
   kind: password
   label: Token
   name: token
+  sensitive: true
 - description: Airtable metadata URL, at the time of the update - "https://api.airtable.com/v2/meta/"
   label: Metadata URL
   name: metadata_url

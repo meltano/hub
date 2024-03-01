@@ -28,13 +28,14 @@ settings:
   kind: password
   label: API Key
   name: api_key
+  sensitive: true
 - description: If true, convert merge fields to an array rather than an object. This
     results in a list member merge fields subtable. Optional, default is true.
   kind: boolean
   label: Merge Fields Array
   name: merge_fields_array
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
     can be expected to take."
   kind: date_iso8601
   label: Start Date

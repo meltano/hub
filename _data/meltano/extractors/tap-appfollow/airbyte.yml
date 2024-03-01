@@ -18,7 +18,8 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-appfollow
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-appfollow
 settings:
 - description: Airbyte image to run
   kind: string
@@ -41,14 +42,17 @@ settings:
   kind: password
   label: Airbyte Config Ext Id
   name: airbyte_config.ext_id
+  sensitive: true
 - description: client id provided by Appfollow
   kind: password
   label: Airbyte Config Cid
   name: airbyte_config.cid
+  sensitive: true
 - description: api secret provided by Appfollow
   kind: password
   label: Airbyte Config Api Secret
   name: airbyte_config.api_secret
+  sensitive: true
 - description: getting data by Country
   kind: string
   label: Airbyte Config Country
@@ -62,8 +66,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

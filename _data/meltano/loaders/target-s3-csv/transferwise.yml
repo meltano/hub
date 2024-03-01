@@ -17,15 +17,18 @@ settings:
   kind: password
   label: S3 Access Key Id
   name: aws_access_key_id
+  sensitive: true
 - description: If not provided, AWS_SECRET_ACCESS_KEY environment variable will be
     used.
   kind: password
   label: S3 Secret Access Key
   name: aws_secret_access_key
+  sensitive: true
 - description: If not provided, AWS_SESSION_TOKEN environment variable will be used.
   kind: password
   label: AWS Session token
   name: aws_session_token
+  sensitive: true
 - description: AWS endpoint URL
   label: AWS endpoint URL
   name: aws_endpoint_url

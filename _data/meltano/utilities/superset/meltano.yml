@@ -139,6 +139,7 @@ settings:
   label: Secret Key
   name: SECRET_KEY
   value: thisisnotapropersecretkey
+  sensitive: true
 usage: |
   ## Troubleshooting
 

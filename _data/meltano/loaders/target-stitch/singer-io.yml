@@ -16,6 +16,7 @@ settings:
   kind: password
   label: Client ID
   name: client_id
+  sensitive: true
 - description: The turbo boost factor to use. Default, 1.
   kind: integer
   label: Turbo Boost Factor
@@ -34,6 +35,7 @@ settings:
   kind: password
   label: Token
   name: token
+  sensitive: true
 - description: The batch size preferences to use. Must contains key `full_table_streams`
     with arrays type value.
   kind: object

@@ -25,13 +25,15 @@ settings:
 - description: The user agent to send with requests.
   label: User Agent
   name: user_agent
-- description: Your Recurly API key. See the [API docs](https://docs.recurly.com/docs/api-keys#section-find-or-generate-your-api-key)
+- description: Your Recurly API key. See the [API 
+    docs](https://docs.recurly.com/docs/api-keys#section-find-or-generate-your-api-key)
     for details on getting a key.
   kind: password
   label: API Key
   name: api_key
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
+  sensitive: true
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
     can be expected to take."
   kind: date_iso8601
   label: Start Date

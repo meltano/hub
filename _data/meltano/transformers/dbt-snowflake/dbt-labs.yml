@@ -72,6 +72,7 @@ settings:
   kind: password
   label: Password
   name: password
+  sensitive: true
 - description: The user role to assume.
   kind: string
   label: Role

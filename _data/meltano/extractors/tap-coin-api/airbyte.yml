@@ -18,7 +18,8 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-coin-api
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-coin-api
 settings:
 - description: Airbyte image to run
   kind: string
@@ -40,6 +41,7 @@ settings:
   kind: password
   label: Airbyte Config Api Key
   name: airbyte_config.api_key
+  sensitive: true
 - description: "The environment to use. Either sandbox or production.\n"
   kind: options
   label: Airbyte Config Environment
@@ -53,6 +55,7 @@ settings:
   kind: password
   label: Airbyte Config Symbol Id
   name: airbyte_config.symbol_id
+  sensitive: true
 - description: The period to use. See the documentation for a list. https://docs.coinapi.io/#list-all-periods-get
   kind: string
   label: Airbyte Config Period
@@ -61,15 +64,15 @@ settings:
   kind: string
   label: Airbyte Config Start Date
   name: airbyte_config.start_date
-- description: "The end date in ISO 8601 format. If not supplied, data will be returned\n\
-    from the start date to the current time, or when the count of result\nelements\
-    \ reaches its limit.\n"
+- description: "The end date in ISO 8601 format. If not supplied, data will be returned\n
+    from the start date to the current time, or when the count of result\nelements
+    reaches its limit.\n"
   kind: string
   label: Airbyte Config End Date
   name: airbyte_config.end_date
-- description: "The maximum number of elements to return. If not supplied, the default\n\
-    is 100. For numbers larger than 100, each 100 items is counted as one\nrequest\
-    \ for pricing purposes. Maximum value is 100000.\n"
+- description: "The maximum number of elements to return. If not supplied, the default\n
+    is 100. For numbers larger than 100, each 100 items is counted as one\nrequest
+    for pricing purposes. Maximum value is 100000.\n"
   kind: integer
   label: Airbyte Config Limit
   name: airbyte_config.limit
@@ -82,8 +85,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

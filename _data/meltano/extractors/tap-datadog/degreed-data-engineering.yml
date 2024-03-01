@@ -22,10 +22,12 @@ settings:
   kind: password
   label: Api Key
   name: api_key
+  sensitive: true
 - description: DD-APP-KEY
   kind: password
   label: App Key
   name: app_key
+  sensitive: true
 - description: start date to sync from
   kind: date_iso8601
   label: Start Date

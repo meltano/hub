@@ -29,6 +29,7 @@ settings:
   kind: password
   label: Password
   name: password
+  sensitive: true
 - description: A path to the private key file for connecting the the SFTP server.
   label: Private Key File
   name: private_key_file

@@ -15,8 +15,8 @@ pip_url: pipelinewise-tap-zuora
 quality: silver
 repo: https://github.com/transferwise/pipelinewise-tap-zuora
 settings:
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
     can be expected to take."
   kind: date_iso8601
   label: Start Date
@@ -35,6 +35,7 @@ settings:
   kind: password
   label: Password
   name: password
+  sensitive: true
 - description: Whether to use a European client or not. Default, False.
   kind: boolean
   label: European

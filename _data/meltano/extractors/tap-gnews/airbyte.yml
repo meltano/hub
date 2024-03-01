@@ -18,7 +18,8 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-gnews
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-gnews
 settings:
 - description: Airbyte image to run
   kind: string
@@ -40,26 +41,27 @@ settings:
   kind: password
   label: Airbyte Config Api Key
   name: airbyte_config.api_key
-- description: "This parameter allows you to specify your search keywords to find\
-    \ the news articles you are looking for. The keywords will be used to return the\
-    \ most relevant articles. It is possible to use logical operators  with keywords.\
-    \ - Phrase Search Operator: This operator allows you to make an exact search.\
-    \ Keywords surrounded by \n  quotation marks are used to search for articles with\
-    \ the exact same keyword sequence. \n  For example the query: \"Apple iPhone\"\
-    \ will return articles matching at least once this sequence of keywords.\n- Logical\
-    \ AND Operator: This operator allows you to make sure that several keywords are\
-    \ all used in the article\n  search. By default the space character acts as an\
-    \ AND operator, it is possible to replace the space character \n  by AND to obtain\
-    \ the same result. For example the query: Apple Microsoft is equivalent to Apple\
-    \ AND Microsoft\n- Logical OR Operator: This operator allows you to retrieve articles\
-    \ matching the keyword a or the keyword b.\n  It is important to note that this\
-    \ operator has a higher precedence than the AND operator. For example the \n \
-    \ query: Apple OR Microsoft will return all articles matching the keyword Apple\
-    \ as well as all articles matching \n  the keyword Microsoft\n- Logical NOT Operator:\
-    \ This operator allows you to remove from the results the articles corresponding\
-    \ to the\n  specified keywords. To use it, you need to add NOT in front of each\
-    \ word or phrase surrounded by quotes.\n  For example the query: Apple NOT iPhone\
-    \ will return all articles matching the keyword Apple but not the keyword\n  iPhone"
+  sensitive: true
+- description: "This parameter allows you to specify your search keywords to find
+    the news articles you are looking for. The keywords will be used to return the
+    most relevant articles. It is possible to use logical operators  with keywords.
+    - Phrase Search Operator: This operator allows you to make an exact search. Keywords
+    surrounded by \n  quotation marks are used to search for articles with the exact
+    same keyword sequence. \n  For example the query: \"Apple iPhone\" will return
+    articles matching at least once this sequence of keywords.\n- Logical AND Operator:
+    This operator allows you to make sure that several keywords are all used in the
+    article\n  search. By default the space character acts as an AND operator, it
+    is possible to replace the space character \n  by AND to obtain the same result.
+    For example the query: Apple Microsoft is equivalent to Apple AND Microsoft\n
+    - Logical OR Operator: This operator allows you to retrieve articles matching
+    the keyword a or the keyword b.\n  It is important to note that this operator
+    has a higher precedence than the AND operator. For example the \n  query: Apple
+    OR Microsoft will return all articles matching the keyword Apple as well as all
+    articles matching \n  the keyword Microsoft\n- Logical NOT Operator: This operator
+    allows you to remove from the results the articles corresponding to the\n  specified
+    keywords. To use it, you need to add NOT in front of each word or phrase surrounded
+    by quotes.\n  For example the query: Apple NOT iPhone will return all articles
+    matching the keyword Apple but not the keyword\n  iPhone"
   kind: string
   label: Airbyte Config Query
   name: airbyte_config.query
@@ -204,11 +206,11 @@ settings:
   kind: string
   label: Airbyte Config End Date
   name: airbyte_config.end_date
-- description: "This parameter allows you to choose with which type of sorting the\
-    \ articles should be returned. Two values  are possible:\n  - publishedAt = sort\
-    \ by publication date, the articles with the most recent publication date are\
-    \ returned first\n  - relevance = sort by best match to keywords, the articles\
-    \ with the best match are returned first"
+- description: "This parameter allows you to choose with which type of sorting the
+    articles should be returned. Two values  are possible:\n  - publishedAt = sort
+    by publication date, the articles with the most recent publication date are returned
+    first\n  - relevance = sort by best match to keywords, the articles with the best
+    match are returned first"
   kind: options
   label: Airbyte Config Sortby
   name: airbyte_config.sortby
@@ -217,26 +219,26 @@ settings:
     value: publishedAt
   - label: Relevance
     value: relevance
-- description: "This parameter allows you to specify your search keywords to find\
-    \ the news articles you are looking for. The keywords will be used to return the\
-    \ most relevant articles. It is possible to use logical operators  with keywords.\
-    \ - Phrase Search Operator: This operator allows you to make an exact search.\
-    \ Keywords surrounded by \n  quotation marks are used to search for articles with\
-    \ the exact same keyword sequence. \n  For example the query: \"Apple iPhone\"\
-    \ will return articles matching at least once this sequence of keywords.\n- Logical\
-    \ AND Operator: This operator allows you to make sure that several keywords are\
-    \ all used in the article\n  search. By default the space character acts as an\
-    \ AND operator, it is possible to replace the space character \n  by AND to obtain\
-    \ the same result. For example the query: Apple Microsoft is equivalent to Apple\
-    \ AND Microsoft\n- Logical OR Operator: This operator allows you to retrieve articles\
-    \ matching the keyword a or the keyword b.\n  It is important to note that this\
-    \ operator has a higher precedence than the AND operator. For example the \n \
-    \ query: Apple OR Microsoft will return all articles matching the keyword Apple\
-    \ as well as all articles matching \n  the keyword Microsoft\n- Logical NOT Operator:\
-    \ This operator allows you to remove from the results the articles corresponding\
-    \ to the\n  specified keywords. To use it, you need to add NOT in front of each\
-    \ word or phrase surrounded by quotes.\n  For example the query: Apple NOT iPhone\
-    \ will return all articles matching the keyword Apple but not the keyword\n  iPhone"
+- description: "This parameter allows you to specify your search keywords to find
+    the news articles you are looking for. The keywords will be used to return the
+    most relevant articles. It is possible to use logical operators  with keywords.
+    - Phrase Search Operator: This operator allows you to make an exact search. Keywords
+    surrounded by \n  quotation marks are used to search for articles with the exact
+    same keyword sequence. \n  For example the query: \"Apple iPhone\" will return
+    articles matching at least once this sequence of keywords.\n- Logical AND Operator:
+    This operator allows you to make sure that several keywords are all used in the
+    article\n  search. By default the space character acts as an AND operator, it
+    is possible to replace the space character \n  by AND to obtain the same result.
+    For example the query: Apple Microsoft is equivalent to Apple AND Microsoft\n
+    - Logical OR Operator: This operator allows you to retrieve articles matching
+    the keyword a or the keyword b.\n  It is important to note that this operator
+    has a higher precedence than the AND operator. For example the \n  query: Apple
+    OR Microsoft will return all articles matching the keyword Apple as well as all
+    articles matching \n  the keyword Microsoft\n- Logical NOT Operator: This operator
+    allows you to remove from the results the articles corresponding to the\n  specified
+    keywords. To use it, you need to add NOT in front of each word or phrase surrounded
+    by quotes.\n  For example the query: Apple NOT iPhone will return all articles
+    matching the keyword Apple but not the keyword\n  iPhone"
   kind: string
   label: Airbyte Config Top Headlines Query
   name: airbyte_config.top_headlines_query
@@ -272,8 +274,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

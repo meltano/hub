@@ -20,10 +20,12 @@ settings:
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
 - description: Client Id for Pingboard
   kind: password
   label: Client Id
   name: client_id
+  sensitive: true
 - description: Should be used on first sync to indicate how far back to grab records.
     Start dates should conform to the RFC3339 specification.
   kind: date_iso8601

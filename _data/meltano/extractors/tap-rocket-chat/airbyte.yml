@@ -18,7 +18,8 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-rocket-chat
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-rocket-chat
 settings:
 - description: Airbyte image to run
   kind: string
@@ -40,15 +41,18 @@ settings:
   kind: string
   label: Airbyte Config Endpoint
   name: airbyte_config.endpoint
-- description: Your API Token. See <a href="https://developer.rocket.chat/reference/api/rest-api/endpoints/other-important-endpoints/access-tokens-endpoints">here</a>.
+- description: Your API Token. See <a 
+    href="https://developer.rocket.chat/reference/api/rest-api/endpoints/other-important-endpoints/access-tokens-endpoints">here</a>.
     The token is case sensitive.
   kind: password
   label: Airbyte Config Token
   name: airbyte_config.token
+  sensitive: true
 - description: Your User Id.
   kind: password
   label: Airbyte Config User Id
   name: airbyte_config.user_id
+  sensitive: true
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
@@ -58,8 +62,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

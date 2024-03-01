@@ -31,6 +31,7 @@ settings:
   kind: password
   label: Password
   name: password
+  sensitive: true
 - description: The default replication method to use if one is not automatically set
     on the stream. Options - 'LOG_BASED', 'FULL_TABLE', 'INCREMENTAL'.
   label: Default Replication Method

@@ -37,6 +37,7 @@ settings:
   kind: password
   label: Password
   name: password
+  sensitive: true
 - description: AWS S3 bucket name
   label: S3 Bucket name
   name: s3_bucket
@@ -57,16 +58,19 @@ settings:
   kind: password
   label: AWS S3 Access Key ID
   name: aws_access_key_id
+  sensitive: true
 - description: S3 Secret Access Key. Used for S3 and Redshift copy operations. If
     not provided, `AWS_SECRET_ACCESS_KEY` environment variable will be used.
   kind: password
   label: AWS S3 Secret Access Key
   name: aws_secret_access_key
+  sensitive: true
 - description: S3 AWS STS token for temporary credentials. If not provided, `AWS_SESSION_TOKEN`
     environment variable will be used.
   kind: password
   label: AWS S3 Session Token
   name: aws_session_token
+  sensitive: true
 - description: AWS Role ARN to be used for the Redshift COPY operation. Used instead
     of the given AWS keys for the COPY operation if provided - the keys are still
     used for other S3 operations

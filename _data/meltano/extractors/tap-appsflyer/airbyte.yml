@@ -18,7 +18,8 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-appsflyer
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-appsflyer
 settings:
 - description: Airbyte image to run
   kind: string
@@ -40,12 +41,14 @@ settings:
   kind: password
   label: Airbyte Config App Id
   name: airbyte_config.app_id
+  sensitive: true
 - description: Pull API token for authentication. If you change the account admin,
     the token changes, and you must update scripts with the new token. <a href="https://support.appsflyer.com/hc/en-us/articles/360004562377">Get
     the API token in the Dashboard</a>.
   kind: password
   label: Airbyte Config Api Token
   name: airbyte_config.api_token
+  sensitive: true
 - description: The default value to use if no bookmark exists for an endpoint. Raw
     Reports historical lookback is limited to 90 days.
   kind: string
@@ -65,8 +68,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

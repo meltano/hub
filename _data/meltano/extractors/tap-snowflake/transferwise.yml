@@ -29,6 +29,7 @@ settings:
   kind: password
   label: Password
   name: password
+  sensitive: true
 - description: Snowflake virtual warehouse name
   label: Warehouse
   name: warehouse

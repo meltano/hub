@@ -19,8 +19,10 @@ settings:
   kind: password
   label: API Token
   name: token
+  sensitive: true
 - description: A valid email address to be inserted into the From header of the HTTP
-    Request headers. See https://developer.pagerduty.com/docs/ZG9jOjExMDI5NTUw-rest-api-overview#http-request-headers.
+    Request headers. See 
+    https://developer.pagerduty.com/docs/ZG9jOjExMDI5NTUw-rest-api-overview#http-request-headers.
   label: Email
   name: email
 - description: A date to be used as the default since parameter for all API endpoints

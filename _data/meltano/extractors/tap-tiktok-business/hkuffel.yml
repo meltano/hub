@@ -22,18 +22,22 @@ settings:
   kind: password
   label: Client Id
   name: client_id
+  sensitive: true
 - description: Client secret for the TikTok Business API
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
 - description: The token to authenticate against the API service
   kind: password
   label: Access Token
   name: access_token
+  sensitive: true
 - description: The token to generate a new access token
   kind: password
   label: Refresh Token
   name: refresh_token
+  sensitive: true
 - description: unique ids for each TikTok business account to be queried
   kind: array
   label: Business Ids
@@ -49,8 +53,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

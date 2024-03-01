@@ -19,6 +19,7 @@ settings:
   kind: password
   label: Consumer Key
   name: consumer_key
+  sensitive: true
 - description: To configure the read and connect timeout for twitter-ads client. Default
     is 300 seconds.
   kind: integer
@@ -31,6 +32,7 @@ settings:
   kind: password
   label: Access Token Secret
   name: access_token_secret
+  sensitive: true
 - description: Number of days for latency look-back period to allow analytical reporting
     numbers to stabilize.
   label: Attribution Window
@@ -43,10 +45,12 @@ settings:
   kind: password
   label: Consumer Secret
   name: consumer_secret
+  sensitive: true
 - description: OAuth 1.0a credentials - Access Token
   kind: password
   label: Access Token
   name: access_token
+  sensitive: true
 - description: Comma-delimited list of ISO 2-letter country codes for targeting and
     segmentation. (e.g. "US, CA, MX, DE")
   label: Country Codes

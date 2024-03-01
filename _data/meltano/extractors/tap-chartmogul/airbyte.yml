@@ -18,7 +18,8 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: silver
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-chartmogul
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-chartmogul
 settings:
 - description: Airbyte image to run
   kind: string
@@ -36,17 +37,20 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: Your Chartmogul API key. See <a href="https://help.chartmogul.com/hc/en-us/articles/4407796325906-Creating-and-Managing-API-keys#creating-an-api-key">
+- description: Your Chartmogul API key. See <a 
+    href="https://help.chartmogul.com/hc/en-us/articles/4407796325906-Creating-and-Managing-API-keys#creating-an-api-key">
     the docs </a> for info on how to obtain this.
   kind: password
   label: Airbyte Config Api Key
   name: airbyte_config.api_key
+  sensitive: true
 - description: UTC date and time in the format 2017-01-25T00:00:00Z. When feasible,
     any data before this date will not be replicated.
   kind: string
   label: Airbyte Config Start Date
   name: airbyte_config.start_date
-- description: Some APIs such as <a href="https://dev.chartmogul.com/reference/endpoint-overview-metrics-api">Metrics</a>
+- description: Some APIs such as <a 
+    href="https://dev.chartmogul.com/reference/endpoint-overview-metrics-api">Metrics</a>
     require intervals to cluster data.
   kind: options
   label: Airbyte Config Interval
@@ -69,8 +73,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

@@ -20,6 +20,7 @@ settings:
   kind: password
   label: API Key
   name: api_key
+  sensitive: true
 - description: The user agent to send with API requests.
   label: User Agent
   name: user_agent

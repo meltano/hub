@@ -21,10 +21,12 @@ settings:
   kind: password
   label: API Key
   name: API_KEY
+  sensitive: true
 - description: Your password.
   kind: password
   label: Password
   name: password
+  sensitive: true
 - description: Whether to allow annoymous usage tracking. Default, true.
   kind: boolean
   label: Disable Collection

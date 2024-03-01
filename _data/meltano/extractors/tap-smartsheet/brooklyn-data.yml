@@ -25,4 +25,5 @@ settings:
   kind: password
   label: Smartsheet Access Token
   name: smartsheet_access_token
+  sensitive: true
 variant: brooklyn-data

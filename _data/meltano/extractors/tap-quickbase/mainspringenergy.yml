@@ -30,6 +30,7 @@ settings:
   kind: password
   label: Quickbase user token
   name: qb_user_token
+  sensitive: true
 - description: Earliest date to start fetching data
   kind: date_iso8601
   label: Start Date

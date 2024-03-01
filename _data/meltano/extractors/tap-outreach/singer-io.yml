@@ -25,10 +25,12 @@ settings:
   kind: password
   label: Client ID
   name: client_id
+  sensitive: true
 - description: Your Outreach client secret.
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
 - description: The Outreach redirect URI.
   label: Redirect URI
   name: redirect_uri
@@ -36,6 +38,7 @@ settings:
   kind: password
   label: Refresh Token
   name: refresh_token
+  sensitive: true
 - description: The request quota limit.
   label: Quota Limit
   name: quota_limit

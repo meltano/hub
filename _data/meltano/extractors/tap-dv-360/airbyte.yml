@@ -18,7 +18,8 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: silver
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-dv-360
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-dv-360
 settings:
 - description: Airbyte image to run
   kind: string
@@ -40,22 +41,27 @@ settings:
   kind: password
   label: Airbyte Config Credentials Access Token
   name: airbyte_config.credentials.access_token
+  sensitive: true
 - description: Refresh token
   kind: password
   label: Airbyte Config Credentials Refresh Token
   name: airbyte_config.credentials.refresh_token
+  sensitive: true
 - description: Token URI
   kind: password
   label: Airbyte Config Credentials Token Uri
   name: airbyte_config.credentials.token_uri
+  sensitive: true
 - description: Client ID
   kind: password
   label: Airbyte Config Credentials Client Id
   name: airbyte_config.credentials.client_id
+  sensitive: true
 - description: Client secret
   kind: password
   label: Airbyte Config Credentials Client Secret
   name: airbyte_config.credentials.client_secret
+  sensitive: true
 - description: Partner ID
   kind: integer
   label: Airbyte Config Partner Id
@@ -70,9 +76,9 @@ settings:
   kind: string
   label: Airbyte Config End Date
   name: airbyte_config.end_date
-- description: "filters for the dimensions. each filter object had 2 keys: 'type'\
-    \ for the name of the dimension to be used as. and 'value' for the value of the\
-    \ filter"
+- description: "filters for the dimensions. each filter object had 2 keys: 'type'
+    for the name of the dimension to be used as. and 'value' for the value of the
+    filter"
   kind: array
   label: Airbyte Config Filters
   name: airbyte_config.filters
@@ -85,8 +91,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

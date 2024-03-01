@@ -31,6 +31,7 @@ settings:
   kind: password
   label: Password
   name: password
+  sensitive: true
 - description: A comma separated list of schema names to scan. Used to improve the
   label: Filter Schemas
   name: filter_schemas
@@ -87,7 +88,8 @@ settings:
   label: Scn Window Size
   name: scn_window_size
 - description: Determines which Oracle Library Driver and mode is used by tap-oracle.
-    cx=CX_Oracle, thin=oracleDB (No SQL Client), thick=oracleDB (SQL Client). Default, cx.
+    cx=CX_Oracle, thin=oracleDB (No SQL Client), thick=oracleDB (SQL Client). Default,
+    cx.
   kind: options
   label: Oracle Python Driver Type / Mode
   name: ora_python_driver_type
@@ -111,6 +113,7 @@ settings:
   kind: password
   label: Common Password
   name: common_password
+  sensitive: true
 - description: A numeric setting adjusting the internal buffersize. The common query
     tuning scenario is for SELECT statements that return a large number of rows over
     a slow network. Increasing arraysize can improve performance by reducing the number

@@ -52,7 +52,8 @@ next_steps: |
 
   1. Start Scheduler or execute Airflow commands directly using the instructions in [the Meltano docs](https://docs.meltano.com/guide/orchestration#starting-the-airflow-scheduler).
 pip_url: git+https://github.com/meltano/airflow-ext.git@main apache-airflow==2.8.1
-  --constraint https://raw.githubusercontent.com/apache/airflow/constraints-2.8.1/constraints-no-providers-${MELTANO__PYTHON_VERSION}.txt
+  --constraint 
+  https://raw.githubusercontent.com/apache/airflow/constraints-2.8.1/constraints-no-providers-${MELTANO__PYTHON_VERSION}.txt
 repo: https://github.com/apache/airflow
 settings:
 - env: AIRFLOW__DATABASE__SQL_ALCHEMY_CONN
@@ -92,7 +93,8 @@ settings:
   env: AIRFLOW__LOGGING__DAG_PROCESSOR_MANAGER_LOG_LOCATION
   label: Dag Processor Manager Log Location
   name: logging.dag_processor_manager_log_location
-  value: $MELTANO_PROJECT_ROOT/.meltano/utilities/airflow/logs/dag_processor_manager/dag_processor_manager.log
+  value: 
+    $MELTANO_PROJECT_ROOT/.meltano/utilities/airflow/logs/dag_processor_manager/dag_processor_manager.log
 - description: |
     Where to send the logs of each scheduler process.
   env: AIRFLOW__SCHEDULER__CHILD_PROCESS_LOG_DIRECTORY

@@ -23,6 +23,7 @@ settings:
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
 - description: The redirect URI for oauth flow completion, this is provided by Asana
     during oauth setup
   kind: string

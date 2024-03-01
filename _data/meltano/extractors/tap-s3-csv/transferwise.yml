@@ -20,11 +20,13 @@ settings:
   kind: password
   label: AWS S3 Access Key ID
   name: aws_access_key_id
+  sensitive: true
 - description: S3 Secret Access Key. If not provided, aws_profile or AWS_ACCESS_KEY_ID
     environment variable will be used.
   kind: password
   label: AWS S3 Secret Access Key
   name: aws_secret_access_key
+  sensitive: true
 - description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.
@@ -44,6 +46,7 @@ settings:
   kind: password
   label: AWS Endpoint URL
   name: aws_endpoint_url
+  sensitive: true
 - description: Optional - AWS profile name for profile based authentication. If not
     provided, AWS_PROFILE environment variable will be used.
   label: AWS profile name
@@ -53,6 +56,7 @@ settings:
   kind: password
   label: AWS S3 Session Token
   name: aws_session_token
+  sensitive: true
 settings_group_validation:
 - - bucket
   - tables

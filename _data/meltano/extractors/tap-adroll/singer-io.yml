@@ -25,10 +25,12 @@ settings:
   kind: password
   label: Access Token
   name: access_token
+  sensitive: true
 - description: Your AdRoll refresh token.
   kind: password
   label: Refresh Token
   name: refresh_token
+  sensitive: true
 - description: Your AdRoll client ID.
   label: Client ID
   name: client_id
@@ -36,6 +38,7 @@ settings:
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
 - description: (Default 7 days) The amount of time in days to look back from the start
     date or date bookmark.
   kind: integer

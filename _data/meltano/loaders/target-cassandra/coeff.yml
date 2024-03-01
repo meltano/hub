@@ -22,6 +22,7 @@ settings:
   kind: password
   label: Password
   name: password
+  sensitive: true
 - description: An array of your Cassandra node contact points.
   kind: array
   label: Contact Points

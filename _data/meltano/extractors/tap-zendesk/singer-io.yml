@@ -45,11 +45,13 @@ settings:
     6. Copy the API token since it will not be shown again
 
     7. Click `Save` button to complete API key creation
-  documentation: https://support.zendesk.com/hc/en-us/articles/226022787-Generating-a-new-API-token-
+  documentation: 
+    https://support.zendesk.com/hc/en-us/articles/226022787-Generating-a-new-API-token-
   kind: password
   label: API Token
   name: api_token
   placeholder: Ex. *****************
+  sensitive: true
 - description: |
     To use OAuth, you will need to fetch an `access_token` from a configured Zendesk integration.
 
@@ -58,13 +60,15 @@ settings:
   kind: password
   label: Access Token
   name: access_token
+  sensitive: true
 - description: |
     When visiting your Zendesk instance, the URL is structured as follows: `SUBDOMAIN.zendesk.com`.
 
     You'll need this subdomain when configuring the extractor.
 
     For example, if the URL is `meltano.zendesk.com`, then the subdomain is `meltano`.
-  documentation: https://support.zendesk.com/hc/en-us/articles/221682747-Where-can-I-find-my-Zendesk-subdomain-
+  documentation: 
+    https://support.zendesk.com/hc/en-us/articles/221682747-Where-can-I-find-my-Zendesk-subdomain-
   label: Zendesk Subdomain
   name: subdomain
   placeholder: Ex. my-subdomain.zendesk.com

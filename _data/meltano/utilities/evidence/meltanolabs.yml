@@ -119,6 +119,7 @@ settings:
   kind: password
   label: BigQuery Private Key
   name: settings.bigquery.private_key
+  sensitive: true
 - env: MYSQL_USER
   kind: string
   label: MySQL User
@@ -135,6 +136,7 @@ settings:
   kind: password
   label: MySQL Password
   name: settings.mysql.password
+  sensitive: true
 - env: MYSQL_PORT
   label: MySQL Port
   name: settings.mysql.port
@@ -172,6 +174,7 @@ settings:
   kind: password
   label: Postgres Password
   name: settings.postgres.password
+  sensitive: true
 - description: |
     Postgres SSL. When using Heroku this is commonly required.
   env: POSTGRES_SSL
@@ -187,6 +190,7 @@ settings:
   kind: password
   label: Postgres Connection String
   name: settings.postgres.connection_string
+  sensitive: true
 - env: SNOWFLAKE_ACCOUNT
   kind: string
   label: Snowflake Account
@@ -199,6 +203,7 @@ settings:
   kind: password
   label: Snowflake Password
   name: settings.snowflake.password
+  sensitive: true
 - env: SNOWFLAKE_DATABASE
   kind: string
   label: Snowflake Database

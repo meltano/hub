@@ -18,6 +18,7 @@ settings:
   kind: password
   label: AWS Access Key
   name: aws_access_key
+  sensitive: true
 - description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.
@@ -31,10 +32,12 @@ settings:
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
 - description: Your AWS refresh token.
   kind: password
   label: Refresh Token
   name: refresh_token
+  sensitive: true
 - description: Space delimited string of Marketplace Country Code values. Default
     is ["US"].
   label: Marketplaces
@@ -49,6 +52,7 @@ settings:
   kind: password
   label: AWS Secret Key
   name: aws_secret_key
+  sensitive: true
 settings_group_validation:
 - - aws_access_key
   - start_date

@@ -21,8 +21,8 @@ settings:
 - description: The base url to use for requests, defaul https://hq.appsflyer.com.
   label: Base Url
   name: base_url
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
     can be expected to take."
   kind: date_iso8601
   label: Start Date
@@ -33,6 +33,7 @@ settings:
   kind: password
   label: API Token
   name: api_token
+  sensitive: true
 - description: Whether to include the organic installs stream in your sync.
   kind: boolean
   label: Organic Installs

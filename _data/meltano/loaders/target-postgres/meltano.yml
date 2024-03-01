@@ -22,6 +22,7 @@ settings:
   label: Password
   name: password
   value: warehouse
+  sensitive: true
 - aliases:
   - address
   label: Host

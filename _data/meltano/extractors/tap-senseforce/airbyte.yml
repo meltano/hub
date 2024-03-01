@@ -18,7 +18,8 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-senseforce
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-senseforce
 settings:
 - description: Airbyte image to run
   kind: string
@@ -36,15 +37,17 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: Your API access token. See <a href="https://manual.senseforce.io/manual/sf-platform/public-api/get-your-access-token/">here</a>.
+- description: Your API access token. See <a 
+    href="https://manual.senseforce.io/manual/sf-platform/public-api/get-your-access-token/">here</a>.
     The toke is case sensitive.
   kind: password
   label: Airbyte Config Access Token
   name: airbyte_config.access_token
-- description: "Your Senseforce API backend URL. This is the URL shown during the\
-    \ Login screen. See <a href=\"https://manual.senseforce.io/manual/sf-platform/public-api/get-your-access-token/\"\
-    >here</a> for more details. (Note: Most Senseforce backend APIs have the term\
-    \ 'galaxy' in their ULR)"
+  sensitive: true
+- description: "Your Senseforce API backend URL. This is the URL shown during the
+    Login screen. See <a href=\"https://manual.senseforce.io/manual/sf-platform/public-api/get-your-access-token/\"\
+    >here</a> for more details. (Note: Most Senseforce backend APIs have the term
+    'galaxy' in their ULR)"
   kind: string
   label: Airbyte Config Backend Url
   name: airbyte_config.backend_url
@@ -56,6 +59,7 @@ settings:
   kind: password
   label: Airbyte Config Dataset Id
   name: airbyte_config.dataset_id
+  sensitive: true
 - description: 'UTC date and time in the format 2017-01-25. Only data with "Timestamp"
     after this date will be replicated. Important note: This start date must be set
     to the first day of where your dataset provides data.  If your dataset has data
@@ -83,8 +87,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

@@ -18,7 +18,8 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: silver
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-typeform
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-typeform
 settings:
 - description: Airbyte image to run
   kind: string
@@ -45,6 +46,7 @@ settings:
   kind: password
   label: Airbyte Config Token
   name: airbyte_config.token
+  sensitive: true
 - description: When this parameter is set, the connector will replicate data only
     from the input forms. Otherwise, all forms in your Typeform account will be replicated.
     You can find form IDs in your form URLs. For example, in the URL "https://mysite.typeform.com/to/u6nXL7"
@@ -61,8 +63,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

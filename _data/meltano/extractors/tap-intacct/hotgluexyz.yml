@@ -22,11 +22,13 @@ settings:
 - kind: password
   label: Sender Password
   name: sender_password
+  sensitive: true
 - label: User ID
   name: user_id
 - kind: password
   label: User Password
   name: user_password
+  sensitive: true
 - description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.

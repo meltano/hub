@@ -18,7 +18,8 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-bigquery
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-bigquery
 settings:
 - description: Airbyte image to run
   kind: string
@@ -40,13 +41,16 @@ settings:
   kind: password
   label: Airbyte Config Project Id
   name: airbyte_config.project_id
+  sensitive: true
 - description: The dataset ID to search for tables and views. If you are only loading
     data from one dataset, setting this option could result in much faster schema
     discovery.
   kind: password
   label: Airbyte Config Dataset Id
   name: airbyte_config.dataset_id
-- description: The contents of your Service Account Key JSON file. See the <a href="https://docs.airbyte.com/integrations/sources/bigquery#setup-the-bigquery-source-in-airbyte">docs</a>
+  sensitive: true
+- description: The contents of your Service Account Key JSON file. See the <a 
+    href="https://docs.airbyte.com/integrations/sources/bigquery#setup-the-bigquery-source-in-airbyte">docs</a>
     for more information on how to obtain this key.
   kind: string
   label: Airbyte Config Credentials Json
@@ -60,8 +64,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

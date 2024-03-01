@@ -23,6 +23,7 @@ settings:
   kind: password
   label: Password
   name: password
+  sensitive: true
 - description: Role to be used for loading the data, e.g. `LOADER`. Also this role
     is GRANTed usage to all tables and schemas created
   label: Role

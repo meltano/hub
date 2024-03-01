@@ -51,6 +51,7 @@ settings:
   kind: password
   label: API Key
   name: api-key
+  sensitive: true
 - description: An optional absolute or relative path to the series.json. If not provided
     (and if the schemas directory is empty), the tap will look for a file named series.json
     in the same location as the config.json file.

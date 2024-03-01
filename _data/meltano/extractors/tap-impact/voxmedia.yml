@@ -24,10 +24,12 @@ settings:
   kind: password
   label: Auth Token
   name: auth_token
+  sensitive: true
 - description: Account SID for the API service
   kind: password
   label: Account Sid
   name: account_sid
+  sensitive: true
 - description: The earliest record date to sync
   kind: date_iso8601
   label: Start Date
@@ -40,8 +42,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

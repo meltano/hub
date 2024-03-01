@@ -31,6 +31,7 @@ settings:
   kind: password
   label: Password
   name: password
+  sensitive: true
 - description: A comma separated list of databases to filter for.
   label: Filter Databases
   name: filter_dbs

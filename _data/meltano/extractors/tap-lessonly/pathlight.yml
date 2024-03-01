@@ -19,6 +19,7 @@ settings:
   kind: password
   label: API Key
   name: api_key
+  sensitive: true
 - description: Your Lessonly subdomain.
   label: Subdomain
   name: subdomain

@@ -26,12 +26,14 @@ settings:
 - description: Your Intercom access token. [Intercom Authentication Types](https://developers.intercom.com/building-apps/docs/authentication-types)
     explains how to get an access_token. Make sure your [OAuth Scope](https://developers.intercom.com/building-apps/docs/oauth-scopes)
     allows Read access to the endpoints above. Additionally, your App should use [API
-    Version v1.4](https://developers.intercom.com/intercom-api-reference/v1.4/reference/introduction).
+    Version 
+    v1.4](https://developers.intercom.com/intercom-api-reference/v1.4/reference/introduction).
   kind: password
   label: Access Token
   name: access_token
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
+  sensitive: true
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
     can be expected to take."
   kind: date_iso8601
   label: Start Date

@@ -19,11 +19,13 @@ settings:
   kind: password
   label: AWS S3 Access Key ID
   name: aws_access_key_id
+  sensitive: true
 - description: S3 Secret Access Key. If not provided, aws_profile or AWS_ACCESS_KEY_ID
     environment variable will be used.
   kind: password
   label: AWS S3 Secret Access Key
   name: aws_secret_access_key
+  sensitive: true
 - description: The AWS region to use i.e. us-east-2.
   label: AWS Region
   name: region

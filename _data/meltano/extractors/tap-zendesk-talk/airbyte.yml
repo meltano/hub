@@ -18,7 +18,8 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-zendesk-talk
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-zendesk-talk
 settings:
 - description: Airbyte image to run
   kind: string
@@ -55,11 +56,13 @@ settings:
   kind: password
   label: Airbyte Config Credentials Api Token
   name: airbyte_config.credentials.api_token
+  sensitive: true
 - description: The value of the API token generated. See the <a href="https://docs.airbyte.io/integrations/sources/zendesk-talk">docs</a>
     for more information.
   kind: password
   label: Airbyte Config Credentials Access Token
   name: airbyte_config.credentials.access_token
+  sensitive: true
 - description: The date from which you'd like to replicate data for Zendesk Talk API,
     in the format YYYY-MM-DDT00:00:00Z. All data generated after this date will be
     replicated.
@@ -75,8 +78,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

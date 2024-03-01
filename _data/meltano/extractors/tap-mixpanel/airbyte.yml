@@ -18,7 +18,8 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: silver
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-mixpanel
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-mixpanel
 settings:
 - description: Airbyte image to run
   kind: string
@@ -50,12 +51,16 @@ settings:
   kind: password
   label: Airbyte Config Credentials Secret
   name: airbyte_config.credentials.secret
-- description: Mixpanel project secret. See the <a href="https://developer.mixpanel.com/reference/project-secret#managing-a-projects-secret">docs</a>
+  sensitive: true
+- description: Mixpanel project secret. See the <a 
+    href="https://developer.mixpanel.com/reference/project-secret#managing-a-projects-secret">docs</a>
     for more information on how to obtain this.
   kind: password
   label: Airbyte Config Credentials Api Secret
   name: airbyte_config.credentials.api_secret
-- description: Your project ID number. See the <a href="https://help.mixpanel.com/hc/en-us/articles/115004490503-Project-Settings#project-id">docs</a>
+  sensitive: true
+- description: Your project ID number. See the <a 
+    href="https://help.mixpanel.com/hc/en-us/articles/115004490503-Project-Settings#project-id">docs</a>
     for more information on how to obtain this.
   kind: integer
   label: Airbyte Config Project Id
@@ -67,7 +72,8 @@ settings:
   label: Airbyte Config Attribution Window
   name: airbyte_config.attribution_window
 - description: Time zone in which integer date times are stored. The project timezone
-    may be found in the project settings in the <a href="https://help.mixpanel.com/hc/en-us/articles/115004547203-Manage-Timezones-for-Projects-in-Mixpanel">Mixpanel
+    may be found in the project settings in the <a 
+    href="https://help.mixpanel.com/hc/en-us/articles/115004547203-Manage-Timezones-for-Projects-in-Mixpanel">Mixpanel
     console</a>.
   kind: string
   label: Airbyte Config Project Timezone
@@ -111,8 +117,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

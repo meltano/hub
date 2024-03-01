@@ -18,7 +18,8 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: silver
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-github
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-github
 settings:
 - description: Airbyte image to run
   kind: string
@@ -44,12 +45,14 @@ settings:
   kind: password
   label: Airbyte Config Credentials Access Token
   name: airbyte_config.credentials.access_token
+  sensitive: true
 - description: Log into GitHub and then generate a <a href="https://github.com/settings/tokens">personal
     access token</a>. To load balance your API quota consumption across multiple API
     tokens, input multiple tokens separated with ","
   kind: password
   label: Airbyte Config Credentials Personal Access Token
   name: airbyte_config.credentials.personal_access_token
+  sensitive: true
 - description: The date from which you'd like to replicate data from GitHub in the
     format YYYY-MM-DDT00:00:00Z. For the streams which support this configuration,
     only data generated on or after the start date will be replicated. This field
@@ -85,8 +88,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

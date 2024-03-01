@@ -18,7 +18,8 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-google-ads
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-google-ads
 settings:
 - description: Airbyte image to run
   kind: string
@@ -37,37 +38,49 @@ settings:
   label: Docker Mounts
   name: docker_mounts
 - description: Developer token granted by Google to use their APIs. More instruction
-    on how to find this value in our <a href="https://docs.airbyte.com/integrations/sources/google-ads#setup-guide">docs</a>
+    on how to find this value in our <a 
+    href="https://docs.airbyte.com/integrations/sources/google-ads#setup-guide">docs</a>
   kind: password
   label: Airbyte Config Credentials Developer Token
   name: airbyte_config.credentials.developer_token
+  sensitive: true
 - description: The Client ID of your Google Ads developer application. More instruction
-    on how to find this value in our <a href="https://docs.airbyte.com/integrations/sources/google-ads#setup-guide">docs</a>
+    on how to find this value in our <a 
+    href="https://docs.airbyte.com/integrations/sources/google-ads#setup-guide">docs</a>
   kind: password
   label: Airbyte Config Credentials Client Id
   name: airbyte_config.credentials.client_id
+  sensitive: true
 - description: The Client Secret of your Google Ads developer application. More instruction
-    on how to find this value in our <a href="https://docs.airbyte.com/integrations/sources/google-ads#setup-guide">docs</a>
+    on how to find this value in our <a 
+    href="https://docs.airbyte.com/integrations/sources/google-ads#setup-guide">docs</a>
   kind: password
   label: Airbyte Config Credentials Client Secret
   name: airbyte_config.credentials.client_secret
+  sensitive: true
 - description: The token for obtaining a new access token. More instruction on how
-    to find this value in our <a href="https://docs.airbyte.com/integrations/sources/google-ads#setup-guide">docs</a>
+    to find this value in our <a 
+    href="https://docs.airbyte.com/integrations/sources/google-ads#setup-guide">docs</a>
   kind: password
   label: Airbyte Config Credentials Refresh Token
   name: airbyte_config.credentials.refresh_token
+  sensitive: true
 - description: Access Token for making authenticated requests. More instruction on
-    how to find this value in our <a href="https://docs.airbyte.com/integrations/sources/google-ads#setup-guide">docs</a>
+    how to find this value in our <a 
+    href="https://docs.airbyte.com/integrations/sources/google-ads#setup-guide">docs</a>
   kind: password
   label: Airbyte Config Credentials Access Token
   name: airbyte_config.credentials.access_token
+  sensitive: true
 - description: Comma separated list of (client) customer IDs. Each customer ID must
     be specified as a 10-digit number without dashes. More instruction on how to find
-    this value in our <a href="https://docs.airbyte.com/integrations/sources/google-ads#setup-guide">docs</a>.
+    this value in our <a 
+    href="https://docs.airbyte.com/integrations/sources/google-ads#setup-guide">docs</a>.
     Metrics streams like AdGroupAdReport cannot be requested for a manager account.
   kind: password
   label: Airbyte Config Customer Id
   name: airbyte_config.customer_id
+  sensitive: true
 - description: UTC date and time in the format 2017-01-25. Any data before this date
     will not be replicated.
   kind: string
@@ -85,13 +98,16 @@ settings:
 - description: If your access to the customer account is through a manager account,
     this field is required and must be set to the customer ID of the manager account
     (10-digit number without dashes). More information about this field you can see
-    <a href="https://developers.google.com/google-ads/api/docs/concepts/call-structure#cid">here</a>
+    <a 
+    href="https://developers.google.com/google-ads/api/docs/concepts/call-structure#cid">here</a>
   kind: password
   label: Airbyte Config Login Customer Id
   name: airbyte_config.login_customer_id
+  sensitive: true
 - description: A conversion window is the period of time after an ad interaction (such
     as an ad click or video view) during which a conversion, such as a purchase, is
-    recorded in Google Ads. For more information, see Google's <a href="https://support.google.com/google-ads/answer/3123169?hl=en">documentation</a>.
+    recorded in Google Ads. For more information, see Google's <a 
+    href="https://support.google.com/google-ads/answer/3123169?hl=en">documentation</a>.
   kind: integer
   label: Airbyte Config Conversion Window Days
   name: airbyte_config.conversion_window_days
@@ -104,8 +120,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

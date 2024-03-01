@@ -18,7 +18,8 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-airtable
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-airtable
 settings:
 - description: Airbyte image to run
   kind: string
@@ -36,17 +37,20 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: The API Key for the Airtable account. See the <a href="https://support.airtable.com/hc/en-us/articles/219046777-How-do-I-get-my-API-key-">Support
+- description: The API Key for the Airtable account. See the <a 
+    href="https://support.airtable.com/hc/en-us/articles/219046777-How-do-I-get-my-API-key-">Support
     Guide</a> for more information on how to obtain this key.
   kind: password
   label: Airbyte Config Api Key
   name: airbyte_config.api_key
+  sensitive: true
 - description: The Base ID to integrate the data from. You can find the Base ID following
     the link <a href="https://airtable.com/api">Airtable API</a>, log in to your account,
     select the base you need and find Base ID in the docs.
   kind: password
   label: Airbyte Config Base Id
   name: airbyte_config.base_id
+  sensitive: true
 - description: The list of Tables to integrate.
   kind: array
   label: Airbyte Config Tables
@@ -60,8 +64,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

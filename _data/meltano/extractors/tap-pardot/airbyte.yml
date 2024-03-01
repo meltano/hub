@@ -18,7 +18,8 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-pardot
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-pardot
 settings:
 - description: Airbyte image to run
   kind: string
@@ -41,20 +42,25 @@ settings:
   kind: password
   label: Airbyte Config Pardot Business Unit Id
   name: airbyte_config.pardot_business_unit_id
+  sensitive: true
 - description: The Consumer Key that can be found when viewing your app in Salesforce
   kind: password
   label: Airbyte Config Client Id
   name: airbyte_config.client_id
+  sensitive: true
 - description: The Consumer Secret that can be found when viewing your app in Salesforce
   kind: password
   label: Airbyte Config Client Secret
   name: airbyte_config.client_secret
+  sensitive: true
 - description: Salesforce Refresh Token used for Airbyte to access your Salesforce
-    account. If you don't know what this is, follow this <a href="https://medium.com/@bpmmendis94/obtain-access-refresh-tokens-from-salesforce-rest-api-a324fe4ccd9b">guide</a>
+    account. If you don't know what this is, follow this <a 
+    href="https://medium.com/@bpmmendis94/obtain-access-refresh-tokens-from-salesforce-rest-api-a324fe4ccd9b">guide</a>
     to retrieve it.
   kind: password
   label: Airbyte Config Refresh Token
   name: airbyte_config.refresh_token
+  sensitive: true
 - description: UTC date and time in the format 2017-01-25T00:00:00Z. Any data before
     this date will not be replicated. Leave blank to skip this filter
   kind: string
@@ -74,8 +80,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

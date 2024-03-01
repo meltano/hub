@@ -11,7 +11,8 @@ logo_url: /assets/logos/extractors/kafka.png
 maintenance_status: active
 name: tap-kafka
 namespace: tap_kafka
-pip_url: git+https://github.com/transferwise/pipelinewise-singer-python.git@da64a10cdbcad48ab373d4dab3d9e6dd6f58556b
+pip_url: 
+  git+https://github.com/transferwise/pipelinewise-singer-python.git@da64a10cdbcad48ab373d4dab3d9e6dd6f58556b
   pipelinewise-tap-kafka
 quality: silver
 repo: https://github.com/transferwise/pipelinewise-tap-kafka

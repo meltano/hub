@@ -43,6 +43,7 @@ settings:
   kind: password
   label: Password
   name: password
+  sensitive: true
 - description: Whether to add decimal format to the schema when decimal strings are
     provided. Default False.
   kind: boolean

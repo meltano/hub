@@ -23,15 +23,19 @@ settings:
 - kind: password
   label: OAuth Client ID
   name: oauth_credentials.client_id
+  sensitive: true
 - kind: password
   label: OAuth Client Secret
   name: oauth_credentials.client_secret
+  sensitive: true
 - kind: password
   label: OAuth Access Token
   name: oauth_credentials.access_token
+  sensitive: true
 - kind: password
   label: OAuth Refresh Token
   name: oauth_credentials.refresh_token
+  sensitive: true
 - label: View ID
   name: view_id
   placeholder: Ex. 198343027

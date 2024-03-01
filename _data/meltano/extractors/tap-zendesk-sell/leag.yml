@@ -22,6 +22,7 @@ settings:
   kind: password
   label: Access Token
   name: access_token
+  sensitive: true
 - description: The device's universally unique identifier (UUID)
   label: Device UUID
   name: device_uuid

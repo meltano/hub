@@ -42,6 +42,7 @@ settings:
   kind: password
   label: Password
   name: PASSWORD
+  sensitive: true
 - description: Personal token name generated on the Tableau site.
   label: Token Name
   name: TOKEN_NAME
@@ -49,6 +50,7 @@ settings:
   kind: password
   label: Token Secret
   name: TOKEN_SECRET
+  sensitive: true
 - description: LUID of the Tableau datasource
   label: Datasource LUID
   name: DATASOURCE_LUID

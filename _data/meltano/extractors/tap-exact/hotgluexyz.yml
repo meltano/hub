@@ -21,18 +21,22 @@ settings:
   kind: password
   label: Access Token
   name: access_token
+  sensitive: true
 - description: Your Exact refresh token.
   kind: password
   label: Refresh Token
   name: refresh_token
+  sensitive: true
 - description: Your Exact client ID.
   kind: password
   label: Client ID
   name: client_id
+  sensitive: true
 - description: Your Exact client secret.
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
 - description: The Exact current division.
   kind: string
   label: Current Division

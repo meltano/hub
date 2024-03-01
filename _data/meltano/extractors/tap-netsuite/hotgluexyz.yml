@@ -20,29 +20,37 @@ settings:
   label: NetSuite Account
   name: ns_account
 - description: Your consumer key for token based authentication consumer key for SOAP
-    connection. Visit the https://support.cazoomi.com/hc/en-us/articles/360010093392-How-to-Setup-NetSuite-Token-Based-Authentication-as-Authentication-Type
+    connection. Visit the 
+    https://support.cazoomi.com/hc/en-us/articles/360010093392-How-to-Setup-NetSuite-Token-Based-Authentication-as-Authentication-Type
     for details.
   kind: password
   label: NetSuite Consumer Key
   name: ns_consumer_key
+  sensitive: true
 - description: Your consumer secret for token based authentication consumer key for
-    SOAP connection. Visit the https://support.cazoomi.com/hc/en-us/articles/360010093392-How-to-Setup-NetSuite-Token-Based-Authentication-as-Authentication-Type
+    SOAP connection. Visit the 
+    https://support.cazoomi.com/hc/en-us/articles/360010093392-How-to-Setup-NetSuite-Token-Based-Authentication-as-Authentication-Type
     for details.
   kind: password
   label: NetSuite Consumer Secret
   name: ns_consumer_secret
+  sensitive: true
 - description: Your token key for token based authentication consumer key for SOAP
-    connection. Visit the https://support.cazoomi.com/hc/en-us/articles/360010093392-How-to-Setup-NetSuite-Token-Based-Authentication-as-Authentication-Type
+    connection. Visit the 
+    https://support.cazoomi.com/hc/en-us/articles/360010093392-How-to-Setup-NetSuite-Token-Based-Authentication-as-Authentication-Type
     for details.
   kind: password
   label: NetSuite Token Key
   name: ns_token_key
+  sensitive: true
 - description: Your token secret for token based authentication consumer key for SOAP
-    connection. Visit the https://support.cazoomi.com/hc/en-us/articles/360010093392-How-to-Setup-NetSuite-Token-Based-Authentication-as-Authentication-Type
+    connection. Visit the 
+    https://support.cazoomi.com/hc/en-us/articles/360010093392-How-to-Setup-NetSuite-Token-Based-Authentication-as-Authentication-Type
     for details.
   kind: password
   label: NetSuite Token Secret
   name: ns_token_secret
+  sensitive: true
 - description: When new fields are discovered in NetSuite objects, the select_fields_by_default
     key describes whether or not the tap will select those fields by default.
   kind: boolean

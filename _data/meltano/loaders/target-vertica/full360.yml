@@ -89,6 +89,7 @@ settings:
   kind: password
   label: Password
   name: password
+  sensitive: true
 - description: Vertica port
   kind: integer
   label: Port

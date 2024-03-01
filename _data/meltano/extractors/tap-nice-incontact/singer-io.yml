@@ -29,6 +29,7 @@ settings:
   kind: password
   label: API Key
   name: api_key
+  sensitive: true
 - description: 'NICE inContact instance cluster. Example: "c42"'
   label: API Cluster
   name: api_cluster
@@ -41,6 +42,7 @@ settings:
   kind: password
   label: API Secret
   name: api_secret
+  sensitive: true
 - description: RFC3339 date string "2017-01-01T00:00:00Z"
   kind: date_iso8601
   label: Start Date

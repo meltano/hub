@@ -21,6 +21,7 @@ settings:
   kind: password
   label: Personal Access Tokens
   name: access_token
+  sensitive: true
 - description: Space-separated list of repositories. Each repository must be prefaced
     by the user/organization name, e.g. `"meltano/meltano meltano/sdk meltano/hub"`
   label: Repositories

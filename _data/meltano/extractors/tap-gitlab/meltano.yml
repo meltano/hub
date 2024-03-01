@@ -27,6 +27,7 @@ settings:
   name: private_token
   placeholder: Ex. *****************
   value: ''
+  sensitive: true
 - description: Space-separated names of groups to extract data from. Leave empty and
     provide a project name if you'd like to pull data from a project in a personal
     user namespace.

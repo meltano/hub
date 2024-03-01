@@ -18,7 +18,8 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-aws-cloudtrail
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-aws-cloudtrail
 settings:
 - description: Airbyte image to run
   kind: string
@@ -41,11 +42,13 @@ settings:
   kind: password
   label: Airbyte Config AWS Key Id
   name: airbyte_config.aws_key_id
+  sensitive: true
 - description: AWS CloudTrail Access Key ID. See the <a href="https://docs.airbyte.io/integrations/sources/aws-cloudtrail">docs</a>
     for more information on how to obtain this key.
   kind: password
   label: Airbyte Config AWS Secret Key
   name: airbyte_config.aws_secret_key
+  sensitive: true
 - description: The default AWS Region to use, for example, us-west-1 or us-west-2.
     When specifying a Region inline during client initialization, this property is
     named region_name.
@@ -66,8 +69,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

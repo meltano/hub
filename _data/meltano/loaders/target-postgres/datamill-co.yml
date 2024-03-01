@@ -34,6 +34,7 @@ settings:
 - kind: password
   label: Password
   name: postgres_password
+  sensitive: true
 - aliases:
   - schema
   description: |
@@ -44,7 +45,8 @@ settings:
   label: Schema
   name: postgres_schema
   value: $MELTANO_EXTRACT__LOAD_SCHEMA
-- description: Refer to the [libpq docs](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-PARAMKEYWORDS)
+- description: Refer to the [libpq 
+    docs](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-PARAMKEYWORDS)
     for more information about SSL.
   label: SSL Mode
   name: postgres_sslmode

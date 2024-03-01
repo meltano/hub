@@ -31,9 +31,11 @@ settings:
   kind: password
   label: Password
   name: password
+  sensitive: true
 - description: This is the database used for authentication, not the database used
     for extraction. The data extracted is determined by following the [selecting entities
-    and attributes](https://docs.meltano.com/getting-started.html#select-entities-and-attributes-to-extract)
+    and 
+    attributes](https://docs.meltano.com/getting-started.html#select-entities-and-attributes-to-extract)
     instructions.
   label: Database Name
   name: database

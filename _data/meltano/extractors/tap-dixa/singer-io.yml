@@ -18,6 +18,7 @@ settings:
   kind: password
   label: Api Token
   name: api_token
+  sensitive: true
 - description: 'One of the following: "HOUR", "DAY", "WEEK", "MONTH". Default is "MONTH".
     Interval is used for determing the time interval for the created_after and created_before
     query string parameters for the conversations and messages streams.'

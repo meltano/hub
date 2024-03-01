@@ -18,7 +18,8 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-fauna
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-fauna
 settings:
 - description: Airbyte image to run
   kind: string
@@ -36,7 +37,8 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: Domain of Fauna to query. Defaults db.fauna.com. See <a href=https://docs.fauna.com/fauna/current/learn/understanding/region_groups#how-to-use-region-groups>the
+- description: Domain of Fauna to query. Defaults db.fauna.com. See <a 
+    href=https://docs.fauna.com/fauna/current/learn/understanding/region_groups#how-to-use-region-groups>the
     docs</a>.
   kind: string
   label: Airbyte Config Domain
@@ -53,10 +55,11 @@ settings:
   kind: password
   label: Airbyte Config Secret
   name: airbyte_config.secret
-- description: "The page size used when reading documents from the database. The larger\
-    \ the page size, the faster the connector processes documents. However, if a page\
-    \ is too large, the connector may fail. <br>\nChoose your page size based on how\
-    \ large the documents are. <br>\nSee <a href=\"https://docs.fauna.com/fauna/current/learn/understanding/types#page\"\
+  sensitive: true
+- description: "The page size used when reading documents from the database. The larger
+    the page size, the faster the connector processes documents. However, if a page
+    is too large, the connector may fail. <br>\nChoose your page size based on how
+    large the documents are. <br>\nSee <a href=\"https://docs.fauna.com/fauna/current/learn/understanding/types#page\"\
     >the docs</a>."
   kind: integer
   label: Airbyte Config Collection Page Size
@@ -78,8 +81,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

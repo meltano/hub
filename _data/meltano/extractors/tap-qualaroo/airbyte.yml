@@ -18,7 +18,8 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-qualaroo
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-qualaroo
 settings:
 - description: Airbyte image to run
   kind: string
@@ -36,16 +37,20 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: A Qualaroo token. See the <a href="https://help.qualaroo.com/hc/en-us/articles/201969438-The-REST-Reporting-API">docs</a>
+- description: A Qualaroo token. See the <a 
+    href="https://help.qualaroo.com/hc/en-us/articles/201969438-The-REST-Reporting-API">docs</a>
     for instructions on how to generate it.
   kind: password
   label: Airbyte Config Token
   name: airbyte_config.token
-- description: A Qualaroo token. See the <a href="https://help.qualaroo.com/hc/en-us/articles/201969438-The-REST-Reporting-API">docs</a>
+  sensitive: true
+- description: A Qualaroo token. See the <a 
+    href="https://help.qualaroo.com/hc/en-us/articles/201969438-The-REST-Reporting-API">docs</a>
     for instructions on how to generate it.
   kind: password
   label: Airbyte Config Key
   name: airbyte_config.key
+  sensitive: true
 - description: UTC date and time in the format 2017-01-25T00:00:00Z. Any data before
     this date will not be replicated.
   kind: string
@@ -65,8 +70,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

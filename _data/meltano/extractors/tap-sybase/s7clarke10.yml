@@ -63,6 +63,7 @@ settings:
   kind: password
   label: Password
   name: password
+  sensitive: true
 - description: The port that the database is running on, defaults to port 2638
   kind: integer
   label: Port

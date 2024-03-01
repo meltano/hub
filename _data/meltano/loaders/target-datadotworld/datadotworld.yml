@@ -16,6 +16,7 @@ settings:
   kind: password
   label: API Token
   name: api_token
+  sensitive: true
 - description: The dataset ID.
   label: Dataset Id
   name: dataset_id

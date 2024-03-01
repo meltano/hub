@@ -28,6 +28,7 @@ settings:
   kind: password
   label: Password
   name: password
+  sensitive: true
 - description: PostgreSQL database name
   label: Database Name
   name: dbname

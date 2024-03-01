@@ -18,7 +18,8 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: silver
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-amplitude
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-amplitude
 settings:
 - description: Airbyte image to run
   kind: string
@@ -50,11 +51,13 @@ settings:
   kind: password
   label: Airbyte Config Api Key
   name: airbyte_config.api_key
+  sensitive: true
 - description: Amplitude Secret Key. See the <a href="https://docs.airbyte.com/integrations/sources/amplitude#setup-guide">setup
     guide</a> for more information on how to obtain this key.
   kind: password
   label: Airbyte Config Secret Key
   name: airbyte_config.secret_key
+  sensitive: true
 - description: UTC date and time in the format 2021-01-25T00:00:00Z. Any data before
     this date will not be replicated.
   kind: string
@@ -69,8 +72,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

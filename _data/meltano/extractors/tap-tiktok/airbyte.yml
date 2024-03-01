@@ -18,7 +18,8 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-tiktok-marketing
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-tiktok-marketing
 settings:
 - description: Airbyte image to run
   kind: string
@@ -44,19 +45,23 @@ settings:
   kind: password
   label: Airbyte Config Credentials App Id
   name: airbyte_config.credentials.app_id
+  sensitive: true
 - description: The Developer Application Secret.
   kind: password
   label: Airbyte Config Credentials Secret
   name: airbyte_config.credentials.secret
+  sensitive: true
 - description: Long-term Authorized Access Token., The long-term authorized access
     token.
   kind: password
   label: Airbyte Config Credentials Access Token
   name: airbyte_config.credentials.access_token
+  sensitive: true
 - description: The Advertiser ID which generated for the developer's Sandbox application.
   kind: password
   label: Airbyte Config Credentials Advertiser Id
   name: airbyte_config.credentials.advertiser_id
+  sensitive: true
 - description: 'The Start Date in format: YYYY-MM-DD. Any data before this date will
     not be replicated. If this parameter is not set, all data will be replicated.'
   kind: string
@@ -70,7 +75,8 @@ settings:
   label: Airbyte Config End Date
   name: airbyte_config.end_date
 - description: The granularity used for aggregating performance data in reports. See
-    <a href="https://docs.airbyte.com/integrations/sources/tiktok-marketing/#report-aggregation">the
+    <a 
+    href="https://docs.airbyte.com/integrations/sources/tiktok-marketing/#report-aggregation">the
     docs</a>.
   kind: options
   label: Airbyte Config Report Granularity
@@ -91,8 +97,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

@@ -18,8 +18,8 @@ settings:
 - description: The user agent to send with requests.
   label: User Agent
   name: user_agent
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
     can be expected to take."
   kind: date_iso8601
   label: Start Date
@@ -28,6 +28,7 @@ settings:
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
 - description: A globally unique identifier (GUID) that is different than your organization
     name or domain. Follow these steps to obtain - open one of the Teams where you
     belong inside the Teams Application -> Click on the … next to the Team title ->
@@ -39,6 +40,7 @@ settings:
   kind: password
   label: Client ID
   name: client_id
+  sensitive: true
 settings_group_validation:
 - - user_agent
   - start_date

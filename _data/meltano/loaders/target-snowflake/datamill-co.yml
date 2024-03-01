@@ -31,6 +31,7 @@ settings:
 - kind: password
   label: Password
   name: snowflake_password
+  sensitive: true
 - description: If not specified, Snowflake will use the user's default role.
   label: Role
   name: snowflake_role
@@ -110,9 +111,11 @@ settings:
 - kind: password
   label: Target S3 AWS Access Key ID
   name: target_s3.aws_access_key_id
+  sensitive: true
 - kind: password
   label: Target S3 AWS Secret Access Key
   name: target_s3.aws_secret_access_key
+  sensitive: true
 settings_group_validation:
 - - snowflake_account
   - snowflake_username

@@ -18,7 +18,8 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-zendesk-support
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-zendesk-support
 settings:
 - description: Airbyte image to run
   kind: string
@@ -57,15 +58,18 @@ settings:
   kind: password
   label: Airbyte Config Credentials Access Token
   name: airbyte_config.credentials.access_token
+  sensitive: true
 - description: The user email for your Zendesk account.
   kind: string
   label: Airbyte Config Credentials Email
   name: airbyte_config.credentials.email
-- description: The value of the API token generated. See the <a href="https://docs.airbyte.com/integrations/sources/zendesk-support#setup-guide">docs</a>
+- description: The value of the API token generated. See the <a 
+    href="https://docs.airbyte.com/integrations/sources/zendesk-support#setup-guide">docs</a>
     for more information.
   kind: password
   label: Airbyte Config Credentials Api Token
   name: airbyte_config.credentials.api_token
+  sensitive: true
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
@@ -75,8 +79,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

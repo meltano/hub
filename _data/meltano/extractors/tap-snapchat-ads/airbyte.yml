@@ -18,7 +18,8 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-snapchat-marketing
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-snapchat-marketing
 settings:
 - description: Airbyte image to run
   kind: string
@@ -40,14 +41,17 @@ settings:
   kind: password
   label: Airbyte Config Client Id
   name: airbyte_config.client_id
+  sensitive: true
 - description: The Client Secret of your Snapchat developer application.
   kind: password
   label: Airbyte Config Client Secret
   name: airbyte_config.client_secret
+  sensitive: true
 - description: Refresh Token to renew the expired Access Token.
   kind: password
   label: Airbyte Config Refresh Token
   name: airbyte_config.refresh_token
+  sensitive: true
 - description: Date in the format 2022-01-01. Any data before this date will not be
     replicated.
   kind: string
@@ -67,8 +71,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

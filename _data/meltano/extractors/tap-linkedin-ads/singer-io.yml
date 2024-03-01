@@ -22,6 +22,7 @@ settings:
   kind: password
   label: Client ID
   name: client_id
+  sensitive: true
 - description: The date window to request date from. The default is 30 days.
   kind: integer
   label: Date Window Size
@@ -34,10 +35,12 @@ settings:
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
 - description: Your access token.
   kind: password
   label: Access Token
   name: access_token
+  sensitive: true
 - description: The user agent to send with requests.
   label: User Agent
   name: user_agent
@@ -45,6 +48,7 @@ settings:
   kind: password
   label: Refresh Token
   name: refresh_token
+  sensitive: true
 settings_group_validation:
 - - accounts
   - access_token

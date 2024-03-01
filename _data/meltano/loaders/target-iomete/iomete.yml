@@ -36,11 +36,11 @@ settings:
   kind: boolean
   label: Validate Records
   name: validate_records
-- description: "(Default: False) When hard_delete option is true then DELETE SQL commands\
-    \ will be performed in iomete to delete rows in tables. It's achieved by continuously\
-    \ checking the _SDC_DELETED_AT metadata column sent by the singer tap. Due to\
-    \ deleting rows requires metadata columns, hard_delete option automatically enables\
-    \ the add_metadata_columns option as well."
+- description: "(Default: False) When hard_delete option is true then DELETE SQL commands
+    will be performed in iomete to delete rows in tables. It's achieved by continuously
+    checking the _SDC_DELETED_AT metadata column sent by the singer tap. Due to deleting
+    rows requires metadata columns, hard_delete option automatically enables the add_metadata_columns
+    option as well."
   kind: boolean
   label: Hard Delete
   name: hard_delete
@@ -49,6 +49,7 @@ settings:
   kind: password
   label: Aws Secret Access Key
   name: aws_secret_access_key
+  sensitive: true
 - description: '(Default: 0) Object type RECORD items from taps can be loaded into
     STRUCT columns as JSON (default) or we can flatten the schema by creating columns
     automatically. When value is 0 (default) then flattening functionality is turned
@@ -110,6 +111,7 @@ settings:
   kind: password
   label: Aws Session Token
   name: aws_session_token
+  sensitive: true
 - description: AWS profile name for profile based authentication. If not provided,
     AWS_PROFILE environment variable will be used.
   label: Aws Profile
@@ -138,10 +140,12 @@ settings:
   kind: password
   label: Aws Access Key Id
   name: aws_access_key_id
+  sensitive: true
 - description: iomete Password
   kind: password
   label: Password
   name: password
+  sensitive: true
 - description: Useful if you want to load multiple streams from one tap to multiple
     iomete schemas
   kind: object

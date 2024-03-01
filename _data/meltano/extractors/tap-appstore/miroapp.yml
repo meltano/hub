@@ -15,10 +15,12 @@ pip_url: git+https://github.com/miroapp/tap-appstore.git
 quality: silver
 repo: https://github.com/miroapp/tap-appstore
 settings:
-- description: You can find your vendor number in https://developer.apple.com/help/app-store-connect/getting-paid/view-payments-and-proceeds.
+- description: You can find your vendor number in 
+    https://developer.apple.com/help/app-store-connect/getting-paid/view-payments-and-proceeds.
   label: Vendor
   name: vendor
-- description: Your issuer ID from the API Keys page in App Store Connect, for example, 57246542-96fe-1a63-e053-0824d011072a
+- description: Your issuer ID from the API Keys page in App Store Connect, for example,
+    57246542-96fe-1a63-e053-0824d011072a
   label: Issuer ID
   name: issuer_id
 - description: Determines how much historical data will be extracted. Please be aware

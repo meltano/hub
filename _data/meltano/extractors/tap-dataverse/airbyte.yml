@@ -6,7 +6,8 @@ capabilities:
 - stream-maps
 - schema-flattening
 description: Microsoft Dataverse is a data storage and management engine
-domain_url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
+domain_url: 
+  https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
@@ -18,7 +19,8 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-microsoft-dataverse
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-microsoft-dataverse
 settings:
 - description: Airbyte image to run
   kind: string
@@ -44,14 +46,17 @@ settings:
   kind: password
   label: Airbyte Config Tenant Id
   name: airbyte_config.tenant_id
+  sensitive: true
 - description: App Registration Client Id
   kind: password
   label: Airbyte Config Client Id
   name: airbyte_config.client_id
+  sensitive: true
 - description: App Registration Client Secret
   kind: password
   label: Airbyte Config Client Secret Value
   name: airbyte_config.client_secret_value
+  sensitive: true
 - description: Max number of results per page. Default=5000
   kind: integer
   label: Airbyte Config Odata Maxpagesize
@@ -65,8 +70,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

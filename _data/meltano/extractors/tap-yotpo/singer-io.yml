@@ -19,6 +19,7 @@ settings:
   kind: password
   label: API Secret
   name: api_secret
+  sensitive: true
 - description: Parameter is used to re-fetch reviews that have been updated (or deleted)
     since the last time they were synced. Default, 30.
   kind: integer
@@ -28,8 +29,8 @@ settings:
   kind: integer
   label: Request Timeout
   name: request_timeout
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
     can be expected to take."
   kind: date_iso8601
   label: Start Date
@@ -43,6 +44,7 @@ settings:
   kind: password
   label: API Key
   name: api_key
+  sensitive: true
 settings_group_validation:
 - - api_secret
   - start_date

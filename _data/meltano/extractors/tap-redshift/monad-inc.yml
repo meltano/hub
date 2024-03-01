@@ -39,6 +39,7 @@ settings:
   kind: password
   label: Password
   name: password
+  sensitive: true
 - description: Your Redshift schema name.
   label: Schema Name
   name: schema

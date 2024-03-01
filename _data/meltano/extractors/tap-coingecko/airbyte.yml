@@ -18,7 +18,8 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-coingecko-coins
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-coingecko-coins
 settings:
 - description: Airbyte image to run
   kind: string
@@ -40,11 +41,13 @@ settings:
   kind: password
   label: Airbyte Config Api Key
   name: airbyte_config.api_key
-- description: "CoinGecko coin ID (e.g. bitcoin). Can be retrieved from the\n`/coins/list`\
-    \ endpoint.\n"
+  sensitive: true
+- description: "CoinGecko coin ID (e.g. bitcoin). Can be retrieved from the\n`/coins/list`
+    endpoint.\n"
   kind: password
   label: Airbyte Config Coin Id
   name: airbyte_config.coin_id
+  sensitive: true
 - description: "The target currency of market data (e.g. usd, eur, jpy, etc.)\n"
   kind: string
   label: Airbyte Config Vs Currency
@@ -87,8 +90,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

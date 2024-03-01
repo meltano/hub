@@ -20,13 +20,14 @@ settings:
   kind: password
   label: Private Key
   name: private_key
+  sensitive: true
 - description: All API calls start with a base URL. Mailgun allows the ability to
     send and receive email in either US region or EU region. Be sure to use the appropriate
     base URL based on which region you've created your domain in. Default https://api.mailgun.net/v3/.
   label: Base Url
   name: base_url
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
     can be expected to take."
   kind: date_iso8601
   label: Start Date

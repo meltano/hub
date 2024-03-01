@@ -24,6 +24,7 @@ settings:
   kind: password
   label: Client Id
   name: client_id
+  sensitive: true
 - description: path to the private-key.pem file obtained from "Implementing OAuth
     for the Apple Search Ads API".
   label: Private Key File

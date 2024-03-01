@@ -22,6 +22,7 @@ settings:
   kind: password
   label: Password
   name: password
+  sensitive: true
 - description: The base URL for your Jira instance.
   label: Base URL
   name: base_url
@@ -30,6 +31,7 @@ settings:
   kind: password
   label: OAuth Client Secret
   name: oauth_client_secret
+  sensitive: true
 - description: The client ID used for OAuth authentication.
   label: OAuth Client ID
   name: oauth_client_id
@@ -37,6 +39,7 @@ settings:
   kind: password
   label: Access Token
   name: access_token
+  sensitive: true
 - description: The cloud ID of your JIRA instance.
   label: Cloud ID
   name: cloud_id
@@ -44,6 +47,7 @@ settings:
   kind: password
   label: Refresh Token
   name: refresh_token
+  sensitive: true
 - description: Specifies the date at which the tap will begin pulling data. This works
     only for the streams that support it.
   kind: date_iso8601

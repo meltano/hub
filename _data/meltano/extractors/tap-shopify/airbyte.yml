@@ -18,7 +18,8 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-shopify
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-shopify
 settings:
 - description: Airbyte image to run
   kind: string
@@ -49,18 +50,22 @@ settings:
   kind: password
   label: Airbyte Config Credentials Api Password
   name: airbyte_config.credentials.api_password
+  sensitive: true
 - description: The Client ID of the Shopify developer application.
   kind: password
   label: Airbyte Config Credentials Client Id
   name: airbyte_config.credentials.client_id
+  sensitive: true
 - description: The Client Secret of the Shopify developer application.
   kind: password
   label: Airbyte Config Credentials Client Secret
   name: airbyte_config.credentials.client_secret
+  sensitive: true
 - description: The Access Token for making authenticated requests.
   kind: password
   label: Airbyte Config Credentials Access Token
   name: airbyte_config.credentials.access_token
+  sensitive: true
 - description: 'The date you would like to replicate data from. Format: YYYY-MM-DD.
     Any data before this date will not be replicated.'
   kind: string
@@ -75,8 +80,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

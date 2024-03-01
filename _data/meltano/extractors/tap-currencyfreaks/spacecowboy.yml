@@ -22,6 +22,7 @@ settings:
   kind: password
   label: API key
   name: api_key
+  sensitive: true
 - description: Optional list of currencies to fetch
   documentation: https://currencyfreaks.com/documentation.html#SupportedCurrencies
   label: Symbols

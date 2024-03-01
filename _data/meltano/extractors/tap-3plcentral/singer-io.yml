@@ -19,8 +19,9 @@ settings:
   kind: password
   label: Client Id
   name: client_id
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
+  sensitive: true
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
     can be expected to take."
   kind: date_iso8601
   label: Start Date
@@ -32,6 +33,7 @@ settings:
   kind: password
   label: TPL Key
   name: tpl_key
+  sensitive: true
 - description: The user agent to send with requests.
   label: User Agent
   name: user_agent
@@ -43,6 +45,7 @@ settings:
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
 - description: Integer ID number for the user.
   kind: integer
   label: User Login Id

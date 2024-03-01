@@ -25,10 +25,12 @@ settings:
   kind: password
   label: OAuth Client ID
   name: oauth_client_id
+  sensitive: true
 - description: Google Analytics Client Secret
   kind: password
   label: OAuth Client Secret
   name: oauth_client_secret
+  sensitive: true
 - description: The GA4 property ID to sync data from.
   kind: string
   label: Property ID
@@ -37,6 +39,7 @@ settings:
   kind: password
   label: Refresh Token
   name: refresh_token
+  sensitive: true
 - description: Google Analytics Reports Definition
   kind: string
   label: Report Definitions

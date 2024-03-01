@@ -18,7 +18,8 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-google-directory
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-google-directory
 settings:
 - description: Airbyte image to run
   kind: string
@@ -47,15 +48,19 @@ settings:
   kind: password
   label: Airbyte Config Credentials Client Id
   name: airbyte_config.credentials.client_id
+  sensitive: true
 - description: The Client Secret of the developer application.
   kind: password
   label: Airbyte Config Credentials Client Secret
   name: airbyte_config.credentials.client_secret
+  sensitive: true
 - description: The Token for obtaining a new access token.
   kind: password
   label: Airbyte Config Credentials Refresh Token
   name: airbyte_config.credentials.refresh_token
-- description: The contents of the JSON service account key. See the <a href="https://developers.google.com/admin-sdk/directory/v1/guides/delegation">docs</a>
+  sensitive: true
+- description: The contents of the JSON service account key. See the <a 
+    href="https://developers.google.com/admin-sdk/directory/v1/guides/delegation">docs</a>
     for more information on how to generate this key.
   kind: string
   label: Airbyte Config Credentials Credentials Json
@@ -74,8 +79,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

@@ -3,7 +3,8 @@ capabilities:
 - discover
 - state
 description: Customer-relationship management & customer success platform
-domain_url: https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_what_is_rest_api.htm
+domain_url: 
+  https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_what_is_rest_api.htm
 keywords:
 - api
 label: Salesforce
@@ -32,6 +33,7 @@ settings:
   label: Password
   name: password
   placeholder: Ex. *****************
+  sensitive: true
 - description: |
     #### How to get
 
@@ -63,17 +65,23 @@ settings:
   label: Security Token
   name: security_token
   placeholder: Ex. *****************
-- description: Salesforce client ID. See https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.html.
+  sensitive: true
+- description: Salesforce client ID. See 
+    https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.html.
   label: Client ID
   name: client_id
-- description: Salesforce client secret. See https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.html.
+- description: Salesforce client secret. See 
+    https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.html.
   kind: password
   label: Client Secret
   name: client_secret
-- description: Salesforce refresh token. See https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.html.
+  sensitive: true
+- description: Salesforce refresh token. See 
+    https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.html.
   kind: password
   label: Refresh Token
   name: refresh_token
+  sensitive: true
 - description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.

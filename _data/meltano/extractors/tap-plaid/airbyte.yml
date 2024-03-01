@@ -18,7 +18,8 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-plaid
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-plaid
 settings:
 - description: Airbyte image to run
   kind: string
@@ -40,18 +41,22 @@ settings:
   kind: password
   label: Airbyte Config Access Token
   name: airbyte_config.access_token
+  sensitive: true
 - description: The Plaid API key to use to hit the API.
   kind: password
   label: Airbyte Config Api Key
   name: airbyte_config.api_key
+  sensitive: true
 - description: The Plaid client id
   kind: password
   label: Airbyte Config Client Id
   name: airbyte_config.client_id
+  sensitive: true
 - description: The Plaid environment
   kind: password
   label: Airbyte Config Plaid Env
   name: airbyte_config.plaid_env
+  sensitive: true
 - description: The date from which you'd like to replicate data for Plaid in the format
     YYYY-MM-DD. All data generated after this date will be replicated.
   kind: string
@@ -66,8 +71,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

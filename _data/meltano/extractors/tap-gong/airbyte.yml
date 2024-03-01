@@ -18,7 +18,8 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-gong
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-gong
 settings:
 - description: Airbyte image to run
   kind: string
@@ -40,10 +41,12 @@ settings:
   kind: password
   label: Airbyte Config Access Key
   name: airbyte_config.access_key
+  sensitive: true
 - description: Gong Access Key Secret
   kind: password
   label: Airbyte Config Access Key Secret
   name: airbyte_config.access_key_secret
+  sensitive: true
 - description: The date from which to list calls, in the ISO-8601 format; if not specified,
     the calls start with the earliest recorded call. For web-conference calls recorded
     by Gong, the date denotes its scheduled time, otherwise, it denotes its actual
@@ -60,8 +63,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

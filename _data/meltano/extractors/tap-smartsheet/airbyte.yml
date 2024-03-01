@@ -18,7 +18,8 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-smartsheets
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-smartsheets
 settings:
 - description: Airbyte image to run
   kind: string
@@ -44,11 +45,13 @@ settings:
   kind: password
   label: Airbyte Config Access Token
   name: airbyte_config.access_token
+  sensitive: true
 - description: The spreadsheet ID. Find it by opening the spreadsheet then navigating
     to File > Properties
   kind: password
   label: Airbyte Config Spreadsheet Id
   name: airbyte_config.spreadsheet_id
+  sensitive: true
 - description: 'Only rows modified after this date/time will be replicated. This should
     be an ISO 8601 string, for instance: `2000-01-01T13:00:00`'
   kind: string
@@ -63,8 +66,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

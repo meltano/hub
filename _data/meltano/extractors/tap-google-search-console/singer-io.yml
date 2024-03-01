@@ -3,7 +3,8 @@ capabilities:
 - discover
 - state
 description: Search platform
-domain_url: https://developers.google.com/webmaster-tools/search-console-api-original/v3/how-tos/search_analytics
+domain_url: 
+  https://developers.google.com/webmaster-tools/search-console-api-original/v3/how-tos/search_analytics
 keywords:
 - api
 label: Google Search Console
@@ -19,10 +20,12 @@ settings:
   kind: password
   label: Refresh Token
   name: refresh_token
+  sensitive: true
 - description: Your client secret.
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
 - description: The request timeout.
   kind: integer
   label: Request Timeout
@@ -35,6 +38,7 @@ settings:
   kind: password
   label: Client ID
   name: client_id
+  sensitive: true
 - description: The user agent to send along with the API requests.
   label: User Agent
   name: user_agent

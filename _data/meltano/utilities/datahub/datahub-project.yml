@@ -58,4 +58,5 @@ settings:
   kind: password
   label: GMS Token
   name: gms_token
+  sensitive: true
 variant: datahub-project

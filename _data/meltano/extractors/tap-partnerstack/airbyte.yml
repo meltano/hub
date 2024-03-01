@@ -18,7 +18,8 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: silver
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-partnerstack
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-partnerstack
 settings:
 - description: Airbyte image to run
   kind: string
@@ -40,10 +41,12 @@ settings:
   kind: password
   label: Airbyte Config Public Key
   name: airbyte_config.public_key
+  sensitive: true
 - description: The Live Private Key for a Partnerstack account.
   kind: password
   label: Airbyte Config Private Key
   name: airbyte_config.private_key
+  sensitive: true
 - description: UTC date and time in the format 2017-01-25T00:00:00Z. Any data before
     this date will not be replicated.
   kind: string
@@ -58,8 +61,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

@@ -22,6 +22,7 @@ settings:
   kind: password
   label: Account Key
   name: account_key
+  sensitive: true
 settings_group_validation:
 - - account_name
   - account_key

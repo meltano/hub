@@ -81,6 +81,7 @@ settings:
   kind: password
   label: Password
   name: password
+  sensitive: true
 - description: |
     The user to connect as.
   kind: string

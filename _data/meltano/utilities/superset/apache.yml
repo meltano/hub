@@ -121,6 +121,7 @@ settings:
   label: Secret Key
   name: SECRET_KEY
   value: thisisnotapropersecretkey
+  sensitive: true
 settings_preamble: |
   Meltano [centralizes the configuration](https://docs.meltano.com/guide/configuration) of all of the plugins in your project, including Superset's. This means that if the [Superset documentation](https://superset.apache.org/docs/installation/configuring-superset/) tells you to put something in `superset_config.py`, you can use `meltano config`, `meltano.yml`, or environment variables instead, and get the benefits of Meltano features like [environments](https://docs.meltano.com/concepts/environments).
 

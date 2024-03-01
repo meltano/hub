@@ -20,8 +20,8 @@ settings:
   kind: integer
   label: Date Window Size
   name: date_window_size
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
     can be expected to take."
   kind: date_iso8601
   label: Start Date
@@ -34,6 +34,7 @@ settings:
   kind: password
   label: API Token
   name: api_token
+  sensitive: true
 - description: The number of records to return per API request. Default, 100.
   kind: integer
   label: Page Size Limit

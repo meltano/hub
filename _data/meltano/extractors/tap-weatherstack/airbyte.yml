@@ -18,7 +18,8 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: silver
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-weatherstack
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-weatherstack
 settings:
 - description: Airbyte image to run
   kind: string
@@ -45,6 +46,7 @@ settings:
   kind: password
   label: Airbyte Config Access Key
   name: airbyte_config.access_key
+  sensitive: true
 - description: A location to query such as city, IP, latitudeLongitude, or zipcode.
     Multiple locations with semicolon seperated if using a professional plan or higher.
     For more info- (https://weatherstack.com/documentation#query_parameter)
@@ -65,8 +67,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

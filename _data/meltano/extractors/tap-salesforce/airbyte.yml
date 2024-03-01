@@ -6,7 +6,8 @@ capabilities:
 - stream-maps
 - schema-flattening
 description: Customer-relationship management & customer success platform
-domain_url: https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_what_is_rest_api.htm
+domain_url: 
+  https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_what_is_rest_api.htm
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
@@ -18,7 +19,8 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-salesforce
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-salesforce
 settings:
 - description: Airbyte image to run
   kind: string
@@ -36,7 +38,8 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: Toggle if you're using a <a href="https://help.salesforce.com/s/articleView?id=sf.deploy_sandboxes_parent.htm&type=5">Salesforce
+- description: Toggle if you're using a <a 
+    href="https://help.salesforce.com/s/articleView?id=sf.deploy_sandboxes_parent.htm&type=5">Salesforce
     Sandbox</a>
   kind: boolean
   label: Airbyte Config Is Sandbox
@@ -50,16 +53,20 @@ settings:
   kind: password
   label: Airbyte Config Client Id
   name: airbyte_config.client_id
+  sensitive: true
 - description: Enter your Salesforce developer application's <a href="https://developer.salesforce.com/forums/?id=9062I000000DLgbQAG">Client
     secret</a>
   kind: password
   label: Airbyte Config Client Secret
   name: airbyte_config.client_secret
-- description: Enter your application's <a href="https://developer.salesforce.com/docs/atlas.en-us.mobile_sdk.meta/mobile_sdk/oauth_refresh_token_flow.htm">Salesforce
+  sensitive: true
+- description: Enter your application's <a 
+    href="https://developer.salesforce.com/docs/atlas.en-us.mobile_sdk.meta/mobile_sdk/oauth_refresh_token_flow.htm">Salesforce
     Refresh Token</a> used for Airbyte to access your Salesforce account.
   kind: password
   label: Airbyte Config Refresh Token
   name: airbyte_config.refresh_token
+  sensitive: true
 - description: Enter the date in the YYYY-MM-DD format. Airbyte will replicate the
     data added on and after this date. If this field is blank, Airbyte will replicate
     all data.
@@ -79,8 +86,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

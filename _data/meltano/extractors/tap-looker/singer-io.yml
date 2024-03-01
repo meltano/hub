@@ -20,10 +20,11 @@ settings:
   kind: password
   label: Client Secret
   name: client_secret
-- description: "Currently not used because the Looker API doesnt support query filtering,\
-    \ sorting, pagination. Determines how much historical data will be extracted.\
-    \ Please be aware\nthat the larger the time period and amount of data, the longer\
-    \ the initial extraction\ncan be expected to take."
+  sensitive: true
+- description: "Currently not used because the Looker API doesnt support query filtering,
+    sorting, pagination. Determines how much historical data will be extracted. Please
+    be aware\nthat the larger the time period and amount of data, the longer the initial
+    extraction\ncan be expected to take."
   kind: date_iso8601
   label: Start Date
   name: start_date
@@ -46,6 +47,7 @@ settings:
   kind: password
   label: Client ID
   name: client_id
+  sensitive: true
 settings_group_validation:
 - - client_secret
   - start_date

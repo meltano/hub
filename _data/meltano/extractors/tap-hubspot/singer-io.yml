@@ -28,10 +28,12 @@ settings:
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
 - description: This is the refresh token provided by HubSpot.
   kind: password
   label: Refresh Token
   name: refresh_token
+  sensitive: true
 - description: |
     This is the Hubspot API Key provided by HubSpot.
 
@@ -45,6 +47,7 @@ settings:
   kind: password
   label: Hubspot API Key
   name: hapikey
+  sensitive: true
 - description: This is the cutoff date for syncing historical data.
   kind: date_iso8601
   label: Start Date

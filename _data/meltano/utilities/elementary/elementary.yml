@@ -82,6 +82,7 @@ settings:
   kind: password
   label: Slack Token
   name: slack-token
+  sensitive: true
 - description: If necessary, slack channel name in which to send notifications to
   kind: string
   label: Slack Channel Name

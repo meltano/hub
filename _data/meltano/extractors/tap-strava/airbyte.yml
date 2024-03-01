@@ -18,7 +18,8 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-strava
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-strava
 settings:
 - description: Airbyte image to run
   kind: string
@@ -47,14 +48,17 @@ settings:
   kind: password
   label: Airbyte Config Client Id
   name: airbyte_config.client_id
+  sensitive: true
 - description: The Client Secret of your Strava developer application.
   kind: password
   label: Airbyte Config Client Secret
   name: airbyte_config.client_secret
+  sensitive: true
 - description: 'The Refresh Token with the activity: read_all permissions.'
   kind: password
   label: Airbyte Config Refresh Token
   name: airbyte_config.refresh_token
+  sensitive: true
 - description: The Athlete ID of your Strava developer application.
   kind: integer
   label: Airbyte Config Athlete Id
@@ -72,8 +76,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

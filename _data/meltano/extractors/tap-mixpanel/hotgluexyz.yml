@@ -19,6 +19,7 @@ settings:
   kind: password
   label: API Secret
   name: api_secret
+  sensitive: true
 - description: Mixpanel Project time zone
   kind: string
   label: Project Time Zone

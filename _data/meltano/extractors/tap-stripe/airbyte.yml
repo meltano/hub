@@ -18,7 +18,8 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-stripe
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-stripe
 settings:
 - description: Airbyte image to run
   kind: string
@@ -40,10 +41,12 @@ settings:
   kind: password
   label: Airbyte Config Account Id
   name: airbyte_config.account_id
+  sensitive: true
 - description: Stripe API key (usually starts with 'sk_live_'; find yours <a href="https://dashboard.stripe.com/apikeys">here</a>).
   kind: password
   label: Airbyte Config Client Secret
   name: airbyte_config.client_secret
+  sensitive: true
 - description: UTC date and time in the format 2017-01-25T00:00:00Z. Only data generated
     after this date will be replicated.
   kind: string
@@ -51,7 +54,8 @@ settings:
   name: airbyte_config.start_date
 - description: When set, the connector will always re-export data from the past N
     days, where N is the value set here. This is useful if your data is frequently
-    updated after creation. More info <a href="https://docs.airbyte.com/integrations/sources/stripe#requirements">here</a>
+    updated after creation. More info <a 
+    href="https://docs.airbyte.com/integrations/sources/stripe#requirements">here</a>
   kind: integer
   label: Airbyte Config Lookback Window Days
   name: airbyte_config.lookback_window_days
@@ -70,8 +74,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

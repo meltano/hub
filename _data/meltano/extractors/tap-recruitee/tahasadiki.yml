@@ -34,6 +34,7 @@ settings:
   kind: password
   label: Auth Token
   name: auth_token
+  sensitive: true
 - description: The Recruitee company ID.
   kind: string
   label: Company ID

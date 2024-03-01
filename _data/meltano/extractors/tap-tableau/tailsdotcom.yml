@@ -26,6 +26,7 @@ settings:
   kind: password
   label: Password
   name: password
+  sensitive: true
 - description: Your Tableau site ID.
   label: Site Id
   name: site_id

@@ -18,7 +18,8 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: silver
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-mongodb
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-mongodb
 settings:
 - description: Airbyte image to run
   kind: string
@@ -56,15 +57,18 @@ settings:
   kind: password
   label: Airbyte Config Password
   name: airbyte_config.password
+  sensitive: true
 - description: Authentication source where user information is stored. See <a href="*
-    [Authentication Source](https://docs.mongodb.com/manual/reference/connection-string/#mongodb-urioption-urioption.authSource)">
+    [Authentication 
+    Source](https://docs.mongodb.com/manual/reference/connection-string/#mongodb-urioption-urioption.authSource)">
     the Mongo docs</a> for more info.
   kind: string
   label: Airbyte Config Auth Source
   name: airbyte_config.auth_source
 - description: The name of the set to filter servers by, when connecting to a replica
     set (Under this condition, the 'TLS connection' value automatically becomes 'true').
-    See <a href="https://docs.mongodb.com/manual/reference/connection-string/#mongodb-urioption-urioption.replicaSet">
+    See <a 
+    href="https://docs.mongodb.com/manual/reference/connection-string/#mongodb-urioption-urioption.replicaSet">
     the Mongo docs </a> for more info.
   kind: string
   label: Airbyte Config Replica Set
@@ -83,8 +87,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

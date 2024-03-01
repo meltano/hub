@@ -25,6 +25,7 @@ settings:
   kind: password
   label: Password
   name: password
+  sensitive: true
 - description: The username of the workday account with access to the reports to extract
   label: Username
   name: username

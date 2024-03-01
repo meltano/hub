@@ -18,7 +18,8 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-google-workspace-admin-reports
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-google-workspace-admin-reports
 settings:
 - description: Airbyte image to run
   kind: string
@@ -36,7 +37,8 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: The contents of the JSON service account key. See the <a href="https://developers.google.com/admin-sdk/reports/v1/guides/delegation">docs</a>
+- description: The contents of the JSON service account key. See the <a 
+    href="https://developers.google.com/admin-sdk/reports/v1/guides/delegation">docs</a>
     for more information on how to generate this key.
   kind: string
   label: Airbyte Config Credentials Json
@@ -60,8 +62,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

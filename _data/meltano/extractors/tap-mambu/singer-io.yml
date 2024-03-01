@@ -19,6 +19,7 @@ settings:
   kind: password
   label: API Key
   name: apikey
+  sensitive: true
 - description: 'The subdomain is everything before .mambu.com in the Mambu instance
     URL. For the URL: https://stitch.sandbox.mambu.com, the subdomain would be stitch.sandbox.'
   label: Subdomain
@@ -27,6 +28,7 @@ settings:
   kind: password
   label: API Key Audit
   name: apikey_audit
+  sensitive: true
 - description: The user agent to send with requests.
   label: User Agent
   name: user_agent
@@ -38,8 +40,8 @@ settings:
   kind: integer
   label: Lookback Window
   name: lookback_window
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
     can be expected to take."
   kind: date_iso8601
   label: Start Date
@@ -51,6 +53,7 @@ settings:
   kind: password
   label: Password
   name: password
+  sensitive: true
 settings_group_validation:
 - - subdomain
   - start_date

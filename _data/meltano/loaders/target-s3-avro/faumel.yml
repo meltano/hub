@@ -23,6 +23,7 @@ settings:
   kind: password
   label: Aws Session Token
   name: aws_session_token
+  sensitive: true
 - description: The API version to use. By default, botocore will use the latest API
     version when creating a client. You only need to specify this parameter if you
     want to use a previous API version of the client.
@@ -39,6 +40,7 @@ settings:
   kind: password
   label: Aws Secret Access Key
   name: aws_secret_access_key
+  sensitive: true
 - description: The access key to use when creating the client. This is entirely optional,
     and if not provided, the credentials configured for the session will automatically
     be used. You only need to provide this argument if you want to override the credentials
@@ -46,6 +48,7 @@ settings:
   kind: password
   label: Aws Access Key Id
   name: aws_access_key_id
+  sensitive: true
 - description: The delimiter to use when flatttening records.
   label: Flatten Delimiter
   name: flatten_delimiter
@@ -68,7 +71,8 @@ settings:
 - description: Advanced client configuration options. If region_name is specified
     in the client config, its value will take precedence over environment variables
     and configuration values, but not over a region_name value passed explicitly to
-    the method. See botocore config documentation for more details. See [boto Docs](https://botocore.amazonaws.com/v1/documentation/api/latest/reference/config.html)
+    the method. See botocore config documentation for more details. See [boto 
+    Docs](https://botocore.amazonaws.com/v1/documentation/api/latest/reference/config.html)
     for more details.
   label: Config
   name: config

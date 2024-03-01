@@ -20,4 +20,5 @@ settings:
   kind: password
   label: API Key
   name: api_key
+  sensitive: true
 variant: dwallace0723

@@ -23,6 +23,7 @@ settings:
   kind: password
   label: Password
   name: password
+  sensitive: true
 - description: The number of workouts to fetch. This is an integer that defaults to
     5.
   kind: integer

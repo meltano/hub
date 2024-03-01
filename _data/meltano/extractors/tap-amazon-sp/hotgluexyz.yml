@@ -25,16 +25,19 @@ settings:
   kind: password
   label: AWS Access Key
   name: aws_access_key
+  sensitive: true
 - description: Your AWS secret key.
   kind: password
   label: AWS Secret Key
   name: aws_secret_key
+  sensitive: true
 - description: Your AWS client secret.
   kind: password
   label: Client Secret
   name: client_secret
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+  sensitive: true
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -46,6 +49,7 @@ settings:
   kind: password
   label: Lwa Client ID
   name: lwa_client_id
+  sensitive: true
 - description: An array of Marketplace Country Code values. Default ["US"].
   kind: array
   label: Marketplaces
@@ -61,6 +65,7 @@ settings:
   kind: password
   label: Refresh Token
   name: refresh_token
+  sensitive: true
 - description: An array of report types.
   kind: array
   label: Report Types

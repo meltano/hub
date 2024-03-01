@@ -18,7 +18,8 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-dixa
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-dixa
 settings:
 - description: Airbyte image to run
   kind: string
@@ -40,6 +41,7 @@ settings:
   kind: password
   label: Airbyte Config Api Token
   name: airbyte_config.api_token
+  sensitive: true
 - description: The connector pulls records updated from this date onwards.
   kind: string
   label: Airbyte Config Start Date
@@ -57,8 +59,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

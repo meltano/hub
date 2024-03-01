@@ -18,7 +18,8 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-okta
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-okta
 settings:
 - description: Airbyte image to run
   kind: string
@@ -54,19 +55,23 @@ settings:
   kind: password
   label: Airbyte Config Credentials Client Id
   name: airbyte_config.credentials.client_id
+  sensitive: true
 - description: The Client Secret of your OAuth application.
   kind: password
   label: Airbyte Config Credentials Client Secret
   name: airbyte_config.credentials.client_secret
+  sensitive: true
 - description: Refresh Token to obtain new Access Token, when it's expired.
   kind: password
   label: Airbyte Config Credentials Refresh Token
   name: airbyte_config.credentials.refresh_token
+  sensitive: true
 - description: An Okta token. See the <a href="https://docs.airbyte.io/integrations/sources/okta">docs</a>
     for instructions on how to generate it.
   kind: password
   label: Airbyte Config Credentials Api Token
   name: airbyte_config.credentials.api_token
+  sensitive: true
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
@@ -76,8 +81,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

@@ -138,25 +138,33 @@ pip_url: tap-bing-ads
 quality: silver
 repo: https://github.com/singer-io/tap-bing-ads
 settings:
-- description: See https://docs.microsoft.com/en-us/advertising/guides/get-started#get-developer-token.
+- description: See 
+    https://docs.microsoft.com/en-us/advertising/guides/get-started#get-developer-token.
   kind: password
   label: Developer Token
   name: developer_token
-- description: See https://docs.microsoft.com/en-us/advertising/guides/get-started#quick-start-production.
+  sensitive: true
+- description: See 
+    https://docs.microsoft.com/en-us/advertising/guides/get-started#quick-start-production.
   kind: password
   label: OAuth Client ID
   name: oauth_client_id
-- description: See https://docs.microsoft.com/en-us/advertising/guides/get-started#quick-start-production.
+  sensitive: true
+- description: See 
+    https://docs.microsoft.com/en-us/advertising/guides/get-started#quick-start-production.
   kind: password
   label: OAuth Client Secret
   name: oauth_client_secret
-- description: See https://docs.microsoft.com/en-us/advertising/guides/get-started#quick-start-production.
+  sensitive: true
+- description: See 
+    https://docs.microsoft.com/en-us/advertising/guides/get-started#quick-start-production.
     If you’re using a Refresh Token you should not need a redirect URI in the request.
     Note that you’ll need to include the OAuth Scopes when requesting the token. The
     recommended scopes are scope=openid%20profile%20https://ads.microsoft.com/ads.manage%20offline_access.
   kind: password
   label: Refresh Token
   name: refresh_token
+  sensitive: true
 - description: See https://docs.microsoft.com/en-us/advertising/guides/get-started#get-ids.
   label: Customer ID
   name: customer_id

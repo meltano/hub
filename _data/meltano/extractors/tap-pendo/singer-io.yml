@@ -20,6 +20,7 @@ settings:
   kind: password
   label: Integration Key
   name: x_pendo_integration_key
+  sensitive: true
 - description: This defines how data is aggregated, either on a daily or hourly basis.
   kind: options
   label: Period

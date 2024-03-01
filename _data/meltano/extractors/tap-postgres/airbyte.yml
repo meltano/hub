@@ -18,7 +18,8 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: silver
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-postgres
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-postgres
 settings:
 - description: Airbyte image to run
   kind: string
@@ -60,6 +61,7 @@ settings:
   kind: password
   label: Airbyte Config Password
   name: airbyte_config.password
+  sensitive: true
 - description: Additional properties to pass to the JDBC URL string when connecting
     to the database formatted as 'key=value' pairs separated by the symbol '&'. (Eg.
     key1=value1&key2=value2&key3=value3). For more information read about <a href="https://jdbc.postgresql.org/documentation/head/connect.html">JDBC
@@ -88,19 +90,22 @@ settings:
   kind: password
   label: Airbyte Config Ssl Mode Client Key
   name: airbyte_config.ssl_mode.client_key
+  sensitive: true
 - description: Password for keystorage. If you do not add it - the password will be
     generated automatically., Password for keystorage. If you do not add it - the
     password will be generated automatically.
   kind: password
   label: Airbyte Config Ssl Mode Client Key Password
   name: airbyte_config.ssl_mode.client_key_password
+  sensitive: true
 - description: Standard, CDC
   kind: string
   label: Airbyte Config Replication Method Method
   name: airbyte_config.replication_method.method
 - description: A logical decoding plugin installed on the PostgreSQL server. The `pgoutput`
     plugin is used by default. If the replication table contains a lot of big jsonb
-    values it is recommended to use `wal2json` plugin. Read more about <a href="https://docs.airbyte.com/integrations/sources/postgres#step-2-select-a-replication-plugin">selecting
+    values it is recommended to use `wal2json` plugin. Read more about <a 
+    href="https://docs.airbyte.com/integrations/sources/postgres#step-2-select-a-replication-plugin">selecting
     replication plugins</a>.
   kind: options
   label: Airbyte Config Replication Method Plugin
@@ -110,12 +115,14 @@ settings:
     value: pgoutput
   - label: Wal2Json
     value: wal2json
-- description: A plugin logical replication slot. Read about <a href="https://docs.airbyte.com/integrations/sources/postgres#step-3-create-replication-slot">replication
+- description: A plugin logical replication slot. Read about <a 
+    href="https://docs.airbyte.com/integrations/sources/postgres#step-3-create-replication-slot">replication
     slots</a>.
   kind: string
   label: Airbyte Config Replication Method Replication Slot
   name: airbyte_config.replication_method.replication_slot
-- description: A Postgres publication used for consuming changes. Read about <a href="https://docs.airbyte.com/integrations/sources/postgres#step-4-create-publications-and-replication-identities-for-tables">publications
+- description: A Postgres publication used for consuming changes. Read about <a 
+    href="https://docs.airbyte.com/integrations/sources/postgres#step-4-create-publications-and-replication-identities-for-tables">publications
     and replication identities</a>.
   kind: string
   label: Airbyte Config Replication Method Publication
@@ -151,10 +158,12 @@ settings:
   kind: password
   label: Airbyte Config Tunnel Method Ssh Key
   name: airbyte_config.tunnel_method.ssh_key
+  sensitive: true
 - description: OS-level password for logging into the jump server host
   kind: password
   label: Airbyte Config Tunnel Method Tunnel User Password
   name: airbyte_config.tunnel_method.tunnel_user_password
+  sensitive: true
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
@@ -164,8 +173,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

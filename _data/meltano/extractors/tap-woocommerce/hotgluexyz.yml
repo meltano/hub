@@ -23,10 +23,12 @@ settings:
   kind: password
   label: Consumer Key
   name: consumer_key
+  sensitive: true
 - description: WooCommerce API Consumer Secret
   kind: password
   label: Consumer Secret
   name: consumer_secret
+  sensitive: true
 - description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.

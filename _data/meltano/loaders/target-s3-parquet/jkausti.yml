@@ -22,10 +22,12 @@ settings:
   kind: password
   label: AWS Access Key ID
   name: AWS_ACCESS_KEY_ID
+  sensitive: true
 - description: AWS Secret Access Key used to authenticate programmatically to S3.
   kind: password
   label: AWS Secret Access Key
   name: AWS_SECRET_ACCESS_KEY
+  sensitive: true
 - description: Specfies the region in which your S3 bucket exists.
   kind: string
   label: AWS Region

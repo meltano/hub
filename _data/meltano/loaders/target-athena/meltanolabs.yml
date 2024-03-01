@@ -25,14 +25,17 @@ settings:
   kind: password
   label: AWS S3 Access Key ID
   name: aws_access_key_id
+  sensitive: true
 - kind: password
   label: AWS S3 Secret Access Key
   name: aws_secret_access_key
+  sensitive: true
 - description: Optional - S3 AWS STS token for temporary credentials. If not provided,
     AWS_SESSION_TOKEN environment variable will be used.
   kind: password
   label: AWS S3 Session Token
   name: aws_session_token
+  sensitive: true
 - description: Optional - AWS profile name for profile based authentication. If not
     provided, AWS_PROFILE environment variable will be used.
   label: AWS profile name

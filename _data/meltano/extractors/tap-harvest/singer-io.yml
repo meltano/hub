@@ -19,8 +19,8 @@ settings:
   kind: integer
   label: Request Timeout
   name: request_timeout
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
     can be expected to take."
   kind: date_iso8601
   label: Start Date
@@ -29,10 +29,12 @@ settings:
   kind: password
   label: Client ID
   name: client_id
+  sensitive: true
 - description: Your OAuth refresh token.
   kind: password
   label: Refresh Token
   name: refresh_token
+  sensitive: true
 - description: The user agent to send with requests.
   label: User Agent
   name: user_agent
@@ -40,6 +42,7 @@ settings:
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
 settings_group_validation:
 - - start_date
   - client_id

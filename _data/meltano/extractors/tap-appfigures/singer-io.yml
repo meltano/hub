@@ -28,10 +28,12 @@ settings:
   kind: password
   label: Password
   name: password
+  sensitive: true
 - description: Your Appfigures API key.
   kind: password
   label: API Key
   name: api_key
+  sensitive: true
 settings_group_validation:
 - - start_date
   - username

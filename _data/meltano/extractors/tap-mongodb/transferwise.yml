@@ -20,6 +20,7 @@ settings:
   kind: password
   label: Password
   name: password
+  sensitive: true
 - description: The MongoDB user.
   label: User
   name: user

@@ -48,6 +48,7 @@ settings:
   name: private_token
   placeholder: Ex. *****************
   value: ''
+  sensitive: true
 - description: |
     This property allows you to scope data that the extractor fetches to only the desired group. The group name can generally be found at the root of a repository's URL. If this is left blank, you have to at least provide a [project](#projects).
 

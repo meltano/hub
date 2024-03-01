@@ -27,6 +27,7 @@ settings:
   kind: password
   label: API Key
   name: api_key
+  sensitive: true
 - description: The date_window is the window in the which API calls will take place.
     The default window size is 15 days.
   kind: integer

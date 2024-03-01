@@ -37,7 +37,8 @@ settings:
   label: Output directory
   name: output_dir
   value: output
-- description: The dbt resource types to process (`source`, `model`, `snapshot`, `test`, or `all`).
+- description: The dbt resource types to process (`source`, `model`, `snapshot`, `test`,
+    or `all`).
   kind: array
   label: Resource types
   name: resource_types

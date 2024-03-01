@@ -25,6 +25,7 @@ settings:
   kind: password
   label: API Token
   name: api_token
+  sensitive: true
 settings_group_validation:
 - - api_token
 - - start_date

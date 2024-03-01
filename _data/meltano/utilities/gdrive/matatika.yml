@@ -27,6 +27,7 @@ settings:
   kind: password
   label: Access Token
   name: access_token
+  sensitive: true
 - description: Google Client ID.
   label: Client ID
   name: client_id
@@ -34,10 +35,12 @@ settings:
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
 - description: Google Refresh Token.
   kind: password
   label: Refresh Token
   name: refresh_token
+  sensitive: true
 settings_group_validation:
 - - file_id
   - access_token

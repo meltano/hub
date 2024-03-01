@@ -19,7 +19,8 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: silver
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-snowflake
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-snowflake
 settings:
 - description: Airbyte image to run
   kind: string
@@ -50,6 +51,7 @@ settings:
   kind: password
   label: Airbyte Config Credentials Password
   name: airbyte_config.credentials.password
+  sensitive: true
 - description: The host domain of the snowflake instance (must include the account,
     region, cloud environment, and end with snowflakecomputing.com).
   kind: string
@@ -71,9 +73,9 @@ settings:
   kind: string
   label: Airbyte Config Schema
   name: airbyte_config.schema
-- description: "Additional properties to pass to the JDBC URL string when connecting\
-    \ to the database formatted as 'key=value' pairs separated by the symbol '&'.\
-    \ (example: key1=value1&key2=value2&key3=value3)."
+- description: "Additional properties to pass to the JDBC URL string when connecting
+    to the database formatted as 'key=value' pairs separated by the symbol '&'. (example:
+    key1=value1&key2=value2&key3=value3)."
   kind: string
   label: Airbyte Config Jdbc Url Params
   name: airbyte_config.jdbc_url_params
@@ -86,8 +88,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

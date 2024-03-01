@@ -20,11 +20,13 @@ settings:
   kind: password
   label: Account ID
   name: account_id
+  sensitive: true
 - description: The AWS external ID used for connecting to DynamoDB from a third party.
     https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html
   kind: password
   label: External ID
   name: external_id
+  sensitive: true
 - description: The AWS role used to connect to DynamoDB.
   label: Role Name
   name: role_name

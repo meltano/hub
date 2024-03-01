@@ -18,7 +18,8 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-oracle
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-oracle
 settings:
 - description: Airbyte image to run
   kind: string
@@ -40,10 +41,10 @@ settings:
   kind: string
   label: Airbyte Config Host
   name: airbyte_config.host
-- description: "Port of the database.\nOracle Corporations recommends the following\
-    \ port numbers:\n1521 - Default listening port for client connections to the listener.\
-    \ \n2484 - Recommended and officially registered listening port for client connections\
-    \ to the listener using TCP/IP with SSL"
+- description: "Port of the database.\nOracle Corporations recommends the following
+    port numbers:\n1521 - Default listening port for client connections to the listener.
+    \n2484 - Recommended and officially registered listening port for client connections
+    to the listener using TCP/IP with SSL"
   kind: integer
   label: Airbyte Config Port
   name: airbyte_config.port
@@ -59,6 +60,7 @@ settings:
   kind: password
   label: Airbyte Config Connection Data Sid
   name: airbyte_config.connection_data.sid
+  sensitive: true
 - description: The username which is used to access the database.
   kind: string
   label: Airbyte Config Username
@@ -67,13 +69,14 @@ settings:
   kind: password
   label: Airbyte Config Password
   name: airbyte_config.password
+  sensitive: true
 - description: The list of schemas to sync from. Defaults to user. Case sensitive.
   kind: array
   label: Airbyte Config Schemas
   name: airbyte_config.schemas
-- description: "Additional properties to pass to the JDBC URL string when connecting\
-    \ to the database formatted as 'key=value' pairs separated by the symbol '&'.\
-    \ (example: key1=value1&key2=value2&key3=value3)."
+- description: "Additional properties to pass to the JDBC URL string when connecting
+    to the database formatted as 'key=value' pairs separated by the symbol '&'. (example:
+    key1=value1&key2=value2&key3=value3)."
   kind: string
   label: Airbyte Config Jdbc Url Params
   name: airbyte_config.jdbc_url_params
@@ -124,10 +127,12 @@ settings:
   kind: password
   label: Airbyte Config Tunnel Method Ssh Key
   name: airbyte_config.tunnel_method.ssh_key
+  sensitive: true
 - description: OS-level password for logging into the jump server host
   kind: password
   label: Airbyte Config Tunnel Method Tunnel User Password
   name: airbyte_config.tunnel_method.tunnel_user_password
+  sensitive: true
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
@@ -137,8 +142,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

@@ -10,7 +10,8 @@ pip_url: target-duckdb~=0.6
 quality: silver
 repo: https://github.com/jwills/target-duckdb
 settings:
-- description: The path to use for the `duckdb.connect` call; either a local file or a MotherDuck connection uri.
+- description: The path to use for the `duckdb.connect` call; either a local file
+    or a MotherDuck connection uri.
   kind: string
   label: Connection Path
   name: path
@@ -21,7 +22,8 @@ settings:
   name: filepath
   placeholder: /path/to/local/file.duckdb
   value: ${MELTANO_PROJECT_ROOT}/output/warehouse.duckdb
-- description: The database name to write to; this will be inferred from the path property if it is not specified.
+- description: The database name to write to; this will be inferred from the path
+    property if it is not specified.
   kind: string
   label: Database
   name: dbname
@@ -33,12 +35,14 @@ settings:
   kind: password
   label: Token
   name: token
+  sensitive: true
 - description: The delimiter to use for the CSV files that are used for record imports.
   kind: string
   label: Delimiter
   name: delimiter
   value: ","
-- description: The quote character to use for the CSV files that are used for record imports.
+- description: The quote character to use for the CSV files that are used for record
+    imports.
   kind: string
   label: Quote Character
   name: quotechar

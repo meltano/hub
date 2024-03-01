@@ -83,6 +83,7 @@ settings:
   kind: password
   label: Refresh Token
   name: refresh_token
+  sensitive: true
 - aliases:
   - user
   description: |
@@ -97,6 +98,7 @@ settings:
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
 - description: |
     The token redirect URI
   kind: string

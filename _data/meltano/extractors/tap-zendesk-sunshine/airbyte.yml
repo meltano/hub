@@ -6,7 +6,8 @@ capabilities:
 - stream-maps
 - schema-flattening
 description: Zendesk Sunshine
-domain_url: https://developer.zendesk.com/documentation/custom-data/custom-objects/custom-objects-handbook/
+domain_url: 
+  https://developer.zendesk.com/documentation/custom-data/custom-objects/custom-objects-handbook/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
@@ -18,7 +19,8 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-zendesk-sunshine
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-zendesk-sunshine
 settings:
 - description: Airbyte image to run
   kind: string
@@ -56,19 +58,23 @@ settings:
   kind: password
   label: Airbyte Config Credentials Client Id
   name: airbyte_config.credentials.client_id
+  sensitive: true
 - description: The Client Secret of your OAuth application.
   kind: password
   label: Airbyte Config Credentials Client Secret
   name: airbyte_config.credentials.client_secret
+  sensitive: true
 - description: Long-term access Token for making authenticated requests.
   kind: password
   label: Airbyte Config Credentials Access Token
   name: airbyte_config.credentials.access_token
+  sensitive: true
 - description: API Token. See the <a href="https://docs.airbyte.io/integrations/sources/zendesk_sunshine">docs</a>
     for information on how to generate this key.
   kind: password
   label: Airbyte Config Credentials Api Token
   name: airbyte_config.credentials.api_token
+  sensitive: true
 - description: The user email for your Zendesk account
   kind: string
   label: Airbyte Config Credentials Email
@@ -82,8 +88,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

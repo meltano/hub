@@ -18,7 +18,8 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: silver
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-oura
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-oura
 settings:
 - description: Airbyte image to run
   kind: string
@@ -40,8 +41,9 @@ settings:
   kind: password
   label: Airbyte Config Api Key
   name: airbyte_config.api_key
-- description: "Start datetime to sync from. Default is current UTC datetime minus\
-    \ 1\nday.\n"
+  sensitive: true
+- description: "Start datetime to sync from. Default is current UTC datetime minus
+    1\nday.\n"
   kind: string
   label: Airbyte Config Start Datetime
   name: airbyte_config.start_datetime
@@ -58,8 +60,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
