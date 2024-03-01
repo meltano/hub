@@ -27,12 +27,6 @@ settings:
   label: Client ID
   name: client_id
   sensitive: true
-- description: The redirect url to use for auth. E.g. http://localhost:8080/callback.
-  label: Redirect Uri
-  name: redirect_uri
-- description: The user agent to send with requests.
-  label: User Agent
-  name: user_agent
 - description: Your OAuth Client Secret. See [the API 
     docs](https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Authentication_Auth.html)
     for more details.
@@ -40,6 +34,9 @@ settings:
   label: Client Secret
   name: client_secret
   sensitive: true
+- description: The redirect url to use for auth. E.g. http://localhost:8080/callback.
+  label: Redirect Uri
+  name: redirect_uri
 - description: Your OAuth Refresh Token. See [the API 
     docs](https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Authentication_Auth.html)
     for more details.
@@ -53,10 +50,13 @@ settings:
   kind: date_iso8601
   label: Start Date
   name: start_date
+- description: The user agent to send with requests.
+  label: User Agent
+  name: user_agent
 settings_group_validation:
 - - client_id
-  - redirect_uri
   - client_secret
+  - redirect_uri
   - refresh_token
   - start_date
 variant: singer-io

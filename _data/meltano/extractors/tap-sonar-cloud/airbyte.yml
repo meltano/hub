@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Cloud-based code analysis service
 domain_url: https://sonarcloud.io/web_api
 executable: tap-airbyte
@@ -21,6 +21,29 @@ quality: silver
 repo: 
   https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-sonar-cloud
 settings:
+- description: Comma-separated list of component keys.
+  kind: array
+  label: Airbyte Config Component Keys
+  name: airbyte_config.component_keys
+- description: To retrieve issues created before the given date (inclusive).
+  kind: string
+  label: Airbyte Config End Date
+  name: airbyte_config.end_date
+- description: Organization key. See <a 
+    href="https://docs.sonarcloud.io/appendices/project-information/#project-and-organization-keys">here</a>.
+  kind: string
+  label: Airbyte Config Organization
+  name: airbyte_config.organization
+- description: To retrieve issues created after the given date (inclusive).
+  kind: string
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
+- description: Your User Token. See <a href="https://docs.sonarcloud.io/advanced-setup/user-accounts/">here</a>.
+    The token is case sensitive.
+  kind: password
+  label: Airbyte Config User Token
+  name: airbyte_config.user_token
+  sensitive: true
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -37,38 +60,6 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: Your User Token. See <a href="https://docs.sonarcloud.io/advanced-setup/user-accounts/">here</a>.
-    The token is case sensitive.
-  kind: password
-  label: Airbyte Config User Token
-  name: airbyte_config.user_token
-  sensitive: true
-- description: Organization key. See <a 
-    href="https://docs.sonarcloud.io/appendices/project-information/#project-and-organization-keys">here</a>.
-  kind: string
-  label: Airbyte Config Organization
-  name: airbyte_config.organization
-- description: Comma-separated list of component keys.
-  kind: array
-  label: Airbyte Config Component Keys
-  name: airbyte_config.component_keys
-- description: To retrieve issues created after the given date (inclusive).
-  kind: string
-  label: Airbyte Config Start Date
-  name: airbyte_config.start_date
-- description: To retrieve issues created before the given date (inclusive).
-  kind: string
-  label: Airbyte Config End Date
-  name: airbyte_config.end_date
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -78,12 +69,21 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - airbyte_spec
+- - airbyte_config.component_keys
   - airbyte_config.organization
-  - airbyte_spec.image
-  - airbyte_config.component_keys
   - airbyte_config.user_token
+  - airbyte_spec
+  - airbyte_spec.image
 settings_preamble: ''
 usage: ''
 variant: airbyte

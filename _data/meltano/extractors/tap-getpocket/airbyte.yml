@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Your own private corner of the web to spend quality time with great articles.
 domain_url: https://getpocket.com/
 executable: tap-airbyte
@@ -21,6 +21,81 @@ quality: bronze
 repo: 
   https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-pocket
 settings:
+- description: The user's Pocket access token.
+  kind: password
+  label: Airbyte Config Access Token
+  name: airbyte_config.access_token
+  sensitive: true
+- description: Your application's Consumer Key.
+  kind: password
+  label: Airbyte Config Consumer Key
+  name: airbyte_config.consumer_key
+  sensitive: true
+- description: Select the content type of the items to retrieve.
+  kind: options
+  label: Airbyte Config Content Type
+  name: airbyte_config.content_type
+  options:
+  - label: Article
+    value: article
+  - label: Video
+    value: video
+  - label: Image
+    value: image
+- description: Select the granularity of the information about each item.
+  kind: options
+  label: Airbyte Config Detail Type
+  name: airbyte_config.detail_type
+  options:
+  - label: Simple
+    value: simple
+  - label: Complete
+    value: complete
+- description: Only return items from a particular `domain`.
+  kind: string
+  label: Airbyte Config Domain
+  name: airbyte_config.domain
+- description: Retrieve only favorited items.
+  kind: boolean
+  label: Airbyte Config Favorite
+  name: airbyte_config.favorite
+- description: Only return items whose title or url contain the `search` string.
+  kind: string
+  label: Airbyte Config Search
+  name: airbyte_config.search
+- description: Only return items modified since the given timestamp.
+  kind: string
+  label: Airbyte Config Since
+  name: airbyte_config.since
+- description: Sort retrieved items by the given criteria.
+  kind: options
+  label: Airbyte Config Sort
+  name: airbyte_config.sort
+  options:
+  - label: Newest
+    value: newest
+  - label: Oldest
+    value: oldest
+  - label: Title
+    value: title
+  - label: Site
+    value: site
+- description: Select the state of the items to retrieve.
+  kind: options
+  label: Airbyte Config State
+  name: airbyte_config.state
+  options:
+  - label: Unread
+    value: unread
+  - label: Archive
+    value: archive
+  - label: All
+    value: all
+- description: Return only items tagged with this tag name. Use _untagged_ for retrieving
+    only untagged items.
+  kind: string
+  label: Airbyte Config Tag
+  name: airbyte_config.tag
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -37,90 +112,6 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: Your application's Consumer Key.
-  kind: password
-  label: Airbyte Config Consumer Key
-  name: airbyte_config.consumer_key
-  sensitive: true
-- description: The user's Pocket access token.
-  kind: password
-  label: Airbyte Config Access Token
-  name: airbyte_config.access_token
-  sensitive: true
-- description: Select the state of the items to retrieve.
-  kind: options
-  label: Airbyte Config State
-  name: airbyte_config.state
-  options:
-  - label: Unread
-    value: unread
-  - label: Archive
-    value: archive
-  - label: All
-    value: all
-- description: Retrieve only favorited items.
-  kind: boolean
-  label: Airbyte Config Favorite
-  name: airbyte_config.favorite
-- description: Return only items tagged with this tag name. Use _untagged_ for retrieving
-    only untagged items.
-  kind: string
-  label: Airbyte Config Tag
-  name: airbyte_config.tag
-- description: Select the content type of the items to retrieve.
-  kind: options
-  label: Airbyte Config Content Type
-  name: airbyte_config.content_type
-  options:
-  - label: Article
-    value: article
-  - label: Video
-    value: video
-  - label: Image
-    value: image
-- description: Sort retrieved items by the given criteria.
-  kind: options
-  label: Airbyte Config Sort
-  name: airbyte_config.sort
-  options:
-  - label: Newest
-    value: newest
-  - label: Oldest
-    value: oldest
-  - label: Title
-    value: title
-  - label: Site
-    value: site
-- description: Select the granularity of the information about each item.
-  kind: options
-  label: Airbyte Config Detail Type
-  name: airbyte_config.detail_type
-  options:
-  - label: Simple
-    value: simple
-  - label: Complete
-    value: complete
-- description: Only return items whose title or url contain the `search` string.
-  kind: string
-  label: Airbyte Config Search
-  name: airbyte_config.search
-- description: Only return items from a particular `domain`.
-  kind: string
-  label: Airbyte Config Domain
-  name: airbyte_config.domain
-- description: Only return items modified since the given timestamp.
-  kind: string
-  label: Airbyte Config Since
-  name: airbyte_config.since
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -130,11 +121,20 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - airbyte_spec.image
+- - airbyte_config.access_token
   - airbyte_config.consumer_key
-  - airbyte_config.access_token
   - airbyte_spec
+  - airbyte_spec.image
 settings_preamble: ''
 usage: ''
 variant: airbyte

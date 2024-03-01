@@ -22,15 +22,6 @@ settings:
   label: Client ID
   name: client_id
   sensitive: true
-- description: The user agent to send with requests.
-  label: User Agent
-  name: user_agent
-- description: "Determines how much historical data will be extracted. Please be aware\n
-    that the larger the time period and amount of data, the longer the initial extraction\n
-    can be expected to take."
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
 - description: Your Help Scout client secret. Follow these instructions to [Create
     My 
     App](https://developer.helpscout.com/mailbox-api/overview/authentication/#oauth2-application)
@@ -46,10 +37,19 @@ settings:
   label: Refresh Token
   name: refresh_token
   sensitive: true
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: The user agent to send with requests.
+  label: User Agent
+  name: user_agent
 settings_group_validation:
 - - client_id
-  - user_agent
-  - start_date
   - client_secret
   - refresh_token
+  - start_date
+  - user_agent
 variant: singer-io

@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Elasticsearch is a distributed, free and open search and analytics engine
 domain_url: https://www.elastic.co/
 executable: tap-airbyte
@@ -21,6 +21,33 @@ quality: silver
 repo: 
   https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-elasticsearch
 settings:
+- description: The Key ID to used when accessing an enterprise Elasticsearch instance.
+  kind: password
+  label: Airbyte Config Authenticationmethod Apikeyid
+  name: airbyte_config.authenticationMethod.apiKeyId
+  sensitive: true
+- description: The secret associated with the API Key ID.
+  kind: password
+  label: Airbyte Config Authenticationmethod Apikeysecret
+  name: airbyte_config.authenticationMethod.apiKeySecret
+  sensitive: true
+- description: none, secret, basic
+  kind: string
+  label: Airbyte Config Authenticationmethod Method
+  name: airbyte_config.authenticationMethod.method
+- description: Basic auth password to access a secure Elasticsearch server
+  kind: password
+  label: Airbyte Config Authenticationmethod Password
+  name: airbyte_config.authenticationMethod.password
+  sensitive: true
+- description: Basic auth username to access a secure Elasticsearch server
+  kind: string
+  label: Airbyte Config Authenticationmethod Username
+  name: airbyte_config.authenticationMethod.username
+- description: The full url of the Elasticsearch server
+  kind: string
+  label: Airbyte Config Endpoint
+  name: airbyte_config.endpoint
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -37,42 +64,6 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: The full url of the Elasticsearch server
-  kind: string
-  label: Airbyte Config Endpoint
-  name: airbyte_config.endpoint
-- description: none, secret, basic
-  kind: string
-  label: Airbyte Config Authenticationmethod Method
-  name: airbyte_config.authenticationMethod.method
-- description: The Key ID to used when accessing an enterprise Elasticsearch instance.
-  kind: password
-  label: Airbyte Config Authenticationmethod Apikeyid
-  name: airbyte_config.authenticationMethod.apiKeyId
-  sensitive: true
-- description: The secret associated with the API Key ID.
-  kind: password
-  label: Airbyte Config Authenticationmethod Apikeysecret
-  name: airbyte_config.authenticationMethod.apiKeySecret
-  sensitive: true
-- description: Basic auth username to access a secure Elasticsearch server
-  kind: string
-  label: Airbyte Config Authenticationmethod Username
-  name: airbyte_config.authenticationMethod.username
-- description: Basic auth password to access a secure Elasticsearch server
-  kind: password
-  label: Airbyte Config Authenticationmethod Password
-  name: airbyte_config.authenticationMethod.password
-  sensitive: true
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -82,6 +73,15 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
 - - airbyte_spec.image
   - connector_config.endpoint

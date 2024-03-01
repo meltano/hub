@@ -23,4 +23,5 @@ settings:
 - kind: date_iso8601
   label: Start Date
   name: start_date
+settings_group_validation: []
 variant: meltano

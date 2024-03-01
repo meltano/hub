@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Open-source analytics and business intelligence application
 domain_url: https://www.metabase.com/
 executable: tap-airbyte
@@ -21,6 +21,28 @@ quality: bronze
 repo: 
   https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-metabase
 settings:
+- description: URL to your metabase instance API
+  kind: string
+  label: Airbyte Config Instance Api Url
+  name: airbyte_config.instance_api_url
+- description: ''
+  kind: password
+  label: Airbyte Config Password
+  name: airbyte_config.password
+  sensitive: true
+- description: "To generate your session token, you need to run the following command:
+    ``` curl -X POST \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"username\"\
+    : \"person@metabase.com\", \"password\": \"fakepassword\"}' \\\n  http://localhost:3000/api/session\n
+    ``` Then copy the value of the `id` field returned by a successful call to that
+    API.\nNote that by default, sessions are good for 14 days and needs to be regenerated."
+  kind: password
+  label: Airbyte Config Session Token
+  name: airbyte_config.session_token
+  sensitive: true
+- description: ''
+  kind: string
+  label: Airbyte Config Username
+  name: airbyte_config.username
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -37,37 +59,6 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: URL to your metabase instance API
-  kind: string
-  label: Airbyte Config Instance Api Url
-  name: airbyte_config.instance_api_url
-- description: ''
-  kind: string
-  label: Airbyte Config Username
-  name: airbyte_config.username
-- description: ''
-  kind: password
-  label: Airbyte Config Password
-  name: airbyte_config.password
-  sensitive: true
-- description: "To generate your session token, you need to run the following command:
-    ``` curl -X POST \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"username\"\
-    : \"person@metabase.com\", \"password\": \"fakepassword\"}' \\\n  http://localhost:3000/api/session\n
-    ``` Then copy the value of the `id` field returned by a successful call to that
-    API.\nNote that by default, sessions are good for 14 days and needs to be regenerated."
-  kind: password
-  label: Airbyte Config Session Token
-  name: airbyte_config.session_token
-  sensitive: true
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -77,9 +68,18 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - connector_config.instance_api_url
-  - airbyte_spec.image
+- - airbyte_spec.image
+  - connector_config.instance_api_url
 settings_preamble: ''
 usage: ''
 variant: airbyte

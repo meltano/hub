@@ -1,7 +1,7 @@
 capabilities:
-- state
 - catalog
 - discover
+- state
 description: Sales CRM and Pipeline Management Software
 domain_url: https://developers.pipedrive.com/docs/api/v1
 keywords:
@@ -20,9 +20,6 @@ settings:
   label: API Token
   name: api_token
   sensitive: true
-- description: The user agent to send with requests.
-  label: User Agent
-  name: user-agent
 - description: The request timeout,  default 300 seconds.
   kind: integer
   label: Request Timeout
@@ -33,6 +30,9 @@ settings:
   kind: date_iso8601
   label: Start Date
   name: start_date
+- description: The user agent to send with requests.
+  label: User Agent
+  name: user-agent
 settings_group_validation:
 - - api_token
   - start_date

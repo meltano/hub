@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: APIs for Tyntec SMS data
 domain_url: https://api.tyntec.com/reference/sms/current.html#sms-api
 executable: tap-airbyte
@@ -21,6 +21,23 @@ quality: bronze
 repo: 
   https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-tyntec-sms
 settings:
+- description: Your Tyntec API Key. See <a href="https://www.tyntec.com/docs/docs-center-sms-api-quick-start">here</a>
+  kind: password
+  label: Airbyte Config Api Key
+  name: airbyte_config.api_key
+  sensitive: true
+- description: The phone number of the SMS message sender (international).
+  kind: string
+  label: Airbyte Config From
+  name: airbyte_config.from
+- description: The content of the SMS message to be sent.
+  kind: string
+  label: Airbyte Config Message
+  name: airbyte_config.message
+- description: The phone number of the SMS message recipient (international).
+  kind: string
+  label: Airbyte Config To
+  name: airbyte_config.to
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -37,32 +54,6 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: Your Tyntec API Key. See <a href="https://www.tyntec.com/docs/docs-center-sms-api-quick-start">here</a>
-  kind: password
-  label: Airbyte Config Api Key
-  name: airbyte_config.api_key
-  sensitive: true
-- description: The phone number of the SMS message recipient (international).
-  kind: string
-  label: Airbyte Config To
-  name: airbyte_config.to
-- description: The phone number of the SMS message sender (international).
-  kind: string
-  label: Airbyte Config From
-  name: airbyte_config.from
-- description: The content of the SMS message to be sent.
-  kind: string
-  label: Airbyte Config Message
-  name: airbyte_config.message
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -72,12 +63,21 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - airbyte_spec.image
+- - airbyte_config.api_key
   - airbyte_config.from
   - airbyte_config.to
-  - airbyte_config.api_key
   - airbyte_spec
+  - airbyte_spec.image
 settings_preamble: ''
 usage: ''
 variant: airbyte

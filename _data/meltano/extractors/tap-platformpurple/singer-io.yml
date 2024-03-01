@@ -15,6 +15,11 @@ pip_url: tap-platformpurple
 quality: bronze
 repo: https://github.com/singer-io/tap-platformpurple
 settings:
+- description: Your Platform Purple API Key.
+  kind: password
+  label: API Key
+  name: api_key
+  sensitive: true
 - description: Your Platform Purple environment name.
   label: Environment
   name: environment
@@ -24,13 +29,8 @@ settings:
   kind: date_iso8601
   label: Start Date
   name: start_date
-- description: Your Platform Purple API Key.
-  kind: password
-  label: API Key
-  name: api_key
-  sensitive: true
 settings_group_validation:
-- - environment
+- - api_key
+  - environment
   - start_date
-  - api_key
 variant: singer-io

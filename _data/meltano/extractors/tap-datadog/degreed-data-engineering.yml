@@ -1,8 +1,8 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
+- catalog
+- discover
+- state
 - stream-maps
 description: Observability service
 domain_url: https://www.datadoghq.com/
@@ -33,9 +33,9 @@ settings:
   label: Start Date
   name: start_date
 settings_group_validation:
-- - start_date
-  - api_key
+- - api_key
   - app_key
+  - start_date
 settings_preamble: ''
 usage: ''
 variant: degreed-data-engineering

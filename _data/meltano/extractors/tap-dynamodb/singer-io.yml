@@ -27,25 +27,25 @@ settings:
   label: External ID
   name: external_id
   sensitive: true
-- description: The AWS role used to connect to DynamoDB.
-  label: Role Name
-  name: role_name
 - description: The AWS region name
   label: Region Name
   name: region_name
-- description: Whether to use a local DynamoDB instance. If this is set to True then
-    `http://localhost:8000` will be used as the endpoint_url.
-  kind: boolean
-  label: Use Local Dynamo
-  name: use_local_dynamo
 - description: The boto3.client `connect_timeout` and `read_timeout` used when connecting
     to DynamoDB. Defaults to 300.
   kind: integer
   label: Request Timeout (Seconds)
   name: request_timeout
+- description: The AWS role used to connect to DynamoDB.
+  label: Role Name
+  name: role_name
+- description: Whether to use a local DynamoDB instance. If this is set to True then
+    `http://localhost:8000` will be used as the endpoint_url.
+  kind: boolean
+  label: Use Local Dynamo
+  name: use_local_dynamo
 settings_group_validation:
 - - account_id
   - external_id
-  - role_name
   - region_name
+  - role_name
 variant: singer-io

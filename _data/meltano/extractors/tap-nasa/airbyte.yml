@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: National Aeronautics and Space Administration API
 domain_url: https://github.com/nasa/apod-api#docs-
 executable: tap-airbyte
@@ -21,22 +21,6 @@ quality: bronze
 repo: 
   https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-nasa
 settings:
-- description: Airbyte image to run
-  kind: string
-  label: Airbyte Spec Image
-  name: airbyte_spec.image
-  value: airbyte/source-nasa
-- description: Airbyte image tag
-  kind: string
-  label: Airbyte Spec Tag
-  name: airbyte_spec.tag
-  value: latest
-- description: Docker mounts to make available to the Airbyte container. Expects a
-    list of maps containing source, target, and type as is documented in the docker
-    --mount documentation
-  kind: array
-  label: Docker Mounts
-  name: docker_mounts
 - description: API access key used to retrieve data from the NASA APOD API.
   kind: password
   label: Airbyte Config Api Key
@@ -55,6 +39,11 @@ settings:
   kind: integer
   label: Airbyte Config Count
   name: airbyte_config.count
+- description: Indicates that end of a date range. If `start_date` is specified without
+    an `end_date` then `end_date` defaults to the current date.
+  kind: string
+  label: Airbyte Config End Date
+  name: airbyte_config.end_date
 - description: Indicates the start of a date range. All images in the range from `start_date`
     to  `end_date` will be returned in a JSON array. Must be after 1995-06-16, the
     first day an APOD picture was posted. There are no images for tomorrow available
@@ -62,26 +51,28 @@ settings:
   kind: string
   label: Airbyte Config Start Date
   name: airbyte_config.start_date
-- description: Indicates that end of a date range. If `start_date` is specified without
-    an `end_date` then `end_date` defaults to the current date.
-  kind: string
-  label: Airbyte Config End Date
-  name: airbyte_config.end_date
 - description: Indicates whether the API should return a thumbnail image URL for video
     files. If set to True, the API returns URL of video thumbnail. If an APOD is not
     a video, this parameter is ignored.
   kind: boolean
   label: Airbyte Config Thumbs
   name: airbyte_config.thumbs
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
+- description: Airbyte image to run
+  kind: string
+  label: Airbyte Spec Image
+  name: airbyte_spec.image
+  value: airbyte/source-nasa
+- description: Airbyte image tag
+  kind: string
+  label: Airbyte Spec Tag
+  name: airbyte_spec.tag
+  value: latest
+- description: Docker mounts to make available to the Airbyte container. Expects a
+    list of maps containing source, target, and type as is documented in the docker
+    --mount documentation
+  kind: array
+  label: Docker Mounts
+  name: docker_mounts
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -91,10 +82,19 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - airbyte_spec.image
+- - airbyte_config.api_key
   - airbyte_spec
-  - airbyte_config.api_key
+  - airbyte_spec.image
 settings_preamble: ''
 usage: ''
 variant: airbyte

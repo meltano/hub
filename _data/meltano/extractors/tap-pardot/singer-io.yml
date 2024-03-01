@@ -22,6 +22,37 @@ settings:
   label: Access Token
   name: access_token
   sensitive: true
+- description: The Consumer Key that can be found when viewing your app in Salesforce,
+    when choosing OAuth2 based auth.
+  kind: password
+  label: Client Id
+  name: client_id
+  sensitive: true
+- description: The Consumer Secret that can be found when viewing your app in Salesforce,
+    when choosing OAuth2 based auth.
+  kind: password
+  label: Client Secret
+  name: client_secret
+  sensitive: true
+- description: Your email address, when choosing user based auth.
+  label: Email
+  name: email
+- description: Pardot Business ID, when choosing OAuth2 based auth. Can be found at
+    Setup > Pardot > Pardot Account Setup.
+  label: Pardot Business Unit Id
+  name: pardot_business_unit_id
+- description: Your Pardot password, when choosing user based auth.
+  kind: password
+  label: Password
+  name: password
+  sensitive: true
+- description: Your refresh token, when choosing OAuth2 based auth. See [this helpful
+    article](https://medium.com/@bpmmendis94/obtain-access-refresh-tokens-from-salesforce-rest-api-a324fe4ccd9b)
+    for more details on obtaining keys.
+  kind: password
+  label: Refresh Token
+  name: refresh_token
+  sensitive: true
 - description: "Determines how much historical data will be extracted. Please be aware\n
     that the larger the time period and amount of data, the longer the initial extraction\n
     can be expected to take."
@@ -31,45 +62,14 @@ settings:
 - description: Your Pardot user key, when choosing user based auth.
   label: User Key
   name: user_key
-- description: Your Pardot password, when choosing user based auth.
-  kind: password
-  label: Password
-  name: password
-  sensitive: true
-- description: Your email address, when choosing user based auth.
-  label: Email
-  name: email
-- description: Pardot Business ID, when choosing OAuth2 based auth. Can be found at
-    Setup > Pardot > Pardot Account Setup.
-  label: Pardot Business Unit Id
-  name: pardot_business_unit_id
-- description: The Consumer Secret that can be found when viewing your app in Salesforce,
-    when choosing OAuth2 based auth.
-  kind: password
-  label: Client Secret
-  name: client_secret
-  sensitive: true
-- description: The Consumer Key that can be found when viewing your app in Salesforce,
-    when choosing OAuth2 based auth.
-  kind: password
-  label: Client Id
-  name: client_id
-  sensitive: true
-- description: Your refresh token, when choosing OAuth2 based auth. See [this helpful
-    article](https://medium.com/@bpmmendis94/obtain-access-refresh-tokens-from-salesforce-rest-api-a324fe4ccd9b)
-    for more details on obtaining keys.
-  kind: password
-  label: Refresh Token
-  name: refresh_token
-  sensitive: true
 settings_group_validation:
-- - start_date
-  - refresh_token
-  - client_id
+- - client_id
   - client_secret
   - pardot_business_unit_id
-- - start_date
-  - email
+  - refresh_token
+  - start_date
+- - email
   - password
+  - start_date
   - user_key
 variant: singer-io

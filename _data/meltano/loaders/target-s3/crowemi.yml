@@ -111,8 +111,8 @@ settings:
   options:
   - label: AWS
     value: aws
-  value: aws
   sensitive: true
+  value: aws
 - description: A flag indictating to flatten records.
   kind: boolean
   label: Flatten Records

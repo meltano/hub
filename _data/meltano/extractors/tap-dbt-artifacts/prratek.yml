@@ -20,4 +20,5 @@ settings:
   label: dbt Target Dir
   name: dbt_target_dir
   placeholder: Ex. "/path/to/dbt/target"
+settings_group_validation: []
 variant: prratek

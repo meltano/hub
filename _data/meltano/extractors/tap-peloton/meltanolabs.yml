@@ -16,9 +16,6 @@ pip_url: git+https://github.com/MeltanoLabs/tap-peloton.git
 quality: gold
 repo: https://github.com/MeltanoLabs/tap-peloton
 settings:
-- description: The email you use to log into Peloton.
-  label: Username
-  name: username
 - description: Your Peloton password.
   kind: password
   label: Password
@@ -30,7 +27,10 @@ settings:
   label: Number of Workouts to Fetch
   name: recent_workouts_number
   value: 5
+- description: The email you use to log into Peloton.
+  label: Username
+  name: username
 settings_group_validation:
-- - username
-  - password
+- - password
+  - username
 variant: meltanolabs

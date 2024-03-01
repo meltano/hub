@@ -53,12 +53,6 @@ settings:
   kind: object
   label: AWS Credentials
   name: aws_credentials
-- description: 'The style of Backoff [message|header] applied to rate limited APIs.
-    Backoff times (seconds) come from response either the `message` or `header`. Optional:
-    Defaults to `None`.'
-  kind: string
-  label: Backoff Type
-  name: backoff_type
 - description: 'The header parameter to inspect for a backoff time. Optional: Defaults
     to `Retry-After`.'
   kind: string
@@ -72,6 +66,12 @@ settings:
   label: Backoff Time Extension
   name: backoff_time_extension
   value: 0
+- description: 'The style of Backoff [message|header] applied to rate limited APIs.
+    Backoff times (seconds) come from response either the `message` or `header`. Optional:
+    Defaults to `None`.'
+  kind: string
+  label: Backoff Type
+  name: backoff_type
 - description: Compression format to use for batch files.
   kind: options
   label: Batch Config Encoding Compression

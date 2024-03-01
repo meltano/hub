@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Usage-based billing software
 domain_url: https://docs.withorb.com/docs/orb-docs/api-reference
 executable: tap-airbyte
@@ -21,6 +21,32 @@ quality: bronze
 repo: 
   https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-orb
 settings:
+- description: Orb API Key, issued from the Orb admin console.
+  kind: password
+  label: Airbyte Config Api Key
+  name: airbyte_config.api_key
+  sensitive: true
+- description: When set to N, the connector will always refresh resources created
+    within the past N days. By default, updated objects that are not newly created
+    are not incrementally synced.
+  kind: integer
+  label: Airbyte Config Lookback Window Days
+  name: airbyte_config.lookback_window_days
+- description: Property key names to extract from all events, in order to enrich ledger
+    entries corresponding to an event deduction.
+  kind: array
+  label: Airbyte Config Numeric Event Properties Keys
+  name: airbyte_config.numeric_event_properties_keys
+- description: UTC date and time in the format 2022-03-01T00:00:00Z. Any data with
+    created_at before this data will not be synced.
+  kind: string
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
+- description: Property key names to extract from all events, in order to enrich ledger
+    entries corresponding to an event deduction.
+  kind: array
+  label: Airbyte Config String Event Properties Keys
+  name: airbyte_config.string_event_properties_keys
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -37,41 +63,6 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: Orb API Key, issued from the Orb admin console.
-  kind: password
-  label: Airbyte Config Api Key
-  name: airbyte_config.api_key
-  sensitive: true
-- description: UTC date and time in the format 2022-03-01T00:00:00Z. Any data with
-    created_at before this data will not be synced.
-  kind: string
-  label: Airbyte Config Start Date
-  name: airbyte_config.start_date
-- description: When set to N, the connector will always refresh resources created
-    within the past N days. By default, updated objects that are not newly created
-    are not incrementally synced.
-  kind: integer
-  label: Airbyte Config Lookback Window Days
-  name: airbyte_config.lookback_window_days
-- description: Property key names to extract from all events, in order to enrich ledger
-    entries corresponding to an event deduction.
-  kind: array
-  label: Airbyte Config String Event Properties Keys
-  name: airbyte_config.string_event_properties_keys
-- description: Property key names to extract from all events, in order to enrich ledger
-    entries corresponding to an event deduction.
-  kind: array
-  label: Airbyte Config Numeric Event Properties Keys
-  name: airbyte_config.numeric_event_properties_keys
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -81,10 +72,19 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - airbyte_spec.image
+- - airbyte_config.api_key
   - airbyte_spec
-  - airbyte_config.api_key
+  - airbyte_spec.image
 settings_preamble: ''
 usage: ''
 variant: airbyte

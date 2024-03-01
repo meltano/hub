@@ -42,10 +42,18 @@ requires:
   - name: files-airflow
     variant: meltano
 settings:
+- env: AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION
+  label: Pause DAGs at Creation
+  name: core.dags_are_paused_at_creation
+  value: false
 - env: AIRFLOW__CORE__DAGS_FOLDER
   label: DAGs Folder
   name: core.dags_folder
   value: $MELTANO_PROJECT_ROOT/orchestrate/dags
+- env: AIRFLOW__CORE__LOAD_EXAMPLES
+  label: Load Examples
+  name: core.load_examples
+  value: false
 - env: AIRFLOW__CORE__PLUGINS_FOLDER
   label: Plugins Folder
   name: core.plugins_folder
@@ -54,18 +62,11 @@ settings:
   label: SQL Alchemy Connection
   name: core.sql_alchemy_conn
   value: sqlite:///$MELTANO_PROJECT_ROOT/.meltano/orchestrators/airflow/airflow.db
-- env: AIRFLOW__CORE__LOAD_EXAMPLES
-  label: Load Examples
-  name: core.load_examples
-  value: false
-- env: AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION
-  label: Pause DAGs at Creation
-  name: core.dags_are_paused_at_creation
-  value: false
 - env: AIRFLOW__WEBSERVER__WEB_SERVER_PORT
   label: Webserver Port
   name: webserver.web_server_port
   value: 8080
+settings_group_validation: []
 settings_preamble: |
   Meltano [centralizes the configuration](https://docs.meltano.com/guide/configuration) of all of the plugins in your project, including Airflow's. This means that if the [Airflow documentation](https://airflow.apache.org/docs/apache-airflow/stable/howto/set-config.html) tells you to put something in `airflow.cfg`, you can use `meltano config`, `meltano.yml`, or environment variables instead, and get the benefits of Meltano features like [environments](https://docs.meltano.com/concepts/environments).
 

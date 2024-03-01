@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: PostgreSQL database extractor
 domain_url: https://www.postgresql.org/
 executable: tap-airbyte
@@ -21,47 +21,14 @@ quality: silver
 repo: 
   https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-postgres
 settings:
-- description: Airbyte image to run
-  kind: string
-  label: Airbyte Spec Image
-  name: airbyte_spec.image
-  value: airbyte/source-postgres
-- description: Airbyte image tag
-  kind: string
-  label: Airbyte Spec Tag
-  name: airbyte_spec.tag
-  value: latest
-- description: Docker mounts to make available to the Airbyte container. Expects a
-    list of maps containing source, target, and type as is documented in the docker
-    --mount documentation
-  kind: array
-  label: Docker Mounts
-  name: docker_mounts
-- description: Hostname of the database.
-  kind: string
-  label: Airbyte Config Host
-  name: airbyte_config.host
-- description: Port of the database.
-  kind: integer
-  label: Airbyte Config Port
-  name: airbyte_config.port
 - description: Name of the database.
   kind: string
   label: Airbyte Config Database
   name: airbyte_config.database
-- description: The list of schemas (case sensitive) to sync from. Defaults to public.
-  kind: array
-  label: Airbyte Config Schemas
-  name: airbyte_config.schemas
-- description: Username to access the database.
+- description: Hostname of the database.
   kind: string
-  label: Airbyte Config Username
-  name: airbyte_config.username
-- description: Password associated with the username.
-  kind: password
-  label: Airbyte Config Password
-  name: airbyte_config.password
-  sensitive: true
+  label: Airbyte Config Host
+  name: airbyte_config.host
 - description: Additional properties to pass to the JDBC URL string when connecting
     to the database formatted as 'key=value' pairs separated by the symbol '&'. (Eg.
     key1=value1&key2=value2&key3=value3). For more information read about <a href="https://jdbc.postgresql.org/documentation/head/connect.html">JDBC
@@ -69,15 +36,60 @@ settings:
   kind: string
   label: Airbyte Config Jdbc Url Params
   name: airbyte_config.jdbc_url_params
+- description: Password associated with the username.
+  kind: password
+  label: Airbyte Config Password
+  name: airbyte_config.password
+  sensitive: true
+- description: Port of the database.
+  kind: integer
+  label: Airbyte Config Port
+  name: airbyte_config.port
+- description: 'The amount of time the connector will wait when it launches to determine
+    if there is new data to sync or not. Defaults to 300 seconds. Valid range: 120
+    seconds to 1200 seconds. Read about <a href="https://docs.airbyte.com/integrations/sources/postgres#step-5-optional-set-up-initial-waiting-time">initial
+    waiting time</a>.'
+  kind: integer
+  label: Airbyte Config Replication Method Initial Waiting Seconds
+  name: airbyte_config.replication_method.initial_waiting_seconds
+- description: Standard, CDC
+  kind: string
+  label: Airbyte Config Replication Method Method
+  name: airbyte_config.replication_method.method
+- description: A logical decoding plugin installed on the PostgreSQL server. The `pgoutput`
+    plugin is used by default. If the replication table contains a lot of big jsonb
+    values it is recommended to use `wal2json` plugin. Read more about <a 
+    href="https://docs.airbyte.com/integrations/sources/postgres#step-2-select-a-replication-plugin">selecting
+    replication plugins</a>.
+  kind: options
+  label: Airbyte Config Replication Method Plugin
+  name: airbyte_config.replication_method.plugin
+  options:
+  - label: Pgoutput
+    value: pgoutput
+  - label: Wal2Json
+    value: wal2json
+- description: A Postgres publication used for consuming changes. Read about <a 
+    href="https://docs.airbyte.com/integrations/sources/postgres#step-4-create-publications-and-replication-identities-for-tables">publications
+    and replication identities</a>.
+  kind: string
+  label: Airbyte Config Replication Method Publication
+  name: airbyte_config.replication_method.publication
+- description: A plugin logical replication slot. Read about <a 
+    href="https://docs.airbyte.com/integrations/sources/postgres#step-3-create-replication-slot">replication
+    slots</a>.
+  kind: string
+  label: Airbyte Config Replication Method Replication Slot
+  name: airbyte_config.replication_method.replication_slot
+- description: The list of schemas (case sensitive) to sync from. Defaults to public.
+  kind: array
+  label: Airbyte Config Schemas
+  name: airbyte_config.schemas
 - description: Encrypt data using SSL. When activating SSL, please select one of the
     connection modes.
   kind: boolean
   label: Airbyte Config Ssl
   name: airbyte_config.ssl
-- description: disable, allow, prefer, require, verify-ca, verify-full
-  kind: string
-  label: Airbyte Config Ssl Mode Mode
-  name: airbyte_config.ssl_mode.mode
 - description: CA certificate, CA certificate
   kind: string
   label: Airbyte Config Ssl Mode Ca Certificate
@@ -98,51 +110,25 @@ settings:
   label: Airbyte Config Ssl Mode Client Key Password
   name: airbyte_config.ssl_mode.client_key_password
   sensitive: true
-- description: Standard, CDC
+- description: disable, allow, prefer, require, verify-ca, verify-full
   kind: string
-  label: Airbyte Config Replication Method Method
-  name: airbyte_config.replication_method.method
-- description: A logical decoding plugin installed on the PostgreSQL server. The `pgoutput`
-    plugin is used by default. If the replication table contains a lot of big jsonb
-    values it is recommended to use `wal2json` plugin. Read more about <a 
-    href="https://docs.airbyte.com/integrations/sources/postgres#step-2-select-a-replication-plugin">selecting
-    replication plugins</a>.
-  kind: options
-  label: Airbyte Config Replication Method Plugin
-  name: airbyte_config.replication_method.plugin
-  options:
-  - label: Pgoutput
-    value: pgoutput
-  - label: Wal2Json
-    value: wal2json
-- description: A plugin logical replication slot. Read about <a 
-    href="https://docs.airbyte.com/integrations/sources/postgres#step-3-create-replication-slot">replication
-    slots</a>.
-  kind: string
-  label: Airbyte Config Replication Method Replication Slot
-  name: airbyte_config.replication_method.replication_slot
-- description: A Postgres publication used for consuming changes. Read about <a 
-    href="https://docs.airbyte.com/integrations/sources/postgres#step-4-create-publications-and-replication-identities-for-tables">publications
-    and replication identities</a>.
-  kind: string
-  label: Airbyte Config Replication Method Publication
-  name: airbyte_config.replication_method.publication
-- description: 'The amount of time the connector will wait when it launches to determine
-    if there is new data to sync or not. Defaults to 300 seconds. Valid range: 120
-    seconds to 1200 seconds. Read about <a href="https://docs.airbyte.com/integrations/sources/postgres#step-5-optional-set-up-initial-waiting-time">initial
-    waiting time</a>.'
-  kind: integer
-  label: Airbyte Config Replication Method Initial Waiting Seconds
-  name: airbyte_config.replication_method.initial_waiting_seconds
-- description: NO_TUNNEL, SSH_KEY_AUTH, SSH_PASSWORD_AUTH
-  kind: string
-  label: Airbyte Config Tunnel Method Tunnel Method
-  name: airbyte_config.tunnel_method.tunnel_method
+  label: Airbyte Config Ssl Mode Mode
+  name: airbyte_config.ssl_mode.mode
+- description: OS-level user account ssh key credentials in RSA PEM format ( created
+    with ssh-keygen -t rsa -m PEM -f myuser_rsa )
+  kind: password
+  label: Airbyte Config Tunnel Method Ssh Key
+  name: airbyte_config.tunnel_method.ssh_key
+  sensitive: true
 - description: Hostname of the jump server host that allows inbound ssh tunnel., Hostname
     of the jump server host that allows inbound ssh tunnel.
   kind: string
   label: Airbyte Config Tunnel Method Tunnel Host
   name: airbyte_config.tunnel_method.tunnel_host
+- description: NO_TUNNEL, SSH_KEY_AUTH, SSH_PASSWORD_AUTH
+  kind: string
+  label: Airbyte Config Tunnel Method Tunnel Method
+  name: airbyte_config.tunnel_method.tunnel_method
 - description: Port on the proxy/jump server that accepts inbound ssh connections.,
     Port on the proxy/jump server that accepts inbound ssh connections.
   kind: integer
@@ -153,26 +139,31 @@ settings:
   kind: string
   label: Airbyte Config Tunnel Method Tunnel User
   name: airbyte_config.tunnel_method.tunnel_user
-- description: OS-level user account ssh key credentials in RSA PEM format ( created
-    with ssh-keygen -t rsa -m PEM -f myuser_rsa )
-  kind: password
-  label: Airbyte Config Tunnel Method Ssh Key
-  name: airbyte_config.tunnel_method.ssh_key
-  sensitive: true
 - description: OS-level password for logging into the jump server host
   kind: password
   label: Airbyte Config Tunnel Method Tunnel User Password
   name: airbyte_config.tunnel_method.tunnel_user_password
   sensitive: true
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
+- description: Username to access the database.
+  kind: string
+  label: Airbyte Config Username
+  name: airbyte_config.username
+- description: Airbyte image to run
+  kind: string
+  label: Airbyte Spec Image
+  name: airbyte_spec.image
+  value: airbyte/source-postgres
+- description: Airbyte image tag
+  kind: string
+  label: Airbyte Spec Tag
+  name: airbyte_spec.tag
+  value: latest
+- description: Docker mounts to make available to the Airbyte container. Expects a
+    list of maps containing source, target, and type as is documented in the docker
+    --mount documentation
+  kind: array
+  label: Docker Mounts
+  name: docker_mounts
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -182,13 +173,22 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
 - - airbyte_config.database
-  - airbyte_spec
-  - airbyte_config.username
-  - airbyte_spec.image
   - airbyte_config.host
   - airbyte_config.port
+  - airbyte_config.username
+  - airbyte_spec
+  - airbyte_spec.image
 settings_preamble: ''
 usage: ''
 variant: airbyte

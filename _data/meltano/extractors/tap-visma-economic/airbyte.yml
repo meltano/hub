@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Accounting Software
 domain_url: https://developer.visma.com/api/e-conomic/
 executable: tap-airbyte
@@ -21,6 +21,16 @@ quality: bronze
 repo: 
   https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-visma-economic
 settings:
+- description: Identifier for the grant issued by an agreement
+  kind: password
+  label: Airbyte Config Agreement Grant Token
+  name: airbyte_config.agreement_grant_token
+  sensitive: true
+- description: Identification token for app accessing data
+  kind: password
+  label: Airbyte Config App Secret Token
+  name: airbyte_config.app_secret_token
+  sensitive: true
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -37,25 +47,6 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: Identification token for app accessing data
-  kind: password
-  label: Airbyte Config App Secret Token
-  name: airbyte_config.app_secret_token
-  sensitive: true
-- description: Identifier for the grant issued by an agreement
-  kind: password
-  label: Airbyte Config Agreement Grant Token
-  name: airbyte_config.agreement_grant_token
-  sensitive: true
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -65,11 +56,20 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - airbyte_spec.image
-  - airbyte_config.agreement_grant_token
-  - airbyte_spec
+- - airbyte_config.agreement_grant_token
   - airbyte_config.app_secret_token
+  - airbyte_spec
+  - airbyte_spec.image
 settings_preamble: ''
 usage: ''
 variant: airbyte

@@ -15,10 +15,6 @@ pip_url: git+https://github.com/hotgluexyz/tap-woocommerce.git
 quality: silver
 repo: https://github.com/hotgluexyz/tap-woocommerce
 settings:
-- description: WooCommerce Site URL
-  kind: string
-  label: Site URL
-  name: site_url
 - description: WooCommerce API Consumer Key
   kind: password
   label: Consumer Key
@@ -29,10 +25,15 @@ settings:
   label: Consumer Secret
   name: consumer_secret
   sensitive: true
+- description: WooCommerce Site URL
+  kind: string
+  label: Site URL
+  name: site_url
 - description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.
   kind: date_iso8601
   label: Start Date
   name: start_date
+settings_group_validation: []
 variant: hotgluexyz

@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Mobile data collection platform
 domain_url: https://www.surveycto.com/
 executable: tap-airbyte
@@ -21,6 +21,27 @@ quality: bronze
 repo: 
   https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-surveycto
 settings:
+- description: Unique identifier for one of your forms
+  kind: array
+  label: Airbyte Config Form Id
+  name: airbyte_config.form_id
+- description: Password to authenticate into the SurveyCTO server
+  kind: password
+  label: Airbyte Config Password
+  name: airbyte_config.password
+  sensitive: true
+- description: The name of the SurveryCTO server
+  kind: string
+  label: Airbyte Config Server Name
+  name: airbyte_config.server_name
+- description: initial date for survey cto
+  kind: string
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
+- description: Username to authenticate into the SurveyCTO server
+  kind: string
+  label: Airbyte Config Username
+  name: airbyte_config.username
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -37,36 +58,6 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: The name of the SurveryCTO server
-  kind: string
-  label: Airbyte Config Server Name
-  name: airbyte_config.server_name
-- description: Username to authenticate into the SurveyCTO server
-  kind: string
-  label: Airbyte Config Username
-  name: airbyte_config.username
-- description: Password to authenticate into the SurveyCTO server
-  kind: password
-  label: Airbyte Config Password
-  name: airbyte_config.password
-  sensitive: true
-- description: Unique identifier for one of your forms
-  kind: array
-  label: Airbyte Config Form Id
-  name: airbyte_config.form_id
-- description: initial date for survey cto
-  kind: string
-  label: Airbyte Config Start Date
-  name: airbyte_config.start_date
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -76,13 +67,22 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
 - - airbyte_config.form_id
-  - airbyte_spec.image
   - airbyte_config.password
   - airbyte_config.server_name
   - airbyte_config.username
   - airbyte_spec
+  - airbyte_spec.image
 settings_preamble: ''
 usage: ''
 variant: airbyte

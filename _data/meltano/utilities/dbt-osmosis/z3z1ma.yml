@@ -58,4 +58,5 @@ settings:
     config option to resolve dbt profile directory.
   env: ADAPTER
   name: adapter
+settings_group_validation: []
 variant: z3z1ma

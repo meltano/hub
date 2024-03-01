@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Linkedin Company Pages
 domain_url: https://business.linkedin.com/marketing-solutions/linkedin-pages
 executable: tap-airbyte
@@ -21,26 +21,13 @@ quality: silver
 repo: 
   https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-linkedin-pages
 settings:
-- description: Airbyte image to run
-  kind: string
-  label: Airbyte Spec Image
-  name: airbyte_spec.image
-  value: airbyte/source-linkedin-pages
-- description: Airbyte image tag
-  kind: string
-  label: Airbyte Spec Tag
-  name: airbyte_spec.tag
-  value: latest
-- description: Docker mounts to make available to the Airbyte container. Expects a
-    list of maps containing source, target, and type as is documented in the docker
-    --mount documentation
-  kind: array
-  label: Docker Mounts
-  name: docker_mounts
-- description: Specify the Organization ID
-  kind: integer
-  label: Airbyte Config Org Id
-  name: airbyte_config.org_id
+- description: The token value generated using the LinkedIn Developers OAuth Token
+    Tools. See the <a href="https://docs.airbyte.com/integrations/sources/linkedin-pages/">docs</a>
+    to obtain yours.
+  kind: password
+  label: Airbyte Config Credentials Access Token
+  name: airbyte_config.credentials.access_token
+  sensitive: true
 - description: oAuth2.0, access_token
   kind: string
   label: Airbyte Config Credentials Auth Method
@@ -62,22 +49,26 @@ settings:
   label: Airbyte Config Credentials Refresh Token
   name: airbyte_config.credentials.refresh_token
   sensitive: true
-- description: The token value generated using the LinkedIn Developers OAuth Token
-    Tools. See the <a href="https://docs.airbyte.com/integrations/sources/linkedin-pages/">docs</a>
-    to obtain yours.
-  kind: password
-  label: Airbyte Config Credentials Access Token
-  name: airbyte_config.credentials.access_token
-  sensitive: true
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
+- description: Specify the Organization ID
+  kind: integer
+  label: Airbyte Config Org Id
+  name: airbyte_config.org_id
+- description: Airbyte image to run
+  kind: string
+  label: Airbyte Spec Image
+  name: airbyte_spec.image
+  value: airbyte/source-linkedin-pages
+- description: Airbyte image tag
+  kind: string
+  label: Airbyte Spec Tag
+  name: airbyte_spec.tag
+  value: latest
+- description: Docker mounts to make available to the Airbyte container. Expects a
+    list of maps containing source, target, and type as is documented in the docker
+    --mount documentation
+  kind: array
+  label: Docker Mounts
+  name: docker_mounts
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -87,6 +78,15 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
 - - airbyte_spec.image
   - connector_config.org_id
