@@ -20,10 +20,12 @@ settings:
   kind: password
   label: Client ID
   name: client_id
+  sensitive: true
 - description: Your Procore client secret.
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
 - description: A boolean whether using a Sandbox or not. Default False.
   kind: boolean
   label: Is Sandbox
@@ -36,6 +38,7 @@ settings:
   kind: password
   label: Refresh Token
   name: refresh_token
+  sensitive: true
 - description: "Determines how much historical data will be extracted. Please be aware\n
     that the larger the time period and amount of data, the longer the initial extraction\n
     can be expected to take."

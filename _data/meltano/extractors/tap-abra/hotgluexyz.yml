@@ -33,6 +33,7 @@ settings:
   kind: password
   label: Password
   name: password
+  sensitive: true
 - description: The earliest record date to sync
   kind: date_iso8601
   label: Start Date

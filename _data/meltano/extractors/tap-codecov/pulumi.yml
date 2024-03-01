@@ -25,6 +25,7 @@ settings:
   kind: password
   label: Auth Token
   name: auth_token
+  sensitive: true
 - description: Compression format to use for batch files.
   kind: options
   label: Batch Config Encoding Compression

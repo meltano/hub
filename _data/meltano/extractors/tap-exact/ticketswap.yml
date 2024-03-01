@@ -49,10 +49,12 @@ settings:
   kind: password
   label: Client ID
   name: client_id
+  sensitive: true
 - description: The client secret to authenticate against the API service
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
 - description: The Exact divisions
   kind: array
   label: Divisions
@@ -84,11 +86,13 @@ settings:
   kind: password
   label: Tokens S3 Bucket
   name: tokens_s3_bucket
+  sensitive: true
 - description: The S3 object key to contain the access and refresh token to authenticate
     against the API service
   kind: password
   label: Tokens S3 Key
   name: tokens_s3_key
+  sensitive: true
 settings_group_validation:
 - - client_id
   - client_secret

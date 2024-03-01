@@ -100,11 +100,13 @@ settings:
   label: Key File Location
   name: key_file_location
   placeholder: Ex. $MELTANO_PROJECT_ROOT/client_secrets.json
+  sensitive: true
 - description: Google Analytics Access Token. See 
     https://developers.google.com/analytics/devguides/reporting/core/v4/authorization#OAuth2Authorizing.
   kind: password
   label: OAuth Credentials Access Token
   name: oauth_credentials.access_token
+  sensitive: true
 - description: |
     See <https://developers.google.com/analytics/devguides/reporting/core/v4/authorization#OAuth2Authorizing>.
 
@@ -112,16 +114,19 @@ settings:
   kind: password
   label: OAuth Credentials Client ID
   name: oauth_credentials.client_id
+  sensitive: true
 - description: Google Analytics Client Secret. See 
     https://developers.google.com/analytics/devguides/reporting/core/v4/authorization#OAuth2Authorizing.
   kind: password
   label: OAuth Credentials Client Secret
   name: oauth_credentials.client_secret
+  sensitive: true
 - description: Google Analytics Refresh Token. See 
     https://developers.google.com/analytics/devguides/reporting/core/v4/authorization#OAuth2Authorizing.
   kind: password
   label: OAuth Credentials Refresh Token
   name: oauth_credentials.refresh_token
+  sensitive: true
 - description: |
     Project-relative path to JSON file with the definition of the reports to be generated.
 
@@ -220,6 +225,7 @@ settings:
   label: View ID
   name: view_id
   placeholder: Ex. 198343027
+  sensitive: true
 settings_group_validation:
 - - key_file_location
   - start_date

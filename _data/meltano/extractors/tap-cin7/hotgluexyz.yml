@@ -24,10 +24,12 @@ settings:
   kind: password
   label: API Key
   name: api_key
+  sensitive: true
 - description: Api_password
   kind: password
   label: API Password
   name: api_password
+  sensitive: true
 - description: The earliest record date to sync
   kind: date_iso8601
   label: Start Date

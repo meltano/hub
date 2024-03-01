@@ -70,9 +70,10 @@ settings:
   kind: password
   label: Keyspace
   name: keyspace
+  sensitive: true
 - description: The local_dc parameter should be the name of the datacenter.
   kind: string
-  label: Local Datacenter
+  label: Local Dc
   name: local_dc
 - description: Should be a total number of attempts to be made before giving up.
   kind: integer
@@ -83,6 +84,7 @@ settings:
   kind: password
   label: Password
   name: password
+  sensitive: true
 - description: The server-side port to open connections to. Defaults to 9042. .
   kind: integer
   label: Port

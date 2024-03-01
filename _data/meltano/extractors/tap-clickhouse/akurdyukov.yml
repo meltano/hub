@@ -80,6 +80,7 @@ settings:
   kind: password
   label: Password
   name: password
+  sensitive: true
 - description: Database connection port
   kind: integer
   label: Port

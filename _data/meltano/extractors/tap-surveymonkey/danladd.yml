@@ -20,6 +20,7 @@ settings:
   kind: password
   label: Access Token
   name: access_token
+  sensitive: true
 - description: If true, drop free text answers from survey responses (Deafult = False)
   kind: boolean
   label: Drop Open Ended Text

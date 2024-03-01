@@ -22,6 +22,7 @@ settings:
   kind: password
   label: Access Key
   name: access_key
+  sensitive: true
 - description: The end date for retrieving Amazon Web Services cost.
   kind: date_iso8601
   label: End Date
@@ -41,10 +42,12 @@ settings:
   kind: password
   label: Secret Key
   name: secret_key
+  sensitive: true
 - description: Your AWS Account Session Token if required for authentication.
   kind: password
   label: Session Token
   name: session_token
+  sensitive: true
 - description: The start date for retrieving Amazon Web Services cost.
   kind: date_iso8601
   label: Start Date

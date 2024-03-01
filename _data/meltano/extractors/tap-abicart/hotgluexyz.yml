@@ -38,6 +38,7 @@ settings:
   kind: password
   label: Password
   name: password
+  sensitive: true
 - description: User-defined config values to be used within map expressions.
   kind: object
   label: Stream Map Config

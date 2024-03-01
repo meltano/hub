@@ -30,6 +30,7 @@ settings:
   kind: password
   label: Auth Token
   name: auth_token
+  sensitive: true
 - description: Company id
   kind: integer
   label: Company ID

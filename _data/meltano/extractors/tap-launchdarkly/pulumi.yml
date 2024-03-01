@@ -24,6 +24,7 @@ settings:
   kind: password
   label: Auth Token
   name: auth_token
+  sensitive: true
 - description: Which environment to get activation data for (Usually a production
     environment)
   kind: string

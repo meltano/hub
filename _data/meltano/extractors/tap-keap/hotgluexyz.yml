@@ -24,14 +24,17 @@ settings:
   kind: password
   label: Access Token
   name: access_token
+  sensitive: true
 - description: Your Keap Client ID.
   kind: password
   label: Client ID
   name: client_id
+  sensitive: true
 - description: Your Keap Client Secret.
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
 - description: The integer of how long until your Keap token expires.
   kind: integer
   label: Expires In

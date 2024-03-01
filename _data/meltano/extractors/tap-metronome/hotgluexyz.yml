@@ -25,10 +25,12 @@ settings:
   kind: password
   label: Auth Token
   name: auth_token
+  sensitive: true
 - description: The Metronome billing provider type (aws_marketplace, stripe, or netsuite).
   kind: password
   label: Billing Provider Type
   name: billing_provider_type
+  sensitive: true
   value: stripe
 - description: A comma separated list of Metronome customer IDs to fetch usage for.
     If absent, usage for all customers will be returned.

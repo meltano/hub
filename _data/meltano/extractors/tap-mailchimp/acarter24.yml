@@ -25,6 +25,7 @@ settings:
   kind: password
   label: API Key
   name: api_key
+  sensitive: true
 - description: Your Mailchimp DC
   kind: string
   label: Data Center

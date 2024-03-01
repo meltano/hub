@@ -20,10 +20,12 @@ settings:
   kind: password
   label: Client ID
   name: client_id
+  sensitive: true
 - description: Password to use in the auth flow.
   kind: password
   label: Password
   name: password
+  sensitive: true
 - description: "Determines how much historical data will be extracted. Please be aware\n
     that the larger the time period and amount of data, the longer the initial extraction\n
     can be expected to take."
@@ -34,6 +36,7 @@ settings:
   kind: password
   label: Tenant ID
   name: tenant_id
+  sensitive: true
 - description: Username to use in the flow.
   kind: string
   label: Username

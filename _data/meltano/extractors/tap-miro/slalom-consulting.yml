@@ -23,6 +23,7 @@ settings:
   kind: password
   label: Access Token
   name: access_token
+  sensitive: true
 - description: Override the url for the API service.
   kind: string
   label: API URL
@@ -45,6 +46,7 @@ settings:
   kind: password
   label: Organization ID
   name: organization_id
+  sensitive: true
 - description: ''
   kind: array
   label: Stream Config

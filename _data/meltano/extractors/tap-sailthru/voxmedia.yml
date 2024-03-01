@@ -28,10 +28,12 @@ settings:
   kind: password
   label: API Key
   name: api_key
+  sensitive: true
 - description: API secret for the sailthru account
   kind: password
   label: API Secret
   name: api_secret
+  sensitive: true
 - description: Which chunk to feed into List Members
   kind: integer
   label: Chunk Number
@@ -73,6 +75,7 @@ settings:
   kind: password
   label: Table ID
   name: table_id
+  sensitive: true
 - description: User agent for http requests
   kind: string
   label: User Agent

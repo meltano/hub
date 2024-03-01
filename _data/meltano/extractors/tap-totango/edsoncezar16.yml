@@ -27,6 +27,7 @@ settings:
   kind: password
   label: Account ID
   name: account_id
+  sensitive: true
 - description: The maximum number of accounts to return in the accounts result set.
     The max. Value for count is 1000.
   kind: integer
@@ -84,6 +85,7 @@ settings:
   kind: password
   label: Auth Token
   name: auth_token
+  sensitive: true
 - description: The maximum number of accounts to return in the events result set.
     The max. Value for count is 1000.
   kind: integer

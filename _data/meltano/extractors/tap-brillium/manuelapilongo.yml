@@ -22,6 +22,7 @@ settings:
   kind: password
   label: API Key
   name: api_key
+  sensitive: true
 - description: Brillium Api Version. Default to latest available
   kind: string
   label: API Version

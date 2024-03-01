@@ -24,14 +24,17 @@ settings:
   kind: password
   label: Access Token
   name: access_token
+  sensitive: true
 - description: Your Dynamics client ID.
   kind: password
   label: Client ID
   name: client_id
+  sensitive: true
 - description: Your Dynamics client secret.
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
 - description: Your Dynamics environment name.
   kind: string
   label: Environment Name
@@ -49,6 +52,7 @@ settings:
   kind: password
   label: Refresh Token
   name: refresh_token
+  sensitive: true
 - description: The earliest record date to sync
   kind: date_iso8601
   label: Start Date

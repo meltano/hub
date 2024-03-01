@@ -58,6 +58,7 @@ settings:
   kind: password
   label: Password
   name: password
+  sensitive: true
 - description: MySQL port
   kind: string
   label: Port

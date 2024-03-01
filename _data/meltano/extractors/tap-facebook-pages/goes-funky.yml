@@ -21,6 +21,7 @@ settings:
   kind: password
   label: Access Token
   name: access_token
+  sensitive: true
 - description: A list of page IDs.
   documentation: https://www.facebook.com/help/1503421039731588
   kind: array

@@ -38,10 +38,12 @@ settings:
   kind: password
   label: Private Key
   name: private_key
+  sensitive: true
 - description: The public key to authenticate against the API service
   kind: password
   label: Public Key
   name: public_key
+  sensitive: true
 - description: Define if sandbox is TRUE or FAlse. Default is TRUE
   kind: boolean
   label: Sandbox

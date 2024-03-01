@@ -22,6 +22,7 @@ settings:
   kind: password
   label: API Key
   name: api_key
+  sensitive: true
 - description: Optional. If not empty, filter and extract only the pages with this
     string in the 'page_full_name'
   kind: string
@@ -46,6 +47,7 @@ settings:
   kind: password
   label: Secret Key
   name: secret_key
+  sensitive: true
 - description: Site ID (can be queried at https://dataquery.atinternet-solutions.com/)
   kind: integer
   label: Site ID
