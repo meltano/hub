@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: All your work in one place. Tasks
 domain_url: https://clickup.com/
 executable: tap-airbyte
@@ -18,8 +18,41 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: silver
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-clickup-api
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-clickup-api
 settings:
+- description: Every ClickUp API call required authentication. This field is your
+    personal API token. See <a 
+    href="https://clickup.com/api/developer-portal/authentication/#personal-token">here</a>.
+  kind: password
+  label: Airbyte Config Api Token
+  name: airbyte_config.api_token
+  sensitive: true
+- description: The ID of your folder in your space. Retrieve it from the `/space/{space_id}/folder`
+    of the ClickUp API. See <a href="https://clickup.com/api/clickupreference/operation/GetFolders/">here</a>.
+  kind: password
+  label: Airbyte Config Folder Id
+  name: airbyte_config.folder_id
+  sensitive: true
+- description: The ID of your list in your folder. Retrieve it from the `/folder/{folder_id}/list`
+    of the ClickUp API. See <a href="https://clickup.com/api/clickupreference/operation/GetLists/">here</a>.
+  kind: password
+  label: Airbyte Config List Id
+  name: airbyte_config.list_id
+  sensitive: true
+- description: The ID of your space in your workspace. Retrieve it from the `/team/{team_id}/space`
+    of the ClickUp API. See <a href="https://clickup.com/api/clickupreference/operation/GetSpaces/">here</a>.
+  kind: password
+  label: Airbyte Config Space Id
+  name: airbyte_config.space_id
+  sensitive: true
+- description: The ID of your team in ClickUp. Retrieve it from the `/team` of the
+    ClickUp API. See <a 
+    href="https://clickup.com/api/clickupreference/operation/GetAuthorizedTeams/">here</a>.
+  kind: password
+  label: Airbyte Config Team Id
+  name: airbyte_config.team_id
+  sensitive: true
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -36,42 +69,8 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: Every ClickUp API call required authentication. This field is your
-    personal API token. See <a href="https://clickup.com/api/developer-portal/authentication/#personal-token">here</a>.
-  kind: password
-  label: Airbyte Config Api Token
-  name: airbyte_config.api_token
-- description: The ID of your team in ClickUp. Retrieve it from the `/team` of the
-    ClickUp API. See <a href="https://clickup.com/api/clickupreference/operation/GetAuthorizedTeams/">here</a>.
-  kind: password
-  label: Airbyte Config Team Id
-  name: airbyte_config.team_id
-- description: The ID of your space in your workspace. Retrieve it from the `/team/{team_id}/space`
-    of the ClickUp API. See <a href="https://clickup.com/api/clickupreference/operation/GetSpaces/">here</a>.
-  kind: password
-  label: Airbyte Config Space Id
-  name: airbyte_config.space_id
-- description: The ID of your folder in your space. Retrieve it from the `/space/{space_id}/folder`
-    of the ClickUp API. See <a href="https://clickup.com/api/clickupreference/operation/GetFolders/">here</a>.
-  kind: password
-  label: Airbyte Config Folder Id
-  name: airbyte_config.folder_id
-- description: The ID of your list in your folder. Retrieve it from the `/folder/{folder_id}/list`
-    of the ClickUp API. See <a href="https://clickup.com/api/clickupreference/operation/GetLists/">here</a>.
-  kind: password
-  label: Airbyte Config List Id
-  name: airbyte_config.list_id
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -79,6 +78,15 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
 - - airbyte_config.api_token
   - airbyte_spec.image

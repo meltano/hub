@@ -1,6 +1,6 @@
 capabilities:
-- properties
 - discover
+- properties
 - state
 description: Marketing automation for account-based marketing
 domain_url: https://developers.marketo.com/rest-api/
@@ -16,15 +16,17 @@ pip_url: git+https://gitlab.com/meltano/tap-marketo.git
 quality: bronze
 repo: https://gitlab.com/meltano/tap-marketo
 settings:
-- name: endpoint
-- name: identity
 - label: Client ID
   name: client_id
 - kind: password
   name: client_secret
+  sensitive: true
+- name: endpoint
+- name: identity
 - description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.
   kind: date_iso8601
   name: start_date
+settings_group_validation: []
 variant: meltano

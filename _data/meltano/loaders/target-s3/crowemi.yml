@@ -73,30 +73,37 @@ settings:
   kind: password
   label: Cloud Provider AWS AWS Access Key ID
   name: cloud_provider.aws.aws_access_key_id
+  sensitive: true
 - description: Your AWS access key ID.
   kind: password
   label: Cloud Provider AWS AWS Bucket
   name: cloud_provider.aws.aws_bucket
+  sensitive: true
 - description: The AWS endpoint url to use for testing purposes.
   kind: password
   label: Cloud Provider AWS AWS Endpoint Override
   name: cloud_provider.aws.aws_endpoint_override
+  sensitive: true
 - description: Your AWS profile name to optionally use for auth.
   kind: password
   label: Cloud Provider AWS AWS Profile Name
   name: cloud_provider.aws.aws_profile_name
+  sensitive: true
 - description: Your AWS region.
   kind: password
   label: Cloud Provider AWS AWS Region
   name: cloud_provider.aws.aws_region
+  sensitive: true
 - description: Your AWS secret access key.
   kind: password
   label: Cloud Provider AWS AWS Secret Access Key
   name: cloud_provider.aws.aws_secret_access_key
+  sensitive: true
 - description: ''
   kind: password
   label: Cloud Provider AWS AWS Session Token
   name: cloud_provider.aws.aws_session_token
+  sensitive: true
 - description: The cloud provider type to use.
   kind: password
   label: Cloud Provider Cloud Provider Type
@@ -104,13 +111,14 @@ settings:
   options:
   - label: AWS
     value: aws
+  sensitive: true
   value: aws
 - description: A flag indictating to flatten records.
   kind: boolean
   label: Flatten Records
   name: flatten_records
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -162,6 +170,7 @@ settings:
   kind: password
   label: Stream Name Path Override
   name: stream_name_path_override
+  sensitive: true
 settings_group_validation:
 - - cloud_provider.aws.aws_bucket
   - cloud_provider.aws.aws_region

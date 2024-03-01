@@ -15,64 +15,68 @@ pip_url: tap-twitter-ads
 quality: silver
 repo: https://github.com/singer-io/tap-twitter-ads
 settings:
+- description: OAuth 1.0a credentials - Access Token
+  kind: password
+  label: Access Token
+  name: access_token
+  sensitive: true
+- description: OAuth 1.0a credentials - Access Token Secret
+  kind: password
+  label: Access Token Secret
+  name: access_token_secret
+  sensitive: true
+- description: Comma-delimited list of Twitter Ad Account IDs.
+  label: Account IDs
+  name: account_ids
+- description: Number of days for latency look-back period to allow analytical reporting
+    numbers to stabilize.
+  label: Attribution Window
+  name: attribution_window
 - description: OAuth 1.0a credentials - Consumer Key
   kind: password
   label: Consumer Key
   name: consumer_key
+  sensitive: true
+- description: OAuth 1.0a credentials - Consumer Secret
+  kind: password
+  label: Consumer Secret
+  name: consumer_secret
+  sensitive: true
+- description: Comma-delimited list of ISO 2-letter country codes for targeting and
+    segmentation. (e.g. "US, CA, MX, DE")
+  label: Country Codes
+  name: country_codes
+- description: An optional parameter to configure custom page_size.
+  kind: integer
+  label: Page Size
+  name: page_size
+- description: Object array of specified reports with name, entity, segment, and granularity.
+  kind: object
+  label: Reports
+  name: reports
 - description: To configure the read and connect timeout for twitter-ads client. Default
     is 300 seconds.
   kind: integer
   label: Request Timeout
   name: request_timeout
-- description: Comma-delimited list of Twitter Ad Account IDs.
-  label: Account IDs
-  name: account_ids
-- description: OAuth 1.0a credentials - Access Token Secret
-  kind: password
-  label: Access Token Secret
-  name: access_token_secret
-- description: Number of days for latency look-back period to allow analytical reporting
-    numbers to stabilize.
-  label: Attribution Window
-  name: attribution_window
-- description: An optional parameter to configure custom page_size.
-  kind: integer
-  label: Page Size
-  name: page_size
-- description: OAuth 1.0a credentials - Consumer Secret
-  kind: password
-  label: Consumer Secret
-  name: consumer_secret
-- description: OAuth 1.0a credentials - Access Token
-  kind: password
-  label: Access Token
-  name: access_token
-- description: Comma-delimited list of ISO 2-letter country codes for targeting and
-    segmentation. (e.g. "US, CA, MX, DE")
-  label: Country Codes
-  name: country_codes
-- description: Specifies whether to include logically deleted records in the results.
-  kind: boolean
-  label: With Deleted
-  name: with_deleted
 - description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.
   kind: date_iso8601
   label: Start Date
   name: start_date
-- description: Object array of specified reports with name, entity, segment, and granularity.
-  kind: object
-  label: Reports
-  name: reports
 - description: The user agent to send with requests.
   label: User Agent
   name: user_agent
+- description: Specifies whether to include logically deleted records in the results.
+  kind: boolean
+  label: With Deleted
+  name: with_deleted
 settings_group_validation:
-- - consumer_key
-  - account_ids
+- - access_token
   - access_token_secret
+  - account_ids
+  - consumer_key
   - consumer_secret
-  - access_token
   - start_date
 variant: singer-io

@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Code hosting platform
 domain_url: https://docs.github.com/en/rest
 executable: tap-airbyte
@@ -18,8 +18,51 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: silver
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-github
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-github
 settings:
+- description: Space-delimited list of GitHub repository branches to pull commits
+    for, e.g. `airbytehq/airbyte/master`. If no branches are specified for a repository,
+    the default branch will be pulled.
+  kind: string
+  label: Airbyte Config Branch
+  name: airbyte_config.branch
+- description: OAuth access token
+  kind: password
+  label: Airbyte Config Credentials Access Token
+  name: airbyte_config.credentials.access_token
+  sensitive: true
+- description: OAuth Credentials, PAT Credentials
+  kind: string
+  label: Airbyte Config Credentials Option Title
+  name: airbyte_config.credentials.option_title
+- description: Log into GitHub and then generate a <a href="https://github.com/settings/tokens">personal
+    access token</a>. To load balance your API quota consumption across multiple API
+    tokens, input multiple tokens separated with ","
+  kind: password
+  label: Airbyte Config Credentials Personal Access Token
+  name: airbyte_config.credentials.personal_access_token
+  sensitive: true
+- description: The Github connector contains several streams with a large amount of
+    data. The page size of such streams depends on the size of your repository. We
+    recommended that you specify values between 10 and 30.
+  kind: integer
+  label: Airbyte Config Page Size For Large Streams
+  name: airbyte_config.page_size_for_large_streams
+- description: Space-delimited list of GitHub organizations/repositories, e.g. `airbytehq/airbyte`
+    for single repository, `airbytehq/*` for get all repositories from organization
+    and `airbytehq/airbyte airbytehq/another-repo` for multiple repositories.
+  kind: string
+  label: Airbyte Config Repository
+  name: airbyte_config.repository
+- description: The date from which you'd like to replicate data from GitHub in the
+    format YYYY-MM-DDT00:00:00Z. For the streams which support this configuration,
+    only data generated on or after the start date will be replicated. This field
+    doesn't apply to all streams, see the <a href="https://docs.airbyte.com/integrations/sources/github">docs</a>
+    for more info
+  kind: string
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -36,57 +79,8 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: OAuth Credentials, PAT Credentials
-  kind: string
-  label: Airbyte Config Credentials Option Title
-  name: airbyte_config.credentials.option_title
-- description: OAuth access token
-  kind: password
-  label: Airbyte Config Credentials Access Token
-  name: airbyte_config.credentials.access_token
-- description: Log into GitHub and then generate a <a href="https://github.com/settings/tokens">personal
-    access token</a>. To load balance your API quota consumption across multiple API
-    tokens, input multiple tokens separated with ","
-  kind: password
-  label: Airbyte Config Credentials Personal Access Token
-  name: airbyte_config.credentials.personal_access_token
-- description: The date from which you'd like to replicate data from GitHub in the
-    format YYYY-MM-DDT00:00:00Z. For the streams which support this configuration,
-    only data generated on or after the start date will be replicated. This field
-    doesn't apply to all streams, see the <a href="https://docs.airbyte.com/integrations/sources/github">docs</a>
-    for more info
-  kind: string
-  label: Airbyte Config Start Date
-  name: airbyte_config.start_date
-- description: Space-delimited list of GitHub organizations/repositories, e.g. `airbytehq/airbyte`
-    for single repository, `airbytehq/*` for get all repositories from organization
-    and `airbytehq/airbyte airbytehq/another-repo` for multiple repositories.
-  kind: string
-  label: Airbyte Config Repository
-  name: airbyte_config.repository
-- description: Space-delimited list of GitHub repository branches to pull commits
-    for, e.g. `airbytehq/airbyte/master`. If no branches are specified for a repository,
-    the default branch will be pulled.
-  kind: string
-  label: Airbyte Config Branch
-  name: airbyte_config.branch
-- description: The Github connector contains several streams with a large amount of
-    data. The page size of such streams depends on the size of your repository. We
-    recommended that you specify values between 10 and 30.
-  kind: integer
-  label: Airbyte Config Page Size For Large Streams
-  name: airbyte_config.page_size_for_large_streams
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -94,9 +88,18 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - airbyte_config.start_date
-  - airbyte_config.repository
+- - airbyte_config.repository
+  - airbyte_config.start_date
   - airbyte_spec.image
 settings_preamble: ''
 usage: ''

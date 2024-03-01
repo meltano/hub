@@ -5,8 +5,8 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
-description: Digital distribution service operated and developed by Google.
-  This tap uses a scraper to extract reviews from the Google Play Store.
+description: Digital distribution service operated and developed by Google. This tap
+  uses a scraper to extract reviews from the Google Play Store.
 domain_url: https://play.google.com/store/games?pli=1
 executable: tap-google-play
 keywords:
@@ -25,8 +25,9 @@ settings:
   kind: password
   label: App ID
   name: app_id
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+  sensitive: true
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled

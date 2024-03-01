@@ -1,7 +1,7 @@
 capabilities:
-- state
 - catalog
 - discover
+- state
 description: Solarvista Live is a Field Service Management platform to manage, plan,
   and mobilise your engineers.
 domain_url: https://developer.solarvista.com/
@@ -16,11 +16,6 @@ pip_url: git+https://github.com/Matatika/tap-solarvista.git
 quality: silver
 repo: https://github.com/Matatika/tap-solarvista
 settings:
-- description: The Datasources to sync from Solarvista. Leave list blank to use the
-    default list of Datasources.
-  kind: array
-  label: Datasources
-  name: datasources
 - description: The AccountId for your Solarvista account.
   label: Account
   name: account
@@ -32,6 +27,12 @@ settings:
   kind: password
   label: Authorization Code
   name: code
+  sensitive: true
+- description: The Datasources to sync from Solarvista. Leave list blank to use the
+    default list of Datasources.
+  kind: array
+  label: Datasources
+  name: datasources
 - description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.
@@ -39,8 +40,8 @@ settings:
   label: Start Date
   name: start_date
 settings_group_validation:
-- - start_date
+- - account
   - clientId
   - code
-  - account
+  - start_date
 variant: matatika

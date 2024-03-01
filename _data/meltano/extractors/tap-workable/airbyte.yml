@@ -1,12 +1,13 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Recruiting Software
-domain_url: https://workable.readme.io/reference/generate-an-access-token#generate-an-api-access-token
+domain_url: 
+  https://workable.readme.io/reference/generate-an-access-token#generate-an-api-access-token
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
@@ -18,8 +19,22 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-workable
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-workable
 settings:
+- description: Your Workable account subdomain, e.g. https://your_account_subdomain.workable.com.
+  kind: string
+  label: Airbyte Config Account Subdomain
+  name: airbyte_config.account_subdomain
+- description: Your Workable API Key. See <a href="https://workable.readme.io/reference/generate-an-access-token">here</a>.
+  kind: password
+  label: Airbyte Config Api Key
+  name: airbyte_config.api_key
+  sensitive: true
+- description: 'Get data that was created since this date (format: YYYYMMDDTHHMMSSZ).'
+  kind: string
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -36,29 +51,8 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: Your Workable API Key. See <a href="https://workable.readme.io/reference/generate-an-access-token">here</a>.
-  kind: password
-  label: Airbyte Config Api Key
-  name: airbyte_config.api_key
-- description: Your Workable account subdomain, e.g. https://your_account_subdomain.workable.com.
-  kind: string
-  label: Airbyte Config Account Subdomain
-  name: airbyte_config.account_subdomain
-- description: 'Get data that was created since this date (format: YYYYMMDDTHHMMSSZ).'
-  kind: string
-  label: Airbyte Config Start Date
-  name: airbyte_config.start_date
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -66,12 +60,21 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - airbyte_config.start_date
-  - airbyte_config.account_subdomain
-  - airbyte_spec.image
+- - airbyte_config.account_subdomain
   - airbyte_config.api_key
+  - airbyte_config.start_date
   - airbyte_spec
+  - airbyte_spec.image
 settings_preamble: ''
 usage: ''
 variant: airbyte

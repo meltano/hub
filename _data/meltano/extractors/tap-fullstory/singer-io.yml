@@ -1,6 +1,6 @@
 capabilities:
-- discover
 - catalog
+- discover
 description: Digital Experience Platform
 domain_url: https://www.fullstory.com/
 keywords:
@@ -14,20 +14,21 @@ pip_url: tap-fullstory
 quality: silver
 repo: https://github.com/singer-io/tap-fullstory
 settings:
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
-    can be expected to take."
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
 - description: Your FullStory API key.
   kind: password
   label: API Key
   name: api_key
+  sensitive: true
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
 - description: The user agent to send with requests.
   label: User Agent
   name: user_agent
 settings_group_validation:
-- - start_date
-  - api_key
+- - api_key
+  - start_date
 variant: singer-io

@@ -1,7 +1,7 @@
 capabilities:
-- state
 - catalog
 - discover
+- state
 description: Identity Provider
 domain_url: https://developer.okta.com/docs/reference/
 keywords:
@@ -15,16 +15,17 @@ pip_url: git+https://github.com/isabella232/tap-okta.git
 quality: unknown
 repo: https://github.com/isabella232/tap-okta
 settings:
-- description: The Okta API url to use for requests. E.g. http://<okta_url>/api/v1/.
-    Make sure to include the final slash.
-  label: Service Url
-  name: service_url
 - description: Your Okta API key. See the [Okta docs](https://developer.okta.com/docs/guides/create-an-api-token/main/)
     for more details.
   kind: password
   label: API Key
   name: api_key
+  sensitive: true
+- description: The Okta API url to use for requests. E.g. http://<okta_url>/api/v1/.
+    Make sure to include the final slash.
+  label: Service Url
+  name: service_url
 settings_group_validation:
-- - service_url
-  - api_key
+- - api_key
+  - service_url
 variant: isabella232

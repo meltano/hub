@@ -15,18 +15,29 @@ pip_url: git+https://github.com/streetteam/tap-mailgun.git
 quality: silver
 repo: https://github.com/streetteam/tap-mailgun
 settings:
-- description: Authentication is required when using the Mailgun API, you can find
-    your private key inside your Mailgun Control Panel.
-  kind: password
-  label: Private Key
-  name: private_key
 - description: All API calls start with a base URL. Mailgun allows the ability to
     send and receive email in either US region or EU region. Be sure to use the appropriate
     base URL based on which region you've created your domain in. Default https://api.mailgun.net/v3/.
   label: Base Url
   name: base_url
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
+- description: Amount of hours to subtract from the state timestamp, to catch any
+    late-arriving events. Default 1.
+  kind: integer
+  label: Event Lookback
+  name: event_lookback
+- description: If true, suppressions (bounces, unsubscribes and complaints) will be
+    synced in full regardless of start_date. Default, False.
+  kind: boolean
+  label: Full Suppression Sync
+  name: full_suppression_sync
+- description: Authentication is required when using the Mailgun API, you can find
+    your private key inside your Mailgun Control Panel.
+  kind: password
+  label: Private Key
+  name: private_key
+  sensitive: true
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
     can be expected to take."
   kind: date_iso8601
   label: Start Date
@@ -34,16 +45,6 @@ settings:
 - description: The user agent to send with requests.
   label: User Agent
   name: user_agent
-- description: If true, suppressions (bounces, unsubscribes and complaints) will be
-    synced in full regardless of start_date. Default, False.
-  kind: boolean
-  label: Full Suppression Sync
-  name: full_suppression_sync
-- description: Amount of hours to subtract from the state timestamp, to catch any
-    late-arriving events. Default 1.
-  kind: integer
-  label: Event Lookback
-  name: event_lookback
 settings_group_validation:
 - - private_key
   - start_date

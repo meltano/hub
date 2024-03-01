@@ -18,22 +18,33 @@ pip_url: tap-mssql
 quality: silver
 repo: https://github.com/wintersrd/pipelinewise-tap-mssql
 settings:
-- description: Your MSSQL server host.
-  label: Host
-  name: host
+- description: |
+    The characterset for the database / source system. The default is utf8, however older databases might use a charactersets like cp1252 for the encoding.
+    If you have errors with a UnicodeDecodeError: 'utf-8' codec can't decode byte .... then a solution is to examine the characterset of the source database / system
+    and make an appropriate substitution for utf8 like cp1252.
+  label: Characterset
+  name: characterset
+- description: |
+    This allows fetching records in batches speeding up network traffic.
+    Recommend a setting of `10000` records.
+  kind: integer
+  label: Cursor Array Size
+  name: cursor_array_size
+  value: 1
 - description: Your MSSQL database name.
   label: Database
   name: database
-- description: Your MSSQL username.
-  label: User
-  name: user
+- description: A comma separated list of databases to filter for.
+  label: Filter Databases
+  name: filter_dbs
+- description: Your MSSQL server host.
+  label: Host
+  name: host
 - description: Your MSSQL password.
   kind: password
   label: Password
   name: password
-- description: A comma separated list of databases to filter for.
-  label: Filter Databases
-  name: filter_dbs
+  sensitive: true
 - description: The MSSQL port, defaulted to 1433.
   label: Port
   name: port
@@ -52,26 +63,16 @@ settings:
   name: use_date_datatype
   value: false
 - description: |
-    The characterset for the database / source system. The default is utf8, however older databases might use a charactersets like cp1252 for the encoding.
-    If you have errors with a UnicodeDecodeError: 'utf-8' codec can't decode byte .... then a solution is to examine the characterset of the source database / system
-    and make an appropriate substitution for utf8 like cp1252.
-  label: Characterset
-  name: characterset
-- description: |
     The ability to output decimal, float, and integer data as strings to avoid loss of precision.
   kind: boolean
   label: Use Singer Decimal
   name: use_singer_decimal
-- description: |
-    This allows fetching records in batches speeding up network traffic.
-    Recommend a setting of `10000` records.
-  kind: integer
-  label: Cursor Array Size
-  name: cursor_array_size
-  value: 1
+- description: Your MSSQL username.
+  label: User
+  name: user
 settings_group_validation:
-- - host
-  - database
-  - user
+- - database
+  - host
   - password
+  - user
 variant: wintersrd

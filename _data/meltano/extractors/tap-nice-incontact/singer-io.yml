@@ -17,34 +17,28 @@ pip_url: git+https://github.com/singer-io/tap-nice-incontact.git
 quality: bronze
 repo: https://github.com/singer-io/tap-nice-incontact
 settings:
-- description: NICE inContact API version. Default is "21.0"
-  label: Api Version
-  name: api_version
-- description: 'Process and email for API logging purposes. Example: tap-nice-incontact
-    <api_user_email@your_company.com>'
-  label: User Agent
-  name: user_agent
+- description: 'NICE inContact instance cluster. Example: "c42"'
+  label: API Cluster
+  name: api_cluster
 - description: NICE inContact API key (see Authentication in usage section for more
     details)
   kind: password
   label: API Key
   name: api_key
-- description: 'NICE inContact instance cluster. Example: "c42"'
-  label: API Cluster
-  name: api_cluster
-- description: The NICE inContact auth domain/region to use. Default is "na1". See
-    Authentication for more.
-  label: Auth Domain
-  name: auth_domain
+  sensitive: true
 - description: NICE inContact API secret (see Authentication in usage section for
     more details)
   kind: password
   label: API Secret
   name: api_secret
-- description: RFC3339 date string "2017-01-01T00:00:00Z"
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
+  sensitive: true
+- description: NICE inContact API version. Default is "21.0"
+  label: Api Version
+  name: api_version
+- description: The NICE inContact auth domain/region to use. Default is "na1". See
+    Authentication for more.
+  label: Auth Domain
+  name: auth_domain
 - description: |
     Stream specific reporting periods. The config is a mapping of stream name to reporting period, the options are: days, hours, and minutes.
     Default days. The days/hours are in increments of 1 and minutes are in increments of 5 minutes.
@@ -73,12 +67,20 @@ settings:
   kind: object
   label: Periods
   name: periods
+- description: RFC3339 date string "2017-01-01T00:00:00Z"
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: 'Process and email for API logging purposes. Example: tap-nice-incontact
+    <api_user_email@your_company.com>'
+  label: User Agent
+  name: user_agent
 settings_group_validation:
-- - user_agent
+- - api_cluster
   - api_key
-  - api_cluster
   - api_secret
   - start_date
+  - user_agent
 settings_preamble: ''
 usage: |
   ### Authentication

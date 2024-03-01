@@ -53,13 +53,6 @@ requires:
   - name: files-dbt-redshift
     variant: meltano
 settings:
-- label: Project Directory
-  name: project_dir
-  value: $MELTANO_PROJECT_ROOT/transform
-- env: DBT_PROFILES_DIR
-  label: Profiles Directory
-  name: profiles_dir
-  value: $MELTANO_PROJECT_ROOT/transform/profiles/redshift
 - description: |
     The auth method to use (to use iam, set to "iam".
     Omit to use password-based auth.)
@@ -67,30 +60,20 @@ settings:
   label: Authentication Method
   name: auth_method
 - description: |
+    Whether or not to automatically create entities.
+  kind: boolean
+  label: Autocreate
+  name: autocreate
+- description: |
     The cluster id.
   kind: string
   label: Cluster ID
   name: cluster_id
 - description: |
-    The host for the cluster.
-  kind: string
-  label: Host
-  name: host
-- description: |
-    The password, if using password-based auth.
-  kind: password
-  label: Password
-  name: password
-- description: |
-    The user to connect as.
-  kind: string
-  label: User
-  name: user
-- description: |
-    The port to connect to.
-  kind: integer
-  label: Port
-  name: port
+    Database groups to use.
+  kind: array
+  label: Databse Groups
+  name: db_groups
 - aliases:
   - database
   description: |
@@ -99,35 +82,53 @@ settings:
   label: Database
   name: dbname
 - description: |
-    The schema to use.
+    The host for the cluster.
   kind: string
-  label: Schema
-  name: schema
-- description: |
-    The IAM profile to use.
-  kind: string
-  label: IAM Profile
-  name: iam_profile
+  label: Host
+  name: host
 - description: |
     Duration of the IAM session.
   kind: integer
   label: IAM Duration Seconds
   name: iam_duration_seconds
 - description: |
-    Whether or not to automatically create entities.
-  kind: boolean
-  label: Autocreate
-  name: autocreate
-- description: |
-    Database groups to use.
-  kind: array
-  label: Databse Groups
-  name: db_groups
+    The IAM profile to use.
+  kind: string
+  label: IAM Profile
+  name: iam_profile
 - description: |
     Seconds between TCP keepalive packets
   kind: integer
   label: Keep Alives Idle
   name: keepalives_idle
+- description: |
+    The password, if using password-based auth.
+  kind: password
+  label: Password
+  name: password
+  sensitive: true
+- description: |
+    The port to connect to.
+  kind: integer
+  label: Port
+  name: port
+- env: DBT_PROFILES_DIR
+  label: Profiles Directory
+  name: profiles_dir
+  value: $MELTANO_PROJECT_ROOT/transform/profiles/redshift
+- label: Project Directory
+  name: project_dir
+  value: $MELTANO_PROJECT_ROOT/transform
+- description: |
+    Enables cross-database sources.
+  kind: boolean
+  label: RA3 Node
+  name: ra3_node
+- description: |
+    The schema to use.
+  kind: string
+  label: Schema
+  name: schema
 - description: |
     The search path to use (use of this setting is not recommended)
   kind: string
@@ -139,10 +140,11 @@ settings:
   label: SSL Mode
   name: sslmode
 - description: |
-    Enables cross-database sources.
-  kind: boolean
-  label: RA3 Node
-  name: ra3_node
+    The user to connect as.
+  kind: string
+  label: User
+  name: user
+settings_group_validation: []
 settings_preamble: |
   Settings for dbt itself can be configured through [dbt_project.yml](https://docs.getdbt.com/reference/dbt_project.yml) as usual, which can be found at transform/dbt_project.yml in your Meltano project. dbt also has [adapter-specific documentation for Redshift](https://docs.getdbt.com/reference/resource-configs/redshift-configs).
 variant: dbt-labs

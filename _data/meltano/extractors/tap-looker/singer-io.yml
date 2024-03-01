@@ -15,43 +15,45 @@ pip_url: tap-looker
 quality: silver
 repo: https://github.com/singer-io/tap-looker
 settings:
-- description: Your [API3 Keys](https://docs.looker.com/admin-options/settings/users#api3_keys)
-    client secret.
-  kind: password
-  label: Client Secret
-  name: client_secret
-- description: "Currently not used because the Looker API doesnt support query filtering,\
-    \ sorting, pagination. Determines how much historical data will be extracted.\
-    \ Please be aware\nthat the larger the time period and amount of data, the longer\
-    \ the initial extraction\ncan be expected to take."
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
-- description: The user agent to send with requests.
-  label: User Agent
-  name: user_agent
-- description: The leading part of Looker URL before .looker.com; https://<subdomain>.looker.com
-  label: Subdomain
-  name: subdomain
 - description: The API port for the Looker instance. Uusually 19999, unless you are
     hosting Looker internally and are using a different port for the API.
   kind: integer
   label: API Port
   name: api_port
-- description: Is usually looker.com, unless you have your own white-labeled URL.
-  label: Domain
-  name: domain
 - description: Your [API3 Keys](https://docs.looker.com/admin-options/settings/users#api3_keys)
     client ID.
   kind: password
   label: Client ID
   name: client_id
+  sensitive: true
+- description: Your [API3 Keys](https://docs.looker.com/admin-options/settings/users#api3_keys)
+    client secret.
+  kind: password
+  label: Client Secret
+  name: client_secret
+  sensitive: true
+- description: Is usually looker.com, unless you have your own white-labeled URL.
+  label: Domain
+  name: domain
+- description: "Currently not used because the Looker API doesnt support query filtering,
+    sorting, pagination. Determines how much historical data will be extracted. Please
+    be aware\nthat the larger the time period and amount of data, the longer the initial
+    extraction\ncan be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: The leading part of Looker URL before .looker.com; https://<subdomain>.looker.com
+  label: Subdomain
+  name: subdomain
+- description: The user agent to send with requests.
+  label: User Agent
+  name: user_agent
 settings_group_validation:
-- - client_secret
+- - client_id
+  - client_secret
   - start_date
-  - user_agent
   - subdomain
-  - client_id
+  - user_agent
 usage: |
   ### Additional Notes
   This tap uses Looker's API v3.1 https://developers.looker.com/api/explorer/3.1.

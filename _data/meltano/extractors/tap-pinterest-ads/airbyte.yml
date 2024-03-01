@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Advertising Platform
 domain_url: https://developers.pinterest.com/docs/api/v5/
 executable: tap-airbyte
@@ -18,8 +18,43 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: silver
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-pinterest
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-pinterest
 settings:
+- description: The Access Token to make authenticated requests.
+  kind: password
+  label: Airbyte Config Credentials Access Token
+  name: airbyte_config.credentials.access_token
+  sensitive: true
+- description: oauth2.0, access_token
+  kind: string
+  label: Airbyte Config Credentials Auth Method
+  name: airbyte_config.credentials.auth_method
+- description: The Client ID of your OAuth application
+  kind: password
+  label: Airbyte Config Credentials Client Id
+  name: airbyte_config.credentials.client_id
+  sensitive: true
+- description: The Client Secret of your OAuth application.
+  kind: password
+  label: Airbyte Config Credentials Client Secret
+  name: airbyte_config.credentials.client_secret
+  sensitive: true
+- description: Refresh Token to obtain new Access Token, when it's expired.
+  kind: password
+  label: Airbyte Config Credentials Refresh Token
+  name: airbyte_config.credentials.refresh_token
+  sensitive: true
+- description: A date in the format YYYY-MM-DD. If you have not set a date, it would
+    be defaulted to latest allowed date by api (914 days from today).
+  kind: string
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
+- description: Entity statuses based off of campaigns, ad_groups, and ads. If you
+    do not have a status set, it will be ignored completely.
+  kind: array
+  label: Airbyte Config Status
+  name: airbyte_config.status
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -36,47 +71,8 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: A date in the format YYYY-MM-DD. If you have not set a date, it would
-    be defaulted to latest allowed date by api (914 days from today).
-  kind: string
-  label: Airbyte Config Start Date
-  name: airbyte_config.start_date
-- description: Entity statuses based off of campaigns, ad_groups, and ads. If you
-    do not have a status set, it will be ignored completely.
-  kind: array
-  label: Airbyte Config Status
-  name: airbyte_config.status
-- description: oauth2.0, access_token
-  kind: string
-  label: Airbyte Config Credentials Auth Method
-  name: airbyte_config.credentials.auth_method
-- description: The Client ID of your OAuth application
-  kind: password
-  label: Airbyte Config Credentials Client Id
-  name: airbyte_config.credentials.client_id
-- description: The Client Secret of your OAuth application.
-  kind: password
-  label: Airbyte Config Credentials Client Secret
-  name: airbyte_config.credentials.client_secret
-- description: Refresh Token to obtain new Access Token, when it's expired.
-  kind: password
-  label: Airbyte Config Credentials Refresh Token
-  name: airbyte_config.credentials.refresh_token
-- description: The Access Token to make authenticated requests.
-  kind: password
-  label: Airbyte Config Credentials Access Token
-  name: airbyte_config.credentials.access_token
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -84,6 +80,15 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
 - - airbyte_config.start_date
   - airbyte_spec.image

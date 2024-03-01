@@ -79,6 +79,7 @@ settings:
   kind: password
   label: AWS Access Key ID
   name: aws_access_key_id
+  sensitive: true
 - description: |
     Profile to use from your AWS shared credentials file.
     Ex. `my-profile`
@@ -91,6 +92,7 @@ settings:
   kind: password
   label: AWS Secret Access Key
   name: aws_secret_access_key
+  sensitive: true
 - description: |
     Specify the database (Data catalog) to 
     build models into (lowercase only).

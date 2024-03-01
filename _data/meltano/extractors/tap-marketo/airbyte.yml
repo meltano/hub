@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Marketing automation for account-based marketing
 domain_url: https://developers.marketo.com/rest-api/
 executable: tap-airbyte
@@ -18,8 +18,31 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-marketo
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-marketo
 settings:
+- description: The Client ID of your Marketo developer application. See <a href="https://docs.airbyte.io/integrations/sources/marketo">
+    the docs </a> for info on how to obtain this.
+  kind: password
+  label: Airbyte Config Client Id
+  name: airbyte_config.client_id
+  sensitive: true
+- description: The Client Secret of your Marketo developer application. See <a href="https://docs.airbyte.io/integrations/sources/marketo">
+    the docs </a> for info on how to obtain this.
+  kind: password
+  label: Airbyte Config Client Secret
+  name: airbyte_config.client_secret
+  sensitive: true
+- description: Your Marketo Base URL. See <a href="https://docs.airbyte.io/integrations/sources/marketo">
+    the docs </a> for info on how to obtain this.
+  kind: string
+  label: Airbyte Config Domain Url
+  name: airbyte_config.domain_url
+- description: UTC date and time in the format 2017-01-25T00:00:00Z. Any data before
+    this date will not be replicated.
+  kind: string
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -36,37 +59,8 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: Your Marketo Base URL. See <a href="https://docs.airbyte.io/integrations/sources/marketo">
-    the docs </a> for info on how to obtain this.
-  kind: string
-  label: Airbyte Config Domain Url
-  name: airbyte_config.domain_url
-- description: The Client ID of your Marketo developer application. See <a href="https://docs.airbyte.io/integrations/sources/marketo">
-    the docs </a> for info on how to obtain this.
-  kind: password
-  label: Airbyte Config Client Id
-  name: airbyte_config.client_id
-- description: The Client Secret of your Marketo developer application. See <a href="https://docs.airbyte.io/integrations/sources/marketo">
-    the docs </a> for info on how to obtain this.
-  kind: password
-  label: Airbyte Config Client Secret
-  name: airbyte_config.client_secret
-- description: UTC date and time in the format 2017-01-25T00:00:00Z. Any data before
-    this date will not be replicated.
-  kind: string
-  label: Airbyte Config Start Date
-  name: airbyte_config.start_date
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -74,12 +68,21 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - airbyte_config.start_date
-  - airbyte_spec.image
-  - airbyte_config.client_id
-  - airbyte_config.domain_url
+- - airbyte_config.client_id
   - airbyte_config.client_secret
+  - airbyte_config.domain_url
+  - airbyte_config.start_date
+  - airbyte_spec.image
 settings_preamble: ''
 usage: ''
 variant: airbyte

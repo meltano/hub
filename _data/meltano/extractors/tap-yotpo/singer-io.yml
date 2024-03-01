@@ -15,36 +15,38 @@ pip_url: tap-yotpo
 quality: silver
 repo: https://github.com/singer-io/tap-yotpo
 settings:
+- description: Your API key. Can be found in your Yotpo settings.
+  kind: password
+  label: API Key
+  name: api_key
+  sensitive: true
 - description: Your API secret. Can be found in your Yotpo settings.
   kind: password
   label: API Secret
   name: api_secret
-- description: Parameter is used to re-fetch reviews that have been updated (or deleted)
-    since the last time they were synced. Default, 30.
-  kind: integer
-  label: Reviews Lookback Days
-  name: reviews_lookback_days
-- description: 'An optional paramater to set timeout for requests. Default: 300 seconds.'
-  kind: integer
-  label: Request Timeout
-  name: request_timeout
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
-    can be expected to take."
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
+  sensitive: true
 - description: Parameter is used to fetch updated email statistics (opens, clicks,
     etc) for emails sent by Yotpo. Default, 30.
   kind: integer
   label: Email Stats Lookback Days
   name: email_stats_lookback_days
-- description: Your API key. Can be found in your Yotpo settings.
-  kind: password
-  label: API Key
-  name: api_key
+- description: 'An optional paramater to set timeout for requests. Default: 300 seconds.'
+  kind: integer
+  label: Request Timeout
+  name: request_timeout
+- description: Parameter is used to re-fetch reviews that have been updated (or deleted)
+    since the last time they were synced. Default, 30.
+  kind: integer
+  label: Reviews Lookback Days
+  name: reviews_lookback_days
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
 settings_group_validation:
-- - api_secret
+- - api_key
+  - api_secret
   - start_date
-  - api_key
 variant: singer-io

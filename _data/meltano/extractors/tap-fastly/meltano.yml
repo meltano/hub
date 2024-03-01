@@ -19,7 +19,9 @@ settings:
   label: API Token
   name: api_token
   placeholder: Ex. *****************
+  sensitive: true
 - kind: date_iso8601
   label: Start Date
   name: start_date
+settings_group_validation: []
 variant: meltano

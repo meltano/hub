@@ -19,34 +19,36 @@ settings:
   kind: password
   label: API Secret
   name: api_secret
-- description: Mixpanel Project time zone
-  kind: string
-  label: Project Time Zone
-  name: project_timezone
-- description: Mixpanel user agent
-  kind: string
-  label: User Agent
-  name: user_agent
-- description: Number of days to use for date window
-  kind: integer
-  label: Date Window Size
-  name: date_window_size
+  sensitive: true
 - description: Minimum number of days to look-back to
   kind: integer
   label: Attribution Window
   name: attribution_window
-- description: Automatically select all props during discovery
-  kind: boolean
-  label: Select Properties by Default
-  name: select_properties_by_default
+- description: Number of days to use for date window
+  kind: integer
+  label: Date Window Size
+  name: date_window_size
 - description: Denest nested JSON responses from Mixpanel API
   kind: boolean
   label: Denest Properties
   name: denest_properties
+- description: Mixpanel Project time zone
+  kind: string
+  label: Project Time Zone
+  name: project_timezone
+- description: Automatically select all props during discovery
+  kind: boolean
+  label: Select Properties by Default
+  name: select_properties_by_default
 - description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.
   kind: date_iso8601
   label: Start Date
   name: start_date
+- description: Mixpanel user agent
+  kind: string
+  label: User Agent
+  name: user_agent
+settings_group_validation: []
 variant: hotgluexyz

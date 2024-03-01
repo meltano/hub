@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Free Stock APIs in JSON & Excel
 domain_url: https://www.alphavantage.co/
 executable: tap-airbyte
@@ -18,8 +18,46 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-alpha-vantage
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-alpha-vantage
 settings:
+- description: "Whether to return adjusted data. Only applicable to intraday endpoints.\n"
+  kind: boolean
+  label: Airbyte Config Adjusted
+  name: airbyte_config.adjusted
+- description: API Key
+  kind: password
+  label: Airbyte Config Api Key
+  name: airbyte_config.api_key
+  sensitive: true
+- description: "Time-series data point interval. Required for intraday endpoints.\n"
+  kind: options
+  label: Airbyte Config Interval
+  name: airbyte_config.interval
+  options:
+  - label: 1Min
+    value: 1min
+  - label: 5Min
+    value: 5min
+  - label: 15Min
+    value: 15min
+  - label: 30Min
+    value: 30min
+  - label: 60Min
+    value: 60min
+- description: "Whether to return full or compact data (the last 100 data points).\n"
+  kind: options
+  label: Airbyte Config Outputsize
+  name: airbyte_config.outputsize
+  options:
+  - label: Compact
+    value: compact
+  - label: Full
+    value: full
+- description: Stock symbol (with exchange code)
+  kind: string
+  label: Airbyte Config Symbol
+  name: airbyte_config.symbol
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -36,53 +74,8 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: API Key
-  kind: password
-  label: Airbyte Config Api Key
-  name: airbyte_config.api_key
-- description: Stock symbol (with exchange code)
-  kind: string
-  label: Airbyte Config Symbol
-  name: airbyte_config.symbol
-- description: "Time-series data point interval. Required for intraday endpoints.\n"
-  kind: options
-  label: Airbyte Config Interval
-  name: airbyte_config.interval
-  options:
-  - label: 1Min
-    value: 1min
-  - label: 5Min
-    value: 5min
-  - label: 15Min
-    value: 15min
-  - label: 30Min
-    value: 30min
-  - label: 60Min
-    value: 60min
-- description: "Whether to return adjusted data. Only applicable to intraday endpoints.\n"
-  kind: boolean
-  label: Airbyte Config Adjusted
-  name: airbyte_config.adjusted
-- description: "Whether to return full or compact data (the last 100 data points).\n"
-  kind: options
-  label: Airbyte Config Outputsize
-  name: airbyte_config.outputsize
-  options:
-  - label: Compact
-    value: compact
-  - label: Full
-    value: full
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -90,11 +83,20 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
 - - airbyte_config.api_key
+  - airbyte_config.symbol
   - airbyte_spec
   - airbyte_spec.image
-  - airbyte_config.symbol
 settings_preamble: ''
 usage: ''
 variant: airbyte

@@ -15,35 +15,36 @@ pip_url: git+https://github.com/food-spotter/tap-gmail-csv.git
 quality: silver
 repo: https://github.com/food-spotter/tap-gmail-csv
 settings:
+- description: The Gmail account you're connecting to.
+  label: Email Address
+  name: email_address
+- description: The gmail label to search against.
+  label: Gmail Label
+  name: gmail_label
+- description: 'Your search query to apply. The date-time filter is auto applied at
+    runtime. E.g. "to: me+finance@gmail.com"'
+  label: Gmail Search Query
+  name: gmail_search_query
 - description: A Google generated pickle file encoded in base64 for authentication.
   label: Pickle Base64 Encoded
   name: pickle_base64_encoded
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
     can be expected to take."
   kind: date_iso8601
   label: Start Date
   name: start_date
 - description: An array of table configurations including - name, pattern, key_properties,
-    format (csv or excel), source_type (attachment, url), and see the [config contract](https://github.com/food-spotter/tap-gmail-csv/blob/e3f866b462b60ad87b885a7fdcd0945fdb68779a/tap_gmail_csv/config.py#L6)
+    format (csv or excel), source_type (attachment, url), and see the [config 
+    contract](https://github.com/food-spotter/tap-gmail-csv/blob/e3f866b462b60ad87b885a7fdcd0945fdb68779a/tap_gmail_csv/config.py#L6)
     for more details on optional table configs available.
   kind: array
   label: Tables
   name: tables
-- description: The Gmail account you're connecting to.
-  label: Email Address
-  name: email_address
-- description: 'Your search query to apply. The date-time filter is auto applied at
-    runtime. E.g. "to: me+finance@gmail.com"'
-  label: Gmail Search Query
-  name: gmail_search_query
-- description: The gmail label to search against.
-  label: Gmail Label
-  name: gmail_label
 settings_group_validation:
-- - pickle_base64_encoded
+- - email_address
+  - gmail_search_query
+  - pickle_base64_encoded
   - start_date
   - tables
-  - email_address
-  - gmail_search_query
 variant: food-spotter

@@ -12,9 +12,10 @@ pip_url: git+https://github.com/coeff/target-cassandra.git
 quality: unknown
 repo: https://github.com/coeff/target-cassandra
 settings:
-- description: Your Cassandra username.
-  label: Username
-  name: username
+- description: An array of your Cassandra node contact points.
+  kind: array
+  label: Contact Points
+  name: contact_points
 - description: Your Cassandra keyspace.
   label: Keyspace
   name: keyspace
@@ -22,13 +23,13 @@ settings:
   kind: password
   label: Password
   name: password
-- description: An array of your Cassandra node contact points.
-  kind: array
-  label: Contact Points
-  name: contact_points
+  sensitive: true
+- description: Your Cassandra username.
+  label: Username
+  name: username
 settings_group_validation:
-- - username
+- - contact_points
   - keyspace
   - password
-  - contact_points
+  - username
 variant: coeff

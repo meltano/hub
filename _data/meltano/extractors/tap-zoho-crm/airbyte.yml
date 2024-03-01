@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Sales CRM Software
 domain_url: https://www.zoho.com/crm/
 executable: tap-airbyte
@@ -18,36 +18,19 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: silver
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-zoho-crm
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-zoho-crm
 settings:
-- description: Airbyte image to run
-  kind: string
-  label: Airbyte Spec Image
-  name: airbyte_spec.image
-  value: airbyte/source-zoho-crm
-- description: Airbyte image tag
-  kind: string
-  label: Airbyte Spec Tag
-  name: airbyte_spec.tag
-  value: latest
-- description: Docker mounts to make available to the Airbyte container. Expects a
-    list of maps containing source, target, and type as is documented in the docker
-    --mount documentation
-  kind: array
-  label: Docker Mounts
-  name: docker_mounts
 - description: OAuth2.0 Client ID
   kind: password
   label: Airbyte Config Client Id
   name: airbyte_config.client_id
+  sensitive: true
 - description: OAuth2.0 Client Secret
   kind: password
   label: Airbyte Config Client Secret
   name: airbyte_config.client_secret
-- description: OAuth2.0 Refresh Token
-  kind: password
-  label: Airbyte Config Refresh Token
-  name: airbyte_config.refresh_token
+  sensitive: true
 - description: Please choose the region of your Data Center location. More info by
     this <a href="https://www.zoho.com/crm/developer/docs/api/v2/multi-dc.html">Link</a>
   kind: options
@@ -66,21 +49,6 @@ settings:
     value: CN
   - label: Jp
     value: JP
-- description: Please choose the environment
-  kind: options
-  label: Airbyte Config Environment
-  name: airbyte_config.environment
-  options:
-  - label: Production
-    value: Production
-  - label: Developer
-    value: Developer
-  - label: Sandbox
-    value: Sandbox
-- description: 'ISO 8601, for instance: `YYYY-MM-DD`, `YYYY-MM-DD HH:MM:SS+HH:MM`'
-  kind: string
-  label: Airbyte Config Start Datetime
-  name: airbyte_config.start_datetime
 - description: Choose your Edition of Zoho CRM to determine API Concurrency Limits
   kind: options
   label: Airbyte Config Edition
@@ -96,17 +64,44 @@ settings:
     value: Enterprise
   - label: Ultimate
     value: Ultimate
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: Please choose the environment
+  kind: options
+  label: Airbyte Config Environment
+  name: airbyte_config.environment
+  options:
+  - label: Production
+    value: Production
+  - label: Developer
+    value: Developer
+  - label: Sandbox
+    value: Sandbox
+- description: OAuth2.0 Refresh Token
+  kind: password
+  label: Airbyte Config Refresh Token
+  name: airbyte_config.refresh_token
+  sensitive: true
+- description: 'ISO 8601, for instance: `YYYY-MM-DD`, `YYYY-MM-DD HH:MM:SS+HH:MM`'
+  kind: string
+  label: Airbyte Config Start Datetime
+  name: airbyte_config.start_datetime
+- description: Airbyte image to run
+  kind: string
+  label: Airbyte Spec Image
+  name: airbyte_spec.image
+  value: airbyte/source-zoho-crm
+- description: Airbyte image tag
+  kind: string
+  label: Airbyte Spec Tag
+  name: airbyte_spec.tag
+  value: latest
+- description: Docker mounts to make available to the Airbyte container. Expects a
+    list of maps containing source, target, and type as is documented in the docker
+    --mount documentation
+  kind: array
+  label: Docker Mounts
+  name: docker_mounts
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -114,14 +109,23 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - connector_config.refresh_token
-  - connector_config.dc_region
-  - connector_config.environment
-  - connector_config.edition
-  - connector_config.client_secret
-  - airbyte_spec.image
+- - airbyte_spec.image
   - connector_config.client_id
+  - connector_config.client_secret
+  - connector_config.dc_region
+  - connector_config.edition
+  - connector_config.environment
+  - connector_config.refresh_token
 settings_preamble: ''
 usage: ''
 variant: airbyte

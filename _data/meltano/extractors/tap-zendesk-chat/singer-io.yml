@@ -15,9 +15,15 @@ pip_url: tap-zendesk-chat
 quality: silver
 repo: https://github.com/singer-io/tap-zendesk-chat
 settings:
-- description: The user agent to send with requests.
-  label: User Agent
-  name: user_agent
+- description: The Zendesk Chat access token.
+  kind: password
+  label: Access Token
+  name: access_token
+  sensitive: true
+- description: The page limit of API requests, default 100.
+  kind: integer
+  label: Agents Page Limit
+  name: agents_page_limit
 - description: The chat search interval days, default 14 days.
   label: Chat Search Interval Days
   name: chat_search_interval_days
@@ -33,20 +39,15 @@ settings:
     by the tap. Defaults to None, meaning don't full sync regularly.
   label: Chats Full Sync Days
   name: chats_full_sync_days
-- description: The Zendesk Chat access token.
-  kind: password
-  label: Access Token
-  name: access_token
-- description: The page limit of API requests, default 100.
-  kind: integer
-  label: Agents Page Limit
-  name: agents_page_limit
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
     can be expected to take."
   kind: date_iso8601
   label: Start Date
   name: start_date
+- description: The user agent to send with requests.
+  label: User Agent
+  name: user_agent
 settings_group_validation:
 - - access_token
   - start_date

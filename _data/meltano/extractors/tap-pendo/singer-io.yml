@@ -15,11 +15,17 @@ pip_url: git+https://github.com/singer-io/tap-pendo.git
 quality: silver
 repo: https://github.com/singer-io/tap-pendo
 settings:
-- description: 'This is the integration key generated via the Pendo website: Settings
-    -> Integrations -> Integration Keys.'
-  kind: password
-  label: Integration Key
-  name: x_pendo_integration_key
+- description: Defines whether or not to include anonymous visitors in the results.
+  kind: boolean
+  label: Include Anonymous Visitors
+  name: include_anonymous_visitors
+  value: false
+  value_post_processor: stringify
+- description: The number of days to use as the lookback window.
+  kind: integer
+  label: Lookback Window
+  name: lookback_window
+  value: 0
 - description: This defines how data is aggregated, either on a daily or hourly basis.
   kind: options
   label: Period
@@ -29,23 +35,18 @@ settings:
     value: dayRange
   - label: Hourly
     value: hourRange
-- description: The number of days to use as the lookback window.
-  kind: integer
-  label: Lookback Window
-  name: lookback_window
-  value: 0
-- description: Defines whether or not to include anonymous visitors in the results.
-  kind: boolean
-  label: Include Anonymous Visitors
-  name: include_anonymous_visitors
-  value: false
-  value_post_processor: stringify
 - description: This is the default start date value to use if no bookmark is present.
   kind: date_iso8601
   label: Start Date
   name: start_date
+- description: 'This is the integration key generated via the Pendo website: Settings
+    -> Integrations -> Integration Keys.'
+  kind: password
+  label: Integration Key
+  name: x_pendo_integration_key
+  sensitive: true
 settings_group_validation:
-- - x_pendo_integration_key
-  - period
+- - period
   - start_date
+  - x_pendo_integration_key
 variant: singer-io

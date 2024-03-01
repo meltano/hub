@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Digital currency price and information data platform
 domain_url: https://www.coingecko.com/
 executable: tap-airbyte
@@ -18,37 +18,20 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-coingecko-coins
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-coingecko-coins
 settings:
-- description: Airbyte image to run
-  kind: string
-  label: Airbyte Spec Image
-  name: airbyte_spec.image
-  value: airbyte/source-coingecko-coins
-- description: Airbyte image tag
-  kind: string
-  label: Airbyte Spec Tag
-  name: airbyte_spec.tag
-  value: latest
-- description: Docker mounts to make available to the Airbyte container. Expects a
-    list of maps containing source, target, and type as is documented in the docker
-    --mount documentation
-  kind: array
-  label: Docker Mounts
-  name: docker_mounts
 - description: API Key (for pro users)
   kind: password
   label: Airbyte Config Api Key
   name: airbyte_config.api_key
-- description: "CoinGecko coin ID (e.g. bitcoin). Can be retrieved from the\n`/coins/list`\
-    \ endpoint.\n"
+  sensitive: true
+- description: "CoinGecko coin ID (e.g. bitcoin). Can be retrieved from the\n`/coins/list`
+    endpoint.\n"
   kind: password
   label: Airbyte Config Coin Id
   name: airbyte_config.coin_id
-- description: "The target currency of market data (e.g. usd, eur, jpy, etc.)\n"
-  kind: string
-  label: Airbyte Config Vs Currency
-  name: airbyte_config.vs_currency
+  sensitive: true
 - description: "The number of days of data for market chart.\n"
   kind: options
   label: Airbyte Config Days
@@ -70,25 +53,36 @@ settings:
     value: '365'
   - label: Max
     value: max
-- description: "The start date for the historical data stream in dd-mm-yyyy format.\n"
-  kind: string
-  label: Airbyte Config Start Date
-  name: airbyte_config.start_date
 - description: "The end date for the historical data stream in dd-mm-yyyy format.\n"
   kind: string
   label: Airbyte Config End Date
   name: airbyte_config.end_date
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "The start date for the historical data stream in dd-mm-yyyy format.\n"
+  kind: string
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
+- description: "The target currency of market data (e.g. usd, eur, jpy, etc.)\n"
+  kind: string
+  label: Airbyte Config Vs Currency
+  name: airbyte_config.vs_currency
+- description: Airbyte image to run
+  kind: string
+  label: Airbyte Spec Image
+  name: airbyte_spec.image
+  value: airbyte/source-coingecko-coins
+- description: Airbyte image tag
+  kind: string
+  label: Airbyte Spec Tag
+  name: airbyte_spec.tag
+  value: latest
+- description: Docker mounts to make available to the Airbyte container. Expects a
+    list of maps containing source, target, and type as is documented in the docker
+    --mount documentation
+  kind: array
+  label: Docker Mounts
+  name: docker_mounts
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -96,13 +90,22 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - airbyte_config.days
-  - airbyte_spec
-  - airbyte_config.coin_id
-  - airbyte_config.vs_currency
-  - airbyte_spec.image
+- - airbyte_config.coin_id
+  - airbyte_config.days
   - airbyte_config.start_date
+  - airbyte_config.vs_currency
+  - airbyte_spec
+  - airbyte_spec.image
 settings_preamble: ''
 usage: ''
 variant: airbyte

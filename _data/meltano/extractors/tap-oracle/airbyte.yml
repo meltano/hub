@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Cloud Database
 domain_url: https://www.oracle.com/database/
 executable: tap-airbyte
@@ -18,8 +18,105 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-oracle
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-oracle
 settings:
+- description: service_name, sid
+  kind: string
+  label: Airbyte Config Connection Data Connection Type
+  name: airbyte_config.connection_data.connection_type
+- description: ''
+  kind: string
+  label: Airbyte Config Connection Data Service Name
+  name: airbyte_config.connection_data.service_name
+- description: ''
+  kind: password
+  label: Airbyte Config Connection Data Sid
+  name: airbyte_config.connection_data.sid
+  sensitive: true
+- description: This parameter defines what encryption algorithm is used.
+  kind: options
+  label: Airbyte Config Encryption Encryption Algorithm
+  name: airbyte_config.encryption.encryption_algorithm
+  options:
+  - label: Aes256
+    value: AES256
+  - label: Rc4 56
+    value: RC4_56
+  - label: 3Des168
+    value: 3DES168
+- description: unencrypted, client_nne, encrypted_verify_certificate
+  kind: options
+  label: Airbyte Config Encryption Encryption Method
+  name: airbyte_config.encryption.encryption_method
+  options:
+  - label: Unencrypted
+    value: unencrypted
+- description: Privacy Enhanced Mail (PEM) files are concatenated certificate containers
+    frequently used in certificate installations.
+  kind: string
+  label: Airbyte Config Encryption Ssl Certificate
+  name: airbyte_config.encryption.ssl_certificate
+- description: Hostname of the database.
+  kind: string
+  label: Airbyte Config Host
+  name: airbyte_config.host
+- description: "Additional properties to pass to the JDBC URL string when connecting
+    to the database formatted as 'key=value' pairs separated by the symbol '&'. (example:
+    key1=value1&key2=value2&key3=value3)."
+  kind: string
+  label: Airbyte Config Jdbc Url Params
+  name: airbyte_config.jdbc_url_params
+- description: The password associated with the username.
+  kind: password
+  label: Airbyte Config Password
+  name: airbyte_config.password
+  sensitive: true
+- description: "Port of the database.\nOracle Corporations recommends the following
+    port numbers:\n1521 - Default listening port for client connections to the listener.
+    \n2484 - Recommended and officially registered listening port for client connections
+    to the listener using TCP/IP with SSL"
+  kind: integer
+  label: Airbyte Config Port
+  name: airbyte_config.port
+- description: The list of schemas to sync from. Defaults to user. Case sensitive.
+  kind: array
+  label: Airbyte Config Schemas
+  name: airbyte_config.schemas
+- description: OS-level user account ssh key credentials in RSA PEM format ( created
+    with ssh-keygen -t rsa -m PEM -f myuser_rsa )
+  kind: password
+  label: Airbyte Config Tunnel Method Ssh Key
+  name: airbyte_config.tunnel_method.ssh_key
+  sensitive: true
+- description: Hostname of the jump server host that allows inbound ssh tunnel., Hostname
+    of the jump server host that allows inbound ssh tunnel.
+  kind: string
+  label: Airbyte Config Tunnel Method Tunnel Host
+  name: airbyte_config.tunnel_method.tunnel_host
+- description: NO_TUNNEL, SSH_KEY_AUTH, SSH_PASSWORD_AUTH
+  kind: string
+  label: Airbyte Config Tunnel Method Tunnel Method
+  name: airbyte_config.tunnel_method.tunnel_method
+- description: Port on the proxy/jump server that accepts inbound ssh connections.,
+    Port on the proxy/jump server that accepts inbound ssh connections.
+  kind: integer
+  label: Airbyte Config Tunnel Method Tunnel Port
+  name: airbyte_config.tunnel_method.tunnel_port
+- description: OS-level username for logging into the jump server host., OS-level
+    username for logging into the jump server host
+  kind: string
+  label: Airbyte Config Tunnel Method Tunnel User
+  name: airbyte_config.tunnel_method.tunnel_user
+- description: OS-level password for logging into the jump server host
+  kind: password
+  label: Airbyte Config Tunnel Method Tunnel User Password
+  name: airbyte_config.tunnel_method.tunnel_user_password
+  sensitive: true
+- description: The username which is used to access the database.
+  kind: string
+  label: Airbyte Config Username
+  name: airbyte_config.username
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -36,109 +133,8 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: Hostname of the database.
-  kind: string
-  label: Airbyte Config Host
-  name: airbyte_config.host
-- description: "Port of the database.\nOracle Corporations recommends the following\
-    \ port numbers:\n1521 - Default listening port for client connections to the listener.\
-    \ \n2484 - Recommended and officially registered listening port for client connections\
-    \ to the listener using TCP/IP with SSL"
-  kind: integer
-  label: Airbyte Config Port
-  name: airbyte_config.port
-- description: service_name, sid
-  kind: string
-  label: Airbyte Config Connection Data Connection Type
-  name: airbyte_config.connection_data.connection_type
-- description: ''
-  kind: string
-  label: Airbyte Config Connection Data Service Name
-  name: airbyte_config.connection_data.service_name
-- description: ''
-  kind: password
-  label: Airbyte Config Connection Data Sid
-  name: airbyte_config.connection_data.sid
-- description: The username which is used to access the database.
-  kind: string
-  label: Airbyte Config Username
-  name: airbyte_config.username
-- description: The password associated with the username.
-  kind: password
-  label: Airbyte Config Password
-  name: airbyte_config.password
-- description: The list of schemas to sync from. Defaults to user. Case sensitive.
-  kind: array
-  label: Airbyte Config Schemas
-  name: airbyte_config.schemas
-- description: "Additional properties to pass to the JDBC URL string when connecting\
-    \ to the database formatted as 'key=value' pairs separated by the symbol '&'.\
-    \ (example: key1=value1&key2=value2&key3=value3)."
-  kind: string
-  label: Airbyte Config Jdbc Url Params
-  name: airbyte_config.jdbc_url_params
-- description: unencrypted, client_nne, encrypted_verify_certificate
-  kind: options
-  label: Airbyte Config Encryption Encryption Method
-  name: airbyte_config.encryption.encryption_method
-  options:
-  - label: Unencrypted
-    value: unencrypted
-- description: This parameter defines what encryption algorithm is used.
-  kind: options
-  label: Airbyte Config Encryption Encryption Algorithm
-  name: airbyte_config.encryption.encryption_algorithm
-  options:
-  - label: Aes256
-    value: AES256
-  - label: Rc4 56
-    value: RC4_56
-  - label: 3Des168
-    value: 3DES168
-- description: Privacy Enhanced Mail (PEM) files are concatenated certificate containers
-    frequently used in certificate installations.
-  kind: string
-  label: Airbyte Config Encryption Ssl Certificate
-  name: airbyte_config.encryption.ssl_certificate
-- description: NO_TUNNEL, SSH_KEY_AUTH, SSH_PASSWORD_AUTH
-  kind: string
-  label: Airbyte Config Tunnel Method Tunnel Method
-  name: airbyte_config.tunnel_method.tunnel_method
-- description: Hostname of the jump server host that allows inbound ssh tunnel., Hostname
-    of the jump server host that allows inbound ssh tunnel.
-  kind: string
-  label: Airbyte Config Tunnel Method Tunnel Host
-  name: airbyte_config.tunnel_method.tunnel_host
-- description: Port on the proxy/jump server that accepts inbound ssh connections.,
-    Port on the proxy/jump server that accepts inbound ssh connections.
-  kind: integer
-  label: Airbyte Config Tunnel Method Tunnel Port
-  name: airbyte_config.tunnel_method.tunnel_port
-- description: OS-level username for logging into the jump server host., OS-level
-    username for logging into the jump server host
-  kind: string
-  label: Airbyte Config Tunnel Method Tunnel User
-  name: airbyte_config.tunnel_method.tunnel_user
-- description: OS-level user account ssh key credentials in RSA PEM format ( created
-    with ssh-keygen -t rsa -m PEM -f myuser_rsa )
-  kind: password
-  label: Airbyte Config Tunnel Method Ssh Key
-  name: airbyte_config.tunnel_method.ssh_key
-- description: OS-level password for logging into the jump server host
-  kind: password
-  label: Airbyte Config Tunnel Method Tunnel User Password
-  name: airbyte_config.tunnel_method.tunnel_user_password
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -146,6 +142,15 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
 - - airbyte_config.host
   - airbyte_config.port

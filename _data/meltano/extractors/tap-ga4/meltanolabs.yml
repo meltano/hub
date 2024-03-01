@@ -42,26 +42,32 @@ settings:
   kind: password
   label: Key File Location
   name: key_file_location
+  sensitive: true
 - description: Google Analytics Access Token
   kind: password
   label: OAuth Credentials Access Token
   name: oauth_credentials.access_token
+  sensitive: true
 - description: Google Analytics Client ID
   kind: password
   label: OAuth Credentials Client ID
   name: oauth_credentials.client_id
+  sensitive: true
 - description: Google Analytics Client Secret
   kind: password
   label: OAuth Credentials Client Secret
   name: oauth_credentials.client_secret
+  sensitive: true
 - description: Google Analytics Refresh Token
   kind: password
   label: OAuth Credentials Refresh Token
   name: oauth_credentials.refresh_token
+  sensitive: true
 - description: Google Analytics Property ID
   kind: password
   label: Property ID
   name: property_id
+  sensitive: true
 - description: |
     Google Analytics Reports Definition.
     The tap uses the [default reports definition](https://github.com/MeltanoLabs/tap-google-analytics/blob/main/tap_google_analytics/defaults/default_report_definition.json)
@@ -140,18 +146,18 @@ settings:
   label: Stream Maps
   name: stream_maps
 settings_group_validation:
-- - property_id
+- - client_secrets
+  - property_id
   - start_date
-  - client_secrets
-- - property_id
+- - key_file_location
+  - property_id
   - start_date
-  - key_file_location
-- - property_id
-  - start_date
-  - oauth_credentials.access_token
+- - oauth_credentials.access_token
   - oauth_credentials.client_id
   - oauth_credentials.client_secret
   - oauth_credentials.refresh_token
+  - property_id
+  - start_date
 settings_preamble: ''
 usage: ''
 variant: meltanolabs

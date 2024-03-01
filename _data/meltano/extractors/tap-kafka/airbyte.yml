@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Open-source distributed event streaming platform
 domain_url: https://kafka.apache.org/
 executable: tap-airbyte
@@ -18,28 +18,9 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: silver
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-kafka
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-kafka
 settings:
-- description: Airbyte image to run
-  kind: string
-  label: Airbyte Spec Image
-  name: airbyte_spec.image
-  value: airbyte/source-kafka
-- description: Airbyte image tag
-  kind: string
-  label: Airbyte Spec Tag
-  name: airbyte_spec.tag
-  value: latest
-- description: Docker mounts to make available to the Airbyte container. Expects a
-    list of maps containing source, target, and type as is documented in the docker
-    --mount documentation
-  kind: array
-  label: Docker Mounts
-  name: docker_mounts
-- description: JSON, AVRO
-  kind: string
-  label: Airbyte Config Messageformat Deserialization Type
-  name: airbyte_config.MessageFormat.deserialization_type
 - description: ''
   kind: options
   label: Airbyte Config Messageformat Deserialization Strategy
@@ -51,6 +32,15 @@ settings:
     value: RecordNameStrategy
   - label: Topicrecordnamestrategy
     value: TopicRecordNameStrategy
+- description: JSON, AVRO
+  kind: string
+  label: Airbyte Config Messageformat Deserialization Type
+  name: airbyte_config.MessageFormat.deserialization_type
+- description: ''
+  kind: password
+  label: Airbyte Config Messageformat Schema Registry Password
+  name: airbyte_config.MessageFormat.schema_registry_password
+  sensitive: true
 - description: ''
   kind: string
   label: Airbyte Config Messageformat Schema Registry Url
@@ -59,10 +49,26 @@ settings:
   kind: string
   label: Airbyte Config Messageformat Schema Registry Username
   name: airbyte_config.MessageFormat.schema_registry_username
-- description: ''
-  kind: password
-  label: Airbyte Config Messageformat Schema Registry Password
-  name: airbyte_config.MessageFormat.schema_registry_password
+- description: The frequency in milliseconds that the consumer offsets are auto-committed
+    to Kafka if enable.auto.commit is set to true.
+  kind: integer
+  label: Airbyte Config Auto Commit Interval Ms
+  name: airbyte_config.auto_commit_interval_ms
+- description: "What to do when there is no initial offset in Kafka or if the current
+    offset does not exist any more on the server - earliest: automatically reset the
+    offset to the earliest offset, latest: automatically reset the offset to the latest
+    offset, none: throw exception to the consumer if no previous offset is found for
+    the consumer's group, anything else: throw exception to the consumer."
+  kind: options
+  label: Airbyte Config Auto Offset Reset
+  name: airbyte_config.auto_offset_reset
+  options:
+  - label: Latest
+    value: latest
+  - label: Earliest
+    value: earliest
+  - label: None
+    value: none
 - description: A list of host/port pairs to use for establishing the initial connection
     to the Kafka cluster. The client will make use of all servers irrespective of
     which servers are specified here for bootstrapping&mdash;this list only impacts
@@ -74,68 +80,6 @@ settings:
   kind: string
   label: Airbyte Config Bootstrap Servers
   name: airbyte_config.bootstrap_servers
-- description: assign, subscribe
-  kind: string
-  label: Airbyte Config Subscription Subscription Type
-  name: airbyte_config.subscription.subscription_type
-- description: ''
-  kind: string
-  label: Airbyte Config Subscription Topic Partitions
-  name: airbyte_config.subscription.topic_partitions
-- description: ''
-  kind: string
-  label: Airbyte Config Subscription Topic Pattern
-  name: airbyte_config.subscription.topic_pattern
-- description: The Topic to test in case the Airbyte can consume messages.
-  kind: string
-  label: Airbyte Config Test Topic
-  name: airbyte_config.test_topic
-- description: The Group ID is how you distinguish different consumer groups.
-  kind: password
-  label: Airbyte Config Group Id
-  name: airbyte_config.group_id
-- description: The maximum number of records returned in a single call to poll().
-    Note, that max_poll_records does not impact the underlying fetching behavior.
-    The consumer will cache the records from each fetch request and returns them incrementally
-    from each poll.
-  kind: integer
-  label: Airbyte Config Max Poll Records
-  name: airbyte_config.max_poll_records
-- description: Amount of time Kafka connector should try to poll for messages.
-  kind: integer
-  label: Airbyte Config Polling Time
-  name: airbyte_config.polling_time
-- description: PLAINTEXT, SASL_PLAINTEXT, SASL_SSL
-  kind: string
-  label: Airbyte Config Protocol Security Protocol
-  name: airbyte_config.protocol.security_protocol
-- description: PLAIN, The SASL mechanism used for client connections. This may be
-    any mechanism for which a security provider is available.
-  kind: string
-  label: Airbyte Config Protocol Sasl Mechanism
-  name: airbyte_config.protocol.sasl_mechanism
-- description: The JAAS login context parameters for SASL connections in the format
-    used by JAAS configuration files., The JAAS login context parameters for SASL
-    connections in the format used by JAAS configuration files.
-  kind: string
-  label: Airbyte Config Protocol Sasl Jaas Config
-  name: airbyte_config.protocol.sasl_jaas_config
-- description: An ID string to pass to the server when making requests. The purpose
-    of this is to be able to track the source of requests beyond just ip/port by allowing
-    a logical application name to be included in server-side request logging.
-  kind: password
-  label: Airbyte Config Client Id
-  name: airbyte_config.client_id
-- description: If true, the consumer's offset will be periodically committed in the
-    background.
-  kind: boolean
-  label: Airbyte Config Enable Auto Commit
-  name: airbyte_config.enable_auto_commit
-- description: The frequency in milliseconds that the consumer offsets are auto-committed
-    to Kafka if enable.auto.commit is set to true.
-  kind: integer
-  label: Airbyte Config Auto Commit Interval Ms
-  name: airbyte_config.auto_commit_interval_ms
 - description: Controls how the client uses DNS lookups. If set to use_all_dns_ips,
     connect to each returned IP address in sequence until a successful connection
     is established. After a disconnection, the next IP is used. Once all IPs have
@@ -154,12 +98,62 @@ settings:
     value: use_all_dns_ips
   - label: Resolve Canonical Bootstrap Servers Only
     value: resolve_canonical_bootstrap_servers_only
-- description: The amount of time to wait before attempting to retry a failed request
-    to a given topic partition. This avoids repeatedly sending requests in a tight
-    loop under some failure scenarios.
+- description: An ID string to pass to the server when making requests. The purpose
+    of this is to be able to track the source of requests beyond just ip/port by allowing
+    a logical application name to be included in server-side request logging.
+  kind: password
+  label: Airbyte Config Client Id
+  name: airbyte_config.client_id
+  sensitive: true
+- description: If true, the consumer's offset will be periodically committed in the
+    background.
+  kind: boolean
+  label: Airbyte Config Enable Auto Commit
+  name: airbyte_config.enable_auto_commit
+- description: The Group ID is how you distinguish different consumer groups.
+  kind: password
+  label: Airbyte Config Group Id
+  name: airbyte_config.group_id
+  sensitive: true
+- description: The maximum number of records returned in a single call to poll().
+    Note, that max_poll_records does not impact the underlying fetching behavior.
+    The consumer will cache the records from each fetch request and returns them incrementally
+    from each poll.
   kind: integer
-  label: Airbyte Config Retry Backoff Ms
-  name: airbyte_config.retry_backoff_ms
+  label: Airbyte Config Max Poll Records
+  name: airbyte_config.max_poll_records
+- description: The Maximum to be processed per execution
+  kind: integer
+  label: Airbyte Config Max Records Process
+  name: airbyte_config.max_records_process
+- description: Amount of time Kafka connector should try to poll for messages.
+  kind: integer
+  label: Airbyte Config Polling Time
+  name: airbyte_config.polling_time
+- description: The JAAS login context parameters for SASL connections in the format
+    used by JAAS configuration files., The JAAS login context parameters for SASL
+    connections in the format used by JAAS configuration files.
+  kind: string
+  label: Airbyte Config Protocol Sasl Jaas Config
+  name: airbyte_config.protocol.sasl_jaas_config
+- description: PLAIN, The SASL mechanism used for client connections. This may be
+    any mechanism for which a security provider is available.
+  kind: string
+  label: Airbyte Config Protocol Sasl Mechanism
+  name: airbyte_config.protocol.sasl_mechanism
+- description: PLAINTEXT, SASL_PLAINTEXT, SASL_SSL
+  kind: string
+  label: Airbyte Config Protocol Security Protocol
+  name: airbyte_config.protocol.security_protocol
+- description: The size of the TCP receive buffer (SO_RCVBUF) to use when reading
+    data. If the value is -1, the OS default will be used.
+  kind: integer
+  label: Airbyte Config Receive Buffer Bytes
+  name: airbyte_config.receive_buffer_bytes
+- description: The number of repeated calls to poll() if no messages were received.
+  kind: integer
+  label: Airbyte Config Repeated Calls
+  name: airbyte_config.repeated_calls
 - description: The configuration controls the maximum amount of time the client will
     wait for the response of a request. If the response is not received before the
     timeout elapses the client will resend the request if necessary or fail the request
@@ -167,45 +161,46 @@ settings:
   kind: integer
   label: Airbyte Config Request Timeout Ms
   name: airbyte_config.request_timeout_ms
-- description: The size of the TCP receive buffer (SO_RCVBUF) to use when reading
-    data. If the value is -1, the OS default will be used.
+- description: The amount of time to wait before attempting to retry a failed request
+    to a given topic partition. This avoids repeatedly sending requests in a tight
+    loop under some failure scenarios.
   kind: integer
-  label: Airbyte Config Receive Buffer Bytes
-  name: airbyte_config.receive_buffer_bytes
-- description: "What to do when there is no initial offset in Kafka or if the current\
-    \ offset does not exist any more on the server - earliest: automatically reset\
-    \ the offset to the earliest offset, latest: automatically reset the offset to\
-    \ the latest offset, none: throw exception to the consumer if no previous offset\
-    \ is found for the consumer's group, anything else: throw exception to the consumer."
-  kind: options
-  label: Airbyte Config Auto Offset Reset
-  name: airbyte_config.auto_offset_reset
-  options:
-  - label: Latest
-    value: latest
-  - label: Earliest
-    value: earliest
-  - label: None
-    value: none
-- description: The number of repeated calls to poll() if no messages were received.
-  kind: integer
-  label: Airbyte Config Repeated Calls
-  name: airbyte_config.repeated_calls
-- description: The Maximum to be processed per execution
-  kind: integer
-  label: Airbyte Config Max Records Process
-  name: airbyte_config.max_records_process
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+  label: Airbyte Config Retry Backoff Ms
+  name: airbyte_config.retry_backoff_ms
+- description: assign, subscribe
+  kind: string
+  label: Airbyte Config Subscription Subscription Type
+  name: airbyte_config.subscription.subscription_type
+- description: ''
+  kind: string
+  label: Airbyte Config Subscription Topic Partitions
+  name: airbyte_config.subscription.topic_partitions
+- description: ''
+  kind: string
+  label: Airbyte Config Subscription Topic Pattern
+  name: airbyte_config.subscription.topic_pattern
+- description: The Topic to test in case the Airbyte can consume messages.
+  kind: string
+  label: Airbyte Config Test Topic
+  name: airbyte_config.test_topic
+- description: Airbyte image to run
+  kind: string
+  label: Airbyte Spec Image
+  name: airbyte_spec.image
+  value: airbyte/source-kafka
+- description: Airbyte image tag
+  kind: string
+  label: Airbyte Spec Tag
+  name: airbyte_spec.tag
+  value: latest
+- description: Docker mounts to make available to the Airbyte container. Expects a
+    list of maps containing source, target, and type as is documented in the docker
+    --mount documentation
+  kind: array
+  label: Docker Mounts
+  name: docker_mounts
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -213,10 +208,19 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - airbyte_spec.image
-  - airbyte_config.bootstrap_servers
+- - airbyte_config.bootstrap_servers
   - airbyte_spec
+  - airbyte_spec.image
 settings_preamble: ''
 usage: ''
 variant: airbyte

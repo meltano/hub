@@ -52,33 +52,42 @@ next_steps: |
 
   1. Start Scheduler or execute Airflow commands directly using the instructions in [the Meltano docs](https://docs.meltano.com/guide/orchestration#starting-the-airflow-scheduler).
 pip_url: git+https://github.com/meltano/airflow-ext.git@main apache-airflow==2.8.1
-  --constraint https://raw.githubusercontent.com/apache/airflow/constraints-2.8.1/constraints-no-providers-${MELTANO__PYTHON_VERSION}.txt
+  --constraint 
+  https://raw.githubusercontent.com/apache/airflow/constraints-2.8.1/constraints-no-providers-${MELTANO__PYTHON_VERSION}.txt
 repo: https://github.com/apache/airflow
 settings:
-- env: AIRFLOW__DATABASE__SQL_ALCHEMY_CONN
-  label: SQL Alchemy Connection
-  name: database.sql_alchemy_conn
-  value: sqlite:///$MELTANO_PROJECT_ROOT/.meltano/utilities/airflow/airflow.db
-- env: AIRFLOW__CORE__DAGS_FOLDER
-  label: DAGs Folder
-  name: core.dags_folder
-  value: $MELTANO_PROJECT_ROOT/orchestrate/airflow/dags
-- env: AIRFLOW__CORE__PLUGINS_FOLDER
-  label: Plugins Folder
-  name: core.plugins_folder
-  value: $MELTANO_PROJECT_ROOT/orchestrate/airflow/plugins
-- env: AIRFLOW__CORE__LOAD_EXAMPLES
-  label: Load Examples
-  name: core.load_examples
-  value: false
 - env: AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION
   label: Pause DAGs at Creation
   name: core.dags_are_paused_at_creation
   value: false
-- env: AIRFLOW__WEBSERVER__WEB_SERVER_PORT
-  label: Webserver Port
-  name: webserver.web_server_port
-  value: 8080
+- env: AIRFLOW__CORE__DAGS_FOLDER
+  label: DAGs Folder
+  name: core.dags_folder
+  value: $MELTANO_PROJECT_ROOT/orchestrate/airflow/dags
+- env: AIRFLOW__CORE__LOAD_EXAMPLES
+  label: Load Examples
+  name: core.load_examples
+  value: false
+- env: AIRFLOW__CORE__PLUGINS_FOLDER
+  label: Plugins Folder
+  name: core.plugins_folder
+  value: $MELTANO_PROJECT_ROOT/orchestrate/airflow/plugins
+- env: AIRFLOW__DATABASE__SQL_ALCHEMY_CONN
+  label: SQL Alchemy Connection
+  name: database.sql_alchemy_conn
+  value: sqlite:///$MELTANO_PROJECT_ROOT/.meltano/utilities/airflow/airflow.db
+- description: |
+    The path where the Airflow configuration file will be stored.
+  env: AIRFLOW_CONFIG
+  label: Airflow Home
+  name: extension.airflow_config
+  value: $MELTANO_PROJECT_ROOT/orchestrate/airflow/airflow.cfg
+- description: |
+    The directory where Airflow will store its configuration, logs, and other files.
+  env: AIRFLOW_HOME
+  label: Airflow Home
+  name: extension.airflow_home
+  value: $MELTANO_PROJECT_ROOT/orchestrate/airflow
 - description: |
     The folder where airflow should store its log files. This path must be absolute. There are a few existing
     configurations that assume this is set to the default. If you choose to override this you may need to update
@@ -92,25 +101,19 @@ settings:
   env: AIRFLOW__LOGGING__DAG_PROCESSOR_MANAGER_LOG_LOCATION
   label: Dag Processor Manager Log Location
   name: logging.dag_processor_manager_log_location
-  value: $MELTANO_PROJECT_ROOT/.meltano/utilities/airflow/logs/dag_processor_manager/dag_processor_manager.log
+  value: 
+    $MELTANO_PROJECT_ROOT/.meltano/utilities/airflow/logs/dag_processor_manager/dag_processor_manager.log
 - description: |
     Where to send the logs of each scheduler process.
   env: AIRFLOW__SCHEDULER__CHILD_PROCESS_LOG_DIRECTORY
   label: Child Process Log Directory
   name: scheduler.child_process_log_directory
   value: $MELTANO_PROJECT_ROOT/.meltano/utilities/airflow/logs/scheduler
-- description: |
-    The directory where Airflow will store its configuration, logs, and other files.
-  env: AIRFLOW_HOME
-  label: Airflow Home
-  name: extension.airflow_home
-  value: $MELTANO_PROJECT_ROOT/orchestrate/airflow
-- description: |
-    The path where the Airflow configuration file will be stored.
-  env: AIRFLOW_CONFIG
-  label: Airflow Home
-  name: extension.airflow_config
-  value: $MELTANO_PROJECT_ROOT/orchestrate/airflow/airflow.cfg
+- env: AIRFLOW__WEBSERVER__WEB_SERVER_PORT
+  label: Webserver Port
+  name: webserver.web_server_port
+  value: 8080
+settings_group_validation: []
 settings_preamble: |
   Meltano [centralizes the configuration](https://docs.meltano.com/guide/configuration) of all of the plugins in your project, including Airflow's. This means that if the [Airflow documentation](https://airflow.apache.org/docs/apache-airflow/stable/howto/set-config.html) tells you to put something in `airflow.cfg`, you can use `meltano config`, `meltano.yml`, or environment variables instead, and get the benefits of Meltano features like [environments](https://docs.meltano.com/concepts/environments).
 

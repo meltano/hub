@@ -1,7 +1,7 @@
 capabilities:
 - catalog
-- state
 - discover
+- state
 domain_url: https://www.tableau.com/
 executable: tap-tableau-server
 keywords:
@@ -19,28 +19,29 @@ settings:
 - description: Your Tableau host.
   label: Host
   name: host
-- description: Your Tableau username.
-  label: Username
-  name: username
-- description: Your Tableau password
-  kind: password
-  label: Password
-  name: password
-- description: Your Tableau site ID.
-  label: Site Id
-  name: site_id
 - description: Limit
   kind: integer
   label: Limit
   name: limit
-- description: The relation types to include
-  kind: array
-  label: Relation Types Include
-  name: relation_types_include
+- description: Your Tableau password
+  kind: password
+  label: Password
+  name: password
+  sensitive: true
 - description: The relation types to exclude
   kind: array
   label: Relation Types Exclude
   name: relation_types_exclude
+- description: The relation types to include
+  kind: array
+  label: Relation Types Include
+  name: relation_types_include
+- description: Your Tableau site ID.
+  label: Site Id
+  name: site_id
+- description: Your Tableau username.
+  label: Username
+  name: username
 settings_group_validation:
 - []
 settings_preamble: ''

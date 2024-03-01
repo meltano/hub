@@ -18,12 +18,12 @@ settings:
   kind: password
   label: AWS Access Key
   name: aws_access_key
-- description: Determines how much historical data will be extracted. Please be aware
-    that the larger the time period and amount of data, the longer the initial extraction
-    can be expected to take.
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
+  sensitive: true
+- description: Your AWS secret key.
+  kind: password
+  label: AWS Secret Key
+  name: aws_secret_key
+  sensitive: true
 - description: Your AWS client ID.
   label: Client ID
   name: client_id
@@ -31,32 +31,36 @@ settings:
   kind: password
   label: Client Secret
   name: client_secret
-- description: Your AWS refresh token.
-  kind: password
-  label: Refresh Token
-  name: refresh_token
+  sensitive: true
 - description: Space delimited string of Marketplace Country Code values. Default
     is ["US"].
   label: Marketplaces
   name: marketplaces
+- description: Your AWS refresh token.
+  kind: password
+  label: Refresh Token
+  name: refresh_token
+  sensitive: true
 - description: Your AWS role ARN.
   label: Role Arn
   name: role_arn
 - description: Granularity for sales stream for sales aggregation. Default is "DAY".
   label: Sales Data Granularity
   name: sales_data_granularity
-- description: Your AWS secret key.
-  kind: password
-  label: AWS Secret Key
-  name: aws_secret_key
+- description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
 settings_group_validation:
 - - aws_access_key
-  - start_date
+  - aws_secret_key
   - client_id
   - client_secret
   - refresh_token
   - role_arn
-  - aws_secret_key
+  - start_date
 settings_preamble: ''
 usage: ''
 variant: singer-io

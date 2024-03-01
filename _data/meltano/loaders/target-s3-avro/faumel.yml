@@ -14,31 +14,11 @@ pip_url: git+https://github.com/faumel/target-s3-avro.git
 quality: silver
 repo: https://github.com/faumel/target-s3-avro
 settings:
-- description: Whether or not to verify SSL certificates.
-  kind: boolean
-  label: Verify
-  name: verify
-- description: The session token to use when creating the client. Same semantics as
-    aws_access_key_id.
-  kind: password
-  label: Aws Session Token
-  name: aws_session_token
 - description: The API version to use. By default, botocore will use the latest API
     version when creating a client. You only need to specify this parameter if you
     want to use a previous API version of the client.
   label: Api Version
   name: api_version
-- description: The complete URL to use for the constructed client. Normally, botocore
-    will automatically construct the appropriate URL to use when communicating with
-    a service. You can specify a complete URL (including the "http/https" scheme)
-    to override this behavior. If this value is provided, then use_ssl is ignored.
-  label: Endpoint Url
-  name: endpoint_url
-- description: The secret key to use when creating the client. Same semantics as aws_access_key_id
-    above.
-  kind: password
-  label: Aws Secret Access Key
-  name: aws_secret_access_key
 - description: The access key to use when creating the client. This is entirely optional,
     and if not provided, the credentials configured for the session will automatically
     be used. You only need to provide this argument if you want to override the credentials
@@ -46,6 +26,33 @@ settings:
   kind: password
   label: Aws Access Key Id
   name: aws_access_key_id
+  sensitive: true
+- description: The secret key to use when creating the client. Same semantics as aws_access_key_id
+    above.
+  kind: password
+  label: Aws Secret Access Key
+  name: aws_secret_access_key
+  sensitive: true
+- description: The session token to use when creating the client. Same semantics as
+    aws_access_key_id.
+  kind: password
+  label: Aws Session Token
+  name: aws_session_token
+  sensitive: true
+- description: Advanced client configuration options. If region_name is specified
+    in the client config, its value will take precedence over environment variables
+    and configuration values, but not over a region_name value passed explicitly to
+    the method. See botocore config documentation for more details. See [boto 
+    Docs](https://botocore.amazonaws.com/v1/documentation/api/latest/reference/config.html)
+    for more details.
+  label: Config
+  name: config
+- description: The complete URL to use for the constructed client. Normally, botocore
+    will automatically construct the appropriate URL to use when communicating with
+    a service. You can specify a complete URL (including the "http/https" scheme)
+    to override this behavior. If this value is provided, then use_ssl is ignored.
+  label: Endpoint Url
+  name: endpoint_url
 - description: The delimiter to use when flatttening records.
   label: Flatten Delimiter
   name: flatten_delimiter
@@ -53,6 +60,12 @@ settings:
     with a single region.
   label: Region Name
   name: region_name
+- description: Destination bucket and key folder in the format of {bucket}/{key}.
+  label: Target Bucket Key
+  name: target_bucket_key
+- description: Schema destination bucket and key folder in the format of {bucket}/{key}
+  label: Target Schema Bucket Key
+  name: target_schema_bucket_key
 - description: The directory path for where to write temp files. Default to current
     working directory.
   label: Tmp Dir
@@ -62,22 +75,13 @@ settings:
   kind: boolean
   label: Use SSL
   name: use_ssl
-- description: Schema destination bucket and key folder in the format of {bucket}/{key}
-  label: Target Schema Bucket Key
-  name: target_schema_bucket_key
-- description: Advanced client configuration options. If region_name is specified
-    in the client config, its value will take precedence over environment variables
-    and configuration values, but not over a region_name value passed explicitly to
-    the method. See botocore config documentation for more details. See [boto Docs](https://botocore.amazonaws.com/v1/documentation/api/latest/reference/config.html)
-    for more details.
-  label: Config
-  name: config
-- description: Destination bucket and key folder in the format of {bucket}/{key}.
-  label: Target Bucket Key
-  name: target_bucket_key
+- description: Whether or not to verify SSL certificates.
+  kind: boolean
+  label: Verify
+  name: verify
 settings_group_validation:
-- - aws_secret_access_key
-  - aws_access_key_id
+- - aws_access_key_id
+  - aws_secret_access_key
   - target_bucket_key
 settings_preamble: ''
 usage: ''

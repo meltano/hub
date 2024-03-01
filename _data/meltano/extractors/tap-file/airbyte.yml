@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Extracts data from files using smart_open
 domain_url: https://developers.facebook.com/docs/pages/
 executable: tap-airbyte
@@ -18,24 +18,9 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: silver
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-file
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-file
 settings:
-- description: Airbyte image to run
-  kind: string
-  label: Airbyte Spec Image
-  name: airbyte_spec.image
-  value: airbyte/source-file
-- description: Airbyte image tag
-  kind: string
-  label: Airbyte Spec Tag
-  name: airbyte_spec.tag
-  value: latest
-- description: Docker mounts to make available to the Airbyte container. Expects a
-    list of maps containing source, target, and type as is documented in the docker
-    --mount documentation
-  kind: array
-  label: Docker Mounts
-  name: docker_mounts
 - description: The Name of the final table to replicate this file into (should include
     letters, numbers dash and underscores only).
   kind: string
@@ -63,23 +48,42 @@ settings:
     value: parquet
   - label: Yaml
     value: yaml
-- description: This should be a string in JSON format. It depends on the chosen file
-    format to provide additional options and tune its behavior.
-  kind: string
-  label: Airbyte Config Reader Options
-  name: airbyte_config.reader_options
-- description: The URL path to access the file which should be replicated.
-  kind: string
-  label: Airbyte Config Url
-  name: airbyte_config.url
-- description: HTTPS, GCS, S3, AzBlob, SSH, SCP, SFTP, local
+- description: In order to access private Buckets stored on AWS S3, this connector
+    would need credentials with the proper permissions. If accessing publicly available
+    data, this field is not necessary.
   kind: password
-  label: Airbyte Config Provider Storage
-  name: airbyte_config.provider.storage
-- description: Add User-Agent to request
-  kind: boolean
-  label: Airbyte Config Provider User Agent
-  name: airbyte_config.provider.user_agent
+  label: Airbyte Config Provider AWS Access Key Id
+  name: airbyte_config.provider.aws_access_key_id
+  sensitive: true
+- description: In order to access private Buckets stored on AWS S3, this connector
+    would need credentials with the proper permissions. If accessing publicly available
+    data, this field is not necessary.
+  kind: password
+  label: Airbyte Config Provider AWS Secret Access Key
+  name: airbyte_config.provider.aws_secret_access_key
+  sensitive: true
+- description: ', , '
+  kind: password
+  label: Airbyte Config Provider Host
+  name: airbyte_config.provider.host
+  sensitive: true
+- description: ', , '
+  kind: password
+  label: Airbyte Config Provider Password
+  name: airbyte_config.provider.password
+  sensitive: true
+- description: ', , '
+  kind: password
+  label: Airbyte Config Provider Port
+  name: airbyte_config.provider.port
+  sensitive: true
+- description: To access Azure Blob Storage, this connector would need credentials
+    with the proper permissions. One option is a SAS (Shared Access Signature) token.
+    If accessing publicly available data, this field is not necessary.
+  kind: password
+  label: Airbyte Config Provider Sas Token
+  name: airbyte_config.provider.sas_token
+  sensitive: true
 - description: In order to access private Buckets stored on Google Cloud, this connector
     would need a service account json credentials with the proper permissions as described
     <a href="https://cloud.google.com/iam/docs/service-accounts" target="_blank">here</a>.
@@ -89,63 +93,63 @@ settings:
   kind: password
   label: Airbyte Config Provider Service Account Json
   name: airbyte_config.provider.service_account_json
-- description: In order to access private Buckets stored on AWS S3, this connector
-    would need credentials with the proper permissions. If accessing publicly available
-    data, this field is not necessary.
-  kind: password
-  label: Airbyte Config Provider AWS Access Key Id
-  name: airbyte_config.provider.aws_access_key_id
-- description: In order to access private Buckets stored on AWS S3, this connector
-    would need credentials with the proper permissions. If accessing publicly available
-    data, this field is not necessary.
-  kind: password
-  label: Airbyte Config Provider AWS Secret Access Key
-  name: airbyte_config.provider.aws_secret_access_key
-- description: The globally unique name of the storage account that the desired blob
-    sits within. See <a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview"
-    target="_blank">here</a> for more details.
-  kind: password
-  label: Airbyte Config Provider Storage Account
-  name: airbyte_config.provider.storage_account
-- description: To access Azure Blob Storage, this connector would need credentials
-    with the proper permissions. One option is a SAS (Shared Access Signature) token.
-    If accessing publicly available data, this field is not necessary.
-  kind: password
-  label: Airbyte Config Provider Sas Token
-  name: airbyte_config.provider.sas_token
+  sensitive: true
 - description: To access Azure Blob Storage, this connector would need credentials
     with the proper permissions. One option is a storage account shared key (aka account
     key or access key). If accessing publicly available data, this field is not necessary.
   kind: password
   label: Airbyte Config Provider Shared Key
   name: airbyte_config.provider.shared_key
+  sensitive: true
+- description: HTTPS, GCS, S3, AzBlob, SSH, SCP, SFTP, local
+  kind: password
+  label: Airbyte Config Provider Storage
+  name: airbyte_config.provider.storage
+  sensitive: true
+- description: The globally unique name of the storage account that the desired blob
+    sits within. See <a 
+    href="https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview"
+    target="_blank">here</a> for more details.
+  kind: password
+  label: Airbyte Config Provider Storage Account
+  name: airbyte_config.provider.storage_account
+  sensitive: true
 - description: ', , '
   kind: password
   label: Airbyte Config Provider User
   name: airbyte_config.provider.user
-- description: ', , '
-  kind: password
-  label: Airbyte Config Provider Password
-  name: airbyte_config.provider.password
-- description: ', , '
-  kind: password
-  label: Airbyte Config Provider Host
-  name: airbyte_config.provider.host
-- description: ', , '
-  kind: password
-  label: Airbyte Config Provider Port
-  name: airbyte_config.provider.port
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+  sensitive: true
+- description: Add User-Agent to request
+  kind: boolean
+  label: Airbyte Config Provider User Agent
+  name: airbyte_config.provider.user_agent
+- description: This should be a string in JSON format. It depends on the chosen file
+    format to provide additional options and tune its behavior.
+  kind: string
+  label: Airbyte Config Reader Options
+  name: airbyte_config.reader_options
+- description: The URL path to access the file which should be replicated.
+  kind: string
+  label: Airbyte Config Url
+  name: airbyte_config.url
+- description: Airbyte image to run
+  kind: string
+  label: Airbyte Spec Image
+  name: airbyte_spec.image
+  value: airbyte/source-file
+- description: Airbyte image tag
+  kind: string
+  label: Airbyte Spec Tag
+  name: airbyte_spec.tag
+  value: latest
+- description: Docker mounts to make available to the Airbyte container. Expects a
+    list of maps containing source, target, and type as is documented in the docker
+    --mount documentation
+  kind: array
+  label: Docker Mounts
+  name: docker_mounts
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -153,12 +157,21 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - airbyte_config.url
+- - airbyte_config.dataset_name
+  - airbyte_config.format
+  - airbyte_config.url
   - airbyte_spec
   - airbyte_spec.image
-  - airbyte_config.format
-  - airbyte_config.dataset_name
 settings_preamble: ''
 usage: ''
 variant: airbyte

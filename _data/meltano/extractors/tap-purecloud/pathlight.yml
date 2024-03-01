@@ -21,10 +21,12 @@ settings:
   kind: password
   label: Client ID
   name: client_id
+  sensitive: true
 - description: Your API Client secret for authentication.
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
 - description: Your API domain. The string to add following "https://api." in API
     requests.
   kind: string

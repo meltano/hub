@@ -20,6 +20,7 @@ settings:
   label: Access Token
   name: access_token
   placeholder: Ex. 1a2b3c4d5e6f
+  sensitive: true
 - description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.

@@ -19,17 +19,19 @@ settings:
   kind: password
   label: API Key
   name: api_key
+  sensitive: true
+- description: Your ShipStation API Secret
+  kind: password
+  label: API Secret
+  name: api_secret
+  sensitive: true
 - description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.
   label: Default Start Datetime
   name: default_start_datetime
-- description: Your ShipStation API Secret
-  kind: password
-  label: API Secret
-  name: api_secret
 settings_group_validation:
 - - api_key
-  - default_start_datetime
   - api_secret
+  - default_start_datetime
 variant: mashey

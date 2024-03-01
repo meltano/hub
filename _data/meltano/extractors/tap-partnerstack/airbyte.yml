@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Partner Ecosystem Platform
 domain_url: https://docs.partnerstack.com/
 executable: tap-airbyte
@@ -18,8 +18,24 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: silver
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-partnerstack
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-partnerstack
 settings:
+- description: The Live Private Key for a Partnerstack account.
+  kind: password
+  label: Airbyte Config Private Key
+  name: airbyte_config.private_key
+  sensitive: true
+- description: The Live Public Key for a Partnerstack account.
+  kind: password
+  label: Airbyte Config Public Key
+  name: airbyte_config.public_key
+  sensitive: true
+- description: UTC date and time in the format 2017-01-25T00:00:00Z. Any data before
+    this date will not be replicated.
+  kind: string
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -36,30 +52,8 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: The Live Public Key for a Partnerstack account.
-  kind: password
-  label: Airbyte Config Public Key
-  name: airbyte_config.public_key
-- description: The Live Private Key for a Partnerstack account.
-  kind: password
-  label: Airbyte Config Private Key
-  name: airbyte_config.private_key
-- description: UTC date and time in the format 2017-01-25T00:00:00Z. Any data before
-    this date will not be replicated.
-  kind: string
-  label: Airbyte Config Start Date
-  name: airbyte_config.start_date
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -67,11 +61,20 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - airbyte_config.public_key
-  - airbyte_config.private_key
-  - airbyte_spec.image
+- - airbyte_config.private_key
+  - airbyte_config.public_key
   - airbyte_spec
+  - airbyte_spec.image
 settings_preamble: ''
 usage: ''
 variant: airbyte

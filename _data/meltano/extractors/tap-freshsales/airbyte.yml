@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Sales CRM Software
 domain_url: https://www.freshworks.com/crm/sales/
 executable: tap-airbyte
@@ -18,8 +18,20 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-freshsales
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-freshsales
 settings:
+- description: Freshsales API Key. See <a 
+    href="https://crmsupport.freshworks.com/support/solutions/articles/50000002503-how-to-find-my-api-key-">here</a>.
+    The key is case sensitive.
+  kind: password
+  label: Airbyte Config Api Key
+  name: airbyte_config.api_key
+  sensitive: true
+- description: The Name of your Freshsales domain
+  kind: string
+  label: Airbyte Config Domain Name
+  name: airbyte_config.domain_name
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -36,26 +48,8 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: The Name of your Freshsales domain
-  kind: string
-  label: Airbyte Config Domain Name
-  name: airbyte_config.domain_name
-- description: Freshsales API Key. See <a href="https://crmsupport.freshworks.com/support/solutions/articles/50000002503-how-to-find-my-api-key-">here</a>.
-    The key is case sensitive.
-  kind: password
-  label: Airbyte Config Api Key
-  name: airbyte_config.api_key
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -63,9 +57,18 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - connector_config.api_key
-  - airbyte_spec.image
+- - airbyte_spec.image
+  - connector_config.api_key
   - connector_config.domain_name
 settings_preamble: ''
 usage: ''

@@ -1,3 +1,4 @@
+capabilities: []
 description: Real-time Streaming Platform
 domain_url: https://aws.amazon.com/kinesis/
 keywords:
@@ -11,37 +12,39 @@ pip_url: git+https://github.com/ProntoPro/target-kinesis.git
 quality: unknown
 repo: https://github.com/ProntoPro/target-kinesis
 settings:
-- description: The name of the Kinesis stream to write to.
-  label: Stream Name
-  name: stream_name
 - description: S3 Access Key Id. If not provided, aws_profile or AWS_ACCESS_KEY_ID
     environment variable will be used.
   kind: password
   label: AWS S3 Access Key ID
   name: aws_access_key_id
+  sensitive: true
 - description: S3 Secret Access Key. If not provided, aws_profile or AWS_ACCESS_KEY_ID
     environment variable will be used.
   kind: password
   label: AWS S3 Secret Access Key
   name: aws_secret_access_key
-- description: The AWS region to use i.e. us-east-2.
-  label: AWS Region
-  name: region
-- description: (Default False) Whether to user a Firehouse client or not.
-  kind: boolean
-  label: Is Firehouse
-  name: is_firehose
-- description: (Default - 10) The max number of records per chunk.
-  kind: integer
-  label: Record Chunks
-  name: record_chunks
+  sensitive: true
 - description: (Default - 1000) The max size of data per chunk.
   kind: integer
   label: Data Chunks
   name: data_chunks
+- description: (Default False) Whether to user a Firehouse client or not.
+  kind: boolean
+  label: Is Firehouse
+  name: is_firehose
 - description: (Default - `id`) The partition key to use when writing to Kinesis.
   label: Partition Key
   name: partition_key
+- description: (Default - 10) The max number of records per chunk.
+  kind: integer
+  label: Record Chunks
+  name: record_chunks
+- description: The AWS region to use i.e. us-east-2.
+  label: AWS Region
+  name: region
+- description: The name of the Kinesis stream to write to.
+  label: Stream Name
+  name: stream_name
 settings_group_validation:
 - - aws_access_key_id
   - aws_secret_access_key

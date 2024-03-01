@@ -21,6 +21,38 @@ settings:
   name: api_url
   value: https://gitlab.com
 - description: |
+    For each Merge Request, also fetch the MR's commits and create the join table `merge_request_commits` with the Merge Request and related Commit IDs.
+
+    This can slow down extraction considerably because of the many API calls required.
+
+    The `merge_request_commits` entity cannot be [selected](https://docs.meltano.com/guide/integration#selecting-entities-and-attributes-for-extraction) unless this setting is enabled.
+  kind: boolean
+  label: Fetch Merge Request Commits
+  name: fetch_merge_request_commits
+  value: false
+- description: |
+    For every Pipeline, also fetch extended details of each of these pipelines.
+
+    This  can slow down extraction considerably because of the many API calls required.
+
+    The `pipelines_extended` entity cannot be [selected](https://docs.meltano.com/guide/integration#selecting-entities-and-attributes-for-extraction) unless this setting is enabled.
+  kind: boolean
+  label: Fetch Pipelines Extended
+  name: fetch_pipelines_extended
+  value: false
+- description: |
+    This property allows you to scope data that the extractor fetches to only the desired group. The group name can generally be found at the root of a repository's URL. If this is left blank, you have to at least provide a [project](#projects).
+
+    Leave empty if you'd like to pull data from a project in a personal user namespace.
+
+    For example, `https://github.com/MeltanoLabs/tap-gitlab` has a group of `meltano`.
+
+    Multiple group names can be separated using space characters.
+  label: Groups
+  name: groups
+  placeholder: Ex. my-organization
+  value: ''
+- description: |
     GitLab personal access token or other API token.
 
     #### How to get
@@ -47,18 +79,7 @@ settings:
   label: Access Token
   name: private_token
   placeholder: Ex. *****************
-  value: ''
-- description: |
-    This property allows you to scope data that the extractor fetches to only the desired group. The group name can generally be found at the root of a repository's URL. If this is left blank, you have to at least provide a [project](#projects).
-
-    Leave empty if you'd like to pull data from a project in a personal user namespace.
-
-    For example, `https://github.com/MeltanoLabs/tap-gitlab` has a group of `meltano`.
-
-    Multiple group names can be separated using space characters.
-  label: Groups
-  name: groups
-  placeholder: Ex. my-organization
+  sensitive: true
   value: ''
 - description: |
     This property allows you to scope the project(s) that the extractor fetches.
@@ -75,6 +96,12 @@ settings:
   name: projects
   placeholder: Ex. my-organization/project-1
   value: ''
+- description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
 - description: |
     Enable to pull in extra data (like Epics, Epic Issues and other entities)
     only available to GitLab Ultimate and GitLab.com Gold accounts.
@@ -84,32 +111,6 @@ settings:
   label: Ultimate License
   name: ultimate_license
   value: false
-- description: |
-    For each Merge Request, also fetch the MR's commits and create the join table `merge_request_commits` with the Merge Request and related Commit IDs.
-
-    This can slow down extraction considerably because of the many API calls required.
-
-    The `merge_request_commits` entity cannot be [selected](https://docs.meltano.com/guide/integration#selecting-entities-and-attributes-for-extraction) unless this setting is enabled.
-  kind: boolean
-  label: Fetch Merge Request Commits
-  name: fetch_merge_request_commits
-  value: false
-- description: |
-    For every Pipeline, also fetch extended details of each of these pipelines.
-
-    This  can slow down extraction considerably because of the many API calls required.
-
-    The `pipelines_extended` entity cannot be [selected](https://docs.meltano.com/guide/integration#selecting-entities-and-attributes-for-extraction) unless this setting is enabled.
-  kind: boolean
-  label: Fetch Pipelines Extended
-  name: fetch_pipelines_extended
-  value: false
-- description: Determines how much historical data will be extracted. Please be aware
-    that the larger the time period and amount of data, the longer the initial extraction
-    can be expected to take.
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
 settings_group_validation:
 - - api_url
   - groups

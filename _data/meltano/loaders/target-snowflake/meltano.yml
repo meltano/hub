@@ -1,3 +1,4 @@
+capabilities: []
 description: Snowflake database loader
 dialect: snowflake
 domain_url: https://www.snowflake.com/
@@ -16,46 +17,47 @@ settings:
 - description: Account Name in Snowflake (https://XXXXX.snowflakecomputing.com)
   label: Account
   name: account
-- description: The username you use for logging in
-  label: Username
-  name: username
+- description: The number of records sent to Snowflake at a time.
+  kind: integer
+  label: Batch Size
+  name: batch_size
+  value: 5000
+- description: The name of the Snowflake database you want to use
+  label: Database
+  name: database
 - description: The password you use for logging in
   kind: password
   label: Password
   name: password
+  sensitive: true
 - description: Role to be used for loading the data, e.g. `LOADER`. Also this role
     is GRANTed usage to all tables and schemas created
   label: Role
   name: role
-- description: The name of the Snowflake database you want to use
-  label: Database
-  name: database
-- description: The name of the Snowflake warehouse you want to use
-  label: Warehouse
-  name: warehouse
 - description: |
     Note `$MELTANO_EXTRACT__LOAD_SCHEMA` [will expand to](https://docs.meltano.com/guide/configuration.html#expansion-in-setting-values) the value of the [`load_schema` extra](https://docs.meltano.com/concepts/plugins#load-schema-extra) for the extractor used in the pipeline, which defaults to the extractor's namespace, e.g. `tap_gitlab` for [`tap-gitlab`](/extractors/gitlab). Values are automatically converted to uppercase before they're passed on to the plugin, so `tap_gitlab` becomes `TAP_GITLAB`.
   label: Schema
   name: schema
   value: $MELTANO_EXTRACT__LOAD_SCHEMA
   value_processor: upcase_string
-- description: The number of records sent to Snowflake at a time.
-  kind: integer
-  label: Batch Size
-  name: batch_size
-  value: 5000
 - description: Name of the column used for recording the timestamp when Data are uploaded
     to Snowflake.
   label: Timestamp Column
   name: timestamp_column
   value: __loaded_at
+- description: The username you use for logging in
+  label: Username
+  name: username
+- description: The name of the Snowflake warehouse you want to use
+  label: Warehouse
+  name: warehouse
 settings_group_validation:
 - - account
-  - username
+  - database
   - password
   - role
-  - database
-  - warehouse
   - schema
+  - username
+  - warehouse
 target_schema: $TARGET_SNOWFLAKE_SCHEMA
 variant: meltano

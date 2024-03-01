@@ -1,10 +1,10 @@
 capabilities:
 - about
-- discover
 - catalog
+- discover
+- schema-flattening
 - state
 - stream-maps
-- schema-flattening
 description: Inbound Marketing software
 domain_url: https://developers.hubspot.com/docs/api/overview
 executable: tap-hubspot-beta
@@ -25,6 +25,7 @@ settings:
   kind: password
   label: Access Token
   name: access_token
+  sensitive: true
 - description: The client ID used for authentication.
   documentation: https://developers.hubspot.com/docs/api/working-with-oauth
   label: Client ID
@@ -33,6 +34,11 @@ settings:
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
+- description: The seconds until the token expires.
+  kind: integer
+  label: Expires In
+  name: expires_in
 - description: This is the URL that the user will be redirected to after they authorize
     your app for the requested scopes
   documentation: https://developers.hubspot.com/docs/api/working-with-oauth
@@ -42,10 +48,7 @@ settings:
   kind: password
   label: Refresh Token
   name: refresh_token
-- description: The seconds until the token expires.
-  kind: integer
-  label: Expires In
-  name: expires_in
+  sensitive: true
 - description: The time to start syncing data from if no existing state is found.
   label: Start Date
   name: start_date

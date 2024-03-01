@@ -15,24 +15,25 @@ pip_url: tap-pardot
 quality: silver
 repo: https://github.com/singer-io/tap-pardot
 settings:
-- description: Your access token. See [this helpful article](https://medium.com/@bpmmendis94/obtain-access-refresh-tokens-from-salesforce-rest-api-a324fe4ccd9b)
+- description: Your access token. See [this helpful 
+    article](https://medium.com/@bpmmendis94/obtain-access-refresh-tokens-from-salesforce-rest-api-a324fe4ccd9b)
     for more details on obtaining keys. When choosing OAuth2 based auth.
   kind: password
   label: Access Token
   name: access_token
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
-    can be expected to take."
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
-- description: Your Pardot user key, when choosing user based auth.
-  label: User Key
-  name: user_key
-- description: Your Pardot password, when choosing user based auth.
+  sensitive: true
+- description: The Consumer Key that can be found when viewing your app in Salesforce,
+    when choosing OAuth2 based auth.
   kind: password
-  label: Password
-  name: password
+  label: Client Id
+  name: client_id
+  sensitive: true
+- description: The Consumer Secret that can be found when viewing your app in Salesforce,
+    when choosing OAuth2 based auth.
+  kind: password
+  label: Client Secret
+  name: client_secret
+  sensitive: true
 - description: Your email address, when choosing user based auth.
   label: Email
   name: email
@@ -40,30 +41,35 @@ settings:
     Setup > Pardot > Pardot Account Setup.
   label: Pardot Business Unit Id
   name: pardot_business_unit_id
-- description: The Consumer Secret that can be found when viewing your app in Salesforce,
-    when choosing OAuth2 based auth.
+- description: Your Pardot password, when choosing user based auth.
   kind: password
-  label: Client Secret
-  name: client_secret
-- description: The Consumer Key that can be found when viewing your app in Salesforce,
-    when choosing OAuth2 based auth.
-  kind: password
-  label: Client Id
-  name: client_id
+  label: Password
+  name: password
+  sensitive: true
 - description: Your refresh token, when choosing OAuth2 based auth. See [this helpful
     article](https://medium.com/@bpmmendis94/obtain-access-refresh-tokens-from-salesforce-rest-api-a324fe4ccd9b)
     for more details on obtaining keys.
   kind: password
   label: Refresh Token
   name: refresh_token
+  sensitive: true
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: Your Pardot user key, when choosing user based auth.
+  label: User Key
+  name: user_key
 settings_group_validation:
-- - start_date
-  - refresh_token
-  - client_id
+- - client_id
   - client_secret
   - pardot_business_unit_id
-- - start_date
-  - email
+  - refresh_token
+  - start_date
+- - email
   - password
+  - start_date
   - user_key
 variant: singer-io

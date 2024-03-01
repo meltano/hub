@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Wikipedia Pageviews API
 domain_url: https://wikimedia.org/api/rest_v1/#/Pageviews%20data
 executable: tap-airbyte
@@ -18,28 +18,9 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: silver
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-wikipedia-pageviews
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-wikipedia-pageviews
 settings:
-- description: Airbyte image to run
-  kind: string
-  label: Airbyte Spec Image
-  name: airbyte_spec.image
-  value: airbyte/source-wikipedia-pageviews
-- description: Airbyte image tag
-  kind: string
-  label: Airbyte Spec Tag
-  name: airbyte_spec.tag
-  value: latest
-- description: Docker mounts to make available to the Airbyte container. Expects a
-    list of maps containing source, target, and type as is documented in the docker
-    --mount documentation
-  kind: array
-  label: Docker Mounts
-  name: docker_mounts
-- description: If you want to filter by project, use the domain of any Wikimedia project.
-  kind: string
-  label: Airbyte Config Project
-  name: airbyte_config.project
 - description: If you want to filter by access method, use one of desktop, mobile-app
     or mobile-web. If you are interested in pageviews regardless of access method,
     use all-access.
@@ -57,30 +38,41 @@ settings:
   kind: string
   label: Airbyte Config Article
   name: airbyte_config.article
-- description: The date of the first day to include, in YYYYMMDD or YYYYMMDDHH format.
-  kind: string
-  label: Airbyte Config Start
-  name: airbyte_config.start
-- description: The date of the last day to include, in YYYYMMDD or YYYYMMDDHH format.
-  kind: string
-  label: Airbyte Config End
-  name: airbyte_config.end
 - description: The ISO 3166-1 alpha-2 code of a country for which to retrieve top
     articles.
   kind: string
   label: Airbyte Config Country
   name: airbyte_config.country
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: The date of the last day to include, in YYYYMMDD or YYYYMMDDHH format.
+  kind: string
+  label: Airbyte Config End
+  name: airbyte_config.end
+- description: If you want to filter by project, use the domain of any Wikimedia project.
+  kind: string
+  label: Airbyte Config Project
+  name: airbyte_config.project
+- description: The date of the first day to include, in YYYYMMDD or YYYYMMDDHH format.
+  kind: string
+  label: Airbyte Config Start
+  name: airbyte_config.start
+- description: Airbyte image to run
+  kind: string
+  label: Airbyte Spec Image
+  name: airbyte_spec.image
+  value: airbyte/source-wikipedia-pageviews
+- description: Airbyte image tag
+  kind: string
+  label: Airbyte Spec Tag
+  name: airbyte_spec.tag
+  value: latest
+- description: Docker mounts to make available to the Airbyte container. Expects a
+    list of maps containing source, target, and type as is documented in the docker
+    --mount documentation
+  kind: array
+  label: Docker Mounts
+  name: docker_mounts
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -88,16 +80,25 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - airbyte_config.project
-  - airbyte_config.access
-  - airbyte_spec.image
-  - airbyte_config.start
+- - airbyte_config.access
   - airbyte_config.agent
-  - airbyte_config.end
-  - airbyte_config.country
   - airbyte_config.article
+  - airbyte_config.country
+  - airbyte_config.end
+  - airbyte_config.project
+  - airbyte_config.start
   - airbyte_spec
+  - airbyte_spec.image
 settings_preamble: ''
 usage: ''
 variant: airbyte

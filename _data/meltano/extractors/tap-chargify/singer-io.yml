@@ -15,23 +15,25 @@ pip_url: tap-chargify
 quality: silver
 repo: https://github.com/singer-io/tap-chargify
 settings:
-- description: 'The subdomain of your Chargify site. For example: If the full URL
-    were https://test.my-chargify-site.com, this value would be test.'
-  label: Subdomain
-  name: subdomain
-- description: A Chargify API key. Refer to the [Chargify documentation](https://help.chargify.com/integrations/api-keys-chargify-direct.html)
+- description: A Chargify API key. Refer to the [Chargify 
+    documentation](https://help.chargify.com/integrations/api-keys-chargify-direct.html)
     for instructions on creating an API key.
   kind: password
   label: API Key
   name: api_key
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
+  sensitive: true
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
     can be expected to take."
   kind: date_iso8601
   label: Start Date
   name: start_date
+- description: 'The subdomain of your Chargify site. For example: If the full URL
+    were https://test.my-chargify-site.com, this value would be test.'
+  label: Subdomain
+  name: subdomain
 settings_group_validation:
-- - subdomain
-  - api_key
+- - api_key
   - start_date
+  - subdomain
 variant: singer-io

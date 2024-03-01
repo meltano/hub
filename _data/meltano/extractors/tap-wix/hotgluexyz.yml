@@ -24,20 +24,19 @@ settings:
   kind: password
   label: Access Token
   name: access_token
-- description: Your Wix refresh token.
-  kind: password
-  label: Refresh Token
-  name: refresh_token
+  sensitive: true
 - description: Your Wix Client ID.
   kind: password
   label: Client ID
   name: client_id
+  sensitive: true
 - description: Your Wix Client Secret.
   kind: password
   label: Client Secret
   name: client_secret
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+  sensitive: true
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -45,6 +44,11 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: Your Wix refresh token.
+  kind: password
+  label: Refresh Token
+  name: refresh_token
+  sensitive: true
 - description: The earliest record date to sync
   kind: date_iso8601
   label: Start Date
@@ -58,9 +62,9 @@ settings:
   label: Stream Maps
   name: stream_maps
 settings_group_validation:
-- - refresh_token
-  - client_id
+- - client_id
   - client_secret
+  - refresh_token
 settings_preamble: ''
 usage: ''
 variant: hotgluexyz

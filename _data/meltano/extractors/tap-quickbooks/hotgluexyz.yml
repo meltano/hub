@@ -1,6 +1,6 @@
 capabilities:
-- properties
 - discover
+- properties
 - state
 description: Accounting management platform
 domain_url: https://developer.intuit.com/app/developer/qbo/docs/develop
@@ -15,51 +15,54 @@ pip_url: git+https://github.com/hotgluexyz/tap-quickbooks.git
 quality: silver
 repo: https://github.com/hotgluexyz/tap-quickbooks
 settings:
-- label: Realm ID
-  name: realmId
 - description: Your Quickbooks Online OAuth client ID
   kind: password
   label: Client ID
   name: client_id
+  sensitive: true
 - description: Your Quickbooks Online OAuth client secret
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
+- description: Use Quickbooks Sandbox
+  kind: boolean
+  label: Is Sandbox
+  name: is_sandbox
+  value: false
+- description: Maximum number of threads to use
+  kind: integer
+  label: Max Workers
+  name: max_workers
+  value: 8
+- label: Realm ID
+  name: realmId
 - description: Access to Quickbooks’s API requires a refresh token that will authenticate
     you with the server.
   kind: password
   label: Refresh Token
   name: refresh_token
+  sensitive: true
+- description: Select by default any new fields discovered in Quickbooks objects
+  kind: boolean
+  label: Select Fields By Default
+  name: select_fields_by_default
+  value: true
 - description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.
   kind: date_iso8601
   label: Start Date
   name: start_date
-- description: Use Quickbooks Sandbox
-  kind: boolean
-  label: Is Sandbox
-  name: is_sandbox
-  value: false
-- description: Select by default any new fields discovered in Quickbooks objects
-  kind: boolean
-  label: Select Fields By Default
-  name: select_fields_by_default
-  value: true
 - description: Generate a STATE message every N records
   kind: integer
   label: State Message Threshold
   name: state_message_threshold
   value: 1000
-- description: Maximum number of threads to use
-  kind: integer
-  label: Max Workers
-  name: max_workers
-  value: 8
 settings_group_validation:
 - - client_id
   - client_secret
-  - refresh_token
   - realmId
+  - refresh_token
   - start_date
 variant: hotgluexyz

@@ -18,32 +18,33 @@ settings:
 - description: Your company account.
   label: Company Account
   name: company_account
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
+- description: Adyen merchant account
+  label: Merchant Account
+  name: merchant_account
+- description: Your report user.
+  label: Report User
+  name: report_user
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
     can be expected to take."
   kind: date_iso8601
   label: Start Date
   name: start_date
-- description: Your report user.
-  label: Report User
-  name: report_user
-- description: Your password.
-  kind: password
-  label: User Password
-  name: user_password
-- description: Adyen merchant account
-  label: Merchant Account
-  name: merchant_account
 - description: Whether to use the test or live environment. Default False.
   kind: boolean
   label: Test
   name: test
+- description: Your password.
+  kind: password
+  label: User Password
+  name: user_password
+  sensitive: true
 settings_group_validation:
 - - company_account
-  - start_date
-  - report_user
-  - user_password
   - merchant_account
+  - report_user
+  - start_date
+  - user_password
 usage: |
   ### Retrieve Report User credentials
 

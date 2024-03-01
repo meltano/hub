@@ -98,6 +98,28 @@ pip_url: apache-superset==2.0.0 flask==2.0.3 werkzeug==2.0.3 jinja2==3.0.1 wtfor
   git+https://github.com/meltano/superset-ext.git@main cryptography==3.4.7
 repo: https://github.com/apache/superset
 settings:
+- description: The path to where the Superset config file is located.
+  label: Superset config path
+  name: CONFIG_PATH
+  value: $MELTANO_PROJECT_ROOT/analyze/superset/superset_config.py
+- label: Superset home
+  name: HOME
+  value: $MELTANO_PROJECT_ROOT/.meltano/utilities/superset
+- description: App secret key used for securely signing the session cookie and encrypting
+    sensitive information on the database. Equivalent to the `SECRET_KEY` setting
+    in `superset_config.py`.
+  kind: password
+  label: Secret Key
+  name: SECRET_KEY
+  sensitive: true
+  value: thisisnotapropersecretkey
+- description: |
+    Superset metadata database connection string. Equivalent to the `SQLALCHEMY_DATABASE_URI` setting in `superset_config.py`.
+
+    SQLite is used by default, but in production PostgreSQL or MySQL is more appropriate. See the [Superset documentation](https://superset.apache.org/docs/installation/configuring-superset/#using-a-production-metastore) for more information. To add a database driver like `psycopg2` or `mysqlclient`, refer to the [Add additional database drivers](#add-additional-database-drivers) section above.
+  label: SQLAlchemy Database URI
+  name: SQLALCHEMY_DATABASE_URI
+  value: sqlite:///$MELTANO_PROJECT_ROOT/.meltano/utilities/superset/superset.db
 - description: Host used by `meltano invoke superset:ui`. Used in the `gunicorn` `--bind`
     option along with `ui.port`.
   label: UI Bind Host
@@ -118,27 +140,7 @@ settings:
   label: UI Workers
   name: ui.workers
   value: 4
-- label: Superset home
-  name: HOME
-  value: $MELTANO_PROJECT_ROOT/.meltano/utilities/superset
-- description: The path to where the Superset config file is located.
-  label: Superset config path
-  name: CONFIG_PATH
-  value: $MELTANO_PROJECT_ROOT/analyze/superset/superset_config.py
-- description: |
-    Superset metadata database connection string. Equivalent to the `SQLALCHEMY_DATABASE_URI` setting in `superset_config.py`.
-
-    SQLite is used by default, but in production PostgreSQL or MySQL is more appropriate. See the [Superset documentation](https://superset.apache.org/docs/installation/configuring-superset/#using-a-production-metastore) for more information. To add a database driver like `psycopg2` or `mysqlclient`, refer to the [Add additional database drivers](#add-additional-database-drivers) section above.
-  label: SQLAlchemy Database URI
-  name: SQLALCHEMY_DATABASE_URI
-  value: sqlite:///$MELTANO_PROJECT_ROOT/.meltano/utilities/superset/superset.db
-- description: App secret key used for securely signing the session cookie and encrypting
-    sensitive information on the database. Equivalent to the `SECRET_KEY` setting
-    in `superset_config.py`.
-  kind: password
-  label: Secret Key
-  name: SECRET_KEY
-  value: thisisnotapropersecretkey
+settings_group_validation: []
 usage: |
   ## Troubleshooting
 

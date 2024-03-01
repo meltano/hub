@@ -15,40 +15,43 @@ pip_url: tap-harvest-forecast
 quality: silver
 repo: https://github.com/singer-io/tap-harvest-forecast
 settings:
-- description: Your refresh token.
-  kind: password
-  label: Refresh Token
-  name: refresh_token
-- description: Your client secret.
-  kind: password
-  label: Client Secret
-  name: client_secret
-- description: The user agent to be sent with requests.
-  label: User Agent
-  name: user_agent
+- description: Your account ID.
+  label: Account ID
+  name: account_id
 - description: Your client ID.
   kind: password
   label: Client ID
   name: client_id
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
-    can be expected to take."
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
-- description: Your account ID.
-  label: Account ID
-  name: account_id
+  sensitive: true
+- description: Your client secret.
+  kind: password
+  label: Client Secret
+  name: client_secret
+  sensitive: true
 - description: Date up to when historical data will be extracted.
   kind: date_iso8601
   label: End Date
   name: end_date
+- description: Your refresh token.
+  kind: password
+  label: Refresh Token
+  name: refresh_token
+  sensitive: true
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: The user agent to be sent with requests.
+  label: User Agent
+  name: user_agent
 settings_group_validation:
-- - refresh_token
-  - client_secret
+- - account_id
   - client_id
+  - client_secret
+  - refresh_token
   - start_date
-  - account_id
 usage: |
   As the Harvest Forecast API is [not yet public](https://help.getharvest.com/forecast/faqs/faq-list/api/), this tap is experimental and liable to break at any time. Please keep this in mind if you run into any issues (and submit a PR if you can fix something broken).
 

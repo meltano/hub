@@ -15,31 +15,33 @@ pip_url: tap-sailthru
 quality: bronze
 repo: https://github.com/singer-io/tap-sailthru
 settings:
-- description: The user agent to send with requests for logging purposes.
-  label: User Agent
-  name: user_agent
+- description: Your Sailthru API key.
+  kind: password
+  label: API Key
+  name: api_key
+  sensitive: true
+- description: Your Sailthru API secret.
+  kind: password
+  label: API Secret
+  name: api_secret
+  sensitive: true
 - description: The time for which request should wait to get response and default
     request_timeout is 300 seconds.
   kind: integer
   label: Request Timeout
   name: request_timeout
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
     can be expected to take."
   kind: date_iso8601
   label: Start Date
   name: start_date
-- description: Your Sailthru API key.
-  kind: password
-  label: API Key
-  name: api_key
-- description: Your Sailthru API secret.
-  kind: password
-  label: API Secret
-  name: api_secret
+- description: The user agent to send with requests for logging purposes.
+  label: User Agent
+  name: user_agent
 settings_group_validation:
-- - user_agent
-  - start_date
-  - api_key
+- - api_key
   - api_secret
+  - start_date
+  - user_agent
 variant: singer-io

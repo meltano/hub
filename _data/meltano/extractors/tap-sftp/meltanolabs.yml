@@ -15,23 +15,37 @@ pip_url: git+https://github.com/MeltanoLabs/tap-sftp.git
 quality: silver
 repo: https://github.com/MeltanoLabs/tap-sftp
 settings:
+- description: A configuration for using AWS SSM Parameter Store as the source for
+    the private key file. The tap will download the private key from SSM and use it
+    to authenticate. The keys required are - `SSM_key_name`, `gnupghome`, `passphrase`.
+  kind: object
+  label: Decryption Configs
+  name: decryption_configs
 - description: The SFTP server hostname.
   label: Host
   name: host
-- description: The SFTP server port.
-  kind: integer
-  label: Port
-  name: port
-- description: The username for connecting the the SFTP server.
-  label: Username
-  name: username
 - description: The pass for connecting the the SFTP server.
   kind: password
   label: Password
   name: password
+  sensitive: true
+- description: The SFTP server port.
+  kind: integer
+  label: Port
+  name: port
 - description: A path to the private key file for connecting the the SFTP server.
   label: Private Key File
   name: private_key_file
+- description: The SFTP connection timeout in seconds. Defaults to 300.
+  kind: integer
+  label: Request Timeout
+  name: request_timeout
+- description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
 - description: An array that consists of one or more objects that describe how to
     find files and emit records. Required in each table object - `table_name`, `search_pattern`,`search_prefix`,
     `key_properties` (Array containing the unique keys of the table. Defaults to ['_sdc_source_file',
@@ -44,26 +58,13 @@ settings:
   kind: array
   label: Tables
   name: tables
-- description: Determines how much historical data will be extracted. Please be aware
-    that the larger the time period and amount of data, the longer the initial extraction
-    can be expected to take.
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
-- description: The SFTP connection timeout in seconds. Defaults to 300.
-  kind: integer
-  label: Request Timeout
-  name: request_timeout
-- description: A configuration for using AWS SSM Parameter Store as the source for
-    the private key file. The tap will download the private key from SSM and use it
-    to authenticate. The keys required are - `SSM_key_name`, `gnupghome`, `passphrase`.
-  kind: object
-  label: Decryption Configs
-  name: decryption_configs
+- description: The username for connecting the the SFTP server.
+  label: Username
+  name: username
 settings_group_validation:
-- - username
+- - host
   - port
-  - host
-  - tables
   - start_date
+  - tables
+  - username
 variant: meltanolabs

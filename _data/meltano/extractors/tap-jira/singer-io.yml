@@ -15,35 +15,36 @@ pip_url: git+https://github.com/singer-io/tap-jira.git
 quality: silver
 repo: https://github.com/singer-io/tap-jira
 settings:
-- description: Your Jira username.
-  label: Username
-  name: username
-- description: Your Jira password.
-  kind: password
-  label: Password
-  name: password
-- description: The base URL for your Jira instance.
-  label: Base URL
-  name: base_url
-  placeholder: Ex. "https://mycompany.atlassian.net"
-- description: The client secret value used for OAuth authentication.
-  kind: password
-  label: OAuth Client Secret
-  name: oauth_client_secret
-- description: The client ID used for OAuth authentication.
-  label: OAuth Client ID
-  name: oauth_client_id
 - description: The access token generated for your account.
   kind: password
   label: Access Token
   name: access_token
+  sensitive: true
+- description: The base URL for your Jira instance.
+  label: Base URL
+  name: base_url
+  placeholder: Ex. "https://mycompany.atlassian.net"
 - description: The cloud ID of your JIRA instance.
   label: Cloud ID
   name: cloud_id
+- description: The client ID used for OAuth authentication.
+  label: OAuth Client ID
+  name: oauth_client_id
+- description: The client secret value used for OAuth authentication.
+  kind: password
+  label: OAuth Client Secret
+  name: oauth_client_secret
+  sensitive: true
+- description: Your Jira password.
+  kind: password
+  label: Password
+  name: password
+  sensitive: true
 - description: The refresh token generated for your account.
   kind: password
   label: Refresh Token
   name: refresh_token
+  sensitive: true
 - description: Specifies the date at which the tap will begin pulling data. This works
     only for the streams that support it.
   kind: date_iso8601
@@ -53,16 +54,19 @@ settings:
   label: User Agent
   name: user_agent
   value: tap-jira via Meltano
+- description: Your Jira username.
+  label: Username
+  name: username
 settings_group_validation:
-- - username
+- - base_url
   - password
-  - base_url
   - start_date
   - user_agent
-- - oauth_client_secret
-  - oauth_client_id
-  - access_token
+  - username
+- - access_token
   - cloud_id
+  - oauth_client_id
+  - oauth_client_secret
   - refresh_token
   - start_date
   - user_agent

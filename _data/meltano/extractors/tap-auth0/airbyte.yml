@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Authentication and Authorization Platform
 domain_url: https://auth0.com/
 executable: tap-airbyte
@@ -18,8 +18,45 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-auth0
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-auth0
 settings:
+- description: The Authentication API is served over HTTPS. All URLs referenced in
+    the documentation have the following base `https://YOUR_DOMAIN`
+  kind: string
+  label: Airbyte Config Base Url
+  name: airbyte_config.base_url
+- description: Also called <a 
+    href="https://auth0.com/docs/secure/tokens/access-tokens/get-management-api-access-tokens-for-testing">API
+    Access Token </a> The access token used to call the Auth0 Management API Token.
+    It's a JWT that contains specific grant permissions knowns as scopes.
+  kind: password
+  label: Airbyte Config Credentials Access Token
+  name: airbyte_config.credentials.access_token
+  sensitive: true
+- description: The audience for the token, which is your API. You can find this in
+    the Identifier field on your  <a href="https://manage.auth0.com/#/apis">API's
+    settings tab</a>
+  kind: string
+  label: Airbyte Config Credentials Audience
+  name: airbyte_config.credentials.audience
+- description: oauth2_confidential_application, oauth2_access_token
+  kind: string
+  label: Airbyte Config Credentials Auth Type
+  name: airbyte_config.credentials.auth_type
+- description: Your application's Client ID. You can find this value on the <a href="https://manage.auth0.com/#/applications">application's
+    settings tab</a> after you login the admin portal.
+  kind: password
+  label: Airbyte Config Credentials Client Id
+  name: airbyte_config.credentials.client_id
+  sensitive: true
+- description: Your application's Client Secret. You can find this value on the <a
+    href="https://manage.auth0.com/#/applications">application's settings tab</a>
+    after you login the admin portal.
+  kind: password
+  label: Airbyte Config Credentials Client Secret
+  name: airbyte_config.credentials.client_secret
+  sensitive: true
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -36,49 +73,8 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: The Authentication API is served over HTTPS. All URLs referenced in
-    the documentation have the following base `https://YOUR_DOMAIN`
-  kind: string
-  label: Airbyte Config Base Url
-  name: airbyte_config.base_url
-- description: oauth2_confidential_application, oauth2_access_token
-  kind: string
-  label: Airbyte Config Credentials Auth Type
-  name: airbyte_config.credentials.auth_type
-- description: Your application's Client ID. You can find this value on the <a href="https://manage.auth0.com/#/applications">application's
-    settings tab</a> after you login the admin portal.
-  kind: password
-  label: Airbyte Config Credentials Client Id
-  name: airbyte_config.credentials.client_id
-- description: Your application's Client Secret. You can find this value on the <a
-    href="https://manage.auth0.com/#/applications">application's settings tab</a>
-    after you login the admin portal.
-  kind: password
-  label: Airbyte Config Credentials Client Secret
-  name: airbyte_config.credentials.client_secret
-- description: The audience for the token, which is your API. You can find this in
-    the Identifier field on your  <a href="https://manage.auth0.com/#/apis">API's
-    settings tab</a>
-  kind: string
-  label: Airbyte Config Credentials Audience
-  name: airbyte_config.credentials.audience
-- description: Also called <a href="https://auth0.com/docs/secure/tokens/access-tokens/get-management-api-access-tokens-for-testing">API
-    Access Token </a> The access token used to call the Auth0 Management API Token.
-    It's a JWT that contains specific grant permissions knowns as scopes.
-  kind: password
-  label: Airbyte Config Credentials Access Token
-  name: airbyte_config.credentials.access_token
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -86,10 +82,19 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - airbyte_spec.image
+- - airbyte_config.base_url
   - airbyte_spec
-  - airbyte_config.base_url
+  - airbyte_spec.image
 settings_preamble: ''
 usage: ''
 variant: airbyte

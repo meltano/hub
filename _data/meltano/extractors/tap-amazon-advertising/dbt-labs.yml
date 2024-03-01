@@ -15,36 +15,40 @@ pip_url: git+https://github.com/dbt-labs/tap-amazon-advertising.git
 quality: unknown
 repo: https://github.com/dbt-labs/tap-amazon-advertising
 settings:
-- description: Your profile ID.
-  kind: password
-  label: Profile ID
-  name: profile_id
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
-    can be expected to take."
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
-- description: Your Amazon Advertising API client secret.
-  kind: password
-  label: Client Secret
-  name: client_secret
 - description: Your Amazon Advertising API client ID.
   kind: password
   label: Client ID
   name: client_id
+  sensitive: true
+- description: Your Amazon Advertising API client secret.
+  kind: password
+  label: Client Secret
+  name: client_secret
+  sensitive: true
+- description: Your profile ID.
+  kind: password
+  label: Profile ID
+  name: profile_id
+  sensitive: true
+- description: The redirect URI to use for OAuth flow.
+  label: Redirect URI
+  name: redirect_uri
 - description: Your Amazon Advertising API refresh token.
   kind: password
   label: Refresh Token
   name: refresh_token
-- description: The redirect URI to use for OAuth flow.
-  label: Redirect URI
-  name: redirect_uri
+  sensitive: true
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
 settings_group_validation:
-- - profile_id
-  - start_date
+- - client_id
   - client_secret
-  - client_id
-  - refresh_token
+  - profile_id
   - redirect_uri
+  - refresh_token
+  - start_date
 variant: dbt-labs

@@ -16,27 +16,31 @@ pip_url: git+https://github.com/potloc/tap-wrike.git
 quality: silver
 repo: https://github.com/potloc/tap-wrike
 settings:
-- description: Your Wrike refresh token, if using OAuth2 credentials.
-  kind: password
-  label: Refresh Token
-  name: refresh_token
 - description: Your Wrike client ID, if using OAuth2 credentials.
   kind: password
   label: Client ID
   name: client_id
+  sensitive: true
 - description: Your Wrike client secret, if using OAuth2 credentials.
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
+- description: Your Wrike refresh token, if using OAuth2 credentials.
+  kind: password
+  label: Refresh Token
+  name: refresh_token
+  sensitive: true
 - description: Your Wrike permanent token, if using a permanent access token auth
     flow.
   kind: password
   label: Token
   name: token
+  sensitive: true
 settings_group_validation:
-- - refresh_token
-  - client_id
+- - client_id
   - client_secret
+  - refresh_token
 - - token
 settings_preamble: |
   ### Authorization

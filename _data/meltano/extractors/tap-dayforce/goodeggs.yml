@@ -15,36 +15,37 @@ pip_url: git+https://github.com/goodeggs/tap-dayforce.git
 quality: silver
 repo: https://github.com/goodeggs/tap-dayforce
 settings:
+- description: The api version to send requests to, default V1.
+  label: API Version
+  name: api_version
 - description: A valid client name (e.g. Company Name) that will be inserted into
     the request URL.
   label: Client Namespace
   name: client_namespace
-- description: Whether to use a test environment, default False.
-  kind: boolean
-  label: Test
-  name: test
 - description: The Dayforce release, default 61.
   label: Dayforce Release
   name: dayforce_release
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
-    can be expected to take."
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
 - description: A valid Dayforce web services user account password.
   kind: password
   label: Password
   name: password
+  sensitive: true
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: Whether to use a test environment, default False.
+  kind: boolean
+  label: Test
+  name: test
 - description: A valid Dayforce web services user account username.
   label: Username
   name: username
-- description: The api version to send requests to, default V1.
-  label: API Version
-  name: api_version
 settings_group_validation:
 - - client_namespace
-  - start_date
   - password
+  - start_date
   - username
 variant: goodeggs

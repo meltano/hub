@@ -18,32 +18,35 @@ settings:
 - description: The unique channel IDs in a comma delimited list.
   label: Channel IDs
   name: channel_ids
-- description: Your client secret.
-  kind: password
-  label: Client Secret
-  name: client_secret
 - description: Your client ID.
   kind: password
   label: Client ID
   name: client_id
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
-    can be expected to take."
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
+  sensitive: true
+- description: Your client secret.
+  kind: password
+  label: Client Secret
+  name: client_secret
+  sensitive: true
 - description: Your refresh token.
   kind: password
   label: Refresh Token
   name: refresh_token
+  sensitive: true
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
 - description: The user agent to send with requests.
   label: User Agent
   name: user_agent
 settings_group_validation:
 - - channel_ids
-  - client_secret
   - client_id
-  - start_date
+  - client_secret
   - refresh_token
+  - start_date
   - user_agent
 variant: singer-io

@@ -27,6 +27,7 @@ settings:
   kind: password
   label: Access Token URL
   name: access_token_url
+  sensitive: true
 - description: 'A object of API Key/Value pairs used by the api_key auth method Example:
     { X-API-KEY: my secret value}.'
   kind: object
@@ -52,24 +53,25 @@ settings:
   kind: object
   label: AWS Credentials
   name: aws_credentials
-- description: 'The style of Backoff [message|header] applied to rate limited APIs.
-    Backoff times (seconds) come from response either the `message` or `header`.
-    Optional: Defaults to `None`.'
-  kind: string
-  label: Backoff Type
-  name: backoff_type
-- description: 'The header parameter to inspect for a backoff time.
-    Optional: Defaults to `Retry-After`.'
+- description: 'The header parameter to inspect for a backoff time. Optional: Defaults
+    to `Retry-After`.'
   kind: string
   label: Backoff Param
   name: backoff_param
   value: 'Retry-After'
-- description: 'An additional extension (seconds) to the backoff time over and above a jitter value -
-    use where an API is not precise in its backoff times. Optional: Defaults to `0`.'
+- description: 'An additional extension (seconds) to the backoff time over and above
+    a jitter value - use where an API is not precise in its backoff times. Optional:
+    Defaults to `0`.'
   kind: string
   label: Backoff Time Extension
   name: backoff_time_extension
   value: 0
+- description: 'The style of Backoff [message|header] applied to rate limited APIs.
+    Backoff times (seconds) come from response either the `message` or `header`. Optional:
+    Defaults to `None`.'
+  kind: string
+  label: Backoff Type
+  name: backoff_type
 - description: Compression format to use for batch files.
   kind: options
   label: Batch Config Encoding Compression
@@ -99,23 +101,26 @@ settings:
   kind: password
   label: Bearer Token
   name: bearer_token
+  sensitive: true
 - description: Used for the OAuth2 authentication method. The public application ID
     that's assigned for Authentication. The client_id should accompany a client_secret.
   kind: password
   label: Client ID
   name: client_id
+  sensitive: true
 - description: Used for the OAuth2 authentication method. The client_secret is a secret
     known only to the application and the authorization server. It is essential the
     application's own password.
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
 - description: This tap automatically flattens the entire json structure and builds
-    keys based on the corresponding paths. Keys, whether composite or otherwise,
-    listed in this dictionary will not be recursively flattened, but instead their
-    values will be; turned into a json string and processed in that format. This is
-    also automatically done for any lists within the records; therefore, records are
-    not duplicated for each item in lists.
+    keys based on the corresponding paths. Keys, whether composite or otherwise, listed
+    in this dictionary will not be recursively flattened, but instead their values
+    will be; turned into a json string and processed in that format. This is also
+    automatically done for any lists within the records; therefore, records are not
+    duplicated for each item in lists.
   kind: array
   label: Except Keys
   name: except_keys
@@ -146,6 +151,7 @@ settings:
   kind: password
   label: Next Page Token Path
   name: next_page_token_path
+  sensitive: true
 - description: Number of records used to infer the stream's schema. Defaults to `50`.
   kind: integer
   label: Num Inference Records
@@ -189,15 +195,15 @@ settings:
   kind: integer
   label: Pagination Results Limit
   name: pagination_results_limit
-- description: The name of the param that indicates the total limit e.g. `total`, `count`.
-    Defaults to `total`.
+- description: The name of the param that indicates the total limit e.g. `total`,
+    `count`. Defaults to `total`.
   kind: string
   label: Pagination Total Limit Param
   name: pagination_total_limit_param
   value: total
 - description: An object providing the `params` in a `requests.get` method. Stream
-    level params will be merged with top-level params with stream level params
-    overwriting top-level params with the same key.
+    level params will be merged with top-level params with stream level params overwriting
+    top-level params with the same key.
   kind: object
   label: Params
   name: params
@@ -207,6 +213,7 @@ settings:
   kind: password
   label: Password
   name: password
+  sensitive: true
 - description: The path appended to the `api_url`. Stream-level path will overwrite
     top-level path
   kind: string
@@ -234,11 +241,13 @@ settings:
   kind: password
   label: Refresh Token
   name: refresh_token
+  sensitive: true
 - description: The json response field representing the replication key. Note that
     this should be an incrementing integer or datetime object.
   kind: password
   label: Replication Key
   name: replication_key
+  sensitive: true
 - description: Used for the OAuth2 authentication method. The scope is optional, it
     is a mechanism to limit the amount of access that is granted to an access token.
     One or more scopes can be provided delimited by a space.
@@ -258,9 +267,9 @@ settings:
     the query field you are querying against with $last_run_date. At run-time, the
     tap will dynamically update the token with either the `start_date` or the last
     bookmark / state value. A simple template Example for FHIR APIs: gt$last_run_date.
-    A more complex example against an Opensearch API, `"{\"bool\": {\"filter\":
-     [{\"range\": { \"meta.lastUpdated\": { \"gt\": \"$last_run_date\" }}}] }}"`.
-    Note: Any required double quotes in the query template must be escaped.'
+    A more complex example against an Opensearch API, `"{\"bool\": {\"filter\": [{\"range\":
+    { \"meta.lastUpdated\": { \"gt\": \"$last_run_date\" }}}] }}"`. Note: Any required
+    double quotes in the query template must be escaped.'
   kind: string
   label: Source Search Query
   name: source_search_query

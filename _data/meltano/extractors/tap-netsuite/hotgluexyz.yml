@@ -1,6 +1,6 @@
 capabilities:
-- properties
 - discover
+- properties
 - state
 description: Business Management Software
 domain_url: https://www.netsuite.com/
@@ -15,45 +15,53 @@ pip_url: git+https://github.com/hotgluexyz/tap-netsuite.git
 quality: silver
 repo: https://github.com/hotgluexyz/tap-netsuite
 settings:
-- description: Your account Id. This can be found under Setup -> Company -> Company
-    Information. Look for Account Id. Note "_SB" is for Sandbox account.
-  label: NetSuite Account
-  name: ns_account
-- description: Your consumer key for token based authentication consumer key for SOAP
-    connection. Visit the https://support.cazoomi.com/hc/en-us/articles/360010093392-How-to-Setup-NetSuite-Token-Based-Authentication-as-Authentication-Type
-    for details.
-  kind: password
-  label: NetSuite Consumer Key
-  name: ns_consumer_key
-- description: Your consumer secret for token based authentication consumer key for
-    SOAP connection. Visit the https://support.cazoomi.com/hc/en-us/articles/360010093392-How-to-Setup-NetSuite-Token-Based-Authentication-as-Authentication-Type
-    for details.
-  kind: password
-  label: NetSuite Consumer Secret
-  name: ns_consumer_secret
-- description: Your token key for token based authentication consumer key for SOAP
-    connection. Visit the https://support.cazoomi.com/hc/en-us/articles/360010093392-How-to-Setup-NetSuite-Token-Based-Authentication-as-Authentication-Type
-    for details.
-  kind: password
-  label: NetSuite Token Key
-  name: ns_token_key
-- description: Your token secret for token based authentication consumer key for SOAP
-    connection. Visit the https://support.cazoomi.com/hc/en-us/articles/360010093392-How-to-Setup-NetSuite-Token-Based-Authentication-as-Authentication-Type
-    for details.
-  kind: password
-  label: NetSuite Token Secret
-  name: ns_token_secret
-- description: When new fields are discovered in NetSuite objects, the select_fields_by_default
-    key describes whether or not the tap will select those fields by default.
-  kind: boolean
-  label: Select Fields By Default
-  name: select_fields_by_default
 - description: The is_sandbox should always be set to "true" if you are connecting
     Production account of NetSuite. Set it to false if you want to connect to SandBox
     acccount.
   kind: boolean
   label: Is Sandbox
   name: is_sandbox
+- description: Your account Id. This can be found under Setup -> Company -> Company
+    Information. Look for Account Id. Note "_SB" is for Sandbox account.
+  label: NetSuite Account
+  name: ns_account
+- description: Your consumer key for token based authentication consumer key for SOAP
+    connection. Visit the 
+    https://support.cazoomi.com/hc/en-us/articles/360010093392-How-to-Setup-NetSuite-Token-Based-Authentication-as-Authentication-Type
+    for details.
+  kind: password
+  label: NetSuite Consumer Key
+  name: ns_consumer_key
+  sensitive: true
+- description: Your consumer secret for token based authentication consumer key for
+    SOAP connection. Visit the 
+    https://support.cazoomi.com/hc/en-us/articles/360010093392-How-to-Setup-NetSuite-Token-Based-Authentication-as-Authentication-Type
+    for details.
+  kind: password
+  label: NetSuite Consumer Secret
+  name: ns_consumer_secret
+  sensitive: true
+- description: Your token key for token based authentication consumer key for SOAP
+    connection. Visit the 
+    https://support.cazoomi.com/hc/en-us/articles/360010093392-How-to-Setup-NetSuite-Token-Based-Authentication-as-Authentication-Type
+    for details.
+  kind: password
+  label: NetSuite Token Key
+  name: ns_token_key
+  sensitive: true
+- description: Your token secret for token based authentication consumer key for SOAP
+    connection. Visit the 
+    https://support.cazoomi.com/hc/en-us/articles/360010093392-How-to-Setup-NetSuite-Token-Based-Authentication-as-Authentication-Type
+    for details.
+  kind: password
+  label: NetSuite Token Secret
+  name: ns_token_secret
+  sensitive: true
+- description: When new fields are discovered in NetSuite objects, the select_fields_by_default
+    key describes whether or not the tap will select those fields by default.
+  kind: boolean
+  label: Select Fields By Default
+  name: select_fields_by_default
 - description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.

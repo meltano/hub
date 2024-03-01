@@ -1,8 +1,8 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
+- catalog
+- discover
+- state
 - stream-maps
 description: Observability service
 domain_url: https://www.datadoghq.com/
@@ -22,18 +22,20 @@ settings:
   kind: password
   label: Api Key
   name: api_key
+  sensitive: true
 - description: DD-APP-KEY
   kind: password
   label: App Key
   name: app_key
+  sensitive: true
 - description: start date to sync from
   kind: date_iso8601
   label: Start Date
   name: start_date
 settings_group_validation:
-- - start_date
-  - api_key
+- - api_key
   - app_key
+  - start_date
 settings_preamble: ''
 usage: ''
 variant: degreed-data-engineering

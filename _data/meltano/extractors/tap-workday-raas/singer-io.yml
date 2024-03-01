@@ -15,22 +15,23 @@ pip_url: tap-workday-raas
 quality: silver
 repo: https://github.com/singer-io/tap-workday-raas
 settings:
+- description: The password of the workday account with access to the reports to extract
+  kind: password
+  label: Password
+  name: password
+  sensitive: true
 - description: A JSON string containing a list of objects containing the report_name
     and report_url. report_name is the name of the stream for the report, and the
     report_url is the URL to the Workday XML REST link for the report you wish to
     extract.
   label: Reports
   name: reports
-- description: The password of the workday account with access to the reports to extract
-  kind: password
-  label: Password
-  name: password
 - description: The username of the workday account with access to the reports to extract
   label: Username
   name: username
 settings_group_validation:
-- - reports
-  - password
+- - password
+  - reports
   - username
 usage: |-
   ### Reports Configuration

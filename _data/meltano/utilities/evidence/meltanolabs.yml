@@ -61,6 +61,29 @@ settings:
   label: Evidence Home Dir
   name: home_dir
   value: $MELTANO_PROJECT_ROOT/analyze/evidence
+- description: |
+    Send Evidence anonymous usage stats.
+  env: SEND_ANONYMOUS_USAGE_STATS
+  kind: options
+  label: Send Anonymous Usage Stats
+  name: send_anonymous_usage_stats
+  options:
+  - value: yes
+  - value: no
+  value: yes
+- env: BIGQUERY_CLIENT_EMAIL
+  kind: string
+  label: BigQuery Client Email
+  name: settings.bigquery.client_email
+- env: BIGQUERY_PRIVATE_KEY
+  kind: password
+  label: BigQuery Private Key
+  name: settings.bigquery.private_key
+  sensitive: true
+- env: BIGQUERY_PROJECT_ID
+  kind: string
+  label: BigQuery Project ID
+  name: settings.bigquery.project_id
 - env: DATABASE
   kind: options
   name: settings.database
@@ -95,6 +118,98 @@ settings:
   kind: boolean
   label: Gitignore DuckDB Database Files
   name: settings.duckdb.gitignore_duckdb
+- env: MYSQL_DATABASE
+  kind: string
+  label: MySQL Database
+  name: settings.mysql.database
+- env: MYSQL_HOST
+  kind: string
+  label: MySQL Host
+  name: settings.mysql.host
+- env: MYSQL_PASSWORD
+  kind: password
+  label: MySQL Password
+  name: settings.mysql.password
+  sensitive: true
+- env: MYSQL_PORT
+  label: MySQL Port
+  name: settings.mysql.port
+- description: |
+    This is an optional field. When using Google Cloud MySQL this is commonly required.
+  env: MYSQL_SOCKETPATH
+  kind: string
+  label: MySQL User
+  name: settings.mysql.socket_path
+- env: MYSQL_SSL
+  kind: options
+  label: MySQL SSL
+  name: settings.mysql.ssl
+  options:
+  - value: 'true'
+  - value: 'false'
+  - value: Amazon RDS
+- env: MYSQL_USER
+  kind: string
+  label: MySQL User
+  name: settings.mysql.user
+- description: |
+    If your database host provides a connection string, you can use that in place of the fields above.
+  env: POSTGRES_CONNECTIONSTRING
+  kind: password
+  label: Postgres Connection String
+  name: settings.postgres.connection_string
+  sensitive: true
+- env: POSTGRES_DATABASE
+  kind: string
+  label: Postgres Database
+  name: settings.postgres.database
+- env: POSTGRES_HOST
+  kind: string
+  label: Postgres Host
+  name: settings.postgres.host
+- env: POSTGRES_PASSWORD
+  kind: password
+  label: Postgres Password
+  name: settings.postgres.password
+  sensitive: true
+- env: POSTGRES_PORT
+  kind: string
+  label: Postgres Port
+  name: settings.postgres.port
+- description: |
+    Postgres SSL. When using Heroku this is commonly required.
+  env: POSTGRES_SSL
+  kind: options
+  name: settings.postgres.ssl
+  options:
+  - value: 'true'
+  - value: 'false'
+  - value: no-verify
+- env: POSTGRES_USER
+  kind: string
+  label: Postgres User
+  name: settings.postgres.user
+- env: SNOWFLAKE_ACCOUNT
+  kind: string
+  label: Snowflake Account
+  name: settings.snowflake.account
+- env: SNOWFLAKE_DATABASE
+  kind: string
+  label: Snowflake Database
+  name: settings.snowflake.database
+- env: SNOWFLAKE_PASSWORD
+  kind: password
+  label: Snowflake Password
+  name: settings.snowflake.password
+  sensitive: true
+- env: SNOWFLAKE_USERNAME
+  kind: string
+  label: Snowflake Username
+  name: settings.snowflake.username
+- env: SNOWFLAKE_WAREHOUSE
+  kind: string
+  label: Snowflake Warehouse
+  name: settings.snowflake.warehouse
 - description: |
     Name of the SQLite database file stored in the same directory as your Evidence project.
   env: SQLITE_FILENAME
@@ -107,116 +222,6 @@ settings:
   kind: boolean
   label: Gitignore SQLite Database Files
   name: settings.sqlite.gitignore_sqlite
-- env: BIGQUERY_PROJECT_ID
-  kind: string
-  label: BigQuery Project ID
-  name: settings.bigquery.project_id
-- env: BIGQUERY_CLIENT_EMAIL
-  kind: string
-  label: BigQuery Client Email
-  name: settings.bigquery.client_email
-- env: BIGQUERY_PRIVATE_KEY
-  kind: password
-  label: BigQuery Private Key
-  name: settings.bigquery.private_key
-- env: MYSQL_USER
-  kind: string
-  label: MySQL User
-  name: settings.mysql.user
-- env: MYSQL_HOST
-  kind: string
-  label: MySQL Host
-  name: settings.mysql.host
-- env: MYSQL_DATABASE
-  kind: string
-  label: MySQL Database
-  name: settings.mysql.database
-- env: MYSQL_PASSWORD
-  kind: password
-  label: MySQL Password
-  name: settings.mysql.password
-- env: MYSQL_PORT
-  label: MySQL Port
-  name: settings.mysql.port
-- env: MYSQL_SSL
-  kind: options
-  label: MySQL SSL
-  name: settings.mysql.ssl
-  options:
-  - value: 'true'
-  - value: 'false'
-  - value: Amazon RDS
-- description: |
-    This is an optional field. When using Google Cloud MySQL this is commonly required.
-  env: MYSQL_SOCKETPATH
-  kind: string
-  label: MySQL User
-  name: settings.mysql.socket_path
-- env: POSTGRES_HOST
-  kind: string
-  label: Postgres Host
-  name: settings.postgres.host
-- env: POSTGRES_DATABASE
-  kind: string
-  label: Postgres Database
-  name: settings.postgres.database
-- env: POSTGRES_PORT
-  kind: string
-  label: Postgres Port
-  name: settings.postgres.port
-- env: POSTGRES_USER
-  kind: string
-  label: Postgres User
-  name: settings.postgres.user
-- env: POSTGRES_PASSWORD
-  kind: password
-  label: Postgres Password
-  name: settings.postgres.password
-- description: |
-    Postgres SSL. When using Heroku this is commonly required.
-  env: POSTGRES_SSL
-  kind: options
-  name: settings.postgres.ssl
-  options:
-  - value: 'true'
-  - value: 'false'
-  - value: no-verify
-- description: |
-    If your database host provides a connection string, you can use that in place of the fields above.
-  env: POSTGRES_CONNECTIONSTRING
-  kind: password
-  label: Postgres Connection String
-  name: settings.postgres.connection_string
-- env: SNOWFLAKE_ACCOUNT
-  kind: string
-  label: Snowflake Account
-  name: settings.snowflake.account
-- env: SNOWFLAKE_USERNAME
-  kind: string
-  label: Snowflake Username
-  name: settings.snowflake.username
-- env: SNOWFLAKE_PASSWORD
-  kind: password
-  label: Snowflake Password
-  name: settings.snowflake.password
-- env: SNOWFLAKE_DATABASE
-  kind: string
-  label: Snowflake Database
-  name: settings.snowflake.database
-- env: SNOWFLAKE_WAREHOUSE
-  kind: string
-  label: Snowflake Warehouse
-  name: settings.snowflake.warehouse
-- description: |
-    Send Evidence anonymous usage stats.
-  env: SEND_ANONYMOUS_USAGE_STATS
-  kind: options
-  label: Send Anonymous Usage Stats
-  name: send_anonymous_usage_stats
-  options:
-  - value: yes
-  - value: no
-  value: yes
 settings_group_validation:
 - - home_dir
 - - home_dir
@@ -226,32 +231,32 @@ settings_group_validation:
   - settings.database
   - settings.sqlite.filename
 - - home_dir
-  - settings.database
-  - settings.bigquery.project_id
   - settings.bigquery.client_email
   - settings.bigquery.private_key
+  - settings.bigquery.project_id
+  - settings.database
 - - home_dir
   - settings.database
-  - settings.mysql.host
   - settings.mysql.database
-  - settings.mysql.user
+  - settings.mysql.host
   - settings.mysql.password
+  - settings.mysql.user
 - - home_dir
   - settings.database
-  - settings.postgres.host
-  - settings.postgres.port
   - settings.postgres.database
-  - settings.postgres.user
+  - settings.postgres.host
   - settings.postgres.password
+  - settings.postgres.port
+  - settings.postgres.user
 - - home_dir
   - settings.database
   - settings.postgres.connection_string
 - - home_dir
   - settings.database
   - settings.snowflake.account
-  - settings.snowflake.username
-  - settings.snowflake.password
   - settings.snowflake.database
+  - settings.snowflake.password
+  - settings.snowflake.username
   - settings.snowflake.warehouse
 usage: |
   Try `meltano invoke evidence --help`.

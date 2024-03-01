@@ -138,48 +138,56 @@ pip_url: tap-bing-ads
 quality: silver
 repo: https://github.com/singer-io/tap-bing-ads
 settings:
-- description: See https://docs.microsoft.com/en-us/advertising/guides/get-started#get-developer-token.
+- description: See https://docs.microsoft.com/en-us/advertising/guides/get-started#get-ids.
+  label: Account ID(s)
+  name: account_ids
+- description: See https://docs.microsoft.com/en-us/advertising/guides/get-started#get-ids.
+  label: Customer ID
+  name: customer_id
+- description: See 
+    https://docs.microsoft.com/en-us/advertising/guides/get-started#get-developer-token.
   kind: password
   label: Developer Token
   name: developer_token
-- description: See https://docs.microsoft.com/en-us/advertising/guides/get-started#quick-start-production.
+  sensitive: true
+- description: See 
+    https://docs.microsoft.com/en-us/advertising/guides/get-started#quick-start-production.
   kind: password
   label: OAuth Client ID
   name: oauth_client_id
-- description: See https://docs.microsoft.com/en-us/advertising/guides/get-started#quick-start-production.
+  sensitive: true
+- description: See 
+    https://docs.microsoft.com/en-us/advertising/guides/get-started#quick-start-production.
   kind: password
   label: OAuth Client Secret
   name: oauth_client_secret
-- description: See https://docs.microsoft.com/en-us/advertising/guides/get-started#quick-start-production.
+  sensitive: true
+- description: See 
+    https://docs.microsoft.com/en-us/advertising/guides/get-started#quick-start-production.
     If you’re using a Refresh Token you should not need a redirect URI in the request.
     Note that you’ll need to include the OAuth Scopes when requesting the token. The
     recommended scopes are scope=openid%20profile%20https://ads.microsoft.com/ads.manage%20offline_access.
   kind: password
   label: Refresh Token
   name: refresh_token
-- description: See https://docs.microsoft.com/en-us/advertising/guides/get-started#get-ids.
-  label: Customer ID
-  name: customer_id
-- description: See https://docs.microsoft.com/en-us/advertising/guides/get-started#get-ids.
-  label: Account ID(s)
-  name: account_ids
+  sensitive: true
+- description: Note that the default is not a boolean, but a string set to ‘True’.
+    Setting the configuration to a boolean false will work to disable this setting.
+  label: Require Live Connect
+  name: require_live_connect
+  value: 'True'
 - description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.
   kind: date_iso8601
   label: Start Date
   name: start_date
-- description: Note that the default is not a boolean, but a string set to ‘True’.
-    Setting the configuration to a boolean false will work to disable this setting.
-  label: Require Live Connect
-  name: require_live_connect
-  value: 'True'
 settings_group_validation:
-- - customer_id
-  - account_ids
+- - account_ids
+  - customer_id
+  - developer_token
   - oauth_client_id
   - oauth_client_secret
   - refresh_token
-  - developer_token
   - start_date
 variant: singer-io

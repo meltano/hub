@@ -15,35 +15,38 @@ pip_url: tap-harvest
 quality: silver
 repo: https://github.com/singer-io/tap-harvest
 settings:
-- description: The request timeout length, default 300.
-  kind: integer
-  label: Request Timeout
-  name: request_timeout
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
-    can be expected to take."
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
 - description: Your OAuth client ID.
   kind: password
   label: Client ID
   name: client_id
-- description: Your OAuth refresh token.
-  kind: password
-  label: Refresh Token
-  name: refresh_token
-- description: The user agent to send with requests.
-  label: User Agent
-  name: user_agent
+  sensitive: true
 - description: Your OAuth client secret.
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
+- description: Your OAuth refresh token.
+  kind: password
+  label: Refresh Token
+  name: refresh_token
+  sensitive: true
+- description: The request timeout length, default 300.
+  kind: integer
+  label: Request Timeout
+  name: request_timeout
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: The user agent to send with requests.
+  label: User Agent
+  name: user_agent
 settings_group_validation:
-- - start_date
-  - client_id
-  - refresh_token
-  - user_agent
+- - client_id
   - client_secret
+  - refresh_token
+  - start_date
+  - user_agent
 variant: singer-io

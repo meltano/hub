@@ -15,26 +15,30 @@ pip_url: git+https://gitlab.com/meltano/tap-google-analytics.git
 quality: silver
 repo: https://gitlab.com/meltano/tap-google-analytics
 settings:
+- description: Date up to when historical data will be extracted.
+  kind: date_iso8601
+  name: end_date
 - kind: file
   label: Client Secrets
   name: key_file_location
   placeholder: Ex. client_secrets.json
   value: $MELTANO_PROJECT_ROOT/client_secrets.json
 - kind: password
+  label: OAuth Access Token
+  name: oauth_credentials.access_token
+  sensitive: true
+- kind: password
   label: OAuth Client ID
   name: oauth_credentials.client_id
+  sensitive: true
 - kind: password
   label: OAuth Client Secret
   name: oauth_credentials.client_secret
-- kind: password
-  label: OAuth Access Token
-  name: oauth_credentials.access_token
+  sensitive: true
 - kind: password
   label: OAuth Refresh Token
   name: oauth_credentials.refresh_token
-- label: View ID
-  name: view_id
-  placeholder: Ex. 198343027
+  sensitive: true
 - label: Reports
   name: reports
   placeholder: Ex. my_report_definition.json
@@ -43,17 +47,17 @@ settings:
     the initial extraction can be expected to take.
   kind: date_iso8601
   name: start_date
-- description: Date up to when historical data will be extracted.
-  kind: date_iso8601
-  name: end_date
+- label: View ID
+  name: view_id
+  placeholder: Ex. 198343027
 settings_group_validation:
 - - key_file_location
-  - view_id
   - start_date
-- - oauth_credentials.client_id
+  - view_id
+- - oauth_credentials.access_token
+  - oauth_credentials.client_id
   - oauth_credentials.client_secret
-  - oauth_credentials.access_token
   - oauth_credentials.refresh_token
-  - view_id
   - start_date
+  - view_id
 variant: meltano

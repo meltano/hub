@@ -1,8 +1,8 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
+- catalog
+- discover
+- state
 - stream-maps
 description: The universal API for small business data
 domain_url: https://www.codat.io/
@@ -23,6 +23,7 @@ settings:
   kind: password
   label: Api Key
   name: api_key
+  sensitive: true
 - description: The earliest record date to sync
   kind: date_iso8601
   label: Start Date

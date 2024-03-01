@@ -15,24 +15,12 @@ pip_url: tap-impact
 quality: silver
 repo: https://github.com/singer-io/tap-impact
 settings:
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
-    can be expected to take."
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
-- description: The user agent to send with requests.
-  label: User Agent
-  name: user_agent
 - description: Your account SID, it can be found in your user settings when API access
     is enabled.
   kind: password
   label: Account SID
   name: account_sid
-- description: Your model ID for conversion paths endpoints. Contact Impact Support
-    to get your model_id.
-  label: Model Id
-  name: model_id
+  sensitive: true
 - description: 'Is one of the following: Advertisers, Agencies, Partners.'
   label: API Catalog
   name: api_catalog
@@ -41,10 +29,24 @@ settings:
   kind: password
   label: Auth Token
   name: auth_token
+  sensitive: true
+- description: Your model ID for conversion paths endpoints. Contact Impact Support
+    to get your model_id.
+  label: Model Id
+  name: model_id
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: The user agent to send with requests.
+  label: User Agent
+  name: user_agent
 settings_group_validation:
-- - start_date
-  - user_agent
-  - account_sid
+- - account_sid
   - api_catalog
   - auth_token
+  - start_date
+  - user_agent
 variant: singer-io

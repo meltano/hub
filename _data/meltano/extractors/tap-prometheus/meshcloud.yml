@@ -21,6 +21,7 @@ settings:
   kind: password
   label: Auth Password
   name: auth.password
+  sensitive: true
 - description: HTTP basic auth username
   kind: string
   label: Auth Username

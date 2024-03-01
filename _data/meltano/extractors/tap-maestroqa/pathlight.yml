@@ -15,16 +15,17 @@ pip_url: git+https://github.com/Pathlight/tap-maestroqa.git
 quality: silver
 repo: https://github.com/Pathlight/tap-maestroqa
 settings:
+- description: Your MaestroQA API token for authentication.
+  kind: password
+  label: API Token
+  name: api_token
+  sensitive: true
 - description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.
   kind: date_iso8601
   label: Start Date
   name: start_date
-- description: Your MaestroQA API token for authentication.
-  kind: password
-  label: API Token
-  name: api_token
 settings_group_validation:
 - - api_token
 - - start_date

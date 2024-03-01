@@ -21,23 +21,24 @@ pip_url: >
 quality: unknown
 repo: https://github.com/Tahasadiki/tap-recruitee
 settings:
+- description: The token to authenticate against the API service
+  kind: password
+  label: Auth Token
+  name: auth_token
+  sensitive: true
+- description: The Recruitee company ID.
+  kind: string
+  label: Company ID
+  name: company_id
+- description: The earliest record date to sync
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
 - description: The url for the API service
   kind: string
   label: URL
   name: url
   value: https://api.recruitee.com/
-- description: The earliest record date to sync
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
-- description: The token to authenticate against the API service
-  kind: password
-  label: Auth Token
-  name: auth_token
-- description: The Recruitee company ID.
-  kind: string
-  label: Company ID
-  name: company_id
 settings_group_validation:
 - - auth_token
   - company_id

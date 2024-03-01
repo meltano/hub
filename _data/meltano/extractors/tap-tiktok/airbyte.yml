@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Social Media Marketing Platform
 domain_url: https://ads.tiktok.com/marketing_api/homepage
 executable: tap-airbyte
@@ -18,8 +18,60 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-tiktok-marketing
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-tiktok-marketing
 settings:
+- description: Long-term Authorized Access Token., The long-term authorized access
+    token.
+  kind: password
+  label: Airbyte Config Credentials Access Token
+  name: airbyte_config.credentials.access_token
+  sensitive: true
+- description: The Advertiser ID which generated for the developer's Sandbox application.
+  kind: password
+  label: Airbyte Config Credentials Advertiser Id
+  name: airbyte_config.credentials.advertiser_id
+  sensitive: true
+- description: The Developer Application App ID.
+  kind: password
+  label: Airbyte Config Credentials App Id
+  name: airbyte_config.credentials.app_id
+  sensitive: true
+- description: oauth2.0, sandbox_access_token
+  kind: string
+  label: Airbyte Config Credentials Auth Type
+  name: airbyte_config.credentials.auth_type
+- description: The Developer Application Secret.
+  kind: password
+  label: Airbyte Config Credentials Secret
+  name: airbyte_config.credentials.secret
+  sensitive: true
+- description: The date until which you'd like to replicate data for all incremental
+    streams, in the format YYYY-MM-DD. All data generated between start_date and this
+    date will be replicated. Not setting this option will result in always syncing
+    the data till the current date.
+  kind: string
+  label: Airbyte Config End Date
+  name: airbyte_config.end_date
+- description: The granularity used for aggregating performance data in reports. See
+    <a 
+    href="https://docs.airbyte.com/integrations/sources/tiktok-marketing/#report-aggregation">the
+    docs</a>.
+  kind: options
+  label: Airbyte Config Report Granularity
+  name: airbyte_config.report_granularity
+  options:
+  - label: Lifetime
+    value: LIFETIME
+  - label: Day
+    value: DAY
+  - label: Hour
+    value: HOUR
+- description: 'The Start Date in format: YYYY-MM-DD. Any data before this date will
+    not be replicated. If this parameter is not set, all data will be replicated.'
+  kind: string
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -36,63 +88,8 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: oauth2.0, sandbox_access_token
-  kind: string
-  label: Airbyte Config Credentials Auth Type
-  name: airbyte_config.credentials.auth_type
-- description: The Developer Application App ID.
-  kind: password
-  label: Airbyte Config Credentials App Id
-  name: airbyte_config.credentials.app_id
-- description: The Developer Application Secret.
-  kind: password
-  label: Airbyte Config Credentials Secret
-  name: airbyte_config.credentials.secret
-- description: Long-term Authorized Access Token., The long-term authorized access
-    token.
-  kind: password
-  label: Airbyte Config Credentials Access Token
-  name: airbyte_config.credentials.access_token
-- description: The Advertiser ID which generated for the developer's Sandbox application.
-  kind: password
-  label: Airbyte Config Credentials Advertiser Id
-  name: airbyte_config.credentials.advertiser_id
-- description: 'The Start Date in format: YYYY-MM-DD. Any data before this date will
-    not be replicated. If this parameter is not set, all data will be replicated.'
-  kind: string
-  label: Airbyte Config Start Date
-  name: airbyte_config.start_date
-- description: The date until which you'd like to replicate data for all incremental
-    streams, in the format YYYY-MM-DD. All data generated between start_date and this
-    date will be replicated. Not setting this option will result in always syncing
-    the data till the current date.
-  kind: string
-  label: Airbyte Config End Date
-  name: airbyte_config.end_date
-- description: The granularity used for aggregating performance data in reports. See
-    <a href="https://docs.airbyte.com/integrations/sources/tiktok-marketing/#report-aggregation">the
-    docs</a>.
-  kind: options
-  label: Airbyte Config Report Granularity
-  name: airbyte_config.report_granularity
-  options:
-  - label: Lifetime
-    value: LIFETIME
-  - label: Day
-    value: DAY
-  - label: Hour
-    value: HOUR
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -100,6 +97,15 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
 - - airbyte_spec.image
 settings_preamble: ''

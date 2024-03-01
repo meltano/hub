@@ -21,30 +21,6 @@ settings:
   label: GitLab Instance
   name: api_url
   value: https://gitlab.com
-- description: GitLab personal access token or other API token.
-  kind: password
-  label: Access Token
-  name: private_token
-  placeholder: Ex. *****************
-  value: ''
-- description: Space-separated names of groups to extract data from. Leave empty and
-    provide a project name if you'd like to pull data from a project in a personal
-    user namespace.
-  label: Groups
-  name: groups
-  placeholder: Ex. my-organization
-  value: ''
-- description: Space-separated `namespace/project` paths of projects to extract data
-    from. Leave empty and provide a group name to extract data from all group projects.
-  label: Project
-  name: projects
-  placeholder: Ex. my-organization/project-1
-  value: ''
-- description: Enable to pull in extra data (like Epics, Epic Issues and other entities)
-    only available to GitLab Ultimate and GitLab.com Gold accounts.
-  kind: boolean
-  name: ultimate_license
-  value: false
 - description: For each Merge Request, also fetch the MR's commits and create the
     join table `merge_request_commits` with the Merge Request and related Commit IDs.
     This can slow down extraction considerably because of the many API calls required.
@@ -56,11 +32,36 @@ settings:
   kind: boolean
   name: fetch_pipelines_extended
   value: false
+- description: Space-separated names of groups to extract data from. Leave empty and
+    provide a project name if you'd like to pull data from a project in a personal
+    user namespace.
+  label: Groups
+  name: groups
+  placeholder: Ex. my-organization
+  value: ''
+- description: GitLab personal access token or other API token.
+  kind: password
+  label: Access Token
+  name: private_token
+  placeholder: Ex. *****************
+  sensitive: true
+  value: ''
+- description: Space-separated `namespace/project` paths of projects to extract data
+    from. Leave empty and provide a group name to extract data from all group projects.
+  label: Project
+  name: projects
+  placeholder: Ex. my-organization/project-1
+  value: ''
 - description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.
   kind: date_iso8601
   name: start_date
+- description: Enable to pull in extra data (like Epics, Epic Issues and other entities)
+    only available to GitLab Ultimate and GitLab.com Gold accounts.
+  kind: boolean
+  name: ultimate_license
+  value: false
 settings_group_validation:
 - - api_url
   - groups

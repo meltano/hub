@@ -22,6 +22,7 @@ settings:
   kind: password
   label: Access Key
   name: access_key
+  sensitive: true
 - description: Date up to when historical data will be extracted.
   kind: date_iso8601
   label: End Date
@@ -42,10 +43,12 @@ settings:
   kind: password
   label: Secret Key
   name: secret_key
+  sensitive: true
 - description: Your Amazon MWS seller ID.
   kind: password
   label: Seller ID
   name: seller_id
+  sensitive: true
 - description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.

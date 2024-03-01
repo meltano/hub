@@ -15,23 +15,24 @@ pip_url: git+https://github.com/LoopReturns/tap-loopreturns.git
 quality: silver
 repo: https://github.com/LoopReturns/tap-loopreturns
 settings:
-- description: The user agent to send with API requests.
-  label: User Agent
-  name: user_agent
 - description: Your Loop API key.
   kind: password
   label: API Key
   name: api_key
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
-    can be expected to take."
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
+  sensitive: true
 - description: Date up to when historical data will be extracted.
   kind: date_iso8601
   label: End Date
   name: end_date
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: The user agent to send with API requests.
+  label: User Agent
+  name: user_agent
 settings_group_validation:
 - - api_key
   - start_date

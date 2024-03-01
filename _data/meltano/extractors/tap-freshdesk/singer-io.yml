@@ -13,24 +13,25 @@ pip_url: tap-freshdesk
 quality: silver
 repo: https://github.com/singer-io/tap-freshdesk
 settings:
-- description: Your Freshdesk subdomain.
-  label: Domain
-  name: domain
 - description: Your Freshdesk API key.
   kind: password
   label: API Key
   name: api_key
-- description: The user agent to send with API requests.
-  label: User Agent
-  name: user_agent
+  sensitive: true
+- description: Your Freshdesk subdomain.
+  label: Domain
+  name: domain
 - description: 'Determines how much historical data will be extracted. Please be aware
     that the larger the time peri[start_date] `required`: od and amount of data, the
     longer the initial extraction can be expected to take.'
   kind: date_iso8601
   label: Start Date
   name: start_date
+- description: The user agent to send with API requests.
+  label: User Agent
+  name: user_agent
 settings_group_validation:
-- - domain
-  - api_key
+- - api_key
+  - domain
   - start_date
 variant: singer-io

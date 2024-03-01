@@ -53,33 +53,6 @@ requires:
   - name: files-dbt-postgres
     variant: meltano
 settings:
-- label: Projects Directory
-  name: project_dir
-  value: $MELTANO_PROJECT_ROOT/transform
-- env: DBT_PROFILES_DIR
-  label: Profiles Directory
-  name: profiles_dir
-  value: $MELTANO_PROJECT_ROOT/transform/profiles/postgres
-- description: |
-    The postgres host to connect to.
-  kind: string
-  label: Host
-  name: host
-- description: |
-    The user to connect as.
-  kind: string
-  label: User
-  name: user
-- description: |
-    The password to connect with.
-  kind: password
-  label: Password
-  name: password
-- description: |
-    The port to connect to.
-  kind: integer
-  label: Port
-  name: port
 - aliases:
   - database
   description: |
@@ -88,30 +61,59 @@ settings:
   label: Database
   name: dbname
 - description: |
-    The schema to use.
+    The postgres host to connect to.
   kind: string
-  label: Schema
-  name: schema
+  label: Host
+  name: host
 - description: |
     Seconds between TCP keepalive packets.
   kind: integer
   label: Keep Alives Idle
   name: keepalives_idle
 - description: |
-    Overrides the default search path.
-  kind: string
-  label: Search Path
-  name: search_path
+    The password to connect with.
+  kind: password
+  label: Password
+  name: password
+  sensitive: true
+- description: |
+    The port to connect to.
+  kind: integer
+  label: Port
+  name: port
+- env: DBT_PROFILES_DIR
+  label: Profiles Directory
+  name: profiles_dir
+  value: $MELTANO_PROJECT_ROOT/transform/profiles/postgres
+- label: Projects Directory
+  name: project_dir
+  value: $MELTANO_PROJECT_ROOT/transform
 - description: |
     Role for dbt to assume when executing queries.
   kind: string
   label: Role
   name: role
 - description: |
+    The schema to use.
+  kind: string
+  label: Schema
+  name: schema
+- description: |
+    Overrides the default search path.
+  kind: string
+  label: Search Path
+  name: search_path
+- description: |
     SSL Mode used to connect to the database.
   kind: array
   label: SSL Mode
   name: sslmode
+- description: |
+    The user to connect as.
+  kind: string
+  label: User
+  name: user
+settings_group_validation: []
 settings_preamble: |
   Settings for dbt itself can be configured through [dbt_project.yml](https://docs.getdbt.com/reference/dbt_project.yml) as usual, which can be found at transform/dbt_project.yml in your Meltano project.  dbt also has [adapter-specific documentation for PostgreSQL](https://docs.getdbt.com/reference/resource-configs/postgres-configs).
 variant: dbt-labs

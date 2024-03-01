@@ -53,36 +53,11 @@ requires:
   - name: files-dbt-bigquery
     variant: meltano
 settings:
-- label: Project Directory
-  name: project_dir
-  value: $MELTANO_PROJECT_ROOT/transform
-- env: DBT_PROFILES_DIR
-  label: Profiles Directory
-  name: profiles_dir
-  value: $MELTANO_PROJECT_ROOT/transform/profiles/bigquery
 - description: |
     The auth method to use. One of: "oauth", "oauth-secrets", or "service-account"
   kind: string
   label: Authentication Method
   name: auth_method
-- aliases:
-  - database
-  description: |
-    The BigQuery project ID.
-  kind: string
-  label: Project
-  name: project
-- aliases:
-  - schema
-  description: |
-    The dataset to use.
-  kind: string
-  name: dataset
-- description: |
-    The refresh token, if authenticating via oauth-secrets method.
-  kind: password
-  label: Refresh Token
-  name: refresh_token
 - aliases:
   - user
   description: |
@@ -97,15 +72,43 @@ settings:
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
+- aliases:
+  - schema
+  description: |
+    The dataset to use.
+  kind: string
+  name: dataset
+- description: |
+    The path to the `keyfile.json`` to use, if authenticating via service-account method.
+  kind: string
+  name: keyfile
+- env: DBT_PROFILES_DIR
+  label: Profiles Directory
+  name: profiles_dir
+  value: $MELTANO_PROJECT_ROOT/transform/profiles/bigquery
+- aliases:
+  - database
+  description: |
+    The BigQuery project ID.
+  kind: string
+  label: Project
+  name: project
+- label: Project Directory
+  name: project_dir
+  value: $MELTANO_PROJECT_ROOT/transform
+- description: |
+    The refresh token, if authenticating via oauth-secrets method.
+  kind: password
+  label: Refresh Token
+  name: refresh_token
+  sensitive: true
 - description: |
     The token redirect URI
   kind: string
   label: Token URI
   name: token_uri
-- description: |
-    The path to the `keyfile.json`` to use, if authenticating via service-account method.
-  kind: string
-  name: keyfile
+settings_group_validation: []
 settings_preamble: |
   Settings for dbt itself can be configured through [dbt_project.yml](https://docs.getdbt.com/reference/dbt_project.yml) as usual, which can be found at transform/dbt_project.yml in your Meltano project. dbt also has [adapter-specific documentation for BigQuery](https://docs.getdbt.com/reference/resource-configs/bigquery-configs).
 variant: dbt-labs

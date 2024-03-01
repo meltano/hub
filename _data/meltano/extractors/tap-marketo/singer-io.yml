@@ -15,9 +15,6 @@ pip_url: git+https://github.com/singer-io/tap-marketo.git
 quality: silver
 repo: https://github.com/singer-io/tap-marketo
 settings:
-- description: Endpoint URL. See https://developers.marketo.com/rest-api/base-url/.
-  label: Endpoint
-  name: endpoint
 - description: See https://developers.marketo.com/rest-api/authentication/.
   label: Client ID
   name: client_id
@@ -25,10 +22,15 @@ settings:
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
+- description: Endpoint URL. See https://developers.marketo.com/rest-api/base-url/.
+  label: Endpoint
+  name: endpoint
 - description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.
   kind: date_iso8601
   label: Start Date
   name: start_date
+settings_group_validation: []
 variant: singer-io

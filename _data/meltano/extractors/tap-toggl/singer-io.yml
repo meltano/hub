@@ -19,6 +19,7 @@ settings:
   kind: password
   label: API Token
   name: api_token
+  sensitive: true
 - description: Determines the window of how many trailing days to pull the time_entries
     resource.
   kind: integer

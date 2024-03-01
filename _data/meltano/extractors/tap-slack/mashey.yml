@@ -15,6 +15,46 @@ pip_url: git+https://github.com/Mashey/tap-slack.git
 quality: silver
 repo: https://github.com/Mashey/tap-slack
 settings:
+- description: Specifies whether the tap will sync archived channels or not. Note
+    that a bot cannot join an archived channel, so unless the bot was added to the
+    channel prior to it being archived it will not be able to sync the data from that
+    channel. Default is false.
+  kind: boolean
+  label: Sync Archived Channels
+  name: archived_channels
+  value: false
+- description: Optionally specify specific channels to sync. By default the tap will
+    sync all channels it has been invited to, but this can be overriden to limit it
+    ot specific channels. Note this needs to be channel ID, not the name, as recommended
+    by the Slack API. To get the ID for a channel, either use the Slack API or find
+    it in the URL.
+  kind: array
+  label: Channels to Sync
+  name: channels
+  placeholder: Ex. ["abc123", "def456"]
+- description: Specifies the window size for syncing certain streams (messages, files,
+    threads). The default is 7 days.
+  kind: integer
+  label: Date Window Size
+  name: date_window_size
+  value: 7
+- description: Specifies whether to have the tap auto-join all public channels in
+    your ogranziation. Default is false.
+  kind: boolean
+  label: Join Public Channels
+  name: join_public_channels
+  value: false
+- description: Specifies whether to sync private channels or not. Default is true.
+  kind: boolean
+  label: Join Private Channels
+  name: private_channels
+  value: true
+- description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
+  kind: date_iso8601
+  label: Sync Start Date
+  name: start_date
 - description: |
     Your Slack API Token. To obtain a token for a single workspace you will need to create a [Slack App](https://api.slack.com/apps?new_app=1) in your workspace and assigning it the relevant scopes. The minimum required scopes for the tap are:
 
@@ -35,44 +75,6 @@ settings:
   kind: password
   label: API Token
   name: token
-- description: Determines how much historical data will be extracted. Please be aware
-    that the larger the time period and amount of data, the longer the initial extraction
-    can be expected to take.
-  kind: date_iso8601
-  label: Sync Start Date
-  name: start_date
-- description: Optionally specify specific channels to sync. By default the tap will
-    sync all channels it has been invited to, but this can be overriden to limit it
-    ot specific channels. Note this needs to be channel ID, not the name, as recommended
-    by the Slack API. To get the ID for a channel, either use the Slack API or find
-    it in the URL.
-  kind: array
-  label: Channels to Sync
-  name: channels
-  placeholder: Ex. ["abc123", "def456"]
-- description: Specifies whether to sync private channels or not. Default is true.
-  kind: boolean
-  label: Join Private Channels
-  name: private_channels
-  value: true
-- description: Specifies whether to have the tap auto-join all public channels in
-    your ogranziation. Default is false.
-  kind: boolean
-  label: Join Public Channels
-  name: join_public_channels
-  value: false
-- description: Specifies whether the tap will sync archived channels or not. Note
-    that a bot cannot join an archived channel, so unless the bot was added to the
-    channel prior to it being archived it will not be able to sync the data from that
-    channel. Default is false.
-  kind: boolean
-  label: Sync Archived Channels
-  name: archived_channels
-  value: false
-- description: Specifies the window size for syncing certain streams (messages, files,
-    threads). The default is 7 days.
-  kind: integer
-  label: Date Window Size
-  name: date_window_size
-  value: 7
+  sensitive: true
+settings_group_validation: []
 variant: mashey

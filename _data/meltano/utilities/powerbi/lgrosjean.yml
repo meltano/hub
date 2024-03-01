@@ -28,24 +28,28 @@ next_steps: >
 pip_url: git+https://github.com/lgrosjean/powerbi-ext
 repo: https://github.com/lgrosjean/powerbi-ext
 settings:
-- description: PowerBI Service Principal Tenant ID
-  kind: password
-  label: Tenant ID
-  name: TENANT_ID
 - description: PowerBI Service Principal Client ID
   kind: password
   label: Client ID
   name: CLIENT_ID
+  sensitive: true
 - description: PowerBI Service Principal Client Secret
   kind: password
   label: Client Secret
   name: CLIENT_SECRET
-- description: ID of the workspace containing the dataset to refresh
-  label: Workspace ID
-  name: WORKSPACE_ID
+  sensitive: true
 - description: ID of the dataset to refresh
   kind: string
   label: Dataset ID
   name: DATASET_ID
+- description: PowerBI Service Principal Tenant ID
+  kind: password
+  label: Tenant ID
+  name: TENANT_ID
+  sensitive: true
+- description: ID of the workspace containing the dataset to refresh
+  label: Workspace ID
+  name: WORKSPACE_ID
+settings_group_validation: []
 usage: ""
 variant: lgrosjean

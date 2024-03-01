@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Partnership Automation Software
 domain_url: https://integrations.impact.com/
 executable: tap-impact-publisher
@@ -20,28 +20,18 @@ pip_url: git+https://github.com/voxmedia/tap-impact-publisher.git
 quality: silver
 repo: https://github.com/voxmedia/tap-impact-publisher
 settings:
-- description: The token to authenticate against the API service
-  kind: password
-  label: Auth Token
-  name: auth_token
 - description: Account SID for the API service
   kind: password
   label: Account Sid
   name: account_sid
-- description: The earliest record date to sync
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
-- description: Config object for stream maps capability.
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+  sensitive: true
+- description: The token to authenticate against the API service
+  kind: password
+  label: Auth Token
+  name: auth_token
+  sensitive: true
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -49,9 +39,21 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: The earliest record date to sync
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability.
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - auth_token
-  - account_sid
+- - account_sid
+  - auth_token
 settings_preamble: ''
 usage: ''
 variant: voxmedia

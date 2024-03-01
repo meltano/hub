@@ -1,7 +1,7 @@
 capabilities:
+- discover
 - properties
 - state
-- discover
 description: Construction Management Software
 domain_url: https://api.acuite.co.nz/swagger/ui/index#/
 keywords:
@@ -19,6 +19,7 @@ settings:
   kind: password
   label: API Key
   name: api_key
+  sensitive: true
 settings_group_validation:
 - - api_key
 variant: fostersdata

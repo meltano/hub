@@ -16,48 +16,49 @@ pip_url: git+https://github.com/mjsqu/tap-db2.git
 quality: silver
 repo: https://github.com/mjsqu/tap-db2
 settings:
+- description: The size of the cursor to use when querying data. Default 1.
+  kind: integer
+  label: Cursor Array Size
+  name: cursor_array_size
 - description: The database name.
   label: Database
   name: database
-- description: The database port.
-  kind: integer
-  label: Port
-  name: port
+- description: Your DB2 hostname.
+  label: Hostname
+  name: hostname
 - description: The offset to use for querying data. Only needed for development and
     edge cases. The state bookmarks usually keep track of this.
   kind: integer
   label: Offset Value
   name: offset_value
+- description: Your DB2 password.
+  kind: password
+  label: Password
+  name: password
+  sensitive: true
+- description: The database port.
+  kind: integer
+  label: Port
+  name: port
 - description: Whether to add date format to the schema when date strings are provided.
     Default False.
   kind: boolean
   label: Use Date Datatype
   name: use_date_datatype
-- description: Your DB2 hostname.
-  label: Hostname
-  name: hostname
-- description: Your DB2 username.
-  label: Username
-  name: username
-- description: Your DB2 password.
-  kind: password
-  label: Password
-  name: password
 - description: Whether to add decimal format to the schema when decimal strings are
     provided. Default False.
   kind: boolean
   label: Use Singer Decimal
   name: use_singer_decimal
-- description: The size of the cursor to use when querying data. Default 1.
-  kind: integer
-  label: Cursor Array Size
-  name: cursor_array_size
+- description: Your DB2 username.
+  label: Username
+  name: username
 settings_group_validation:
 - - database
-  - port
   - hostname
-  - username
   - password
+  - port
+  - username
 settings_preamble: ''
 usage: ''
 variant: mjsqu

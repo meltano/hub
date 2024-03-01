@@ -15,25 +15,28 @@ pip_url: git+https://github.com/Mashey/tap-domo.git
 quality: silver
 repo: https://github.com/Mashey/tap-domo
 settings:
-- description: The specs of the tables to sync. See the [sample config](https://github.com/Mashey/tap-domo/blob/daff2b708f945ac21363b7f6f1ab789ace3a339e/sample_config.json#L8)
-    as an example.
-  kind: object
-  label: Data Specs
-  name: data_specs
 - description: Your Domo client ID.
   kind: password
   label: Client ID
   name: client_id
+  sensitive: true
 - description: Your Domo client secret.
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
+- description: The specs of the tables to sync. See the [sample 
+    config](https://github.com/Mashey/tap-domo/blob/daff2b708f945ac21363b7f6f1ab789ace3a339e/sample_config.json#L8)
+    as an example.
+  kind: object
+  label: Data Specs
+  name: data_specs
 - description: The limit of records to sync. Default, 1500.
   kind: integer
   label: Limit
   name: limit
 settings_group_validation:
-- - data_specs
-  - client_id
+- - client_id
   - client_secret
+  - data_specs
 variant: mashey

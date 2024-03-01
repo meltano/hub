@@ -21,31 +21,36 @@ prereq: |
 quality: silver
 repo: https://github.com/mashey/tap-zoom
 settings:
-- description: Your Zoom JSON Web Token. The JWT is likely the easiest option for
-    tap users. Configure the JWT with a very long expiry so it does not expire.
-  documentation: https://marketplace.zoom.us/docs/guides/auth/jwt
-  kind: password
-  label: JSON Web Token
-  name: jwt
 - description: |
     Your Zoom Client ID - example from docs: `7lstjK9NTyett_oeXtFiEQ`. See the [Zoom OAuth App Credentials documentation](https://marketplace.zoom.us/docs/guides/build/oauth-app#app-credentials) for more information.
   documentation: https://marketplace.zoom.us/docs/guides/auth/oauth
   label: Client ID
   name: client_id
 - description: The Zoom Client Secret that is generated when app credentials are created.
-    See the [Zoom OAuth App Credentials documentation](https://marketplace.zoom.us/docs/guides/build/oauth-app#app-credentials)
+    See the [Zoom OAuth App Credentials 
+    documentation](https://marketplace.zoom.us/docs/guides/build/oauth-app#app-credentials)
     for more information.
   documentation: https://marketplace.zoom.us/docs/guides/auth/oauth
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
+- description: Your Zoom JSON Web Token. The JWT is likely the easiest option for
+    tap users. Configure the JWT with a very long expiry so it does not expire.
+  documentation: https://marketplace.zoom.us/docs/guides/auth/jwt
+  kind: password
+  label: JSON Web Token
+  name: jwt
+  sensitive: true
 - description: The Zoom Refresh Token that is provided after successfully authenticating
-    with Zoom. See the [Zoom OAuth Access Token Request documentation](https://marketplace.zoom.us/docs/guides/auth/oauth#step-2-request-access-token)
+    with Zoom. See the [Zoom OAuth Access Token Request 
+    documentation](https://marketplace.zoom.us/docs/guides/auth/oauth#step-2-request-access-token)
     for more information.
   documentation: https://marketplace.zoom.us/docs/guides/auth/oauth
   kind: password
   label: Refresh Token
   name: refresh_token
+  sensitive: true
 settings_group_validation:
 - - jwt
 - - client_id

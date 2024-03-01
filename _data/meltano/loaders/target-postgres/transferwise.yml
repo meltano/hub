@@ -1,3 +1,4 @@
+capabilities: []
 description: PostgreSQL database loader
 dialect: postgres
 domain_url: https://www.postgresql.org/
@@ -12,34 +13,32 @@ pip_url: pipelinewise-target-postgres
 quality: silver
 repo: https://github.com/transferwise/pipelinewise-target-postgres
 settings:
-- description: PostgreSQL host
-  label: Host
-  name: host
-  value: localhost
-- description: PostgreSQL port
+- description: |
+    Metadata columns add extra row level information about data ingestions, (i.e. when was the row read in source, when was inserted or deleted in postgres etc.)
+     Metadata columns are creating automatically by adding extra columns to the tables with a column prefix `_SDC_`. The column names are following the stitch naming
+     conventions documented in the [Stitch Docs](https://www.stitchdata.com/docs/data-structure/integration-schemas#sdc-columns). Enabling metadata columns will flag the deleted
+     rows by setting the _SDC_DELETED_AT metadata column. Without the `add_metadata_columns` option the deleted rows from singer taps will not be recognisable
+     in Postgres. Default - False
+  kind: boolean
+  label: Add Metadata Columns
+  name: add_metadata_columns
+  value: false
+- description: Maximum number of rows in each batch. At the end of each batch, the
+    rows in the batch are loaded into Postgres.
   kind: integer
-  label: Port
-  name: port
-  value: 5432
-- description: PostgreSQL user
-  label: User
-  name: user
-- description: PostgreSQL password
-  kind: password
-  label: Password
-  name: password
+  label: Batch Size Rows
+  name: batch_size_rows
+  value: 100000
+- description: Object type `RECORD`` items from taps can be transformed to flattened
+    columns by creating columns automatically. When value is 0 (default) then flattening
+    functionality is turned off.
+  kind: integer
+  label: Data Flattening Max Level
+  name: data_flattening_max_level
+  value: 0
 - description: PostgreSQL database name
   label: Database Name
   name: dbname
-- description: |
-    Using SSL via postgres `sslmode='require'` option.
-
-    If the server does not accept SSL connections or the client certificate is not recognized the connection will fail.
-  kind: boolean
-  label: SSL
-  name: ssl
-  value: false
-  value_post_processor: stringify
 - aliases:
   - schema
   description: |
@@ -50,18 +49,30 @@ settings:
   label: Default Target Schema
   name: default_target_schema
   value: $MELTANO_EXTRACT__LOAD_SCHEMA
-- description: Maximum number of rows in each batch. At the end of each batch, the
-    rows in the batch are loaded into Postgres.
-  kind: integer
-  label: Batch Size Rows
-  name: batch_size_rows
-  value: 100000
+- description: Grant USAGE privilege on newly created schemas and grant SELECT privilege
+    on newly created tables to a specific role or a list of roles. If `schema_mapping`
+    is not defined then every stream sent by the tap is granted accordingly.
+  label: Default Target Schema Select Permission
+  name: default_target_schema_select_permission
 - description: 'Flush and load every stream into Postgres when one batch is full.
     Warning: This may trigger the COPY command to use files with low number of records.'
   kind: boolean
   label: Flush All Streams
   name: flush_all_streams
   value: false
+- description: When `hard_delete` option is true then DELETE SQL commands will be
+    performed in Postgres to delete rows in tables. It's achieved by continuously
+    checking the `_SDC_DELETED_AT` metadata column sent by the singer tap. Due to
+    deleting rows requires metadata columns, `hard_delete` option automatically enables
+    the `add_metadata_columns` option as well.
+  kind: boolean
+  label: Hard Delete
+  name: hard_delete
+  value: false
+- description: PostgreSQL host
+  label: Host
+  name: host
+  value: localhost
 - description: The number of threads used to flush tables. 0 will create a thread
     for each stream, up to parallelism_max. -1 will create a thread for each CPU core.
     Any other positive number will create that number of threads, up to parallelism_max.
@@ -74,11 +85,23 @@ settings:
   label: Max Parallelism
   name: parallelism_max
   value: 16
-- description: Grant USAGE privilege on newly created schemas and grant SELECT privilege
-    on newly created tables to a specific role or a list of roles. If `schema_mapping`
-    is not defined then every stream sent by the tap is granted accordingly.
-  label: Default Target Schema Select Permission
-  name: default_target_schema_select_permission
+- description: PostgreSQL password
+  kind: password
+  label: Password
+  name: password
+  sensitive: true
+- description: PostgreSQL port
+  kind: integer
+  label: Port
+  name: port
+  value: 5432
+- description: Log based and Incremental replications on tables with no Primary Key
+    cause duplicates when merging UPDATE events. When set to true, stop loading data
+    if no Primary Key is defined.
+  kind: boolean
+  label: Primary Key Required
+  name: primary_key_required
+  value: true
 - description: |
     Useful if you want to load multiple streams from one tap to multiple
     Postgres schemas.
@@ -105,38 +128,21 @@ settings:
   label: Schema Mapping
   name: schema_mapping
 - description: |
-    Metadata columns add extra row level information about data ingestions, (i.e. when was the row read in source, when was inserted or deleted in postgres etc.)
-     Metadata columns are creating automatically by adding extra columns to the tables with a column prefix `_SDC_`. The column names are following the stitch naming
-     conventions documented in the [Stitch Docs](https://www.stitchdata.com/docs/data-structure/integration-schemas#sdc-columns). Enabling metadata columns will flag the deleted
-     rows by setting the _SDC_DELETED_AT metadata column. Without the `add_metadata_columns` option the deleted rows from singer taps will not be recognisable
-     in Postgres. Default - False
+    Using SSL via postgres `sslmode='require'` option.
+
+    If the server does not accept SSL connections or the client certificate is not recognized the connection will fail.
   kind: boolean
-  label: Add Metadata Columns
-  name: add_metadata_columns
+  label: SSL
+  name: ssl
   value: false
-- description: When `hard_delete` option is true then DELETE SQL commands will be
-    performed in Postgres to delete rows in tables. It's achieved by continuously
-    checking the `_SDC_DELETED_AT` metadata column sent by the singer tap. Due to
-    deleting rows requires metadata columns, `hard_delete` option automatically enables
-    the `add_metadata_columns` option as well.
-  kind: boolean
-  label: Hard Delete
-  name: hard_delete
-  value: false
-- description: Object type `RECORD`` items from taps can be transformed to flattened
-    columns by creating columns automatically. When value is 0 (default) then flattening
-    functionality is turned off.
-  kind: integer
-  label: Data Flattening Max Level
-  name: data_flattening_max_level
-  value: 0
-- description: Log based and Incremental replications on tables with no Primary Key
-    cause duplicates when merging UPDATE events. When set to true, stop loading data
-    if no Primary Key is defined.
-  kind: boolean
-  label: Primary Key Required
-  name: primary_key_required
-  value: true
+  value_post_processor: stringify
+- description: '(Default: platform-dependent) Directory of temporary CSV files with
+    RECORD messages.'
+  label: Temporary Directory
+  name: temp_dir
+- description: PostgreSQL user
+  label: User
+  name: user
 - description: Validate every single record message to the corresponding JSON schema.
     This option is disabled by default and invalid RECORD messages will fail only
     at load time by Postgres. Enabling this option will detect invalid records earlier
@@ -145,17 +151,13 @@ settings:
   label: Validate Records
   name: validate_records
   value: false
-- description: '(Default: platform-dependent) Directory of temporary CSV files with
-    RECORD messages.'
-  label: Temporary Directory
-  name: temp_dir
 settings_group_validation:
-- - host
+- - dbname
+  - default_target_schema
+  - host
+  - password
   - port
   - user
-  - password
-  - dbname
-  - default_target_schema
 target_schema: $TARGET_POSTGRES_DEFAULT_TARGET_SCHEMA
 usage: |
   ## Troubleshooting

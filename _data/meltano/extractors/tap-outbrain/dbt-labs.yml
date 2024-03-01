@@ -15,12 +15,24 @@ pip_url: git+https://github.com/dbt-labs/tap-outbrain.git
 quality: silver
 repo: https://github.com/dbt-labs/tap-outbrain
 settings:
+- description: An optional argument. If provided, this will be used as the access
+    token, and a new one won't be generated.
+  kind: password
+  label: Access Token
+  name: access_token
+  sensitive: true
+- description: The Marketer ID (unique to each account) in Outbrain. Looks like 00f4b02153ee75f3c9dc4fc128ab041962.
+  kind: password
+  label: Account Id
+  name: account_id
+  sensitive: true
 - description: The Outbrain password to go along with username.
   kind: password
   label: Password
   name: password
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
+  sensitive: true
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
     can be expected to take."
   kind: date_iso8601
   label: Start Date
@@ -28,18 +40,9 @@ settings:
 - description: The Outbrain username used to generate an Amplify API token.
   label: Username
   name: username
-- description: The Marketer ID (unique to each account) in Outbrain. Looks like 00f4b02153ee75f3c9dc4fc128ab041962.
-  kind: password
-  label: Account Id
-  name: account_id
-- description: An optional argument. If provided, this will be used as the access
-    token, and a new one won't be generated.
-  kind: password
-  label: Access Token
-  name: access_token
 settings_group_validation:
-- - password
+- - account_id
+  - password
   - start_date
   - username
-  - account_id
 variant: dbt-labs

@@ -19,24 +19,30 @@ settings:
   kind: password
   label: API Key
   name: api_key
-- description: Your Chargebee site `{site}.chargebee.com`
-  label: Site
-  name: site
+  sensitive: true
+- description: Maximum number of threads to use
+  kind: integer
+  label: Max Workers
+  name: max_workers
+  value: 8
 - description: The Chargebee product catalog you wish to use. Valid values are `1.0`
     or `2.0`.
   label: Product Catalog
   name: product_catalog
+- description: Select by default any new fields discovered in Quickbooks objects
+  kind: boolean
+  label: Select Fields By Default
+  name: select_fields_by_default
+  value: true
+- description: Your Chargebee site `{site}.chargebee.com`
+  label: Site
+  name: site
 - description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.
   kind: date_iso8601
   label: Start Date
   name: start_date
-- description: Select by default any new fields discovered in Quickbooks objects
-  kind: boolean
-  label: Select Fields By Default
-  name: select_fields_by_default
-  value: true
 - description: |
     Used to throttle how often STATE messages are generated when the tap is using the “REST” API.
 
@@ -45,14 +51,9 @@ settings:
   label: State Message Threshold
   name: state_message_threshold
   value: 1000
-- description: Maximum number of threads to use
-  kind: integer
-  label: Max Workers
-  name: max_workers
-  value: 8
 settings_group_validation:
 - - api_key
-  - site
   - product_catalog
+  - site
   - start_date
 variant: hotgluexyz

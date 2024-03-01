@@ -1,8 +1,8 @@
 capabilities:
+- about
 - catalog
 - discover
 - state
-- about
 - stream-maps
 description: Low-code Platform
 domain_url: https://help.quickbase.com/api-guide/intro.html
@@ -18,18 +18,19 @@ pip_url: git+https://github.com/MainspringEnergy/tap-quickbase-json.git
 quality: silver
 repo: https://github.com/MainspringEnergy/tap-quickbase-json
 settings:
-- description: Your quickbase app URL, e.g., `<yourdomain>.quickbase.com`
-  kind: string
-  label: Quickbase Hostname
-  name: qb_hostname
 - description: Your quickbase app id
   kind: string
   label: Quickbase App Id
   name: qb_appid
+- description: Your quickbase app URL, e.g., `<yourdomain>.quickbase.com`
+  kind: string
+  label: Quickbase Hostname
+  name: qb_hostname
 - description: User token that has API access
   kind: password
   label: Quickbase user token
   name: qb_user_token
+  sensitive: true
 - description: Earliest date to start fetching data
   kind: date_iso8601
   label: Start Date
@@ -40,7 +41,7 @@ settings:
   label: Table catalog restriction
   name: table_catalog
 settings_group_validation:
-- - qb_hostname
-  - qb_appid
+- - qb_appid
+  - qb_hostname
   - qb_user_token
 variant: mainspringenergy

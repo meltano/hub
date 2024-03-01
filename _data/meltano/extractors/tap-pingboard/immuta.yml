@@ -1,8 +1,8 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
+- catalog
+- discover
+- state
 - stream-maps
 domain_url: ''
 keywords: []
@@ -16,22 +16,24 @@ pip_url: git+https://github.com/immuta/tap-pingboard.git
 quality: unknown
 repo: https://github.com/immuta/tap-pingboard
 settings:
-- description: Client Secret for Pingboard
-  kind: password
-  label: Client Secret
-  name: client_secret
 - description: Client Id for Pingboard
   kind: password
   label: Client Id
   name: client_id
+  sensitive: true
+- description: Client Secret for Pingboard
+  kind: password
+  label: Client Secret
+  name: client_secret
+  sensitive: true
 - description: Should be used on first sync to indicate how far back to grab records.
     Start dates should conform to the RFC3339 specification.
   kind: date_iso8601
   label: Start Date
   name: start_date
 settings_group_validation:
-- - client_secret
-  - client_id
+- - client_id
+  - client_secret
 settings_preamble: ''
 usage: ''
 variant: immuta

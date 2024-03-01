@@ -15,50 +15,53 @@ pip_url: tap-3plcentral
 quality: bronze
 repo: https://github.com/singer-io/tap-3plcentral
 settings:
+- description: API URL to which /endpoints are appended. e.g http://secure-wms.com
+  label: Base Url
+  name: base_url
 - description: Your client ID.
   kind: password
   label: Client Id
   name: client_id
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
-    can be expected to take."
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
-- description: API URL to which /endpoints are appended. e.g http://secure-wms.com
-  label: Base Url
-  name: base_url
-- description: A warehouse-specic 3PL key.
-  kind: password
-  label: TPL Key
-  name: tpl_key
-- description: The user agent to send with requests.
-  label: User Agent
-  name: user_agent
-- description: Integer ID number for the customer organization.
-  kind: integer
-  label: Customer Id
-  name: customer_id
+  sensitive: true
 - description: A secure OAuth 2.0 secret key for application/client authentication.
   kind: password
   label: Client Secret
   name: client_secret
-- description: Integer ID number for the user.
+  sensitive: true
+- description: Integer ID number for the customer organization.
   kind: integer
-  label: User Login Id
-  name: user_login_id
+  label: Customer Id
+  name: customer_id
 - description: Integer ID number for the warehouse facility.
   kind: integer
   label: Facility Id
   name: facility_id
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: A warehouse-specic 3PL key.
+  kind: password
+  label: TPL Key
+  name: tpl_key
+  sensitive: true
+- description: The user agent to send with requests.
+  label: User Agent
+  name: user_agent
+- description: Integer ID number for the user.
+  kind: integer
+  label: User Login Id
+  name: user_login_id
 settings_group_validation:
-- - client_id
+- - base_url
+  - client_id
+  - client_secret
+  - customer_id
+  - facility_id
   - start_date
-  - base_url
   - tpl_key
   - user_agent
-  - customer_id
-  - client_secret
   - user_login_id
-  - facility_id
 variant: singer-io

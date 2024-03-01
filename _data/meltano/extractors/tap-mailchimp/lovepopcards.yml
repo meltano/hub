@@ -15,51 +15,16 @@ pip_url: git+https://github.com/lovepopcards/tap-mailchimp.git
 quality: unknown
 repo: https://github.com/lovepopcards/tap-mailchimp
 settings:
-- description: Lag in days for campaign reporting. Optional, default is 3.
-  kind: integer
-  label: Lag
-  name: lag
-- description: If true, _links from the API response are preserved. These are generally
-    not useful. Optional, default is false.
-  kind: boolean
-  label: Keep Links
-  name: keep_links
 - description: MailChimp API key.
   kind: password
   label: API Key
   name: api_key
-- description: If true, convert merge fields to an array rather than an object. This
-    results in a list member merge fields subtable. Optional, default is true.
-  kind: boolean
-  label: Merge Fields Array
-  name: merge_fields_array
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
-    can be expected to take."
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
-- description: If true, use bulk export for email activity. Default is to fallback
-    to value of use_export.
-  kind: boolean
-  label: Use Email Activity Export
-  name: use_email_activity_export
-- description: Minutes to run before exiting early. Useful for e.g. hourly jobs. Optional,
-    default is null (no early exit).
-  kind: integer
-  label: Max Run Time
-  name: max_run_time
-- description: MailChimp user name.
-  label: User Name
-  name: user_name
+  sensitive: true
 - description: Number of records to fetch at once through the API. Optional, default
     is 500.
   kind: integer
   label: Count
   name: count
-- description: User agent for API requests, recommended.
-  label: User Agent
-  name: user_agent
 - description: If true, include empty activity when tapping email activity stream.
     Optional, default is false.
   kind: boolean
@@ -70,20 +35,56 @@ settings:
   kind: boolean
   label: Interests Array
   name: interests_array
+- description: If true, _links from the API response are preserved. These are generally
+    not useful. Optional, default is false.
+  kind: boolean
+  label: Keep Links
+  name: keep_links
+- description: Lag in days for campaign reporting. Optional, default is 3.
+  kind: integer
+  label: Lag
+  name: lag
+- description: Minutes to run before exiting early. Useful for e.g. hourly jobs. Optional,
+    default is null (no early exit).
+  kind: integer
+  label: Max Run Time
+  name: max_run_time
+- description: If true, convert merge fields to an array rather than an object. This
+    results in a list member merge fields subtable. Optional, default is true.
+  kind: boolean
+  label: Merge Fields Array
+  name: merge_fields_array
 - description: Seconds before request times out. Optional, default is 300 (5 minutes).
   kind: integer
   label: Request Timeout
   name: request_timeout
-- description: ' If true, use bulk export for list members. Default is to fallback
-    to value of use_export.'
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: If true, use bulk export for email activity. Default is to fallback
+    to value of use_export.
   kind: boolean
-  label: Use List Member Export
-  name: use_list_member_export
+  label: Use Email Activity Export
+  name: use_email_activity_export
 - description: If true, the MailChimp bulk export v1 API is used for list members
     and email activity. Highly recommended, default is true.
   kind: boolean
   label: Use Export
   name: use_export
+- description: ' If true, use bulk export for list members. Default is to fallback
+    to value of use_export.'
+  kind: boolean
+  label: Use List Member Export
+  name: use_list_member_export
+- description: User agent for API requests, recommended.
+  label: User Agent
+  name: user_agent
+- description: MailChimp user name.
+  label: User Name
+  name: user_name
 settings_group_validation:
 - - api_key
   - start_date

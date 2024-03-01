@@ -15,25 +15,27 @@ pip_url: git+https://github.com/Yoast/singer-tap-paypal.git
 quality: silver
 repo: https://github.com/Yoast/singer-tap-paypal
 settings:
-- description: Your PayPal secret key.
-  kind: password
-  label: Secret
-  name: secret
 - description: Your PayPal client ID.
   kind: password
   label: Client ID
   name: client_id
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
+  sensitive: true
+- description: Determines whether to use the sandbox or live environment.
+  label: Sandbox
+  name: sandbox
+- description: Your PayPal secret key.
+  kind: password
+  label: Secret
+  name: secret
+  sensitive: true
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
     can be expected to take."
   kind: date_iso8601
   label: Start Date
   name: start_date
-- description: Determines whether to use the sandbox or live environment.
-  label: Sandbox
-  name: sandbox
 settings_group_validation:
-- - secret
-  - client_id
+- - client_id
+  - secret
   - start_date
 variant: yoast

@@ -15,11 +15,16 @@ pip_url: tap-activecampaign
 quality: silver
 repo: https://github.com/singer-io/tap-activecampaign
 settings:
+- description: Your API token.
+  kind: password
+  label: API Token
+  name: api_token
+  sensitive: true
 - description: The ActiveCampaign API URL.
   label: API URL
   name: api_url
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
     can be expected to take."
   kind: date_iso8601
   label: Start Date
@@ -27,13 +32,9 @@ settings:
 - description: The user agent to send with requests.
   label: User Agent
   name: user_agent
-- description: Your API token.
-  kind: password
-  label: API Token
-  name: api_token
 settings_group_validation:
-- - api_url
+- - api_token
+  - api_url
   - start_date
   - user_agent
-  - api_token
 variant: singer-io

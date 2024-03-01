@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Business Intelligence (BI) & Data Analytics Platform
 domain_url: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1
 executable: tap-airbyte
@@ -18,8 +18,30 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-looker
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-looker
 settings:
+- description: The Client ID is first part of an API3 key that is specific to each
+    Looker user. See the <a href="https://docs.airbyte.io/integrations/sources/looker">docs</a>
+    for more information on how to generate this key.
+  kind: password
+  label: Airbyte Config Client Id
+  name: airbyte_config.client_id
+  sensitive: true
+- description: The Client Secret is second part of an API3 key.
+  kind: password
+  label: Airbyte Config Client Secret
+  name: airbyte_config.client_secret
+  sensitive: true
+- description: Domain for your Looker account, e.g. airbyte.cloud.looker.com,looker.[clientname].com,IP
+    address
+  kind: string
+  label: Airbyte Config Domain
+  name: airbyte_config.domain
+- description: The IDs of any Looks to run (optional)
+  kind: array
+  label: Airbyte Config Run Look Ids
+  name: airbyte_config.run_look_ids
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -36,36 +58,8 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: Domain for your Looker account, e.g. airbyte.cloud.looker.com,looker.[clientname].com,IP
-    address
-  kind: string
-  label: Airbyte Config Domain
-  name: airbyte_config.domain
-- description: The Client ID is first part of an API3 key that is specific to each
-    Looker user. See the <a href="https://docs.airbyte.io/integrations/sources/looker">docs</a>
-    for more information on how to generate this key.
-  kind: password
-  label: Airbyte Config Client Id
-  name: airbyte_config.client_id
-- description: The Client Secret is second part of an API3 key.
-  kind: password
-  label: Airbyte Config Client Secret
-  name: airbyte_config.client_secret
-- description: The IDs of any Looks to run (optional)
-  kind: array
-  label: Airbyte Config Run Look Ids
-  name: airbyte_config.run_look_ids
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -73,12 +67,21 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - airbyte_spec
-  - airbyte_config.domain
-  - airbyte_spec.image
+- - airbyte_config.client_id
   - airbyte_config.client_secret
-  - airbyte_config.client_id
+  - airbyte_config.domain
+  - airbyte_spec
+  - airbyte_spec.image
 settings_preamble: ''
 usage: ''
 variant: airbyte

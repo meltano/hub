@@ -15,28 +15,33 @@ pip_url: tap-mongodb
 quality: silver
 repo: https://github.com/singer-io/tap-mongodb
 settings:
+- description: This is the database used for authentication, not the database used
+    for extraction. The data extracted is determined by following the [selecting entities
+    and 
+    attributes](https://docs.meltano.com/getting-started.html#select-entities-and-attributes-to-extract)
+    instructions.
+  label: Database Name
+  name: database
 - description: The MongoDB host URL.
   label: Host URL
   name: host
   value: localhost
+- description: Forces the stream names to take the form `<database_name>_<collection_name>`
+    instead of `<collection_name>`
+  kind: boolean
+  label: Include Schemas In Destination Stream Name
+  name: include_schemas_in_destination_stream_name
+  value: false
+- description: The MongoDB password.
+  kind: password
+  label: Password
+  name: password
+  sensitive: true
 - description: The MongoDB port.
   kind: integer
   label: Port
   name: port
   value: 27017
-- description: The MongoDB user.
-  label: User
-  name: user
-- description: The MongoDB password.
-  kind: password
-  label: Password
-  name: password
-- description: This is the database used for authentication, not the database used
-    for extraction. The data extracted is determined by following the [selecting entities
-    and attributes](https://docs.meltano.com/getting-started.html#select-entities-and-attributes-to-extract)
-    instructions.
-  label: Database Name
-  name: database
 - description: The name of the replica set.
   label: Replica Set
   name: replica_set
@@ -46,22 +51,19 @@ settings:
   name: ssl
   value: false
   value_post_processor: stringify
+- description: The MongoDB user.
+  label: User
+  name: user
 - description: SSL Verify Mode
   kind: boolean
   label: Verify Mode
   name: verify_mode
   value: true
   value_post_processor: stringify
-- description: Forces the stream names to take the form `<database_name>_<collection_name>`
-    instead of `<collection_name>`
-  kind: boolean
-  label: Include Schemas In Destination Stream Name
-  name: include_schemas_in_destination_stream_name
-  value: false
 settings_group_validation:
-- - host
+- - database
+  - host
+  - password
   - port
   - user
-  - password
-  - database
 variant: singer-io

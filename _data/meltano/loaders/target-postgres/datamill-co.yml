@@ -1,3 +1,4 @@
+capabilities: []
 description: PostgreSQL database loader
 dialect: postgres
 domain_url: https://www.postgresql.org/
@@ -20,50 +21,42 @@ prereq: |
 quality: silver
 repo: https://github.com/datamill-co/target-postgres
 settings:
-- label: Host
-  name: postgres_host
-  value: localhost
-- kind: integer
-  label: Port
-  name: postgres_port
-  value: 5432
-- label: Database
-  name: postgres_database
-- label: Username
-  name: postgres_username
-- kind: password
-  label: Password
-  name: postgres_password
-- aliases:
-  - schema
-  description: |
-    Note that `$MELTANO_EXTRACT__LOAD_SCHEMA` [will expand to](https://docs.meltano.com/guide/configuration.html#expansion-in-setting-values) the value of the [`load_schema` extra](https://docs.meltano.com/concepts/plugins#load-schema-extra) for the extractor used in the pipeline, which defaults to the extractor's namespace, e.g. `tap_gitlab` for [`tap-gitlab`](/extractors/gitlab).
+- description: |
+    Whether the Target should create column indexes on the important columns
+    used during data loading.
 
-    Name of the schema where the tables will be created. If `schema_mapping`
-    is not defined then every stream sent by the tap is loaded into this schema.
-  label: Schema
-  name: postgres_schema
-  value: $MELTANO_EXTRACT__LOAD_SCHEMA
-- description: Refer to the [libpq docs](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-PARAMKEYWORDS)
-    for more information about SSL.
-  label: SSL Mode
-  name: postgres_sslmode
-  value: prefer
-- description: Only used if a SSL request w/ a client certificate is being made
-  label: SSL Cert
-  name: postgres_sslcert
-  value: ~/.postgresql/postgresql.crt
-- description: Only used if a SSL request w/ a client certificate is being made
-  label: SSL Key
-  name: postgres_sslkey
-  value: ~/.postgresql/postgresql.key
-- description: Used for authentication of a server SSL certificate
-  name: postgres_sslrootcert
-  value: ~/.postgresql/root.crt
-- description: Used for authentication of a server SSL certificate
-  label: SSL CRL
-  name: postgres_sslcrl
-  value: ~/.postgresql/root.crl
+    These indexes will make data loading slightly slower
+    but the deduplication phase much faster. Defaults to on for better baseline performance.
+  kind: boolean
+  label: Add Upsert Indexes
+  name: add_upsert_indexes
+  value: true
+- description: Raw SQL statement(s) to execute as soon as the connection to Postgres
+    is opened by the target. Useful for setup like `SET ROLE` or other connection
+    state that is important.
+  label: After Run SQL
+  name: after_run_sql
+- description: |
+    How often, in rows received, to count the buffered rows and bytes to
+    check if a flush is necessary.
+
+    There's a slight performance penalty to checking
+    the buffered records count or bytesize, so this controls how often this is polled
+    in order to mitigate the penalty. This value is usually not necessary to set as
+    the default is dynamically adjusted to check reasonably often.
+  kind: integer
+  label: Batch Detection Threshold
+  name: batch_detection_threshold
+- description: Raw SQL statement(s) to execute as soon as the connection to Postgres
+    is opened by the target. Useful for setup like `SET ROLE` or other connection
+    state that is important.
+  label: Before Run SQL
+  name: before_run_sql
+- description: Include `true` in your config to disable [Singer Usage Logging](https://github.com/datamill-co/target-postgres#usage-logging).
+  kind: boolean
+  label: Disable Collection
+  name: disable_collection
+  value: false
 - description: Include `false` in your config to disable `target-postgres` from crashing
     on invalid records
   kind: boolean
@@ -76,11 +69,6 @@ settings:
   label: Invalid Records Threshold
   name: invalid_records_threshold
   value: 0
-- description: Include `true` in your config to disable [Singer Usage Logging](https://github.com/datamill-co/target-postgres#usage-logging).
-  kind: boolean
-  label: Disable Collection
-  name: disable_collection
-  value: false
 - description: The level for logging. Set to `DEBUG` to get things like queries executed,
     timing of those queries, etc.
   kind: options
@@ -98,12 +86,6 @@ settings:
   - label: Critical
     value: CRITICAL
   value: INFO
-- description: Whether the Target should create tables which have no records present
-    in Remote.
-  kind: boolean
-  label: Persist Empty Tables
-  name: persist_empty_tables
-  value: false
 - description: The maximum number of rows to buffer in memory before writing to the
     destination table in Postgres
   kind: integer
@@ -116,17 +98,58 @@ settings:
   label: Max Buffer Size
   name: max_buffer_size
   value: 104857600
-- description: |
-    How often, in rows received, to count the buffered rows and bytes to
-    check if a flush is necessary.
+- description: Whether the Target should create tables which have no records present
+    in Remote.
+  kind: boolean
+  label: Persist Empty Tables
+  name: persist_empty_tables
+  value: false
+- label: Database
+  name: postgres_database
+- label: Host
+  name: postgres_host
+  value: localhost
+- kind: password
+  label: Password
+  name: postgres_password
+  sensitive: true
+- kind: integer
+  label: Port
+  name: postgres_port
+  value: 5432
+- aliases:
+  - schema
+  description: |
+    Note that `$MELTANO_EXTRACT__LOAD_SCHEMA` [will expand to](https://docs.meltano.com/guide/configuration.html#expansion-in-setting-values) the value of the [`load_schema` extra](https://docs.meltano.com/concepts/plugins#load-schema-extra) for the extractor used in the pipeline, which defaults to the extractor's namespace, e.g. `tap_gitlab` for [`tap-gitlab`](/extractors/gitlab).
 
-    There's a slight performance penalty to checking
-    the buffered records count or bytesize, so this controls how often this is polled
-    in order to mitigate the penalty. This value is usually not necessary to set as
-    the default is dynamically adjusted to check reasonably often.
-  kind: integer
-  label: Batch Detection Threshold
-  name: batch_detection_threshold
+    Name of the schema where the tables will be created. If `schema_mapping`
+    is not defined then every stream sent by the tap is loaded into this schema.
+  label: Schema
+  name: postgres_schema
+  value: $MELTANO_EXTRACT__LOAD_SCHEMA
+- description: Only used if a SSL request w/ a client certificate is being made
+  label: SSL Cert
+  name: postgres_sslcert
+  value: ~/.postgresql/postgresql.crt
+- description: Used for authentication of a server SSL certificate
+  label: SSL CRL
+  name: postgres_sslcrl
+  value: ~/.postgresql/root.crl
+- description: Only used if a SSL request w/ a client certificate is being made
+  label: SSL Key
+  name: postgres_sslkey
+  value: ~/.postgresql/postgresql.key
+- description: Refer to the [libpq 
+    docs](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-PARAMKEYWORDS)
+    for more information about SSL.
+  label: SSL Mode
+  name: postgres_sslmode
+  value: prefer
+- description: Used for authentication of a server SSL certificate
+  name: postgres_sslrootcert
+  value: ~/.postgresql/root.crt
+- label: Username
+  name: postgres_username
 - description: |
     Whether the Target should emit `STATE` messages to stdout for further
     consumption.
@@ -138,33 +161,13 @@ settings:
   label: State Support
   name: state_support
   value: true
-- description: |
-    Whether the Target should create column indexes on the important columns
-    used during data loading.
-
-    These indexes will make data loading slightly slower
-    but the deduplication phase much faster. Defaults to on for better baseline performance.
-  kind: boolean
-  label: Add Upsert Indexes
-  name: add_upsert_indexes
-  value: true
-- description: Raw SQL statement(s) to execute as soon as the connection to Postgres
-    is opened by the target. Useful for setup like `SET ROLE` or other connection
-    state that is important.
-  label: Before Run SQL
-  name: before_run_sql
-- description: Raw SQL statement(s) to execute as soon as the connection to Postgres
-    is opened by the target. Useful for setup like `SET ROLE` or other connection
-    state that is important.
-  label: After Run SQL
-  name: after_run_sql
 settings_group_validation:
-- - postgres_host
-  - postgres_port
-  - postgres_database
-  - postgres_username
+- - postgres_database
+  - postgres_host
   - postgres_password
+  - postgres_port
   - postgres_schema
+  - postgres_username
 target_schema: $TARGET_POSTGRES_POSTGRES_SCHEMA
 usage: |
   ## Troubleshooting

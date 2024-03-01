@@ -15,21 +15,22 @@ pip_url: tap-platformpurple
 quality: bronze
 repo: https://github.com/singer-io/tap-platformpurple
 settings:
-- description: Your Platform Purple environment name.
-  label: Environment
-  name: environment
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
-    can be expected to take."
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
 - description: Your Platform Purple API Key.
   kind: password
   label: API Key
   name: api_key
+  sensitive: true
+- description: Your Platform Purple environment name.
+  label: Environment
+  name: environment
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
 settings_group_validation:
-- - environment
+- - api_key
+  - environment
   - start_date
-  - api_key
 variant: singer-io

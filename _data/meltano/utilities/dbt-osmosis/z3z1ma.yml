@@ -1,13 +1,18 @@
 commands:
   document:
-    args: yaml document --project-dir ${MELTANO_PROJECT_ROOT}/transform --profiles-dir ${MELTANO_PROJECT_ROOT}/transform/profiles/${ADAPTER}
+    args: yaml document --project-dir ${MELTANO_PROJECT_ROOT}/transform --profiles-dir
+      ${MELTANO_PROJECT_ROOT}/transform/profiles/${ADAPTER}
     description: Inherit documentation from parent models to child models cascadingly
   organize:
-    args: yaml organize --project-dir ${MELTANO_PROJECT_ROOT}/transform --profiles-dir ${MELTANO_PROJECT_ROOT}/transform/profiles/${ADAPTER}
-    description: Organizes all dbt schema yaml files based on declarative rules in the dbt_project.yml, create yaml files as needed
+    args: yaml organize --project-dir ${MELTANO_PROJECT_ROOT}/transform --profiles-dir
+      ${MELTANO_PROJECT_ROOT}/transform/profiles/${ADAPTER}
+    description: Organizes all dbt schema yaml files based on declarative rules in
+      the dbt_project.yml, create yaml files as needed
   refactor:
-    args: yaml refactor --project-dir ${MELTANO_PROJECT_ROOT}/transform --profiles-dir ${MELTANO_PROJECT_ROOT}/transform/profiles/${ADAPTER}
-    description: Organizes all dbt schema yaml files AND cascadingly inherits documentation from parent models to child models, create yaml files as needed
+    args: yaml refactor --project-dir ${MELTANO_PROJECT_ROOT}/transform --profiles-dir
+      ${MELTANO_PROJECT_ROOT}/transform/profiles/${ADAPTER}
+    description: Organizes all dbt schema yaml files AND cascadingly inherits documentation
+      from parent models to child models, create yaml files as needed
   workbench:
     args: workbench --project-dir ${MELTANO_PROJECT_ROOT}/transform --profiles-dir
       ${MELTANO_PROJECT_ROOT}/transform/profiles/${ADAPTER}
@@ -53,4 +58,5 @@ settings:
     config option to resolve dbt profile directory.
   env: ADAPTER
   name: adapter
+settings_group_validation: []
 variant: z3z1ma

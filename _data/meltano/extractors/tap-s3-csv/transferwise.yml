@@ -1,6 +1,6 @@
 capabilities:
-- properties
 - discover
+- properties
 - state
 description: Extract CSV files from S3
 domain_url: https://aws.amazon.com/s3/
@@ -20,41 +20,45 @@ settings:
   kind: password
   label: AWS S3 Access Key ID
   name: aws_access_key_id
+  sensitive: true
+- description: The AWS endpoint URL.
+  kind: password
+  label: AWS Endpoint URL
+  name: aws_endpoint_url
+  sensitive: true
+- description: Optional - AWS profile name for profile based authentication. If not
+    provided, AWS_PROFILE environment variable will be used.
+  label: AWS profile name
+  name: aws_profile
 - description: S3 Secret Access Key. If not provided, aws_profile or AWS_ACCESS_KEY_ID
     environment variable will be used.
   kind: password
   label: AWS S3 Secret Access Key
   name: aws_secret_access_key
+  sensitive: true
+- description: Optional - S3 AWS STS token for temporary credentials. If not provided,
+    AWS_SESSION_TOKEN environment variable will be used.
+  kind: password
+  label: AWS S3 Session Token
+  name: aws_session_token
+  sensitive: true
+- description: AWS S3 bucket name
+  label: Bucket
+  name: bucket
 - description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.
   kind: date_iso8601
   label: Start Date
   name: start_date
-- description: AWS S3 bucket name
-  label: Bucket
-  name: bucket
 - description: An array that consists of one or more objects that describe how to
     find files and emit records. Required - `table_name` and `search_pattern`. Optional
     - `key_properties`, `search_prefix`, `date_overrides`, `delimiter`.
   kind: array
   label: Tables
   name: tables
-- description: The AWS endpoint URL.
-  kind: password
-  label: AWS Endpoint URL
-  name: aws_endpoint_url
-- description: Optional - AWS profile name for profile based authentication. If not
-    provided, AWS_PROFILE environment variable will be used.
-  label: AWS profile name
-  name: aws_profile
-- description: Optional - S3 AWS STS token for temporary credentials. If not provided,
-    AWS_SESSION_TOKEN environment variable will be used.
-  kind: password
-  label: AWS S3 Session Token
-  name: aws_session_token
 settings_group_validation:
 - - bucket
-  - tables
   - start_date
+  - tables
 variant: transferwise

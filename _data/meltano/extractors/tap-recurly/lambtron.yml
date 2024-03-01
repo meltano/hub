@@ -15,30 +15,32 @@ pip_url: git+https://github.com/lambtron/tap-recurly.git
 quality: unknown
 repo: https://github.com/lambtron/tap-recurly
 settings:
+- description: Your Recurly API key. See the [API 
+    docs](https://docs.recurly.com/docs/api-keys#section-find-or-generate-your-api-key)
+    for details on getting a key.
+  kind: password
+  label: API Key
+  name: api_key
+  sensitive: true
 - description: The percentage of the rate limit dedicated to the tap. Default, 100.
   kind: integer
   label: Quota Limit
   name: quota_limit
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
 - description: Your Recurly subdomain.
   label: Subdomain
   name: subdomain
 - description: The user agent to send with requests.
   label: User Agent
   name: user_agent
-- description: Your Recurly API key. See the [API docs](https://docs.recurly.com/docs/api-keys#section-find-or-generate-your-api-key)
-    for details on getting a key.
-  kind: password
-  label: API Key
-  name: api_key
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
-    can be expected to take."
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
 settings_group_validation:
-- - subdomain
-  - user_agent
-  - api_key
+- - api_key
   - start_date
+  - subdomain
+  - user_agent
 variant: lambtron

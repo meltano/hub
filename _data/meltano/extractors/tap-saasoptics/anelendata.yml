@@ -15,34 +15,35 @@ pip_url: git+https://github.com/anelendata/tap-saasoptics.git
 quality: silver
 repo: https://github.com/anelendata/tap-saasoptics
 settings:
-- description: Everything before .saasoptics.com. in the SaaSOptics URL.
-  label: Server Subdomain
-  name: server_subdomain
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
-    can be expected to take."
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
+- description: Your account name.
+  label: Account Name
+  name: account_name
 - description: The number of days (between the from and to dates) for date-windowing
     through the date-filtered endpoints (default = 60).
   kind: integer
   label: Date Window Size
   name: date_window_size
-- description: The user agent to send with requests.
-  label: User Agent
-  name: user_agent
+- description: Everything before .saasoptics.com. in the SaaSOptics URL.
+  label: Server Subdomain
+  name: server_subdomain
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
 - description: Your API token.
   kind: password
   label: Token
   name: token
-- description: Your account name.
-  label: Account Name
-  name: account_name
+  sensitive: true
+- description: The user agent to send with requests.
+  label: User Agent
+  name: user_agent
 settings_group_validation:
-- - server_subdomain
+- - account_name
+  - server_subdomain
   - start_date
-  - user_agent
   - token
-  - account_name
+  - user_agent
 variant: anelendata

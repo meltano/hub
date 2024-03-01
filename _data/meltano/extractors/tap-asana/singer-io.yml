@@ -23,6 +23,7 @@ settings:
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
 - description: The redirect URI for oauth flow completion, this is provided by Asana
     during oauth setup
   kind: string
@@ -36,19 +37,19 @@ settings:
   kind: oauth
   label: Refresh Token
   name: refresh_token
-- description: The date from which to start syncing records
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
 - description: The timeout in seconds for a request to the Asana API
   kind: integer
   label: Request Timeout
   name: request_timeout
   value: 30
+- description: The date from which to start syncing records
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
 settings_group_validation:
-- - start_date
-  - client_id
+- - client_id
   - client_secret
   - redirect_uri
   - refresh_token
+  - start_date
 variant: singer-io

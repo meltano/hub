@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Online Payment Solutions
 domain_url: https://developer.paypal.com/braintree/docs/start/overview
 executable: tap-airbyte
@@ -18,8 +18,45 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-braintree
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-braintree
 settings:
+- description: Environment specifies where the data will come from.
+  kind: options
+  label: Airbyte Config Environment
+  name: airbyte_config.environment
+  options:
+  - label: Development
+    value: Development
+  - label: Sandbox
+    value: Sandbox
+  - label: Qa
+    value: Qa
+  - label: Production
+    value: Production
+- description: The unique identifier for your entire gateway account. See the <a href="https://docs.airbyte.io/integrations/sources/braintree">docs</a>
+    for more information on how to obtain this ID.
+  kind: password
+  label: Airbyte Config Merchant Id
+  name: airbyte_config.merchant_id
+  sensitive: true
+- description: Braintree Private Key. See the <a href="https://docs.airbyte.io/integrations/sources/braintree">docs</a>
+    for more information on how to obtain this key.
+  kind: password
+  label: Airbyte Config Private Key
+  name: airbyte_config.private_key
+  sensitive: true
+- description: Braintree Public Key. See the <a href="https://docs.airbyte.io/integrations/sources/braintree">docs</a>
+    for more information on how to obtain this key.
+  kind: password
+  label: Airbyte Config Public Key
+  name: airbyte_config.public_key
+  sensitive: true
+- description: UTC date and time in the format 2017-01-25T00:00:00Z. Any data before
+    this date will not be replicated.
+  kind: string
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -36,50 +73,8 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: The unique identifier for your entire gateway account. See the <a href="https://docs.airbyte.io/integrations/sources/braintree">docs</a>
-    for more information on how to obtain this ID.
-  kind: password
-  label: Airbyte Config Merchant Id
-  name: airbyte_config.merchant_id
-- description: Braintree Public Key. See the <a href="https://docs.airbyte.io/integrations/sources/braintree">docs</a>
-    for more information on how to obtain this key.
-  kind: password
-  label: Airbyte Config Public Key
-  name: airbyte_config.public_key
-- description: Braintree Private Key. See the <a href="https://docs.airbyte.io/integrations/sources/braintree">docs</a>
-    for more information on how to obtain this key.
-  kind: password
-  label: Airbyte Config Private Key
-  name: airbyte_config.private_key
-- description: UTC date and time in the format 2017-01-25T00:00:00Z. Any data before
-    this date will not be replicated.
-  kind: string
-  label: Airbyte Config Start Date
-  name: airbyte_config.start_date
-- description: Environment specifies where the data will come from.
-  kind: options
-  label: Airbyte Config Environment
-  name: airbyte_config.environment
-  options:
-  - label: Development
-    value: Development
-  - label: Sandbox
-    value: Sandbox
-  - label: Qa
-    value: Qa
-  - label: Production
-    value: Production
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -87,12 +82,21 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - airbyte_spec.image
+- - airbyte_config.environment
   - airbyte_config.merchant_id
-  - airbyte_config.public_key
-  - airbyte_config.environment
   - airbyte_config.private_key
+  - airbyte_config.public_key
+  - airbyte_spec.image
 settings_preamble: ''
 usage: ''
 variant: airbyte

@@ -17,16 +17,11 @@ namespace: gdrive
 pip_url: git+https://github.com/Matatika/utility-gdrive.git
 repo: https://github.com/Matatika/utility-gdrive
 settings:
-- description: Google Drive File or Folder ID. [More information on settings](https://github.com/Matatika/utility-gdrive#settings)
-  label: File ID
-  name: file_id
-- description: Output path for downloaded files.
-  label: Output Path
-  name: output_path
 - description: Google Access Token.
   kind: password
   label: Access Token
   name: access_token
+  sensitive: true
 - description: Google Client ID.
   label: Client ID
   name: client_id
@@ -34,15 +29,23 @@ settings:
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
+- description: Google Drive File or Folder ID. [More information on settings](https://github.com/Matatika/utility-gdrive#settings)
+  label: File ID
+  name: file_id
+- description: Output path for downloaded files.
+  label: Output Path
+  name: output_path
 - description: Google Refresh Token.
   kind: password
   label: Refresh Token
   name: refresh_token
+  sensitive: true
 settings_group_validation:
-- - file_id
-  - access_token
-- - file_id
+- - access_token
+  - file_id
+- - access_token
   - client_secret
-  - access_token
+  - file_id
   - refresh_token
 variant: matatika
