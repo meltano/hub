@@ -19,18 +19,22 @@ settings:
   kind: password
   label: Access Token
   name: access_token
+  sensitive: true
 - description: The Airtable base ID. Airtable base IDs begin with "app".
   kind: password
   label: Base ID
   name: base_id
+  sensitive: true
 - description: ''
   kind: password
   label: Client ID
   name: client_id
+  sensitive: true
 - description: ''
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
 - description: Airtable Records URL, defaults to https://api.airtable.com/v0
   kind: string
   label: Records URL
@@ -39,6 +43,7 @@ settings:
   kind: password
   label: Refresh Token
   name: refresh_token
+  sensitive: true
 settings_group_validation:
 - - access_token
   - base_id

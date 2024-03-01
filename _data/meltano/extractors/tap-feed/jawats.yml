@@ -31,6 +31,7 @@ settings:
   kind: password
   label: Feed Entry Replication Key
   name: feed_entry_replication_key
+  sensitive: true
   value: published
 - description: A list of feed level data fields to capture.
   kind: array

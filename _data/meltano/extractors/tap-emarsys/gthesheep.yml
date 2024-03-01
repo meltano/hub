@@ -23,11 +23,13 @@ settings:
   kind: password
   label: Language ID
   name: language_id
+  sensitive: true
   value: en
 - description: The secret obtained for the API user
   kind: password
   label: Secret
   name: secret
+  sensitive: true
 - description: The username obtained for the API user
   kind: string
   label: Username

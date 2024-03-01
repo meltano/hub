@@ -29,6 +29,7 @@ settings:
   kind: password
   label: API Key
   name: api_key
+  sensitive: true
 - description: The API url to use e.g. `https://api.eu.newrelic.com/graphql`.
   kind: string
   label: API URL

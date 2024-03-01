@@ -21,6 +21,7 @@ settings:
   kind: password
   label: APIkey
   name: apikey
+  sensitive: true
 - description: Timeplus workspace endpoint
   kind: string
   label: Endpoint

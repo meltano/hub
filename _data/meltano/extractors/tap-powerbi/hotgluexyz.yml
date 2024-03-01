@@ -24,10 +24,12 @@ settings:
   kind: password
   label: Client ID
   name: client_id
+  sensitive: true
 - description: Your Power BI Client Secret.
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -45,6 +47,7 @@ settings:
   kind: password
   label: Refresh Token
   name: refresh_token
+  sensitive: true
 - description: User-defined config values to be used within map expressions.
   kind: object
   label: Stream Map Config

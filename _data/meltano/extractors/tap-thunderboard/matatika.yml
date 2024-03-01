@@ -28,6 +28,7 @@ settings:
   kind: password
   label: Deviceid
   name: deviceId
+  sensitive: true
 - description: The name of the file in the data directory to be processed
   kind: string
   label: Filename

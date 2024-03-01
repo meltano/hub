@@ -23,10 +23,12 @@ settings:
   kind: password
   label: Client ID
   name: client_id
+  sensitive: true
 - description: String secret of your strava application
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
 - description: End date for the data sync in YYYY-MM-DD format
   kind: date_iso8601
   label: End Date
@@ -44,6 +46,7 @@ settings:
   kind: password
   label: Refresh Token
   name: refresh_token
+  sensitive: true
 - description: Start date for the data sync in YYYY-MM-DD format
   kind: date_iso8601
   label: Start Date

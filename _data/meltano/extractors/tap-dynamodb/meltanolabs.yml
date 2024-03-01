@@ -26,6 +26,7 @@ settings:
   kind: password
   label: AWS Access Key ID
   name: aws_access_key_id
+  sensitive: true
 - description: The role ARN to assume.
   kind: string
   label: AWS Assume Role Arn
@@ -47,11 +48,13 @@ settings:
   kind: password
   label: AWS Secret Access Key
   name: aws_secret_access_key
+  sensitive: true
 - description: The session key for your AWS account. This is only needed when you
     are using temporary credentials.
   kind: password
   label: AWS Session Token
   name: aws_session_token
+  sensitive: true
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean

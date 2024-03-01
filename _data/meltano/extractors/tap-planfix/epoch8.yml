@@ -35,6 +35,7 @@ settings:
   kind: password
   label: Planfix Token
   name: planfix_token
+  sensitive: true
 - description: ''
   kind: date_iso8601
   label: Start Date

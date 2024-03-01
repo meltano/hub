@@ -26,10 +26,10 @@ settings:
   label: Account Token
   name: account_token
   sensitive: true
-- description: The token to authenticate against the Fleetio API
+- description: The key to authenticate against the Fleetio API
   kind: password
-  label: API Token
-  name: api_token
+  label: API Key
+  name: api_key
   sensitive: true
 - description: Fleetio API base url
   kind: string
@@ -82,7 +82,7 @@ settings:
   name: stream_maps
 settings_group_validation:
 - - account_token
-  - api_token
+  - api_key
 settings_preamble: ''
 usage: ''
 variant: fleetio

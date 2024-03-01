@@ -26,10 +26,12 @@ settings:
   kind: password
   label: Client ID
   name: client_id
+  sensitive: true
 - description: The token to authenticate against the API service
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
 - description: The earliest record date to sync. Expected format YYYY-mm-dd.
   kind: date_iso8601
   label: End Date

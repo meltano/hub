@@ -22,6 +22,7 @@ settings:
   kind: password
   label: Auth Token
   name: auth_token
+  sensitive: true
 - description: "Determines how much historical data will be extracted. Please be aware\n
     that the larger the time period and amount of data, the longer the initial extraction\n
     can be expected to take."

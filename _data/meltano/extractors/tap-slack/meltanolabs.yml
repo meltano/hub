@@ -63,6 +63,7 @@ settings:
   kind: password
   label: API Key
   name: api_key
+  sensitive: true
 - description: Whether the bot user should attempt to join channels that it has not
     yet joined. The bot user must be a member of the channel to retrieve messages.
   kind: boolean

@@ -24,6 +24,7 @@ settings:
   kind: password
   label: Pool ID
   name: pool_id
+  sensitive: true
 settings_group_validation:
 - - pool_id
 settings_preamble: ''

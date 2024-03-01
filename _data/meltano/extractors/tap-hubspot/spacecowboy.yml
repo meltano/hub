@@ -55,6 +55,7 @@ settings:
   kind: password
   label: Hapikey
   name: hapikey
+  sensitive: true
 - description: Set to True to avoid using the search API - implies full table replication
   kind: boolean
   label: No Search

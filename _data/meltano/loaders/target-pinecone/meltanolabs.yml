@@ -27,6 +27,7 @@ settings:
   kind: password
   label: API Key
   name: api_key
+  sensitive: true
 - description: The amount of dimensions to use if creating a new index. An index is
     only created if it doesn't already exist. The default is `1536` which is the dimensions
     of the embeddings using OpenAI's text-embedding-ada-002 model.
@@ -85,6 +86,7 @@ settings:
   kind: password
   label: Pinecone Metadata Text Key
   name: pinecone_metadata_text_key
+  sensitive: true
   value: text
 - description: User-defined config values to be used within map expressions.
   kind: object

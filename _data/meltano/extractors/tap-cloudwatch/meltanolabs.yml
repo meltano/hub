@@ -25,6 +25,7 @@ settings:
   kind: password
   label: AWS Access Key ID
   name: aws_access_key_id
+  sensitive: true
 - description: The complete URL to use for the constructed client.
   kind: string
   label: AWS Endpoint URL
@@ -42,11 +43,13 @@ settings:
   kind: password
   label: AWS Secret Access Key
   name: aws_secret_access_key
+  sensitive: true
 - description: The session key for your AWS account. This is only needed when you
     are using temporary credentials.
   kind: password
   label: AWS Session Token
   name: aws_session_token
+  sensitive: true
 - description: Compression format to use for batch files.
   kind: options
   label: Batch Config Encoding Compression

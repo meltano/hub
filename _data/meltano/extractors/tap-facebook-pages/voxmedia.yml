@@ -65,19 +65,23 @@ settings:
   kind: password
   label: User Token
   name: user_token
+  sensitive: true
 - description: The name of the video created timestamp field
   kind: password
   label: Video Created At Field
   name: video_created_at_field
+  sensitive: true
 - description: The name of the video ID field
   kind: password
   label: Video ID Field
   name: video_id_field
+  sensitive: true
 - description: The table name used to fetch video IDs from in the form of project.
     Schema. Table_name
   kind: password
   label: Videos Table Name
   name: videos_table_name
+  sensitive: true
 settings_group_validation:
 - - user_token
 settings_preamble: |

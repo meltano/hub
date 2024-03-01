@@ -25,6 +25,7 @@ settings:
   kind: password
   label: Access Key
   name: access_key
+  sensitive: true
 - description: The base currency
   kind: string
   label: Base

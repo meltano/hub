@@ -25,6 +25,7 @@ settings:
   kind: password
   label: App ID
   name: app_id
+  sensitive: true
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
