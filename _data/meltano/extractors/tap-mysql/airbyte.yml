@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: MySQL / MariaDB database extractor
 domain_url: https://www.mysql.com/
 executable: tap-airbyte
@@ -21,43 +21,14 @@ quality: silver
 repo: 
   https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-mysql
 settings:
-- description: Airbyte image to run
-  kind: string
-  label: Airbyte Spec Image
-  name: airbyte_spec.image
-  value: airbyte/source-mysql
-- description: Airbyte image tag
-  kind: string
-  label: Airbyte Spec Tag
-  name: airbyte_spec.tag
-  value: latest
-- description: Docker mounts to make available to the Airbyte container. Expects a
-    list of maps containing source, target, and type as is documented in the docker
-    --mount documentation
-  kind: array
-  label: Docker Mounts
-  name: docker_mounts
-- description: The host name of the database.
-  kind: string
-  label: Airbyte Config Host
-  name: airbyte_config.host
-- description: The port to connect to.
-  kind: integer
-  label: Airbyte Config Port
-  name: airbyte_config.port
 - description: The database name.
   kind: string
   label: Airbyte Config Database
   name: airbyte_config.database
-- description: The username which is used to access the database.
+- description: The host name of the database.
   kind: string
-  label: Airbyte Config Username
-  name: airbyte_config.username
-- description: The password associated with the username.
-  kind: password
-  label: Airbyte Config Password
-  name: airbyte_config.password
-  sensitive: true
+  label: Airbyte Config Host
+  name: airbyte_config.host
 - description: "Additional properties to pass to the JDBC URL string when connecting
     to the database formatted as 'key=value' pairs separated by the symbol '&'. (example:
     key1=value1&key2=value2&key3=value3). For more information read about <a href=\"\
@@ -66,14 +37,35 @@ settings:
   kind: string
   label: Airbyte Config Jdbc Url Params
   name: airbyte_config.jdbc_url_params
+- description: The password associated with the username.
+  kind: password
+  label: Airbyte Config Password
+  name: airbyte_config.password
+  sensitive: true
+- description: The port to connect to.
+  kind: integer
+  label: Airbyte Config Port
+  name: airbyte_config.port
+- description: 'The amount of time the connector will wait when it launches to determine
+    if there is new data to sync or not. Defaults to 300 seconds. Valid range: 120
+    seconds to 1200 seconds. Read about <a href="https://docs.airbyte.com/integrations/sources/mysql/#change-data-capture-cdc">initial
+    waiting time</a>.'
+  kind: integer
+  label: Airbyte Config Replication Method Initial Waiting Seconds
+  name: airbyte_config.replication_method.initial_waiting_seconds
+- description: STANDARD, CDC
+  kind: string
+  label: Airbyte Config Replication Method Method
+  name: airbyte_config.replication_method.method
+- description: Enter the configured MySQL server timezone. This should only be done
+    if the configured timezone in your MySQL instance does not conform to IANNA standard.
+  kind: string
+  label: Airbyte Config Replication Method Server Time Zone
+  name: airbyte_config.replication_method.server_time_zone
 - description: Encrypt data using SSL.
   kind: boolean
   label: Airbyte Config Ssl
   name: airbyte_config.ssl
-- description: preferred, required, verify_ca, verify_identity
-  kind: string
-  label: Airbyte Config Ssl Mode Mode
-  name: airbyte_config.ssl_mode.mode
 - description: CA certificate, CA certificate
   kind: string
   label: Airbyte Config Ssl Mode Ca Certificate
@@ -100,31 +92,25 @@ settings:
   label: Airbyte Config Ssl Mode Client Key Password
   name: airbyte_config.ssl_mode.client_key_password
   sensitive: true
-- description: STANDARD, CDC
+- description: preferred, required, verify_ca, verify_identity
   kind: string
-  label: Airbyte Config Replication Method Method
-  name: airbyte_config.replication_method.method
-- description: 'The amount of time the connector will wait when it launches to determine
-    if there is new data to sync or not. Defaults to 300 seconds. Valid range: 120
-    seconds to 1200 seconds. Read about <a href="https://docs.airbyte.com/integrations/sources/mysql/#change-data-capture-cdc">initial
-    waiting time</a>.'
-  kind: integer
-  label: Airbyte Config Replication Method Initial Waiting Seconds
-  name: airbyte_config.replication_method.initial_waiting_seconds
-- description: Enter the configured MySQL server timezone. This should only be done
-    if the configured timezone in your MySQL instance does not conform to IANNA standard.
-  kind: string
-  label: Airbyte Config Replication Method Server Time Zone
-  name: airbyte_config.replication_method.server_time_zone
-- description: NO_TUNNEL, SSH_KEY_AUTH, SSH_PASSWORD_AUTH
-  kind: string
-  label: Airbyte Config Tunnel Method Tunnel Method
-  name: airbyte_config.tunnel_method.tunnel_method
+  label: Airbyte Config Ssl Mode Mode
+  name: airbyte_config.ssl_mode.mode
+- description: OS-level user account ssh key credentials in RSA PEM format ( created
+    with ssh-keygen -t rsa -m PEM -f myuser_rsa )
+  kind: password
+  label: Airbyte Config Tunnel Method Ssh Key
+  name: airbyte_config.tunnel_method.ssh_key
+  sensitive: true
 - description: Hostname of the jump server host that allows inbound ssh tunnel., Hostname
     of the jump server host that allows inbound ssh tunnel.
   kind: string
   label: Airbyte Config Tunnel Method Tunnel Host
   name: airbyte_config.tunnel_method.tunnel_host
+- description: NO_TUNNEL, SSH_KEY_AUTH, SSH_PASSWORD_AUTH
+  kind: string
+  label: Airbyte Config Tunnel Method Tunnel Method
+  name: airbyte_config.tunnel_method.tunnel_method
 - description: Port on the proxy/jump server that accepts inbound ssh connections.,
     Port on the proxy/jump server that accepts inbound ssh connections.
   kind: integer
@@ -135,26 +121,31 @@ settings:
   kind: string
   label: Airbyte Config Tunnel Method Tunnel User
   name: airbyte_config.tunnel_method.tunnel_user
-- description: OS-level user account ssh key credentials in RSA PEM format ( created
-    with ssh-keygen -t rsa -m PEM -f myuser_rsa )
-  kind: password
-  label: Airbyte Config Tunnel Method Ssh Key
-  name: airbyte_config.tunnel_method.ssh_key
-  sensitive: true
 - description: OS-level password for logging into the jump server host
   kind: password
   label: Airbyte Config Tunnel Method Tunnel User Password
   name: airbyte_config.tunnel_method.tunnel_user_password
   sensitive: true
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
+- description: The username which is used to access the database.
+  kind: string
+  label: Airbyte Config Username
+  name: airbyte_config.username
+- description: Airbyte image to run
+  kind: string
+  label: Airbyte Spec Image
+  name: airbyte_spec.image
+  value: airbyte/source-mysql
+- description: Airbyte image tag
+  kind: string
+  label: Airbyte Spec Tag
+  name: airbyte_spec.tag
+  value: latest
+- description: Docker mounts to make available to the Airbyte container. Expects a
+    list of maps containing source, target, and type as is documented in the docker
+    --mount documentation
+  kind: array
+  label: Docker Mounts
+  name: docker_mounts
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -164,13 +155,22 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
 - - airbyte_config.database
-  - airbyte_spec
-  - airbyte_config.username
-  - airbyte_spec.image
   - airbyte_config.host
   - airbyte_config.port
+  - airbyte_config.username
+  - airbyte_spec
+  - airbyte_spec.image
 settings_preamble: ''
 usage: ''
 variant: airbyte

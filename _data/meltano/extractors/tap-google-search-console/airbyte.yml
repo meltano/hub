@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Search platform
 domain_url: 
   https://developers.google.com/webmaster-tools/search-console-api-original/v3/how-tos/search_analytics
@@ -22,37 +22,12 @@ quality: silver
 repo: 
   https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-google-search-console
 settings:
-- description: Airbyte image to run
-  kind: string
-  label: Airbyte Spec Image
-  name: airbyte_spec.image
-  value: airbyte/source-google-search-console
-- description: Airbyte image tag
-  kind: string
-  label: Airbyte Spec Tag
-  name: airbyte_spec.tag
-  value: latest
-- description: Docker mounts to make available to the Airbyte container. Expects a
-    list of maps containing source, target, and type as is documented in the docker
-    --mount documentation
-  kind: array
-  label: Docker Mounts
-  name: docker_mounts
-- description: The URLs of the website property attached to your GSC account. Read
-    more <a href="https://support.google.com/webmasters/answer/34592?hl=en">here</a>.
-  kind: array
-  label: Airbyte Config Site Urls
-  name: airbyte_config.site_urls
-- description: UTC date in the format 2017-01-25. Any data before this date will not
-    be replicated.
-  kind: string
-  label: Airbyte Config Start Date
-  name: airbyte_config.start_date
-- description: UTC date in the format 2017-01-25. Any data after this date will not
-    be replicated. Must be greater or equal to the start date field.
-  kind: string
-  label: Airbyte Config End Date
-  name: airbyte_config.end_date
+- description: Access token for making authenticated requests. Read more <a 
+    href="https://developers.google.com/webmaster-tools/v1/how-tos/authorizing">here</a>.
+  kind: password
+  label: Airbyte Config Authorization Access Token
+  name: airbyte_config.authorization.access_token
+  sensitive: true
 - description: Client, Service
   kind: string
   label: Airbyte Config Authorization Auth Type
@@ -71,12 +46,11 @@ settings:
   label: Airbyte Config Authorization Client Secret
   name: airbyte_config.authorization.client_secret
   sensitive: true
-- description: Access token for making authenticated requests. Read more <a 
-    href="https://developers.google.com/webmaster-tools/v1/how-tos/authorizing">here</a>.
-  kind: password
-  label: Airbyte Config Authorization Access Token
-  name: airbyte_config.authorization.access_token
-  sensitive: true
+- description: The email of the user which has permissions to access the Google Workspace
+    Admin APIs.
+  kind: string
+  label: Airbyte Config Authorization Email
+  name: airbyte_config.authorization.email
 - description: The token for obtaining a new access token. Read more <a 
     href="https://developers.google.com/webmaster-tools/v1/how-tos/authorizing">here</a>.
   kind: password
@@ -89,11 +63,6 @@ settings:
   kind: string
   label: Airbyte Config Authorization Service Account Info
   name: airbyte_config.authorization.service_account_info
-- description: The email of the user which has permissions to access the Google Workspace
-    Admin APIs.
-  kind: string
-  label: Airbyte Config Authorization Email
-  name: airbyte_config.authorization.email
 - description: A JSON array describing the custom reports you want to sync from Google
     Search Console. See <a 
     href="https://docs.airbyte.com/integrations/sources/google-search-console#step-2-set-up-the-google-search-console-connector-in-airbyte">the
@@ -102,15 +71,37 @@ settings:
   kind: string
   label: Airbyte Config Custom Reports
   name: airbyte_config.custom_reports
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
+- description: UTC date in the format 2017-01-25. Any data after this date will not
+    be replicated. Must be greater or equal to the start date field.
+  kind: string
+  label: Airbyte Config End Date
+  name: airbyte_config.end_date
+- description: The URLs of the website property attached to your GSC account. Read
+    more <a href="https://support.google.com/webmasters/answer/34592?hl=en">here</a>.
+  kind: array
+  label: Airbyte Config Site Urls
+  name: airbyte_config.site_urls
+- description: UTC date in the format 2017-01-25. Any data before this date will not
+    be replicated.
+  kind: string
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
+- description: Airbyte image to run
+  kind: string
+  label: Airbyte Spec Image
+  name: airbyte_spec.image
+  value: airbyte/source-google-search-console
+- description: Airbyte image tag
+  kind: string
+  label: Airbyte Spec Tag
+  name: airbyte_spec.tag
+  value: latest
+- description: Docker mounts to make available to the Airbyte container. Expects a
+    list of maps containing source, target, and type as is documented in the docker
+    --mount documentation
+  kind: array
+  label: Docker Mounts
+  name: docker_mounts
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -120,9 +111,18 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - airbyte_config.start_date
-  - airbyte_config.site_urls
+- - airbyte_config.site_urls
+  - airbyte_config.start_date
   - airbyte_spec.image
 settings_preamble: ''
 usage: ''

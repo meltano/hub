@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Business Management Software
 domain_url: https://www.netsuite.com/
 executable: tap-airbyte
@@ -21,6 +21,46 @@ quality: bronze
 repo: 
   https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-netsuite
 settings:
+- description: Consumer key associated with your integration
+  kind: password
+  label: Airbyte Config Consumer Key
+  name: airbyte_config.consumer_key
+  sensitive: true
+- description: Consumer secret associated with your integration
+  kind: password
+  label: Airbyte Config Consumer Secret
+  name: airbyte_config.consumer_secret
+  sensitive: true
+- description: The API names of the Netsuite objects you want to sync. Setting this
+    speeds up the connection setup process by limiting the number of schemas that
+    need to be retrieved from Netsuite.
+  kind: array
+  label: Airbyte Config Object Types
+  name: airbyte_config.object_types
+- description: Netsuite realm e.g. 2344535, as for `production` or 2344535_SB1, as
+    for the `sandbox`
+  kind: string
+  label: Airbyte Config Realm
+  name: airbyte_config.realm
+- description: Starting point for your data replication, in format of "YYYY-MM-DDTHH:mm:ssZ"
+  kind: string
+  label: Airbyte Config Start Datetime
+  name: airbyte_config.start_datetime
+- description: Access token key
+  kind: password
+  label: Airbyte Config Token Key
+  name: airbyte_config.token_key
+  sensitive: true
+- description: Access token secret
+  kind: password
+  label: Airbyte Config Token Secret
+  name: airbyte_config.token_secret
+  sensitive: true
+- description: The amount of days used to query the data with date chunks. Set smaller
+    value, if you have lots of data.
+  kind: integer
+  label: Airbyte Config Window In Days
+  name: airbyte_config.window_in_days
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -37,55 +77,6 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: Netsuite realm e.g. 2344535, as for `production` or 2344535_SB1, as
-    for the `sandbox`
-  kind: string
-  label: Airbyte Config Realm
-  name: airbyte_config.realm
-- description: Consumer key associated with your integration
-  kind: password
-  label: Airbyte Config Consumer Key
-  name: airbyte_config.consumer_key
-  sensitive: true
-- description: Consumer secret associated with your integration
-  kind: password
-  label: Airbyte Config Consumer Secret
-  name: airbyte_config.consumer_secret
-  sensitive: true
-- description: Access token key
-  kind: password
-  label: Airbyte Config Token Key
-  name: airbyte_config.token_key
-  sensitive: true
-- description: Access token secret
-  kind: password
-  label: Airbyte Config Token Secret
-  name: airbyte_config.token_secret
-  sensitive: true
-- description: The API names of the Netsuite objects you want to sync. Setting this
-    speeds up the connection setup process by limiting the number of schemas that
-    need to be retrieved from Netsuite.
-  kind: array
-  label: Airbyte Config Object Types
-  name: airbyte_config.object_types
-- description: Starting point for your data replication, in format of "YYYY-MM-DDTHH:mm:ssZ"
-  kind: string
-  label: Airbyte Config Start Datetime
-  name: airbyte_config.start_datetime
-- description: The amount of days used to query the data with date chunks. Set smaller
-    value, if you have lots of data.
-  kind: integer
-  label: Airbyte Config Window In Days
-  name: airbyte_config.window_in_days
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -95,15 +86,24 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - airbyte_spec
-  - airbyte_config.token_secret
-  - airbyte_config.start_datetime
-  - airbyte_spec.image
-  - airbyte_config.realm
-  - airbyte_config.consumer_key
+- - airbyte_config.consumer_key
   - airbyte_config.consumer_secret
+  - airbyte_config.realm
+  - airbyte_config.start_datetime
   - airbyte_config.token_key
+  - airbyte_config.token_secret
+  - airbyte_spec
+  - airbyte_spec.image
 settings_preamble: ''
 usage: ''
 variant: airbyte

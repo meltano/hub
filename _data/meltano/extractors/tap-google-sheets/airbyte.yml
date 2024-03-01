@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Cloud Spreadsheets
 domain_url: 
   https://developers.google.com/webmaster-tools/search-console-api-original/v3/how-tos/search_analytics
@@ -22,32 +22,6 @@ quality: silver
 repo: 
   https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-google-sheets
 settings:
-- description: Airbyte image to run
-  kind: string
-  label: Airbyte Spec Image
-  name: airbyte_spec.image
-  value: airbyte/source-google-sheets
-- description: Airbyte image tag
-  kind: string
-  label: Airbyte Spec Tag
-  name: airbyte_spec.tag
-  value: latest
-- description: Docker mounts to make available to the Airbyte container. Expects a
-    list of maps containing source, target, and type as is documented in the docker
-    --mount documentation
-  kind: array
-  label: Docker Mounts
-  name: docker_mounts
-- description: Enter the link to the Google spreadsheet you want to sync
-  kind: password
-  label: Airbyte Config Spreadsheet Id
-  name: airbyte_config.spreadsheet_id
-  sensitive: true
-- description: Number of rows fetched when making a Google Sheet API call. Defaults
-    to 200.
-  kind: integer
-  label: Airbyte Config Row Batch Size
-  name: airbyte_config.row_batch_size
 - description: Client, Service
   kind: string
   label: Airbyte Config Credentials Auth Type
@@ -73,15 +47,32 @@ settings:
   kind: string
   label: Airbyte Config Credentials Service Account Info
   name: airbyte_config.credentials.service_account_info
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
+- description: Number of rows fetched when making a Google Sheet API call. Defaults
+    to 200.
+  kind: integer
+  label: Airbyte Config Row Batch Size
+  name: airbyte_config.row_batch_size
+- description: Enter the link to the Google spreadsheet you want to sync
+  kind: password
+  label: Airbyte Config Spreadsheet Id
+  name: airbyte_config.spreadsheet_id
+  sensitive: true
+- description: Airbyte image to run
+  kind: string
+  label: Airbyte Spec Image
+  name: airbyte_spec.image
+  value: airbyte/source-google-sheets
+- description: Airbyte image tag
+  kind: string
+  label: Airbyte Spec Tag
+  name: airbyte_spec.tag
+  value: latest
+- description: Docker mounts to make available to the Airbyte container. Expects a
+    list of maps containing source, target, and type as is documented in the docker
+    --mount documentation
+  kind: array
+  label: Docker Mounts
+  name: docker_mounts
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -91,9 +82,18 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - airbyte_spec.image
-  - airbyte_config.spreadsheet_id
+- - airbyte_config.spreadsheet_id
+  - airbyte_spec.image
 settings_preamble: ''
 usage: ''
 variant: airbyte

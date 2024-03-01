@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Social Networking platform
 domain_url: https://developers.facebook.com/docs/instagram-api
 executable: tap-airbyte
@@ -21,6 +21,18 @@ quality: bronze
 repo: 
   https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-instagram
 settings:
+- description: The value of the access token generated. See the <a href="https://docs.airbyte.io/integrations/sources/instagram">docs</a>
+    for more information
+  kind: password
+  label: Airbyte Config Access Token
+  name: airbyte_config.access_token
+  sensitive: true
+- description: The date from which you'd like to replicate data for User Insights,
+    in the format YYYY-MM-DDT00:00:00Z. All data generated after this date will be
+    replicated.
+  kind: string
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -37,27 +49,6 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: The date from which you'd like to replicate data for User Insights,
-    in the format YYYY-MM-DDT00:00:00Z. All data generated after this date will be
-    replicated.
-  kind: string
-  label: Airbyte Config Start Date
-  name: airbyte_config.start_date
-- description: The value of the access token generated. See the <a href="https://docs.airbyte.io/integrations/sources/instagram">docs</a>
-    for more information
-  kind: password
-  label: Airbyte Config Access Token
-  name: airbyte_config.access_token
-  sensitive: true
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -67,9 +58,18 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - airbyte_config.start_date
-  - airbyte_config.access_token
+- - airbyte_config.access_token
+  - airbyte_config.start_date
   - airbyte_spec.image
 settings_preamble: ''
 usage: ''

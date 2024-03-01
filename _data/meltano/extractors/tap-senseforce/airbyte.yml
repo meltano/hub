@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Machine data management solution
 domain_url: https://manual.senseforce.io/manual/sf-platform/dataset-builder
 executable: tap-airbyte
@@ -21,22 +21,6 @@ quality: bronze
 repo: 
   https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-senseforce
 settings:
-- description: Airbyte image to run
-  kind: string
-  label: Airbyte Spec Image
-  name: airbyte_spec.image
-  value: airbyte/source-senseforce
-- description: Airbyte image tag
-  kind: string
-  label: Airbyte Spec Tag
-  name: airbyte_spec.tag
-  value: latest
-- description: Docker mounts to make available to the Airbyte container. Expects a
-    list of maps containing source, target, and type as is documented in the docker
-    --mount documentation
-  kind: array
-  label: Docker Mounts
-  name: docker_mounts
 - description: Your API access token. See <a 
     href="https://manual.senseforce.io/manual/sf-platform/public-api/get-your-access-token/">here</a>.
     The toke is case sensitive.
@@ -60,13 +44,6 @@ settings:
   label: Airbyte Config Dataset Id
   name: airbyte_config.dataset_id
   sensitive: true
-- description: 'UTC date and time in the format 2017-01-25. Only data with "Timestamp"
-    after this date will be replicated. Important note: This start date must be set
-    to the first day of where your dataset provides data.  If your dataset has data
-    from 2020-10-10 10:21:10, set the start_date to 2020-10-10 or later'
-  kind: string
-  label: Airbyte Config Start Date
-  name: airbyte_config.start_date
 - description: The time increment used by the connector when requesting data from
     the Senseforce API. The bigger the value is, the less requests will be made and
     faster the sync will be. On the other hand, the more seldom the state is persisted
@@ -78,15 +55,29 @@ settings:
   kind: integer
   label: Airbyte Config Slice Range
   name: airbyte_config.slice_range
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
+- description: 'UTC date and time in the format 2017-01-25. Only data with "Timestamp"
+    after this date will be replicated. Important note: This start date must be set
+    to the first day of where your dataset provides data.  If your dataset has data
+    from 2020-10-10 10:21:10, set the start_date to 2020-10-10 or later'
+  kind: string
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
+- description: Airbyte image to run
+  kind: string
+  label: Airbyte Spec Image
+  name: airbyte_spec.image
+  value: airbyte/source-senseforce
+- description: Airbyte image tag
+  kind: string
+  label: Airbyte Spec Tag
+  name: airbyte_spec.tag
+  value: latest
+- description: Docker mounts to make available to the Airbyte container. Expects a
+    list of maps containing source, target, and type as is documented in the docker
+    --mount documentation
+  kind: array
+  label: Docker Mounts
+  name: docker_mounts
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -96,13 +87,22 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
 - - airbyte_config.access_token
-  - airbyte_config.dataset_id
   - airbyte_config.backend_url
-  - airbyte_spec.image
-  - airbyte_spec
+  - airbyte_config.dataset_id
   - airbyte_config.start_date
+  - airbyte_spec
+  - airbyte_spec.image
 settings_preamble: ''
 usage: ''
 variant: airbyte

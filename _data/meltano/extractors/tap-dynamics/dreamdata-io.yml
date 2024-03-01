@@ -23,18 +23,6 @@ settings:
   label: Client ID
   name: client_id
   sensitive: true
-- description: "Determines how much historical data will be extracted. Please be aware\n
-    that the larger the time period and amount of data, the longer the initial extraction\n
-    can be expected to take."
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
-- description: The redirect URI to use for auth.
-  label: Redirect Uri
-  name: redirect_uri
-- description: Your domain. E.g. `dreamdata.crm4`.
-  label: Domain
-  name: domain
 - description: Your Dynamics client secret. See [the 
     docs](https://learn.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/use-microsoft-dynamics-365-web-api?view=op-9-1)
     for more details.
@@ -42,6 +30,12 @@ settings:
   label: Client Secret
   name: client_secret
   sensitive: true
+- description: Your domain. E.g. `dreamdata.crm4`.
+  label: Domain
+  name: domain
+- description: The redirect URI to use for auth.
+  label: Redirect Uri
+  name: redirect_uri
 - description: Your Dynamics refresh token. See [the 
     docs](https://learn.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/use-microsoft-dynamics-365-web-api?view=op-9-1)
     for more details.
@@ -49,11 +43,17 @@ settings:
   label: Refresh Token
   name: refresh_token
   sensitive: true
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
 settings_group_validation:
 - - client_id
-  - start_date
-  - redirect_uri
-  - domain
   - client_secret
+  - domain
+  - redirect_uri
   - refresh_token
+  - start_date
 variant: dreamdata-io

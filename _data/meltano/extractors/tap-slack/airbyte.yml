@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Team communication tool
 domain_url: https://slack.com/
 executable: tap-airbyte
@@ -21,6 +21,54 @@ quality: bronze
 repo: 
   https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-slack
 settings:
+- description: A channel name list (without leading '#' char) which limit the channels
+    from which you'd like to sync. Empty list means no filter.
+  kind: array
+  label: Airbyte Config Channel Filter
+  name: airbyte_config.channel_filter
+- description: Slack access_token. See our <a href="https://docs.airbyte.com/integrations/sources/slack">docs</a>
+    if you need help generating the token.
+  kind: password
+  label: Airbyte Config Credentials Access Token
+  name: airbyte_config.credentials.access_token
+  sensitive: true
+- description: A Slack bot token. See the <a href="https://docs.airbyte.com/integrations/sources/slack">docs</a>
+    for instructions on how to generate it.
+  kind: password
+  label: Airbyte Config Credentials Api Token
+  name: airbyte_config.credentials.api_token
+  sensitive: true
+- description: Slack client_id. See our <a href="https://docs.airbyte.com/integrations/sources/slack">docs</a>
+    if you need help finding this id.
+  kind: password
+  label: Airbyte Config Credentials Client Id
+  name: airbyte_config.credentials.client_id
+  sensitive: true
+- description: Slack client_secret. See our <a href="https://docs.airbyte.com/integrations/sources/slack">docs</a>
+    if you need help finding this secret.
+  kind: password
+  label: Airbyte Config Credentials Client Secret
+  name: airbyte_config.credentials.client_secret
+  sensitive: true
+- description: Default OAuth2.0 authorization, API Token Credentials
+  kind: string
+  label: Airbyte Config Credentials Option Title
+  name: airbyte_config.credentials.option_title
+- description: "Whether to join all channels or to sync data only from channels the
+    bot is already in.  If false, you'll need to manually add the bot to all the channels
+    from which you'd like to sync messages. "
+  kind: boolean
+  label: Airbyte Config Join Channels
+  name: airbyte_config.join_channels
+- description: How far into the past to look for messages in threads.
+  kind: integer
+  label: Airbyte Config Lookback Window
+  name: airbyte_config.lookback_window
+- description: UTC date and time in the format 2017-01-25T00:00:00Z. Any data before
+    this date will not be replicated.
+  kind: string
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -37,63 +85,6 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: UTC date and time in the format 2017-01-25T00:00:00Z. Any data before
-    this date will not be replicated.
-  kind: string
-  label: Airbyte Config Start Date
-  name: airbyte_config.start_date
-- description: How far into the past to look for messages in threads.
-  kind: integer
-  label: Airbyte Config Lookback Window
-  name: airbyte_config.lookback_window
-- description: "Whether to join all channels or to sync data only from channels the
-    bot is already in.  If false, you'll need to manually add the bot to all the channels
-    from which you'd like to sync messages. "
-  kind: boolean
-  label: Airbyte Config Join Channels
-  name: airbyte_config.join_channels
-- description: A channel name list (without leading '#' char) which limit the channels
-    from which you'd like to sync. Empty list means no filter.
-  kind: array
-  label: Airbyte Config Channel Filter
-  name: airbyte_config.channel_filter
-- description: Default OAuth2.0 authorization, API Token Credentials
-  kind: string
-  label: Airbyte Config Credentials Option Title
-  name: airbyte_config.credentials.option_title
-- description: Slack client_id. See our <a href="https://docs.airbyte.com/integrations/sources/slack">docs</a>
-    if you need help finding this id.
-  kind: password
-  label: Airbyte Config Credentials Client Id
-  name: airbyte_config.credentials.client_id
-  sensitive: true
-- description: Slack client_secret. See our <a href="https://docs.airbyte.com/integrations/sources/slack">docs</a>
-    if you need help finding this secret.
-  kind: password
-  label: Airbyte Config Credentials Client Secret
-  name: airbyte_config.credentials.client_secret
-  sensitive: true
-- description: Slack access_token. See our <a href="https://docs.airbyte.com/integrations/sources/slack">docs</a>
-    if you need help generating the token.
-  kind: password
-  label: Airbyte Config Credentials Access Token
-  name: airbyte_config.credentials.access_token
-  sensitive: true
-- description: A Slack bot token. See the <a href="https://docs.airbyte.com/integrations/sources/slack">docs</a>
-    for instructions on how to generate it.
-  kind: password
-  label: Airbyte Config Credentials Api Token
-  name: airbyte_config.credentials.api_token
-  sensitive: true
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -103,10 +94,19 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - airbyte_config.start_date
-  - airbyte_config.join_channels
+- - airbyte_config.join_channels
   - airbyte_config.lookback_window
+  - airbyte_config.start_date
   - airbyte_spec.image
 settings_preamble: ''
 usage: ''

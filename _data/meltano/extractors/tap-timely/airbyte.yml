@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Time Management App
 domain_url: https://timelyapp.com/
 executable: tap-airbyte
@@ -21,6 +21,20 @@ quality: bronze
 repo: 
   https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-timely
 settings:
+- description: Timely account id
+  kind: password
+  label: Airbyte Config Account Id
+  name: airbyte_config.account_id
+  sensitive: true
+- description: Timely bearer token
+  kind: password
+  label: Airbyte Config Bearer Token
+  name: airbyte_config.bearer_token
+  sensitive: true
+- description: start date
+  kind: string
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -37,29 +51,6 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: Timely account id
-  kind: password
-  label: Airbyte Config Account Id
-  name: airbyte_config.account_id
-  sensitive: true
-- description: start date
-  kind: string
-  label: Airbyte Config Start Date
-  name: airbyte_config.start_date
-- description: Timely bearer token
-  kind: password
-  label: Airbyte Config Bearer Token
-  name: airbyte_config.bearer_token
-  sensitive: true
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -69,11 +60,20 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - connector_config.bearer_token
-  - connector_config.start_date
-  - airbyte_spec.image
+- - airbyte_spec.image
   - connector_config.account_id
+  - connector_config.bearer_token
+  - connector_config.start_date
 settings_preamble: ''
 usage: ''
 variant: airbyte

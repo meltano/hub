@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Online payment processing for internet businesses
 domain_url: https://stripe.com/docs/api
 executable: tap-airbyte
@@ -21,6 +21,34 @@ quality: bronze
 repo: 
   https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-stripe
 settings:
+- description: Your Stripe account ID (starts with 'acct_', find yours <a href="https://dashboard.stripe.com/settings/account">here</a>).
+  kind: password
+  label: Airbyte Config Account Id
+  name: airbyte_config.account_id
+  sensitive: true
+- description: Stripe API key (usually starts with 'sk_live_'; find yours <a href="https://dashboard.stripe.com/apikeys">here</a>).
+  kind: password
+  label: Airbyte Config Client Secret
+  name: airbyte_config.client_secret
+  sensitive: true
+- description: When set, the connector will always re-export data from the past N
+    days, where N is the value set here. This is useful if your data is frequently
+    updated after creation. More info <a 
+    href="https://docs.airbyte.com/integrations/sources/stripe#requirements">here</a>
+  kind: integer
+  label: Airbyte Config Lookback Window Days
+  name: airbyte_config.lookback_window_days
+- description: The time increment used by the connector when requesting data from
+    the Stripe API. The bigger the value is, the less requests will be made and faster
+    the sync will be. On the other hand, the more seldom the state is persisted.
+  kind: integer
+  label: Airbyte Config Slice Range
+  name: airbyte_config.slice_range
+- description: UTC date and time in the format 2017-01-25T00:00:00Z. Only data generated
+    after this date will be replicated.
+  kind: string
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -37,43 +65,6 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: Your Stripe account ID (starts with 'acct_', find yours <a href="https://dashboard.stripe.com/settings/account">here</a>).
-  kind: password
-  label: Airbyte Config Account Id
-  name: airbyte_config.account_id
-  sensitive: true
-- description: Stripe API key (usually starts with 'sk_live_'; find yours <a href="https://dashboard.stripe.com/apikeys">here</a>).
-  kind: password
-  label: Airbyte Config Client Secret
-  name: airbyte_config.client_secret
-  sensitive: true
-- description: UTC date and time in the format 2017-01-25T00:00:00Z. Only data generated
-    after this date will be replicated.
-  kind: string
-  label: Airbyte Config Start Date
-  name: airbyte_config.start_date
-- description: When set, the connector will always re-export data from the past N
-    days, where N is the value set here. This is useful if your data is frequently
-    updated after creation. More info <a 
-    href="https://docs.airbyte.com/integrations/sources/stripe#requirements">here</a>
-  kind: integer
-  label: Airbyte Config Lookback Window Days
-  name: airbyte_config.lookback_window_days
-- description: The time increment used by the connector when requesting data from
-    the Stripe API. The bigger the value is, the less requests will be made and faster
-    the sync will be. On the other hand, the more seldom the state is persisted.
-  kind: integer
-  label: Airbyte Config Slice Range
-  name: airbyte_config.slice_range
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -83,12 +74,21 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - airbyte_spec
-  - airbyte_config.account_id
-  - airbyte_spec.image
-  - airbyte_config.start_date
+- - airbyte_config.account_id
   - airbyte_config.client_secret
+  - airbyte_config.start_date
+  - airbyte_spec
+  - airbyte_spec.image
 settings_preamble: ''
 usage: ''
 variant: airbyte

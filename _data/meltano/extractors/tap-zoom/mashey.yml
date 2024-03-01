@@ -21,13 +21,6 @@ prereq: |
 quality: silver
 repo: https://github.com/mashey/tap-zoom
 settings:
-- description: Your Zoom JSON Web Token. The JWT is likely the easiest option for
-    tap users. Configure the JWT with a very long expiry so it does not expire.
-  documentation: https://marketplace.zoom.us/docs/guides/auth/jwt
-  kind: password
-  label: JSON Web Token
-  name: jwt
-  sensitive: true
 - description: |
     Your Zoom Client ID - example from docs: `7lstjK9NTyett_oeXtFiEQ`. See the [Zoom OAuth App Credentials documentation](https://marketplace.zoom.us/docs/guides/build/oauth-app#app-credentials) for more information.
   documentation: https://marketplace.zoom.us/docs/guides/auth/oauth
@@ -41,6 +34,13 @@ settings:
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
+- description: Your Zoom JSON Web Token. The JWT is likely the easiest option for
+    tap users. Configure the JWT with a very long expiry so it does not expire.
+  documentation: https://marketplace.zoom.us/docs/guides/auth/jwt
+  kind: password
+  label: JSON Web Token
+  name: jwt
   sensitive: true
 - description: The Zoom Refresh Token that is provided after successfully authenticating
     with Zoom. See the [Zoom OAuth Access Token Request 

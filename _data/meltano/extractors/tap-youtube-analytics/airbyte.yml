@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Video Streaming Platform
 domain_url: https://developers.google.com/youtube/
 executable: tap-airbyte
@@ -21,6 +21,21 @@ quality: bronze
 repo: 
   https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-youtube-analytics
 settings:
+- description: The Client ID of your developer application
+  kind: password
+  label: Airbyte Config Credentials Client Id
+  name: airbyte_config.credentials.client_id
+  sensitive: true
+- description: The client secret of your developer application
+  kind: password
+  label: Airbyte Config Credentials Client Secret
+  name: airbyte_config.credentials.client_secret
+  sensitive: true
+- description: A refresh token generated using the above client ID and secret
+  kind: password
+  label: Airbyte Config Credentials Refresh Token
+  name: airbyte_config.credentials.refresh_token
+  sensitive: true
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -37,30 +52,6 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: The Client ID of your developer application
-  kind: password
-  label: Airbyte Config Credentials Client Id
-  name: airbyte_config.credentials.client_id
-  sensitive: true
-- description: The client secret of your developer application
-  kind: password
-  label: Airbyte Config Credentials Client Secret
-  name: airbyte_config.credentials.client_secret
-  sensitive: true
-- description: A refresh token generated using the above client ID and secret
-  kind: password
-  label: Airbyte Config Credentials Refresh Token
-  name: airbyte_config.credentials.refresh_token
-  sensitive: true
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -70,12 +61,21 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - airbyte_spec
-  - airbyte_config.credentials.refresh_token
-  - airbyte_config.credentials.client_id
-  - airbyte_spec.image
+- - airbyte_config.credentials.client_id
   - airbyte_config.credentials.client_secret
+  - airbyte_config.credentials.refresh_token
+  - airbyte_spec
+  - airbyte_spec.image
 settings_preamble: ''
 usage: ''
 variant: airbyte

@@ -22,11 +22,6 @@ settings:
   label: Access Token
   name: access_token
   sensitive: true
-- description: Your Exact refresh token.
-  kind: password
-  label: Refresh Token
-  name: refresh_token
-  sensitive: true
 - description: Your Exact client ID.
   kind: password
   label: Client ID
@@ -41,11 +36,16 @@ settings:
   kind: string
   label: Current Division
   name: current_division
+- description: Your Exact refresh token.
+  kind: password
+  label: Refresh Token
+  name: refresh_token
+  sensitive: true
 settings_group_validation:
-- - refresh_token
-  - client_id
+- - client_id
   - client_secret
   - current_division
+  - refresh_token
 settings_preamble: ''
 usage: ''
 variant: hotgluexyz

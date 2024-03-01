@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Google Directory
 domain_url: https://developers.google.com/admin-sdk/directory/v1/guides
 executable: tap-airbyte
@@ -21,6 +21,39 @@ quality: bronze
 repo: 
   https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-google-directory
 settings:
+- description: The Client ID of the developer application.
+  kind: password
+  label: Airbyte Config Credentials Client Id
+  name: airbyte_config.credentials.client_id
+  sensitive: true
+- description: The Client Secret of the developer application.
+  kind: password
+  label: Airbyte Config Credentials Client Secret
+  name: airbyte_config.credentials.client_secret
+  sensitive: true
+- description: The contents of the JSON service account key. See the <a 
+    href="https://developers.google.com/admin-sdk/directory/v1/guides/delegation">docs</a>
+    for more information on how to generate this key.
+  kind: string
+  label: Airbyte Config Credentials Credentials Json
+  name: airbyte_config.credentials.credentials_json
+- description: Web server app, Service accounts
+  kind: options
+  label: Airbyte Config Credentials Credentials Title
+  name: airbyte_config.credentials.credentials_title
+  options:
+  - label: Web Server App
+    value: Web server app
+- description: The email of the user, which has permissions to access the Google Workspace
+    Admin APIs.
+  kind: string
+  label: Airbyte Config Credentials Email
+  name: airbyte_config.credentials.email
+- description: The Token for obtaining a new access token.
+  kind: password
+  label: Airbyte Config Credentials Refresh Token
+  name: airbyte_config.credentials.refresh_token
+  sensitive: true
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -37,48 +70,6 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: Web server app, Service accounts
-  kind: options
-  label: Airbyte Config Credentials Credentials Title
-  name: airbyte_config.credentials.credentials_title
-  options:
-  - label: Web Server App
-    value: Web server app
-- description: The Client ID of the developer application.
-  kind: password
-  label: Airbyte Config Credentials Client Id
-  name: airbyte_config.credentials.client_id
-  sensitive: true
-- description: The Client Secret of the developer application.
-  kind: password
-  label: Airbyte Config Credentials Client Secret
-  name: airbyte_config.credentials.client_secret
-  sensitive: true
-- description: The Token for obtaining a new access token.
-  kind: password
-  label: Airbyte Config Credentials Refresh Token
-  name: airbyte_config.credentials.refresh_token
-  sensitive: true
-- description: The contents of the JSON service account key. See the <a 
-    href="https://developers.google.com/admin-sdk/directory/v1/guides/delegation">docs</a>
-    for more information on how to generate this key.
-  kind: string
-  label: Airbyte Config Credentials Credentials Json
-  name: airbyte_config.credentials.credentials_json
-- description: The email of the user, which has permissions to access the Google Workspace
-    Admin APIs.
-  kind: string
-  label: Airbyte Config Credentials Email
-  name: airbyte_config.credentials.email
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -88,9 +79,18 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - airbyte_spec.image
-  - airbyte_spec
+- - airbyte_spec
+  - airbyte_spec.image
 settings_preamble: ''
 usage: ''
 variant: airbyte

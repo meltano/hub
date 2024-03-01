@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: API for Brewdog's DIY Dog
 domain_url: https://punkapi.com/documentation/v2
 executable: tap-airbyte
@@ -21,6 +21,19 @@ quality: bronze
 repo: 
   https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-punk-api
 settings:
+- description: To extract specific data with Unique ID
+  kind: string
+  label: Airbyte Config Brewed After
+  name: airbyte_config.brewed_after
+- description: To extract specific data with Unique ID
+  kind: string
+  label: Airbyte Config Brewed Before
+  name: airbyte_config.brewed_before
+- description: To extract specific data with Unique ID
+  kind: password
+  label: Airbyte Config Id
+  name: airbyte_config.id
+  sensitive: true
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -37,28 +50,6 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: To extract specific data with Unique ID
-  kind: password
-  label: Airbyte Config Id
-  name: airbyte_config.id
-  sensitive: true
-- description: To extract specific data with Unique ID
-  kind: string
-  label: Airbyte Config Brewed Before
-  name: airbyte_config.brewed_before
-- description: To extract specific data with Unique ID
-  kind: string
-  label: Airbyte Config Brewed After
-  name: airbyte_config.brewed_after
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -68,11 +59,20 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - airbyte_config.brewed_before
-  - airbyte_spec.image
+- - airbyte_config.brewed_after
+  - airbyte_config.brewed_before
   - airbyte_spec
-  - airbyte_config.brewed_after
+  - airbyte_spec.image
 settings_preamble: ''
 usage: ''
 variant: airbyte

@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Product Analytics Tool
 domain_url: https://mixpanel.com/
 executable: tap-airbyte
@@ -21,6 +21,77 @@ quality: silver
 repo: 
   https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-mixpanel
 settings:
+- description: ' A period of time for attributing results to ads and the lookback
+    period after those actions occur during which ad results are counted. Default
+    attribution window is 5 days.'
+  kind: integer
+  label: Airbyte Config Attribution Window
+  name: airbyte_config.attribution_window
+- description: Mixpanel project secret. See the <a 
+    href="https://developer.mixpanel.com/reference/project-secret#managing-a-projects-secret">docs</a>
+    for more information on how to obtain this.
+  kind: password
+  label: Airbyte Config Credentials Api Secret
+  name: airbyte_config.credentials.api_secret
+  sensitive: true
+- description: Service Account, Project Secret
+  kind: string
+  label: Airbyte Config Credentials Option Title
+  name: airbyte_config.credentials.option_title
+- description: Mixpanel Service Account Secret. See the <a href="https://developer.mixpanel.com/reference/service-accounts">docs</a>
+    for more information on how to obtain this.
+  kind: password
+  label: Airbyte Config Credentials Secret
+  name: airbyte_config.credentials.secret
+  sensitive: true
+- description: Mixpanel Service Account Username. See the <a href="https://developer.mixpanel.com/reference/service-accounts">docs</a>
+    for more information on how to obtain this.
+  kind: string
+  label: Airbyte Config Credentials Username
+  name: airbyte_config.credentials.username
+- description: Defines window size in days, that used to slice through data. You can
+    reduce it, if amount of data in each window is too big for your environment.
+  kind: integer
+  label: Airbyte Config Date Window Size
+  name: airbyte_config.date_window_size
+- description: The date in the format YYYY-MM-DD. Any data after this date will not
+    be replicated. Left empty to always sync to most recent date
+  kind: string
+  label: Airbyte Config End Date
+  name: airbyte_config.end_date
+- description: Your project ID number. See the <a 
+    href="https://help.mixpanel.com/hc/en-us/articles/115004490503-Project-Settings#project-id">docs</a>
+    for more information on how to obtain this.
+  kind: integer
+  label: Airbyte Config Project Id
+  name: airbyte_config.project_id
+- description: Time zone in which integer date times are stored. The project timezone
+    may be found in the project settings in the <a 
+    href="https://help.mixpanel.com/hc/en-us/articles/115004547203-Manage-Timezones-for-Projects-in-Mixpanel">Mixpanel
+    console</a>.
+  kind: string
+  label: Airbyte Config Project Timezone
+  name: airbyte_config.project_timezone
+- description: The region of mixpanel domain instance either US or EU.
+  kind: options
+  label: Airbyte Config Region
+  name: airbyte_config.region
+  options:
+  - label: Us
+    value: US
+  - label: Eu
+    value: EU
+- description: Setting this config parameter to TRUE ensures that new properties on
+    events and engage records are captured. Otherwise new properties will be ignored.
+  kind: boolean
+  label: Airbyte Config Select Properties By Default
+  name: airbyte_config.select_properties_by_default
+- description: The date in the format YYYY-MM-DD. Any data before this date will not
+    be replicated. If this option is not set, the connector will replicate data from
+    up to one year ago by default.
+  kind: string
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -37,86 +108,6 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: Service Account, Project Secret
-  kind: string
-  label: Airbyte Config Credentials Option Title
-  name: airbyte_config.credentials.option_title
-- description: Mixpanel Service Account Username. See the <a href="https://developer.mixpanel.com/reference/service-accounts">docs</a>
-    for more information on how to obtain this.
-  kind: string
-  label: Airbyte Config Credentials Username
-  name: airbyte_config.credentials.username
-- description: Mixpanel Service Account Secret. See the <a href="https://developer.mixpanel.com/reference/service-accounts">docs</a>
-    for more information on how to obtain this.
-  kind: password
-  label: Airbyte Config Credentials Secret
-  name: airbyte_config.credentials.secret
-  sensitive: true
-- description: Mixpanel project secret. See the <a 
-    href="https://developer.mixpanel.com/reference/project-secret#managing-a-projects-secret">docs</a>
-    for more information on how to obtain this.
-  kind: password
-  label: Airbyte Config Credentials Api Secret
-  name: airbyte_config.credentials.api_secret
-  sensitive: true
-- description: Your project ID number. See the <a 
-    href="https://help.mixpanel.com/hc/en-us/articles/115004490503-Project-Settings#project-id">docs</a>
-    for more information on how to obtain this.
-  kind: integer
-  label: Airbyte Config Project Id
-  name: airbyte_config.project_id
-- description: ' A period of time for attributing results to ads and the lookback
-    period after those actions occur during which ad results are counted. Default
-    attribution window is 5 days.'
-  kind: integer
-  label: Airbyte Config Attribution Window
-  name: airbyte_config.attribution_window
-- description: Time zone in which integer date times are stored. The project timezone
-    may be found in the project settings in the <a 
-    href="https://help.mixpanel.com/hc/en-us/articles/115004547203-Manage-Timezones-for-Projects-in-Mixpanel">Mixpanel
-    console</a>.
-  kind: string
-  label: Airbyte Config Project Timezone
-  name: airbyte_config.project_timezone
-- description: Setting this config parameter to TRUE ensures that new properties on
-    events and engage records are captured. Otherwise new properties will be ignored.
-  kind: boolean
-  label: Airbyte Config Select Properties By Default
-  name: airbyte_config.select_properties_by_default
-- description: The date in the format YYYY-MM-DD. Any data before this date will not
-    be replicated. If this option is not set, the connector will replicate data from
-    up to one year ago by default.
-  kind: string
-  label: Airbyte Config Start Date
-  name: airbyte_config.start_date
-- description: The date in the format YYYY-MM-DD. Any data after this date will not
-    be replicated. Left empty to always sync to most recent date
-  kind: string
-  label: Airbyte Config End Date
-  name: airbyte_config.end_date
-- description: The region of mixpanel domain instance either US or EU.
-  kind: options
-  label: Airbyte Config Region
-  name: airbyte_config.region
-  options:
-  - label: Us
-    value: US
-  - label: Eu
-    value: EU
-- description: Defines window size in days, that used to slice through data. You can
-    reduce it, if amount of data in each window is too big for your environment.
-  kind: integer
-  label: Airbyte Config Date Window Size
-  name: airbyte_config.date_window_size
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -126,9 +117,18 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - airbyte_spec.image
-  - airbyte_spec
+- - airbyte_spec
+  - airbyte_spec.image
 settings_preamble: ''
 usage: ''
 variant: airbyte

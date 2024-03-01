@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: B2B Marketing Automation Software
 domain_url: https://www.pardot.com/
 executable: tap-airbyte
@@ -21,6 +21,40 @@ quality: bronze
 repo: 
   https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-pardot
 settings:
+- description: The Consumer Key that can be found when viewing your app in Salesforce
+  kind: password
+  label: Airbyte Config Client Id
+  name: airbyte_config.client_id
+  sensitive: true
+- description: The Consumer Secret that can be found when viewing your app in Salesforce
+  kind: password
+  label: Airbyte Config Client Secret
+  name: airbyte_config.client_secret
+  sensitive: true
+- description: Whether or not the the app is in a Salesforce sandbox. If you do not
+    know what this, assume it is false.
+  kind: boolean
+  label: Airbyte Config Is Sandbox
+  name: airbyte_config.is_sandbox
+- description: Pardot Business ID, can be found at Setup > Pardot > Pardot Account
+    Setup
+  kind: password
+  label: Airbyte Config Pardot Business Unit Id
+  name: airbyte_config.pardot_business_unit_id
+  sensitive: true
+- description: Salesforce Refresh Token used for Airbyte to access your Salesforce
+    account. If you don't know what this is, follow this <a 
+    href="https://medium.com/@bpmmendis94/obtain-access-refresh-tokens-from-salesforce-rest-api-a324fe4ccd9b">guide</a>
+    to retrieve it.
+  kind: password
+  label: Airbyte Config Refresh Token
+  name: airbyte_config.refresh_token
+  sensitive: true
+- description: UTC date and time in the format 2017-01-25T00:00:00Z. Any data before
+    this date will not be replicated. Leave blank to skip this filter
+  kind: string
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -37,49 +71,6 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: Pardot Business ID, can be found at Setup > Pardot > Pardot Account
-    Setup
-  kind: password
-  label: Airbyte Config Pardot Business Unit Id
-  name: airbyte_config.pardot_business_unit_id
-  sensitive: true
-- description: The Consumer Key that can be found when viewing your app in Salesforce
-  kind: password
-  label: Airbyte Config Client Id
-  name: airbyte_config.client_id
-  sensitive: true
-- description: The Consumer Secret that can be found when viewing your app in Salesforce
-  kind: password
-  label: Airbyte Config Client Secret
-  name: airbyte_config.client_secret
-  sensitive: true
-- description: Salesforce Refresh Token used for Airbyte to access your Salesforce
-    account. If you don't know what this is, follow this <a 
-    href="https://medium.com/@bpmmendis94/obtain-access-refresh-tokens-from-salesforce-rest-api-a324fe4ccd9b">guide</a>
-    to retrieve it.
-  kind: password
-  label: Airbyte Config Refresh Token
-  name: airbyte_config.refresh_token
-  sensitive: true
-- description: UTC date and time in the format 2017-01-25T00:00:00Z. Any data before
-    this date will not be replicated. Leave blank to skip this filter
-  kind: string
-  label: Airbyte Config Start Date
-  name: airbyte_config.start_date
-- description: Whether or not the the app is in a Salesforce sandbox. If you do not
-    know what this, assume it is false.
-  kind: boolean
-  label: Airbyte Config Is Sandbox
-  name: airbyte_config.is_sandbox
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -89,13 +80,22 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - airbyte_spec
-  - airbyte_config.refresh_token
-  - airbyte_spec.image
+- - airbyte_config.client_id
   - airbyte_config.client_secret
-  - airbyte_config.client_id
   - airbyte_config.pardot_business_unit_id
+  - airbyte_config.refresh_token
+  - airbyte_spec
+  - airbyte_spec.image
 settings_preamble: ''
 usage: ''
 variant: airbyte

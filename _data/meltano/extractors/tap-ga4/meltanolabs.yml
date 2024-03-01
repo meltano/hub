@@ -146,18 +146,18 @@ settings:
   label: Stream Maps
   name: stream_maps
 settings_group_validation:
-- - property_id
+- - client_secrets
+  - property_id
   - start_date
-  - client_secrets
-- - property_id
+- - key_file_location
+  - property_id
   - start_date
-  - key_file_location
-- - property_id
-  - start_date
-  - oauth_credentials.access_token
+- - oauth_credentials.access_token
   - oauth_credentials.client_id
   - oauth_credentials.client_secret
   - oauth_credentials.refresh_token
+  - property_id
+  - start_date
 settings_preamble: ''
 usage: ''
 variant: meltanolabs

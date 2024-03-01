@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: News API
 domain_url: https://gnews.io/
 executable: tap-airbyte
@@ -21,99 +21,11 @@ quality: bronze
 repo: 
   https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-gnews
 settings:
-- description: Airbyte image to run
-  kind: string
-  label: Airbyte Spec Image
-  name: airbyte_spec.image
-  value: airbyte/source-gnews
-- description: Airbyte image tag
-  kind: string
-  label: Airbyte Spec Tag
-  name: airbyte_spec.tag
-  value: latest
-- description: Docker mounts to make available to the Airbyte container. Expects a
-    list of maps containing source, target, and type as is documented in the docker
-    --mount documentation
-  kind: array
-  label: Docker Mounts
-  name: docker_mounts
 - description: API Key
   kind: password
   label: Airbyte Config Api Key
   name: airbyte_config.api_key
   sensitive: true
-- description: "This parameter allows you to specify your search keywords to find
-    the news articles you are looking for. The keywords will be used to return the
-    most relevant articles. It is possible to use logical operators  with keywords.
-    - Phrase Search Operator: This operator allows you to make an exact search. Keywords
-    surrounded by \n  quotation marks are used to search for articles with the exact
-    same keyword sequence. \n  For example the query: \"Apple iPhone\" will return
-    articles matching at least once this sequence of keywords.\n- Logical AND Operator:
-    This operator allows you to make sure that several keywords are all used in the
-    article\n  search. By default the space character acts as an AND operator, it
-    is possible to replace the space character \n  by AND to obtain the same result.
-    For example the query: Apple Microsoft is equivalent to Apple AND Microsoft\n
-    - Logical OR Operator: This operator allows you to retrieve articles matching
-    the keyword a or the keyword b.\n  It is important to note that this operator
-    has a higher precedence than the AND operator. For example the \n  query: Apple
-    OR Microsoft will return all articles matching the keyword Apple as well as all
-    articles matching \n  the keyword Microsoft\n- Logical NOT Operator: This operator
-    allows you to remove from the results the articles corresponding to the\n  specified
-    keywords. To use it, you need to add NOT in front of each word or phrase surrounded
-    by quotes.\n  For example the query: Apple NOT iPhone will return all articles
-    matching the keyword Apple but not the keyword\n  iPhone"
-  kind: string
-  label: Airbyte Config Query
-  name: airbyte_config.query
-- description: ''
-  kind: options
-  label: Airbyte Config Language
-  name: airbyte_config.language
-  options:
-  - label: Ar
-    value: ar
-  - label: Zh
-    value: zh
-  - label: Nl
-    value: nl
-  - label: En
-    value: en
-  - label: Fr
-    value: fr
-  - label: De
-    value: de
-  - label: El
-    value: el
-  - label: He
-    value: he
-  - label: Hi
-    value: hi
-  - label: It
-    value: it
-  - label: Ja
-    value: ja
-  - label: Ml
-    value: ml
-  - label: Mr
-    value: mr
-  - label: No
-    value: no
-  - label: Pt
-    value: pt
-  - label: Ro
-    value: ro
-  - label: Ru
-    value: ru
-  - label: Es
-    value: es
-  - label: Sv
-    value: sv
-  - label: Ta
-    value: ta
-  - label: Te
-    value: te
-  - label: Uk
-    value: uk
 - description: This parameter allows you to specify the country where the news articles
     returned by the API were published, the contents of the articles are not necessarily
     related to the specified country. You have to set as value the 2 letters code
@@ -182,30 +94,96 @@ settings:
     value: gb
   - label: Us
     value: us
-- description: This parameter allows you to choose in which attributes the keywords
-    are searched. The attributes that can be set are title, description and content.
-    It is possible to combine several attributes.
-  kind: array
-  label: Airbyte Config In
-  name: airbyte_config.in
-- description: This parameter allows you to specify the attributes that you allow
-    to return null values. The attributes that  can be set are title, description
-    and content. It is possible to combine several attributes
-  kind: array
-  label: Airbyte Config Nullable
-  name: airbyte_config.nullable
-- description: 'This parameter allows you to filter the articles that have a publication
-    date greater than or equal to the  specified value. The date must respect the
-    following format: YYYY-MM-DD hh:mm:ss (in UTC)'
-  kind: string
-  label: Airbyte Config Start Date
-  name: airbyte_config.start_date
 - description: 'This parameter allows you to filter the articles that have a publication
     date smaller than or equal to the  specified value. The date must respect the
     following format: YYYY-MM-DD hh:mm:ss (in UTC)'
   kind: string
   label: Airbyte Config End Date
   name: airbyte_config.end_date
+- description: This parameter allows you to choose in which attributes the keywords
+    are searched. The attributes that can be set are title, description and content.
+    It is possible to combine several attributes.
+  kind: array
+  label: Airbyte Config In
+  name: airbyte_config.in
+- description: ''
+  kind: options
+  label: Airbyte Config Language
+  name: airbyte_config.language
+  options:
+  - label: Ar
+    value: ar
+  - label: Zh
+    value: zh
+  - label: Nl
+    value: nl
+  - label: En
+    value: en
+  - label: Fr
+    value: fr
+  - label: De
+    value: de
+  - label: El
+    value: el
+  - label: He
+    value: he
+  - label: Hi
+    value: hi
+  - label: It
+    value: it
+  - label: Ja
+    value: ja
+  - label: Ml
+    value: ml
+  - label: Mr
+    value: mr
+  - label: No
+    value: no
+  - label: Pt
+    value: pt
+  - label: Ro
+    value: ro
+  - label: Ru
+    value: ru
+  - label: Es
+    value: es
+  - label: Sv
+    value: sv
+  - label: Ta
+    value: ta
+  - label: Te
+    value: te
+  - label: Uk
+    value: uk
+- description: This parameter allows you to specify the attributes that you allow
+    to return null values. The attributes that  can be set are title, description
+    and content. It is possible to combine several attributes
+  kind: array
+  label: Airbyte Config Nullable
+  name: airbyte_config.nullable
+- description: "This parameter allows you to specify your search keywords to find
+    the news articles you are looking for. The keywords will be used to return the
+    most relevant articles. It is possible to use logical operators  with keywords.
+    - Phrase Search Operator: This operator allows you to make an exact search. Keywords
+    surrounded by \n  quotation marks are used to search for articles with the exact
+    same keyword sequence. \n  For example the query: \"Apple iPhone\" will return
+    articles matching at least once this sequence of keywords.\n- Logical AND Operator:
+    This operator allows you to make sure that several keywords are all used in the
+    article\n  search. By default the space character acts as an AND operator, it
+    is possible to replace the space character \n  by AND to obtain the same result.
+    For example the query: Apple Microsoft is equivalent to Apple AND Microsoft\n
+    - Logical OR Operator: This operator allows you to retrieve articles matching
+    the keyword a or the keyword b.\n  It is important to note that this operator
+    has a higher precedence than the AND operator. For example the \n  query: Apple
+    OR Microsoft will return all articles matching the keyword Apple as well as all
+    articles matching \n  the keyword Microsoft\n- Logical NOT Operator: This operator
+    allows you to remove from the results the articles corresponding to the\n  specified
+    keywords. To use it, you need to add NOT in front of each word or phrase surrounded
+    by quotes.\n  For example the query: Apple NOT iPhone will return all articles
+    matching the keyword Apple but not the keyword\n  iPhone"
+  kind: string
+  label: Airbyte Config Query
+  name: airbyte_config.query
 - description: "This parameter allows you to choose with which type of sorting the
     articles should be returned. Two values  are possible:\n  - publishedAt = sort
     by publication date, the articles with the most recent publication date are returned
@@ -219,6 +197,12 @@ settings:
     value: publishedAt
   - label: Relevance
     value: relevance
+- description: 'This parameter allows you to filter the articles that have a publication
+    date greater than or equal to the  specified value. The date must respect the
+    following format: YYYY-MM-DD hh:mm:ss (in UTC)'
+  kind: string
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
 - description: "This parameter allows you to specify your search keywords to find
     the news articles you are looking for. The keywords will be used to return the
     most relevant articles. It is possible to use logical operators  with keywords.
@@ -265,15 +249,22 @@ settings:
     value: science
   - label: Health
     value: health
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
+- description: Airbyte image to run
+  kind: string
+  label: Airbyte Spec Image
+  name: airbyte_spec.image
+  value: airbyte/source-gnews
+- description: Airbyte image tag
+  kind: string
+  label: Airbyte Spec Tag
+  name: airbyte_spec.tag
+  value: latest
+- description: Docker mounts to make available to the Airbyte container. Expects a
+    list of maps containing source, target, and type as is documented in the docker
+    --mount documentation
+  kind: array
+  label: Docker Mounts
+  name: docker_mounts
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -283,11 +274,20 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
 - - airbyte_config.api_key
-  - airbyte_spec.image
-  - airbyte_spec
   - airbyte_config.query
+  - airbyte_spec
+  - airbyte_spec.image
 settings_preamble: ''
 usage: ''
 variant: airbyte

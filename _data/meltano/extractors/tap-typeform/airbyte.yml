@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Survey and Form Software
 domain_url: https://developer.typeform.com/
 executable: tap-airbyte
@@ -21,6 +21,23 @@ quality: silver
 repo: 
   https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-typeform
 settings:
+- description: When this parameter is set, the connector will replicate data only
+    from the input forms. Otherwise, all forms in your Typeform account will be replicated.
+    You can find form IDs in your form URLs. For example, in the URL "https://mysite.typeform.com/to/u6nXL7"
+    the form_id is u6nXL7. You can find form URLs on Share panel
+  kind: array
+  label: Airbyte Config Form Ids
+  name: airbyte_config.form_ids
+- description: 'UTC date and time in the format: YYYY-MM-DDTHH:mm:ss[Z]. Any data
+    before this date will not be replicated.'
+  kind: string
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
+- description: The API Token for a Typeform account.
+  kind: password
+  label: Airbyte Config Token
+  name: airbyte_config.token
+  sensitive: true
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -37,32 +54,6 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: 'UTC date and time in the format: YYYY-MM-DDTHH:mm:ss[Z]. Any data
-    before this date will not be replicated.'
-  kind: string
-  label: Airbyte Config Start Date
-  name: airbyte_config.start_date
-- description: The API Token for a Typeform account.
-  kind: password
-  label: Airbyte Config Token
-  name: airbyte_config.token
-  sensitive: true
-- description: When this parameter is set, the connector will replicate data only
-    from the input forms. Otherwise, all forms in your Typeform account will be replicated.
-    You can find form IDs in your form URLs. For example, in the URL "https://mysite.typeform.com/to/u6nXL7"
-    the form_id is u6nXL7. You can find form URLs on Share panel
-  kind: array
-  label: Airbyte Config Form Ids
-  name: airbyte_config.form_ids
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -72,11 +63,20 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - airbyte_config.token
-  - airbyte_spec.image
+- - airbyte_config.start_date
+  - airbyte_config.token
   - airbyte_spec
-  - airbyte_config.start_date
+  - airbyte_spec.image
 settings_preamble: ''
 usage: ''
 variant: airbyte

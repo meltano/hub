@@ -1,6 +1,6 @@
 capabilities:
-- properties
 - discover
+- properties
 - state
 description: Business Management Software
 domain_url: https://www.netsuite.com/
@@ -15,6 +15,12 @@ pip_url: git+https://github.com/hotgluexyz/tap-netsuite.git
 quality: silver
 repo: https://github.com/hotgluexyz/tap-netsuite
 settings:
+- description: The is_sandbox should always be set to "true" if you are connecting
+    Production account of NetSuite. Set it to false if you want to connect to SandBox
+    acccount.
+  kind: boolean
+  label: Is Sandbox
+  name: is_sandbox
 - description: Your account Id. This can be found under Setup -> Company -> Company
     Information. Look for Account Id. Note "_SB" is for Sandbox account.
   label: NetSuite Account
@@ -56,12 +62,6 @@ settings:
   kind: boolean
   label: Select Fields By Default
   name: select_fields_by_default
-- description: The is_sandbox should always be set to "true" if you are connecting
-    Production account of NetSuite. Set it to false if you want to connect to SandBox
-    acccount.
-  kind: boolean
-  label: Is Sandbox
-  name: is_sandbox
 - description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.

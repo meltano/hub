@@ -15,13 +15,15 @@ pip_url: twilio-tap-zendesk
 quality: silver
 repo: https://github.com/twilio-labs/twilio-tap-zendesk
 settings:
-- description: This is the email you use to login to your Zendesk dashboard. For API
-    Authentication, `/token` is automatically appended to the email address and is
-    not required in the configuration.
-  kind: email
-  label: Email
-  name: email
-  placeholder: Ex. me@my-organization.com
+- description: |
+    To use OAuth, you will need to fetch an `access_token` from a configured Zendesk integration.
+
+    See <https://support.zendesk.com/hc/en-us/articles/203663836>.
+  documentation: https://support.zendesk.com/hc/en-us/articles/203663836
+  kind: password
+  label: Access Token
+  name: access_token
+  sensitive: true
 - description: |
     #### How to get
 
@@ -53,15 +55,24 @@ settings:
   name: api_token
   placeholder: Ex. *****************
   sensitive: true
-- description: |
-    To use OAuth, you will need to fetch an `access_token` from a configured Zendesk integration.
-
-    See <https://support.zendesk.com/hc/en-us/articles/203663836>.
-  documentation: https://support.zendesk.com/hc/en-us/articles/203663836
-  kind: password
-  label: Access Token
-  name: access_token
-  sensitive: true
+- description: This is the email you use to login to your Zendesk dashboard. For API
+    Authentication, `/token` is automatically appended to the email address and is
+    not required in the configuration.
+  kind: email
+  label: Email
+  name: email
+  placeholder: Ex. me@my-organization.com
+- description: Sets a limit on how much data to extract in combination with start_date.
+    If passed, data would be loaded for date >= start_date and date < end_date.
+  kind: date_iso8601
+  label: End Date
+  name: end_date
+- description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
 - description: |
     When visiting your Zendesk instance, the URL is structured as follows: `SUBDOMAIN.zendesk.com`.
 
@@ -74,25 +85,14 @@ settings:
   label: Zendesk Subdomain
   name: subdomain
   placeholder: Ex. my-subdomain.zendesk.com
-- description: Determines how much historical data will be extracted. Please be aware
-    that the larger the time period and amount of data, the longer the initial extraction
-    can be expected to take.
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
-- description: Sets a limit on how much data to extract in combination with start_date.
-    If passed, data would be loaded for date >= start_date and date < end_date.
-  kind: date_iso8601
-  label: End Date
-  name: end_date
 settings_group_validation:
-- - email
-  - api_token
-  - subdomain
+- - api_token
+  - email
   - start_date
+  - subdomain
 - - access_token
-  - subdomain
   - start_date
+  - subdomain
 usage: |
   ### Sideloading for Tickets
 
