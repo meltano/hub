@@ -82,7 +82,7 @@ class YamlLint(str, Enum):
 
 
 @app.command()
-def yamllint(action: YamlLint, paths: List[str]):
+def yamllint(action: YamlLint, paths: List[str] | None = None):
     """
     Run yamllint on all yamls in the hub or a specific path.
     """
