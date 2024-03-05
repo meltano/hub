@@ -19,15 +19,17 @@ settings:
   kind: password
   label: Auth Token
   name: auth_token
+  sensitive: true
+- description: The name of your app and a contact email address should the API provider
+    need to contact you for any reason.
+  label: User Agent
+  name: user_agent
 - description: Name of the Mode workspace
   documentation: https://asknicely.asknice.ly/help/apidocs/auth
   kind: password
   label: Workspace
   name: workspace
-- description: The name of your app and a contact email address should the API provider
-    need to contact you for any reason.
-  label: User Agent
-  name: user_agent
+  sensitive: true
 settings_group_validation:
 - - auth_token
   - workspace

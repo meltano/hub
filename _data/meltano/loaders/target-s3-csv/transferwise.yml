@@ -13,41 +13,6 @@ pip_url: git+https://github.com/transferwise/pipelinewise-target-s3-csv.git
 quality: silver
 repo: https://github.com/transferwise/pipelinewise-target-s3-csv
 settings:
-- description: If not provided, AWS_ACCESS_KEY_ID environment variable will be used.
-  kind: password
-  label: S3 Access Key Id
-  name: aws_access_key_id
-- description: If not provided, AWS_SECRET_ACCESS_KEY environment variable will be
-    used.
-  kind: password
-  label: S3 Secret Access Key
-  name: aws_secret_access_key
-- description: If not provided, AWS_SESSION_TOKEN environment variable will be used.
-  kind: password
-  label: AWS Session token
-  name: aws_session_token
-- description: AWS endpoint URL
-  label: AWS endpoint URL
-  name: aws_endpoint_url
-- description: Name for profile based authentication. If not provided, AWS_PROFILE
-    environment variable will be used.
-  label: AWS profile
-  name: aws_profile
-- description: S3 Bucket name
-  label: S3 Bucket name
-  name: s3_bucket
-- description: (Default - None) A static prefix before the generated S3 key names.
-    Using prefixes you can
-  label: S3 Key Prefix
-  name: s3_key_prefix
-- description: (Default - ',') A one-character string used to separate fields.
-  label: Delimiter
-  name: delimiter
-- description: (Default - '"') A one-character string used to quote fields containing
-    special characters, such as the delimiter or quotechar, or which contain new-line
-    characters.
-  label: Quote Char
-  name: quotechar
 - description: (Default -  False) Metadata columns add extra row level information
     about data ingestions, (i.e. when was the row read in source, when was inserted
     or deleted in snowflake etc.) Metadata columns are creating automatically by adding
@@ -59,20 +24,46 @@ settings:
   kind: boolean
   label: Add Metadata Columns
   name: add_metadata_columns
-- description: (Default - 'none') The type of encryption to use. Current supported
-    options are - 'none' and 'KMS'.
+- description: If not provided, AWS_ACCESS_KEY_ID environment variable will be used.
+  kind: password
   label: S3 Access Key Id
-  name: encryption_type
-- description: A reference to the encryption key to use for data encryption. For KMS
-    encryption, this should be the name of the KMS encryption key ID (e.g. '1234abcd-1234-1234-1234-1234abcd1234').
-    This field is ignored if 'encryption_type' is none or blank.
-  label: Encryption Key
-  name: encryption_key
+  name: aws_access_key_id
+  sensitive: true
+- description: AWS endpoint URL
+  label: AWS endpoint URL
+  name: aws_endpoint_url
+- description: Name for profile based authentication. If not provided, AWS_PROFILE
+    environment variable will be used.
+  label: AWS profile
+  name: aws_profile
+- description: If not provided, AWS_SECRET_ACCESS_KEY environment variable will be
+    used.
+  kind: password
+  label: S3 Secret Access Key
+  name: aws_secret_access_key
+  sensitive: true
+- description: If not provided, AWS_SESSION_TOKEN environment variable will be used.
+  kind: password
+  label: AWS Session token
+  name: aws_session_token
+  sensitive: true
 - description: The type of compression to apply before uploading. Supported options
     are none (default) and gzip. For gzipped files, the file extension will automatically
     be changed to .csv.gz for all files.
   label: Compression
   name: compression
+- description: (Default - ',') A one-character string used to separate fields.
+  label: Delimiter
+  name: delimiter
+- description: A reference to the encryption key to use for data encryption. For KMS
+    encryption, this should be the name of the KMS encryption key ID (e.g. '1234abcd-1234-1234-1234-1234abcd1234').
+    This field is ignored if 'encryption_type' is none or blank.
+  label: Encryption Key
+  name: encryption_key
+- description: (Default - 'none') The type of encryption to use. Current supported
+    options are - 'none' and 'KMS'.
+  label: S3 Access Key Id
+  name: encryption_type
 - description: (Default - None) Custom naming convention of the s3 key. Replaces tokens
     date, stream, and timestamp with the appropriate values. Supports "folders" in
     s3 keys e.g. folder/folder2/{stream}/export_date={date}/{timestamp}.csv. Honors
@@ -80,6 +71,18 @@ settings:
     = folder1/my_file.csv and s3_key_prefix = prefix_ results in folder1/prefix_my_file.csv
   label: Naming Convention
   name: naming_convention
+- description: (Default - '"') A one-character string used to quote fields containing
+    special characters, such as the delimiter or quotechar, or which contain new-line
+    characters.
+  label: Quote Char
+  name: quotechar
+- description: S3 Bucket name
+  label: S3 Bucket name
+  name: s3_bucket
+- description: (Default - None) A static prefix before the generated S3 key names.
+    Using prefixes you can
+  label: S3 Key Prefix
+  name: s3_key_prefix
 - description: (Default - platform-dependent) Directory of temporary CSV files with
     RECORD messages.
   label: S3 Access Key Id

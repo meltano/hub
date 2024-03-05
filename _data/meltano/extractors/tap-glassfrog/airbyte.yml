@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Cloud-based software tool that makes Holacracy transparent and accessible,
   end-to-end
 domain_url: https://www.glassfrog.com/
@@ -19,8 +19,14 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-glassfrog
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-glassfrog
 settings:
+- description: API key provided by Glassfrog
+  kind: password
+  label: Airbyte Config Api Key
+  name: airbyte_config.api_key
+  sensitive: true
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -37,21 +43,8 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: API key provided by Glassfrog
-  kind: password
-  label: Airbyte Config Api Key
-  name: airbyte_config.api_key
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -59,6 +52,15 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
 - - airbyte_spec.image
   - connector_config.api_key

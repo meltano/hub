@@ -24,10 +24,12 @@ settings:
   kind: password
   label: API Account ID
   name: api_account_id
+  sensitive: true
 - description: Your DEAR systems API key.
   kind: password
   label: API Key
   name: api_key
+  sensitive: true
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean

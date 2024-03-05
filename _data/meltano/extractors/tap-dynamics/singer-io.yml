@@ -26,10 +26,12 @@ settings:
   kind: password
   label: Client Id
   name: client_id
+  sensitive: true
 - description: The Azure AD app client secret
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
 - description: The maximum number of records per page to request for pagination
   kind: integer
   label: Max Pagesize
@@ -47,6 +49,7 @@ settings:
   kind: password
   label: Refresh Token
   name: refresh_token
+  sensitive: true
 - description: The default value to use if no bookmark exists for an endpoint
   kind: date_iso8601
   label: Start Date

@@ -15,61 +15,64 @@ pip_url: tap-snapchat-ads
 quality: silver
 repo: https://github.com/singer-io/tap-snapchat-ads
 settings:
-- description: An array of account IDs to sync.
-  kind: array
-  label: Account IDs
-  name: org_account_ids
-- description: Your client secret.
-  kind: password
-  label: Client Secret
-  name: client_secret
-- description: Attribution window for views. 1_HOUR, 3_HOUR, 6_HOUR, 1_DAY (default),
-    7_DAY, 28_DAY.
-  label: View Attribution Window
-  name: view_attribution_window
-- description: Your refresh token.
-  kind: password
-  label: Refresh Token
-  name: refresh_token
-- description: The user agent to send with requests.
-  label: User Agent
-  name: user_agent
-- description: Attribution window for swipe ups. 1_DAY, 7_DAY, 28_DAY (default).
-  label: Swipe Up Attribution Window
-  name: swipe_up_attribution_window
-- description: The request page size. Default, 500.
-  kind: integer
-  label: Page Size
-  name: page_size
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
-    can be expected to take."
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
-- description: The time for which request should wait to get a response and the default
-    request_timeout is 300 seconds.
-  kind: integer
-  label: Request Timeout
-  name: request_timeout
 - description: Your client ID.
   kind: password
   label: Client ID
   name: client_id
+  sensitive: true
+- description: Your client secret.
+  kind: password
+  label: Client Secret
+  name: client_secret
+  sensitive: true
 - description: Omits records with zero data for all metrics for a given date/entity.
     If there is data for any metric for a given date/entity, all metrics for that
     date/entity are returned. A string representation of a boolean. Default, 'true'.
   label: Omit Empty
   name: omit_empty
+- description: An array of account IDs to sync.
+  kind: array
+  label: Account IDs
+  name: org_account_ids
+- description: The request page size. Default, 500.
+  kind: integer
+  label: Page Size
+  name: page_size
+- description: Your refresh token.
+  kind: password
+  label: Refresh Token
+  name: refresh_token
+  sensitive: true
+- description: The time for which request should wait to get a response and the default
+    request_timeout is 300 seconds.
+  kind: integer
+  label: Request Timeout
+  name: request_timeout
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: Attribution window for swipe ups. 1_DAY, 7_DAY, 28_DAY (default).
+  label: Swipe Up Attribution Window
+  name: swipe_up_attribution_window
 - description: Comma-delimited lists of lower-case 2-letter ISO Country Codes for
     Ads Targeting. Default, 'us'.
   label: Targeting Country Codes
   name: targeting_country_codes
+- description: The user agent to send with requests.
+  label: User Agent
+  name: user_agent
+- description: Attribution window for views. 1_HOUR, 3_HOUR, 6_HOUR, 1_DAY (default),
+    7_DAY, 28_DAY.
+  label: View Attribution Window
+  name: view_attribution_window
 settings_group_validation:
-- - org_account_ids
+- - client_id
   - client_secret
+  - org_account_ids
   - refresh_token
-  - user_agent
   - start_date
-  - client_id
+  - user_agent
 variant: singer-io

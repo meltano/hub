@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: App Review Management & ASO Platform
 domain_url: https://appfollow.io/
 executable: tap-airbyte
@@ -18,8 +18,29 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-appfollow
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-appfollow
 settings:
+- description: api secret provided by Appfollow
+  kind: password
+  label: Airbyte Config Api Secret
+  name: airbyte_config.api_secret
+  sensitive: true
+- description: client id provided by Appfollow
+  kind: password
+  label: Airbyte Config Cid
+  name: airbyte_config.cid
+  sensitive: true
+- description: getting data by Country
+  kind: string
+  label: Airbyte Config Country
+  name: airbyte_config.country
+- description: for App Store — this is 9-10 digits identification number; for Google
+    Play — this is bundle name;
+  kind: password
+  label: Airbyte Config Ext Id
+  name: airbyte_config.ext_id
+  sensitive: true
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -36,34 +57,8 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: for App Store — this is 9-10 digits identification number; for Google
-    Play — this is bundle name;
-  kind: password
-  label: Airbyte Config Ext Id
-  name: airbyte_config.ext_id
-- description: client id provided by Appfollow
-  kind: password
-  label: Airbyte Config Cid
-  name: airbyte_config.cid
-- description: api secret provided by Appfollow
-  kind: password
-  label: Airbyte Config Api Secret
-  name: airbyte_config.api_secret
-- description: getting data by Country
-  kind: string
-  label: Airbyte Config Country
-  name: airbyte_config.country
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -71,12 +66,21 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - connector_config.cid
-  - connector_config.ext_id
-  - connector_config.country
+- - airbyte_spec.image
   - connector_config.api_secret
-  - airbyte_spec.image
+  - connector_config.cid
+  - connector_config.country
+  - connector_config.ext_id
 settings_preamble: ''
 usage: ''
 variant: airbyte

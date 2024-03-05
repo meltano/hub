@@ -1,8 +1,8 @@
 capabilities:
-- state
 - catalog
 - discover
 - log-based
+- state
 description: General purpose, document-based, distributed database.
 domain_url: https://www.mongodb.com/
 keywords:
@@ -16,28 +16,31 @@ pip_url: pipelinewise-tap-mongodb
 quality: silver
 repo: https://github.com/transferwise/pipelinewise-tap-mongodb
 settings:
+- description: The database name to authenticate on.
+  label: Auth Database
+  name: auth_database
+- description: (LOG_BASED) The maximum amount of time in milliseconds the loge_base
+    method waits for new data changes before exiting.
+  kind: integer
+  label: Await Time Milliseconds
+  name: await_time_ms
+- description: Database name to sync from.
+  label: Database Name
+  name: database
+- description: The MongoDB host URL.
+  label: Host URL
+  name: host
+- description: Forces the stream names to take the form `<database_name>_<collection_name>`
+    instead of `<collection_name>`. Warning - this uses a string representation of
+    a boolean, use lowercase `true`.
+  kind: string
+  label: Include Schemas In Destination Stream Name
+  name: include_schemas_in_destination_stream_name
 - description: The MongoDB password.
   kind: password
   label: Password
   name: password
-- description: The MongoDB user.
-  label: User
-  name: user
-- description: The MongoDB host URL.
-  label: Host URL
-  name: host
-- description: The database name to authenticate on.
-  label: Auth Database
-  name: auth_database
-- description: Database name to sync from.
-  label: Database Name
-  name: database
-- description: Uses a mongodb+srv protocol to connect. Disables the usage of port
-    argument if set to `true`. Warning - this uses a string representation of a boolean,
-    use lowercase `true`.
-  kind: string
-  label: SRV
-  name: srv
+  sensitive: true
 - description: Connection port. Required if a non-srv connection is being used.
   kind: integer
   label: Port
@@ -45,36 +48,34 @@ settings:
 - description: Name of replica set
   label: Replica Set
   name: replica_set
+- description: Uses a mongodb+srv protocol to connect. Disables the usage of port
+    argument if set to `true`. Warning - this uses a string representation of a boolean,
+    use lowercase `true`.
+  kind: string
+  label: SRV
+  name: srv
 - description: Can be set to true to connect using ssl. Warning - this uses a string
     representation of a boolean, use lowercase `true`.
   kind: string
   label: SSL
   name: ssl
-- description: Default SSL verify mode. Warning - this uses a string representation
-    of a boolean, use lowercase `true`.
-  kind: string
-  label: Verify Mode
-  name: verify_mode
-- description: Forces the stream names to take the form `<database_name>_<collection_name>`
-    instead of `<collection_name>`. Warning - this uses a string representation of
-    a boolean, use lowercase `true`.
-  kind: string
-  label: Include Schemas In Destination Stream Name
-  name: include_schemas_in_destination_stream_name
 - description: (LOG_BASED) The size of the buffer that holds detected update operations
     in memory, the buffer is flushed once the size is reached.
   kind: integer
   label: Update Buffer Size
   name: update_buffer_size
-- description: (LOG_BASED) The maximum amount of time in milliseconds the loge_base
-    method waits for new data changes before exiting.
-  kind: integer
-  label: Await Time Milliseconds
-  name: await_time_ms
+- description: The MongoDB user.
+  label: User
+  name: user
+- description: Default SSL verify mode. Warning - this uses a string representation
+    of a boolean, use lowercase `true`.
+  kind: string
+  label: Verify Mode
+  name: verify_mode
 settings_group_validation:
-- - password
-  - user
-  - host
-  - auth_database
+- - auth_database
   - database
+  - host
+  - password
+  - user
 variant: transferwise

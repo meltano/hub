@@ -25,13 +25,6 @@ select:
 - transactions.*
 settings:
 - description: |
-    The store subdomain, which can be derived from your Shopify admin URL.
-
-    If your admin URL starts with `https://my-first-store.myshopify.com/`, your store subdomain is `my-first-store`.
-  label: Store Subdomain
-  name: shop
-  placeholder: Ex. my-first-store
-- description: |
     A Private App API Password or API Key generated using OAuth
 
     #### How to get
@@ -66,10 +59,19 @@ settings:
   label: Private App API Password
   name: api_key
   placeholder: Ex. shppa_1a2b3c4d5e6f
+  sensitive: true
+- description: |
+    The store subdomain, which can be derived from your Shopify admin URL.
+
+    If your admin URL starts with `https://my-first-store.myshopify.com/`, your store subdomain is `my-first-store`.
+  label: Store Subdomain
+  name: shop
+  placeholder: Ex. my-first-store
 - description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.
   kind: date_iso8601
   label: Start Date
   name: start_date
+settings_group_validation: []
 variant: singer-io

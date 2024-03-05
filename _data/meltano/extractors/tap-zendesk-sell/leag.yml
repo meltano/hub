@@ -1,8 +1,8 @@
 capabilities:
+- about
 - catalog
 - discover
 - state
-- about
 - stream-maps
 description: Sales CRM Software & All-in-One Sales Platform
 domain_url: https://developers.getbase.com/
@@ -22,6 +22,7 @@ settings:
   kind: password
   label: Access Token
   name: access_token
+  sensitive: true
 - description: The device's universally unique identifier (UUID)
   label: Device UUID
   name: device_uuid

@@ -1,7 +1,7 @@
 capabilities:
+- discover
 - properties
 - state
-- discover
 description: Recruiting Management Tool
 domain_url: https://developers.greenhouse.io/harvest.html
 hidden: true
@@ -20,8 +20,9 @@ settings:
   kind: password
   label: API Key
   name: api_key
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
+  sensitive: true
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
     can be expected to take."
   kind: date_iso8601
   label: Start Date

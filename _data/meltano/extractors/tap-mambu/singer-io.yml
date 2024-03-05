@@ -19,46 +19,49 @@ settings:
   kind: password
   label: API Key
   name: apikey
-- description: 'The subdomain is everything before .mambu.com in the Mambu instance
-    URL. For the URL: https://stitch.sandbox.mambu.com, the subdomain would be stitch.sandbox.'
-  label: Subdomain
-  name: subdomain
+  sensitive: true
 - description: Your Mambu audit trail API key.
   kind: password
   label: API Key Audit
   name: apikey_audit
-- description: The user agent to send with requests.
-  label: User Agent
-  name: user_agent
-- description: The page size for requests.
-  kind: integer
-  label: Page Size
-  name: page_size
+  sensitive: true
 - description: Lookback window applies only to loan transactions stream.
   kind: integer
   label: Lookback Window
   name: lookback_window
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
-    can be expected to take."
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
-- description: Your username if not using an API key.
-  label: Username
-  name: username
+- description: The page size for requests.
+  kind: integer
+  label: Page Size
+  name: page_size
 - description: Your password paired with username if not using an API key.
   kind: password
   label: Password
   name: password
+  sensitive: true
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: 'The subdomain is everything before .mambu.com in the Mambu instance
+    URL. For the URL: https://stitch.sandbox.mambu.com, the subdomain would be stitch.sandbox.'
+  label: Subdomain
+  name: subdomain
+- description: The user agent to send with requests.
+  label: User Agent
+  name: user_agent
+- description: Your username if not using an API key.
+  label: Username
+  name: username
 settings_group_validation:
-- - subdomain
+- - apikey
   - start_date
+  - subdomain
   - user_agent
-  - apikey
-- - subdomain
+- - password
   - start_date
+  - subdomain
   - user_agent
   - username
-  - password
 variant: singer-io

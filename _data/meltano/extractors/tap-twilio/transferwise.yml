@@ -1,6 +1,6 @@
 capabilities:
-- discover
 - catalog
+- discover
 - state
 description: Cloud communications platform as a service
 domain_url: https://www.twilio.com/
@@ -24,6 +24,7 @@ settings:
   kind: password
   label: Auth Token
   name: auth_token
+  sensitive: true
 - description: This is the integer number of days (between the from and to dates)
     for date-windowing through the date-filtered endpoints.
   kind: integer

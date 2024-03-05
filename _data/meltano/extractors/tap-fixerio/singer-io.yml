@@ -14,22 +14,23 @@ pip_url: tap-fixerio
 quality: bronze
 repo: https://github.com/singer-io/tap-fixerio
 settings:
-- description: The base rate to which others will be converted.
-  label: Base
-  name: base
 - description: Your fixer.io access key.
   kind: password
   label: Access Key
   name: access_key
+  sensitive: true
+- description: The base rate to which others will be converted.
+  label: Base
+  name: base
 - description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.
   kind: date_iso8601
   label: Start Date
   name: start_date
-- description: "An optional list of currency symbols to fetch in the following format:\
-    \ ['USD', 'GBP', etc.]. If not specified fixer will return a list of all exchange\
-    \ rates for each day."
+- description: "An optional list of currency symbols to fetch in the following format:
+    ['USD', 'GBP', etc.]. If not specified fixer will return a list of all exchange
+    rates for each day."
   kind: string
   label: Symbols
   name: symbols

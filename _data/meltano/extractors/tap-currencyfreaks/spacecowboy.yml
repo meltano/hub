@@ -1,8 +1,8 @@
 capabilities:
-- discover
-- catalog
-- state
 - about
+- catalog
+- discover
+- state
 - stream-maps
 description: Exchange rates of 229 currencies worldwide
 domain_url: https://currencyfreaks.com/documentation.html
@@ -22,6 +22,7 @@ settings:
   kind: password
   label: API key
   name: api_key
+  sensitive: true
 - description: Optional list of currencies to fetch
   documentation: https://currencyfreaks.com/documentation.html#SupportedCurrencies
   label: Symbols

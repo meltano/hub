@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Identity Provider
 domain_url: https://developer.okta.com/docs/reference/
 executable: tap-airbyte
@@ -18,8 +18,44 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-okta
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-okta
 settings:
+- description: An Okta token. See the <a href="https://docs.airbyte.io/integrations/sources/okta">docs</a>
+    for instructions on how to generate it.
+  kind: password
+  label: Airbyte Config Credentials Api Token
+  name: airbyte_config.credentials.api_token
+  sensitive: true
+- description: oauth2.0, api_token
+  kind: string
+  label: Airbyte Config Credentials Auth Type
+  name: airbyte_config.credentials.auth_type
+- description: The Client ID of your OAuth application.
+  kind: password
+  label: Airbyte Config Credentials Client Id
+  name: airbyte_config.credentials.client_id
+  sensitive: true
+- description: The Client Secret of your OAuth application.
+  kind: password
+  label: Airbyte Config Credentials Client Secret
+  name: airbyte_config.credentials.client_secret
+  sensitive: true
+- description: Refresh Token to obtain new Access Token, when it's expired.
+  kind: password
+  label: Airbyte Config Credentials Refresh Token
+  name: airbyte_config.credentials.refresh_token
+  sensitive: true
+- description: The Okta domain. See the <a href="https://docs.airbyte.io/integrations/sources/okta">docs</a>
+    for instructions on how to find it.
+  kind: string
+  label: Airbyte Config Domain
+  name: airbyte_config.domain
+- description: UTC date and time in the format YYYY-MM-DDTHH:MM:SSZ. Any data before
+    this date will not be replicated.
+  kind: string
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -36,48 +72,8 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: The Okta domain. See the <a href="https://docs.airbyte.io/integrations/sources/okta">docs</a>
-    for instructions on how to find it.
-  kind: string
-  label: Airbyte Config Domain
-  name: airbyte_config.domain
-- description: UTC date and time in the format YYYY-MM-DDTHH:MM:SSZ. Any data before
-    this date will not be replicated.
-  kind: string
-  label: Airbyte Config Start Date
-  name: airbyte_config.start_date
-- description: oauth2.0, api_token
-  kind: string
-  label: Airbyte Config Credentials Auth Type
-  name: airbyte_config.credentials.auth_type
-- description: The Client ID of your OAuth application.
-  kind: password
-  label: Airbyte Config Credentials Client Id
-  name: airbyte_config.credentials.client_id
-- description: The Client Secret of your OAuth application.
-  kind: password
-  label: Airbyte Config Credentials Client Secret
-  name: airbyte_config.credentials.client_secret
-- description: Refresh Token to obtain new Access Token, when it's expired.
-  kind: password
-  label: Airbyte Config Credentials Refresh Token
-  name: airbyte_config.credentials.refresh_token
-- description: An Okta token. See the <a href="https://docs.airbyte.io/integrations/sources/okta">docs</a>
-    for instructions on how to generate it.
-  kind: password
-  label: Airbyte Config Credentials Api Token
-  name: airbyte_config.credentials.api_token
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -85,9 +81,18 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - airbyte_spec.image
-  - airbyte_spec
+- - airbyte_spec
+  - airbyte_spec.image
 settings_preamble: ''
 usage: ''
 variant: airbyte

@@ -15,38 +15,41 @@ pip_url: tap-xero
 quality: silver
 repo: https://github.com/singer-io/tap-xero
 settings:
+- description: Your Xero client ID. Issued when you create your app.
+  kind: password
+  label: Client ID
+  name: client_id
+  sensitive: true
+- description: Your Xero client secret.
+  kind: password
+  label: Client Secret
+  name: client_secret
+  sensitive: true
+- description: Whether to include archive contacts in the sync.
+  kind: boolean
+  label: Include Archived Contacts
+  name: include_archived_contacts
+- description: Your Xero refresh token.
+  kind: password
+  label: Refresh Token
+  name: refresh_token
+  sensitive: true
 - description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.
   kind: date_iso8601
   label: Start Date
   name: start_date
-- description: Your Xero client ID. Issued when you create your app.
-  kind: password
-  label: Client ID
-  name: client_id
-- description: Your Xero client secret.
-  kind: password
-  label: Client Secret
-  name: client_secret
 - description: Your Xero tenant ID.
   label: Tenant ID
   name: tenant_id
-- description: Your Xero refresh token.
-  kind: password
-  label: Refresh Token
-  name: refresh_token
-- description: Whether to include archive contacts in the sync.
-  kind: boolean
-  label: Include Archived Contacts
-  name: include_archived_contacts
 - description: The user agent sent with your requests to the Xero API.
   label: User Agent
   name: user_agent
 settings_group_validation:
-- - start_date
-  - client_id
+- - client_id
   - client_secret
-  - tenant_id
   - refresh_token
+  - start_date
+  - tenant_id
 variant: singer-io

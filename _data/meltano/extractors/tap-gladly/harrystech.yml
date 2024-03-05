@@ -45,6 +45,7 @@ settings:
   kind: password
   label: Password
   name: password
+  sensitive: true
 - description: Project IDs to replicate
   kind: array
   label: Project IDs

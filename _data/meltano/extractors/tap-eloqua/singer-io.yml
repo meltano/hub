@@ -3,7 +3,8 @@ capabilities:
 - discover
 - state
 description: Marketing Automation Software
-domain_url: https://docs.oracle.com/en/cloud/saas/marketing/eloqua-develop/Developers/BulkAPI/Tutorials/Export.htm
+domain_url: 
+  https://docs.oracle.com/en/cloud/saas/marketing/eloqua-develop/Developers/BulkAPI/Tutorials/Export.htm
 keywords:
 - api
 label: Eloqua
@@ -19,37 +20,43 @@ settings:
   kind: integer
   label: Bulk Page Size
   name: bulk_page_size
-- description: Your OAuth Client ID. See [the API docs](https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Authentication_Auth.html)
+- description: Your OAuth Client ID. See [the API 
+    docs](https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Authentication_Auth.html)
     for more details.
   kind: password
   label: Client ID
   name: client_id
-- description: The redirect url to use for auth. E.g. http://localhost:8080/callback.
-  label: Redirect Uri
-  name: redirect_uri
-- description: The user agent to send with requests.
-  label: User Agent
-  name: user_agent
-- description: Your OAuth Client Secret. See [the API docs](https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Authentication_Auth.html)
+  sensitive: true
+- description: Your OAuth Client Secret. See [the API 
+    docs](https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Authentication_Auth.html)
     for more details.
   kind: password
   label: Client Secret
   name: client_secret
-- description: Your OAuth Refresh Token. See [the API docs](https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Authentication_Auth.html)
+  sensitive: true
+- description: The redirect url to use for auth. E.g. http://localhost:8080/callback.
+  label: Redirect Uri
+  name: redirect_uri
+- description: Your OAuth Refresh Token. See [the API 
+    docs](https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Authentication_Auth.html)
     for more details.
   kind: password
   label: Refresh Token
   name: refresh_token
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
+  sensitive: true
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
     can be expected to take."
   kind: date_iso8601
   label: Start Date
   name: start_date
+- description: The user agent to send with requests.
+  label: User Agent
+  name: user_agent
 settings_group_validation:
 - - client_id
-  - redirect_uri
   - client_secret
+  - redirect_uri
   - refresh_token
   - start_date
 variant: singer-io

@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: SaaS mobile marketing analytics and attribution platform
 domain_url: https://www.appsflyer.com/
 executable: tap-airbyte
@@ -18,8 +18,31 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-appsflyer
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-appsflyer
 settings:
+- description: Pull API token for authentication. If you change the account admin,
+    the token changes, and you must update scripts with the new token. <a href="https://support.appsflyer.com/hc/en-us/articles/360004562377">Get
+    the API token in the Dashboard</a>.
+  kind: password
+  label: Airbyte Config Api Token
+  name: airbyte_config.api_token
+  sensitive: true
+- description: App identifier as found in AppsFlyer.
+  kind: password
+  label: Airbyte Config App Id
+  name: airbyte_config.app_id
+  sensitive: true
+- description: The default value to use if no bookmark exists for an endpoint. Raw
+    Reports historical lookback is limited to 90 days.
+  kind: string
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
+- description: Time zone in which date times are stored. The project timezone may
+    be found in the App settings in the AppsFlyer console.
+  kind: string
+  label: Airbyte Config Timezone
+  name: airbyte_config.timezone
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -36,37 +59,8 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: App identifier as found in AppsFlyer.
-  kind: password
-  label: Airbyte Config App Id
-  name: airbyte_config.app_id
-- description: Pull API token for authentication. If you change the account admin,
-    the token changes, and you must update scripts with the new token. <a href="https://support.appsflyer.com/hc/en-us/articles/360004562377">Get
-    the API token in the Dashboard</a>.
-  kind: password
-  label: Airbyte Config Api Token
-  name: airbyte_config.api_token
-- description: The default value to use if no bookmark exists for an endpoint. Raw
-    Reports historical lookback is limited to 90 days.
-  kind: string
-  label: Airbyte Config Start Date
-  name: airbyte_config.start_date
-- description: Time zone in which date times are stored. The project timezone may
-    be found in the App settings in the AppsFlyer console.
-  kind: string
-  label: Airbyte Config Timezone
-  name: airbyte_config.timezone
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -74,6 +68,15 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
 - - airbyte_config.api_token
   - airbyte_config.app_id

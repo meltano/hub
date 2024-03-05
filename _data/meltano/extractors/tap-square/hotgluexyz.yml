@@ -24,6 +24,7 @@ settings:
   kind: password
   label: Access Token
   name: access_token
+  sensitive: true
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean

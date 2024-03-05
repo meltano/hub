@@ -15,6 +15,11 @@ pip_url: tap-linkedin-ads
 quality: silver
 repo: https://github.com/singer-io/tap-linkedin-ads
 settings:
+- description: Your access token.
+  kind: password
+  label: Access Token
+  name: access_token
+  sensitive: true
 - description: A comma separated list of account IDs, e.g. "id1, id2, id3"
   label: Accounts
   name: accounts
@@ -22,6 +27,12 @@ settings:
   kind: password
   label: Client ID
   name: client_id
+  sensitive: true
+- description: Your client secret.
+  kind: password
+  label: Client Secret
+  name: client_secret
+  sensitive: true
 - description: The date window to request date from. The default is 30 days.
   kind: integer
   label: Date Window Size
@@ -30,24 +41,17 @@ settings:
   kind: integer
   label: Page Size
   name: page_size
-- description: Your client secret.
-  kind: password
-  label: Client Secret
-  name: client_secret
-- description: Your access token.
-  kind: password
-  label: Access Token
-  name: access_token
-- description: The user agent to send with requests.
-  label: User Agent
-  name: user_agent
 - description: Your refresh token.
   kind: password
   label: Refresh Token
   name: refresh_token
+  sensitive: true
+- description: The user agent to send with requests.
+  label: User Agent
+  name: user_agent
 settings_group_validation:
-- - accounts
-  - access_token
+- - access_token
+  - accounts
   - user_agent
 usage: |
   ### Authentication Setup Details

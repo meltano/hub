@@ -28,10 +28,12 @@ settings:
   kind: password
   label: AWS Access Key ID
   name: aws_access_key_id
+  sensitive: true
 - description: Your AWS secret access key.
   kind: password
   label: AWS Secret Access Key
   name: aws_secret_access_key
+  sensitive: true
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean

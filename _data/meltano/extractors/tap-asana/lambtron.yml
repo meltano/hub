@@ -21,6 +21,7 @@ settings:
 - description: Client Secret for your application from Asana
   kind: password
   name: client_secret
+  sensitive: true
 - description: The redirect URI for oauth flow completion, this is provided by Asana
     during oauth setup
   kind: string
@@ -32,11 +33,12 @@ settings:
     https://developers.asana.com/docs/oauth
   kind: oauth
   name: refresh_token
-- description: The date from which to start syncing records
-  kind: date_iso8601
-  name: start_date
 - description: The timeout in seconds for a request to the Asana API
   kind: integer
   name: request_timeout
   value: 30
+- description: The date from which to start syncing records
+  kind: date_iso8601
+  name: start_date
+settings_group_validation: []
 variant: lambtron

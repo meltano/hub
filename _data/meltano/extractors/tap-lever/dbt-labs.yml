@@ -15,11 +15,8 @@ pip_url: git+https://github.com/dbt-labs/tap-lever.git
 quality: silver
 repo: https://github.com/dbt-labs/tap-lever
 settings:
-- description: The user agent to send with requests.
-  label: User Agent
-  name: user_agent
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
     can be expected to take."
   kind: date_iso8601
   label: Start Date
@@ -29,6 +26,10 @@ settings:
   kind: password
   label: Token
   name: token
+  sensitive: true
+- description: The user agent to send with requests.
+  label: User Agent
+  name: user_agent
 settings_group_validation:
 - - start_date
   - token

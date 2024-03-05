@@ -1,8 +1,8 @@
 capabilities:
 - catalog
 - discover
-- state
 - log-based
+- state
 description: Cloud Database
 domain_url: https://www.oracle.com/database/
 keywords:
@@ -17,6 +17,61 @@ pip_url: git+https://github.com/s7clarke10/pipelinewise-tap-oracle.git
 quality: silver
 repo: https://github.com/s7clarke10/pipelinewise-tap-oracle
 settings:
+- description: Support for a common user/password for working with pluggable databases
+    (PDB).
+  kind: password
+  label: Common Password
+  name: common_password
+  sensitive: true
+- description: Service name when working with pluggable databases (PDB).
+  label: Common Service Name
+  name: common_service_name
+- description: SID when working with pluggable databases (PDB).
+  label: Common SID
+  name: common_sid
+- description: Support for a common user/password for working with pluggable databases
+    (PDB). Every common user can connect to an perform operations within the root
+    database, and within any PDB in which it has privileges.
+  label: Common User
+  name: common_user
+- description: A numeric setting adjusting the internal buffersize. The common query
+    tuning scenario is for SELECT statements that return a large number of rows over
+    a slow network. Increasing arraysize can improve performance by reducing the number
+    of round-trips to the database. However increasing this value increases the amount
+    of memory required.
+  kind: integer
+  label: Cursor Array Size
+  name: cursor_array_size
+- description: The default replication method to use if one is not automatically set
+    on the stream. Options - 'LOG_BASED', 'FULL_TABLE', 'INCREMENTAL'.
+  label: Default Replication Method
+  name: default_replication_method
+- description: A comma separated list of schema names to scan. Used to improve the
+  label: Filter Schemas
+  name: filter_schemas
+- description: An array of tables `SCHEMA-TABLE1` to select from. Used to imprive
+    the performance of discovery.
+  kind: array
+  label: Filter Tables
+  name: filter_tables
+- description: Your Oracle host.
+  label: Host
+  name: host
+- description: The timeout to use when doing log based replication, in milliseconds.
+    Default, None.
+  kind: integer
+  label: Logminer Call Timeout
+  name: logminer_call_timeout
+- description: A boolean whether to use a dynamic scan window for log based replication.
+    Default, False.
+  kind: boolean
+  label: Logminer Dynamic Scn Window
+  name: logminer_dynamic_scn_window
+- description: The reduction factor to use when using log based replication. Default,
+    10.
+  kind: integer
+  label: Logminer Iter With Reduction Factor
+  name: logminer_iter_with_reduction_factor
 - description: |
     To avoid problems with uncommitted changes being read, you can set offset_value to add to the value found in the STATE for INCREMENTAL loads.
     If the value provided is for a datetime replication key then the offset_value is read as seconds to offset by, otherwise the value is used as provided.
@@ -27,67 +82,9 @@ settings:
   kind: integer
   label: Offset Value
   name: offset_value
-- description: Your Oracle password.
-  kind: password
-  label: Password
-  name: password
-- description: A comma separated list of schema names to scan. Used to improve the
-  label: Filter Schemas
-  name: filter_schemas
-- description: This will help avoid numeric rounding issues emitting as a string with
-    a format of singer.decimal.
-  kind: boolean
-  label: Use Singer Decimal
-  name: use_singer_decimal
-- description: An array of tables `SCHEMA-TABLE1` to select from. Used to imprive
-    the performance of discovery.
-  kind: array
-  label: Filter Tables
-  name: filter_tables
-- description: A boolean whether to use a dynamic scan window for log based replication.
-    Default, False.
-  kind: boolean
-  label: Logminer Dynamic Scn Window
-  name: logminer_dynamic_scn_window
-- description: SID when working with pluggable databases (PDB).
-  label: Common SID
-  name: common_sid
-- description: Service name when working with pluggable databases (PDB).
-  label: Common Service Name
-  name: common_service_name
-- description: The default replication method to use if one is not automatically set
-    on the stream. Options - 'LOG_BASED', 'FULL_TABLE', 'INCREMENTAL'.
-  label: Default Replication Method
-  name: default_replication_method
-- description: The timeout to use when doing log based replication, in milliseconds.
-    Default, None.
-  kind: integer
-  label: Logminer Call Timeout
-  name: logminer_call_timeout
-- description: The reduction factor to use when using log based replication. Default,
-    10.
-  kind: integer
-  label: Logminer Iter With Reduction Factor
-  name: logminer_iter_with_reduction_factor
-- description: Your Oracle port.
-  kind: integer
-  label: Port
-  name: port
-- description: Support for a common user/password for working with pluggable databases
-    (PDB). Every common user can connect to an perform operations within the root
-    database, and within any PDB in which it has privileges.
-  label: Common User
-  name: common_user
-- description: Your Oracle SID. If connecting directly to an instance, otherwise use
-    service_name.
-  label: SID
-  name: sid
-- description: The scan window size when using log based replication. Default, None.
-  kind: integer
-  label: Scn Window Size
-  name: scn_window_size
 - description: Determines which Oracle Library Driver and mode is used by tap-oracle.
-    cx=CX_Oracle, thin=oracleDB (No SQL Client), thick=oracleDB (SQL Client). Default, cx.
+    cx=CX_Oracle, thin=oracleDB (No SQL Client), thick=oracleDB (SQL Client). Default,
+    cx.
   kind: options
   label: Oracle Python Driver Type / Mode
   name: ora_python_driver_type
@@ -99,6 +96,26 @@ settings:
   - label: oracleDB (SQL Client)
     value: thick
   value: cx
+- description: Your Oracle password.
+  kind: password
+  label: Password
+  name: password
+  sensitive: true
+- description: Your Oracle port.
+  kind: integer
+  label: Port
+  name: port
+- description: The scan window size when using log based replication. Default, None.
+  kind: integer
+  label: Scn Window Size
+  name: scn_window_size
+- description: Your Oracle service name.
+  label: Service Name
+  name: service_name
+- description: Your Oracle SID. If connecting directly to an instance, otherwise use
+    service_name.
+  label: SID
+  name: sid
 - description: A boolean whether to use ORA_ROWSCN to bookmark progress in case replication
     is interrupted. ORA_ROWSCN returns an Oracle SCN which is a System Change Number.
     This is a unique identifier for a particular change (i.e. a transaction). Default,
@@ -106,39 +123,25 @@ settings:
   kind: boolean
   label: Use Ora Rowscn
   name: use_ora_rowscn
-- description: Support for a common user/password for working with pluggable databases
-    (PDB).
-  kind: password
-  label: Common Password
-  name: common_password
-- description: A numeric setting adjusting the internal buffersize. The common query
-    tuning scenario is for SELECT statements that return a large number of rows over
-    a slow network. Increasing arraysize can improve performance by reducing the number
-    of round-trips to the database. However increasing this value increases the amount
-    of memory required.
-  kind: integer
-  label: Cursor Array Size
-  name: cursor_array_size
-- description: Your Oracle host.
-  label: Host
-  name: host
+- description: This will help avoid numeric rounding issues emitting as a string with
+    a format of singer.decimal.
+  kind: boolean
+  label: Use Singer Decimal
+  name: use_singer_decimal
 - description: Your Oracle user.
   label: User
   name: user
-- description: Your Oracle service name.
-  label: Service Name
-  name: service_name
 settings_group_validation:
-- - password
+- - host
+  - password
   - port
-  - host
-  - user
   - sid
-- - password
-  - port
-  - host
   - user
+- - host
+  - password
+  - port
   - service_name
+  - user
 settings_preamble: ''
 usage: |
   ## Log Based Replication

@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Google Marketing Platform
 domain_url: https://marketingplatform.google.com/about/display-video-360/
 executable: tap-airbyte
@@ -18,8 +18,54 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: silver
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-dv-360
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-dv-360
 settings:
+- description: Access token
+  kind: password
+  label: Airbyte Config Credentials Access Token
+  name: airbyte_config.credentials.access_token
+  sensitive: true
+- description: Client ID
+  kind: password
+  label: Airbyte Config Credentials Client Id
+  name: airbyte_config.credentials.client_id
+  sensitive: true
+- description: Client secret
+  kind: password
+  label: Airbyte Config Credentials Client Secret
+  name: airbyte_config.credentials.client_secret
+  sensitive: true
+- description: Refresh token
+  kind: password
+  label: Airbyte Config Credentials Refresh Token
+  name: airbyte_config.credentials.refresh_token
+  sensitive: true
+- description: Token URI
+  kind: password
+  label: Airbyte Config Credentials Token Uri
+  name: airbyte_config.credentials.token_uri
+  sensitive: true
+- description: UTC date and time in the format 2017-01-25. Any data after this date
+    will not be replicated.
+  kind: string
+  label: Airbyte Config End Date
+  name: airbyte_config.end_date
+- description: "filters for the dimensions. each filter object had 2 keys: 'type'
+    for the name of the dimension to be used as. and 'value' for the value of the
+    filter"
+  kind: array
+  label: Airbyte Config Filters
+  name: airbyte_config.filters
+- description: Partner ID
+  kind: integer
+  label: Airbyte Config Partner Id
+  name: airbyte_config.partner_id
+- description: UTC date and time in the format 2017-01-25. Any data before this date
+    will not be replicated
+  kind: string
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -36,57 +82,8 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: Access token
-  kind: password
-  label: Airbyte Config Credentials Access Token
-  name: airbyte_config.credentials.access_token
-- description: Refresh token
-  kind: password
-  label: Airbyte Config Credentials Refresh Token
-  name: airbyte_config.credentials.refresh_token
-- description: Token URI
-  kind: password
-  label: Airbyte Config Credentials Token Uri
-  name: airbyte_config.credentials.token_uri
-- description: Client ID
-  kind: password
-  label: Airbyte Config Credentials Client Id
-  name: airbyte_config.credentials.client_id
-- description: Client secret
-  kind: password
-  label: Airbyte Config Credentials Client Secret
-  name: airbyte_config.credentials.client_secret
-- description: Partner ID
-  kind: integer
-  label: Airbyte Config Partner Id
-  name: airbyte_config.partner_id
-- description: UTC date and time in the format 2017-01-25. Any data before this date
-    will not be replicated
-  kind: string
-  label: Airbyte Config Start Date
-  name: airbyte_config.start_date
-- description: UTC date and time in the format 2017-01-25. Any data after this date
-    will not be replicated.
-  kind: string
-  label: Airbyte Config End Date
-  name: airbyte_config.end_date
-- description: "filters for the dimensions. each filter object had 2 keys: 'type'\
-    \ for the name of the dimension to be used as. and 'value' for the value of the\
-    \ filter"
-  kind: array
-  label: Airbyte Config Filters
-  name: airbyte_config.filters
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -94,15 +91,24 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - connector_config.credentials.access_token
+- - airbyte_spec.image
+  - connector_config.credentials.access_token
+  - connector_config.credentials.client_id
   - connector_config.credentials.client_secret
   - connector_config.credentials.refresh_token
-  - airbyte_spec.image
-  - connector_config.credentials.client_id
   - connector_config.credentials.token_uri
-  - connector_config.start_date
   - connector_config.partner_id
+  - connector_config.start_date
 settings_preamble: ''
 usage: ''
 variant: airbyte

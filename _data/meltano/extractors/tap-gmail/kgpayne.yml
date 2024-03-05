@@ -46,14 +46,17 @@ settings:
   kind: password
   label: OAuth Credentials Client ID
   name: oauth_credentials.client_id
+  sensitive: true
 - description: Your google client_secret
   kind: password
   label: OAuth Credentials Client Secret
   name: oauth_credentials.client_secret
+  sensitive: true
 - description: Your google refresh token
   kind: password
   label: OAuth Credentials Refresh Token
   name: oauth_credentials.refresh_token
+  sensitive: true
 - description: User-defined config values to be used within map expressions.
   kind: object
   label: Stream Map Config
@@ -67,6 +70,7 @@ settings:
   kind: password
   label: User ID
   name: user_id
+  sensitive: true
 settings_group_validation:
 - []
 settings_preamble: ''

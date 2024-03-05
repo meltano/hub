@@ -91,6 +91,7 @@ settings:
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
 - aliases:
   - schema
   description: |
@@ -123,6 +124,7 @@ settings:
   kind: password
   label: Refresh Token
   name: refresh_token
+  sensitive: true
 - description: Whether to skip pre-invoke hooks which automatically run dbt clean
     and deps
   env: DBT_EXT_SKIP_PRE_INVOKE

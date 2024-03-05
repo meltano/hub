@@ -21,12 +21,13 @@ settings:
   kind: password
   label: API Key
   name: api_key
+  sensitive: true
 - description: The amount of days to request in each set of data. Default 30.
   kind: integer
   label: API Window In Days
   name: api_window_in_days
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
     can be expected to take."
   kind: date_iso8601
   label: Start Date

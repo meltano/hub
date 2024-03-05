@@ -15,22 +15,6 @@ pip_url: pipelinewise-tap-oracle
 quality: silver
 repo: https://github.com/transferwise/pipelinewise-tap-oracle
 settings:
-- description: Your Oracle SID.
-  label: SID
-  name: sid
-- description: Your Oracle host.
-  label: Host
-  name: host
-- description: Your Oracle port.
-  label: Port
-  name: port
-- description: Your Oracle user.
-  label: User
-  name: user
-- description: Your Oracle password.
-  kind: password
-  label: Password
-  name: password
 - description: The default replication method to use if one is not automatically set
     on the stream. Options - 'LOG_BASED', 'FULL_TABLE', 'INCREMENTAL'.
   label: Default Replication Method
@@ -40,10 +24,27 @@ settings:
   label: Filter Schemas
   name: filter_schemas
   placeholder: SCHEMA1,SCHEMA2
+- description: Your Oracle host.
+  label: Host
+  name: host
+- description: Your Oracle password.
+  kind: password
+  label: Password
+  name: password
+  sensitive: true
+- description: Your Oracle port.
+  label: Port
+  name: port
+- description: Your Oracle SID.
+  label: SID
+  name: sid
+- description: Your Oracle user.
+  label: User
+  name: user
 settings_group_validation:
-- - sid
-  - host
-  - port
-  - user
+- - host
   - password
+  - port
+  - sid
+  - user
 variant: transferwise

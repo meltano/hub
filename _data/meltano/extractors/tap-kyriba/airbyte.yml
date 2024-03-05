@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Enterprise Software for Office of the CFO
 domain_url: https://www.kyriba.com/
 executable: tap-airbyte
@@ -18,8 +18,31 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-kyriba
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-kyriba
 settings:
+- description: Kyriba domain
+  kind: string
+  label: Airbyte Config Domain
+  name: airbyte_config.domain
+- description: The date the sync should end. If let empty the sync will run to the
+    current date.
+  kind: string
+  label: Airbyte Config End Date
+  name: airbyte_config.end_date
+- description: Password to be used in basic auth
+  kind: password
+  label: Airbyte Config Password
+  name: airbyte_config.password
+  sensitive: true
+- description: The date the sync should start from.
+  kind: string
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
+- description: Username to be used in basic auth
+  kind: string
+  label: Airbyte Config Username
+  name: airbyte_config.username
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -36,38 +59,8 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: Kyriba domain
-  kind: string
-  label: Airbyte Config Domain
-  name: airbyte_config.domain
-- description: Username to be used in basic auth
-  kind: string
-  label: Airbyte Config Username
-  name: airbyte_config.username
-- description: Password to be used in basic auth
-  kind: password
-  label: Airbyte Config Password
-  name: airbyte_config.password
-- description: The date the sync should start from.
-  kind: string
-  label: Airbyte Config Start Date
-  name: airbyte_config.start_date
-- description: The date the sync should end. If let empty the sync will run to the
-    current date.
-  kind: string
-  label: Airbyte Config End Date
-  name: airbyte_config.end_date
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -75,12 +68,21 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - connector_config.domain
-  - connector_config.start_date
-  - airbyte_spec.image
-  - connector_config.username
+- - airbyte_spec.image
+  - connector_config.domain
   - connector_config.password
+  - connector_config.start_date
+  - connector_config.username
 settings_preamble: ''
 usage: ''
 variant: airbyte

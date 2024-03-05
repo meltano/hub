@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Commercial and Small Business Insurance
 domain_url: https://sentry.io/api
 executable: tap-airbyte
@@ -18,8 +18,29 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: silver
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-sentry
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-sentry
 settings:
+- description: Log into Sentry and then <a href="https://sentry.io/settings/account/api/auth-tokens/">create
+    authentication tokens</a>.For self-hosted, you can find or create authentication
+    tokens by visiting "{instance_url_prefix}/settings/account/api/auth-tokens/"
+  kind: password
+  label: Airbyte Config Auth Token
+  name: airbyte_config.auth_token
+  sensitive: true
+- description: Host name of Sentry API server.For self-hosted, specify your host name
+    here. Otherwise, leave it empty.
+  kind: string
+  label: Airbyte Config Hostname
+  name: airbyte_config.hostname
+- description: The slug of the organization the groups belong to.
+  kind: string
+  label: Airbyte Config Organization
+  name: airbyte_config.organization
+- description: The name (slug) of the Project you want to sync.
+  kind: string
+  label: Airbyte Config Project
+  name: airbyte_config.project
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -36,36 +57,8 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: Log into Sentry and then <a href="https://sentry.io/settings/account/api/auth-tokens/">create
-    authentication tokens</a>.For self-hosted, you can find or create authentication
-    tokens by visiting "{instance_url_prefix}/settings/account/api/auth-tokens/"
-  kind: password
-  label: Airbyte Config Auth Token
-  name: airbyte_config.auth_token
-- description: Host name of Sentry API server.For self-hosted, specify your host name
-    here. Otherwise, leave it empty.
-  kind: string
-  label: Airbyte Config Hostname
-  name: airbyte_config.hostname
-- description: The slug of the organization the groups belong to.
-  kind: string
-  label: Airbyte Config Organization
-  name: airbyte_config.organization
-- description: The name (slug) of the Project you want to sync.
-  kind: string
-  label: Airbyte Config Project
-  name: airbyte_config.project
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -73,12 +66,21 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - airbyte_spec
+- - airbyte_config.auth_token
   - airbyte_config.organization
-  - airbyte_spec.image
   - airbyte_config.project
-  - airbyte_config.auth_token
+  - airbyte_spec
+  - airbyte_spec.image
 settings_preamble: ''
 usage: ''
 variant: airbyte

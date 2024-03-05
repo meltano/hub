@@ -2,7 +2,8 @@ capabilities:
 - catalog
 - discover
 description: dbt Artifact Files
-domain_url: https://docs.getdbt.com/reference/artifacts/dbt-artifacts#when-are-artifacts-produced
+domain_url: 
+  https://docs.getdbt.com/reference/artifacts/dbt-artifacts#when-are-artifacts-produced
 keywords:
 - file
 label: dbt Artifacts
@@ -19,4 +20,5 @@ settings:
   label: dbt Target Dir
   name: dbt_target_dir
   placeholder: Ex. "/path/to/dbt/target"
+settings_group_validation: []
 variant: prratek

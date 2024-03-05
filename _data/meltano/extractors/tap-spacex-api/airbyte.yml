@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Open Source REST API for SpaceX launch, rocket, core, capsule, starlink,
   launchpad, and landing pad data.
 domain_url: https://github.com/r-spacex/SpaceX-API
@@ -19,8 +19,18 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-spacex-api
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-spacex-api
 settings:
+- description: ''
+  kind: password
+  label: Airbyte Config Id
+  name: airbyte_config.id
+  sensitive: true
+- description: ''
+  kind: string
+  label: Airbyte Config Options
+  name: airbyte_config.options
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -37,25 +47,8 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: ''
-  kind: password
-  label: Airbyte Config Id
-  name: airbyte_config.id
-- description: ''
-  kind: string
-  label: Airbyte Config Options
-  name: airbyte_config.options
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -63,9 +56,18 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - airbyte_spec.image
-  - airbyte_spec
+- - airbyte_spec
+  - airbyte_spec.image
 settings_preamble: ''
 usage: ''
 variant: airbyte

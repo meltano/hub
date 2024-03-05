@@ -1,9 +1,10 @@
 capabilities:
-- properties
 - discover
+- properties
 - state
 description: Digital Marketing Platform
-domain_url: https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/index-api.htm
+domain_url: 
+  https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/index-api.htm
 keywords:
 - api
 label: SalesForce Marketing Cloud
@@ -19,27 +20,29 @@ settings:
   kind: integer
   label: Batch Size
   name: batch_size
-- description: 'For S10+ accounts: https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/your-subdomain-tenant-specific-endpoints.html'
-  label: Tenant Subdomain
-  name: tenant_subdomain
-- description: The request timeout length, default 300.
-  kind: integer
-  label: Request Timeout
-  name: request_timeout
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
-    can be expected to take."
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
 - description: Your Salesforce Marketing Cloud/Exact Target client ID.
   kind: password
   label: Client ID
   name: client_id
+  sensitive: true
 - description: Your Salesforce Marketing Cloud/Exact Target client secret.
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
+- description: The request timeout length, default 300.
+  kind: integer
+  label: Request Timeout
+  name: request_timeout
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: 'For S10+ accounts: https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/your-subdomain-tenant-specific-endpoints.html'
+  label: Tenant Subdomain
+  name: tenant_subdomain
 settings_group_validation:
 - - client_id
   - client_secret

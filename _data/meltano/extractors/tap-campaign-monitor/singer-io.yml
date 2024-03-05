@@ -19,18 +19,20 @@ settings:
   kind: password
   label: Client ID
   name: client_id
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
-    can be expected to take."
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
+  sensitive: true
 - description: Your Campaign Monitor refresh token.
   kind: password
   label: Refresh Token
   name: refresh_token
+  sensitive: true
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
 settings_group_validation:
 - - client_id
-  - start_date
   - refresh_token
+  - start_date
 variant: singer-io

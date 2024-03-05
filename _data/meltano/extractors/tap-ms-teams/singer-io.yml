@@ -15,19 +15,22 @@ pip_url: tap-ms-teams
 quality: silver
 repo: https://github.com/singer-io/tap-ms-teams
 settings:
-- description: The user agent to send with requests.
-  label: User Agent
-  name: user_agent
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
-    can be expected to take."
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
+- description: The Client ID of your Microsoft Teams developer application.
+  kind: password
+  label: Client ID
+  name: client_id
+  sensitive: true
 - description: The Client Secret of your Microsoft Teams developer application.
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
 - description: A globally unique identifier (GUID) that is different than your organization
     name or domain. Follow these steps to obtain - open one of the Teams where you
     belong inside the Teams Application -> Click on the … next to the Team title ->
@@ -35,16 +38,15 @@ settings:
     form the URL.
   label: Tenant ID
   name: tenant_id
-- description: The Client ID of your Microsoft Teams developer application.
-  kind: password
-  label: Client ID
-  name: client_id
+- description: The user agent to send with requests.
+  label: User Agent
+  name: user_agent
 settings_group_validation:
-- - user_agent
-  - start_date
+- - client_id
   - client_secret
+  - start_date
   - tenant_id
-  - client_id
+  - user_agent
 usage: |
   ### Authentication Details
 

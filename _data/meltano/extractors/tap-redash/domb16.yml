@@ -1,6 +1,6 @@
 capabilities:
-- properties
 - discover
+- properties
 description: BI and Visualizaztion Tool
 domain_url: https://redash.io/
 keywords:
@@ -14,35 +14,37 @@ pip_url: git+https://github.com/domb16/tap-redash.git
 quality: unknown
 repo: https://github.com/domb16/tap-redash
 settings:
-- description: Your login url. E.g. https://reports.replace-with-org-name.com/login.
-  label: Login Url
-  name: LOGIN_URL
 - description: Your API key.
   kind: password
   label: API Key
   name: API_KEY
-- description: Your password.
-  kind: password
-  label: Password
-  name: password
+  sensitive: true
+- description: Your login url. E.g. https://reports.replace-with-org-name.com/login.
+  label: Login Url
+  name: LOGIN_URL
+- description: Your query ID.
+  label: Query Id
+  name: QUERY_ID
+- description: The query url to use. E.g. https://reports.replace-with-org-name.com/api/queries
+  label: Query URL
+  name: QUERY_URL
 - description: Whether to allow annoymous usage tracking. Default, true.
   kind: boolean
   label: Disable Collection
   name: disable_collection
-- description: The query url to use. E.g. https://reports.replace-with-org-name.com/api/queries
-  label: Query URL
-  name: QUERY_URL
-- description: Your query ID.
-  label: Query Id
-  name: QUERY_ID
 - description: Your Redash email.
   label: Email
   name: email
+- description: Your password.
+  kind: password
+  label: Password
+  name: password
+  sensitive: true
 settings_group_validation:
-- - LOGIN_URL
-  - API_KEY
-  - password
-  - QUERY_URL
+- - API_KEY
+  - LOGIN_URL
   - QUERY_ID
+  - QUERY_URL
   - email
+  - password
 variant: domb16

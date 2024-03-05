@@ -15,26 +15,9 @@ pip_url: pipelinewise-tap-zuora
 quality: silver
 repo: https://github.com/transferwise/pipelinewise-tap-zuora
 settings:
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
-    can be expected to take."
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
-- description: Whether to use a sandbox or not. Default, False.
-  kind: boolean
-  label: Sandbox
-  name: sandbox
-- description: Your username.
-  label: Username
-  name: username
 - description: The API type to use, e.g. `REST`.
   label: API Type
   name: api_type
-- description: Your password.
-  kind: password
-  label: Password
-  name: password
 - description: Whether to use a European client or not. Default, False.
   kind: boolean
   label: European
@@ -42,9 +25,27 @@ settings:
 - description: The partner ID.
   label: Partner ID
   name: partner_id
+- description: Your password.
+  kind: password
+  label: Password
+  name: password
+  sensitive: true
+- description: Whether to use a sandbox or not. Default, False.
+  kind: boolean
+  label: Sandbox
+  name: sandbox
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: Your username.
+  label: Username
+  name: username
 settings_group_validation:
-- - start_date
-  - username
-  - api_type
+- - api_type
   - password
+  - start_date
+  - username
 variant: transferwise

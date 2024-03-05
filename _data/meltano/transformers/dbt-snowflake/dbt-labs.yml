@@ -53,41 +53,43 @@ requires:
   - name: files-dbt-snowflake
     variant: meltano
 settings:
-- label: Projects Directory
-  name: project_dir
-  value: $MELTANO_PROJECT_ROOT/transform
-- env: DBT_PROFILES_DIR
-  label: Profiles Directory
-  name: profiles_dir
-  value: $MELTANO_PROJECT_ROOT/transform/profiles/snowflake
 - description: The snowflake account to connect to.
   kind: string
   label: Account
   name: account
-- description: The user to connect as.
-  kind: string
-  label: User
-  name: user
-- description: The user password to authenticate with.
-  kind: password
-  label: Password
-  name: password
-- description: The user role to assume.
-  kind: string
-  label: Role
-  name: role
-- description: The compute warehouse to use when building models.
-  kind: string
-  label: Warehouse
-  name: warehouse
 - description: The database to create models in.
   kind: string
   label: Database
   name: database
+- description: The user password to authenticate with.
+  kind: password
+  label: Password
+  name: password
+  sensitive: true
+- env: DBT_PROFILES_DIR
+  label: Profiles Directory
+  name: profiles_dir
+  value: $MELTANO_PROJECT_ROOT/transform/profiles/snowflake
+- label: Projects Directory
+  name: project_dir
+  value: $MELTANO_PROJECT_ROOT/transform
+- description: The user role to assume.
+  kind: string
+  label: Role
+  name: role
 - description: The schema to build models into by default.
   kind: string
   label: Schema
   name: schema
+- description: The user to connect as.
+  kind: string
+  label: User
+  name: user
+- description: The compute warehouse to use when building models.
+  kind: string
+  label: Warehouse
+  name: warehouse
+settings_group_validation: []
 settings_preamble: |
   Settings for dbt itself can be configured through [dbt_project.yml](https://docs.getdbt.com/reference/dbt_project.yml) as usual, which can be found at transform/dbt_project.yml in your Meltano project. dbt also has [adapter-specific documentation for Snowflake](https://docs.getdbt.com/reference/resource-configs/snowflake-configs).
 variant: dbt-labs

@@ -15,13 +15,23 @@ pip_url: tap-kustomer
 quality: silver
 repo: https://github.com/singer-io/tap-kustomer
 settings:
+- description: Your API token. See [the docs](https://developer.kustomer.com/kustomer-api-docs/reference/authentication)
+    on how to obtain this.
+  kind: password
+  label: API Token
+  name: api_token
+  sensitive: true
 - description: The number of days (between the from and to dates) for date-windowing
     through the date-filtered endpoints (default = 60).
   kind: integer
   label: Date Window Size
   name: date_window_size
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
+- description: The number of records to return per API request. Default, 100.
+  kind: integer
+  label: Page Size Limit
+  name: page_size_limit
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
     can be expected to take."
   kind: date_iso8601
   label: Start Date
@@ -29,15 +39,6 @@ settings:
 - description: The user agent to send with requests.
   label: User Agent
   name: user_agent
-- description: Your API token. See [the docs](https://developer.kustomer.com/kustomer-api-docs/reference/authentication)
-    on how to obtain this.
-  kind: password
-  label: API Token
-  name: api_token
-- description: The number of records to return per API request. Default, 100.
-  kind: integer
-  label: Page Size Limit
-  name: page_size_limit
 settings_group_validation:
 - - start_date
   - token

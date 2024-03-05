@@ -15,6 +15,16 @@ pip_url: git+https://github.com/singer-io/tap-appfigures.git
 quality: silver
 repo: https://github.com/singer-io/tap-appfigures
 settings:
+- description: Your Appfigures API key.
+  kind: password
+  label: API Key
+  name: api_key
+  sensitive: true
+- description: Your Appfigures password.
+  kind: password
+  label: Password
+  name: password
+  sensitive: true
 - description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.
@@ -24,17 +34,9 @@ settings:
 - description: Your Appfigures username.
   label: Username
   name: username
-- description: Your Appfigures password.
-  kind: password
-  label: Password
-  name: password
-- description: Your Appfigures API key.
-  kind: password
-  label: API Key
-  name: api_key
 settings_group_validation:
-- - start_date
-  - username
+- - api_key
   - password
-  - api_key
+  - start_date
+  - username
 variant: singer-io

@@ -15,10 +15,16 @@ pip_url: tap-mailchimp
 quality: silver
 repo: https://github.com/singer-io/tap-mailchimp
 settings:
-- description: Time for which request should wait to get response. Default, 300.
-  kind: integer
-  label: Request Timeout
-  name: request_timeout
+- description: The access token from the OAuth2 flow.
+  kind: password
+  label: Access Token
+  name: access_token
+  sensitive: true
+- description: The Mailchimp API key, if using API key auth instead of OAuth.
+  kind: password
+  label: API Key
+  name: api_key
+  sensitive: true
 - description: The Mailchimp data center, only requried when using API key auth. E.g.
     "us14".
   label: Data Center
@@ -27,27 +33,23 @@ settings:
   kind: integer
   label: Page Size
   name: page_size
-- description: The user agent to send on every request.
-  label: User Agent
-  name: user_agent
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
+- description: Time for which request should wait to get response. Default, 300.
+  kind: integer
+  label: Request Timeout
+  name: request_timeout
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
     can be expected to take."
   kind: date_iso8601
   label: Start Date
   name: start_date
-- description: The access token from the OAuth2 flow.
-  kind: password
-  label: Access Token
-  name: access_token
-- description: The Mailchimp API key, if using API key auth instead of OAuth.
-  kind: password
-  label: API Key
-  name: api_key
+- description: The user agent to send on every request.
+  label: User Agent
+  name: user_agent
 settings_group_validation:
-- - start_date
-  - api_key
+- - api_key
   - dc
-- - start_date
-  - access_token
+  - start_date
+- - access_token
+  - start_date
 variant: singer-io

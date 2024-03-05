@@ -12,18 +12,19 @@ pip_url: git+https://github.com/shrutikaponde-vc/target-azureblobstorage.git
 quality: silver
 repo: https://github.com/shrutikaponde-vc/target-azureblobstorage
 settings:
+- description: Your Azure account key.
+  kind: password
+  label: Account Key
+  name: account_key
+  sensitive: true
 - description: Your Azure blob storage account name.
   label: Account Name
   name: account_name
 - description: The name of your Azure blob storage container.
   label: Container Name
   name: container_name
-- description: Your Azure account key.
-  kind: password
-  label: Account Key
-  name: account_key
 settings_group_validation:
-- - account_name
-  - account_key
+- - account_key
+  - account_name
   - container_name
 variant: shrutikaponde-vc

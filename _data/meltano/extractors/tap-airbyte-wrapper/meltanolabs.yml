@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Wrapper for running Airbyte protocol connectors in Meltano
 domain_url: https://github.com/meltanolabs/tap-airbyte-wrapper
 executable: tap-airbyte-wrapper
@@ -21,6 +21,13 @@ pip_url: git+https://github.com/meltanolabs/tap-airbyte-wrapper.git
 quality: gold
 repo: https://github.com/meltanolabs/tap-airbyte-wrapper
 settings:
+- description: Configuration to pass through to the Airbyte source connector, this
+    can be gleaned by running the the tap with the `--about` flag and the `--config`
+    flag pointing to a file containing the `airbyte_spec` configuration. This is a
+    JSON object.
+  kind: object
+  label: Airbyte Config
+  name: airbyte_config
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -29,30 +36,14 @@ settings:
   kind: string
   label: Airbyte Spec Tag
   name: airbyte_spec.tag
-- description: Configuration to pass through to the Airbyte source connector, this
-    can be gleaned by running the the tap with the `--about` flag and the `--config`
-    flag pointing to a file containing the `airbyte_spec` configuration. This is a
-    JSON object.
-  kind: object
-  label: Airbyte Config
-  name: airbyte_config
 - description: Docker mounts to make available to the Airbyte container. Expects a
     list of maps containing source, target, and type as is documented in the docker
     --mount documentation
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -60,6 +51,15 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
 - - airbyte_spec
   - airbyte_spec.image

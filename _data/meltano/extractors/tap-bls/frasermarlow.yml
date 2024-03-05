@@ -15,6 +15,17 @@ pip_url: git+https://github.com/frasermarlow/tap-bls.git
 quality: silver
 repo: https://github.com/frasermarlow/tap-bls
 settings:
+- description: If selected, an annual data series will include a M13 datapoint with
+    the annual average value. See [the BLS website](https://www.bls.gov/developers/api_signature_v2.htm#parameters)
+    for more details.
+  kind: boolean
+  label: Annual Average
+  name: annualaverage
+- description: Your BLS issued API key. It allows you to have less rate limiting issues.
+  kind: password
+  label: API Key
+  name: api-key
+  sensitive: true
 - description: An option you will find in the API documentation but setting this to
     'true' has caused issues (in my experience) whereby some data points are no longer
     provided in the returning payload. Not many BLS series include this. See [the
@@ -23,23 +34,6 @@ settings:
   kind: boolean
   label: Aspects
   name: aspects
-- description: If selected, an annual data series will include a M13 datapoint with
-    the annual average value. See [the BLS website](https://www.bls.gov/developers/api_signature_v2.htm#parameters)
-    for more details.
-  kind: boolean
-  label: Annual Average
-  name: annualaverage
-- description: The date you want the series to end. If left blank it will default
-    to the current year.
-  kind: date_iso8601
-  label: End Year
-  name: endyear
-- description: 'the year you want your data extract to start. Not the limits: you
-    can pull up to 20 years in one go, and most data seris start at 2000, so you do
-    the math... If left blank it will default to 2000.'
-  kind: date_iso8601
-  label: Start Year
-  name: startyear
 - description: Provides 1,3,6 and 12 month changes in the data in both net and percentage
     format. If selected, these 6 additional datapoints will be included in separate
     columns. See [the BLS website](https://www.bls.gov/developers/api_signature_v2.htm#parameters)
@@ -47,15 +41,22 @@ settings:
   kind: boolean
   label: Calculations
   name: calculations
-- description: Your BLS issued API key. It allows you to have less rate limiting issues.
-  kind: password
-  label: API Key
-  name: api-key
+- description: The date you want the series to end. If left blank it will default
+    to the current year.
+  kind: date_iso8601
+  label: End Year
+  name: endyear
 - description: An optional absolute or relative path to the series.json. If not provided
     (and if the schemas directory is empty), the tap will look for a file named series.json
     in the same location as the config.json file.
   label: Series List File Location
   name: series_list_file_location
+- description: 'the year you want your data extract to start. Not the limits: you
+    can pull up to 20 years in one go, and most data seris start at 2000, so you do
+    the math... If left blank it will default to 2000.'
+  kind: date_iso8601
+  label: Start Year
+  name: startyear
 settings_group_validation:
 - []
 variant: frasermarlow

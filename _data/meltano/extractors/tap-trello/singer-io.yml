@@ -15,32 +15,36 @@ pip_url: tap-trello
 quality: bronze
 repo: https://github.com/singer-io/tap-trello
 settings:
+- description: Your Trello Access Token
+  kind: password
+  label: Access Token
+  name: access_token
+  sensitive: true
+- description: Your Trello Access Token Secret
+  kind: password
+  label: Access Token
+  name: access_token_secret
+  sensitive: true
+- description: Your Trello Consumer Key
+  kind: password
+  label: Consumer Key
+  name: consumer_key
+  sensitive: true
+- description: Your Trello Consumer Secret
+  kind: password
+  label: Consumer Secret
+  name: consumer_secret
+  sensitive: true
 - description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.
   kind: date_iso8601
   label: Start Date
   name: start_date
-- description: Your Trello Consumer Key
-  kind: password
-  label: Consumer Key
-  name: consumer_key
-- description: Your Trello Consumer Secret
-  kind: password
-  label: Consumer Secret
-  name: consumer_secret
-- description: Your Trello Access Token
-  kind: password
-  label: Access Token
-  name: access_token
-- description: Your Trello Access Token Secret
-  kind: password
-  label: Access Token
-  name: access_token_secret
 settings_group_validation:
-- - start_date
+- - access_token
+  - access_token_secret
   - consumer_key
   - consumer_secret
-  - access_token
-  - access_token_secret
+  - start_date
 variant: singer-io

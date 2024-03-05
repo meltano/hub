@@ -23,6 +23,7 @@ settings:
   kind: password
   label: Auth Token
   name: auth_token
+  sensitive: true
 - description: URL of the Mercado Pago API (default = https://api.mercadopago.com/v1)
   kind: string
   label: Base URL

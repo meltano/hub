@@ -21,9 +21,11 @@ settings:
   kind: password
   label: Clubhouse Token
   name: api_token
+  sensitive: true
 - description: The date from which to start extracting data
   documentation: https://clubhouse.io/api/rest/v3/#Authentication
   kind: date_iso8601
   label: Start Date
   name: start_date
+settings_group_validation: []
 variant: envoy

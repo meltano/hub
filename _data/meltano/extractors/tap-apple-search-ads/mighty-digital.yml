@@ -14,33 +14,34 @@ pip_url: git+https://github.com/mighty-digital/tap-apple-search-ads.git
 quality: silver
 repo: https://github.com/mighty-digital/tap-apple-search-ads
 settings:
-- description: Apple Search Ads Organization ID, obtained from Apple Search Ads console.
-  label: Org Id
-  name: org_id
-- description: obtained from "Implementing OAuth for the Apple Search Ads API".
-  label: Team Id
-  name: team_id
 - description: obtained from "Implementing OAuth for the Apple Search Ads API".
   kind: password
   label: Client Id
   name: client_id
+  sensitive: true
+- description: obtained from "Implementing OAuth for the Apple Search Ads API".
+  label: Key Id
+  name: key_id
+- description: Apple Search Ads Organization ID, obtained from Apple Search Ads console.
+  label: Org Id
+  name: org_id
 - description: path to the private-key.pem file obtained from "Implementing OAuth
     for the Apple Search Ads API".
   label: Private Key File
   name: private_key_file
-- description: obtained from "Implementing OAuth for the Apple Search Ads API".
-  label: Key Id
-  name: key_id
 - description: contents of the private-key.pem file as string (joined with \n character).
   label: Private Key Value
   name: private_key_value
+- description: obtained from "Implementing OAuth for the Apple Search Ads API".
+  label: Team Id
+  name: team_id
 settings_group_validation:
-- - org_id
-  - team_id
-  - client_id
-  - private_key_file
+- - client_id
   - key_id
+  - org_id
+  - private_key_file
   - private_key_value
+  - team_id
 settings_preamble: ''
 usage: ''
 variant: mighty-digital

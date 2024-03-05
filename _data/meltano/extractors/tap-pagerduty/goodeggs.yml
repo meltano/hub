@@ -15,14 +15,15 @@ pip_url: git+https://github.com/goodeggs/tap-pagerduty.git
 quality: silver
 repo: https://github.com/goodeggs/tap-pagerduty
 settings:
-- description: A valid Pagerduty REST API key. See https://support.pagerduty.com/docs/api-access-keys.
-  kind: password
-  label: API Token
-  name: token
 - description: A valid email address to be inserted into the From header of the HTTP
-    Request headers. See https://developer.pagerduty.com/docs/ZG9jOjExMDI5NTUw-rest-api-overview#http-request-headers.
+    Request headers. See 
+    https://developer.pagerduty.com/docs/ZG9jOjExMDI5NTUw-rest-api-overview#http-request-headers.
   label: Email
   name: email
+- description: (Default 100) The API request limit.
+  kind: integer
+  label: API Request Limit
+  name: limit
 - description: A date to be used as the default since parameter for all API endpoints
     that support that parameter.
   kind: date_iso8601
@@ -35,12 +36,13 @@ settings:
   kind: object
   label: Streams
   name: streams
-- description: (Default 100) The API request limit.
-  kind: integer
-  label: API Request Limit
-  name: limit
+- description: A valid Pagerduty REST API key. See https://support.pagerduty.com/docs/api-access-keys.
+  kind: password
+  label: API Token
+  name: token
+  sensitive: true
 settings_group_validation:
-- - token
-  - email
+- - email
   - since
+  - token
 variant: goodeggs

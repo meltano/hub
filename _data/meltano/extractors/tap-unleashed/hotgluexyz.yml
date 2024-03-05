@@ -25,6 +25,7 @@ settings:
   kind: password
   label: API Auth ID
   name: api-auth-id
+  sensitive: true
 - description: Your Unleashed API Auth Signature.
   kind: string
   label: API Auth Signature

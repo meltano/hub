@@ -17,27 +17,28 @@ repo: https://github.com/hotgluexyz/tap-intacct
 settings:
 - label: Company ID
   name: company_id
+- description: Maximum number of threads to use
+  kind: integer
+  label: Max Workers
+  name: max_workers
+  value: 8
+- description: Select by default any new fields discovered in Quickbooks objects
+  kind: boolean
+  label: Select Fields By Default
+  name: select_fields_by_default
+  value: true
 - label: Sender ID
   name: sender_id
 - kind: password
   label: Sender Password
   name: sender_password
-- label: User ID
-  name: user_id
-- kind: password
-  label: User Password
-  name: user_password
+  sensitive: true
 - description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.
   kind: date_iso8601
   label: Start Date
   name: start_date
-- description: Select by default any new fields discovered in Quickbooks objects
-  kind: boolean
-  label: Select Fields By Default
-  name: select_fields_by_default
-  value: true
 - description: |
     Used to throttle how often STATE messages are generated when the tap is using the “REST” API.
 
@@ -46,16 +47,17 @@ settings:
   label: State Message Threshold
   name: state_message_threshold
   value: 1000
-- description: Maximum number of threads to use
-  kind: integer
-  label: Max Workers
-  name: max_workers
-  value: 8
+- label: User ID
+  name: user_id
+- kind: password
+  label: User Password
+  name: user_password
+  sensitive: true
 settings_group_validation:
 - - company_id
   - sender_id
   - sender_password
+  - start_date
   - user_id
   - user_password
-  - start_date
 variant: hotgluexyz

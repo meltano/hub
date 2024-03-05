@@ -1,3 +1,4 @@
+capabilities: []
 description: Snowflake database loader
 dialect: snowflake
 domain_url: https://www.snowflake.com/
@@ -20,29 +21,11 @@ prereq: |
 quality: silver
 repo: https://github.com/datamill-co/target-snowflake
 settings:
-- description: |
-    `ACCOUNT` might require the `region` and `cloud` platform where your account is located, in the form of: `<your_account_name>.<region_id>.<cloud>` (e.g. `xy12345.east-us-2.azure`)
-
-    Refer to [Snowflake's documentation](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name-and-url) about Accounts.
-  label: Account
-  name: snowflake_account
-- label: Username
-  name: snowflake_username
-- kind: password
-  label: Password
-  name: snowflake_password
-- description: If not specified, Snowflake will use the user's default role.
-  label: Role
-  name: snowflake_role
-- label: Snowflake Database
-  name: snowflake_database
-- description: |
-    Specifies the authentication provider for snowflake to use. Valud options are the internal one ("snowflake"), a browser session ("externalbrowser"), or Okta ("https://<your_okta_account_name>.okta.com"). See the snowflake docs for more details.
-  label: Snowflake Authenticator
-  name: snowflake_authenticator
-  value: snowflake
-- label: Warehouse
-  name: snowflake_warehouse
+- description: 'Include `true` in your config to disable Singer Usage Logging: https://github.com/datamill-co/target-snowflake#usage-logging'
+  kind: boolean
+  label: Disable Collection
+  name: disable_collection
+  value: false
 - description: Include `false` in your config to disable crashing on invalid records
   kind: boolean
   label: Invalid Records Detect
@@ -54,11 +37,6 @@ settings:
   label: Invalid Records Threshold
   name: invalid_records_threshold
   value: 0
-- description: 'Include `true` in your config to disable Singer Usage Logging: https://github.com/datamill-co/target-snowflake#usage-logging'
-  kind: boolean
-  label: Disable Collection
-  name: disable_collection
-  value: false
 - description: The level for logging. Set to `DEBUG` to get things like queries executed,
     timing of those queries, etc. See [Python's Logger Levels](https://docs.python.org/3/library/logging.html#levels)
     for information about valid values.
@@ -83,6 +61,26 @@ settings:
   label: Persist Empty Tables
   name: persist_empty_tables
   value: false
+- description: |
+    `ACCOUNT` might require the `region` and `cloud` platform where your account is located, in the form of: `<your_account_name>.<region_id>.<cloud>` (e.g. `xy12345.east-us-2.azure`)
+
+    Refer to [Snowflake's documentation](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name-and-url) about Accounts.
+  label: Account
+  name: snowflake_account
+- description: |
+    Specifies the authentication provider for snowflake to use. Valud options are the internal one ("snowflake"), a browser session ("externalbrowser"), or Okta ("https://<your_okta_account_name>.okta.com"). See the snowflake docs for more details.
+  label: Snowflake Authenticator
+  name: snowflake_authenticator
+  value: snowflake
+- label: Snowflake Database
+  name: snowflake_database
+- kind: password
+  label: Password
+  name: snowflake_password
+  sensitive: true
+- description: If not specified, Snowflake will use the user's default role.
+  label: Role
+  name: snowflake_role
 - aliases:
   - schema
   description: |
@@ -91,6 +89,10 @@ settings:
   name: snowflake_schema
   value: $MELTANO_EXTRACT__LOAD_SCHEMA
   value_processor: upcase_string
+- label: Username
+  name: snowflake_username
+- label: Warehouse
+  name: snowflake_warehouse
 - description: Whether the Target should emit `STATE` messages to stdout for further
     consumption. In this mode, which is on by default, STATE messages are buffered
     in memory until all the records that occurred before them are flushed according
@@ -99,6 +101,14 @@ settings:
   label: State Support
   name: state_support
   value: true
+- kind: password
+  label: Target S3 AWS Access Key ID
+  name: target_s3.aws_access_key_id
+  sensitive: true
+- kind: password
+  label: Target S3 AWS Secret Access Key
+  name: target_s3.aws_secret_access_key
+  sensitive: true
 - description: When included, use S3 to stage files. Bucket where staging files should
     be uploaded to.
   label: Target S3 Bucket
@@ -107,17 +117,11 @@ settings:
     tmp files
   label: Target S3 Key Prefix
   name: target_s3.key_prefix
-- kind: password
-  label: Target S3 AWS Access Key ID
-  name: target_s3.aws_access_key_id
-- kind: password
-  label: Target S3 AWS Secret Access Key
-  name: target_s3.aws_secret_access_key
 settings_group_validation:
 - - snowflake_account
-  - snowflake_username
-  - snowflake_password
   - snowflake_database
+  - snowflake_password
+  - snowflake_username
   - snowflake_warehouse
 target_schema: $TARGET_SNOWFLAKE_SNOWFLAKE_SCHEMA
 usage: |

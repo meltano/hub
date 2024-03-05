@@ -15,20 +15,11 @@ pip_url: git+https://github.com/singer-io/tap-adroll.git
 quality: silver
 repo: https://github.com/singer-io/tap-adroll
 settings:
-- description: Determines how much historical data will be extracted. Please be aware
-    that the larger the time period and amount of data, the longer the initial extraction
-    can be expected to take.
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
 - description: Your AdRoll access token.
   kind: password
   label: Access Token
   name: access_token
-- description: Your AdRoll refresh token.
-  kind: password
-  label: Refresh Token
-  name: refresh_token
+  sensitive: true
 - description: Your AdRoll client ID.
   label: Client ID
   name: client_id
@@ -36,18 +27,30 @@ settings:
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
+- description: Date up to when historical data will be extracted.
+  label: End Date
+  name: end_date
 - description: (Default 7 days) The amount of time in days to look back from the start
     date or date bookmark.
   kind: integer
   label: Lookback Window
   name: lookback_window
-- description: Date up to when historical data will be extracted.
-  label: End Date
-  name: end_date
+- description: Your AdRoll refresh token.
+  kind: password
+  label: Refresh Token
+  name: refresh_token
+  sensitive: true
+- description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
 settings_group_validation:
-- - start_date
-  - access_token
-  - refresh_token
+- - access_token
   - client_id
   - client_secret
+  - refresh_token
+  - start_date
 variant: singer-io

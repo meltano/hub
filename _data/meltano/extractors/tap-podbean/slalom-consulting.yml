@@ -32,10 +32,12 @@ settings:
   kind: password
   label: Client ID
   name: client_id
+  sensitive: true
 - description: The client secret to authenticate against the API service.
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean

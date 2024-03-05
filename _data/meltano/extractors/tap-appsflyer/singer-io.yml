@@ -15,31 +15,32 @@ pip_url: tap-appsflyer
 quality: silver
 repo: https://github.com/singer-io/tap-appsflyer
 settings:
-- description: The user agent to send with requests.
-  label: User Agent
-  name: user_agent
-- description: The base url to use for requests, defaul https://hq.appsflyer.com.
-  label: Base Url
-  name: base_url
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
-    can be expected to take."
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
 - description: Your API token. See [the API docs](https://support.appsflyer.com/hc/en-us/articles/360004562377)
     for more details on obtaining your token. Also note if you change the account
     admin, the token changes, and you must update scripts with the new token.
   kind: password
   label: API Token
   name: api_token
+  sensitive: true
+- description: The app ID as shown in AppsFlyer.
+  label: App ID
+  name: app_id
+- description: The base url to use for requests, defaul https://hq.appsflyer.com.
+  label: Base Url
+  name: base_url
 - description: Whether to include the organic installs stream in your sync.
   kind: boolean
   label: Organic Installs
   name: organic_installs
-- description: The app ID as shown in AppsFlyer.
-  label: App ID
-  name: app_id
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: The user agent to send with requests.
+  label: User Agent
+  name: user_agent
 settings_group_validation:
 - - api_token
   - app_id

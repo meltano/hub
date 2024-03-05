@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: NoSQL Database
 domain_url: https://aws.amazon.com/dynamodb/
 executable: tap-airbyte
@@ -18,24 +18,15 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-dynamodb
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-dynamodb
 settings:
-- description: Airbyte image to run
-  kind: string
-  label: Airbyte Spec Image
-  name: airbyte_spec.image
-  value: airbyte/source-dynamodb
-- description: Airbyte image tag
-  kind: string
-  label: Airbyte Spec Tag
-  name: airbyte_spec.tag
-  value: latest
-- description: Docker mounts to make available to the Airbyte container. Expects a
-    list of maps containing source, target, and type as is documented in the docker
-    --mount documentation
-  kind: array
-  label: Docker Mounts
-  name: docker_mounts
+- description: The access key id to access Dynamodb. Airbyte requires read permissions
+    to the database
+  kind: password
+  label: Airbyte Config Access Key Id
+  name: airbyte_config.access_key_id
+  sensitive: true
 - description: the URL of the Dynamodb database
   kind: string
   label: Airbyte Config Endpoint
@@ -97,26 +88,29 @@ settings:
     value: us-gov-east-1
   - label: Us Gov West 1
     value: us-gov-west-1
-- description: The access key id to access Dynamodb. Airbyte requires read permissions
-    to the database
-  kind: password
-  label: Airbyte Config Access Key Id
-  name: airbyte_config.access_key_id
 - description: The corresponding secret to the access key id.
   kind: password
   label: Airbyte Config Secret Access Key
   name: airbyte_config.secret_access_key
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+  sensitive: true
+- description: Airbyte image to run
+  kind: string
+  label: Airbyte Spec Image
+  name: airbyte_spec.image
+  value: airbyte/source-dynamodb
+- description: Airbyte image tag
+  kind: string
+  label: Airbyte Spec Tag
+  name: airbyte_spec.tag
+  value: latest
+- description: Docker mounts to make available to the Airbyte container. Expects a
+    list of maps containing source, target, and type as is documented in the docker
+    --mount documentation
+  kind: array
+  label: Docker Mounts
+  name: docker_mounts
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -124,10 +118,19 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
 - - airbyte_config.access_key_id
-  - airbyte_spec.image
   - airbyte_config.secret_access_key
+  - airbyte_spec.image
 settings_preamble: ''
 usage: ''
 variant: airbyte

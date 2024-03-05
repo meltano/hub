@@ -23,6 +23,7 @@ settings:
   kind: password
   label: Access Token
   name: access_token
+  sensitive: true
 - description: The Admin url for your Shopify store (overrides 'store' property)
   kind: string
   label: Admin URL

@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Transactional Email and SMS Service
 domain_url: https://developers.mailersend.com/#mailersend-api
 executable: tap-airbyte
@@ -18,8 +18,23 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-mailersend
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-mailersend
 settings:
+- description: Your API Token. See <a href="https://www.mailersend.com/help/managing-api-tokens">here</a>.
+  kind: password
+  label: Airbyte Config Api Token
+  name: airbyte_config.api_token
+  sensitive: true
+- description: The domain entity in mailersend
+  kind: password
+  label: Airbyte Config Domain Id
+  name: airbyte_config.domain_id
+  sensitive: true
+- description: Timestamp is assumed to be UTC.
+  kind: integer
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -36,29 +51,8 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: Your API Token. See <a href="https://www.mailersend.com/help/managing-api-tokens">here</a>.
-  kind: password
-  label: Airbyte Config Api Token
-  name: airbyte_config.api_token
-- description: The domain entity in mailersend
-  kind: password
-  label: Airbyte Config Domain Id
-  name: airbyte_config.domain_id
-- description: Timestamp is assumed to be UTC.
-  kind: integer
-  label: Airbyte Config Start Date
-  name: airbyte_config.start_date
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -66,11 +60,20 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - airbyte_config.domain_id
-  - airbyte_config.api_token
-  - airbyte_spec.image
+- - airbyte_config.api_token
+  - airbyte_config.domain_id
   - airbyte_spec
+  - airbyte_spec.image
 settings_preamble: ''
 usage: ''
 variant: airbyte

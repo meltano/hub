@@ -1,3 +1,4 @@
+capabilities: []
 description: PostgreSQL database loader
 dialect: postgres
 domain_url: https://www.postgresql.org/
@@ -14,35 +15,24 @@ quality: silver
 repo: https://github.com/meltano/target-postgres
 settings:
 - aliases:
-  - username
-  label: User
-  name: user
-  value: warehouse
-- kind: password
-  label: Password
-  name: password
+  - database
+  label: Database Name
+  name: dbname
   value: warehouse
 - aliases:
   - address
   label: Host
   name: host
   value: localhost
+- kind: password
+  label: Password
+  name: password
+  sensitive: true
+  value: warehouse
 - kind: integer
   label: Port
   name: port
   value: 5502
-- aliases:
-  - database
-  label: Database Name
-  name: dbname
-  value: warehouse
-- description: |
-    Lets you set `user`, `password`, `host`, `port`, and `dbname` in one
-    go using a `postgresql://` URI.
-
-    Takes precedence over the other settings when set.
-  label: URL
-  name: url
 - description: |
     Note that `$MELTANO_EXTRACT__LOAD_SCHEMA` [will expand to](https://docs.meltano.com/guide/configuration.html#expansion-in-setting-values) the value of the [`load_schema` extra](https://docs.meltano.com/concepts/plugins#load-schema-extra) for the extractor used in the pipeline, which defaults to the extractor's namespace, e.g. `tap_gitlab` for [`tap-gitlab`](/extractors/gitlab).
 
@@ -51,15 +41,27 @@ settings:
   label: Schema
   name: schema
   value: $MELTANO_EXTRACT__LOAD_SCHEMA
+- description: |
+    Lets you set `user`, `password`, `host`, `port`, and `dbname` in one
+    go using a `postgresql://` URI.
+
+    Takes precedence over the other settings when set.
+  label: URL
+  name: url
+- aliases:
+  - username
+  label: User
+  name: user
+  value: warehouse
 settings_group_validation:
-- - url
-  - schema
-- - user
-  - password
+- - schema
+  - url
+- - dbname
   - host
+  - password
   - port
-  - dbname
   - schema
+  - user
 target_schema: $TARGET_POSTGRES_SCHEMA
 usage: |
   ## Troubleshooting

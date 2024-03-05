@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Online Payments System
 domain_url: https://www.paypal.com/us/home
 executable: tap-airbyte
@@ -18,8 +18,33 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-paypal-transaction
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-paypal-transaction
 settings:
+- description: The Client ID of your Paypal developer application.
+  kind: password
+  label: Airbyte Config Client Id
+  name: airbyte_config.client_id
+  sensitive: true
+- description: The Client Secret of your Paypal developer application.
+  kind: password
+  label: Airbyte Config Client Secret
+  name: airbyte_config.client_secret
+  sensitive: true
+- description: Determines whether to use the sandbox or production environment.
+  kind: boolean
+  label: Airbyte Config Is Sandbox
+  name: airbyte_config.is_sandbox
+- description: The key to refresh the expired access token.
+  kind: password
+  label: Airbyte Config Refresh Token
+  name: airbyte_config.refresh_token
+  sensitive: true
+- description: Start Date for data extraction in <a href="https://datatracker.ietf.org/doc/html/rfc3339#section-5.6">ISO
+    format</a>. Date must be in range from 3 years till 12 hrs before present time.
+  kind: string
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -36,38 +61,8 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: The Client ID of your Paypal developer application.
-  kind: password
-  label: Airbyte Config Client Id
-  name: airbyte_config.client_id
-- description: The Client Secret of your Paypal developer application.
-  kind: password
-  label: Airbyte Config Client Secret
-  name: airbyte_config.client_secret
-- description: The key to refresh the expired access token.
-  kind: password
-  label: Airbyte Config Refresh Token
-  name: airbyte_config.refresh_token
-- description: Start Date for data extraction in <a href="https://datatracker.ietf.org/doc/html/rfc3339#section-5.6">ISO
-    format</a>. Date must be in range from 3 years till 12 hrs before present time.
-  kind: string
-  label: Airbyte Config Start Date
-  name: airbyte_config.start_date
-- description: Determines whether to use the sandbox or production environment.
-  kind: boolean
-  label: Airbyte Config Is Sandbox
-  name: airbyte_config.is_sandbox
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -75,9 +70,18 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - airbyte_config.start_date
-  - airbyte_config.is_sandbox
+- - airbyte_config.is_sandbox
+  - airbyte_config.start_date
   - airbyte_spec.image
 settings_preamble: ''
 usage: ''

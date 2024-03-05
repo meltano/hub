@@ -15,27 +15,28 @@ pip_url: tap-closeio
 quality: bronze
 repo: https://github.com/singer-io/tap-closeio
 settings:
-- description: The start_date is the date at which the tap will begin syncing data.
-    Ie. if there is data in your Close.io account older than start_date, it will not
-    be synced.
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
 - description: Your Close.io API key. Login to your Close.io account, navigate to
     your account settings and "Your API Keys". Generate a New API Key, you'll need
     it for the next step.
   kind: password
   label: API Key
   name: api_key
+  sensitive: true
 - description: The date_window is the window in the which API calls will take place.
     The default window size is 15 days.
   kind: integer
   label: Date Window
   name: date_window
+- description: The start_date is the date at which the tap will begin syncing data.
+    Ie. if there is data in your Close.io account older than start_date, it will not
+    be synced.
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
 - description: The user agent to send with requests.
   label: User Agent
   name: user_agent
 settings_group_validation:
-- - start_date
-  - api_key
+- - api_key
+  - start_date
 variant: singer-io

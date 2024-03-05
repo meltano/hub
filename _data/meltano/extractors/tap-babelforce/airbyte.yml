@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Global cloud communications platform
 domain_url: https://api.babelforce.com/
 executable: tap-airbyte
@@ -18,8 +18,40 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-babelforce
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-babelforce
 settings:
+- description: The Babelforce access key ID
+  kind: password
+  label: Airbyte Config Access Key Id
+  name: airbyte_config.access_key_id
+  sensitive: true
+- description: The Babelforce access token
+  kind: password
+  label: Airbyte Config Access Token
+  name: airbyte_config.access_token
+  sensitive: true
+- description: Timestamp in Unix the replication from Babelforce API will start from.
+    For example 1651363200 which corresponds to 2022-05-01 00:00:00.
+  kind: integer
+  label: Airbyte Config Date Created From
+  name: airbyte_config.date_created_from
+- description: Timestamp in Unix the replication from Babelforce will be up to. For
+    example 1651363200 which corresponds to 2022-05-01 00:00:00.
+  kind: integer
+  label: Airbyte Config Date Created To
+  name: airbyte_config.date_created_to
+- description: Babelforce region
+  kind: options
+  label: Airbyte Config Region
+  name: airbyte_config.region
+  options:
+  - label: Services
+    value: services
+  - label: Us East
+    value: us-east
+  - label: Ap Southeast
+    value: ap-southeast
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -36,46 +68,8 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: Babelforce region
-  kind: options
-  label: Airbyte Config Region
-  name: airbyte_config.region
-  options:
-  - label: Services
-    value: services
-  - label: Us East
-    value: us-east
-  - label: Ap Southeast
-    value: ap-southeast
-- description: The Babelforce access key ID
-  kind: password
-  label: Airbyte Config Access Key Id
-  name: airbyte_config.access_key_id
-- description: The Babelforce access token
-  kind: password
-  label: Airbyte Config Access Token
-  name: airbyte_config.access_token
-- description: Timestamp in Unix the replication from Babelforce API will start from.
-    For example 1651363200 which corresponds to 2022-05-01 00:00:00.
-  kind: integer
-  label: Airbyte Config Date Created From
-  name: airbyte_config.date_created_from
-- description: Timestamp in Unix the replication from Babelforce will be up to. For
-    example 1651363200 which corresponds to 2022-05-01 00:00:00.
-  kind: integer
-  label: Airbyte Config Date Created To
-  name: airbyte_config.date_created_to
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -83,12 +77,21 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
 - - airbyte_config.access_key_id
-  - airbyte_spec.image
   - airbyte_config.access_token
   - airbyte_config.region
   - airbyte_spec
+  - airbyte_spec.image
 settings_preamble: ''
 usage: ''
 variant: airbyte

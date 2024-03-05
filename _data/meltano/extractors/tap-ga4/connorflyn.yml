@@ -29,8 +29,8 @@ settings:
   kind: date_iso8601
   label: End Date
   name: end_date
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -42,26 +42,32 @@ settings:
   kind: password
   label: Key File Location
   name: key_file_location
+  sensitive: true
 - description: Google Analytics Access Token
   kind: password
   label: OAuth Credentials Access Token
   name: oauth_credentials.access_token
+  sensitive: true
 - description: Google Analytics Client ID
   kind: password
   label: OAuth Credentials Client ID
   name: oauth_credentials.client_id
+  sensitive: true
 - description: Google Analytics Client Secret
   kind: password
   label: OAuth Credentials Client Secret
   name: oauth_credentials.client_secret
+  sensitive: true
 - description: Google Analytics Refresh Token
   kind: password
   label: OAuth Credentials Refresh Token
   name: oauth_credentials.refresh_token
+  sensitive: true
 - description: Google Analytics Property ID
   kind: password
   label: Property ID
   name: property_id
+  sensitive: true
 - description: Google Analytics Reports Definition
   kind: string
   label: Reports

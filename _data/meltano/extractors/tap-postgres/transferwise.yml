@@ -15,37 +15,15 @@ pip_url: pipelinewise-tap-postgres
 quality: silver
 repo: https://github.com/transferwise/pipelinewise-tap-postgres
 settings:
-- description: PostgreSQL host
-  label: Host
-  name: host
-  value: localhost
-- description: PostgreSQL port
-  kind: integer
-  label: Port
-  name: port
-  value: 5432
-- description: PostgreSQL user
-  label: User
-  name: user
-- description: PostgreSQL password
-  kind: password
-  label: Password
-  name: password
+- description: Stop running the tap if the newly received lsn is after the max lsn
+    that was detected when the tap started
+  kind: boolean
+  label: Break At End LSN
+  name: break_at_end_lsn
+  value: true
 - description: PostgreSQL database name
   label: Database Name
   name: dbname
-- description: Using SSL via postgres `sslmode='require'` option. If the server does
-    not accept SSL connections or the client certificate is not recognized the connection
-    will fail
-  kind: boolean
-  label: SSL
-  name: ssl
-  value: false
-  value_post_processor: stringify
-- description: Scan only the specified comma-separated schemas to improve the performance
-    of data extraction
-  label: Filter Schemas
-  name: filter_schemas
 - description: |
     The prefered replication method.
 
@@ -64,29 +42,52 @@ settings:
     value: INCREMENTAL
   - label: Full Table Replication
     value: FULL_TABLE
-- description: Stop running the tap after certain number of seconds
-  kind: integer
-  label: Max Run Seconds
-  name: max_run_seconds
-  value: 43200
+- description: Scan only the specified comma-separated schemas to improve the performance
+    of data extraction
+  label: Filter Schemas
+  name: filter_schemas
+- description: PostgreSQL host
+  label: Host
+  name: host
+  value: localhost
 - description: Stop running the tap when no data received from wal after certain number
     of seconds
   kind: integer
   label: Logical Poll Total Seconds
   name: logical_poll_total_seconds
   value: 10800
-- description: Stop running the tap if the newly received lsn is after the max lsn
-    that was detected when the tap started
+- description: Stop running the tap after certain number of seconds
+  kind: integer
+  label: Max Run Seconds
+  name: max_run_seconds
+  value: 43200
+- description: PostgreSQL password
+  kind: password
+  label: Password
+  name: password
+  sensitive: true
+- description: PostgreSQL port
+  kind: integer
+  label: Port
+  name: port
+  value: 5432
+- description: Using SSL via postgres `sslmode='require'` option. If the server does
+    not accept SSL connections or the client certificate is not recognized the connection
+    will fail
   kind: boolean
-  label: Break At End LSN
-  name: break_at_end_lsn
-  value: true
+  label: SSL
+  name: ssl
+  value: false
+  value_post_processor: stringify
+- description: PostgreSQL user
+  label: User
+  name: user
 settings_group_validation:
-- - host
+- - dbname
+  - host
+  - password
   - port
   - user
-  - password
-  - dbname
 usage: |
   ## Troubleshooting
 

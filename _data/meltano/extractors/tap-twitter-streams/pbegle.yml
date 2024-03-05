@@ -19,6 +19,7 @@ settings:
   kind: password
   label: Bearer Token
   name: bearer_token
+  sensitive: true
 - description: 'An array of rule objects containing keys - `value` and `tag`. E.g.
     [ {"value": "bitcoin is:verified", "tag": "bitcoin tweets by verified users"}]'
   kind: array

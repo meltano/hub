@@ -51,6 +51,7 @@ settings:
   kind: password
   label: Client IDentifier
   name: client_identifier
+  sensitive: true
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean

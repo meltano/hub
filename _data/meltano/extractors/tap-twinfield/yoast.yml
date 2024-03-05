@@ -3,7 +3,8 @@ capabilities:
 - discover
 - state
 description: Tax and Accounting Software
-domain_url: https://accounting2.twinfield.com/webservices/documentation/#/ApiReference/Request/BrowseData
+domain_url: 
+  https://accounting2.twinfield.com/webservices/documentation/#/ApiReference/Request/BrowseData
 keywords:
 - api
 label: Twinfield
@@ -18,12 +19,6 @@ settings:
 - description: Your Twinfield office.
   label: Office
   name: office
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
-    can be expected to take."
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
 - description: Your Twinfield organisation.
   label: Organisation
   name: organisation
@@ -31,13 +26,20 @@ settings:
   kind: password
   label: Password
   name: password
+  sensitive: true
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
 - description: Your Twinfield username.
   label: Username
   name: username
 settings_group_validation:
 - - office
-  - start_date
   - organisation
   - password
+  - start_date
   - username
 variant: yoast

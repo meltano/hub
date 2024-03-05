@@ -15,37 +15,42 @@ pip_url: git+https://github.com/briansloane/tap-strava.git
 quality: unknown
 repo: https://github.com/briansloane/tap-strava
 settings:
-- description: Your Strava client ID.
-  kind: password
-  label: Client ID
-  name: client_id
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
-    can be expected to take."
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
-- description: Your Strave client secret.
-  kind: password
-  label: Client Secret
-  name: client_secret
-- description: Your Strava refresh token. Requires `read_all` permissions.
-  kind: password
-  label: Refresh Token
-  name: refresh_token
 - description: Your Strava access token.
   kind: password
   label: Access Token
   name: access_token
+  sensitive: true
+- description: Your Strava client ID.
+  kind: password
+  label: Client ID
+  name: client_id
+  sensitive: true
+- description: Your Strave client secret.
+  kind: password
+  label: Client Secret
+  name: client_secret
+  sensitive: true
 - description: Your Strava auth code.
   kind: password
   label: Code
   name: code
+  sensitive: true
+- description: Your Strava refresh token. Requires `read_all` permissions.
+  kind: password
+  label: Refresh Token
+  name: refresh_token
+  sensitive: true
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
+    can be expected to take."
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
 settings_group_validation:
-- - client_id
-  - start_date
+- - access_token
+  - client_id
   - client_secret
-  - refresh_token
-  - access_token
   - code
+  - refresh_token
+  - start_date
 variant: briansloane

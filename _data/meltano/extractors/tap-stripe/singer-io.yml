@@ -65,6 +65,7 @@ settings:
   label: Secret API Key
   name: client_secret
   placeholder: Ex. sk_live_1a2b3c4d5e
+  sensitive: true
 - description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.

@@ -1,6 +1,6 @@
 capabilities:
-- record-flattening
 - hard-delete
+- record-flattening
 description: Serverless lakehouse platform.
 domain_url: https://iomete.com/
 executable: singer-target-iomete
@@ -16,50 +16,6 @@ pip_url: git+https://github.com/iomete/singer-target-iomete.git
 quality: silver
 repo: https://github.com/iomete/singer-target-iomete
 settings:
-- description: iomete User
-  label: User
-  name: user
-- description: '(Default: None) A static prefix before the generated S3 key names.
-    Using prefixes you can upload files into specific directories in the S3 bucket.'
-  label: S3 Key Prefix
-  name: s3_key_prefix
-- description: '(Default: True) Log based and Incremental replications on tables with
-    no Primary Key cause duplicates when merging UPDATE events. When set to true,
-    stop loading data if no Primary Key is defined.'
-  kind: boolean
-  label: Primary Key Required
-  name: primary_key_required
-- description: '(Default: False) Validate every single record message to the corresponding
-    JSON schema. This option is disabled by default and invalid RECORD messages will
-    fail only at load time by iomete. Enabling this option will detect invalid records
-    earlier but could cause performance degradation.'
-  kind: boolean
-  label: Validate Records
-  name: validate_records
-- description: "(Default: False) When hard_delete option is true then DELETE SQL commands\
-    \ will be performed in iomete to delete rows in tables. It's achieved by continuously\
-    \ checking the _SDC_DELETED_AT metadata column sent by the singer tap. Due to\
-    \ deleting rows requires metadata columns, hard_delete option automatically enables\
-    \ the add_metadata_columns option as well."
-  kind: boolean
-  label: Hard Delete
-  name: hard_delete
-- description: S3 Secret Access Key. If not provided, AWS_SECRET_ACCESS_KEY environment
-    variable or IAM role will be used
-  kind: password
-  label: Aws Secret Access Key
-  name: aws_secret_access_key
-- description: '(Default: 0) Object type RECORD items from taps can be loaded into
-    STRUCT columns as JSON (default) or we can flatten the schema by creating columns
-    automatically. When value is 0 (default) then flattening functionality is turned
-    off.'
-  kind: integer
-  label: Data Flattening Max Level
-  name: data_flattening_max_level
-- description: '(Default: None) Maximum time to wait for batch to reach batch_size_rows.'
-  kind: integer
-  label: Batch Wait Limit Seconds
-  name: batch_wait_limit_seconds
 - description: iomete account name (i.e. 645049172474)
   label: Account Number
   name: account_number
@@ -74,6 +30,44 @@ settings:
   kind: boolean
   label: Add Metadata Columns
   name: add_metadata_columns
+- description: S3 Access Key Id. If not provided, AWS_ACCESS_KEY_ID environment variable
+    or IAM role will be used
+  kind: password
+  label: Aws Access Key Id
+  name: aws_access_key_id
+  sensitive: true
+- description: AWS profile name for profile based authentication. If not provided,
+    AWS_PROFILE environment variable will be used.
+  label: Aws Profile
+  name: aws_profile
+- description: S3 Secret Access Key. If not provided, AWS_SECRET_ACCESS_KEY environment
+    variable or IAM role will be used
+  kind: password
+  label: Aws Secret Access Key
+  name: aws_secret_access_key
+  sensitive: true
+- description: AWS Session token. If not provided, AWS_SESSION_TOKEN environment variable
+    will be used
+  kind: password
+  label: Aws Session Token
+  name: aws_session_token
+  sensitive: true
+- description: '(Default: 100000) Maximum number of rows in each batch. At the end
+    of each batch, the rows in the batch are loaded into iomete.'
+  kind: integer
+  label: Batch Size Rows
+  name: batch_size_rows
+- description: '(Default: None) Maximum time to wait for batch to reach batch_size_rows.'
+  kind: integer
+  label: Batch Wait Limit Seconds
+  name: batch_wait_limit_seconds
+- description: '(Default: 0) Object type RECORD items from taps can be loaded into
+    STRUCT columns as JSON (default) or we can flatten the schema by creating columns
+    automatically. When value is 0 (default) then flattening functionality is turned
+    off.'
+  kind: integer
+  label: Data Flattening Max Level
+  name: data_flattening_max_level
 - description: Name of the schema where the tables will be created, without database
     prefix. If schema_mapping is not defined then every stream sent by the tap is
     loaded into this schema.
@@ -85,9 +79,22 @@ settings:
   kind: boolean
   label: Flush All Streams
   name: flush_all_streams
+- description: "(Default: False) When hard_delete option is true then DELETE SQL commands
+    will be performed in iomete to delete rows in tables. It's achieved by continuously
+    checking the _SDC_DELETED_AT metadata column sent by the singer tap. Due to deleting
+    rows requires metadata columns, hard_delete option automatically enables the add_metadata_columns
+    option as well."
+  kind: boolean
+  label: Hard Delete
+  name: hard_delete
 - description: iomete lakehouse name
   label: Lakehouse
   name: lakehouse
+- description: '(Default: False) Generate uncompressed files when loading to iomete.
+    Normally, by default GZIP compressed files are generated.'
+  kind: boolean
+  label: No Compression
+  name: no_compression
 - description: '(Default: 0) The number of threads used to flush tables. 0 will create
     a thread for each stream, up to parallelism_max. -1 will create a thread for each
     CPU core. Any other positive number will create that number of threads, up to
@@ -97,67 +104,64 @@ settings:
   kind: integer
   label: Parallelism
   name: parallelism
-- description: The complete URL to use for the constructed client. This is allowing
-    to use non-native s3 account.
-  label: S3 Endpoint Url
-  name: s3_endpoint_url
-- description: S3 Bucket name. Required if to use S3 External stage. When this is
-    defined then stage has to be defined as well.
-  label: S3 Bucket
-  name: s3_bucket
-- description: AWS Session token. If not provided, AWS_SESSION_TOKEN environment variable
-    will be used
-  kind: password
-  label: Aws Session Token
-  name: aws_session_token
-- description: AWS profile name for profile based authentication. If not provided,
-    AWS_PROFILE environment variable will be used.
-  label: Aws Profile
-  name: aws_profile
-- description: '(Default: False) Generate uncompressed files when loading to iomete.
-    Normally, by default GZIP compressed files are generated.'
-  kind: boolean
-  label: No Compression
-  name: no_compression
 - description: '(Default: 16) Max number of parallel threads to use when flushing
     tables.'
   kind: integer
   label: Parallelism Max
   name: parallelism_max
-- description: '(Default: 100000) Maximum number of rows in each batch. At the end
-    of each batch, the rows in the batch are loaded into iomete.'
-  kind: integer
-  label: Batch Size Rows
-  name: batch_size_rows
-- description: '(Default: platform-dependent) Directory of temporary files with RECORD
-    messages.'
-  label: Temp Dir
-  name: temp_dir
-- description: S3 Access Key Id. If not provided, AWS_ACCESS_KEY_ID environment variable
-    or IAM role will be used
-  kind: password
-  label: Aws Access Key Id
-  name: aws_access_key_id
 - description: iomete Password
   kind: password
   label: Password
   name: password
+  sensitive: true
+- description: '(Default: True) Log based and Incremental replications on tables with
+    no Primary Key cause duplicates when merging UPDATE events. When set to true,
+    stop loading data if no Primary Key is defined.'
+  kind: boolean
+  label: Primary Key Required
+  name: primary_key_required
+- description: S3 ACL name to set on the uploaded files
+  label: S3 Acl
+  name: s3_acl
+- description: S3 Bucket name. Required if to use S3 External stage. When this is
+    defined then stage has to be defined as well.
+  label: S3 Bucket
+  name: s3_bucket
+- description: The complete URL to use for the constructed client. This is allowing
+    to use non-native s3 account.
+  label: S3 Endpoint Url
+  name: s3_endpoint_url
+- description: '(Default: None) A static prefix before the generated S3 key names.
+    Using prefixes you can upload files into specific directories in the S3 bucket.'
+  label: S3 Key Prefix
+  name: s3_key_prefix
+- description: Default region when creating new connections
+  label: S3 Region Name
+  name: s3_region_name
 - description: Useful if you want to load multiple streams from one tap to multiple
     iomete schemas
   kind: object
   label: Schema Mapping
   name: schema_mapping
-- description: S3 ACL name to set on the uploaded files
-  label: S3 Acl
-  name: s3_acl
-- description: Default region when creating new connections
-  label: S3 Region Name
-  name: s3_region_name
+- description: '(Default: platform-dependent) Directory of temporary files with RECORD
+    messages.'
+  label: Temp Dir
+  name: temp_dir
+- description: iomete User
+  label: User
+  name: user
+- description: '(Default: False) Validate every single record message to the corresponding
+    JSON schema. This option is disabled by default and invalid RECORD messages will
+    fail only at load time by iomete. Enabling this option will detect invalid records
+    earlier but could cause performance degradation.'
+  kind: boolean
+  label: Validate Records
+  name: validate_records
 settings_group_validation:
-- - user
-  - account_number
+- - account_number
   - lakehouse
   - password
+  - user
 settings_preamble: ''
 usage: ''
 variant: iomete

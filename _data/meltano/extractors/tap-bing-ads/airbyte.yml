@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Advertising Platform
 domain_url: https://docs.microsoft.com/en-us/advertising/guides/
 executable: tap-airbyte
@@ -18,8 +18,47 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-bing-ads
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-bing-ads
 settings:
+- description: ''
+  kind: string
+  label: Airbyte Config Auth Method
+  name: airbyte_config.auth_method
+- description: The Client ID of your Microsoft Advertising developer application.
+  kind: password
+  label: Airbyte Config Client Id
+  name: airbyte_config.client_id
+  sensitive: true
+- description: The Client Secret of your Microsoft Advertising developer application.
+  kind: password
+  label: Airbyte Config Client Secret
+  name: airbyte_config.client_secret
+  sensitive: true
+- description: Developer token associated with user. See more info <a 
+    href="https://docs.microsoft.com/en-us/advertising/guides/get-started?view=bingads-13#get-developer-token">
+    in the docs</a>.
+  kind: password
+  label: Airbyte Config Developer Token
+  name: airbyte_config.developer_token
+  sensitive: true
+- description: Refresh Token to renew the expired Access Token.
+  kind: password
+  label: Airbyte Config Refresh Token
+  name: airbyte_config.refresh_token
+  sensitive: true
+- description: The start date from which to begin replicating report data. Any data
+    generated before this date will not be replicated in reports. This is a UTC date
+    in YYYY-MM-DD format.
+  kind: string
+  label: Airbyte Config Reports Start Date
+  name: airbyte_config.reports_start_date
+- description: The Tenant ID of your Microsoft Advertising developer application.
+    Set this to "common" unless you know you need a different value.
+  kind: password
+  label: Airbyte Config Tenant Id
+  name: airbyte_config.tenant_id
+  sensitive: true
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -36,49 +75,8 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: ''
-  kind: string
-  label: Airbyte Config Auth Method
-  name: airbyte_config.auth_method
-- description: The Tenant ID of your Microsoft Advertising developer application.
-    Set this to "common" unless you know you need a different value.
-  kind: password
-  label: Airbyte Config Tenant Id
-  name: airbyte_config.tenant_id
-- description: The Client ID of your Microsoft Advertising developer application.
-  kind: password
-  label: Airbyte Config Client Id
-  name: airbyte_config.client_id
-- description: The Client Secret of your Microsoft Advertising developer application.
-  kind: password
-  label: Airbyte Config Client Secret
-  name: airbyte_config.client_secret
-- description: Refresh Token to renew the expired Access Token.
-  kind: password
-  label: Airbyte Config Refresh Token
-  name: airbyte_config.refresh_token
-- description: Developer token associated with user. See more info <a href="https://docs.microsoft.com/en-us/advertising/guides/get-started?view=bingads-13#get-developer-token">
-    in the docs</a>.
-  kind: password
-  label: Airbyte Config Developer Token
-  name: airbyte_config.developer_token
-- description: The start date from which to begin replicating report data. Any data
-    generated before this date will not be replicated in reports. This is a UTC date
-    in YYYY-MM-DD format.
-  kind: string
-  label: Airbyte Config Reports Start Date
-  name: airbyte_config.reports_start_date
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -86,12 +84,21 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - airbyte_config.reports_start_date
-  - airbyte_config.client_id
+- - airbyte_config.client_id
   - airbyte_config.developer_token
-  - airbyte_spec.image
   - airbyte_config.refresh_token
+  - airbyte_config.reports_start_date
+  - airbyte_spec.image
 settings_preamble: ''
 usage: ''
 variant: airbyte

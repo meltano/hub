@@ -18,42 +18,43 @@ settings:
 - description: The SFTP server hostname.
   label: Host
   name: host
-- description: The SFTP server port.
-  kind: integer
-  label: Port
-  name: port
-- description: The username for connecting the the SFTP server.
-  label: Username
-  name: username
 - description: The pass for connecting the the SFTP server.
   kind: password
   label: Password
   name: password
+  sensitive: true
+- description: The SFTP server port.
+  kind: integer
+  label: Port
+  name: port
 - description: A path to the private key file for connecting the the SFTP server.
   label: Private Key File
   name: private_key_file
-- description: An array that consists of one or more objects that describe how to
-    find files and emit records. Required in each table object - `table_name`, `search_pattern`,`search_prefix`,
-    `key_properties`, `delimiter`.
-  kind: array
-  label: Tables
-  name: tables
+- description: The SFTP connection timeout in seconds. Defaults to 300.
+  kind: integer
+  label: Request Timeout
+  name: request_timeout
 - description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.
   kind: date_iso8601
   label: Start Date
   name: start_date
-- description: The SFTP connection timeout in seconds. Defaults to 300.
-  kind: integer
-  label: Request Timeout
-  name: request_timeout
+- description: An array that consists of one or more objects that describe how to
+    find files and emit records. Required in each table object - `table_name`, `search_pattern`,`search_prefix`,
+    `key_properties`, `delimiter`.
+  kind: array
+  label: Tables
+  name: tables
+- description: The username for connecting the the SFTP server.
+  label: Username
+  name: username
 settings_group_validation:
-- - username
+- - host
   - port
   - private_key_file
-  - host
-  - tables
   - start_date
+  - tables
+  - username
   - username
 variant: singer-io

@@ -25,20 +25,23 @@ settings:
   kind: password
   label: Access Token
   name: access_token
+  sensitive: true
 - description: Google Analytics Client ID
   kind: password
   label: Client ID
   name: client_id
+  sensitive: true
 - description: Google Analytics Client Secret
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
 - description: The last record date to sync
   kind: date_iso8601
   label: End Date
   name: end_date
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -50,10 +53,12 @@ settings:
   kind: password
   label: Property ID
   name: property_id
+  sensitive: true
 - description: Google Analytics Refresh Token
   kind: password
   label: Refresh Token
   name: refresh_token
+  sensitive: true
 - description: Google Analytics Reports Definition
   kind: string
   label: Reports

@@ -1,12 +1,13 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: US Census API
-domain_url: https://www.census.gov/data/developers/guidance/api-user-guide.Example_API_Queries.html
+domain_url: 
+  https://www.census.gov/data/developers/guidance/api-user-guide.Example_API_Queries.html
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
@@ -18,8 +19,22 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-us-census
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-us-census
 settings:
+- description: Your API Key. Get your key <a href="https://api.census.gov/data/key_signup.html">here</a>.
+  kind: password
+  label: Airbyte Config Api Key
+  name: airbyte_config.api_key
+  sensitive: true
+- description: The query parameters portion of the GET request, without the api key
+  kind: string
+  label: Airbyte Config Query Params
+  name: airbyte_config.query_params
+- description: The path portion of the GET request
+  kind: string
+  label: Airbyte Config Query Path
+  name: airbyte_config.query_path
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -36,29 +51,8 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: The query parameters portion of the GET request, without the api key
-  kind: string
-  label: Airbyte Config Query Params
-  name: airbyte_config.query_params
-- description: The path portion of the GET request
-  kind: string
-  label: Airbyte Config Query Path
-  name: airbyte_config.query_path
-- description: Your API Key. Get your key <a href="https://api.census.gov/data/key_signup.html">here</a>.
-  kind: password
-  label: Airbyte Config Api Key
-  name: airbyte_config.api_key
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -66,10 +60,19 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - connector_config.api_key
+- - airbyte_spec.image
+  - connector_config.api_key
   - connector_config.query_path
-  - airbyte_spec.image
 settings_preamble: ''
 usage: ''
 variant: airbyte

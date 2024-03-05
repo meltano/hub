@@ -48,6 +48,7 @@ settings:
   kind: password
   label: Password
   name: password
+  sensitive: true
 - description: The MySQL/MariaDB port.
   kind: integer
   label: Port

@@ -30,6 +30,7 @@ settings:
   label: Developer Token
   name: developer_token
   placeholder: Ex. *****************
+  sensitive: true
 - description: Date up to when historical data will be extracted.
   kind: date_iso8601
   name: end_date
@@ -42,11 +43,13 @@ settings:
   label: OAuth Client ID
   name: oauth_client_id
   placeholder: Ex. 123456789012345.apps.googleusercontent.com
+  sensitive: true
 - description: Your Google OAuth Client Secret
   kind: password
   label: OAuth Client Secret
   name: oauth_client_secret
   placeholder: Ex. *****************
+  sensitive: true
 - description: The Refresh Token generated through the OAuth flow run using your OAuth
     Client and your Developer Token
   kind: oauth

@@ -3,7 +3,8 @@ capabilities:
 - discover
 - state
 description: Search platform
-domain_url: https://developers.google.com/webmaster-tools/search-console-api-original/v3/how-tos/search_analytics
+domain_url: 
+  https://developers.google.com/webmaster-tools/search-console-api-original/v3/how-tos/search_analytics
 keywords:
 - api
 label: Google Search Console
@@ -15,14 +16,21 @@ pip_url: tap-google-search-console
 quality: silver
 repo: https://github.com/singer-io/tap-google-search-console
 settings:
-- description: Your refresh token.
+- description: Your client ID.
   kind: password
-  label: Refresh Token
-  name: refresh_token
+  label: Client ID
+  name: client_id
+  sensitive: true
 - description: Your client secret.
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
+- description: Your refresh token.
+  kind: password
+  label: Refresh Token
+  name: refresh_token
+  sensitive: true
 - description: The request timeout.
   kind: integer
   label: Request Timeout
@@ -31,20 +39,16 @@ settings:
     the domain-level property in the list.
   label: Site URLs
   name: site_urls
-- description: Your client ID.
-  kind: password
-  label: Client ID
-  name: client_id
-- description: The user agent to send along with the API requests.
-  label: User Agent
-  name: user_agent
 - description: The start date of sync in UTC format for all streams.
   label: Start Date
   name: start_date
+- description: The user agent to send along with the API requests.
+  label: User Agent
+  name: user_agent
 settings_group_validation:
-- - refresh_token
+- - client_id
   - client_secret
-  - client_id
-  - user_agent
+  - refresh_token
   - start_date
+  - user_agent
 variant: singer-io

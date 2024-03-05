@@ -15,20 +15,22 @@ pip_url: git+https://github.com/singer-io/tap-outreach.git
 quality: silver
 repo: https://github.com/singer-io/tap-outreach
 settings:
-- description: Determines how much historical data will be extracted. Please be aware
-    that the larger the time period and amount of data, the longer the initial extraction
-    can be expected to take.
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
 - description: Your Outreach client ID.
   kind: password
   label: Client ID
   name: client_id
+  sensitive: true
 - description: Your Outreach client secret.
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
+- description: The page size of request responses.
+  label: Page Size
+  name: page_size
+- description: The request quota limit.
+  label: Quota Limit
+  name: quota_limit
 - description: The Outreach redirect URI.
   label: Redirect URI
   name: redirect_uri
@@ -36,16 +38,17 @@ settings:
   kind: password
   label: Refresh Token
   name: refresh_token
-- description: The request quota limit.
-  label: Quota Limit
-  name: quota_limit
-- description: The page size of request responses.
-  label: Page Size
-  name: page_size
+  sensitive: true
+- description: Determines how much historical data will be extracted. Please be aware
+    that the larger the time period and amount of data, the longer the initial extraction
+    can be expected to take.
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
 settings_group_validation:
-- - start_date
-  - client_id
+- - client_id
   - client_secret
   - redirect_uri
   - refresh_token
+  - start_date
 variant: singer-io

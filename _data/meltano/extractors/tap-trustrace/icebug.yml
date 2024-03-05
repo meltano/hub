@@ -21,6 +21,7 @@ settings:
   kind: password
   label: API Key
   name: api_key
+  sensitive: true
 settings_group_validation:
 - - api_key
 settings_preamble: ''

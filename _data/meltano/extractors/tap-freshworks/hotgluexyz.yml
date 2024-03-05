@@ -24,6 +24,7 @@ settings:
   kind: password
   label: Auth Token
   name: auth_token
+  sensitive: true
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -37,6 +38,10 @@ settings:
   kind: string
   label: Org Name
   name: org_name
+- description: The start date to use as fallback date if state is not present
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
 - description: User-defined config values to be used within map expressions.
   kind: object
   label: Stream Map Config

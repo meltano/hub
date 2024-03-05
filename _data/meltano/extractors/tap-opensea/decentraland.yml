@@ -27,6 +27,7 @@ settings:
   kind: password
   label: Auth Token
   name: auth_token
+  sensitive: true
 - description: A comma separated list of collections to extract.
   kind: string
   label: Collections

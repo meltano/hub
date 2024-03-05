@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Stock photography provider
 domain_url: https://www.pexels.com/api/documentation
 executable: tap-airbyte
@@ -18,8 +18,43 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-pexels-api
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-pexels-api
 settings:
+- description: API key is required to access pexels api, For getting your's goto https://www.pexels.com/api/documentation
+    and create account for free.
+  kind: password
+  label: Airbyte Config Api Key
+  name: airbyte_config.api_key
+  sensitive: true
+- description: Optional, Desired photo color. Supported colors red, orange, yellow,
+    green, turquoise, blue, violet, pink, brown, black, gray, white or any hexidecimal
+    color code.
+  kind: string
+  label: Airbyte Config Color
+  name: airbyte_config.color
+- description: Optional, The locale of the search you are performing. The current
+    supported locales are 'en-US' 'pt-BR' 'es-ES' 'ca-ES' 'de-DE' 'it-IT' 'fr-FR'
+    'sv-SE' 'id-ID' 'pl-PL' 'ja-JP' 'zh-TW' 'zh-CN' 'ko-KR' 'th-TH' 'nl-NL' 'hu-HU'
+    'vi-VN' 'cs-CZ' 'da-DK' 'fi-FI' 'uk-UA' 'el-GR' 'ro-RO' 'nb-NO' 'sk-SK' 'tr-TR'
+    'ru-RU'.
+  kind: string
+  label: Airbyte Config Locale
+  name: airbyte_config.locale
+- description: Optional, Desired photo orientation. The current supported orientations
+    are landscape, portrait or square
+  kind: string
+  label: Airbyte Config Orientation
+  name: airbyte_config.orientation
+- description: Optional, the search query, Example Ocean, Tigers, Pears, etc.
+  kind: string
+  label: Airbyte Config Query
+  name: airbyte_config.query
+- description: Optional, Minimum photo size. The current supported sizes are large(24MP),
+    medium(12MP) or small(4MP).
+  kind: string
+  label: Airbyte Config Size
+  name: airbyte_config.size
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -36,50 +71,8 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: API key is required to access pexels api, For getting your's goto https://www.pexels.com/api/documentation
-    and create account for free.
-  kind: password
-  label: Airbyte Config Api Key
-  name: airbyte_config.api_key
-- description: Optional, the search query, Example Ocean, Tigers, Pears, etc.
-  kind: string
-  label: Airbyte Config Query
-  name: airbyte_config.query
-- description: Optional, Desired photo orientation. The current supported orientations
-    are landscape, portrait or square
-  kind: string
-  label: Airbyte Config Orientation
-  name: airbyte_config.orientation
-- description: Optional, Minimum photo size. The current supported sizes are large(24MP),
-    medium(12MP) or small(4MP).
-  kind: string
-  label: Airbyte Config Size
-  name: airbyte_config.size
-- description: Optional, Desired photo color. Supported colors red, orange, yellow,
-    green, turquoise, blue, violet, pink, brown, black, gray, white or any hexidecimal
-    color code.
-  kind: string
-  label: Airbyte Config Color
-  name: airbyte_config.color
-- description: Optional, The locale of the search you are performing. The current
-    supported locales are 'en-US' 'pt-BR' 'es-ES' 'ca-ES' 'de-DE' 'it-IT' 'fr-FR'
-    'sv-SE' 'id-ID' 'pl-PL' 'ja-JP' 'zh-TW' 'zh-CN' 'ko-KR' 'th-TH' 'nl-NL' 'hu-HU'
-    'vi-VN' 'cs-CZ' 'da-DK' 'fi-FI' 'uk-UA' 'el-GR' 'ro-RO' 'nb-NO' 'sk-SK' 'tr-TR'
-    'ru-RU'.
-  kind: string
-  label: Airbyte Config Locale
-  name: airbyte_config.locale
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -87,11 +80,20 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
 - - airbyte_config.api_key
-  - airbyte_spec.image
-  - airbyte_spec
   - airbyte_config.query
+  - airbyte_spec
+  - airbyte_spec.image
 settings_preamble: ''
 usage: ''
 variant: airbyte

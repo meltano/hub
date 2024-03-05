@@ -15,29 +15,31 @@ pip_url: tap-intercom
 quality: silver
 repo: https://github.com/singer-io/tap-intercom
 settings:
-- description: The user agent to send with requests.
-  label: User Agent
-  name: user_agent
+- description: Your Intercom access token. [Intercom Authentication Types](https://developers.intercom.com/building-apps/docs/authentication-types)
+    explains how to get an access_token. Make sure your [OAuth Scope](https://developers.intercom.com/building-apps/docs/oauth-scopes)
+    allows Read access to the endpoints above. Additionally, your App should use [API
+    Version 
+    v1.4](https://developers.intercom.com/intercom-api-reference/v1.4/reference/introduction).
+  kind: password
+  label: Access Token
+  name: access_token
+  sensitive: true
 - description: Is the time for which request should wait to get response. It is an
     optional parameter and default request_timeout is 300 seconds.
   kind: integer
   label: Request Timeout
   name: request_timeout
-- description: Your Intercom access token. [Intercom Authentication Types](https://developers.intercom.com/building-apps/docs/authentication-types)
-    explains how to get an access_token. Make sure your [OAuth Scope](https://developers.intercom.com/building-apps/docs/oauth-scopes)
-    allows Read access to the endpoints above. Additionally, your App should use [API
-    Version v1.4](https://developers.intercom.com/intercom-api-reference/v1.4/reference/introduction).
-  kind: password
-  label: Access Token
-  name: access_token
-- description: "Determines how much historical data will be extracted. Please be aware\n\
-    that the larger the time period and amount of data, the longer the initial extraction\n\
+- description: "Determines how much historical data will be extracted. Please be aware\n
+    that the larger the time period and amount of data, the longer the initial extraction\n
     can be expected to take."
   kind: date_iso8601
   label: Start Date
   name: start_date
+- description: The user agent to send with requests.
+  label: User Agent
+  name: user_agent
 settings_group_validation:
-- - user_agent
-  - access_token
+- - access_token
   - start_date
+  - user_agent
 variant: singer-io

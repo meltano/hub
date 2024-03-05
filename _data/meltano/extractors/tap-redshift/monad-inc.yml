@@ -16,39 +16,40 @@ pip_url: git+https://github.com/Monad-Inc/tap-redshift.git
 quality: silver
 repo: https://github.com/Monad-Inc/tap-redshift
 settings:
+- description: Your Redshift database name.
+  label: Database Name
+  name: dbname
 - description: Your Redshift host name.
   label: Host
   name: host
-- description: Your Redshift user name.
-  label: User
-  name: user
+- description: Your Redshift password.
+  kind: password
+  label: Password
+  name: password
+  sensitive: true
+- description: Your Redshift port number.
+  kind: integer
+  label: Port
+  name: port
+- description: Your Redshift schema name.
+  label: Schema Name
+  name: schema
 - description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.
   kind: date_iso8601
   label: Start Date
   name: start_date
-- description: Your Redshift port number.
-  kind: integer
-  label: Port
-  name: port
-- description: Your Redshift database name.
-  label: Database Name
-  name: dbname
-- description: Your Redshift password.
-  kind: password
-  label: Password
-  name: password
-- description: Your Redshift schema name.
-  label: Schema Name
-  name: schema
+- description: Your Redshift user name.
+  label: User
+  name: user
 settings_group_validation:
-- - host
-  - user
-  - start_date
-  - port
-  - dbname
+- - dbname
+  - host
   - password
+  - port
+  - start_date
+  - user
 settings_preamble: ''
 usage: ''
 variant: monad-inc

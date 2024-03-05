@@ -1,9 +1,10 @@
 capabilities:
-- properties
 - discover
+- properties
 - state
 description: Customer-relationship management & customer success platform
-domain_url: https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_what_is_rest_api.htm
+domain_url: 
+  https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_what_is_rest_api.htm
 keywords:
 - api
 label: Salesforce
@@ -22,16 +23,49 @@ select:
 - Account.*
 - Opportunity.*
 settings:
-- description: The username (or email address) used to sign in to your Salesforce
-    account.
-  label: Username
-  name: username
-  placeholder: Ex. me@my-organization.com
+- description: Used to switch the behavior of the tap between using Salesforce’s “REST”
+    and “BULK” APIs.
+  kind: options
+  label: API Type
+  name: api_type
+  options:
+  - label: REST
+    value: REST
+  - label: BULK
+    value: BULK
+  value: REST
+- description: Salesforce client ID. See 
+    https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.html.
+  label: Client ID
+  name: client_id
+- description: Salesforce client secret. See 
+    https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.html.
+  kind: password
+  label: Client Secret
+  name: client_secret
+  sensitive: true
+- description: Use Salesforce Sandbox
+  kind: boolean
+  label: Is Sandbox
+  name: is_sandbox
+  value: false
+- description: Maximum number of threads to use.
+  kind: integer
+  label: Maximum number of threads to use
+  name: max_workers
+  value: 8
 - description: The password used to sign in to your Salesforce account.
   kind: password
   label: Password
   name: password
   placeholder: Ex. *****************
+  sensitive: true
+- description: Salesforce refresh token. See 
+    https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.html.
+  kind: password
+  label: Refresh Token
+  name: refresh_token
+  sensitive: true
 - description: |
     #### How to get
 
@@ -63,44 +97,18 @@ settings:
   label: Security Token
   name: security_token
   placeholder: Ex. *****************
-- description: Salesforce client ID. See https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.html.
-  label: Client ID
-  name: client_id
-- description: Salesforce client secret. See https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.html.
-  kind: password
-  label: Client Secret
-  name: client_secret
-- description: Salesforce refresh token. See https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.html.
-  kind: password
-  label: Refresh Token
-  name: refresh_token
+  sensitive: true
+- description: Select by default any new fields discovered in Salesforce objects
+  kind: boolean
+  label: Select Fields By Default
+  name: select_fields_by_default
+  value: true
 - description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.
   kind: date_iso8601
   label: Start Date
   name: start_date
-- description: Use Salesforce Sandbox
-  kind: boolean
-  label: Is Sandbox
-  name: is_sandbox
-  value: false
-- description: Used to switch the behavior of the tap between using Salesforce’s “REST”
-    and “BULK” APIs.
-  kind: options
-  label: API Type
-  name: api_type
-  options:
-  - label: REST
-    value: REST
-  - label: BULK
-    value: BULK
-  value: REST
-- description: Select by default any new fields discovered in Salesforce objects
-  kind: boolean
-  label: Select Fields By Default
-  name: select_fields_by_default
-  value: true
 - description: |
     Used to throttle how often STATE messages are generated when the tap is using the “REST” API.
 
@@ -109,16 +117,16 @@ settings:
   label: State Message Threshold
   name: state_message_threshold
   value: 1000
-- description: Maximum number of threads to use.
-  kind: integer
-  label: Maximum number of threads to use
-  name: max_workers
-  value: 8
+- description: The username (or email address) used to sign in to your Salesforce
+    account.
+  label: Username
+  name: username
+  placeholder: Ex. me@my-organization.com
 settings_group_validation:
-- - username
-  - password
+- - password
   - security_token
   - start_date
+  - username
 - - client_id
   - client_secret
   - refresh_token

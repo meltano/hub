@@ -4,7 +4,6 @@ commands:
     description: Refresh a Tableau datasource.
 definition: |
   is used to trigger a refresh of a Tableau data source once the data has been updated. Usually this is run in a pipeline following a transformation (i.e. dbt) step that altered the data that Tableau is connected to.
-
 description: A modern, enterprise-ready business intelligence tool.
 docs: https://github.com/gabilew/tableau-ext
 domain_url: https://www.tableau.com/
@@ -25,23 +24,24 @@ next_steps: |
 pip_url: git+https://github.com/gabilew/tableau-ext
 repo: https://github.com/gabilew/tableau-ext
 settings:
-- description: Base URL for the Tableau server you are trying to reach.
-  label: Tableau Base Url
-  name: BASE_URL
-- description: The site ID for the hosted Tableau instance.
-  label: Tableau Site ID
-  name: SITE_ID
 - description: The API version to be used.
   label: Tableau API Version
   name: API_VERSION
   value: "3.18"
-- description: Tableau account username.
-  label: Username
-  name: USERNAME
+- description: Base URL for the Tableau server you are trying to reach.
+  label: Tableau Base Url
+  name: BASE_URL
+- description: LUID of the Tableau datasource
+  label: Datasource LUID
+  name: DATASOURCE_LUID
 - description: Tableau account password.
   kind: password
   label: Password
   name: PASSWORD
+  sensitive: true
+- description: The site ID for the hosted Tableau instance.
+  label: Tableau Site ID
+  name: SITE_ID
 - description: Personal token name generated on the Tableau site.
   label: Token Name
   name: TOKEN_NAME
@@ -49,8 +49,10 @@ settings:
   kind: password
   label: Token Secret
   name: TOKEN_SECRET
-- description: LUID of the Tableau datasource
-  label: Datasource LUID
-  name: DATASOURCE_LUID
+  sensitive: true
+- description: Tableau account username.
+  label: Username
+  name: USERNAME
+settings_group_validation: []
 usage: ""
 variant: gabilew

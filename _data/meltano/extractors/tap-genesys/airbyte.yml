@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Contact Center Solutions
 domain_url: https://www.genesys.com/
 executable: tap-airbyte
@@ -18,34 +18,26 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-genesys
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-genesys
 settings:
-- description: Airbyte image to run
-  kind: string
-  label: Airbyte Spec Image
-  name: airbyte_spec.image
-  value: airbyte/source-genesys
-- description: Airbyte image tag
-  kind: string
-  label: Airbyte Spec Tag
-  name: airbyte_spec.tag
-  value: latest
-- description: Docker mounts to make available to the Airbyte container. Expects a
-    list of maps containing source, target, and type as is documented in the docker
-    --mount documentation
-  kind: array
-  label: Docker Mounts
-  name: docker_mounts
 - description: Your OAuth user Client ID
   kind: password
   label: Airbyte Config Client Id
   name: airbyte_config.client_id
+  sensitive: true
 - description: Your OAuth user Client Secret
   kind: password
   label: Airbyte Config Client Secret
   name: airbyte_config.client_secret
+  sensitive: true
+- description: 'Start Date in format: YYYY-MM-DD'
+  kind: string
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
 - description: Please choose the right endpoint where your Tenant is located. More
-    info by this <a href="https://help.mypurecloud.com/articles/aws-regions-for-genesys-cloud-deployment/">Link</a>
+    info by this <a 
+    href="https://help.mypurecloud.com/articles/aws-regions-for-genesys-cloud-deployment/">Link</a>
   kind: options
   label: Airbyte Config Tenant Endpoint
   name: airbyte_config.tenant_endpoint
@@ -72,21 +64,24 @@ settings:
     value: Asia Pacific (Seoul)
   - label: Asia Pacific (Sydney)
     value: Asia Pacific (Sydney)
-- description: 'Start Date in format: YYYY-MM-DD'
+- description: Airbyte image to run
   kind: string
-  label: Airbyte Config Start Date
-  name: airbyte_config.start_date
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+  label: Airbyte Spec Image
+  name: airbyte_spec.image
+  value: airbyte/source-genesys
+- description: Airbyte image tag
+  kind: string
+  label: Airbyte Spec Tag
+  name: airbyte_spec.tag
+  value: latest
+- description: Docker mounts to make available to the Airbyte container. Expects a
+    list of maps containing source, target, and type as is documented in the docker
+    --mount documentation
+  kind: array
+  label: Docker Mounts
+  name: docker_mounts
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -94,13 +89,22 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - airbyte_config.start_date
+- - airbyte_config.client_id
   - airbyte_config.client_secret
-  - airbyte_spec
-  - airbyte_config.client_id
-  - airbyte_spec.image
+  - airbyte_config.start_date
   - airbyte_config.tenant_endpoint
+  - airbyte_spec
+  - airbyte_spec.image
 settings_preamble: ''
 usage: ''
 variant: airbyte

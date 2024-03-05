@@ -15,28 +15,30 @@ pip_url: git+https://github.com/Automattic/tap-appstore.git
 quality: silver
 repo: https://github.com/Automattic/tap-appstore
 settings:
-- description: You can find your vendor number in https://developer.apple.com/help/app-store-connect/getting-paid/view-payments-and-proceeds.
-  label: Vendor
-  name: vendor
-- description: Your issuer ID from the API Keys page in App Store Connect, for example, 57246542-96fe-1a63-e053-0824d011072a
+- description: Your issuer ID from the API Keys page in App Store Connect, for example,
+    57246542-96fe-1a63-e053-0824d011072a
   label: Issuer ID
   name: issuer_id
+- description: Appstore key file.
+  label: Key File
+  name: key_file
+- description: Your private key ID from App Store Connect, for example, 2X9R4HXF34.
+  label: Key ID
+  name: key_id
 - description: Determines how much historical data will be extracted. Please be aware
     that the larger the time period and amount of data, the longer the initial extraction
     can be expected to take.
   kind: date_iso8601
   label: Start Date
   name: start_date
-- description: Your private key ID from App Store Connect, for example, 2X9R4HXF34.
-  label: Key ID
-  name: key_id
-- description: Appstore key file.
-  label: Key File
-  name: key_file
+- description: You can find your vendor number in 
+    https://developer.apple.com/help/app-store-connect/getting-paid/view-payments-and-proceeds.
+  label: Vendor
+  name: vendor
 settings_group_validation:
-- - vendor
-  - issuer_id
-  - start_date
-  - key_id
+- - issuer_id
   - key_file
+  - key_id
+  - start_date
+  - vendor
 variant: automattic

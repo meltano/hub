@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Customer Success Platform
 domain_url: https://docs.vitally.io/pushing-data-to-vitally/rest-api
 executable: tap-airbyte
@@ -18,8 +18,26 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-vitally
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-vitally
 settings:
+- description: The API Token for a Vitally account.
+  kind: password
+  label: Airbyte Config Api Key
+  name: airbyte_config.api_key
+  sensitive: true
+- description: Status of the Vitally accounts. One of the following values; active,
+    churned, activeOrChurned.
+  kind: options
+  label: Airbyte Config Status
+  name: airbyte_config.status
+  options:
+  - label: Active
+    value: active
+  - label: Churned
+    value: churned
+  - label: Activeorchurned
+    value: activeOrChurned
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -36,33 +54,8 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: The API Token for a Vitally account.
-  kind: password
-  label: Airbyte Config Api Key
-  name: airbyte_config.api_key
-- description: Status of the Vitally accounts. One of the following values; active,
-    churned, activeOrChurned.
-  kind: options
-  label: Airbyte Config Status
-  name: airbyte_config.status
-  options:
-  - label: Active
-    value: active
-  - label: Churned
-    value: churned
-  - label: Activeorchurned
-    value: activeOrChurned
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -70,11 +63,20 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
 - - airbyte_config.api_key
-  - airbyte_spec.image
-  - airbyte_spec
   - airbyte_config.status
+  - airbyte_spec
+  - airbyte_spec.image
 settings_preamble: ''
 usage: ''
 variant: airbyte

@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Issue and Project Tracking Software
 domain_url: https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/
 executable: tap-airbyte
@@ -18,8 +18,48 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: silver
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-jira
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-jira
 settings:
+- description: Jira API Token. See the <a href="https://docs.airbyte.com/integrations/sources/jira">docs</a>
+    for more information on how to generate this key.
+  kind: password
+  label: Airbyte Config Api Token
+  name: airbyte_config.api_token
+  sensitive: true
+- description: The Domain for your Jira account, e.g. airbyteio.atlassian.net
+  kind: string
+  label: Airbyte Config Domain
+  name: airbyte_config.domain
+- description: The user email for your Jira account.
+  kind: string
+  label: Airbyte Config Email
+  name: airbyte_config.email
+- description: Allow the use of experimental streams which rely on undocumented Jira
+    API endpoints. See https://docs.airbyte.com/integrations/sources/jira#experimental-tables
+    for more info.
+  kind: boolean
+  label: Airbyte Config Enable Experimental Streams
+  name: airbyte_config.enable_experimental_streams
+- description: Expand the changelog when replicating issues.
+  kind: boolean
+  label: Airbyte Config Expand Issue Changelog
+  name: airbyte_config.expand_issue_changelog
+- description: List of Jira project keys to replicate data for.
+  kind: array
+  label: Airbyte Config Projects
+  name: airbyte_config.projects
+- description: Render issue fields in HTML format in addition to Jira JSON-like format.
+  kind: boolean
+  label: Airbyte Config Render Fields
+  name: airbyte_config.render_fields
+- description: The date from which you want to replicate data from Jira, use the format
+    YYYY-MM-DDT00:00:00Z. Note that this field only applies to certain streams, and
+    only data generated on or after the start date will be replicated. For more information,
+    refer to the <a href="https://docs.airbyte.com/integrations/sources/jira/">documentation</a>.
+  kind: string
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -36,55 +76,8 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: Jira API Token. See the <a href="https://docs.airbyte.com/integrations/sources/jira">docs</a>
-    for more information on how to generate this key.
-  kind: password
-  label: Airbyte Config Api Token
-  name: airbyte_config.api_token
-- description: The Domain for your Jira account, e.g. airbyteio.atlassian.net
-  kind: string
-  label: Airbyte Config Domain
-  name: airbyte_config.domain
-- description: The user email for your Jira account.
-  kind: string
-  label: Airbyte Config Email
-  name: airbyte_config.email
-- description: List of Jira project keys to replicate data for.
-  kind: array
-  label: Airbyte Config Projects
-  name: airbyte_config.projects
-- description: The date from which you want to replicate data from Jira, use the format
-    YYYY-MM-DDT00:00:00Z. Note that this field only applies to certain streams, and
-    only data generated on or after the start date will be replicated. For more information,
-    refer to the <a href="https://docs.airbyte.com/integrations/sources/jira/">documentation</a>.
-  kind: string
-  label: Airbyte Config Start Date
-  name: airbyte_config.start_date
-- description: Expand the changelog when replicating issues.
-  kind: boolean
-  label: Airbyte Config Expand Issue Changelog
-  name: airbyte_config.expand_issue_changelog
-- description: Render issue fields in HTML format in addition to Jira JSON-like format.
-  kind: boolean
-  label: Airbyte Config Render Fields
-  name: airbyte_config.render_fields
-- description: Allow the use of experimental streams which rely on undocumented Jira
-    API endpoints. See https://docs.airbyte.com/integrations/sources/jira#experimental-tables
-    for more info.
-  kind: boolean
-  label: Airbyte Config Enable Experimental Streams
-  name: airbyte_config.enable_experimental_streams
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -92,11 +85,20 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - connector_config.email
-  - airbyte_spec.image
-  - connector_config.domain
+- - airbyte_spec.image
   - connector_config.api_token
+  - connector_config.domain
+  - connector_config.email
 settings_preamble: ''
 usage: ''
 variant: airbyte

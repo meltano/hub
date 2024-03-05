@@ -1,12 +1,13 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Cloud Spreadsheets
-domain_url: https://developers.google.com/webmaster-tools/search-console-api-original/v3/how-tos/search_analytics
+domain_url: 
+  https://developers.google.com/webmaster-tools/search-console-api-original/v3/how-tos/search_analytics
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
@@ -18,8 +19,44 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: silver
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-google-sheets
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-google-sheets
 settings:
+- description: Client, Service
+  kind: string
+  label: Airbyte Config Credentials Auth Type
+  name: airbyte_config.credentials.auth_type
+- description: Enter your Google application's Client ID
+  kind: password
+  label: Airbyte Config Credentials Client Id
+  name: airbyte_config.credentials.client_id
+  sensitive: true
+- description: Enter your Google application's Client Secret
+  kind: password
+  label: Airbyte Config Credentials Client Secret
+  name: airbyte_config.credentials.client_secret
+  sensitive: true
+- description: Enter your Google application's refresh token
+  kind: password
+  label: Airbyte Config Credentials Refresh Token
+  name: airbyte_config.credentials.refresh_token
+  sensitive: true
+- description: Enter your Google Cloud <a 
+    href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys#creating_service_account_keys">service
+    account key</a> in JSON format
+  kind: string
+  label: Airbyte Config Credentials Service Account Info
+  name: airbyte_config.credentials.service_account_info
+- description: Number of rows fetched when making a Google Sheet API call. Defaults
+    to 200.
+  kind: integer
+  label: Airbyte Config Row Batch Size
+  name: airbyte_config.row_batch_size
+- description: Enter the link to the Google spreadsheet you want to sync
+  kind: password
+  label: Airbyte Config Spreadsheet Id
+  name: airbyte_config.spreadsheet_id
+  sensitive: true
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -36,47 +73,8 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: Enter the link to the Google spreadsheet you want to sync
-  kind: password
-  label: Airbyte Config Spreadsheet Id
-  name: airbyte_config.spreadsheet_id
-- description: Number of rows fetched when making a Google Sheet API call. Defaults
-    to 200.
-  kind: integer
-  label: Airbyte Config Row Batch Size
-  name: airbyte_config.row_batch_size
-- description: Client, Service
-  kind: string
-  label: Airbyte Config Credentials Auth Type
-  name: airbyte_config.credentials.auth_type
-- description: Enter your Google application's Client ID
-  kind: password
-  label: Airbyte Config Credentials Client Id
-  name: airbyte_config.credentials.client_id
-- description: Enter your Google application's Client Secret
-  kind: password
-  label: Airbyte Config Credentials Client Secret
-  name: airbyte_config.credentials.client_secret
-- description: Enter your Google application's refresh token
-  kind: password
-  label: Airbyte Config Credentials Refresh Token
-  name: airbyte_config.credentials.refresh_token
-- description: Enter your Google Cloud <a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys#creating_service_account_keys">service
-    account key</a> in JSON format
-  kind: string
-  label: Airbyte Config Credentials Service Account Info
-  name: airbyte_config.credentials.service_account_info
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -84,9 +82,18 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - airbyte_spec.image
-  - airbyte_config.spreadsheet_id
+- - airbyte_config.spreadsheet_id
+  - airbyte_spec.image
 settings_preamble: ''
 usage: ''
 variant: airbyte

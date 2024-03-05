@@ -22,6 +22,7 @@ settings:
   kind: password
   label: Personal Access Token
   name: personal_access_token
+  sensitive: true
 settings_group_validation:
 - - personal_access_token
 variant: albert-marrero

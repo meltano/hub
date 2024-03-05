@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Product analytics software
 domain_url: https://amplitude.com/
 executable: tap-airbyte
@@ -18,8 +18,35 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: silver
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-amplitude
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-amplitude
 settings:
+- description: Amplitude API Key. See the <a href="https://docs.airbyte.com/integrations/sources/amplitude#setup-guide">setup
+    guide</a> for more information on how to obtain this key.
+  kind: password
+  label: Airbyte Config Api Key
+  name: airbyte_config.api_key
+  sensitive: true
+- description: Amplitude data region server
+  kind: options
+  label: Airbyte Config Data Region
+  name: airbyte_config.data_region
+  options:
+  - label: Standard Server
+    value: Standard Server
+  - label: Eu Residency Server
+    value: EU Residency Server
+- description: Amplitude Secret Key. See the <a href="https://docs.airbyte.com/integrations/sources/amplitude#setup-guide">setup
+    guide</a> for more information on how to obtain this key.
+  kind: password
+  label: Airbyte Config Secret Key
+  name: airbyte_config.secret_key
+  sensitive: true
+- description: UTC date and time in the format 2021-01-25T00:00:00Z. Any data before
+    this date will not be replicated.
+  kind: string
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -36,41 +63,8 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: Amplitude data region server
-  kind: options
-  label: Airbyte Config Data Region
-  name: airbyte_config.data_region
-  options:
-  - label: Standard Server
-    value: Standard Server
-  - label: Eu Residency Server
-    value: EU Residency Server
-- description: Amplitude API Key. See the <a href="https://docs.airbyte.com/integrations/sources/amplitude#setup-guide">setup
-    guide</a> for more information on how to obtain this key.
-  kind: password
-  label: Airbyte Config Api Key
-  name: airbyte_config.api_key
-- description: Amplitude Secret Key. See the <a href="https://docs.airbyte.com/integrations/sources/amplitude#setup-guide">setup
-    guide</a> for more information on how to obtain this key.
-  kind: password
-  label: Airbyte Config Secret Key
-  name: airbyte_config.secret_key
-- description: UTC date and time in the format 2021-01-25T00:00:00Z. Any data before
-    this date will not be replicated.
-  kind: string
-  label: Airbyte Config Start Date
-  name: airbyte_config.start_date
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -78,11 +72,20 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - connector_config.secret_key
-  - connector_config.start_date
-  - airbyte_spec.image
+- - airbyte_spec.image
   - connector_config.api_key
+  - connector_config.secret_key
+  - connector_config.start_date
 settings_preamble: ''
 usage: ''
 variant: airbyte

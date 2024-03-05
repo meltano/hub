@@ -84,6 +84,7 @@ settings:
   kind: password
   label: Password
   name: password
+  sensitive: true
 - env: DBT_PROFILES_DIR
   label: Profiles Directory
   name: profiles_dir

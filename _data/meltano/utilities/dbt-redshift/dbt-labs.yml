@@ -125,6 +125,7 @@ settings:
   kind: password
   label: Password
   name: password
+  sensitive: true
 - description: |
     The port to connect to.
   kind: integer

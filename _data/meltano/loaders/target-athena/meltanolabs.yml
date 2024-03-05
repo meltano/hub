@@ -14,47 +14,6 @@ pip_url: git+https://github.com/MeltanoLabs/target-athena.git
 quality: silver
 repo: https://github.com/MeltanoLabs/target-athena
 settings:
-- description: The name of the Athena database to connect to.
-  label: Athena Database
-  name: athena_database
-- description: The AWS region to use i.e. us-east-2.
-  label: AWS Region
-  name: aws_region
-- description: S3 Access Key Id. If not provided, aws_profile or AWS_ACCESS_KEY_ID
-    environment variable will be used.
-  kind: password
-  label: AWS S3 Access Key ID
-  name: aws_access_key_id
-- kind: password
-  label: AWS S3 Secret Access Key
-  name: aws_secret_access_key
-- description: Optional - S3 AWS STS token for temporary credentials. If not provided,
-    AWS_SESSION_TOKEN environment variable will be used.
-  kind: password
-  label: AWS S3 Session Token
-  name: aws_session_token
-- description: Optional - AWS profile name for profile based authentication. If not
-    provided, AWS_PROFILE environment variable will be used.
-  label: AWS profile name
-  name: aws_profile
-- description: AWS S3 bucket name
-  label: Bucket
-  name: s3_bucket
-- description: A static prefix before the generated S3 key names. Using prefixes you
-    can upload files into specific directories in the S3 bucket. Default(None)
-  label: S3 Key Prefix
-  name: s3_key_prefix
-- description: S3 location to stage files. Example - s3://YOUR_S3_BUCKET/path/to/
-  label: S3 Staging Directory
-  name: s3_staging_dir
-- description: (Default - ',') A one-character string used to separate fields.
-  label: Delimiter
-  name: delimiter
-- description: (Default - '"') A one-character string used to quote fields containing
-    special characters, such as the delimiter or quotechar, or which contain new-line
-    characters.
-  label: Quote Character
-  name: quotechar
 - description: (Default - False) Metadata columns add extra row level information
     about data ingestions, (i.e. when was the row read in source, when was inserted
     or deleted in snowflake etc.) Metadata columns are creating automatically by adding
@@ -66,20 +25,53 @@ settings:
   kind: boolean
   label: Add Record Metadata
   name: add_record_metadata
-- description: (Default - 'none') The type of encryption to use. Current supported
-    options are - 'none' and 'KMS'.
-  label: Encryption Type
-  name: encryption_type
-- description: A reference to the encryption key to use for data encryption. For KMS
-    encryption, this should be the name of the KMS encryption key ID (e.g. '1234abcd-1234-1234-1234-1234abcd1234').
-    This field is ignored if 'encryption_type' is none or blank.
-  label: Encryption Key
-  name: encryption_key
+- description: The name of the Athena database to connect to.
+  label: Athena Database
+  name: athena_database
+- description: S3 Access Key Id. If not provided, aws_profile or AWS_ACCESS_KEY_ID
+    environment variable will be used.
+  kind: password
+  label: AWS S3 Access Key ID
+  name: aws_access_key_id
+  sensitive: true
+- description: Optional - AWS profile name for profile based authentication. If not
+    provided, AWS_PROFILE environment variable will be used.
+  label: AWS profile name
+  name: aws_profile
+- description: The AWS region to use i.e. us-east-2.
+  label: AWS Region
+  name: aws_region
+- kind: password
+  label: AWS S3 Secret Access Key
+  name: aws_secret_access_key
+  sensitive: true
+- description: Optional - S3 AWS STS token for temporary credentials. If not provided,
+    AWS_SESSION_TOKEN environment variable will be used.
+  kind: password
+  label: AWS S3 Session Token
+  name: aws_session_token
+  sensitive: true
 - description: The type of compression to apply before uploading. Supported options
     are none (default) and gzip. For gzipped files, the file extension will automatically
     be changed to .csv.gz for all files.
   label: Compression
   name: compression
+- description: (Default - ',') A one-character string used to separate fields.
+  label: Delimiter
+  name: delimiter
+- description: A reference to the encryption key to use for data encryption. For KMS
+    encryption, this should be the name of the KMS encryption key ID (e.g. '1234abcd-1234-1234-1234-1234abcd1234').
+    This field is ignored if 'encryption_type' is none or blank.
+  label: Encryption Key
+  name: encryption_key
+- description: (Default - 'none') The type of encryption to use. Current supported
+    options are - 'none' and 'KMS'.
+  label: Encryption Type
+  name: encryption_type
+- description: Whether to flatten nested import data before loading it to Athena.
+  kind: boolean
+  label: Flattten Records
+  name: flatten_records
 - description: (Default - None) Custom naming convention of the s3 key. Replaces tokens
     date, stream, and timestamp with the appropriate values. Supports "folders" in
     s3 keys e.g. folder/folder2/{stream}/export_date={date}/{timestamp}.csv. Honors
@@ -87,19 +79,30 @@ settings:
     = folder1/my_file.csv and s3_key_prefix = prefix_ results in folder1/prefix_my_file.csv
   label: Naming Convention
   name: naming_convention
+- description: (Default - jsonl) The format to write the S3 in - jsonl or csv
+  label: Object Format
+  name: object_format
+- description: (Default - '"') A one-character string used to quote fields containing
+    special characters, such as the delimiter or quotechar, or which contain new-line
+    characters.
+  label: Quote Character
+  name: quotechar
+- description: AWS S3 bucket name
+  label: Bucket
+  name: s3_bucket
+- description: A static prefix before the generated S3 key names. Using prefixes you
+    can upload files into specific directories in the S3 bucket. Default(None)
+  label: S3 Key Prefix
+  name: s3_key_prefix
+- description: S3 location to stage files. Example - s3://YOUR_S3_BUCKET/path/to/
+  label: S3 Staging Directory
+  name: s3_staging_dir
 - description: (Default - platform-dependent) Directory of temporary CSV files with
     RECORD messages.
   label: Temp Directory
   name: temp_dir
-- description: (Default - jsonl) The format to write the S3 in - jsonl or csv
-  label: Object Format
-  name: object_format
-- description: Whether to flatten nested import data before loading it to Athena.
-  kind: boolean
-  label: Flattten Records
-  name: flatten_records
 settings_group_validation:
-- - s3_bucket
-  - athena_database
+- - athena_database
   - aws_region
+  - s3_bucket
 variant: meltanolabs

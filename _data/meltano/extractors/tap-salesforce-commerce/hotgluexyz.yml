@@ -24,10 +24,12 @@ settings:
   kind: password
   label: Client ID
   name: client_id
+  sensitive: true
 - description: Your Salesforce Client Secret.
   kind: password
   label: Client Secret
   name: client_secret
+  sensitive: true
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -41,6 +43,7 @@ settings:
   kind: password
   label: Site ID
   name: site_id
+  sensitive: true
 - description: "Determines how much historical data will be extracted. Please be aware\n
     that the larger the time period and amount of data, the longer the initial extraction\n
     can be expected to take."

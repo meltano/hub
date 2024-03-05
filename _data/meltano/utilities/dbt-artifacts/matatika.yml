@@ -29,19 +29,21 @@ namespace: dbt_artifacts
 pip_url: git+https://github.com/Matatika/dbt-artifacts-ext.git
 repo: https://github.com/Matatika/dbt-artifacts-ext
 settings:
-- description: Source directory for the dbt artifact files.
-  label: Source directory
-  name: source_dir
-  value: .meltano/transformers/dbt/target
 - description: Output directory for processed artifacts.
   label: Output directory
   name: output_dir
   value: output
-- description: The dbt resource types to process (`source`, `model`, `snapshot`, `test`, or `all`).
+- description: The dbt resource types to process (`source`, `model`, `snapshot`, `test`,
+    or `all`).
   kind: array
   label: Resource types
   name: resource_types
   value:
   - all
+- description: Source directory for the dbt artifact files.
+  label: Source directory
+  name: source_dir
+  value: .meltano/transformers/dbt/target
+settings_group_validation: []
 usage: For help, try `meltano invoke dbt-artifacts --help` (or `--help` on any subcommand).
 variant: matatika

@@ -22,10 +22,12 @@ settings:
   kind: password
   label: API Key
   name: api_key
+  sensitive: true
 - description: API secret to authenticate against the API service
   kind: password
   label: API Secret
   name: api_secret
+  sensitive: true
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean

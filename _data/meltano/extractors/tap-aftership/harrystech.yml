@@ -23,6 +23,7 @@ settings:
   kind: password
   label: API Key
   name: api_key
+  sensitive: true
 - description: The latest record date to sync
   kind: date_iso8601
   label: End Date

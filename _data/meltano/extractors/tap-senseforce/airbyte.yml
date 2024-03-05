@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Machine data management solution
 domain_url: https://manual.senseforce.io/manual/sf-platform/dataset-builder
 executable: tap-airbyte
@@ -18,8 +18,50 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-senseforce
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-senseforce
 settings:
+- description: Your API access token. See <a 
+    href="https://manual.senseforce.io/manual/sf-platform/public-api/get-your-access-token/">here</a>.
+    The toke is case sensitive.
+  kind: password
+  label: Airbyte Config Access Token
+  name: airbyte_config.access_token
+  sensitive: true
+- description: "Your Senseforce API backend URL. This is the URL shown during the
+    Login screen. See <a href=\"https://manual.senseforce.io/manual/sf-platform/public-api/get-your-access-token/\"\
+    >here</a> for more details. (Note: Most Senseforce backend APIs have the term
+    'galaxy' in their ULR)"
+  kind: string
+  label: Airbyte Config Backend Url
+  name: airbyte_config.backend_url
+- description: 'The ID of the dataset you want to synchronize. The ID can be found
+    in the URL when opening the dataset. See <a href="https://manual.senseforce.io/manual/sf-platform/public-api/get-your-access-token/">here</a>
+    for more details. (Note: As the Senseforce API only allows to synchronize a specific
+    dataset, each dataset you  want to synchronize needs to be implemented as a separate
+    airbyte source).'
+  kind: password
+  label: Airbyte Config Dataset Id
+  name: airbyte_config.dataset_id
+  sensitive: true
+- description: The time increment used by the connector when requesting data from
+    the Senseforce API. The bigger the value is, the less requests will be made and
+    faster the sync will be. On the other hand, the more seldom the state is persisted
+    and the more likely one could run into rate limites.  Furthermore, consider that
+    large chunks of time might take a long time for the Senseforce query to return
+    data - meaning it could take in effect longer than with more smaller time slices.
+    If there are a lot of data per day, set this setting to 1. If there is only very
+    little data per day, you might change the setting to 10 or more.
+  kind: integer
+  label: Airbyte Config Slice Range
+  name: airbyte_config.slice_range
+- description: 'UTC date and time in the format 2017-01-25. Only data with "Timestamp"
+    after this date will be replicated. Important note: This start date must be set
+    to the first day of where your dataset provides data.  If your dataset has data
+    from 2020-10-10 10:21:10, set the start_date to 2020-10-10 or later'
+  kind: string
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -36,55 +78,8 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: Your API access token. See <a href="https://manual.senseforce.io/manual/sf-platform/public-api/get-your-access-token/">here</a>.
-    The toke is case sensitive.
-  kind: password
-  label: Airbyte Config Access Token
-  name: airbyte_config.access_token
-- description: "Your Senseforce API backend URL. This is the URL shown during the\
-    \ Login screen. See <a href=\"https://manual.senseforce.io/manual/sf-platform/public-api/get-your-access-token/\"\
-    >here</a> for more details. (Note: Most Senseforce backend APIs have the term\
-    \ 'galaxy' in their ULR)"
-  kind: string
-  label: Airbyte Config Backend Url
-  name: airbyte_config.backend_url
-- description: 'The ID of the dataset you want to synchronize. The ID can be found
-    in the URL when opening the dataset. See <a href="https://manual.senseforce.io/manual/sf-platform/public-api/get-your-access-token/">here</a>
-    for more details. (Note: As the Senseforce API only allows to synchronize a specific
-    dataset, each dataset you  want to synchronize needs to be implemented as a separate
-    airbyte source).'
-  kind: password
-  label: Airbyte Config Dataset Id
-  name: airbyte_config.dataset_id
-- description: 'UTC date and time in the format 2017-01-25. Only data with "Timestamp"
-    after this date will be replicated. Important note: This start date must be set
-    to the first day of where your dataset provides data.  If your dataset has data
-    from 2020-10-10 10:21:10, set the start_date to 2020-10-10 or later'
-  kind: string
-  label: Airbyte Config Start Date
-  name: airbyte_config.start_date
-- description: The time increment used by the connector when requesting data from
-    the Senseforce API. The bigger the value is, the less requests will be made and
-    faster the sync will be. On the other hand, the more seldom the state is persisted
-    and the more likely one could run into rate limites.  Furthermore, consider that
-    large chunks of time might take a long time for the Senseforce query to return
-    data - meaning it could take in effect longer than with more smaller time slices.
-    If there are a lot of data per day, set this setting to 1. If there is only very
-    little data per day, you might change the setting to 10 or more.
-  kind: integer
-  label: Airbyte Config Slice Range
-  name: airbyte_config.slice_range
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -92,13 +87,22 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
 - - airbyte_config.access_token
-  - airbyte_config.dataset_id
   - airbyte_config.backend_url
-  - airbyte_spec.image
-  - airbyte_spec
+  - airbyte_config.dataset_id
   - airbyte_config.start_date
+  - airbyte_spec
+  - airbyte_spec.image
 settings_preamble: ''
 usage: ''
 variant: airbyte

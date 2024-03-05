@@ -36,10 +36,12 @@ settings:
   kind: password
   label: Personal Access Token Name
   name: personal_access_token_name
+  sensitive: true
 - description: Personal access token for authentication
   kind: password
   label: Personal Access Token Secret
   name: personal_access_token_secret
+  sensitive: true
 - description: Server URL for your Tableau instance
   kind: string
   label: Server URL
@@ -48,6 +50,7 @@ settings:
   kind: password
   label: Site URL ID
   name: site_url_id
+  sensitive: true
 - description: User-defined config values to be used within map expressions.
   kind: object
   label: Stream Map Config

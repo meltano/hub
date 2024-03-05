@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Mimesis - Fake Data Generator
 domain_url: https://mimesis.name/en/master/
 executable: tap-airbyte
@@ -18,8 +18,29 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-faker
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-faker
 settings:
+- description: How many users should be generated in total.  This setting does not
+    apply to the purchases or products stream.
+  kind: integer
+  label: Airbyte Config Count
+  name: airbyte_config.count
+- description: How many fake records will be in each page (stream slice), before a
+    state message is emitted?
+  kind: integer
+  label: Airbyte Config Records Per Slice
+  name: airbyte_config.records_per_slice
+- description: How many fake records will be returned for each sync, for each stream?  By
+    default, it will take 2 syncs to create the requested 1000 records.
+  kind: integer
+  label: Airbyte Config Records Per Sync
+  name: airbyte_config.records_per_sync
+- description: Manually control the faker random seed to return the same values on
+    subsequent runs (leave -1 for random)
+  kind: integer
+  label: Airbyte Config Seed
+  name: airbyte_config.seed
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -36,37 +57,8 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: How many users should be generated in total.  This setting does not
-    apply to the purchases or products stream.
-  kind: integer
-  label: Airbyte Config Count
-  name: airbyte_config.count
-- description: Manually control the faker random seed to return the same values on
-    subsequent runs (leave -1 for random)
-  kind: integer
-  label: Airbyte Config Seed
-  name: airbyte_config.seed
-- description: How many fake records will be returned for each sync, for each stream?  By
-    default, it will take 2 syncs to create the requested 1000 records.
-  kind: integer
-  label: Airbyte Config Records Per Sync
-  name: airbyte_config.records_per_sync
-- description: How many fake records will be in each page (stream slice), before a
-    state message is emitted?
-  kind: integer
-  label: Airbyte Config Records Per Slice
-  name: airbyte_config.records_per_slice
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -74,10 +66,19 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
-- - airbyte_spec.image
+- - airbyte_config.count
   - airbyte_spec
-  - airbyte_config.count
+  - airbyte_spec.image
 settings_preamble: ''
 usage: ''
 variant: airbyte

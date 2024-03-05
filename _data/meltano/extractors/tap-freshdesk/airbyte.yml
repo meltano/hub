@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Customer Service Software
 domain_url: https://freshdesk.com/
 executable: tap-airbyte
@@ -18,8 +18,29 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-freshdesk
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-freshdesk
 settings:
+- description: Freshdesk API Key. See the <a href="https://docs.airbyte.com/integrations/sources/freshdesk">docs</a>
+    for more information on how to obtain this key.
+  kind: password
+  label: Airbyte Config Api Key
+  name: airbyte_config.api_key
+  sensitive: true
+- description: Freshdesk domain
+  kind: string
+  label: Airbyte Config Domain
+  name: airbyte_config.domain
+- description: The number of requests per minute that this source allowed to use.
+    There is a rate limit of 50 requests per minute per app per account.
+  kind: integer
+  label: Airbyte Config Requests Per Minute
+  name: airbyte_config.requests_per_minute
+- description: UTC date and time. Any data created after this date will be replicated.
+    If this parameter is not set, all data will be replicated.
+  kind: string
+  label: Airbyte Config Start Date
+  name: airbyte_config.start_date
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -36,36 +57,8 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: Freshdesk domain
-  kind: string
-  label: Airbyte Config Domain
-  name: airbyte_config.domain
-- description: Freshdesk API Key. See the <a href="https://docs.airbyte.com/integrations/sources/freshdesk">docs</a>
-    for more information on how to obtain this key.
-  kind: password
-  label: Airbyte Config Api Key
-  name: airbyte_config.api_key
-- description: The number of requests per minute that this source allowed to use.
-    There is a rate limit of 50 requests per minute per app per account.
-  kind: integer
-  label: Airbyte Config Requests Per Minute
-  name: airbyte_config.requests_per_minute
-- description: UTC date and time. Any data created after this date will be replicated.
-    If this parameter is not set, all data will be replicated.
-  kind: string
-  label: Airbyte Config Start Date
-  name: airbyte_config.start_date
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -73,10 +66,19 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
 - - airbyte_spec.image
-  - connector_config.domain
   - connector_config.api_key
+  - connector_config.domain
 settings_preamble: ''
 usage: ''
 variant: airbyte

@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Time Tracking Software
 domain_url: https://help.getharvest.com/api-v2/
 executable: tap-airbyte
@@ -18,8 +18,50 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-harvest
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-harvest
 settings:
+- description: Harvest account ID. Required for all Harvest requests in pair with
+    Personal Access Token
+  kind: password
+  label: Airbyte Config Account Id
+  name: airbyte_config.account_id
+  sensitive: true
+- description: Log into Harvest and then create new <a href="https://id.getharvest.com/developers">
+    personal access token</a>.
+  kind: password
+  label: Airbyte Config Credentials Api Token
+  name: airbyte_config.credentials.api_token
+  sensitive: true
+- description: Client, Token
+  kind: string
+  label: Airbyte Config Credentials Auth Type
+  name: airbyte_config.credentials.auth_type
+- description: The Client ID of your Harvest developer application.
+  kind: password
+  label: Airbyte Config Credentials Client Id
+  name: airbyte_config.credentials.client_id
+  sensitive: true
+- description: The Client Secret of your Harvest developer application.
+  kind: password
+  label: Airbyte Config Credentials Client Secret
+  name: airbyte_config.credentials.client_secret
+  sensitive: true
+- description: Refresh Token to renew the expired Access Token.
+  kind: password
+  label: Airbyte Config Credentials Refresh Token
+  name: airbyte_config.credentials.refresh_token
+  sensitive: true
+- description: UTC date and time in the format 2017-01-25T00:00:00Z. Any data after
+    this date will not be replicated.
+  kind: string
+  label: Airbyte Config Replication End Date
+  name: airbyte_config.replication_end_date
+- description: UTC date and time in the format 2017-01-25T00:00:00Z. Any data before
+    this date will not be replicated.
+  kind: string
+  label: Airbyte Config Replication Start Date
+  name: airbyte_config.replication_start_date
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -36,53 +78,8 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: Harvest account ID. Required for all Harvest requests in pair with
-    Personal Access Token
-  kind: password
-  label: Airbyte Config Account Id
-  name: airbyte_config.account_id
-- description: UTC date and time in the format 2017-01-25T00:00:00Z. Any data before
-    this date will not be replicated.
-  kind: string
-  label: Airbyte Config Replication Start Date
-  name: airbyte_config.replication_start_date
-- description: UTC date and time in the format 2017-01-25T00:00:00Z. Any data after
-    this date will not be replicated.
-  kind: string
-  label: Airbyte Config Replication End Date
-  name: airbyte_config.replication_end_date
-- description: Client, Token
-  kind: string
-  label: Airbyte Config Credentials Auth Type
-  name: airbyte_config.credentials.auth_type
-- description: The Client ID of your Harvest developer application.
-  kind: password
-  label: Airbyte Config Credentials Client Id
-  name: airbyte_config.credentials.client_id
-- description: The Client Secret of your Harvest developer application.
-  kind: password
-  label: Airbyte Config Credentials Client Secret
-  name: airbyte_config.credentials.client_secret
-- description: Refresh Token to renew the expired Access Token.
-  kind: password
-  label: Airbyte Config Credentials Refresh Token
-  name: airbyte_config.credentials.refresh_token
-- description: Log into Harvest and then create new <a href="https://id.getharvest.com/developers">
-    personal access token</a>.
-  kind: password
-  label: Airbyte Config Credentials Api Token
-  name: airbyte_config.credentials.api_token
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -90,11 +87,20 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
 - - airbyte_config.account_id
-  - airbyte_spec.image
   - airbyte_config.replication_start_date
   - airbyte_spec
+  - airbyte_spec.image
 settings_preamble: ''
 usage: ''
 variant: airbyte

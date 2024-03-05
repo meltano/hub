@@ -1,10 +1,10 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
+- catalog
+- discover
 - schema-flattening
+- state
+- stream-maps
 description: Corporate Wiki Software
 domain_url: https://www.atlassian.com/software/confluence
 executable: tap-airbyte
@@ -18,8 +18,22 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: bronze
-repo: https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-confluence
+repo: 
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-confluence
 settings:
+- description: 'Please follow the Jira confluence for generating an API token: https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/'
+  kind: password
+  label: Airbyte Config Api Token
+  name: airbyte_config.api_token
+  sensitive: true
+- description: Your Confluence domain name
+  kind: string
+  label: Airbyte Config Domain Name
+  name: airbyte_config.domain_name
+- description: Your Confluence login email
+  kind: string
+  label: Airbyte Config Email
+  name: airbyte_config.email
 - description: Airbyte image to run
   kind: string
   label: Airbyte Spec Image
@@ -36,29 +50,8 @@ settings:
   kind: array
   label: Docker Mounts
   name: docker_mounts
-- description: 'Please follow the Jira confluence for generating an API token: https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/'
-  kind: password
-  label: Airbyte Config Api Token
-  name: airbyte_config.api_token
-- description: Your Confluence domain name
-  kind: string
-  label: Airbyte Config Domain Name
-  name: airbyte_config.domain_name
-- description: Your Confluence login email
-  kind: string
-  label: Airbyte Config Email
-  name: airbyte_config.email
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: "'True' to enable schema flattening and automatically expand nested\
-    \ properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
@@ -66,6 +59,15 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
 - - airbyte_config.api_token
   - airbyte_config.domain_name
