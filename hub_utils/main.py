@@ -5,7 +5,7 @@ import os
 from copy import copy
 from datetime import datetime
 from enum import Enum
-from typing import List
+from typing import List, Optional
 
 import requests
 import typer
@@ -82,7 +82,7 @@ class YamlLint(str, Enum):
 
 
 @app.command()
-def yamllint(action: YamlLint, paths: List[str] | None = None):
+def yamllint(action: YamlLint, paths: Optional[List[str]] = None):
     """
     Run yamllint on all yamls in the hub or a specific path.
     """
