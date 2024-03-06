@@ -325,6 +325,7 @@ extractors:
   tap-msaccess-anywhere: matatika
   tap-msaccess-azure: matatika
   tap-msaccess-http: matatika
+  tap-msaccess-s3: matatika
   tap-mssql: wintersrd
   tap-my-hours: airbyte
   tap-mysql: transferwise
