@@ -21,6 +21,10 @@ settings:
   kind: boolean
   label: Add Record Metadata
   name: add_record_metadata
+- description: Maximum number of rows in each batch.
+  kind: integer
+  label: Batch Size Rows
+  name: batch_size_rows
 - description: 'A python format string to use when outputting the `{datestamp}` string.
     For reference, see: https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes'
   kind: string
