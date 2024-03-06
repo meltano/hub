@@ -1,0 +1,44 @@
+capabilities:
+- about
+- batch
+- catalog
+- discover
+- schema-flattening
+- state
+- stream-maps
+description: Database management system from Microsoft that combines the relational Access Database Engine with a graphical user interface and software-development tools
+domain_url: https://www.microsoft.com/en-gb/microsoft-365/access
+executable: tap-msaccess
+keywords:
+- aws
+- database
+- db
+- fsspec
+- meltano_sdk
+- microsoft access
+- ms access
+- s3
+label: Microsoft Access (S3)
+logo_url: /assets/logos/extractors/msaccess.png
+maintenance_status: active
+name: tap-msaccess-s3
+namespace: tap_msaccess
+pip_url: git+https://github.com/Matatika/tap-msaccess.git@v0.1.0 fsspec[s3]
+quality: gold
+repo: https://github.com/Matatika/tap-msaccess
+settings:
+- description: Use anonymous connection to access public read-only buckets without credentials
+  kind: boolean
+  label: Anonymous connection
+  name: anon
+- description: AWS access key ID
+  kind: string
+  label: Access key ID
+  name: key
+- description: AWS secret access key
+  kind: object
+  label: Secret access key
+  name: secret
+settings_group_validation:
+- - database_file
+variant: matatika
