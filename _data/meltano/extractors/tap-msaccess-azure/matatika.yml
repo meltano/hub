@@ -1,0 +1,46 @@
+capabilities:
+- about
+- batch
+- catalog
+- discover
+- schema-flattening
+- state
+- stream-maps
+description: Database management system from Microsoft that combines the relational Access Database Engine with a graphical user interface and software-development tools
+domain_url: https://www.microsoft.com/en-gb/microsoft-365/access
+executable: tap-msaccess
+keywords:
+- azure
+- database
+- db
+- fsspec
+- meltano_sdk
+- microsoft access
+- ms access
+label: Microsoft Access (Azure)
+logo_url: /assets/logos/extractors/msaccess.png
+maintenance_status: active
+name: tap-msaccess-azure
+namespace: tap_msaccess
+pip_url: git+https://github.com/Matatika/tap-msaccess.git@v0.1.0 fsspec[abfs]
+quality: gold
+repo: https://github.com/Matatika/tap-msaccess
+settings:
+- description: Local path or URL to a Microsoft Access database `.mdb` or `.accdb` file
+  kind: string
+  label: Database file
+  name: database_file
+- description: Azure storage account name
+  kind: string
+  label: Account name
+  name: account_name
+- description: Azure storage account access key
+  kind: string
+  label: Account key
+  name: account_key
+  sensitive: true
+settings_group_validation:
+- - database_file
+  - account_name
+  - account_key
+variant: matatika

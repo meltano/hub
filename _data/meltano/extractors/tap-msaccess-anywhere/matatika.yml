@@ -1,0 +1,42 @@
+capabilities:
+- about
+- batch
+- catalog
+- discover
+- schema-flattening
+- state
+- stream-maps
+description: Database management system from Microsoft that combines the relational Access Database Engine with a graphical user interface and software-development tools
+domain_url: https://www.microsoft.com/en-gb/microsoft-365/access
+keywords:
+- anywhere
+- database
+- db
+- fsspec
+- meltano_sdk
+- microsoft access
+- ms access
+label: Microsoft Access (Anywhere)
+logo_url: /assets/logos/extractors/msaccess.png
+maintenance_status: active
+name: tap-msaccess-anywhere
+namespace: tap_msaccess
+pip_url: git+https://github.com/Matatika/tap-msaccess.git@v0.1.0 fsspec[full]
+quality: gold
+repo: https://github.com/Matatika/tap-msaccess
+settings:
+- description: Local path or URL to a Microsoft Access database `.mdb` or `.accdb` file
+  kind: string
+  label: Database file
+  name: database_file
+- description: Any parameters for the [`fsspec`](https://filesystem-spec.readthedocs.io/en/latest/) storage backend implementation dictated by the [`database_file`](#database_file-setting) URL protocol, such as [HTTP(S)](https://filesystem-spec.readthedocs.io/en/latest/api.html#fsspec.implementations.http.HTTPFileSystem), [S3](https://s3fs.readthedocs.io/en/latest/) or [Azure](https://github.com/fsspec/adlfs?tab=readme-ov-file#readme) (see [built-in implementations](https://filesystem-spec.readthedocs.io/en/latest/api.html?highlight=http#built-in-implementations) and [other known implementations](https://filesystem-spec.readthedocs.io/en/latest/api.html?highlight=http#other-known-implementations) for more information)
+  kind: object
+  label: Connection parameters
+  name: connection_params
+settings_group_validation:
+- - database_file
+usage: |
+  Connections parameters can be passed directly as top-level config (i.e. same as [`database_file`](#database_file-setting)) or via the [`connection_params`](#connection_params-setting) setting as a JSON-object value - if both are provided, the configurations are merged, with values from `connection_params` taking precendence.
+
+  Note that Meltano does not support environment variable configuration of unnamed properties, so in this case, configuration must be provided in the `meltano.yml`. Otherwise, use [`connection_params`](#connection_params-setting) or one of the domain-specific `tap-msaccess` derivations (e.g. [`tap-msaccess-azure`](/extractors/tap-msaccess-azure)).
+variant: matatika

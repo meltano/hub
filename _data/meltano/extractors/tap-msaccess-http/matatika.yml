@@ -1,0 +1,44 @@
+capabilities:
+- about
+- batch
+- catalog
+- discover
+- schema-flattening
+- state
+- stream-maps
+description: Database management system from Microsoft that combines the relational Access Database Engine with a graphical user interface and software-development tools
+domain_url: https://www.microsoft.com/en-gb/microsoft-365/access
+executable: tap-msaccess
+keywords:
+- database
+- db
+- fsspec
+- http
+- https
+- meltano_sdk
+- microsoft access
+- ms access
+label: Microsoft Access (HTTP)
+logo_url: /assets/logos/extractors/msaccess.png
+maintenance_status: active
+name: tap-msaccess-http
+namespace: tap_msaccess
+pip_url: git+https://github.com/Matatika/tap-msaccess.git@v0.1.0 fsspec[http]
+quality: gold
+repo: https://github.com/Matatika/tap-msaccess
+settings:
+- description: Local path or URL to a Microsoft Access database `.mdb` or `.accdb` file
+  kind: string
+  label: Database file
+  name: database_file
+- description: Any parameters for the [`fsspec`](https://filesystem-spec.readthedocs.io/en/latest/) [HTTP storage backend implementation](https://filesystem-spec.readthedocs.io/en/latest/api.html#fsspec.implementations.http.HTTPFileSystem)
+  kind: object
+  label: Connection parameters
+  name: connection_params
+settings_group_validation:
+- - database_file
+usage: |
+  Connections parameters can be passed directly as top-level config (i.e. same as [`database_file`](#database_file-setting)) or via the [`connection_params`](#connection_params-setting) setting as a JSON-object value - if both are provided, the configurations are merged, with values from `connection_params` taking precendence.
+
+  Note that Meltano does not support environment variable configuration of unnamed properties, so in this case, configuration must be provided in the `meltano.yml`. Otherwise, use [`connection_params`](#connection_params-setting).
+variant: matatika
