@@ -137,10 +137,12 @@ export default {
               plugin.node.label,
               plugin.node.keywords?.join(" "),
             ];
-            return pluginTextFields
-              .join(" ")
+            const searchIn = pluginTextFields.join(" ").toLowerCase();
+            return this.search
               .toLowerCase()
-              .includes(this.search.toLowerCase().trim());
+              .trim()
+              .split(" ")
+              .every((searchTerm) => searchIn.includes(searchTerm));
           })
           .sort((a, b) => {
             // First compare by pluginType
