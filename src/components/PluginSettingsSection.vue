@@ -15,7 +15,7 @@
           >
         </li>
       </ul>
-      <div v-if="sdkSettings().length > 0">
+      <div v-if="sdkSettings().length > 0 && $page.plugins.keywords.includes('meltano_sdk')">
         <details>
           <summary class="text-xl pb-4 pt-4 font-bold font-hg">Expand To Show SDK Settings</summary>
           <ul class="list-disc list-inside pl-4">
@@ -84,7 +84,7 @@
         ><code >meltano config {{ name }} set {{ setting.name.replace(".", " ") }} [value]</code></pre>
       </span>
 
-      <div v-if="sdkSettings().length > 0">
+      <div v-if="sdkSettings().length > 0 && $page.plugins.keywords.includes('meltano_sdk')">
         <details
           :open="sdkSettings().some((setting) => getSettingHref(setting) === this.$route.hash)"
         >
