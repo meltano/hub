@@ -10,7 +10,7 @@
       </p>
       <ul class="list-disc list-inside pl-4">
         <li v-for="(setting, index) in definedSettings()" v-bind:key="index">
-          <a :href="'#' + setting.name.replace(/\./g, '-') + '-setting'"
+          <a :href="getSettingHref(setting)"
             ><code>{{ setting.name }}</code></a
           >
         </li>
@@ -20,7 +20,7 @@
           <summary class="text-xl pb-4 pt-4 font-bold font-hg">Expand To Show SDK Settings</summary>
           <ul class="list-disc list-inside pl-4">
             <li v-for="(setting, index) in sdkSettings()" v-bind:key="index">
-              <a :href="'#' + setting.name.replace(/\./g, '-') + '-setting'"
+              <a :href="getSettingHref(setting)"
                 ><code>{{ setting.name }}</code></a
               >
             </li>
@@ -85,7 +85,9 @@
       </span>
 
       <div v-if="sdkSettings().length > 0">
-        <details>
+        <details
+          :open="sdkSettings().some((setting) => getSettingHref(setting) === this.$route.hash)"
+        >
           <summary class="text-2xl pb-4 pt-4 font-bold font-hg">
             Expand To Show SDK Settings
           </summary>
@@ -159,6 +161,9 @@ export default {
     },
     sdkSettings() {
       return this.settings.filter((setting) => this.hardcodedValues.includes(setting.name));
+    },
+    getSettingHref(setting) {
+      return `#${setting.name.replace(/\./g, "-")}-setting`;
     },
   },
 };
