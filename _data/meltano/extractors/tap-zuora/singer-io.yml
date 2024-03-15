@@ -1,0 +1,57 @@
+capabilities:
+- discover
+- catalog
+- state
+description: Subscription Management Platform
+domain_url: https://www.zuora.com/
+executable: tap-zuora
+keywords:
+- api
+label: Zuora
+logo_url: /assets/logos/extractors/zuora.png
+maintenance_status: active
+name: tap-zuora
+namespace: tap_zuora
+next_steps: ''
+pip_url: git+https://github.com/singer-io/tap-zuora.git
+quality: silver
+repo: https://github.com/singer-io/tap-zuora
+settings:
+- description: The Zuora API to use, e.g. REST or AQuA
+  kind: string
+  label: API type
+  name: api_type
+  value: REST
+- description: The Zuora username
+  kind: string
+  label: Username
+  name: username
+- description: The Zuora password
+  kind: password
+  label: Password
+  name: password
+  sensitive: true
+- description: Whether to use the sandbox or production Zuora environment
+  kind: boolean
+  label: Use sandbox endpoint
+  name: sandbox
+- description: Whether to use the European Zuora endpoint
+  kind: string
+  label: Connect to a European endpoint
+  name: european
+- description: The Zuora partner ID, required for the AQuA API
+  kind: string
+  label: Partner ID
+  name: partner_id
+- description: The replication start date
+  kind: date_iso8601
+  label: Replication start date
+  name: start_date
+settings_group_validation:
+- - start_date
+  - api_type
+  - username
+  - password
+settings_preamble: ''
+usage: ''
+variant: singer-io
