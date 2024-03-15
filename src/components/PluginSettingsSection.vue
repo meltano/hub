@@ -85,7 +85,13 @@
       </span>
 
       <div v-if="sdkSettings().length > 0">
-        <details :open="sdkSettings().some(setting => '#' + setting.name.replace(/\./g, '-') + '-setting' === this.$route.hash)">
+        <details
+          :open="
+            sdkSettings().some(
+              (setting) => '#' + setting.name.replace(/\./g, '-') + '-setting' === this.$route.hash
+            )
+          "
+        >
           <summary class="text-2xl pb-4 pt-4 font-bold font-hg">
             Expand To Show SDK Settings
           </summary>
