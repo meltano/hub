@@ -9,18 +9,18 @@
         find the setting you're looking for, click on any setting name from the list:
       </p>
       <ul class="list-disc list-inside pl-4">
-        <li v-for="(setting, index) in definedSettings()" v-bind:key="index">
-          <a :href="getSettingHref(setting)"
+        <li v-for="(setting, index) in definedSettings" v-bind:key="index">
+          <a :href="setting.href"
             ><code>{{ setting.name }}</code></a
           >
         </li>
       </ul>
-      <div v-if="sdkSettings().length > 0 && $page.plugins.keywords.includes('meltano_sdk')">
+      <div v-if="sdkSettings.length > 0 && $page.plugins.keywords.includes('meltano_sdk')">
         <details>
           <summary class="text-xl pb-4 pt-4 font-bold font-hg">Expand To Show SDK Settings</summary>
           <ul class="list-disc list-inside pl-4">
-            <li v-for="(setting, index) in sdkSettings()" v-bind:key="index">
-              <a :href="getSettingHref(setting)"
+            <li v-for="(setting, index) in sdkSettings" v-bind:key="index">
+              <a :href="setting.href"
                 ><code>{{ setting.name }}</code></a
               >
             </li>
@@ -54,7 +54,7 @@
         >
         that defines the settings for this plugin.
       </p>
-      <span class="mt-6" v-for="(setting, index) in definedSettings()" v-bind:key="index">
+      <span class="mt-6" v-for="(setting, index) in definedSettings" v-bind:key="index">
         <p class="mt-3 text-xl" :id="setting.name.replace(/\./g, '-') + '-setting'">
           <code>{{ setting.label }} ({{ setting.name }})</code>
         </p>
@@ -84,14 +84,12 @@
         ><code >meltano config {{ name }} set {{ setting.name.replace(".", " ") }} [value]</code></pre>
       </span>
 
-      <div v-if="sdkSettings().length > 0 && $page.plugins.keywords.includes('meltano_sdk')">
-        <details
-          :open="sdkSettings().some((setting) => getSettingHref(setting) === this.$route.hash)"
-        >
+      <div v-if="sdkSettings.length > 0 && $page.plugins.keywords.includes('meltano_sdk')">
+        <details :open="sdkSettings.some((setting) => setting.href === this.$route.hash)">
           <summary class="text-2xl pb-4 pt-4 font-bold font-hg">
             Expand To Show SDK Settings
           </summary>
-          <span class="mt-6" v-for="(setting, index) in sdkSettings()" v-bind:key="index">
+          <span class="mt-6" v-for="(setting, index) in sdkSettings" v-bind:key="index">
             <p class="mt-3 text-xl" :id="setting.name.replace(/\./g, '-') + '-setting'">
               <code>{{ setting.label }} ({{ setting.name }})</code>
             </p>
@@ -155,15 +153,22 @@ export default {
       ],
     };
   },
-  methods: {
+  computed: {
+    $settingsWithHref() {
+      return this.settings.map((setting) => ({
+        ...setting,
+        href: `#${setting.name.replace(/\./g, "-")}-setting`,
+      }));
+    },
     definedSettings() {
-      return this.settings.filter((setting) => !this.hardcodedValues.includes(setting.name));
+      return this.$settingsWithHref.filter(
+        (setting) => !this.hardcodedValues.includes(setting.name)
+      );
     },
     sdkSettings() {
-      return this.settings.filter((setting) => this.hardcodedValues.includes(setting.name));
-    },
-    getSettingHref(setting) {
-      return `#${setting.name.replace(/\./g, "-")}-setting`;
+      return this.$settingsWithHref.filter((setting) =>
+        this.hardcodedValues.includes(setting.name)
+      );
     },
   },
 };
