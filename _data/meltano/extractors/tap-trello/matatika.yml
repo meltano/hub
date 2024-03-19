@@ -10,6 +10,8 @@ description: Project Management Software
 domain_url: https://developer.atlassian.com/cloud/trello/rest/
 keywords:
 - api
+- kanban
+- matatika
 - meltano_sdk
 label: Trello
 logo_url: /assets/logos/extractors/trello.png
@@ -78,5 +80,7 @@ settings:
   kind: object
   label: Stream Maps
   name: stream_maps
-settings_group_validation: []
+settings_group_validation:
+- - developer_api_key
+  - access_token
 variant: matatika
