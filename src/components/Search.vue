@@ -12,7 +12,6 @@
       @input="search = $event.target.value"
       @focus="searchFocused = true"
       @blur="searchFocused = false"
-      v-focus="searchFocused"
     />
     <div class="absolute right-2 top-1/4">
       <svg
