@@ -15,7 +15,7 @@
           >
         </li>
       </ul>
-      <div v-if="sdkSettings.length > 0 && $page.plugins.keywords.includes('meltano_sdk')">
+      <div v-if="sdkSettings.length > 0">
         <details>
           <summary class="text-xl pb-4 pt-4 font-bold font-hg">Expand To Show SDK Settings</summary>
           <ul class="list-disc list-inside pl-4">
@@ -84,7 +84,7 @@
         ><code >meltano config {{ name }} set {{ setting.name.replace(".", " ") }} [value]</code></pre>
       </span>
 
-      <div v-if="sdkSettings.length > 0 && $page.plugins.keywords.includes('meltano_sdk')">
+      <div v-if="sdkSettings.length > 0">
         <details :open="sdkSettings.some((setting) => setting.href === this.$route.hash)">
           <summary class="text-2xl pb-4 pt-4 font-bold font-hg">
             Expand To Show SDK Settings
@@ -160,15 +160,18 @@ export default {
         href: `#${setting.name.replace(/\./g, "-")}-setting`,
       }));
     },
+    $isSdkPlugin() {
+      return this.$page.plugins.keywords.includes("meltano_sdk");
+    },
     definedSettings() {
-      return this.$settingsWithHref.filter(
-        (setting) => !this.hardcodedValues.includes(setting.name)
-      );
+      return this.$isSdkPlugin
+        ? this.$settingsWithHref.filter((setting) => !this.hardcodedValues.includes(setting.name))
+        : this.$settingsWithHref;
     },
     sdkSettings() {
-      return this.$settingsWithHref.filter((setting) =>
-        this.hardcodedValues.includes(setting.name)
-      );
+      return this.$isSdkPlugin
+        ? this.$settingsWithHref.filter((setting) => this.hardcodedValues.includes(setting.name))
+        : [];
     },
   },
 };
