@@ -120,7 +120,7 @@ export default {
   data() {
     return {
       search: "",
-      searchFocused: false,
+      searchFocused: true,
       hoveringOnSearchOptions: false,
     };
   },
