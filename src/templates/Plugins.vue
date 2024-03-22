@@ -216,7 +216,7 @@
                             >🥉</a
                           ></span
                         >
-                        <span>
+                        <span v-if="!variant.node.keywords.includes('airbyte_protocol')">
                           <img
                             class="inline pl-2 float-right"
                             alt="Last Commit Date"
