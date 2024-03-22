@@ -488,6 +488,7 @@ export default {
     $parseRepo(repoUrl) {
       const [user, name] = repoUrl.split("/").slice(3);
       return {
+        url: repoUrl,
         type: (() => {
           if (repoUrl.includes("github.com")) return "github";
           if (repoUrl.includes("gitlab.com")) return "gitlab";

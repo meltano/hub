@@ -77,10 +77,10 @@
               v-else
               class="w-8 h-4 inline gap-x-11"
               src="../assets/images/git-alt-brands.svg"
-            /><a :href="repo"
+            /><a :href="repo.url"
               ><img
                 class="inline gap-x-11"
-                :alt="repo"
+                :alt="repo.url"
                 :src="`https://img.shields.io/static/v1?label=${repo.user}&message=${repo.name}&color=blue`"
               />
             </a>
