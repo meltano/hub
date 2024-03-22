@@ -216,6 +216,18 @@
                             >🥉</a
                           ></span
                         >
+                        <span>
+                          <img
+                            class="inline pl-2 float-right"
+                            alt="Last Commit Date"
+                            :src="
+                              ((repo) =>
+                                `https://img.shields.io/${repo.type}/last-commit/${repo.user}/${repo.name}?label=`)(
+                                parsedRepos[variant.node.variant]
+                              )
+                            "
+                          />
+                        </span>
                       </li>
                     </ul>
                   </span>
@@ -405,7 +417,7 @@
             <PluginSidebar
               :name="$page.plugins.name"
               :domain_url="$page.plugins.domain_url"
-              :repo="$page.plugins.repo"
+              :repo="parsedRepos[$page.plugins.variant]"
               :maintenance_status="$page.plugins.maintenance_status"
               :keywords="$page.plugins.keywords"
               :variant="$page.plugins.variant"
@@ -458,6 +470,29 @@ export default {
       return this.$page.variants.edges.filter(
         (variant) => variant.node.pluginType === this.$page.plugins.pluginType
       );
+    },
+    parsedRepos() {
+      return this.filteredVariants.reduce((parsed, variant) => {
+        const repoUrl = variant.node.repo;
+        const [user, name] = repoUrl.split("/").slice(3);
+
+        return {
+          ...parsed,
+          [variant.node.variant]: {
+            type: this.$getRepoType(repoUrl),
+            user,
+            name,
+          },
+        };
+      }, {});
+    },
+  },
+  methods: {
+    $getRepoType(repoUrl) {
+      if (repoUrl.includes("github.com")) return "github";
+      if (repoUrl.includes("gitlab.com")) return "gitlab";
+      if (repoUrl.includes("bitbucket.org")) return "bitbucket";
+      return "";
     },
   },
 };
@@ -532,6 +567,7 @@ query Plugins($path: String!, $name: String!) {
         keywords
         pluginType
         quality
+        repo
         maintainer {
           name
           label
