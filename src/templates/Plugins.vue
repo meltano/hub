@@ -223,7 +223,7 @@
                             :src="
                               ((repo) =>
                                 `https://img.shields.io/${repo.type}/last-commit/${repo.user}/${repo.name}?label=`)(
-                                parsedRepos[variant.node.variant]
+                                parsedVariantRepos[variant.node.variant]
                               )
                             "
                           />
@@ -417,7 +417,7 @@
             <PluginSidebar
               :name="$page.plugins.name"
               :domain_url="$page.plugins.domain_url"
-              :repo="parsedRepos[$page.plugins.variant]"
+              :repo="parsedRepo"
               :maintenance_status="$page.plugins.maintenance_status"
               :keywords="$page.plugins.keywords"
               :variant="$page.plugins.variant"
@@ -471,28 +471,32 @@ export default {
         (variant) => variant.node.pluginType === this.$page.plugins.pluginType
       );
     },
-    parsedRepos() {
-      return this.filteredVariants.reduce((parsed, variant) => {
-        const repoUrl = variant.node.repo;
-        const [user, name] = repoUrl.split("/").slice(3);
-
-        return {
+    parsedVariantRepos() {
+      return this.filteredVariants.reduce(
+        (parsed, variant) => ({
           ...parsed,
-          [variant.node.variant]: {
-            type: this.$getRepoType(repoUrl),
-            user,
-            name,
-          },
-        };
-      }, {});
+          [variant.node.variant]: this.$parseRepo(variant.node.repo),
+        }),
+        {}
+      );
+    },
+    parsedRepo() {
+      return this.$parseRepo(this.$page.plugins.repo);
     },
   },
   methods: {
-    $getRepoType(repoUrl) {
-      if (repoUrl.includes("github.com")) return "github";
-      if (repoUrl.includes("gitlab.com")) return "gitlab";
-      if (repoUrl.includes("bitbucket.org")) return "bitbucket";
-      return "";
+    $parseRepo(repoUrl) {
+      const [user, name] = repoUrl.split("/").slice(3);
+      return {
+        type: (() => {
+          if (repoUrl.includes("github.com")) return "github";
+          if (repoUrl.includes("gitlab.com")) return "gitlab";
+          if (repoUrl.includes("bitbucket.org")) return "bitbucket";
+          return "";
+        })(),
+        user,
+        name,
+      };
     },
   },
 };
