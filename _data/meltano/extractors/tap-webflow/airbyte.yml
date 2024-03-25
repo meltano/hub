@@ -10,6 +10,7 @@ domain_url: https://webflow.com
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Webflow
 logo_url: /assets/logos/extractors/webflow.png
 maintenance_status: beta

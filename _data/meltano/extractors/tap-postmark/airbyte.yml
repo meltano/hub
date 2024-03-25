@@ -10,6 +10,7 @@ domain_url: https://postmarkapp.com/developer
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Postmark
 logo_url: /assets/logos/extractors/postmark.png
 maintenance_status: beta

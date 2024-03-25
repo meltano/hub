@@ -10,6 +10,7 @@ domain_url: https://developers.pipedrive.com/docs/api/v1
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Pipedrive
 logo_url: /assets/logos/extractors/pipedrive.png
 maintenance_status: beta

@@ -10,6 +10,7 @@ domain_url: https://aws.amazon.com/dynamodb/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: DynamoDB
 logo_url: /assets/logos/extractors/dynamodb.png
 maintenance_status: beta

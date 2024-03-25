@@ -10,6 +10,7 @@ domain_url: https://www.activecampaign.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: ActiveCampaign
 logo_url: /assets/logos/extractors/activecampaign.png
 maintenance_status: beta

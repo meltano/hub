@@ -10,6 +10,7 @@ domain_url: https://www.pardot.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Pardot
 logo_url: /assets/logos/extractors/pardot.png
 maintenance_status: beta

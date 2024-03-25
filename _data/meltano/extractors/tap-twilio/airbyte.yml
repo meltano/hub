@@ -10,6 +10,7 @@ domain_url: https://www.twilio.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Twilio
 logo_url: /assets/logos/extractors/twilio.png
 maintenance_status: beta

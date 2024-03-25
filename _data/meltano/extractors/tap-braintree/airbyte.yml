@@ -10,6 +10,7 @@ domain_url: https://developer.paypal.com/braintree/docs/start/overview
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Braintree
 logo_url: /assets/logos/extractors/braintree.png
 maintenance_status: beta

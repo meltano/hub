@@ -10,6 +10,7 @@ domain_url: https://doc.getlago.com/docs/guide/intro/welcome
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Lago
 logo_url: /assets/logos/extractors/getlago.png
 maintenance_status: beta

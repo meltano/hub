@@ -10,6 +10,7 @@ domain_url: https://developers.mailersend.com/#mailersend-api
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Mailersend
 logo_url: /assets/logos/extractors/mailersend.png
 maintenance_status: beta

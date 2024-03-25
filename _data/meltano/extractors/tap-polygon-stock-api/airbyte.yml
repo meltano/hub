@@ -10,6 +10,7 @@ domain_url: https://polygon.io/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Polygon Stock API
 logo_url: /assets/logos/extractors/polygon-stock-api.png
 maintenance_status: beta

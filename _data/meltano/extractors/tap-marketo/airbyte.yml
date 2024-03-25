@@ -10,6 +10,7 @@ domain_url: https://developers.marketo.com/rest-api/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Marketo
 logo_url: /assets/logos/extractors/marketo.png
 maintenance_status: beta

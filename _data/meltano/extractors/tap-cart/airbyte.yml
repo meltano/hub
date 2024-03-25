@@ -10,6 +10,7 @@ domain_url: https://www.cart.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Cart.com
 logo_url: /assets/logos/extractors/cart.png
 maintenance_status: beta

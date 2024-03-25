@@ -10,6 +10,7 @@ domain_url: https://developer.atlassian.com/cloud/trello/rest/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Trello
 logo_url: /assets/logos/extractors/trello.png
 maintenance_status: beta

@@ -10,6 +10,7 @@ domain_url: https://openweathermap.org/api
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: OpenWeatherMap
 logo_url: /assets/logos/extractors/openweathermap.png
 maintenance_status: beta

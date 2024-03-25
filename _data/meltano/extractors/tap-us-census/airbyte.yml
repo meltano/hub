@@ -11,6 +11,7 @@ domain_url:
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: US Census
 logo_url: /assets/logos/extractors/us-census.png
 maintenance_status: beta

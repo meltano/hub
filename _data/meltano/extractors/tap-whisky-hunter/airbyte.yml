@@ -10,6 +10,7 @@ domain_url: https://whiskyhunter.net/api/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Whiskey Hunter API
 logo_url: /assets/logos/extractors/whisky-hunter.png
 maintenance_status: beta

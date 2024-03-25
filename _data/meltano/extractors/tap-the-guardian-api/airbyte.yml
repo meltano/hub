@@ -10,6 +10,7 @@ domain_url: https://open-platform.theguardian.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: The Guardian Api
 logo_url: /assets/logos/extractors/the-guardian-api.png
 maintenance_status: beta

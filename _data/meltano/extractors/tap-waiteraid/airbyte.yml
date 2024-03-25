@@ -10,6 +10,7 @@ domain_url: https://app.waiteraid.com/api-docs/index.html#auth_call
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Waiteraid
 logo_url: /assets/logos/extractors/waiteraid.png
 maintenance_status: beta

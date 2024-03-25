@@ -10,6 +10,7 @@ domain_url: https://www.bigcommerce.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: BigCommerce
 logo_url: /assets/logos/extractors/bigcommerce.png
 maintenance_status: beta

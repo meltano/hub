@@ -10,6 +10,7 @@ domain_url: https://clockify.me/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Clockify
 logo_url: /assets/logos/extractors/clockify.png
 maintenance_status: beta

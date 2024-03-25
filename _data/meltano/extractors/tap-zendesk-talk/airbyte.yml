@@ -10,6 +10,7 @@ domain_url: https://developer.zendesk.com/api-reference/voice/talk-api
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Zendesk Talk
 logo_url: /assets/logos/extractors/zendesk-talk.png
 maintenance_status: beta

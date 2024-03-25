@@ -10,6 +10,7 @@ domain_url: https://developer.squareup.com/us/en
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Square
 logo_url: /assets/logos/extractors/square.png
 maintenance_status: beta

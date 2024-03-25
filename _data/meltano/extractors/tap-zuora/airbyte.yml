@@ -10,6 +10,7 @@ domain_url: https://www.zuora.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Zuora
 logo_url: /assets/logos/extractors/zuora.png
 maintenance_status: beta

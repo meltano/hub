@@ -10,6 +10,7 @@ domain_url: https://developers.themoviedb.org/3/getting-started
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: The Movie Database
 logo_url: /assets/logos/extractors/tmdb.png
 maintenance_status: beta

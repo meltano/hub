@@ -10,6 +10,7 @@ domain_url: https://aws.amazon.com/cloudtrail/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: AWS CloudTrail
 logo_url: /assets/logos/extractors/aws-cloudtrail.png
 maintenance_status: beta

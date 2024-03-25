@@ -10,6 +10,7 @@ domain_url: https://developers.snapchat.com/docs/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Snapchat Marketing
 logo_url: /assets/logos/extractors/snapchat-ads.png
 maintenance_status: beta

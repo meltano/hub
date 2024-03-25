@@ -10,6 +10,7 @@ domain_url: https://documentation.mailgun.com/en/latest/api_reference.html
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Mailgun
 logo_url: /assets/logos/extractors/mailgun.png
 maintenance_status: beta

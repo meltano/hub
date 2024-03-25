@@ -10,6 +10,7 @@ domain_url: https://www.zoho.com/crm/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Zoho CRM
 logo_url: /assets/logos/extractors/zoho-crm.png
 maintenance_status: beta

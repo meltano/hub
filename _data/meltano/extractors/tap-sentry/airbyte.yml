@@ -10,6 +10,7 @@ domain_url: https://sentry.io/api
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Sentry
 logo_url: /assets/logos/extractors/sentry.png
 maintenance_status: beta

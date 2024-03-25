@@ -10,6 +10,7 @@ domain_url: https://www.mailjet.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Mailjet
 logo_url: /assets/logos/extractors/mailjet.png
 maintenance_status: beta

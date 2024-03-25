@@ -10,6 +10,7 @@ domain_url: https://api.sap.com/api/activeWorkerDownload/resource
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: SAP Fieldglass
 logo_url: /assets/logos/extractors/sap-fieldglass.png
 maintenance_status: beta

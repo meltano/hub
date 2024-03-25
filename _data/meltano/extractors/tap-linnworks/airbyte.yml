@@ -10,6 +10,7 @@ domain_url: https://www.linnworks.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Linnworks
 logo_url: /assets/logos/extractors/linnworks.png
 maintenance_status: beta

@@ -10,6 +10,7 @@ domain_url: https://www.dixa.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: dixa
 logo_url: /assets/logos/extractors/dixa.png
 maintenance_status: beta

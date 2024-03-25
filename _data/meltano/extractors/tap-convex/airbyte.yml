@@ -10,6 +10,7 @@ domain_url: https://www.convex.dev/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Convex
 logo_url: /assets/logos/extractors/convex.png
 maintenance_status: beta

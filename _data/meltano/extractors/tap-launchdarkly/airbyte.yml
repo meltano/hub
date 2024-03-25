@@ -10,6 +10,7 @@ domain_url: https://apidocs.launchdarkly.com/#section/Overview
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Launchdarkly
 logo_url: /assets/logos/extractors/launchdarkly.png
 maintenance_status: beta

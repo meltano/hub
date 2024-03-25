@@ -10,6 +10,7 @@ domain_url: http://woocommerce.github.io/woocommerce-rest-api-docs/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: WooCommerce
 logo_url: /assets/logos/extractors/woocommerce.png
 maintenance_status: beta

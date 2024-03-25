@@ -11,6 +11,7 @@ domain_url:
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Microsoft Dataverse
 logo_url: /assets/logos/extractors/dataverse.png
 maintenance_status: beta

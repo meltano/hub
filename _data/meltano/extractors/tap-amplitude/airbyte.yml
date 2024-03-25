@@ -10,6 +10,7 @@ domain_url: https://amplitude.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Amplitude
 logo_url: /assets/logos/extractors/amplitude.png
 maintenance_status: beta

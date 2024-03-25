@@ -10,6 +10,7 @@ domain_url: https://en.wikipedia.org/wiki/RSS
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Feed
 logo_url: /assets/logos/extractors/feed.png
 maintenance_status: beta

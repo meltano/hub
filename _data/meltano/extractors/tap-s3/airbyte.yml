@@ -11,6 +11,7 @@ executable: tap-airbyte
 keywords:
 - aws
 - airbyte_protocol
+- meltano_sdk
 label: S3
 logo_url: /assets/logos/extractors/s3-csv.png
 maintenance_status: beta

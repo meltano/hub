@@ -10,6 +10,7 @@ domain_url: https://api.publicapis.org/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Public APIs
 logo_url: /assets/logos/extractors/public-apis.png
 maintenance_status: beta

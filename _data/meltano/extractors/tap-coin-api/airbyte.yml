@@ -10,6 +10,7 @@ domain_url: https://www.coinapi.io/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: CoinAPI
 logo_url: /assets/logos/extractors/coin-api.png
 maintenance_status: beta
