@@ -171,6 +171,21 @@ settings:
   label: Stream Name Path Override
   name: stream_name_path_override
   sensitive: true
+- description: A flag to force the filename to be identical to the stream name
+  kind: boolean
+  label: Use Raw Stream Name
+  name: use_raw_stream_name
+  value: false
+- description: Maximum time in minutes between state messages when records are streamed in
+  kind: integer
+  label: Maximum Batch Age
+  name: max_batch_age
+  value: 5
+- description: Maximum size of batches when records are streamed in
+  kind: integer
+  label: Maximum Batch Size
+  name: max_batch_size
+  value: 10000
 settings_group_validation:
 - - cloud_provider.aws.aws_bucket
   - cloud_provider.aws.aws_region
