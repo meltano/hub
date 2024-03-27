@@ -10,6 +10,7 @@ domain_url: https://www.pivotaltracker.com/help/api/rest/v5#top
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: PivotalTracker
 logo_url: /assets/logos/extractors/pivotal-tracker.png
 maintenance_status: beta

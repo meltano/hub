@@ -10,6 +10,7 @@ domain_url: https://azure.microsoft.com/en-us/products/storage/tables/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Azure Table
 logo_url: /assets/logos/extractors/azure-table.png
 maintenance_status: beta

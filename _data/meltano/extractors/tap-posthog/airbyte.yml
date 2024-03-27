@@ -10,6 +10,7 @@ domain_url: https://posthog.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: PostHog
 logo_url: /assets/logos/extractors/posthog.png
 maintenance_status: beta

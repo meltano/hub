@@ -10,6 +10,7 @@ domain_url: https://shopify.dev/docs/admin-api/rest/reference
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Shopify
 logo_url: /assets/logos/extractors/shopify.png
 maintenance_status: beta

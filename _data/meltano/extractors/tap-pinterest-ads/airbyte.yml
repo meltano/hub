@@ -10,6 +10,7 @@ domain_url: https://developers.pinterest.com/docs/api/v5/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Pinterest Ads
 logo_url: /assets/logos/extractors/pinterest-ads.png
 maintenance_status: beta

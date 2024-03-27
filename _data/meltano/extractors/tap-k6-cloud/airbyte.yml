@@ -10,6 +10,7 @@ domain_url: https://k6.io/docs/cloud/cloud-reference/cloud-rest-api/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: K6 Cloud
 logo_url: /assets/logos/extractors/k6-cloud.png
 maintenance_status: beta

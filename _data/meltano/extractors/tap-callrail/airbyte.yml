@@ -10,6 +10,7 @@ domain_url: https://apidocs.callrail.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Callrail
 logo_url: /assets/logos/extractors/callrail.png
 maintenance_status: beta

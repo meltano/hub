@@ -10,6 +10,7 @@ domain_url: https://www.braze.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Braze
 logo_url: /assets/logos/extractors/braze.png
 maintenance_status: beta

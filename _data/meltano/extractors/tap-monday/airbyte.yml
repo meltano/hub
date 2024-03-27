@@ -10,6 +10,7 @@ domain_url: https://api.developer.monday.com/docs
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Monday.com
 logo_url: /assets/logos/extractors/monday.png
 maintenance_status: beta

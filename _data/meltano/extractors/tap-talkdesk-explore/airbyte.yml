@@ -10,6 +10,7 @@ domain_url: https://www.talkdesk.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Talkdesk Explore API
 logo_url: /assets/logos/extractors/talkdesk-explore.png
 maintenance_status: beta

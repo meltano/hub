@@ -10,6 +10,7 @@ domain_url: https://www.gridly.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Gridly
 logo_url: /assets/logos/extractors/gridly.png
 maintenance_status: beta

@@ -10,6 +10,7 @@ domain_url: https://developer.surveymonkey.com/api/v3/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: SurveyMonkey
 logo_url: /assets/logos/extractors/surveymonkey.png
 maintenance_status: beta

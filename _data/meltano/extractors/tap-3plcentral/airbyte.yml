@@ -10,6 +10,7 @@ domain_url: https://www.extensiv.com/extensiv-3pl-warehouse-manager
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Extensiv 3PL Warehouse Manager
 logo_url: /assets/logos/extractors/3plcentral.png
 maintenance_status: beta

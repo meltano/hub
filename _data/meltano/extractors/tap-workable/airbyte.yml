@@ -11,6 +11,7 @@ domain_url:
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Workable
 logo_url: /assets/logos/extractors/workable.png
 maintenance_status: beta

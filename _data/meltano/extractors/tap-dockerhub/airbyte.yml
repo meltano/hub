@@ -11,6 +11,7 @@ domain_url: https://hub.docker.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Docker Hub
 logo_url: /assets/logos/extractors/dockerhub.png
 maintenance_status: beta

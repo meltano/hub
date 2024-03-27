@@ -10,6 +10,7 @@ domain_url: https://www.kyriba.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Kyriba
 logo_url: /assets/logos/extractors/kyriba.png
 maintenance_status: beta

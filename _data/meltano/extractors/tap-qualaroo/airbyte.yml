@@ -10,6 +10,7 @@ domain_url: https://qualaroo.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Qualaroo
 logo_url: /assets/logos/extractors/qualaroo.png
 maintenance_status: beta

@@ -10,6 +10,7 @@ domain_url: https://api.insightly.com/v3.1/Help
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Insightly
 logo_url: /assets/logos/extractors/insightly.png
 maintenance_status: beta

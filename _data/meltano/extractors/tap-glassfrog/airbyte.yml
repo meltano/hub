@@ -11,6 +11,7 @@ domain_url: https://www.glassfrog.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: GlassFrog
 logo_url: /assets/logos/extractors/glassfrog.png
 maintenance_status: beta

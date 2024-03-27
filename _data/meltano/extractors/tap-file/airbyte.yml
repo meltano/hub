@@ -10,6 +10,7 @@ domain_url: https://developers.facebook.com/docs/pages/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: File
 logo_url: /assets/logos/extractors/file.png
 maintenance_status: beta

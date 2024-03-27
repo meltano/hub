@@ -10,6 +10,7 @@ domain_url: https://developers.google.com/admin-sdk/reports/v1/get-start/overvie
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Google Workspace Admin Reports
 logo_url: /assets/logos/extractors/google-workspace-admin-reports.png
 maintenance_status: beta

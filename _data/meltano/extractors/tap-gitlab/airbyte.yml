@@ -10,6 +10,7 @@ domain_url: https://docs.gitlab.com/ee/api/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: GitLab
 logo_url: /assets/logos/extractors/gitlab.png
 maintenance_status: beta

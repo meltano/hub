@@ -10,6 +10,7 @@ domain_url: https://www.paypal.com/us/home
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: PayPal
 logo_url: /assets/logos/extractors/paypal.png
 maintenance_status: beta

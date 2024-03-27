@@ -10,6 +10,7 @@ domain_url: https://www.oracle.com/database/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Oracle DB
 logo_url: /assets/logos/extractors/oracle.png
 maintenance_status: beta

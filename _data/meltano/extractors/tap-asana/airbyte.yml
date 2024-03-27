@@ -10,6 +10,7 @@ domain_url: https://asana.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Asana
 logo_url: /assets/logos/extractors/asana.png
 maintenance_status: beta

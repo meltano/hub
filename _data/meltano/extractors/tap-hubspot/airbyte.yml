@@ -10,6 +10,7 @@ domain_url: https://legacydocs.hubspot.com/docs/overview
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Hubspot
 logo_url: /assets/logos/extractors/hubspot.png
 maintenance_status: beta

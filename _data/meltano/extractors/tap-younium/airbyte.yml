@@ -10,6 +10,7 @@ domain_url: https://developer.younium.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Younium
 logo_url: /assets/logos/extractors/younium.png
 maintenance_status: beta

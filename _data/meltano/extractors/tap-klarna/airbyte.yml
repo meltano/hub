@@ -10,6 +10,7 @@ domain_url: https://www.klarna.com/us/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Klarna
 logo_url: /assets/logos/extractors/klarna.png
 maintenance_status: beta

@@ -10,6 +10,7 @@ domain_url: https://docs.breezometer.com/api-documentation/air-quality-api/v2/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Breezometer
 logo_url: /assets/logos/extractors/breezometer.png
 maintenance_status: beta

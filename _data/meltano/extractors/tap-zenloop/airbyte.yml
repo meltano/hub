@@ -10,6 +10,7 @@ domain_url: https://www.zenloop.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Zenloop
 logo_url: /assets/logos/extractors/zenloop.png
 maintenance_status: beta

@@ -10,6 +10,7 @@ domain_url: https://www.elastic.co/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Elasticsearch
 logo_url: /assets/logos/extractors/elasticsearch.png
 maintenance_status: beta

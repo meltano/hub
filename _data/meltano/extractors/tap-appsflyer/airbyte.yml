@@ -10,6 +10,7 @@ domain_url: https://www.appsflyer.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: AppsFlyer
 logo_url: /assets/logos/extractors/appsflyer.png
 maintenance_status: beta

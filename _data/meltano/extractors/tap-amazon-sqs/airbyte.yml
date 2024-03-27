@@ -10,6 +10,7 @@ domain_url: https://aws.amazon.com/sqs/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Amazon SQS
 logo_url: /assets/logos/extractors/amazon-sqs.png
 maintenance_status: beta

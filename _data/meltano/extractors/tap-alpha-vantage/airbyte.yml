@@ -10,6 +10,7 @@ domain_url: https://www.alphavantage.co/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Alpha Vantage
 logo_url: /assets/logos/extractors/alpha-vantage.png
 maintenance_status: beta

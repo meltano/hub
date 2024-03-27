@@ -10,6 +10,7 @@ domain_url: https://www.ip2whois.com/developers-api
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: IP2WHOIS
 logo_url: /assets/logos/extractors/ip2whois.png
 maintenance_status: beta

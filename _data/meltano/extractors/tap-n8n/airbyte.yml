@@ -10,6 +10,7 @@ domain_url: https://docs.n8n.io/api/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: n8n
 logo_url: /assets/logos/extractors/n8n.png
 maintenance_status: beta

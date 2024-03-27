@@ -10,6 +10,7 @@ domain_url: https://www.retently.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Retently
 logo_url: /assets/logos/extractors/retently.png
 maintenance_status: beta

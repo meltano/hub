@@ -10,6 +10,7 @@ domain_url: https://lokalise.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Lokalise
 logo_url: /assets/logos/extractors/lokalise.png
 maintenance_status: beta

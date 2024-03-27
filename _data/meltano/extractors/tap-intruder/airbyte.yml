@@ -10,6 +10,7 @@ domain_url: https://www.intruder.io/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Intruder
 logo_url: /assets/logos/extractors/intruder.png
 maintenance_status: beta

@@ -10,6 +10,7 @@ domain_url: https://appfollow.io/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: AppFollow
 logo_url: /assets/logos/extractors/appfollow.png
 maintenance_status: beta

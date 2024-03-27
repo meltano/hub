@@ -11,6 +11,7 @@ domain_url:
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Google Sheets
 logo_url: /assets/logos/extractors/google-sheets.png
 maintenance_status: beta

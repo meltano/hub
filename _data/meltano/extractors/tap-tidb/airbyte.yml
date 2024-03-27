@@ -10,6 +10,7 @@ domain_url: https://github.com/pingcap/tidb
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: TiDB
 logo_url: /assets/logos/extractors/tidb.png
 maintenance_status: beta

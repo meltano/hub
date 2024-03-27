@@ -10,6 +10,7 @@ domain_url: https://developers.surveysparrow.com/rest-apis
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Survey Sparrow
 logo_url: /assets/logos/extractors/survey-sparrow.png
 maintenance_status: beta

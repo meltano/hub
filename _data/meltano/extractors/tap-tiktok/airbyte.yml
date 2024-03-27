@@ -10,6 +10,7 @@ domain_url: https://ads.tiktok.com/marketing_api/homepage
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: TikTok Ads
 logo_url: /assets/logos/extractors/tiktok.png
 maintenance_status: beta

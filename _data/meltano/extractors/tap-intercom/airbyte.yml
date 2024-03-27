@@ -10,6 +10,7 @@ domain_url: https://developers.intercom.com/intercom-api-reference/v1.4/referenc
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Intercom
 logo_url: /assets/logos/extractors/intercom.png
 maintenance_status: beta

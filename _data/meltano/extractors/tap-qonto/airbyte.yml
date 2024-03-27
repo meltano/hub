@@ -10,6 +10,7 @@ domain_url: https://qonto.com/en
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Qonto
 logo_url: /assets/logos/extractors/qonto.png
 maintenance_status: beta

@@ -10,6 +10,7 @@ domain_url: https://www.postgresql.org/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: PostgreSQL
 logo_url: /assets/logos/extractors/postgres.png
 maintenance_status: beta

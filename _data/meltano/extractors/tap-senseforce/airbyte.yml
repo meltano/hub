@@ -10,6 +10,7 @@ domain_url: https://manual.senseforce.io/manual/sf-platform/dataset-builder
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Senseforce
 logo_url: /assets/logos/extractors/senseforce.png
 maintenance_status: beta

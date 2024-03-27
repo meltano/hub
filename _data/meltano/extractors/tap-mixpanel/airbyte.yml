@@ -10,6 +10,7 @@ domain_url: https://mixpanel.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Mixpanel
 logo_url: /assets/logos/extractors/mixpanel.png
 maintenance_status: beta

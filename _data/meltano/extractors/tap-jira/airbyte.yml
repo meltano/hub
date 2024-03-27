@@ -10,6 +10,7 @@ domain_url: https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Jira
 logo_url: /assets/logos/extractors/jira.png
 maintenance_status: beta

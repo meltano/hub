@@ -10,6 +10,7 @@ domain_url: https://developer.nytimes.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Nytimes
 logo_url: /assets/logos/extractors/nytimes.png
 maintenance_status: beta

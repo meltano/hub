@@ -10,6 +10,7 @@ domain_url: https://www.freshworks.com/crm/sales/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Freshsales
 logo_url: /assets/logos/extractors/freshsales.png
 maintenance_status: beta

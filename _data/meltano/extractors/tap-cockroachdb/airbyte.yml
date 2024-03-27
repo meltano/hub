@@ -10,6 +10,7 @@ domain_url: https://github.com/cockroachdb/cockroach
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: CockroachDB
 logo_url: /assets/logos/extractors/cockroachdb.png
 maintenance_status: beta

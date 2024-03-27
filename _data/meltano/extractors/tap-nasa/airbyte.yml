@@ -10,6 +10,7 @@ domain_url: https://github.com/nasa/apod-api#docs-
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: NASA
 logo_url: /assets/logos/extractors/nasa.png
 maintenance_status: beta

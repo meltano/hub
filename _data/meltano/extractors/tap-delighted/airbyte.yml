@@ -10,6 +10,7 @@ domain_url: https://delighted.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Delighted
 logo_url: /assets/logos/extractors/delighted.png
 maintenance_status: beta

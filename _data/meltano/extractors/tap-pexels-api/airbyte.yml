@@ -10,6 +10,7 @@ domain_url: https://www.pexels.com/api/documentation
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Pexels Api
 logo_url: /assets/logos/extractors/pexels-api.png
 maintenance_status: beta

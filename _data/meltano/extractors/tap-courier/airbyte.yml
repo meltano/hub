@@ -10,6 +10,7 @@ domain_url: https://www.courier.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Courier
 logo_url: /assets/logos/extractors/courier.png
 maintenance_status: beta

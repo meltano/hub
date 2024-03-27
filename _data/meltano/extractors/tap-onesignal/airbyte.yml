@@ -10,6 +10,7 @@ domain_url: https://onesignal.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: OneSignal
 logo_url: /assets/logos/extractors/onesignal.png
 maintenance_status: beta
