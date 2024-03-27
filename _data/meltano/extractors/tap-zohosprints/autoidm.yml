@@ -21,6 +21,10 @@ settings:
   kind: string
   label: API URL
   name: api_url
+- description: The OAuth URL
+  kind: string
+  label: OAuth URL
+  name: oauth_url
 - description: Your client ID.
   kind: password
   label: Client ID
