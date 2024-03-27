@@ -1,5 +1,6 @@
 capabilities:
 - about
+- hard-delete
 - schema-flattening
 - stream-maps
 description: Snowflake database loader
@@ -28,6 +29,10 @@ settings:
   label: Add Record Metadata
   name: add_record_metadata
   value: true
+- description: Maximum number of rows in each batch.
+  kind: integer
+  label: Batch Size Rows
+  name: batch_size_rows
 - description: Whether to remove batch files after processing.
   kind: boolean
   label: Clean Up Batch Files
@@ -41,6 +46,14 @@ settings:
   kind: string
   label: Default Target Schema
   name: default_target_schema
+- description: 'One or more LCID locale strings to produce localized output for: https://faker.readthedocs.io/en/master/#localization'
+  kind: array
+  label: Faker Config Locale
+  name: faker_config.locale
+- description: 'Value to seed the Faker generator for deterministic output: https://faker.readthedocs.io/en/master/#seeding-the-generator'
+  kind: string
+  label: Faker Config Seed
+  name: faker_config.seed
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -50,6 +63,26 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: Hard delete records.
+  kind: boolean
+  label: Hard Delete
+  name: hard_delete
+  value: false
+- description: The method to use when loading data into the destination. `append-only`
+    will always write all input records whether that records already exists or not.
+    `upsert` will update existing records and insert new records. `overwrite` will
+    delete all existing records and insert all input records.
+  kind: options
+  label: Load Method
+  name: load_method
+  options:
+  - label: Append Only
+    value: append-only
+  - label: Upsert
+    value: upsert
+  - label: Overwrite
+    value: overwrite
+  value: append-only
 - description: The password for your Snowflake user.
   kind: password
   label: Password
@@ -86,6 +119,11 @@ settings:
   kind: string
   label: User
   name: user
+- description: Whether to validate the schema of the incoming streams.
+  kind: boolean
+  label: Validate Records
+  name: validate_records
+  value: true
 - description: The initial warehouse for the session.
   kind: string
   label: Warehouse
