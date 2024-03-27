@@ -10,6 +10,7 @@ domain_url: https://business.linkedin.com/marketing-solutions/linkedin-pages
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Linkedin Pages
 logo_url: /assets/logos/extractors/linkedin-pages.png
 maintenance_status: beta

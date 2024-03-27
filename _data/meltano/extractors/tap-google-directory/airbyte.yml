@@ -10,6 +10,7 @@ domain_url: https://developers.google.com/admin-sdk/directory/v1/guides
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Google Directory
 logo_url: /assets/logos/extractors/google-directory.png
 maintenance_status: beta

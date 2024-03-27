@@ -10,6 +10,7 @@ domain_url: https://www.tvmaze.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Tvmaze Schedule
 logo_url: /assets/logos/extractors/tvmaze-schedule.png
 maintenance_status: beta

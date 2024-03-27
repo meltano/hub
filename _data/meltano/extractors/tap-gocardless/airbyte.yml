@@ -10,6 +10,7 @@ domain_url: https://gocardless.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: GoCardless
 logo_url: /assets/logos/extractors/gocardless.png
 maintenance_status: beta

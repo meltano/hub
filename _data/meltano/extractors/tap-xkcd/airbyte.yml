@@ -10,6 +10,7 @@ domain_url: https://xkcd.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: XKCD
 logo_url: /assets/logos/extractors/xkcd.png
 maintenance_status: beta

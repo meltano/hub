@@ -10,6 +10,7 @@ domain_url: https://ads.google.com
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Google Ads
 logo_url: /assets/logos/extractors/googleads.png
 maintenance_status: beta

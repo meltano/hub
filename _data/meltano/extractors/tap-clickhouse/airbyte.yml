@@ -10,6 +10,7 @@ domain_url: https://clickhouse.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: ClickHouse
 logo_url: /assets/logos/extractors/clickhouse.png
 maintenance_status: beta

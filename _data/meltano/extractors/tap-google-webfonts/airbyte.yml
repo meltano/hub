@@ -10,6 +10,7 @@ domain_url: https://developers.google.com/fonts/docs/developer_api
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Google Webfonts
 logo_url: /assets/logos/extractors/google-webfonts.png
 maintenance_status: beta

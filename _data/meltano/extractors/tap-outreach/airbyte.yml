@@ -10,6 +10,7 @@ domain_url: https://api.outreach.io/api/v2/docs
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Outreach
 logo_url: /assets/logos/extractors/outreach.png
 maintenance_status: beta

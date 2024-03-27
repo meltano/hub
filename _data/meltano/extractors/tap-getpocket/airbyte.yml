@@ -10,6 +10,7 @@ domain_url: https://getpocket.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Pocket
 logo_url: /assets/logos/extractors/getpocket.svg
 maintenance_status: beta

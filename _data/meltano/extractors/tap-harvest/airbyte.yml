@@ -10,6 +10,7 @@ domain_url: https://help.getharvest.com/api-v2/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Harvest
 logo_url: /assets/logos/extractors/harvest.png
 maintenance_status: beta

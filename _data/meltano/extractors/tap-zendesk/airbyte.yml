@@ -10,6 +10,7 @@ domain_url: https://developer.zendesk.com/rest_api
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Zendesk (Support)
 logo_url: /assets/logos/extractors/zendesk.png
 maintenance_status: beta

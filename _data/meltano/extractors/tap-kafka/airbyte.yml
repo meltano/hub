@@ -10,6 +10,7 @@ domain_url: https://kafka.apache.org/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Apache Kafka
 logo_url: /assets/logos/extractors/kafka.png
 maintenance_status: beta

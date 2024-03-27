@@ -10,6 +10,7 @@ domain_url: https://docs.microsoft.com/en-us/graph/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Microsoft Teams
 logo_url: /assets/logos/extractors/ms-teams.png
 maintenance_status: beta

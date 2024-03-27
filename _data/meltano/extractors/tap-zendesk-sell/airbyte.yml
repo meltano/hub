@@ -10,6 +10,7 @@ domain_url: https://developers.getbase.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Zendesk Sell
 logo_url: /assets/logos/extractors/zendesk-sell.png
 maintenance_status: beta

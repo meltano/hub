@@ -10,6 +10,7 @@ domain_url: https://store.zapier.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Zapier Supported Storage
 logo_url: /assets/logos/extractors/zapier-supported-storage.png
 maintenance_status: beta

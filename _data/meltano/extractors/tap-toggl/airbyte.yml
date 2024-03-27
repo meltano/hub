@@ -10,6 +10,7 @@ domain_url: https://www.toggl.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Toggl
 logo_url: /assets/logos/extractors/toggl.png
 maintenance_status: beta

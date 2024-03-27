@@ -10,6 +10,7 @@ domain_url: https://developers.google.com/youtube/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: YouTube Analytics
 logo_url: /assets/logos/extractors/youtube-analytics.png
 maintenance_status: beta

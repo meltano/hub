@@ -10,6 +10,7 @@ domain_url: https://marketingplatform.google.com/about/display-video-360/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Display & Video 360
 logo_url: /assets/logos/extractors/dv-360.png
 maintenance_status: beta

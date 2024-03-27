@@ -10,6 +10,7 @@ domain_url: https://api-docs.omnisend.com/reference/intro
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Omnisend
 logo_url: /assets/logos/extractors/omnisend.png
 maintenance_status: beta

@@ -10,6 +10,7 @@ domain_url: https://apidocs.reply.io/#intro
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Reply Io
 logo_url: /assets/logos/extractors/reply-io.png
 maintenance_status: beta

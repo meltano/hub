@@ -10,6 +10,7 @@ domain_url: https://developers.google.com/speed/docs/insights/v5/get-started
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Google PageSpeed Insights
 logo_url: /assets/logos/extractors/google-pagespeed-insights.png
 maintenance_status: beta

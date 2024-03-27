@@ -10,6 +10,7 @@ domain_url: https://docs.github.com/en/rest
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: GitHub
 logo_url: /assets/logos/extractors/github.png
 maintenance_status: beta

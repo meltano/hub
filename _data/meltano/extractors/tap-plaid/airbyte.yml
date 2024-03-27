@@ -10,6 +10,7 @@ domain_url: https://plaid.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Plaid
 logo_url: /assets/logos/extractors/plaid.png
 maintenance_status: beta

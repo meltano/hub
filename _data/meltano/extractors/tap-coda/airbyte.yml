@@ -10,6 +10,7 @@ domain_url: https://coda.io/account#apiSettings
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Coda
 logo_url: /assets/logos/extractors/coda.png
 maintenance_status: beta

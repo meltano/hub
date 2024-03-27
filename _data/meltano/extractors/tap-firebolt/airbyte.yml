@@ -10,6 +10,7 @@ domain_url: https://www.firebolt.io/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Firebolt
 logo_url: /assets/logos/extractors/firebolt.png
 maintenance_status: beta

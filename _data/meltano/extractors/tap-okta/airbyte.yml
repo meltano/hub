@@ -10,6 +10,7 @@ domain_url: https://developer.okta.com/docs/reference/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Okta
 logo_url: /assets/logos/extractors/okta.png
 maintenance_status: beta

@@ -10,6 +10,7 @@ domain_url: Smartsheet enables project management professionals to streamline wo
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Smartsheet
 logo_url: /assets/logos/extractors/smartsheet.png
 maintenance_status: beta

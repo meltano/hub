@@ -10,6 +10,7 @@ domain_url: https://gutendex.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Gutendex
 logo_url: /assets/logos/extractors/gutendex.png
 maintenance_status: beta

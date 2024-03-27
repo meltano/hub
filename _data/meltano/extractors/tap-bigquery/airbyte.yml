@@ -10,6 +10,7 @@ domain_url: https://cloud.google.com/bigquery
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: BigQuery
 logo_url: /assets/logos/extractors/bigquery.png
 maintenance_status: beta

@@ -10,6 +10,7 @@ domain_url: https://clickup.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Clickup
 logo_url: /assets/logos/extractors/clickup.png
 maintenance_status: beta

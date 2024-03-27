@@ -10,6 +10,7 @@ domain_url: https://slack.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Slack
 logo_url: /assets/logos/extractors/slack.png
 maintenance_status: beta

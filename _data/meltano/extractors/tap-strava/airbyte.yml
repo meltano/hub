@@ -10,6 +10,7 @@ domain_url: https://developers.strava.com/docs/reference/#api-models-DetailedAth
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Strava
 logo_url: /assets/logos/extractors/strava.png
 maintenance_status: beta

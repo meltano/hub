@@ -11,6 +11,7 @@ domain_url:
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Google Search Console
 logo_url: /assets/logos/extractors/google-search-console.png
 maintenance_status: beta

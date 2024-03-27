@@ -10,6 +10,7 @@ domain_url: https://mimesis.name/en/master/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Faker - Mimesis
 logo_url: /assets/logos/extractors/faker.png
 maintenance_status: beta

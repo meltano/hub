@@ -10,6 +10,7 @@ domain_url: https://vantage.readme.io/reference/general
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Vantage
 logo_url: /assets/logos/extractors/vantage.png
 maintenance_status: beta

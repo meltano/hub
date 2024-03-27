@@ -10,6 +10,7 @@ domain_url: https://plausible.io/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Plausible
 logo_url: /assets/logos/extractors/plausible.png
 maintenance_status: beta

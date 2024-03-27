@@ -10,6 +10,7 @@ domain_url: https://docs.looker.com/reference/api-and-integration/api-reference/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Looker
 logo_url: /assets/logos/extractors/looker.png
 maintenance_status: beta

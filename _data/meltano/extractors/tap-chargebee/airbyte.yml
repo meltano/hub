@@ -10,6 +10,7 @@ domain_url: https://apidocs.chargebee.com/docs/api
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Chargebee
 logo_url: /assets/logos/extractors/chargebee.png
 maintenance_status: beta

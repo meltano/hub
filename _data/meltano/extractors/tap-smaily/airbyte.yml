@@ -10,6 +10,7 @@ domain_url: https://smaily.com/help/api/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Smaily
 logo_url: /assets/logos/extractors/smaily.png
 maintenance_status: beta

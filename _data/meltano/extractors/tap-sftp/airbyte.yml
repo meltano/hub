@@ -10,6 +10,7 @@ domain_url: https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: SFTP
 logo_url: /assets/logos/extractors/sftp.png
 maintenance_status: beta

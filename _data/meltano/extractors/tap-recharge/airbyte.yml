@@ -10,6 +10,7 @@ domain_url: https://rechargepayments.com/developers/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: ReCharge
 logo_url: /assets/logos/extractors/recharge.png
 maintenance_status: beta

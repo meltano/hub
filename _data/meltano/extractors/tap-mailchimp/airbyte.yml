@@ -10,6 +10,7 @@ domain_url: https://mailchimp.com/developer/marketing/api/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Mailchimp
 logo_url: /assets/logos/extractors/mailchimp.png
 maintenance_status: beta

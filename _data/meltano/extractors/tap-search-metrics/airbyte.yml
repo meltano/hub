@@ -10,6 +10,7 @@ domain_url: https://www.searchmetrics.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Searchmetrics
 logo_url: /assets/logos/extractors/searchmetrics.png
 maintenance_status: beta

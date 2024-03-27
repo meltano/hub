@@ -10,6 +10,7 @@ domain_url: https://reference.chargify.com/v1/basics/introduction
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Chargify
 logo_url: /assets/logos/extractors/chargify.png
 maintenance_status: beta

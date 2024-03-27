@@ -10,6 +10,7 @@ domain_url: https://api.babelforce.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Babelforce
 logo_url: /assets/logos/extractors/babelforce.png
 maintenance_status: beta

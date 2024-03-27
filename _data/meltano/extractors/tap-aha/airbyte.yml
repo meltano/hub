@@ -10,6 +10,7 @@ domain_url: https://www.aha.io/api
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Aha
 logo_url: /assets/logos/extractors/aha.png
 maintenance_status: beta

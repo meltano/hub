@@ -10,6 +10,7 @@ domain_url: https://myhours.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: My Hours
 logo_url: /assets/logos/extractors/my-hours.png
 maintenance_status: beta

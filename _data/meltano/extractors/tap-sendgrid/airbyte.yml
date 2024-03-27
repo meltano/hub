@@ -10,6 +10,7 @@ domain_url: https://docs.sendgrid.com/docs/for-developers/sending-email/api-gett
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: SendGrid
 logo_url: /assets/logos/extractors/sendgrid.png
 maintenance_status: beta

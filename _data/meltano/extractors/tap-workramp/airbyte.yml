@@ -10,6 +10,7 @@ domain_url: https://www.workramp.com/products/enterprise/integrations/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Workramp
 logo_url: /assets/logos/extractors/workramp.png
 maintenance_status: beta

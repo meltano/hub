@@ -10,6 +10,7 @@ domain_url: https://metrica.yandex.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Yandex.Metrica
 logo_url: /assets/logos/extractors/yandex-metrica.png
 maintenance_status: beta

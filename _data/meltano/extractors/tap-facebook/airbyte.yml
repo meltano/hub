@@ -10,6 +10,7 @@ domain_url: https://developers.facebook.com/docs/marketing-apis
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Facebook Ads
 logo_url: /assets/logos/extractors/facebook.png
 maintenance_status: beta

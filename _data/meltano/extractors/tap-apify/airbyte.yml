@@ -10,6 +10,7 @@ domain_url: https://apify.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Apify
 logo_url: /assets/logos/extractors/apify.png
 maintenance_status: beta

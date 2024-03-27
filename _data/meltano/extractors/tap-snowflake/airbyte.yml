@@ -11,6 +11,7 @@ executable: tap-airbyte
 keywords:
 - database
 - airbyte_protocol
+- meltano_sdk
 label: Snowflake
 logo_url: /assets/logos/extractors/snowflake.png
 maintenance_status: beta

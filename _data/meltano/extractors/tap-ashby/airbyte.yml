@@ -10,6 +10,7 @@ domain_url: https://developers.ashbyhq.com/reference/introduction
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Ashby
 logo_url: /assets/logos/extractors/ashby.png
 maintenance_status: beta

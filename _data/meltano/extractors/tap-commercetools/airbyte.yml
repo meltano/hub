@@ -10,6 +10,7 @@ domain_url: https://commercetools.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: commercetools
 logo_url: /assets/logos/extractors/commercetools.png
 maintenance_status: beta

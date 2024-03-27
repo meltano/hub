@@ -10,6 +10,7 @@ domain_url: https://hire.lever.co/developer/documentation
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Lever
 logo_url: /assets/logos/extractors/lever.png
 maintenance_status: beta

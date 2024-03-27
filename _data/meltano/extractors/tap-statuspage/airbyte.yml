@@ -10,6 +10,7 @@ domain_url: https://www.atlassian.com/software/statuspage
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Statuspage
 logo_url: /assets/logos/extractors/statuspage.png
 maintenance_status: beta

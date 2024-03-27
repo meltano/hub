@@ -11,6 +11,7 @@ domain_url: https://www.adjust.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Adjust
 logo_url: /assets/logos/extractors/adjust.png
 maintenance_status: beta

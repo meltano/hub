@@ -10,6 +10,7 @@ domain_url: https://api.corona-zahlen.org/docs/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Robert Koch-Institut COVID-19
 logo_url: /assets/logos/extractors/rki-covid.png
 maintenance_status: beta

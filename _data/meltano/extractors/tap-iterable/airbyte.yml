@@ -10,6 +10,7 @@ domain_url: https://api.iterable.com/api/docs
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Iterable
 logo_url: /assets/logos/extractors/iterable.png
 maintenance_status: beta

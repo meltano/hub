@@ -10,6 +10,7 @@ domain_url: https://developers.wrike.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: Wrike
 logo_url: /assets/logos/extractors/wrike.png
 maintenance_status: beta

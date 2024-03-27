@@ -10,6 +10,7 @@ domain_url: https://www.surveycto.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: SurveyCTO
 logo_url: /assets/logos/extractors/surveycto.png
 maintenance_status: beta

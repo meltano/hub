@@ -10,6 +10,7 @@ domain_url: https://api.configcat.com/docs/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
+- meltano_sdk
 label: ConfigCat
 logo_url: /assets/logos/extractors/configcat.png
 maintenance_status: beta
