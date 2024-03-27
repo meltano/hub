@@ -216,6 +216,18 @@
                             >🥉</a
                           ></span
                         >
+                        <span v-if="!variant.node.keywords.includes('airbyte_protocol')">
+                          <img
+                            class="inline pl-2 float-right"
+                            alt="Last Commit Date"
+                            :src="
+                              ((repo) =>
+                                `https://img.shields.io/${repo.type}/last-commit/${repo.user}/${repo.name}?label=`)(
+                                parsedVariantRepos[variant.node.variant]
+                              )
+                            "
+                          />
+                        </span>
                       </li>
                     </ul>
                   </span>
@@ -405,7 +417,7 @@
             <PluginSidebar
               :name="$page.plugins.name"
               :domain_url="$page.plugins.domain_url"
-              :repo="$page.plugins.repo"
+              :repo="parsedRepo"
               :maintenance_status="$page.plugins.maintenance_status"
               :keywords="$page.plugins.keywords"
               :variant="$page.plugins.variant"
@@ -458,6 +470,34 @@ export default {
       return this.$page.variants.edges.filter(
         (variant) => variant.node.pluginType === this.$page.plugins.pluginType
       );
+    },
+    parsedVariantRepos() {
+      return this.filteredVariants.reduce(
+        (parsed, variant) => ({
+          ...parsed,
+          [variant.node.variant]: this.$parseRepo(variant.node.repo),
+        }),
+        {}
+      );
+    },
+    parsedRepo() {
+      return this.$parseRepo(this.$page.plugins.repo);
+    },
+  },
+  methods: {
+    $parseRepo(repoUrl) {
+      const [user, name] = repoUrl.split("/").slice(3);
+      return {
+        url: repoUrl,
+        type: (() => {
+          if (repoUrl.includes("github.com")) return "github";
+          if (repoUrl.includes("gitlab.com")) return "gitlab";
+          if (repoUrl.includes("bitbucket.org")) return "bitbucket";
+          return "";
+        })(),
+        user,
+        name,
+      };
     },
   },
 };
@@ -532,6 +572,7 @@ query Plugins($path: String!, $name: String!) {
         keywords
         pluginType
         quality
+        repo
         maintainer {
           name
           label
