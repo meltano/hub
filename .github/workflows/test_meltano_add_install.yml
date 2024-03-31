@@ -1,0 +1,62 @@
+name: Test Meltano add/install
+
+on:
+  push:
+    branches: [main]
+    paths: [_data/meltano/*/*/*.yml]
+  pull_request:
+    branches: [main]
+    paths: [_data/meltano/*/*/*.yml]
+
+jobs:
+  get_changed_plugins:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.changed_plugins.outputs.all_changed_files }}
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v4.1.2
+        with:
+          fetch-depth: 0
+
+      - name: Get changed plugins
+        id: changed_plugins
+        uses: tj-actions/changed-files@v43.0.1
+        with:
+          files: _data/meltano/*/*/*.yml
+          matrix: true
+
+  test:
+    runs-on: ubuntu-latest
+    needs: get_changed_plugins
+    strategy:
+      matrix:
+        file: ${{ fromJSON(needs.get_changed_plugins.outputs.matrix) }}
+      fail-fast: false
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v4.1.2
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.9
+
+      - name: Install Meltano
+        run: pipx install meltano
+
+      - name: Setup test project
+        run: meltano init --no-usage-stats test-project
+
+      - name: Test add
+        working-directory: test-project
+        run: |
+          ref=https://raw.githubusercontent.com/meltano/hub/${{ github.event.pull_request.head.sha || github.sha }}/${{ matrix.file }}
+          type=$(basename $(dirname $(dirname ${{ matrix.file }})))
+          name=$(basename $(dirname ${{ matrix.file }}))
+
+          meltano add --no-install --from-ref $ref $type $name
+
+      - name: Test install
+        working-directory: test-project
+        run: meltano install
