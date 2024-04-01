@@ -23,6 +23,10 @@ settings:
   kind: boolean
   label: Add Record Metadata
   name: add_record_metadata
+- description: Maximum number of rows in each batch.
+  kind: integer
+  label: Batch Size Rows
+  name: batch_size_rows
 - description: The cluster to create tables in. This is passed as the `clickhouse_cluster`
     argument when creating a table. [documentation](https://clickhouse.com/docs/en/sql-reference/distributed-ddl)
     can be found here.
