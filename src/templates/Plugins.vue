@@ -216,15 +216,20 @@
                             >🥉</a
                           ></span
                         >
-                        <span v-if="!variant.node.keywords.includes('airbyte_protocol')">
+                        <span>
                           <img
                             class="inline pl-2 float-right"
                             alt="Last Commit Date"
                             :src="
-                              ((repo) =>
-                                `https://img.shields.io/${repo.type}/last-commit/${repo.user}/${repo.name}?label=`)(
-                                parsedVariantRepos[variant.node.variant]
-                              )
+                              ((repo) => {
+                                const url = `https://img.shields.io/${repo.type}/last-commit/${repo.user}/${repo.name}?label=`;
+                                return variant.node.keywords.includes('airbyte_protocol')
+                                  ? `${url}&path=${repo.url.replace(
+                                      'https://github.com/airbytehq/airbyte/tree/master/',
+                                      ''
+                                    )}`
+                                  : url;
+                              })(parsedVariantRepos[variant.node.variant])
                             "
                           />
                         </span>
