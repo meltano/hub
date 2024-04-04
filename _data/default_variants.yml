@@ -634,7 +634,7 @@ loaders:
   target-parquet: automattic
   target-pinecone: meltanolabs
   target-postgres: meltanolabs
-  target-redshift: transferwise
+  target-redshift: ticketswap
   target-s3: crowemi
   target-s3-avro: faumel
   target-s3-csv: transferwise
