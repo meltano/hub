@@ -223,12 +223,13 @@
                             :src="
                               ((repo) => {
                                 const url = `https://img.shields.io/${repo.type}/last-commit/${repo.user}/${repo.name}?label=`;
-                                return variant.node.keywords.includes('airbyte_protocol')
-                                  ? `${url}&path=${repo.url.replace(
-                                      'https://github.com/airbytehq/airbyte/tree/master/',
-                                      ''
-                                    )}`
-                                  : url;
+
+                                if (!variant.node.keywords.includes('airbyte_protocol')) {
+                                  return url;
+                                }
+
+                                const [path] = repo.url.match(/airbyte-integrations\S+/);
+                                return path ? `${url}&path=${path}` : url;
                               })(parsedVariantRepos[variant.node.variant])
                             "
                           />
