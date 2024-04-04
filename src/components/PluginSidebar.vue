@@ -146,6 +146,19 @@
         >
           <ul class="list-disc list-inside shields space-y-1">
             <li>
+              <img
+                alt="Last Commit Date"
+                :src="
+                  (() => {
+                    const url = `https://img.shields.io/${repo.type}/last-commit/${repo.user}/${repo.name}?label=Last%20Commit`;
+                    const [path] = repo.url.match(/airbyte-integrations\S+/);
+
+                    return path ? `${url}&path=${path}` : url;
+                  })()
+                "
+              />
+            </li>
+            <li>
               <img alt="License" :src="`https://img.shields.io/badge/License-MIT-lightgrey`" />
             </li>
           </ul>
