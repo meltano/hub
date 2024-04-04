@@ -22,7 +22,6 @@ quality: bronze
 repo: https://github.com/TicketSwap/tap-stripe
 settings:
 - description: The key to authenticate against the API service
-  kind: password
   label: API Key
   name: api_key
   sensitive: true

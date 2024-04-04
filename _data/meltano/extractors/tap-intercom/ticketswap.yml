@@ -22,7 +22,6 @@ quality: bronze
 repo: https://github.com/TicketSwap/tap-intercom
 settings:
 - description: The key to authenticate against the API service
-  kind: password
   label: Access Token
   name: access_token
   sensitive: true

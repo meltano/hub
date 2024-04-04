@@ -79,7 +79,6 @@ settings:
   value: false
 - description: Password used to authenticate. Note if sqlalchemy_url is set this will
     be ignored.
-  kind: password
   label: Password
   name: password
   sensitive: true

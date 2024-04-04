@@ -23,7 +23,6 @@ quality: bronze
 repo: https://github.com/TicketSwap/tap-delighted
 settings:
 - description: The token to authenticate against the API service
-  kind: password
   label: API Key
   name: api_key
   sensitive: true
