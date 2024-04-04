@@ -12,7 +12,7 @@ keywords:
 - database
 label: Amazon Redshift
 logo_url: /assets/logos/loaders/redshift.png
-maintenance_status: active
+maintenance_status: inactive
 name: target-redshift
 namespace: target_redshift
 pip_url: pipelinewise-target-redshift
