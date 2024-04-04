@@ -81,6 +81,6 @@ settings:
   label: Stream Maps
   name: stream_maps
 settings_group_validation:
-- - developer_api_key
-  - access_token
+- - access_token
+  - developer_api_key
 variant: matatika
