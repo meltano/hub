@@ -228,7 +228,7 @@
                                   return url;
                                 }
 
-                                const [path] = repo.url.match(/airbyte-integrations\S+/);
+                                const [path] = repo.url.match(/airbyte-integrations\S+/) ?? [];
                                 return path ? `${url}&path=${path}` : url;
                               })(parsedVariantRepos[variant.node.variant])
                             "

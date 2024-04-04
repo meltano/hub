@@ -151,7 +151,7 @@
                 :src="
                   (() => {
                     const url = `https://img.shields.io/${repo.type}/last-commit/${repo.user}/${repo.name}?label=Last%20Commit`;
-                    const [path] = repo.url.match(/airbyte-integrations\S+/);
+                    const [path] = repo.url.match(/airbyte-integrations\S+/) ?? [];
 
                     return path ? `${url}&path=${path}` : url;
                   })()
