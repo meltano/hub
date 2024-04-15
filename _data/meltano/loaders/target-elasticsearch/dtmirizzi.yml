@@ -122,6 +122,16 @@ settings:
   label: Port
   name: port
   value: 9200
+- description: Request timeout in seconds
+  kind: integer
+  label: Request Timeout
+  name: request_timeout
+  value: 10
+- description: Retry failed requests on timeout
+  kind: boolean
+  label: Retry On Timeout
+  name: retry_on_timeout
+  value: true
 - description: http scheme used for connecting to elasticsearch
   kind: string
   label: Scheme

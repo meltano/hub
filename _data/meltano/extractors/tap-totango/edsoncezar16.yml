@@ -78,7 +78,7 @@ settings:
   options:
   - label: https://api.totango.com
     value: https://api.totango.com
-  - label: 'https://api-eu1.totango.com '
+  - label: 'https://api-eu1.totango.com'
     value: 'https://api-eu1.totango.com '
   value: https://api.totango.com
 - description: The token to authenticate against the API service
