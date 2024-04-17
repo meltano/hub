@@ -85,10 +85,10 @@ settings:
   sensitive: true
 - description: The port on which redshift is awaiting connection. Note if sqlalchemy_url
     is set this will be ignored.
-  kind: integer
+  kind: string
   label: Port
   name: port
-  value: 5432
+  value: "5432"
 - description: SQLAlchemy connection string. This will override using host, user,
     password, port, dialect, and all ssl settings. Note that you must escape password
     special characters properly. See 
