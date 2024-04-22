@@ -16,7 +16,7 @@ maintenance_status: active
 name: target-redshift
 namespace: target_redshift
 next_steps: ''
-pip_url: target-redshift
+pip_url: git+https://github.com/TicketSwap/target-redshift.git
 quality: silver
 repo: https://github.com/TicketSwap/target-redshift
 settings:
