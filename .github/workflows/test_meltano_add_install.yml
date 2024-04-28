@@ -15,13 +15,13 @@ jobs:
       matrix: ${{ steps.changed_plugins.outputs.all_changed_files }}
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@v4.1.2
+        uses: actions/checkout@v4.1.3
         with:
           fetch-depth: 0
 
       - name: Get changed plugins
         id: changed_plugins
-        uses: tj-actions/changed-files@v44.0.1
+        uses: tj-actions/changed-files@v44.3.0
         with:
           files: _data/meltano/*/*/*.yml
           matrix: true
@@ -35,7 +35,7 @@ jobs:
       fail-fast: false
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@v4.1.2
+        uses: actions/checkout@v4.1.3
 
       - name: Set up Python
         uses: actions/setup-python@v5
