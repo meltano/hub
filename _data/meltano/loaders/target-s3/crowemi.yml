@@ -142,6 +142,8 @@ settings:
     value: parquet
   - label: Json
     value: json
+  - label: Jsonl
+    value: jsonl
 - description: A flag indicating whether to append _process_date to record.
   kind: boolean
   label: Include Process Date
