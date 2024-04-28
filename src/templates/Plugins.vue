@@ -185,10 +185,29 @@
                     <ul class="pl-4 list-disc list-inside">
                       <li v-for="(variant, index) in filteredVariants" v-bind:key="index">
                         <g-link
+                          class="tooltip"
                           :to="variant.node.path"
                           v-if="variant.node.path !== $page.plugins.path"
-                          >{{ variant.node.maintainer.label }}</g-link
                         >
+                          {{ variant.node.maintainer.label }}
+                          <div class="tooltip-content">
+                            <img
+                              alt="Last Commit Date"
+                              :src="
+                                ((repo) => {
+                                  const url = `https://img.shields.io/${repo.type}/last-commit/${repo.user}/${repo.name}?label=Last%20Commit`;
+
+                                  if (!variant.node.keywords.includes('airbyte_protocol')) {
+                                    return url;
+                                  }
+
+                                  const [path] = repo.url.match(/airbyte-integrations\S+/) ?? [];
+                                  return path ? `${url}&path=${path}` : url;
+                                })(parsedVariantRepos[variant.node.variant])
+                              "
+                            />
+                          </div>
+                        </g-link>
                         <span v-else>{{ variant.node.maintainer.label }}</span>
                         <span v-if="variant.node.isDefault"> (default)</span>
                         <span v-if="variant.node.keywords.includes('meltano_sdk')">
@@ -216,24 +235,6 @@
                             >🥉</a
                           ></span
                         >
-                        <span>
-                          <img
-                            class="inline pl-2 float-right"
-                            alt="Last Commit Date"
-                            :src="
-                              ((repo) => {
-                                const url = `https://img.shields.io/${repo.type}/last-commit/${repo.user}/${repo.name}?label=`;
-
-                                if (!variant.node.keywords.includes('airbyte_protocol')) {
-                                  return url;
-                                }
-
-                                const [path] = repo.url.match(/airbyte-integrations\S+/) ?? [];
-                                return path ? `${url}&path=${path}` : url;
-                              })(parsedVariantRepos[variant.node.variant])
-                            "
-                          />
-                        </span>
                       </li>
                     </ul>
                   </span>

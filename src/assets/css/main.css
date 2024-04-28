@@ -271,3 +271,32 @@ pre[class*="language-"] {
   content: "/";
   color: #f963bc;
 }
+
+.tooltip {
+  position: relative;
+}
+.tooltip .tooltip-content {
+  visibility: hidden;
+  width: max-content;
+  background-color: #62626e;
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 1;
+  left: 105%;
+  top: -5px;
+}
+.tooltip .tooltip-content::after {
+  content: " ";
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent #62626e transparent transparent;
+}
+.tooltip:hover .tooltip-content {
+  visibility: visible;
+}
