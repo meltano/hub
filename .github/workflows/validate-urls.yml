@@ -15,7 +15,7 @@ jobs:
       contents: read
       issues: write
     steps:
-      - uses: actions/checkout@v4.1.3
+      - uses: actions/checkout@v4.1.4
 
       - name: Setup Python
         uses: actions/setup-python@v5
