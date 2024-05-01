@@ -23,5 +23,3 @@ export default {
   props: ["plugin", "plugin_type"],
 };
 </script>
-
-<style></style>
