@@ -32,7 +32,7 @@ export default {
 </script>
 
 <style>
-pre {
+span > pre {
   display: inline-block;
 }
 </style>

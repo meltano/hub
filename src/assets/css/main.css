@@ -247,7 +247,6 @@ font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 pre[class*="language-"] {
-  overflow-x: scroll !important;
   width: 100%;
 }
 
