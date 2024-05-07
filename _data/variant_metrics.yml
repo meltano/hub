@@ -227,25 +227,6 @@ metrics:
     success_projects_unstruct_by_name: 0
     success_projects_unstruct_by_variant: 0
     variant: clickhouse
-  https://github.com/Datateer/tap-krow:
-    all_execs: 0
-    all_execs_by_name: 23
-    all_execs_unstruct_by_name: 23
-    all_execs_unstruct_by_variant: 0
-    all_projects: 0
-    all_projects_by_name: 1
-    all_projects_unstruct_by_name: 1
-    all_projects_unstruct_by_variant: 0
-    name: tap-krow
-    pip_url: git+https://github.com/Datateer/tap-krow.git
-    plugin_type: extractors
-    success_execs_by_name: 0
-    success_execs_unstruct_by_name: 0
-    success_execs_unstruct_by_variant: 0
-    success_projects_by_name: 0
-    success_projects_unstruct_by_name: 0
-    success_projects_unstruct_by_variant: 0
-    variant: datateer
   https://github.com/Datateer/target-gcs:
     all_execs: 1096
     all_execs_by_name: 1261
@@ -9540,25 +9521,6 @@ metrics:
     success_projects_unstruct_by_name: 0
     success_projects_unstruct_by_variant: 0
     variant: dataops-tk
-  https://github.com/datateer/tap-clickcast:
-    all_execs: 0
-    all_execs_by_name: 0
-    all_execs_unstruct_by_name: 0
-    all_execs_unstruct_by_variant: 0
-    all_projects: 0
-    all_projects_by_name: 0
-    all_projects_unstruct_by_name: 0
-    all_projects_unstruct_by_variant: 0
-    name: tap-clickcast
-    pip_url: git+https://github.com/datateer/tap-clickcast.git
-    plugin_type: extractors
-    success_execs_by_name: 0
-    success_execs_unstruct_by_name: 0
-    success_execs_unstruct_by_variant: 0
-    success_projects_by_name: 0
-    success_projects_unstruct_by_name: 0
-    success_projects_unstruct_by_variant: 0
-    variant: datateer
   https://github.com/dbt-labs/dbt-bigquery:
     all_execs: 1177
     all_execs_by_name: 0
