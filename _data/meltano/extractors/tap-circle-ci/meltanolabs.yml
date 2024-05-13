@@ -92,7 +92,7 @@ settings:
   kind: string
   label: User Agent
   name: user_agent
-  value: tap-circle-ci/0.2.1 Singer tap for the CircleCI API.
+  value: tap-circle-ci/0.2.2 Singer tap for the CircleCI API.
 settings_group_validation:
 - - org_slug
   - token
