@@ -15,7 +15,7 @@ jobs:
       matrix: ${{ steps.changed_plugins.outputs.all_changed_files }}
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@v4.1.4
+        uses: actions/checkout@v4.1.5
         with:
           fetch-depth: 0
 
@@ -35,7 +35,7 @@ jobs:
       fail-fast: false
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@v4.1.4
+        uses: actions/checkout@v4.1.5
 
       - name: Set up Python
         uses: actions/setup-python@v5
