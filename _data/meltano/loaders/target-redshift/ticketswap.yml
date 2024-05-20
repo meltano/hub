@@ -45,7 +45,7 @@ settings:
   kind: string
   label: Database name
   name: dbname
-- description: 'Reddhift schema to send data to, example: tap-clickup'
+- description: 'Redshift schema to send data to, example: tap-clickup'
   kind: string
   label: Default Target Schema
   name: default_target_schema
