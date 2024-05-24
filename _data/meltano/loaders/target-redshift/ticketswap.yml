@@ -1,9 +1,7 @@
 capabilities:
 - about
-- stream-maps
 - schema-flattening
-- target-schema
-- hard-delete
+- stream-maps
 description: Amazon Redshift loader
 domain_url: https://aws.amazon.com/redshift/
 executable: target-redshift
@@ -25,14 +23,24 @@ settings:
   kind: boolean
   label: Activate Version
   name: activate_version
-  value: true
+  value: false
 - description: Note that this must be enabled for activate_version to work!This adds
     _sdc_extracted_at, _sdc_batched_at, and more to every table. See https://sdk.meltano.com/en/latest/implementation/record_metadata.html
     for more information.
   kind: boolean
   label: Add Record Metadata
   name: add_record_metadata
-  value: true
+  value: false
+- description: Redshift copy role arn to use for the COPY command from s3
+  kind: string
+  label: AWS Redshift Copy Role Arn
+  name: aws_redshift_copy_role_arn
+- description: Redshift cluster identifier. Note if sqlalchemy_url is set or enable_iam_authentication
+    is false this will be ignored.
+  kind: password
+  label: Cluster IDentifier
+  name: cluster_identifier
+  sensitive: true
 - description: Database name. Note if sqlalchemy_url is set this will be ignored.
   kind: string
   label: Database name
@@ -42,12 +50,19 @@ settings:
   label: Default Target Schema
   name: default_target_schema
   value: $MELTANO_EXTRACT__LOAD_SCHEMA
-- description: Dialect+driver see https://aws.amazon.com/blogs/big-data/use-the-amazon-redshift-sqlalchemy-dialect-to-interact-with-amazon-redshift.
+- description: Dialect+driver see 
+    https://aws.amazon.com/blogs/big-data/use-the-amazon-redshift-sqlalchemy-dialect-to-interact-with-amazon-redshift.
     Generally just leave this alone. Note if sqlalchemy_url is set this will be ignored.
   kind: string
   label: Dialect+Driver
   name: dialect+driver
   value: redshift+redshift_connector
+- description: If true, use temporary credentials 
+    (https://docs.aws.amazon.com/redshift/latest/mgmt/generating-iam-credentials-cli-api.html).
+    Note if sqlalchemy_url is set this will be ignored.
+  kind: boolean
+  label: Enable Iam Authentication
+  name: enable_iam_authentication
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -69,14 +84,21 @@ settings:
   kind: string
   label: Host
   name: host
-- description: If set to true, the target will interpret the content encoding of the
-    schema to determine how to store the data. Using this option may result in a more
-    efficient storage of the data but may also result in an error if the data is not
-    encoded as expected.
-  kind: boolean
-  label: Interpret Content Encoding
-  name: interpret_content_encoding
-  value: false
+- description: The method to use when loading data into the destination. `append-only`
+    will always write all input records whether that records already exists or not.
+    `upsert` will update existing records and insert new records. `overwrite` will
+    delete all existing records and insert all input records.
+  kind: options
+  label: Load Method
+  name: load_method
+  options:
+  - label: Append Only
+    value: append-only
+  - label: Upsert
+    value: upsert
+  - label: Overwrite
+    value: overwrite
+  value: append-only
 - description: Password used to authenticate. Note if sqlalchemy_url is set this will
     be ignored.
   kind: password
@@ -88,7 +110,22 @@ settings:
   kind: string
   label: Port
   name: port
-  value: "5432"
+  value: '5432'
+- description: If you want to remove staging files in S3
+  kind: boolean
+  label: Remove S3 Files
+  name: remove_s3_files
+  value: false
+- description: S3 bucket to save staging files before using COPY command
+  kind: string
+  label: S3 Bucket
+  name: s3_bucket
+- description: S3 key prefix to save staging files before using COPY command
+  kind: password
+  label: S3 Key Prefix
+  name: s3_key_prefix
+  sensitive: true
+  value: ''
 - description: SQLAlchemy connection string. This will override using host, user,
     password, port, dialect, and all ssl settings. Note that you must escape password
     special characters properly. See 
@@ -96,10 +133,6 @@ settings:
   kind: string
   label: Sqlalchemy URL
   name: sqlalchemy_url
-- description: Username to connect to bastion host
-  kind: string
-  label: SSH Tunnel Username
-  name: ssh_tunnel.username
 - description: Whether or not to use ssl to verify the server's identity. Use ssl_certificate_authority
     and ssl_mode for further customization. To use a client certificate to authenticate
     yourself to the server, use ssl_client_certificate_enable instead. Note if sqlalchemy_url
@@ -108,7 +141,9 @@ settings:
   label: SSL Enable
   name: ssl_enable
   value: false
-- description: SSL Protection method. Must be one of disable, allow, prefer, require, verify-ca,
+- description: SSL Protection method, see [postgres 
+    documentation](https://www.postgresql.org/docs/current/libpq-ssl.html#LIBPQ-SSL-PROTECTION)
+    for more information. Must be one of disable, allow, prefer, require, verify-ca,
     or verify-full. Note if sqlalchemy_url is set this will be ignored.
   kind: string
   label: SSL Mode
@@ -123,47 +158,22 @@ settings:
   kind: object
   label: Stream Maps
   name: stream_maps
+- description: Where you want to store your temp data files.
+  kind: string
+  label: Temp Dir
+  name: temp_dir
+  value: temp
 - description: User name used to authenticate. Note if sqlalchemy_url is set this
     will be ignored.
   kind: string
   label: User
   name: user
-- description: If true, use temporary credentials 
-    (https://docs.aws.amazon.com/redshift/latest/mgmt/generating-iam-credentials-cli-api.html). 
-    Note if sqlalchemy_url is set this will be ignored.
-  kind: boolean
-  label: Enable iam authentication
-  name: enable_iam_authentication
-  value: false
-- description: Redshift cluster identifier. Note if sqlalchemy_url is set or enable_iam_authentication is false this will be ignored.
-  kind: string
-  label: Cluster identifier
-  name: cluster_identifier
-- description: Redshift copy role arn to use for the COPY command from s3.
-  kind: string
-  label: AWS redshift copy role arn
-  name: aws_redshift_copy_role_arn
-- description: S3 bucket to save staging files before using COPY command.
-  kind: string
-  label: S3 bucket
-  name: s3_bucket
-- description: S3 key prefix to save staging files before using COPY command.
-  kind: string
-  label: S3 key prefix
-  name: s3_key_prefix
-- description: If you want to remove staging files in S3.
-  kind: boolean
-  label: Remove S3 files
-  name: remove_s3_files
-  value: true
-- description: Where you want to store your staging files locally.
-  kind: string
-  label: Temp dir
-  name: temp_dir
-  value: .meltano/temp
 settings_group_validation:
-- []
-settings_preamble: 'This target uses boto3 to connect to AWS and perform copy and possibly credential operations. The agent running this target should be connected to AWS to be able to open a boto3 client.'
+- - aws_redshift_copy_role_arn
+  - s3_bucket
+settings_preamble: This target uses boto3 to connect to AWS and perform copy and possibly
+  credential operations. The agent running this target should be connected to AWS
+  to be able to open a boto3 client.
 target_schema: $TARGET_REDSHIFT_SCHEMA
 usage: ''
 variant: ticketswap

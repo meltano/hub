@@ -6,26 +6,25 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
-description: CI/CD Platfrom
-domain_url: https://circleci.com/
-executable: tap-circle-ci
+description: Cloud collaboration service
+domain_url: https://airtable.com/api
+executable: tap-airtable
 keywords:
 - meltano_sdk
-label: CircleCI
-logo_url: /assets/logos/extractors/circle-ci.png
+label: Airtable
+logo_url: /assets/logos/extractors/airtable.png
 maintenance_status: active
-name: tap-circle-ci
-namespace: tap_circle_ci
+name: tap-airtable
+namespace: tap_airtable
 next_steps: ''
-pip_url: meltano-tap-circle-ci
-quality: gold
-repo: https://github.com/MeltanoLabs/tap-circle-ci
+pip_url: tap-airtable
+quality: silver
+repo: https://github.com/tomasvotava/tap-airtable
 settings:
-- description: The API base URL to use for requests. Default, https://circleci.com/api/v2.
-  kind: string
-  label: Base URL
-  name: base_url
-  value: https://circleci.com/api/v2
+- description: Selected base ids (all if not specified)
+  kind: array
+  label: Base IDs
+  name: base_ids
 - description: Compression format to use for batch files.
   kind: options
   label: Batch Config Encoding Compression
@@ -69,10 +68,6 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: 'Organization slug in the form vcs-slug/org-name. Example: org-slug=gh/CircleCI-Public'
-  kind: string
-  label: Org Slug
-  name: org_slug
 - description: User-defined config values to be used within map expressions.
   kind: object
   label: Stream Map Config
@@ -82,20 +77,17 @@ settings:
   kind: object
   label: Stream Maps
   name: stream_maps
-- description: Personal API Token you have generated that can be used to access the
-    CircleCI API
+- description: Mapping of table_id => custom_table_name
+  kind: object
+  label: Table Mapping
+  name: table_mapping
+- description: The token to authenticate against Airtable API
   kind: password
   label: Token
   name: token
   sensitive: true
-- description: User-Agent header
-  kind: string
-  label: User Agent
-  name: user_agent
-  value: tap-circle-ci/0.2.2 Singer tap for the CircleCI API.
 settings_group_validation:
-- - org_slug
-  - token
+- - token
 settings_preamble: ''
 usage: ''
-variant: meltanolabs
+variant: tomasvotava

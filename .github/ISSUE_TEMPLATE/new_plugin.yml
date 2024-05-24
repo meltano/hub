@@ -2,7 +2,7 @@ name: 🚰 New Plugin
 description: Request a new Plugin to Meltano Hub
 title: "Add Plugin: <insert plugin name>"
 labels: [valuestream/Hub]
-assignees: [tayloramurphy, pnadolny13]
+assignees: [edgarrmondragon, pnadolny13]
 
 body:
 - type: markdown

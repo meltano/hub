@@ -33,6 +33,10 @@ settings:
   label: Add Record Metadata
   name: add_record_metadata
   value: true
+- description: Maximum number of rows in each batch.
+  kind: integer
+  label: Batch Size Rows
+  name: batch_size_rows
 - description: Database name. Note if sqlalchemy_url is set this will be ignored.
   kind: string
   label: Database
