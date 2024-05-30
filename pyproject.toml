@@ -9,7 +9,7 @@ python = "^3.9"
 jsonschema = "^4.17.3"
 "ruamel.yaml" = "^0.18.6"
 yamllint = "^1.35.1"
-requests = "^2.32.2"
+requests = "^2.32.3"
 
 [tool.poetry.dev-dependencies]
 black = "^24.4.2"
