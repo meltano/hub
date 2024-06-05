@@ -44,13 +44,13 @@ next_steps: |
   If this is first time this command has been run, container images will be pulled from Docker Hub - be aware that this may take a couple of minutes, depending on the speed of your internet connection.
   Once the images exist on the host machine, start-up should take no longer than 30s.
 
-  By default, a tab in your default browser will be opened to the Lab automatically at https://localhost:3443.
+  By default, a tab in your default browser will be opened to the Lab automatically at http://localhost:8080.
 
   ---
 
   If you're running into problems with this extension, or just want to chat about all things data, [join the Matatika Slack community](https://join.slack.com/t/matatika/shared_invite/zt-19n1bfokx-F31DNitTpSxWCFO2aFlgxg).
   <br/><br/>
-pip_url: git+https://github.com/Matatika/matatika-ext.git@v0.33.0
+pip_url: git+https://github.com/Matatika/matatika-ext.git@v0.34.0
 repo: https://github.com/Matatika/matatika-ce
 usage: For help, try `meltano invoke matatika --help` (or `--help` on any subcommand).
 variant: matatika
