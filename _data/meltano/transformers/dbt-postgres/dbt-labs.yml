@@ -46,7 +46,7 @@ logo_url: /assets/logos/transformers/dbt.png
 maintenance_status: active
 name: dbt-postgres
 namespace: dbt_postgres
-pip_url: dbt-core~=1.3.0 dbt-postgres~=1.3.0
+pip_url: dbt-core~=1.7.0 dbt-postgres~=1.7.0
 repo: https://github.com/dbt-labs/dbt-core
 requires:
   files:
