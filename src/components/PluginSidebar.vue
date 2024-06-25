@@ -62,78 +62,78 @@
           <p class="text-lg">Repo</p>
           <div>
             <img
-              v-if="repoType === 'github'"
+              v-if="repo.type === 'github'"
               class="w-8 h-4 inline gap-x-11"
               src="../assets/images/github-brands.svg"
             /><img
-              v-else-if="repoType === 'gitlab'"
+              v-else-if="repo.type === 'gitlab'"
               class="w-8 h-4 inline gap-x-11"
               src="../assets/images/gitlab-brands.svg"
             /><img
-              v-else-if="repoType === 'bitbucket'"
+              v-else-if="repo.type === 'bitbucket'"
               class="w-8 h-4 inline gap-x-11"
               src="../assets/images/bitbucket-brands.svg"
             /><img
               v-else
               class="w-8 h-4 inline gap-x-11"
               src="../assets/images/git-alt-brands.svg"
-            /><a :href="repo"
+            /><a :href="repo.url"
               ><img
                 class="inline gap-x-11"
-                :alt="repo"
-                :src="`https://img.shields.io/static/v1?label=${parsedRepo.user}&message=${parsedRepo.repo_name}&color=blue`"
+                :alt="repo.url"
+                :src="`https://img.shields.io/static/v1?label=${repo.user}&message=${repo.name}&color=blue`"
               />
             </a>
           </div>
         </div>
         <div
-          v-if="!$page.plugins.keywords.includes('airbyte_protocol') && repoType !== 'bitbucket'"
+          v-if="!$page.plugins.keywords.includes('airbyte_protocol') && repo.type !== 'bitbucket'"
         >
           <ul class="list-disc list-inside shields space-y-1">
             <li>
               <img
                 alt="Stars"
-                :src="`https://img.shields.io/${repoType}/stars/${parsedRepo.user}/${parsedRepo.repo_name}?label=Stars`"
+                :src="`https://img.shields.io/${repo.type}/stars/${repo.user}/${repo.name}?label=Stars`"
               />
             </li>
             <li>
               <img
                 alt="Forks"
-                :src="`https://img.shields.io/${repoType}/forks/${parsedRepo.user}/${parsedRepo.repo_name}?label=Forks`"
+                :src="`https://img.shields.io/${repo.type}/forks/${repo.user}/${repo.name}?label=Forks`"
               />
             </li>
             <li>
               <img
                 alt="Last Commit Date"
-                :src="`https://img.shields.io/${repoType}/last-commit/${parsedRepo.user}/${parsedRepo.repo_name}?label=Last%20Commit`"
+                :src="`https://img.shields.io/${repo.type}/last-commit/${repo.user}/${repo.name}?label=Last%20Commit`"
               />
             </li>
             <li>
               <img
                 alt="Open Issues"
                 :src="`https://img.shields.io/${
-                  repoType === 'github' ? 'github/issues-raw' : 'gitlab/issues/open-raw'
-                }/${parsedRepo.user}/${parsedRepo.repo_name}?label=Open%20Issues`"
+                  repo.type === 'github' ? 'github/issues-raw' : 'gitlab/issues/open-raw'
+                }/${repo.user}/${repo.name}?label=Open%20Issues`"
               />
             </li>
             <li>
               <img
                 alt="Open PRs"
                 :src="`https://img.shields.io/${
-                  repoType === 'github' ? 'github/issues-pr-raw' : 'gitlab/merge-requests/open'
-                }/${parsedRepo.user}/${parsedRepo.repo_name}?label=Open%20Pull%20Requests`"
+                  repo.type === 'github' ? 'github/issues-pr-raw' : 'gitlab/merge-requests/open'
+                }/${repo.user}/${repo.name}?label=Open%20Pull%20Requests`"
               />
             </li>
             <li>
               <img
                 alt="Contributors"
-                :src="`https://img.shields.io/${repoType}/contributors/${parsedRepo.user}/${parsedRepo.repo_name}?label=Contributors`"
+                :src="`https://img.shields.io/${repo.type}/contributors/${repo.user}/${repo.name}?label=Contributors`"
               />
             </li>
             <li>
               <img
                 alt="License"
-                :src="`https://img.shields.io/${repoType}/license/${parsedRepo.user}/${parsedRepo.repo_name}?color=c0c0c4&label=License`"
+                :src="`https://img.shields.io/${repo.type}/license/${repo.user}/${repo.name}?color=c0c0c4&label=License`"
               />
             </li>
           </ul>
@@ -146,6 +146,19 @@
         >
           <ul class="list-disc list-inside shields space-y-1">
             <li>
+              <img
+                alt="Last Commit Date"
+                :src="
+                  (() => {
+                    const url = `https://img.shields.io/${repo.type}/last-commit/${repo.user}/${repo.name}?label=Last%20Commit`;
+                    const [path] = repo.url.match(/airbyte-integrations\S+/) ?? [];
+
+                    return path ? `${url}&path=${path}` : url;
+                  })()
+                "
+              />
+            </li>
+            <li>
               <img alt="License" :src="`https://img.shields.io/badge/License-MIT-lightgrey`" />
             </li>
           </ul>
@@ -154,11 +167,11 @@
           <p class="text-lg">EDK Extension Repo</p>
           <div>
             <img
-              v-if="repoType === 'github'"
+              v-if="repo.type === 'github'"
               class="w-8 h-4 inline gap-x-11"
               src="../assets/images/github-brands.svg"
             /><img
-              v-else-if="repoType === 'gitlab'"
+              v-else-if="repo.type === 'gitlab'"
               class="w-8 h-4 inline gap-x-11"
               src="../assets/images/gitlab-brands.svg"
             /><img
@@ -266,25 +279,6 @@ export default {
     "ext_repo",
   ],
   computed: {
-    parsedRepo() {
-      // For some plugin variants, either the `variant` or `name` doesn't match the GH repo
-      // So we need to parse it from the repo URL to make badges
-      // https://github.com/:user/:repoName
-      const urlParts = this.repo.split("/");
-      return { user: urlParts[3], repo_name: urlParts[4] };
-    },
-    repoType() {
-      // Some plugins are hosted on github, some on gitlab
-      let repoType = "";
-      if (this.repo.includes("github.com")) {
-        repoType = "github";
-      } else if (this.repo.includes("gitlab.com")) {
-        repoType = "gitlab";
-      } else if (this.repo.includes("bitbucket.org")) {
-        repoType = "bitbucket";
-      }
-      return repoType;
-    },
     parsedEDKRepo() {
       // For some plugin variants, either the `variant` or `name` doesn't match the GH repo
       // So we need to parse it from the repo URL to make badges
