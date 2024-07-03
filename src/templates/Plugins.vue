@@ -185,10 +185,29 @@
                     <ul class="pl-4 list-disc list-inside">
                       <li v-for="(variant, index) in filteredVariants" v-bind:key="index">
                         <g-link
+                          class="tooltip"
                           :to="variant.node.path"
                           v-if="variant.node.path !== $page.plugins.path"
-                          >{{ variant.node.maintainer.label }}</g-link
                         >
+                          {{ variant.node.maintainer.label }}
+                          <div class="tooltip-content">
+                            <img
+                              alt="Last Commit Date"
+                              :src="
+                                ((repo) => {
+                                  const url = `https://img.shields.io/${repo.type}/last-commit/${repo.user}/${repo.name}?label=Last%20Commit`;
+
+                                  if (!variant.node.keywords.includes('airbyte_protocol')) {
+                                    return url;
+                                  }
+
+                                  const [path] = repo.url.match(/airbyte-integrations\S+/) ?? [];
+                                  return path ? `${url}&path=${path}` : url;
+                                })(parsedVariantRepos[variant.node.variant])
+                              "
+                            />
+                          </div>
+                        </g-link>
                         <span v-else>{{ variant.node.maintainer.label }}</span>
                         <span v-if="variant.node.isDefault"> (default)</span>
                         <span v-if="variant.node.keywords.includes('meltano_sdk')">
@@ -405,7 +424,7 @@
             <PluginSidebar
               :name="$page.plugins.name"
               :domain_url="$page.plugins.domain_url"
-              :repo="$page.plugins.repo"
+              :repo="parsedRepo"
               :maintenance_status="$page.plugins.maintenance_status"
               :keywords="$page.plugins.keywords"
               :variant="$page.plugins.variant"
@@ -458,6 +477,34 @@ export default {
       return this.$page.variants.edges.filter(
         (variant) => variant.node.pluginType === this.$page.plugins.pluginType
       );
+    },
+    parsedVariantRepos() {
+      return this.filteredVariants.reduce(
+        (parsed, variant) => ({
+          ...parsed,
+          [variant.node.variant]: this.$parseRepo(variant.node.repo),
+        }),
+        {}
+      );
+    },
+    parsedRepo() {
+      return this.$parseRepo(this.$page.plugins.repo);
+    },
+  },
+  methods: {
+    $parseRepo(repoUrl) {
+      const [user, name] = repoUrl.split("/").slice(3);
+      return {
+        url: repoUrl,
+        type: (() => {
+          if (repoUrl.includes("github.com")) return "github";
+          if (repoUrl.includes("gitlab.com")) return "gitlab";
+          if (repoUrl.includes("bitbucket.org")) return "bitbucket";
+          return "";
+        })(),
+        user,
+        name,
+      };
     },
   },
 };
@@ -532,6 +579,7 @@ query Plugins($path: String!, $name: String!) {
         keywords
         pluginType
         quality
+        repo
         maintainer {
           name
           label
