@@ -1,6 +1,5 @@
 [tool.poetry]
-name = "meltano-hub"
-version = "0.1.0"
+package-mode = false
 description = "Meltano hub contains the definition of all meltano taps, targets, utilities, etc."
 authors = ["Meltano Team"]
 
