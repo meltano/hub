@@ -74,7 +74,7 @@ class Utilities:
                 continue
 
             if metadata_type == "sdk":
-                if "meltano_sdk" not in data.get("keywords", []):
+                if "meltano_sdk" not in data.get("keywords", []) or "airbyte_protocol" in data.get("keywords", []):
                     continue
                 suffix = "/".join(yaml_file.split("/")[-3:])
                 formatted_output.append({"plugin-name": suffix})
