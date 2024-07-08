@@ -19,8 +19,8 @@ namespace: tap_airbyte
 next_steps: ''
 pip_url: git+https://github.com/MeltanoLabs/tap-airbyte-wrapper.git
 quality: silver
-repo: 
-  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-mongodb
+repo:
+  https://github.com/airbytehq/airbyte/tree/master/airbyte-integrations/connectors/source-mongodb-v2
 settings:
 - description: Authentication source where user information is stored. See <a href="*
     [Authentication 
