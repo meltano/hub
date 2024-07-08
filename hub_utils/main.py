@@ -241,6 +241,8 @@ def get_variant_names(
     metadata_type: str = typer.Option("sdk"),
     # comma separated list
     plugin_type: str = None,
+    skip: int = 0,
+    limit: int = 10000,
 ):
     """
     NOTE: USED FOR
@@ -251,7 +253,7 @@ def get_variant_names(
     """
     util = Utilities(True)
     util.hub_root = hub_root
-    formatted_output = util.get_variant_names(plugin_type, metadata_type)
+    formatted_output = util.get_variant_names(plugin_type, metadata_type, skip, limit)
     print(json.dumps(formatted_output).replace('"', '\\"'))
 
 

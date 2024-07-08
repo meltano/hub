@@ -64,11 +64,16 @@ class Utilities:
         self.default_variants_path = f"{self.hub_root}/_data/default_variants.yml"
         self.maintainers_path = f"{self.hub_root}/_data/maintainers.yml"
 
-    def get_variant_names(self, plugin_type, metadata_type):
+    def get_variant_names(self, plugin_type, metadata_type, skip, limit):
         from hub_utils.yaml_lint import find_all_yamls
 
         formatted_output = []
-        for yaml_file in find_all_yamls(f_path=f"{self.hub_root}/_data/meltano/"):
+        for yaml_file, index in find_all_yamls(f_path=f"{self.hub_root}/_data/meltano/").enumerate():
+            # Pagination mechanism
+            if index < skip:
+                continue
+            if index == limit:
+                break
             data = self._read_yaml(yaml_file)
             if plugin_type and yaml_file.split("/")[-3] not in plugin_type.split(","):
                 continue
