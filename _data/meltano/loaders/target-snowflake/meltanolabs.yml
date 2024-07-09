@@ -115,6 +115,11 @@ settings:
   kind: object
   label: Stream Maps
   name: stream_maps
+- description: Whether to use SSO authentication using an external browser.
+  kind: boolean
+  label: Use Browser Authentication
+  name: use_browser_authentication
+  value: false
 - description: The login name for your Snowflake user.
   kind: string
   label: User

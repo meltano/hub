@@ -215,7 +215,7 @@
                   <a href="https://meltano.com/community/">
                     <p class="footer-list-title">Community</p>
                     <p class="footer-list-info">
-                      Join 3,000+ data professionals on Slack and GitHub
+                      Join 5,000+ data professionals on Slack and GitHub
                     </p>
                   </a>
                 </li>
@@ -471,7 +471,7 @@
           <div class="footer-legal">
             <a href="https://meltano.com/terms-of-service/">Terms of service</a>
             <a href="https://meltano.com/privacy-policy/">Privacy Policy</a>
-            <a href="https://meltano.com/">© Meltano 2023</a>
+            <a href="https://meltano.com/">© Arch Data, Inc 2024</a>
           </div>
           <div class="footer-social">
             <a href="https://github.com/meltano/hub" target="_blank"
