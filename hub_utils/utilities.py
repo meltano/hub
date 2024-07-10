@@ -68,7 +68,7 @@ class Utilities:
         from hub_utils.yaml_lint import find_all_yamls
 
         formatted_output = []
-        for yaml_file, index in find_all_yamls(f_path=f"{self.hub_root}/_data/meltano/").enumerate():
+        for index, yaml_file in enumerate(find_all_yamls(f_path=f"{self.hub_root}/_data/meltano/")):
             # Pagination mechanism
             if index < skip:
                 continue
