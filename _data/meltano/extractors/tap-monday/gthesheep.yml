@@ -20,7 +20,6 @@ quality: silver
 repo: https://github.com/gthesheep/tap-monday
 settings:
 - description: The token to authenticate against the API service
-  kind: password
   label: Auth Token
   name: auth_token
   sensitive: true
