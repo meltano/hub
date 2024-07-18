@@ -238,6 +238,7 @@ extractors:
   tap-hotjar: epoch8
   tap-hubplanner: airbyte
   tap-hubspot: singer-io
+  tap-iceberg: shaped-ai
   tap-idealo-click-report: horze-international
   tap-ilevel: singer-io
   tap-immuta: immuta
