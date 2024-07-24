@@ -615,6 +615,7 @@ loaders:
   target-chromadb: meltanolabs
   target-clickhouse: shaped-ai
   target-csv: meltanolabs
+  target-db2: infostrux
   target-datadotworld: datadotworld
   target-duckdb: jwills
   target-elasticsearch: dtmirizzi
