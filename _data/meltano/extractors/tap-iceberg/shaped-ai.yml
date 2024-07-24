@@ -57,9 +57,9 @@ settings:
   label: Catalog URI
   name: catalog_uri
 - description: Additional properties to pass to the catalog connection.
+  kind: object
   label: Catalog Properties
   name: catalog_properties
-  kind: object
 - description: The access key of the AWS Glue Data Catalog.
   label: Access Key
   name: client_access_key_id
