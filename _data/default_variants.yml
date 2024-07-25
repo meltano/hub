@@ -616,6 +616,7 @@ loaders:
   target-clickhouse: shaped-ai
   target-csv: meltanolabs
   target-datadotworld: datadotworld
+  target-db2: infostrux
   target-duckdb: jwills
   target-elasticsearch: dtmirizzi
   target-gcs: datateer
