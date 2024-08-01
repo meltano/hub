@@ -20,7 +20,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && 'production' || 'preview' }}
+    # environment: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && 'production' || 'preview' }}
+    environment: preview
     if: ${{ !github.event.pull_request.head.repo.fork }}
     steps:
     - uses: actions/checkout@v4.1.7
@@ -73,27 +74,37 @@ jobs:
       with:
         name: hub-api-files
         path: "_hub_api/*"
-
-  publish:
-    runs-on: ubuntu-latest
-    environment: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && 'production' || 'preview' }}
-    needs: build
-    if: ${{ github.actor != 'dependabot[bot]' }}
-    permissions:
-      id-token: write # This is required for requesting the JWT
-    steps:
-    - uses: actions/checkout@v4.1.7
-    - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v4.0.2
-      with:
-        role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
-        aws-region: us-west-2
-        role-session-name: "GitHubActions"
-    - name: Download artifacts
-      uses: actions/download-artifact@v4
-      with:
-        name: hub-api-files
-        path: "_hub_api"
-    - name: Upload to S3
+    
+    - name: Push secrets to data.json
+      env:
+        AWS_ROLE_TO_ASSUME: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+        HUB_API_S3_BUCKET: ${{ secrets.HUB_API_S3_BUCKET }}
+        HUB_API_URL: ${{ secrets.HUB_API_URL }}
+        HUB_METADATA_S3_BUCKET: ${{ secrets.HUB_METADATA_S3_BUCKET }}
       run: |
-        aws s3 sync _hub_api s3://${{ secrets.HUB_API_S3_BUCKET }}/hub-api
+        python -c 'import json; data = {}; data["HUB_API_URL"] = "${HUB_API_URL}"; data["HUB_API_S3_BUCKET"] = "${HUB_API_S3_BUCKET}"; data["HUB_METADATA_S3_BUCKET"] = "${HUB_METADATA_S3_BUCKET}"; json.dump(data, open("data.json", "w"), indent=2)'
+        
+
+  # publish:
+  #   runs-on: ubuntu-latest
+  #   environment: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && 'production' || 'preview' }}
+  #   needs: build
+  #   if: ${{ github.actor != 'dependabot[bot]' }}
+  #   permissions:
+  #     id-token: write # This is required for requesting the JWT
+  #   steps:
+  #   - uses: actions/checkout@v4.1.7
+  #   - name: Configure AWS credentials
+  #     uses: aws-actions/configure-aws-credentials@v4.0.2
+  #     with:
+  #       role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+  #       aws-region: us-west-2
+  #       role-session-name: "GitHubActions"
+  #   - name: Download artifacts
+  #     uses: actions/download-artifact@v4
+  #     with:
+  #       name: hub-api-files
+  #       path: "_hub_api"
+  #   - name: Upload to S3
+  #     run: |
+  #       aws s3 sync _hub_api s3://${{ secrets.HUB_API_S3_BUCKET }}/hub-api
