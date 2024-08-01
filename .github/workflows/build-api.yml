@@ -82,7 +82,16 @@ jobs:
         HUB_API_URL: ${{ secrets.HUB_API_URL }}
         HUB_METADATA_S3_BUCKET: ${{ secrets.HUB_METADATA_S3_BUCKET }}
       run: |
-        python -c 'import json; data = {}; data["HUB_API_URL"] = "${HUB_API_URL}"; data["HUB_API_S3_BUCKET"] = "${HUB_API_S3_BUCKET}"; data["HUB_METADATA_S3_BUCKET"] = "${HUB_METADATA_S3_BUCKET}"; json.dump(data, open("data.json", "w"), indent=2)'
+        python -c '
+        import json, os
+        data = {}
+        data["AWS_ROLE_TO_ASSUME"] = os.environ["AWS_ROLE_TO_ASSUME"]
+        data["HUB_API_URL"] = os.environ["HUB_API_URL"]
+        data["HUB_API_S3_BUCKET"] = os.environ["HUB_API_S3_BUCKET"]
+        data["HUB_METADATA_S3_BUCKET"] = os.environ["HUB_METADATA_S3_BUCKET"]
+        with open("data.json", "w") as f:
+          json.dump(data, f)
+        '
 
     - name: Upload data.json
       uses: actions/upload-artifact@v4
