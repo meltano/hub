@@ -83,7 +83,12 @@ jobs:
         HUB_METADATA_S3_BUCKET: ${{ secrets.HUB_METADATA_S3_BUCKET }}
       run: |
         python -c 'import json; data = {}; data["HUB_API_URL"] = "${HUB_API_URL}"; data["HUB_API_S3_BUCKET"] = "${HUB_API_S3_BUCKET}"; data["HUB_METADATA_S3_BUCKET"] = "${HUB_METADATA_S3_BUCKET}"; json.dump(data, open("data.json", "w"), indent=2)'
-        
+
+    - name: Upload data.json
+      uses: actions/upload-artifact@v4
+      with:
+        name: data
+        path: "data.json"
 
   # publish:
   #   runs-on: ubuntu-latest
