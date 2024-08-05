@@ -75,6 +75,9 @@ settings:
 - description: The region of the AWS Glue Data Catalog.
   label: Region
   name: client_region
+- description: The IAM role ARN to assume when connecting to the AWS Glue Data Catalog.
+  label: Role ARN
+  name: client_iam_role_arn
 - description: 'One or more LCID locale strings to produce localized output for: https://faker.readthedocs.io/en/master/#localization'
   kind: array
   label: Faker Config Locale
