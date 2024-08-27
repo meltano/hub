@@ -55,13 +55,6 @@ settings:
   label: Default Target Schema
   name: default_target_schema
   value: $MELTANO_EXTRACT__LOAD_SCHEMA
-- description: Dialect+driver see 
-    https://aws.amazon.com/blogs/big-data/use-the-amazon-redshift-sqlalchemy-dialect-to-interact-with-amazon-redshift.
-    Generally just leave this alone. Note if sqlalchemy_url is set this will be ignored.
-  kind: string
-  label: Dialect+Driver
-  name: dialect+driver
-  value: redshift+redshift_connector
 - description: If true, use temporary credentials 
     (https://docs.aws.amazon.com/redshift/latest/mgmt/generating-iam-credentials-cli-api.html).
     Note if sqlalchemy_url is set this will be ignored.
@@ -139,13 +132,6 @@ settings:
   name: s3_key_prefix
   sensitive: true
   value: ''
-- description: SQLAlchemy connection string. This will override using host, user,
-    password, port, dialect, and all ssl settings. Note that you must escape password
-    special characters properly. See 
-    https://docs.sqlalchemy.org/en/20/core/engines.html#escaping-special-characters-such-as-signs-in-passwords
-  kind: string
-  label: Sqlalchemy URL
-  name: sqlalchemy_url
 - description: Whether or not to use ssl to verify the server's identity. Use ssl_certificate_authority
     and ssl_mode for further customization. To use a client certificate to authenticate
     yourself to the server, use ssl_client_certificate_enable instead. Note if sqlalchemy_url
