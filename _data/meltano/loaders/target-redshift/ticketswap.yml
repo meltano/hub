@@ -132,6 +132,11 @@ settings:
   name: s3_key_prefix
   sensitive: true
   value: ''
+- description: AWS region for S3 bucket. If not specified, region will be detected by boto config resolution.
+    See https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html.
+  kind: string
+  label: S3 Region
+  name: s3_region
 - description: Whether or not to use ssl to verify the server's identity. Use ssl_certificate_authority
     and ssl_mode for further customization. To use a client certificate to authenticate
     yourself to the server, use ssl_client_certificate_enable instead. Note if sqlalchemy_url
