@@ -139,6 +139,11 @@ settings:
   name: s3_key_prefix
   sensitive: true
   value: ''
+- description: AWS region for S3 bucket. If not specified, region will be detected by boto config resolution.
+    See https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html.
+  kind: string
+  label: S3 Region
+  name: s3_region
 - description: SQLAlchemy connection string. This will override using host, user,
     password, port, dialect, and all ssl settings. Note that you must escape password
     special characters properly. See 
