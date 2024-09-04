@@ -12,13 +12,13 @@ executable: tap-staffwise
 keywords:
 - meltano_sdk
 label: Staffwise
-logo_url: /assets/logos/extractors/staffwise.png
+logo_url: /assets/logos/extractors/staffwise.svg
 maintenance_status: active
 name: tap-staffwise
 namespace: tap_staffwise
 next_steps: ''
 pip_url: git+https://github.com/chartica/tap-staffwise.git
-quality: unknown
+quality: silver
 repo: https://github.com/chartica/tap-staffwise
 settings:
 - description: API Key to authenticate requests and access the API
