@@ -10,6 +10,8 @@ description: Healthcare Productivity Tools
 domain_url: https://staffwi.se/user-guide/api/reporting
 executable: tap-staffwise
 keywords:
+- health
+- payroll
 - meltano_sdk
 label: Staffwise
 logo_url: /assets/logos/extractors/staffwise.svg
