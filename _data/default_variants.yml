@@ -239,6 +239,7 @@ extractors:
   tap-hotjar: epoch8
   tap-hubplanner: airbyte
   tap-hubspot: singer-io
+  tap-iceberg: shaped-ai
   tap-idealo-click-report: horze-international
   tap-ilevel: singer-io
   tap-immuta: immuta
@@ -491,6 +492,7 @@ extractors:
   tap-ssb-klass: storebrand
   tap-stackexchange: meltanolabs
   tap-stackoverflow-sampledata: buzzcutnorman
+  tap-staffwise: chartica
   tap-stamped: hotgluexyz
   tap-starshipit: zookal
   tap-statuspage: airbyte
@@ -616,6 +618,7 @@ loaders:
   target-clickhouse: shaped-ai
   target-csv: meltanolabs
   target-datadotworld: datadotworld
+  target-db2: infostrux
   target-duckdb: jwills
   target-elasticsearch: dtmirizzi
   target-gcs: datateer
