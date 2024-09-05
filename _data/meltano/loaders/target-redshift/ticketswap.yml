@@ -40,13 +40,13 @@ settings:
   kind: integer
   label: Batch Size Rows
   name: batch_size_rows
-- description: Redshift cluster identifier. Note if sqlalchemy_url is set or enable_iam_authentication
+- description: Redshift cluster identifier. Note if enable_iam_authentication
     is false this will be ignored.
   kind: password
   label: Cluster IDentifier
   name: cluster_identifier
   sensitive: true
-- description: Database name. Note if sqlalchemy_url is set this will be ignored.
+- description: Database name.
   kind: string
   label: Database name
   name: dbname
@@ -55,16 +55,8 @@ settings:
   label: Default Target Schema
   name: default_target_schema
   value: $MELTANO_EXTRACT__LOAD_SCHEMA
-- description: Dialect+driver see 
-    https://aws.amazon.com/blogs/big-data/use-the-amazon-redshift-sqlalchemy-dialect-to-interact-with-amazon-redshift.
-    Generally just leave this alone. Note if sqlalchemy_url is set this will be ignored.
-  kind: string
-  label: Dialect+Driver
-  name: dialect+driver
-  value: redshift+redshift_connector
 - description: If true, use temporary credentials 
     (https://docs.aws.amazon.com/redshift/latest/mgmt/generating-iam-credentials-cli-api.html).
-    Note if sqlalchemy_url is set this will be ignored.
   kind: boolean
   label: Enable Iam Authentication
   name: enable_iam_authentication
@@ -92,8 +84,7 @@ settings:
   label: Hard Delete
   name: hard_delete
   value: false
-- description: Hostname for redshift instance. Note if sqlalchemy_url is set this
-    will be ignored.
+- description: Hostname for redshift instance.
   kind: string
   label: Host
   name: host
@@ -112,14 +103,12 @@ settings:
   - label: Overwrite
     value: overwrite
   value: append-only
-- description: Password used to authenticate. Note if sqlalchemy_url is set this will
-    be ignored.
+- description: Password used to authenticate.
   kind: password
   label: Password
   name: password
   sensitive: true
-- description: The port on which redshift is awaiting connection. Note if sqlalchemy_url
-    is set this will be ignored.
+- description: The port on which redshift is awaiting connection. 
   kind: string
   label: Port
   name: port
@@ -139,17 +128,14 @@ settings:
   name: s3_key_prefix
   sensitive: true
   value: ''
-- description: SQLAlchemy connection string. This will override using host, user,
-    password, port, dialect, and all ssl settings. Note that you must escape password
-    special characters properly. See 
-    https://docs.sqlalchemy.org/en/20/core/engines.html#escaping-special-characters-such-as-signs-in-passwords
+- description: AWS region for S3 bucket. If not specified, region will be detected by boto config resolution.
+    See https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html.
   kind: string
-  label: Sqlalchemy URL
-  name: sqlalchemy_url
+  label: S3 Region
+  name: s3_region
 - description: Whether or not to use ssl to verify the server's identity. Use ssl_certificate_authority
     and ssl_mode for further customization. To use a client certificate to authenticate
-    yourself to the server, use ssl_client_certificate_enable instead. Note if sqlalchemy_url
-    is set this will be ignored.
+    yourself to the server, use ssl_client_certificate_enable instead. 
   kind: boolean
   label: SSL Enable
   name: ssl_enable
@@ -157,7 +143,7 @@ settings:
 - description: SSL Protection method, see [postgres 
     documentation](https://www.postgresql.org/docs/current/libpq-ssl.html#LIBPQ-SSL-PROTECTION)
     for more information. Must be one of disable, allow, prefer, require, verify-ca,
-    or verify-full. Note if sqlalchemy_url is set this will be ignored.
+    or verify-full.
   kind: string
   label: SSL Mode
   name: ssl_mode
@@ -176,8 +162,7 @@ settings:
   label: Temp Dir
   name: temp_dir
   value: temp
-- description: User name used to authenticate. Note if sqlalchemy_url is set this
-    will be ignored.
+- description: User name used to authenticate.
   kind: string
   label: User
   name: user

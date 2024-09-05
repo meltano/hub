@@ -25,9 +25,15 @@ settings:
 - description: Plausible API Key. See the <a href="https://plausible.io/docs/stats-api">docs</a>
     for information on how to generate this key.
   kind: password
-  label: Airbyte Config Api Key
+  label: Airbyte Config API Key
   name: airbyte_config.api_key
   sensitive: true
+- description: Plausible API URL. The API URL of your plausible instance.
+    Change this if you self-host plausible. The default is https://plausible.io/api/v1/stats
+  kind: string
+  label: Airbyte Config API URL
+  name: airbyte_config.api_url
+  value: https://plausible.io/api/v1/stats
 - description: The domain of the site you want to retrieve data for. Enter the name
     of your site as configured on Plausible, i.e., excluding "https://" and "www".
     Can be retrieved from the 'domain' field in your Plausible site settings.
@@ -75,6 +81,7 @@ settings:
   name: stream_maps
 settings_group_validation:
 - - airbyte_config.api_key
+- - airbyte_config.api_url
   - airbyte_config.site_id
   - airbyte_spec
   - airbyte_spec.image
