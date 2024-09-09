@@ -64,7 +64,7 @@ class Utilities:
         self.default_variants_path = f"{self.hub_root}/_data/default_variants.yml"
         self.maintainers_path = f"{self.hub_root}/_data/maintainers.yml"
 
-    def get_variant_names(self, plugin_type, metadata_type, skip, limit):
+    def get_variant_names(self, plugin_type, metadata_type, skip=0, limit=10000):
         from hub_utils.yaml_lint import find_all_yamls
 
         formatted_output = []
