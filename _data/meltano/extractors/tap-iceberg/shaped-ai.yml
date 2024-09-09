@@ -103,7 +103,6 @@ settings:
   name: stream_maps
 settings_group_validation:
 - - catalog_type
-  - catalog_uri
 settings_preamble: ''
 usage: ''
 variant: shaped-ai
