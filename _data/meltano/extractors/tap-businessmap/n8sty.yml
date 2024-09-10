@@ -1,0 +1,18 @@
+capabilities:
+- catalog
+- discover
+description: Business Agility platform
+domain_url: https://knowledgebase.businessmap.io/hc/en-us/articles/360012393692-Businessmap-REST-API
+executable: tap-kanbanize
+keywords:
+- api
+label: Businessmap (formerly Kanbanize)
+logo_url: /assets/logos/extractors/businessmap.png
+maintenance_status: unknown
+name: tap-businessmap
+namespace: tap_businessmap
+pip_url: git+https://github.com/n8sty/tap-kanbanize.git
+quality: silver
+repo: https://github.com/n8sty/tap-kanbanize
+settings: []
+variant: n8sty
