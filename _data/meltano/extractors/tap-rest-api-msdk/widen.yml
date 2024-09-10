@@ -62,7 +62,7 @@ settings:
 - description: 'An additional extension (seconds) to the backoff time over and above
     a jitter value - use where an API is not precise in its backoff times. Optional:
     Defaults to `0`.'
-  kind: string
+  kind: integer
   label: Backoff Time Extension
   name: backoff_time_extension
   value: 0
