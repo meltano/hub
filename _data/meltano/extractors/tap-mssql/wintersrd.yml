@@ -31,9 +31,24 @@ settings:
   label: Cursor Array Size
   name: cursor_array_size
   value: 1
+- description: |
+    The "conn_properties" allows specific configuration of database settings via SQL set statements to send to the database
+    instance upon connection establishment. Can be a string or another kind of iterable of strings.
+    If you want to connect Azure SQL Server instances e.g. PDW you will need to adjust the connection setting for that version of MSSQL.
+    Please refer to the github repo page for details on these settings.
+  label: Connection Properties
+  name: conn_properties
 - description: Your MSSQL database name.
   label: Database
   name: database
+- description: |
+    When set it will dump out the underlying TDS driver logs. Useful for diagnosing issues if
+    you are having connection issues to SQL Server databases. WARNING! this does dump a lot of information and may
+    log secure data, should be only used in Development environments.
+  kind: boolean
+  label: Enable TDS Logging
+  name: enable_tds_logging
+  value: false
 - description: A comma separated list of databases to filter for.
   label: Filter Databases
   name: filter_dbs
