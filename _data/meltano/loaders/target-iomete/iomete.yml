@@ -1,6 +1,6 @@
 capabilities:
 - hard-delete
-- record-flattening
+- schema-flattening
 description: Serverless lakehouse platform.
 domain_url: https://iomete.com/
 executable: singer-target-iomete
