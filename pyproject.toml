@@ -24,7 +24,7 @@ isort = "^5.12.0"
 flake8 = "^7.1.1"
 pydocstyle = "^6.3.0"
 mypy = "^1.8.0"
-moto = "^4.1.6"
+moto = "^5.0.14"
 typer-cli = "^0.0.13"
 
 [build-system]
