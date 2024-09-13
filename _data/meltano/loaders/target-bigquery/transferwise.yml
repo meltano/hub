@@ -1,5 +1,5 @@
 capabilities:
-- record-flattening
+- schema-flattening
 - hard-delete
 - soft-delete
 description: For loading data into BigQuery. This repo was transferred to the jmriego

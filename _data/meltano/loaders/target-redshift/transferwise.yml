@@ -2,7 +2,7 @@ capabilities:
 - activate-version
 - datatype-failsafe
 - hard-delete
-- record-flattening
+- schema-flattening
 - soft-delete
 description: Amazon Redshift loader
 dialect: redshift
