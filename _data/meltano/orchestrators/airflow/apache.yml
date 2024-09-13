@@ -43,6 +43,7 @@ requires:
     variant: meltano
 settings:
 - env: AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION
+  kind: boolean
   label: Pause DAGs at Creation
   name: core.dags_are_paused_at_creation
   value: false
@@ -51,6 +52,7 @@ settings:
   name: core.dags_folder
   value: $MELTANO_PROJECT_ROOT/orchestrate/dags
 - env: AIRFLOW__CORE__LOAD_EXAMPLES
+  kind: boolean
   label: Load Examples
   name: core.load_examples
   value: false
@@ -63,6 +65,7 @@ settings:
   name: core.sql_alchemy_conn
   value: sqlite:///$MELTANO_PROJECT_ROOT/.meltano/orchestrators/airflow/airflow.db
 - env: AIRFLOW__WEBSERVER__WEB_SERVER_PORT
+  kind: integer
   label: Webserver Port
   name: webserver.web_server_port
   value: 8080

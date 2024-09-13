@@ -3,7 +3,7 @@ capabilities:
 - schema-flattening
 - stream-maps
 description: CSV loader
-domain_url: ''
+domain_url: https://en.wikipedia.org/wiki/Comma-separated_values
 executable: target-csv
 keywords:
 - meltano_sdk

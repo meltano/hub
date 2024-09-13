@@ -68,9 +68,9 @@ settings:
   label: Send Anonymous Usage Stats
   name: send_anonymous_usage_stats
   options:
-  - value: yes
-  - value: no
-  value: yes
+  - value: "yes"
+  - value: "no"
+  value: "yes"
 - env: BIGQUERY_CLIENT_EMAIL
   kind: string
   label: BigQuery Client Email

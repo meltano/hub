@@ -5,7 +5,7 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
-domain_url: ''
+domain_url: https://hub.meltano.com/
 keywords:
 - meltano_sdk
 - zero auth

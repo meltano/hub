@@ -5,7 +5,7 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
-domain_url: ''
+domain_url: https://planfix.com/
 keywords:
 - meltano_sdk
 label: Planfix
