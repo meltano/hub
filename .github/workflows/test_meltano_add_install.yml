@@ -59,4 +59,4 @@ jobs:
 
       - name: Test install
         working-directory: test-project
-        run: meltano install
+        run: meltano install --force

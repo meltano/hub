@@ -34,8 +34,8 @@ next_steps: |
      By default, the UI will be available at at [`http://localhost:8080`](http://localhost:8080). You can change this using the `webserver.web_server_port` setting documented below.
 
   1. Start Scheduler or execute Airflow commands directly using the instructions in [the Meltano docs](https://docs.meltano.com/guide/orchestration#starting-the-airflow-scheduler).
-pip_url: apache-airflow==2.1.2 --constraint 
-  https://raw.githubusercontent.com/apache/airflow/constraints-2.1.2/constraints-${MELTANO__PYTHON_VERSION}.txt
+pip_url: apache-airflow==2.10.1 --constraint
+  https://raw.githubusercontent.com/apache/airflow/constraints-2.10.1/constraints-${MELTANO__PYTHON_VERSION}.txt
 repo: https://github.com/apache/airflow
 requires:
   files:
@@ -43,6 +43,7 @@ requires:
     variant: meltano
 settings:
 - env: AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION
+  kind: boolean
   label: Pause DAGs at Creation
   name: core.dags_are_paused_at_creation
   value: false
@@ -51,6 +52,7 @@ settings:
   name: core.dags_folder
   value: $MELTANO_PROJECT_ROOT/orchestrate/dags
 - env: AIRFLOW__CORE__LOAD_EXAMPLES
+  kind: boolean
   label: Load Examples
   name: core.load_examples
   value: false
@@ -63,6 +65,7 @@ settings:
   name: core.sql_alchemy_conn
   value: sqlite:///$MELTANO_PROJECT_ROOT/.meltano/orchestrators/airflow/airflow.db
 - env: AIRFLOW__WEBSERVER__WEB_SERVER_PORT
+  kind: integer
   label: Webserver Port
   name: webserver.web_server_port
   value: 8080

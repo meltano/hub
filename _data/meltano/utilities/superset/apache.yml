@@ -76,7 +76,7 @@ next_steps: |
      ```
 
   Now when you (re)start Superset, you will be able to connect to a new type of database, like Snowflake in the example.
-pip_url: apache-superset==1.5.0 markupsafe==2.0.1 cryptography==3.4.7
+pip_url: apache-superset==3.1.1 flask==2.2.5 werkzeug==2.3.3 jinja2==3.0.1 wtforms==2.3.3
 prereq: |
   #### Dependencies
 
@@ -109,16 +109,19 @@ settings:
   value: 0.0.0.0
 - description: Port used by `meltano invoke superset:ui`. Used in the `gunicorn` `--bind`
     option along with `ui.bind_host`.
+  kind: integer
   label: UI Port
   name: ui.port
   value: 8088
 - description: Timeout in sections, used by `meltano invoke superset:ui`. Corresponds
     to the `gunicorn` `--timeout` option
+  kind: integer
   label: UI Timeout
   name: ui.timeout
   value: 60
 - description: Workers used by `meltano invoke superset:ui`. Corresponds to the `gunicorn`
     `--workers` option
+  kind: integer
   label: UI Workers
   name: ui.workers
   value: 4
