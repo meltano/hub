@@ -35,7 +35,7 @@ next_steps: |
 
   1. Start Scheduler or execute Airflow commands directly using the instructions in [the Meltano docs](https://docs.meltano.com/guide/orchestration#starting-the-airflow-scheduler).
 pip_url: apache-airflow==2.1.2 --constraint 
-  https://raw.githubusercontent.com/apache/airflow/constraints-2.1.2/constraints-${MELTANO__PYTHON_VERSION}.txt
+  https://raw.githubusercontent.com/apache/airflow/constraints-2.10.1/constraints-${MELTANO__PYTHON_VERSION}.txt
 repo: https://github.com/apache/airflow
 requires:
   files:
