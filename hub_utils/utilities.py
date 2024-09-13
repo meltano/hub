@@ -52,7 +52,6 @@ ALLOWED_CAPABILITIES_TARGET = {
     "soft-delete",
     "hard-delete",
     "datatype-failsafe",
-    "record-flattening",
 }
 
 
