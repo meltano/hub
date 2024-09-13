@@ -53,9 +53,6 @@ settings:
 - description: The type of catalog to connect to.
   label: Catalog Type
   name: catalog_type
-- description: The URI of the catalog to connect to.
-  label: Catalog URI
-  name: catalog_uri
 - description: Additional properties to pass to the catalog connection.
   kind: object
   label: Catalog Properties
@@ -106,7 +103,6 @@ settings:
   name: stream_maps
 settings_group_validation:
 - - catalog_type
-  - catalog_uri
 settings_preamble: ''
 usage: ''
 variant: shaped-ai
