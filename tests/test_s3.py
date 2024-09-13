@@ -2,7 +2,7 @@ import os
 
 import boto3
 import pytest
-from moto import mock_s3
+from moto import mock_aws
 
 from hub_utils.s3 import S3
 import shutil
@@ -16,7 +16,7 @@ def local_cleanup():
         shutil.rmtree(LOCAL_PATH)
 
 
-@mock_s3
+@mock_aws
 def test_s3_download(local_cleanup):
     conn = boto3.resource("s3", region_name="us-east-1")
     conn.create_bucket(Bucket="mybucket")
@@ -31,7 +31,7 @@ def test_s3_download(local_cleanup):
     )
     assert os.path.isfile(f"{LOCAL_PATH}/extractors/tap-csv/meltanolabs.json") 
 
-@mock_s3
+@mock_aws
 def test_s3_hash_exists():
     conn = boto3.resource("s3", region_name="us-east-1")
     conn.create_bucket(Bucket="mybucket")
