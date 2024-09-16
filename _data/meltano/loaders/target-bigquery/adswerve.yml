@@ -74,6 +74,7 @@ settings:
   label: Table Suffix
   name: table_suffix
 - description: Maximum cache size in MB
+  kind: integer
   label: Max Cache
   name: max_cache
   value: 50

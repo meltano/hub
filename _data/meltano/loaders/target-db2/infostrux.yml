@@ -2,7 +2,6 @@ capabilities:
 - about
 - schema-flattening
 - stream-maps
-- validate-records
 description: Singer Target for IBM Db2
 domain_url: https://www.ibm.com/db2
 executable: target-db2
@@ -38,7 +37,8 @@ settings:
   kind: string
   label: Faker Config Seed
   name: faker_config.seed
-- description: "'True' to enable schema flattening and automatically expand nested properties."
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
   kind: boolean
   label: Flattening Enabled
   name: flattening_enabled
