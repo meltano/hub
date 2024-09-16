@@ -49,6 +49,11 @@ settings:
   label: Column Name Transforms Quote
   name: column_name_transforms.quote
   value: false
+- description: Convert periods to underscores
+  kind: boolean
+  label: Column Name Transforms Replace Period With Underscore
+  name: column_name_transforms.replace_period_with_underscore
+  value: false
 - description: Convert columns to snake case
   kind: boolean
   label: Column Name Transforms Snake Case
