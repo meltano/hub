@@ -40,13 +40,13 @@ settings:
   kind: integer
   label: Batch Size Rows
   name: batch_size_rows
-- description: Redshift cluster identifier. Note if enable_iam_authentication
+- description: Redshift cluster identifier. Note if sqlalchemy_url is set or enable_iam_authentication
     is false this will be ignored.
   kind: password
   label: Cluster IDentifier
   name: cluster_identifier
   sensitive: true
-- description: Database name.
+- description: Database name. Note if sqlalchemy_url is set this will be ignored.
   kind: string
   label: Database name
   name: dbname
@@ -103,12 +103,13 @@ settings:
   - label: Overwrite
     value: overwrite
   value: append-only
-- description: Password used to authenticate.
+- description: Password used to authenticate. Note if sqlalchemy_url is set this will
+    be ignored.
   kind: password
   label: Password
   name: password
   sensitive: true
-- description: The port on which redshift is awaiting connection. 
+- description: The port on which redshift is awaiting connection.
   kind: string
   label: Port
   name: port
@@ -128,20 +129,20 @@ settings:
   name: s3_key_prefix
   sensitive: true
   value: ''
-- description: AWS region for S3 bucket. If not specified, region will be detected by boto config resolution.
-    See https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html.
+- description: AWS region for S3 bucket. If not specified, region will be detected
+    by boto config resolution. See https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html
   kind: string
   label: S3 Region
   name: s3_region
 - description: Whether or not to use ssl to verify the server's identity. Use ssl_certificate_authority
     and ssl_mode for further customization. To use a client certificate to authenticate
-    yourself to the server, use ssl_client_certificate_enable instead. 
+    yourself to the server, use ssl_client_certificate_enable instead.
   kind: boolean
   label: SSL Enable
   name: ssl_enable
   value: false
-- description: SSL Protection method, see [postgres 
-    documentation](https://www.postgresql.org/docs/current/libpq-ssl.html#LIBPQ-SSL-PROTECTION)
+- description: SSL Protection method, see [redshift 
+    documentation](https://docs.aws.amazon.com/redshift/latest/mgmt/connecting-ssl-support.html
     for more information. Must be one of disable, allow, prefer, require, verify-ca,
     or verify-full.
   kind: string
@@ -162,7 +163,8 @@ settings:
   label: Temp Dir
   name: temp_dir
   value: temp
-- description: User name used to authenticate.
+- description: User name used to authenticate. Note if sqlalchemy_url is set this
+    will be ignored.
   kind: string
   label: User
   name: user
