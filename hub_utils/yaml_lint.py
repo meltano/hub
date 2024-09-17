@@ -12,7 +12,7 @@ yaml.preserve_quotes = True
 yaml.default_flow_style = False
 
 
-def insert_newlines(string, every=160):
+def insert_newlines(string: str, every: int = 160) -> str:
     # TODO: this is not working because editing strings causes them
     # to get wrapped in double quotes which looks ugly.
     return string
@@ -79,7 +79,7 @@ def fix_yaml(yml_path):
     overwriting the existing contents.
     """
     print(f"Fixing: {yml_path}")
-    with open(yml_path, "r") as plugin_file:
+    with open(yml_path) as plugin_file:
         plugin_data = yaml.load(plugin_file)
     with open(yml_path, "w") as plugin_file:
         updated_dict = plugin_data

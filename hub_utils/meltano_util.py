@@ -17,17 +17,17 @@ class MeltanoUtil:
     @staticmethod
     def add(plugin_name, namespace, executable, pip_url, plugin_type):
         python_version = subprocess.run(
-            "which python".split(" "), stdout=subprocess.PIPE, universal_newlines=True
+            "which python".split(" "), stdout=subprocess.PIPE, text=True
         ).stdout.replace("\n", "")
         subprocess.run(
             f"pipx uninstall {plugin_name}".split(" "),
             stdout=subprocess.PIPE,
-            universal_newlines=True,
+            text=True,
         )
         subprocess.run(
             f"pipx install {pip_url} --python {python_version}".split(" "),
             stdout=subprocess.PIPE,
-            universal_newlines=True,
+            text=True,
             check=True,
         )
 
@@ -40,14 +40,14 @@ class MeltanoUtil:
                 subprocess.run(
                     f"{plugin_name} --help --config {tmp.name}".split(" "),
                     stdout=subprocess.PIPE,
-                    universal_newlines=True,
+                    text=True,
                     check=True,
                 )
         else:
             subprocess.run(
                 f"{plugin_name} --help".split(" "),
                 stdout=subprocess.PIPE,
-                universal_newlines=True,
+                text=True,
                 check=True,
             )
 
@@ -62,7 +62,7 @@ class MeltanoUtil:
                         " "
                     ),
                     stdout=subprocess.PIPE,
-                    universal_newlines=True,
+                    text=True,
                     check=True,
                 )
                 about_json_str = about_content.stdout.split("Setup Instructions:")[0]
@@ -71,7 +71,7 @@ class MeltanoUtil:
             about_content = subprocess.run(
                 f"{plugin_name} --about --format=json".split(" "),
                 stdout=subprocess.PIPE,
-                universal_newlines=True,
+                text=True,
                 check=True,
             )
             return json.loads(about_content.stdout)
@@ -174,10 +174,10 @@ class MeltanoUtil:
                 or format == "airbyte_secret"
             ):
                 return "password", None
-            if settings.get("enum"):
+            if allowed_values := settings.get("enum"):
                 option_parsed = [
                     {"label": MeltanoUtil._get_label(val), "value": val}
-                    for val in settings.get("enum")
+                    for val in allowed_values
                 ]
                 return "options", option_parsed
             return "string", None
@@ -254,7 +254,7 @@ class MeltanoUtil:
     @staticmethod
     def _get_kind_from_type(type, name, enforce_desc):
         if isinstance(type, list):
-            kind = [s_type for s_type in type if s_type != "null"][0]
+            kind = next(s_type for s_type in type if s_type != "null")
         else:
             kind = type
 

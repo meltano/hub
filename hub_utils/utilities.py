@@ -90,11 +90,11 @@ class Utilities:
                 if "airbyte_protocol" not in data.get("keywords", []):
                     continue
                 suffix = "/".join(yaml_file.split("/")[-3:])
-                image_name = [
+                image_name = next(
                     setting.get("value")
                     for setting in data.get("settings")
                     if setting.get("name") == "airbyte_spec.image"
-                ][0]
+                )
                 if not image_name:
                     continue
                 formatted_output.append(
@@ -125,12 +125,12 @@ class Utilities:
             json.dump(content, f)
 
     def _read_yaml(self, path):
-        with open(path, "r") as f:
+        with open(path) as f:
             data = self.yaml.load(f)
         return data
 
     def _read_json(self, path):
-        with open(path, "r") as f:
+        with open(path) as f:
             data = json.load(f)
         return data
 
@@ -388,7 +388,7 @@ class Utilities:
         MeltanoUtil.add(plugin_name, namespace, executable, pip_url, plugin_type)
         MeltanoUtil.help_test(executable)
 
-    def add(self, repo_url: str = None, definition_seed: dict = None):
+    def add(self, repo_url: str | None = None, definition_seed: dict | None = None):
         plugin_name = self._prompt("plugin name", self._get_plugin_name(repo_url))
         plugin_type = self._prompt("plugin type", self.get_plugin_type(repo_url))
         pip_url = self._prompt("pip_url", f"git+{repo_url}.git")
@@ -440,7 +440,11 @@ class Utilities:
         print(definition_path)
         print(f"Adds {plugin_type} {plugin_name} ({variant})\n\n")
 
-    def add_airbyte(self, definition_seed: dict = None, enforce_desc: bool = True):
+    def add_airbyte(
+        self,
+        definition_seed: dict | None = None,
+        enforce_desc: bool = True,
+    ):
         repo_url = "https://github.com/meltanolabs/tap-airbyte-wrapper"
         plugin_name = self._prompt("plugin name", "tap-<source/x>")
         plugin_type = "extractors"
@@ -496,7 +500,7 @@ class Utilities:
         print(f"Adds {plugin_type} {plugin_name} ({variant})\n\n")
 
     def delete_rows(self, repo_urls_to_delete, edit_path, csv_path):
-        with open(csv_path, "r") as inp, open(edit_path, "w") as out:
+        with open(csv_path) as inp, open(edit_path, "w") as out:
             writer = csv.writer(out)
             for row in csv.reader(inp):
                 if row[0] in repo_urls_to_delete:
@@ -643,7 +647,7 @@ class Utilities:
         )
         return repo_url, plugin_name, plugin_type, plugin_variant, existing_def, sdk_def
 
-    def update(self, repo_url: str = None, plugin_name: str = None):
+    def update(self, repo_url: str | None = None, plugin_name: str | None = None):
         (
             repo_url,
             plugin_name,
@@ -676,7 +680,7 @@ class Utilities:
         self._write_updated_def(plugin_name, plugin_variant, plugin_type, new_def)
         print(f"\nUpdates {plugin_type} {plugin_name} ({plugin_variant})\n\n")
 
-    def update_sdk(self, repo_url: str = None, plugin_name: str = None):
+    def update_sdk(self, repo_url: str | None = None, plugin_name: str | None = None):
         (
             repo_url,
             plugin_name,
