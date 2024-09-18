@@ -5,8 +5,8 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
-description: From task management to complex portfolio management
-domain_url: Smartsheet enables project management professionals to streamline workflows
+description: Smartsheet enables project management professionals to streamline workflows
+domain_url: https://www.smartsheet.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol
