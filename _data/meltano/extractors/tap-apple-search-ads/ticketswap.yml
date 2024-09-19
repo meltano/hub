@@ -1,0 +1,42 @@
+capabilities:
+- catalog
+- discover
+- state
+domain_url: https://searchads.apple.com/
+keywords:
+- meltano_sdk
+label: Apple Search Ads
+logo_url: /assets/logos/extractors/apple-search-ads.png
+maintenance_status: active
+name: tap-apple-search-ads
+namespace: tap_apple_search_ads
+next_steps: ''
+pip_url: git+https://github.com/TicketSwap/tap-apple-search-ads.git
+quality: silver
+repo: https://github.com/TicketSwap/tap-apple-search-ads
+settings:
+- description: obtained from "Implementing OAuth for the Apple Search Ads API".
+  kind: password
+  label: Client Id
+  name: client_id
+  sensitive: true
+- description: obtained from "Implementing OAuth for the Apple Search Ads API".
+  kind: password
+  label: Client Secret
+  name: client_secret
+  sensitive: true
+- description: Apple Search Ads Organization ID, obtained from Apple Search Ads console.
+  label: Org Id
+  name: org_id
+- description: Start date for reporting streams, format in YYYY-MM-DD.
+  label: Start Date
+  name: start_date
+- description: End date for reporting streams, format in YYYY-MM-DD.
+  label: End Date
+  name: end_date
+settings_group_validation:
+- - client_id
+    client_secret
+settings_preamble: ''
+usage: ''
+variant: ticketswap
