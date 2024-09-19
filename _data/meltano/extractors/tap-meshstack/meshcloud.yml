@@ -5,7 +5,7 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
-domain_url: ''
+domain_url: https://www.meshcloud.io/
 keywords:
 - meltano_sdk
 label: Meshstack

@@ -21,7 +21,7 @@ jobs:
 
       - name: Get changed plugins
         id: changed_plugins
-        uses: tj-actions/changed-files@v45.0.1
+        uses: tj-actions/changed-files@v45.0.2
         with:
           files: _data/meltano/*/*/*.yml
           matrix: true
@@ -59,4 +59,4 @@ jobs:
 
       - name: Test install
         working-directory: test-project
-        run: meltano install
+        run: meltano install --force
