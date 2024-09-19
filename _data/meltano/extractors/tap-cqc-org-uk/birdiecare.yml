@@ -1,5 +1,6 @@
 capabilities:
 - about
+- batch
 - catalog
 - discover
 - schema-flattening
@@ -18,6 +19,40 @@ pip_url: git+https://github.com/birdiecare/tap-cqc-org-uk.git
 quality: silver
 repo: https://github.com/birdiecare/tap-cqc-org-uk
 settings:
+- description: Compression format to use for batch files.
+  kind: options
+  label: Batch Config Encoding Compression
+  name: batch_config.encoding.compression
+  options:
+  - label: Gzip
+    value: gzip
+  - label: None
+    value: none
+- description: Format to use for batch files.
+  kind: options
+  label: Batch Config Encoding Format
+  name: batch_config.encoding.format
+  options:
+  - label: Jsonl
+    value: jsonl
+  - label: Parquet
+    value: parquet
+- description: Prefix to use when writing batch files.
+  kind: string
+  label: Batch Config Storage Prefix
+  name: batch_config.storage.prefix
+- description: Root path to use when writing batch files.
+  kind: string
+  label: Batch Config Storage Root
+  name: batch_config.storage.root
+- description: 'One or more LCID locale strings to produce localized output for: https://faker.readthedocs.io/en/master/#localization'
+  kind: array
+  label: Faker Config Locale
+  name: faker_config.locale
+- description: 'Value to seed the Faker generator for deterministic output: https://faker.readthedocs.io/en/master/#seeding-the-generator'
+  kind: string
+  label: Faker Config Seed
+  name: faker_config.seed
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -27,13 +62,7 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: Partner Code
-  kind: string
-  label: Partner Code
-  name: partner_code
-- description: Determines how much historical data will be extracted. Please be aware
-    that the larger the time period and amount of data, the longer the initial extraction
-    can be expected to take.
+- description: The earliest CQC update to sync
   kind: date_iso8601
   label: Start Date
   name: start_date
@@ -41,11 +70,18 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: Config object for stream maps capability.
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps
-settings_group_validation: []
+- description: The primary key for the CQC API service
+  kind: password
+  label: Subscription Key
+  name: subscription_key
+  sensitive: true
+settings_group_validation:
+- - subscription_key
 settings_preamble: ''
 usage: ''
 variant: birdiecare

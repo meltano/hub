@@ -28,6 +28,11 @@ settings:
   label: Builder API URL
   name: builder_api_url
   value: https://builder-api.decentraland.org/v1
+- description: Builder Asset Packs URL
+  kind: string
+  label: Builder Assetpacks URL
+  name: builder_assetpacks_url
+  value: https://builder-assetpacks-prd-bf9fae6.s3.amazonaws.com
 - description: ''
   kind: string
   label: Catalysts Start Date
@@ -77,11 +82,19 @@ settings:
   label: Places API URL
   name: places_api_url
   value: https://places.decentraland.org/api
+- description: Max rows to fetch from profile changes stream
+  kind: integer
+  label: Profile Stream Max Rows
+  name: profile_stream_max_rows
 - description: Scenes Per Run
   kind: integer
   label: Scenes Per Run
   name: scenes_per_run
   value: 2000
+- description: Max rows to fetch from store changes stream
+  kind: integer
+  label: Store Stream Max Rows
+  name: store_stream_max_rows
 - description: User-defined config values to be used within map expressions.
   kind: object
   label: Stream Map Config
@@ -96,6 +109,11 @@ settings:
   label: Sync Content After
   name: sync_content_after
   value: 1680998400000
+- description: World content server URL
+  kind: string
+  label: World Content Server URL
+  name: world_content_server_url
+  value: https://worlds-content-server.decentraland.org
 settings_group_validation:
 - []
 settings_preamble: ''

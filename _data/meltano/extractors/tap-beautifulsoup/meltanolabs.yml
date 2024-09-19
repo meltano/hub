@@ -32,6 +32,7 @@ settings:
   kind: object
   label: Find All Kwargs
   name: find_all_kwargs
+  value: {}
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean

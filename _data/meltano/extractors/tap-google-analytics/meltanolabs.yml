@@ -101,12 +101,6 @@ settings:
   name: key_file_location
   placeholder: Ex. $MELTANO_PROJECT_ROOT/client_secrets.json
   sensitive: true
-- description: Google Analytics Access Token. See 
-    https://developers.google.com/analytics/devguides/reporting/core/v4/authorization#OAuth2Authorizing.
-  kind: password
-  label: OAuth Credentials Access Token
-  name: oauth_credentials.access_token
-  sensitive: true
 - description: |
     See <https://developers.google.com/analytics/devguides/reporting/core/v4/authorization#OAuth2Authorizing>.
 
@@ -188,6 +182,10 @@ settings:
   label: Reports
   name: reports
   placeholder: Ex. my_report_definition.json
+- description: List of Google Analytics Reports Definitions
+  kind: array
+  label: Reports List
+  name: reports_list
 - description: This property determines how much historical data will be extracted.
     Please be aware that the larger the time period and amount of data, the longer
     the initial extraction can be expected to take.
