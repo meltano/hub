@@ -18,8 +18,8 @@ jobs:
   get_variants_list:
     runs-on: ubuntu-latest
     outputs:
-      sdk_ex_p1_matrix: ${{ steps.setmatrix_sdk_ex_p1.outputs.sdk_ex_matrix }}
-      sdk_ex_p2_matrix: ${{ steps.setmatrix_sdk_ex_p2.outputs.sdk_ex_matrix }}
+      sdk_ex_p1_matrix: ${{ steps.setmatrix_sdk_ex_p1.outputs.sdk_ex_p1_matrix }}
+      sdk_ex_p2_matrix: ${{ steps.setmatrix_sdk_ex_p2.outputs.sdk_ex_p2_matrix }}
 
     steps:
       - uses: actions/checkout@v4.1.7
