@@ -43,6 +43,13 @@ settings:
   label: Include Deleted
   name: include_deleted
   value: true
+- description: The number of days of data to reload from the current date (ignored
+    if current state of the extractor has a start date earlier than the current date
+    minus number of lookback days)
+  kind: integer
+  label: Lookback
+  name: lookback
+  value: 0
 - description: The earliest record date to sync
   kind: date_iso8601
   label: Start Date

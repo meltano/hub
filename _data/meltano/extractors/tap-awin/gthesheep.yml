@@ -28,6 +28,11 @@ settings:
   label: Lookback Days
   name: lookback_days
   value: 30
+- description: Number of days to batch in a single request. Maximum is 31.
+  kind: integer
+  label: Request Batch Size Days
+  name: request_batch_size_days
+  value: 1
 - description: The earliest transaction date to sync
   kind: date_iso8601
   label: Start Date
