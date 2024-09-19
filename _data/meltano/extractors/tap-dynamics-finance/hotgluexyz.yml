@@ -30,6 +30,10 @@ settings:
   label: Client Secret
   name: client_secret
   sensitive: true
+- description: ''
+  kind: string
+  label: Company
+  name: company
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean

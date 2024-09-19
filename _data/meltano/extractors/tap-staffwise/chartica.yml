@@ -28,23 +28,6 @@ settings:
   label: API Key
   name: api_key
   sensitive: true
-- description: Subdomain you would like to pull data from
-  kind: string
-  label: Subdomain
-  name: subdomain
-- description: Reporting ID of each report
-  kind: password
-  label: Reporting ID
-  name: reporting_id
-  sensitive: true
-- description: The start date for filtering results in the API call
-  kind: string
-  label: Start Date (Optional)
-  name: start_date
-- description: The end date for filtering results in the API call
-  kind: string
-  label: Stop Date (Optional)
-  name: stop_date
 - description: Compression format to use for batch files.
   kind: options
   label: Batch Config Encoding Compression
@@ -88,6 +71,19 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: Reporting ID of each report
+  kind: password
+  label: Reporting ID
+  name: reporting_id
+  sensitive: true
+- description: The start date for filtering results in the API call
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: The end date for filtering results in the API call
+  kind: string
+  label: Stop Date
+  name: stop_date
 - description: User-defined config values to be used within map expressions.
   kind: object
   label: Stream Map Config
@@ -97,6 +93,10 @@ settings:
   kind: object
   label: Stream Maps
   name: stream_maps
+- description: Subdomain you would like to pull data from
+  kind: string
+  label: Subdomain
+  name: subdomain
 settings_group_validation:
 - - api_key
   - reporting_id
