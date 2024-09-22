@@ -9,7 +9,7 @@ description: General purpose
 domain_url: https://www.mongodb.com/
 executable: tap-airbyte
 keywords:
-- airbyte_protocol'
+- airbyte_protocol
 - meltano_sdk
 label: MongoDB
 logo_url: /assets/logos/extractors/mongodb.png
