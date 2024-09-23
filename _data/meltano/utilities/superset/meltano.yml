@@ -127,16 +127,19 @@ settings:
   value: 0.0.0.0
 - description: Port used by `meltano invoke superset:ui`. Used in the `gunicorn` `--bind`
     option along with `ui.bind_host`.
+  kind: integer
   label: UI Port
   name: ui.port
   value: 8088
 - description: Timeout in sections, used by `meltano invoke superset:ui`. Corresponds
     to the `gunicorn` `--timeout` option
+  kind: integer
   label: UI Timeout
   name: ui.timeout
   value: 60
 - description: Workers used by `meltano invoke superset:ui`. Corresponds to the `gunicorn`
     `--workers` option
+  kind: integer
   label: UI Workers
   name: ui.workers
   value: 4

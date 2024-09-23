@@ -6,7 +6,7 @@ capabilities:
 - state
 - stream-maps
 description: ''
-domain_url: ''
+domain_url: https://www.abicart.com/
 executable: tap-abicart
 keywords:
 - meltano_sdk

@@ -1,5 +1,5 @@
 capabilities:
-- record-flattening
+- schema-flattening
 description: Data Warehouse and Unified Analytics Platform
 domain_url: https://www.vertica.com/
 executable: target-vertica

@@ -6,7 +6,7 @@ capabilities:
 - state
 - stream-maps
 description: General purpose
-domain_url: document-based
+domain_url: https://www.mongodb.com/
 executable: tap-airbyte
 keywords:
 - airbyte_protocol

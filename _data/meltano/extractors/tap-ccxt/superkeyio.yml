@@ -2,7 +2,7 @@ capabilities:
 - catalog
 - discover
 - state
-domain_url: ''
+domain_url: https://github.com/ccxt/ccxt
 keywords:
 - meltano_sdk
 label: CCXT

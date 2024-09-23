@@ -5,7 +5,7 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
-domain_url: ''
+domain_url: https://decentraland.org/
 keywords:
 - meltano_sdk
 label: Decentraland Thegraph
@@ -18,22 +18,28 @@ pip_url: git+https://github.com/decentraland/tap-decentraland-thegraph.git
 quality: silver
 repo: https://github.com/decentraland/tap-decentraland-thegraph
 settings:
+- description: ''
+  kind: array
+  label: Account Subgraph Paths
+  name: account_subgraph_paths
+  value:
+  - mana-ethereum-mainnet
+  - mana-matic-mainnet
 - description: The API URL.
   kind: string
   label: API URL
   name: api_url
-  value: https://api.thegraph.com/subgraphs/name/decentraland/marketplace
+  value: https://subgraph.decentraland.org/marketplace
 - description: Eth Collections Url
   kind: string
   label: Eth Collections URL
   name: eth_collections_url
-  value: 
-    https://api.thegraph.com/subgraphs/name/decentraland/collections-ethereum-mainnet
+  value: https://subgraph.decentraland.org/collections-ethereum-mainnet
 - description: Eth Mana Holder URL
   kind: string
   label: Eth Mana Holder URL
   name: eth_mana_holder_url
-  value: https://api.thegraph.com/subgraphs/name/decentraland/mana-ethereum-mainnet
+  value: https://subgraph.decentraland.org/mana-ethereum-mainnet
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -47,7 +53,11 @@ settings:
   kind: integer
   label: Incremental Limit
   name: incremental_limit
-  value: 50000
+- description: ''
+  kind: integer
+  label: Max Rows Per Run
+  name: max_rows_per_run
+  value: 1000
 - description: Poaps Details Url
   kind: string
   label: Poaps Details URL
@@ -62,17 +72,17 @@ settings:
   kind: string
   label: Polygon Collections URL
   name: polygon_collections_url
-  value: https://api.thegraph.com/subgraphs/name/decentraland/collections-matic-mainnet
+  value: https://subgraph.decentraland.org/collections-matic-mainnet
 - description: Polygon Mana Holder Url
   kind: string
   label: Polygon Mana Holder URL
   name: polygon_mana_holder_url
-  value: https://api.thegraph.com/subgraphs/name/decentraland/mana-matic-mainnet
+  value: https://subgraph.decentraland.org/mana-matic-mainnet
 - description: ''
   kind: string
   label: Rentals URL
   name: rentals_url
-  value: https://api.thegraph.com/subgraphs/name/decentraland/rentals-ethereum-mainnet
+  value: https://subgraph.decentraland.org/rentals-ethereum-mainnet
 - description: The start updated at date to use.
   kind: integer
   label: Start Updated At
@@ -86,6 +96,11 @@ settings:
   kind: object
   label: Stream Maps
   name: stream_maps
+- description: ''
+  kind: string
+  label: Subgraph URL
+  name: subgraph_url
+  value: https://subgraph.decentraland.org
 settings_group_validation:
 - []
 settings_preamble: ''

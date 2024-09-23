@@ -113,10 +113,6 @@ settings:
     value: aws
   sensitive: true
   value: aws
-- description: A flag indictating to flatten records.
-  kind: boolean
-  label: Flatten Records
-  name: flatten_records
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean

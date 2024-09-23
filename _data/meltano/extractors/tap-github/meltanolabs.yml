@@ -29,6 +29,12 @@ settings:
   kind: array
   label: Additional Auth Tokens
   name: additional_auth_tokens
+- description: List of GitHub App credentials to authenticate with. Each credential
+    can be constructed by combining an App ID and App private key into the format
+    `:app_id:;;-----BEGIN RSA PRIVATE KEY----- _YOUR_P_KEY_ -----END RSA PRIVATE KEY-----`.
+  kind: array
+  label: Auth App Keys
+  name: auth_app_keys
 - description: GitHub token to authenticate with.
   kind: password
   label: Auth Token
@@ -58,6 +64,10 @@ settings:
   kind: string
   label: Batch Config Storage Root
   name: batch_config.storage.root
+- description: ''
+  kind: integer
+  label: Expiry Time Buffer
+  name: expiry_time_buffer
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean

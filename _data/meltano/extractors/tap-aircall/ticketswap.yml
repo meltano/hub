@@ -7,7 +7,7 @@ capabilities:
 - state
 - stream-maps
 description: A Singer Tap for Aircall, built with the Meltano Tap SDK
-domain_url: ticketswap.com
+domain_url: https://aircall.io/
 executable: tap-aircall
 keywords:
 - meltano_sdk

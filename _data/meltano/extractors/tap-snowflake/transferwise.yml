@@ -23,6 +23,7 @@ settings:
   label: Database Name
   name: dbname
 - description: Use insecure mode to avoid "Failed to get OCSP response" warnings.
+  kind: boolean
   label: Insecure Mode
   name: insecure_mode
   value: false

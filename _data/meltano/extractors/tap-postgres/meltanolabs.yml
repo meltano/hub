@@ -98,6 +98,10 @@ settings:
   kind: string
   label: Host
   name: host
+- description: Optional. The maximum number of records to return in a single stream.
+  kind: integer
+  label: Max Record Count
+  name: max_record_count
 - description: Password used to authenticate. Note if sqlalchemy_url is set this will
     be ignored.
   kind: password

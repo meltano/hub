@@ -73,6 +73,7 @@ extractors:
   tap-brightpearl: zookal
   tap-brillium: manuelapilongo
   tap-bronto: dbt-labs
+  tap-businessmap: n8sty
   tap-bynder: radico
   tap-calendly: afonsodiniz
   tap-callrail: airbyte
@@ -176,6 +177,7 @@ extractors:
   tap-fastbill: airbyte
   tap-fastly: splitio
   tap-fauna: airbyte
+  tap-fedidb: edgarrmondragon
   tap-feed: jawats
   tap-file: airbyte
   tap-firebolt: airbyte
@@ -238,6 +240,7 @@ extractors:
   tap-hotjar: epoch8
   tap-hubplanner: airbyte
   tap-hubspot: singer-io
+  tap-iceberg: shaped-ai
   tap-idealo-click-report: horze-international
   tap-ilevel: singer-io
   tap-immuta: immuta
@@ -435,7 +438,7 @@ extractors:
   tap-rocket-chat: airbyte
   tap-rockgympro: cinchio
   tap-s3: airbyte
-  tap-s3-csv: transferwise
+  tap-s3-csv: s7clarke10
   tap-saasoptics: datarts-tech
   tap-sailthru: singer-io
   tap-salesforce: meltanolabs
@@ -490,6 +493,7 @@ extractors:
   tap-ssb-klass: storebrand
   tap-stackexchange: meltanolabs
   tap-stackoverflow-sampledata: buzzcutnorman
+  tap-staffwise: chartica
   tap-stamped: hotgluexyz
   tap-starshipit: zookal
   tap-statuspage: airbyte
@@ -615,6 +619,7 @@ loaders:
   target-clickhouse: shaped-ai
   target-csv: meltanolabs
   target-datadotworld: datadotworld
+  target-db2: infostrux
   target-duckdb: jwills
   target-elasticsearch: dtmirizzi
   target-gcs: datateer

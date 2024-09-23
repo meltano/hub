@@ -1,0 +1,116 @@
+capabilities:
+- about
+- batch
+- catalog
+- discover
+- schema-flattening
+- state
+- stream-maps
+description: Meltano Tap for ingesting Apache Iceberg data
+domain_url: https://iceberg.apache.org
+executable: tap-iceberg
+keywords:
+- meltano_sdk
+label: Iceberg
+logo_url: /assets/logos/extractors/iceberg.png
+maintenance_status: active
+name: tap-iceberg
+namespace: tap_iceberg
+next_steps: ''
+pip_url: git+https://github.com/shaped-ai/tap-iceberg.git
+quality: unknown
+repo: https://github.com/shaped-ai/tap-iceberg
+settings:
+- description: Compression format to use for batch files.
+  kind: options
+  label: Batch Config Encoding Compression
+  name: batch_config.encoding.compression
+  options:
+  - label: Gzip
+    value: gzip
+  - label: None
+    value: none
+- description: Format to use for batch files.
+  kind: options
+  label: Batch Config Encoding Format
+  name: batch_config.encoding.format
+  options:
+  - label: Jsonl
+    value: jsonl
+  - label: Parquet
+    value: parquet
+- description: Prefix to use when writing batch files.
+  kind: string
+  label: Batch Config Storage Prefix
+  name: batch_config.storage.prefix
+- description: Root path to use when writing batch files.
+  kind: string
+  label: Batch Config Storage Root
+  name: batch_config.storage.root
+- description: The name of the Iceberg catalog
+  kind: string
+  label: Catalog Name
+  name: catalog_name
+- description: Additional properties for the Iceberg catalog
+  kind: object
+  label: Catalog Properties
+  name: catalog_properties
+- description: The type of Iceberg catalog (e.g., 'hive', 'rest', 'glue')
+  kind: string
+  label: Catalog Type
+  name: catalog_type
+- description: The AWS access key ID for accessing S3/Glue catalogs
+  kind: password
+  label: Client Access Key ID
+  name: client_access_key_id
+  sensitive: true
+- description: The ARN of the IAM role to use for accessing S3/Glue catalog
+  kind: string
+  label: Client Iam Role Arn
+  name: client_iam_role_arn
+- description: The AWS region for accessing S3/Glue catalogs
+  kind: string
+  label: Client Region
+  name: client_region
+- description: The AWS secret access key for accessing S3/Glue catalogs
+  kind: password
+  label: Client Secret Access Key
+  name: client_secret_access_key
+  sensitive: true
+- description: The AWS session token for accessing S3/Glue catalogs
+  kind: password
+  label: Client Session Token
+  name: client_session_token
+  sensitive: true
+- description: 'One or more LCID locale strings to produce localized output for: https://faker.readthedocs.io/en/master/#localization'
+  kind: array
+  label: Faker Config Locale
+  name: faker_config.locale
+- description: 'Value to seed the Faker generator for deterministic output: https://faker.readthedocs.io/en/master/#seeding-the-generator'
+  kind: string
+  label: Faker Config Seed
+  name: faker_config.seed
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+settings_group_validation:
+- - catalog_name
+  - catalog_type
+settings_preamble: ''
+usage: ''
+variant: shaped-ai
