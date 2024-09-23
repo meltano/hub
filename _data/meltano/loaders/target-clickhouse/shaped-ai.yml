@@ -183,6 +183,10 @@ settings:
   label: Verify
   name: verify
   value: true
+- description: The list of columns to order by when loading data into the destination.
+  kind: array
+  label: Order By Keys
+  name: order_by_keys
 settings_group_validation:
 - - sqlalchemy_url
 settings_preamble: ''
