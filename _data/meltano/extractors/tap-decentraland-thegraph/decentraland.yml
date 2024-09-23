@@ -72,7 +72,8 @@ settings:
   kind: string
   label: Polygon Collections URL
   name: polygon_collections_url
-  value: https://subgraph.decentraland.org/collections-matic-mainnet
+  value: 
+    https://subgraph.satsuma-prod.com/6449124f8b9b/decentraland/collections-matic-mainnet/version/v1.7.1-rc/api
 - description: Polygon Mana Holder Url
   kind: string
   label: Polygon Mana Holder URL
