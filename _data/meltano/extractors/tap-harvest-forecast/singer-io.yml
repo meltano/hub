@@ -59,5 +59,14 @@ usage: |
 
   Visit the [developer tools](https://id.getharvest.com/developers) page on Harvest's website and create a new oauth token.
 
-  Paste the Client ID you got from the above page in the url of a browser like https://id.getharvest.com/oauth2/authorize?client_id={OAUTH_CLIENT_ID}&response_type=code. Now you're able to login, click 'authorize app' and then are redirected to a url like this https://id.getharvest.com/oauth2/authorize?code={OAUTH_REFRESH_TOKEN}&scope=all. You will use this OAUTH_REFRESH_TOKEN in the following step to configure the oauth application.
+  Paste the Client ID you got from the above page in the url of a browser like https://id.getharvest.com/oauth2/authorize?client_id={OAUTH_CLIENT_ID}&response_type=code. Now you're able to login, click 'authorize app' and then are redirected to a url like this https://id.getharvest.com/oauth2/authorize?code={AUTHORIZATION_CODE}&scope=forecast%3A{ACCOUNT_ID}. Use the ACCOUNT_ID for the account_id setting. Copy the AUTHORIZATION_CODE into this curl command to get the REFRESH_TOKEN for the refresh_token setting:
+
+  ```curl -X POST \
+  -H "User-Agent: MyApp (yourname@example.com)" \
+  -d "code=$AUTHORIZATION_CODE" \
+  -d "client_id=$CLIENT_ID" \
+  -d "client_secret=$CLIENT_SECRET" \
+  -d "grant_type=authorization_code" \
+  'https://id.getharvest.com/api/v2/oauth2/token'
+  ```
 variant: singer-io
