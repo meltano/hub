@@ -61,7 +61,8 @@ usage: |
 
   Paste the Client ID you got from the above page in the url of a browser like https://id.getharvest.com/oauth2/authorize?client_id={OAUTH_CLIENT_ID}&response_type=code. Now you're able to login, click 'authorize app' and then are redirected to a url like this https://id.getharvest.com/oauth2/authorize?code={AUTHORIZATION_CODE}&scope=forecast%3A{ACCOUNT_ID}. Use the ACCOUNT_ID for the account_id setting. Copy the AUTHORIZATION_CODE into this curl command to get the REFRESH_TOKEN for the refresh_token setting:
 
-  ```curl -X POST \
+  ```
+  curl -X POST \
   -H "User-Agent: MyApp (yourname@example.com)" \
   -d "code=$AUTHORIZATION_CODE" \
   -d "client_id=$CLIENT_ID" \
