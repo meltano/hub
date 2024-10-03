@@ -1,0 +1,76 @@
+capabilities:
+- catalog
+- discover
+- state
+description:
+  This tap generates test data complying with the JSON Schema passed as
+  input. Useful for Data Driven Testing (DDT).
+domain_url: https://github.com/ericlebail/tap-test-data-generator
+executable: tap-test-data-generator
+keywords:
+- test
+- fake
+label: Test Data Generator
+logo_url: /assets/logos/python.svg
+maintenance_status: active
+name: tap-test-data-generator
+namespace: tap_test_data_generator
+next_steps: ""
+pip_url: git+https://github.com/ericlebail/tap-test-data-generator.git
+quality: gold
+repo: https://github.com/ericlebail/tap-test-data-generator
+settings:
+- description: path to directory that contains JSON schema file(s).
+  kind: string
+  label: Schema Directory
+  name: schema_dir
+- description: path to directory that contains Singer Metadata file(s).
+  kind: string
+  label: Metadata Directory
+  name: metadata_dir
+- description: path to directory that contains JSON static inputs file.
+  kind: string
+  label: Static Input Directory
+  name: static_input_dir
+- description: path to the directory that contains repositories JSON files.
+  kind: string
+  label: Object Repository Directory
+  name: object_repository_dir
+- description: The default number of generated records (if not override)
+  kind: integer
+  label: Record Number
+  name: record_number
+- description:
+    boolean, if true the previous record number is generated ignoring the
+    number of possible permutation number computed by pairwise algorithm
+  kind: boolean
+  label: Apply Record Number on Pairwise
+  name: apply_record_number_on_pairwise
+- description:
+    boolean, if true a "pairwise_hash" property is added to the generated
+    data to identify the Pair used by each record.
+  kind: boolean
+  label: Generate Pairwise Hash
+  name: generate_pairwise_hash
+- description: list of locale for generated data Faker Documentation
+  kind: array
+  label: Data Locale List
+  name: data_locale_list
+- description: Optional frequency in percent of Null values generated.
+  kind: integer
+  label: Null Percent
+  name: null_percent
+- description: Stream specific configuration.
+  kind: object
+  label: Stream Configs
+  name: stream_config
+settings_group_validation:
+- - schema_dir
+  - metadata_dir
+  - object_repository_dir
+  - record_number
+  - apply_record_number_on_pairwise
+  - generate_pairwise_hash
+settings_preamble: ""
+usage: ""
+variant: ericlebail
