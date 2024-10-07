@@ -22,7 +22,7 @@ jobs:
       sdk_ex_p2_matrix: ${{ steps.setmatrix_sdk_ex_p2.outputs.sdk_ex_p2_matrix }}
 
     steps:
-      - uses: actions/checkout@v4.2.0
+      - uses: actions/checkout@v4.2.1
 
       - name: Install hub-utils
         run: pipx install git+https://github.com/meltano/hub-utils.git
@@ -60,7 +60,7 @@ jobs:
     permissions:
       id-token: write # This is required for requesting the JWT
     steps:
-    - uses: actions/checkout@v4.2.0
+    - uses: actions/checkout@v4.2.1
 
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v4.0.2
@@ -145,7 +145,7 @@ jobs:
     permissions:
       id-token: write # This is required for requesting the JWT
     steps:
-    - uses: actions/checkout@v4.2.0
+    - uses: actions/checkout@v4.2.1
 
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v4.0.2
