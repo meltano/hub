@@ -1,11 +1,11 @@
 capabilities:
-- catalog
-- state
-- discover
 - about
-- stream-maps
-- schema-flattening
 - batch
+- catalog
+- discover
+- schema-flattening
+- state
+- stream-maps
 description: The Open Source Qualtrics Alternative
 domain_url: https://formbricks.com/
 executable: tap-formbricks
@@ -26,41 +26,6 @@ settings:
   label: API Key
   name: api_key
   sensitive: true
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: Stream Map Config
-  name: stream_map_config
-- description: 'Value to seed the Faker generator for deterministic output: https://faker.readthedocs.io/en/master/#seeding-the-generator'
-  kind: string
-  label: Faker Config Seed
-  name: faker_config.seed
-- description: 'One or more LCID locale strings to produce localized output for: https://faker.readthedocs.io/en/master/#localization'
-  kind: array
-  label: Faker Config Locale
-  name: faker_config.locale
-- description: "'True' to enable schema flattening and automatically expand nested
-    properties."
-  kind: boolean
-  label: Flattening Enabled
-  name: flattening_enabled
-- description: The max depth to flatten schemas.
-  kind: integer
-  label: Flattening Max Depth
-  name: flattening_max_depth
-- description: Format to use for batch files.
-  kind: options
-  label: Batch Config Encoding Format
-  name: batch_config.encoding.format
-  options:
-  - label: Jsonl
-    value: jsonl
-  - label: Parquet
-    value: parquet
 - description: Compression format to use for batch files.
   kind: options
   label: Batch Config Encoding Compression
@@ -70,14 +35,49 @@ settings:
     value: gzip
   - label: None
     value: none
-- description: Root path to use when writing batch files.
-  kind: string
-  label: Batch Config Storage Root
-  name: batch_config.storage.root
+- description: Format to use for batch files.
+  kind: options
+  label: Batch Config Encoding Format
+  name: batch_config.encoding.format
+  options:
+  - label: Jsonl
+    value: jsonl
+  - label: Parquet
+    value: parquet
 - description: Prefix to use when writing batch files.
   kind: string
   label: Batch Config Storage Prefix
   name: batch_config.storage.prefix
+- description: Root path to use when writing batch files.
+  kind: string
+  label: Batch Config Storage Root
+  name: batch_config.storage.root
+- description: 'One or more LCID locale strings to produce localized output for: https://faker.readthedocs.io/en/master/#localization'
+  kind: array
+  label: Faker Config Locale
+  name: faker_config.locale
+- description: 'Value to seed the Faker generator for deterministic output: https://faker.readthedocs.io/en/master/#seeding-the-generator'
+  kind: string
+  label: Faker Config Seed
+  name: faker_config.seed
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 settings_group_validation:
 - - api_key
 settings_preamble: ''
