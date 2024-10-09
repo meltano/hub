@@ -1,0 +1,33 @@
+{
+    "name": "tap-example",
+    "description": "Singer.io tap for extracting data from example",
+    "version": "0.1.0",
+    "sdk_version": "0.40.0",
+    "capabilities": [
+        "catalog",
+        "state",
+        "discover",
+        "about",
+        "stream-maps",
+        "schema-flattening"
+    ],
+    "settings": {
+        "type": "object",
+        "properties": {
+            "username": {
+                "type": "string",
+                "description": "The username to use when authenticating with the API"
+            },
+            "password": {
+                "type": "string",
+                "description": "The password to use when authenticating with the API"
+            },
+            "cmo": {
+                "type": ["string", "null"],
+                "title": "Client Management Organization",
+                "description": "The client management organization to use when authenticating with the API"
+            }
+        },
+        "required": ["username", "password"]
+    }
+}

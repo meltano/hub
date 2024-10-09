@@ -124,6 +124,34 @@ def test_sdk_about_parsing_2():
     ]
 
 
+def test_sdk_about_parsing_3():
+    sdk_about_dict = _read_data('tap_with_rich_config_schema.json')
+
+    settings, _, _ = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
+
+    assert settings == [
+        {
+            "name": "username",
+            "label": "Username",
+            "description": "The username to use when authenticating with the API",
+            "kind": "string"
+        },
+        {
+            "name": "password",
+            "label": "Password",
+            "description": "The password to use when authenticating with the API",
+            "kind": "password",
+            "sensitive": True,
+        },
+        {
+            "name": "cmo",
+            "label": "Client Management Organization",
+            "description": "The client management organization to use when authenticating with the API",
+            "kind": "string"
+        },
+    ]
+
+
 def test_sdk_about_parsing_airbyte():
     sdk_about_dict = _read_data('airbyte_s3_about.json')
 
@@ -145,39 +173,39 @@ def test_sdk_about_parsing_airbyte():
         },
         {
             "name": "connector_config.dataset",
-            "label": "Connector Config Dataset",
+            "label": "Output Stream Name",
             "description": "The name of the stream you would like this source to output. Can contain letters, numbers, or underscores.",
             "kind": "string"
         },
         {
             "name": "connector_config.path_pattern",
-            "label": "Connector Config Path Pattern",
+            "label": "Pattern of files to replicate",
             "description": "A regular expression which tells the connector which files to replicate. All files which match this pattern will be replicated. Use | to separate multiple patterns. See <a href=\"https://facelessuser.github.io/wcmatch/glob/\" target=\"_blank\">this page</a> to understand pattern syntax (GLOBSTAR and SPLIT flags are enabled). Use pattern <strong>**</strong> to pick up all files.",
             "kind": "string"
         },
         # Format
         {
             "name": "connector_config.format.filetype",
-            "label": "Connector Config Format Filetype",
+            "label": "Filetype",
             "description": "Csv, Parquet",
             "kind": "string"
         },
         {
             "name": "connector_config.format.delimiter",
-            "label": "Connector Config Format Delimiter",
+            "label": "Delimiter",
             "description": "The character delimiting individual cells in the CSV data. This may only be a 1-character string. For tab-delimited data enter '\\t'.",
             "kind": "string",
             "value": ","
         },
         {
             "name": "connector_config.format.columns",
-            "label": "Connector Config Format Columns",
+            "label": "Selected Columns",
             "description": "If you only want to sync a subset of the columns from the file(s), add the columns you want here as a comma-delimited list. Leave it empty to sync all columns.",
             "kind": "array"
         },
         {
             "name": "connector_config.format.buffer_size",
-            "label": "Connector Config Format Buffer Size",
+            "label": "Buffer Size",
             "description": "Perform read buffering when deserializing individual column chunks. By default every group column will be loaded fully to memory. This option can help avoid out-of-memory errors if your data is particularly wide.",
             "kind": "integer",
             "value": 2
@@ -185,35 +213,35 @@ def test_sdk_about_parsing_airbyte():
         # End after tweaks
         {
             "name": "connector_config.schema",
-            "label": "Connector Config Schema",
+            "label": "Manually enforced data schema",
             "description": "Optionally provide a schema to enforce, as a valid JSON string. Ensure this is a mapping of <strong>{ \"column\" : \"type\" }</strong>, where types are valid <a href=\"https://json-schema.org/understanding-json-schema/reference/type.html\" target=\"_blank\">JSON Schema datatypes</a>. Leave as {} to auto-infer the schema.",
             "kind": "string",
             "value": "{}"
         },
         {
             "name": "connector_config.provider.bucket",
-            "label": "Connector Config Provider Bucket",
+            "label": "Bucket",
             "description": "Name of the S3 bucket where the file(s) exist.",
             "kind": "password",
             "sensitive": True,
         },
         {
             "name": "connector_config.provider.aws_access_key_id",
-            "label": "Connector Config Provider AWS Access Key ID",
+            "label": "AWS Access Key ID",
             "description": "In order to access private Buckets stored on AWS S3, this connector requires credentials with the proper permissions. If accessing publicly available data, this field is not necessary.",
             "kind": "password",
             "sensitive": True,
         },
         {
             "name": "connector_config.provider.aws_secret_access_key",
-            "label": "Connector Config Provider AWS Secret Access Key",
+            "label": "AWS Secret Access Key",
             "description": "In order to access private Buckets stored on AWS S3, this connector requires credentials with the proper permissions. If accessing publicly available data, this field is not necessary.",
             "kind": "password",
             "sensitive": True,
         },
         {
             "name": "connector_config.provider.path_prefix",
-            "label": "Connector Config Provider Path Prefix",
+            "label": "Path Prefix",
             "description": "By providing a path-like prefix (e.g. myFolder/thisTable/) under which all the relevant files sit, we can optimize finding these in S3. This is optional but recommended if your bucket contains many folders/files which you don't need to replicate.",
             "kind": "password",
             "sensitive": True,
@@ -221,7 +249,7 @@ def test_sdk_about_parsing_airbyte():
         },
         {
             "name": "connector_config.provider.endpoint",
-            "label": "Connector Config Provider Endpoint",
+            "label": "Endpoint",
             "description": "Endpoint to an S3 compatible service. Leave empty to use AWS.",
             "kind": "password",
             "sensitive": True,
@@ -294,7 +322,7 @@ def test_airbyte_array_enum_array():
     assert settings == [
         {
             "name": "connector_config.metrics",
-            "label": "Connector Config Metrics",
+            "label": "Metrics to ingest",
             "description": "Select at least one metric to query.",
             "kind": "array",
         }
@@ -316,7 +344,7 @@ def test_airbyte_array_enum_string():
     assert settings == [
         {
             "name": "connector_config.region",
-            "label": "Connector Config Region",
+            "label": "AWS Region",
             "description": "AWS Region of the SQS Queue",
             "kind": "options",
             "options": [

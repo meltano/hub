@@ -277,6 +277,7 @@ class MeltanoUtil:
         base_required = settings_raw.get("required", [])
         for settings in MeltanoUtil._traverse_schema_properties(settings_raw):
             name = settings.get("name")
+            title = settings.get("title")
             description = MeltanoUtil._handle_description(
                 MeltanoUtil._clean_description(settings.get("description")),
                 name,
@@ -284,7 +285,7 @@ class MeltanoUtil:
             )
             setting_details = {
                 "name": name,
-                "label": MeltanoUtil._get_label(name),
+                "label": title or MeltanoUtil._get_label(name),
                 "description": description,
             }
             kind = MeltanoUtil._get_kind_from_type(
