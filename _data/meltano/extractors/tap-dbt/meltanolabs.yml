@@ -16,7 +16,7 @@ logo_url: /assets/logos/extractors/dbt.png
 maintenance_status: active
 name: tap-dbt
 namespace: tap_dbt
-pip_url: git+https://github.com/meltanolabs/tap-dbt.git
+pip_url: 0.12.3.post1
 quality: gold
 repo: https://github.com/meltanolabs/tap-dbt
 settings:
@@ -95,7 +95,7 @@ settings:
   kind: string
   label: User Agent
   name: user_agent
-  value: tap-dbt/0.12.3.post1.dev8+a4e0b7b Singer tap for the dbt Cloud API.
+  value: tap-dbt/0.12.3.post1 Singer tap for the dbt Cloud API.
 settings_group_validation:
 - - account_ids
   - api_key
