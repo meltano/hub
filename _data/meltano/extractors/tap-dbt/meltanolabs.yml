@@ -16,7 +16,7 @@ logo_url: /assets/logos/extractors/dbt.png
 maintenance_status: active
 name: tap-dbt
 namespace: tap_dbt
-pip_url: 0.12.3.post1
+pip_url: tap-dbt
 quality: gold
 repo: https://github.com/meltanolabs/tap-dbt
 settings:
