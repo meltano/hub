@@ -79,6 +79,21 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: LinkedIn Ads Client ID
+  kind: password
+  label: OAuth Credentials Client ID
+  name: oauth_credentials.client_id
+  sensitive: true
+- description: LinkedIn Ads Client Secret
+  kind: password
+  label: OAuth Credentials Client Secret
+  name: oauth_credentials.client_secret
+  sensitive: true
+- description: LinkedIn Ads Refresh Token
+  kind: password
+  label: OAuth Credentials Refresh Token
+  name: oauth_credentials.refresh_token
+  sensitive: true
 - description: LinkedInAds Owner ID
   kind: string
   label: Owner

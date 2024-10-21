@@ -56,6 +56,8 @@ settings:
   options:
   - label: Jsonl
     value: jsonl
+  - label: Parquet
+    value: parquet
 - description: Prefix to use when writing batch files.
   kind: string
   label: Batch Config Storage Prefix
@@ -117,6 +119,19 @@ settings:
   kind: object
   label: Stream Maps
   name: stream_maps
+- description: Configures which states are of interest. Must be one of [open, closed,
+    all], defaults to open.
+  kind: options
+  label: Stream Options Milestones State
+  name: stream_options.milestones.state
+  options:
+  - label: Open
+    value: open
+  - label: Closed
+    value: closed
+  - label: All
+    value: all
+  value: open
 - description: ''
   kind: string
   label: User Agent
