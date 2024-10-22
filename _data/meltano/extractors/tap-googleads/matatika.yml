@@ -47,6 +47,8 @@ settings:
   label: Batch Config Storage Root
   name: batch_config.storage.root
 - description: |
+    **DEPRECATED**: use `customer_ids`
+
     Get data for a customer by the provided ID. Defaults to all customers accessible to
     the authenticated principal.
   hidden: true
