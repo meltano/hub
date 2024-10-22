@@ -47,16 +47,17 @@ settings:
   label: Batch Config Storage Root
   name: batch_config.storage.root
 - description: |
+    Get data for a customer by the provided ID. Defaults to all customers accessible to
+    the authenticated principal.
+  hidden: true
+  label: Customer ID
+  name: customer_id
+- description: |
     Get data for customers by the provided IDs. Defaults to all customers accessible to
     the authenticated principal.
   kind: array
   label: Customer IDs
   name: customer_ids
-- description: |
-    Get data for a customer by the provided ID. Defaults to all customers accessible to
-    the authenticated principal.
-  label: Customer ID
-  name: customer_id
 - description: Developer Token (Required) - [Obtain your developer token](https://developers.google.com/google-ads/api/docs/first-call/dev-token)
   kind: password
   label: Developer Token
