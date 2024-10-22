@@ -16,7 +16,7 @@ logo_url: /assets/logos/extractors/googleads.png
 maintenance_status: active
 name: tap-googleads
 namespace: tap_googleads
-pip_url: git+https://github.com/Matatika/tap-googleads.git@v0.5.0
+pip_url: git+https://github.com/Matatika/tap-googleads.git@v0.8.0
 quality: gold
 repo: https://github.com/Matatika/tap-googleads
 settings:
@@ -46,17 +46,36 @@ settings:
   kind: string
   label: Batch Config Storage Root
   name: batch_config.storage.root
-- description: Customer ID (Required) of the google ads account you want to sync data
-    from.
-  kind: password
+- description: |
+    **DEPRECATED**: use `customer_ids`
+
+    Get data for a customer by the provided ID. Defaults to all customers accessible to
+    the authenticated principal.
+  hidden: true
   label: Customer ID
   name: customer_id
-  sensitive: true
+- description: |
+    Get data for customers by the provided IDs. Defaults to all customers accessible to
+    the authenticated principal.
+  kind: array
+  label: Customer IDs
+  name: customer_ids
 - description: Developer Token (Required) - [Obtain your developer token](https://developers.google.com/google-ads/api/docs/first-call/dev-token)
   kind: password
   label: Developer Token
   name: developer_token
   sensitive: true
+- description: |
+    Enable the click view report stream. Default to `false`. This requires certain
+    permissions to be set for your Google Ads account(s).
+  kind: boolean
+  label: Enable Click View Report Stream
+  name: enable_click_view_report_stream
+  value: false
+- description: Date to sync data up to (ISO8601). Defaults to the current day.
+  kind: date_iso8601
+  label: End Date
+  name: end_date
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -66,6 +85,12 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: |
+    If authenticated as a manager account, `login_customer_id` should be set to the
+    customer ID of the manager account. Read about the [login customer ID concept](https://developers.google.com/search-ads/reporting/concepts/login-customer-id)
+    for more info.
+  label: Login Customer ID
+  name: login_customer_id
 - description: OAuth Client ID (Required)  - [Obtain your 
     credentials](https://developers.google.com/adwords/api/docs/guides/authentication)
   kind: password
@@ -84,6 +109,11 @@ settings:
   label: OAuth Credentials Refresh Token
   name: oauth_credentials.refresh_token
   sensitive: true
+- description: |
+    Date to sync data from (ISO8601). Defaults to 90 days before the current day.
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
 - description: User-defined config values to be used within map expressions.
   kind: object
   label: Stream Map Config
@@ -93,5 +123,9 @@ settings:
   kind: object
   label: Stream Maps
   name: stream_maps
-settings_group_validation: []
+settings_group_validation:
+- - client_id
+  - client_secret
+  - developer_token
+  - refresh_token
 variant: matatika
