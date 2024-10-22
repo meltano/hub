@@ -155,10 +155,12 @@ export default {
   },
   computed: {
     $settingsWithHref() {
-      return this.settings.map((setting) => ({
-        ...setting,
-        href: `#${setting.name.replace(/\./g, "-")}-setting`,
-      }));
+      return this.settings
+        .filter((setting) => !setting.hidden && setting.kind !== "hidden")
+        .map((setting) => ({
+          ...setting,
+          href: `#${setting.name.replace(/\./g, "-")}-setting`,
+        }));
     },
     $isSdkPlugin() {
       return this.$page.plugins.keywords.includes("meltano_sdk");

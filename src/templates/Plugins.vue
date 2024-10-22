@@ -542,6 +542,7 @@ query Plugins($path: String!, $name: String!) {
       label
       description
       description_rendered
+      hidden
       kind
       placeholder
       value
