@@ -49,6 +49,7 @@ settings:
 - description: |
     Get data for customers by the provided IDs. Defaults to all customers accessible to
     the authenticated principal.
+  kind: array
   label: Customer IDs
   name: customer_ids
 - description: |
