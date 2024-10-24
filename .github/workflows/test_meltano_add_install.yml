@@ -53,6 +53,11 @@ jobs:
       - name: Setup test project
         run: meltano init --no-usage-stats test-project
 
+      - name: Configure Meltano
+        working-directory: test-project
+        run: |
+          meltano config meltano set venv.backend uv
+
       - name: Test add
         working-directory: test-project
         run: |
