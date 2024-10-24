@@ -42,11 +42,21 @@ jobs:
         with:
           python-version: 3.9
 
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+        with:
+          version: "0.4.26"
+
       - name: Install Meltano
-        run: pipx install meltano
+        run: uv tool install meltano
 
       - name: Setup test project
         run: meltano init --no-usage-stats test-project
+
+      - name: Configure Meltano
+        working-directory: test-project
+        run: |
+          meltano config meltano set venv.backend uv
 
       - name: Test add
         working-directory: test-project
@@ -59,4 +69,4 @@ jobs:
 
       - name: Test install
         working-directory: test-project
-        run: meltano install --force
+        run: meltano install
