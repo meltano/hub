@@ -93,7 +93,12 @@ settings:
   label: Private Key Passphrase
   name: private_key_passphrase
   sensitive: true
-- description: Path to file containing private key.
+- description: Private key contents. For KeyPair authentication either `private_key` or `private_key_path` must be provided.
+  kind: password
+  label: Private Key
+  name: private_key
+  sensitive: true
+- description: Path to file containing private key. For KeyPair authentication either `private_key` or `private_key_path` must be provided.
   kind: password
   label: Private Key Path
   name: private_key_path
