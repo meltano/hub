@@ -51,12 +51,12 @@ settings:
 
     Get data for a customer by the provided ID. Defaults to all customers accessible to
     the authenticated principal.
-  hidden: true
+  kind: password
   label: Customer ID
   name: customer_id
-- description: |
-    Get data for customers by the provided IDs. Defaults to all customers accessible to
-    the authenticated principal.
+  sensitive: true
+- description: Get data for the provided customers only, rather than all accessible
+    customers. Takes precedence over `customer_id`.
   kind: array
   label: Customer IDs
   name: customer_ids
@@ -72,10 +72,19 @@ settings:
   label: Enable Click View Report Stream
   name: enable_click_view_report_stream
   value: false
-- description: Date to sync data up to (ISO8601). Defaults to the current day.
+- description: ISO end date for all of the streams that use date-based filtering.
+    Defaults to the current day.
   kind: date_iso8601
   label: End Date
   name: end_date
+- description: 'One or more LCID locale strings to produce localized output for: https://faker.readthedocs.io/en/master/#localization'
+  kind: array
+  label: Faker Config Locale
+  name: faker_config.locale
+- description: 'Value to seed the Faker generator for deterministic output: https://faker.readthedocs.io/en/master/#seeding-the-generator'
+  kind: string
+  label: Faker Config Seed
+  name: faker_config.seed
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -89,28 +98,16 @@ settings:
     If authenticated as a manager account, `login_customer_id` should be set to the
     customer ID of the manager account. Read about the [login customer ID concept](https://developers.google.com/search-ads/reporting/concepts/login-customer-id)
     for more info.
+  kind: password
   label: Login Customer ID
   name: login_customer_id
-- description: OAuth Client ID (Required)  - [Obtain your 
-    credentials](https://developers.google.com/adwords/api/docs/guides/authentication)
-  kind: password
-  label: OAuth Credentials Client ID
-  name: oauth_credentials.client_id
   sensitive: true
-- description: OAuth Client Secret (Required) - [Obtain your 
-    credentials](https://developers.google.com/adwords/api/docs/guides/authentication)
-  kind: password
-  label: OAuth Credentials Client Secret
-  name: oauth_credentials.client_secret
-  sensitive: true
-- description: OAuth Refresh Token (Required) - [Obtain your 
-    credentials](https://developers.google.com/adwords/api/docs/guides/authentication)
-  kind: password
-  label: OAuth Credentials Refresh Token
-  name: oauth_credentials.refresh_token
-  sensitive: true
-- description: |
-    Date to sync data from (ISO8601). Defaults to 90 days before the current day.
+- description: ''
+  kind: string
+  label: OAuth Credentials
+  name: oauth_credentials
+- description: ISO start date for all of the streams that use date-based filtering.
+    Defaults to 90 days before the current day.
   kind: date_iso8601
   label: Start Date
   name: start_date
