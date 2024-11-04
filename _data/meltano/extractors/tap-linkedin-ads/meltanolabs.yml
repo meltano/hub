@@ -26,10 +26,6 @@ settings:
   label: Access Token
   name: access_token
   sensitive: true
-- description: LinkedInAds Account ID
-  kind: string
-  label: Accounts
-  name: accounts
 - description: Compression format to use for batch files.
   kind: options
   label: Batch Config Encoding Compression
@@ -46,6 +42,8 @@ settings:
   options:
   - label: Jsonl
     value: jsonl
+  - label: Parquet
+    value: parquet
 - description: Prefix to use when writing batch files.
   kind: string
   label: Batch Config Storage Prefix
@@ -54,22 +52,18 @@ settings:
   kind: string
   label: Batch Config Storage Root
   name: batch_config.storage.root
-- description: LinkedInAds Campaign ID
-  kind: string
-  label: Campaign
-  name: campaign
-- description: LinkedInAds Campaign Group ID. Used for the campaign_group stream
-  kind: string
-  label: Campaign Group
-  name: campaign_group
-- description: LinkedInAds Creative ID. Used for the creative stream
-  kind: string
-  label: Creative
-  name: creative
 - description: The latest record date to sync
   kind: date_iso8601
   label: End Date
   name: end_date
+- description: 'One or more LCID locale strings to produce localized output for: https://faker.readthedocs.io/en/master/#localization'
+  kind: array
+  label: Faker Config Locale
+  name: faker_config.locale
+- description: 'Value to seed the Faker generator for deterministic output: https://faker.readthedocs.io/en/master/#seeding-the-generator'
+  kind: string
+  label: Faker Config Seed
+  name: faker_config.seed
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -94,10 +88,6 @@ settings:
   label: OAuth Credentials Refresh Token
   name: oauth_credentials.refresh_token
   sensitive: true
-- description: LinkedInAds Owner ID
-  kind: string
-  label: Owner
-  name: owner
 - description: The earliest record date to sync
   kind: date_iso8601
   label: Start Date
