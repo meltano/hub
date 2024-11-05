@@ -38,7 +38,7 @@ jobs:
         id: setmatrix_sdk_ex_p1
         run: |
            matrixStringifiedObject="{\"include\": ${{ steps.get-variants-list-sdk-ex-p1.outputs.VARIANTS_SDK_EX_P1 }}}"
-           echo "sdk_ex_p1_matrix=$matrixStringifiedObject" >> $GITHUB_ENV
+           echo "sdk_ex_p1_matrix=$matrixStringifiedObject" >> $GITHUB_OUTPUT
 
       - name: Get Variants List - SDK Extractors (p2)
         id: get-variants-list-sdk-ex-p2
@@ -48,7 +48,7 @@ jobs:
         id: setmatrix_sdk_ex_p2
         run: |
            matrixStringifiedObject="{\"include\": ${{ steps.get-variants-list-sdk-ex-p2.outputs.VARIANTS_SDK_EX_P2 }}}"
-           echo "sdk_ex_p2_matrix=$matrixStringifiedObject" >> $GITHUB_ENV
+           echo "sdk_ex_p2_matrix=$matrixStringifiedObject" >> $GITHUB_OUTPUT
 
   metadata_extract_sdk_ex_p1:
     name: SDK Extractors - Metadata Extract (p1)

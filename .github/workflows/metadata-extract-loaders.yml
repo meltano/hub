@@ -37,7 +37,7 @@ jobs:
         id: setmatrix_sdk_loaders
         run: |
            matrixStringifiedObject="{\"include\": ${{ steps.get-variants-list-sdk-loaders.outputs.VARIANTS_SDK_LOADERS }}}"
-           echo "sdk_loaders_matrix=$matrixStringifiedObject" >> $GITHUB_ENV
+           echo "sdk_loaders_matrix=$matrixStringifiedObject" >> $GITHUB_OUTPUT
 
   metadata_extract_sdk_loaders:
     name: SDK Loaders - Metadata Extract
