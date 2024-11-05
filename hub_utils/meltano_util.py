@@ -173,6 +173,7 @@ class MeltanoUtil:
                 .replace("Ssl", "SSL")
                 .replace("Gzip", "GZIP")
                 .replace("Jsonl", "JSONL")
+                .replace("Sqlalchemy", "SQLAlchemy")
             )
         return " ".join(new_label)
 
