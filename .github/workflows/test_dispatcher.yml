@@ -39,7 +39,7 @@ jobs:
         run: echo "matrix={\"changed_file\":${{ steps.filter_files.outputs.filtered_files }}}" >> "$GITHUB_OUTPUT"
 
   dispatch_tests:
-    name: Dispatch tests for ${{ matrix.name }} (${{ matrix.variant }})
+    name: Dispatch tests
     runs-on: ubuntu-latest
     needs:
       - get_changed_files
