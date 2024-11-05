@@ -1,5 +1,7 @@
 import json
 import pathlib
+import shlex
+import shutil
 import subprocess
 import tempfile
 
@@ -15,17 +17,30 @@ class MeltanoUtil:
         return pathlib.Path(__file__).parent.resolve()
 
     @staticmethod
-    def add(plugin_name, namespace, executable, pip_url, plugin_type):
-        python_version = subprocess.run(
-            "which python".split(" "), stdout=subprocess.PIPE, text=True
-        ).stdout.replace("\n", "")
+    def add(
+        plugin_name,
+        namespace,
+        executable,
+        pip_url,
+        plugin_type,
+        python: str | None = None,
+    ):
+        python_version = python or shutil.which("python")
         subprocess.run(
-            f"pipx uninstall {plugin_name}".split(" "),
+            shlex.split(f"pipx uninstall {plugin_name}"),
             stdout=subprocess.PIPE,
             text=True,
         )
         subprocess.run(
-            f"pipx install {pip_url} --python {python_version}".split(" "),
+            [
+                "pipx",
+                "install",
+                pip_url,
+                "--python",
+                python_version,
+                "--preinstall",
+                "setuptools",
+            ],
             stdout=subprocess.PIPE,
             text=True,
             check=True,
@@ -38,14 +53,14 @@ class MeltanoUtil:
                 json.dump(config, tmp)
                 tmp.flush()
                 subprocess.run(
-                    f"{plugin_name} --help --config {tmp.name}".split(" "),
+                    shlex.split(f"{plugin_name} --help --config {tmp.name}"),
                     stdout=subprocess.PIPE,
                     text=True,
                     check=True,
                 )
         else:
             subprocess.run(
-                f"{plugin_name} --help".split(" "),
+                shlex.split(f"{plugin_name} --help"),
                 stdout=subprocess.PIPE,
                 text=True,
                 check=True,
@@ -69,7 +84,7 @@ class MeltanoUtil:
                 return json.loads(about_json_str)
         else:
             about_content = subprocess.run(
-                f"{plugin_name} --about --format=json".split(" "),
+                shlex.split(f"{plugin_name} --about --format=json"),
                 stdout=subprocess.PIPE,
                 text=True,
                 check=True,

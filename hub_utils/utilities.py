@@ -144,6 +144,7 @@ class Utilities:
 
     @staticmethod
     def get_plugin_type(plugin_name: str):
+        plugin_name = plugin_name.lower()
         if "tap-" in plugin_name and "target-" in plugin_name:
             raise Exception(f"Type Unknown: {plugin_name}")
         if "tap-" in plugin_name:
@@ -384,8 +385,22 @@ class Utilities:
             self._reformat(f"{self.hub_root}/{file_path}")
 
     @staticmethod
-    def _install_test(plugin_name, plugin_type, pip_url, namespace, executable):
-        MeltanoUtil.add(plugin_name, namespace, executable, pip_url, plugin_type)
+    def _install_test(
+        plugin_name,
+        plugin_type,
+        pip_url,
+        namespace,
+        executable,
+        python: str | None = None,
+    ):
+        MeltanoUtil.add(
+            plugin_name,
+            namespace,
+            executable,
+            pip_url,
+            plugin_type,
+            python=python,
+        )
         MeltanoUtil.help_test(executable)
 
     def add(self, repo_url: str | None = None, definition_seed: dict | None = None):
@@ -587,10 +602,25 @@ class Utilities:
         return new_def
 
     def _test_exception(
-        self, plugin_name, plugin_type, pip_url, namespace, executable, is_meltano_sdk
+        self,
+        plugin_name,
+        plugin_type,
+        pip_url,
+        namespace,
+        executable,
+        *,
+        is_meltano_sdk: bool,
+        python: str | None = None,
     ):
         if self._prompt("Run install test?", True, type=bool):
-            self._install_test(plugin_name, plugin_type, pip_url, namespace, executable)
+            self._install_test(
+                plugin_name,
+                plugin_type,
+                pip_url,
+                namespace,
+                executable,
+                python=python,
+            )
         if is_meltano_sdk:
             if self._prompt("Scrape SDK --about settings?", True, type=bool):
                 try:
@@ -600,11 +630,24 @@ class Utilities:
                         return json.loads(self._prompt("Provide --about output"))
 
     def _test(
-        self, plugin_name, plugin_type, pip_url, namespace, executable, is_meltano_sdk
+        self,
+        plugin_name,
+        plugin_type,
+        pip_url,
+        namespace,
+        executable,
+        is_meltano_sdk,
+        python: str | None = None,
     ):
         try:
             return self._test_exception(
-                plugin_name, plugin_type, pip_url, namespace, executable, is_meltano_sdk
+                plugin_name,
+                plugin_type,
+                pip_url,
+                namespace,
+                executable,
+                is_meltano_sdk=is_meltano_sdk,
+                python=python,
             )
         except Exception as e:
             print(e)

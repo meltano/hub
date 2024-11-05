@@ -3,7 +3,7 @@ import hashlib
 import json
 import os
 from copy import copy
-from datetime import datetime
+from datetime import datetime, timezone
 from enum import Enum
 
 import requests
@@ -260,6 +260,7 @@ def get_variant_names(
 def extract_sdk_metadata_to_s3(
     variant_path_list: str,
     output_dir: str,
+    python: str | None = None,
 ):
     """
     NOTE: USED FOR
@@ -272,13 +273,19 @@ def extract_sdk_metadata_to_s3(
         data = util._read_yaml(yaml_file)
         p_type = util.get_plugin_type(data.get("repo"))
         p_name = data.get("name")
+        print(f"Extracting: {p_type}/{p_name}")
+
+        if python:
+            print(f"Using Python: {python}")
+
         sdk_def = util._test_exception(
             p_name,
             p_type,
             data.get("pip_url"),
             data.get("namespace"),
             data.get("executable", p_name),
-            True,
+            is_meltano_sdk=True,
+            python=python,
         )
         hash_id = hashlib.md5(
             json.dumps(sdk_def, sort_keys=True, indent=2).encode("utf-8")
@@ -287,7 +294,7 @@ def extract_sdk_metadata_to_s3(
         file_name = file_path + ".json"
         local_file_path = f"{output_dir}/{p_type}/{p_name}/{hash_id}--{file_name}"
         util._write_dict(local_file_path, sdk_def)
-        date_now = datetime.utcnow().strftime("%Y-%m-%d")
+        date_now = datetime.now(tz=timezone.utc).strftime("%Y-%m-%d")
         s3_file_path = f"{p_type}/{p_name}/{file_path}/{hash_id}--{date_now}.json"
         s3_bucket = os.environ.get("AWS_S3_BUCKET")
         if not S3().hash_exists(s3_bucket, s3_file_path):
@@ -317,7 +324,7 @@ def upload_airbyte(
             json.dumps(spec_data, sort_keys=True, indent=2).encode("utf-8")
         ).hexdigest()
         file_path = os.path.basename(yaml_file).replace(".yml", "")
-        date_now = datetime.utcnow().strftime("%Y-%m-%d")
+        date_now = datetime.now(tz=timezone.utc).strftime("%Y-%m-%d")
         s3_file_path = f"{p_type}/{p_name}/{file_path}/{hash_id}--{date_now}.json"
         s3_bucket = os.environ.get("AWS_S3_BUCKET")
         if not S3().hash_exists(s3_bucket, s3_file_path):
