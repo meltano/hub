@@ -98,6 +98,11 @@ settings:
   kind: string
   label: Host
   name: host
+- description: Defaults to false, if true, json and jsonb fields will be Objects.
+  kind: boolean
+  label: Json As Object
+  name: json_as_object
+  value: false
 - description: Optional. The maximum number of records to return in a single stream.
   kind: integer
   label: Max Record Count

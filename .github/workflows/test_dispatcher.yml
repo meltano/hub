@@ -32,7 +32,7 @@ jobs:
 
       - name: Filter changed files
         id: filter_files
-        run: echo "filtered_files=$(echo ${{ steps.changed_files.outputs.all_changed_files }} | jq -c 'map(select(startswith("_data/meltano/") and endswith(".yml") and not endswith("airbyte.yml")))' | sed 's/"/\\"/g')" >> "$GITHUB_OUTPUT"
+        run: echo "filtered_files=$(echo ${{ steps.changed_files.outputs.all_changed_files }} | jq -c 'map(select(startswith("_data/meltano/") and (endswith(".yml") and (endswith("airbyte.yml") | not))))' | sed 's/"/\\"/g')" >> "$GITHUB_OUTPUT"
 
       - id: set-matrix
         run: echo "matrix={\"changed_file\":${{ steps.filter_files.outputs.filtered_files }}}" >> "$GITHUB_OUTPUT"
