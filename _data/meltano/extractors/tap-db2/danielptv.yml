@@ -112,7 +112,7 @@ settings:
 - description: Additional execution options to be passed to SQLAlchemy. This is an
     objects containing key-value pairs.
   kind: object
-  label: Sqlalchemy Execution Options
+  label: SQLAlchemy Execution Options
   name: sqlalchemy_execution_options
 - description: User-defined config values to be used within map expressions.
   kind: object

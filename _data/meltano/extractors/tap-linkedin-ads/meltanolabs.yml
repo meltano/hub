@@ -31,7 +31,7 @@ settings:
   label: Batch Config Encoding Compression
   name: batch_config.encoding.compression
   options:
-  - label: Gzip
+  - label: GZIP
     value: gzip
   - label: None
     value: none
@@ -40,7 +40,7 @@ settings:
   label: Batch Config Encoding Format
   name: batch_config.encoding.format
   options:
-  - label: Jsonl
+  - label: JSONL
     value: jsonl
   - label: Parquet
     value: parquet

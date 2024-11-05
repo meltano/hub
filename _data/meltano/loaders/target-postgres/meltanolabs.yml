@@ -121,7 +121,7 @@ settings:
     special characters properly. See 
     https://docs.sqlalchemy.org/en/20/core/engines.html#escaping-special-characters-such-as-signs-in-passwords
   kind: string
-  label: Sqlalchemy URL
+  label: SQLAlchemy URL
   name: sqlalchemy_url
 - description: Enable an ssh tunnel (also known as bastion host), see the other ssh_tunnel.*
     properties for more details

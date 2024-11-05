@@ -27,7 +27,7 @@ settings:
   label: Batch Config Encoding Compression
   name: batch_config.encoding.compression
   options:
-  - label: Gzip
+  - label: GZIP
     value: gzip
   - label: None
     value: none
@@ -36,7 +36,7 @@ settings:
   label: Batch Config Encoding Format
   name: batch_config.encoding.format
   options:
-  - label: Jsonl
+  - label: JSONL
     value: jsonl
   - label: Parquet
     value: parquet
@@ -102,14 +102,14 @@ settings:
     you must turn on SSL see PlanetScale information below. Note if sqlalchemy_url
     is set this will be ignored.
   kind: object
-  label: Sqlalchemy Options
+  label: SQLAlchemy Options
   name: sqlalchemy_options
 - description: Example pymysql://[username]:[password]@localhost:3306/[db_name][?options]
     see 
     https://docs.sqlalchemy.org/en/20/dialects/mysql.html#module-sqlalchemy.dialects.mysql.pymysql
     for more information
   kind: string
-  label: Sqlalchemy URL
+  label: SQLAlchemy URL
   name: sqlalchemy_url
 - description: Enable an ssh tunnel (also known as bastion host), see the other ssh_tunnel.*
     properties for more details
