@@ -1,3 +1,5 @@
+name: Check YAML format
+
 on:
   push:
     branches:
@@ -20,10 +22,10 @@ jobs:
         files: |
           _data/**/*.yml
 
-    - name: Install yamllint
-      if: steps.changed-files.outputs.any_changed == 'true'
-      run: pipx install yamllint
+    - uses: astral-sh/setup-uv@v3
+      with:
+        version: ">=0.4.30"
 
     - name: Lint YAML files
       if: steps.changed-files.outputs.any_changed == 'true'
-      run: yamllint ${{ steps.changed-files.outputs.all_changed_files }}
+      run: uvx yamllint ${{ steps.changed-files.outputs.all_changed_files }}

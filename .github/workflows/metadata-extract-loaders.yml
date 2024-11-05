@@ -22,9 +22,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4.2.2
+      - uses: astral-sh/setup-uv@v3
+        with:
+          version: ">=0.4.30"
 
       - name: Install hub-utils
-        run: pipx install git+https://github.com/meltano/hub-utils.git@edgarrmondragon/fix/custom-python-executable
+        run: uv tool install git+https://github.com/meltano/hub-utils.git@main
 
       - name: Get Variants List - SDK Loaders
         id: get-variants-list-sdk-loaders
@@ -58,8 +61,12 @@ jobs:
         aws-region: us-west-2
         role-session-name: "GitHubActions"
 
+    - uses: astral-sh/setup-uv@v3
+      with:
+        version: ">=0.4.30"
+
     - name: Install hub-utils
-      run: pipx install git+https://github.com/meltano/hub-utils.git@edgarrmondragon/fix/custom-python-executable
+      run: uv tool install git+https://github.com/meltano/hub-utils.git@main
 
     # This starts the attempts to install and extract metadata. Since we don't
     # know what python versions are accepted we start with the latest and continue
