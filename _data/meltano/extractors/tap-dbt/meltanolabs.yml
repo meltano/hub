@@ -39,7 +39,7 @@ settings:
   label: Batch Config Encoding Compression
   name: batch_config.encoding.compression
   options:
-  - label: Gzip
+  - label: GZIP
     value: gzip
   - label: None
     value: none
@@ -48,7 +48,7 @@ settings:
   label: Batch Config Encoding Format
   name: batch_config.encoding.format
   options:
-  - label: Jsonl
+  - label: JSONL
     value: jsonl
   - label: Parquet
     value: parquet
@@ -95,7 +95,7 @@ settings:
   kind: string
   label: User Agent
   name: user_agent
-  value: tap-dbt/0.12.3.post1 Singer tap for the dbt Cloud API.
+  value: tap-dbt/0.12.3.post1.dev8+a4e0b7b Singer tap for the dbt Cloud API.
 settings_group_validation:
 - - account_ids
   - api_key

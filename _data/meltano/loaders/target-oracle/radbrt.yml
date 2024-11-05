@@ -60,7 +60,7 @@ settings:
   value: false
 - description: SQLAlchemy connection string
   kind: string
-  label: Sqlalchemy URL
+  label: SQLAlchemy URL
   name: sqlalchemy_url
 - description: User-defined config values to be used within map expressions.
   kind: object

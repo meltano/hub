@@ -150,7 +150,7 @@ settings:
 - description: The SQLAlchemy connection string for the ClickHouse database. Used
     if set, otherwise separate settings are used
   kind: string
-  label: Sqlalchemy URL
+  label: SQLAlchemy URL
   name: sqlalchemy_url
 - description: User-defined config values to be used within map expressions.
   kind: object

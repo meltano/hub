@@ -96,23 +96,23 @@ settings:
   name: port
 - description: 'Fast Executemany Mode: True, False'
   kind: string
-  label: Sqlalchemy Eng Params Fast Executemany
+  label: SQLAlchemy Eng Params Fast Executemany
   name: sqlalchemy_eng_params.fast_executemany
 - description: 'Run the engine in 2.0 mode: True, False'
   kind: string
-  label: Sqlalchemy Eng Params Future
+  label: SQLAlchemy Eng Params Future
   name: sqlalchemy_eng_params.future
 - description: This is a Yes No option
   kind: string
-  label: Sqlalchemy URL Query Multisubnetfailover
+  label: SQLAlchemy URL Query Multisubnetfailover
   name: sqlalchemy_url_query.MultiSubnetFailover
 - description: This is a Yes No option
   kind: string
-  label: Sqlalchemy URL Query Trustservercertificate
+  label: SQLAlchemy URL Query Trustservercertificate
   name: sqlalchemy_url_query.TrustServerCertificate
 - description: The Driver to use when connection should match the Driver Type
   kind: string
-  label: Sqlalchemy URL Query Driver
+  label: SQLAlchemy URL Query Driver
   name: sqlalchemy_url_query.driver
 - description: The earliest record date to sync
   kind: date_iso8601
