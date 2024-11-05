@@ -81,6 +81,20 @@ settings:
   label: Org ID
   name: org_id
   sensitive: true
+- description: The granularity of reporting streams. One of HOURLY, DAILY, WEEKLY,
+    MONTHLY.
+  kind: options
+  label: Report Granularity
+  name: report_granularity
+  options:
+  - label: Hourly
+    value: HOURLY
+  - label: Daily
+    value: DAILY
+  - label: Weekly
+    value: WEEKLY
+  - label: Monthly
+    value: MONTHLY
 - description: Start date for reporting streams, format in YYYY-MM-DD.
   kind: date_iso8601
   label: Start Date

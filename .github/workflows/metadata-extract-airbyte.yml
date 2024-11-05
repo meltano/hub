@@ -24,7 +24,7 @@ jobs:
       - uses: actions/checkout@v4.2.2
 
       - name: Install hub-utils
-        run: pipx install git+https://github.com/meltano/hub-utils.git
+        run: pipx install git+https://github.com/meltano/hub-utils.git@edgarrmondragon/fix/custom-python-executable
 
       - name: Get Variants List - Airbyte
         id: get-variants-list-airbyte
@@ -83,7 +83,7 @@ jobs:
           name: extractor--${{ matrix.source-name }}--airbyte.json
 
       - name: Install hub-utils
-        run: pipx install git+https://github.com/meltano/hub-utils.git
+        run: pipx install git+https://github.com/meltano/hub-utils.git@edgarrmondragon/fix/custom-python-executable
 
       - name: Upload Metadata
         run: hub-utils upload-airbyte "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" extractor--${{ matrix.source-name }}--airbyte.json

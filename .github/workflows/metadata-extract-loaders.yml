@@ -24,7 +24,7 @@ jobs:
       - uses: actions/checkout@v4.2.2
 
       - name: Install hub-utils
-        run: pipx install git+https://github.com/meltano/hub-utils.git
+        run: pipx install git+https://github.com/meltano/hub-utils.git@edgarrmondragon/fix/custom-python-executable
 
       - name: Get Variants List - SDK Loaders
         id: get-variants-list-sdk-loaders
@@ -59,7 +59,7 @@ jobs:
         role-session-name: "GitHubActions"
 
     - name: Install hub-utils
-      run: pipx install git+https://github.com/meltano/hub-utils.git
+      run: pipx install git+https://github.com/meltano/hub-utils.git@edgarrmondragon/fix/custom-python-executable
 
     # This starts the attempts to install and extract metadata. Since we don't
     # know what python versions are accepted we start with the latest and continue
