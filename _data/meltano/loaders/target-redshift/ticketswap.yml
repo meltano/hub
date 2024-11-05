@@ -48,7 +48,7 @@ settings:
   sensitive: true
 - description: Database name. Note if sqlalchemy_url is set this will be ignored.
   kind: string
-  label: Databasename
+  label: Database name
   name: dbname
 - description: 'Redshift schema to send data to, example: tap-clickup'
   kind: string
