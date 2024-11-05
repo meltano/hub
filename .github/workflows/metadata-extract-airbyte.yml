@@ -34,7 +34,7 @@ jobs:
         id: setmatrix_airbyte
         run: |
            matrixStringifiedObject="{\"include\": ${{ steps.get-variants-list-airbyte.outputs.VARIANTS_AIRBYTE }}}"
-           echo "::set-output name=airbyte_matrix::$matrixStringifiedObject"
+           echo "airbyte_matrix=$matrixStringifiedObject" >> $GITHUB_ENV
 
   metadata_extract_airbyte_p1:
     name: Airbyte - Part 1 Metadata Extract 
