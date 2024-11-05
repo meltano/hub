@@ -25,7 +25,7 @@ jobs:
       - uses: actions/checkout@v4.2.2
 
       - name: Install hub-utils
-        run: pipx install git+https://github.com/meltano/hub-utils.git
+        run: pipx install git+https://github.com/meltano/hub-utils.git@edgarrmondragon/fix/custom-python-executable
 
       - name: Get Variants List - SDK Extractors (p1)
         id: get-variants-list-sdk-ex-p1
@@ -70,67 +70,55 @@ jobs:
         role-session-name: "GitHubActions"
 
     - name: Install hub-utils
-      run: pipx install git+https://github.com/meltano/hub-utils.git
+      run: pipx install git+https://github.com/meltano/hub-utils.git@edgarrmondragon/fix/custom-python-executable
 
     # This starts the attempts to install and extract metadata. Since we don't
     # know what python versions are accepted we start with the latest and continue
     # decreasing until we have a success or run out of python versions to attempt.
-    - name: Install Python 3.12
+    - name: Install Python
       uses: actions/setup-python@v5
       with:
-        python-version: '3.12'
+        python-version: |
+          3.13
+          3.12
+          3.11
+          3.10
+          3.9
+          3.8
 
-    - name: Extract Metadata (3.12)
-      id: extract_312
-      run: hub-utils extract-sdk-metadata-to-s3 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" $(pwd)/extract_data
+    - name: Extract Metadata (3.13)
+      id: extract_313
+      run: hub-utils extract-sdk-metadata-to-s3 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" $(pwd)/extract_data --python=python3.13
       continue-on-error: true
-
-    - name: Install Python 3.11 (Only if 3.12 failed)
-      if: always() && (steps.extract_312.outcome == 'failure')
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.11'
+    
+    - name: Extract Metadata (3.12)
+      if: always() && (steps.extract_313.outcome == 'failure')
+      id: extract_312
+      run: hub-utils extract-sdk-metadata-to-s3 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" $(pwd)/extract_data --python=python3.12
+      continue-on-error: true
 
     - name: Extract Metadata (3.11)
       if: always() && (steps.extract_312.outcome == 'failure')
       id: extract_311
-      run: hub-utils extract-sdk-metadata-to-s3 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" $(pwd)/extract_data
+      run: hub-utils extract-sdk-metadata-to-s3 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" $(pwd)/extract_data --python=python3.11
       continue-on-error: true
-
-    - name: Install Python 3.10 (Only if 3.11 failed)
-      if: always() && (steps.extract_311.outcome == 'failure')
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.10'
 
     - name: Extract Metadata (3.10)
       if: always() && (steps.extract_311.outcome == 'failure')
       id: extract_310
-      run: hub-utils extract-sdk-metadata-to-s3 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" $(pwd)/extract_data
+      run: hub-utils extract-sdk-metadata-to-s3 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" $(pwd)/extract_data --python=python3.10
       continue-on-error: true
-
-    - name: Install Python 3.9 (Only if 3.10 failed)
-      if: always() && (steps.extract_310.outcome == 'failure')
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.9'
 
     - name: Extract Metadata (3.9)
       if: always() && (steps.extract_310.outcome == 'failure')
       id: extract_39
-      run: hub-utils extract-sdk-metadata-to-s3 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" $(pwd)/extract_data
+      run: hub-utils extract-sdk-metadata-to-s3 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" $(pwd)/extract_data --python=python3.9
       continue-on-error: true
-
-    - name: Install Python 3.8 (Only if 3.9 failed)
-      if: always() && (steps.extract_39.outcome == 'failure')
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.8'
 
     - name: Extract Metadata (3.8)
       if: always() && (steps.extract_39.outcome == 'failure')
       id: extract_38
-      run: hub-utils extract-sdk-metadata-to-s3 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" $(pwd)/extract_data
+      run: hub-utils extract-sdk-metadata-to-s3 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" $(pwd)/extract_data --python=python3.8
 
   metadata_extract_sdk_ex_p2:
     name: SDK Extractors - Metadata Extract (p2)
@@ -155,37 +143,28 @@ jobs:
         role-session-name: "GitHubActions"
 
     - name: Install hub-utils
-      run: pipx install git+https://github.com/meltano/hub-utils.git
+      run: pipx install git+https://github.com/meltano/hub-utils.git@edgarrmondragon/fix/custom-python-executable
 
-    - name: Install Python 3.10
+    - name: Install Python
       uses: actions/setup-python@v5
       with:
-        python-version: '3.10'
+        python-version: |
+          3.10
+          3.9
+          3.8
 
     - name: Extract Metadata (3.10)
       id: extract_310
-      run: hub-utils extract-sdk-metadata-to-s3 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" $(pwd)/extract_data
+      run: hub-utils extract-sdk-metadata-to-s3 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" $(pwd)/extract_data --python=python3.10
       continue-on-error: true
-
-    - name: Install Python 3.9 (Only if 3.10 failed)
-      if: always() && (steps.extract_310.outcome == 'failure')
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.9'
 
     - name: Extract Metadata (3.9)
       if: always() && (steps.extract_310.outcome == 'failure')
       id: extract_39
-      run: hub-utils extract-sdk-metadata-to-s3 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" $(pwd)/extract_data
+      run: hub-utils extract-sdk-metadata-to-s3 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" $(pwd)/extract_data --python=python3.9
       continue-on-error: true
-
-    - name: Install Python 3.8 (Only if 3.9 failed)
-      if: always() && (steps.extract_39.outcome == 'failure')
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.8'
 
     - name: Extract Metadata (3.8)
       if: always() && (steps.extract_39.outcome == 'failure')
       id: extract_38
-      run: hub-utils extract-sdk-metadata-to-s3 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" $(pwd)/extract_data
+      run: hub-utils extract-sdk-metadata-to-s3 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" $(pwd)/extract_data --python=python3.8
