@@ -27,6 +27,7 @@ jobs:
           matrix: true
 
   test:
+    name: Install plugin with Meltano
     runs-on: ubuntu-latest
     needs: get_changed_plugins
     strategy:
@@ -45,7 +46,7 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v3
         with:
-          version: "0.4.26"
+          version: ">=0.4.30"
 
       - name: Install Meltano
         run: uv tool install meltano
