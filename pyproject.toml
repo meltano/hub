@@ -11,7 +11,7 @@ python = ">=3.10,<3.13"
 typer = {extras = ["all"], version = "^0.12.5"}
 ruamel-yaml = "^0.18.6"
 yamllint = "^1.28.0"
-boto3 = "^1.35.44"
+boto3 = "^1.35.54"
 requests = "^2.30.0"
 
 [tool.poetry.group.dev.dependencies]
