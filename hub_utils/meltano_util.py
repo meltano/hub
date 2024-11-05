@@ -171,6 +171,8 @@ class MeltanoUtil:
                 .replace("Oauth", "OAuth")
                 .replace("Ssh", "SSH")
                 .replace("Ssl", "SSL")
+                .replace("Gzip", "GZIP")
+                .replace("Jsonl", "JSONL")
             )
         return " ".join(new_label)
 
