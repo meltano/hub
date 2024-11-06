@@ -10,6 +10,7 @@ on:
 
 jobs:
   get_changed_plugins:
+    name: Get changed plugins
     runs-on: ubuntu-latest
     outputs:
       matrix: ${{ steps.changed_plugins.outputs.all_changed_files }}
@@ -57,6 +58,7 @@ jobs:
       - name: Configure Meltano
         working-directory: test-project
         run: |
+          meltano config meltano set cli.log_level debug
           meltano config meltano set venv.backend uv
 
       - name: Test add

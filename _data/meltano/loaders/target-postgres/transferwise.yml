@@ -9,9 +9,9 @@ logo_url: /assets/logos/loaders/postgres.png
 maintenance_status: active
 name: target-postgres
 namespace: target_postgres
-pip_url: pipelinewise-target-postgres
+pip_url: git+https://github.com/transferwise/pipelinewise.git#subdirectory=singer-connectors/target-postgres
 quality: silver
-repo: https://github.com/transferwise/pipelinewise-target-postgres
+repo: https://github.com/transferwise/pipelinewise
 settings:
 - description: |
     Metadata columns add extra row level information about data ingestions, (i.e. when was the row read in source, when was inserted or deleted in postgres etc.)
