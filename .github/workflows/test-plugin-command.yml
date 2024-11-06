@@ -78,8 +78,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
-        # https://github.com/actions/setup-python
-        python-version: 3.10
+        python-version: "3.10"
         cache: 'pip'
 
     - name: Install uv
