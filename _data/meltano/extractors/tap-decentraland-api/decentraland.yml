@@ -25,6 +25,11 @@ settings:
   value: https://api.decentraland.org
 - description: ''
   kind: string
+  label: Badges URL
+  name: badges_url
+  value: https://badges.decentraland.org
+- description: ''
+  kind: string
   label: Builder API URL
   name: builder_api_url
   value: https://builder-api.decentraland.org/v1
