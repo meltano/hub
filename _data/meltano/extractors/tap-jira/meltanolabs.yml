@@ -21,35 +21,17 @@ pip_url: git+https://github.com/MeltanoLabs/tap-jira.git
 quality: silver
 repo: https://github.com/MeltanoLabs/tap-jira
 settings:
-- description: The Jira API access token if using OAuth auth flow.
+- description: Jira API Token.
   kind: password
-  label: Auth Access Token
-  name: auth.access_token
+  label: API Token
+  name: api_token
   sensitive: true
-- description: The authentication type to use.
-  kind: string
-  label: Auth Flow
-  name: auth.flow
-  options:
-  - label: OAuth
-    value: oauth
-  - label: Password
-    value: password
-- description: The Jira password if using the user/pass auth flow.
-  kind: password
-  label: Auth Password
-  name: auth.password
-  sensitive: true
-- description: The Jira username if using the user/pass auth flow.
-  kind: string
-  label: Auth Username
-  name: auth.username
 - description: Compression format to use for batch files.
   kind: options
   label: Batch Config Encoding Compression
   name: batch_config.encoding.compression
   options:
-  - label: Gzip
+  - label: GZIP
     value: gzip
   - label: None
     value: none
@@ -58,8 +40,10 @@ settings:
   label: Batch Config Encoding Format
   name: batch_config.encoding.format
   options:
-  - label: Jsonl
+  - label: JSONL
     value: jsonl
+  - label: Parquet
+    value: parquet
 - description: Prefix to use when writing batch files.
   kind: string
   label: Batch Config Storage Prefix
@@ -68,10 +52,14 @@ settings:
   kind: string
   label: Batch Config Storage Root
   name: batch_config.storage.root
-- description: Site URL
+- description: The Domain for your Jira account, e.g. meltano. Atlassian. Net
   kind: string
   label: Domain
   name: domain
+- description: The user email for your Jira account.
+  kind: string
+  label: Email
+  name: email
 - description: Latest record date to sync
   kind: date_iso8601
   label: End Date
@@ -85,6 +73,11 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: Page size for issues stream
+  kind: integer
+  label: Page Size Issues
+  name: page_size.issues
+  value: 100
 - description: Earliest record date to sync
   kind: date_iso8601
   label: Start Date
