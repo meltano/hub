@@ -115,6 +115,22 @@ pip_url: target-apprise
 quality: gold
 repo: https://github.com/AutoIDM/target-apprise
 settings:
+- description: Add metadata to records.
+  kind: boolean
+  label: Add Record Metadata
+  name: add_record_metadata
+- description: Maximum number of rows in each batch.
+  kind: integer
+  label: Batch Size Rows
+  name: batch_size_rows
+- description: 'One or more LCID locale strings to produce localized output for: https://faker.readthedocs.io/en/master/#localization'
+  kind: array
+  label: Faker Config Locale
+  name: faker_config.locale
+- description: 'Value to seed the Faker generator for deterministic output: https://faker.readthedocs.io/en/master/#seeding-the-generator'
+  kind: string
+  label: Faker Config Seed
+  name: faker_config.seed
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -124,18 +140,47 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
+- description: The method to use when loading data into the destination. `append-only`
+    will always write all input records whether that records already exists or not.
+    `upsert` will update existing records and insert new records. `overwrite` will
+    delete all existing records and insert all input records.
+  kind: options
+  label: Load Method
+  name: load_method
+  options:
+  - label: Append Only
+    value: append-only
+  - label: Upsert
+    value: upsert
+  - label: Overwrite
+    value: overwrite
+  value: append-only
 - description: User-defined config values to be used within map expressions.
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: Config object for stream maps capability.
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps
+- description: If enabled, allows for uris to be dynamically configured. Any fields
+    in the record that have a name beginning with `_sdc_replace_`, will have their
+    value substituted in for a matching string in the URI. See an example [here](#dynamically-providing-target-emails).
+  kind: boolean
+  label: Uri Replacement
+  name: uri_replacement
+  value: false
 - description: Array of apprise URIs,checkout https://github.com/caronc/apprise
   kind: array
   label: Uris
   name: uris
+- description: Whether to validate the schema of the incoming streams.
+  kind: boolean
+  label: Validate Records
+  name: validate_records
+  value: true
 settings_group_validation:
-- - uris
+- - uri_replacement
+  - uris
 variant: autoidm

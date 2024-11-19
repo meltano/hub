@@ -38,20 +38,20 @@ settings:
   name: database_includes
 - description: 'One or more LCID locale strings to produce localized output for: https://faker.readthedocs.io/en/master/#localization'
   kind: array
-  label: Faker Config Locale
+  label: Faker Locale
   name: faker_config.locale
 - description: 'Value to seed the Faker generator for deterministic output: https://faker.readthedocs.io/en/master/#seeding-the-generator'
   kind: string
-  label: Faker Config Seed
+  label: Faker Seed
   name: faker_config.seed
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
-  label: Flattening Enabled
+  label: Enable Schema Flattening
   name: flattening_enabled
 - description: The max depth to flatten schemas.
   kind: integer
-  label: Flattening Max Depth
+  label: Max Flattening Depth
   name: flattening_max_depth
 - description: The maximum number of documents to sample when inferring the schema.
     This is only used when infer_schema is true.
