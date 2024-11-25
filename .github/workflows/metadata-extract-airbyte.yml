@@ -22,7 +22,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4.2.2
-      - uses: astral-sh/setup-uv@v3
+      - uses: astral-sh/setup-uv@v4
         with:
           version: ">=0.4.30"
 
@@ -84,7 +84,7 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: extractor--${{ matrix.source-name }}--airbyte.json
-      - uses: astral-sh/setup-uv@v3
+      - uses: astral-sh/setup-uv@v4
         with:
           version: ">=0.4.30"
 
