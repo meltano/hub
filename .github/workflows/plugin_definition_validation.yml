@@ -6,6 +6,7 @@ on:
     branches: [main]
   workflow_dispatch:
     inputs: {}
+  merge_group:
 
 jobs:
   tests:
