@@ -222,7 +222,7 @@ extractors:
   tap-google-directory: airbyte
   tap-google-pagespeed-insights: airbyte
   tap-google-play: edgarrmondragon
-  tap-google-search-console: singer-io
+  tap-google-search-console: meltanolabs
   tap-google-sheets: matatika
   tap-google-webfonts: airbyte
   tap-google-workspace-admin-reports: airbyte
