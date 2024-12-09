@@ -34,7 +34,7 @@ settings:
   value: false
 - description: Redshift copy role arn to use for the COPY command from s3
   kind: string
-  label: AWS Redshift Copy Role Arn
+  label: AWS Redshift Copy Role ARN
   name: aws_redshift_copy_role_arn
 - description: Maximum number of rows in each batch.
   kind: integer
@@ -48,7 +48,7 @@ settings:
   sensitive: true
 - description: Database name. Note if sqlalchemy_url is set this will be ignored.
   kind: string
-  label: Database name
+  label: Database Name
   name: dbname
 - description: 'Redshift schema to send data to, example: tap-clickup'
   kind: string
@@ -58,7 +58,7 @@ settings:
 - description: If true, use temporary credentials 
     (https://docs.aws.amazon.com/redshift/latest/mgmt/generating-iam-credentials-cli-api.html).
   kind: boolean
-  label: Enable Iam Authentication
+  label: Enable IAM Authentication
   name: enable_iam_authentication
 - description: 'One or more LCID locale strings to produce localized output for: https://faker.readthedocs.io/en/master/#localization'
   kind: array

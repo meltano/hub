@@ -103,8 +103,8 @@ settings:
     that has set strict resource limits per query. Only works for streams with numeric
     primary keys.
   kind: object
-  label: Query Partitioning
-  name: query_partitioning
+  label: Query Partition
+  name: query_partition
 - description: The DB2 schema.
   kind: string
   label: Schema
