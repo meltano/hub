@@ -119,6 +119,14 @@ settings:
   label: Port
   name: port
   value: 5432
+- description: Name of the replication slot to use for logical replication. Must be
+    unique for parallel extractions. Only applicable when replication_method is LOG_BASED.
+    - Contain only letters, numbers, and underscores. - Be less than or equal to 63
+    characters. - Not start with 'pg_'.
+  kind: string
+  label: Replication Slot Name
+  name: replication_slot_name
+  value: tappostgres
 - description: Example postgresql://[username]:[password]@localhost:5432/[db_name]
   kind: string
   label: SQLAlchemy URL

@@ -27,9 +27,9 @@ settings:
   label: AWS Access Key ID
   name: aws_access_key_id
   sensitive: true
-- description: AWS region
+- description: The AWS region
   kind: string
-  label: AWS Region
+  label: AWS region
   name: aws_region
 - description: AWS secret access key
   kind: password
@@ -81,7 +81,7 @@ settings:
   name: flattening_max_depth
 - description: The S3 staging directory where output is written.
   kind: string
-  label: S3 Staging Dir
+  label: S3 staging directory
   name: s3_staging_dir
 - description: Athena schema name
   kind: string
