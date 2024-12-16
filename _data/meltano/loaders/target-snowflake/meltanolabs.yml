@@ -1,5 +1,6 @@
 capabilities:
 - about
+- activate-version
 - hard-delete
 - schema-flattening
 - stream-maps
@@ -105,6 +106,11 @@ settings:
   label: Private Key Path
   name: private_key_path
   sensitive: true
+- description: Whether to process `ACTIVATE_VERSION` messages.
+  kind: boolean
+  label: Process `ACTIVATE_VERSION` messages
+  name: process_activate_version_messages
+  value: true
 - description: The initial role for the session.
   kind: string
   label: Role
