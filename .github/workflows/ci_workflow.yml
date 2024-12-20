@@ -34,7 +34,7 @@ jobs:
       matrix:
         python-version: ["3.10", "3.11", "3.12", "3.13"]
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v5
       with:
@@ -44,7 +44,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install poetry==1.8.*
     - name: Clone Hub repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         repository: meltano/hub
         path: hub_repo
