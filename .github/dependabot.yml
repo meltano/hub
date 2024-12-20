@@ -16,6 +16,11 @@ updates:
       - "pnadolny13"
     labels:
       - "dependencies"
+    groups:
+      default:
+        update-types:
+        - "minor"
+        - "patch"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
@@ -27,3 +32,7 @@ updates:
       - "pnadolny13"
     labels:
       - "dependencies"
+    groups:
+      ci:
+        patterns:
+          - "*"
