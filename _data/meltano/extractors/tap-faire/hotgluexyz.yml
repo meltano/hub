@@ -22,6 +22,11 @@ repo: https://gitlab.com/hotglue/tap-faire
 settings:
 - description: The token to authenticate against the API service
   kind: password
+  label: Access Token
+  name: access_token
+  sensitive: true
+- description: The token to authenticate against the API service
+  kind: password
   label: API Key
   name: api_key
   sensitive: true
