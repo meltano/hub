@@ -1,5 +1,6 @@
 capabilities:
 - about
+- activate-version
 - hard-delete
 - schema-flattening
 - stream-maps
@@ -114,6 +115,11 @@ settings:
   label: Port
   name: port
   value: '5432'
+- description: Whether to process `ACTIVATE_VERSION` messages.
+  kind: boolean
+  label: Process `ACTIVATE_VERSION` messages
+  name: process_activate_version_messages
+  value: true
 - description: If you want to remove staging files in S3
   kind: boolean
   label: Remove S3 Files
