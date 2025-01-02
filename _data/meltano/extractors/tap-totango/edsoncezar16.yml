@@ -76,7 +76,7 @@ settings:
   label: API URL
   name: api_url
   options:
-  - label: Https://API Totango Com
+  - label: US Endpoint
     value: https://api.totango.com
   - label: EU Endpoint
     value: 'https://api-eu1.totango.com '
