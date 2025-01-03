@@ -9,9 +9,9 @@ packages = [{include = "hub_utils"}]
 [tool.poetry.dependencies]
 python = ">=3.10,<3.14"
 typer = {extras = ["all"], version = "^0.15.1"}
-ruamel-yaml = "^0.18.6"
+ruamel-yaml = "^0.18.7"
 yamllint = "^1.28.0"
-boto3 = "^1.35.85"
+boto3 = "^1.35.90"
 requests = "^2.30.0"
 
 [tool.poetry.group.dev.dependencies]
