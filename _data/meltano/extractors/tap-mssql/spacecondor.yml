@@ -1,0 +1,125 @@
+capabilities:
+- about
+- batch
+- catalog
+- discover
+- schema-flattening
+- state
+- stream-maps
+description: Microsoft SQL Server
+domain_url: https://www.microsoft.com/en-us/sql-server/sql-server-2019
+executable: tap-mssql
+keywords:
+- meltano_sdk
+label: MSSQL
+logo_url: /assets/logos/extractors/mssql.png
+maintenance_status: active
+name: tap-mssql
+namespace: tap_mssql
+next_steps: ''
+pip_url: git+https://github.com/SpaceCondor/tap-mssql.git
+quality: silver
+repo: https://github.com/SpaceCondor/tap-mssql
+settings:
+- description: Compression format to use for batch files.
+  kind: options
+  label: Batch Compression Format
+  name: batch_config.encoding.compression
+  options:
+  - label: GZIP
+    value: gzip
+  - label: None
+    value: none
+- description: Format to use for batch files.
+  kind: options
+  label: Batch Encoding Format
+  name: batch_config.encoding.format
+  options:
+  - label: JSONL
+    value: jsonl
+  - label: Parquet
+    value: parquet
+- description: Prefix to use when writing batch files.
+  kind: string
+  label: Batch Storage Prefix
+  name: batch_config.storage.prefix
+- description: Root path to use when writing batch files.
+  kind: string
+  label: Batch Storage Root
+  name: batch_config.storage.root
+- description: Database to connect to.
+  kind: string
+  label: Database
+  name: database
+- description: Replication method to use if there is not a catalog entry to override
+    this choice. One of `FULL_TABLE`, `INCREMENTAL`, or `LOG_BASED`.
+  kind: options
+  label: Default Replication Method
+  name: default_replication_method
+  options:
+  - label: Full Table
+    value: FULL_TABLE
+  - label: Incremental
+    value: INCREMENTAL
+  - label: Log Based
+    value: LOG_BASED
+  value: FULL_TABLE
+- description: 'One or more LCID locale strings to produce localized output for: https://faker.readthedocs.io/en/master/#localization'
+  kind: array
+  label: Faker Locale
+  name: faker_config.locale
+- description: 'Value to seed the Faker generator for deterministic output: https://faker.readthedocs.io/en/master/#seeding-the-generator'
+  kind: string
+  label: Faker Seed
+  name: faker_config.seed
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Enable Schema Flattening
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Max Flattening Depth
+  name: flattening_max_depth
+- description: Host for SQL Server Instance.
+  kind: string
+  label: Host
+  name: host
+- description: Password used to authenticate.
+  kind: password
+  label: Password
+  name: password
+  sensitive: true
+- description: The port of the SQL Server Instance.
+  kind: integer
+  label: Port
+  name: port
+  value: 1433
+- description: SQLAlchemy URL. Setting this will take precedence over other connection
+    settings.
+  kind: string
+  label: SQLAlchemy URL Query
+  name: sqlalchemy_url_query
+- description: 'List of SQLAlchemy URL Query options to provide. Example: driver,
+    TrustServerCertificate, etc.'
+  kind: array
+  label: SQLAlchemy URL Query Options
+  name: sqlalchemy_url_query_options
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: User Stream Map Configuration
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check
+    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: Username used to authenticate.
+  kind: string
+  label: Username
+  name: username
+settings_group_validation:
+- []
+settings_preamble: ''
+usage: ''
+variant: spacecondor
