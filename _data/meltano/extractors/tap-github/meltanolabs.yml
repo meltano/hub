@@ -17,7 +17,7 @@ logo_url: /assets/logos/extractors/github.png
 maintenance_status: active
 name: tap-github
 namespace: tap_github
-pip_url: git+https://github.com/MeltanoLabs/tap-github.git
+pip_url: meltanolabs-tap-github
 quality: gold
 repo: https://github.com/MeltanoLabs/tap-github
 select:
