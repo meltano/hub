@@ -17,7 +17,7 @@ logo_url: /assets/logos/extractors/veeqo.png
 maintenance_status: active
 name: tap-veeqo
 namespace: tap_veeqo
-pip_url: git+https://github.com/Matatika/tap-veeqo.git@v0.1.0
+pip_url: git+https://github.com/Matatika/tap-veeqo.git@v0.3.2
 quality: gold
 repo: https://github.com/Matatika/tap-veeqo
 settings:
