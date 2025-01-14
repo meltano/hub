@@ -12,7 +12,7 @@ logo_url: /assets/logos/extractors/salesforce.png
 maintenance_status: active
 name: tap-salesforce
 namespace: tap_salesforce
-pip_url: git+https://github.com/meltanolabs/tap-salesforce.git@v1.5.1
+pip_url: git+https://github.com/MeltanoLabs/tap-salesforce.git@v1.8.0
 quality: silver
 repo: https://github.com/meltanolabs/tap-salesforce
 select:
@@ -23,8 +23,8 @@ select:
 - Account.*
 - Opportunity.*
 settings:
-- description: Used to switch the behavior of the tap between using Salesforce’s “REST”
-    and “BULK” APIs.
+- description: Used to switch the behavior of the tap between using Salesforce’s “REST”,
+    “BULK”, and "BULK 2.0" APIs.
   kind: options
   label: API Type
   name: api_type
@@ -33,13 +33,15 @@ settings:
     value: REST
   - label: BULK
     value: BULK
+  - label: BULK2
+    value: BULK2
   value: REST
 - description: Salesforce client ID. See 
-    https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.html.
+    https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_oauth_and_connected_apps.htm.
   label: Client ID
   name: client_id
 - description: Salesforce client secret. See 
-    https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.html.
+    https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_oauth_and_connected_apps.htm.
   kind: password
   label: Client Secret
   name: client_secret
@@ -125,10 +127,8 @@ settings:
 settings_group_validation:
 - - password
   - security_token
-  - start_date
   - username
 - - client_id
   - client_secret
   - refresh_token
-  - start_date
 variant: meltanolabs
