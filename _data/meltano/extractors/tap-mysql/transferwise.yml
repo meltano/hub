@@ -14,13 +14,13 @@ metadata:
     replication-method: FULL_TABLE
 name: tap-mysql
 namespace: tap_mysql
-pip_url: pipelinewise-tap-mysql
+pip_url: git+https://github.com/transferwise/pipelinewise.git#subdirectory=singer-connectors/tap-mysql
 prereq: |
   ### Usage Notes
   This tap is configured to use `FULL_TABLE` replication by default.
   See the [setting metadata documentation](https://docs.meltano.com/guide/integration#setting-metadata) for more details and instructions on using `INCREMENTAL` replication.
 quality: silver
-repo: https://github.com/transferwise/pipelinewise-tap-mysql
+repo: https://github.com/transferwise/pipelinewise
 settings:
 - description: Cursor class used by PyMYSQL.
   label: Cursor Class
@@ -104,7 +104,7 @@ settings_preamble: |
   ```yaml
   - name: tap-mysql
     variant: transferwise
-    pip_url: pipelinewise-tap-mysql
+    pip_url: git+https://github.com/transferwise/pipelinewise.git#subdirectory=singer-connectors/tap-mysql
     config:
       user: meltano
     select:
