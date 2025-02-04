@@ -23,24 +23,18 @@ jobs:
         python-version: 3.9
         architecture: x64
 
-    - name: Upgrade pip
-      run: |
-        pip install pip poetry
-        pip --version
-        poetry --version
-
-    - name: Poetry install
-      run: |
-        poetry install
+    - uses: astral-sh/setup-uv@v5.2.2
+      with:
+        version: ~=0.5.27
 
     - name: Plugin definition schema validation
       run: |
-        poetry run python utility_scripts/plugin_definitions/plugin_schema_validate.py
+        uv run python utility_scripts/plugin_definitions/plugin_schema_validate.py
 
     - name: Validate plugin names
       run: |
-        poetry run python utility_scripts/plugin_definitions/yaml_check_names.py
+        uv run python utility_scripts/plugin_definitions/yaml_check_names.py
 
     - name: Validate maintainers
       run: |
-        poetry run python utility_scripts/plugin_definitions/maintainers_validate.py
+        uv run python utility_scripts/plugin_definitions/maintainers_validate.py

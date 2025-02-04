@@ -1,18 +1,18 @@
-[tool.poetry]
-package-mode = false
+[project]
+name = "meltano-hub"
+version = "0.0.1"
 description = "Meltano hub contains the definition of all meltano taps, targets, utilities, etc."
-authors = ["Meltano Team"]
+authors = [{ name = "Meltano Team" }]
+requires-python = ">=3.9"
+dependencies = [
+    "jsonschema>=4.17.3,<4.18",
+    "ruamel.yaml>=0.18.6",
+    "yamllint>=1.35.1",
+    "requests>=2.32.3",
+]
 
-[tool.poetry.dependencies]
-python = ">=3.9"
-jsonschema = ">=4.17.3,<4.18"
-"ruamel.yaml" = ">=0.18.6"
-yamllint = ">=1.35.1"
-requests = ">=2.32.3"
+[dependency-groups]
+dev = ["ruff>=0.9"]
 
-[tool.poetry.group.dev.dependencies]
-ruff = ">=0.9"
-
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+[tool.uv]
+package = false

@@ -23,20 +23,14 @@ jobs:
           python-version: 3.9
           architecture: x64
 
-      - name: Upgrade pip
-        run: |
-          pip install pip poetry
-          pip --version
-          poetry --version
-
-      - name: Poetry install
-        run: |
-          poetry install
+      - uses: astral-sh/setup-uv@v5.2.2
+        with:
+          version: ~=0.5.27
 
       - name: Get invalid URLs
         id: urls
         run: |
-          output=$(poetry run python utility_scripts/plugin_definitions/check_links.py)
+          output=$(uv run python utility_scripts/plugin_definitions/check_links.py)
           echo "INVALID_URL<<EOF" >> $GITHUB_ENV
           echo "$output" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV

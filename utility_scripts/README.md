@@ -16,12 +16,10 @@ This script generates the JSON files for the Meltano Hub API.
 
 #### Usage
 
-After activating the Poetry environment, run the following command:
-
 ```bash
-HUB_URL='https://hub.meltano.com' \
-API_URL='https://ty9g0lccp8.execute-api.us-west-2.amazonaws.com/dev' \
-python utility_scripts/api/make_files.py -o _hub_api --hub-url $HUB_URL --api-url $API_URL
+export HUB_URL='https://hub.meltano.com'
+export API_URL='https://ty9g0lccp8.execute-api.us-west-2.amazonaws.com/dev'
+uv run python utility_scripts/api/make_files.py -o _hub_api --hub-url $HUB_URL --api-url $API_URL
 ```
 
 To sync the files with the target S3 bucket, run the following command:
