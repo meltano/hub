@@ -10,9 +10,8 @@ jsonschema = ">=4.17.3,<4.18"
 yamllint = ">=1.35.1"
 requests = ">=2.32.3"
 
-[tool.poetry.dev-dependencies]
-black = ">=24.8.0"
-isort = ">=5.13.2"
+[tool.poetry.group.dev.dependencies]
+ruff = ">=0.9"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
