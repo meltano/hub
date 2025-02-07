@@ -7,7 +7,7 @@ logo_url: /assets/logos/loaders/duckdb.png
 maintenance_status: active
 name: target-duckdb
 namespace: target_duckdb
-pip_url: target-duckdb~=0.6
+pip_url: target-duckdb~=0.8
 quality: silver
 repo: https://github.com/jwills/target-duckdb
 settings:
