@@ -12,7 +12,7 @@ maintenance_status: active
 name: meltano-map-transformer
 namespace: meltano_map_transformer
 next_steps: ''
-pip_url: git+https://github.com/MeltanoLabs/meltano-map-transform.git
+pip_url: meltano-map-transform
 repo: https://github.com/MeltanoLabs/meltano-map-transform
 settings:
 - description: Config object for stream maps capability. For more information check
