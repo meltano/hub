@@ -18,10 +18,14 @@ pip_url: git+https://github.com/Automattic/target-parquet.git
 quality: silver
 repo: https://github.com/Automattic/target-parquet
 settings:
-- description: Add metadata to records.
+- description: Whether to add metadata fields to records.
   kind: boolean
   label: Add Record Metadata
   name: add_record_metadata
+- description: Maximum number of rows in each batch.
+  kind: integer
+  label: Batch Size Rows
+  name: batch_size_rows
 - description: (default - gzip) Compression methods have to be supported by Pyarrow,
     and currently the compression modes available are - snappy, zstd, brotli and gzip.
   kind: string
@@ -42,20 +46,20 @@ settings:
   name: extra_fields_types
 - description: 'One or more LCID locale strings to produce localized output for: https://faker.readthedocs.io/en/master/#localization'
   kind: array
-  label: Faker Config Locale
+  label: Faker Locale
   name: faker_config.locale
 - description: 'Value to seed the Faker generator for deterministic output: https://faker.readthedocs.io/en/master/#seeding-the-generator'
   kind: string
-  label: Faker Config Seed
+  label: Faker Seed
   name: faker_config.seed
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
-  label: Flattening Enabled
+  label: Enable Schema Flattening
   name: flattening_enabled
 - description: The max depth to flatten schemas.
   kind: integer
-  label: Flattening Max Depth
+  label: Max Flattening Depth
   name: flattening_max_depth
 - description: The method to use when loading data into the destination. `append-only`
     will always write all input records whether that records already exists or not.
@@ -78,6 +82,11 @@ settings:
   label: Max Batch Size
   name: max_batch_size
   value: 10000
+- description: Max level of nesting to flatten
+  kind: integer
+  label: Max Flatten Level
+  name: max_flatten_level
+  value: 100
 - description: Max size of pyarrow table in MB (before writing to parquet file). It
     can control the memory usage of the target.
   kind: integer
@@ -90,7 +99,7 @@ settings:
   name: partition_cols
 - description: User-defined config values to be used within map expressions.
   kind: object
-  label: Stream Map Config
+  label: User Stream Map Configuration
   name: stream_map_config
 - description: Config object for stream maps capability. For more information check
     out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).

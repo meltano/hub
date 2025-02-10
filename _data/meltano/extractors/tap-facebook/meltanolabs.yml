@@ -35,7 +35,7 @@ settings:
   kind: string
   label: API Version
   name: api_version
-  value: v19.0
+  value: v22.0
 - description: Compression format to use for batch files.
   kind: options
   label: Batch Compression Format
