@@ -24,6 +24,10 @@ on:
         description: The pip_url for the plugin
         required: false
         default: ''
+      executable:
+        description: The executable name for the plugin
+        required: false
+        default: ''
       prepend-text:
         description: Text to be prepended to the command output
         required: false
@@ -39,6 +43,7 @@ jobs:
     env:
       PLUGIN_NAME: ${{ github.event.inputs.name }}
       PIP_URL: ${{ github.event.inputs.pip-url }}
+      EXECUTABLE: ${{ github.event.inputs.executable || github.event.inputs.name }}
 
     steps:
 
@@ -53,7 +58,7 @@ jobs:
         token: ${{ secrets.MELTYBOT_GITHUB_AUTH_TOKEN }}
         repository: ${{ github.event.inputs.repository }}
         comment-id: ${{ github.event.inputs.comment-id }}
-        reaction-type: eyes
+        reactions: eyes
 
     - name: Set initial edit mode (to conditionally clear previous comment)
       id: initial-edit-mode
@@ -109,31 +114,31 @@ jobs:
     - name: Print plugin help
       id: plugin-help
       run: |
-        ${{ env.PLUGIN_NAME }} --help 2>&1 | tee help-output.txt
+        ${{ env.EXECUTABLE }} --help 2>&1 | tee help-output.txt
 
     - name: Print plugin version
       id: plugin-version
       continue-on-error: true
       run: |
-        ${{ env.PLUGIN_NAME }} --version | tee version-output.txt
+        ${{ env.EXECUTABLE }} --version | tee version-output.txt
 
     - name: Print plugin about
       id: plugin-about
       continue-on-error: true
       run: |
-        ${{ env.PLUGIN_NAME }} --about --format=json | tee about-result.json
+        ${{ env.EXECUTABLE }} --about --format=json | tee about-result.json
 
     - name: Print plugin markdown
       id: plugin-markdown
       continue-on-error: true
       run: |
-        ${{ env.PLUGIN_NAME }} --about --format=markdown | tee markdown-result.md
+        ${{ env.EXECUTABLE }} --about --format=markdown | tee markdown-result.md
 
     - name: Print discovery output
       id: plugin-catalog
       continue-on-error: true
       run: |
-        ${{ env.PLUGIN_NAME }} --discover | tee catalog.json
+        ${{ env.EXECUTABLE }} --discover | tee catalog.json
 
     # Generates the JOB_OUTPUT env var, accessible via '${{ env.JOB_OUTPUT }}''
     # Ref: https://trstringer.com/github-actions-multiline-strings/
@@ -155,7 +160,7 @@ jobs:
         fi
         echo "<details><summary>Usage info</summary>" >> $GITHUB_ENV
         echo -e "\n\`\`\`" >> $GITHUB_ENV
-        echo "melty-bot % ${{ env.PLUGIN_NAME }} --help" >> $GITHUB_ENV
+        echo "melty-bot % ${{ env.EXECUTABLE }} --help" >> $GITHUB_ENV
         cat help-output.txt >> $GITHUB_ENV
         echo -e "\`\`\`\n" >> $GITHUB_ENV
         echo "</details>" >> $GITHUB_ENV
@@ -219,7 +224,7 @@ jobs:
         token: ${{ secrets.MELTYBOT_GITHUB_AUTH_TOKEN }}
         repository: ${{ github.event.inputs.repository }}
         comment-id: ${{ github.event.inputs.comment-id }}
-        reaction-type: hooray
+        reactions: hooray
 
     - name: Add reaction (failure)
       uses: peter-evans/create-or-update-comment@v4
@@ -228,4 +233,4 @@ jobs:
         token: ${{ secrets.MELTYBOT_GITHUB_AUTH_TOKEN }}
         repository: ${{ github.event.inputs.repository }}
         comment-id: ${{ github.event.inputs.comment-id }}
-        reaction-type: confused
+        reactions: confused
