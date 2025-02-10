@@ -22,7 +22,7 @@ jobs:
 
       - name: Get changed plugins
         id: changed_plugins
-        uses: tj-actions/changed-files@v45.0.6
+        uses: tj-actions/changed-files@v45.0.7
         with:
           files: _data/meltano/*/*/*.yml
           matrix: true
