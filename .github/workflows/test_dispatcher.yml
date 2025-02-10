@@ -26,7 +26,7 @@ jobs:
 
       - name: Get changed files
         id: changed_files
-        uses: tj-actions/changed-files@v45.0.6
+        uses: tj-actions/changed-files@v45.0.7
         with:
           sha: ${{ github.event.pull_request.head.sha }}
           json: "true"
