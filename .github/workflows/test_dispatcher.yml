@@ -66,8 +66,10 @@ jobs:
           name="$(basename "$(dirname "${{ matrix.changed_file }}")")"
           pip_url="$(./yq '.pip_url // ""' "${{ matrix.changed_file }}")"
           variant="$(./yq '.variant' "${{ matrix.changed_file }}")"
+          executable="$(./yq '.executable' "${{ matrix.changed_file }}")"
           echo "name=${name}" >> $GITHUB_ENV
           echo "pip_url=${pip_url}" >> $GITHUB_ENV
+          echo "executable=${executable}" >> $GITHUB_ENV
           echo "prelude=Testing plugin \`${name}\` (\`${variant}\` variant):" >> $GITHUB_ENV
 
       - name: Find the MeltyBot test-command comment if it exists
@@ -84,6 +86,15 @@ jobs:
         with:
           route: "POST /repos/${{ github.repository }}/actions/workflows/test-plugin-command.yml/dispatches"
           ref: 'main'
-          inputs: "{\"repository\":\"${{ github.repository }}\",\"comment-id\":\"${{ steps.find_comment.outputs.comment-id }}\",\"issue-number\":\"${{ github.event.pull_request.number }}\",\"name\":\"${{ env.name }}\",\"pip-url\":\"${{ env.pip_url }}\",\"prepend-text\":\"${{ env.prelude }}\"}"
+          inputs: |
+            {
+              "repository": "${{ github.repository }}",
+              "comment-id": "${{ steps.find_comment.outputs.comment-id }}",
+              "issue-number": "${{ github.event.pull_request.number }}",
+              "name": "${{ env.name }}",
+              "pip-url": "${{ env.pip_url }}",
+              "executable": "${{ env.executable }}",
+              "prepend-text": "${{ env.prelude }}"
+            }
         env:
           GITHUB_TOKEN: ${{ secrets.MELTYBOT_GITHUB_AUTH_TOKEN }}
