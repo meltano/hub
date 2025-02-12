@@ -9,7 +9,7 @@ logo_url: /assets/logos/loaders/snowflake.png
 maintenance_status: active
 name: target-snowflake
 namespace: target_snowflake
-pip_url: pipelinewise-target-snowflake
+pip_url: git+https://github.com/transferwise/pipelinewise.git#subdirectory=singer-connectors/target-snowflake
 prereq: |
   #### Dependencies
 
@@ -22,7 +22,7 @@ prereq: |
 
   See the [documentation](https://github.com/transferwise/pipelinewise-target-snowflake#pre-requirements) for more details on other optional objects and how to create them.
 quality: silver
-repo: https://github.com/transferwise/pipelinewise-target-snowflake
+repo: https://github.com/transferwise/pipelinewise
 settings:
 - description: Snowflake account name (i.e. `rtXXXXX.eu-central-1`)
   label: Account
