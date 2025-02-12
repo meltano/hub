@@ -66,7 +66,7 @@ jobs:
           name="$(basename "$(dirname "${{ matrix.changed_file }}")")"
           pip_url="$(./yq '.pip_url // ""' "${{ matrix.changed_file }}")"
           variant="$(./yq '.variant' "${{ matrix.changed_file }}")"
-          executable="$(./yq '.executable' "${{ matrix.changed_file }}")"
+          executable="$(./yq '.executable // ""' "${{ matrix.changed_file }}")"
           echo "name=${name}" >> $GITHUB_ENV
           echo "pip_url=${pip_url}" >> $GITHUB_ENV
           echo "executable=${executable}" >> $GITHUB_ENV
