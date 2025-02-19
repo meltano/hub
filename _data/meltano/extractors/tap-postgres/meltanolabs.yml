@@ -17,7 +17,7 @@ maintenance_status: active
 name: tap-postgres
 namespace: tap_postgres
 next_steps: ''
-pip_url: git+https://github.com/MeltanoLabs/tap-postgres.git
+pip_url: meltanolabs-tap-postgres
 quality: gold
 repo: https://github.com/MeltanoLabs/tap-postgres
 settings:
@@ -237,7 +237,7 @@ usage: |
   ```yaml
   - name: tap-postgres
     variant: meltanolabs
-    pip_url: git+https://github.com/MeltanoLabs/tap-postgres.git
+    pip_url: meltanolabs-tap-postgres
     config:
       sqlalchemy_url: postgresql://meltano_user:password@localhost:5432/my_postgres_db
     select:
