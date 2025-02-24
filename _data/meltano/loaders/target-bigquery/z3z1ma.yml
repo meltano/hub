@@ -161,6 +161,11 @@ settings:
   label: Overwrite
   name: overwrite
   value: false
+- description: If set for date- or timestamp-type partitions, the partition will expire
+    that many days after the date it represents.
+  kind: integer
+  label: Partition Expiration Days
+  name: partition_expiration_days
 - description: The granularity of the partitioning strategy. Defaults to month.
   kind: options
   label: Partition Granularity

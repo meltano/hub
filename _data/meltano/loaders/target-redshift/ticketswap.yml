@@ -27,8 +27,8 @@ settings:
   name: activate_version
   value: false
 - description: Note that this must be enabled for activate_version to work!This adds
-    _sdc_extracted_at, _sdc_batched_at, and more to every table. See https://sdk.meltano.com/en/latest/implementation/record_metadata.html
-    for more information.
+    _sdc_extracted_at, _sdc_batched_at, and more to every table. See https://sdk.meltano.com/en/latest/implementation/record_metadata.htmlfor
+    more information.
   kind: boolean
   label: Add Record Metadata
   name: add_record_metadata
@@ -78,6 +78,11 @@ settings:
   kind: integer
   label: Max Flattening Depth
   name: flattening_max_depth
+- description: List of users/roles/groups that will have select permissions on the
+    tables
+  kind: array
+  label: Grants
+  name: grants
 - description: When activate version is sent from a tap this specefies if we should
     delete the records that don't match, or mark them with a date in the `_sdc_deleted_at`
     column. This config option is ignored if `activate_version` is set to false.
