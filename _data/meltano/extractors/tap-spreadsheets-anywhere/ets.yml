@@ -54,7 +54,7 @@ settings:
     - selected: (optional) Should this table be synced. Defaults to true. Setting to false will skip this table on a sync run.
     - worksheet_name: (optional) the worksheet name to pull from in the targeted xls file(s). Only required when format is excel
     - delimiter: (optional) the delimiter to use when format is 'csv' e.g. ','. You can leave delimiter blank or set it to 'detect' to leverage the csv "Sniffer" for auto-detecting delimiter.
-    - quotechar: (optional) the character used to surround values that may contain delimiters - defaults to a double quote '"'
+    - quotechar: (optional) the character used to surround values that may contain delimiters. - defaults to a double quote '"' when not using the auto detecting feature i.e. delimiter is defined and not equal to `detect`.
     - json_path: (optional) the JSON key under which the list of objets to use is located. Defaults to None, corresponding to an array at the top level of the JSON tree.
 
     For example:
