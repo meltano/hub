@@ -1,0 +1,23 @@
+capabilities: []
+description: Analytics for PyPI packages
+docs: https://pypistats.org/api/
+domain_url: https://pypistats.org
+keywords:
+- python
+- packaging
+label: PyPI Stats
+logo_url: /assets/logos/extractors/pypi.svg
+maintenance_status: active
+name: tap-pypistats
+namespace: tap_pypistats
+pip_url: git+https://github.com/edgarrmondragon/tap-pypistats.git
+quality: silver
+repo: https://github.com/edgarrmondragon/tap-pypistats
+settings:
+- description: Package names to fetch statistics for
+  kind: array
+  label: Packages
+  name: packages
+settings_group_validation:
+- - packages
+variant: edgarrmondragon
