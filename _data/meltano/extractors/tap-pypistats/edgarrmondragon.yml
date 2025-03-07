@@ -11,7 +11,7 @@ logo_url: /assets/logos/extractors/pypi.svg
 maintenance_status: active
 name: tap-pypistats
 namespace: tap_pypistats
-pip_url: git+https://github.com/edgarrmondragon/tap-pypistats.git
+pip_url: tap-pypistats
 quality: silver
 repo: https://github.com/edgarrmondragon/tap-pypistats
 settings:
