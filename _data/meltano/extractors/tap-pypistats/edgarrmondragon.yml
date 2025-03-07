@@ -2,6 +2,7 @@ capabilities: []
 description: Analytics for PyPI packages
 docs: https://pypistats.org/api/
 domain_url: https://pypistats.org
+executable: tap-pypistats
 keywords:
 - python
 - packaging
@@ -10,7 +11,7 @@ logo_url: /assets/logos/extractors/pypi.svg
 maintenance_status: active
 name: tap-pypistats
 namespace: tap_pypistats
-pip_url: git+https://github.com/edgarrmondragon/tap-pypistats.git
+pip_url: tap-pypistats
 quality: silver
 repo: https://github.com/edgarrmondragon/tap-pypistats
 settings:
@@ -18,6 +19,10 @@ settings:
   kind: array
   label: Packages
   name: packages
+- description: User Agent to make requests with
+  kind: string
+  label: User-Agent
+  name: user_agent
 settings_group_validation:
 - - packages
 variant: edgarrmondragon
