@@ -19,6 +19,10 @@ settings:
   kind: array
   label: Packages
   name: packages
+- description: User Agent to make requests with
+  kind: string
+  label: User-Agent
+  name: user_agent
 settings_group_validation:
 - - packages
 variant: edgarrmondragon
