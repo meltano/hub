@@ -2,6 +2,7 @@ capabilities: []
 description: Analytics for PyPI packages
 docs: https://pypistats.org/api/
 domain_url: https://pypistats.org
+executable: tap-pypistats
 keywords:
 - python
 - packaging
