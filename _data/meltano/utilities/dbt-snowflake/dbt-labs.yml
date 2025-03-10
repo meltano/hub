@@ -85,6 +85,16 @@ settings:
   label: Password
   name: password
   sensitive: true
+- description: Path to file containing private key.
+  kind: password
+  label: Private Key Path
+  name: private_key_path
+  sensitive: true
+- description: Passphrase to decrypt private key if encrypted.
+  kind: password
+  label: Private Key Passphrase
+  name: private_key_passphrase
+  sensitive: true
 - env: DBT_PROFILES_DIR
   label: Profiles Directory
   name: profiles_dir
