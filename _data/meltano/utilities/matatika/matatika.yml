@@ -50,7 +50,7 @@ next_steps: |
 
   If you're running into problems with this extension, or just want to chat about all things data, [join the Matatika Slack community](https://join.slack.com/t/matatika/shared_invite/zt-19n1bfokx-F31DNitTpSxWCFO2aFlgxg).
   <br/><br/>
-pip_url: git+https://github.com/Matatika/matatika-ext.git@v0.43.0
+pip_url: git+https://github.com/Matatika/matatika-ext.git@v0.44.0
 repo: https://github.com/Matatika/matatika-ce
 usage: For help, try `meltano invoke matatika --help` (or `--help` on any subcommand).
 variant: matatika
