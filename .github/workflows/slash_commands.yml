@@ -16,7 +16,7 @@ jobs:
     steps:
       - name: Slash Command Dispatch
         id: command-dispatch
-        uses: peter-evans/slash-command-dispatch@v4
+        uses: peter-evans/slash-command-dispatch@13bc09769d122a64f75aa5037256f6f2d78be8c4 # v4.0.0
         with:
           # https://github.com/peter-evans/slash-command-dispatch
           token: ${{ secrets.MELTYBOT_GITHUB_AUTH_TOKEN }}
@@ -35,7 +35,7 @@ jobs:
 
       - name: Edit comment with error message
         if: steps.command-dispatch.outputs.error-message
-        uses: peter-evans/create-or-update-comment@v4
+        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
         with:
           comment-id: ${{ github.event.comment.id }}
           body: |

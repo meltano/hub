@@ -21,8 +21,8 @@ jobs:
       airbyte_matrix: ${{ steps.setmatrix_airbyte.outputs.airbyte_matrix }}
 
     steps:
-      - uses: actions/checkout@v4.2.2
-      - uses: astral-sh/setup-uv@v5
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: astral-sh/setup-uv@f94ec6bedd8674c4426838e6b50417d36b6ab231 # v5.3.1
         with:
           version: ">=0.4.30"
 
@@ -53,7 +53,7 @@ jobs:
         run: |
           $AIRBYTE_ENTRYPOINT spec | grep '^.*"type":\s*"SPEC".*$' > extractor--${{ matrix.source-name }}--airbyte.json
         id: get-airbyte-stdout
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 # v4.6.1
         with:
           name: extractor--${{ matrix.source-name }}--airbyte.json
           path: extractor--${{ matrix.source-name }}--airbyte.json
@@ -72,19 +72,19 @@ jobs:
     permissions:
       id-token: write # This is required for requesting the JWT
     steps:
-      - uses: actions/checkout@v4.2.2
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v4.1.0
+        uses: aws-actions/configure-aws-credentials@ececac1a45f3b08a01d2dd070d28d111c5fe6722 # v4.1.0
         with:
           role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
           aws-region: us-west-2
           role-session-name: "GitHubActions"
 
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@cc203385981b70ca67e1cc392babf9cc229d5806 # v4.1.9
         with:
           name: extractor--${{ matrix.source-name }}--airbyte.json
-      - uses: astral-sh/setup-uv@v5
+      - uses: astral-sh/setup-uv@f94ec6bedd8674c4426838e6b50417d36b6ab231 # v5.3.1
         with:
           version: ">=0.4.30"
 
