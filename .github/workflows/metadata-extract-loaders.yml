@@ -21,8 +21,8 @@ jobs:
       sdk_loaders_matrix: ${{ steps.setmatrix_sdk_loaders.outputs.sdk_loaders_matrix }}
 
     steps:
-      - uses: actions/checkout@v4.2.2
-      - uses: astral-sh/setup-uv@v5
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: astral-sh/setup-uv@f94ec6bedd8674c4426838e6b50417d36b6ab231 # v5.3.1
         with:
           version: ">=0.4.30"
 
@@ -52,16 +52,16 @@ jobs:
     permissions:
       id-token: write # This is required for requesting the JWT
     steps:
-    - uses: actions/checkout@v4.2.2
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
     - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v4.1.0
+      uses: aws-actions/configure-aws-credentials@ececac1a45f3b08a01d2dd070d28d111c5fe6722 # v4.1.0
       with:
         role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
         aws-region: us-west-2
         role-session-name: "GitHubActions"
 
-    - uses: astral-sh/setup-uv@v5
+    - uses: astral-sh/setup-uv@f94ec6bedd8674c4426838e6b50417d36b6ab231 # v5.3.1
       with:
         version: ">=0.4.30"
 
@@ -72,7 +72,7 @@ jobs:
     # know what python versions are accepted we start with the latest and continue
     # decreasing until we have a success or run out of python versions to attempt.
     - name: Install Python 3.12
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
       with:
         python-version: |
           3.13
