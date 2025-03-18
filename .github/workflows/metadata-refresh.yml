@@ -42,7 +42,7 @@ jobs:
       run: uv tool install git+https://github.com/meltano/hub-utils.git@main
 
     - name: Download Raw JSON Output
-      run: hub-utils download-metadata "/home/runner/work/downloaded_data" --ignore-list-str="extractors/tap-ga4/connorflyn,extractors/tap-ga4/meltanolabs,extractors/tap-ga4/sehnem,extractors/tap-jira/meltanolabs,extractors/tap-salesforce-commerce/hotgluexyz,loaders/target-s3/crowemi,loaders/target-s3-parquet/jkausti,extractors/tap-rest-api-msdk/widen"
+      run: hub-utils download-metadata "/home/runner/work/downloaded_data" --ignore-list-str="extractors/tap-ga4/connorflyn,extractors/tap-ga4/meltanolabs,extractors/tap-ga4/sehnem,extractors/tap-salesforce-commerce/hotgluexyz,loaders/target-s3/crowemi,loaders/target-s3-parquet/jkausti,extractors/tap-rest-api-msdk/widen"
 
     - name: Merge Raw JSON and Existing Definition
       run: hub-utils merge-metadata $(pwd) "/home/runner/work/downloaded_data"
