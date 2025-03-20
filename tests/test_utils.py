@@ -338,3 +338,78 @@ def test_merge_settings(existing, new, expected):
     utils = Utilities()
     merged_settings = utils._merge_settings(existing, new)
     assert merged_settings == expected
+
+
+@pytest.mark.parametrize(
+    "definition,expected",
+    [
+        pytest.param(
+            {
+                "name": "tap-mailchimp",
+                "variant": "acarter24",
+                "settings": [
+                    {
+                        "name": "dc",
+                        "label": "Dc",
+                    },
+                ],
+            },
+            {
+                "name": "tap-mailchimp",
+                "variant": "acarter24",
+                "settings": [
+                    {
+                        "name": "dc",
+                        "label": "Data Center",
+                    },
+                ],
+            },
+            id="tap-mailchimp",
+        ),
+        pytest.param(
+            {
+                "name": "tap-totango",
+                "variant": "edsoncezar16",
+                "settings": [
+                    {
+                        "name": "api_url",
+                        "options": [
+                            {
+                                "value": "https://api.totango.com",
+                                "label": "Https://API Totango Com",
+                            },
+                            {
+                                "value": "https://api-eu1.totango.com ",
+                                "label": "Https://API Eu1 Totango Com ",
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                "name": "tap-totango",
+                "variant": "edsoncezar16",
+                "settings": [
+                    {
+                        "name": "api_url",
+                        "options": [
+                            {
+                                "value": "https://api.totango.com",
+                                "label": "US Endpoint",
+                            },
+                            {
+                                "value": "https://api-eu1.totango.com",
+                                "label": "EU Endpoint",
+                            },
+                        ],
+                    },
+                ],
+            },
+            id="tap-totango",
+        ),
+    ],
+)
+def test_apply_overrides(definition, expected):
+    utils = Utilities()
+    applied = utils._apply_overrides(definition)
+    assert applied == expected

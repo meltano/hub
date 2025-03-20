@@ -6,8 +6,10 @@ import shutil
 from collections import OrderedDict
 from enum import Enum
 from pathlib import Path
+from typing import Any
 
 import typer
+from jsonpath_ng.ext import parse
 from ruamel.yaml import YAML
 
 from hub_utils.meltano_util import MeltanoUtil
@@ -18,6 +20,30 @@ from hub_utils.yaml_lint import (  # isort:skip
     fix_yaml_dict_format,
     run_yamllint,
 )
+
+
+OVERRIDES: dict[tuple[str, str], list[dict[str, Any]]] = {
+    ("tap-mailchimp", "acarter24"): [
+        {
+            "jsonpath": parse("$.settings[?(@.name == 'dc')].label"),
+            "value": "Data Center",
+        }
+    ],
+    ("tap-totango", "edsoncezar16"): [
+        {
+            "jsonpath": parse("$.settings[?(@.name == 'api_url')].options[0].label"),
+            "value": "US Endpoint",
+        },
+        {
+            "jsonpath": parse("$.settings[?(@.name == 'api_url')].options[1].label"),
+            "value": "EU Endpoint",
+        },
+        {
+            "jsonpath": parse("$.settings[?(@.name == 'api_url')].options[1].value"),
+            "value": "https://api-eu1.totango.com",
+        },
+    ],
+}
 
 
 class Kind(str, Enum):
@@ -274,9 +300,21 @@ class Utilities:
             plugin_def["executable"] = executable
         return plugin_def
 
+    def _apply_overrides(self, definition: dict[str, Any]) -> dict[str, Any]:
+        for override in OVERRIDES.get((definition["name"], definition["variant"]), []):
+            expr = override["jsonpath"]
+            value = override["value"]
+            definition = expr.update(definition, value)
+
+        return definition
+
     def _write_definition(self, definition, plugin_type):
         dir_name = os.path.join(self.hub_root, "_data", "meltano", plugin_type, definition["name"])
         variant = definition["variant"]
+
+        # Apply overrides
+        definition = self._apply_overrides(definition)
+
         Path(dir_name).mkdir(parents=True, exist_ok=True)
         yaml_path = Path(os.path.join(dir_name, f"{variant}.yml"))
         if not yaml_path.exists():
