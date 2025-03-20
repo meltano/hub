@@ -8,10 +8,10 @@ packages = [{include = "hub_utils"}]
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.14"
-typer = {extras = ["all"], version = "^0.15.1"}
-ruamel-yaml = "^0.18.7"
-yamllint = "^1.28.0"
-boto3 = "^1.35.90"
+typer = {extras = ["all"], version = "^0.15.2"}
+ruamel-yaml = "^0.18.10"
+yamllint = "^1.36.2"
+boto3 = "^1.37.13"
 requests = "^2.30.0"
 
 [tool.poetry.group.dev.dependencies]
