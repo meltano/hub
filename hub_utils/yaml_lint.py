@@ -5,6 +5,7 @@ import subprocess
 import sys
 from collections import OrderedDict
 
+import uv
 from ruamel.yaml import YAML
 
 yaml = YAML()
@@ -95,7 +96,15 @@ def fix_yaml(yml_path):
 def run_yamllint(path, error_if_fail=False):
     print(f"Linting: {path}")
     subprocess.run(
-        f"uv run yamllint {path} -c .yamllint.yaml".split(" "),
+        (
+            uv.find_uv_bin(),
+            "tool",
+            "run",
+            "yamllint",
+            path,
+            "-c",
+            ".yamllint.yaml",
+        ),
         check=error_if_fail,
     )
 

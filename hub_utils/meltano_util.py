@@ -1,3 +1,4 @@
+import itertools
 import json
 import pathlib
 import shlex
@@ -6,6 +7,7 @@ import subprocess
 import tempfile
 
 import typer
+import uv
 
 
 class MeltanoUtil:
@@ -17,66 +19,95 @@ class MeltanoUtil:
         return pathlib.Path(__file__).parent.resolve()
 
     @staticmethod
-    def add(
-        plugin_name,
-        namespace,
-        executable,
-        pip_url,
-        plugin_type,
+    def _base_plugin_command(
+        executable: str,
+        pip_url: str,
+        *,
         python: str | None = None,
-    ):
-        python_version = python or shutil.which("python")
-        if not python_version:
+    ) -> tuple[str, ...]:
+        uv_bin = uv.find_uv_bin()
+        includes: tuple[str, ...] = (
+            "--with",
+            "setuptools",
+            *sum(zip(itertools.repeat("--with"), shlex.split(pip_url)), ()),
+        )
+
+        python = python or shutil.which("python")
+        if not python:
             raise ValueError("Python not found in PATH")
 
-        subprocess.run(
-            shlex.split(f"pipx uninstall {plugin_name}"),
-            stdout=subprocess.PIPE,
-            text=True,
-        )
-        subprocess.run(
-            [
-                "pipx",
-                "install",
-                pip_url,
-                "--python",
-                python_version,
-                "--preinstall",
-                "setuptools",
-            ],
-            stdout=subprocess.PIPE,
-            text=True,
-            check=True,
-        )
+        return (uv_bin, "tool", "run", "--python", python, *includes, executable)
 
     @staticmethod
-    def help_test(plugin_name, config=None):
+    def help_test(
+        executable: str,
+        pip_url: str,
+        python: str | None = None,
+        config: dict | None = None,
+    ):
+        python = python or shutil.which("python")
+        if not python:
+            raise ValueError("Python not found in PATH")
+
+        base_command: tuple[str, ...] = (
+            *MeltanoUtil._base_plugin_command(
+                executable,
+                pip_url,
+                python=python,
+            ),
+            "--help",
+        )
+
         if config:
             with tempfile.NamedTemporaryFile(mode="w+") as tmp:
                 json.dump(config, tmp)
                 tmp.flush()
                 subprocess.run(
-                    shlex.split(f"{plugin_name} --help --config {tmp.name}"),
+                    (
+                        *base_command,
+                        "--config",
+                        tmp.name,
+                    ),
                     stdout=subprocess.PIPE,
                     text=True,
                     check=True,
                 )
         else:
             subprocess.run(
-                shlex.split(f"{plugin_name} --help"),
+                base_command,
                 stdout=subprocess.PIPE,
                 text=True,
                 check=True,
             )
 
     @staticmethod
-    def sdk_about(plugin_name, config=None):
+    def sdk_about(
+        executable: str,
+        pip_url: str,
+        python: str | None = None,
+        config: dict | None = None,
+    ):
+        base_command: tuple[str, ...] = (
+            *MeltanoUtil._base_plugin_command(
+                executable,
+                pip_url,
+                python=python,
+            ),
+            "--about",
+            "--format",
+            "json",
+        )
+
         if config:
             with tempfile.NamedTemporaryFile(mode="w+") as tmp:
                 json.dump(config, tmp)
                 tmp.flush()
                 about_content = subprocess.run(
-                    f"{plugin_name} --about --format=json --config {tmp.name}".split(" "),
+                    (
+                        *base_command,
+                        "--config",
+                        tmp.name,
+                    ),
                     stdout=subprocess.PIPE,
                     text=True,
                     check=True,
@@ -85,7 +116,7 @@ class MeltanoUtil:
                 return json.loads(about_json_str)
         else:
             about_content = subprocess.run(
-                shlex.split(f"{plugin_name} --about --format=json"),
+                base_command,
                 stdout=subprocess.PIPE,
                 text=True,
                 check=True,

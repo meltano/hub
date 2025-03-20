@@ -13,6 +13,7 @@ ruamel-yaml = "^0.18.10"
 yamllint = "^1.36.2"
 boto3 = "^1.37.13"
 requests = "^2.30.0"
+uv = "^0.6.8"
 
 [tool.poetry.group.dev.dependencies]
 pytest = ">=7.1.3"

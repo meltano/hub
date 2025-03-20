@@ -375,15 +375,7 @@ class Utilities:
         executable,
         python: str | None = None,
     ):
-        MeltanoUtil.add(
-            plugin_name,
-            namespace,
-            executable,
-            pip_url,
-            plugin_type,
-            python=python,
-        )
-        MeltanoUtil.help_test(executable)
+        MeltanoUtil.help_test(executable, pip_url)
 
     def add(self, repo_url: str | None = None, definition_seed: dict | None = None):
         plugin_name = self._prompt("plugin name", self._get_plugin_name(repo_url))
@@ -572,7 +564,11 @@ class Utilities:
         if is_meltano_sdk:
             if self._prompt("Scrape SDK --about settings?", True, type=bool):
                 try:
-                    return MeltanoUtil.sdk_about(executable)
+                    return MeltanoUtil.sdk_about(
+                        executable,
+                        pip_url,
+                        python=python,
+                    )
                 except Exception:
                     if self._prompt("Scrape failed! Provide as json?", True, type=bool):
                         return json.loads(self._prompt("Provide --about output"))
@@ -603,11 +599,18 @@ class Utilities:
     def _test_airbyte(self, plugin_name, plugin_type, pip_url, namespace, executable):
         try:
             airbyte_name = self._prompt("airbyte_name (e.g. source-s3)")
-            MeltanoUtil.add(plugin_name, namespace, executable, pip_url, plugin_type)
             airbyte_config = {"airbyte_spec": {"image": f"airbyte/{airbyte_name}", "tag": "latest"}}
-            MeltanoUtil.help_test(executable, config=airbyte_config)
+            MeltanoUtil.help_test(
+                executable,
+                pip_url,
+                config=airbyte_config,
+            )
             try:
-                return MeltanoUtil.sdk_about(executable, config=airbyte_config)
+                return MeltanoUtil.sdk_about(
+                    executable,
+                    pip_url,
+                    config=airbyte_config,
+                )
             except Exception as e:
                 print(e)
                 if self._prompt("Scrape failed! Provide as json?", True, type=bool):
