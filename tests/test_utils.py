@@ -20,7 +20,7 @@ def test_get_plugin_variant_from_suffix():
 @patch.object(Utilities, "_write_updated_def")
 def test_merge_and_update(patch):
     utils = Utilities()
-    variant = utils.merge_and_update(
+    utils.merge_and_update(
         {
             "keywords": ["keys"],
             "maintenance_status": "active",
@@ -75,11 +75,10 @@ def test_merge_and_update(patch):
     )
 
 
-
 @patch.object(Utilities, "_write_updated_def")
 def test_merge_and_update_manual_sgv(patch):
     utils = Utilities()
-    variant = utils.merge_and_update(
+    utils.merge_and_update(
         {
             "keywords": ["keys"],
             "maintenance_status": "active",
@@ -92,25 +91,17 @@ def test_merge_and_update_manual_sgv(patch):
                 }
             ],
             "settings_group_validation": [
-                [
-                    "key_file_location",
-                    "start_date",
-                    "view_id"
-                ],
-                [
-                    "client_secrets",
-                    "start_date",
-                    "view_id"
-                ],
+                ["key_file_location", "start_date", "view_id"],
+                ["client_secrets", "start_date", "view_id"],
                 [
                     "oauth_credentials.access_token",
                     "oauth_credentials.client_id",
                     "oauth_credentials.client_secret",
                     "oauth_credentials.refresh_token",
                     "start_date",
-                    "view_id"
-                ]
-            ]
+                    "view_id",
+                ],
+            ],
         },
         "tap-csv",
         "extractors",
@@ -150,25 +141,17 @@ def test_merge_and_update_manual_sgv(patch):
                 }
             ],
             "settings_group_validation": [
-                [
-                    "key_file_location",
-                    "start_date",
-                    "view_id"
-                ],
-                [
-                    "client_secrets",
-                    "start_date",
-                    "view_id"
-                ],
+                ["key_file_location", "start_date", "view_id"],
+                ["client_secrets", "start_date", "view_id"],
                 [
                     "oauth_credentials.access_token",
                     "oauth_credentials.client_id",
                     "oauth_credentials.client_secret",
                     "oauth_credentials.refresh_token",
                     "start_date",
-                    "view_id"
-                ]
-            ]
+                    "view_id",
+                ],
+            ],
         },
     )
 
@@ -273,7 +256,7 @@ def test_merge_and_update_manual_sgv(patch):
                     "kind": "boolean",
                     "value": "$MELTANO_EXTRACT__LOAD_SCHEMA",
                     "placeholder": "foo",
-                    "documentation": "bar"
+                    "documentation": "bar",
                 }
             ],
             [
@@ -292,7 +275,7 @@ def test_merge_and_update_manual_sgv(patch):
                     "kind": "boolean",
                     "value": "$MELTANO_EXTRACT__LOAD_SCHEMA",
                     "placeholder": "foo",
-                    "documentation": "bar"
+                    "documentation": "bar",
                 }
             ],
         ],

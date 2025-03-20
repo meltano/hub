@@ -79,9 +79,7 @@ class Utilities:
                 continue
 
             if metadata_type == "sdk":
-                if "meltano_sdk" not in data.get(
-                    "keywords", []
-                ) or "airbyte_protocol" in data.get("keywords", []):
+                if "meltano_sdk" not in data.get("keywords", []) or "airbyte_protocol" in data.get("keywords", []):
                     continue
                 suffix = "/".join(yaml_file.split("/")[-3:])
                 formatted_output.append({"plugin-name": suffix})
@@ -196,9 +194,7 @@ class Utilities:
         settings = []
         settings_group_validation = []
         for setting in setting_list:
-            label = self._prompt(
-                f"[{setting}] `label`", default_val=self._get_label(setting)
-            )
+            label = self._prompt(f"[{setting}] `label`", default_val=self._get_label(setting))
             kind = self._prompt(
                 f"[{setting}] `kind`",
                 default_val=MeltanoUtil._parse_kind("string", {"name": setting})[0],
@@ -207,9 +203,7 @@ class Utilities:
                 f"[{setting}] `description`",
                 default_val=MeltanoUtil._default_description(setting),
             )
-            required = self._prompt(
-                f"[{setting}] `required`", default_val=False, type=bool
-            )
+            required = self._prompt(f"[{setting}] `required`", default_val=False, type=bool)
             setting_details = {
                 "name": setting,
                 "label": label,
@@ -265,9 +259,7 @@ class Utilities:
             "description": self._prompt("description", ""),
             "domain_url": self._prompt("domain_url", ""),
             "keywords": keywords,
-            "maintenance_status": self._prompt(
-                "maintenance_status", self._get_maintenance_status()
-            ),
+            "maintenance_status": self._prompt("maintenance_status", self._get_maintenance_status()),
             "namespace": namespace,
             "next_steps": "",
             "pip_url": pip_url,
@@ -283,9 +275,7 @@ class Utilities:
         return plugin_def
 
     def _write_definition(self, definition, plugin_type):
-        dir_name = os.path.join(
-            self.hub_root, "_data", "meltano", plugin_type, definition["name"]
-        )
+        dir_name = os.path.join(self.hub_root, "_data", "meltano", plugin_type, definition["name"])
         variant = definition["variant"]
         Path(dir_name).mkdir(parents=True, exist_ok=True)
         yaml_path = Path(os.path.join(dir_name, f"{variant}.yml"))
@@ -305,9 +295,7 @@ class Utilities:
                 print("Definition: Skipping")
         return str(yaml_path)
 
-    def _update_variant_file(
-        self, plugin_type_defaults, plugin_name, plugin_variant, defaults, plugin_type
-    ):
+    def _update_variant_file(self, plugin_type_defaults, plugin_name, plugin_variant, defaults, plugin_type):
         plugin_type_defaults[plugin_name] = plugin_variant
         defaults[plugin_type] = plugin_type_defaults
         self._write_yaml(self.default_variants_path, defaults)
@@ -317,9 +305,7 @@ class Utilities:
         defaults = self._read_yaml(self.default_variants_path)
         plugin_type_defaults = defaults[plugin_type]
         if plugin_name not in plugin_type_defaults:
-            self._update_variant_file(
-                plugin_type_defaults, plugin_name, plugin_variant, defaults, plugin_type
-            )
+            self._update_variant_file(plugin_type_defaults, plugin_name, plugin_variant, defaults, plugin_type)
         else:
             current_default = plugin_type_defaults[plugin_name]
             overwrite = self._prompt(
@@ -353,14 +339,10 @@ class Utilities:
             print("Maintainer: Skipping")
 
     def _handle_logo(self, definition, plugin_type, variant_exists):
-        if variant_exists and self._prompt(
-            "Use current variant's logo?", default_val=True, type=bool
-        ):
+        if variant_exists and self._prompt("Use current variant's logo?", default_val=True, type=bool):
             return
 
-        image_path = self._prompt(
-            "Path to image [.png] file, leave blank to skip", "skip"
-        )
+        image_path = self._prompt("Path to image [.png] file, leave blank to skip", "skip")
         # TODO: kind of a hack, not sure how to accept an empty string to skip properly
         if image_path == "skip":
             logo_file_name = definition["logo_url"].split("/")[-1]
@@ -411,9 +393,7 @@ class Utilities:
         executable = self._prompt("executable", plugin_name)
         is_meltano_sdk = self._prompt("is_meltano_sdk", True, type=bool)
         sdk_about_dict = None
-        sdk_about_dict = self._test(
-            plugin_name, plugin_type, pip_url, namespace, executable, is_meltano_sdk
-        )
+        sdk_about_dict = self._test(plugin_name, plugin_type, pip_url, namespace, executable, is_meltano_sdk)
         if sdk_about_dict:
             (
                 settings,
@@ -424,13 +404,9 @@ class Utilities:
             setting_list = self._compile_settings()
             settings, settings_group_validation = self._build_settings(setting_list)
             capabilities = self._string_to_literal(
-                self._prompt(
-                    "capabilities", self._boilerplate_capabilities(plugin_type)
-                )
+                self._prompt("capabilities", self._boilerplate_capabilities(plugin_type))
             )
-        keywords = self._string_to_literal(
-            self._prompt("keywords", self._scrape_keywords(is_meltano_sdk))
-        )
+        keywords = self._string_to_literal(self._prompt("keywords", self._scrape_keywords(is_meltano_sdk)))
         definition = self._boilerplate_definition(
             repo_url,
             plugin_type,
@@ -446,9 +422,7 @@ class Utilities:
         )
         definition_path = self._write_definition(definition, plugin_type)
         variant = definition["variant"]
-        variant_exists = self._handle_default_variant(
-            plugin_name, definition["variant"], plugin_type
-        )
+        variant_exists = self._handle_default_variant(plugin_name, definition["variant"], plugin_type)
         self._handle_maintainer(variant, repo_url)
         self._handle_logo(definition, plugin_type, variant_exists)
         self._reformat_all(plugin_type, plugin_name, variant)
@@ -480,16 +454,12 @@ class Utilities:
                 settings,
                 settings_group_validation,
                 capabilities,
-            ) = MeltanoUtil._parse_sdk_about_settings(
-                sdk_about_dict, enforce_desc=enforce_desc
-            )
+            ) = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict, enforce_desc=enforce_desc)
         else:
             setting_list = self._compile_settings()
             settings, settings_group_validation = self._build_settings(setting_list)
             capabilities = self._string_to_literal(
-                self._prompt(
-                    "capabilities", self._boilerplate_capabilities(plugin_type)
-                )
+                self._prompt("capabilities", self._boilerplate_capabilities(plugin_type))
             )
         keywords = ["airbyte_protocol"]
         definition = self._boilerplate_definition(
@@ -523,24 +493,15 @@ class Utilities:
                 writer.writerow(row)
 
     def _retrieve_def(self, plugin_name, plugin_variant, plugin_type):
-        def_path = (
-            f"{self.hub_root}/_data/meltano"
-            f"/{plugin_type}/{plugin_name}/{plugin_variant}.yml"
-        )
+        def_path = f"{self.hub_root}/_data/meltano/{plugin_type}/{plugin_name}/{plugin_variant}.yml"
         return self._read_yaml(def_path)
 
     def _write_updated_def(self, plugin_name, plugin_variant, plugin_type, definition):
-        def_path = (
-            f"{self.hub_root}/_data/meltano/{plugin_type}/"
-            f"{plugin_name}/{plugin_variant}.yml"
-        )
+        def_path = f"{self.hub_root}/_data/meltano/{plugin_type}/{plugin_name}/{plugin_variant}.yml"
         self._write_yaml(def_path, definition, reformat=True)
 
     def _iterate_existing_settings(self, plugin_name, plugin_variant, plugin_type):
-        def_path = (
-            f"{self.hub_root}/_data/meltano/{plugin_type}/"
-            f"{plugin_name}/{plugin_variant}.yml"
-        )
+        def_path = f"{self.hub_root}/_data/meltano/{plugin_type}/{plugin_name}/{plugin_variant}.yml"
         return self._read_yaml(def_path)
 
     @staticmethod
@@ -548,33 +509,24 @@ class Utilities:
         new_caps = capabilities
         if not capabilities:
             new_caps = existing_caps
-        return [
-            cap
-            for cap in new_caps
-            if cap in ALLOWED_CAPABILITIES_TAP.union(ALLOWED_CAPABILITIES_TARGET)
-        ]
+        return [cap for cap in new_caps if cap in ALLOWED_CAPABILITIES_TAP.union(ALLOWED_CAPABILITIES_TARGET)]
 
     @staticmethod
     def _merge_settings(existing_settings, settings):
         new_settings = []
         name_lookup = {setting.get("name"): setting for setting in settings}
-        name_lookup_existing = {
-            setting.get("name"): setting for setting in existing_settings
-        }
+        name_lookup_existing = {setting.get("name"): setting for setting in existing_settings}
         for name, setting in name_lookup.items():
             existing_desc = name_lookup_existing.get(name, {}).get("description", "")
             if not setting.get("description") or (
-                len(existing_desc) > len(setting.get("description"))
-                and "\n" in existing_desc
+                len(existing_desc) > len(setting.get("description")) and "\n" in existing_desc
             ):
                 # If the --about description is null, keep existing.
                 # If the existing description is longer and has new line characters
                 # then its probably a custom/manual override so keep it.
                 setting["description"] = existing_desc
             else:
-                setting["description"] = MeltanoUtil._clean_description(
-                    setting["description"]
-                )
+                setting["description"] = MeltanoUtil._clean_description(setting["description"])
             # TODO: if existing is much longer we might want to keep it
             existing_value = name_lookup_existing.get(name, {}).get("value", "")
             if str(existing_value).startswith("$MELTANO"):
@@ -588,14 +540,10 @@ class Utilities:
 
     def _merge_definitions(self, existing_def, settings, keywords, m_status, caps, sgv):
         new_def = existing_def.copy()
-        new_def["settings"] = self._merge_settings(
-            existing_def.get("settings"), settings
-        )
+        new_def["settings"] = self._merge_settings(existing_def.get("settings"), settings)
         new_def["keywords"] = keywords
         new_def["maintenance_status"] = m_status
-        new_def["capabilities"] = self._merge_capabilities(
-            existing_def.get("capabilities"), caps
-        )
+        new_def["capabilities"] = self._merge_capabilities(existing_def.get("capabilities"), caps)
         if len(str(sgv)) > len(str(existing_def.get("settings_group_validation"))):
             if sgv and sgv[0]:
                 new_def["settings_group_validation"] = sgv
@@ -656,9 +604,7 @@ class Utilities:
         try:
             airbyte_name = self._prompt("airbyte_name (e.g. source-s3)")
             MeltanoUtil.add(plugin_name, namespace, executable, pip_url, plugin_type)
-            airbyte_config = {
-                "airbyte_spec": {"image": f"airbyte/{airbyte_name}", "tag": "latest"}
-            }
+            airbyte_config = {"airbyte_spec": {"image": f"airbyte/{airbyte_name}", "tag": "latest"}}
             MeltanoUtil.help_test(executable, config=airbyte_config)
             try:
                 return MeltanoUtil.sdk_about(executable, config=airbyte_config)
@@ -672,13 +618,9 @@ class Utilities:
     def _update_base(self, repo_url, plugin_name, is_meltano_sdk=False):
         if not repo_url:
             repo_url = self._prompt("repo_url")
-        plugin_name = self._prompt(
-            "plugin name", plugin_name or self._get_plugin_name(repo_url)
-        )
+        plugin_name = self._prompt("plugin name", plugin_name or self._get_plugin_name(repo_url))
         plugin_type = self._prompt("plugin type", self.get_plugin_type(repo_url))
-        plugin_variant = self._prompt(
-            "plugin variant", self._get_plugin_variant(repo_url)
-        )
+        plugin_variant = self._prompt("plugin variant", self._get_plugin_variant(repo_url))
         existing_def = self._retrieve_def(plugin_name, plugin_variant, plugin_type)
         sdk_def = self._test(
             plugin_name,
@@ -699,18 +641,10 @@ class Utilities:
             existing_def,
             sdk_def,
         ) = self._update_base(repo_url, plugin_name)
-        setting_names = [
-            setting.get("name") for setting in existing_def.get("settings", [])
-        ]
-        caps = self._string_to_literal(
-            self._prompt("capabilities", existing_def.get("capabilities"))
-        )
-        m_status = self._prompt(
-            "maintenance_status", existing_def.get("maintenance_status")
-        )
-        keywords = self._string_to_literal(
-            self._prompt("keywords", existing_def.get("keywords"))
-        )
+        setting_names = [setting.get("name") for setting in existing_def.get("settings", [])]
+        caps = self._string_to_literal(self._prompt("capabilities", existing_def.get("capabilities")))
+        m_status = self._prompt("maintenance_status", existing_def.get("maintenance_status"))
+        keywords = self._string_to_literal(self._prompt("keywords", existing_def.get("keywords")))
         settings, sgv = self._build_settings(self._compile_settings(setting_names))
         new_def = self._merge_definitions(
             existing_def,
@@ -751,9 +685,7 @@ class Utilities:
             settings_group_validation,
         )
         self._write_updated_def(plugin_name, plugin_variant, plugin_type, new_def)
-        print(
-            f"\nUpdates {plugin_type} {plugin_name} (SDK based - {plugin_variant})\n\n"
-        )
+        print(f"\nUpdates {plugin_type} {plugin_name} (SDK based - {plugin_variant})\n\n")
 
     def merge_and_update(
         self,
@@ -774,9 +706,7 @@ class Utilities:
             new_settings_group_validation,
         )
         merged_def_formatted = fix_arrays(fix_yaml_dict_format(merged_def))
-        self._write_updated_def(
-            plugin_name, plugin_variant, plugin_type, merged_def_formatted
-        )
+        self._write_updated_def(plugin_name, plugin_variant, plugin_type, merged_def_formatted)
 
     @staticmethod
     def get_suffix(yaml_file):

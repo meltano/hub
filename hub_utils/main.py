@@ -121,31 +121,19 @@ def add(repo_url: str | None = None, auto_accept: bool = typer.Option(False)):
             name = repo_url.split("/")[-1]
             service_name = name.replace("tap-", "").replace("target-", "")
             ext = ".svg"
-            url = (
-                "https://s3.amazonaws.com/cdn.hotglue.xyz/"
-                f"images/logos/{service_name}{ext}"
-            )
+            url = f"https://s3.amazonaws.com/cdn.hotglue.xyz/images/logos/{service_name}{ext}"
             resp = requests.get(url)
             if resp.status_code != 200:
                 ext = ".png"
-                url = (
-                    f"https://s3.amazonaws.com/cdn.hotglue.xyz/images/"
-                    f"logos/{service_name}{ext}"
-                )
+                url = f"https://s3.amazonaws.com/cdn.hotglue.xyz/images/logos/{service_name}{ext}"
                 resp = requests.get(url)
                 if resp.status_code != 200:
                     ext = ".jpeg"
-                    url = (
-                        "https://s3.amazonaws.com/cdn.hotglue.xyz/"
-                        f"images/logos/{service_name}{ext}"
-                    )
+                    url = f"https://s3.amazonaws.com/cdn.hotglue.xyz/images/logos/{service_name}{ext}"
                     resp = requests.get(url)
                     if resp.status_code != 200:
                         ext = ".webp"
-                        url = (
-                            f"https://s3.amazonaws.com/cdn.hotglue.xyz/images"
-                            f"/logos/{service_name}{ext}"
-                        )
+                        url = f"https://s3.amazonaws.com/cdn.hotglue.xyz/images/logos/{service_name}{ext}"
                         resp = requests.get(url)
                         if resp.status_code != 200:
                             print(f"Unable to find logo for {service_name}")
@@ -204,9 +192,7 @@ def update_quality(
         orig_quality = copy(data["quality"])
         # TODO: Calculate responsiveness
         responsiveness = "high"
-        data["quality"] = MeltanoUtil.get_quality(
-            data["variant"], is_sdk_based, usage_count, responsiveness
-        )
+        data["quality"] = MeltanoUtil.get_quality(data["variant"], is_sdk_based, usage_count, responsiveness)
         if orig_quality != data["quality"]:
             util._write_yaml(yaml_file, data, reformat=True)
 
@@ -287,9 +273,7 @@ def extract_sdk_metadata_to_s3(
             is_meltano_sdk=True,
             python=python,
         )
-        hash_id = hashlib.md5(
-            json.dumps(sdk_def, sort_keys=True, indent=2).encode("utf-8")
-        ).hexdigest()
+        hash_id = hashlib.md5(json.dumps(sdk_def, sort_keys=True, indent=2).encode("utf-8")).hexdigest()
         file_path = os.path.basename(yaml_file).replace(".yml", "")
         file_name = file_path + ".json"
         local_file_path = f"{output_dir}/{p_type}/{p_name}/{hash_id}--{file_name}"
@@ -320,9 +304,7 @@ def upload_airbyte(
     for yaml_file in variant_path_list.split(","):
         spec_data = util._read_json(artifact_name)
         p_type, p_name, p_variant = yaml_file.split("/")[-3:]
-        hash_id = hashlib.md5(
-            json.dumps(spec_data, sort_keys=True, indent=2).encode("utf-8")
-        ).hexdigest()
+        hash_id = hashlib.md5(json.dumps(spec_data, sort_keys=True, indent=2).encode("utf-8")).hexdigest()
         file_path = os.path.basename(yaml_file).replace(".yml", "")
         date_now = datetime.now(tz=timezone.utc).strftime("%Y-%m-%d")
         s3_file_path = f"{p_type}/{p_name}/{file_path}/{hash_id}--{date_now}.json"
@@ -383,17 +365,12 @@ def merge_metadata(
     Merge the latest SDK metadata from S3 with the existing hub
     """
     if not variant_path_list:
-        variant_path_list = ",".join(
-            [f"{hub_root}/_data/meltano/{suffix}.yml" for suffix in SDK_SUFFIX_LIST]
-        )
+        variant_path_list = ",".join([f"{hub_root}/_data/meltano/{suffix}.yml" for suffix in SDK_SUFFIX_LIST])
     util = Utilities()
     util.hub_root = hub_root
     if all_sdk:
         variant_path_list = ",".join(
-            [
-                f"{hub_root}/_data/meltano/{i['plugin-name']}"
-                for i in util.get_variant_names(None, "sdk")
-            ]
+            [f"{hub_root}/_data/meltano/{i['plugin-name']}" for i in util.get_variant_names(None, "sdk")]
         )
     for yaml_file in variant_path_list.split(","):
         suffix = util.get_suffix(yaml_file)

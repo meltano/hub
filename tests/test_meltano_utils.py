@@ -1,15 +1,19 @@
-import pytest
-from hub_utils.meltano_util import MeltanoUtil
 import json
 import os
 
+import pytest
+
+from hub_utils.meltano_util import MeltanoUtil
+
+
 def _read_data(file_name):
     path = os.path.dirname(__file__)
-    with open(f'{path}/data/{file_name}', 'r') as f:
+    with open(f"{path}/data/{file_name}") as f:
         return json.load(f)
 
+
 def test_sdk_about_parsing_1():
-    sdk_about_dict = _read_data('tap_apaleo_about.json')
+    sdk_about_dict = _read_data("tap_apaleo_about.json")
 
     settings, settings_group_validation, capabilities = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
     print(json.dumps(settings))
@@ -32,26 +36,15 @@ def test_sdk_about_parsing_1():
             "name": "start_date",
             "label": "Start Date",
             "description": "",
-            "kind": "date_iso8601"
-        }
+            "kind": "date_iso8601",
+        },
     ]
-    assert set(settings_group_validation[0]) == set(
-        [
-            "client_id",
-            "client_secret",
-            "start_date"
-        ]
-    )
-    assert capabilities == [
-        "catalog",
-        "state",
-        "discover",
-        "about",
-        "stream-maps"
-    ]
+    assert set(settings_group_validation[0]) == set(["client_id", "client_secret", "start_date"])
+    assert capabilities == ["catalog", "state", "discover", "about", "stream-maps"]
+
 
 def test_sdk_about_parsing_2():
-    sdk_about_dict = _read_data('tap_meshstack_about.json')
+    sdk_about_dict = _read_data("tap_meshstack_about.json")
     settings, settings_group_validation, capabilities = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
     print(json.dumps(settings))
     assert settings == [
@@ -59,7 +52,7 @@ def test_sdk_about_parsing_2():
             "name": "federation.auth.username",
             "label": "Federation Auth Username",
             "description": "The HTTP basic auth user to authenticate against the meshObject API for federation",
-            "kind": "string"
+            "kind": "string",
         },
         {
             "name": "federation.auth.password",
@@ -72,38 +65,38 @@ def test_sdk_about_parsing_2():
             "name": "federation.api_url",
             "label": "Federation API URL",
             "description": "The url of the meshObject API (excluding the /api prefix!)",
-            "kind": "string"
+            "kind": "string",
         },
         {
             "name": "another_setting_required",
             "label": "Another Setting Required",
             "description": "Test required",
-            "kind": "string"
+            "kind": "string",
         },
         {
             "name": "stream_maps",
             "label": "Stream Maps",
             "description": "Config object for stream maps capability.",
-            "kind": "object"
+            "kind": "object",
         },
         {
             "name": "stream_map_config",
             "label": "Stream Map Config",
             "description": "User-defined config values to be used within map expressions.",
-            "kind": "object"
+            "kind": "object",
         },
         {
             "name": "flattening_enabled",
             "label": "Flattening Enabled",
             "description": "True to enable schema flattening and automatically expand nested properties.",
-            "kind": "boolean"
+            "kind": "boolean",
         },
         {
             "name": "flattening_max_depth",
             "label": "Flattening Max Depth",
             "description": "The max depth to flatten schemas.",
-            "kind": "integer"
-        }
+            "kind": "integer",
+        },
     ]
     assert set(settings_group_validation[0]) == set(
         [
@@ -111,7 +104,7 @@ def test_sdk_about_parsing_2():
             "federation.auth.password",
             "federation.api_url",
             "another_setting_required",
-            "federation"
+            "federation",
         ]
     )
     assert capabilities == [
@@ -120,12 +113,12 @@ def test_sdk_about_parsing_2():
         "discover",
         "about",
         "stream-maps",
-        "schema-flattening"
+        "schema-flattening",
     ]
 
 
 def test_sdk_about_parsing_3():
-    sdk_about_dict = _read_data('tap_with_rich_config_schema.json')
+    sdk_about_dict = _read_data("tap_with_rich_config_schema.json")
 
     settings, _, _ = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
 
@@ -134,7 +127,7 @@ def test_sdk_about_parsing_3():
             "name": "username",
             "label": "Username",
             "description": "The username to use when authenticating with the API",
-            "kind": "string"
+            "kind": "string",
         },
         {
             "name": "password",
@@ -147,13 +140,260 @@ def test_sdk_about_parsing_3():
             "name": "cmo",
             "label": "Client Management Organization",
             "description": "The client management organization to use when authenticating with the API",
-            "kind": "string"
+            "kind": "string",
         },
     ]
 
 
+def test_sdk_about_dependent_required():
+    sdk_about_dict = {
+        "name": "tap-example",
+        "description": "Singer.io tap for extracting data from example",
+        "version": "0.1.0",
+        "sdk_version": "0.40.0",
+        "capabilities": [
+            "catalog",
+            "state",
+            "discover",
+            "about",
+            "stream-maps",
+            "schema-flattening",
+        ],
+        "settings": {
+            "type": "object",
+            "properties": {
+                "username": {
+                    "description": "The username to use when authenticating with the API",
+                    "title": "Username",
+                    "type": [
+                        "string",
+                        "null",
+                    ],
+                },
+                "password": {
+                    "description": "The password to use when authenticating with the API",
+                    "title": "Password",
+                    "type": ["string", "null"],
+                    "secret": True,
+                    "writeOnly": True,
+                },
+                "client_id": {
+                    "description": "The client ID to use when authenticating with the API",
+                    "title": "Client ID",
+                    "type": [
+                        "string",
+                        "null",
+                    ],
+                },
+                "client_secret": {
+                    "description": "The client secret to use when authenticating with the API",
+                    "title": "Client Secret",
+                    "type": [
+                        "string",
+                        "null",
+                    ],
+                    "secret": True,
+                    "writeOnly": True,
+                },
+                "refresh_token": {
+                    "description": "The refresh token to use when authenticating with the API",
+                    "title": "Refresh Token",
+                    "type": ["string", "null"],
+                    "secret": True,
+                    "writeOnly": True,
+                },
+                "cmo": {
+                    "description": "The client management organization to use when authenticating with the API",
+                    "title": "Client Management Organization",
+                    "type": ["string", "null"],
+                },
+            },
+            "dependentRequired": {
+                "username": ["password"],
+                "client_id": ["client_secret", "refresh_token"],
+            },
+        },
+    }
+
+    settings, settings_group_validation, _ = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
+
+    assert settings == [
+        {
+            "name": "username",
+            "label": "Username",
+            "description": "The username to use when authenticating with the API",
+            "kind": "string",
+        },
+        {
+            "name": "password",
+            "label": "Password",
+            "description": "The password to use when authenticating with the API",
+            "kind": "password",
+            "sensitive": True,
+        },
+        {
+            "name": "client_id",
+            "label": "Client ID",
+            "description": "The client ID to use when authenticating with the API",
+            "kind": "password",
+            "sensitive": True,
+        },
+        {
+            "name": "client_secret",
+            "label": "Client Secret",
+            "description": "The client secret to use when authenticating with the API",
+            "kind": "password",
+            "sensitive": True,
+        },
+        {
+            "name": "refresh_token",
+            "label": "Refresh Token",
+            "description": "The refresh token to use when authenticating with the API",
+            "kind": "password",
+            "sensitive": True,
+        },
+        {
+            "name": "cmo",
+            "label": "Client Management Organization",
+            "description": "The client management organization to use when authenticating with the API",
+            "kind": "string",
+        },
+    ]
+
+    assert settings_group_validation == [
+        ["username", "password"],
+        ["client_id", "client_secret", "refresh_token"],
+    ]
+
+
+def test_sdk_about_dependent_required_nested():
+    sdk_about_dict = {
+        "name": "tap-example",
+        "description": "Singer.io tap for extracting data from example",
+        "version": "0.1.0",
+        "sdk_version": "0.40.0",
+        "capabilities": [
+            "catalog",
+            "state",
+            "discover",
+            "about",
+            "stream-maps",
+            "schema-flattening",
+        ],
+        "settings": {
+            "type": "object",
+            "properties": {
+                "cmo": {
+                    "description": "The client management organization to use when authenticating with the API",
+                    "title": "Client Management Organization",
+                    "type": ["string", "null"],
+                },
+                "auth": {
+                    "type": "object",
+                    "properties": {
+                        "username": {
+                            "description": "The username to use when authenticating with the API",
+                            "title": "Username",
+                            "type": [
+                                "string",
+                                "null",
+                            ],
+                        },
+                        "password": {
+                            "description": "The password to use when authenticating with the API",
+                            "title": "Password",
+                            "type": ["string", "null"],
+                            "secret": True,
+                            "writeOnly": True,
+                        },
+                        "client_id": {
+                            "description": "The client ID to use when authenticating with the API",
+                            "title": "Client ID",
+                            "type": [
+                                "string",
+                                "null",
+                            ],
+                        },
+                        "client_secret": {
+                            "description": "The client secret to use when authenticating with the API",
+                            "title": "Client Secret",
+                            "type": [
+                                "string",
+                                "null",
+                            ],
+                            "secret": True,
+                            "writeOnly": True,
+                        },
+                        "refresh_token": {
+                            "description": "The refresh token to use when authenticating with the API",
+                            "title": "Refresh Token",
+                            "type": ["string", "null"],
+                            "secret": True,
+                            "writeOnly": True,
+                        },
+                    },
+                    "dependentRequired": {
+                        "username": ["password"],
+                        "client_id": ["client_secret", "refresh_token"],
+                    },
+                },
+            },
+        },
+    }
+
+    settings, settings_group_validation, _ = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
+
+    assert settings == [
+        {
+            "name": "cmo",
+            "label": "Client Management Organization",
+            "description": "The client management organization to use when authenticating with the API",
+            "kind": "string",
+        },
+        {
+            "name": "auth.username",
+            "label": "Username",
+            "description": "The username to use when authenticating with the API",
+            "kind": "string",
+        },
+        {
+            "name": "auth.password",
+            "label": "Password",
+            "description": "The password to use when authenticating with the API",
+            "kind": "password",
+            "sensitive": True,
+        },
+        {
+            "name": "auth.client_id",
+            "label": "Client ID",
+            "description": "The client ID to use when authenticating with the API",
+            "kind": "password",
+            "sensitive": True,
+        },
+        {
+            "name": "auth.client_secret",
+            "label": "Client Secret",
+            "description": "The client secret to use when authenticating with the API",
+            "kind": "password",
+            "sensitive": True,
+        },
+        {
+            "name": "auth.refresh_token",
+            "label": "Refresh Token",
+            "description": "The refresh token to use when authenticating with the API",
+            "kind": "password",
+            "sensitive": True,
+        },
+    ]
+
+    assert settings_group_validation == [
+        ["auth.username", "auth.password"],
+        ["auth.client_id", "auth.client_secret", "auth.refresh_token"],
+    ]
+
+
 def test_sdk_about_parsing_airbyte():
-    sdk_about_dict = _read_data('airbyte_s3_about.json')
+    sdk_about_dict = _read_data("airbyte_s3_about.json")
 
     settings, settings_group_validation, capabilities = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
     print(json.dumps(settings))
@@ -162,61 +402,61 @@ def test_sdk_about_parsing_airbyte():
             "name": "airbyte_spec.image",
             "label": "Airbyte Spec Image",
             "description": "Airbyte image to run",
-            "kind": "string"
+            "kind": "string",
         },
         {
             "name": "airbyte_spec.tag",
             "label": "Airbyte Spec Tag",
             "description": "",
             "kind": "string",
-            "value": "latest"
+            "value": "latest",
         },
         {
             "name": "connector_config.dataset",
             "label": "Output Stream Name",
-            "description": "The name of the stream you would like this source to output. Can contain letters, numbers, or underscores.",
-            "kind": "string"
+            "description": "The name of the stream you would like this source to output. Can contain letters, numbers, or underscores.",  # noqa: E501
+            "kind": "string",
         },
         {
             "name": "connector_config.path_pattern",
             "label": "Pattern of files to replicate",
-            "description": "A regular expression which tells the connector which files to replicate. All files which match this pattern will be replicated. Use | to separate multiple patterns. See <a href=\"https://facelessuser.github.io/wcmatch/glob/\" target=\"_blank\">this page</a> to understand pattern syntax (GLOBSTAR and SPLIT flags are enabled). Use pattern <strong>**</strong> to pick up all files.",
-            "kind": "string"
+            "description": 'A regular expression which tells the connector which files to replicate. All files which match this pattern will be replicated. Use | to separate multiple patterns. See <a href="https://facelessuser.github.io/wcmatch/glob/" target="_blank">this page</a> to understand pattern syntax (GLOBSTAR and SPLIT flags are enabled). Use pattern <strong>**</strong> to pick up all files.',  # noqa: E501
+            "kind": "string",
         },
         # Format
         {
             "name": "connector_config.format.filetype",
             "label": "Filetype",
             "description": "Csv, Parquet",
-            "kind": "string"
+            "kind": "string",
         },
         {
             "name": "connector_config.format.delimiter",
             "label": "Delimiter",
-            "description": "The character delimiting individual cells in the CSV data. This may only be a 1-character string. For tab-delimited data enter '\\t'.",
+            "description": "The character delimiting individual cells in the CSV data. This may only be a 1-character string. For tab-delimited data enter '\\t'.",  # noqa: E501
             "kind": "string",
-            "value": ","
+            "value": ",",
         },
         {
             "name": "connector_config.format.columns",
             "label": "Selected Columns",
-            "description": "If you only want to sync a subset of the columns from the file(s), add the columns you want here as a comma-delimited list. Leave it empty to sync all columns.",
-            "kind": "array"
+            "description": "If you only want to sync a subset of the columns from the file(s), add the columns you want here as a comma-delimited list. Leave it empty to sync all columns.",  # noqa: E501
+            "kind": "array",
         },
         {
             "name": "connector_config.format.buffer_size",
             "label": "Buffer Size",
-            "description": "Perform read buffering when deserializing individual column chunks. By default every group column will be loaded fully to memory. This option can help avoid out-of-memory errors if your data is particularly wide.",
+            "description": "Perform read buffering when deserializing individual column chunks. By default every group column will be loaded fully to memory. This option can help avoid out-of-memory errors if your data is particularly wide.",  # noqa: E501
             "kind": "integer",
-            "value": 2
+            "value": 2,
         },
         # End after tweaks
         {
             "name": "connector_config.schema",
             "label": "Manually enforced data schema",
-            "description": "Optionally provide a schema to enforce, as a valid JSON string. Ensure this is a mapping of <strong>{ \"column\" : \"type\" }</strong>, where types are valid <a href=\"https://json-schema.org/understanding-json-schema/reference/type.html\" target=\"_blank\">JSON Schema datatypes</a>. Leave as {} to auto-infer the schema.",
+            "description": 'Optionally provide a schema to enforce, as a valid JSON string. Ensure this is a mapping of <strong>{ "column" : "type" }</strong>, where types are valid <a href="https://json-schema.org/understanding-json-schema/reference/type.html" target="_blank">JSON Schema datatypes</a>. Leave as {} to auto-infer the schema.',  # noqa: E501
             "kind": "string",
-            "value": "{}"
+            "value": "{}",
         },
         {
             "name": "connector_config.provider.bucket",
@@ -228,24 +468,24 @@ def test_sdk_about_parsing_airbyte():
         {
             "name": "connector_config.provider.aws_access_key_id",
             "label": "AWS Access Key ID",
-            "description": "In order to access private Buckets stored on AWS S3, this connector requires credentials with the proper permissions. If accessing publicly available data, this field is not necessary.",
+            "description": "In order to access private Buckets stored on AWS S3, this connector requires credentials with the proper permissions. If accessing publicly available data, this field is not necessary.",  # noqa: E501
             "kind": "password",
             "sensitive": True,
         },
         {
             "name": "connector_config.provider.aws_secret_access_key",
             "label": "AWS Secret Access Key",
-            "description": "In order to access private Buckets stored on AWS S3, this connector requires credentials with the proper permissions. If accessing publicly available data, this field is not necessary.",
+            "description": "In order to access private Buckets stored on AWS S3, this connector requires credentials with the proper permissions. If accessing publicly available data, this field is not necessary.",  # noqa: E501
             "kind": "password",
             "sensitive": True,
         },
         {
             "name": "connector_config.provider.path_prefix",
             "label": "Path Prefix",
-            "description": "By providing a path-like prefix (e.g. myFolder/thisTable/) under which all the relevant files sit, we can optimize finding these in S3. This is optional but recommended if your bucket contains many folders/files which you don't need to replicate.",
+            "description": "By providing a path-like prefix (e.g. myFolder/thisTable/) under which all the relevant files sit, we can optimize finding these in S3. This is optional but recommended if your bucket contains many folders/files which you don't need to replicate.",  # noqa: E501
             "kind": "password",
             "sensitive": True,
-            "value": ""
+            "value": "",
         },
         {
             "name": "connector_config.provider.endpoint",
@@ -253,32 +493,32 @@ def test_sdk_about_parsing_airbyte():
             "description": "Endpoint to an S3 compatible service. Leave empty to use AWS.",
             "kind": "password",
             "sensitive": True,
-            "value": ""
+            "value": "",
         },
         {
             "name": "stream_maps",
             "label": "Stream Maps",
             "description": "Config object for stream maps capability. For more information check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).",
-            "kind": "object"
+            "kind": "object",
         },
         {
             "name": "stream_map_config",
             "label": "Stream Map Config",
             "description": "User-defined config values to be used within map expressions.",
-            "kind": "object"
+            "kind": "object",
         },
         {
             "name": "flattening_enabled",
             "label": "Flattening Enabled",
             "description": "'True' to enable schema flattening and automatically expand nested properties.",
-            "kind": "boolean"
+            "kind": "boolean",
         },
         {
             "name": "flattening_max_depth",
             "label": "Flattening Max Depth",
             "description": "The max depth to flatten schemas.",
-            "kind": "integer"
-        }
+            "kind": "integer",
+        },
     ]
     for i, setting in enumerate(settings):
         assert setting == expected_settings[i], setting
@@ -287,8 +527,7 @@ def test_sdk_about_parsing_airbyte():
             "airbyte_spec.image",
             "connector_config.provider.bucket",
             "connector_config.dataset",
-            "connector_config.path_pattern"
-
+            "connector_config.path_pattern",
         ]
     )
     assert capabilities == [
@@ -297,12 +536,12 @@ def test_sdk_about_parsing_airbyte():
         "discover",
         "about",
         "stream-maps",
-        "schema-flattening"
+        "schema-flattening",
     ]
 
 
 def test_airbyte_array_enum_array():
-    sdk_about_dict = _read_data('airbyte_array_enum.json')
+    sdk_about_dict = _read_data("airbyte_array_enum.json")
 
     settings, settings_group_validation, capabilities = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
     print(json.dumps(settings))
@@ -333,11 +572,12 @@ def test_airbyte_array_enum_array():
         "discover",
         "about",
         "stream-maps",
-        "schema-flattening"
+        "schema-flattening",
     ]
 
+
 def test_airbyte_array_enum_string():
-    sdk_about_dict = _read_data('airbyte_string_enum.json')
+    sdk_about_dict = _read_data("airbyte_string_enum.json")
 
     settings, settings_group_validation, capabilities = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
     print(json.dumps(settings))
@@ -349,8 +589,8 @@ def test_airbyte_array_enum_string():
             "kind": "options",
             "options": [
                 {"label": "Us East 1", "value": "us-east-1"},
-                {"label": "Us East 2", "value": "us-east-2"}
-            ]
+                {"label": "Us East 2", "value": "us-east-2"},
+            ],
         }
     ]
     assert capabilities == [
@@ -359,8 +599,9 @@ def test_airbyte_array_enum_string():
         "discover",
         "about",
         "stream-maps",
-        "schema-flattening"
+        "schema-flattening",
     ]
+
 
 @pytest.mark.parametrize(
     "input,expected",
@@ -368,8 +609,8 @@ def test_airbyte_array_enum_string():
         ["aws_access_key_id", "AWS Access Key ID"],
         ["db_name", "Database Name"],
         ["api_url", "API URL"],
-        ["oauth_credentials.client_secret", "OAuth Credentials Client Secret"]
-    ]
+        ["oauth_credentials.client_secret", "OAuth Credentials Client Secret"],
+    ],
 )
 def test_get_label(input, expected):
     assert MeltanoUtil()._get_label(input) == expected
@@ -381,14 +622,12 @@ def test_sdk_about_parsing_default():
             "type": "object",
             "properties": {
                 "test": {
-                    "type": [
-                        "string"
-                    ],
+                    "type": ["string"],
                     "default": "my default",
-                    "description": "my description"
+                    "description": "my description",
                 }
             },
-            "required": []
+            "required": [],
         }
     }
     settings, _, _ = MeltanoUtil._parse_sdk_about_settings(input)
@@ -398,7 +637,7 @@ def test_sdk_about_parsing_default():
             "label": "Test",
             "description": "My description",
             "kind": "string",
-            "value": "my default"
+            "value": "my default",
         }
     ]
 
@@ -409,14 +648,12 @@ def test_sdk_about_parsing_default_bool():
             "type": "object",
             "properties": {
                 "test": {
-                    "type": [
-                        "string"
-                    ],
+                    "type": ["string"],
                     "default": False,
-                    "description": "my description"
+                    "description": "my description",
                 }
             },
-            "required": []
+            "required": [],
         }
     }
     settings, _, _ = MeltanoUtil._parse_sdk_about_settings(input)
@@ -426,7 +663,7 @@ def test_sdk_about_parsing_default_bool():
             "label": "Test",
             "description": "My description",
             "kind": "string",
-            "value": False
+            "value": False,
         }
     ]
 
@@ -437,27 +674,20 @@ def test_sdk_about_parsing_skip_default_dates():
             "type": "object",
             "properties": {
                 "start_date": {
-                    "type": [
-                        "string",
-                        "null"
-                    ],
+                    "type": ["string", "null"],
                     "format": "date-time",
                     "default": "2020-04-04T19:54:26.375510Z",
-                    "description": "The description"
+                    "description": "The description",
                 },
                 "end_date": {
-                    "type": [
-                        "string",
-                        "null"
-                    ],
+                    "type": ["string", "null"],
                     "format": "date-time",
                     "default": "2020-04-04T19:54:26.375510Z",
-                    "description": "The description"
-                }
+                    "description": "The description",
+                },
             },
-            "required": []
+            "required": [],
         }
-        
     }
     settings, _, _ = MeltanoUtil._parse_sdk_about_settings(input)
     assert settings == [
@@ -472,7 +702,7 @@ def test_sdk_about_parsing_skip_default_dates():
             "label": "End Date",
             "description": "The description",
             "kind": "date_iso8601",
-        }
+        },
     ]
 
 
@@ -498,7 +728,6 @@ def test_sdk_about_parsing_skip_default_dates():
         [["meltanolabs", False, 6, "low"], "bronze"],
         [["meltanolabs", False, 6, "medium"], "silver"],
         [["meltanolabs", False, 6, "high"], "silver"],
-
         # Partner
         [["matatika", True, 0, "low"], "gold"],
         [["matatika", True, 0, "medium"], "gold"],
@@ -518,7 +747,6 @@ def test_sdk_about_parsing_skip_default_dates():
         [["matatika", False, 6, "low"], "bronze"],
         [["matatika", False, 6, "medium"], "silver"],
         [["matatika", False, 6, "high"], "silver"],
-
         # Community
         [["foobar", True, 0, "low"], "silver"],
         [["foobar", True, 0, "medium"], "silver"],
@@ -538,18 +766,15 @@ def test_sdk_about_parsing_skip_default_dates():
         [["foobar", False, 6, "low"], "bronze"],
         [["foobar", False, 6, "medium"], "silver"],
         [["foobar", False, 6, "high"], "silver"],
-
         # Singer
         [["singer-io", False, 0, "low"], "bronze"],
-
         # Airbyte
         [["airbyte", False, 0, "low"], "bronze"],
-
         # Transferwise
         [["transferwise", False, 6, "low"], "silver"],
         [["transferwise", False, 1, "medium"], "silver"],
         [["transferwise", False, 0, "low"], "bronze"],
-    ]
+    ],
 )
 def test_get_quality(input, expected):
     assert MeltanoUtil.get_quality(*input) == expected, input
@@ -559,36 +784,54 @@ def test_get_quality(input, expected):
     "input,expected",
     [
         ["foo.Test.", "Foo. Test."],
-        ["default 3,600 seconds (i.e. 1 hour). Something.", "Default 3,600 seconds (i.e. 1 hour). Something."],
-        ["Data was scanned ~1.5 times for that batch.", "Data was scanned ~1.5 times for that batch."],
+        [
+            "default 3,600 seconds (i.e. 1 hour). Something.",
+            "Default 3,600 seconds (i.e. 1 hour). Something.",
+        ],
+        [
+            "Data was scanned ~1.5 times for that batch.",
+            "Data was scanned ~1.5 times for that batch.",
+        ],
         ["dbt is the best. Dbt is good.", "dbt is the best. dbt is good."],
         ["Path to .duckdb file", "Path to .duckdb file"],
         ["Foo .env file.", "Foo .env file."],
-        ["By (e.g. myFolder/thisTable/) sit, S3. This is replicate.", "By (e.g. myFolder/thisTable/) sit, S3. This is replicate."],
-        ["Request timeout used when not overridden in Session.execute().", "Request timeout used when not overridden in Session.execute()."],
-        ['For example, "from:someuser@example.com rfc822msgid:<somemsgid@example.com> is:unread"."', 'For example, "from:someuser@example.com rfc822msgid:<somemsgid@example.com> is:unread"."'],
-        ["tap-saasoptics <api_user_email@your_company.com>.", "tap-saasoptics <api_user_email@your_company.com>."],
-        ["https://api.totango.com", "https://api.totango.com"]
-    ]
+        [
+            "By (e.g. myFolder/thisTable/) sit, S3. This is replicate.",
+            "By (e.g. myFolder/thisTable/) sit, S3. This is replicate.",
+        ],
+        [
+            "Request timeout used when not overridden in Session.execute().",
+            "Request timeout used when not overridden in Session.execute().",
+        ],
+        [
+            'For example, "from:someuser@example.com rfc822msgid:<somemsgid@example.com> is:unread"."',
+            'For example, "from:someuser@example.com rfc822msgid:<somemsgid@example.com> is:unread"."',
+        ],
+        [
+            "tap-saasoptics <api_user_email@your_company.com>.",
+            "tap-saasoptics <api_user_email@your_company.com>.",
+        ],
+        ["https://api.totango.com", "https://api.totango.com"],
+    ],
 )
 def test_clean_description(input, expected):
     assert MeltanoUtil._clean_description(input) == expected
 
 
 def test_sdk_about_parsing_faker_configs():
-    sdk_about_dict = _read_data('faker_configs.json')
+    sdk_about_dict = _read_data("faker_configs.json")
     settings, _, _ = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
-    assert settings ==  [
+    assert settings == [
         {
             "name": "faker_config.seed",
             "label": "Faker Config Seed",
             "description": "Value to seed the Faker generator for deterministic output: https://faker.readthedocs.io/en/master/#seeding-the-generator",
-            "kind": "string"
+            "kind": "string",
         },
         {
             "name": "faker_config.locale",
             "label": "Faker Config Locale",
             "description": "One or more LCID locale strings to produce localized output for: https://faker.readthedocs.io/en/master/#localization",
-            "kind": "array"
-        }
+            "kind": "array",
+        },
     ]

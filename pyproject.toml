@@ -21,9 +21,9 @@ coverage = ">=7.6.1"
 mypy = ">=1.8.0"
 moto = ">=5.0.14"
 typer-cli = ">=0.0.13"
-ruff = ">=0.6.5"
 
 [tool.ruff]
+line-length = 120
 target-version = "py310"
 
 [tool.ruff.lint]
