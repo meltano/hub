@@ -45,7 +45,7 @@ settings:
   value: false
 - description: Compression format to use for batch files.
   kind: options
-  label: Batch Compression Format
+  label: Batch Config Encoding Compression
   name: batch_config.encoding.compression
   options:
   - label: GZIP
@@ -54,20 +54,18 @@ settings:
     value: none
 - description: Format to use for batch files.
   kind: options
-  label: Batch Encoding Format
+  label: Batch Config Encoding Format
   name: batch_config.encoding.format
   options:
   - label: JSONL
     value: jsonl
-  - label: Parquet
-    value: parquet
 - description: Prefix to use when writing batch files.
   kind: string
-  label: Batch Storage Prefix
+  label: Batch Config Storage Prefix
   name: batch_config.storage.prefix
 - description: Root path to use when writing batch files.
   kind: string
-  label: Batch Storage Root
+  label: Batch Config Storage Root
   name: batch_config.storage.root
 - description: Database name from which records will be extracted.
   kind: string
@@ -110,28 +108,14 @@ settings:
   kind: string
   label: Documentdb Credential Json String
   name: documentdb_credential_json_string
-- description: 'One or more LCID locale strings to produce localized output for: https://faker.readthedocs.io/en/master/#localization'
-  kind: array
-  label: Faker Locale
-  name: faker_config.locale
-- description: 'Value to seed the Faker generator for deterministic output: https://faker.readthedocs.io/en/master/#seeding-the-generator'
-  kind: string
-  label: Faker Seed
-  name: faker_config.seed
-- description: 'Collections to discover (default: all) - filtering is case-insensitive.
-    Useful for improving catalog discovery performance.'
-  kind: array
-  label: Filter Collections
-  name: filter_collections
-  value: []
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
-  label: Enable Schema Flattening
+  label: Flattening Enabled
   name: flattening_enabled
 - description: The max depth to flatten schemas.
   kind: integer
-  label: Max Flattening Depth
+  label: Flattening Max Depth
   name: flattening_max_depth
 - description: |
     MongoDB connection string. See
