@@ -48,7 +48,6 @@ class MeltanoUtil:
             raise ValueError("Python not found in PATH")
 
         MeltanoUtil.run_uv("venv", "--python", python, venv_path.as_posix(), check=True)
-        breakpoint()
         MeltanoUtil.run_uv(
             "pip",
             "install",
