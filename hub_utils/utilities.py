@@ -413,7 +413,8 @@ class Utilities:
         executable,
         python: str | None = None,
     ):
-        MeltanoUtil.help_test(executable, pip_url, python=python)
+        MeltanoUtil.add(plugin_name, pip_url, plugin_type, python=python)
+        MeltanoUtil.help_test(plugin_name, executable, plugin_type)
 
     def add(
         self,
@@ -618,9 +619,9 @@ class Utilities:
             if self._prompt("Scrape SDK --about settings?", True, type=bool):
                 try:
                     return MeltanoUtil.sdk_about(
+                        plugin_name,
                         executable,
-                        pip_url,
-                        python=python,
+                        plugin_type,
                     )
                 except Exception:
                     if self._prompt("Scrape failed! Provide as json?", True, type=bool):
@@ -660,19 +661,20 @@ class Utilities:
     ):
         try:
             airbyte_name = self._prompt("airbyte_name (e.g. source-s3)")
+            MeltanoUtil.add(plugin_name, pip_url, plugin_type, python=python)
             airbyte_config = {"airbyte_spec": {"image": f"airbyte/{airbyte_name}", "tag": "latest"}}
             MeltanoUtil.help_test(
+                plugin_name,
                 executable,
-                pip_url,
+                plugin_type,
                 config=airbyte_config,
-                python=python,
             )
             try:
                 return MeltanoUtil.sdk_about(
+                    plugin_name,
                     executable,
-                    pip_url,
+                    plugin_type,
                     config=airbyte_config,
-                    python=python,
                 )
             except Exception as e:
                 print(e)

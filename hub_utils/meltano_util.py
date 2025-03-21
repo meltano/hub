@@ -19,41 +19,60 @@ class MeltanoUtil:
         return pathlib.Path(__file__).parent.resolve()
 
     @staticmethod
-    def _base_plugin_command(
-        executable: str,
+    def run_uv(*args: str, **kwargs) -> subprocess.CompletedProcess[str]:
+        return subprocess.run(
+            (
+                uv.find_uv_bin(),
+                *args,
+            ),
+            stdout=subprocess.PIPE,
+            text=True,
+            **kwargs,
+        )
+
+    @staticmethod
+    def plugin_venv(plugin_name: str, plugin_type: str) -> pathlib.Path:
+        dot_hub_utils = pathlib.Path(".hub_utils")
+        dot_hub_utils.mkdir(parents=True, exist_ok=True)
+        return dot_hub_utils / plugin_type / plugin_name / "venv"
+
+    @staticmethod
+    def add(
+        plugin_name: str,
         pip_url: str,
+        plugin_type: str,
         *,
         python: str | None = None,
-    ) -> tuple[str, ...]:
-        uv_bin = uv.find_uv_bin()
-        includes: tuple[str, ...] = (
-            "--with",
-            "setuptools",
-            *sum(zip(itertools.repeat("--with"), shlex.split(pip_url)), ()),
-        )
+    ):
+        venv_path = MeltanoUtil.plugin_venv(plugin_name, plugin_type)
 
         python = python or shutil.which("python")
         if not python:
             raise ValueError("Python not found in PATH")
 
-        return (uv_bin, "tool", "run", "--python", python, *includes, executable)
+        MeltanoUtil.run_uv("venv", venv_path.as_posix())
+        MeltanoUtil.run_uv("pip", "install", *shlex.split(pip_url), "--prefix", venv_path.as_posix())
+
+    @staticmethod
+    def _base_plugin_command(
+        plugin_name: str,
+        executable: str,
+        plugin_type: str,
+    ) -> str:
+        return MeltanoUtil.plugin_venv(plugin_name, plugin_type).joinpath("bin", executable).as_posix()
 
     @staticmethod
     def help_test(
+        plugin_name: str,
         executable: str,
-        pip_url: str,
-        python: str | None = None,
+        plugin_type: str,
         config: dict | None = None,
     ):
-        python = python or shutil.which("python")
-        if not python:
-            raise ValueError("Python not found in PATH")
-
         base_command: tuple[str, ...] = (
-            *MeltanoUtil._base_plugin_command(
+            MeltanoUtil._base_plugin_command(
+                plugin_name,
                 executable,
-                pip_url,
-                python=python,
+                plugin_type,
             ),
             "--help",
         )
@@ -82,16 +101,16 @@ class MeltanoUtil:
 
     @staticmethod
     def sdk_about(
+        plugin_name: str,
         executable: str,
-        pip_url: str,
-        python: str | None = None,
+        plugin_type: str,
         config: dict | None = None,
     ):
         base_command: tuple[str, ...] = (
-            *MeltanoUtil._base_plugin_command(
+            MeltanoUtil._base_plugin_command(
+                plugin_name,
                 executable,
-                pip_url,
-                python=python,
+                plugin_type,
             ),
             "--about",
             "--format",
