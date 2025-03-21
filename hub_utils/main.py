@@ -96,7 +96,11 @@ def yamllint(action: YamlLint, paths: list[str] | None = None):
 
 
 @app.command()
-def add(repo_url: str | None = None, auto_accept: bool = typer.Option(False)):
+def add(
+    repo_url: str | None = None,
+    auto_accept: bool = typer.Option(False),
+    python: str | None = typer.Option(None),
+):
     """
     Add a new tap or target to the hub.
     It will prompt you for any attributes that need input.
@@ -111,10 +115,10 @@ def add(repo_url: str | None = None, auto_accept: bool = typer.Option(False)):
         repo_url = util._prompt("repo_url")
     if "airbytehq/airbyte" in repo_url:
         if util._prompt("Is this an Airbyte variant?", True, type=bool):
-            util.add_airbyte(repo_url)
+            util.add_airbyte(repo_url, python=python)
             return
 
-    util.add(repo_url)
+    util.add(repo_url, python=python)
     if "hotglue" in repo_url:
         if util._prompt("Is this a Hotglue variant?", True, type=bool):
             # Attempt to scrape logo from hotglue's website
@@ -150,6 +154,7 @@ def update_definition(
     repo_url: str | None = None,
     plugin_name: str | None = None,
     auto_accept: bool = typer.Option(False),
+    python: str | None = typer.Option(None),
 ):
     """
     Update the definition of a tap or target in the hub.
@@ -162,9 +167,9 @@ def update_definition(
     """
     util = Utilities(auto_accept)
     if util._prompt("is_meltano_sdk", True, type=bool):
-        util.update_sdk(repo_url, plugin_name)
+        util.update_sdk(repo_url, plugin_name, python=python)
     else:
-        util.update(repo_url, plugin_name)
+        util.update(repo_url, plugin_name, python=python)
 
 
 @app.command()

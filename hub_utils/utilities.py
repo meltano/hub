@@ -413,9 +413,14 @@ class Utilities:
         executable,
         python: str | None = None,
     ):
-        MeltanoUtil.help_test(executable, pip_url)
+        MeltanoUtil.help_test(executable, pip_url, python=python)
 
-    def add(self, repo_url: str | None = None, definition_seed: dict | None = None):
+    def add(
+        self,
+        repo_url: str | None = None,
+        definition_seed: dict | None = None,
+        python: str | None = None,
+    ):
         plugin_name = self._prompt("plugin name", self._get_plugin_name(repo_url))
         plugin_type = self._prompt("plugin type", self.get_plugin_type(repo_url))
         pip_url = self._prompt("pip_url", f"git+{repo_url}.git")
@@ -423,7 +428,15 @@ class Utilities:
         executable = self._prompt("executable", plugin_name)
         is_meltano_sdk = self._prompt("is_meltano_sdk", True, type=bool)
         sdk_about_dict = None
-        sdk_about_dict = self._test(plugin_name, plugin_type, pip_url, namespace, executable, is_meltano_sdk)
+        sdk_about_dict = self._test(
+            plugin_name,
+            plugin_type,
+            pip_url,
+            namespace,
+            executable,
+            is_meltano_sdk,
+            python=python,
+        )
         if sdk_about_dict:
             (
                 settings,
@@ -463,6 +476,7 @@ class Utilities:
         self,
         definition_seed: dict | None = None,
         enforce_desc: bool = True,
+        python: str | None = None,
     ):
         repo_url = "https://github.com/meltanolabs/tap-airbyte-wrapper"
         plugin_name = self._prompt("plugin name", "tap-<source/x>")
@@ -478,6 +492,7 @@ class Utilities:
             pip_url,
             namespace,
             executable,
+            python=python,
         )
         if sdk_about_dict:
             (
@@ -634,7 +649,15 @@ class Utilities:
         except Exception as e:
             print(e)
 
-    def _test_airbyte(self, plugin_name, plugin_type, pip_url, namespace, executable):
+    def _test_airbyte(
+        self,
+        plugin_name,
+        plugin_type,
+        pip_url,
+        namespace,
+        executable,
+        python: str | None = None,
+    ):
         try:
             airbyte_name = self._prompt("airbyte_name (e.g. source-s3)")
             airbyte_config = {"airbyte_spec": {"image": f"airbyte/{airbyte_name}", "tag": "latest"}}
@@ -642,12 +665,14 @@ class Utilities:
                 executable,
                 pip_url,
                 config=airbyte_config,
+                python=python,
             )
             try:
                 return MeltanoUtil.sdk_about(
                     executable,
                     pip_url,
                     config=airbyte_config,
+                    python=python,
                 )
             except Exception as e:
                 print(e)
@@ -656,7 +681,13 @@ class Utilities:
         except Exception as e:
             print(e)
 
-    def _update_base(self, repo_url, plugin_name, is_meltano_sdk=False):
+    def _update_base(
+        self,
+        repo_url,
+        plugin_name,
+        is_meltano_sdk=False,
+        python: str | None = None,
+    ):
         if not repo_url:
             repo_url = self._prompt("repo_url")
         plugin_name = self._prompt("plugin name", plugin_name or self._get_plugin_name(repo_url))
@@ -670,10 +701,16 @@ class Utilities:
             existing_def["namespace"],
             existing_def.get("executable", plugin_name),
             is_meltano_sdk,
+            python=python,
         )
         return repo_url, plugin_name, plugin_type, plugin_variant, existing_def, sdk_def
 
-    def update(self, repo_url: str | None = None, plugin_name: str | None = None):
+    def update(
+        self,
+        repo_url: str | None = None,
+        plugin_name: str | None = None,
+        python: str | None = None,
+    ):
         (
             repo_url,
             plugin_name,
@@ -681,7 +718,7 @@ class Utilities:
             plugin_variant,
             existing_def,
             sdk_def,
-        ) = self._update_base(repo_url, plugin_name)
+        ) = self._update_base(repo_url, plugin_name, python=python)
         setting_names = [setting.get("name") for setting in existing_def.get("settings", [])]
         caps = self._string_to_literal(self._prompt("capabilities", existing_def.get("capabilities")))
         m_status = self._prompt("maintenance_status", existing_def.get("maintenance_status"))
@@ -698,7 +735,12 @@ class Utilities:
         self._write_updated_def(plugin_name, plugin_variant, plugin_type, new_def)
         print(f"\nUpdates {plugin_type} {plugin_name} ({plugin_variant})\n\n")
 
-    def update_sdk(self, repo_url: str | None = None, plugin_name: str | None = None):
+    def update_sdk(
+        self,
+        repo_url: str | None = None,
+        plugin_name: str | None = None,
+        python: str | None = None,
+    ):
         (
             repo_url,
             plugin_name,
@@ -706,7 +748,7 @@ class Utilities:
             plugin_variant,
             existing_def,
             sdk_def,
-        ) = self._update_base(repo_url, plugin_name, is_meltano_sdk=True)
+        ) = self._update_base(repo_url, plugin_name, is_meltano_sdk=True, python=python)
         (
             settings,
             settings_group_validation,
