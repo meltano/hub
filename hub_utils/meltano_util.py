@@ -1,5 +1,5 @@
-import itertools
 import json
+import os
 import pathlib
 import shlex
 import shutil
@@ -21,10 +21,7 @@ class MeltanoUtil:
     @staticmethod
     def run_uv(*args: str, **kwargs) -> subprocess.CompletedProcess[str]:
         return subprocess.run(
-            (
-                uv.find_uv_bin(),
-                *args,
-            ),
+            (uv.find_uv_bin(), *args),
             stdout=subprocess.PIPE,
             text=True,
             **kwargs,
@@ -32,7 +29,7 @@ class MeltanoUtil:
 
     @staticmethod
     def plugin_venv(plugin_name: str, plugin_type: str) -> pathlib.Path:
-        dot_hub_utils = pathlib.Path(".hub_utils")
+        dot_hub_utils = pathlib.Path(".hub_utils").resolve()
         dot_hub_utils.mkdir(parents=True, exist_ok=True)
         return dot_hub_utils / plugin_type / plugin_name / "venv"
 
@@ -50,8 +47,18 @@ class MeltanoUtil:
         if not python:
             raise ValueError("Python not found in PATH")
 
-        MeltanoUtil.run_uv("venv", venv_path.as_posix())
-        MeltanoUtil.run_uv("pip", "install", *shlex.split(pip_url), "--prefix", venv_path.as_posix())
+        MeltanoUtil.run_uv("venv", "--python", python, venv_path.as_posix(), check=True)
+        breakpoint()
+        MeltanoUtil.run_uv(
+            "pip",
+            "install",
+            *shlex.split(pip_url),
+            check=True,
+            env={
+                **os.environ,
+                "VIRTUAL_ENV": venv_path.as_posix(),
+            },
+        )
 
     @staticmethod
     def _base_plugin_command(
