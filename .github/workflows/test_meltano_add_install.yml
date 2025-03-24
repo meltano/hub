@@ -72,4 +72,6 @@ jobs:
 
       - name: Test install
         working-directory: test-project
+        env:
+          UV_BUILD_CONSTRAINT: ${{ github.workspace }}/.github/workflows/resources/meltano_install_build_constraints.txt
         run: meltano install
