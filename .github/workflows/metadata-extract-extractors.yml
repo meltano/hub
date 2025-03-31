@@ -83,7 +83,7 @@ jobs:
     # know what python versions are accepted we start with the latest and continue
     # decreasing until we have a success or run out of python versions to attempt.
     - name: Install Python
-      uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
+      uses: actions/setup-python@8d9ed9ac5c53483de85588cdf95a591a75ab9f55 # v5.5.0
       with:
         python-version: |
           3.13
@@ -157,7 +157,7 @@ jobs:
       run: uv tool install git+https://github.com/meltano/hub-utils.git@main
 
     - name: Install Python
-      uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
+      uses: actions/setup-python@8d9ed9ac5c53483de85588cdf95a591a75ab9f55 # v5.5.0
       with:
         python-version: |
           3.10
