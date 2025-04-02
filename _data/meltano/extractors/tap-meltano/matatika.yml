@@ -79,6 +79,12 @@ settings:
   kind: object
   label: Stream Maps
   name: stream_maps
+- description: Whether to use use strings with `x-singer.decimal` format for decimals
+    in the discovered schema. This is useful to avoid precision loss when working
+    with large numbers.
+  kind: boolean
+  label: Use Singer Decimal
+  name: use_singer_decimal
 settings_group_validation:
 - - meltano_database_uri
 variant: matatika

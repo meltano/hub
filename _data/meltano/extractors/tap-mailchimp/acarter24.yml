@@ -28,7 +28,7 @@ settings:
   sensitive: true
 - description: Your Mailchimp DC
   kind: string
-  label: Data Center
+  label: Dc
   name: dc
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
