@@ -104,9 +104,7 @@ settings:
   kind: array
   label: Repositories
   name: repositories
-- description: An array of search descriptor objects with the following properties.
-    "name" - a human readable name for the search query. "query" -  a github search
-    string (generally the same as would come after ?q= in the URL)
+- description: List of searches to perform.
   kind: array
   label: Searches
   name: searches
@@ -115,7 +113,7 @@ settings:
   kind: boolean
   label: Skip Parent Streams
   name: skip_parent_streams
-- description: ''
+- description: Start date for incremental sync.
   kind: date_iso8601
   label: Start Date
   name: start_date
@@ -140,7 +138,7 @@ settings:
   - label: All
     value: all
   value: open
-- description: ''
+- description: User agent to use for API requests.
   kind: string
   label: User Agent
   name: user_agent
