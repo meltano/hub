@@ -7952,8 +7952,8 @@ metrics:
     all_projects_unstruct_by_name: 31
     all_projects_unstruct_by_variant: 30
     name: airflow
-    pip_url: git+https://github.com/meltano/airflow-ext.git@main apache-airflow==2.3.3
-      --constraint https://raw.githubusercontent.com/apache/airflow/constraints-2.3.3/constraints-no-providers-${MELTANO__PYTHON_VERSION}.txt
+    pip_url: git+https://github.com/meltano/airflow-ext.git@main apache-airflow==2.10.5
+      --constraint https://raw.githubusercontent.com/apache/airflow/constraints-2.10.5/constraints-no-providers-${MELTANO__PYTHON_VERSION}.txt
     plugin_type: utilities
     success_execs_by_name: 0
     success_execs_unstruct_by_name: 244

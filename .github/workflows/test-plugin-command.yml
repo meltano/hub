@@ -80,7 +80,9 @@ jobs:
 
     - name: Create requirements.txt
       run: echo '${{ env.PIP_URL }}' > requirements.txt
+
     - name: Set up Python
+      id: setup-python
       uses: actions/setup-python@8d9ed9ac5c53483de85588cdf95a591a75ab9f55 # v5.5.0
       with:
         python-version: "3.10"
@@ -92,15 +94,18 @@ jobs:
 
     - name: Install plugin
       id: plugin-install
+      env:
+        MELTANO__PYTHON_VERSION: ${{ steps.setup-python.outputs.python-version }}
       run: |
-        uv tool install ${{ env.PIP_URL }} 2>&1 | tee install-output.txt
+        uv venv
+        uv pip install -r requirements.txt 2>&1 | tee install-output.txt
         echo "failed=${PIPESTATUS[0]}" >> $GITHUB_ENV
 
     - name: Create installation failure log
       if: steps.plugin-install.outputs.failed == '1'
       run: |
         echo "JOB_OUTPUT<<EOF" >> $GITHUB_ENV
-        echo "melty-bot % uv tool install ${{ env.PIP_URL }}" >> $GITHUB_ENV
+        echo "melty-bot % uv pip install ${{ env.PIP_URL }}" >> $GITHUB_ENV
         cat install-output.txt >> $GITHUB_ENV
         echo "EOF" >> $GITHUB_ENV
 

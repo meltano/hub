@@ -51,9 +51,9 @@ next_steps: |
      By default, the UI will be available at at [`http://localhost:8080`](http://localhost:8080). You can change this using the `webserver.web_server_port` setting documented below.
 
   1. Start Scheduler or execute Airflow commands directly using the instructions in [the Meltano docs](https://docs.meltano.com/guide/orchestration#starting-the-airflow-scheduler).
-pip_url: git+https://github.com/meltano/airflow-ext.git@main apache-airflow==2.8.1
+pip_url: git+https://github.com/meltano/airflow-ext.git@main apache-airflow==2.10.5
   --constraint 
-  https://raw.githubusercontent.com/apache/airflow/constraints-2.8.1/constraints-no-providers-${MELTANO__PYTHON_VERSION}.txt
+  https://raw.githubusercontent.com/apache/airflow/constraints-2.10.5/constraints-no-providers-${MELTANO__PYTHON_VERSION}.txt
 repo: https://github.com/apache/airflow
 settings:
 - env: AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION
