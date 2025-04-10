@@ -24,7 +24,7 @@ executable: airflow_invoker
 ext_repo: https://github.com/meltano/airflow-ext
 keywords:
 - meltano_edk
-label: Airflow
+label: Airflow!
 logo_url: /assets/logos/orchestrators/airflow.png
 maintenance_status: active
 name: airflow
