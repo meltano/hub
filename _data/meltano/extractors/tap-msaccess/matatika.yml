@@ -10,22 +10,19 @@ description: Database management system from Microsoft that combines the relatio
   Access Database Engine with a graphical user interface and software-development
   tools
 domain_url: https://www.microsoft.com/en-gb/microsoft-365/access
-executable: tap-msaccess
 keywords:
-- aws
 - database
 - db
 - fsspec
 - meltano_sdk
 - microsoft access
 - ms access
-- s3
-label: Microsoft Access (S3)
+label: Microsoft Access
 logo_url: /assets/logos/extractors/msaccess.png
 maintenance_status: active
-name: tap-msaccess-s3
+name: tap-msaccess
 namespace: tap_msaccess
-pip_url: git+https://github.com/Matatika/tap-msaccess.git@v0.1.0 fsspec[s3]
+pip_url: git+https://github.com/Matatika/tap-msaccess.git@v0.1.0
 quality: gold
 repo: https://github.com/Matatika/tap-msaccess
 settings:
@@ -101,4 +98,6 @@ settings:
   name: stream_maps
 settings_group_validation:
 - - database_file
+usage: To connect to a remote database file, check out [`tap-msaccess-anywhere`](/extractors/tap-msaccess-anywhere)
+  or the domain-specific `tap-msaccess` derivations (e.g. [`tap-msaccess-azure`](/extractors/tap-msaccess-azure))
 variant: matatika
