@@ -8,12 +8,12 @@ packages = [{include = "hub_utils"}]
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.14"
-boto3 = "^1.37.37"
+boto3 = "^1.38.3"
 jsonpath-ng = "^1.7.0"
 requests = "^2.30.0"
 ruamel-yaml = "^0.18.10"
 typer = {extras = ["all"], version = "^0.15.2"}
-uv = "^0.6.14"
+uv = "^0.6.17"
 yamllint = "^1.37.0"
 
 [tool.poetry.group.dev.dependencies]
