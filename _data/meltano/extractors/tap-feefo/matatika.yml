@@ -91,7 +91,7 @@ settings:
 - description: |
     Timestamp in ISO 8601 format to get data from (inclusive)
 
-    Defaults to the first day/month of the current year (e.g. `2025-01-1`)
+    Defaults to the first day/month of the current year (e.g. `2025-01-01`)
 
     `reviews`: resolves to an updated period of `month`, `year` or `all` understood by
     the API ([more info](https://feefo.readme.io/reference/reviews-api-request))
