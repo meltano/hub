@@ -489,6 +489,7 @@ extractors:
   tap-snapchat-ads: singer-io
   tap-snapengage: pathlight
   tap-snowflake: meltanolabs
+  tap-socrata: meltanolabs
   tap-solarvista: matatika
   tap-sonar-cloud: airbyte
   tap-spacex-api: airbyte
