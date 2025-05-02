@@ -12,7 +12,7 @@ boto3 = "^1.38.3"
 jsonpath-ng = "^1.7.0"
 requests = "^2.30.0"
 ruamel-yaml = "^0.18.10"
-typer = {extras = ["all"], version = "^0.15.2"}
+typer = "^0.15.2"
 uv = "^0.6.17"
 yamllint = "^1.37.0"
 
