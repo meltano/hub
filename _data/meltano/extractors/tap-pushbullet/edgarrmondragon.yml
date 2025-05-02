@@ -17,7 +17,7 @@ maintenance_status: active
 name: tap-pushbullet
 namespace: tap_pushbullet
 next_steps: ''
-pip_url: git+https://github.com/edgarrmondragon/tap-pushbullet.git
+pip_url: tap-pushbullet
 quality: gold
 repo: https://github.com/edgarrmondragon/tap-pushbullet
 settings:

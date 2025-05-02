@@ -17,7 +17,7 @@ maintenance_status: active
 name: tap-pipedream
 namespace: tap_pipedream
 next_steps: ''
-pip_url: git+https://github.com/edgarrmondragon/tap-pipedream.git
+pip_url: tap-pipedream
 quality: gold
 repo: https://github.com/edgarrmondragon/tap-pipedream
 settings:
