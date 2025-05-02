@@ -97,6 +97,7 @@ extractors:
   tap-clickhouse: akurdyukov
   tap-clickup: autoidm
   tap-clientsuccess: antiny
+  tap-clinicaltrials: edgarrmondragon
   tap-clockify: quantile-taps
   tap-closeio: singer-io
   tap-cloudwatch: meltanolabs
@@ -337,7 +338,7 @@ extractors:
   tap-my-hours: airbyte
   tap-mysql: transferwise
   tap-n8n: airbyte
-  tap-nasa: airbyte
+  tap-nasa: edgarrmondragon
   tap-netlify: franloza
   tap-netohq: hotgluexyz
   tap-netrivals: epoch8
@@ -382,6 +383,7 @@ extractors:
   tap-picqer: hotgluexyz
   tap-pingboard: immuta
   tap-pinterest-ads: gthesheep
+  tap-pipedream: edgarrmondragon
   tap-pipedrive: singer-io
   tap-pivotal-tracker: goodeggs
   tap-plaid: airbyte
@@ -408,6 +410,7 @@ extractors:
   tap-pulumi-cloud: meltanolabs
   tap-punk-api: airbyte
   tap-purecloud: pathlight
+  tap-pushbullet: edgarrmondragon
   tap-pxwebapi: storebrand
   tap-pypi: airbyte
   tap-pypistats: edgarrmondragon
