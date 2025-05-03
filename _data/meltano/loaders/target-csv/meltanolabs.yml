@@ -13,7 +13,7 @@ maintenance_status: active
 name: target-csv
 namespace: target_csv
 next_steps: ''
-pip_url: git+https://github.com/MeltanoLabs/target-csv.git
+pip_url: meltanolabs-target-csv
 quality: gold
 repo: https://github.com/MeltanoLabs/target-csv
 settings:
