@@ -6,7 +6,8 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
-description: Speech analytics platform designed to help organizations identify, understand, and optimize customer interactions.
+description: Speech analytics platform designed to help organizations identify, understand,
+  and optimize customer interactions.
 domain_url: https://callminer.com/
 keywords:
 - api
@@ -76,21 +77,40 @@ settings:
   kind: integer
   label: Max Flattening Depth
   name: flattening_max_depth
-- description: Maximum number of times to poll an export job (every 60s) until completed
+- description: Maximum job poll count
   kind: integer
-  label: Job poll max count
+  label: Job Poll Max Count
   name: job_poll_max_count
   value: 60
-- description: Email address required by CallMiner to send a notification to once an export completes
+- description: Email address required by CallMiner to send a notification to once
+    an export completes
   kind: string
   label: Notification email address
   name: notification_email
+- description: CallMiner API region
+  kind: options
+  label: Region
+  name: region
+  options:
+  - label: Us
+    value: US
+  - label: Us Fisma
+    value: US_FISMA
+  - label: Uk
+    value: UK
+  - label: Au
+    value: AU
+  - label: Ca
+    value: CA
+  - label: Eu
+    value: EU
+  value: US
 - description: |
     Initial date to start extracting data from
 
     Defaults to the last year (relative)
   kind: date_iso8601
-  label: Start date
+  label: Start Date
   name: start_date
 - description: User-defined config values to be used within map expressions.
   kind: object
@@ -105,5 +125,6 @@ settings_group_validation:
 - - client_id
   - client_secret
   - notification_email
-settings_preamble: This tap works with the CallMiner bulk export API - ensure the client credentials you provide reflect this.
+settings_preamble: This tap works with the CallMiner bulk export API - ensure the
+  client credentials you provide reflect this.
 variant: matatika
