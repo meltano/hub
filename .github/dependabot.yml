@@ -6,13 +6,11 @@ updates:
       interval: weekly
       time: "12:00"
       timezone: "Etc/UTC"
-    reviewers: [meltano/engineering]
     labels: [deps]
   - package-ecosystem: github-actions
     directory: "/"
     schedule:
       interval: weekly
-    reviewers: [meltano/engineering]
     labels: [deps]
     groups:
       artifacts:
