@@ -83,8 +83,8 @@ settings:
   name: stream_maps
 - description: MySQL username
   kind: string
-  label: Username
-  name: username
+  label: User
+  name: user
 settings_group_validation:
 - []
 settings_preamble: ''
