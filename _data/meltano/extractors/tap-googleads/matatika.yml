@@ -102,6 +102,10 @@ settings:
   label: Login Customer ID
   name: login_customer_id
   sensitive: true
+- hidden: true
+  kind: object
+  label: OAuth Credentials
+  name: oauth_credentials
 - description: https://developers.google.com/google-ads/api/docs/oauth/cloud-project#create_a_client_id_and_client_secret
   kind: string
   label: OAuth Client ID
@@ -131,6 +135,8 @@ settings:
   label: Stream Maps
   name: stream_maps
 settings_group_validation:
+- - developer_token
+  - oauth_credentials
 - - developer_token
   - oauth_credentials.client_id
   - oauth_credentials.client_secret
