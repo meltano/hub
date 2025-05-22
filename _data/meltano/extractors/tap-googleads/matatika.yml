@@ -102,10 +102,20 @@ settings:
   label: Login Customer ID
   name: login_customer_id
   sensitive: true
-- description: ''
+- description: https://developers.google.com/google-ads/api/docs/oauth/cloud-project#create_a_client_id_and_client_secret
   kind: string
-  label: OAuth Credentials
-  name: oauth_credentials
+  label: OAuth Client ID
+  name: oauth_credentials.client_id
+- description: https://developers.google.com/google-ads/api/docs/oauth/cloud-project#create_a_client_id_and_client_secret
+  kind: string
+  label: OAuth Client Secret
+  name: oauth_credentials.client_secret
+  sensitive: true
+- description: https://developers.google.com/google-ads/api/docs/get-started/make-first-call?authpath=user_authentication#fetch_a_refresh_token
+  kind: string
+  label: OAuth Refresh Token
+  name: oauth_credentials.refresh_token
+  sensitive: true
 - description: ISO start date for all of the streams that use date-based filtering.
     Defaults to 90 days before the current day.
   kind: date_iso8601
@@ -121,8 +131,8 @@ settings:
   label: Stream Maps
   name: stream_maps
 settings_group_validation:
-- - client_id
-  - client_secret
-  - developer_token
-  - refresh_token
+- - developer_token
+  - oauth_credentials.client_id
+  - oauth_credentials.client_secret
+  - oauth_credentials.refresh_token
 variant: matatika
