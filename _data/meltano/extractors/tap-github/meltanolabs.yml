@@ -66,7 +66,9 @@ settings:
   kind: string
   label: Batch Storage Root
   name: batch_config.storage.root
-- description: ''
+- description: When authenticating as a GitHub App, this buffer controls how many
+    minutes before expiry the GitHub app tokens will be refreshed. Defaults to 10
+    minutes.
   kind: integer
   label: Expiry Time Buffer
   name: expiry_time_buffer
@@ -104,7 +106,9 @@ settings:
   kind: array
   label: Repositories
   name: repositories
-- description: List of searches to perform.
+- description: 'An array of search descriptor objects with the following properties:
+    "name" - a human readable name for the search query. "query" - a github search
+    string (generally the same as would come after ?q= in the URL)"'
   kind: array
   label: Searches
   name: searches
