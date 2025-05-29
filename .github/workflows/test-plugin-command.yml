@@ -91,7 +91,9 @@ jobs:
     - name: Install plugin
       id: plugin-install
       run: |
-        uv tool install ${{ env.PIP_URL }} 2>&1 | tee install-output.txt
+        # Split the pip URL into individual packages and pass them all to uv tool install
+        packages=(${{ env.PIP_URL }})
+        uv tool install "${packages[@]}" 2>&1 | tee install-output.txt
         echo "failed=${PIPESTATUS[0]}" >> $GITHUB_ENV
 
     - name: Create installation failure log
