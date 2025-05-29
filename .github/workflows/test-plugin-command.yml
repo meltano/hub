@@ -209,7 +209,7 @@ jobs:
           echo -e "\`\`\`\n" >> $GITHUB_ENV
           echo "</details>" >> $GITHUB_ENV
         fi
-        if [ -s catalog.json ]; then
+        if [ -s catalog.json ] && [ -n "$(cat catalog.json)" ]; then
           echo "<details><summary>Discovered streams</summary>" >> $GITHUB_ENV
           echo -e "\n" >> $GITHUB_ENV
           cat catalog.json | jq --raw-output '.streams[] | (.tap_stream_id // .stream ) | "- `\(.)`"' >> $GITHUB_ENV
