@@ -64,16 +64,15 @@ jobs:
       - name: Get the name and pip url
         run: |
           name="$(basename "$(dirname "${{ matrix.changed_file }}")")"
-          pip_url="$(./yq '.pip_url // ""' "${{ matrix.changed_file }}")"
+          plugin_type="$(basename $(dirname "$(dirname "${{ matrix.changed_file }}")"))"
+          plugin_yaml="$(./yq -r '. | tostring' "${{ matrix.changed_file }}")"
           variant="$(./yq '.variant' "${{ matrix.changed_file }}")"
-          executable="$(./yq '.executable // ""' "${{ matrix.changed_file }}")"
           echo "name=${name}" >> $GITHUB_ENV
-          echo "pip_url=${pip_url}" >> $GITHUB_ENV
-          echo "executable=${executable}" >> $GITHUB_ENV
+          echo "plugin_type=${plugin_type}" >> $GITHUB_ENV
+          echo "plugin_yaml=${plugin_yaml}" >> $GITHUB_ENV
           echo "prelude=Testing plugin \`${name}\` (\`${variant}\` variant):" >> $GITHUB_ENV
 
       - name: Find the MeltyBot test-command comment if it exists
-        if: ${{ env.pip_url != '' }}
         id: find_comment
         uses: peter-evans/find-comment@3eae4d37986fb5a8592848f6a574fdf654e61f9e # v3.1.0
         with:
@@ -82,7 +81,6 @@ jobs:
           body-includes: ${{ env.prelude }}
 
       - uses: octokit/request-action@dad4362715b7fb2ddedf9772c8670824af564f0d # v2.4.0
-        if: ${{ env.pip_url != '' }}
         with:
           route: "POST /repos/${{ github.repository }}/actions/workflows/test-plugin-command.yml/dispatches"
           ref: 'main'
@@ -92,8 +90,7 @@ jobs:
               "comment-id": "${{ steps.find_comment.outputs.comment-id }}",
               "issue-number": "${{ github.event.pull_request.number }}",
               "name": "${{ env.name }}",
-              "pip-url": "${{ env.pip_url }}",
-              "executable": "${{ env.executable }}",
+              "plugin-yaml": "${{ env.plugin_yaml }}",
               "prepend-text": "${{ env.prelude }}"
             }
         env:

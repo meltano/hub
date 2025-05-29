@@ -20,14 +20,12 @@ on:
       name:
         description: The name of the plugin's executable
         required: true
-      pip-url:
-        description: The pip_url for the plugin
-        required: false
-        default: ''
-      executable:
-        description: The executable name for the plugin
-        required: false
-        default: ''
+      plugin-type:
+        description: The type of plugin to test
+        required: true
+      plugin-yaml:
+        description: The plugin definition file contents for the plugin, as a YAML string
+        required: true
       prepend-text:
         description: Text to be prepended to the command output
         required: false
@@ -40,17 +38,8 @@ jobs:
     permissions:
       contents: write       # to create a github release
       pull-requests: write  # to create and update PRs
-    env:
-      PLUGIN_NAME: ${{ github.event.inputs.name }}
-      PIP_URL: ${{ github.event.inputs.pip-url }}
-      EXECUTABLE: ${{ github.event.inputs.executable || github.event.inputs.name }}
 
     steps:
-
-    - name: Handle missing pip_url
-      if: github.event.inputs.from-slash-command == 'true' && github.event.inputs.pip-url == ''
-      run: echo 'PIP_URL=${{ github.event.inputs.name }}' >> "$GITHUB_ENV"
-
     - name: Add 👀 reaction
       if: github.event.inputs.from-slash-command == 'true'
       uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
@@ -88,19 +77,24 @@ jobs:
       with:
         version: ">=0.4.30"
 
-    - name: Install plugin
-      id: plugin-install
+    - name: Install Meltano
       run: |
-        # Split the pip URL into individual packages and pass them all to uv tool install
-        packages=(${{ env.PIP_URL }})
-        uv tool install "${packages[@]}" 2>&1 | tee install-output.txt
+        uv tool install meltano
+        meltano init --no-usage-stats meltano-${{ github.workflow_sha }}
+
+    - name: Add and install plugin
+      id: plugin-install
+      working-directory: ${{ github.workspace }}/meltano-${{ github.workflow_sha }}
+      run: |
+        echo '${{ github.event.inputs.plugin-yaml }}' > plugin.yaml
+        meltano add ${{ github.event.inputs.plugin-type }} ${{ github.event.inputs.name }} --from-ref plugin.yaml 2>&1 | tee install-output.txt
         echo "failed=${PIPESTATUS[0]}" >> $GITHUB_ENV
 
     - name: Create installation failure log
       if: steps.plugin-install.outputs.failed == '1'
       run: |
         echo "JOB_OUTPUT<<EOF" >> $GITHUB_ENV
-        echo "melty-bot % uv tool install ${{ env.PIP_URL }}" >> $GITHUB_ENV
+        echo "melty-bot % meltano add ${{ github.event.inputs.plugin-type }} ${{ github.event.inputs.name }} --from-ref plugin.yaml" >> $GITHUB_ENV
         cat install-output.txt >> $GITHUB_ENV
         echo "EOF" >> $GITHUB_ENV
 
@@ -113,32 +107,37 @@ jobs:
 
     - name: Print plugin help
       id: plugin-help
+      working-directory: ${{ github.workspace }}/meltano-${{ github.workflow_sha }}
       run: |
-        ${{ env.EXECUTABLE }} --help 2>&1 | tee help-output.txt
+        meltano invoke ${{ github.event.inputs.name }} --help 2>&1 | tee help-output.txt
 
     - name: Print plugin version
       id: plugin-version
       continue-on-error: true
+      working-directory: ${{ github.workspace }}/meltano-${{ github.workflow_sha }}
       run: |
-        ${{ env.EXECUTABLE }} --version | tee version-output.txt
+        meltano invoke ${{ github.event.inputs.name }} --version 2>&1 | tee version-output.txt
 
     - name: Print plugin about
       id: plugin-about
       continue-on-error: true
+      working-directory: ${{ github.workspace }}/meltano-${{ github.workflow_sha }}
       run: |
-        ${{ env.EXECUTABLE }} --about --format=json | tee about-result.json
+        meltano invoke ${{ github.event.inputs.name }} --about --format=json 2>&1 | tee about-result.json
 
     - name: Print plugin markdown
       id: plugin-markdown
       continue-on-error: true
+      working-directory: ${{ github.workspace }}/meltano-${{ github.workflow_sha }}
       run: |
-        ${{ env.EXECUTABLE }} --about --format=markdown | tee markdown-result.md
+        meltano invoke ${{ github.event.inputs.name }} --about --format=markdown 2>&1 | tee markdown-result.md
 
     - name: Print discovery output
       id: plugin-catalog
       continue-on-error: true
+      working-directory: ${{ github.workspace }}/meltano-${{ github.workflow_sha }}
       run: |
-        ${{ env.EXECUTABLE }} --discover | tee catalog.json
+        meltano invoke ${{ github.event.inputs.name }} --discover 2>&1 | tee catalog.json
 
     # Generates the JOB_OUTPUT env var, accessible via '${{ env.JOB_OUTPUT }}''
     # Ref: https://trstringer.com/github-actions-multiline-strings/
@@ -160,7 +159,7 @@ jobs:
         fi
         echo "<details><summary>Usage info</summary>" >> $GITHUB_ENV
         echo -e "\n\`\`\`" >> $GITHUB_ENV
-        echo "melty-bot % ${{ env.EXECUTABLE }} --help" >> $GITHUB_ENV
+        echo "melty-bot % meltano invoke ${{ github.event.inputs.name }} --help" >> $GITHUB_ENV
         cat help-output.txt >> $GITHUB_ENV
         echo -e "\`\`\`\n" >> $GITHUB_ENV
         echo "</details>" >> $GITHUB_ENV
