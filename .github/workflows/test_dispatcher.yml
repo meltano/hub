@@ -65,11 +65,11 @@ jobs:
         run: |
           name="$(basename "$(dirname "${{ matrix.changed_file }}")")"
           plugin_type="$(basename $(dirname "$(dirname "${{ matrix.changed_file }}")"))"
-          plugin_yaml="$(cat "${{ matrix.changed_file }}")"
+          plugin_path="${{ matrix.changed_file }}
           variant="$(./yq '.variant' "${{ matrix.changed_file }}")"
           echo "name=${name}" >> $GITHUB_ENV
           echo "plugin_type=${plugin_type}" >> $GITHUB_ENV
-          echo "plugin_yaml=${plugin_yaml}" >> $GITHUB_ENV
+          echo "plugin_path=${plugin_path}" >> $GITHUB_ENV
           echo "prelude=Testing plugin \`${name}\` (\`${variant}\` variant):" >> $GITHUB_ENV
 
       - name: Find the MeltyBot test-command comment if it exists
@@ -90,7 +90,7 @@ jobs:
               "comment-id": "${{ steps.find_comment.outputs.comment-id }}",
               "issue-number": "${{ github.event.pull_request.number }}",
               "name": "${{ env.name }}",
-              "plugin-yaml": "${{ env.plugin_yaml }}",
+              "plugin-path": "${{ env.plugin_path }}",
               "prepend-text": "${{ env.prelude }}"
             }
         env:
