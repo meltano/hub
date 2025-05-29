@@ -153,6 +153,7 @@ jobs:
     # Generates the JOB_OUTPUT env var, accessible via '${{ env.JOB_OUTPUT }}''
     # Ref: https://trstringer.com/github-actions-multiline-strings/
     - name: Process job output
+      working-directory: ${{ github.workspace }}/project
       if: steps.plugin-install.outputs.failed == '0'
       run: |
         echo "JOB_OUTPUT<<EOF" >> $GITHUB_ENV
