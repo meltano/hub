@@ -85,6 +85,8 @@ jobs:
     - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       with:
         repository: ${{ github.event.inputs.repository }}
+        sparse-checkout: |
+          ${{ github.event.inputs.plugin-path }}
 
     - name: Add and install plugin
       id: plugin-install
