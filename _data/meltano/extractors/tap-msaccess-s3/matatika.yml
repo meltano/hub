@@ -27,6 +27,10 @@ pip_url: git+https://github.com/Matatika/tap-msaccess.git@v0.1.0 fsspec[s3]
 quality: gold
 repo: https://github.com/Matatika/tap-msaccess
 settings:
+- description: S3 URL to a Microsoft Access database `.mdb` or `.accdb` file
+  kind: string
+  label: Database File
+  name: database_file
 - description: Use anonymous connection to access public read-only buckets without credentials
   kind: boolean
   label: Anonymous connection
