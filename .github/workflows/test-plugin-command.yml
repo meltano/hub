@@ -26,6 +26,9 @@ on:
       plugin-path:
         description: The path to the plugin definition file
         required: true
+      git-ref:
+        description: The git ref to use for the plugin checkout
+        required: true
       prepend-text:
         description: Text to be prepended to the command output
         required: false
@@ -80,17 +83,19 @@ jobs:
     - name: Install Meltano
       run: |
         uv tool install meltano
-        meltano init --no-usage-stats meltano-${{ github.workflow_sha }}
+        meltano init --no-usage-stats ${{ github.workspace }}/project
 
     - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       with:
         repository: ${{ github.event.inputs.repository }}
+        path: ${{ github.workspace }}/project
+        ref: ${{ github.event.inputs.git-ref }}
         sparse-checkout: |
           ${{ github.event.inputs.plugin-path }}
 
     - name: Add and install plugin
       id: plugin-install
-      working-directory: ${{ github.workspace }}/meltano-${{ github.workflow_sha }}
+      working-directory: ${{ github.workspace }}/project
       run: |
         meltano add ${{ github.event.inputs.plugin-type }} ${{ github.event.inputs.name }} --from-ref ${{ github.event.inputs.plugin-path }} 2>&1 | tee install-output.txt
         echo "failed=${PIPESTATUS[0]}" >> $GITHUB_ENV
@@ -112,35 +117,35 @@ jobs:
 
     - name: Print plugin help
       id: plugin-help
-      working-directory: ${{ github.workspace }}/meltano-${{ github.workflow_sha }}
+      working-directory: ${{ github.workspace }}/project
       run: |
         meltano invoke ${{ github.event.inputs.name }} --help 2>&1 | tee help-output.txt
 
     - name: Print plugin version
       id: plugin-version
       continue-on-error: true
-      working-directory: ${{ github.workspace }}/meltano-${{ github.workflow_sha }}
+      working-directory: ${{ github.workspace }}/project
       run: |
         meltano invoke ${{ github.event.inputs.name }} --version 2>&1 | tee version-output.txt
 
     - name: Print plugin about
       id: plugin-about
       continue-on-error: true
-      working-directory: ${{ github.workspace }}/meltano-${{ github.workflow_sha }}
+      working-directory: ${{ github.workspace }}/project
       run: |
         meltano invoke ${{ github.event.inputs.name }} --about --format=json 2>&1 | tee about-result.json
 
     - name: Print plugin markdown
       id: plugin-markdown
       continue-on-error: true
-      working-directory: ${{ github.workspace }}/meltano-${{ github.workflow_sha }}
+      working-directory: ${{ github.workspace }}/project
       run: |
         meltano invoke ${{ github.event.inputs.name }} --about --format=markdown 2>&1 | tee markdown-result.md
 
     - name: Print discovery output
       id: plugin-catalog
       continue-on-error: true
-      working-directory: ${{ github.workspace }}/meltano-${{ github.workflow_sha }}
+      working-directory: ${{ github.workspace }}/project
       run: |
         meltano invoke ${{ github.event.inputs.name }} --discover 2>&1 | tee catalog.json
 
