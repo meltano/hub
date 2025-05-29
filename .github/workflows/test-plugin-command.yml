@@ -88,7 +88,7 @@ jobs:
     - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       with:
         repository: ${{ github.event.inputs.repository }}
-        path: ${{ github.workspace }}/project
+        path: plugin
         ref: ${{ github.event.inputs.git-ref }}
         sparse-checkout: |
           ${{ github.event.inputs.plugin-path }}
@@ -97,7 +97,8 @@ jobs:
       id: plugin-install
       working-directory: ${{ github.workspace }}/project
       run: |
-        meltano add ${{ github.event.inputs.plugin-type }} ${{ github.event.inputs.name }} --from-ref ${{ github.event.inputs.plugin-path }} 2>&1 | tee install-output.txt
+        echo "Working directory: $PWD"
+        meltano add ${{ github.event.inputs.plugin-type }} ${{ github.event.inputs.name }} --from-ref ${{ github.workspace }}/plugin/${{ github.event.inputs.plugin-path }} 2>&1 | tee install-output.txt
         echo "failed=${PIPESTATUS[0]}" >> $GITHUB_ENV
 
     - name: Create installation failure log
