@@ -92,6 +92,7 @@ jobs:
               "name": "${{ env.name }}",
               "plugin-type": "${{ env.plugin_type }}",
               "plugin-path": "${{ env.plugin_path }}",
+              "git-ref": "${{ github.event.pull_request.head.sha }}",
               "prepend-text": "${{ env.prelude }}"
             }
         env:
