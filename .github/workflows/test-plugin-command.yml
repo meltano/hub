@@ -120,35 +120,35 @@ jobs:
       id: plugin-help
       working-directory: ${{ github.workspace }}/project
       run: |
-        meltano invoke ${{ github.event.inputs.name }} --help 2>&1 | tee help-output.txt
+        meltano invoke ${{ github.event.inputs.name }} --help | tee help-output.txt
 
     - name: Print plugin version
       id: plugin-version
       continue-on-error: true
       working-directory: ${{ github.workspace }}/project
       run: |
-        meltano invoke ${{ github.event.inputs.name }} --version 2>&1 | tee version-output.txt
+        meltano invoke ${{ github.event.inputs.name }} --version | tee version-output.txt
 
     - name: Print plugin about
       id: plugin-about
       continue-on-error: true
       working-directory: ${{ github.workspace }}/project
       run: |
-        meltano invoke ${{ github.event.inputs.name }} --about --format=json 2>&1 | tee about-result.json
+        meltano invoke ${{ github.event.inputs.name }} --about --format=json | tee about-result.json
 
     - name: Print plugin markdown
       id: plugin-markdown
       continue-on-error: true
       working-directory: ${{ github.workspace }}/project
       run: |
-        meltano invoke ${{ github.event.inputs.name }} --about --format=markdown 2>&1 | tee markdown-result.md
+        meltano invoke ${{ github.event.inputs.name }} --about --format=markdown | tee markdown-result.md
 
     - name: Print discovery output
       id: plugin-catalog
       continue-on-error: true
       working-directory: ${{ github.workspace }}/project
       run: |
-        meltano invoke ${{ github.event.inputs.name }} --discover 2>1 | tee catalog.json
+        meltano invoke ${{ github.event.inputs.name }} --discover | tee catalog.json
 
     # Generates the JOB_OUTPUT env var, accessible via '${{ env.JOB_OUTPUT }}''
     # Ref: https://trstringer.com/github-actions-multiline-strings/
