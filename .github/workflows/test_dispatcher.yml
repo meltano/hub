@@ -65,7 +65,7 @@ jobs:
         run: |
           name="$(basename "$(dirname "${{ matrix.changed_file }}")")"
           plugin_type="$(basename $(dirname "$(dirname "${{ matrix.changed_file }}")"))"
-          plugin_yaml="$(./yq -r '. | tostring' "${{ matrix.changed_file }}")"
+          plugin_yaml="$(cat "${{ matrix.changed_file }}")"
           variant="$(./yq '.variant' "${{ matrix.changed_file }}")"
           echo "name=${name}" >> $GITHUB_ENV
           echo "plugin_type=${plugin_type}" >> $GITHUB_ENV
