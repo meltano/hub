@@ -148,7 +148,7 @@ jobs:
       continue-on-error: true
       working-directory: ${{ github.workspace }}/project
       run: |
-        meltano invoke ${{ github.event.inputs.name }} --discover 2>&1 | tee catalog.json
+        meltano invoke ${{ github.event.inputs.name }} --discover 2>1 | tee catalog.json
 
     # Generates the JOB_OUTPUT env var, accessible via '${{ env.JOB_OUTPUT }}''
     # Ref: https://trstringer.com/github-actions-multiline-strings/
@@ -209,7 +209,7 @@ jobs:
           echo -e "\`\`\`\n" >> $GITHUB_ENV
           echo "</details>" >> $GITHUB_ENV
         fi
-        if [ -s catalog.json ] && [ -n "$(cat catalog.json)" ]; then
+        if [ -s catalog.json ]; then
           echo "<details><summary>Discovered streams</summary>" >> $GITHUB_ENV
           echo -e "\n" >> $GITHUB_ENV
           cat catalog.json | jq --raw-output '.streams[] | (.tap_stream_id // .stream ) | "- `\(.)`"' >> $GITHUB_ENV
