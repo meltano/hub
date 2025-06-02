@@ -12,8 +12,6 @@ updates:
       time: "13:00"
       day: "monday"
       timezone: "US/Central"
-    reviewers:
-      - "pnadolny13"
     labels:
       - "dependencies"
     groups:
@@ -28,8 +26,6 @@ updates:
       time: "13:00"
       day: "monday"
       timezone: "US/Central"
-    reviewers:
-      - "pnadolny13"
     labels:
       - "dependencies"
     groups:
