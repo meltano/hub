@@ -58,9 +58,9 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: "Determines how much historical data will be extracted. Please be aware\n
-    that the larger the time period and amount of data, the longer the initial extraction\n
-    can be expected to take."
+- description: "Determines how much historical data will be extracted. Please be aware\n\
+    \ that the larger the time period and amount of data, the longer the initial extraction\n\
+    \ can be expected to take."
   kind: date_iso8601
   label: Start Date
   name: start_date
