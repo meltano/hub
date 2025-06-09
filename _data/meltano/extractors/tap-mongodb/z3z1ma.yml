@@ -22,17 +22,18 @@ pip_url: git+https://github.com/z3z1ma/tap-mongodb.git
 quality: gold
 repo: https://github.com/z3z1ma/tap-mongodb
 settings:
-- description: Batch configuration as defined [here](https://sdk.meltano.com/en/latest/batch.html#batch-configuration).
+- description: Batch configuration as defined 
+    [here](https://sdk.meltano.com/en/latest/batch.html#batch-configuration).
   kind: object
   label: Batch Config
   name: batch_config
-- description: A list of databases to exclude. If this list is empty, no databases
-    will be excluded.
+- description: A list of databases to exclude. If this list is empty, no 
+    databases will be excluded.
   kind: array
   label: Database Excludes
   name: database_excludes
-- description: A list of databases to include. If this list is empty, all databases
-    will be included.
+- description: A list of databases to include. If this list is empty, all 
+    databases will be included.
   kind: array
   label: Database Includes
   name: database_includes
@@ -53,26 +54,27 @@ settings:
   kind: integer
   label: Max Flattening Depth
   name: flattening_max_depth
-- description: The maximum number of documents to sample when inferring the schema.
-    This is only used when infer_schema is true.
+- description: The maximum number of documents to sample when inferring the 
+    schema. This is only used when infer_schema is true.
   kind: integer
   label: Infer Schema Max Docs
   name: infer_schema_max_docs
   value: 2000
-- description: These props are passed directly to pymongo MongoClient allowing the
-    tap user full flexibility not provided in other Mongo taps since every kwarg can
-    be tuned.
+- description: These props are passed directly to pymongo MongoClient allowing 
+    the tap user full flexibility not provided in other Mongo taps since every 
+    kwarg can be tuned.
   kind: object
   label: Mongo
   name: mongo
-- description: Optional file path, useful if reading mongo configuration from a file.
+- description: Optional file path, useful if reading mongo configuration from a 
+    file.
   kind: string
   label: Mongo File Location
   name: mongo_file_location
   value: ''
-- description: This setting allows the tap to continue processing if a document is
-    missing the replication key. Useful if a very small percentage of documents are
-    missing the property.
+- description: This setting allows the tap to continue processing if a document 
+    is missing the replication key. Useful if a very small percentage of 
+    documents are missing the property.
   kind: boolean
   label: Optional Replication Key
   name: optional_replication_key
@@ -98,14 +100,15 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps
-- description: Optionally add a prefix for all streams, useful if ingesting from multiple
-    shards/clusters via independent tap-mongodb configs. This is applied during catalog
-    generation. Regenerate the catalog to apply a new stream prefix.
+- description: Optionally add a prefix for all streams, useful if ingesting from
+    multiple shards/clusters via independent tap-mongodb configs. This is 
+    applied during catalog generation. Regenerate the catalog to apply a new 
+    stream prefix.
   kind: string
   label: Stream Prefix
   name: stream_prefix

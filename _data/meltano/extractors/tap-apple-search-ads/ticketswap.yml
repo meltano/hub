@@ -81,8 +81,8 @@ settings:
   label: Org ID
   name: org_id
   sensitive: true
-- description: The granularity of reporting streams. One of HOURLY, DAILY, WEEKLY,
-    MONTHLY.
+- description: The granularity of reporting streams. One of HOURLY, DAILY, 
+    WEEKLY, MONTHLY.
   kind: options
   label: Report Granularity
   name: report_granularity
@@ -103,8 +103,8 @@ settings:
   kind: object
   label: User Stream Map Configuration
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps

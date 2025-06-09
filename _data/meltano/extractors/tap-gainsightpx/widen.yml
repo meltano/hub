@@ -49,8 +49,8 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: The number of records to return from the API in single page. Default
-    and max varies based on the endpoint.
+- description: The number of records to return from the API in single page. 
+    Default and max varies based on the endpoint.
   kind: integer
   label: Page Size
   name: page_size
@@ -63,8 +63,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps

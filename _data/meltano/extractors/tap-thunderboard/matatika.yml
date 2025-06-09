@@ -4,8 +4,8 @@ capabilities:
 - discover
 - state
 - stream-maps
-description: Silicon Labs Thunderboard tap that collect environmental data - temperature,
-  uv, ambient light - from a physical device.
+description: Silicon Labs Thunderboard tap that collect environmental data - 
+  temperature, uv, ambient light - from a physical device.
 domain_url: 
   https://www.silabs.com/community/projects.entry.html/2017/03/08/thunderboard_sensew-Scqr
 keywords:
@@ -24,7 +24,8 @@ settings:
   kind: string
   label: Datadirectory
   name: dataDirectory
-- description: An optional device id to limit output from discovered thunderboards
+- description: An optional device id to limit output from discovered 
+    thunderboards
   kind: password
   label: Deviceid
   name: deviceId

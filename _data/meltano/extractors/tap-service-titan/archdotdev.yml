@@ -6,7 +6,8 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
-description: Service Titan is a software platform for commercial and residential trades
+description: Service Titan is a software platform for commercial and residential
+  trades
 domain_url: https://www.servicetitan.com/
 executable: tap-service-titan
 keywords:
@@ -101,8 +102,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps

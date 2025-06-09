@@ -15,8 +15,8 @@ pip_url: git+https://github.com/MeltanoLabs/tap-csv.git
 quality: gold
 repo: https://github.com/MeltanoLabs/tap-csv
 settings:
-- description: When True, add the metadata columns (`_sdc_source_file`, `_sdc_source_file_mtime`,
-    `_sdc_source_lineno`) to output.
+- description: When True, add the metadata columns (`_sdc_source_file`, 
+    `_sdc_source_file_mtime`, `_sdc_source_lineno`) to output.
   kind: boolean
   label: Add Metadata Columns
   name: add_metadata_columns
@@ -82,8 +82,8 @@ settings:
   kind: object
   label: User Stream Map Configuration
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps

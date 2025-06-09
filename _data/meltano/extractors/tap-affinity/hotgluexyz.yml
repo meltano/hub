@@ -5,8 +5,8 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
-description: Relationship intelligence platform built to expand and evolve the traditional
-  CRM
+description: Relationship intelligence platform built to expand and evolve the 
+  traditional CRM
 domain_url: https://www.affinity.co/
 executable: tap-affinity
 keywords:
@@ -39,8 +39,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps
