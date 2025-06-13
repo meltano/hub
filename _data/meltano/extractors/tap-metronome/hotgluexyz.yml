@@ -5,8 +5,8 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
-description: Billing infrastructure that helps software companies launch, iterate,
-  and scale their usage-based business models.
+description: Billing infrastructure that helps software companies launch, 
+  iterate, and scale their usage-based business models.
 domain_url: https://metronome.com/
 executable: tap-metronome
 keywords:
@@ -26,14 +26,15 @@ settings:
   label: Auth Token
   name: auth_token
   sensitive: true
-- description: The Metronome billing provider type (aws_marketplace, stripe, or netsuite).
+- description: The Metronome billing provider type (aws_marketplace, stripe, or 
+    netsuite).
   kind: password
   label: Billing Provider Type
   name: billing_provider_type
   sensitive: true
   value: stripe
-- description: A comma separated list of Metronome customer IDs to fetch usage for.
-    If absent, usage for all customers will be returned.
+- description: A comma separated list of Metronome customer IDs to fetch usage 
+    for. If absent, usage for all customers will be returned.
   kind: string
   label: Customers
   name: customers
@@ -50,9 +51,9 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: "Determines how much historical data will be extracted. Please be aware\n
-    that the larger the time period and amount of data, the longer the initial extraction\n
-    can be expected to take."
+- description: "Determines how much historical data will be extracted. Please be aware\n\
+    \ that the larger the time period and amount of data, the longer the initial extraction\n\
+    \ can be expected to take."
   kind: date_iso8601
   label: Start Date
   name: start_date

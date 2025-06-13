@@ -30,8 +30,8 @@ settings:
   kind: string
   label: AWS Endpoint URL
   name: aws_endpoint_url
-- description: The AWS credentials profile name to use. The profile must be configured
-    and accessible.
+- description: The AWS credentials profile name to use. The profile must be 
+    configured and accessible.
   kind: string
   label: AWS Profile
   name: aws_profile
@@ -44,8 +44,8 @@ settings:
   label: AWS Secret Access Key
   name: aws_secret_access_key
   sensitive: true
-- description: The session key for your AWS account. This is only needed when you
-    are using temporary credentials.
+- description: The session key for your AWS account. This is only needed when 
+    you are using temporary credentials.
   kind: password
   label: AWS Session Token
   name: aws_session_token
@@ -76,22 +76,23 @@ settings:
   kind: string
   label: Batch Config Storage Root
   name: batch_config.storage.root
-- description: The size of the time window to query by, default 3,600 seconds (i.e.
-    1 hour). If the result set for a batch is greater than the max limit of 10,000
-    records then the tap will query the same window again where >= the most recent
-    record received. This means that the same data is potentially being scanned >1
-    times but < 2 times, depending on the amount the results set went over the 10k
-    max. For example a batch window with 15k records would scan the 15k once, receiving
-    10k results, then scan ~5k again to get the rest. The net result is the same data
-    was scanned ~1.5 times for that batch. To avoid this you should set the batch
-    window to avoid exceeding the 10k limit.
+- description: The size of the time window to query by, default 3,600 seconds 
+    (i.e. 1 hour). If the result set for a batch is greater than the max limit 
+    of 10,000 records then the tap will query the same window again where >= the
+    most recent record received. This means that the same data is potentially 
+    being scanned >1 times but < 2 times, depending on the amount the results 
+    set went over the 10k max. For example a batch window with 15k records would
+    scan the 15k once, receiving 10k results, then scan ~5k again to get the 
+    rest. The net result is the same data was scanned ~1.5 times for that batch.
+    To avoid this you should set the batch window to avoid exceeding the 10k 
+    limit.
   kind: integer
   label: Batch Increment S
   name: batch_increment_s
   value: 3600
-- description: The last record date to sync. This tap uses a 5 minute buffer to allow
-    Cloudwatch logs to arrive in full. If you request data from current time it will
-    automatically adjust your end_date to now - 5 mins.
+- description: The last record date to sync. This tap uses a 5 minute buffer to 
+    allow Cloudwatch logs to arrive in full. If you request data from current 
+    time it will automatically adjust your end_date to now - 5 mins.
   kind: date_iso8601
   label: End Date
   name: end_date
@@ -116,8 +117,8 @@ settings:
   kind: string
   label: Log Group Name
   name: log_group_name
-- description: The query string to use. For more information, see [CloudWatch Logs
-    Insights Query 
+- description: The query string to use. For more information, see [CloudWatch 
+    Logs Insights Query 
     Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
   kind: string
   label: Query
@@ -130,8 +131,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps

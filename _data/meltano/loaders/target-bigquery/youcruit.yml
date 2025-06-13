@@ -28,8 +28,8 @@ settings:
   label: Append Only
   name: append_only
   value: false
-- description: Maximum size of batches when records are streamed in. BATCH messages
-    are not affected by this property.
+- description: Maximum size of batches when records are streamed in. BATCH 
+    messages are not affected by this property.
   kind: integer
   label: Batch Size
   name: batch_size
@@ -55,8 +55,8 @@ settings:
   kind: string
   label: Location
   name: location
-- description: Maximum time in minutes between state messages when records are streamed
-    in. BATCH messages are not affected by this property.
+- description: Maximum time in minutes between state messages when records are 
+    streamed in. BATCH messages are not affected by this property.
   kind: integer
   label: Max Batch Age
   name: max_batch_age
@@ -70,8 +70,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps

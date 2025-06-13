@@ -5,7 +5,8 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
-description: Oslo, Trondheim and Bergen City Bike APIs provide live bike-sharing data
+description: Oslo, Trondheim and Bergen City Bike APIs provide live bike-sharing
+  data
 domain_url: https://oslobysykkel.no/en/open-data/realtime
 keywords:
 - api
@@ -21,8 +22,8 @@ pip_url: tap-norwaycitybikeapi
 quality: gold
 repo: https://github.com/andrejakobsen/tap-norwaycitybikeapi
 settings:
-- description: Name of Norwegian city having City Bikes. Currently only available
-    for Trondheim, Oslo and Bergen.
+- description: Name of Norwegian city having City Bikes. Currently only 
+    available for Trondheim, Oslo and Bergen.
   kind: options
   label: City Name
   name: city_name
@@ -46,8 +47,8 @@ settings:
   - label: Trondheim
     value: TRONDHEIM
   value: oslo
-- description: The value should contain your company/organization name, follwed by
-    a dash and the application's name.
+- description: The value should contain your company/organization name, follwed 
+    by a dash and the application's name.
   kind: password
   label: Client IDentifier
   name: client_identifier
@@ -65,8 +66,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps

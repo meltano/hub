@@ -88,8 +88,8 @@ settings:
   kind: object
   label: User Stream Map Configuration
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps
@@ -98,9 +98,10 @@ settings_group_validation:
   - client_secret
   - location_id
   - refresh_token
-settings_preamble: The HighLevel API uses a refresh token that expires after every
-  use which means this extractor has to write the updated token back to the config
-  file. There's currently no feature in Meltano (see https://github.com/meltano/meltano/issues/2660)
-  to persist these types of changes between runs, so you'll have to implement it yourself.
+settings_preamble: The HighLevel API uses a refresh token that expires after 
+  every use which means this extractor has to write the updated token back to 
+  the config file. There's currently no feature in Meltano (see 
+  https://github.com/meltano/meltano/issues/2660) to persist these types of 
+  changes between runs, so you'll have to implement it yourself.
 usage: ''
 variant: meltanolabs

@@ -89,9 +89,9 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: Uses the Snowflake column name rules to translate anycharacters outside
-    the standard to an underscore. Particularly helpfulwhen annotations are turned
-    on
+- description: Uses the Snowflake column name rules to translate anycharacters 
+    outside the standard to an underscore. Particularly helpfulwhen annotations 
+    are turned on
   kind: boolean
   label: Sql Attribute Names
   name: sql_attribute_names
@@ -104,13 +104,13 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps
-- description: An array of streams, designed for separate paths using thesame base
-    url.
+- description: An array of streams, designed for separate paths using thesame 
+    base url.
   kind: array
   label: Streams
   name: streams

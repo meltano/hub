@@ -6,8 +6,8 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
-description: Digital distribution service operated and developed by Google. This tap
-  uses the data exported to your GCS bucket.
+description: Digital distribution service operated and developed by Google. This
+  tap uses the data exported to your GCS bucket.
 domain_url: https://play.google.com/store/games
 executable: tap-playstore
 keywords:
@@ -90,8 +90,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps

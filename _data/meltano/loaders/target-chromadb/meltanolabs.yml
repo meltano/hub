@@ -17,14 +17,14 @@ pip_url: git+https://github.com/meltanolabs/target-chromadb.git
 quality: gold
 repo: https://github.com/meltanolabs/target-chromadb
 settings:
-- description: The Chroma collection name. Collections are where you'll store your
-    embeddings, documents, and any additional metadata.
+- description: The Chroma collection name. Collections are where you'll store 
+    your embeddings, documents, and any additional metadata.
   kind: string
   label: Collection Name
   name: collection_name
   value: vector-db
-- description: The directory where Chroma will store its database files on disk, and
-    load them on start.
+- description: The directory where Chroma will store its database files on disk,
+    and load them on start.
   kind: string
   label: Database Directory
   name: db_directory
@@ -57,8 +57,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps

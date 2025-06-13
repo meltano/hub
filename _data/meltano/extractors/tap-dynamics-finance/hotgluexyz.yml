@@ -52,9 +52,9 @@ settings:
   label: Refresh Token
   name: refresh_token
   sensitive: true
-- description: Determines how much historical data will be extracted. Please be aware
-    that the larger the time period and amount of data, the longer the initial extraction
-    can be expected to take.
+- description: Determines how much historical data will be extracted. Please be 
+    aware that the larger the time period and amount of data, the longer the 
+    initial extraction can be expected to take.
   kind: date_iso8601
   label: Start Date
   name: start_date
@@ -62,8 +62,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps

@@ -91,8 +91,9 @@ settings:
   kind: string
   label: Output Name
   name: output_name
-- description: Optionally choose a range of data using cell start and end coordinates
-    - see [A1 notation](https://developers.google.com/sheets/api/guides/concepts#expandable-1)
+- description: Optionally choose a range of data using cell start and end 
+    coordinates - see [A1 
+    notation](https://developers.google.com/sheets/api/guides/concepts#expandable-1)
     for more information
   kind: string
   label: Range
@@ -110,8 +111,8 @@ settings:
   kind: object
   label: User Stream Map Configuration
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps

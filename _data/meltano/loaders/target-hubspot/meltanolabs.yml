@@ -17,14 +17,15 @@ pip_url: git+https://github.com/MeltanoLabs/target-hubspot.git
 quality: silver
 repo: https://github.com/MeltanoLabs/target-hubspot
 settings:
-- description: Your HubSpot private app API access token. See the [docs](https://developers.hubspot.com/docs/api/private-apps)
-    for more details.
+- description: Your HubSpot private app API access token. See the 
+    [docs](https://developers.hubspot.com/docs/api/private-apps) for more 
+    details.
   kind: password
   label: Access Token
   name: access_token
   sensitive: true
-- description: An array including an object entry for each column in your import file
-    stream.
+- description: An array including an object entry for each column in your import
+    file stream.
   kind: array
   label: Column Mapping
   name: column_mapping
@@ -49,8 +50,8 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: Used to indicate whether the import should create and update, only
-    create, or only update records for a certain object or activity.
+- description: Used to indicate whether the import should create and update, 
+    only create, or only update records for a certain object or activity.
   kind: options
   label: Import Operations
   name: import_operations
@@ -66,8 +67,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps
