@@ -8,6 +8,7 @@ capabilities:
 - stream-maps
 description: Database management system from Microsoft that combines the relational Access Database Engine with a graphical user interface and software-development tools
 domain_url: https://www.microsoft.com/en-gb/microsoft-365/access
+executable: tap-msaccess
 keywords:
 - anywhere
 - database
