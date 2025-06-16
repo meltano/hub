@@ -73,13 +73,14 @@ settings:
   label: Gcs Token
   name: gcs.token
   sensitive: true
-- description: Whether to proceed reading the file even if the [memofile] is not present.
+- description: Whether to proceed reading the file even if the [memofile] is not
+    present.
   kind: boolean
   label: Ignore Missing Memofile
   name: ignore_missing_memofile
   value: false
-- description: Glob expression where the files are located. Stream names will be extracted
-    from the file name.
+- description: Glob expression where the files are located. Stream names will be
+    extracted from the file name.
   kind: string
   label: Path
   name: path
@@ -101,8 +102,8 @@ settings:
   kind: object
   label: User Stream Map Configuration
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps

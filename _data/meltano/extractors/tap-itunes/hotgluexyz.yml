@@ -5,8 +5,8 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
-description: Media player, media library, mobile device management utility, and the
-  client app for the iTunes Store
+description: Media player, media library, mobile device management utility, and 
+  the client app for the iTunes Store
 domain_url: https://www.apple.com/itunes/
 executable: tap-itunes
 keywords:
@@ -35,9 +35,9 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: Determines how much historical data will be extracted. Please be aware
-    that the larger the time period and amount of data, the longer the initial extraction
-    can be expected to take.
+- description: Determines how much historical data will be extracted. Please be 
+    aware that the larger the time period and amount of data, the longer the 
+    initial extraction can be expected to take.
   kind: date_iso8601
   label: Start Date
   name: start_date
