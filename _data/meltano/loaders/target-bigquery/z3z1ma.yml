@@ -24,12 +24,14 @@ settings:
   label: Batch Size
   name: batch_size
   value: 500
-- description: The GCS bucket to use for staging data. Only used if method is gcs_stage.
+- description: The GCS bucket to use for staging data. Only used if method is 
+    gcs_stage.
   kind: string
   label: Bucket
   name: bucket
-- description: Determines whether to cluster on the key properties from the tap. Defaults
-    to false. When false, clustering will be based on _sdc_batched_at instead.
+- description: Determines whether to cluster on the key properties from the tap.
+    Defaults to false. When false, clustering will be based on _sdc_batched_at 
+    instead.
   kind: boolean
   label: Cluster On Key Properties
   name: cluster_on_key_properties
@@ -71,21 +73,22 @@ settings:
   kind: string
   label: Dataset
   name: dataset
-- description: This option is only used if `upsert` is enabled for a stream. The selection
-    criteria for the stream's candidacy is the same as upsert. If the stream is marked
-    for deduping before upsert, we will create a _session scoped temporary table during
-    the merge transaction to dedupe the ingested records. This is useful for streams
-    that are not unique on the key properties during an ingest but are unique in the
-    source system. Data lake ingestion is often a good example of this where the same
-    unique record may exist in the lake at different points in time from different
-    extracts.
+- description: This option is only used if `upsert` is enabled for a stream. The
+    selection criteria for the stream's candidacy is the same as upsert. If the 
+    stream is marked for deduping before upsert, we will create a _session 
+    scoped temporary table during the merge transaction to dedupe the ingested 
+    records. This is useful for streams that are not unique on the key 
+    properties during an ingest but are unique in the source system. Data lake 
+    ingestion is often a good example of this where the same unique record may 
+    exist in the lake at different points in time from different extracts.
   kind: string
   label: Dedupe Before Upsert
   name: dedupe_before_upsert
   value: false
-- description: Determines whether to denormalize the data before writing to BigQuery.
-    A false value will write data using a fixed JSON column based schema, while a
-    true value will write data using a dynamic schema derived from the tap.
+- description: Determines whether to denormalize the data before writing to 
+    BigQuery. A false value will write data using a fixed JSON column based 
+    schema, while a true value will write data using a dynamic schema derived 
+    from the tap.
   kind: boolean
   label: Denormalized
   name: denormalized
@@ -104,9 +107,9 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: Determines whether to generate a view based on the SCHEMA message parsed
-    from the tap. Only valid if denormalized=false meaning you are using the fixed
-    JSON column based schema.
+- description: Determines whether to generate a view based on the SCHEMA message
+    parsed from the tap. Only valid if denormalized=false meaning you are using 
+    the fixed JSON column based schema.
   kind: boolean
   label: Generate View
   name: generate_view
@@ -130,39 +133,40 @@ settings:
   - label: Streaming Insert
     value: streaming_insert
   value: storage_write_api
-- description: By default, each sink type has a preconfigured max worker pool limit.
-    This sets an override for maximum number of workers in the pool.
+- description: By default, each sink type has a preconfigured max worker pool 
+    limit. This sets an override for maximum number of workers in the pool.
   kind: integer
   label: Options Max Workers
   name: options.max_workers
-- description: By default we use an autoscaling threadpool to write to BigQuery. If
-    set to true, we will use a process pool.
+- description: By default we use an autoscaling threadpool to write to BigQuery.
+    If set to true, we will use a process pool.
   kind: boolean
   label: Options Process Pool
   name: options.process_pool
   value: false
-- description: By default, we use the default stream (Committed mode) in the storage_write_api
-    load method which results in streaming records which are immediately available
-    and is generally fastest. If this is set to true, we will use the application
-    created streams (Committed mode) to transactionally batch data on STATE messages
-    and at end of pipe.
+- description: By default, we use the default stream (Committed mode) in the 
+    storage_write_api load method which results in streaming records which are 
+    immediately available and is generally fastest. If this is set to true, we 
+    will use the application created streams (Committed mode) to transactionally
+    batch data on STATE messages and at end of pipe.
   kind: boolean
   label: Options Storage Write Batch Mode
   name: options.storage_write_batch_mode
   value: false
-- description: Determines if the target table should be overwritten on load. Defaults
-    to false. A value of true will write to a temporary table and then overwrite the
-    target table inside a transaction (so it is safe). A value of false will write
-    to the target table directly (append). A value of an array of strings will evaluate
-    the strings in order using fnmatch. At the end of the array, the value of the
-    last match will be used. If not matched, the default value is false. This is mutually
-    exclusive with the `upsert` option. If both are set, `upsert` will take precedence.
+- description: Determines if the target table should be overwritten on load. 
+    Defaults to false. A value of true will write to a temporary table and then 
+    overwrite the target table inside a transaction (so it is safe). A value of 
+    false will write to the target table directly (append). A value of an array 
+    of strings will evaluate the strings in order using fnmatch. At the end of 
+    the array, the value of the last match will be used. If not matched, the 
+    default value is false. This is mutually exclusive with the `upsert` option.
+    If both are set, `upsert` will take precedence.
   kind: string
   label: Overwrite
   name: overwrite
   value: false
-- description: If set for date- or timestamp-type partitions, the partition will expire
-    that many days after the date it represents.
+- description: If set for date- or timestamp-type partitions, the partition will
+    expire that many days after the date it represents.
   kind: integer
   label: Partition Expiration Days
   name: partition_expiration_days
@@ -184,8 +188,9 @@ settings:
   kind: string
   label: Project
   name: project
-- description: The version of the schema resolver to use. Defaults to 1. Version 2
-    uses JSON as a fallback during denormalization. This only has an effect if denormalized=true
+- description: The version of the schema resolver to use. Defaults to 1. Version
+    2 uses JSON as a fallback during denormalization. This only has an effect if
+    denormalized=true
   kind: integer
   label: Schema Resolver Version
   name: schema_resolver_version
@@ -194,8 +199,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps
@@ -204,13 +209,13 @@ settings:
   label: Timeout
   name: timeout
   value: 600
-- description: Determines if we should upsert. Defaults to false. A value of true
-    will write to a temporary table and then merge into the target table (upsert).
-    This requires the target table to be unique on the key properties. A value of
-    false will write to the target table directly (append). A value of an array of
-    strings will evaluate the strings in order using fnmatch. At the end of the array,
-    the value of the last match will be used. If not matched, the default value is
-    false (append).
+- description: Determines if we should upsert. Defaults to false. A value of 
+    true will write to a temporary table and then merge into the target table 
+    (upsert). This requires the target table to be unique on the key properties.
+    A value of false will write to the target table directly (append). A value 
+    of an array of strings will evaluate the strings in order using fnmatch. At 
+    the end of the array, the value of the last match will be used. If not 
+    matched, the default value is false (append).
   kind: string
   label: Upsert
   name: upsert

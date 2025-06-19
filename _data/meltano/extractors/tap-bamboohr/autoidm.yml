@@ -20,7 +20,8 @@ pip_url: git+https://github.com/AutoIDM/autoidm-tap-bamboohr.git
 quality: gold
 repo: https://github.com/AutoIDM/autoidm-tap-bamboohr
 settings:
-- description: Token gathered from BambooHR, instructions are [here](https://documentation.bamboohr.com/docs#section-authentication)
+- description: Token gathered from BambooHR, instructions are 
+    [here](https://documentation.bamboohr.com/docs#section-authentication)
   kind: password
   label: Auth Token
   name: auth_token
@@ -49,13 +50,14 @@ settings:
   kind: string
   label: Batch Config Storage Root
   name: batch_config.storage.root
-- description: CustomReport full body definition, example in meltano. Yml, same format
-    as the Body for the POST request [here](https://documentation.bamboohr.com/reference/request-custom-report-1)
+- description: CustomReport full body definition, example in meltano. Yml, same 
+    format as the Body for the POST request 
+    [here](https://documentation.bamboohr.com/reference/request-custom-report-1)
   kind: array
   label: Custom Reports
   name: custom_reports
-- description: Either `fail` or `ignore`. Determines behavior when fields returned
-    by API don't match fields specified in tap config.
+- description: Either `fail` or `ignore`. Determines behavior when fields 
+    returned by API don't match fields specified in tap config.
   kind: options
   label: Field Mismatch
   name: field_mismatch
@@ -74,8 +76,9 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: Size of photos to return from the photos stream. Pixel size information
-    can be found in the [docs](https://documentation.bamboohr.com/reference/get-employee-photo-1)
+- description: Size of photos to return from the photos stream. Pixel size 
+    information can be found in the 
+    [docs](https://documentation.bamboohr.com/reference/get-employee-photo-1)
   kind: options
   label: Photo Size
   name: photo_size
@@ -97,8 +100,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps

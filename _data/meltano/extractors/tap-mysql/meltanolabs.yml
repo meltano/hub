@@ -48,7 +48,8 @@ settings:
   kind: string
   label: Batch Storage Root
   name: batch_config.storage.root
-- description: Database name. Note if sqlalchemy_url is set this will be ignored.
+- description: Database name. Note if sqlalchemy_url is set this will be 
+    ignored.
   kind: string
   label: Database
   name: database
@@ -60,9 +61,9 @@ settings:
   kind: string
   label: Faker Seed
   name: faker_config.seed
-- description: If an array of schema names is provided, the tap will only process
-    the specified MySQL schemas and ignore others. If left blank, the tap automatically
-    determines ALL available MySQL schemas.
+- description: If an array of schema names is provided, the tap will only 
+    process the specified MySQL schemas and ignore others. If left blank, the 
+    tap automatically determines ALL available MySQL schemas.
   kind: array
   label: Filter Schemas
   name: filter_schemas
@@ -75,49 +76,50 @@ settings:
   kind: integer
   label: Max Flattening Depth
   name: flattening_max_depth
-- description: Hostname for mysql instance. Note if sqlalchemy_url is set this will
-    be ignored.
+- description: Hostname for mysql instance. Note if sqlalchemy_url is set this 
+    will be ignored.
   kind: string
   label: Host
   name: host
-- description: By default we'll check if the database is a Vitess instance. If you
-    would rather not automatically check, set this to `False`. See Vitess/PlanetScale
-    documentation below for more information.
+- description: By default we'll check if the database is a Vitess instance. If 
+    you would rather not automatically check, set this to `False`. See 
+    Vitess/PlanetScale documentation below for more information.
   kind: boolean
   label: Is Vitess
   name: is_vitess
-- description: Password used to authenticate. Note if sqlalchemy_url is set this will
-    be ignored.
+- description: Password used to authenticate. Note if sqlalchemy_url is set this
+    will be ignored.
   kind: password
   label: Password
   name: password
   sensitive: true
-- description: The port on which mysql is awaiting connection. Note if sqlalchemy_url
-    is set this will be ignored.
+- description: The port on which mysql is awaiting connection. Note if 
+    sqlalchemy_url is set this will be ignored.
   kind: integer
   label: Port
   name: port
   value: 3306
-- description: Sqlalchemy_url options (also called the query), to connect to PlanetScale
-    you must turn on SSL see PlanetScale information below. Note if sqlalchemy_url
-    is set this will be ignored.
+- description: Sqlalchemy_url options (also called the query), to connect to 
+    PlanetScale you must turn on SSL see PlanetScale information below. Note if 
+    sqlalchemy_url is set this will be ignored.
   kind: object
   label: SQLAlchemy Options
   name: sqlalchemy_options
-- description: Example pymysql://[username]:[password]@localhost:3306/[db_name][?options]
-    see 
+- description: Example 
+    pymysql://[username]:[password]@localhost:3306/[db_name][?options] see 
     https://docs.sqlalchemy.org/en/20/dialects/mysql.html#module-sqlalchemy.dialects.mysql.pymysql
     for more information
   kind: string
   label: SQLAlchemy URL
   name: sqlalchemy_url
-- description: Enable an ssh tunnel (also known as bastion host), see the other ssh_tunnel.*
-    properties for more details
+- description: Enable an ssh tunnel (also known as bastion host), see the other 
+    ssh_tunnel.* properties for more details
   kind: boolean
   label: SSH Tunnel Enable
   name: ssh_tunnel.enable
   value: false
-- description: Host of the bastion host, this is the host we'll connect to via ssh
+- description: Host of the bastion host, this is the host we'll connect to via 
+    ssh
   kind: string
   label: SSH Tunnel Host
   name: ssh_tunnel.host
@@ -146,13 +148,13 @@ settings:
   kind: object
   label: User Stream Map Configuration
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps
-- description: User name used to authenticate. Note if sqlalchemy_url is set this
-    will be ignored.
+- description: User name used to authenticate. Note if sqlalchemy_url is set 
+    this will be ignored.
   kind: string
   label: User
   name: user

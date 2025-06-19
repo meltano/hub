@@ -1,8 +1,8 @@
 capabilities:
 - about
 - discover
-description: Tap for the Stack Overflow XML dump files available at Archive.org.  Intended
-  as a loader plugin testing aid.
+description: Tap for the Stack Overflow XML dump files available at Archive.org.
+  Intended as a loader plugin testing aid.
 keywords:
 - meltano_sdk
 - sampledata
@@ -56,8 +56,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps

@@ -17,7 +17,8 @@ quality: silver
 repo: https://github.com/goes-funky/tap-facebook-pages
 settings:
 - description: User access token to authenticate with the API.
-  documentation: https://developers.facebook.com/docs/facebook-login/access-tokens/#usertokens
+  documentation: 
+    https://developers.facebook.com/docs/facebook-login/access-tokens/#usertokens
   kind: password
   label: Access Token
   name: access_token

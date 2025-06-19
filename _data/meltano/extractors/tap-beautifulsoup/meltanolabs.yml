@@ -20,14 +20,15 @@ pip_url: git+https://github.com/MeltanoLabs/tap-beautifulsoup.git
 quality: silver
 repo: https://github.com/MeltanoLabs/tap-beautifulsoup
 settings:
-- description: Attempt to download all pages recursively into the output directory
-    prior to parsing files. Set this to False if you've previously run `wget -r -A.
-    Html https://sdk.meltano.com/en/latest/`
+- description: Attempt to download all pages recursively into the output 
+    directory prior to parsing files. Set this to False if you've previously run
+    `wget -r -A. Html https://sdk.meltano.com/en/latest/`
   kind: boolean
   label: Download Recursively
   name: download_recursively
   value: true
-- description: This dict contains all the kwargs that should be passed to the [`find_all`](https://www.crummy.com/software/BeautifulSoup/bs4/doc/#find-all)
+- description: This dict contains all the kwargs that should be passed to the 
+    [`find_all`](https://www.crummy.com/software/BeautifulSoup/bs4/doc/#find-all)
     call in order to extract text from the pages.
   kind: object
   label: Find All Kwargs
@@ -42,8 +43,8 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: The file path of where to write the intermediate downloaded HTML files
-    to.
+- description: The file path of where to write the intermediate downloaded HTML 
+    files to.
   kind: string
   label: Output Folder
   name: output_folder
@@ -56,13 +57,13 @@ settings:
   - label: Html Parser
     value: html.parser
   value: html.parser
-- description: The site you'd like to scrape. The tap will download all pages recursively
-    into the output directory prior to parsing files.
+- description: The site you'd like to scrape. The tap will download all pages 
+    recursively into the output directory prior to parsing files.
   kind: string
   label: Site URL
   name: site_url
-- description: The name of the source you're scraping. This will be used as the stream
-    name.
+- description: The name of the source you're scraping. This will be used as the 
+    stream name.
   kind: string
   label: Source Name
   name: source_name
@@ -70,8 +71,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps

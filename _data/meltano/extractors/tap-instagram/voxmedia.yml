@@ -37,8 +37,8 @@ settings:
   kind: array
   label: Ig User IDs
   name: ig_user_ids
-- description: The tap fetches media insights for Media objects posted in the last
-    `insights_lookback_days` days - defaults to 14 days if not provided
+- description: The tap fetches media insights for Media objects posted in the 
+    last `insights_lookback_days` days - defaults to 14 days if not provided
   kind: integer
   label: Media Insights Lookback Days
   name: media_insights_lookback_days

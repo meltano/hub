@@ -66,12 +66,14 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: The number of results to request per page. Must be in the range 1-100.
+- description: The number of results to request per page. Must be in the range 
+    1-100.
   kind: integer
   label: Page Size
   name: page_size
   value: 100
-- description: The percentage of the rate limit to consume. Must be in the range 1-100.
+- description: The percentage of the rate limit to consume. Must be in the range
+    1-100.
   kind: integer
   label: Rate Target Pct
   name: rate_target_pct

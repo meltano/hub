@@ -6,8 +6,8 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
-description: Highest class of international racing for open-wheel single-seater formula
-  racing cars
+description: Highest class of international racing for open-wheel single-seater 
+  formula racing cars
 domain_url: https://www.formula1.com/
 keywords:
 - api
@@ -81,8 +81,8 @@ settings:
   kind: object
   label: User Stream Map Configuration
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps

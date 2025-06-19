@@ -31,8 +31,8 @@ settings:
   label: Datestamp Format
   name: datestamp_format
   value: '%Y-%m-%d'
-- description: Filesystem path where to store output files. Alias for `output_path`
-    to be compatible with the `hotgluexyz` variant.
+- description: Filesystem path where to store output files. Alias for 
+    `output_path` to be compatible with the `hotgluexyz` variant.
   kind: string
   label: Destination Path
   name: destination_path
@@ -64,10 +64,11 @@ settings:
   kind: integer
   label: Max Flattening Depth
   name: flattening_max_depth
-- description: The method to use when loading data into the destination. `append-only`
-    will always write all input records whether that records already exists or not.
-    `upsert` will update existing records and insert new records. `overwrite` will
-    delete all existing records and insert all input records.
+- description: The method to use when loading data into the destination. 
+    `append-only` will always write all input records whether that records 
+    already exists or not. `upsert` will update existing records and insert new 
+    records. `overwrite` will delete all existing records and insert all input 
+    records.
   kind: options
   label: Load Method
   name: load_method
@@ -79,8 +80,8 @@ settings:
   - label: Overwrite
     value: overwrite
   value: append-only
-- description: Filesystem path where to store output files. By default, the current
-    working directory will be used.
+- description: Filesystem path where to store output files. By default, the 
+    current working directory will be used.
   kind: string
   label: Output Path
   name: output_path

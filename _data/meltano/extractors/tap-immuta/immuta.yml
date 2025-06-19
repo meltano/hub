@@ -27,8 +27,8 @@ settings:
   kind: string
   label: Hostname
   name: hostname
-- description: Should be set to something that includes a contact email address should
-    the API provider need to contact you for any reason.
+- description: Should be set to something that includes a contact email address 
+    should the API provider need to contact you for any reason.
   kind: string
   label: User Agent
   name: user_agent

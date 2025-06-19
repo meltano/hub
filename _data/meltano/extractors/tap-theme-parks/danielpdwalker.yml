@@ -55,8 +55,8 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: Array of string, containing IDs or slugs of Destinations, parks, attractions,
-    shows or restaurants.
+- description: Array of string, containing IDs or slugs of Destinations, parks, 
+    attractions, shows or restaurants.
   kind: array
   label: Live Data Array
   name: live_data_array
@@ -64,8 +64,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps

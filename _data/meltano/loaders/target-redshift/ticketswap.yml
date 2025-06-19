@@ -20,14 +20,15 @@ pip_url: git+https://github.com/TicketSwap/target-redshift.git
 quality: silver
 repo: https://github.com/TicketSwap/target-redshift
 settings:
-- description: If set to false, the tap will ignore activate version messages. If
-    set to true, add_record_metadata must be set to true as well.
+- description: If set to false, the tap will ignore activate version messages. 
+    If set to true, add_record_metadata must be set to true as well.
   kind: boolean
   label: Activate Version
   name: activate_version
   value: false
-- description: Note that this must be enabled for activate_version to work!This adds
-    _sdc_extracted_at, _sdc_batched_at, and more to every table. See https://sdk.meltano.com/en/latest/implementation/record_metadata.htmlfor
+- description: Note that this must be enabled for activate_version to work!This 
+    adds _sdc_extracted_at, _sdc_batched_at, and more to every table. See 
+    https://sdk.meltano.com/en/latest/implementation/record_metadata.htmlfor 
     more information.
   kind: boolean
   label: Add Record Metadata
@@ -41,13 +42,14 @@ settings:
   kind: integer
   label: Batch Size Rows
   name: batch_size_rows
-- description: Redshift cluster identifier. Note if sqlalchemy_url is set or enable_iam_authentication
-    is false this will be ignored.
+- description: Redshift cluster identifier. Note if sqlalchemy_url is set or 
+    enable_iam_authentication is false this will be ignored.
   kind: password
   label: Cluster IDentifier
   name: cluster_identifier
   sensitive: true
-- description: Database name. Note if sqlalchemy_url is set this will be ignored.
+- description: Database name. Note if sqlalchemy_url is set this will be 
+    ignored.
   kind: string
   label: Database Name
   name: dbname
@@ -78,14 +80,15 @@ settings:
   kind: integer
   label: Max Flattening Depth
   name: flattening_max_depth
-- description: List of users/roles/groups that will have select permissions on the
-    tables
+- description: List of users/roles/groups that will have select permissions on 
+    the tables
   kind: array
   label: Grants
   name: grants
-- description: When activate version is sent from a tap this specefies if we should
-    delete the records that don't match, or mark them with a date in the `_sdc_deleted_at`
-    column. This config option is ignored if `activate_version` is set to false.
+- description: When activate version is sent from a tap this specefies if we 
+    should delete the records that don't match, or mark them with a date in the 
+    `_sdc_deleted_at` column. This config option is ignored if 
+    `activate_version` is set to false.
   kind: boolean
   label: Hard Delete
   name: hard_delete
@@ -94,10 +97,11 @@ settings:
   kind: string
   label: Host
   name: host
-- description: The method to use when loading data into the destination. `append-only`
-    will always write all input records whether that records already exists or not.
-    `upsert` will update existing records and insert new records. `overwrite` will
-    delete all existing records and insert all input records.
+- description: The method to use when loading data into the destination. 
+    `append-only` will always write all input records whether that records 
+    already exists or not. `upsert` will update existing records and insert new 
+    records. `overwrite` will delete all existing records and insert all input 
+    records.
   kind: options
   label: Load Method
   name: load_method
@@ -109,8 +113,8 @@ settings:
   - label: Overwrite
     value: overwrite
   value: append-only
-- description: Password used to authenticate. Note if sqlalchemy_url is set this will
-    be ignored.
+- description: Password used to authenticate. Note if sqlalchemy_url is set this
+    will be ignored.
   kind: password
   label: Password
   name: password
@@ -140,22 +144,24 @@ settings:
   name: s3_key_prefix
   sensitive: true
   value: ''
-- description: AWS region for S3 bucket. If not specified, region will be detected
-    by boto config resolution. See https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html
+- description: AWS region for S3 bucket. If not specified, region will be 
+    detected by boto config resolution. See 
+    https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html
   kind: string
   label: S3 Region
   name: s3_region
-- description: Whether or not to use ssl to verify the server's identity. Use ssl_certificate_authority
-    and ssl_mode for further customization. To use a client certificate to authenticate
-    yourself to the server, use ssl_client_certificate_enable instead.
+- description: Whether or not to use ssl to verify the server's identity. Use 
+    ssl_certificate_authority and ssl_mode for further customization. To use a 
+    client certificate to authenticate yourself to the server, use 
+    ssl_client_certificate_enable instead.
   kind: boolean
   label: SSL Enable
   name: ssl_enable
   value: false
 - description: SSL Protection method, see [redshift 
     documentation](https://docs.aws.amazon.com/redshift/latest/mgmt/connecting-ssl-support.html
-    for more information. Must be one of disable, allow, prefer, require, verify-ca,
-    or verify-full.
+    for more information. Must be one of disable, allow, prefer, require, 
+    verify-ca, or verify-full.
   kind: string
   label: SSL Mode
   name: ssl_mode
@@ -164,8 +170,8 @@ settings:
   kind: object
   label: User Stream Map Configuration
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps
@@ -174,8 +180,8 @@ settings:
   label: Temp Dir
   name: temp_dir
   value: temp
-- description: User name used to authenticate. Note if sqlalchemy_url is set this
-    will be ignored.
+- description: User name used to authenticate. Note if sqlalchemy_url is set 
+    this will be ignored.
   kind: string
   label: User
   name: user
@@ -187,9 +193,9 @@ settings:
 settings_group_validation:
 - - aws_redshift_copy_role_arn
   - s3_bucket
-settings_preamble: This target uses boto3 to connect to AWS and perform copy and possibly
-  credential operations. The agent running this target should be connected to AWS
-  to be able to open a boto3 client.
+settings_preamble: This target uses boto3 to connect to AWS and perform copy and
+  possibly credential operations. The agent running this target should be 
+  connected to AWS to be able to open a boto3 client.
 target_schema: $TARGET_REDSHIFT_SCHEMA
 usage: ''
 variant: ticketswap

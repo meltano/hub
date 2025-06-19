@@ -69,10 +69,11 @@ settings:
   label: Hard Delete
   name: hard_delete
   value: false
-- description: The method to use when loading data into the destination. `append-only`
-    will always write all input records whether that records already exists or not.
-    `upsert` will update existing records and insert new records. `overwrite` will
-    delete all existing records and insert all input records.
+- description: The method to use when loading data into the destination. 
+    `append-only` will always write all input records whether that records 
+    already exists or not. `upsert` will update existing records and insert new 
+    records. `overwrite` will delete all existing records and insert all input 
+    records.
   kind: options
   label: Load Method
   name: load_method
@@ -89,8 +90,9 @@ settings:
   label: Password
   name: password
   sensitive: true
-- description: The private key contents, in PEM or base64-encoding format. For KeyPair
-    authentication either `private_key` or `private_key_path` must be provided.
+- description: The private key contents, in PEM or base64-encoding format. For 
+    KeyPair authentication either `private_key` or `private_key_path` must be 
+    provided.
   kind: password
   label: Private Key
   name: private_key
@@ -100,8 +102,8 @@ settings:
   label: Private Key Passphrase
   name: private_key_passphrase
   sensitive: true
-- description: Path to file containing private key. For KeyPair authentication either
-    private_key or private_key_path must be provided.
+- description: Path to file containing private key. For KeyPair authentication 
+    either private_key or private_key_path must be provided.
   kind: password
   label: Private Key Path
   name: private_key_path
@@ -123,8 +125,8 @@ settings:
   kind: object
   label: User Stream Map Configuration
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps

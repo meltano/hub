@@ -6,8 +6,8 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
-description: A tap for the Delighted API built on the Singer SDK and the Delighted
-  Python client library.
+description: A tap for the Delighted API built on the Singer SDK and the 
+  Delighted Python client library.
 domain_url: https://delighted.com/
 executable: tap-delighted
 keywords:
@@ -78,8 +78,8 @@ settings:
   kind: object
   label: User Stream Map Configuration
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps

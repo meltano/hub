@@ -34,10 +34,11 @@ settings:
   label: Messages Include Spam Trash
   name: messages.include_spam_trash
   value: false
-- description: Only return messages matching the specified query. Supports the same
-    query format as the Gmail search box. For example, "from:someuser@example.com
-    rfc822msgid:<somemsgid@example.com> is:unread". Parameter cannot be used when
-    accessing the api using the gmail. Metadata scope. 
+- description: Only return messages matching the specified query. Supports the 
+    same query format as the Gmail search box. For example, 
+    "from:someuser@example.com rfc822msgid:<somemsgid@example.com> is:unread". 
+    Parameter cannot be used when accessing the api using the gmail. Metadata 
+    scope. 
     https://developers.google.com/gmail/api/reference/rest/v1/users.messages/list#query-parameters
   kind: string
   label: Messages Q
@@ -61,8 +62,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps

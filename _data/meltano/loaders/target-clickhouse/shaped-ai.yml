@@ -27,8 +27,9 @@ settings:
   kind: integer
   label: Batch Size Rows
   name: batch_size_rows
-- description: The cluster to create tables in. This is passed as the `clickhouse_cluster`
-    argument when creating a table. [documentation](https://clickhouse.com/docs/en/sql-reference/distributed-ddl)
+- description: The cluster to create tables in. This is passed as the 
+    `clickhouse_cluster` argument when creating a table. 
+    [documentation](https://clickhouse.com/docs/en/sql-reference/distributed-ddl)
     can be found here.
   kind: string
   label: Cluster Name
@@ -102,10 +103,11 @@ settings:
   label: Host
   name: host
   value: localhost
-- description: The method to use when loading data into the destination. `append-only`
-    will always write all input records whether that records already exists or not.
-    `upsert` will update existing records and insert new records. `overwrite` will
-    delete all existing records and insert all input records.
+- description: The method to use when loading data into the destination. 
+    `append-only` will always write all input records whether that records 
+    already exists or not. `upsert` will update existing records and insert new 
+    records. `overwrite` will delete all existing records and insert all input 
+    records.
   kind: options
   label: Load Method
   name: load_method
@@ -117,13 +119,14 @@ settings:
   - label: Overwrite
     value: overwrite
   value: append-only
-- description: Run 'OPTIMIZE TABLE' after data insert. Useful whentable engine removes
-    duplicate rows.
+- description: Run 'OPTIMIZE TABLE' after data insert. Useful whentable engine 
+    removes duplicate rows.
   kind: boolean
   label: Optimize After
   name: optimize_after
   value: false
-- description: List of columns to order by. Used for engines that require ordering.
+- description: List of columns to order by. Used for engines that require 
+    ordering.
   kind: array
   label: Order By Keys
   name: order_by_keys
@@ -137,8 +140,8 @@ settings:
   label: Port
   name: port
   value: 8123
-- description: The `replica_name` for replicated tables. This is required when using
-    any of the replication engines.
+- description: The `replica_name` for replicated tables. This is required when 
+    using any of the replication engines.
   kind: string
   label: Replica Name
   name: replica_name
@@ -147,8 +150,8 @@ settings:
   label: Secure
   name: secure
   value: false
-- description: The SQLAlchemy connection string for the ClickHouse database. Used
-    if set, otherwise separate settings are used
+- description: The SQLAlchemy connection string for the ClickHouse database. 
+    Used if set, otherwise separate settings are used
   kind: string
   label: SQLAlchemy URL
   name: sqlalchemy_url
@@ -156,8 +159,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps
@@ -165,8 +168,8 @@ settings:
   kind: string
   label: Table Name
   name: table_name
-- description: The table path for replicated tables. This is required when using any
-    of the replication engines. Check out the 
+- description: The table path for replicated tables. This is required when using
+    any of the replication engines. Check out the 
     [documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/replication#replicatedmergetree-parameters)
     for more information. Use `$table_name` to substitute the table name.
   kind: string
