@@ -160,20 +160,20 @@ settings:
   label: Prefix
   name: prefix
   value: ''
-- description: Start date. This is used for incremental replication only. Log based
-    replication does not support this setting - do not provide it unless using the
-    incremental replication method. Defaults to epoch zero time 1970-01-01 if tap
-    uses incremental replication method.
+- description: Start date. This is used for incremental replication only. Log 
+    based replication does not support this setting - do not provide it unless 
+    using the incremental replication method. Defaults to epoch zero time 
+    1970-01-01 if tap uses incremental replication method.
   kind: date_iso8601
   label: Start Date
   name: start_date
-- description: Stream map config. See https://sdk.meltano.com/en/latest/stream_maps.html
-    for documentation.
+- description: Stream map config. See 
+    https://sdk.meltano.com/en/latest/stream_maps.html for documentation.
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: Stream maps. See https://sdk.meltano.com/en/latest/stream_maps.html
-    for documentation.
+- description: Stream maps. See 
+    https://sdk.meltano.com/en/latest/stream_maps.html for documentation.
   kind: object
   label: Stream Maps
   name: stream_maps

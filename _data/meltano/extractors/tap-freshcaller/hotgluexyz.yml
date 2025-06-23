@@ -5,8 +5,8 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
-description: Cloud-based software-as-a-service that provides helpdesk support with
-  automation solutions
+description: Cloud-based software-as-a-service that provides helpdesk support 
+  with automation solutions
 domain_url: https://www.freshworks.com/freshcaller-cloud-pbx/
 executable: tap-freshcaller
 keywords:

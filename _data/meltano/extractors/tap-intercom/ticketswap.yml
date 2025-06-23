@@ -7,7 +7,8 @@ capabilities:
 - state
 - stream-maps
 description: Conversational Relationship Platform
-domain_url: https://developers.intercom.com/intercom-api-reference/v1.4/reference
+domain_url: 
+  https://developers.intercom.com/intercom-api-reference/v1.4/reference
 executable: tap-intercom
 keywords:
 - meltano_sdk
@@ -81,8 +82,8 @@ settings:
   kind: object
   label: User Stream Map Configuration
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps
