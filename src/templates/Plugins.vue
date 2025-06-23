@@ -260,24 +260,36 @@
                         <div class="flex border-b border-gray-200">
                           <button
                             @click="activeTab = 'legacy'"
-                            :class="['px-4 py-2 text-sm font-medium border-b-2 transition-colors',
-                                   activeTab === 'legacy' ? 'border-blue-500 text-blue-600' : 'border-transparent text-gray-500 hover:text-gray-700']"
+                            :class="[
+                              'px-4 py-2 text-sm font-medium border-b-2 transition-colors',
+                              activeTab === 'legacy'
+                                ? 'border-blue-500 text-blue-600'
+                                : 'border-transparent text-gray-500 hover:text-gray-700',
+                            ]"
                           >
                             Legacy (All versions)
                           </button>
                           <button
                             @click="activeTab = 'modern'"
-                            :class="['px-4 py-2 text-sm font-medium border-b-2 transition-colors',
-                                   activeTab === 'modern' ? 'border-blue-500 text-blue-600' : 'border-transparent text-gray-500 hover:text-gray-700']"
+                            :class="[
+                              'px-4 py-2 text-sm font-medium border-b-2 transition-colors',
+                              activeTab === 'modern'
+                                ? 'border-blue-500 text-blue-600'
+                                : 'border-transparent text-gray-500 hover:text-gray-700',
+                            ]"
                           >
                             Meltano 3.8+
                           </button>
                         </div>
                         <div v-if="activeTab === 'legacy'">
-                          <pre class="prose rounded-md language-bash"><code>meltano add {{ $page.plugins.pluginType }} {{ $page.plugins.name }}<span v-if="!$page.plugins.isDefault"> --variant {{ $page.plugins.variant }}</span></code></pre>
+                          <pre
+                            class="prose rounded-md language-bash"
+                          ><code>meltano add {{ $page.plugins.pluginType }} {{ $page.plugins.name }}<span v-if="!$page.plugins.isDefault"> --variant {{ $page.plugins.variant }}</span></code></pre>
                         </div>
                         <div v-if="activeTab === 'modern'">
-                          <pre class="prose rounded-md language-bash"><code>meltano add <span v-if="$page.plugins.pluginType === 'extractor' || $page.plugins.pluginType === 'loader' || $page.plugins.pluginType === 'utility'">{{ $page.plugins.name }}</span><span v-else>--plugin-type {{ $page.plugins.pluginType }} {{ $page.plugins.name }}</span><span v-if="!$page.plugins.isDefault"> --variant {{ $page.plugins.variant }}</span></code></pre>
+                          <pre
+                            class="prose rounded-md language-bash"
+                          ><code>meltano add <span v-if="$page.plugins.pluginType === 'extractor' || $page.plugins.pluginType === 'loader' || $page.plugins.pluginType === 'utility'">{{ $page.plugins.name }}</span><span v-else>--plugin-type {{ $page.plugins.pluginType }} {{ $page.plugins.name }}</span><span v-if="!$page.plugins.isDefault"> --variant {{ $page.plugins.variant }}</span></code></pre>
                         </div>
                       </div>
                       <span>
@@ -495,7 +507,7 @@ export default {
   },
   data() {
     return {
-      activeTab: 'legacy'
+      activeTab: "legacy",
     };
   },
   computed: {
