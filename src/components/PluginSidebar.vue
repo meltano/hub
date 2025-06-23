@@ -4,10 +4,30 @@
       <div class="px-4 aside-inner space-y-4">
         <div>
           <p class="text-lg py-2">Install</p>
-          <code class="break-word bg-white-07 rounded p-2 text-sm"
-            >meltano add {{ plugin_type }} {{ name
-            }}<span v-if="!is_default"> --variant {{ variant }}</span></code
-          >
+          <div class="space-y-2">
+            <div class="flex border-b border-gray-200">
+              <button
+                @click="activeTab = 'legacy'"
+                :class="['px-2 py-1 text-xs font-medium border-b-2 transition-colors',
+                       activeTab === 'legacy' ? 'border-blue-500 text-blue-600' : 'border-transparent text-gray-500 hover:text-gray-700']"
+              >
+                Legacy
+              </button>
+              <button
+                @click="activeTab = 'modern'"
+                :class="['px-2 py-1 text-xs font-medium border-b-2 transition-colors',
+                       activeTab === 'modern' ? 'border-blue-500 text-blue-600' : 'border-transparent text-gray-500 hover:text-gray-700']"
+              >
+                v3.8+
+              </button>
+            </div>
+            <div v-if="activeTab === 'legacy'">
+              <code class="break-word bg-white-07 rounded p-2 text-sm">meltano add <span v-if="plugin_type === 'extractor' || plugin_type === 'loader' || plugin_type === 'utility'">{{ plugin_type }} </span><span v-else>--plugin-type {{ plugin_type }} </span>{{ name }}<span v-if="!is_default"> --variant {{ variant }}</span></code>
+            </div>
+            <div v-if="activeTab === 'modern'">
+              <code class="break-word bg-white-07 rounded p-2 text-sm">meltano add {{ name }}<span v-if="!is_default"> --variant {{ variant }}</span></code>
+            </div>
+          </div>
         </div>
         <div></div>
         <div>
@@ -278,6 +298,11 @@ export default {
     "pip_url",
     "ext_repo",
   ],
+  data() {
+    return {
+      activeTab: 'legacy'
+    };
+  },
   computed: {
     parsedEDKRepo() {
       // For some plugin variants, either the `variant` or `name` doesn't match the GH repo
