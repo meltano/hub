@@ -1,12 +1,6 @@
-name: 🚰 New Plugin
-description: Request a new Plugin to Meltano Hub
-title: "Add Plugin: <insert plugin name>"
-labels: [valuestream/Hub]
 assignees: [edgarrmondragon, pnadolny13]
-
 body:
-- type: markdown
-  attributes:
+- attributes:
     value: |
       ## New Plugin Request
 
@@ -14,58 +8,57 @@ body:
       
       If you'd like you can follow the steps in the [CONTRIBUTING.md](https://github.com/meltano/hub/blob/main/CONTRIBUTING.md) to add it yourself,
       otherwise someone on the Meltano team will get it added.
+  type: markdown
 
-- type: dropdown
-  id: plugin_type
-  attributes:
+- attributes:
     label: What is the plugin type?
     multiple: true
     options:
-      - extractor
-      - loader
-      - utility
-      - mapper
-      - files
+    - extractor
+    - loader
+    - utility
+    - mapper
+    - files
+  id: plugin_type
+  type: dropdown
 
-- type: input
-  id: repository_url
-  attributes:
-    label: Repository URL
+- attributes:
     description: The URL for the repository that contains the plugin code
+    label: Repository URL
     placeholder: ex. https://github.com/MeltanoLabs/tap-github
+  id: repository_url
+  type: input
   validations:
     required: true
 
-- type: input
-  id: extension_repository_url
-  attributes:
-    label: Extension Repository URL
+- attributes:
     description: The URL for the plugin extension repository. Only for utility plugins.
+    label: Extension Repository URL
     placeholder: ex. https://github.com/meltano/airflow-ext
+  id: extension_repository_url
+  type: input
   validations:
     required: false
 
-- type: input
-  id: description
-  attributes:
-    label: Description
+- attributes:
     description: General description of what the company behind the API or database does
+    label: Description
     placeholder: ex. Online Marketing Platform
+  id: description
+  type: input
   validations:
     required: true
 
-- type: input
-  id: url
-  attributes:
-    label: Domain URL
+- attributes:
     description: URL of the developer documentation or website
+    label: Domain URL
     placeholder: ex. https://developers.hubspot.com/docs/api/overview
+  id: url
+  type: input
   validations:
     required: true
 
-- type: textarea
-  attributes:
-    label: Logo Image
+- attributes:
     description: |
       Upload a logo image for the new plugin. The ideal image is an SVG or PNG, has no text over the logo, and has a transparent background.
 
@@ -73,14 +66,19 @@ body:
       In that case, you can leave a note of what existing plugin to use.
 
       Tip: You can attach images by clicking this area to highlight it and then dragging files in.
+    label: Logo Image
+  type: textarea
   validations:
     required: false
 
-- type: textarea
-  attributes:
-    label: Any other notes?
+- attributes:
     description: |
       Links? References? Anything that will give us more context. 
-
+    label: Any other notes?
+  type: textarea
   validations:
     required: false
+description: Request a new Plugin to Meltano Hub
+labels: [valuestream/Hub]
+name: 🚰 New Plugin
+title: "Add Plugin: <insert plugin name>"

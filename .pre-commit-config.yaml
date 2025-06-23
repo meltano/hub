@@ -2,6 +2,16 @@
 # You can pass your custom .yamllint with args attribute.
 repos:
 - repo: https://github.com/adrienverge/yamllint.git
-  rev: v1.28.0
+  rev: v1.37.1
   hooks:
   - id: yamllint
+- repo: https://github.com/astral-sh/ruff-pre-commit
+  rev: v0.12.0
+  hooks:
+  - id: ruff-check
+  - id: ruff-format
+- repo: https://github.com/astral-sh/uv-pre-commit
+  rev: 0.7.13
+  hooks:
+  - id: uv-lock
+  - id: uv-sync

@@ -38,6 +38,7 @@ SKIP_FIELDS_BY_TYPE = {
     "files": SKIP_FIELDS + ["hidden"],
 }
 
+
 class PluginType(str, enum.Enum):
     """Plugin types."""
 
@@ -138,9 +139,9 @@ class ApiBuilder:
                         definition["logo_url"] = logo_url
 
                     # Point plugin docs to Meltano Hub
-                    definition[
-                        "docs"
-                    ] = f"{self.base_hub_url}/{plugin_type}/{plugin_full_name}"
+                    definition["docs"] = (
+                        f"{self.base_hub_url}/{plugin_type}/{plugin_full_name}"
+                    )
 
                     for field in SKIP_FIELDS_BY_TYPE.get(plugin_type):
                         definition.pop(field, None)
@@ -166,7 +167,7 @@ class ApiBuilder:
                     if variant == default_variant:
                         default_variant_logo = definition.get("logo_url")
 
-                if plugin_name.startswith('.'):
+                if plugin_name.startswith("."):
                     continue
                 # Add to plugin type index
                 plugin_type_index[plugin_name] = {

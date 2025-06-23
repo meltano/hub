@@ -1,6 +1,4 @@
-import json
 import os
-from copy import deepcopy
 
 from ruamel.yaml import YAML
 
@@ -14,7 +12,6 @@ def merge(a, b, path=None, update=True):
         path = []
     for key in b:
         if key in a:
-
             if isinstance(a[key], dict) and isinstance(b[key], dict):
                 merge(a[key], b[key], path + [str(key)])
             elif a[key] == b[key]:
@@ -74,7 +71,6 @@ for filename in os.listdir(directory):
     include_source = includes[0]
     include_key = includes[1]
     if include_source == "scraped":
-
         merge_data = scraped.get(include_key)
 
         plugin_updated = merge(plugin_data, merge_data, update=False)

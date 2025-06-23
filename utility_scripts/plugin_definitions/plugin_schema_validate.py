@@ -1,4 +1,5 @@
 """PluginSchemaValidator class."""
+
 import json
 import logging
 import os
@@ -27,17 +28,17 @@ class PluginSchemaValidator:
         self.all_valid = True
         self.validation_results = {}
 
-    def _set_schema_store(self, schemas_dir='plugin_definitions'):
+    def _set_schema_store(self, schemas_dir="plugin_definitions"):
         self.schema_store = {}
         for source in Path("schemas/common").iterdir():
-            if not source.name.endswith('.json'):
+            if not source.name.endswith(".json"):
                 # Skip non schema files
                 continue
             with open(source) as schema_file:
                 schema = json.load(schema_file)
                 self.schema_store[schema["$id"]] = schema
         for source in Path(f"schemas/{schemas_dir}").iterdir():
-            if not source.name.endswith('.json'):
+            if not source.name.endswith(".json"):
                 # Skip non schema files
                 continue
             with open(source) as schema_file:
@@ -61,7 +62,7 @@ class PluginSchemaValidator:
                 self.all_valid = False
             return True
 
-    def _read_json_schema(self, schema_name, schemas_dir='plugin_definitions'):
+    def _read_json_schema(self, schema_name, schemas_dir="plugin_definitions"):
         with open(f"schemas/{schemas_dir}/{schema_name}") as schema:
             return json.load(schema)
 
@@ -69,7 +70,7 @@ class PluginSchemaValidator:
         """Iterate plugin defintions and validate against JSON schemas."""
         logger.info("Schema validation started...")
         for plugin_category in os.listdir(self.file_path):
-            if plugin_category.startswith('.'):
+            if plugin_category.startswith("."):
                 # Skip non plugin definition files
                 continue
             logger.info(f"Validating schema for plugin type: {plugin_category}")
@@ -79,7 +80,7 @@ class PluginSchemaValidator:
             for plugin_name in os.listdir(
                 os.path.join(self.file_path, plugin_category)
             ):
-                if plugin_name.startswith('.'):
+                if plugin_name.startswith("."):
                     # Skip non plugin definition files
                     continue
                 for variant_name in os.listdir(
@@ -92,9 +93,9 @@ class PluginSchemaValidator:
                         continue
                     variant_count += 1
                 plugin_count += 1
-            self.validation_results[
-                plugin_category
-            ] = f"Plugins: {plugin_count}, Variants: {variant_count}"
+            self.validation_results[plugin_category] = (
+                f"Plugins: {plugin_count}, Variants: {variant_count}"
+            )
 
 
 if __name__ == "__main__":
