@@ -21,6 +21,7 @@ URL_KEYS = [
     "ext_repo",
 ]
 
+
 def validate_urls(yml_path):
     with open(yml_path, "r") as plugin_file:
         bad_urls = []
@@ -31,7 +32,7 @@ def validate_urls(yml_path):
                 continue
             try:
                 resp = requests.get(url)
-            except Exception as ex:
+            except Exception:
                 bad_urls.append(url)
                 continue
 
@@ -61,7 +62,9 @@ if __name__ == "__main__":
         bad_urls = validate_urls(yaml_file)
         if bad_urls:
             path = yaml_file.split("_data/meltano/")[1]
-            bad_links[f"https://github.com/meltano/hub/blob/main/_data/meltano/{path}"] = bad_urls
+            bad_links[
+                f"https://github.com/meltano/hub/blob/main/_data/meltano/{path}"
+            ] = bad_urls
     output = ""
     for file_name, urls in bad_links.items():
         output += f"- {file_name}\n"

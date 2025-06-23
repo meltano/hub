@@ -34,7 +34,9 @@ def build_maintainers():
                 plugin_data = read_yaml(
                     os.path.join(directory, plugin_type, plugin_name, variant_yml)
                 )
-                maintainers_set.add(plugin_data.get("variant"))  # different casings will return as distinct items
+                maintainers_set.add(
+                    plugin_data.get("variant")
+                )  # different casings will return as distinct items
                 if plugin_data.get("variant").lower() not in updated_maintainers:
                     missing.add(plugin_data.get("variant"))
                     updated_maintainers[plugin_data.get("variant").lower()] = {
@@ -69,10 +71,7 @@ if __name__ == "__main__":
         print(f"Extra Maintainers: {extras}")
         print(f"Missing Maintainers: {missing}")
         misspellings = set(
-            [
-                variant for variant in extras | missing
-                if variant.lower() != variant
-            ]
+            [variant for variant in extras | missing if variant.lower() != variant]
         )
         if misspellings:
             print(f"Possible misspellings (check casing): {misspellings}")

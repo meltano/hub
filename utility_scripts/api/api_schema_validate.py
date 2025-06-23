@@ -1,4 +1,5 @@
 """APIValidator class."""
+
 import json
 import logging
 import os
@@ -27,7 +28,7 @@ class APIValidator:
         self.all_valid = True
         self.validation_results = {}
 
-    def _set_schema_store(self, schemas_dir='api'):
+    def _set_schema_store(self, schemas_dir="api"):
         self.schema_store = {}
         for source in Path("schemas/common").iterdir():
             with open(source) as schema_file:
@@ -53,7 +54,7 @@ class APIValidator:
                 self.all_valid = False
             return True
 
-    def _read_json_schema(self, schema_name, schemas_dir='api'):
+    def _read_json_schema(self, schema_name, schemas_dir="api"):
         with open(f"schemas/{schemas_dir}/{schema_name}") as schema:
             return json.load(schema)
 
