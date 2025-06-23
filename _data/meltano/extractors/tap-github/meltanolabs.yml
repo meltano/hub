@@ -24,14 +24,15 @@ select:
 - '*.*'
 - '!traffic_*.*'
 settings:
-- description: List of GitHub tokens to authenticate with. Streams will loop through
-    them when hitting rate limits.
+- description: List of GitHub tokens to authenticate with. Streams will loop 
+    through them when hitting rate limits.
   kind: array
   label: Additional Auth Tokens
   name: additional_auth_tokens
-- description: List of GitHub App credentials to authenticate with. Each credential
-    can be constructed by combining an App ID and App private key into the format
-    `:app_id:;;-----BEGIN RSA PRIVATE KEY----- _YOUR_P_KEY_ -----END RSA PRIVATE KEY-----`.
+- description: List of GitHub App credentials to authenticate with. Each 
+    credential can be constructed by combining an App ID and App private key 
+    into the format `:app_id:;;-----BEGIN RSA PRIVATE KEY----- _YOUR_P_KEY_ 
+    -----END RSA PRIVATE KEY-----`.
   kind: array
   label: Auth App Keys
   name: auth_app_keys
@@ -91,12 +92,13 @@ settings:
   kind: string
   label: Metrics Log Level
   name: metrics_log_level
-- description: An array of strings containing the github organizations to be included
+- description: An array of strings containing the github organizations to be 
+    included
   kind: array
   label: Organizations
   name: organizations
-- description: Add a buffer to avoid consuming all query points for the token at hand.
-    Defaults to 1000.
+- description: Add a buffer to avoid consuming all query points for the token at
+    hand. Defaults to 1000.
   kind: integer
   label: Rate Limit Buffer
   name: rate_limit_buffer
@@ -108,8 +110,8 @@ settings:
   kind: array
   label: Searches
   name: searches
-- description: Set to true to skip API calls for the parent streams (such as repositories)
-    if it is not selected but children are
+- description: Set to true to skip API calls for the parent streams (such as 
+    repositories) if it is not selected but children are
   kind: boolean
   label: Skip Parent Streams
   name: skip_parent_streams
@@ -125,8 +127,8 @@ settings:
   kind: object
   label: Stream Maps
   name: stream_maps
-- description: Configures which states are of interest. Must be one of [open, closed,
-    all], defaults to open.
+- description: Configures which states are of interest. Must be one of [open, 
+    closed, all], defaults to open.
   kind: options
   label: Stream Options Milestones State
   name: stream_options.milestones.state

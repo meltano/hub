@@ -5,8 +5,8 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
-description: Online platform that enables users to submit links, create content, and
-  have discussions about the topics of their interest.
+description: Online platform that enables users to submit links, create content,
+  and have discussions about the topics of their interest.
 domain_url: https://www.reddit.com/
 executable: tap-reddit
 keywords:

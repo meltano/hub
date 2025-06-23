@@ -4,7 +4,8 @@ capabilities:
 - discover
 - state
 - stream-maps
-description: Your own private corner of the web to spend quality time with great articles.
+description: Your own private corner of the web to spend quality time with great
+  articles.
 domain_url: https://getpocket.com/
 keywords:
 - api
@@ -19,8 +20,8 @@ pip_url: git+https://github.com/evelte/tap-getpocket.git
 quality: silver
 repo: https://github.com/evelte/tap-getpocket
 settings:
-- description: Access token to authenticate against the API service. Follow instructions
-    in README to get
+- description: Access token to authenticate against the API service. Follow 
+    instructions in README to get
   kind: password
   label: Access Token
   name: access_token
@@ -30,7 +31,8 @@ settings:
   label: Consumer Key
   name: consumer_key
   sensitive: true
-- description: Whether to retrieve only basic information or all data about each item
+- description: Whether to retrieve only basic information or all data about each
+    item
   kind: string
   label: Detail Type
   name: detail_type
@@ -48,8 +50,8 @@ settings:
   label: State
   name: state
   value: all
-- description: Only return items with this tag_name. Use _untagged_ to get only untagged
-    items
+- description: Only return items with this tag_name. Use _untagged_ to get only 
+    untagged items
   kind: string
   label: Tag
   name: tag

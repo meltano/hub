@@ -47,7 +47,8 @@ settings:
   kind: string
   label: Batch Storage Root
   name: batch_config.storage.root
-- description: Database name. Note if sqlalchemy_url is set this will be ignored.
+- description: Database name. Note if sqlalchemy_url is set this will be 
+    ignored.
   kind: string
   label: Database
   name: database
@@ -57,8 +58,8 @@ settings:
   label: Dates As String
   name: dates_as_string
   value: false
-- description: Replication method to use if there is not a catalog entry to override
-    this choice. One of `FULL_TABLE`, `INCREMENTAL`, or `LOG_BASED`.
+- description: Replication method to use if there is not a catalog entry to 
+    override this choice. One of `FULL_TABLE`, `INCREMENTAL`, or `LOG_BASED`.
   kind: options
   label: Default Replication Method
   name: default_replication_method
@@ -78,9 +79,9 @@ settings:
   kind: string
   label: Faker Seed
   name: faker_config.seed
-- description: If an array of schema names is provided, the tap will only process
-    the specified Postgres schemas and ignore others. If left blank, the tap automatically
-    determines ALL available Postgres schemas.
+- description: If an array of schema names is provided, the tap will only 
+    process the specified Postgres schemas and ignore others. If left blank, the
+    tap automatically determines ALL available Postgres schemas.
   kind: array
   label: Filter Schemas
   name: filter_schemas
@@ -93,51 +94,55 @@ settings:
   kind: integer
   label: Max Flattening Depth
   name: flattening_max_depth
-- description: Hostname for postgres instance. Note if sqlalchemy_url is set this
-    will be ignored.
+- description: Hostname for postgres instance. Note if sqlalchemy_url is set 
+    this will be ignored.
   kind: string
   label: Host
   name: host
-- description: Defaults to false, if true, json and jsonb fields will be Objects.
+- description: Defaults to false, if true, json and jsonb fields will be 
+    Objects.
   kind: boolean
   label: Json As Object
   name: json_as_object
   value: false
-- description: Optional. The maximum number of records to return in a single stream.
+- description: Optional. The maximum number of records to return in a single 
+    stream.
   kind: integer
   label: Max Record Count
   name: max_record_count
-- description: Password used to authenticate. Note if sqlalchemy_url is set this will
-    be ignored.
+- description: Password used to authenticate. Note if sqlalchemy_url is set this
+    will be ignored.
   kind: password
   label: Password
   name: password
   sensitive: true
-- description: The port on which postgres is awaiting connection. Note if sqlalchemy_url
-    is set this will be ignored.
+- description: The port on which postgres is awaiting connection. Note if 
+    sqlalchemy_url is set this will be ignored.
   kind: integer
   label: Port
   name: port
   value: 5432
-- description: Name of the replication slot to use for logical replication. Must be
-    unique for parallel extractions. Only applicable when replication_method is LOG_BASED.
-    - Contain only letters, numbers, and underscores. - Be less than or equal to 63
-    characters. - Not start with 'pg_'.
+- description: Name of the replication slot to use for logical replication. Must
+    be unique for parallel extractions. Only applicable when replication_method 
+    is LOG_BASED. - Contain only letters, numbers, and underscores. - Be less 
+    than or equal to 63 characters. - Not start with 'pg_'.
   kind: string
   label: Replication Slot Name
   name: replication_slot_name
   value: tappostgres
-- description: Example postgresql://[username]:[password]@localhost:5432/[db_name]
+- description: Example 
+    postgresql://[username]:[password]@localhost:5432/[db_name]
   kind: string
   label: SQLAlchemy URL
   name: sqlalchemy_url
-- description: Enable an ssh tunnel (also known as bastion server), see the other
-    ssh_tunnel.* properties for more details
+- description: Enable an ssh tunnel (also known as bastion server), see the 
+    other ssh_tunnel.* properties for more details
   kind: boolean
   label: SSH Tunnel Enable
   name: ssh_tunnel.enable
   value: false
-- description: Host of the bastion server, this is the host we'll connect to via ssh
+- description: Host of the bastion server, this is the host we'll connect to via
+    ssh
   kind: string
   label: SSH Tunnel Host
   name: ssh_tunnel.host
@@ -160,56 +165,61 @@ settings:
   kind: string
   label: SSH Tunnel Username
   name: ssh_tunnel.username
-- description: The certificate authority that should be used to verify the server's
-    identity. Can be provided either as the certificate itself (in .env) or as a filepath
-    to the certificate. Note if sqlalchemy_url is set this will be ignored.
+- description: The certificate authority that should be used to verify the 
+    server's identity. Can be provided either as the certificate itself (in 
+    .env) or as a filepath to the certificate. Note if sqlalchemy_url is set 
+    this will be ignored.
   kind: string
   label: SSL Certificate Authority
   name: ssl_certificate_authority
   value: ~/.postgresql/root.crl
-- description: The certificate that should be used to verify your identity to the
-    server. Can be provided either as the certificate itself (in .env) or as a filepath
-    to the certificate. Note if sqlalchemy_url is set this will be ignored.
+- description: The certificate that should be used to verify your identity to 
+    the server. Can be provided either as the certificate itself (in .env) or as
+    a filepath to the certificate. Note if sqlalchemy_url is set this will be 
+    ignored.
   kind: string
   label: SSL Client Certificate
   name: ssl_client_certificate
   value: ~/.postgresql/postgresql.crt
-- description: Whether or not to provide client-side certificates as a method of authentication
-    to the server. Use ssl_client_certificate and ssl_client_private_key for further
-    customization. To use SSL to verify the server's identity, use ssl_enable instead.
-    Note if sqlalchemy_url is set this will be ignored.
+- description: Whether or not to provide client-side certificates as a method of
+    authentication to the server. Use ssl_client_certificate and 
+    ssl_client_private_key for further customization. To use SSL to verify the 
+    server's identity, use ssl_enable instead. Note if sqlalchemy_url is set 
+    this will be ignored.
   kind: boolean
   label: SSL Client Certificate Enable
   name: ssl_client_certificate_enable
   value: false
-- description: The private key for the certificate you provided. Can be provided either
-    as the certificate itself (in .env) or as a filepath to the certificate. Note
-    if sqlalchemy_url is set this will be ignored.
+- description: The private key for the certificate you provided. Can be provided
+    either as the certificate itself (in .env) or as a filepath to the 
+    certificate. Note if sqlalchemy_url is set this will be ignored.
   kind: password
   label: SSL Client Private Key
   name: ssl_client_private_key
   sensitive: true
   value: ~/.postgresql/postgresql.key
-- description: Whether or not to use ssl to verify the server's identity. Use ssl_certificate_authority
-    and ssl_mode for further customization. To use a client certificate to authenticate
-    yourself to the server, use ssl_client_certificate_enable instead. Note if sqlalchemy_url
-    is set this will be ignored.
+- description: Whether or not to use ssl to verify the server's identity. Use 
+    ssl_certificate_authority and ssl_mode for further customization. To use a 
+    client certificate to authenticate yourself to the server, use 
+    ssl_client_certificate_enable instead. Note if sqlalchemy_url is set this 
+    will be ignored.
   kind: boolean
   label: SSL Enable
   name: ssl_enable
   value: false
 - description: SSL Protection method, see [postgres 
     documentation](https://www.postgresql.org/docs/current/libpq-ssl.html#LIBPQ-SSL-PROTECTION)
-    for more information. Must be one of disable, allow, prefer, require, verify-ca,
-    or verify-full. Note if sqlalchemy_url is set this will be ignored.
+    for more information. Must be one of disable, allow, prefer, require, 
+    verify-ca, or verify-full. Note if sqlalchemy_url is set this will be 
+    ignored.
   kind: string
   label: SSL Mode
   name: ssl_mode
   value: verify-full
-- description: The folder in which to store SSL certificates provided as raw values.
-    When a certificate/key is provided as a raw value instead of as a filepath, it
-    must be written to a file before it can be used. This configuration option determines
-    where that file is created.
+- description: The folder in which to store SSL certificates provided as raw 
+    values. When a certificate/key is provided as a raw value instead of as a 
+    filepath, it must be written to a file before it can be used. This 
+    configuration option determines where that file is created.
   kind: string
   label: SSL Storage Directory
   name: ssl_storage_directory
@@ -218,19 +228,13 @@ settings:
   kind: object
   label: User Stream Map Configuration
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps
-- description: Whether to use use strings with `x-singer.decimal` format for decimals
-    in the discovered schema. This is useful to avoid precision loss when working
-    with large numbers.
-  kind: boolean
-  label: Use Singer Decimal
-  name: use_singer_decimal
-- description: User name used to authenticate. Note if sqlalchemy_url is set this
-    will be ignored.
+- description: User name used to authenticate. Note if sqlalchemy_url is set 
+    this will be ignored.
   kind: string
   label: User
   name: user

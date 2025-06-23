@@ -140,10 +140,11 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: The method to use when loading data into the destination. `append-only`
-    will always write all input records whether that records already exists or not.
-    `upsert` will update existing records and insert new records. `overwrite` will
-    delete all existing records and insert all input records.
+- description: The method to use when loading data into the destination. 
+    `append-only` will always write all input records whether that records 
+    already exists or not. `upsert` will update existing records and insert new 
+    records. `overwrite` will delete all existing records and insert all input 
+    records.
   kind: options
   label: Load Method
   name: load_method
@@ -159,14 +160,15 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps
-- description: If enabled, allows for uris to be dynamically configured. Any fields
-    in the record that have a name beginning with `_sdc_replace_`, will have their
-    value substituted in for a matching string in the URI. See an example [here](#dynamically-providing-target-emails).
+- description: If enabled, allows for uris to be dynamically configured. Any 
+    fields in the record that have a name beginning with `_sdc_replace_`, will 
+    have their value substituted in for a matching string in the URI. See an 
+    example [here](#dynamically-providing-target-emails).
   kind: boolean
   label: Uri Replacement
   name: uri_replacement

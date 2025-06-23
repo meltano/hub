@@ -51,8 +51,8 @@ settings:
   kind: string
   label: Database
   name: database
-- description: Replication method to use if there is not a catalog entry to override
-    this choice. One of `FULL_TABLE`, `INCREMENTAL`, or `LOG_BASED`.
+- description: Replication method to use if there is not a catalog entry to 
+    override this choice. One of `FULL_TABLE`, `INCREMENTAL`, or `LOG_BASED`.
   kind: options
   label: Default Replication Method
   name: default_replication_method
@@ -95,8 +95,8 @@ settings:
   label: Port
   name: port
   value: 1433
-- description: SQLAlchemy URL. Setting this will take precedence over other connection
-    settings.
+- description: SQLAlchemy URL. Setting this will take precedence over other 
+    connection settings.
   kind: string
   label: SQLAlchemy URL Query
   name: sqlalchemy_url_query
@@ -109,17 +109,11 @@ settings:
   kind: object
   label: User Stream Map Configuration
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps
-- description: Whether to use use strings with `x-singer.decimal` format for decimals
-    in the discovered schema. This is useful to avoid precision loss when working
-    with large numbers.
-  kind: boolean
-  label: Use Singer Decimal
-  name: use_singer_decimal
 - description: Username used to authenticate.
   kind: string
   label: Username

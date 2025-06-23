@@ -22,8 +22,8 @@ settings:
   label: Datestamp Format
   name: datestamp_format
   value: '%Y-%m-%d'
-- description: Text string to use for a yaml template file. This text will be used
-    to create a new file if the destination file does not exist.
+- description: Text string to use for a yaml template file. This text will be 
+    used to create a new file if the destination file does not exist.
   kind: string
   label: Default Yaml Template
   name: default_yaml_template
@@ -61,8 +61,8 @@ settings:
   label: Record Insert Jsonpath
   name: record_insert_jsonpath
   value: $.metrics
-- description: "A property in the record which will be used as the dictionary key.\n
-    \nIf this property is provided, records will be written as key-value objects;
+- description: "A property in the record which will be used as the dictionary key.\n\
+    \ \nIf this property is provided, records will be written as key-value objects;
     if omitted, records are written as a list."
   kind: password
   label: Record Key Property Name

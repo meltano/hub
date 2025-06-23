@@ -6,8 +6,8 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
-description: Buy and sell bitcoin or 46 other cryptocurrencies and store them all
-  in one place.
+description: Buy and sell bitcoin or 46 other cryptocurrencies and store them 
+  all in one place.
 docs: https://bitso.com/api_info
 domain_url: https://bitso.com
 keywords:
@@ -90,8 +90,8 @@ settings:
   kind: object
   label: User Stream Map Configuration
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps
