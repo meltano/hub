@@ -22,10 +22,10 @@
               </button>
             </div>
             <div v-if="activeTab === 'legacy'">
-              <code class="break-word bg-white-07 rounded p-2 text-sm">meltano add <span v-if="plugin_type === 'extractor' || plugin_type === 'loader' || plugin_type === 'utility'">{{ plugin_type }} </span><span v-else>--plugin-type {{ plugin_type }} </span>{{ name }}<span v-if="!is_default"> --variant {{ variant }}</span></code>
+              <code class="break-word bg-white-07 rounded p-2 text-sm">meltano add {{ plugin_type }} {{ name }}<span v-if="!is_default"> --variant {{ variant }}</span></code>
             </div>
             <div v-if="activeTab === 'modern'">
-              <code class="break-word bg-white-07 rounded p-2 text-sm">meltano add {{ name }}<span v-if="!is_default"> --variant {{ variant }}</span></code>
+              <code class="break-word bg-white-07 rounded p-2 text-sm">meltano add <span v-if="plugin_type === 'extractor' || plugin_type === 'loader' || plugin_type === 'utility'">{{ name }}</span><span v-else>--plugin-type {{ plugin_type }} {{ name }}</span><span v-if="!is_default"> --variant {{ variant }}</span></code>
             </div>
           </div>
         </div>

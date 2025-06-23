@@ -274,10 +274,10 @@
                           </button>
                         </div>
                         <div v-if="activeTab === 'legacy'">
-                          <pre class="prose rounded-md language-bash"><code>meltano add <span v-if="$page.plugins.pluginType === 'extractor' || $page.plugins.pluginType === 'loader' || $page.plugins.pluginType === 'utility'">{{ $page.plugins.pluginType }} </span><span v-else>--plugin-type {{ $page.plugins.pluginType }} </span>{{ $page.plugins.name }}<span v-if="!$page.plugins.isDefault"> --variant {{ $page.plugins.variant }}</span></code></pre>
+                          <pre class="prose rounded-md language-bash"><code>meltano add {{ $page.plugins.pluginType }} {{ $page.plugins.name }}<span v-if="!$page.plugins.isDefault"> --variant {{ $page.plugins.variant }}</span></code></pre>
                         </div>
                         <div v-if="activeTab === 'modern'">
-                          <pre class="prose rounded-md language-bash"><code>meltano add {{ $page.plugins.name }}<span v-if="!$page.plugins.isDefault"> --variant {{ $page.plugins.variant }}</span></code></pre>
+                          <pre class="prose rounded-md language-bash"><code>meltano add <span v-if="$page.plugins.pluginType === 'extractor' || $page.plugins.pluginType === 'loader' || $page.plugins.pluginType === 'utility'">{{ $page.plugins.name }}</span><span v-else>--plugin-type {{ $page.plugins.pluginType }} {{ $page.plugins.name }}</span><span v-if="!$page.plugins.isDefault"> --variant {{ $page.plugins.variant }}</span></code></pre>
                         </div>
                       </div>
                       <span>
