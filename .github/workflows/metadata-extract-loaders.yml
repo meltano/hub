@@ -27,7 +27,7 @@ jobs:
           version: ">=0.4.30"
 
       - name: Install hub-utils
-        run: uv tool install git+https://github.com/meltano/hub-utils.git@main
+        run: uv tool install git+https://github.com/meltano/hub-utils.git@ea19954cb5f631e045877bd696555f1d78b0b25e
 
       - name: Get Variants List - SDK Loaders
         id: get-variants-list-sdk-loaders
@@ -66,7 +66,7 @@ jobs:
         version: ">=0.4.30"
 
     - name: Install hub-utils
-      run: uv tool install git+https://github.com/meltano/hub-utils.git@main
+      run: uv tool install git+https://github.com/meltano/hub-utils.git@ea19954cb5f631e045877bd696555f1d78b0b25e
 
     # This starts the attempts to install and extract metadata. Since we don't
     # know what python versions are accepted we start with the latest and continue
