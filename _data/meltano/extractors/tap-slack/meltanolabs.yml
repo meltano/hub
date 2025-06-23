@@ -1,5 +1,6 @@
 capabilities:
 - about
+- activate-version
 - batch
 - catalog
 - discover
@@ -64,8 +65,9 @@ settings:
   label: API Key
   name: api_key
   sensitive: true
-- description: Whether the bot user should attempt to join channels that it has not
-    yet joined. The bot user must be a member of the channel to retrieve messages.
+- description: Whether the bot user should attempt to join channels that it has 
+    not yet joined. The bot user must be a member of the channel to retrieve 
+    messages.
   kind: boolean
   label: Auto Join Channels
   name: auto_join_channels
@@ -96,18 +98,18 @@ settings:
   kind: string
   label: Batch Storage Root
   name: batch_config.storage.root
-- description: The types of conversations the tap will attempt to extract data from.
-    Must be one of 'public_channel', 'mpim', 'private_channel', or 'im'. Note that
-    the Slack app must have the appropriate privileges and be a member of the conversations
-    to sync messages.
+- description: The types of conversations the tap will attempt to extract data 
+    from. Must be one of 'public_channel', 'mpim', 'private_channel', or 'im'. 
+    Note that the Slack app must have the appropriate privileges and be a member
+    of the conversations to sync messages.
   kind: array
   label: Channel Types
   name: channel_types
   value:
   - public_channel
-- description: A list of channel IDs that should not be retrieved. Excluding overrides
-    a selected setting, so if a channel is included in both selected and excluded,
-    it will be excluded.
+- description: A list of channel IDs that should not be retrieved. Excluding 
+    overrides a selected setting, so if a channel is included in both selected 
+    and excluded, it will be excluded.
   kind: array
   label: Excluded Channels
   name: excluded_channels
@@ -128,14 +130,15 @@ settings:
   kind: integer
   label: Max Flattening Depth
   name: flattening_max_depth
-- description: Whether to include streams that require admin privileges or not. If
-    the user does not have the proper scopes then the tap will throw and exception.
+- description: Whether to include streams that require admin privileges or not. 
+    If the user does not have the proper scopes then the tap will throw and 
+    exception.
   kind: boolean
   label: Include Admin Streams
   name: include_admin_streams
   value: false
-- description: A list of channel IDs that should be retrieved. If not defined then
-    all are selected.
+- description: A list of channel IDs that should be retrieved. If not defined 
+    then all are selected.
   kind: array
   label: Selected Channels
   name: selected_channels
@@ -147,13 +150,13 @@ settings:
   kind: object
   label: User Stream Map Configuration
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps
-- description: The number of days to look in the past for new thread replies to existing
-    messages
+- description: The number of days to look in the past for new thread replies to 
+    existing messages
   kind: integer
   label: Thread Lookback Days
   name: thread_lookback_days

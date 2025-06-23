@@ -21,15 +21,16 @@ pip_url: meltanolabs-target-postgres
 quality: gold
 repo: https://github.com/MeltanoLabs/target-postgres
 settings:
-- description: If set to false, the tap will ignore activate version messages. If
-    set to true, add_record_metadata must be set to true as well.
+- description: If set to false, the tap will ignore activate version messages. 
+    If set to true, add_record_metadata must be set to true as well.
   kind: boolean
   label: Activate Version
   name: activate_version
   value: true
-- description: Note that this must be enabled for activate_version to work!This adds
-    _sdc_extracted_at, _sdc_batched_at, and more to every table. See https://sdk.meltano.com/en/latest/implementation/record_metadata.html
-    for more information.
+- description: Note that this must be enabled for activate_version to work!This 
+    adds _sdc_extracted_at, _sdc_batched_at, and more to every table. See 
+    https://sdk.meltano.com/en/latest/implementation/record_metadata.html for 
+    more information.
   kind: boolean
   label: Add Record Metadata
   name: add_record_metadata
@@ -47,8 +48,9 @@ settings:
   label: Default Target Schema
   name: default_target_schema
   value: $MELTANO_EXTRACT__LOAD_SCHEMA
-- description: DEPRECATED. Dialect+driver see https://docs.sqlalchemy.org/en/20/core/engines.html.
-    Generally just leave this alone.
+- description: DEPRECATED. Dialect+driver see 
+    https://docs.sqlalchemy.org/en/20/core/engines.html. Generally just leave 
+    this alone.
   kind: string
   label: Dialect+Driver
   name: dialect+driver
@@ -70,9 +72,10 @@ settings:
   kind: integer
   label: Max Flattening Depth
   name: flattening_max_depth
-- description: When activate version is sent from a tap this specefies if we should
-    delete the records that don't match, or mark them with a date in the `_sdc_deleted_at`
-    column. This config option is ignored if `activate_version` is set to false.
+- description: When activate version is sent from a tap this specefies if we 
+    should delete the records that don't match, or mark them with a date in the 
+    `_sdc_deleted_at` column. This config option is ignored if 
+    `activate_version` is set to false.
   kind: boolean
   label: Hard Delete
   name: hard_delete
@@ -81,18 +84,19 @@ settings:
   kind: string
   label: Host
   name: host
-- description: If set to true, the target will interpret the content encoding of the
-    schema to determine how to store the data. Using this option may result in a more
-    efficient storage of the data but may also result in an error if the data is not
-    encoded as expected.
+- description: If set to true, the target will interpret the content encoding of
+    the schema to determine how to store the data. Using this option may result 
+    in a more efficient storage of the data but may also result in an error if 
+    the data is not encoded as expected.
   kind: boolean
   label: Interpret Content Encoding
   name: interpret_content_encoding
   value: false
-- description: The method to use when loading data into the destination. `append-only`
-    will always write all input records whether that records already exists or not.
-    `upsert` will update existing records and insert new records. `overwrite` will
-    delete all existing records and insert all input records.
+- description: The method to use when loading data into the destination. 
+    `append-only` will always write all input records whether that records 
+    already exists or not. `upsert` will update existing records and insert new 
+    records. `overwrite` will delete all existing records and insert all input 
+    records.
   kind: options
   label: Load Method
   name: load_method
@@ -119,27 +123,30 @@ settings:
   label: Process `ACTIVATE_VERSION` messages
   name: process_activate_version_messages
   value: true
-- description: If set to true, the target will sanitize null characters in char/text/varchar
-    fields, as they are not supported by Postgres. See [postgres documentation](https://www.postgresql.org/docs/current/functions-string.html)
+- description: If set to true, the target will sanitize null characters in 
+    char/text/varchar fields, as they are not supported by Postgres. See 
+    [postgres 
+    documentation](https://www.postgresql.org/docs/current/functions-string.html)
     for more information about chr(0) not being supported.
   kind: boolean
   label: Sanitize Null Text Characters
   name: sanitize_null_text_characters
   value: false
-- description: DEPRECATED. SQLAlchemy connection string. This will override using
-    host, user, password, port, dialect, and all ssl settings. Note that you must
-    escape password special characters properly. See 
+- description: DEPRECATED. SQLAlchemy connection string. This will override 
+    using host, user, password, port, dialect, and all ssl settings. Note that 
+    you must escape password special characters properly. See 
     https://docs.sqlalchemy.org/en/20/core/engines.html#escaping-special-characters-such-as-signs-in-passwords
   kind: string
   label: SQLAlchemy URL
   name: sqlalchemy_url
-- description: Enable an ssh tunnel (also known as bastion host), see the other ssh_tunnel.*
-    properties for more details
+- description: Enable an ssh tunnel (also known as bastion host), see the other 
+    ssh_tunnel.* properties for more details
   kind: boolean
   label: SSH Tunnel Enable
   name: ssh_tunnel.enable
   value: false
-- description: Host of the bastion host, this is the host we'll connect to via ssh
+- description: Host of the bastion host, this is the host we'll connect to via 
+    ssh
   kind: string
   label: SSH Tunnel Host
   name: ssh_tunnel.host
@@ -162,53 +169,56 @@ settings:
   kind: string
   label: SSH Tunnel Username
   name: ssh_tunnel.username
-- description: The certificate authority that should be used to verify the server's
-    identity. Can be provided either as the certificate itself (in .env) or as a filepath
-    to the certificate.
+- description: The certificate authority that should be used to verify the 
+    server's identity. Can be provided either as the certificate itself (in 
+    .env) or as a filepath to the certificate.
   kind: string
   label: SSL Certificate Authority
   name: ssl_certificate_authority
   value: ~/.postgresql/root.crl
-- description: The certificate that should be used to verify your identity to the
-    server. Can be provided either as the certificate itself (in .env) or as a filepath
-    to the certificate.
+- description: The certificate that should be used to verify your identity to 
+    the server. Can be provided either as the certificate itself (in .env) or as
+    a filepath to the certificate.
   kind: string
   label: SSL Client Certificate
   name: ssl_client_certificate
   value: ~/.postgresql/postgresql.crt
-- description: Whether or not to provide client-side certificates as a method of authentication
-    to the server. Use ssl_client_certificate and ssl_client_private_key for further
-    customization. To use SSL to verify the server's identity, use ssl_enable instead.
+- description: Whether or not to provide client-side certificates as a method of
+    authentication to the server. Use ssl_client_certificate and 
+    ssl_client_private_key for further customization. To use SSL to verify the 
+    server's identity, use ssl_enable instead.
   kind: boolean
   label: SSL Client Certificate Enable
   name: ssl_client_certificate_enable
   value: false
-- description: The private key for the certificate you provided. Can be provided either
-    as the certificate itself (in .env) or as a filepath to the certificate.
+- description: The private key for the certificate you provided. Can be provided
+    either as the certificate itself (in .env) or as a filepath to the 
+    certificate.
   kind: password
   label: SSL Client Private Key
   name: ssl_client_private_key
   sensitive: true
   value: ~/.postgresql/postgresql.key
-- description: Whether or not to use ssl to verify the server's identity. Use ssl_certificate_authority
-    and ssl_mode for further customization. To use a client certificate to authenticate
-    yourself to the server, use ssl_client_certificate_enable instead.
+- description: Whether or not to use ssl to verify the server's identity. Use 
+    ssl_certificate_authority and ssl_mode for further customization. To use a 
+    client certificate to authenticate yourself to the server, use 
+    ssl_client_certificate_enable instead.
   kind: boolean
   label: SSL Enable
   name: ssl_enable
   value: false
 - description: SSL Protection method, see [postgres 
     documentation](https://www.postgresql.org/docs/current/libpq-ssl.html#LIBPQ-SSL-PROTECTION)
-    for more information. Must be one of disable, allow, prefer, require, verify-ca,
-    or verify-full.
+    for more information. Must be one of disable, allow, prefer, require, 
+    verify-ca, or verify-full.
   kind: string
   label: SSL Mode
   name: ssl_mode
   value: verify-full
-- description: The folder in which to store SSL certificates provided as raw values.
-    When a certificate/key is provided as a raw value instead of as a filepath, it
-    must be written to a file before it can be used. This configuration option determines
-    where that file is created.
+- description: The folder in which to store SSL certificates provided as raw 
+    values. When a certificate/key is provided as a raw value instead of as a 
+    filepath, it must be written to a file before it can be used. This 
+    configuration option determines where that file is created.
   kind: string
   label: SSL Storage Directory
   name: ssl_storage_directory
@@ -217,13 +227,14 @@ settings:
   kind: object
   label: User Stream Map Configuration
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps
-- description: Use the COPY command to insert data. This is usually faster than INSERT
-    statements. This option is only available for the postgresql+psycopg dialect+driver.
+- description: Use the COPY command to insert data. This is usually faster than 
+    INSERT statements. This option is only available for the postgresql+psycopg 
+    dialect+driver.
   kind: boolean
   label: Use COPY
   name: use_copy

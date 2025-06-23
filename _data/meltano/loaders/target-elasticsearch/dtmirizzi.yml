@@ -99,10 +99,11 @@ settings:
   kind: object
   label: Index Schema Fields
   name: index_schema_fields
-- description: The method to use when loading data into the destination. `append-only`
-    will always write all input records whether that records already exists or not.
-    `upsert` will update existing records and insert new records. `overwrite` will
-    delete all existing records and insert all input records.
+- description: The method to use when loading data into the destination. 
+    `append-only` will always write all input records whether that records 
+    already exists or not. `upsert` will update existing records and insert new 
+    records. `overwrite` will delete all existing records and insert all input 
+    records.
   kind: options
   label: Load Method
   name: load_method
@@ -149,7 +150,8 @@ settings:
   label: Scheme
   name: scheme
   value: http
-- description: Location of the the SSL certificate for cert verification ie. `/some/path`
+- description: Location of the the SSL certificate for cert verification ie. 
+    `/some/path`
   kind: string
   label: SSL Ca File
   name: ssl_ca_file
@@ -157,8 +159,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps

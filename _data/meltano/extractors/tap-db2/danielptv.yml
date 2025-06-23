@@ -22,8 +22,8 @@ pip_url: git+https://github.com/danielptv/tap-db2.git
 quality: silver
 repo: https://github.com/danielptv/tap-db2
 settings:
-- description: Additional parameters to be appended to the connection string. This
-    is an objects containing key-value pairs.
+- description: Additional parameters to be appended to the connection string. 
+    This is an objects containing key-value pairs.
   kind: object
   label: Connection Parameters
   name: connection_parameters
@@ -58,8 +58,8 @@ settings:
   kind: string
   label: Faker Seed
   name: faker_config.seed
-- description: Apply a custom WHERE condition per stream. Unlike the filter available
-    in stream_maps, this will be evaluated BEFORE extracting the data.
+- description: Apply a custom WHERE condition per stream. Unlike the filter 
+    available in stream_maps, this will be evaluated BEFORE extracting the data.
   kind: object
   label: Filter
   name: filter
@@ -77,8 +77,8 @@ settings:
   label: Host
   name: host
   value: localhost
-- description: Ignore DB2-supplied user tables. For more info check out [Db2-supplied
-    user 
+- description: Ignore DB2-supplied user tables. For more info check out 
+    [Db2-supplied user 
     tables](https://www.ibm.com/docs/en/db2-for-zos/12?topic=db2-supplied-user-tables).
   kind: boolean
   label: Ignore Supplied Tables
@@ -99,9 +99,9 @@ settings:
   label: Port
   name: port
   value: 50000
-- description: Partition query into smaller subsets. Useful when working with DB2
-    that has set strict resource limits per query. Only works for streams with numeric
-    primary keys.
+- description: Partition query into smaller subsets. Useful when working with 
+    DB2 that has set strict resource limits per query. Only works for streams 
+    with numeric primary keys.
   kind: object
   label: Query Partition
   name: query_partition
@@ -109,8 +109,8 @@ settings:
   kind: string
   label: Schema
   name: schema
-- description: Additional execution options to be passed to SQLAlchemy. This is an
-    objects containing key-value pairs.
+- description: Additional execution options to be passed to SQLAlchemy. This is 
+    an objects containing key-value pairs.
   kind: object
   label: SQLAlchemy Execution Options
   name: sqlalchemy_execution_options
@@ -118,8 +118,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps

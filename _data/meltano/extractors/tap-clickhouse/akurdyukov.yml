@@ -1,5 +1,6 @@
 capabilities:
 - about
+- activate-version
 - batch
 - catalog
 - discover
@@ -105,14 +106,14 @@ settings:
   kind: object
   label: User Stream Map Configuration
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps
-- description: Whether to use use strings with `x-singer.decimal` format for decimals
-    in the discovered schema. This is useful to avoid precision loss when working
-    with large numbers.
+- description: Whether to use use strings with `x-singer.decimal` format for 
+    decimals in the discovered schema. This is useful to avoid precision loss 
+    when working with large numbers.
   kind: boolean
   label: Use Singer Decimal
   name: use_singer_decimal
