@@ -174,5 +174,5 @@ usage: |
 
   This [Stack Overflow answer](https://stackoverflow.com/questions/26288042/error-installing-psycopg2-library-not-found-for-lssl)
   has specific recommendations on setting the `LDFLAGS` and/or `CPPFLAGS` environment variables.
-  Set those prior to running `meltano add loader target-postgres`.
+  Set those prior to running `meltano add loader target-postgres` (legacy) or `meltano add target-postgres` (Meltano 3.8+).
 variant: transferwise
