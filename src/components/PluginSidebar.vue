@@ -7,17 +7,6 @@
           <div class="space-y-2">
             <div class="flex border-b border-gray-200">
               <button
-                @click="activeTab = 'legacy'"
-                :class="[
-                  'px-2 py-1 text-xs font-medium border-b-2 transition-colors',
-                  activeTab === 'legacy'
-                    ? 'border-blue-500 text-blue-600'
-                    : 'border-transparent text-gray-500 hover:text-gray-700',
-                ]"
-              >
-                Legacy
-              </button>
-              <button
                 @click="activeTab = 'modern'"
                 :class="[
                   'px-2 py-1 text-xs font-medium border-b-2 transition-colors',
@@ -27,6 +16,17 @@
                 ]"
               >
                 v3.8+
+              </button>
+              <button
+                @click="activeTab = 'legacy'"
+                :class="[
+                  'px-2 py-1 text-xs font-medium border-b-2 transition-colors',
+                  activeTab === 'legacy'
+                    ? 'border-blue-500 text-blue-600'
+                    : 'border-transparent text-gray-500 hover:text-gray-700',
+                ]"
+              >
+                Legacy
               </button>
             </div>
             <div v-if="activeTab === 'legacy'">
@@ -322,7 +322,7 @@ export default {
   ],
   data() {
     return {
-      activeTab: "legacy",
+      activeTab: "modern",
     };
   },
   computed: {
