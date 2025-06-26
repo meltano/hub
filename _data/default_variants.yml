@@ -378,6 +378,7 @@ extractors:
   tap-paystack: airbyte
   tap-peloton: meltanolabs
   tap-pendo: singer-io
+  tap-peopleware: matatika
   tap-pepperjam: singer-io
   tap-persistiq: nickleomartin
   tap-pexels-api: airbyte
