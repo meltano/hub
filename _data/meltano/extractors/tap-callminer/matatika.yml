@@ -12,9 +12,11 @@ domain_url: https://callminer.com/
 keywords:
 - api
 - audio
+- conversation
 - matatika
 - meltano_sdk
-- speech
+- phone
+- transcript
 label: CallMiner
 logo_url: /assets/logos/extractors/callminer.png
 maintenance_status: active
