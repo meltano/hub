@@ -11,9 +11,9 @@ logo_url: /assets/logos/extractors/postgres.png
 maintenance_status: active
 name: tap-postgres
 namespace: tap_postgres
-pip_url: pipelinewise-tap-postgres
+pip_url: git+https://github.com/transferwise/pipelinewise.git#subdirectory=singer-connectors/tap-postgres
 quality: silver
-repo: https://github.com/transferwise/pipelinewise-tap-postgres
+repo: https://github.com/transferwise/pipelinewise
 settings:
 - description: Stop running the tap if the newly received lsn is after the max lsn
     that was detected when the tap started
@@ -31,7 +31,7 @@ settings:
     - Key-based incremental (`INCREMENTAL`) requires configuring a `replication_key` column within the
       catalog's stream definitions for each supported stream.
     - Requirements and setup instructions for log-based incremental (`LOG_BASED`) are documented
-      [here](https://github.com/transferwise/pipelinewise-tap-postgres#log-based-replication-requirements).
+      [here](https://github.com/transferwise/pipelinewise/blob/master/singer-connectors/tap-postgres/README.md#log-based-replication-requirements).
   kind: options
   label: Default Replication Method
   name: default_replication_method
