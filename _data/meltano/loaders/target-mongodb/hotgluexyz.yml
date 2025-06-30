@@ -16,7 +16,8 @@ pip_url: git+https://gitlab.com/hotglue/target-mongodb.git
 quality: gold
 repo: https://gitlab.com/hotglue/target-mongodb
 settings:
-- description: Connection string in the format mongodb://[${MONGO_USERNAME:${MONGO_PASSWORD}@]mongodb0.example.com:PORT
+- description: Connection string in the format 
+    mongodb://[${MONGO_USERNAME:${MONGO_PASSWORD}@]mongodb0.example.com:PORT
   kind: string
   label: Connection String
   name: connection_string

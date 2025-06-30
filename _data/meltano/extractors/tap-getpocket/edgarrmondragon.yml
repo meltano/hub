@@ -1,12 +1,14 @@
 capabilities:
 - about
+- activate-version
 - batch
 - catalog
 - discover
 - schema-flattening
 - state
 - stream-maps
-description: Your own private corner of the web to spend quality time with great articles.
+description: Your own private corner of the web to spend quality time with great
+  articles.
 domain_url: https://getpocket.com/
 keywords:
 - api
@@ -79,8 +81,8 @@ settings:
   kind: string
   label: Faker Seed
   name: faker_config.seed
-- description: Set to `true` to sync only favorite items, `false` to sync only non-favorite
-    items, or omit to sync all items
+- description: Set to `true` to sync only favorite items, `false` to sync only 
+    non-favorite items, or omit to sync all items
   kind: boolean
   label: Favorite
   name: favorite
@@ -113,13 +115,13 @@ settings:
   kind: object
   label: User Stream Map Configuration
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps
-- description: The tag to sync. By default, all tags are synced. Use `_untagged_`
-    to sync untagged items.
+- description: The tag to sync. By default, all tags are synced. Use 
+    `_untagged_` to sync untagged items.
   kind: string
   label: Tag
   name: tag

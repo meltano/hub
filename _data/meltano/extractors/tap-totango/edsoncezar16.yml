@@ -5,8 +5,9 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
-description: Totango is an agile Customer Success Software that helps you design,
-  run, measure, and scale your SaaS customer journey to retain and grow customers.
+description: Totango is an agile Customer Success Software that helps you 
+  design, run, measure, and scale your SaaS customer journey to retain and grow 
+  customers.
 domain_url: https://www.totango.com/
 executable: tap-totango
 keywords:
@@ -28,14 +29,14 @@ settings:
   label: Account ID
   name: account_id
   sensitive: true
-- description: The maximum number of accounts to return in the accounts result set.
-    The max. Value for count is 1000.
+- description: The maximum number of accounts to return in the accounts result 
+    set. The max. Value for count is 1000.
   kind: integer
   label: Accounts Count
   name: accounts_count
   value: 100
-- description: List of fields to return as results. Note that the account name and
-    account-id are always returned as well.
+- description: List of fields to return as results. Note that the account name 
+    and account-id are always returned as well.
   kind: array
   label: Accounts Fields
   name: accounts_fields
@@ -64,21 +65,21 @@ settings:
   - label: Desc
     value: DESC
   value: ASC
-- description: An array containing filter conditions to use for the accounts stream
-    search.
+- description: An array containing filter conditions to use for the accounts 
+    stream search.
   kind: array
   label: Accounts Terms
   name: accounts_terms
   value: []
-- description: The url for the API services. https://api.totango.com is for US services,
-    whereas https://api-eu1.totango.com is for EU services.
+- description: The url for the API services. https://api.totango.com is for US 
+    services, whereas https://api-eu1.totango.com is for EU services.
   kind: options
   label: API URL
   name: api_url
   options:
-  - label: US Endpoint
+  - label: Https://API Totango Com
     value: https://api.totango.com
-  - label: EU Endpoint
+  - label: 'Https://API Eu1 Totango Com '
     value: 'https://api-eu1.totango.com '
   value: https://api.totango.com
 - description: The token to authenticate against the API service
@@ -86,8 +87,8 @@ settings:
   label: Auth Token
   name: auth_token
   sensitive: true
-- description: The maximum number of accounts to return in the events result set.
-    The max. Value for count is 1000.
+- description: The maximum number of accounts to return in the events result 
+    set. The max. Value for count is 1000.
   kind: integer
   label: Events Count
   name: events_count
@@ -97,8 +98,8 @@ settings:
   label: Events Offset
   name: events_offset
   value: 0
-- description: An array containing filter conditions to use for the events stream
-    search.
+- description: An array containing filter conditions to use for the events 
+    stream search.
   kind: array
   label: Events Terms
   name: events_terms
@@ -116,19 +117,19 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps
-- description: The maximum number of users to return in the users result set. The
-    max. Value for count is 1000.
+- description: The maximum number of users to return in the users result set. 
+    The max. Value for count is 1000.
   kind: integer
   label: Users Count
   name: users_count
   value: 1000
-- description: List of fields to return as results. Note that the user name and id
-    along with account name and account-id are always returned as well.
+- description: List of fields to return as results. Note that the user name and 
+    id along with account name and account-id are always returned as well.
   kind: array
   label: Users Fields
   name: users_fields
@@ -157,7 +158,8 @@ settings:
   - label: Desc
     value: DESC
   value: ASC
-- description: An array containing filter conditions to use for the users stream search.
+- description: An array containing filter conditions to use for the users stream
+    search.
   kind: array
   label: Users Terms
   name: users_terms

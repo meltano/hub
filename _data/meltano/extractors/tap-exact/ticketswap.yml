@@ -86,19 +86,19 @@ settings:
   kind: object
   label: User Stream Map Configuration
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps
-- description: The bucket to contain the access and refresh token to authenticate
-    against the API service
+- description: The bucket to contain the access and refresh token to 
+    authenticate against the API service
   kind: password
   label: Tokens S3 Bucket
   name: tokens_s3_bucket
   sensitive: true
-- description: The S3 object key to contain the access and refresh token to authenticate
-    against the API service
+- description: The S3 object key to contain the access and refresh token to 
+    authenticate against the API service
   kind: password
   label: Tokens S3 Key
   name: tokens_s3_key
