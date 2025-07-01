@@ -1,0 +1,54 @@
+capabilities:
+- state
+- catalog
+- discover
+- about
+- stream-maps
+description: Baidu is a leading Chinese technology company specializing in internet-related services and AI-powered search.
+domain_url: https://mediago.baidu.com/
+keywords:
+- api
+- matatika
+- marketing
+- meltano_sdk
+label: Baidu
+logo_url: /assets/logos/extractors/baidu.png
+maintenance_status: active
+name: tap-baidu
+namespace: tap_baidu
+pip_url: git+https://github.com/Matatika/tap-baidu.git
+quality: gold
+repo: https://github.com/Matatika/tap-baidu
+settings:
+- description: The token to use for authentication.
+  kind: password
+  label: Password
+  name: api_token
+  sensitive: true
+- description: The start date of the stream.
+  label: Start Date
+  name: start_date
+- description: The end date of the stream.
+  label: End Date
+  name: end_date
+- description: The timezone of the stream.
+  label: Timezone
+  name: timezone
+- description: The level of authorization permitted.
+  label: Auth Level
+  name: auth_level
+- description: The page size of the stream.
+  label: Page Size    
+  name: pageSize
+- description: The current page of the stream.
+  label: Current Page
+  name: currentPage
+- description: The name of the campaign to be extracted.
+  label: Campaign Name
+  name: campaign_name
+- description: The status of campaigns to be extracted.
+  label: Status
+  name: status
+settings_group_validation:
+- - api_token
+variant: matatika
