@@ -1,0 +1,51 @@
+capabilities:
+- state
+- catalog
+- discover
+- properties
+- schema-flattening
+- stream-maps
+description: WordPress.org is the official repository for WordPress plugins, themes, and community resources, providing APIs to access comprehensive data about the WordPress ecosystem.
+domain_url: https://wordpress.org
+keywords:
+- api
+- meltano_sdk
+- wordpress
+- plugins
+- themes
+- statistics
+- patterns
+- events
+label: WordPress.org
+logo_url: /assets/logos/extractors/wordpress-org.png
+maintenance_status: active
+name: tap-wordpress-org
+namespace: tap_wordpress_org
+pip_url: git+https://github.com/Automattic/tap-wordpress-org.git
+quality: bronze
+repo: https://github.com/Automattic/tap-wordpress-org
+settings:
+- description: The URL for the WordPress.org API
+  label: API URL
+  name: api_url
+  value: https://api.wordpress.org
+- description: User agent for API requests
+  label: User Agent
+  name: user_agent
+  value: tap-wordpress-org/0.1.0
+- description: Location for events search (e.g., 'Seattle, WA')
+  label: Events Location
+  name: events_location
+- description: IP address for events location detection
+  label: Events IP
+  name: events_ip
+- description: List of stream names to sync (default is all streams)
+  label: Stream Selection
+  name: stream_selection
+  kind: array
+- description: Start date for incremental replication (plugins/themes only)
+  label: Start Date
+  name: start_date
+  kind: date_iso8601
+settings_group_validation: []
+variant: automattic
