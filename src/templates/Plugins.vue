@@ -45,17 +45,20 @@
                 <p class="text-lg">
                   <code>{{ $page.plugins.name }} ({{ $page.plugins.variant }} variant)</code>
                   <span v-if="$page.plugins.quality == 'gold'"
-                    ><a href="https://docs.meltano.com/contribute/connectors#connector-quality-matrix"
+                    ><a
+                      href="https://docs.meltano.com/contribute/connectors#connector-quality-matrix"
                       >🥇</a
                     ></span
                   >
                   <span v-if="$page.plugins.quality == 'silver'"
-                    ><a href="https://docs.meltano.com/contribute/connectors#connector-quality-matrix"
+                    ><a
+                      href="https://docs.meltano.com/contribute/connectors#connector-quality-matrix"
                       >🥈</a
                     ></span
                   >
                   <span v-if="$page.plugins.quality == 'bronze'"
-                    ><a href="https://docs.meltano.com/contribute/connectors#connector-quality-matrix"
+                    ><a
+                      href="https://docs.meltano.com/contribute/connectors#connector-quality-matrix"
                       >🥉</a
                     ></span
                   >
