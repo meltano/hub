@@ -45,17 +45,17 @@
                 <p class="text-lg">
                   <code>{{ $page.plugins.name }} ({{ $page.plugins.variant }} variant)</code>
                   <span v-if="$page.plugins.quality == 'gold'"
-                    ><a href="https://docs.meltano.com/cloud/connectors#connector-quality-matrix"
+                    ><a href="https://docs.meltano.com/contribute/connectors#connector-quality-matrix"
                       >🥇</a
                     ></span
                   >
                   <span v-if="$page.plugins.quality == 'silver'"
-                    ><a href="https://docs.meltano.com/cloud/connectors#connector-quality-matrix"
+                    ><a href="https://docs.meltano.com/contribute/connectors#connector-quality-matrix"
                       >🥈</a
                     ></span
                   >
                   <span v-if="$page.plugins.quality == 'bronze'"
-                    ><a href="https://docs.meltano.com/cloud/connectors#connector-quality-matrix"
+                    ><a href="https://docs.meltano.com/contribute/connectors#connector-quality-matrix"
                       >🥉</a
                     ></span
                   >
@@ -219,19 +219,19 @@
                         </span>
                         <span v-if="variant.node.quality == 'gold'"
                           ><a
-                            href="https://docs.meltano.com/cloud/connectors#connector-quality-matrix"
+                            href="https://docs.meltano.com/contribute/connectors#connector-quality-matrix"
                             >🥇</a
                           ></span
                         >
                         <span v-if="variant.node.quality == 'silver'"
                           ><a
-                            href="https://docs.meltano.com/cloud/connectors#connector-quality-matrix"
+                            href="https://docs.meltano.com/contribute/connectors#connector-quality-matrix"
                             >🥈</a
                           ></span
                         >
                         <span v-if="variant.node.quality == 'bronze'"
                           ><a
-                            href="https://docs.meltano.com/cloud/connectors#connector-quality-matrix"
+                            href="https://docs.meltano.com/contribute/connectors#connector-quality-matrix"
                             >🥉</a
                           ></span
                         >
