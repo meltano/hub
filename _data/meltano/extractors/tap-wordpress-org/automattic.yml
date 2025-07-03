@@ -22,7 +22,7 @@ maintenance_status: active
 name: tap-wordpress-org
 namespace: tap_wordpress_org
 pip_url: git+https://github.com/Automattic/tap-wordpress-org.git
-quality: bronze
+quality: silver
 repo: https://github.com/Automattic/tap-wordpress-org
 settings:
 - description: The URL for the WordPress.org API
