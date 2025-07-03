@@ -18,7 +18,8 @@ pip_url: git+https://github.com/meshcloud/tap-meshstack.git
 quality: silver
 repo: https://github.com/meshcloud/tap-meshstack
 settings:
-- description: Path to a public SSL certificate used to verify connection to meshStack
+- description: Path to a public SSL certificate used to verify connection to 
+    meshStack
   kind: string
   label: Cert Path
   name: cert_path
@@ -26,14 +27,14 @@ settings:
   kind: string
   label: Federation API URL
   name: federation.api_url
-- description: The HTTP basic auth password to authenticate against the meshObject
-    API for federation
+- description: The HTTP basic auth password to authenticate against the 
+    meshObject API for federation
   kind: password
   label: Federation Auth Password
   name: federation.auth.password
   sensitive: true
-- description: The HTTP basic auth user to authenticate against the meshObject API
-    for federation
+- description: The HTTP basic auth user to authenticate against the meshObject 
+    API for federation
   kind: string
   label: Federation Auth Username
   name: federation.auth.username
@@ -50,14 +51,14 @@ settings:
   kind: string
   label: Kraken API URL
   name: kraken.api_url
-- description: The HTTP basic auth password to authenticate against the meshObject
-    API for kraken
+- description: The HTTP basic auth password to authenticate against the 
+    meshObject API for kraken
   kind: password
   label: Kraken Auth Password
   name: kraken.auth.password
   sensitive: true
-- description: The HTTP basic auth user to authenticate against the meshObject API
-    for kraken
+- description: The HTTP basic auth user to authenticate against the meshObject 
+    API for kraken
   kind: string
   label: Kraken Auth Username
   name: kraken.auth.username

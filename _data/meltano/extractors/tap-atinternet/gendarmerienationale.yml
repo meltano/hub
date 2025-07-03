@@ -23,8 +23,8 @@ settings:
   label: API Key
   name: api_key
   sensitive: true
-- description: Optional. If not empty, filter and extract only the pages with this
-    string in the 'page_full_name'
+- description: Optional. If not empty, filter and extract only the pages with 
+    this string in the 'page_full_name'
   kind: string
   label: Filter Str
   name: filter_str
@@ -48,7 +48,8 @@ settings:
   label: Secret Key
   name: secret_key
   sensitive: true
-- description: Site ID (can be queried at https://dataquery.atinternet-solutions.com/)
+- description: Site ID (can be queried at 
+    https://dataquery.atinternet-solutions.com/)
   kind: integer
   label: Site ID
   name: site_id

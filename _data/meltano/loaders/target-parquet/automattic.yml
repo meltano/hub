@@ -26,8 +26,9 @@ settings:
   kind: integer
   label: Batch Size Rows
   name: batch_size_rows
-- description: (default - gzip) Compression methods have to be supported by Pyarrow,
-    and currently the compression modes available are - snappy, zstd, brotli and gzip.
+- description: (default - gzip) Compression methods have to be supported by 
+    Pyarrow, and currently the compression modes available are - snappy, zstd, 
+    brotli and gzip.
   kind: string
   label: Compression Method
   name: compression_method
@@ -36,7 +37,8 @@ settings:
   kind: string
   label: Destination Path
   name: destination_path
-- description: Extra fields to add to the flattened record. (e.g. extra_col1=value1,extra_col2=value2)
+- description: Extra fields to add to the flattened record. (e.g. 
+    extra_col1=value1,extra_col2=value2)
   kind: string
   label: Extra Fields
   name: extra_fields
@@ -61,10 +63,11 @@ settings:
   kind: integer
   label: Max Flattening Depth
   name: flattening_max_depth
-- description: The method to use when loading data into the destination. `append-only`
-    will always write all input records whether that records already exists or not.
-    `upsert` will update existing records and insert new records. `overwrite` will
-    delete all existing records and insert all input records.
+- description: The method to use when loading data into the destination. 
+    `append-only` will always write all input records whether that records 
+    already exists or not. `upsert` will update existing records and insert new 
+    records. `overwrite` will delete all existing records and insert all input 
+    records.
   kind: options
   label: Load Method
   name: load_method
@@ -76,8 +79,8 @@ settings:
   - label: Overwrite
     value: overwrite
   value: append-only
-- description: Max records to write in one batch. It can control the memory usage
-    of the target.
+- description: Max records to write in one batch. It can control the memory 
+    usage of the target.
   kind: integer
   label: Max Batch Size
   name: max_batch_size
@@ -87,13 +90,14 @@ settings:
   label: Max Flatten Level
   name: max_flatten_level
   value: 100
-- description: Max size of pyarrow table in MB (before writing to parquet file). It
-    can control the memory usage of the target.
+- description: Max size of pyarrow table in MB (before writing to parquet file).
+    It can control the memory usage of the target.
   kind: integer
   label: Max Pyarrow Table Size
   name: max_pyarrow_table_size
   value: 800
-- description: Extra fields to add to the flattened record. (e.g. extra_col1,extra_col2)
+- description: Extra fields to add to the flattened record. (e.g. 
+    extra_col1,extra_col2)
   kind: string
   label: Partition Cols
   name: partition_cols
@@ -101,8 +105,8 @@ settings:
   kind: object
   label: User Stream Map Configuration
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps

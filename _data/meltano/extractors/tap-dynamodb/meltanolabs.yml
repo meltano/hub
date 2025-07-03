@@ -40,8 +40,8 @@ settings:
   kind: string
   label: AWS Endpoint URL
   name: aws_endpoint_url
-- description: The AWS credentials profile name to use. The profile must be configured
-    and accessible.
+- description: The AWS credentials profile name to use. The profile must be 
+    configured and accessible.
   kind: string
   label: AWS Profile
   name: aws_profile
@@ -50,8 +50,8 @@ settings:
   label: AWS Secret Access Key
   name: aws_secret_access_key
   sensitive: true
-- description: The session key for your AWS account. This is only needed when you
-    are using temporary credentials.
+- description: The session key for your AWS account. This is only needed when 
+    you are using temporary credentials.
   kind: password
   label: AWS Session Token
   name: aws_session_token
@@ -108,13 +108,13 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps
-- description: A mapping of table name to the scan kwargs that should be used to override
-    the default when querying that table.
+- description: A mapping of table name to the scan kwargs that should be used to
+    override the default when querying that table.
   kind: object
   label: Table Scan Kwargs
   name: table_scan_kwargs

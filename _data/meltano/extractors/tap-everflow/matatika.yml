@@ -1,12 +1,15 @@
 capabilities:
 - about
+- activate-version
 - batch
 - catalog
 - discover
 - schema-flattening
 - state
 - stream-maps
-description: Partner marketing platform designed to help businesses manage and optimize relationships with affiliates, influencers, and other marketing partners.
+description: Partner marketing platform designed to help businesses manage and 
+  optimize relationships with affiliates, influencers, and other marketing 
+  partners.
 domain_url: https://www.everflow.io/
 keywords:
 - api
@@ -22,8 +25,8 @@ pip_url: git+https://github.com/Matatika/tap-everflow.git
 quality: gold
 repo: https://github.com/Matatika/tap-everflow
 settings:
-- description: Everflow [network API key](https://developers.everflow.io/docs/user-guide/authentication/#network-api-keys).
-  kind: string
+- description: Everflow network API key
+  kind: password
   label: API Key
   name: api_key
   sensitive: true
@@ -81,12 +84,14 @@ settings:
   kind: object
   label: User Stream Map Configuration
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps
 settings_group_validation:
 - - api_key
-settings_preamble: This tap works with the Everflow [Network API](https://developers.everflow.io/docs/network/) - ensure the API key you provide reflects this.
+settings_preamble: This tap works with the Everflow [Network 
+  API](https://developers.everflow.io/docs/network/) - ensure the API key you 
+  provide reflects this.
 variant: matatika

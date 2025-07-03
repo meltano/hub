@@ -52,8 +52,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps
@@ -62,7 +62,8 @@ settings:
   label: Swipe Up Attribution Window
   name: swipe_up_attribution_window
   value: 28_DAY
-- description: List of lower - case 2 - letter ISO Country Codes for Ads Targeting.
+- description: List of lower - case 2 - letter ISO Country Codes for Ads 
+    Targeting.
   kind: array
   label: Targeting Country Codes
   name: targeting_country_codes

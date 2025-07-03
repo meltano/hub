@@ -1,12 +1,14 @@
 capabilities:
 - about
+- activate-version
 - batch
 - catalog
 - discover
 - schema-flattening
 - state
 - stream-maps
-description: Workforce management platform designed to help organisations optimise employee engagement and productivity.
+description: Workforce management platform designed to help organisations 
+  optimise employee engagement and productivity.
 domain_url: https://www.peopleware.com/
 keywords:
 - api
@@ -23,8 +25,8 @@ pip_url: git+https://github.com/Matatika/tap-peopleware.git
 quality: gold
 repo: https://github.com/Matatika/tap-peopleware
 settings:
-- description: The token to authenticate against the API service.
-  kind: string
+- description: The token to authenticate against the API service
+  kind: password
   label: Auth Token
   name: auth_token
   sensitive: true
@@ -71,7 +73,7 @@ settings:
   kind: integer
   label: Max Flattening Depth
   name: flattening_max_depth
-- description: Initial date to start extracting data from.
+- description: The earliest record date to sync
   kind: date_iso8601
   label: Start Date
   name: start_date
@@ -79,8 +81,8 @@ settings:
   kind: object
   label: User Stream Map Configuration
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps

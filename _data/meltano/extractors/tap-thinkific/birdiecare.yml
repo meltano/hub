@@ -20,7 +20,8 @@ pip_url: git+https://github.com/birdiecare/tap-thinkific.git
 quality: silver
 repo: https://github.com/birdiecare/tap-thinkific
 settings:
-- description: Thinkific API key. See https://developers.thinkific.com/api/api-key-auth.
+- description: Thinkific API key. See 
+    https://developers.thinkific.com/api/api-key-auth.
   kind: password
   label: API Key
   name: api_key
@@ -76,12 +77,13 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps
-- description: Subdomain of the Thinkific site. See https://developers.thinkific.com/api/api-key-auth.
+- description: Subdomain of the Thinkific site. See 
+    https://developers.thinkific.com/api/api-key-auth.
   kind: string
   label: Subdomain
   name: subdomain
