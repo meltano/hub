@@ -26,7 +26,7 @@
                 "bronze",
                 "unknown"
             ],
-            "description": "The connector quality rating as defined in https://docs.meltano.com/cloud/connectors#connector-quality."
+            "description": "The connector quality rating as defined in https://docs.meltano.com/contribute/connectors#connector-quality."
         },
         "domain_url": {
             "type": ["string", "null"],
