@@ -55,12 +55,13 @@ settings:
   label: Customer ID
   name: customer_id
   sensitive: true
-- description: Get data for the provided customers only, rather than all accessible
-    customers. Takes precedence over `customer_id`.
+- description: Get data for the provided customers only, rather than all 
+    accessible customers. Takes precedence over `customer_id`.
   kind: array
   label: Customer IDs
   name: customer_ids
-- description: Developer Token (Required) - [Obtain your developer token](https://developers.google.com/google-ads/api/docs/first-call/dev-token)
+- description: Developer Token (Required) - [Obtain your developer 
+    token](https://developers.google.com/google-ads/api/docs/first-call/dev-token)
   kind: password
   label: Developer Token
   name: developer_token
@@ -72,8 +73,8 @@ settings:
   label: Enable Click View Report Stream
   name: enable_click_view_report_stream
   value: false
-- description: ISO end date for all of the streams that use date-based filtering.
-    Defaults to the current day.
+- description: ISO end date for all of the streams that use date-based 
+    filtering. Defaults to the current day.
   kind: date_iso8601
   label: End Date
   name: end_date
@@ -102,26 +103,12 @@ settings:
   label: Login Customer ID
   name: login_customer_id
   sensitive: true
-- hidden: true
-  kind: object
+- description: ''
+  kind: string
   label: OAuth Credentials
   name: oauth_credentials
-- description: https://developers.google.com/google-ads/api/docs/oauth/cloud-project#create_a_client_id_and_client_secret
-  kind: string
-  label: OAuth Client ID
-  name: oauth_credentials.client_id
-- description: https://developers.google.com/google-ads/api/docs/oauth/cloud-project#create_a_client_id_and_client_secret
-  kind: string
-  label: OAuth Client Secret
-  name: oauth_credentials.client_secret
-  sensitive: true
-- description: https://developers.google.com/google-ads/api/docs/get-started/make-first-call?authpath=user_authentication#fetch_a_refresh_token
-  kind: string
-  label: OAuth Refresh Token
-  name: oauth_credentials.refresh_token
-  sensitive: true
-- description: ISO start date for all of the streams that use date-based filtering.
-    Defaults to 90 days before the current day.
+- description: ISO start date for all of the streams that use date-based 
+    filtering. Defaults to 90 days before the current day.
   kind: date_iso8601
   label: Start Date
   name: start_date
@@ -129,8 +116,8 @@ settings:
   kind: object
   label: User Stream Map Configuration
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps

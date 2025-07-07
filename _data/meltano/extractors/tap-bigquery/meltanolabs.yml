@@ -55,15 +55,15 @@ settings:
   kind: string
   label: Faker Seed
   name: faker_config.seed
-- description: If an array of schema names is provided, the tap will only process
-    the specified BigQuery schemas (datasets) and ignore others. If left blank, the
-    tap automatically determines ALL available schemas.
+- description: If an array of schema names is provided, the tap will only 
+    process the specified BigQuery schemas (datasets) and ignore others. If left
+    blank, the tap automatically determines ALL available schemas.
   kind: array
   label: Filter Schemas
   name: filter_schemas
-- description: If an array of table names is provided, the tap will only process the
-    specified BigQuery tables and ignore others. If left blank, the tap automatically
-    determines ALL available tables. Shell patterns are supported.
+- description: If an array of table names is provided, the tap will only process
+    the specified BigQuery tables and ignore others. If left blank, the tap 
+    automatically determines ALL available tables. Shell patterns are supported.
   kind: array
   label: Filter Tables
   name: filter_tables
@@ -80,8 +80,8 @@ settings:
   kind: string
   label: Google Application Credentials
   name: google_application_credentials
-- description: An optional Google Storage Bucket, when supplied a file based extract
-    will be used.
+- description: An optional Google Storage Bucket, when supplied a file based 
+    extract will be used.
   kind: string
   label: Google Storage Bucket
   name: google_storage_bucket
@@ -94,14 +94,14 @@ settings:
   kind: object
   label: User Stream Map Configuration
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps
-- description: Whether to use use strings with `x-singer.decimal` format for decimals
-    in the discovered schema. This is useful to avoid precision loss when working
-    with large numbers.
+- description: Whether to use use strings with `x-singer.decimal` format for 
+    decimals in the discovered schema. This is useful to avoid precision loss 
+    when working with large numbers.
   kind: boolean
   label: Use Singer Decimal
   name: use_singer_decimal

@@ -87,6 +87,14 @@ settings:
   label: Index Format
   name: index_format
   value: ecs-{{ stream_name }}-{{ current_timestamp_daily}}
+- description: 'Index Mappings allows you to define field mappings for each stream/index.
+    This creates or updates the Elasticsearch index mapping with the specified field
+    types and properties. Format: {"stream_name": {"properties": {"field_name": {"type":
+    "text", "analyzer": "standard"}}}} Example: {"users": {"properties": {"email":
+    {"type": "keyword"}, "created_at": {"type": "date"}}}} See: https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping.html'
+  kind: object
+  label: Index Mappings
+  name: index_mappings
 - description: |
     Index Schema Fields allows you to specify specific record values via jsonpath
     from the stream to be used in index formulation.
@@ -99,10 +107,11 @@ settings:
   kind: object
   label: Index Schema Fields
   name: index_schema_fields
-- description: The method to use when loading data into the destination. `append-only`
-    will always write all input records whether that records already exists or not.
-    `upsert` will update existing records and insert new records. `overwrite` will
-    delete all existing records and insert all input records.
+- description: The method to use when loading data into the destination. 
+    `append-only` will always write all input records whether that records 
+    already exists or not. `upsert` will update existing records and insert new 
+    records. `overwrite` will delete all existing records and insert all input 
+    records.
   kind: options
   label: Load Method
   name: load_method
@@ -149,7 +158,8 @@ settings:
   label: Scheme
   name: scheme
   value: http
-- description: Location of the the SSL certificate for cert verification ie. `/some/path`
+- description: Location of the the SSL certificate for cert verification ie. 
+    `/some/path`
   kind: string
   label: SSL Ca File
   name: ssl_ca_file
@@ -157,8 +167,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps

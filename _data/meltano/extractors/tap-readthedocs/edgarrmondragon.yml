@@ -6,8 +6,8 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
-description: Read the Docs simplifies software documentation by automating building,
-  versioning, and hosting of your docs for you.
+description: Read the Docs simplifies software documentation by automating 
+  building, versioning, and hosting of your docs for you.
 domain_url: https://docs.readthedocs.io/en/stable/api/index.html
 keywords:
 - api
@@ -64,8 +64,8 @@ settings:
   kind: integer
   label: Max Flattening Depth
   name: flattening_max_depth
-- description: Whether to include streams available only to ReadTheDocs for Business
-    accounts.
+- description: Whether to include streams available only to ReadTheDocs for 
+    Business accounts.
   kind: boolean
   label: Include Business Streams
   name: include_business_streams
@@ -74,13 +74,13 @@ settings:
   kind: object
   label: User Stream Map Configuration
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps
-- description: Personal Access Token that allows you to use the Read the Docs APIv3
-    being authenticated as yourself
+- description: Personal Access Token that allows you to use the Read the Docs 
+    APIv3 being authenticated as yourself
   kind: password
   label: Token
   name: token
