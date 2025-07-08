@@ -15,17 +15,15 @@ keywords:
 - database
 - db
 - fsspec
-- http
-- https
 - meltano_sdk
 - microsoft access
 - ms access
-label: Microsoft Access (HTTP)
+label: Microsoft Access
 logo_url: /assets/logos/extractors/msaccess.png
 maintenance_status: active
-name: tap-msaccess-http
+name: tap-msaccess
 namespace: tap_msaccess
-pip_url: git+https://github.com/Matatika/tap-msaccess.git@v0.1.0 fsspec[http]
+pip_url: git+https://github.com/Matatika/tap-msaccess.git@v0.1.0
 quality: gold
 repo: https://github.com/Matatika/tap-msaccess
 settings:
@@ -102,8 +100,6 @@ settings:
   name: stream_maps
 settings_group_validation:
 - - database_file
-usage: |
-  Connections parameters can be passed directly as top-level config (i.e. same as [`database_file`](#database_file-setting)) or via the [`connection_params`](#connection_params-setting) setting as a JSON-object value - if both are provided, the configurations are merged, with values from `connection_params` taking precendence.
-
-  Note that Meltano does not support environment variable configuration of unnamed properties, so in this case, configuration must be provided in the `meltano.yml`. Otherwise, use [`connection_params`](#connection_params-setting).
+usage: To connect to a remote database file, check out [`tap-msaccess-anywhere`](/extractors/tap-msaccess-anywhere)
+  or the domain-specific `tap-msaccess` derivations (e.g. [`tap-msaccess-azure`](/extractors/tap-msaccess-azure))
 variant: matatika
