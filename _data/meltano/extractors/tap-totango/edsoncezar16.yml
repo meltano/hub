@@ -79,7 +79,7 @@ settings:
   options:
   - label: US Endpoint
     value: https://api.totango.com
-  - label: US Endpoint
+  - label: EU Endpoint
     value: 'https://api-eu1.totango.com '
   value: https://api.totango.com
 - description: The token to authenticate against the API service
