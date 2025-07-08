@@ -40,12 +40,12 @@ settings:
   label: Events IP
   name: events_ip
 - description: List of stream names to sync (default is all streams)
+  kind: array
   label: Stream Selection
   name: stream_selection
-  kind: array
 - description: Start date for incremental replication (plugins/themes only)
+  kind: date_iso8601
   label: Start Date
   name: start_date
-  kind: date_iso8601
 settings_group_validation: []
 variant: automattic
