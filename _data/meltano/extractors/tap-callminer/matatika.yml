@@ -1,13 +1,14 @@
 capabilities:
 - about
+- activate-version
 - batch
 - catalog
 - discover
 - schema-flattening
 - state
 - stream-maps
-description: Speech analytics platform designed to help organizations identify, understand,
-  and optimize customer interactions.
+description: Speech analytics platform designed to help organizations identify, 
+  understand, and optimize customer interactions.
 domain_url: https://callminer.com/
 keywords:
 - api
@@ -84,8 +85,8 @@ settings:
   label: Job Poll Max Count
   name: job_poll_max_count
   value: 60
-- description: Email address required by CallMiner to send a notification to once
-    an export completes
+- description: Email address required by CallMiner to send a notification to 
+    once an export completes
   kind: string
   label: Notification email address
   name: notification_email
@@ -118,8 +119,8 @@ settings:
   kind: object
   label: User Stream Map Configuration
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps
@@ -127,6 +128,6 @@ settings_group_validation:
 - - client_id
   - client_secret
   - notification_email
-settings_preamble: This tap works with the CallMiner bulk export API - ensure the
-  client credentials you provide reflect this.
+settings_preamble: This tap works with the CallMiner bulk export API - ensure 
+  the client credentials you provide reflect this.
 variant: matatika

@@ -73,14 +73,14 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: The password for your Snowflake user. One of [`password`, `private_key`,
-    `private_key_path`] is required.
+- description: The password for your Snowflake user. One of [`password`, 
+    `private_key`, `private_key_path`] is required.
   kind: password
   label: Password
   name: password
   sensitive: true
-- description: The private key is used to connect to snowflake. One of [`password`,
-    `private_key`, `private_key_path`] is required.
+- description: The private key is used to connect to snowflake. One of 
+    [`password`, `private_key`, `private_key_path`] is required.
   kind: password
   label: Private Key
   name: private_key
@@ -90,9 +90,9 @@ settings:
   label: Private Key Passphrase
   name: private_key_passphrase
   sensitive: true
-- description: Path to where the private key is stored. The private key is used to
-    connect to snowflake. One of [`password`, `private_key`, `private_key_path`] is
-    required.
+- description: Path to where the private key is stored. The private key is used 
+    to connect to snowflake. One of [`password`, `private_key`, 
+    `private_key_path`] is required.
   kind: password
   label: Private Key Path
   name: private_key_path
@@ -109,8 +109,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps
@@ -122,8 +122,8 @@ settings:
   kind: array
   label: Tables
   name: tables
-- description: If authentication should be done using SSO (via external browser).
-    See SSO browser authentication.
+- description: If authentication should be done using SSO (via external 
+    browser). See SSO browser authentication.
   kind: boolean
   label: Use Browser Authentication
   name: use_browser_authentication

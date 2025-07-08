@@ -78,13 +78,14 @@ settings:
   kind: string
   label: Organization URL
   name: organization_url
-  value: https://api.calendly.com/organizations/1fdf0e87-f3cf-46bc-aa59-b97d16e8b75d/
+  value: 
+    https://api.calendly.com/organizations/1fdf0e87-f3cf-46bc-aa59-b97d16e8b75d/
 - description: User-defined config values to be used within map expressions.
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps

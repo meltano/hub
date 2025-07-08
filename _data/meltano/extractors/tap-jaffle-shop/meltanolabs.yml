@@ -5,8 +5,8 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
-description: The Jaffle Shop Generator, aka "jafgen" is a python-based data generator
-  created by dbt Labs.
+description: The Jaffle Shop Generator, aka "jafgen" is a python-based data 
+  generator created by dbt Labs.
 domain_url: https://github.com/dbt-labs/jaffle-shop-generator
 executable: tap-jaffle-shop
 keywords:
@@ -58,13 +58,14 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps
-- description: A name prefix to apply to all streams. Note that the dash ('-') character
-    will be interpreted by many targets as a delimiter between schema and table name.
+- description: A name prefix to apply to all streams. Note that the dash ('-') 
+    character will be interpreted by many targets as a delimiter between schema 
+    and table name.
   kind: string
   label: Stream Name Prefix
   name: stream_name_prefix

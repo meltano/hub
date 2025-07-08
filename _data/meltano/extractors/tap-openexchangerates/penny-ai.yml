@@ -5,8 +5,8 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
-description: The original simple, accurate and transparent exchange rates and currency
-  conversion data API.
+description: The original simple, accurate and transparent exchange rates and 
+  currency conversion data API.
 domain_url: https://openexchangerates.org/
 executable: tap-openexchangerates
 keywords:
@@ -47,13 +47,13 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps
-- description: Limit results to specific currencies (comma-separated list of 3-letter
-    codes)
+- description: Limit results to specific currencies (comma-separated list of 
+    3-letter codes)
   kind: array
   label: Symbols
   name: symbols

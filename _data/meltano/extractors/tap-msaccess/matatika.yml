@@ -6,10 +6,11 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
-description: Database management system from Microsoft that combines the relational
-  Access Database Engine with a graphical user interface and software-development
-  tools
+description: Database management system from Microsoft that combines the 
+  relational Access Database Engine with a graphical user interface and 
+  software-development tools
 domain_url: https://www.microsoft.com/en-gb/microsoft-365/access
+executable: tap-msaccess
 keywords:
 - database
 - db
@@ -52,12 +53,13 @@ settings:
   kind: string
   label: Batch Config Storage Root
   name: batch_config.storage.root
-- description: Any parameters for the [`fsspec`](https://filesystem-spec.readthedocs.io/en/latest/)
-    storage backend implementation dictated by the `database_file` URL protocol, such
-    as 
+- description: Any parameters for the 
+    [`fsspec`](https://filesystem-spec.readthedocs.io/en/latest/) storage 
+    backend implementation dictated by the `database_file` URL protocol, such as
     [HTTP(S)](https://filesystem-spec.readthedocs.io/en/latest/api.html#fsspec.implementations.http.HTTPFileSystem),
-    [S3](https://s3fs.readthedocs.io/en/latest/) or [Azure](https://github.com/fsspec/adlfs?tab=readme-ov-file#readme)
-    (see [built-in 
+    [S3](https://s3fs.readthedocs.io/en/latest/) or 
+    [Azure](https://github.com/fsspec/adlfs?tab=readme-ov-file#readme) (see 
+    [built-in 
     implementations](https://filesystem-spec.readthedocs.io/en/latest/api.html#built-in-implementations)
     and [other known 
     implementations](https://filesystem-spec.readthedocs.io/en/latest/api.html#other-known-implementations)
@@ -65,8 +67,8 @@ settings:
   kind: object
   label: Connection Params
   name: connection_params
-- description: Local path or URL to a Microsoft Access database `.mdb` or `.accdb`
-    file
+- description: Local path or URL to a Microsoft Access database `.mdb` or 
+    `.accdb` file
   kind: string
   label: Database File
   name: database_file
@@ -91,8 +93,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps

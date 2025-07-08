@@ -62,11 +62,13 @@ settings:
   kind: integer
   label: Flattening Max Depth
   name: flattening_max_depth
-- description: The list of contact points to try connecting for cluster discovery.
+- description: The list of contact points to try connecting for cluster 
+    discovery.
   kind: string
   label: Hosts
   name: hosts
-- description: Keyspace will be the default keyspace for operations on the Session.
+- description: Keyspace will be the default keyspace for operations on the 
+    Session.
   kind: password
   label: Keyspace
   name: keyspace
@@ -103,8 +105,8 @@ settings:
   kind: integer
   label: Request Timeout
   name: request_timeout
-- description: When set to `True` skipping partitions when faced ReadTimout or ReadFailure
-    errors.
+- description: When set to `True` skipping partitions when faced ReadTimout or 
+    ReadFailure errors.
   kind: boolean
   label: Skip Hot Partitions
   name: skip_hot_partitions
@@ -117,8 +119,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps

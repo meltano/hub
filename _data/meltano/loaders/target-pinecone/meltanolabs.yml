@@ -28,9 +28,10 @@ settings:
   label: API Key
   name: api_key
   sensitive: true
-- description: The amount of dimensions to use if creating a new index. An index is
-    only created if it doesn't already exist. The default is `1536` which is the dimensions
-    of the embeddings using OpenAI's text-embedding-ada-002 model.
+- description: The amount of dimensions to use if creating a new index. An index
+    is only created if it doesn't already exist. The default is `1536` which is 
+    the dimensions of the embeddings using OpenAI's text-embedding-ada-002 
+    model.
   kind: integer
   label: Dimensions
   name: dimensions
@@ -62,10 +63,11 @@ settings:
   kind: string
   label: Index Name
   name: index_name
-- description: The method to use when loading data into the destination. `append-only`
-    will always write all input records whether that records already exists or not.
-    `upsert` will update existing records and insert new records. `overwrite` will
-    delete all existing records and insert all input records.
+- description: The method to use when loading data into the destination. 
+    `append-only` will always write all input records whether that records 
+    already exists or not. `upsert` will update existing records and insert new 
+    records. `overwrite` will delete all existing records and insert all input 
+    records.
   kind: options
   label: Load Method
   name: load_method
@@ -77,12 +79,14 @@ settings:
   - label: Overwrite
     value: overwrite
   value: append-only
-- description: The property containing the document metadata in the input records.
+- description: The property containing the document metadata in the input 
+    records.
   kind: string
   label: Metadata Property
   name: metadata_property
   value: metadata
-- description: The key in the Pinecone metadata entry that will contain the text document.
+- description: The key in the Pinecone metadata entry that will contain the text
+    document.
   kind: password
   label: Pinecone Metadata Text Key
   name: pinecone_metadata_text_key
@@ -92,8 +96,8 @@ settings:
   kind: object
   label: Stream Map Config
   name: stream_map_config
-- description: Config object for stream maps capability. For more information check
-    out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps
