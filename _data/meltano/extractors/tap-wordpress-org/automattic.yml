@@ -1,11 +1,15 @@
 capabilities:
-- state
+- about
+- activate-version
+- batch
 - catalog
 - discover
-- properties
 - schema-flattening
+- state
 - stream-maps
-description: WordPress.org is the official repository for WordPress plugins, themes, and community resources, providing APIs to access comprehensive data about the WordPress ecosystem.
+description: WordPress.org is the official repository for WordPress plugins, 
+  themes, and community resources, providing APIs to access comprehensive data 
+  about the WordPress ecosystem.
 domain_url: https://wordpress.org
 keywords:
 - api
@@ -25,27 +29,88 @@ pip_url: git+https://github.com/Automattic/tap-wordpress-org.git
 quality: silver
 repo: https://github.com/Automattic/tap-wordpress-org
 settings:
-- description: The URL for the WordPress.org API
+- description: The URL for the WordPress. Org API
+  kind: string
   label: API URL
   name: api_url
   value: https://api.wordpress.org
-- description: User agent for API requests
-  label: User Agent
-  name: user_agent
-  value: tap-wordpress-org/0.1.0
+- description: Compression format to use for batch files.
+  kind: options
+  label: Batch Compression Format
+  name: batch_config.encoding.compression
+  options:
+  - label: GZIP
+    value: gzip
+  - label: None
+    value: none
+- description: Format to use for batch files.
+  kind: options
+  label: Batch Encoding Format
+  name: batch_config.encoding.format
+  options:
+  - label: JSONL
+    value: jsonl
+  - label: Parquet
+    value: parquet
+- description: Prefix to use when writing batch files.
+  kind: string
+  label: Batch Storage Prefix
+  name: batch_config.storage.prefix
+- description: Root path to use when writing batch files.
+  kind: string
+  label: Batch Storage Root
+  name: batch_config.storage.root
+- description: IP address for events location detection
+  kind: string
+  label: Events Ip
+  name: events_ip
 - description: Location for events search (e.g., 'Seattle, WA')
+  kind: string
   label: Events Location
   name: events_location
-- description: IP address for events location detection
-  label: Events IP
-  name: events_ip
-- description: List of stream names to sync (default is all streams)
+- description: 'One or more LCID locale strings to produce localized output for: https://faker.readthedocs.io/en/master/#localization'
   kind: array
-  label: Stream Selection
-  name: stream_selection
-- description: Start date for incremental replication (plugins/themes only)
+  label: Faker Locale
+  name: faker_config.locale
+- description: 'Value to seed the Faker generator for deterministic output: https://faker.readthedocs.io/en/master/#seeding-the-generator'
+  kind: string
+  label: Faker Seed
+  name: faker_config.seed
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Enable Schema Flattening
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Max Flattening Depth
+  name: flattening_max_depth
+- description: 'Delay between API requests in seconds (default: 0.1)'
+  kind: integer
+  label: Request Delay
+  name: request_delay
+  value: 0.1
+- description: Start date for incremental replication (plugins/themes)
   kind: date_iso8601
   label: Start Date
   name: start_date
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: User Stream Map Configuration
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: 'List of stream names to sync (default: all streams)'
+  kind: array
+  label: Stream Selection
+  name: stream_selection
+- description: User agent for API requests
+  kind: string
+  label: User Agent
+  name: user_agent
+  value: tap-wordpress-org/0.1.0
 settings_group_validation: []
 variant: automattic
