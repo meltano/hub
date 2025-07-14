@@ -23,7 +23,7 @@ pip_url: git+https://github.com/Matatika/tap-baidu.git
 quality: gold
 repo: https://github.com/Matatika/tap-baidu
 settings:
-- description: API token used for authentication
+- description: API token used for authentication.
   kind: password
   label: API Token
   name: api_token
