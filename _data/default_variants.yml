@@ -638,6 +638,7 @@ loaders:
   target-datadotworld: datadotworld
   target-db2: infostrux
   target-duckdb: jwills
+  target-ducklake: definite
   target-elasticsearch: dtmirizzi
   target-gcs: datateer
   target-gsheet: singer-io
