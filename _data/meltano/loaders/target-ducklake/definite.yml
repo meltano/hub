@@ -1,0 +1,158 @@
+capabilities:
+- about
+- schema-flattening
+- stream-maps
+- validate-records
+description: DuckLake is an integrated data lake and catalog format
+domain_url: https://ducklake.select
+executable: target-ducklake
+keywords:
+- meltano_sdk
+label: DuckLake
+logo_url: /assets/logos/loaders/ducklake.svg
+maintenance_status: active
+name: target-ducklake
+namespace: target_ducklake
+next_steps: ''
+pip_url: git+https://github.com/definite-app/target-ducklake.git
+quality: gold
+repo: https://github.com/definite-app/target-ducklake
+settings:
+- description: 'When True, automatically adds Singer Data Capture (SDC) metadata columns
+    to target tables:'
+  kind: boolean
+  label: Add Singer Record Metadata
+  name: add_record_metadata
+  value: false
+- description: When True, automatically attempts to cast timestamp-like fields 
+    to timestamp types in ducklake.
+  kind: boolean
+  label: Auto Cast Timestamps
+  name: auto_cast_timestamps
+  value: false
+- description: Maximum number of rows in each batch.
+  kind: integer
+  label: Batch Size Rows
+  name: batch_size_rows
+- description: URL connection string to your catalog database
+  kind: string
+  label: Catalog URL
+  name: catalog_url
+- description: GCS, S3, or local folder path for data storage
+  kind: string
+  label: Data Path
+  name: data_path
+- description: Default database schema where data should be written. If not 
+    provided schema will attempt to be derived from the stream name (e.g. 
+    database taps provide schema name in the stream name).
+  kind: string
+  label: Default Target Schema Name
+  name: default_target_schema
+- description: 'One or more LCID locale strings to produce localized output for: https://faker.readthedocs.io/en/master/#localization'
+  kind: array
+  label: Faker Locale
+  name: faker_config.locale
+- description: 'Value to seed the Faker generator for deterministic output: https://faker.readthedocs.io/en/master/#seeding-the-generator'
+  kind: string
+  label: Faker Seed
+  name: faker_config.seed
+- description: Maximum depth for flattening nested fields. Set to 0 to disable 
+    flattening.
+  kind: integer
+  label: Flattening Max Level
+  name: flatten_max_level
+  value: 0
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Enable Schema Flattening
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Max Flattening Depth
+  name: flattening_max_depth
+- description: The method to use when loading data into the destination. 
+    `append-only` will always write all input records whether that records 
+    already exists or not. `upsert` will update existing records and insert new 
+    records. `overwrite` will delete all existing records and insert all input 
+    records.
+  kind: options
+  label: Load Method
+  name: load_method
+  options:
+  - label: Append Only
+    value: append-only
+  - label: Upsert
+    value: upsert
+  - label: Overwrite
+    value: overwrite
+  value: append-only
+- description: Maximum number of records to process in a single batch
+  kind: integer
+  label: Max Batch Size
+  name: max_batch_size
+  value: 10000
+- description: Object mapping stream names to arrays of partition column 
+    definitions. Each stream key maps directly to an array of column 
+    definitions.
+  kind: object
+  label: Partition Fields
+  name: partition_fields
+- description: Public key for private GCS and S3 storage authentication 
+    (optional)
+  kind: password
+  label: Public Key
+  name: public_key
+  sensitive: true
+- description: AWS region for S3 storage type (required when using S3 with 
+    explicit credentials)
+  kind: string
+  label: Region
+  name: region
+- description: Secret key for private GCS and S3 storage authentication 
+    (optional)
+  kind: password
+  label: Secret Key
+  name: secret_key
+  sensitive: true
+- description: 'Type of storage: GCS, S3, or local'
+  kind: options
+  label: Storage Type
+  name: storage_type
+  options:
+  - label: Gcs
+    value: GCS
+  - label: S3
+    value: S3
+  - label: Local
+    value: local
+  value: local
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: User Stream Map Configuration
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: Prefix to add to the target schema name. If not provided, no 
+    prefix will be added. May be useful if target schema name is inferred from 
+    the stream name and you want to add a prefix to the schema name.
+  kind: string
+  label: Target Schema Prefix
+  name: target_schema_prefix
+- description: Directory path for storing temporary parquet files
+  kind: string
+  label: Temporary File Directory
+  name: temp_file_dir
+  value: temp_files/
+- description: Whether to validate the schema of the incoming streams.
+  kind: boolean
+  label: Validate Records
+  name: validate_records
+  value: true
+settings_group_validation: []
+settings_preamble: ''
+usage: ''
+variant: definite
