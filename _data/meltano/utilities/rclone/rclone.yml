@@ -1,0 +1,77 @@
+# Subcommands
+commands:
+  config:
+    args: config
+  sync:
+    args: sync
+
+description: rsync for cloud storage
+label: rclone
+logo_url: /assets/logos/utilities/rclone.png
+name: rclone
+namespace: rclone
+pip_url: rclone-bin
+settings:
+
+# Global settings
+- description: Log level
+  kind: options
+  label: Log Level
+  name: log_level
+  options:
+  - label: DEBUG
+    value: DEBUG
+  - label: INFO
+    value: INFO
+  - label: NOTICE
+    value: NOTICE
+  - label: ERROR
+    value: ERROR
+- description: Use json log format
+  kind: boolean
+  label: Use JSON Log
+  name: use_json_log
+- description: IO idle timeout (default 5m0s)
+  kind: integer
+  label: IO Idle Timeout
+  name: timeout
+
+# Local settings
+- description: Force the filesystem to report itself as case insensitive.
+  kind: boolean
+  label: Case Sensitive
+  name: local.case_sensitive
+
+# S3
+- description: AWS Access Key ID
+  kind: string
+  name: s3.access_key_id
+- description: Endpoint for S3 API
+  kind: string
+  name: s3.endpoint
+- description: Get AWS credentials from runtime (environment variables or EC2/ECS meta data if no env vars)
+  kind: boolean
+  name: s3.env_auth
+- description: S3 provider
+  kind: options
+  name: s3.provider
+  options:
+  - label: AWS
+    value: AWS
+  - label: Ceph
+    value: Ceph
+  - label: DigitalOcean Spaces
+    value: DigitalOcean
+  - label: Minio
+    value: Minio
+- description: Region to connect to
+  kind: string
+  name: s3.region
+- description: AWS Secret Access Key (password)
+  kind: password
+  name: s3.secret_access_key
+  sensitive: true
+usage: |
+  meltano invoke rclone:config
+  meltano invoke rclone:sync source:path dest:path
+variant: rclone
