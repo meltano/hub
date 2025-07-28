@@ -64,6 +64,6 @@ jobs:
         title: 'chore: [Hub Bot] Refresh metadata ${{ steps.date.outputs.date }}'
         body: |
           Updates Plugin Definitions
-        assignees: pnadolny13
-        reviewers: pnadolny13
+        assignees: edgarrmondragon
+        reviewers: edgarrmondragon
         draft: false
