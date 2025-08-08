@@ -1,0 +1,117 @@
+capabilities:
+- about
+- batch
+- catalog
+- discover
+- schema-flattening
+- state
+- stream-maps
+description: Query public blockchain data and aggregate it into beautiful 
+  dashboards
+domain_url: https://docs.dune.com/api-reference/overview/introduction
+executable: tap-dune
+keywords:
+- meltano_sdk
+label: Dune
+logo_url: /assets/logos/extractors/dune.svg
+maintenance_status: active
+name: tap-dune
+namespace: tap_dune
+next_steps: ''
+pip_url: git+https://github.com/blueprint-data/tap-dune.git
+quality: silver
+repo: https://github.com/blueprint-data/tap-dune
+settings:
+- description: The API key to authenticate against the Dune API
+  kind: password
+  label: API Key
+  name: api_key
+  sensitive: true
+- description: The base URL for the Dune API
+  kind: string
+  label: Base URL
+  name: base_url
+  value: https://api.dune.com/api/v1
+- description: Compression format to use for batch files.
+  kind: options
+  label: Batch Config Encoding Compression
+  name: batch_config.encoding.compression
+  options:
+  - label: GZIP
+    value: gzip
+  - label: None
+    value: none
+- description: Format to use for batch files.
+  kind: options
+  label: Batch Config Encoding Format
+  name: batch_config.encoding.format
+  options:
+  - label: JSONL
+    value: jsonl
+  - label: Parquet
+    value: parquet
+- description: Prefix to use when writing batch files.
+  kind: string
+  label: Batch Config Storage Prefix
+  name: batch_config.storage.prefix
+- description: Root path to use when writing batch files.
+  kind: string
+  label: Batch Config Storage Root
+  name: batch_config.storage.root
+- description: 'One or more LCID locale strings to produce localized output for: https://faker.readthedocs.io/en/master/#localization'
+  kind: array
+  label: Faker Config Locale
+  name: faker_config.locale
+- description: 'Value to seed the Faker generator for deterministic output: https://faker.readthedocs.io/en/master/#seeding-the-generator'
+  kind: string
+  label: Faker Config Seed
+  name: faker_config.seed
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: "The performance engine tier: 'medium' (10 credits) or 'large' (20
+    credits)"
+  kind: options
+  label: Performance
+  name: performance
+  options:
+  - label: Medium
+    value: medium
+  - label: Large
+    value: large
+  value: medium
+- description: The ID of the Dune query to execute
+  kind: password
+  label: Query ID
+  name: query_id
+  sensitive: true
+- description: SQL Query parameters with optional replication key configuration
+  kind: array
+  label: Query Parameters
+  name: query_parameters
+- description: JSON Schema properties for the query result fields
+  kind: object
+  label: Schema Properties
+  name: schema.properties
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+settings_group_validation:
+- - api_key
+  - query_id
+  - schema.properties
+settings_preamble: ''
+usage: ''
+variant: blueprint-data
