@@ -66,7 +66,7 @@ jobs:
     - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
 
     - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@59b441846ad109fa4a1549b73ef4e149c4bfb53b # v4.3.0
+      uses: aws-actions/configure-aws-credentials@aa1f74b81b53cb3adb28afcdb21d7b9f3fceea98 # v4.3.0
       with:
         role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
         aws-region: us-west-2
@@ -143,7 +143,7 @@ jobs:
     - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
 
     - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@59b441846ad109fa4a1549b73ef4e149c4bfb53b # v4.3.0
+      uses: aws-actions/configure-aws-credentials@aa1f74b81b53cb3adb28afcdb21d7b9f3fceea98 # v4.3.0
       with:
         role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
         aws-region: us-west-2
