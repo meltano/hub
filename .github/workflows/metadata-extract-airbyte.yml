@@ -22,7 +22,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
-      - uses: astral-sh/setup-uv@e92bafb6253dcd438e0484186d7669ea7a8ca1cc # v6.4.3
+      - uses: astral-sh/setup-uv@d9e0f98d3fc6adb07d1e3d37f3043649ddad06a1 # v6.5.0
 
       - name: Install hub-utils
         run: uv tool install git+https://github.com/meltano/hub-utils.git@ea19954cb5f631e045877bd696555f1d78b0b25e
@@ -82,7 +82,7 @@ jobs:
       - uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5.0.0
         with:
           name: extractor--${{ matrix.source-name }}--airbyte.json
-      - uses: astral-sh/setup-uv@e92bafb6253dcd438e0484186d7669ea7a8ca1cc # v6.4.3
+      - uses: astral-sh/setup-uv@d9e0f98d3fc6adb07d1e3d37f3043649ddad06a1 # v6.5.0
 
       - name: Install hub-utils
         run: uv tool install git+https://github.com/meltano/hub-utils.git@ea19954cb5f631e045877bd696555f1d78b0b25e
