@@ -74,11 +74,11 @@ settings:
   kind: object
   label: User Stream Map Configuration
   name: stream_map_config
-- description: Config object for stream maps capability. For more information 
-    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
+- description: Currently, only setting this to `__NULL__` is supported. This 
+    will remove all other streams.
+  kind: string
+  label: Other streams
+  name: stream_maps.__else__
 - description: The subdomain of your Showpad instance
   kind: string
   label: Subdomain
