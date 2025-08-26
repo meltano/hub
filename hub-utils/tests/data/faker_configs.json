@@ -1,0 +1,61 @@
+{
+    "name": "tap-faker-example",
+    "description": "Faker tap class.",
+    "version": "[could not be detected]",
+    "sdk_version": "0.35.0",
+    "supported_python_versions": null,
+    "capabilities": [],
+    "settings": {
+      "type": "object",
+      "properties": {
+        "faker_config": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "seed": {
+              "oneOf": [
+                {
+                  "type": [
+                    "number"
+                  ]
+                },
+                {
+                  "type": [
+                    "string"
+                  ]
+                },
+                {
+                  "type": [
+                    "boolean"
+                  ]
+                }
+              ],
+              "description": "Value to seed the Faker generator for deterministic output: https://faker.readthedocs.io/en/master/#seeding-the-generator"
+            },
+            "locale": {
+              "oneOf": [
+                {
+                  "type": [
+                    "string"
+                  ]
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "type": [
+                      "string"
+                    ]
+                  }
+                }
+              ],
+              "description": "One or more LCID locale strings to produce localized output for: https://faker.readthedocs.io/en/master/#localization"
+            }
+          },
+          "description": "Config for the [`Faker`](https://faker.readthedocs.io/en/master/) instance variable `fake` used within map expressions. Only applicable if the plugin specifies `faker` as an addtional dependency (through the `singer-sdk` `faker` extra or directly)."
+        }
+      },
+      "required": []
+    }
+  }

@@ -1,0 +1,19 @@
+extends: default
+
+ignore: |
+  .pre-commit-config.yaml
+  dependabot.yml
+  .github/workflows/*.yml
+
+rules:
+  braces:
+    forbid: non-empty
+  document-start:
+    present: false  # Don't require `---` at the start of the file
+  indentation:
+    indent-sequences: false
+    spaces: 2
+  key-ordering: enable
+  line-length: disable
+  truthy: disable
+  trailing-spaces: disable
