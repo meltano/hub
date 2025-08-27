@@ -28,16 +28,16 @@ jobs:
     - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
 
     - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@3821430d177f66b128b701e38ba67c5319b1b0bd # v4.3.0
+      uses: aws-actions/configure-aws-credentials@0eb446ecb2e3f0e1a19f106e12e76c6a98b6bdb2 # v4.3.0
       with:
         role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
         aws-region: us-west-2
         role-session-name: "GitHubActions"
 
-    - uses: astral-sh/setup-uv@d9e0f98d3fc6adb07d1e3d37f3043649ddad06a1 # v6.5.0
+    - uses: astral-sh/setup-uv@4959332f0f014c5280e7eac8b70c90cb574c9f9b # v6.6.0
 
     - name: Install hub-utils
-      run: uv tool install git+https://github.com/meltano/hub-utils.git@ea19954cb5f631e045877bd696555f1d78b0b25e
+      run: uv tool install ./hub-utils
 
     - name: Download Raw JSON Output
       run: hub-utils download-metadata "/home/runner/work/downloaded_data" --ignore-list-str="extractors/tap-ga4/connorflyn,extractors/tap-ga4/meltanolabs,extractors/tap-ga4/sehnem,extractors/tap-salesforce-commerce/hotgluexyz,loaders/target-s3/crowemi,loaders/target-s3-parquet/jkausti,extractors/tap-rest-api-msdk/widen,extractors/tap-mailchimp/acarter24,extractors/tap-msaccess/matatika,extractors/tap-totango/edsoncezar16"

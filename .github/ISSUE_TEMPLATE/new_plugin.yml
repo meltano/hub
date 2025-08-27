@@ -5,7 +5,7 @@ body:
       ## New Plugin Request
 
       Please fill out the following information to request a new plugin to be added to the Meltano Hub.
-      
+
       If you'd like you can follow the steps in the [CONTRIBUTING.md](https://github.com/meltano/hub/blob/main/CONTRIBUTING.md) to add it yourself,
       otherwise someone on the Meltano team will get it added.
   type: markdown
@@ -73,7 +73,7 @@ body:
 
 - attributes:
     description: |
-      Links? References? Anything that will give us more context. 
+      Links? References? Anything that will give us more context.
     label: Any other notes?
   type: textarea
   validations:

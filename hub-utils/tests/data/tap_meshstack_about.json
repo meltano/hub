@@ -1,0 +1,68 @@
+{
+  "name": "tap-meshstack",
+  "description": "meshStack tap class.",
+  "version": "0.0.1",
+  "sdk_version": "0.4.9",
+  "capabilities": [
+    "catalog",
+    "state",
+    "discover",
+    "about",
+    "stream-maps",
+    "schema-flattening"
+  ],
+  "settings": {
+    "type": "object",
+    "properties": {
+      "federation": {
+        "type": "object",
+        "properties": {
+          "auth": {
+            "type": "object",
+            "properties": {
+              "username": {
+                "type": ["string"],
+                "description": "The HTTP basic auth user to authenticate against the meshObject API for federation"
+              },
+              "password": {
+                "type": ["string"],
+                "description": "The HTTP basic auth password to authenticate against the meshObject API for federation"
+              }
+            },
+            "required": ["username", "password"],
+            "description": "API authentication configuration"
+          },
+          "api_url": {
+            "type": ["string"],
+            "description": "The url of the meshObject API (excluding the /api prefix!)"
+          }
+        },
+        "required": ["auth", "api_url"],
+        "description": "Configuration for Federation"
+      },
+      "another_setting_required": {
+        "type": ["string", "null"],
+        "description": "Test required"
+      },
+      "stream_maps": {
+        "type": ["object", "null"],
+        "properties": {},
+        "description": "Config object for stream maps capability."
+      },
+      "stream_map_config": {
+        "type": ["object", "null"],
+        "properties": {},
+        "description": "User-defined config values to be used within map expressions."
+      },
+      "flattening_enabled": {
+        "type": ["boolean", "null"],
+        "description": "True to enable schema flattening and automatically expand nested properties."
+      },
+      "flattening_max_depth": {
+        "type": ["integer", "null"],
+        "description": "The max depth to flatten schemas."
+      }
+    },
+    "required": ["federation", "another_setting_required"]
+  }
+}

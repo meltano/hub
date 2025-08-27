@@ -2,11 +2,11 @@
 name: Bug report
 about: Report a potential bug in the MeltanoHub
 title: "\U0001F41B BUG: `Brief description of the problem` "
-labels: 
+labels:
 assignees: taylormurphy,edgarrmondragon
 ---
 
-**Note:** This issue template is for issues related to the MeltanoHub or plugin definitions. 
+**Note:** This issue template is for issues related to the MeltanoHub or plugin definitions.
 If you're having a problem with a tap or target, please open an issue on that repository so the maintainers can address it.
 
 **Describe the bug**
