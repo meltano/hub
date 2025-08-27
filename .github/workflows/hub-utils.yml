@@ -11,7 +11,11 @@ jobs:
       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
     strategy:
       matrix:
-        python-version: ["3.10", "3.11", "3.12", "3.13"]
+        python-version:
+        - "3.10"
+        - "3.11"
+        - "3.12"
+        - "3.13"
     steps:
     - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
     - name: Set up Python ${{ matrix.python-version }}
@@ -21,7 +25,7 @@ jobs:
     - name: Install Poetry
       run: |
         python -m pip install --upgrade pip
-        pip install poetry==1.8.*
+        pip install poetry==2.1.*
     - name: Clone Hub repository
       uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
       with:

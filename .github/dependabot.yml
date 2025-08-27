@@ -16,3 +16,15 @@ updates:
       artifacts:
         patterns:
           - "actions/*-load-artifact"
+  - package-ecosystem: "pip"
+    directory: "/hub-utils"
+    schedule:
+      interval: "weekly"
+      time: "12:00"
+      timezone: "Etc/UTC"
+    labels: ["deps"]
+    groups:
+      default:
+        update-types:
+        - "minor"
+        - "patch"
