@@ -8,16 +8,16 @@ to streamline the work needed to maintain MeltanoHub.
 ```
 export HUB_ROOT_PATH='/Users/meltano/hub'
 
-poetry install
-poetry run hub-utils --help
+uv sync
+uv run hub-utils --help
 ```
 
 **Tests**
 
 ```bash
-poetry run pytest -v
+uv run pytest -v
 
-poetry run pytest -v tests/test_meltano_utils.py::test_sdk_about_parsing_1
+uv run pytest -v tests/test_meltano_utils.py::test_sdk_about_parsing_1
 ```
 
 **Refreshing This README**
@@ -29,7 +29,7 @@ to render them as markdown.
 Run the following command:
 
 ```bash
-poetry run typer hub_utils/main.py utils docs --name hub-utils --output README.md
+uv run typer hub_utils/main.py utils docs --name hub-utils --output README.md
 ```
 
 **Usage**:
