@@ -6,8 +6,8 @@
 set -euxo pipefail
 
 # install CLI
-curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" 
-unzip -q awscliv2.zip 
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip -q awscliv2.zip
 ./aws/install -i ~/aws-cli -b ~/aws-cli/bin
 
 # HACK because netlify doesn't let us set these (see https://remysharp.com/2019/05/18/aws-inside-netlify)
@@ -20,7 +20,7 @@ aws_access_key_id = $ENV_ACCESS_KEY_ID
 EOL
 
 # Grab files
-~/aws-cli/bin/aws s3 cp s3://hub-metrics-b8ba2d5/prod/hub_metrics/variant_metrics.yml ./_data/variant_metrics.yml 
+~/aws-cli/bin/aws s3 cp s3://hub-metrics-b8ba2d5/prod/hub_metrics/variant_metrics.yml ./_data/variant_metrics.yml
 ~/aws-cli/bin/aws s3 cp s3://hub-metrics-b8ba2d5/prod/hub_metrics/audit.yml ./_data/audit.yml
 
 gridsome build

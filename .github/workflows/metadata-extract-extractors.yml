@@ -26,7 +26,7 @@ jobs:
       - uses: astral-sh/setup-uv@d9e0f98d3fc6adb07d1e3d37f3043649ddad06a1 # v6.5.0
 
       - name: Install hub-utils
-        run: uv tool install git+https://github.com/meltano/hub-utils.git@ea19954cb5f631e045877bd696555f1d78b0b25e
+        run: uv tool install ./hub-utils
 
       - name: Get Variants List - SDK Extractors (p1)
         id: get-variants-list-sdk-ex-p1
@@ -73,7 +73,7 @@ jobs:
     - uses: astral-sh/setup-uv@d9e0f98d3fc6adb07d1e3d37f3043649ddad06a1 # v6.5.0
 
     - name: Install hub-utils
-      run: uv tool install git+https://github.com/meltano/hub-utils.git@ea19954cb5f631e045877bd696555f1d78b0b25e
+      run: uv tool install ./hub-utils
 
     # This starts the attempts to install and extract metadata. Since we don't
     # know what python versions are accepted we start with the latest and continue
@@ -93,7 +93,7 @@ jobs:
       id: extract_313
       run: hub-utils extract-sdk-metadata-to-s3 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" $(pwd)/extract_data --python=python3.13
       continue-on-error: true
-    
+
     - name: Extract Metadata (3.12)
       if: always() && (steps.extract_313.outcome == 'failure')
       id: extract_312
@@ -148,7 +148,7 @@ jobs:
     - uses: astral-sh/setup-uv@d9e0f98d3fc6adb07d1e3d37f3043649ddad06a1 # v6.5.0
 
     - name: Install hub-utils
-      run: uv tool install git+https://github.com/meltano/hub-utils.git@ea19954cb5f631e045877bd696555f1d78b0b25e
+      run: uv tool install ./hub-utils
 
     - name: Install Python
       uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0

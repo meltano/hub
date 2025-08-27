@@ -25,7 +25,7 @@ jobs:
       - uses: astral-sh/setup-uv@d9e0f98d3fc6adb07d1e3d37f3043649ddad06a1 # v6.5.0
 
       - name: Install hub-utils
-        run: uv tool install git+https://github.com/meltano/hub-utils.git@ea19954cb5f631e045877bd696555f1d78b0b25e
+        run: uv tool install ./hub-utils
 
       - name: Get Variants List - Airbyte
         id: get-variants-list-airbyte
@@ -38,7 +38,7 @@ jobs:
            echo "airbyte_matrix=$matrixStringifiedObject" >> $GITHUB_OUTPUT
 
   metadata_extract_airbyte_p1:
-    name: Airbyte - Part 1 Metadata Extract 
+    name: Airbyte - Part 1 Metadata Extract
     needs: get_variants_list
     runs-on: ubuntu-latest
     strategy:
@@ -85,7 +85,7 @@ jobs:
       - uses: astral-sh/setup-uv@d9e0f98d3fc6adb07d1e3d37f3043649ddad06a1 # v6.5.0
 
       - name: Install hub-utils
-        run: uv tool install git+https://github.com/meltano/hub-utils.git@ea19954cb5f631e045877bd696555f1d78b0b25e
+        run: uv tool install ./hub-utils
 
       - name: Upload Metadata
         run: hub-utils upload-airbyte "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" extractor--${{ matrix.source-name }}--airbyte.json

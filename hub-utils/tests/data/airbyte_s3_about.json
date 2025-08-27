@@ -1,0 +1,184 @@
+{
+  "name": "tap-airbyte",
+  "description": null,
+  "version": "0.0.1",
+  "sdk_version": "0.14.0",
+  "capabilities": [
+    "catalog",
+    "state",
+    "discover",
+    "about",
+    "stream-maps",
+    "schema-flattening"
+  ],
+  "settings": {
+    "type": "object",
+    "properties": {
+      "airbyte_spec": {
+        "type": ["object", "null"],
+        "properties": {
+          "image": {
+            "type": ["string"],
+            "description": "Airbyte image to run"
+          },
+          "tag": {
+            "type": ["string", "null"],
+            "default": "latest"
+          }
+        },
+        "required": ["image"]
+      },
+      "connector_config": {
+        "title": "S3 Source Spec",
+        "type": "object",
+        "properties": {
+          "dataset": {
+            "title": "Output Stream Name",
+            "description": "The name of the stream you would like this source to output. Can contain letters, numbers, or underscores.",
+            "pattern": "^([A-Za-z0-9-_]+)$",
+            "order": 0,
+            "type": "string"
+          },
+          "path_pattern": {
+            "title": "Pattern of files to replicate",
+            "description": "A regular expression which tells the connector which files to replicate. All files which match this pattern will be replicated. Use | to separate multiple patterns. See <a href=\"https://facelessuser.github.io/wcmatch/glob/\" target=\"_blank\">this page</a> to understand pattern syntax (GLOBSTAR and SPLIT flags are enabled). Use pattern <strong>**</strong> to pick up all files.",
+            "examples": [
+              "**",
+              "myFolder/myTableFiles/*.csv|myFolder/myOtherTableFiles/*.csv"
+            ],
+            "order": 10,
+            "type": "string"
+          },
+          "format": {
+            "title": "File Format",
+            "description": "The format of the files you'd like to replicate",
+            "default": "csv",
+            "order": 20,
+            "type": "object",
+            "oneOf": [
+              {
+                "title": "CSV",
+                "description": "This connector utilises <a href=\"https: // arrow.apache.org/docs/python/generated/pyarrow.csv.open_csv.html\" target=\"_blank\">PyArrow (Apache Arrow)</a> for CSV parsing.",
+                "type": "object",
+                "properties": {
+                  "filetype": {
+                    "title": "Filetype",
+                    "const": "csv",
+                    "type": "string"
+                  },
+                  "delimiter": {
+                    "title": "Delimiter",
+                    "description": "The character delimiting individual cells in the CSV data. This may only be a 1-character string. For tab-delimited data enter '\\t'.",
+                    "default": ",",
+                    "minLength": 1,
+                    "order": 0,
+                    "type": "string"
+                  }
+                }
+              },
+              {
+                "title": "Parquet",
+                "description": "This connector utilises <a href=\"https://arrow.apache.org/docs/python/generated/pyarrow.parquet.ParquetFile.html\" target=\"_blank\">PyArrow (Apache Arrow)</a> for Parquet parsing.",
+                "type": "object",
+                "properties": {
+                  "filetype": {
+                    "title": "Filetype",
+                    "const": "parquet",
+                    "type": "string"
+                  },
+                  "columns": {
+                    "title": "Selected Columns",
+                    "description": "If you only want to sync a subset of the columns from the file(s), add the columns you want here as a comma-delimited list. Leave it empty to sync all columns.",
+                    "order": 0,
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "buffer_size": {
+                    "title": "Buffer Size",
+                    "description": "Perform read buffering when deserializing individual column chunks. By default every group column will be loaded fully to memory. This option can help avoid out-of-memory errors if your data is particularly wide.",
+                    "default": 2,
+                    "type": "integer"
+                  }
+                }
+              }
+            ]
+          },
+          "schema": {
+            "title": "Manually enforced data schema",
+            "description": "Optionally provide a schema to enforce, as a valid JSON string. Ensure this is a mapping of <strong>{ \"column\" : \"type\" }</strong>, where types are valid <a href=\"https://json-schema.org/understanding-json-schema/reference/type.html\" target=\"_blank\">JSON Schema datatypes</a>. Leave as {} to auto-infer the schema.",
+            "default": "{}",
+            "examples": [
+              "{\"column_1\": \"number\", \"column_2\": \"string\", \"column_3\": \"array\", \"column_4\": \"object\", \"column_5\": \"boolean\"}"
+            ],
+            "order": 30,
+            "type": "string"
+          },
+          "provider": {
+            "title": "S3: Amazon Web Services",
+            "type": "object",
+            "properties": {
+              "bucket": {
+                "title": "Bucket",
+                "description": "Name of the S3 bucket where the file(s) exist.",
+                "order": 0,
+                "type": "string"
+              },
+              "aws_access_key_id": {
+                "title": "AWS Access Key ID",
+                "description": "In order to access private Buckets stored on AWS S3, this connector requires credentials with the proper permissions. If accessing publicly available data, this field is not necessary.",
+                "airbyte_secret": true,
+                "order": 1,
+                "type": "string"
+              },
+              "aws_secret_access_key": {
+                "title": "AWS Secret Access Key",
+                "description": "In order to access private Buckets stored on AWS S3, this connector requires credentials with the proper permissions. If accessing publicly available data, this field is not necessary.",
+                "airbyte_secret": true,
+                "order": 2,
+                "type": "string"
+              },
+              "path_prefix": {
+                "title": "Path Prefix",
+                "description": "By providing a path-like prefix (e.g. myFolder/thisTable/) under which all the relevant files sit, we can optimize finding these in S3. This is optional but recommended if your bucket contains many folders/files which you don't need to replicate.",
+                "default": "",
+                "order": 3,
+                "type": "string"
+              },
+              "endpoint": {
+                "title": "Endpoint",
+                "description": "Endpoint to an S3 compatible service. Leave empty to use AWS.",
+                "default": "",
+                "order": 4,
+                "type": "string"
+              }
+            },
+            "required": ["bucket"],
+            "order": 11,
+            "description": "Use this to load files from S3 or S3-compatible services"
+          }
+        },
+        "required": ["dataset", "path_pattern", "provider"]
+      },
+      "stream_maps": {
+        "type": ["object", "null"],
+        "properties": {},
+        "description": "Config object for stream maps capability. For more information check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html)."
+      },
+      "stream_map_config": {
+        "type": ["object", "null"],
+        "properties": {},
+        "description": "User-defined config values to be used within map expressions."
+      },
+      "flattening_enabled": {
+        "type": ["boolean", "null"],
+        "description": "'True' to enable schema flattening and automatically expand nested properties."
+      },
+      "flattening_max_depth": {
+        "type": ["integer", "null"],
+        "description": "The max depth to flatten schemas."
+      }
+    }
+  }
+}

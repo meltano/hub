@@ -1,0 +1,57 @@
+capabilities:
+- about
+- discover
+- catalog
+- state
+- stream-maps
+- schema-flattening
+description: Inbound Marketing software
+domain_url: https://developers.hubspot.com/docs/api/overview
+executable: tap-hubspot-beta
+keywords:
+- api
+- meltano_sdk
+label: Hubspot
+logo_url: /assets/logos/extractors/hubspot.png
+maintenance_status: active
+name: tap-hubspot
+namespace: tap_hubspot
+pip_url: git+https://gitlab.com/hotglue/tap-hubspot-beta.git
+quality: gold
+repo: https://gitlab.com/hotglue/tap-hubspot-beta
+settings:
+- description: HubSpot Access token. See the <a href="https://developers.hubspot.com/docs/api/private-apps">Hubspot
+    docs</a> if you need help finding this token.
+  kind: password
+  label: Access Token
+  name: access_token
+- description: The client ID used for authentication.
+  documentation: https://developers.hubspot.com/docs/api/working-with-oauth
+  label: Client ID
+  name: client_id
+- description: The client secret used for authentication.
+  kind: password
+  label: Client Secret
+  name: client_secret
+- description: This is the URL that the user will be redirected to after they authorize
+    your app for the requested scopes
+  documentation: https://developers.hubspot.com/docs/api/working-with-oauth
+  label: Redirect URI
+  name: redirect_uri
+- description: This is the refresh token provided by HubSpot.
+  kind: password
+  label: Refresh Token
+  name: refresh_token
+- description: The seconds until the token expires.
+  kind: integer
+  label: Expires In
+  name: expires_in
+- description: The time to start syncing data from if no existing state is found.
+  label: Start Date
+  name: start_date
+settings_group_validation:
+- - client_id
+  - client_secret
+  - redirect_uri
+  - refresh_token
+variant: hotgluexyz
