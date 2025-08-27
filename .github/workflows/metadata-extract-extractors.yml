@@ -93,7 +93,7 @@ jobs:
       id: extract_313
       run: hub-utils extract-sdk-metadata-to-s3 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" $(pwd)/extract_data --python=python3.13
       continue-on-error: true
-    
+
     - name: Extract Metadata (3.12)
       if: always() && (steps.extract_313.outcome == 'failure')
       id: extract_312

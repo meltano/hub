@@ -38,7 +38,7 @@ jobs:
            echo "airbyte_matrix=$matrixStringifiedObject" >> $GITHUB_OUTPUT
 
   metadata_extract_airbyte_p1:
-    name: Airbyte - Part 1 Metadata Extract 
+    name: Airbyte - Part 1 Metadata Extract
     needs: get_variants_list
     runs-on: ubuntu-latest
     strategy:
