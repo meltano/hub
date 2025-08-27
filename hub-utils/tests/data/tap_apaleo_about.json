@@ -1,39 +1,23 @@
 {
-    "name": "tap-apaleo",
-    "description": "Apaleo tap class.",
-    "version": "0.0.1",
-    "sdk_version": "0.3.18",
-    "capabilities": [
-        "catalog",
-        "state",
-        "discover",
-        "about",
-        "stream-maps"
-    ],
-    "settings": {
-        "type": "object",
-        "properties": {
-        "client_id": {
-            "type": [
-            "string"
-            ]
-        },
-        "client_secret": {
-            "type": [
-            "string"
-            ]
-        },
-        "start_date": {
-            "type": [
-            "string"
-            ],
-            "format": "date-time"
-        }
-        },
-        "required": [
-            "client_id",
-            "client_secret",
-            "start_date"
-        ]
-    }
+  "name": "tap-apaleo",
+  "description": "Apaleo tap class.",
+  "version": "0.0.1",
+  "sdk_version": "0.3.18",
+  "capabilities": ["catalog", "state", "discover", "about", "stream-maps"],
+  "settings": {
+    "type": "object",
+    "properties": {
+      "client_id": {
+        "type": ["string"]
+      },
+      "client_secret": {
+        "type": ["string"]
+      },
+      "start_date": {
+        "type": ["string"],
+        "format": "date-time"
+      }
+    },
+    "required": ["client_id", "client_secret", "start_date"]
+  }
 }

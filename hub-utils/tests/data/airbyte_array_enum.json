@@ -1,42 +1,39 @@
 {
-    "name": "tap-airbyte",
-    "description": null,
-    "version": "0.0.1",
-    "sdk_version": "0.14.0",
-    "capabilities": [
-      "catalog",
-      "state",
-      "discover",
-      "about",
-      "stream-maps",
-      "schema-flattening"
-    ],
-    "settings": {
-      "type": "object",
-      "properties": {
-        "connector_config": {
-          "$schema": "http://json-schema.org/draft-07/schema#",
-          "description": "Adjust reporting API connector.",
-          "properties": {
-            "metrics": {
-              "description": "Select at least one metric to query.",
-              "items": {
-                "enum": [
-                  "network_cost",
-                  "network_cost_diff"
-                ],
-                "type": "string"
-              },
-              "minItems": 1,
-              "order": 2,
-              "title": "Metrics to ingest",
-              "type": "array",
-              "uniqueItems": true
-            }
-          },
-          "title": "Adjust Spec",
-          "type": "object"
-        }
+  "name": "tap-airbyte",
+  "description": null,
+  "version": "0.0.1",
+  "sdk_version": "0.14.0",
+  "capabilities": [
+    "catalog",
+    "state",
+    "discover",
+    "about",
+    "stream-maps",
+    "schema-flattening"
+  ],
+  "settings": {
+    "type": "object",
+    "properties": {
+      "connector_config": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "description": "Adjust reporting API connector.",
+        "properties": {
+          "metrics": {
+            "description": "Select at least one metric to query.",
+            "items": {
+              "enum": ["network_cost", "network_cost_diff"],
+              "type": "string"
+            },
+            "minItems": 1,
+            "order": 2,
+            "title": "Metrics to ingest",
+            "type": "array",
+            "uniqueItems": true
+          }
+        },
+        "title": "Adjust Spec",
+        "type": "object"
       }
     }
   }
+}

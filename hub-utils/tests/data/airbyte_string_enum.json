@@ -1,36 +1,33 @@
 {
-    "name": "tap-airbyte",
-    "description": null,
-    "version": "0.0.1",
-    "sdk_version": "0.14.0",
-    "capabilities": [
-      "catalog",
-      "state",
-      "discover",
-      "about",
-      "stream-maps",
-      "schema-flattening"
-    ],
-    "settings": {
-      "type": "object",
-      "properties": {
-        "connector_config": {
-          "$schema": "http://json-schema.org/draft-07/schema#",
-          "description": "Adjust reporting API connector.",
-          "properties": {
-            "region": {
-              "title": "AWS Region",
-              "description": "AWS Region of the SQS Queue",
-              "type": "string",
-              "enum": [
-                "us-east-1",
-                "us-east-2"
-              ]
-            }
-          },
-          "title": "Adjust Spec",
-          "type": "object"
-        }
+  "name": "tap-airbyte",
+  "description": null,
+  "version": "0.0.1",
+  "sdk_version": "0.14.0",
+  "capabilities": [
+    "catalog",
+    "state",
+    "discover",
+    "about",
+    "stream-maps",
+    "schema-flattening"
+  ],
+  "settings": {
+    "type": "object",
+    "properties": {
+      "connector_config": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "description": "Adjust reporting API connector.",
+        "properties": {
+          "region": {
+            "title": "AWS Region",
+            "description": "AWS Region of the SQS Queue",
+            "type": "string",
+            "enum": ["us-east-1", "us-east-2"]
+          }
+        },
+        "title": "Adjust Spec",
+        "type": "object"
       }
     }
   }
+}

@@ -40,22 +40,22 @@ $ hub-utils [OPTIONS] COMMAND [ARGS]...
 
 **Options**:
 
-* `--install-completion`: Install completion for the current shell.
-* `--show-completion`: Show completion for the current shell, to copy it or customize the installation.
-* `--help`: Show this message and exit.
+- `--install-completion`: Install completion for the current shell.
+- `--show-completion`: Show completion for the current shell, to copy it or customize the installation.
+- `--help`: Show this message and exit.
 
 **Commands**:
 
-* `add`: Add a new tap or target to the hub.
-* `download-metadata`: NOTE: USED FOR...
-* `extract-sdk-metadata-to-s3`: NOTE: USED FOR...
-* `get-variant-names`: NOTE: USED FOR...
-* `merge-metadata`: NOTE: USED FOR...
-* `sdk-variants-as-csv`: Generate a `sdk.csv` CSV file in the...
-* `update-definition`: Update the definition of a tap or target...
-* `update-quality`: Update the quality of all taps and targets...
-* `upload-airbyte`: NOTE: USED FOR...
-* `yamllint`: Run yamllint on all yamls in the hub or a...
+- `add`: Add a new tap or target to the hub.
+- `download-metadata`: NOTE: USED FOR...
+- `extract-sdk-metadata-to-s3`: NOTE: USED FOR...
+- `get-variant-names`: NOTE: USED FOR...
+- `merge-metadata`: NOTE: USED FOR...
+- `sdk-variants-as-csv`: Generate a `sdk.csv` CSV file in the...
+- `update-definition`: Update the definition of a tap or target...
+- `update-quality`: Update the quality of all taps and targets...
+- `upload-airbyte`: NOTE: USED FOR...
+- `yamllint`: Run yamllint on all yamls in the hub or a...
 
 ## `hub-utils add`
 
@@ -75,9 +75,9 @@ $ hub-utils add [OPTIONS]
 
 **Options**:
 
-* `--repo-url TEXT`
-* `--auto-accept / --no-auto-accept`: [default: no-auto-accept]
-* `--help`: Show this message and exit.
+- `--repo-url TEXT`
+- `--auto-accept / --no-auto-accept`: [default: no-auto-accept]
+- `--help`: Show this message and exit.
 
 ## `hub-utils download-metadata`
 
@@ -93,13 +93,13 @@ $ hub-utils download-metadata [OPTIONS] LOCAL_PATH
 
 **Arguments**:
 
-* `LOCAL_PATH`: [required]
+- `LOCAL_PATH`: [required]
 
 **Options**:
 
-* `--variant-path-list TEXT`
-* `--all-sdk / --no-all-sdk`: [default: no-all-sdk]
-* `--help`: Show this message and exit.
+- `--variant-path-list TEXT`
+- `--all-sdk / --no-all-sdk`: [default: no-all-sdk]
+- `--help`: Show this message and exit.
 
 ## `hub-utils extract-sdk-metadata-to-s3`
 
@@ -116,12 +116,12 @@ $ hub-utils extract-sdk-metadata-to-s3 [OPTIONS] VARIANT_PATH_LIST OUTPUT_DIR
 
 **Arguments**:
 
-* `VARIANT_PATH_LIST`: [required]
-* `OUTPUT_DIR`: [required]
+- `VARIANT_PATH_LIST`: [required]
+- `OUTPUT_DIR`: [required]
 
 **Options**:
 
-* `--help`: Show this message and exit.
+- `--help`: Show this message and exit.
 
 ## `hub-utils get-variant-names`
 
@@ -139,13 +139,13 @@ $ hub-utils get-variant-names [OPTIONS] HUB_ROOT
 
 **Arguments**:
 
-* `HUB_ROOT`: [required]
+- `HUB_ROOT`: [required]
 
 **Options**:
 
-* `--metadata-type TEXT`: [default: sdk]
-* `--plugin-type TEXT`
-* `--help`: Show this message and exit.
+- `--metadata-type TEXT`: [default: sdk]
+- `--plugin-type TEXT`
+- `--help`: Show this message and exit.
 
 ## `hub-utils merge-metadata`
 
@@ -162,13 +162,13 @@ $ hub-utils merge-metadata [OPTIONS] HUB_ROOT LOCAL_PATH
 
 **Arguments**:
 
-* `HUB_ROOT`: [required]
-* `LOCAL_PATH`: [required]
+- `HUB_ROOT`: [required]
+- `LOCAL_PATH`: [required]
 
 **Options**:
 
-* `--variant-path-list TEXT`
-* `--help`: Show this message and exit.
+- `--variant-path-list TEXT`
+- `--help`: Show this message and exit.
 
 ## `hub-utils sdk-variants-as-csv`
 
@@ -184,7 +184,7 @@ $ hub-utils sdk-variants-as-csv [OPTIONS]
 
 **Options**:
 
-* `--help`: Show this message and exit.
+- `--help`: Show this message and exit.
 
 ## `hub-utils update-definition`
 
@@ -192,9 +192,10 @@ Update the definition of a tap or target in the hub.
 
 Similar to the `add` command it will try to auto update using SDK settings or prompt
 you for input. When merging it will use the following rules:
+
 - if SDK setting description is empty it prefers the existing description
 - if the existing description longer than the scraped setting and has new lines
-    then its likely manually overridden on the hub so prefer that one.
+  then its likely manually overridden on the hub so prefer that one.
 
 **Usage**:
 
@@ -204,10 +205,10 @@ $ hub-utils update-definition [OPTIONS]
 
 **Options**:
 
-* `--repo-url TEXT`
-* `--plugin-name TEXT`
-* `--auto-accept / --no-auto-accept`: [default: no-auto-accept]
-* `--help`: Show this message and exit.
+- `--repo-url TEXT`
+- `--plugin-name TEXT`
+- `--auto-accept / --no-auto-accept`: [default: no-auto-accept]
+- `--help`: Show this message and exit.
 
 ## `hub-utils update-quality`
 
@@ -225,11 +226,11 @@ $ hub-utils update-quality [OPTIONS] METRICS_FILE_PATH
 
 **Arguments**:
 
-* `METRICS_FILE_PATH`: [required]
+- `METRICS_FILE_PATH`: [required]
 
 **Options**:
 
-* `--help`: Show this message and exit.
+- `--help`: Show this message and exit.
 
 ## `hub-utils upload-airbyte`
 
@@ -246,12 +247,12 @@ $ hub-utils upload-airbyte [OPTIONS] VARIANT_PATH_LIST ARTIFACT_NAME
 
 **Arguments**:
 
-* `VARIANT_PATH_LIST`: [required]
-* `ARTIFACT_NAME`: [required]
+- `VARIANT_PATH_LIST`: [required]
+- `ARTIFACT_NAME`: [required]
 
 **Options**:
 
-* `--help`: Show this message and exit.
+- `--help`: Show this message and exit.
 
 ## `hub-utils yamllint`
 
@@ -265,9 +266,9 @@ $ hub-utils yamllint [OPTIONS] ACTION:{fix|lint} PATHS...
 
 **Arguments**:
 
-* `ACTION:{fix|lint}`: [required]
-* `PATHS...`: [required]
+- `ACTION:{fix|lint}`: [required]
+- `PATHS...`: [required]
 
 **Options**:
 
-* `--help`: Show this message and exit.
+- `--help`: Show this message and exit.
