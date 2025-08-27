@@ -25,7 +25,7 @@ jobs:
       - uses: astral-sh/setup-uv@d9e0f98d3fc6adb07d1e3d37f3043649ddad06a1 # v6.5.0
 
       - name: Install hub-utils
-        run: uv tool install git+https://github.com/meltano/hub-utils.git@ea19954cb5f631e045877bd696555f1d78b0b25e
+        run: uv tool install ./hub-utils
 
       - name: Get Variants List - SDK Loaders
         id: get-variants-list-sdk-loaders
@@ -62,7 +62,7 @@ jobs:
     - uses: astral-sh/setup-uv@d9e0f98d3fc6adb07d1e3d37f3043649ddad06a1 # v6.5.0
 
     - name: Install hub-utils
-      run: uv tool install git+https://github.com/meltano/hub-utils.git@ea19954cb5f631e045877bd696555f1d78b0b25e
+      run: uv tool install ./hub-utils
 
     # This starts the attempts to install and extract metadata. Since we don't
     # know what python versions are accepted we start with the latest and continue
