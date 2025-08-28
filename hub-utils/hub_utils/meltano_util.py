@@ -47,7 +47,7 @@ class MeltanoUtil:
         if not python:
             raise ValueError("Python not found in PATH")
 
-        MeltanoUtil.run_uv("venv", "--python", python, venv_path.as_posix(), check=True)
+        MeltanoUtil.run_uv("venv", "--clear", "--python", python, venv_path.as_posix(), check=True)
         MeltanoUtil.run_uv(
             "pip",
             "install",
@@ -352,6 +352,19 @@ class MeltanoUtil:
         # First collect all settings
         for settings in MeltanoUtil._traverse_schema_properties(settings_raw):
             name = settings.get("name")
+
+            # Handle stream_maps specially - add as top-level object when we encounter it
+            if name == "stream_maps":
+                stream_maps_schema = settings_raw["properties"]["stream_maps"]
+                setting_details = {
+                    "name": "stream_maps",
+                    "label": stream_maps_schema.get("title", "Stream Maps"),
+                    "description": MeltanoUtil._clean_description(stream_maps_schema.get("description", "")),
+                    "kind": "object",
+                }
+                reformatted_settings.append(setting_details)
+                continue
+
             title = settings.get("title")
             description = MeltanoUtil._handle_description(
                 MeltanoUtil._clean_description(settings.get("description")),
@@ -419,13 +432,23 @@ class MeltanoUtil:
                 MeltanoUtil._collect_nested_dependent_required(value, current_path, dependent_groups, field_sep)
 
     @staticmethod
-    def _traverse_schema_properties(schema, field_sep=".", parent_path=""):
+    def _traverse_schema_properties(schema, field_sep=".", parent_path="", skip_stream_maps_properties=False):
         fields = []
+
+        # If we're inside a stream_maps schema, don't process any properties
+        if skip_stream_maps_properties:
+            return fields
+
         for key, value in schema.get("properties", {}).items():
             val_type = value.get("type", "string")
             reqs = value.get("required", [])
-            if (val_type == "object" or "object" in val_type) and (value.get("properties") or value.get("oneOf")):
-                for subfield in MeltanoUtil._traverse_schema_properties(value):
+            if (
+                (val_type == "object" or "object" in val_type)
+                and (value.get("properties") or value.get("oneOf"))
+                and key != "stream_maps"
+            ):
+                # Add nested properties for all object types EXCEPT stream_maps
+                for subfield in MeltanoUtil._traverse_schema_properties(value, field_sep, parent_path):
                     sub_name = subfield.get("name")
                     full_name = f"{key}{field_sep}{sub_name}"
                     field = {
@@ -459,7 +482,7 @@ class MeltanoUtil:
                     }
                 )
         for item in schema.get("oneOf", []):
-            for i in MeltanoUtil._traverse_schema_properties(item):
+            for i in MeltanoUtil._traverse_schema_properties(item, field_sep, parent_path):
                 if i.get("const"):
                     i["description"] = i.get("const") or item.get("title")
                 fields.append(i)
