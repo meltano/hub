@@ -23,7 +23,7 @@ repo: https://github.com/MeltanoLabs/tap-bigquery
 settings:
 - description: Compression format to use for batch files.
   kind: options
-  label: Batch Compression Format
+  label: Batch Config Encoding Compression
   name: batch_config.encoding.compression
   options:
   - label: GZIP
@@ -32,59 +32,38 @@ settings:
     value: none
 - description: Format to use for batch files.
   kind: options
-  label: Batch Encoding Format
+  label: Batch Config Encoding Format
   name: batch_config.encoding.format
   options:
   - label: JSONL
     value: jsonl
-  - label: Parquet
-    value: parquet
 - description: Prefix to use when writing batch files.
   kind: string
-  label: Batch Storage Prefix
+  label: Batch Config Storage Prefix
   name: batch_config.storage.prefix
 - description: Root path to use when writing batch files.
   kind: string
-  label: Batch Storage Root
+  label: Batch Config Storage Root
   name: batch_config.storage.root
-- description: 'One or more LCID locale strings to produce localized output for: https://faker.readthedocs.io/en/master/#localization'
-  kind: array
-  label: Faker Locale
-  name: faker_config.locale
-- description: 'Value to seed the Faker generator for deterministic output: https://faker.readthedocs.io/en/master/#seeding-the-generator'
+- description: The path to the service account credentials file.
   kind: string
-  label: Faker Seed
-  name: faker_config.seed
+  label: Credentials Path
+  name: credentials_path
 - description: If an array of schema names is provided, the tap will only 
-    process the specified BigQuery schemas (datasets) and ignore others. If left
-    blank, the tap automatically determines ALL available schemas.
+    process the specified BigQuery schemas and ignore others. If left blank, the
+    tap automatically determines ALL available BigQuery schemas.
   kind: array
   label: Filter Schemas
   name: filter_schemas
-- description: If an array of table names is provided, the tap will only process
-    the specified BigQuery tables and ignore others. If left blank, the tap 
-    automatically determines ALL available tables. Shell patterns are supported.
-  kind: array
-  label: Filter Tables
-  name: filter_tables
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
-  label: Enable Schema Flattening
+  label: Flattening Enabled
   name: flattening_enabled
 - description: The max depth to flatten schemas.
   kind: integer
-  label: Max Flattening Depth
+  label: Flattening Max Depth
   name: flattening_max_depth
-- description: JSON content or path to service account credentials.
-  kind: string
-  label: Google Application Credentials
-  name: google_application_credentials
-- description: An optional Google Storage Bucket, when supplied a file based 
-    extract will be used.
-  kind: string
-  label: Google Storage Bucket
-  name: google_storage_bucket
 - description: GCP Project
   kind: password
   label: Project ID
@@ -92,19 +71,13 @@ settings:
   sensitive: true
 - description: User-defined config values to be used within map expressions.
   kind: object
-  label: User Stream Map Configuration
+  label: Stream Map Config
   name: stream_map_config
 - description: Config object for stream maps capability. For more information 
     check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps
-- description: Whether to use use strings with `x-singer.decimal` format for 
-    decimals in the discovered schema. This is useful to avoid precision loss 
-    when working with large numbers.
-  kind: boolean
-  label: Use Singer Decimal
-  name: use_singer_decimal
 settings_group_validation:
 - - google_application_credentials
   - project_id

@@ -1,6 +1,5 @@
 capabilities:
 - about
-- activate-version
 - batch
 - catalog
 - discover
@@ -24,7 +23,7 @@ repo: https://github.com/MeltanoLabs/tap-pulumi-cloud
 settings:
 - description: Compression format to use for batch files.
   kind: options
-  label: Batch Compression Format
+  label: Batch Config Encoding Compression
   name: batch_config.encoding.compression
   options:
   - label: GZIP
@@ -33,7 +32,7 @@ settings:
     value: none
 - description: Format to use for batch files.
   kind: options
-  label: Batch Encoding Format
+  label: Batch Config Encoding Format
   name: batch_config.encoding.format
   options:
   - label: JSONL
@@ -42,28 +41,28 @@ settings:
     value: parquet
 - description: Prefix to use when writing batch files.
   kind: string
-  label: Batch Storage Prefix
+  label: Batch Config Storage Prefix
   name: batch_config.storage.prefix
 - description: Root path to use when writing batch files.
   kind: string
-  label: Batch Storage Root
+  label: Batch Config Storage Root
   name: batch_config.storage.root
 - description: 'One or more LCID locale strings to produce localized output for: https://faker.readthedocs.io/en/master/#localization'
   kind: array
-  label: Faker Locale
+  label: Faker Config Locale
   name: faker_config.locale
 - description: 'Value to seed the Faker generator for deterministic output: https://faker.readthedocs.io/en/master/#seeding-the-generator'
   kind: string
-  label: Faker Seed
+  label: Faker Config Seed
   name: faker_config.seed
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
-  label: Enable Schema Flattening
+  label: Flattening Enabled
   name: flattening_enabled
 - description: The max depth to flatten schemas.
   kind: integer
-  label: Max Flattening Depth
+  label: Flattening Max Depth
   name: flattening_max_depth
 - description: List of organizations to sync
   kind: array
@@ -84,7 +83,7 @@ settings:
   name: start_date
 - description: User-defined config values to be used within map expressions.
   kind: object
-  label: User Stream Map Configuration
+  label: Stream Map Config
   name: stream_map_config
 - description: Config object for stream maps capability. For more information 
     check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).

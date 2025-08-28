@@ -1,6 +1,5 @@
 capabilities:
 - about
-- activate-version
 - batch
 - catalog
 - discover
@@ -96,7 +95,7 @@ settings:
   kind: string
   label: User Agent
   name: user_agent
-  value: tap-dbt/0.15.0 Singer tap for the dbt Cloud API.
+  value: tap-dbt/0.14.0 Singer tap for the dbt Cloud API.
 settings_group_validation:
 - - account_ids
   - api_key

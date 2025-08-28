@@ -57,7 +57,7 @@ settings:
   name: location
 - description: Maximum time in minutes between state messages when records are 
     streamed in. BATCH messages are not affected by this property.
-  kind: integer
+  kind: decimal
   label: Max Batch Age
   name: max_batch_age
   value: 5.0
