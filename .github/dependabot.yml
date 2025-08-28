@@ -16,7 +16,7 @@ updates:
       artifacts:
         patterns:
           - "actions/*-load-artifact"
-  - package-ecosystem: "pip"
+  - package-ecosystem: "uv"
     directory: "/hub-utils"
     schedule:
       interval: "weekly"
