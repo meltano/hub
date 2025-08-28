@@ -443,7 +443,7 @@ class Utilities:
                 settings,
                 settings_group_validation,
                 capabilities,
-            ) = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict, enforce_desc=True)
+            ) = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict, enforce_desc=not self.auto_accept)
         else:
             setting_list = self._compile_settings()
             settings, settings_group_validation = self._build_settings(setting_list)
