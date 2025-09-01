@@ -55,6 +55,17 @@ settings:
   kind: object
   label: Stream Maps
   name: stream_maps
+- description: 'Units to use: standard (default), metric or imperial'
+  kind: options
+  label: Weather Units
+  name: weather_units
+  options:
+  - label: Standard
+    value: standard
+  - label: Metric
+    value: metric
+  - label: Imperial
+    value: imperial
 settings_group_validation:
 - - api_key
   - current_weather_city_name

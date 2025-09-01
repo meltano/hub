@@ -25,7 +25,7 @@ settings:
   name: api_key
   sensitive: true
 - description: Brand IDs to query for
-  kind: integer
+  kind: decimal
   label: Brand ID
   name: brand_id
 - description: End date to collect metrics for

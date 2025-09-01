@@ -21,6 +21,12 @@ pip_url: git+https://github.com/BuzzCutNorman/tap-mssql.git
 quality: gold
 repo: https://github.com/BuzzCutNorman/tap-mssql
 settings:
+- description: "Obtain Azure Access Tokens when connecting: 'True', 'False'"
+  kind: password
+  label: Azure Access Tokens
+  name: azure_access_tokens
+  sensitive: true
+  value: 'False'
 - description: Currently the only compression options is gzip
   kind: string
   label: Batch Config Encoding Compression

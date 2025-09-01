@@ -34,6 +34,11 @@ settings:
   kind: string
   label: Company
   name: company
+- description: ''
+  kind: boolean
+  label: Discover All Tables
+  name: discover_all_tables
+  value: false
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -71,6 +76,10 @@ settings:
   kind: string
   label: Subdomain
   name: subdomain
+- description: ''
+  kind: string
+  label: Tenant
+  name: tenant
 settings_group_validation:
 - - client_id
   - client_secret
