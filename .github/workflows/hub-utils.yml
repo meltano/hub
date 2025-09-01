@@ -2,7 +2,21 @@
 
 name: Test hub_utils
 
-on: [push]
+on:
+  push:
+    branches: [main]
+    paths:
+    - pyproject.toml
+    - uv.lock
+    - hub-utils/**
+  pull_request:
+    paths:
+    - pyproject.toml
+    - uv.lock
+    - hub-utils/**
+
+env:
+  FORCE_COLOR: "1"
 
 jobs:
   pytest:
