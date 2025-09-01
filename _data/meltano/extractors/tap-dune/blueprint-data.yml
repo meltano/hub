@@ -1,5 +1,6 @@
 capabilities:
 - about
+- activate-version
 - batch
 - catalog
 - discover
@@ -34,7 +35,7 @@ settings:
   value: https://api.dune.com/api/v1
 - description: Compression format to use for batch files.
   kind: options
-  label: Batch Config Encoding Compression
+  label: Batch Compression Format
   name: batch_config.encoding.compression
   options:
   - label: GZIP
@@ -43,7 +44,7 @@ settings:
     value: none
 - description: Format to use for batch files.
   kind: options
-  label: Batch Config Encoding Format
+  label: Batch Encoding Format
   name: batch_config.encoding.format
   options:
   - label: JSONL
@@ -52,28 +53,28 @@ settings:
     value: parquet
 - description: Prefix to use when writing batch files.
   kind: string
-  label: Batch Config Storage Prefix
+  label: Batch Storage Prefix
   name: batch_config.storage.prefix
 - description: Root path to use when writing batch files.
   kind: string
-  label: Batch Config Storage Root
+  label: Batch Storage Root
   name: batch_config.storage.root
 - description: 'One or more LCID locale strings to produce localized output for: https://faker.readthedocs.io/en/master/#localization'
   kind: array
-  label: Faker Config Locale
+  label: Faker Locale
   name: faker_config.locale
 - description: 'Value to seed the Faker generator for deterministic output: https://faker.readthedocs.io/en/master/#seeding-the-generator'
   kind: string
-  label: Faker Config Seed
+  label: Faker Seed
   name: faker_config.seed
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
-  label: Flattening Enabled
+  label: Enable Schema Flattening
   name: flattening_enabled
 - description: The max depth to flatten schemas.
   kind: integer
-  label: Flattening Max Depth
+  label: Max Flattening Depth
   name: flattening_max_depth
 - description: "The performance engine tier: 'medium' (10 credits) or 'large' (20
     credits)"
@@ -86,6 +87,11 @@ settings:
   - label: Large
     value: large
   value: medium
+- description: List of fields that uniquely identify a record. These will be 
+    advertised as key properties to targets for upsert/dedup.
+  kind: array
+  label: Primary Keys
+  name: primary_keys
 - description: The ID of the Dune query to execute
   kind: password
   label: Query ID
@@ -101,7 +107,7 @@ settings:
   name: schema.properties
 - description: User-defined config values to be used within map expressions.
   kind: object
-  label: Stream Map Config
+  label: User Stream Map Configuration
   name: stream_map_config
 - description: Config object for stream maps capability. For more information 
     check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).

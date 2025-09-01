@@ -2,7 +2,6 @@ capabilities:
 - about
 - schema-flattening
 - stream-maps
-- validate-records
 description: DuckLake is an integrated data lake and catalog format
 domain_url: https://ducklake.select
 executable: target-ducklake
@@ -34,6 +33,20 @@ settings:
   kind: integer
   label: Batch Size Rows
   name: batch_size_rows
+- description: 'Type of catalog database: postgres, sqlite, mysql, or duckdb'
+  kind: options
+  label: Catalog Type
+  name: catalog_type
+  options:
+  - label: Postgres
+    value: postgres
+  - label: Sqlite
+    value: sqlite
+  - label: Mysql
+    value: mysql
+  - label: Duckdb
+    value: duckdb
+  value: postgres
 - description: URL connection string to your catalog database
   kind: string
   label: Catalog URL
@@ -58,7 +71,7 @@ settings:
   name: faker_config.seed
 - description: Maximum depth for flattening nested fields. Set to 0 to disable 
     flattening.
-  kind: integer
+  kind: string
   label: Flattening Max Level
   name: flatten_max_level
   value: 0
@@ -88,14 +101,25 @@ settings:
     value: overwrite
   value: append-only
 - description: Maximum number of records to process in a single batch
-  kind: integer
+  kind: string
   label: Max Batch Size
   name: max_batch_size
   value: 10000
+- description: Schema name in the catalog database to use for Ducklakemetadata 
+    tables
+  kind: string
+  label: Meta Schema
+  name: meta_schema
+- description: When True, truncates the target table before inserting records if
+    no primary keys are defined in the stream.
+  kind: string
+  label: Overwrite If No Primary Key
+  name: overwrite_if_no_pk
+  value: false
 - description: Object mapping stream names to arrays of partition column 
     definitions. Each stream key maps directly to an array of column 
-    definitions.
-  kind: object
+    definitions. Can be provided as a JSON string or object.
+  kind: string
   label: Partition Fields
   name: partition_fields
 - description: Public key for private GCS and S3 storage authentication 
@@ -148,10 +172,11 @@ settings:
   name: temp_file_dir
   value: temp_files/
 - description: Whether to validate the schema of the incoming streams.
-  kind: boolean
+  kind: password
   label: Validate Records
   name: validate_records
-  value: true
+  sensitive: true
+  value: false
 settings_group_validation: []
 settings_preamble: ''
 usage: ''

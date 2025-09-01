@@ -33,7 +33,7 @@ settings:
   name: environment
   value: production
 - description: Page size for pagination
-  kind: integer
+  kind: decimal
   label: Page Size
   name: page_size
   value: 10
