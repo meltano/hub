@@ -71,7 +71,7 @@ settings:
   name: stream_name_prefix
   value: tap_jaffle_shop-raw_
 - description: The number of years to simulate data for.
-  kind: decimal
+  kind: integer
   label: Years
   name: years
   value: 1
