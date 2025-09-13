@@ -21,7 +21,8 @@
                     "activate-version",
                     "batch",
                     "test",
-                    "log-based"
+                    "log-based",
+                    "structured-logging"
                 ]
             }
         },

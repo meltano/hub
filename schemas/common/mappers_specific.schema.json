@@ -11,7 +11,8 @@
             "items": {
                 "type": "string",
                 "enum": [
-                    "stream-maps"
+                    "stream-maps",
+                    "structured-logging"
                 ]
             }
         },
