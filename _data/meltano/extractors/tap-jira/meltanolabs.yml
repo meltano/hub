@@ -105,10 +105,16 @@ settings:
   kind: object
   label: Stream Maps
   name: stream_maps
+- description: A comma-separated list of fields to include
+  kind: string
+  label: Fields
+  name: stream_options.issues.fields
+  value: '*all'
 - description: A JQL query to filter issues
   kind: string
   label: JQL Query
   name: stream_options.issues.jql
+  value: id != null
 settings_group_validation:
 - - auth.flow
   - auth.password
