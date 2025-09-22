@@ -10,7 +10,7 @@ dependencies = [
     "jsonpath-ng>=1.7.0,<2",
     "requests>=2.32.4,<3",
     "ruamel-yaml>=0.18.14,<0.19",
-    "typer>=0.16.1,<0.17",
+    "typer>=0.19.0,<0.20",
     "uv>=0.8.11,<0.9",
     "yamllint>=1.37.1,<2",
 ]
