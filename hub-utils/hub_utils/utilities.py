@@ -301,8 +301,8 @@ class Utilities:
         if executable:
             plugin_def["executable"] = executable
 
-        # Add log_parser property if plugin supports structured logging
-        if "structured-logging" in capabilities:
+        # Add log_parser property if plugin supports structured logging and is SDK-based
+        if "structured-logging" in capabilities and "meltano_sdk" in keywords:
             plugin_def["log_parser"] = "singer-sdk"
 
         return plugin_def
