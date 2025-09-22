@@ -130,6 +130,18 @@ settings:
   kind: object
   label: Stream Maps
   name: stream_maps
+- description: Snowflake timestamp type to use for date-time properties.
+  kind: options
+  label: Timestamp Type
+  name: timestamp_type
+  options:
+  - label: Timestamp Tz
+    value: TIMESTAMP_TZ
+  - label: Timestamp Ltz
+    value: TIMESTAMP_LTZ
+  - label: Timestamp Ntz
+    value: TIMESTAMP_NTZ
+  value: TIMESTAMP_NTZ
 - description: Whether to use SSO authentication using an external browser.
   kind: boolean
   label: Use Browser Authentication
