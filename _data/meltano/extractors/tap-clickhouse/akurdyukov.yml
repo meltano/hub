@@ -48,6 +48,11 @@ settings:
   kind: string
   label: Batch Storage Root
   name: batch_config.storage.root
+- description: Rows to fetch per batch
+  kind: integer
+  label: Batch Size
+  name: batch_size
+  value: 10000
 - description: Database name
   kind: string
   label: Database
