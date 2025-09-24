@@ -66,6 +66,7 @@ ALLOWED_CAPABILITIES_TAP = {
     "schema-flattening",
     "test",
     "log-based",
+    "structured-logging",
 }
 
 ALLOWED_CAPABILITIES_TARGET = {
@@ -78,6 +79,7 @@ ALLOWED_CAPABILITIES_TARGET = {
     "soft-delete",
     "hard-delete",
     "datatype-failsafe",
+    "structured-logging",
 }
 
 
@@ -298,6 +300,11 @@ class Utilities:
         }
         if executable:
             plugin_def["executable"] = executable
+
+        # Add log_parser property if plugin supports structured logging and is SDK-based
+        if "structured-logging" in capabilities and "meltano_sdk" in keywords:
+            plugin_def["log_parser"] = "singer-sdk"
+
         return plugin_def
 
     def _apply_overrides(self, definition: dict[str, Any]) -> dict[str, Any]:

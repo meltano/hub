@@ -4,6 +4,7 @@ import os
 import pytest
 
 from hub_utils.meltano_util import MeltanoUtil
+from hub_utils.utilities import Utilities
 
 
 def _read_data(file_name):
@@ -835,3 +836,185 @@ def test_sdk_about_parsing_faker_configs():
             "kind": "array",
         },
     ]
+
+
+def test_log_parser_property_with_structured_logging():
+    """Test that log_parser property is added when structured-logging capability is present."""
+    # Create mock SDK about data with structured-logging capability
+    sdk_about_dict = {
+        "name": "tap-example",
+        "capabilities": ["catalog", "discover", "state", "structured-logging"],
+        "settings": {
+            "properties": {
+                "api_key": {
+                    "type": "string",
+                    "title": "API Key",
+                    "description": "Your API key"
+                }
+            },
+            "required": ["api_key"]
+        }
+    }
+
+    # Parse SDK about info
+    settings, validation_groups, capabilities = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
+
+    # Create plugin definition using utilities
+    utils = Utilities(auto_accept=True)
+    plugin_def = utils._boilerplate_definition(
+        repo_url="https://github.com/example/tap-example",
+        plugin_type="extractors",
+        settings=settings,
+        settings_group_validation=validation_groups,
+        name="tap-example",
+        namespace="tap_example",
+        pip_url="tap-example",
+        keywords=["example", "api", "meltano_sdk"],
+        capabilities=capabilities,
+        executable="tap-example",
+        variant="meltanolabs"
+    )
+
+    # Verify log_parser property is added
+    assert "log_parser" in plugin_def
+    assert plugin_def["log_parser"] == "singer-sdk"
+    assert "structured-logging" in plugin_def["capabilities"]
+
+
+def test_log_parser_property_without_structured_logging():
+    """Test that log_parser property is NOT added when structured-logging capability is absent."""
+    # Create mock SDK about data WITHOUT structured-logging capability
+    sdk_about_dict = {
+        "name": "tap-legacy",
+        "capabilities": ["catalog", "discover", "state"],
+        "settings": {
+            "properties": {
+                "api_key": {
+                    "type": "string",
+                    "title": "API Key",
+                    "description": "Your API key"
+                }
+            },
+            "required": ["api_key"]
+        }
+    }
+
+    # Parse SDK about info
+    settings, validation_groups, capabilities = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
+
+    # Create plugin definition using utilities
+    utils = Utilities(auto_accept=True)
+    plugin_def = utils._boilerplate_definition(
+        repo_url="https://github.com/example/tap-legacy",
+        plugin_type="extractors",
+        settings=settings,
+        settings_group_validation=validation_groups,
+        name="tap-legacy",
+        namespace="tap_legacy",
+        pip_url="tap-legacy",
+        keywords=["legacy"],
+        capabilities=capabilities,
+        executable="tap-legacy",
+        variant="community"
+    )
+
+    # Verify log_parser property is NOT added
+    assert "log_parser" not in plugin_def
+    assert "structured-logging" not in plugin_def["capabilities"]
+
+
+def test_log_parser_property_with_mixed_capabilities():
+    """Test log_parser property with plugin that has many capabilities including structured-logging."""
+    # Create mock SDK about data with many capabilities including structured-logging
+    sdk_about_dict = {
+        "name": "tap-comprehensive",
+        "capabilities": [
+            "catalog",
+            "discover",
+            "state",
+            "about",
+            "stream-maps",
+            "schema-flattening",
+            "batch",
+            "structured-logging"
+        ],
+        "settings": {
+            "properties": {
+                "database_url": {
+                    "type": "string",
+                    "title": "Database URL",
+                    "description": "Database connection URL"
+                }
+            },
+            "required": ["database_url"]
+        }
+    }
+
+    # Parse SDK about info
+    settings, validation_groups, capabilities = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
+
+    # Create plugin definition using utilities
+    utils = Utilities(auto_accept=True)
+    plugin_def = utils._boilerplate_definition(
+        repo_url="https://github.com/example/tap-comprehensive",
+        plugin_type="extractors",
+        settings=settings,
+        settings_group_validation=validation_groups,
+        name="tap-comprehensive",
+        namespace="tap_comprehensive",
+        pip_url="tap-comprehensive",
+        keywords=["comprehensive", "database", "meltano_sdk"],
+        capabilities=capabilities,
+        executable="tap-comprehensive",
+        variant="meltanolabs"
+    )
+
+    # Verify log_parser property is added and all capabilities are preserved
+    assert "log_parser" in plugin_def
+    assert plugin_def["log_parser"] == "singer-sdk"
+    assert "structured-logging" in plugin_def["capabilities"]
+    assert len(plugin_def["capabilities"]) == 8  # All original capabilities preserved
+    assert set(plugin_def["capabilities"]) == set(sdk_about_dict["capabilities"])
+
+
+def test_log_parser_property_non_sdk_with_structured_logging():
+    """Test that log_parser property is NOT added for non-SDK plugin with structured-logging capability."""
+    # Create mock SDK about data with structured-logging capability but no SDK keyword
+    sdk_about_dict = {
+        "name": "tap-non-sdk",
+        "capabilities": ["catalog", "discover", "state", "structured-logging"],
+        "settings": {
+            "properties": {
+                "config_file": {
+                    "type": "string",
+                    "title": "Config File",
+                    "description": "Path to configuration file"
+                }
+            },
+            "required": ["config_file"]
+        }
+    }
+
+    # Parse SDK about info
+    settings, validation_groups, capabilities = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
+
+    # Create plugin definition using utilities (without meltano_sdk keyword)
+    utils = Utilities(auto_accept=True)
+    plugin_def = utils._boilerplate_definition(
+        repo_url="https://github.com/example/tap-non-sdk",
+        plugin_type="extractors",
+        settings=settings,
+        settings_group_validation=validation_groups,
+        name="tap-non-sdk",
+        namespace="tap_non_sdk",
+        pip_url="tap-non-sdk",
+        keywords=["legacy", "non-sdk"],  # No meltano_sdk keyword
+        capabilities=capabilities,
+        executable="tap-non-sdk",
+        variant="community"
+    )
+
+    # Verify log_parser property is NOT added even though structured-logging is present
+    assert "log_parser" not in plugin_def
+    assert "structured-logging" in plugin_def["capabilities"]
+    assert "meltano_sdk" not in plugin_def["keywords"]
