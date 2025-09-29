@@ -71,7 +71,7 @@ settings:
   label: Max Flattening Depth
   name: flattening_max_depth
 - description: Earliest Unix timestamp to get data from
-  kind: integer
+  kind: decimal
   label: Start Date
   name: start_date
 - description: User-defined config values to be used within map expressions.

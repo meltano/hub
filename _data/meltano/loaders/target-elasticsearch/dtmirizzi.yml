@@ -139,12 +139,12 @@ settings:
   name: password
   sensitive: true
 - description: Port use to connect to elasticsearch
-  kind: integer
+  kind: decimal
   label: Port
   name: port
   value: 9200
 - description: Request timeout in seconds
-  kind: integer
+  kind: decimal
   label: Request Timeout
   name: request_timeout
   value: 10
