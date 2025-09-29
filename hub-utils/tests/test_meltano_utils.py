@@ -845,15 +845,9 @@ def test_log_parser_property_with_structured_logging():
         "name": "tap-example",
         "capabilities": ["catalog", "discover", "state", "structured-logging"],
         "settings": {
-            "properties": {
-                "api_key": {
-                    "type": "string",
-                    "title": "API Key",
-                    "description": "Your API key"
-                }
-            },
-            "required": ["api_key"]
-        }
+            "properties": {"api_key": {"type": "string", "title": "API Key", "description": "Your API key"}},
+            "required": ["api_key"],
+        },
     }
 
     # Parse SDK about info
@@ -872,7 +866,7 @@ def test_log_parser_property_with_structured_logging():
         keywords=["example", "api", "meltano_sdk"],
         capabilities=capabilities,
         executable="tap-example",
-        variant="meltanolabs"
+        variant="meltanolabs",
     )
 
     # Verify log_parser property is added
@@ -888,15 +882,9 @@ def test_log_parser_property_without_structured_logging():
         "name": "tap-legacy",
         "capabilities": ["catalog", "discover", "state"],
         "settings": {
-            "properties": {
-                "api_key": {
-                    "type": "string",
-                    "title": "API Key",
-                    "description": "Your API key"
-                }
-            },
-            "required": ["api_key"]
-        }
+            "properties": {"api_key": {"type": "string", "title": "API Key", "description": "Your API key"}},
+            "required": ["api_key"],
+        },
     }
 
     # Parse SDK about info
@@ -915,7 +903,7 @@ def test_log_parser_property_without_structured_logging():
         keywords=["legacy"],
         capabilities=capabilities,
         executable="tap-legacy",
-        variant="community"
+        variant="community",
     )
 
     # Verify log_parser property is NOT added
@@ -936,18 +924,14 @@ def test_log_parser_property_with_mixed_capabilities():
             "stream-maps",
             "schema-flattening",
             "batch",
-            "structured-logging"
+            "structured-logging",
         ],
         "settings": {
             "properties": {
-                "database_url": {
-                    "type": "string",
-                    "title": "Database URL",
-                    "description": "Database connection URL"
-                }
+                "database_url": {"type": "string", "title": "Database URL", "description": "Database connection URL"}
             },
-            "required": ["database_url"]
-        }
+            "required": ["database_url"],
+        },
     }
 
     # Parse SDK about info
@@ -966,7 +950,7 @@ def test_log_parser_property_with_mixed_capabilities():
         keywords=["comprehensive", "database", "meltano_sdk"],
         capabilities=capabilities,
         executable="tap-comprehensive",
-        variant="meltanolabs"
+        variant="meltanolabs",
     )
 
     # Verify log_parser property is added and all capabilities are preserved
@@ -985,14 +969,10 @@ def test_log_parser_property_non_sdk_with_structured_logging():
         "capabilities": ["catalog", "discover", "state", "structured-logging"],
         "settings": {
             "properties": {
-                "config_file": {
-                    "type": "string",
-                    "title": "Config File",
-                    "description": "Path to configuration file"
-                }
+                "config_file": {"type": "string", "title": "Config File", "description": "Path to configuration file"}
             },
-            "required": ["config_file"]
-        }
+            "required": ["config_file"],
+        },
     }
 
     # Parse SDK about info
@@ -1011,7 +991,7 @@ def test_log_parser_property_non_sdk_with_structured_logging():
         keywords=["legacy", "non-sdk"],  # No meltano_sdk keyword
         capabilities=capabilities,
         executable="tap-non-sdk",
-        variant="community"
+        variant="community",
     )
 
     # Verify log_parser property is NOT added even though structured-logging is present
