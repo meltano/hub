@@ -19,7 +19,7 @@ quality: silver
 repo: https://github.com/GtheSheep/tap-tvsquared
 settings:
 - description: Number for your account API, i.e. https://api-xx.tvsquared.com
-  kind: decimal
+  kind: integer
   label: API Number
   name: api_number
 - description: "'True' to enable schema flattening and automatically expand nested
