@@ -76,11 +76,20 @@ settings:
   kind: integer
   label: Max Flattening Depth
   name: flattening_max_depth
-- description: The organisation id in your apple search ads.
+- description: The organisation that you want to sync. Superseded by `org_ids` 
+    if that is set.
   kind: password
   label: Org ID
   name: org_id
   sensitive: true
+- description: The organisations that you want to sync. The client_ids and 
+    client_secrets must be mapped to `TAP_APPLE_SEARCH_ADS_CLIENT_ID__<org_id>` 
+    and `TAP_APPLE_SEARCH_ADS_CLIENT_SECRET__<org_id>` environment variables 
+    respectively. If you are just syncing one organisation, you can use the 
+    standard env variables or the config values.
+  kind: array
+  label: Org IDs
+  name: org_ids
 - description: The granularity of reporting streams. One of HOURLY, DAILY, 
     WEEKLY, MONTHLY.
   kind: options

@@ -84,22 +84,19 @@ settings:
   kind: integer
   label: Max Flattening Depth
   name: flattening_max_depth
-- description: The method to use when loading data into the destination. 
-    `append-only` will always write all input records whether that records 
-    already exists or not. `upsert` will update existing records and insert new 
-    records. `overwrite` will delete all existing records and insert all input 
-    records.
+- description: 'Method to use for loading data into the target table: append, merge,
+    or overwrite'
   kind: options
   label: Load Method
   name: load_method
   options:
-  - label: Append Only
-    value: append-only
-  - label: Upsert
-    value: upsert
+  - label: Append
+    value: append
+  - label: Merge
+    value: merge
   - label: Overwrite
     value: overwrite
-  value: append-only
+  value: merge
 - description: Maximum number of records to process in a single batch
   kind: string
   label: Max Batch Size
@@ -111,7 +108,7 @@ settings:
   label: Meta Schema
   name: meta_schema
 - description: When True, truncates the target table before inserting records if
-    no primary keys are defined in the stream.
+    no primary keys are defined in the stream. Overrides load_method.
   kind: string
   label: Overwrite If No Primary Key
   name: overwrite_if_no_pk
