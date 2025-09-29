@@ -243,7 +243,9 @@ class MeltanoUtil:
                 return "options", option_parsed
             return "string", None
         if kind == "number":
-            return "decimal", None
+            # TODO: Use decimal instead of integer
+            # return "decimal", None
+            return "integer", None
         # TODO: Meltano doesnt support array enums as of today
         # if kind == 'array':
         #     enum = settings.get('items', {}).get('enum')
