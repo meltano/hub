@@ -45,7 +45,7 @@ jobs:
     steps:
     - name: Add 👀 reaction
       if: github.event.inputs.from-slash-command == 'true'
-      uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
+      uses: peter-evans/create-or-update-comment@e8674b075228eee787fea43ef493e45ece1004c9 # v5.0.0
       with:
         token: ${{ secrets.MELTYBOT_GITHUB_AUTH_TOKEN }}
         repository: ${{ github.event.inputs.repository }}
@@ -60,7 +60,7 @@ jobs:
 
     - name: Append 'starting' notification to comment
       id: create-or-update-comment
-      uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
+      uses: peter-evans/create-or-update-comment@e8674b075228eee787fea43ef493e45ece1004c9 # v5.0.0
       with:
         edit-mode: ${{ steps.initial-edit-mode.outputs.edit-mode }}
         comment-id: ${{ github.event.inputs.comment-id }}
@@ -217,7 +217,7 @@ jobs:
         echo "EOF" >> $GITHUB_ENV
 
     - name: Append summary output
-      uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
+      uses: peter-evans/create-or-update-comment@e8674b075228eee787fea43ef493e45ece1004c9 # v5.0.0
       if: always()
       with:
         comment-id: ${{ steps.create-or-update-comment.outputs.comment-id }}
@@ -228,7 +228,7 @@ jobs:
 
     - name: Add reaction (success)
       if: github.event.inputs.from-slash-command == 'true'
-      uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
+      uses: peter-evans/create-or-update-comment@e8674b075228eee787fea43ef493e45ece1004c9 # v5.0.0
       with:
         token: ${{ secrets.MELTYBOT_GITHUB_AUTH_TOKEN }}
         repository: ${{ github.event.inputs.repository }}
@@ -236,7 +236,7 @@ jobs:
         reactions: hooray
 
     - name: Add reaction (failure)
-      uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
+      uses: peter-evans/create-or-update-comment@e8674b075228eee787fea43ef493e45ece1004c9 # v5.0.0
       if: failure() && (github.event.inputs.from-slash-command == 'true')
       with:
         token: ${{ secrets.MELTYBOT_GITHUB_AUTH_TOKEN }}
