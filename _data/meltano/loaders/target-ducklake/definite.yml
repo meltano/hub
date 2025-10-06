@@ -96,7 +96,6 @@ settings:
     value: merge
   - label: Overwrite
     value: overwrite
-  value: merge
 - description: Maximum number of records to process in a single batch
   kind: string
   label: Max Batch Size
