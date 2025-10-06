@@ -86,7 +86,7 @@ settings:
   label: Max Flattening Depth
   name: flattening_max_depth
 - description: 'Delay between API requests in seconds (default: 0.1)'
-  kind: decimal
+  kind: integer
   label: Request Delay
   name: request_delay
   value: 0.1

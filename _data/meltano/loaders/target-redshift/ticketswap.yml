@@ -123,7 +123,7 @@ settings:
   kind: string
   label: Port
   name: port
-  value: '5432'
+  value: '5439'
 - description: Whether to process `ACTIVATE_VERSION` messages.
   kind: boolean
   label: Process `ACTIVATE_VERSION` messages

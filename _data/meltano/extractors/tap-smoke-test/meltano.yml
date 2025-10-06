@@ -7,6 +7,7 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
+- structured-logging
 description: Generates sample data to be used for testing.
 domain_url: https://github.com/meltano/tap-smoke-test
 executable: tap-smoke-test

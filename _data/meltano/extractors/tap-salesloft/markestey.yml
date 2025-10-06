@@ -7,6 +7,7 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
+- structured-logging
 description: Sales Engagement Platform
 domain_url: https://salesloft.com/
 executable: tap-salesloft
