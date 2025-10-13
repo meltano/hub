@@ -4,6 +4,7 @@ capabilities:
 - hard-delete
 - schema-flattening
 - stream-maps
+- structured-logging
 description: Snowflake database loader
 domain_url: https://www.snowflake.com/
 executable: target-snowflake

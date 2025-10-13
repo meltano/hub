@@ -7,6 +7,7 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
+- structured-logging
 description: Pushbullet connects your devices, making them feel like one
 domain_url: https://www.pushbullet.com/
 executable: tap-pushbullet

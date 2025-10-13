@@ -7,6 +7,7 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
+- structured-logging
 description: PostgreSQL database extractor
 domain_url: https://www.postgresql.org/
 keywords:

@@ -4,6 +4,7 @@ capabilities:
 - hard-delete
 - schema-flattening
 - stream-maps
+- structured-logging
 description: PostgreSQL database loader
 dialect: postgres
 domain_url: https://www.postgresql.org/

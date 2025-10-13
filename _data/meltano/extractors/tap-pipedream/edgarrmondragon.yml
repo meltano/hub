@@ -7,6 +7,7 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
+- structured-logging
 description: Connect APIs, AI, databases, and more
 domain_url: https://pipedream.com/
 executable: tap-pipedream
