@@ -7,6 +7,7 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
+- structured-logging
 description: Digital distribution service operated and developed by Google. This
   tap uses a scraper to extract reviews from the Google Play Store.
 domain_url: https://play.google.com/store/games
