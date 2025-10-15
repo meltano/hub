@@ -139,6 +139,13 @@
             "type": "boolean",
             "description": "Whether the plugin should be shown when listing or not.",
             "default": false
+        },
+        "log_parser": {
+            "type": "string",
+            "description": "The log parser to use for parsing structured logs from this plugin. Used when the plugin supports structured logging.",
+            "examples": [
+                "singer-sdk"
+            ]
         }
     }
 }
