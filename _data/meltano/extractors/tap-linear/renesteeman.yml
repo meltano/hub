@@ -16,7 +16,6 @@ keywords:
 - linear
 - meltano_sdk
 label: Linear
-log_parser: singer-sdk
 logo_url: /assets/logos/extractors/linear.png
 maintenance_status: active
 name: tap-linear
