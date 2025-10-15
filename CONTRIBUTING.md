@@ -51,12 +51,14 @@ This comprehensive guide walks you through adding a new plugin to MeltanoHub usi
 #### Prerequisites
 
 1. **Clone the Hub repository** (if you haven't already):
+
    ```bash
    git clone https://github.com/meltano/hub.git
    cd hub
    ```
 
 2. **Install hub-utils**:
+
    ```bash
    # For development (if working from hub repo with hub-utils as subdirectory)
    cd hub-utils
@@ -68,11 +70,13 @@ This comprehensive guide walks you through adding a new plugin to MeltanoHub usi
    ```
 
 3. **Ensure you're in the hub repository root**:
+
    ```bash
    cd /path/to/hub
    ```
 
    Or set the `HUB_ROOT_PATH` environment variable if running from elsewhere:
+
    ```bash
    export HUB_ROOT_PATH='/path/to/hub'
    ```
@@ -160,16 +164,19 @@ git push origin add-tap-example
 #### Command Options
 
 **Provide repo URL directly**:
+
 ```bash
 uv run hub-utils add --repo-url https://github.com/username/tap-example
 ```
 
 **Auto-accept mode** (skip all prompts and use defaults):
+
 ```bash
 uv run hub-utils add --repo-url https://github.com/username/tap-example --auto-accept
 ```
 
 **Specify Python version** (useful if the plugin requires a specific Python version):
+
 ```bash
 uv run hub-utils add --repo-url https://github.com/username/tap-example --python python3.11
 ```
@@ -228,6 +235,7 @@ uv run hub-utils yamllint lint _data/meltano/extractors/tap-example/username.yml
 **Plugin installation fails**
 
 Try specifying a different Python version:
+
 ```bash
 uv run hub-utils add --repo-url https://github.com/username/tap-example --python python3.9
 ```
@@ -239,6 +247,7 @@ The command will automatically fall back to manual entry mode. You'll be prompte
 **Generated YAML has validation errors**
 
 Run yamllint to fix formatting issues:
+
 ```bash
 uv run hub-utils yamllint fix _data/meltano/extractors/tap-example/username.yml
 ```
@@ -246,6 +255,7 @@ uv run hub-utils yamllint fix _data/meltano/extractors/tap-example/username.yml
 **Need to update an existing plugin**
 
 Use `update-definition` instead of `add`:
+
 ```bash
 uv run hub-utils update-definition --repo-url https://github.com/username/tap-example
 ```
@@ -253,6 +263,7 @@ uv run hub-utils update-definition --repo-url https://github.com/username/tap-ex
 **Command doesn't recognize the hub repository**
 
 Set the `HUB_ROOT_PATH` environment variable:
+
 ```bash
 export HUB_ROOT_PATH='/path/to/hub'
 uv run hub-utils add --repo-url https://github.com/username/tap-example
@@ -263,12 +274,15 @@ uv run hub-utils add --repo-url https://github.com/username/tap-example
 After running `hub-utils add`, the following files are created or modified:
 
 1. **Plugin definition YAML**: `_data/meltano/{extractors|loaders}/{plugin-name}/{variant}.yml`
+
    - Contains all plugin metadata, settings, and capabilities
 
 2. **Default variants file**: `_data/default_variants.yml`
+
    - Updated with an entry for new plugins (not existing variants)
 
 3. **Maintainers file**: `_data/maintainers.yml`
+
    - Updated with maintainer information for the variant
 
 4. **Logo file** (optional): `static/assets/logos/{extractors|loaders}/{plugin-name}.{svg|png}`
