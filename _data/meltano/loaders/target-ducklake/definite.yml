@@ -51,6 +51,12 @@ settings:
   kind: string
   label: Catalog URL
   name: catalog_url
+- description: When True, automatically converts timezone of timestamp-like 
+    fields to UTC.
+  kind: boolean
+  label: Convert TZ to UTC
+  name: convert_tz_to_utc
+  value: false
 - description: GCS, S3, or local folder path for data storage
   kind: string
   label: Data Path
