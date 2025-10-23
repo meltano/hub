@@ -7,6 +7,7 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
+- structured-logging
 description: >
   Shortcut unites planning and development into a single experience with
   tightly integrated Docs, Issue Tracking, and Sprint Planning features.

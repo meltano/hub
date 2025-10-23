@@ -28,29 +28,265 @@ pipx install git+https://github.com/meltano/hub-utils.git
 
 The CLI assumes your terminal is in the root of the hub repository, if you need to run it outside the hub repository root you can set the path using the `HUB_ROOT_PATH` environment variable.
 
-## Add or Updating Plugins
+## Adding or Updating Plugins
 
-To add a new plugin or variant of an existing one, run the following command and provide any input that it prompts for.
+### Quick Start
+
+To add a new plugin or variant of an existing one, run the following command and provide any input that it prompts for:
 
 ```bash
 hub-utils add
 ```
 
-To update an existing variant, run the following command and provide any input that it prompts for.
+To update an existing variant, run the following command and provide any input that it prompts for:
 
 ```bash
 hub-utils update-definition
 ```
 
-If you chose to make any manual changes to the yaml files, make sure you run the yaml linters to fix any linting violations before creating a PR.
+### Step-by-Step Guide: Adding a New Plugin
+
+This comprehensive guide walks you through adding a new plugin to MeltanoHub using the `hub-utils add` command.
+
+#### Prerequisites
+
+1. **Clone the Hub repository** (if you haven't already):
+
+   ```bash
+   git clone https://github.com/meltano/hub.git
+   cd hub
+   ```
+
+2. **Install hub-utils**:
+
+   ```bash
+   # For development (if working from hub repo with hub-utils as subdirectory)
+   cd hub-utils
+   uv sync
+   cd ..
+
+   # Or using pipx (for standalone installation)
+   pipx install git+https://github.com/meltano/hub-utils.git
+   ```
+
+3. **Ensure you're in the hub repository root**:
+
+   ```bash
+   cd /path/to/hub
+   ```
+
+   Or set the `HUB_ROOT_PATH` environment variable if running from elsewhere:
+
+   ```bash
+   export HUB_ROOT_PATH='/path/to/hub'
+   ```
+
+#### Basic Usage
+
+Run the command from the hub repository root:
 
 ```bash
-# Automatically attempt to fix any lint violations
-hub-utils yamllint fix _data/meltano/extractors/tap-3plcentral/bytecodeio.yml
+# Interactive mode (will prompt for repo URL)
+uv run hub-utils add
 
-# Check for lint violations
-hub-utils yamllint lint _data/meltano/extractors/tap-3plcentral/bytecodeio.yml
+# Or provide the repo URL directly
+uv run hub-utils add --repo-url https://github.com/username/tap-example
 ```
+
+#### What the Command Does
+
+The `add` command automates the entire plugin addition workflow:
+
+1. **Collects plugin information**: Prompts for plugin name, type (extractor/loader), pip URL, namespace, and executable
+2. **Detects SDK-based plugins**: Automatically identifies if the plugin uses Meltano SDK
+3. **Extracts metadata automatically**: For SDK-based plugins, it:
+   - Creates a temporary Python environment
+   - Installs the plugin using pip
+   - Runs `<plugin> --about` to extract settings, capabilities, and configuration
+   - Parses the JSON output to generate the plugin definition
+4. **Creates plugin definition**: Generates a YAML file at `_data/meltano/{plugin_type}/{plugin_name}/{variant}.yml`
+5. **Updates default variants**: Adds an entry to `_data/default_variants.yml` for new plugins
+6. **Manages maintainer info**: Updates `_data/maintainers.yml` with variant maintainer information
+7. **Handles logos**: Prompts for logo upload or attempts automatic download (for Hotglue variants)
+8. **Formats YAML files**: Runs yamllint to ensure consistent formatting
+
+#### Complete Example Workflow
+
+Here's a complete example of adding a new SDK-based tap:
+
+```bash
+# 1. Navigate to hub repository
+cd /path/to/hub
+
+# 2. Create a new branch
+git checkout -b add-tap-example
+
+# 3. Run the add command with repo URL
+uv run hub-utils add --repo-url https://github.com/meltanolabs/tap-slack
+
+# 4. The command will prompt for information (with smart defaults):
+# plugin name [tap-slack]: <press enter to accept>
+# plugin type [extractors]: <press enter to accept>
+# pip_url [git+https://github.com/meltanolabs/tap-slack.git]: <press enter to accept>
+# namespace [tap_slack]: <press enter to accept>
+# executable [tap-slack]: <press enter to accept>
+# is_meltano_sdk [True]: <press enter to accept>
+
+# 5. For SDK-based plugins, it will automatically:
+#    - Create a temporary virtual environment
+#    - Install the plugin: pip install git+https://github.com/meltanolabs/tap-slack.git
+#    - Run: tap-slack --about --format json
+#    - Parse settings, capabilities, and configuration from the output
+
+# 6. The command will prompt for:
+# keywords [['meltano_sdk']]: <press enter to accept>
+# plugin variant [meltanolabs]: <press enter to accept>
+
+# 7. Output confirms creation:
+# _data/meltano/extractors/tap-slack/meltanolabs.yml
+# Adds extractors tap-slack (meltanolabs)
+
+# 8. Review the generated file
+cat _data/meltano/extractors/tap-slack/meltanolabs.yml
+
+# 9. Test the hub site locally
+gridsome develop
+# Visit http://localhost:8080 and navigate to your plugin
+
+# 10. Commit and push
+git add .
+git commit -m "Add tap-slack (meltanolabs variant)"
+git push origin add-tap-example
+
+# 11. Open a pull request on GitHub
+```
+
+#### Command Options
+
+**Provide repo URL directly**:
+
+```bash
+uv run hub-utils add --repo-url https://github.com/username/tap-example
+```
+
+**Auto-accept mode** (skip all prompts and use defaults):
+
+```bash
+uv run hub-utils add --repo-url https://github.com/username/tap-example --auto-accept
+```
+
+**Specify Python version** (useful if the plugin requires a specific Python version):
+
+```bash
+uv run hub-utils add --repo-url https://github.com/username/tap-example --python python3.11
+```
+
+#### Special Cases
+
+**Airbyte Connectors**
+
+The command automatically detects Airbyte connector repositories:
+
+```bash
+uv run hub-utils add --repo-url https://github.com/airbytehq/airbyte/tree/master/source-example
+# Will prompt: "Is this an Airbyte variant?" [Y/n]
+```
+
+If confirmed, it will use the Airbyte wrapper and extract metadata from the Airbyte connector specification.
+
+**Hotglue Variants**
+
+For Hotglue plugins, the command attempts to download logos automatically from Hotglue's CDN:
+
+```bash
+uv run hub-utils add --repo-url https://github.com/hotgluexyz/tap-salesforce
+# Will prompt: "Is this a Hotglue variant?" [Y/n]
+# Automatically downloads logo from: https://s3.amazonaws.com/cdn.hotglue.xyz/images/logos/{service_name}.{ext}
+```
+
+**Non-SDK Plugins**
+
+If a plugin is not SDK-based or if automatic metadata extraction fails, the command will enter interactive mode and prompt for each setting individually:
+
+```bash
+# After determining the plugin is not SDK-based:
+# The command will help you build settings one at a time
+# setting name: api_key
+# setting label [API Key]:
+# setting description: Your API key for authentication
+# setting kind (string/boolean/integer/object/array) [string]:
+# setting required [True]:
+```
+
+#### YAML Linting
+
+If you make manual changes to the YAML files, ensure they pass linting before creating a PR:
+
+```bash
+# Automatically fix any lint violations
+uv run hub-utils yamllint fix _data/meltano/extractors/tap-example/username.yml
+
+# Check for lint violations (without fixing)
+uv run hub-utils yamllint lint _data/meltano/extractors/tap-example/username.yml
+```
+
+#### Troubleshooting
+
+**Plugin installation fails**
+
+Try specifying a different Python version:
+
+```bash
+uv run hub-utils add --repo-url https://github.com/username/tap-example --python python3.9
+```
+
+**SDK metadata extraction fails**
+
+The command will automatically fall back to manual entry mode. You'll be prompted to enter settings one by one. You can also manually inspect the plugin's documentation and update the YAML file afterward.
+
+**Generated YAML has validation errors**
+
+Run yamllint to fix formatting issues:
+
+```bash
+uv run hub-utils yamllint fix _data/meltano/extractors/tap-example/username.yml
+```
+
+**Need to update an existing plugin**
+
+Use `update-definition` instead of `add`:
+
+```bash
+uv run hub-utils update-definition --repo-url https://github.com/username/tap-example
+```
+
+**Command doesn't recognize the hub repository**
+
+Set the `HUB_ROOT_PATH` environment variable:
+
+```bash
+export HUB_ROOT_PATH='/path/to/hub'
+uv run hub-utils add --repo-url https://github.com/username/tap-example
+```
+
+#### What Gets Created
+
+After running `hub-utils add`, the following files are created or modified:
+
+1. **Plugin definition YAML**: `_data/meltano/{extractors|loaders}/{plugin-name}/{variant}.yml`
+
+   - Contains all plugin metadata, settings, and capabilities
+
+2. **Default variants file**: `_data/default_variants.yml`
+
+   - Updated with an entry for new plugins (not existing variants)
+
+3. **Maintainers file**: `_data/maintainers.yml`
+
+   - Updated with maintainer information for the variant
+
+4. **Logo file** (optional): `static/assets/logos/{extractors|loaders}/{plugin-name}.{svg|png}`
+   - Added if you provide a logo or if automatically downloaded (Hotglue variants)
 
 ## Automated plugin testing
 

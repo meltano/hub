@@ -7,6 +7,7 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
+- structured-logging
 description: Issue and Project Tracking Software
 domain_url: https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/
 executable: tap-jira

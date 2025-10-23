@@ -7,6 +7,7 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
+- structured-logging
 description: CI/CD Platfrom
 domain_url: https://circleci.com/
 executable: tap-circle-ci
@@ -94,7 +95,7 @@ settings:
   kind: string
   label: User Agent
   name: user_agent
-  value: tap-circle-ci/0.6.0 Singer tap for the CircleCI API.
+  value: tap-circle-ci/0.6.1 Singer tap for the CircleCI API.
 settings_group_validation:
 - - org_slug
   - token

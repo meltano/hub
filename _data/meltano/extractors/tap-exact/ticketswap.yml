@@ -1,11 +1,13 @@
 capabilities:
 - about
+- activate-version
 - batch
 - catalog
 - discover
 - schema-flattening
 - state
 - stream-maps
+- structured-logging
 description: Cloud business software for SMEs and their accountants
 domain_url: https://www.exact.com/
 executable: tap-exact

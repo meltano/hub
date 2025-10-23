@@ -8,25 +8,32 @@ capabilities:
 - state
 - stream-maps
 - structured-logging
-description: Conversational Marketing Software
-domain_url: https://www.qualified.com/
-executable: tap-qualified
+description: Linear is a purpose-built tool for modern product teams to 
+  streamline issues, projects, and product roadmaps.
+domain_url: https://linear.app/
+executable: tap-linear
 keywords:
+- linear
 - meltano_sdk
-label: Qualified
-logo_url: /assets/logos/extractors/qualified.png
+label: Linear
+logo_url: /assets/logos/extractors/linear.png
 maintenance_status: active
-name: tap-qualified
-namespace: tap_qualified
+name: tap-linear
+namespace: tap_linear
 next_steps: ''
-pip_url: git+https://github.com/z3z1ma/tap-qualified.git
-quality: silver
-repo: https://github.com/z3z1ma/tap-qualified
+pip_url: git+https://github.com/renesteeman/tap-linear.git
+quality: gold
+repo: https://github.com/renesteeman/tap-linear
 settings:
-- description: The token to authenticate against the API service
+- description: The URL for the API service
+  kind: string
+  label: API URL
+  name: api_url
+  value: https://api.linear.app/graphql
+- description: The API token to authenticate against the API service
   kind: password
-  label: API Key
-  name: api_key
+  label: Auth Token
+  name: auth_token
   sensitive: true
 - description: Compression format to use for batch files.
   kind: options
@@ -71,6 +78,10 @@ settings:
   kind: integer
   label: Max Flattening Depth
   name: flattening_max_depth
+- description: The earliest record date to sync
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
 - description: User-defined config values to be used within map expressions.
   kind: object
   label: User Stream Map Configuration
@@ -80,13 +91,8 @@ settings:
   kind: object
   label: Stream Maps
   name: stream_maps
-- description: The user agent to use when making requests to the API service
-  kind: string
-  label: User Agent
-  name: user_agent
-  value: Harness.io/Tap Qualified
 settings_group_validation:
-- - api_key
+- - auth_token
 settings_preamble: ''
 usage: ''
-variant: z3z1ma
+variant: renesteeman

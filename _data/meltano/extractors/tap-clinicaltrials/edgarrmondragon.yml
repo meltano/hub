@@ -7,6 +7,7 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
+- structured-logging
 description: ClinicalTrials.gov API
 domain_url: https://clinicaltrials.gov/data-api/api
 executable: tap-clinicaltrials

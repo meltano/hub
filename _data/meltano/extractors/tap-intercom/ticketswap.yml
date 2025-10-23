@@ -7,6 +7,7 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
+- structured-logging
 description: Conversational Relationship Platform
 domain_url: 
   https://developers.intercom.com/intercom-api-reference/v1.4/reference
