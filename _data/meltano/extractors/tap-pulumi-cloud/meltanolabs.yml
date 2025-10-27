@@ -7,6 +7,7 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
+- structured-logging
 description: Fully-managed Infrastructure as Code platform
 domain_url: https://www.pulumi.com/product/pulumi-cloud/
 executable: tap-pulumi-cloud

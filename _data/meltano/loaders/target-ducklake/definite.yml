@@ -1,5 +1,7 @@
 capabilities:
 - about
+- activate-version
+- hard-delete
 - schema-flattening
 - stream-maps
 description: DuckLake is an integrated data lake and catalog format
@@ -90,6 +92,11 @@ settings:
   kind: integer
   label: Max Flattening Depth
   name: flattening_max_depth
+- description: Hard delete records.
+  kind: boolean
+  label: Hard Delete
+  name: hard_delete
+  value: false
 - description: 'Method to use for loading data into the target table: append, merge,
     or overwrite'
   kind: options
@@ -124,6 +131,11 @@ settings:
   kind: string
   label: Partition Fields
   name: partition_fields
+- description: Whether to process `ACTIVATE_VERSION` messages.
+  kind: boolean
+  label: Process `ACTIVATE_VERSION` messages
+  name: process_activate_version_messages
+  value: true
 - description: Public key for private GCS and S3 storage authentication 
     (optional)
   kind: password
