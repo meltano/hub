@@ -37,7 +37,7 @@ settings_group_validation:
   - streams.holidays.year
 settings_preamble: The `streams.holidays.<>` configurations have additional optional
   request parameters that can be set, see the [API docs](https://holidayapi.com/docs)
-  for more details. For example, `meltano config tap-holidays set streams.holidays.public
+  for more details. For example, `meltano config set tap-holidays streams.holidays.public
   True` will retrieve only public holidays. Also be aware that currently the free
   tier includes only last year holidays.
 variant: goodeggs
