@@ -7,6 +7,7 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
+- structured-logging
 description: Timesheets Software
 domain_url: https://apidocs.tempo.io/
 executable: tap-tempo

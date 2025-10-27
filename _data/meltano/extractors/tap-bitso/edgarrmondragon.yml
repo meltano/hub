@@ -7,6 +7,7 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
+- structured-logging
 description: Buy and sell bitcoin or 46 other cryptocurrencies and store them 
   all in one place.
 docs: https://bitso.com/api_info
