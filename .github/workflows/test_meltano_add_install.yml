@@ -54,8 +54,8 @@ jobs:
       - name: Configure Meltano
         working-directory: test-project
         run: |
-          meltano config meltano set cli.log_level debug
-          meltano config meltano set venv.backend uv
+          meltano config set meltano cli.log_level debug
+          meltano config set meltano venv.backend uv
 
       - name: Test add
         working-directory: test-project
