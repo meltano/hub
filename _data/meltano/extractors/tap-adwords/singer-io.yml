@@ -318,7 +318,7 @@ usage: |
   Alternatively, manage this setting using [`meltano config`](https://docs.meltano.com/reference/command-line-interface#config) or an [environment variable](https://docs.meltano.com/guide/configuration#configuring-settings):
 
   ```bash
-  meltano config tap-adwords set primary_keys <REPORT_NAME> '["<key>", ...]'
+  meltano config set tap-adwords primary_keys <REPORT_NAME> '["<key>", ...]'
 
   export TAP_ADWORDS_PRIMARY_KEYS='{"<REPORT_NAME>": ["<key>", ...], ...}'
 
@@ -327,7 +327,7 @@ usage: |
   export TAP_ADWORDS_PRIMARY_KEYS_<REPORT_NAME>=='["<key>", ...]'
 
   # For example:
-  meltano config tap-adwords set primary_keys KEYWORDS_PERFORMANCE_REPORT '["customerID"]'
+  meltano config set tap-adwords primary_keys KEYWORDS_PERFORMANCE_REPORT '["customerID"]'
 
   export TAP_ADWORDS_PRIMARY_KEYS_KEYWORDS_PERFORMANCE_REPORT='["customerID"]'
   ```
