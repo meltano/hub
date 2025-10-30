@@ -12,7 +12,9 @@ description: Notion tap that can collect all your Notion pages, with support for
   incremental syncs.
 domain_url: https://github.com/renesteeman
 executable: tap-notion
-keywords: notion
+keywords:
+  - notion
+  - meltano_sdk
 label: Notion
 logo_url: /assets/logos/extractors/notion.png
 maintenance_status: active
