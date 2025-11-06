@@ -704,7 +704,7 @@ utilities:
   airflow: apache
   clickhouse: clickhouse
   cron: meltano
-  dagster: quantile-development
+  dagster: camisinc
   datahub: datahub-project
   dbt-artifacts: matatika
   dbt-athena: dbt-athena

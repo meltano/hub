@@ -1,0 +1,52 @@
+commands:
+  describe:
+    args: describe
+    description: Describe the Dagster Extension.
+    executable: dagster_extension
+  initialize:
+    args: initialize
+    description: Initialize the Dagster extension.
+    executable: dagster_extension
+  start:
+    args: -f $REPOSITORY_DIR/repository.py
+    description: Start Dagster.
+    executable: dagit_invoker
+definition: is an [orchestrator](https://docs.meltano.com/concepts/plugins#orchestrators)
+  that allows for workflows to be programmatically authored, scheduled, and monitored.
+domain_url: https://dagster.io/
+executable: dagster_invoker
+ext_repo: https://github.com/camisinc/elt-dagster-ext
+keywords:
+- dagster
+- meltano_edk
+label: Dagster
+logo_url: /assets/logos/utilities/dagster.png
+maintenance_status: beta
+name: dagster
+namespace: dagster
+next_steps: |
+  ### Initialize your Dagster project
+
+  ```bash
+  meltano invoke dagster:initialize
+  ```
+
+  ### Start Dagit
+
+  ```bash
+  meltano invoke dagster:start
+  ```
+pip_url: elt-dagster-ext
+repo: https://github.com/dagster-io/dagster
+settings:
+- description: The home folder of Dagster.
+  env: DAGSTER_HOME
+  label: Dagster Home
+  name: dagster_home
+  value: $MELTANO_PROJECT_ROOT/.meltano/dagster
+- description: The root folder of the Dagster project.
+  env: REPOSITORY_DIR
+  label: Repository Directory
+  name: repository_dir
+  value: $MELTANO_PROJECT_ROOT/orchestrate/dagster
+variant: camisinc
