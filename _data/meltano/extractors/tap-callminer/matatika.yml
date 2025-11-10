@@ -108,6 +108,20 @@ settings:
   - label: Eu
     value: EU
   value: US
+- description: CallMiner export search mode
+  kind: options
+  label: Search Mode
+  name: search_mode
+  options:
+  - label: Clientcapturedate
+    value: ClientCaptureDate
+  - label: Createdate
+    value: CreateDate
+  - label: Updated
+    value: Updated
+  - label: Newandupdated
+    value: NewAndUpdated
+  value: NewAndUpdated
 - description: |
     Initial date to start extracting data from
 
