@@ -33,7 +33,7 @@ settings:
   kind: integer
   label: Max Flattening Depth
   name: flattening_max_depth
-- description: List of GRIB file path definitions.
+- description: List of GRIB file path definitions (supports globs).
   kind: array
   label: Paths
   name: paths

@@ -7,6 +7,7 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
+- structured-logging
 description: Analytics Engineering Platform
 domain_url: https://www.getdbt.com/product/
 keywords:
@@ -96,7 +97,7 @@ settings:
   kind: string
   label: User Agent
   name: user_agent
-  value: tap-dbt/0.16.0 Singer tap for the dbt Cloud API.
+  value: tap-dbt/0.17.0 Singer tap for the dbt Cloud API.
 settings_group_validation:
 - - account_ids
   - api_key
