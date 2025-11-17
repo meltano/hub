@@ -7,6 +7,7 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
+- structured-logging
 description: NASA's Astronomy Picture of the Day (APOD) API
 domain_url: https://github.com/nasa/apod-api?tab=readme-ov-file#docs-
 executable: tap-nasa
