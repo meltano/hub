@@ -96,6 +96,10 @@ settings:
   kind: integer
   label: Max Flattening Depth
   name: flattening_max_depth
+- description: The maximum length of a flattened key.
+  kind: integer
+  label: Max Key Length
+  name: flattening_max_key_length
 - description: Hostname for postgres instance. Note if sqlalchemy_url is set 
     this will be ignored.
   kind: string
