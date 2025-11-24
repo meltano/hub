@@ -72,6 +72,10 @@ settings:
   kind: integer
   label: Max Flattening Depth
   name: flattening_max_depth
+- description: The maximum length of a flattened key.
+  kind: integer
+  label: Max Key Length
+  name: flattening_max_key_length
 - description: Pass this to receive a higher request quota
   documentation: https://api.stackexchange.com/docs/authentication
   kind: password
