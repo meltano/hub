@@ -46,6 +46,12 @@ settings:
   kind: string
   label: Batch Storage Root
   name: batch_config.storage.root
+- description: A list of custom queries to run. Each query will be assigned a 
+    stream with the name specified in the `name` field.
+  kind: array
+  label: Custom Queries
+  name: custom_queries
+  value: []
 - description: |
     **DEPRECATED**: use `customer_ids`
 

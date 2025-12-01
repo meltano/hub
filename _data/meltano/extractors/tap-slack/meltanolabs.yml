@@ -131,6 +131,10 @@ settings:
   kind: integer
   label: Max Flattening Depth
   name: flattening_max_depth
+- description: The maximum length of a flattened key.
+  kind: integer
+  label: Max Key Length
+  name: flattening_max_key_length
 - description: Whether to include streams that require admin privileges or not. 
     If the user does not have the proper scopes then the tap will throw and 
     exception.
