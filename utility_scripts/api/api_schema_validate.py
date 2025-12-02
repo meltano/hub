@@ -6,7 +6,9 @@ import os
 import sys
 from pathlib import Path
 
-from jsonschema import Draft7Validator, RefResolver
+from jsonschema import Draft7Validator
+from referencing import Registry, Resource
+from referencing.jsonschema import DRAFT7
 from ruamel.yaml import YAML
 
 logging.basicConfig(level=logging.INFO, stream=sys.stdout)
@@ -29,24 +31,32 @@ class APIValidator:
         self.validation_results = {}
 
     def _set_schema_store(self, schemas_dir="api"):
-        self.schema_store = {}
+        resources = []
         for source in Path("schemas/common").iterdir():
+            if not source.name.endswith(".json"):
+                # Skip non schema files
+                continue
             with open(source) as schema_file:
                 schema = json.load(schema_file)
-                self.schema_store[schema["$id"]] = schema
+                resource = Resource.from_contents(schema, default_specification=DRAFT7)
+                resources.append((schema["$id"], resource))
         # TODO: load all common and API schemas
         for source in Path(f"schemas/{schemas_dir}").iterdir():
+            if not source.name.endswith(".json"):
+                # Skip non schema files
+                continue
             with open(source) as schema_file:
                 schema = json.load(schema_file)
-                self.schema_store[schema["$id"]] = schema
+                resource = Resource.from_contents(schema, default_specification=DRAFT7)
+                resources.append((schema["$id"], resource))
+        self.registry = Registry().with_resources(resources)
 
     def _validate_plugin(self, schema, plugin_dir, file_name):
         with open(
             os.path.join(self.file_path, plugin_dir, file_name), "r"
         ) as plugin_file:
             plugin_data = self.yaml.load(plugin_file)
-            resolver = RefResolver.from_schema(schema, store=self.schema_store)
-            validator = Draft7Validator(schema, resolver=resolver)
+            validator = Draft7Validator(schema, registry=self.registry)
             try:
                 validator.validate(plugin_data)
             except Exception as ex:
@@ -62,8 +72,7 @@ class APIValidator:
         schema = self._read_json_schema(schema_name)
         with open(os.path.join(file_path, "index"), "r") as type_index:
             type_index_data = self.yaml.load(type_index)
-        resolver = RefResolver.from_schema(schema, store=self.schema_store)
-        validator = Draft7Validator(schema, resolver=resolver)
+        validator = Draft7Validator(schema, registry=self.registry)
         try:
             validator.validate(type_index_data)
         except Exception as ex:

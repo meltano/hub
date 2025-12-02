@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "common/common/base_setting.schema.json",
+    "$id": "common/base_setting.schema.json",
     "title": "JSON Schema for base_settings",
     "description": "Meltano (https://meltano.com) is an open source platform for building, running & orchestrating ELT pipelines",
     "type": "object",

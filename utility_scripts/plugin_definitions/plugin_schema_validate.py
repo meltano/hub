@@ -6,7 +6,9 @@ import os
 import sys
 from pathlib import Path
 
-from jsonschema import Draft7Validator, RefResolver
+from jsonschema import Draft7Validator
+from referencing import Registry, Resource
+from referencing.jsonschema import DRAFT7
 from ruamel.yaml import YAML
 
 logging.basicConfig(level=logging.INFO, stream=sys.stdout)
@@ -29,21 +31,24 @@ class PluginSchemaValidator:
         self.validation_results = {}
 
     def _set_schema_store(self, schemas_dir="plugin_definitions"):
-        self.schema_store = {}
+        resources = []
         for source in Path("schemas/common").iterdir():
             if not source.name.endswith(".json"):
                 # Skip non schema files
                 continue
             with open(source) as schema_file:
                 schema = json.load(schema_file)
-                self.schema_store[schema["$id"]] = schema
+                resource = Resource.from_contents(schema, default_specification=DRAFT7)
+                resources.append((schema["$id"], resource))
         for source in Path(f"schemas/{schemas_dir}").iterdir():
             if not source.name.endswith(".json"):
                 # Skip non schema files
                 continue
             with open(source) as schema_file:
                 schema = json.load(schema_file)
-                self.schema_store[schema["$id"]] = schema
+                resource = Resource.from_contents(schema, default_specification=DRAFT7)
+                resources.append((schema["$id"], resource))
+        self.registry = Registry().with_resources(resources)
 
     def _validate_plugin(self, schema, plugin_category, plugin_name, variant_name):
         with open(
@@ -51,8 +56,7 @@ class PluginSchemaValidator:
             "r",
         ) as plugin_file:
             plugin_data = self.yaml.load(plugin_file)
-            resolver = RefResolver.from_schema(schema, store=self.schema_store)
-            validator = Draft7Validator(schema, resolver=resolver)
+            validator = Draft7Validator(schema, registry=self.registry)
             try:
                 validator.validate(plugin_data)
             except Exception as ex:
