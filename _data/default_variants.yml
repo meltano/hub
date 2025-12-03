@@ -242,6 +242,7 @@ extractors:
   tap-gutendex: airbyte
   tap-harvest: singer-io
   tap-harvest-forecast: singer-io
+  tap-healthchecksio: reservoir-data
   tap-hellobaton: dluftspring
   tap-helpscout: singer-io
   tap-helpshift: pathlight
