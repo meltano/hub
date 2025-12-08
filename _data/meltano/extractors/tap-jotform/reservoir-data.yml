@@ -1,14 +1,14 @@
 capabilities:
-- catalog
-- state
-- discover
-- activate-version
 - about
-- stream-maps
-- schema-flattening
+- activate-version
 - batch
-- structured-logging
-description: Full-featured online form builder that makes it easy to create robust forms
+- catalog
+- discover
+- schema-flattening
+- state
+- stream-maps
+description: Full-featured online form builder that makes it easy to create 
+  robust forms
 domain_url: https://www.jotform.com/
 executable: tap-jotform
 keywords:
@@ -23,7 +23,8 @@ pip_url: tap-jotform
 quality: gold
 repo: https://github.com/reservoir-data/tap-jotform
 settings:
-- description: Authentication key. See https://api.jotform.com/docs/#authentication
+- description: Authentication key. See 
+    https://api.jotform.com/docs/#authentication
   kind: password
   label: API Key
   name: api_key
@@ -33,63 +34,6 @@ settings:
   label: API URL
   name: api_url
   value: https://api.jotform.com
-- description: Start date for data collection
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
-- description: Enable requests cache
-  kind: boolean
-  label: Requests Cache Enabled
-  name: requests_cache.enabled
-  value: false
-- description: Cache expiration time in seconds
-  kind: integer
-  label: Requests Cache Config Expire After
-  name: requests_cache.config.expire_after
-- description: Whether to include deprecated streams
-  kind: boolean
-  label: Include Deprecated Streams
-  name: include_deprecated_streams
-  value: true
-- description: Config object for stream maps capability. For more information 
-    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
-  kind: object
-  label: Stream Maps
-  name: stream_maps
-- description: User-defined config values to be used within map expressions.
-  kind: object
-  label: User Stream Map Configuration
-  name: stream_map_config
-- description: 'Value to seed the Faker generator for deterministic output: https://faker.readthedocs.io/en/master/#seeding-the-generator'
-  kind: string
-  label: Faker Seed
-  name: faker_config.seed
-- description: 'One or more LCID locale strings to produce localized output for: https://faker.readthedocs.io/en/master/#localization'
-  kind: array
-  label: Faker Locale
-  name: faker_config.locale
-- description: "'True' to enable schema flattening and automatically expand nested
-    properties."
-  kind: boolean
-  label: Enable Schema Flattening
-  name: flattening_enabled
-- description: The max depth to flatten schemas.
-  kind: integer
-  label: Max Flattening Depth
-  name: flattening_max_depth
-- description: The maximum length of a flattened key.
-  kind: integer
-  label: Max Key Length
-  name: flattening_max_key_length
-- description: Format to use for batch files.
-  kind: options
-  label: Batch Encoding Format
-  name: batch_config.encoding.format
-  options:
-  - label: JSONL
-    value: jsonl
-  - label: Parquet
-    value: parquet
 - description: Compression format to use for batch files.
   kind: options
   label: Batch Compression Format
@@ -99,14 +43,67 @@ settings:
     value: gzip
   - label: None
     value: none
-- description: Root path to use when writing batch files.
-  kind: string
-  label: Batch Storage Root
-  name: batch_config.storage.root
+- description: Format to use for batch files.
+  kind: options
+  label: Batch Encoding Format
+  name: batch_config.encoding.format
+  options:
+  - label: JSONL
+    value: jsonl
+  - label: Parquet
+    value: parquet
 - description: Prefix to use when writing batch files.
   kind: string
   label: Batch Storage Prefix
   name: batch_config.storage.prefix
+- description: Root path to use when writing batch files.
+  kind: string
+  label: Batch Storage Root
+  name: batch_config.storage.root
+- description: 'One or more LCID locale strings to produce localized output for: https://faker.readthedocs.io/en/master/#localization'
+  kind: array
+  label: Faker Locale
+  name: faker_config.locale
+- description: 'Value to seed the Faker generator for deterministic output: https://faker.readthedocs.io/en/master/#seeding-the-generator'
+  kind: string
+  label: Faker Seed
+  name: faker_config.seed
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Enable Schema Flattening
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Max Flattening Depth
+  name: flattening_max_depth
+- description: Cache expiration time in seconds
+  kind: integer
+  label: Requests Cache Config Expire After
+  name: requests_cache.config.expire_after
+- description: Enable requests cache
+  kind: boolean
+  label: Requests Cache Enabled
+  name: requests_cache.enabled
+  value: false
+- description: Start date for data collection
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: User Stream Map Configuration
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: User-Agent header
+  kind: string
+  label: User Agent
+  name: user_agent
+  value: tap-jotform/0.6.3
 settings_group_validation:
 - - api_key
 settings_preamble: ''
