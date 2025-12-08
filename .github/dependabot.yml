@@ -13,6 +13,6 @@ updates:
       interval: weekly
     labels: [deps]
     groups:
-      artifacts:
+      github-actions:
         patterns:
-          - "actions/*-load-artifact"
+          - "*"
