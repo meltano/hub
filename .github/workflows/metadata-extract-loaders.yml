@@ -21,8 +21,8 @@ jobs:
       sdk_loaders_matrix: ${{ steps.setmatrix_sdk_loaders.outputs.sdk_loaders_matrix }}
 
     steps:
-      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
-      - uses: astral-sh/setup-uv@1e862dfacbd1d6d858c55d9b792c756523627244 # v7.1.4
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+      - uses: astral-sh/setup-uv@ed21f2f24f8dd64503750218de024bcf64c7250a # v7.1.5
 
       - name: Install hub-utils
         run: uv tool install ./hub-utils
@@ -50,7 +50,7 @@ jobs:
     permissions:
       id-token: write # This is required for requesting the JWT
     steps:
-    - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+    - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
 
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@61815dcd50bd041e203e49132bacad1fd04d2708 # v4.3.0
@@ -59,7 +59,7 @@ jobs:
         aws-region: us-west-2
         role-session-name: "GitHubActions"
 
-    - uses: astral-sh/setup-uv@1e862dfacbd1d6d858c55d9b792c756523627244 # v7.1.4
+    - uses: astral-sh/setup-uv@ed21f2f24f8dd64503750218de024bcf64c7250a # v7.1.5
 
     - name: Install hub-utils
       run: uv tool install ./hub-utils
