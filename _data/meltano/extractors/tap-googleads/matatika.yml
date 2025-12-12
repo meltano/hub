@@ -16,7 +16,7 @@ logo_url: /assets/logos/extractors/googleads.png
 maintenance_status: active
 name: tap-googleads
 namespace: tap_googleads
-pip_url: git+https://github.com/Matatika/tap-googleads.git@v0.10.0
+pip_url: git+https://github.com/Matatika/tap-googleads.git@v0.11.0
 quality: gold
 repo: https://github.com/Matatika/tap-googleads
 settings:
