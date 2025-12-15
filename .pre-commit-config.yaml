@@ -36,17 +36,17 @@ repos:
   hooks:
   - id: yamllint
 - repo: https://github.com/astral-sh/ruff-pre-commit
-  rev: v0.12.10
+  rev: v0.14.9
   hooks:
   - id: ruff-check
   - id: ruff-format
 - repo: https://github.com/astral-sh/uv-pre-commit
-  rev: 0.8.13
+  rev: 0.9.17
   hooks:
   - id: uv-lock
   - id: uv-sync
 - repo: https://github.com/python-jsonschema/check-jsonschema
-  rev: 0.33.3
+  rev: 0.36.0
   hooks:
   - id: check-dependabot
   - id: check-github-workflows
