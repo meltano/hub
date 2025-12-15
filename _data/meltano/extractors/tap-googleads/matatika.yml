@@ -20,6 +20,16 @@ pip_url: git+https://github.com/Matatika/tap-googleads.git@v0.11.0
 quality: gold
 repo: https://github.com/Matatika/tap-googleads
 settings:
+- description: API version to use - see 
+    [versioning](https://developers.google.com/google-ads/api/docs/concepts/versioning)
+    and [release 
+    notes](https://developers.google.com/google-ads/api/docs/release-notes)/[upgrade
+    your API 
+    version](https://developers.google.com/google-ads/api/docs/upgrade).
+  kind: string
+  label: API Version
+  name: api_version
+  value: v22
 - description: Compression format to use for batch files.
   kind: options
   label: Batch Compression Format
