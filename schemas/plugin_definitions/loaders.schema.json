@@ -44,7 +44,9 @@
                 "next_steps": {},
                 "settings_preamble": {},
                 "usage": {},
-                "prereq": {}
+                "prereq": {},
+                "supported_python_versions": {},
+                "log_parser": {}
             },
             "required": [
                 "quality"

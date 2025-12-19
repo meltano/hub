@@ -341,7 +341,7 @@ class MeltanoUtil:
             enforce_desc: Whether to enforce descriptions for settings
 
         Returns:
-            Tuple of (settings, validation_groups, capabilities)
+            Tuple of (settings, validation_groups, capabilities, supported_python_versions)
         """
         settings_raw = sdk_about_dict.get("settings", {})
         reformatted_settings = []
@@ -412,6 +412,7 @@ class MeltanoUtil:
             deduped_settings,
             [group for group in validation_groups if group],
             sdk_about_dict.get("capabilities"),
+            sdk_about_dict.get("supported_python_versions"),
         )
 
     @staticmethod

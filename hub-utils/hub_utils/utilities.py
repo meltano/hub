@@ -275,6 +275,7 @@ class Utilities:
         capabilities,
         executable,
         variant,
+        supported_python_versions=None,
     ):
         label = self._get_label(name, plugin_type=plugin_type)
         logo_name = label.lower().replace(" ", "-")
@@ -304,6 +305,10 @@ class Utilities:
         # Add log_parser property if plugin supports structured logging and is SDK-based
         if "structured-logging" in capabilities and "meltano_sdk" in keywords:
             plugin_def["log_parser"] = "singer-sdk"
+
+        # Add supported_python_versions if available
+        if supported_python_versions is not None:
+            plugin_def["supported_python_versions"] = supported_python_versions
 
         return plugin_def
 
@@ -450,6 +455,7 @@ class Utilities:
                 settings,
                 settings_group_validation,
                 capabilities,
+                supported_python_versions,
             ) = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict, enforce_desc=not self.auto_accept)
         else:
             setting_list = self._compile_settings()
@@ -457,6 +463,7 @@ class Utilities:
             capabilities = self._string_to_literal(
                 self._prompt("capabilities", self._boilerplate_capabilities(plugin_type))
             )
+            supported_python_versions = None
         keywords = self._string_to_literal(self._prompt("keywords", self._scrape_keywords(is_meltano_sdk)))
         definition = self._boilerplate_definition(
             repo_url,
@@ -470,6 +477,7 @@ class Utilities:
             capabilities,
             executable,
             self._prompt("plugin variant", self._get_plugin_variant(repo_url)),
+            supported_python_versions,
         )
         definition_path = self._write_definition(definition, plugin_type)
         variant = definition["variant"]
@@ -507,6 +515,7 @@ class Utilities:
                 settings,
                 settings_group_validation,
                 capabilities,
+                supported_python_versions,
             ) = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict, enforce_desc=enforce_desc)
         else:
             setting_list = self._compile_settings()
@@ -514,6 +523,7 @@ class Utilities:
             capabilities = self._string_to_literal(
                 self._prompt("capabilities", self._boilerplate_capabilities(plugin_type))
             )
+            supported_python_versions = None
         keywords = ["airbyte_protocol"]
         definition = self._boilerplate_definition(
             repo_url,
@@ -527,6 +537,7 @@ class Utilities:
             capabilities,
             executable,
             variant,
+            supported_python_versions,
         )
         definition_path = self._write_definition(definition, plugin_type)
         definition["variant"] = variant
@@ -591,7 +602,7 @@ class Utilities:
             new_settings.append(setting)
         return settings
 
-    def _merge_definitions(self, existing_def, settings, keywords, m_status, caps, sgv):
+    def _merge_definitions(self, existing_def, settings, keywords, m_status, caps, sgv, supported_python_versions=None):
         new_def = existing_def.copy()
         new_def["settings"] = self._merge_settings(existing_def.get("settings"), settings)
         new_def["keywords"] = keywords
@@ -600,6 +611,8 @@ class Utilities:
         if len(str(sgv)) > len(str(existing_def.get("settings_group_validation"))):
             if sgv and sgv[0]:
                 new_def["settings_group_validation"] = sgv
+        if supported_python_versions is not None:
+            new_def["supported_python_versions"] = supported_python_versions
         return new_def
 
     def _test_exception(
@@ -762,6 +775,7 @@ class Utilities:
             settings,
             settings_group_validation,
             capabilities,
+            supported_python_versions,
         ) = MeltanoUtil._parse_sdk_about_settings(sdk_def)
         new_def = self._merge_definitions(
             existing_def,
@@ -775,6 +789,7 @@ class Utilities:
             self._prompt("maintenance_status", existing_def.get("maintenance_status")),
             capabilities,
             settings_group_validation,
+            supported_python_versions,
         )
         self._write_updated_def(plugin_name, plugin_variant, plugin_type, new_def)
         print(f"\nUpdates {plugin_type} {plugin_name} (SDK based - {plugin_variant})\n\n")
@@ -788,6 +803,7 @@ class Utilities:
         new_settings,
         new_capabilities,
         new_settings_group_validation,
+        new_supported_python_versions=None,
     ):
         merged_def = self._merge_definitions(
             existing_def,
@@ -796,6 +812,7 @@ class Utilities:
             existing_def.get("maintenance_status"),
             new_capabilities,
             new_settings_group_validation,
+            new_supported_python_versions,
         )
         merged_def_formatted = fix_arrays(fix_yaml_dict_format(merged_def))
         self._write_updated_def(plugin_name, plugin_variant, plugin_type, merged_def_formatted)

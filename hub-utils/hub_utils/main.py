@@ -389,6 +389,7 @@ def merge_metadata(
             new_settings,
             new_settings_group_validation,
             new_capabilities,
+            new_supported_python_versions,
         ) = MeltanoUtil._parse_sdk_about_settings(new_extract_json)
         try:
             util.merge_and_update(
@@ -399,6 +400,7 @@ def merge_metadata(
                 new_settings,
                 new_capabilities,
                 new_settings_group_validation,
+                new_supported_python_versions,
             )
         except Exception as e:
             print(f"Error merging {suffix}: {e}")

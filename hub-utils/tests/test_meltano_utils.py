@@ -16,7 +16,7 @@ def _read_data(file_name):
 def test_sdk_about_parsing_1():
     sdk_about_dict = _read_data("tap_apaleo_about.json")
 
-    settings, settings_group_validation, capabilities = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
+    settings, settings_group_validation, capabilities, _ = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
     print(json.dumps(settings))
     assert settings == [
         {
@@ -46,7 +46,7 @@ def test_sdk_about_parsing_1():
 
 def test_sdk_about_parsing_2():
     sdk_about_dict = _read_data("tap_meshstack_about.json")
-    settings, settings_group_validation, capabilities = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
+    settings, settings_group_validation, capabilities, _ = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
     print(json.dumps(settings))
     assert settings == [
         {
@@ -121,7 +121,7 @@ def test_sdk_about_parsing_2():
 def test_sdk_about_parsing_3():
     sdk_about_dict = _read_data("tap_with_rich_config_schema.json")
 
-    settings, _, _ = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
+    settings, _, _, _ = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
 
     assert settings == [
         {
@@ -216,7 +216,7 @@ def test_sdk_about_dependent_required():
         },
     }
 
-    settings, settings_group_validation, _ = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
+    settings, settings_group_validation, _, _ = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
 
     assert settings == [
         {
@@ -342,7 +342,7 @@ def test_sdk_about_dependent_required_nested():
         },
     }
 
-    settings, settings_group_validation, _ = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
+    settings, settings_group_validation, _, _ = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
 
     assert settings == [
         {
@@ -396,7 +396,7 @@ def test_sdk_about_dependent_required_nested():
 def test_sdk_about_parsing_airbyte():
     sdk_about_dict = _read_data("airbyte_s3_about.json")
 
-    settings, settings_group_validation, capabilities = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
+    settings, settings_group_validation, capabilities, _ = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
     print(json.dumps(settings))
     expected_settings = [
         {
@@ -544,7 +544,7 @@ def test_sdk_about_parsing_airbyte():
 def test_airbyte_array_enum_array():
     sdk_about_dict = _read_data("airbyte_array_enum.json")
 
-    settings, settings_group_validation, capabilities = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
+    settings, settings_group_validation, capabilities, _ = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
     print(json.dumps(settings))
     # TODO: Meltano doesnt support array enums as of today
     # assert settings == [
@@ -580,7 +580,7 @@ def test_airbyte_array_enum_array():
 def test_airbyte_array_enum_string():
     sdk_about_dict = _read_data("airbyte_string_enum.json")
 
-    settings, settings_group_validation, capabilities = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
+    settings, settings_group_validation, capabilities, _ = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
     print(json.dumps(settings))
     assert settings == [
         {
@@ -631,7 +631,7 @@ def test_sdk_about_parsing_default():
             "required": [],
         }
     }
-    settings, _, _ = MeltanoUtil._parse_sdk_about_settings(input)
+    settings, _, _, _ = MeltanoUtil._parse_sdk_about_settings(input)
     assert settings == [
         {
             "name": "test",
@@ -657,7 +657,7 @@ def test_sdk_about_parsing_default_bool():
             "required": [],
         }
     }
-    settings, _, _ = MeltanoUtil._parse_sdk_about_settings(input)
+    settings, _, _, _ = MeltanoUtil._parse_sdk_about_settings(input)
     assert settings == [
         {
             "name": "test",
@@ -690,7 +690,7 @@ def test_sdk_about_parsing_skip_default_dates():
             "required": [],
         }
     }
-    settings, _, _ = MeltanoUtil._parse_sdk_about_settings(input)
+    settings, _, _, _ = MeltanoUtil._parse_sdk_about_settings(input)
     assert settings == [
         {
             "name": "start_date",
@@ -821,7 +821,7 @@ def test_clean_description(input, expected):
 
 def test_sdk_about_parsing_faker_configs():
     sdk_about_dict = _read_data("faker_configs.json")
-    settings, _, _ = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
+    settings, _, _, _ = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
     assert settings == [
         {
             "name": "faker_config.seed",
@@ -851,7 +851,7 @@ def test_log_parser_property_with_structured_logging():
     }
 
     # Parse SDK about info
-    settings, validation_groups, capabilities = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
+    settings, validation_groups, capabilities, _ = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
 
     # Create plugin definition using utilities
     utils = Utilities(auto_accept=True)
@@ -888,7 +888,7 @@ def test_log_parser_property_without_structured_logging():
     }
 
     # Parse SDK about info
-    settings, validation_groups, capabilities = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
+    settings, validation_groups, capabilities, _ = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
 
     # Create plugin definition using utilities
     utils = Utilities(auto_accept=True)
@@ -935,7 +935,7 @@ def test_log_parser_property_with_mixed_capabilities():
     }
 
     # Parse SDK about info
-    settings, validation_groups, capabilities = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
+    settings, validation_groups, capabilities, _ = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
 
     # Create plugin definition using utilities
     utils = Utilities(auto_accept=True)
@@ -976,7 +976,7 @@ def test_log_parser_property_non_sdk_with_structured_logging():
     }
 
     # Parse SDK about info
-    settings, validation_groups, capabilities = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
+    settings, validation_groups, capabilities, _ = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
 
     # Create plugin definition using utilities (without meltano_sdk keyword)
     utils = Utilities(auto_accept=True)
