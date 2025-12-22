@@ -130,7 +130,6 @@ settings_group_validation:
   - consumer_key
   - state
 supported_python_versions:
-- Only
 - '3.9'
 - '3.10'
 - '3.11'
