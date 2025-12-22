@@ -5,9 +5,32 @@ import shlex
 import shutil
 import subprocess
 import tempfile
+from typing import TypedDict
 
 import typer
 import uv
+
+
+class _SDKSetting(TypedDict, total=False):
+    type: str | list[str]
+    description: str
+    format: str
+    title: str
+
+
+class _SDKSettings(TypedDict, total=False):
+    properties: dict[str, _SDKSetting]
+
+
+class _SDKAboutDict(TypedDict, total=False):
+    name: str
+    description: str
+    version: str
+    sdk_version: str
+
+    settings: _SDKSettings
+    capabilities: list[str]
+    supported_python_versions: list[str]
 
 
 class MeltanoUtil:
@@ -333,7 +356,10 @@ class MeltanoUtil:
         return kind
 
     @staticmethod
-    def _parse_sdk_about_settings(sdk_about_dict, enforce_desc=False):
+    def _parse_sdk_about_settings(
+        sdk_about_dict: _SDKAboutDict,
+        enforce_desc: bool = False,
+    ) -> tuple[list, list, list[str] | None, list[str] | None]:
         """Parse SDK about settings into a format suitable for Meltano.
 
         Args:
