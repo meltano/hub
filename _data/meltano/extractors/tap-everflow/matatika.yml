@@ -94,4 +94,10 @@ settings_group_validation:
 settings_preamble: This tap works with the Everflow [Network 
   API](https://developers.everflow.io/docs/network/) - ensure the API key you 
   provide reflects this.
+supported_python_versions:
+- '3.9'
+- '3.10'
+- '3.11'
+- '3.12'
+- '3.13'
 variant: matatika

@@ -93,4 +93,10 @@ settings:
   sensitive: true
 settings_group_validation:
 - - token
+supported_python_versions:
+- '3.10'
+- '3.11'
+- '3.12'
+- '3.13'
+- '3.14'
 variant: edgarrmondragon

@@ -76,5 +76,8 @@ settings:
 settings_group_validation:
 - - auth_token
 settings_preamble: ''
+supported_python_versions:
+- '3.9'
+- '3.10'
 usage: ''
 variant: substringgmbh

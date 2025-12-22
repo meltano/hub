@@ -76,4 +76,6 @@ settings:
   name: stream_maps
 settings_group_validation:
 - - filepath
+supported_python_versions:
+- '3.10'
 variant: ae-nv

@@ -114,5 +114,8 @@ settings_group_validation:
   - access_key
   - tables
 settings_preamble: ''
+supported_python_versions:
+- '3.10'
+- '3.11'
 usage: ''
 variant: widen

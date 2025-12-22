@@ -196,6 +196,11 @@ settings_group_validation:
 settings_preamble: This target uses boto3 to connect to AWS and perform copy and
   possibly credential operations. The agent running this target should be 
   connected to AWS to be able to open a boto3 client.
+supported_python_versions:
+- '3.9'
+- '3.10'
+- '3.11'
+- '3.12'
 target_schema: $TARGET_REDSHIFT_SCHEMA
 usage: ''
 variant: ticketswap

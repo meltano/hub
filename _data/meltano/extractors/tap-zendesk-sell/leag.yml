@@ -85,4 +85,10 @@ settings:
 settings_group_validation:
 - - access_token
   - device_uuid
+supported_python_versions:
+- '3.9'
+- '3.10'
+- '3.11'
+- '3.12'
+- '3.13'
 variant: leag
