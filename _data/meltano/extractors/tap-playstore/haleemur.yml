@@ -99,5 +99,11 @@ settings_group_validation:
 - - bucket_name
   - start_date
 settings_preamble: ''
+supported_python_versions:
+- '3.8'
+- '3.9'
+- '3.10'
+- '3.11'
+- '3.12'
 usage: ''
 variant: haleemur

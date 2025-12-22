@@ -92,5 +92,10 @@ settings:
 settings_group_validation:
 - - api_key
 settings_preamble: ''
+supported_python_versions:
+- '3.8'
+- '3.9'
+- '3.10'
+- '3.11'
 usage: ''
 variant: z3z1ma

@@ -100,5 +100,11 @@ settings_group_validation:
 - - customer_id
   - token_name
 settings_preamble: ''
+supported_python_versions:
+- '3.8'
+- '3.9'
+- '3.10'
+- '3.11'
+- '3.12'
 usage: ''
 variant: ella6882

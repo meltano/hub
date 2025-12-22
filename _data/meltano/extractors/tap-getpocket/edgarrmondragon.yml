@@ -129,4 +129,11 @@ settings_group_validation:
 - - access_token
   - consumer_key
   - state
+supported_python_versions:
+- Only
+- '3.9'
+- '3.10'
+- '3.11'
+- '3.12'
+- '3.13'
 variant: edgarrmondragon

@@ -105,5 +105,7 @@ settings_group_validation:
   - end_date
   - start_date
 settings_preamble: ''
+supported_python_versions:
+- '3.8'
 usage: ''
 variant: symon-ai

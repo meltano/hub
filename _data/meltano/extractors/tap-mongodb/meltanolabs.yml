@@ -225,5 +225,11 @@ settings_preamble: |
   the `document` field will always contain the entirety of the database document. This is true for log-based replication
   as well, as the change stream in that case is opened with the option `full_document="updateLookup"`. If you would
   prefer different behavior, please open an issue with the tap.
+supported_python_versions:
+- '3.10'
+- '3.11'
+- '3.12'
+- '3.13'
+- '3.14'
 usage: ''
 variant: meltanolabs

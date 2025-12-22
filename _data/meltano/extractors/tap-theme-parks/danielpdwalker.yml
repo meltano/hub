@@ -70,4 +70,9 @@ settings:
   label: Stream Maps
   name: stream_maps
 settings_group_validation: []
+supported_python_versions:
+- '3.8'
+- '3.9'
+- '3.10'
+- '3.11'
 variant: danielpdwalker

@@ -134,5 +134,8 @@ settings_group_validation:
   - password
   - username
 settings_preamble: ''
+supported_python_versions:
+- '3.10'
+- '3.11'
 usage: ''
 variant: datarts-tech
