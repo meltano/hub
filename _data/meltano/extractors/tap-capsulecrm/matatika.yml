@@ -105,7 +105,6 @@ settings_group_validation:
   - refresh_token
 settings_preamble: ''
 supported_python_versions:
-- '3'
 - '3.9'
 - '3.10'
 - '3.11'
