@@ -95,7 +95,6 @@ settings_group_validation:
 - - auth_token
 settings_preamble: ''
 supported_python_versions:
-- '3'
 - '3.10'
 - '3.11'
 - '3.12'
