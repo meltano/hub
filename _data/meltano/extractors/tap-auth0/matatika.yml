@@ -101,4 +101,10 @@ settings_group_validation:
 - - client_id
   - client_secret
   - domain
+supported_python_versions:
+- '3'
+- '3.9'
+- '3.10'
+- '3.11'
+- '3.12'
 variant: matatika

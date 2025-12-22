@@ -1,13 +1,11 @@
 capabilities:
 - about
-- activate-version
 - batch
 - catalog
 - discover
 - schema-flattening
 - state
 - stream-maps
-- structured-logging
 description: Read the Docs simplifies software documentation by automating 
   building, versioning, and hosting of your docs for you.
 domain_url: https://docs.readthedocs.io/en/stable/api/index.html
@@ -66,10 +64,6 @@ settings:
   kind: integer
   label: Max Flattening Depth
   name: flattening_max_depth
-- description: The maximum length of a flattened key.
-  kind: integer
-  label: Max Key Length
-  name: flattening_max_key_length
 - description: Whether to include streams available only to ReadTheDocs for 
     Business accounts.
   kind: boolean
@@ -93,4 +87,10 @@ settings:
   sensitive: true
 settings_group_validation:
 - - token
+supported_python_versions:
+- '3.9'
+- '3.10'
+- '3.11'
+- '3.12'
+- '3.13'
 variant: edgarrmondragon
