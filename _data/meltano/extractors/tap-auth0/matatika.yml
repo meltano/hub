@@ -102,7 +102,6 @@ settings_group_validation:
   - client_secret
   - domain
 supported_python_versions:
-- '3'
 - '3.9'
 - '3.10'
 - '3.11'
