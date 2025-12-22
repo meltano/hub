@@ -120,7 +120,6 @@ settings_group_validation:
   - schema.properties
 settings_preamble: ''
 supported_python_versions:
-- '3'
 - '3.9'
 - '3.10'
 - '3.11'
