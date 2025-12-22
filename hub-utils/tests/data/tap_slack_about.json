@@ -1,0 +1,256 @@
+{
+  "name": "tap-slack",
+  "description": "Slack tap class.",
+  "version": "0.2.0",
+  "sdk_version": "0.48.1",
+  "supported_python_versions": ["3.10", "3.11", "3.12", "3.13", "3.14"],
+  "capabilities": [
+    "catalog",
+    "state",
+    "discover",
+    "activate-version",
+    "about",
+    "stream-maps",
+    "schema-flattening",
+    "batch"
+  ],
+  "settings": {
+    "type": "object",
+    "properties": {
+      "api_key": {
+        "type": ["string"],
+        "description": "The token to authenticate against the Slack API service"
+      },
+      "start_date": {
+        "type": ["string", "null"],
+        "format": "date-time",
+        "description": "The earliest record date to sync"
+      },
+      "thread_lookback_days": {
+        "type": ["integer", "null"],
+        "default": 1,
+        "description": "The number of days to look in the past for new thread replies to existing messages"
+      },
+      "channel_types": {
+        "type": ["array", "null"],
+        "items": {
+          "type": ["string"]
+        },
+        "default": ["public_channel"],
+        "description": "The types of conversations the tap will attempt to extract data from. Must be one of 'public_channel', 'mpim', 'private_channel', or 'im'. Note that the Slack app must have the appropriate privileges and be a member of the conversations to sync messages."
+      },
+      "auto_join_channels": {
+        "type": ["boolean", "null"],
+        "default": false,
+        "description": "Whether the bot user should attempt to join channels that it has not yet joined. The bot user must be a member of the channel to retrieve messages."
+      },
+      "selected_channels": {
+        "type": ["array", "null"],
+        "items": {
+          "type": ["string"]
+        },
+        "description": "A list of channel IDs that should be retrieved. If not defined then all are selected."
+      },
+      "excluded_channels": {
+        "type": ["array", "null"],
+        "items": {
+          "type": ["string"]
+        },
+        "description": "A list of channel IDs that should not be retrieved. Excluding overrides a selected setting, so if a channel is included in both selected and excluded, it will be excluded."
+      },
+      "include_admin_streams": {
+        "type": ["boolean", "null"],
+        "default": false,
+        "description": "Whether to include streams that require admin privileges or not. If the user does not have the proper scopes then the tap will throw and exception."
+      },
+      "stream_maps": {
+        "type": ["object", "null"],
+        "properties": {
+          "__else__": {
+            "anyOf": [
+              {
+                "const": "__NULL__"
+              },
+              {
+                "type": "null"
+              },
+              "null"
+            ],
+            "title": "Other streams",
+            "description": "Currently, only setting this to `__NULL__` is supported. This will remove all other streams."
+          }
+        },
+        "additionalProperties": {
+          "anyOf": [
+            {
+              "const": "__NULL__"
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "__alias__": {
+                  "type": ["string", "null"],
+                  "title": "Stream Alias",
+                  "description": "Alias to use for the stream."
+                },
+                "__else__": {
+                  "anyOf": [
+                    {
+                      "const": "__NULL__"
+                    },
+                    {
+                      "type": "null"
+                    },
+                    "null"
+                  ],
+                  "title": "Other properties",
+                  "description": "Currently, only setting this to `__NULL__` is supported. This will remove all other properties from the stream."
+                },
+                "__filter__": {
+                  "type": ["string", "null"],
+                  "pattern": "^bool\\((.*)\\)$",
+                  "title": "Filter",
+                  "description": "Filter out records from a stream. A string expression which must evaluate to `true` to include the record, or `false` to exclude it. Filter expressions should be wrapped in `bool()` to ensure proper type conversion."
+                },
+                "__key_properties__": {
+                  "type": ["array", "null"],
+                  "items": {
+                    "type": ["string"]
+                  },
+                  "title": "Key Properties",
+                  "description": "Primary key properties for the stream."
+                },
+                "__source__": {
+                  "type": ["string", "null"],
+                  "description": "Create a new stream from this source stream."
+                }
+              },
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "const": "__NULL__"
+                  },
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": ["string"]
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "title": "Stream Maps",
+        "description": "Config object for stream maps capability. For more information check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html)."
+      },
+      "stream_map_config": {
+        "type": ["object", "null"],
+        "properties": {},
+        "title": "User Stream Map Configuration",
+        "description": "User-defined config values to be used within map expressions."
+      },
+      "faker_config": {
+        "type": ["object", "null"],
+        "properties": {
+          "seed": {
+            "oneOf": [
+              {
+                "type": ["number"]
+              },
+              {
+                "type": ["string"]
+              },
+              {
+                "type": ["boolean"]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Faker Seed",
+            "description": "Value to seed the Faker generator for deterministic output: https://faker.readthedocs.io/en/master/#seeding-the-generator"
+          },
+          "locale": {
+            "oneOf": [
+              {
+                "type": ["string"]
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": ["string"]
+                }
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Faker Locale",
+            "description": "One or more LCID locale strings to produce localized output for: https://faker.readthedocs.io/en/master/#localization"
+          }
+        },
+        "title": "Faker Configuration",
+        "description": "Config for the [`Faker`](https://faker.readthedocs.io/en/master/) instance variable `fake` used within map expressions. Only applicable if the plugin specifies `faker` as an additional dependency (through the `singer-sdk` `faker` extra or directly)."
+      },
+      "flattening_enabled": {
+        "type": ["boolean", "null"],
+        "title": "Enable Schema Flattening",
+        "description": "'True' to enable schema flattening and automatically expand nested properties."
+      },
+      "flattening_max_depth": {
+        "type": ["integer", "null"],
+        "title": "Max Flattening Depth",
+        "description": "The max depth to flatten schemas."
+      },
+      "batch_config": {
+        "type": ["object", "null"],
+        "properties": {
+          "encoding": {
+            "type": ["object", "null"],
+            "properties": {
+              "format": {
+                "type": ["string", "null"],
+                "title": "Batch Encoding Format",
+                "description": "Format to use for batch files.",
+                "enum": ["jsonl", "parquet"]
+              },
+              "compression": {
+                "type": ["string", "null"],
+                "title": "Batch Compression Format",
+                "description": "Compression format to use for batch files.",
+                "enum": ["gzip", "none"]
+              }
+            },
+            "title": "Batch Encoding Configuration",
+            "description": "Specifies the format and compression of the batch files."
+          },
+          "storage": {
+            "type": ["object", "null"],
+            "properties": {
+              "root": {
+                "type": ["string", "null"],
+                "title": "Batch Storage Root",
+                "description": "Root path to use when writing batch files."
+              },
+              "prefix": {
+                "type": ["string", "null"],
+                "title": "Batch Storage Prefix",
+                "description": "Prefix to use when writing batch files."
+              }
+            },
+            "title": "Batch Storage Configuration",
+            "description": "Defines the storage layer to use when writing batch files"
+          }
+        },
+        "title": "Batch Configuration",
+        "description": "Configuration for BATCH message capabilities."
+      }
+    },
+    "required": ["api_key"],
+    "$schema": "https://json-schema.org/draft/2020-12/schema"
+  }
+}

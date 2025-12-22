@@ -3,8 +3,10 @@ import os
 
 import pytest
 
-from hub_utils.meltano_util import MeltanoUtil
+from hub_utils.meltano_util import MeltanoUtil, _SDKAboutDict
 from hub_utils.utilities import Utilities
+
+parse = MeltanoUtil._parse_sdk_about_settings
 
 
 def _read_data(file_name):
@@ -14,10 +16,9 @@ def _read_data(file_name):
 
 
 def test_sdk_about_parsing_1():
-    sdk_about_dict = _read_data("tap_apaleo_about.json")
+    sdk_about_dict: _SDKAboutDict = _read_data("tap_apaleo_about.json")
 
-    settings, settings_group_validation, capabilities = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
-    print(json.dumps(settings))
+    settings, settings_group_validation, capabilities, _python_versions = parse(sdk_about_dict)
     assert settings == [
         {
             "name": "client_id",
@@ -46,8 +47,7 @@ def test_sdk_about_parsing_1():
 
 def test_sdk_about_parsing_2():
     sdk_about_dict = _read_data("tap_meshstack_about.json")
-    settings, settings_group_validation, capabilities = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
-    print(json.dumps(settings))
+    settings, settings_group_validation, capabilities, _ = parse(sdk_about_dict)
     assert settings == [
         {
             "name": "federation.auth.username",
@@ -121,7 +121,7 @@ def test_sdk_about_parsing_2():
 def test_sdk_about_parsing_3():
     sdk_about_dict = _read_data("tap_with_rich_config_schema.json")
 
-    settings, _, _ = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
+    settings, _, _, _ = parse(sdk_about_dict)
 
     assert settings == [
         {
@@ -146,8 +146,14 @@ def test_sdk_about_parsing_3():
     ]
 
 
+def test_sdk_about_parsing_python_versions():
+    sdk_about_dict: _SDKAboutDict = _read_data("tap_slack_about.json")
+    _, _, _, python_versions = parse(sdk_about_dict)
+    assert python_versions == ["3.10", "3.11", "3.12", "3.13", "3.14"]
+
+
 def test_sdk_about_dependent_required():
-    sdk_about_dict = {
+    sdk_about_dict: _SDKAboutDict = {
         "name": "tap-example",
         "description": "Singer.io tap for extracting data from example",
         "version": "0.1.0",
@@ -216,7 +222,7 @@ def test_sdk_about_dependent_required():
         },
     }
 
-    settings, settings_group_validation, _ = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
+    settings, settings_group_validation, _, _ = parse(sdk_about_dict)
 
     assert settings == [
         {
@@ -268,7 +274,7 @@ def test_sdk_about_dependent_required():
 
 
 def test_sdk_about_dependent_required_nested():
-    sdk_about_dict = {
+    sdk_about_dict: _SDKAboutDict = {
         "name": "tap-example",
         "description": "Singer.io tap for extracting data from example",
         "version": "0.1.0",
@@ -342,7 +348,7 @@ def test_sdk_about_dependent_required_nested():
         },
     }
 
-    settings, settings_group_validation, _ = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
+    settings, settings_group_validation, _, _ = parse(sdk_about_dict)
 
     assert settings == [
         {
@@ -396,8 +402,7 @@ def test_sdk_about_dependent_required_nested():
 def test_sdk_about_parsing_airbyte():
     sdk_about_dict = _read_data("airbyte_s3_about.json")
 
-    settings, settings_group_validation, capabilities = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
-    print(json.dumps(settings))
+    settings, settings_group_validation, capabilities, _ = parse(sdk_about_dict)
     expected_settings = [
         {
             "name": "airbyte_spec.image",
@@ -544,8 +549,7 @@ def test_sdk_about_parsing_airbyte():
 def test_airbyte_array_enum_array():
     sdk_about_dict = _read_data("airbyte_array_enum.json")
 
-    settings, settings_group_validation, capabilities = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
-    print(json.dumps(settings))
+    settings, _settings_group_validation, capabilities, _ = parse(sdk_about_dict)
     # TODO: Meltano doesnt support array enums as of today
     # assert settings == [
     #     {
@@ -580,8 +584,7 @@ def test_airbyte_array_enum_array():
 def test_airbyte_array_enum_string():
     sdk_about_dict = _read_data("airbyte_string_enum.json")
 
-    settings, settings_group_validation, capabilities = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
-    print(json.dumps(settings))
+    settings, _settings_group_validation, capabilities, _ = parse(sdk_about_dict)
     assert settings == [
         {
             "name": "connector_config.region",
@@ -618,7 +621,7 @@ def test_get_label(input, expected):
 
 
 def test_sdk_about_parsing_default():
-    input = {
+    input: _SDKAboutDict = {
         "settings": {
             "type": "object",
             "properties": {
@@ -631,7 +634,7 @@ def test_sdk_about_parsing_default():
             "required": [],
         }
     }
-    settings, _, _ = MeltanoUtil._parse_sdk_about_settings(input)
+    settings, _, _, _ = parse(input)
     assert settings == [
         {
             "name": "test",
@@ -644,7 +647,7 @@ def test_sdk_about_parsing_default():
 
 
 def test_sdk_about_parsing_default_bool():
-    input = {
+    input: _SDKAboutDict = {
         "settings": {
             "type": "object",
             "properties": {
@@ -657,7 +660,7 @@ def test_sdk_about_parsing_default_bool():
             "required": [],
         }
     }
-    settings, _, _ = MeltanoUtil._parse_sdk_about_settings(input)
+    settings, _, _, _ = parse(input)
     assert settings == [
         {
             "name": "test",
@@ -670,7 +673,7 @@ def test_sdk_about_parsing_default_bool():
 
 
 def test_sdk_about_parsing_skip_default_dates():
-    input = {
+    input: _SDKAboutDict = {
         "settings": {
             "type": "object",
             "properties": {
@@ -690,7 +693,7 @@ def test_sdk_about_parsing_skip_default_dates():
             "required": [],
         }
     }
-    settings, _, _ = MeltanoUtil._parse_sdk_about_settings(input)
+    settings, _, _, _ = parse(input)
     assert settings == [
         {
             "name": "start_date",
@@ -821,7 +824,7 @@ def test_clean_description(input, expected):
 
 def test_sdk_about_parsing_faker_configs():
     sdk_about_dict = _read_data("faker_configs.json")
-    settings, _, _ = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
+    settings, _, _, _ = parse(sdk_about_dict)
     assert settings == [
         {
             "name": "faker_config.seed",
@@ -841,7 +844,7 @@ def test_sdk_about_parsing_faker_configs():
 def test_log_parser_property_with_structured_logging():
     """Test that log_parser property is added when structured-logging capability is present."""
     # Create mock SDK about data with structured-logging capability
-    sdk_about_dict = {
+    sdk_about_dict: _SDKAboutDict = {
         "name": "tap-example",
         "capabilities": ["catalog", "discover", "state", "structured-logging"],
         "settings": {
@@ -851,7 +854,7 @@ def test_log_parser_property_with_structured_logging():
     }
 
     # Parse SDK about info
-    settings, validation_groups, capabilities = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
+    settings, validation_groups, capabilities, _ = parse(sdk_about_dict)
 
     # Create plugin definition using utilities
     utils = Utilities(auto_accept=True)
@@ -878,7 +881,7 @@ def test_log_parser_property_with_structured_logging():
 def test_log_parser_property_without_structured_logging():
     """Test that log_parser property is NOT added when structured-logging capability is absent."""
     # Create mock SDK about data WITHOUT structured-logging capability
-    sdk_about_dict = {
+    sdk_about_dict: _SDKAboutDict = {
         "name": "tap-legacy",
         "capabilities": ["catalog", "discover", "state"],
         "settings": {
@@ -888,7 +891,7 @@ def test_log_parser_property_without_structured_logging():
     }
 
     # Parse SDK about info
-    settings, validation_groups, capabilities = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
+    settings, validation_groups, capabilities, _ = parse(sdk_about_dict)
 
     # Create plugin definition using utilities
     utils = Utilities(auto_accept=True)
@@ -914,7 +917,7 @@ def test_log_parser_property_without_structured_logging():
 def test_log_parser_property_with_mixed_capabilities():
     """Test log_parser property with plugin that has many capabilities including structured-logging."""
     # Create mock SDK about data with many capabilities including structured-logging
-    sdk_about_dict = {
+    sdk_about_dict: _SDKAboutDict = {
         "name": "tap-comprehensive",
         "capabilities": [
             "catalog",
@@ -935,7 +938,7 @@ def test_log_parser_property_with_mixed_capabilities():
     }
 
     # Parse SDK about info
-    settings, validation_groups, capabilities = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
+    settings, validation_groups, capabilities, _ = parse(sdk_about_dict)
 
     # Create plugin definition using utilities
     utils = Utilities(auto_accept=True)
@@ -964,7 +967,7 @@ def test_log_parser_property_with_mixed_capabilities():
 def test_log_parser_property_non_sdk_with_structured_logging():
     """Test that log_parser property is NOT added for non-SDK plugin with structured-logging capability."""
     # Create mock SDK about data with structured-logging capability but no SDK keyword
-    sdk_about_dict = {
+    sdk_about_dict: _SDKAboutDict = {
         "name": "tap-non-sdk",
         "capabilities": ["catalog", "discover", "state", "structured-logging"],
         "settings": {
@@ -976,7 +979,7 @@ def test_log_parser_property_non_sdk_with_structured_logging():
     }
 
     # Parse SDK about info
-    settings, validation_groups, capabilities = MeltanoUtil._parse_sdk_about_settings(sdk_about_dict)
+    settings, validation_groups, capabilities, _ = parse(sdk_about_dict)
 
     # Create plugin definition using utilities (without meltano_sdk keyword)
     utils = Utilities(auto_accept=True)

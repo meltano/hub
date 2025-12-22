@@ -39,7 +39,9 @@
                 "settings_preamble": {},
                 "usage": {},
                 "prereq": {},
-                "hidden": {}
+                "hidden": {},
+                "supported_python_versions": {},
+                "log_parser": {}
             }
         }
     ]
