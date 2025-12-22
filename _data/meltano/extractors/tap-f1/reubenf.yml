@@ -89,7 +89,6 @@ settings:
   name: stream_maps
 settings_group_validation: []
 supported_python_versions:
-- '3'
 - '3.9'
 - '3.10'
 - '3.11'
