@@ -37,6 +37,12 @@ settings:
   kind: string
   label: Destination Path
   name: destination_path
+- description: "The character encoding to use when writing CSV files. Defaults to
+    'utf-8'. For a list of possible values, see: https://docs.python.org/3/library/codecs.html#standard-encodings"
+  kind: string
+  label: Encoding
+  name: encoding
+  value: utf-8
 - description: The character to use for escaping special characters.
   kind: string
   label: Escape Character
@@ -65,6 +71,10 @@ settings:
   kind: integer
   label: Max Flattening Depth
   name: flattening_max_depth
+- description: The maximum length of a flattened key.
+  kind: integer
+  label: Max Key Length
+  name: flattening_max_key_length
 - description: The method to use when loading data into the destination. 
     `append-only` will always write all input records whether that records 
     already exists or not. `upsert` will update existing records and insert new 
