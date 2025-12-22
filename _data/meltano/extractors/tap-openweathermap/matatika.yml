@@ -108,7 +108,6 @@ settings_group_validation:
   - forecast_weather_lattitude
   - forecast_weather_longitude
 supported_python_versions:
-- '3'
 - '3.9'
 - '3.10'
 - '3.11'
