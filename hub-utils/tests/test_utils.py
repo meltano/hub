@@ -413,3 +413,106 @@ def test_apply_overrides(definition, expected):
     utils = Utilities()
     applied = utils._apply_overrides(definition)
     assert applied == expected
+
+
+@patch.object(Utilities, "_write_updated_def")
+def test_merge_and_update_with_python_versions(patch):
+    """End-to-end test for supported_python_versions feature."""
+    utils = Utilities()
+    utils.merge_and_update(
+        {
+            "keywords": ["meltano_sdk"],
+            "maintenance_status": "active",
+            "settings": [
+                {
+                    "name": "api_key",
+                    "description": "API key for authentication",
+                    "label": "API Key",
+                    "kind": "password",
+                    "sensitive": True,
+                }
+            ],
+        },
+        "tap-example",
+        "extractors",
+        "meltanolabs",
+        [
+            {
+                "name": "api_key",
+                "description": "API key for authentication",
+                "label": "API Key",
+                "kind": "password",
+                "sensitive": True,
+            }
+        ],
+        ["catalog", "discover", "state"],
+        [
+            ["api_key"],
+        ],
+        ["3.10", "3.11", "3.12", "3.13"],
+    )
+    patch.assert_called_with(
+        "tap-example",
+        "meltanolabs",
+        "extractors",
+        {
+            "capabilities": ["catalog", "discover", "state"],
+            "keywords": ["meltano_sdk"],
+            "maintenance_status": "active",
+            "settings": [
+                {
+                    "description": "API key for authentication",
+                    "kind": "password",
+                    "label": "API Key",
+                    "name": "api_key",
+                    "sensitive": True,
+                }
+            ],
+            "settings_group_validation": [["api_key"]],
+            "supported_python_versions": ["3.10", "3.11", "3.12", "3.13"],
+        },
+    )
+
+
+@patch.object(Utilities, "_write_updated_def")
+def test_merge_and_update_without_python_versions(patch):
+    """Test that merge_and_update works without supported_python_versions (backwards compatibility)."""
+    utils = Utilities()
+    utils.merge_and_update(
+        {
+            "keywords": ["meltano_sdk"],
+            "maintenance_status": "active",
+            "settings": [
+                {
+                    "name": "api_key",
+                    "description": "API key for authentication",
+                    "label": "API Key",
+                    "kind": "password",
+                    "sensitive": True,
+                }
+            ],
+        },
+        "tap-example",
+        "extractors",
+        "meltanolabs",
+        [
+            {
+                "name": "api_key",
+                "description": "API key for authentication",
+                "label": "API Key",
+                "kind": "password",
+                "sensitive": True,
+            }
+        ],
+        ["catalog", "discover", "state"],
+        [
+            ["api_key"],
+        ],
+        None,  # No supported_python_versions provided
+    )
+    # Assert that supported_python_versions is not in the final definition when None
+    call_args = patch.call_args[0]
+    merged_def = call_args[3]
+    assert "supported_python_versions" not in merged_def
+    assert merged_def["capabilities"] == ["catalog", "discover", "state"]
+    assert merged_def["keywords"] == ["meltano_sdk"]
