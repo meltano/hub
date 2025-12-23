@@ -2,6 +2,7 @@ from unittest.mock import patch
 
 import pytest
 
+from hub_utils.meltano_util import MeltanoUtil
 from hub_utils.utilities import Utilities
 
 
@@ -516,3 +517,32 @@ def test_merge_and_update_without_python_versions(patch):
     assert "supported_python_versions" not in merged_def
     assert merged_def["capabilities"] == ["catalog", "discover", "state"]
     assert merged_def["keywords"] == ["meltano_sdk"]
+
+
+@pytest.mark.parametrize(
+    "input_versions,expected",
+    [
+        # Valid versions only
+        (["3.10", "3.11", "3.12"], ["3.10", "3.11", "3.12"]),
+        # Filter out invalid values like "Only"
+        (["Only", "3.10", "3.11", "3.12"], ["3.10", "3.11", "3.12"]),
+        # Filter out invalid values like "3" (missing minor version)
+        (["3", "3.10", "3.11"], ["3.10", "3.11"]),
+        # Mix of invalid values
+        (["Only", "3", "3.10", "3.11", "invalid"], ["3.10", "3.11"]),
+        # All invalid values return None
+        (["Only", "3", "invalid"], None),
+        # Empty list returns None
+        ([], None),
+        # None input returns None
+        (None, None),
+        # Single valid version
+        (["3.12"], ["3.12"]),
+        # Version with multiple digits in minor version
+        (["3.100", "3.9", "3.11"], ["3.100", "3.9", "3.11"]),
+    ],
+)
+def test_filter_python_versions(input_versions, expected):
+    """Test that _filter_python_versions correctly filters supported_python_versions."""
+    result = MeltanoUtil._filter_python_versions(input_versions)
+    assert result == expected
