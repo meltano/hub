@@ -356,6 +356,28 @@ class MeltanoUtil:
         return kind
 
     @staticmethod
+    def _filter_python_versions(versions: list[str] | None) -> list[str] | None:
+        """Filter supported_python_versions to only include values in the format "3.x".
+
+        Args:
+            versions: List of python version strings
+
+        Returns:
+            Filtered list containing only versions in the "3.x" format, or None if input is None
+        """
+        import re
+
+        if versions is None:
+            return None
+
+        # Pattern matches "3." followed by one or more digits
+        pattern = re.compile(r"^3\.\d+$")
+        filtered = [v for v in versions if isinstance(v, str) and pattern.match(v)]
+
+        # Return None if the filtered list is empty to maintain backwards compatibility
+        return filtered if filtered else None
+
+    @staticmethod
     def _parse_sdk_about_settings(
         sdk_about_dict: _SDKAboutDict,
         enforce_desc: bool = False,
@@ -438,7 +460,7 @@ class MeltanoUtil:
             deduped_settings,
             [group for group in validation_groups if group],
             sdk_about_dict.get("capabilities"),
-            sdk_about_dict.get("supported_python_versions"),
+            MeltanoUtil._filter_python_versions(sdk_about_dict.get("supported_python_versions")),
         )
 
     @staticmethod
