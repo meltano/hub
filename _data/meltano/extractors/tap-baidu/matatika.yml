@@ -105,4 +105,10 @@ settings:
   value: utc0
 settings_group_validation:
 - - api_token
+supported_python_versions:
+- '3.9'
+- '3.10'
+- '3.11'
+- '3.12'
+- '3.13'
 variant: matatika

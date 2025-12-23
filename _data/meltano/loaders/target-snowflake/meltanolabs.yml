@@ -198,5 +198,11 @@ settings_preamble: |
   - The password for your SYSADMIN user.
 
   After the CLI is done, you should have a new user/role/etc. created and ready to use. You can now use the CLI to load data into Snowflake.
+supported_python_versions:
+- '3.10'
+- '3.11'
+- '3.12'
+- '3.13'
+- '3.14'
 usage: ''
 variant: meltanolabs

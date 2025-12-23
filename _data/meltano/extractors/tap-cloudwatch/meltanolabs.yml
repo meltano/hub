@@ -141,5 +141,11 @@ settings_group_validation:
   - query
   - start_date
 settings_preamble: ''
+supported_python_versions:
+- '3.8'
+- '3.9'
+- '3.10'
+- '3.11'
+- '3.12'
 usage: ''
 variant: meltanolabs

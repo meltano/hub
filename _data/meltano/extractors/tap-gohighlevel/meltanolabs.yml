@@ -103,5 +103,12 @@ settings_preamble: The HighLevel API uses a refresh token that expires after
   the config file. There's currently no feature in Meltano (see 
   https://github.com/meltano/meltano/issues/2660) to persist these types of 
   changes between runs, so you'll have to implement it yourself.
+supported_python_versions:
+- '3.8'
+- '3.9'
+- '3.10'
+- '3.11'
+- '3.12'
+- '3.13'
 usage: ''
 variant: meltanolabs

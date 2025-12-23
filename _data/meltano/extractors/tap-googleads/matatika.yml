@@ -144,4 +144,5 @@ settings_group_validation:
   - oauth_credentials.client_id
   - oauth_credentials.client_secret
   - oauth_credentials.refresh_token
+supported_python_versions: []
 variant: matatika

@@ -88,4 +88,11 @@ settings:
   label: Stream Maps
   name: stream_maps
 settings_group_validation: []
+supported_python_versions:
+- '3.9'
+- '3.10'
+- '3.11'
+- '3.12'
+- '3.13'
+- '3.14'
 variant: reubenf

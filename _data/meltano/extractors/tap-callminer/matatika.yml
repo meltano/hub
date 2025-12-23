@@ -144,4 +144,10 @@ settings_group_validation:
   - notification_email
 settings_preamble: This tap works with the CallMiner bulk export API - ensure 
   the client credentials you provide reflect this.
+supported_python_versions:
+- '3.9'
+- '3.10'
+- '3.11'
+- '3.12'
+- '3.13'
 variant: matatika

@@ -193,5 +193,11 @@ settings:
   value: false
 settings_group_validation: []
 settings_preamble: ''
+supported_python_versions:
+- '3.9'
+- '3.10'
+- '3.11'
+- '3.12'
+- '3.13'
 usage: ''
 variant: definite

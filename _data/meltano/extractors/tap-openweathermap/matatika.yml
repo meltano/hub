@@ -107,4 +107,11 @@ settings_group_validation:
   - current_weather_city_name
   - forecast_weather_lattitude
   - forecast_weather_longitude
+supported_python_versions:
+- '3.9'
+- '3.10'
+- '3.11'
+- '3.12'
+- '3.13'
+- '3.14'
 variant: matatika
