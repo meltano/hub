@@ -146,6 +146,17 @@
             "examples": [
                 "singer-sdk"
             ]
+        },
+        "supported_python_versions": {
+            "type": "array",
+            "description": "A list of Python versions supported by this plugin in the format '3.x' (e.g., '3.10', '3.11').",
+            "items": {
+                "type": "string",
+                "pattern": "^3\\.\\d+$"
+            },
+            "examples": [
+                ["3.10", "3.11", "3.12"]
+            ]
         }
     }
 }
