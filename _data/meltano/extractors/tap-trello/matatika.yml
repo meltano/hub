@@ -98,7 +98,6 @@ settings_group_validation:
 - - access_token
   - developer_api_key
 supported_python_versions:
-- '3'
 - '3.9'
 - '3.10'
 - '3.11'
