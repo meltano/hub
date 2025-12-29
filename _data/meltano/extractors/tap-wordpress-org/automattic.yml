@@ -86,7 +86,7 @@ settings:
   label: Max Flattening Depth
   name: flattening_max_depth
 - description: 'Delay between API requests in seconds (default: 0.1)'
-  kind: decimal
+  kind: integer
   label: Request Delay
   name: request_delay
   value: 0.1
@@ -113,4 +113,10 @@ settings:
   name: user_agent
   value: tap-wordpress-org/0.1.0
 settings_group_validation: []
+supported_python_versions:
+- '3.9'
+- '3.10'
+- '3.11'
+- '3.12'
+- '3.13'
 variant: automattic
