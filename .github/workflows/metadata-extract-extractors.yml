@@ -82,12 +82,18 @@ jobs:
       uses: actions/setup-python@83679a892e2d95755f2dac6acb0bfd1e9ac5d548 # v6.1.0
       with:
         python-version: |
+          3.14
           3.13
           3.12
           3.11
           3.10
           3.9
           3.8
+
+    - name: Extract Metadata (3.14)
+      id: extract_314
+      run: hub-utils extract-sdk-metadata-to-s3 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" $(pwd)/extract_data --python=python3.14
+      continue-on-error: true
 
     - name: Extract Metadata (3.13)
       id: extract_313
@@ -154,9 +160,35 @@ jobs:
       uses: actions/setup-python@83679a892e2d95755f2dac6acb0bfd1e9ac5d548 # v6.1.0
       with:
         python-version: |
+          3.14
+          3.13
+          3.12
+          3.11
           3.10
           3.9
           3.8
+
+    - name: Extract Metadata (3.14)
+      id: extract_314
+      run: hub-utils extract-sdk-metadata-to-s3 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" $(pwd)/extract_data --python=python3.14
+      continue-on-error: true
+
+    - name: Extract Metadata (3.13)
+      id: extract_313
+      run: hub-utils extract-sdk-metadata-to-s3 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" $(pwd)/extract_data --python=python3.13
+      continue-on-error: true
+
+
+    - name: Extract Metadata (3.12)
+      id: extract_312
+      run: hub-utils extract-sdk-metadata-to-s3 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" $(pwd)/extract_data --python=python3.12
+      continue-on-error: true
+
+
+    - name: Extract Metadata (3.11)
+      id: extract_311
+      run: hub-utils extract-sdk-metadata-to-s3 "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" $(pwd)/extract_data --python=python3.11
+      continue-on-error: true
 
     - name: Extract Metadata (3.10)
       id: extract_310
