@@ -20,10 +20,10 @@ To help with this we created a [hub-utils CLI](https://github.com/meltano/hub-ut
 For example it will help you add or update plugins, along the way it will prompt for information it needs to fulfil the plugin definition and if the plugin is SDK based it will scrape most of the information for you so you don't need to provide it.
 It does it's best to default to the correct answers and fill common descriptions (i.e. start_date) and labels for you.
 
-This assumes you already have pipx installed, see the meltano [install-pipx docs](https://docs.meltano.com/guide/installation-guide#install-pipx) for details.
+To install it using [uv](https://docs.astral.sh/uv/):
 
 ```bash
-pipx install git+https://github.com/meltano/hub-utils.git
+uv tool install git+https://github.com/meltano/hub-utils.git
 ```
 
 The CLI assumes your terminal is in the root of the hub repository, if you need to run it outside the hub repository root you can set the path using the `HUB_ROOT_PATH` environment variable.
