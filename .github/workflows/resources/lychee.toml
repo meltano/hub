@@ -1,0 +1,33 @@
+# Lychee link checker configuration
+# https://lychee.cli.rs/#/usage/config
+
+# Maximum number of concurrent network requests
+# Lower concurrency to avoid GitHub rate limiting
+max_concurrency = 16
+
+# Maximum number of retries per failed request
+# More retries to handle temporary rate limits
+max_retries = 5
+
+# Request timeout in seconds
+timeout = 30
+
+# Accept only successful status codes
+# Don't accept 429/999 - these should be retried, not accepted
+accept = [200, 203, 204, 206]
+
+# Retry wait time in seconds
+# Longer wait to avoid rate limits
+retry_wait_time = 10
+
+# User agent string
+user_agent = "Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0"
+
+# Maximum redirects to follow
+max_redirects = 10
+
+# Use HEAD requests when possible (faster)
+method = "head"
+
+# Cache configuration
+cache = true
