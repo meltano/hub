@@ -25,13 +25,39 @@ jobs:
 
       - uses: astral-sh/setup-uv@681c641aba71e4a1c380be3ab5e12ad51f415867 # v7.1.6
 
-      - name: Get invalid URLs
-        id: urls
+      - name: Install lychee
+        uses: lycheeverse/lychee-action@a8c4c7cb88f0c7386610c35eb25108e448569cb0 # v2.7.0
+        with:
+          args: --version
+
+      - name: Extract URLs from YAML files
         run: |
-          output=$(uv run python utility_scripts/plugin_definitions/check_links.py)
-          echo "INVALID_URL<<EOF" >> $GITHUB_ENV
-          echo "$output" >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
+          uv run python utility_scripts/plugin_definitions/extract_urls.py > urls.txt
+          echo "Extracted $(wc -l < urls.txt) unique URLs to check"
+
+      - name: Check URLs with lychee
+        id: lychee
+        continue-on-error: true
+        run: |
+          lychee --config .github/workflows/resources/lychee.toml \
+                 --format json \
+                 --output lychee-output.json \
+                 urls.txt
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Format lychee output
+        id: urls
+        if: always()
+        run: |
+          if [ -f lychee-output.json ]; then
+            output=$(cat lychee-output.json | uv run python utility_scripts/plugin_definitions/format_lychee_output.py)
+            echo "INVALID_URL<<EOF" >> $GITHUB_ENV
+            echo "$output" >> $GITHUB_ENV
+            echo "EOF" >> $GITHUB_ENV
+          else
+            echo "INVALID_URL=" >> $GITHUB_ENV
+          fi
       - uses: JasonEtco/create-an-issue@1b14a70e4d8dc185e5cc76d3bec9eab20257b2c5 # v2.9.2
         if: env.INVALID_URL != ''
         env:
