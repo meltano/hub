@@ -7,6 +7,7 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
+- structured-logging
 description: Full-featured online form builder that makes it easy to create 
   robust forms
 domain_url: https://www.jotform.com/
@@ -77,6 +78,15 @@ settings:
   kind: integer
   label: Max Flattening Depth
   name: flattening_max_depth
+- description: The maximum length of a flattened key.
+  kind: integer
+  label: Max Key Length
+  name: flattening_max_key_length
+- description: Whether to include deprecated streams
+  kind: boolean
+  label: Include Deprecated Streams
+  name: include_deprecated_streams
+  value: true
 - description: Cache expiration time in seconds
   kind: integer
   label: Requests Cache Config Expire After
@@ -99,11 +109,6 @@ settings:
   kind: object
   label: Stream Maps
   name: stream_maps
-- description: User-Agent header
-  kind: string
-  label: User Agent
-  name: user_agent
-  value: tap-jotform/0.6.3
 settings_group_validation:
 - - api_key
 settings_preamble: ''

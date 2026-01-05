@@ -25,6 +25,10 @@ settings:
   label: Access Token
   name: access_token
   sensitive: true
+- description: The latest record date to sync
+  kind: date_iso8601
+  label: End Date
+  name: end_date
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean

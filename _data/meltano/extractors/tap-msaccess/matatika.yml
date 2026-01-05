@@ -100,6 +100,12 @@ settings:
   name: stream_maps
 settings_group_validation:
 - - database_file
+supported_python_versions:
+- '3.8'
+- '3.9'
+- '3.10'
+- '3.11'
+- '3.12'
 usage: To connect to a remote database file, check out [`tap-msaccess-anywhere`](/extractors/tap-msaccess-anywhere)
   or the domain-specific `tap-msaccess` derivations (e.g. [`tap-msaccess-azure`](/extractors/tap-msaccess-azure))
 variant: matatika
