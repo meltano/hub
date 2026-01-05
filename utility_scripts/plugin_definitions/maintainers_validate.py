@@ -70,9 +70,9 @@ if __name__ == "__main__":
     if extras or missing:
         print(f"Extra Maintainers: {extras}")
         print(f"Missing Maintainers: {missing}")
-        misspellings = set(
-            [variant for variant in extras | missing if variant.lower() != variant]
-        )
+        misspellings = set([
+            variant for variant in extras | missing if variant.lower() != variant
+        ])
         if misspellings:
             print(f"Possible misspellings (check casing): {misspellings}")
 

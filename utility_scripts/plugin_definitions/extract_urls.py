@@ -1,4 +1,5 @@
 """Extract URLs from plugin YAML files for validation with lychee."""
+
 import json
 import os
 
@@ -55,7 +56,11 @@ if __name__ == "__main__":
         for url in urls:
             if url not in url_to_files:
                 url_to_files[url] = []
-            path = yaml_file.split("_data/meltano/")[1] if "_data/meltano/" in yaml_file else yaml_file
+            path = (
+                yaml_file.split("_data/meltano/")[1]
+                if "_data/meltano/" in yaml_file
+                else yaml_file
+            )
             url_to_files[url].append(
                 f"https://github.com/meltano/hub/blob/main/_data/meltano/{path}"
             )

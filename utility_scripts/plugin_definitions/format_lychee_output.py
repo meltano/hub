@@ -1,4 +1,5 @@
 """Format lychee output to match the original check_links.py format."""
+
 import json
 import sys
 
