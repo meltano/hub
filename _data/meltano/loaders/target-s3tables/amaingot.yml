@@ -1,0 +1,229 @@
+capabilities:
+- about
+- schema-flattening
+- stream-maps
+- structured-logging
+- validate-records
+description: AWS S3 Tables Buckets
+domain_url: https://aws.amazon.com/s3/features/tables/
+executable: target-s3tables
+keywords:
+- meltano_sdk
+label: S3Tables
+logo_url: /assets/logos/loaders/s3.png
+maintenance_status: active
+name: target-s3tables
+namespace: target_s3tables
+next_steps: ''
+pip_url: git+https://github.com/amaingot/target-s3tables.git
+quality: gold
+repo: https://github.com/amaingot/target-s3tables
+settings:
+- description: AWS account id (used to build glue_warehouse if not provided).
+  kind: password
+  label: Account ID
+  name: account_id
+  sensitive: true
+- description: Whether to add metadata fields to records.
+  kind: boolean
+  label: Add Record Metadata
+  name: add_record_metadata
+- description: Optional AWS access key id override (otherwise use default AWS 
+    credential chain).
+  kind: password
+  label: AWS Access Key ID
+  name: aws_access_key_id
+  sensitive: true
+- description: Optional AWS secret access key override (otherwise use default 
+    AWS credential chain).
+  kind: password
+  label: AWS Secret Access Key
+  name: aws_secret_access_key
+  sensitive: true
+- description: Optional AWS session token override.
+  kind: password
+  label: AWS Session Token
+  name: aws_session_token
+  sensitive: true
+- description: Optional approximate byte limit for an in-memory batch.
+  kind: integer
+  label: Batch Max Bytes
+  name: batch_max_bytes
+- description: Max rows per Iceberg commit.
+  kind: integer
+  label: Batch Size Rows
+  name: batch_size_rows
+  value: 5000
+- description: Iceberg REST catalog mode to use (AWS Glue recommended).
+  kind: options
+  label: Catalog Mode
+  name: catalog_mode
+  options:
+  - label: Glue Rest
+    value: glue_rest
+  - label: S3Tables Rest
+    value: s3tables_rest
+  value: glue_rest
+- description: Create Iceberg tables when missing.
+  kind: boolean
+  label: Create Tables
+  name: create_tables
+  value: true
+- description: Enable debug logging for HTTP/SigV4 interactions.
+  kind: boolean
+  label: Debug Http
+  name: debug_http
+  value: false
+- description: Evolve Iceberg schema when stream schema changes.
+  kind: boolean
+  label: Evolve Schema
+  name: evolve_schema
+  value: true
+- description: 'One or more LCID locale strings to produce localized output for: https://faker.readthedocs.io/en/master/#localization'
+  kind: array
+  label: Faker Locale
+  name: faker_config.locale
+- description: 'Value to seed the Faker generator for deterministic output: https://faker.readthedocs.io/en/master/#seeding-the-generator'
+  kind: string
+  label: Faker Seed
+  name: faker_config.seed
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Enable Schema Flattening
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Max Flattening Depth
+  name: flattening_max_depth
+- description: The maximum length of a flattened key.
+  kind: integer
+  label: Max Key Length
+  name: flattening_max_key_length
+- description: Glue Iceberg REST endpoint URI. Defaults to 
+    https://glue.<region>.amazonaws.com/iceberg.
+  kind: string
+  label: Glue Uri
+  name: glue_uri
+- description: 'Glue warehouse string: <account-id>:s3tablescatalog/<table-bucket-name>.'
+  kind: string
+  label: Glue Warehouse
+  name: glue_warehouse
+- description: The method to use when loading data into the destination. 
+    `append-only` will always write all input records whether that records 
+    already exists or not. `upsert` will update existing records and insert new 
+    records. `overwrite` will delete all existing records and insert all input 
+    records.
+  kind: options
+  label: Load Method
+  name: load_method
+  options:
+  - label: Append Only
+    value: append-only
+  - label: Upsert
+    value: upsert
+  - label: Overwrite
+    value: overwrite
+  value: append-only
+- description: Optional log level override for this process (e.g. DEBUG, INFO).
+  kind: string
+  label: Log Level
+  name: log_level
+- description: Iceberg namespace (database).
+  kind: string
+  label: Namespace
+  name: namespace
+  value: default
+- description: AWS region for the Iceberg REST endpoint (e.g. us-east-1).
+  kind: string
+  label: Region
+  name: region
+- description: S3 Tables Iceberg REST endpoint URI. Defaults to 
+    https://s3tables.<region>.amazonaws.com/iceberg.
+  kind: string
+  label: S3Tables Uri
+  name: s3tables_uri
+- description: Sanitize stream/table/column names to Iceberg/AWS-friendly 
+    identifiers.
+  kind: boolean
+  label: Sanitize Names
+  name: sanitize_names
+  value: true
+- description: SigV4 signing name (defaults to glue or s3tables based on mode).
+  kind: string
+  label: Signing Name
+  name: signing_name
+- description: SigV4 signing region (defaults to `region`).
+  kind: string
+  label: Signing Region
+  name: signing_region
+- description: Enable AWS SigV4 request signing for the Iceberg REST catalog.
+  kind: boolean
+  label: Sigv4 Enabled
+  name: sigv4_enabled
+  value: true
+- description: Snapshot properties passed to append/overwrite calls (when 
+    supported).
+  kind: object
+  label: Snapshot Properties
+  name: snapshot_properties
+  value: {}
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: User Stream Map Configuration
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: 'Table bucket ARN: arn:aws:s3tables:<region>:<accountID>:bucket/<bucketname>.'
+  kind: string
+  label: Table Bucket Arn
+  name: table_bucket_arn
+- description: S3 Tables table bucket name (used to build glue_warehouse if not 
+    provided).
+  kind: string
+  label: Table Bucket Name
+  name: table_bucket_name
+- description: Mapping of Singer stream name -> Iceberg table name.
+  kind: object
+  label: Table Name Mapping
+  name: table_name_mapping
+  value: {}
+- description: Prefix applied to all Iceberg table names.
+  kind: string
+  label: Table Name Prefix
+  name: table_name_prefix
+  value: ''
+- description: Iceberg table properties passed at create_table time.
+  kind: object
+  label: Table Properties
+  name: table_properties
+  value: {}
+- description: Whether to validate the schema of the incoming streams.
+  kind: boolean
+  label: Validate Records
+  name: validate_records
+  value: true
+- description: 'Write mode: append for incremental; overwrite to replace table contents.'
+  kind: options
+  label: Write Mode
+  name: write_mode
+  options:
+  - label: Append
+    value: append
+  - label: Overwrite
+    value: overwrite
+  value: append
+settings_group_validation:
+- - region
+settings_preamble: ''
+supported_python_versions:
+- '3.10'
+- '3.11'
+- '3.12'
+- '3.13'
+- '3.14'
+usage: ''
+variant: amaingot
