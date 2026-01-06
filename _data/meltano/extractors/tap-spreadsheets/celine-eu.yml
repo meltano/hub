@@ -1,0 +1,92 @@
+capabilities:
+- about
+- activate-version
+- batch
+- catalog
+- discover
+- schema-flattening
+- state
+- stream-maps
+- structured-logging
+description: Excel, CSV, etc.
+domain_url: https://github.com/celine-eu/tap-spreadsheets
+executable: tap-spreadsheets
+keywords:
+- meltano_sdk
+label: Spreadsheets
+logo_url: /assets/logos/extractors/spreadsheets-anywhere.png
+maintenance_status: active
+name: tap-spreadsheets
+namespace: tap_spreadsheets
+next_steps: ''
+pip_url: git+https://github.com/celine-eu/tap-spreadsheets.git
+quality: gold
+repo: https://github.com/celine-eu/tap-spreadsheets
+settings:
+- description: Compression format to use for batch files.
+  kind: options
+  label: Batch Compression Format
+  name: batch_config.encoding.compression
+  options:
+  - label: GZIP
+    value: gzip
+  - label: None
+    value: none
+- description: Format to use for batch files.
+  kind: options
+  label: Batch Encoding Format
+  name: batch_config.encoding.format
+  options:
+  - label: JSONL
+    value: jsonl
+  - label: Parquet
+    value: parquet
+- description: Prefix to use when writing batch files.
+  kind: string
+  label: Batch Storage Prefix
+  name: batch_config.storage.prefix
+- description: Root path to use when writing batch files.
+  kind: string
+  label: Batch Storage Root
+  name: batch_config.storage.root
+- description: 'One or more LCID locale strings to produce localized output for: https://faker.readthedocs.io/en/master/#localization'
+  kind: array
+  label: Faker Locale
+  name: faker_config.locale
+- description: 'Value to seed the Faker generator for deterministic output: https://faker.readthedocs.io/en/master/#seeding-the-generator'
+  kind: string
+  label: Faker Seed
+  name: faker_config.seed
+- description: List of file configurations.
+  kind: array
+  label: Files
+  name: files
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Enable Schema Flattening
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Max Flattening Depth
+  name: flattening_max_depth
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: User Stream Map Configuration
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+settings_group_validation:
+- - files
+settings_preamble: ''
+supported_python_versions:
+- '3.10'
+- '3.11'
+- '3.12'
+- '3.13'
+- '3.14'
+usage: ''
+variant: celine-eu
