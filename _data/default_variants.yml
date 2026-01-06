@@ -668,6 +668,7 @@ loaders:
   target-s3-avro: faumel
   target-s3-csv: transferwise
   target-s3-parquet: gupy-io
+  target-s3tables: amaingot
   target-salesforce: dan-ladd
   target-singer-jsonl: kgpayne
   target-snowflake: meltanolabs
