@@ -679,6 +679,7 @@ loaders:
   target-teradata: crudelis-rgb
   target-timeplus: timeplus
   target-vertica: full360
+  target-weaviate: steven-asearcy
   target-yaml: meltanolabs
 mappers:
   map-gpt-embeddings: meltanolabs
