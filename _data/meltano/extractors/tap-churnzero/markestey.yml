@@ -23,16 +23,7 @@ pip_url: git+https://github.com/MarkEstey/tap-churnzero.git
 quality: silver
 repo: https://github.com/MarkEstey/tap-churnzero
 settings:
-- description: The base url for the ChurnZero API service
-  kind: string
-  label: Base URL
-  name: url_base
-  value: https://churnzero.net
-- description: The username used to log in to the API service
-  kind: string
-  label: Username
-  name: username
-- description: The API key for the user
+- description: API Key for the user
   kind: password
   label: API Key
   name: api_key
@@ -88,18 +79,14 @@ settings:
   kind: date_iso8601
   label: Start Date
   name: start_date
-- description: User-defined config values to be used within map expressions.
+- description: 'Inline stream maps config (see: https://sdk.meltano.com/en/latest/stream_maps.html)'
   kind: object
-  label: User Stream Map Configuration
+  label: Stream Map Config
   name: stream_map_config
 - description: 'Inline stream maps (see: https://sdk.meltano.com/en/latest/stream_maps.html)'
   kind: object
   label: Stream Maps
   name: stream_maps
-- description: 'Inline stream maps config (see: https://sdk.meltano.com/en/latest/stream_maps.html)'
-  kind: object
-  label: Stream Maps Config
-  name: stream_maps_config
 - description: 'The level of type conformance to apply to streams (see: https://sdk.meltano.com/en/latest/classes/singer_sdk.Stream.html#singer_sdk.Stream.TYPE_CONFORMANCE_LEVEL).
     Defaults to root_only. Must be one of: none, root_only, recursive'
   kind: options
@@ -113,9 +100,23 @@ settings:
   - label: Recursive
     value: recursive
   value: root_only
+- description: Base url for the ChurnZero API
+  kind: string
+  label: URL Base
+  name: url_base
+  value: https://churnzero.net
+- description: Username used to log in
+  kind: string
+  label: Username
+  name: username
 settings_group_validation:
 - - api_key
   - username
 settings_preamble: ''
+supported_python_versions:
+- '3.10'
+- '3.11'
+- '3.12'
+- '3.13'
 usage: ''
 variant: markestey
