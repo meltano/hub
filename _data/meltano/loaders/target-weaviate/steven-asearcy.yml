@@ -83,11 +83,11 @@ settings:
   kind: object
   label: User Stream Map Configuration
   name: stream_map_config
-- description: Currently, only setting this to `__NULL__` is supported. This 
-    will remove all other streams.
-  kind: string
-  label: Other streams
-  name: stream_maps.__else__
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
 - description: Whether to validate the schema of the incoming streams.
   kind: boolean
   label: Validate Records
@@ -111,5 +111,10 @@ settings:
 settings_group_validation:
 - - weaviate_url
 settings_preamble: ''
+supported_python_versions:
+- '3.9'
+- '3.10'
+- '3.11'
+- '3.12'
 usage: ''
 variant: steven-asearcy
