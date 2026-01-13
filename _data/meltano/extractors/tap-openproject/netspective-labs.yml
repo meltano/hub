@@ -1,0 +1,49 @@
+capabilities:
+- catalog
+- discover
+- state
+- about
+- stream-maps
+definition: |
+  A [Singer](https://www.singer.io/) tap for extracting data from the [OpenProject](https://www.openproject.org/) API.
+description: Singer tap for extracting data from OpenProject project management API
+domain_url: https://www.openproject.org/
+executable: tap-openproject
+keywords:
+- api
+- meltano_sdk
+- openproject
+label: OpenProject
+logo_url: /assets/logos/extractors/openproject.svg
+maintenance_status: beta
+name: tap-openproject
+namespace: tap_openproject
+next_steps: |
+  1. Configure `api_key` and `base_url`.
+  2. Run `meltano settled tap-openproject target-jsonl`.
+pip_url: tap-openproject
+quality: gold
+repo: https://github.com/netspective-labs/tap-openproject
+settings:
+- description: OpenProject API key
+  kind: password
+  label: API Key
+  name: api_key
+  sensitive: true
+- description: Base URL (e.g., [https://instance.com/api/v3](https://instance.com/api/v3))
+  kind: string
+  label: Base URL
+  name: base_url
+- description: User-Agent header
+  hidden: true
+  kind: string
+  label: User Agent
+  name: user_agent
+  value: tap-openproject/0.2.3
+settings_group_validation:
+- - api_key
+  - base_url
+usage: |
+  Add the tap: `meltano add extractor tap-openproject`. 
+  Configure: `meltano config tap-openproject set api_key <key>`.
+variant: netspective-labs
