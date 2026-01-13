@@ -7,7 +7,7 @@ capabilities:
 definition: |
   A [Singer](https://www.singer.io/) tap for extracting data from the [OpenProject](https://www.openproject.org/) API.
 description: Singer tap for extracting data from OpenProject project management API
-domain_url: [https://www.openproject.org/](https://www.openproject.org/)
+domain_url: https://www.openproject.org/
 executable: tap-openproject
 keywords:
 - api
@@ -23,7 +23,7 @@ next_steps: |
   2. Run `meltano settled tap-openproject target-jsonl`.
 pip_url: tap-openproject
 quality: gold
-repo: [https://github.com/netspective-labs/tap-openproject](https://github.com/netspective-labs/tap-openproject)
+repo: https://github.com/netspective-labs/tap-openproject
 settings:
 - description: OpenProject API key
   kind: password
