@@ -26,14 +26,14 @@ jobs:
     strategy:
       matrix:
         python-version:
-        - "3.10"
-        - "3.11"
         - "3.12"
         - "3.13"
+        - "3.14"
     steps:
     - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@83679a892e2d95755f2dac6acb0bfd1e9ac5d548 # v6.1.0
+      id: setup-python
       with:
         python-version: ${{ matrix.python-version }}
     - name: Install uv
@@ -44,5 +44,7 @@ jobs:
         uv sync
     - name: Test with pytest
       working-directory: ./hub-utils
+      env:
+        PYTHON_VERSION: ${{ matrix.python-version }}
       run: |
-        HUB_ROOT_PATH=$GITHUB_WORKSPACE uv run tox -e pytest
+        HUB_ROOT_PATH=$GITHUB_WORKSPACE uv run tox -e ${PYTHON_VERSION}
