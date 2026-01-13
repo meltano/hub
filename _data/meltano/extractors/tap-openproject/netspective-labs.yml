@@ -84,7 +84,8 @@ settings_preamble: |
   ## Getting Your API Key
 
   1. Log into your OpenProject instance
-  2. Go to **My Account** → **Access tokens** 3. Click **+ API** to generate a new token
+  2. Go to **My Account** → **Access tokens**
+  3. Click **+ API** to generate a new token
   4. Copy the token and use it as the `api_key` setting
 
   For self-hosted instances, update the `base_url` to point to your OpenProject API endpoint (e.g., `https://your-instance.com/api/v3`).
