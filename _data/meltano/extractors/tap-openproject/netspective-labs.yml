@@ -1,0 +1,145 @@
+name: tap-openproject
+namespace: tap_openproject
+variant: netspective-labs
+label: OpenProject
+description: Singer tap for extracting data from OpenProject project management API
+repo: https://github.com/netspective-labs/tap-openproject
+pip_url: tap-openproject
+executable: tap-openproject
+domain_url: https://www.openproject.org/
+logo_url: /assets/logos/extractors/openproject.png
+maintenance_status: beta
+
+capabilities:
+  - catalog
+  - discover
+  - state
+  - about
+  - stream-maps
+
+settings:
+  - name: api_key
+    kind: password
+    label: API Key
+    description: OpenProject API key from My Account → Access tokens
+    sensitive: true
+    documentation: https://www.openproject.org/docs/api/introduction/#authentication
+
+  - name: base_url
+    kind: string
+    label: Base URL
+    description: Base URL of your OpenProject instance (e.g., https://instance.openproject.com/api/v3)
+    value: https://community.openproject.org/api/v3
+    placeholder: https://your-instance.openproject.com/api/v3
+
+  - name: timeout
+    kind: integer
+    label: Request Timeout
+    description: HTTP request timeout in seconds
+    value: 30
+
+  - name: max_retries
+    kind: integer
+    label: Max Retries
+    description: Maximum number of retry attempts for failed requests
+    value: 3
+
+  - name: start_date
+    kind: date_iso8601
+    label: Start Date
+    description: Filter projects updated after this date (for incremental sync)
+    placeholder: 2024-01-01T00:00:00Z
+
+  - name: user_agent
+    kind: string
+    label: User Agent
+    description: User-Agent header for API requests
+    value: tap-openproject/0.2.3
+    hidden: true
+
+settings_group_validation:
+  - [api_key, base_url]
+
+keywords:
+  - api
+  - meltano_sdk
+  - project-management
+  - openproject
+  - collaboration
+  - singer-tap
+
+definition: |
+  A [Singer](https://www.singer.io/) tap for extracting data from the [OpenProject](https://www.openproject.org/) API.
+  
+  OpenProject is an open-source project management software that supports project planning, scheduling, roadmaps, 
+  team collaboration, time tracking, and more.
+  
+  This tap extracts:
+  - Projects with full metadata
+  - Incremental sync support via `updatedAt` timestamp
+  - Automatic pagination handling
+  - Built-in retry logic with exponential backoff
+
+settings_preamble: |
+  ## Getting Your API Key
+  
+  1. Log into your OpenProject instance
+  2. Go to **My Account** → **Access tokens**  
+  3. Click **+ API** to generate a new token
+  4. Copy the token and use it as the `api_key` setting
+  
+  For self-hosted instances, update the `base_url` to point to your OpenProject API endpoint (e.g., `https://your-instance.com/api/v3`).
+
+next_steps: |
+  1. Configure your tap with the required `api_key` and `base_url`
+  2. Test the connection:
+     ```bash
+     meltano invoke tap-openproject --discover
+     ```
+  3. Run a full extraction:
+     ```bash
+     meltano run tap-openproject target-jsonl
+     ```
+  4. For incremental syncs, use the `start_date` setting to limit extraction to recent updates
+
+usage: |
+  ## Quick Start with Meltano
+  
+  Add the tap to your Meltano project:
+  
+  ```bash
+  meltano add extractor tap-openproject
+  ```
+  
+  Configure the tap:
+  
+  ```bash
+  meltano config tap-openproject set api_key YOUR_API_KEY
+  meltano config tap-openproject set base_url https://your-instance.openproject.com/api/v3
+  ```
+  
+  Test the connection:
+  
+  ```bash
+  meltano invoke tap-openproject --discover
+  ```
+  
+  Run a pipeline:
+  
+  ```bash
+  meltano run tap-openproject target-jsonl
+  ```
+  
+  ## Incremental Sync
+  
+  This tap supports incremental extraction using the `updatedAt` field. Meltano automatically manages state between runs.
+  
+  ## Available Streams
+  
+  - **projects**: Extract all projects with metadata including name, description, status, and timestamps
+  
+  ## Troubleshooting
+  
+  **Authentication Error**: Verify your API key is correct and has not expired. OpenProject API keys can be managed in My Account → Access tokens.
+  
+  **Connection Error**: Ensure your `base_url` is correct and includes `/api/v3` at the end.
