@@ -6,73 +6,35 @@ capabilities:
 - stream-maps
 definition: |
   A [Singer](https://www.singer.io/) tap for extracting data from the [OpenProject](https://www.openproject.org/) API.
-
-  OpenProject is an open-source project management software that supports project planning, scheduling, roadmaps, 
-  team collaboration, time tracking, and more.
-
-  This tap extracts:
-  - Projects with full metadata
-  - Incremental sync support via `updatedAt` timestamp
-  - Automatic pagination handling
-  - Built-in retry logic with exponential backoff
 description: Singer tap for extracting data from OpenProject project management API
-domain_url: https://www.openproject.org/
+domain_url: [https://www.openproject.org/](https://www.openproject.org/)
 executable: tap-openproject
 keywords:
 - api
 - meltano_sdk
-- project-management
 - openproject
-- collaboration
-- singer-tap
 label: OpenProject
 logo_url: /assets/logos/extractors/openproject.png
 maintenance_status: beta
 name: tap-openproject
 namespace: tap_openproject
 next_steps: |
-  1. Configure your tap with the required `api_key` and `base_url`
-  2. Test the connection:
-     ```bash
-     meltano invoke tap-openproject --discover
-     ```
-  3. Run a full extraction:
-     ```bash
-     meltano run tap-openproject target-jsonl
-     ```
-  4. For incremental syncs, use the `start_date` setting to limit extraction to recent updates
+  1. Configure `api_key` and `base_url`.
+  2. Run `meltano settled tap-openproject target-jsonl`.
 pip_url: tap-openproject
 quality: gold
-repo: https://github.com/netspective-labs/tap-openproject
+repo: [https://github.com/netspective-labs/tap-openproject](https://github.com/netspective-labs/tap-openproject)
 settings:
-- description: OpenProject API key from My Account → Access tokens
-  documentation: https://www.openproject.org/docs/api/introduction/#authentication
+- description: OpenProject API key
   kind: password
   label: API Key
   name: api_key
   sensitive: true
-- description: Base URL of your OpenProject instance (e.g., https://instance.openproject.com/api/v3)
+- description: Base URL (e.g., [https://instance.com/api/v3](https://instance.com/api/v3))
   kind: string
   label: Base URL
   name: base_url
-  placeholder: https://your-instance.openproject.com/api/v3
-  value: https://community.openproject.org/api/v3
-- description: Maximum number of retry attempts for failed requests
-  kind: integer
-  label: Max Retries
-  name: max_retries
-  value: 3
-- description: Filter projects updated after this date (for incremental sync)
-  kind: date_iso8601
-  label: Start Date
-  name: start_date
-  placeholder: 2024-01-01T00:00:00Z
-- description: HTTP request timeout in seconds
-  kind: integer
-  label: Request Timeout
-  name: timeout
-  value: 30
-- description: User-Agent header for API requests
+- description: User-Agent header
   hidden: true
   kind: string
   label: User Agent
@@ -81,19 +43,7 @@ settings:
 settings_group_validation:
 - - api_key
   - base_url
-settings_preamble: |
-  ## Getting Your API Key
-
-  1. Log into your OpenProject instance
-  2. Go to **My Account** → **Access tokens**
-  3. Click **+ API** to generate a new token
-  4. Copy the token and use it as the `api_key` setting
-
-  For self-hosted instances, update the `base_url` to point to your OpenProject API endpoint (e.g., `https://your-instance.com/api/v3`).
 usage: |
-  ## Quick Start with Meltano
-
-  Add the tap to your Meltano project:
-
-  ```bash
-  meltano add extractor tap-openproject
+  Add the tap: `meltano add extractor tap-openproject`. 
+  Configure: `meltano config tap-openproject set api_key <key>`.
+variant: netspective-labs
