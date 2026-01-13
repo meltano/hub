@@ -740,7 +740,7 @@ class Utilities:
             plugin_type,
             plugin_variant,
             existing_def,
-            sdk_def,
+            _sdk_def,
         ) = self._update_base(repo_url, plugin_name, python=python)
         setting_names = [setting.get("name") for setting in existing_def.get("settings", [])]
         caps = self._string_to_literal(self._prompt("capabilities", existing_def.get("capabilities")))
