@@ -14,7 +14,7 @@ keywords:
 - meltano_sdk
 - openproject
 label: OpenProject
-logo_url: /assets/logos/extractors/openproject.png
+logo_url: /assets/logos/extractors/openproject.svg
 maintenance_status: beta
 name: tap-openproject
 namespace: tap_openproject
