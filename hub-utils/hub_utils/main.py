@@ -3,7 +3,7 @@ import hashlib
 import json
 import os
 from copy import copy
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from enum import Enum
 
 import requests
@@ -283,7 +283,7 @@ def extract_sdk_metadata_to_s3(
         file_name = file_path + ".json"
         local_file_path = f"{output_dir}/{p_type}/{p_name}/{hash_id}--{file_name}"
         util._write_dict(local_file_path, sdk_def)
-        date_now = datetime.now(tz=timezone.utc).strftime("%Y-%m-%d")
+        date_now = datetime.now(tz=UTC).strftime("%Y-%m-%d")
         s3_file_path = f"{p_type}/{p_name}/{file_path}/{hash_id}--{date_now}.json"
         s3_bucket = os.environ.get("AWS_S3_BUCKET")
         if not S3().hash_exists(s3_bucket, s3_file_path):
@@ -308,10 +308,10 @@ def upload_airbyte(
     yaml_file = variant_path_list
     for yaml_file in variant_path_list.split(","):
         spec_data = util._read_json(artifact_name)
-        p_type, p_name, p_variant = yaml_file.split("/")[-3:]
+        p_type, p_name, _p_variant = yaml_file.split("/")[-3:]
         hash_id = hashlib.md5(json.dumps(spec_data, sort_keys=True, indent=2).encode("utf-8")).hexdigest()
         file_path = os.path.basename(yaml_file).replace(".yml", "")
-        date_now = datetime.now(tz=timezone.utc).strftime("%Y-%m-%d")
+        date_now = datetime.now(tz=UTC).strftime("%Y-%m-%d")
         s3_file_path = f"{p_type}/{p_name}/{file_path}/{hash_id}--{date_now}.json"
         s3_bucket = os.environ.get("AWS_S3_BUCKET")
         if not S3().hash_exists(s3_bucket, s3_file_path):

@@ -67,7 +67,7 @@ jobs:
     # This starts the attempts to install and extract metadata. Since we don't
     # know what python versions are accepted we start with the latest and continue
     # decreasing until we have a success or run out of python versions to attempt.
-    - name: Install Python 3.12
+    - name: Install Python
       uses: actions/setup-python@83679a892e2d95755f2dac6acb0bfd1e9ac5d548 # v6.1.0
       with:
         python-version: |
