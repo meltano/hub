@@ -38,5 +38,8 @@
     "sass": "^1.52.3",
     "sass-loader": "^10",
     "webpack-chain": "^6.5.1"
+  },
+  "engines": {
+    "node": ">=20 <21"
   }
 }
