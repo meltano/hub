@@ -16,6 +16,7 @@ name: target-parquet
 namespace: target_parquet
 next_steps: ''
 pip_url: git+https://github.com/Automattic/target-parquet.git
+python: python3.12
 quality: silver
 repo: https://github.com/Automattic/target-parquet
 settings:

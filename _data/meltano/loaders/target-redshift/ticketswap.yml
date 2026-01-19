@@ -18,6 +18,7 @@ name: target-redshift
 namespace: target_redshift
 next_steps: ''
 pip_url: git+https://github.com/TicketSwap/target-redshift.git
+python: python3.13
 quality: silver
 repo: https://github.com/TicketSwap/target-redshift
 settings:
