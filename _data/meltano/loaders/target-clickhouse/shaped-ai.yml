@@ -3,6 +3,7 @@ capabilities:
 - hard-delete
 - schema-flattening
 - stream-maps
+- validate-records
 description: Loader for Clickhouse database.
 domain_url: https://www.clickhouse.com/
 executable: target-clickhouse

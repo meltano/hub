@@ -2,6 +2,7 @@ capabilities:
 - about
 - schema-flattening
 - stream-maps
+- validate-records
 description: 'Apprise allows you to send a notification to almost all of the most
   popular notification services available to us today such as: Telegram, Discord,
   Slack, Amazon SNS, Gotify, etc'

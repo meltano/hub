@@ -3,6 +3,7 @@ capabilities:
 - schema-flattening
 - stream-maps
 - structured-logging
+- validate-records
 description: Free and Open, Distributed, RESTful Search Engine
 domain_url: https://github.com/elastic/elasticsearch
 executable: target-elasticsearch

@@ -4,6 +4,7 @@ capabilities:
 - hard-delete
 - schema-flattening
 - stream-maps
+- validate-records
 description: DuckLake is an integrated data lake and catalog format
 domain_url: https://ducklake.select
 executable: target-ducklake

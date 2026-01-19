@@ -2,6 +2,7 @@ capabilities:
 - about
 - schema-flattening
 - stream-maps
+- validate-records
 description: Singer Target for IBM Db2
 domain_url: https://www.ibm.com/db2
 executable: target-db2
