@@ -46,7 +46,7 @@ jobs:
         uses: astral-sh/setup-uv@61cb8a9741eeb8a550a1b8544337180c0fc8476b # v7.2.0
 
       - name: Install Meltano
-        run: uv tool install meltano
+        run: uv tool install --from git+https://github.com/meltano/meltano.git@main meltano
 
       - name: Setup test project
         run: meltano init --no-usage-stats test-project

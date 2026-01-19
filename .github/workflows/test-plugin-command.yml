@@ -80,7 +80,7 @@ jobs:
 
     - name: Install Meltano
       run: |
-        uv tool install meltano
+        uv tool install --from git+https://github.com/meltano/meltano.git@main meltano
         meltano init --no-usage-stats ${{ github.workspace }}/project
 
     - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
