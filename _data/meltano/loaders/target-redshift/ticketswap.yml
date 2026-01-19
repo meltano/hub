@@ -4,6 +4,7 @@ capabilities:
 - hard-delete
 - schema-flattening
 - stream-maps
+- validate-records
 description: Amazon Redshift loader
 domain_url: https://aws.amazon.com/redshift/
 executable: target-redshift
