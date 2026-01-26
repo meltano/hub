@@ -1,11 +1,13 @@
 capabilities:
 - about
+- activate-version
 - batch
 - catalog
 - discover
 - schema-flattening
 - state
 - stream-maps
+- structured-logging
 description: Email Marketing and SMS Marketing Platform
 domain_url: https://apidocs.klaviyo.com/reference/metrics
 executable: tap-klaviyo
@@ -70,6 +72,10 @@ settings:
   kind: integer
   label: Max Flattening Depth
   name: flattening_max_depth
+- description: The maximum length of a flattened key.
+  kind: integer
+  label: Max Key Length
+  name: flattening_max_key_length
 - description: Klaviyo API endpoint revision. 
     https://developers.klaviyo.com/en/docs/api_versioning_and_deprecation_policy#versioning
   kind: string
@@ -93,11 +99,10 @@ settings_group_validation:
   - revision
 settings_preamble: ''
 supported_python_versions:
-- '3.8'
-- '3.9'
 - '3.10'
 - '3.11'
 - '3.12'
 - '3.13'
+- '3.14'
 usage: ''
 variant: meltanolabs
