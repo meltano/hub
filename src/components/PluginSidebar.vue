@@ -1,7 +1,84 @@
+<script setup lang="ts">
+import { ref, computed } from 'vue';
+
+interface Repo {
+  type: string;
+  url: string;
+  user: string;
+  name: string;
+}
+
+interface Maintainer {
+  label: string;
+  url: string;
+}
+
+interface Metrics {
+  all_execs?: number;
+  all_projects?: number;
+}
+
+interface Props {
+  name: string;
+  airbyteName?: string;
+  domainUrl?: string;
+  isDefault: boolean;
+  repo: Repo;
+  maintenanceStatus: string;
+  keywords: string[];
+  variant: string;
+  pluginType: string;
+  metrics?: Metrics;
+  maintainer?: Maintainer;
+  pipUrl?: string;
+  extRepo?: string;
+}
+
+const props = defineProps<Props>();
+const activeTab = ref<'modern' | 'legacy'>('modern');
+
+const parsedEDKRepo = computed(() => {
+  if (!props.extRepo) return { user: '', repo_name: '' };
+  const urlParts = props.extRepo.split('/');
+  return { user: urlParts[3], repo_name: urlParts[4] };
+});
+
+const repoEDKType = computed(() => {
+  return props.extRepo?.includes('github.com') ? 'github' : 'gitlab';
+});
+
+const hasPyPI = computed(() => {
+  return (
+    props.pipUrl &&
+    !(
+      props.pipUrl.includes('git+') ||
+      props.pipUrl.includes('//') ||
+      props.pipUrl.includes('=') ||
+      props.pipUrl.includes(' ') ||
+      props.pipUrl.includes('[')
+    )
+  );
+});
+
+const isAirbyteProtocol = computed(() => (props.keywords ?? []).includes('airbyte_protocol'));
+const isMeltanoSdk = computed(() => (props.keywords ?? []).includes('meltano_sdk'));
+const showRepoStats = computed(() => !isAirbyteProtocol.value && props.repo.type !== 'bitbucket');
+const isExtractorAirbyte = computed(
+  () => props.pluginType === 'extractor' && isAirbyteProtocol.value
+);
+
+function getAirbyteLastCommitUrl() {
+  const baseUrl = `https://img.shields.io/${props.repo.type}/last-commit/${props.repo.user}/${props.repo.name}?label=Last%20Commit`;
+  const match = props.repo.url.match(/airbyte-integrations\S+/);
+  return match ? `${baseUrl}&path=${match[0]}` : baseUrl;
+}
+</script>
+
 <template>
   <div class="px-2 w-full lg:w-4/12">
     <div class="single-plugin-aside order-first lg:order-last p-5">
       <div class="px-4 aside-inner space-y-4">
+        <!-- Install Section -->
         <div>
           <p class="text-lg py-2">Install</p>
           <div class="space-y-2">
@@ -31,8 +108,8 @@
             </div>
             <div v-if="activeTab === 'legacy'">
               <code class="break-word bg-white-07 rounded p-2 text-sm"
-                >meltano add {{ plugin_type }} {{ name
-                }}<span v-if="!is_default"> --variant {{ variant }}</span></code
+                >meltano add {{ pluginType }} {{ name
+                }}<span v-if="!isDefault"> --variant {{ variant }}</span></code
               >
             </div>
             <div v-if="activeTab === 'modern'">
@@ -40,49 +117,52 @@
                 >meltano add
                 <span
                   v-if="
-                    plugin_type === 'extractor' ||
-                    plugin_type === 'loader' ||
-                    plugin_type === 'utility'
+                    pluginType === 'extractor' ||
+                    pluginType === 'loader' ||
+                    pluginType === 'utility'
                   "
                   >{{ name }}</span
-                ><span v-else>--plugin-type {{ plugin_type }} {{ name }}</span
-                ><span v-if="!is_default"> --variant {{ variant }}</span></code
+                ><span v-else>--plugin-type {{ pluginType }} {{ name }}</span
+                ><span v-if="!isDefault"> --variant {{ variant }}</span></code
               >
             </div>
           </div>
         </div>
+
         <div></div>
+
+        <!-- Maintenance Status -->
         <div>
           <p class="text-lg">Maintenance Status</p>
-          <ul class="list-disc list-inside shields space-y-1">
+          <ul class="list-none pl-7 space-y-1">
             <li>
               <img
-                v-if="maintenance_status === 'active'"
+                v-if="maintenanceStatus === 'active'"
                 alt="Maintenance Status"
                 src="https://img.shields.io/badge/Maintenance%20Status-Active%20(Stable)-brightgreen"
               />
               <img
-                v-else-if="maintenance_status === 'unknown'"
+                v-else-if="maintenanceStatus === 'unknown'"
                 alt="Maintenance Status"
                 src="https://img.shields.io/badge/Maintenance%20Status-Unknown-lightgrey"
               />
               <img
-                v-else-if="maintenance_status === 'development'"
+                v-else-if="maintenanceStatus === 'development'"
                 alt="Maintenance Status"
                 src="https://img.shields.io/badge/Maintenance%20Status-Development%20(Under%20Construction)-orange"
               />
               <img
-                v-else-if="maintenance_status === 'beta'"
+                v-else-if="maintenanceStatus === 'beta'"
                 alt="Maintenance Status"
                 src="https://img.shields.io/badge/Maintenance%20Status-Prerelease%20(Beta)-yellow"
               />
               <img
-                v-else-if="maintenance_status === 'inactive'"
+                v-else-if="maintenanceStatus === 'inactive'"
                 alt="Maintenance Status"
                 src="https://img.shields.io/badge/Maintenance%20Status-Inactive%20or%20Stale-red"
               />
             </li>
-            <li v-if="(keywords ?? []).includes('meltano_sdk')">
+            <li v-if="isMeltanoSdk">
               <a href="https://sdk.meltano.com/en/latest/">
                 <img
                   alt="Built with the Meltano SDK"
@@ -90,8 +170,8 @@
                 />
               </a>
             </li>
-            <li v-if="(keywords ?? []).includes('airbyte_protocol')">
-              <a :href="`https://docs.airbyte.com/integrations/${airbyte_name.replace('-', 's/')}`">
+            <li v-if="isAirbyteProtocol && airbyteName">
+              <a :href="`https://docs.airbyte.com/integrations/${airbyteName.replace('-', 's/')}`">
                 <img
                   alt="Based on an Airbyte Connector"
                   src="https://img.shields.io/badge/Based%20on%20an%20Airbyte%20Connector-🔗-orange"
@@ -100,25 +180,31 @@
             </li>
           </ul>
         </div>
+
+        <!-- Repo Section -->
         <div>
           <p class="text-lg">Repo</p>
           <div>
             <img
               v-if="repo.type === 'github'"
               class="w-8 h-4 inline gap-x-11"
-              src="../assets/images/github-brands.svg"
+              src="/images/github-brands.svg"
+              alt="GitHub"
             /><img
               v-else-if="repo.type === 'gitlab'"
               class="w-8 h-4 inline gap-x-11"
-              src="../assets/images/gitlab-brands.svg"
+              src="/images/gitlab-brands.svg"
+              alt="GitLab"
             /><img
               v-else-if="repo.type === 'bitbucket'"
               class="w-8 h-4 inline gap-x-11"
-              src="../assets/images/bitbucket-brands.svg"
+              src="/images/bitbucket-brands.svg"
+              alt="Bitbucket"
             /><img
               v-else
               class="w-8 h-4 inline gap-x-11"
-              src="../assets/images/git-alt-brands.svg"
+              src="/images/git-alt-brands.svg"
+              alt="Git"
             /><a :href="repo.url"
               ><img
                 class="inline gap-x-11"
@@ -128,10 +214,10 @@
             </a>
           </div>
         </div>
-        <div
-          v-if="!$page.plugins.keywords.includes('airbyte_protocol') && repo.type !== 'bitbucket'"
-        >
-          <ul class="list-disc list-inside shields space-y-1">
+
+        <!-- Repo Stats (non-Airbyte, non-Bitbucket) -->
+        <div v-if="showRepoStats">
+          <ul class="list-none pl-7 space-y-1">
             <li>
               <img
                 alt="Stars"
@@ -180,58 +266,47 @@
             </li>
           </ul>
         </div>
-        <div
-          v-if="
-            $page.plugins.pluginType === 'extractor' &&
-            $page.plugins.keywords.includes('airbyte_protocol')
-          "
-        >
-          <ul class="list-disc list-inside shields space-y-1">
-            <li>
-              <img
-                alt="Last Commit Date"
-                :src="
-                  (() => {
-                    const url = `https://img.shields.io/${repo.type}/last-commit/${repo.user}/${repo.name}?label=Last%20Commit`;
-                    const [path] = repo.url.match(/airbyte-integrations\S+/) ?? [];
 
-                    return path ? `${url}&path=${path}` : url;
-                  })()
-                "
-              />
+        <!-- Airbyte Extractor Stats -->
+        <div v-if="isExtractorAirbyte">
+          <ul class="list-none pl-7 space-y-1">
+            <li>
+              <img alt="Last Commit Date" :src="getAirbyteLastCommitUrl()" />
             </li>
             <li>
-              <img alt="License" :src="`https://img.shields.io/badge/License-MIT-lightgrey`" />
+              <img alt="License" src="https://img.shields.io/badge/License-MIT-lightgrey" />
             </li>
           </ul>
         </div>
-        <div v-if="ext_repo">
+
+        <!-- EDK Extension Repo -->
+        <div v-if="extRepo">
           <p class="text-lg">EDK Extension Repo</p>
           <div>
             <img
-              v-if="repo.type === 'github'"
+              v-if="repoEDKType === 'github'"
               class="w-8 h-4 inline gap-x-11"
-              src="../assets/images/github-brands.svg"
-            /><img
-              v-else-if="repo.type === 'gitlab'"
-              class="w-8 h-4 inline gap-x-11"
-              src="../assets/images/gitlab-brands.svg"
+              src="/images/github-brands.svg"
+              alt="GitHub"
             /><img
               v-else
               class="w-8 h-4 inline gap-x-11"
-              src="../assets/images/git-alt-brands.svg"
-            /><a :href="ext_repo"
+              src="/images/gitlab-brands.svg"
+              alt="GitLab"
+            /><a :href="extRepo"
               ><img
                 class="inline gap-x-11"
-                :alt="ext_repo"
+                :alt="extRepo"
                 :src="`https://img.shields.io/static/v1?label=${parsedEDKRepo.user}&message=${parsedEDKRepo.repo_name}&color=blue`"
               />
             </a>
           </div>
         </div>
+
+        <!-- Maintainer -->
         <div>
           <p class="text-lg">Maintainer</p>
-          <ul class="list-disc list-inside shields">
+          <ul class="list-none pl-7">
             <li>
               <a v-if="maintainer" :href="maintainer.url"
                 ><img
@@ -246,10 +321,11 @@
             </li>
           </ul>
         </div>
-        <!-- <div v-if="metrics  (keywords ?? []).includes('meltano_sdk')"> -->
+
+        <!-- Meltano Stats -->
         <div v-if="metrics && (metrics.all_execs || metrics.all_projects)">
           <p class="text-lg">Meltano Stats</p>
-          <ul class="list-disc list-inside shields space-y-1">
+          <ul class="list-none pl-7 space-y-1">
             <li v-if="metrics.all_execs">
               <img
                 alt="Total Executions (Last 3 Months)"
@@ -264,32 +340,34 @@
             </li>
           </ul>
         </div>
+
+        <!-- PyPI Stats -->
         <div v-if="hasPyPI">
           <p class="text-lg">PyPI Stats</p>
-          <ul class="list-disc list-inside shields space-y-1">
+          <ul class="list-none pl-7 space-y-1">
             <li>
               <img
                 alt="PyPI Downloads"
-                :src="`https://img.shields.io/pypi/dm/${pip_url}?color=3438BF&label=PyPI%20Downloads&`"
-                :href="`https://pypi.org/project/${pip_url}/`"
+                :src="`https://img.shields.io/pypi/dm/${pipUrl}?color=3438BF&label=PyPI%20Downloads&`"
               />
             </li>
             <li>
               <img
                 alt="PyPI Package Version"
-                :src="`https://img.shields.io/pypi/v/${pip_url}?color=3438BF&label=PyPI%20Package%20Version&`"
-                :href="`https://pypi.org/project/${pip_url}/`"
+                :src="`https://img.shields.io/pypi/v/${pipUrl}?color=3438BF&label=PyPI%20Package%20Version&`"
               />
             </li>
           </ul>
         </div>
+
+        <!-- Keywords -->
         <div>
           <p class="text-lg">Keywords</p>
-          <ul class="list-disc list-inside shields">
+          <ul class="list-none pl-7">
             <li>
               <img
                 v-for="(keyword, index) in keywords"
-                v-bind:key="index"
+                :key="index"
                 class="inline mr-1"
                 :alt="keyword"
                 :src="`https://img.shields.io/static/v1?label=&message=${keyword}&color=grey`"
@@ -301,66 +379,3 @@
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  name: "PluginSidebar",
-  props: [
-    "name",
-    "airbyte_name",
-    "domain_url",
-    "is_default",
-    "repo",
-    "maintenance_status",
-    "keywords",
-    "variant",
-    "plugin_type",
-    "metrics",
-    "maintainer",
-    "pip_url",
-    "ext_repo",
-  ],
-  data() {
-    return {
-      activeTab: "modern",
-    };
-  },
-  computed: {
-    parsedEDKRepo() {
-      // For some plugin variants, either the `variant` or `name` doesn't match the GH repo
-      // So we need to parse it from the repo URL to make badges
-      // https://github.com/:user/:repoName
-      const urlParts = this.ext_repo.split("/");
-      return { user: urlParts[3], repo_name: urlParts[4] };
-    },
-    repoEDKType() {
-      // Some plugins are hosted on github, some on gitlab
-      return this.ext_repo.includes("github.com") ? "github" : "gitlab";
-    },
-    hasPyPI() {
-      // Exclude more elaborate ways of specifying `pip_url`
-      // TODO: figure out what we should do when
-      //   - multiple packages are listed space-delimited
-      //   - packages have version specifiers (==, ~=)
-      //   - packages specify optional dependencies in []
-      return (
-        this.pip_url &&
-        !(
-          this.pip_url.includes("git+") ||
-          this.pip_url.includes("//") ||
-          this.pip_url.includes("=") ||
-          this.pip_url.includes(" ") ||
-          this.pip_url.includes("[")
-        )
-      );
-    },
-  },
-};
-</script>
-
-<style lang="scss">
-.shields {
-  list-style-type: none;
-  padding: 0 0 0 30px;
-}
-</style>

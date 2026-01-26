@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PluginDetail from '../../components/PluginDetail.vue';
+import {
+  getPluginsByType,
+  getPluginVariants,
+  parseRepo,
+  type Plugin,
+} from '../../lib/data';
+
+export async function getStaticPaths() {
+  const plugins = getPluginsByType('files');
+
+  return plugins.map((plugin) => ({
+    params: {
+      name: plugin.name,
+      variant: plugin.variant,
+    },
+    props: { plugin },
+  }));
+}
+
+interface Props {
+  plugin: Plugin;
+}
+
+const { plugin } = Astro.props;
+const variants = getPluginVariants(plugin.name).filter(
+  (v) => v.pluginType === plugin.pluginType
+);
+const parsedRepo = parseRepo(plugin.repo);
+---
+
+<BaseLayout title={plugin.name} noindex={plugin.hidden}>
+  <PluginDetail
+    client:load
+    plugin={plugin}
+    variants={variants}
+    parsedRepo={parsedRepo}
+  />
+</BaseLayout>

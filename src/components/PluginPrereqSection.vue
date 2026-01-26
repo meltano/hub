@@ -1,3 +1,13 @@
+<script setup lang="ts">
+interface Props {
+  prereq?: string;
+  prereqRendered?: string;
+  pluginType: string;
+}
+
+defineProps<Props>();
+</script>
+
 <template>
   <div>
     <p class="text-xl py-3" id="prereqs">Prerequisites</p>
@@ -13,13 +23,6 @@
         <a href="https://docs.meltano.com/getting-started/part1">Create your Meltano project</a>
       </li>
     </ol>
-    <div class="prose mt-3 p-2" v-if="plugin.prereq" v-html="plugin.prereq_rendered"></div>
+    <div class="prose mt-3 p-2" v-if="prereq" v-html="prereqRendered"></div>
   </div>
 </template>
-
-<script>
-export default {
-  name: "PluginPrereqSection",
-  props: ["plugin", "plugin_type"],
-};
-</script>

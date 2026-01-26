@@ -1,12 +1,28 @@
+<script setup lang="ts">
+interface Command {
+  name: string;
+  args: string;
+  description?: string;
+}
+
+interface Props {
+  commands: Command[];
+  name: string;
+  pluginType: string;
+}
+
+defineProps<Props>();
+</script>
+
 <template>
   <div v-if="commands?.length">
     <p class="text-3xl pb-4 pt-8 font-bold" id="commands">Commands</p>
     <span
-      >The {{ name }} {{ plugin_type }} supports the following commands that can be used with
-      <pre><code>meltano invoke</code></pre>
+      >The {{ name }} {{ pluginType }} supports the following commands that can be used with
+      <pre class="inline"><code>meltano invoke</code></pre>
       :</span
     >
-    <div v-for="(command, key, index) in commands" v-bind:key="index">
+    <div v-for="(command, index) in commands" :key="index">
       <p class="mt-3 text-xl" :id="command.name + '-command'">
         <code>{{ command.name }}</code>
       </p>
@@ -24,14 +40,7 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "PluginCommandsSection",
-  props: ["commands", "name", "plugin_type"],
-};
-</script>
-
-<style>
+<style scoped>
 span > pre {
   display: inline-block;
 }

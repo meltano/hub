@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { loadMarkdownFile } from '../lib/markdown';
+
+const { title, description, content } = loadMarkdownFile('static/markdown/tap-target-maintenance.md');
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="flex flex-col items-center w-full px-5">
+    <div
+      class="bg-white border text-black p-4 lg:p-10 my-8 lg:my-12 mx-4 prose max-w-4xl rounded-lg font-hg border-purple/15 w-full"
+      set:html={content}
+    />
+  </div>
+</BaseLayout>

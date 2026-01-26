@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Font families */
+.font-pjs {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.font-hg {
+  font-family: 'Hanken Grotesk', sans-serif;
+}
+
+.font-ibm {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+/* Prose styling for code blocks */
+.prose pre {
+  background-color: #1e1e1e;
+  padding: 1rem;
+  border-radius: 0.375rem;
+  overflow-x: auto;
+}
+
+.prose code {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.875rem;
+}
+
+.prose pre code {
+  background: transparent;
+  padding: 0;
+}
+
+.inline-code-block {
+  background-color: #e5e7eb;
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.875rem;
+}
+
+.inline-code-block code {
+  background: transparent;
+  padding: 0;
+}
+
+/* Prism.js syntax highlighting base */
+.language-bash {
+  color: #f8f8f2;
+}
+
+/* Brackets decoration */
+.brackets {
+  position: relative;
+}
+
+.brackets::before {
+  content: '[';
+  color: #3a64fa;
+}
+
+.brackets::after {
+  content: ']';
+  color: #3a64fa;
+}
+
+/* Tooltip styles */
+.tooltip {
+  position: relative;
+}
+
+.tooltip .tooltip-content {
+  display: none;
+  position: absolute;
+  z-index: 50;
+  background: white;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+}
+
+.tooltip:hover .tooltip-content {
+  display: block;
+}
+
+/* Pager styles */
+.pager-container {
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.pager-container__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2rem;
+  height: 2rem;
+}
+
+/* Transition utilities */
+.ease-custom {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}

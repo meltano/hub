@@ -1,3 +1,71 @@
+<script setup lang="ts">
+import { ref, computed } from 'vue';
+
+interface PluginNode {
+  id: string;
+  name: string;
+  label: string;
+  description?: string;
+  path: string;
+  logo_url?: string;
+  pluginType: string;
+  pluginTypePlural: string;
+  keywords?: string[];
+}
+
+interface Props {
+  plugins: PluginNode[];
+}
+
+const props = defineProps<Props>();
+
+const search = ref('');
+const searchFocused = ref(false);
+const hoveringOnSearchOptions = ref(false);
+const searchBarRef = ref<HTMLInputElement | null>(null);
+
+const searchResults = computed(() => {
+  if (!search.value.trim()) return [];
+
+  const searchTerms = search.value.toLowerCase().trim().split(' ');
+
+  return props.plugins
+    .filter((plugin) => {
+      const pluginTextFields = [
+        plugin.name,
+        plugin.name.replace(/-/g, ' '),
+        plugin.description || '',
+        plugin.label,
+        plugin.keywords?.join(' ') || '',
+      ];
+      const searchIn = pluginTextFields.join(' ').toLowerCase();
+      return searchTerms.every((term) => searchIn.includes(term));
+    })
+    .sort((a, b) => {
+      const typeCompare = a.pluginType.localeCompare(b.pluginType);
+      if (typeCompare !== 0) return typeCompare;
+      return a.name.localeCompare(b.name);
+    });
+});
+
+function handleResultClick() {
+  hoveringOnSearchOptions.value = false;
+  searchFocused.value = false;
+  search.value = '';
+}
+
+function getLogoPath(plugin: PluginNode): string {
+  if (plugin.logo_url) {
+    return plugin.logo_url;
+  }
+  return `/assets/logos/${plugin.pluginTypePlural}/${plugin.name}.png`;
+}
+
+function getPluginPath(plugin: PluginNode): string {
+  return plugin.path.split('--')[0];
+}
+</script>
+
 <template>
   <div class="relative">
     <input
@@ -6,10 +74,8 @@
       id="search"
       placeholder="Search 600+ connectors and tools"
       class="search-bar text-black text-sm bg-transparent pl-4 border-solid border-blue border rounded-[9999px] py-1.5 w-full placeholder:text-par placeholder:font-light font-ibm focus-visible:outline-0"
-      ref="searchBar"
-      :autofocus="!this.$route.hash"
-      :value="search"
-      @input="search = $event.target.value"
+      ref="searchBarRef"
+      v-model="search"
       @focus="searchFocused = true"
       @blur="searchFocused = false"
     />
@@ -30,71 +96,58 @@
         />
       </svg>
     </div>
-    <transition
+    <Transition
       enter-active-class="transition duration-200 transform ease-custom"
-      enter-class="scale-y-0 -translate-y-1/2 opacity-0"
+      enter-from-class="scale-y-0 -translate-y-1/2 opacity-0"
       enter-to-class="scale-y-100 translate-y-0 opacity-100"
       leave-active-class="transition duration-300 transform ease-custom"
-      leave-class="scale-y-100 translate-y-0 opacity-100"
+      leave-from-class="scale-y-100 translate-y-0 opacity-100"
       leave-to-class="scale-y-0 -translate-y-1/2 opacity-0"
     >
       <div
         class="absolute z-40 grid w-full grid-cols-1 py-2 mx-auto mt-12 overflow-y-auto shadow-lg max-h-96 justify-self-center grid-span-1 bg-slate-100"
-        v-if="search != '' && (searchFocused || hoveringOnSearchOptions)"
+        v-if="search !== '' && (searchFocused || hoveringOnSearchOptions)"
       >
         <div
-          v-if="searchResults.length > 0 && (searchFocused || hoveringOnSearchOptions)"
+          v-if="searchResults.length > 0"
           class="grid w-full grid-cols-1 gap-2 px-3 rounded grid-span-1 justify-self-center"
         >
           <div
             v-for="plugin in searchResults.slice(0, 10)"
-            :key="plugin.node.id"
+            :key="plugin.id || plugin.name"
             class="grid w-full grid-cols-1 grid-span-1 place-self-start"
             @mouseover="hoveringOnSearchOptions = true"
             @mouseleave="hoveringOnSearchOptions = false"
-            @click="
-              hoveringOnSearchOptions = false;
-              searchFocused = false;
-              this.$refs.searchBar.reset();
-            "
+            @click="handleResultClick"
           >
-            <g-link
-              :to="plugin.node.path.split('--')[0]"
+            <a
+              :href="getPluginPath(plugin)"
               class="grid w-full h-full grid-cols-12 bg-white rounded align-self-center hover:bg-slate-200"
             >
               <div class="grid h-full col-span-3 p-4 place-items-center">
-                <g-image
-                  v-if="plugin.node.logo_url"
-                  :src="
-                    require(`!!assets-loader?width=75!@logos/${plugin.node.logo_url.replace(
-                      '/assets/logos/',
-                      ''
-                    )}`)
-                  "
-                />
-                <g-image
-                  v-else
-                  :src="
-                    require(`!!assets-loader?width=75!@logos/${plugin.node.pluginTypePlural}/${plugin.node.name}.png`)
-                  "
+                <img
+                  v-if="plugin.logo_url"
+                  :src="getLogoPath(plugin)"
+                  :alt="plugin.label"
+                  class="max-w-[75px] max-h-[50px] object-contain"
                 />
               </div>
               <div class="grid col-span-9 grid-rows-3 p-3 align-items-center">
                 <div class="flex pt-1 space-x-3">
                   <p class="text-lg font-bold text-black underline place-self-center">
-                    {{ plugin.node.label }}
+                    {{ plugin.label }}
                   </p>
                   <div class="place-self-center">
                     <span
                       class="px-2 py-1 text-sm text-center rounded-lg bg-sky-100 place-self-center"
                     >
-                      {{ plugin.node.pluginType }}
+                      {{ plugin.pluginType }}
                     </span>
                   </div>
                 </div>
-                <span class="text-black">{{ plugin.node.description || "No description" }}</span>
+                <span class="text-black">{{ plugin.description || 'No description' }}</span>
               </div>
-            </g-link>
+            </a>
           </div>
         </div>
 
@@ -102,138 +155,26 @@
           <a
             href="https://github.com/MeltanoLabs/Singer-Most-Wanted"
             class="flex items-center w-full bg-white rounded-md"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <img class="h-4 ml-4" src="../assets/images/external-link.svg" />
+            <svg class="h-4 ml-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <polyline points="15,3 21,3 21,9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <line x1="10" y1="14" x2="21" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
             <p class="p-4 text-amber-800 hover:text-amber-700">
               Don't see the connector you're looking for? Open an issue to let us know.
             </p>
           </a>
         </div>
       </div>
-    </transition>
+    </Transition>
   </div>
 </template>
 
-<script>
-export default {
-  name: "SearchBar",
-  data() {
-    return {
-      search: "",
-      searchFocused: true,
-      hoveringOnSearchOptions: false,
-    };
-  },
-  computed: {
-    searchResults() {
-      const pluginCollections = [this.$static.allPlugins];
-      return pluginCollections.flatMap((coll) =>
-        coll.edges
-          .filter((plugin) => {
-            const pluginTextFields = [
-              plugin.node.name,
-              plugin.node.name.replace("-", " "),
-              plugin.node.description,
-              plugin.node.label,
-              plugin.node.keywords?.join(" "),
-            ];
-            const searchIn = pluginTextFields.join(" ").toLowerCase();
-            return this.search
-              .toLowerCase()
-              .trim()
-              .split(" ")
-              .every((searchTerm) => searchIn.includes(searchTerm));
-          })
-          .sort((a, b) => {
-            // First compare by pluginType
-            const typeCompare = a.node.pluginType.localeCompare(b.node.pluginType);
-            if (typeCompare !== 0) {
-              return typeCompare;
-            }
-            // If pluginType is the same, compare by name
-            return a.node.name.localeCompare(b.node.name);
-          })
-      );
-    },
-  },
-};
-</script>
-
-<static-query lang="graphql">
-query {
-  allPlugins(
-    filter: {
-      isDefault: { eq: true }
-      hidden: { ne: true }
-      pluginType: { nin: ["transform", "orchestrator", "transformer"] }
-      name: {
-        nin: [
-          "files-airflow"
-          "files-dbt-snowflake"
-          "files-dbt-redshift"
-          "files-dbt-postgres"
-          "files-dbt-duckdb"
-          "files-dbt-bigquery"
-          "files-dbt"
-        ]
-      }
-    }
-  ) {
-    edges {
-      node {
-        id
-        description
-        path
-        label
-        name
-        logo_url
-        pluginType
-        pluginTypePlural
-        keywords
-      }
-    }
-  }
-}
-</static-query>
-
-<style lang="scss">
+<style scoped>
 .search-bar {
   position: relative;
-  &::before {
-    content: "";
-    display: block;
-    top: 10px;
-    right: 10px;
-    width: 14px;
-    height: 14px;
-    position: absolute;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-image: url("/assets/icons/magnifier.svg");
-  }
-}
-.search {
-  .results {
-    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);
-    position: absolute;
-    width: 75%;
-    align-content: left;
-    margin-top: 80px;
-    background: white;
-    line-height: 1rem;
-
-    .result-item {
-      color: black;
-      padding: 0.5rem;
-      border-bottom: 2px solid black;
-
-      a {
-        text-decoration: none;
-        display: flex;
-        justify-content: space-between;
-      }
-    }
-  }
 }
 </style>

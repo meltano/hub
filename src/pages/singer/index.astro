@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Singer">
+  <div class="plugins-overview w-full max-w-7xl mx-auto px-4">
+    <p class="text-3xl md:text-5xl pb-4 pt-8 font-bold font-pjs text-purple">
+      Welcome to MeltanoHub for Singer
+    </p>
+    <p class="mb-4">
+      MeltanoHub for Singer is the leading destination for the Singer Community to discover taps,
+      targets, and other valuable resources. Read the
+      <a
+        href="https://meltano.com/blog/2021/06/01/meltanohub-for-singer-launches-with-over-200-taps-and-targets/"
+        class="underline"
+      >launch announcement</a>
+      to learn more about our goals with MeltanoHub or read the
+      <a href="/singer/docs" class="underline">docs</a> to understand more about our commitment to the
+      Singer community and the architecture behind the Hub.
+    </p>
+
+    <ul class="list-disc list-inside plugins-list mb-8">
+      <li class="page-single-plugin py-2">
+        <a href="https://sdk.meltano.com" class="underline">SDK</a>
+      </li>
+      <li class="page-single-plugin py-2">
+        <a href="/singer/spec" class="underline">Spec</a>
+      </li>
+    </ul>
+
+    <p class="text-3xl md:text-5xl pb-4 pt-8 font-bold font-pjs text-purple">API Resources</p>
+    <p class="mb-4">
+      MeltanoHub for Singer is built for the entire Singer community. We have several resources
+      available at a versioned endpoint that can be used by other organizations to build a catalog
+      of taps and targets within their products. You can view the latest version of each resource
+      below:
+    </p>
+    <ul class="list-disc list-inside plugins-list">
+      <li class="page-single-plugin py-2">
+        <a href="/meltano/api/v1/plugins/extractors/index.json" class="underline">Tap JSON</a>
+      </li>
+      <li class="page-single-plugin py-2">
+        <a href="/meltano/api/v1/plugins/loaders/index.json" class="underline">Target JSON</a>
+      </li>
+      <li class="page-single-plugin py-2">
+        <a href="https://github.com/meltano/hub/tree/main/schemas" class="underline">JSON Schema</a>
+      </li>
+    </ul>
+  </div>
+</BaseLayout>

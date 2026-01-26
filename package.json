@@ -5,15 +5,26 @@
     "build": "gridsome build",
     "develop": "gridsome develop",
     "explore": "gridsome explore",
-    "lint:check": "eslint . --ext js,vue",
-    "lint:fix": "eslint . --fix --ext js,vue",
+    "astro:dev": "astro dev",
+    "astro:build": "astro build",
+    "astro:preview": "astro preview",
+    "switch:astro": "./scripts/switch-to-astro.sh",
+    "switch:gridsome": "./scripts/switch-to-gridsome.sh",
+    "lint:check": "eslint . --ext js,vue,ts",
+    "lint:fix": "eslint . --fix --ext js,vue,ts",
     "format:check": "prettier --check .",
-    "format:write": "prettier --write ."
+    "format:write": "prettier --write .",
+    "test": "vitest",
+    "test:run": "vitest run"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.0.0",
+    "@astrojs/tailwind": "^5.0.0",
+    "@astrojs/vue": "^4.0.0",
     "@gridsome/source-filesystem": "^0.6.2",
     "@gridsome/transformer-remark": "^0.6.4",
     "@tailwindcss/typography": "^0.5.7",
+    "astro": "^4.0.0",
     "graphql-tag": "^2.12.6",
     "gridsome": "^0.7.0",
     "gridsome-plugin-gtag": "^0.1.10",
@@ -22,12 +33,16 @@
     "prismjs": "^1.29.0",
     "remark-prism": "^1.3.6",
     "tailwindcss": "^3.1.8",
+    "vue": "^3.4.0",
     "write": "^2.0.0"
   },
   "resolutions": {
     "gridsome/sharp": "0.29.3"
   },
   "devDependencies": {
+    "@types/js-yaml": "^4.0.0",
+    "@types/node": "^20.0.0",
+    "@vitejs/plugin-vue": "^5.0.0",
     "eslint": "^7.32.0 || ^8.2.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.5.0",
@@ -37,6 +52,8 @@
     "prettier": "2.7.1",
     "sass": "^1.52.3",
     "sass-loader": "^10",
+    "typescript": "^5.0.0",
+    "vitest": "^1.0.0",
     "webpack-chain": "^6.5.1"
   },
   "engines": {

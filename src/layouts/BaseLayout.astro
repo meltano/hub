@@ -1,0 +1,81 @@
+---
+import Header from '../components/Header.vue';
+import Footer from '../components/Footer.vue';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  noindex?: boolean;
+}
+
+const { title = 'Meltano Hub', description, noindex = false } = Astro.props;
+const pageTitle = title === 'Meltano Hub' ? title : `${title} | Meltano Hub`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+    {description && <meta name="description" content={description} />}
+    {noindex && <meta name="robots" content="noindex" />}
+
+    <!-- Google Tag Manager -->
+    <script is:inline>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-MNDN7ZF');
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-MNDN7ZF"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"></iframe>
+    </noscript>
+
+    <div class="layout">
+      <Header client:load />
+      <main>
+        <slot />
+      </main>
+      <Footer />
+      <div class="absolute hidden lg:block left-cloud left-0 top-0 z-0 w-1/12 max-w-xs">
+        <img src="/assets/images/left-cloud.png" width="250" alt="" />
+      </div>
+      <div class="absolute hidden lg:block right-cloud right-0 top-0 z-0 w-1/5 mx-w-lg">
+        <img src="/assets/images/right-cloud.png" class="float-right" width="350" alt="" />
+      </div>
+    </div>
+  </body>
+</html>
+
+<style>
+  .layout {
+    position: relative;
+    z-index: 20;
+    margin: 0 auto;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    background: linear-gradient(180deg, #dad1fe -39.21%, #dad1fe 500px, #e9e5fb 1500px);
+  }
+</style>

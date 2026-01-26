@@ -1,0 +1,103 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import MostPopular from '../../components/MostPopular.vue';
+import Pagination from '../../components/Pagination.vue';
+import { getDefaultPluginsByType, type Plugin } from '../../lib/data';
+
+const ITEMS_PER_PAGE = 100;
+
+// Get all default loaders
+const allPlugins = getDefaultPluginsByType('loaders')
+  .filter((p) => !p.hidden)
+  .sort((a, b) => (a.label_lowercase || a.name).localeCompare(b.label_lowercase || b.name));
+
+// Get most popular plugins for the accordion
+const mostPopularPlugins = allPlugins.filter(
+  (p) =>
+    p.keywords?.includes('meltano_sdk') &&
+    p.maintenance_status === 'active' &&
+    p.metrics?.all_execs &&
+    p.metrics?.all_projects
+);
+
+// Pagination
+const currentPage = 1;
+const totalPages = Math.ceil(allPlugins.length / ITEMS_PER_PAGE);
+const paginatedPlugins = allPlugins.slice(0, ITEMS_PER_PAGE);
+
+function getPluginPath(plugin: Plugin): string {
+  return plugin.path.split('--')[0];
+}
+---
+
+<BaseLayout title="Loaders">
+  <div class="w-full mx-auto plugins-overview max-w-7xl">
+    <p class="pt-8 pb-4 text-3xl font-bold md:text-5xl font-pjs text-purple">Loaders</p>
+    <div class="max-w-3xl mx-auto mb-4">
+      <p class="mb-4">
+        Meltano lets you easily load data into arbitrary destinations (databases, SaaS APIs, and
+        file formats) using Singer targets, which take the role of your project's loader plugins.
+      </p>
+      <p>
+        To learn more about extracting and loading data using Meltano, refer to the
+        <a href="https://docs.meltano.com/getting-started/part2" target="_blank" class="underline"
+          >Getting Started guide</a
+        >.
+      </p>
+    </div>
+
+    <!-- Most Popular Accordion -->
+    <MostPopular
+      client:load
+      plugins={mostPopularPlugins.map((p) => ({
+        id: p.name + '-' + p.variant,
+        name: p.name,
+        label: p.label || p.name,
+        path: p.path,
+        logo_url: p.logo_url,
+        metrics: p.metrics,
+      }))}
+      title="Most Popular"
+      count={8}
+    />
+
+    <!-- Plugin Grid -->
+    <div
+      class="grid w-full grid-cols-2 gap-4 p-4 mt-4 rounded-lg md:grid-cols-4 md:m-4 place-items-stretch"
+      role="list"
+    >
+      {paginatedPlugins.map((plugin) => (
+        <div class="h-48 p-2 overflow-hidden border rounded-md text-slate-800 hover:bg-white bg-white-07 md:p-4 border-purple/10">
+          <a
+            class="grid w-full h-40 grid-rows-6 align-self-center place-items-center"
+            href={getPluginPath(plugin)}
+          >
+            <div class="grid w-full h-24 row-span-4 bg-white place-self-center">
+              {plugin.logo_url && (
+                <img
+                  src={plugin.logo_url}
+                  alt={plugin.label || plugin.name}
+                  class="object-contain place-self-center max-w-[100px] max-h-[80px]"
+                />
+              )}
+            </div>
+            <div class="grid content-end self-stretch row-span-5">
+              <p class="text-xs font-bold underline lg:text-md justify-self-center text-clip">
+                {plugin.label || plugin.name}
+              </p>
+            </div>
+          </a>
+        </div>
+      ))}
+
+      {totalPages > 1 && (
+        <Pagination
+          client:load
+          currentPage={currentPage}
+          totalPages={totalPages}
+          basePath="/loaders"
+        />
+      )}
+    </div>
+  </div>
+</BaseLayout>

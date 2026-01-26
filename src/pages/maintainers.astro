@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getMaintainers } from '../lib/data';
+
+const maintainers = getMaintainers();
+const sortedMaintainers = Object.entries(maintainers)
+  .map(([name, data]) => ({ name, ...data }))
+  .sort((a, b) => (a.label || a.name).localeCompare(b.label || b.name));
+---
+
+<BaseLayout title="Plugin Maintainers">
+  <div class="plugins-overview w-full max-w-7xl mx-auto px-4">
+    <p class="text-3xl md:text-5xl pb-4 pt-8 font-bold font-pjs text-purple">
+      Plugin Maintainers
+    </p>
+    <ul class="list-disc list-inside plugins-list">
+      {sortedMaintainers.map((maintainer) => (
+        <li class="page-single-plugin py-2">
+          <p class="text-2xl inline">
+            <a href={maintainer.url} class="underline text-purple hover:text-blue-600">
+              {maintainer.label || maintainer.name}
+            </a>
+          </p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</BaseLayout>

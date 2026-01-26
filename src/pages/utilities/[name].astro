@@ -1,0 +1,24 @@
+---
+import { getDefaultPluginsByType } from '../../lib/data';
+
+export async function getStaticPaths() {
+  const defaultPlugins = getDefaultPluginsByType('utilities');
+
+  return defaultPlugins.map((plugin) => ({
+    params: { name: plugin.name },
+    props: { redirectTo: plugin.path },
+  }));
+}
+
+const { redirectTo } = Astro.props;
+---
+
+<html>
+  <head>
+    <meta http-equiv="refresh" content={`0;url=${redirectTo}`} />
+    <link rel="canonical" href={redirectTo} />
+  </head>
+  <body>
+    <p>Redirecting to <a href={redirectTo}>{redirectTo}</a>...</p>
+  </body>
+</html>
