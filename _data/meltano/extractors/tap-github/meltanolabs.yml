@@ -43,6 +43,12 @@ settings:
   label: Auth Token
   name: auth_token
   sensitive: true
+- description: Maximum number of retry attempts for failed API requests that are
+    retriable. Defaults to 5.
+  kind: integer
+  label: Backoff Max Tries
+  name: backoff_max_tries
+  value: 5
 - description: Compression format to use for batch files.
   kind: options
   label: Batch Compression Format
