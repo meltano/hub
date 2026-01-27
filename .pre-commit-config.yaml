@@ -50,3 +50,8 @@ repos:
   hooks:
   - id: check-dependabot
   - id: check-github-workflows
+- repo: https://github.com/biomejs/pre-commit
+  rev: v2.3.12 # Use the sha / tag you want to point at
+  hooks:
+  - id: biome-ci
+  - id: biome-lint
