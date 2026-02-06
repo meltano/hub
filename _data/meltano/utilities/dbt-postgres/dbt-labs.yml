@@ -68,7 +68,7 @@ next_steps: |-
     # create a starter dbt_project.yml file, a profiles.yml file, and models directory
     meltano invoke dbt-postgres:initialize
     ```
-pip_url: dbt-core dbt-postgres meltano-dbt-ext~=0.3.0
+pip_url: dbt-core dbt-postgres meltano-dbt-ext~=0.4.0
 repo: https://github.com/dbt-labs/dbt-core
 settings:
 - aliases:
@@ -151,4 +151,9 @@ settings:
 settings_group_validation: []
 settings_preamble: |
   Settings for dbt itself can be configured through [dbt_project.yml](https://docs.getdbt.com/reference/dbt_project.yml) as usual, which can be found at transform/dbt_project.yml in your Meltano project.  dbt also has [adapter-specific documentation for PostgreSQL](https://docs.getdbt.com/reference/resource-configs/postgres-configs).
+supported_python_versions:
+- '3.10'
+- '3.11'
+- '3.12'
+- '3.13'
 variant: dbt-labs
