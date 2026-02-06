@@ -9,6 +9,7 @@ set -euxo pipefail
 if ! command -v aws >/dev/null 2>&1; then
   curl https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip -o awscliv2.zip
   unzip -q awscliv2.zip
+  rm -rf /opt/buildhome/.aws
   ./aws/install -i "$PWD/aws-cli" -b "$PWD/aws-cli/bin"
 fi
 
