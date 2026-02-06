@@ -3,14 +3,14 @@ capabilities:
 - discover
 description: ERP Software
 domain_url: https://ajuda.bling.com.br/hc/pt-br/categories/360002186394-API-para-Desenvolvedores
-hidden: true
+executable: tap-bling-erp
 keywords:
 - api
 label: Bling ERP
 logo_url: /assets/logos/extractors/bling.svg
 maintenance_status: unknown
-name: tap-bling-erp
-namespace: tap_bling_erp
+name: tap-bling
+namespace: tap_bling
 pip_url: git+https://github.com/Muriloo/tap-bling-erp.git
 quality: silver
 repo: https://github.com/Muriloo/tap-bling-erp
