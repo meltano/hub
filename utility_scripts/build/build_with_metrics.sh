@@ -9,7 +9,7 @@ set -euxo pipefail
 if ! command -v aws >/dev/null 2>&1; then
   curl https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip -o awscliv2.zip
   unzip -q awscliv2.zip
-  ./aws/install -i ~/aws-cli -b ~/aws-cli/bin
+  ./aws/install -i ~/aws-cli -b ~/aws-cli/bin --update
 fi
 
 # HACK because netlify doesn't let us set these (see https://remysharp.com/2019/05/18/aws-inside-netlify)
