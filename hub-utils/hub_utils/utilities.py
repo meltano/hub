@@ -4,7 +4,7 @@ import json
 import os
 import shutil
 from collections import OrderedDict
-from enum import Enum
+from enum import StrEnum
 from pathlib import Path
 from typing import Any
 
@@ -46,7 +46,7 @@ OVERRIDES: dict[tuple[str, str], list[dict[str, Any]]] = {
 }
 
 
-class Kind(str, Enum):
+class Kind(StrEnum):
     string = "string"
     boolean = "boolean"
     integer = "integer"

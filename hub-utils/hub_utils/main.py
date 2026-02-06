@@ -4,7 +4,7 @@ import json
 import os
 from copy import copy
 from datetime import UTC, datetime
-from enum import Enum
+from enum import StrEnum
 
 import requests
 import typer
@@ -75,7 +75,7 @@ def callback():
     """
 
 
-class YamlLint(str, Enum):
+class YamlLint(StrEnum):
     fix = "fix"
     lint = "lint"
 
