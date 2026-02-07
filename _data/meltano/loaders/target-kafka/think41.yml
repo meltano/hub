@@ -7,7 +7,7 @@ capabilities:
 description: Singer target for Apache Kafka
 domain_url: https://kafka.apache.org
 executable: target-kafka
-keywords: meltano_sdk,kafka
+keywords: [meltano_sdk,kafka]
 label: Kafka
 log_parser: singer-sdk
 logo_url: /assets/logos/loaders/kafka.png
