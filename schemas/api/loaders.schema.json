@@ -33,7 +33,8 @@
                 "target_schema": {},
                 "hidden": {},
                 "requires": {},
-                "supported_python_versions": {}
+                "supported_python_versions": {},
+                "log_parser": {}
             }
         }
     ]
