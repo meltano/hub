@@ -1,5 +1,6 @@
 capabilities:
 - about
+- activate-version
 - hard-delete
 - schema-flattening
 - stream-maps
@@ -20,7 +21,7 @@ pip_url: git+https://github.com/shaped-ai/target-clickhouse.git
 quality: silver
 repo: https://github.com/shaped-ai/target-clickhouse
 settings:
-- description: Add metadata to records.
+- description: Whether to add metadata fields to records.
   kind: boolean
   label: Add Record Metadata
   name: add_record_metadata
@@ -79,20 +80,20 @@ settings:
     value: ReplicatedAggregatingMergeTree
 - description: 'One or more LCID locale strings to produce localized output for: https://faker.readthedocs.io/en/master/#localization'
   kind: array
-  label: Faker Config Locale
+  label: Faker Locale
   name: faker_config.locale
 - description: 'Value to seed the Faker generator for deterministic output: https://faker.readthedocs.io/en/master/#seeding-the-generator'
   kind: string
-  label: Faker Config Seed
+  label: Faker Seed
   name: faker_config.seed
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
-  label: Flattening Enabled
+  label: Enable Schema Flattening
   name: flattening_enabled
 - description: The max depth to flatten schemas.
   kind: integer
-  label: Flattening Max Depth
+  label: Max Flattening Depth
   name: flattening_max_depth
 - description: Hard delete records.
   kind: boolean
@@ -141,6 +142,11 @@ settings:
   label: Port
   name: port
   value: 8123
+- description: Whether to process `ACTIVATE_VERSION` messages.
+  kind: boolean
+  label: Process `ACTIVATE_VERSION` messages
+  name: process_activate_version_messages
+  value: true
 - description: The `replica_name` for replicated tables. This is required when 
     using any of the replication engines.
   kind: string
@@ -158,7 +164,7 @@ settings:
   name: sqlalchemy_url
 - description: User-defined config values to be used within map expressions.
   kind: object
-  label: Stream Map Config
+  label: User Stream Map Configuration
   name: stream_map_config
 - description: Config object for stream maps capability. For more information 
     check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).

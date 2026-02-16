@@ -54,6 +54,12 @@ settings:
   kind: string
   label: Batch Storage Root
   name: batch_config.storage.root
+- description: The Cloud ID for your Jira account. Optional - if provided, uses 
+    cloud-based API URLs instead of domain-based URLs.
+  kind: password
+  label: Cloud ID
+  name: cloud_id
+  sensitive: true
 - description: The Domain for your Jira account, e.g. meltano. Atlassian. Net
   kind: string
   label: Domain
