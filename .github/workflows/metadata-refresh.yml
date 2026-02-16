@@ -55,7 +55,7 @@ jobs:
         token: ${{ secrets.MELTYBOT_GITHUB_AUTH_TOKEN }}
         commit-message: Refresh plugin metadata ${{ steps.date.outputs.date }}
         committer: GitHub <noreply@github.com>
-        author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+        author: MeltyBot <MeltyBot@users.noreply.github.com>
         signoff: false
         branch: hub-bot-metadata-${{ steps.date.outputs.date }}-${{ github.run_id }}-${{ github.run_number }}-${{ github.run_attempt }}
         delete-branch: true
