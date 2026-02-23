@@ -81,6 +81,13 @@ settings:
   label: Include Sdc Properties
   name: include_sdc_properties
   value: true
+- description: When set, all streams write to this topic; validation is disabled
+    and each record gets a "stream" field with the source stream name. When unset,
+    each stream uses its name as the topic (with optional topic_prefix).
+  kind: string
+  label: Common Topic
+  name: common_topic
+  value: ''
 - description: Properties to use as Kafka message key (empty = round-robin 
     partition)
   kind: array
