@@ -1,5 +1,6 @@
 capabilities:
 - about
+- activate-version
 - batch
 - catalog
 - discover
@@ -121,5 +122,11 @@ settings_group_validation:
   - oauth_credentials.client_secret
   - oauth_credentials.refresh_token
   - sheet_id
-supported_python_versions: []
+supported_python_versions:
+- '3.9'
+- '3.10'
+- '3.11'
+- '3.12'
+- '3.13'
+- '3.14'
 variant: matatika
