@@ -1,0 +1,304 @@
+capabilities:
+- about
+- activate-version
+- batch
+- catalog
+- discover
+- schema-flattening
+- state
+- stream-maps
+- structured-logging
+description: Open-source weather API
+domain_url: https://open-meteo.com/en/docs
+executable: tap-openmeteo
+keywords:
+- meltano_sdk
+label: Open-Meteo
+log_parser: singer-sdk
+logo_url: /assets/logos/extractors/open-meteo.png
+maintenance_status: active
+name: tap-openmeteo
+namespace: tap_openmeteo
+next_steps: ''
+pip_url: git+https://github.com/celine-eu/tap-openmeteo.git
+quality: gold
+repo: https://github.com/celine-eu/tap-openmeteo
+settings:
+- description: Optional API key for commercial use. Required for accessing 
+    reserved API resources. See https://open-meteo.com/en/pricing
+  kind: password
+  label: API Key
+  name: api_key
+  sensitive: true
+- description: Base URL for the Open-Meteo API. Use 
+    'https://customer-api.open-meteo.com' for commercial API access with an API 
+    key.
+  kind: string
+  label: API URL
+  name: api_url
+  value: https://api.open-meteo.com
+- description: Panel azimuth for global tilted irradiance. 0° = South, -90° = 
+    East, 90° = West, ±180° = North
+  kind: integer
+  label: Panel Azimuth
+  name: azimuth
+- description: Compression format to use for batch files.
+  kind: options
+  label: Batch Compression Format
+  name: batch_config.encoding.compression
+  options:
+  - label: GZIP
+    value: gzip
+  - label: None
+    value: none
+- description: Format to use for batch files.
+  kind: options
+  label: Batch Encoding Format
+  name: batch_config.encoding.format
+  options:
+  - label: JSONL
+    value: jsonl
+  - label: Parquet
+    value: parquet
+- description: Prefix to use when writing batch files.
+  kind: string
+  label: Batch Storage Prefix
+  name: batch_config.storage.prefix
+- description: Root path to use when writing batch files.
+  kind: string
+  label: Batch Storage Root
+  name: batch_config.storage.root
+- description: "How to select grid cells: 'land' (finds suitable cell on land), 'sea'
+    (prefers cells on sea), 'nearest' (selects nearest cell)"
+  kind: options
+  label: Grid Cell Selection
+  name: cell_selection
+  options:
+  - label: Land
+    value: land
+  - label: Sea
+    value: sea
+  - label: Nearest
+    value: nearest
+  value: land
+- description: List of current weather variables to include in responses.
+  kind: array
+  label: Current Weather Variables
+  name: current_variables
+  value:
+  - temperature_2m
+  - relative_humidity_2m
+  - apparent_temperature
+  - is_day
+  - precipitation
+  - weather_code
+  - cloud_cover
+  - wind_speed_10m
+  - wind_direction_10m
+- description: 'List of daily weather variables to fetch. Available: weather_code,
+    temperature_2m_max, temperature_2m_min, apparent_temperature_max, apparent_temperature_min,
+    sunrise, sunset, daylight_duration, sunshine_duration, uv_index_max, uv_index_clear_sky_max,
+    precipitation_sum, rain_sum, showers_sum, snowfall_sum, precipitation_hours, precipitation_probability_max,
+    wind_speed_10m_max, wind_gusts_10m_max, wind_direction_10m_dominant, shortwave_radiation_sum,
+    et0_fao_evapotranspiration'
+  kind: array
+  label: Daily Weather Variables
+  name: daily_variables
+  value:
+  - weather_code
+  - temperature_2m_max
+  - temperature_2m_min
+  - precipitation_sum
+  - sunrise
+  - sunset
+- description: End date for historical data (YYYY-MM-DD format). If not set, 
+    defaults to yesterday.
+  kind: date_iso8601
+  label: End Date
+  name: end_date
+- description: 'One or more LCID locale strings to produce localized output for: https://faker.readthedocs.io/en/master/#localization'
+  kind: array
+  label: Faker Locale
+  name: faker_config.locale
+- description: 'Value to seed the Faker generator for deterministic output: https://faker.readthedocs.io/en/master/#seeding-the-generator'
+  kind: string
+  label: Faker Seed
+  name: faker_config.seed
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Enable Schema Flattening
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Max Flattening Depth
+  name: flattening_max_depth
+- description: The maximum length of a flattened key.
+  kind: integer
+  label: Max Key Length
+  name: flattening_max_key_length
+- description: Number of forecast days (0-16). Default is 7 days. Ignored if 
+    forecast_hours is set.
+  kind: integer
+  label: Forecast Days
+  name: forecast_days
+  value: 7
+- description: Number of forecast hours. When set, takes priority over 
+    forecast_days for hourly/minutely streams.
+  kind: integer
+  label: Forecast Hours
+  name: forecast_hours
+- description: 'List of hourly weather variables to fetch. Available: temperature_2m,
+    relative_humidity_2m, dew_point_2m, apparent_temperature, precipitation_probability,
+    precipitation, rain, showers, snowfall, snow_depth, weather_code, pressure_msl,
+    surface_pressure, cloud_cover, cloud_cover_low, cloud_cover_mid, cloud_cover_high,
+    visibility, evapotranspiration, et0_fao_evapotranspiration, vapour_pressure_deficit,
+    wind_speed_10m, wind_speed_80m, wind_speed_120m, wind_speed_180m, wind_direction_10m,
+    wind_direction_80m, wind_direction_120m, wind_direction_180m, wind_gusts_10m,
+    temperature_80m, temperature_120m, temperature_180m, soil_temperature_0cm, soil_temperature_6cm,
+    soil_temperature_18cm, soil_temperature_54cm, soil_moisture_0_to_1cm, soil_moisture_1_to_3cm,
+    soil_moisture_3_to_9cm, soil_moisture_9_to_27cm, soil_moisture_27_to_81cm, uv_index,
+    uv_index_clear_sky, is_day, sunshine_duration, shortwave_radiation, direct_radiation,
+    diffuse_radiation, direct_normal_irradiance, global_tilted_irradiance, terrestrial_radiation,
+    cape, freezing_level_height'
+  kind: array
+  label: Hourly Weather Variables
+  name: hourly_variables
+  value:
+  - temperature_2m
+  - relative_humidity_2m
+  - precipitation
+  - weather_code
+  - wind_speed_10m
+  - wind_direction_10m
+- description: List of locations to fetch weather data for
+  kind: array
+  label: Locations
+  name: locations
+- description: 'List of 15-minutely weather variables. Only available in Central Europe
+    and North America; other regions use interpolated hourly data. Available: temperature_2m,
+    relative_humidity_2m, dew_point_2m, precipitation, rain, snowfall, weather_code,
+    wind_speed_10m, wind_direction_10m, wind_gusts_10m, shortwave_radiation, direct_radiation,
+    diffuse_radiation, sunshine_duration, visibility, cape, lightning_potential, is_day'
+  kind: array
+  label: 15-Minutely Weather Variables
+  name: minutely_15_variables
+  value: []
+- description: "Specific weather models to use. Empty list uses 'best_match' which
+    combines the best models for each location. Options include: ecmwf_ifs025, gfs_seamless,
+    icon_seamless, meteofrance_seamless, jma_seamless, gem_seamless, etc."
+  kind: array
+  label: Weather Models
+  name: models
+  value: []
+- description: Include past days in forecast (0-92). Default is 0. Ignored if 
+    past_hours is set.
+  kind: integer
+  label: Past Days
+  name: past_days
+  value: 0
+- description: Number of past hours to include. When set, takes priority over 
+    past_days for hourly/minutely streams.
+  kind: integer
+  label: Past Hours
+  name: past_hours
+- description: "Precipitation unit: 'mm' or 'inch'"
+  kind: options
+  label: Precipitation Unit
+  name: precipitation_unit
+  options:
+  - label: Mm
+    value: mm
+  - label: Inch
+    value: inch
+  value: mm
+- description: HTTP request timeout in seconds
+  kind: integer
+  label: Request Timeout
+  name: request_timeout
+  value: 30
+- description: Start date for historical data (YYYY-MM-DD format). Used for 
+    historical weather stream.
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: User Stream Map Configuration
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: 'List of streams to sync. Available: weather_forecast, weather_hourly,
+    weather_daily, weather_current, weather_minutely_15, weather_historical'
+  kind: array
+  label: Streams to Sync
+  name: streams_to_sync
+  value:
+  - weather_forecast
+  - weather_hourly
+  - weather_daily
+- description: "Temperature unit: 'celsius' or 'fahrenheit'"
+  kind: options
+  label: Temperature Unit
+  name: temperature_unit
+  options:
+  - label: Celsius
+    value: celsius
+  - label: Fahrenheit
+    value: fahrenheit
+  value: celsius
+- description: Panel tilt angle for global tilted irradiance (0-90 degrees). 0° 
+    is horizontal, typically around 45°.
+  kind: integer
+  label: Panel Tilt
+  name: tilt
+- description: "Time format: 'iso8601' (e.g., 2024-01-01T00:00) or 'unixtime' (UNIX
+    epoch seconds)"
+  kind: options
+  label: Time Format
+  name: timeformat
+  options:
+  - label: Iso8601
+    value: iso8601
+  - label: Unixtime
+    value: unixtime
+  value: iso8601
+- description: Default timezone for all locations. Any timezone from the IANA 
+    time zone database is supported. Use 'auto' to resolve from coordinates or 
+    'UTC' for GMT+0.
+  kind: string
+  label: Default Timezone
+  name: timezone
+  value: auto
+- description: Custom User-Agent header for API requests. Helps Open-Meteo track
+    usage from your application.
+  kind: string
+  label: User Agent
+  name: user_agent
+- description: "Wind speed unit: 'kmh', 'ms', 'mph', or 'kn' (knots)"
+  kind: options
+  label: Wind Speed Unit
+  name: wind_speed_unit
+  options:
+  - label: Kmh
+    value: kmh
+  - label: Ms
+    value: ms
+  - label: Mph
+    value: mph
+  - label: Kn
+    value: kn
+  value: kmh
+settings_group_validation:
+- - locations
+settings_preamble: ''
+supported_python_versions:
+- '3.10'
+- '3.11'
+- '3.12'
+- '3.13'
+usage: ''
+variant: celine-eu
