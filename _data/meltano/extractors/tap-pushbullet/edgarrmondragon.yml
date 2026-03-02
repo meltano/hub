@@ -75,8 +75,8 @@ settings:
   kind: integer
   label: Max Key Length
   name: flattening_max_key_length
-- description: Earliest Unix timestamp to get data from
-  kind: integer
+- description: Earliest datetime to get data from
+  kind: date_iso8601
   label: Start Date
   name: start_date
 - description: User-defined config values to be used within map expressions.

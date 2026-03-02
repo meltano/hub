@@ -91,6 +91,12 @@ settings:
   - label: Overwrite
     value: overwrite
   value: append-only
+- description: OAuth access token for authentication. Token should be valid and 
+    not expired.
+  kind: password
+  label: OAuth Access Token
+  name: oauth_access_token
+  sensitive: true
 - description: The password for your Snowflake user.
   kind: password
   label: Password

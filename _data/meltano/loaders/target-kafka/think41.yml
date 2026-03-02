@@ -25,6 +25,13 @@ settings:
   kind: boolean
   label: Add Record Metadata
   name: add_record_metadata
+- description: When common_topic is set, if true (default), add a 'stream' field
+    to each record with the source stream name. Set to false to omit the stream 
+    field.
+  kind: boolean
+  label: Add Stream To Record
+  name: add_stream_to_record
+  value: true
 - description: Number of records to batch before sending to kafka
   kind: integer
   label: Batch Size
@@ -38,6 +45,14 @@ settings:
   kind: string
   label: Bootstrap Servers
   name: bootstrap_servers
+- description: When set, all streams are written to this topic; validation is 
+    disabled and each record gets a 'stream' field with the source stream name. 
+    When unset, each stream uses its name as the topic (with optional 
+    topic_prefix) and validation applies as configured.
+  kind: string
+  label: Common Topic
+  name: common_topic
+  value: ''
 - description: Kafka message compression
   kind: options
   label: Compression Type
@@ -81,13 +96,6 @@ settings:
   label: Include Sdc Properties
   name: include_sdc_properties
   value: true
-- description: When set, all streams write to this topic; validation is disabled
-    and each record gets a "stream" field with the source stream name. When unset,
-    each stream uses its name as the topic (with optional topic_prefix).
-  kind: string
-  label: Common Topic
-  name: common_topic
-  value: ''
 - description: Properties to use as Kafka message key (empty = round-robin 
     partition)
   kind: array
