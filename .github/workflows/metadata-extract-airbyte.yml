@@ -22,7 +22,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-      - uses: astral-sh/setup-uv@eac588ad8def6316056a12d4907a9d4d84ff7a3b # v7.3.0
+      - uses: astral-sh/setup-uv@5a095e7a2014a4212f075830d4f7277575a9d098 # v7.3.1
 
       - name: Install hub-utils
         run: uv tool install ./hub-utils
@@ -51,7 +51,7 @@ jobs:
         run: |
           $AIRBYTE_ENTRYPOINT spec | grep '^.*"type":\s*"SPEC".*$' > extractor--${{ matrix.source-name }}--airbyte.json
         id: get-airbyte-stdout
-      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
+      - uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
           name: extractor--${{ matrix.source-name }}--airbyte.json
           path: extractor--${{ matrix.source-name }}--airbyte.json
@@ -79,10 +79,10 @@ jobs:
           aws-region: us-west-2
           role-session-name: "GitHubActions"
 
-      - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+      - uses: actions/download-artifact@70fc10c6e5e1ce46ad2ea6f2b72d43f7d47b13c3 # v8.0.0
         with:
           name: extractor--${{ matrix.source-name }}--airbyte.json
-      - uses: astral-sh/setup-uv@eac588ad8def6316056a12d4907a9d4d84ff7a3b # v7.3.0
+      - uses: astral-sh/setup-uv@5a095e7a2014a4212f075830d4f7277575a9d098 # v7.3.1
 
       - name: Install hub-utils
         run: uv tool install ./hub-utils
