@@ -6,13 +6,13 @@ authors = [{ name = "pnadolny13", email = "patnadolny@gmail.com" }]
 requires-python = ">=3.12"
 readme = "README.md"
 dependencies = [
-    "boto3>=1.40.12,<2",
-    "jsonpath-ng>=1.7.0,<2",
-    "requests>=2.32.4,<3",
-    "ruamel-yaml>=0.18.14,<0.19",
-    "typer>=0.19.0,<0.20",
-    "uv>=0.9,<0.10",
-    "yamllint>=1.37.1,<2",
+    "boto3~=1.42",
+    "jsonpath-ng~=1.8",
+    "requests~=2.32",
+    "ruamel-yaml~=0.19",
+    "typer~=0.24",
+    "uv~=0.10",
+    "yamllint~=1.38",
 ]
 
 [project.scripts]
