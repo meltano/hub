@@ -80,6 +80,13 @@ settings:
   kind: integer
   label: Max Key Length
   name: flattening_max_key_length
+- description: Optional overlap window in seconds applied to incremental 
+    bookmarks. Use this to replay recent records and reduce misses caused by API
+    pagination drift or near-boundary updates.
+  kind: integer
+  label: Replication Lookback Window Seconds
+  name: replication_lookback_window_seconds
+  value: 0
 - description: The earliest record date to sync, in unix timestamp format
   kind: integer
   label: Start Date

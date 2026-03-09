@@ -8,7 +8,7 @@ set -euxo pipefail
 # install CLI
 if ! command -v aws >/dev/null 2>&1; then
   curl https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip -o awscliv2.zip
-  unzip -q awscliv2.zip
+  unzip -qo awscliv2.zip
   ./aws/install -i ~/aws-cli -b ~/aws-cli/bin --update
 fi
 
