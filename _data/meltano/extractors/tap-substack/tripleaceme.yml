@@ -1,0 +1,35 @@
+capabilities:
+- about
+- catalog
+- discover
+- schema-flattening
+- state
+- stream-maps
+description: Singer tap for extracting data from Substack newsletters
+domain_url: https://substack.com/
+keywords:
+- api
+- meltano_sdk
+label: Substack
+logo_url: /assets/logos/extractors/substack.png
+maintenance_status: active
+name: tap-substack
+namespace: tap_substack
+pip_url: tap-substack
+quality: silver
+repo: https://github.com/tripleaceme/tap-substack
+settings:
+- description: The Substack subdomain (e.g. 'newsletter' for newsletter.substack.com).
+  kind: string
+  label: Subdomain
+  name: subdomain
+- description: Substack session cookie (substack.sid) for accessing authenticated
+    endpoints like subscribers and analytics.
+  kind: password
+  label: Session Token
+  name: session_token
+  sensitive: true
+settings_group_validation:
+- - subdomain
+  - session_token
+variant: tripleaceme
