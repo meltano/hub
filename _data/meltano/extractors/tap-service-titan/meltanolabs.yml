@@ -15,14 +15,14 @@ executable: tap-service-titan
 keywords:
 - meltano_sdk
 label: Service Titan
-logo_url: /assets/logos/extractors/servicetitan.png
+logo_url: /assets/logos/extractors/servicetitan.svg
 maintenance_status: active
 name: tap-service-titan
 namespace: tap_service_titan
 next_steps: ''
-pip_url: git+https://github.com/archdotdev/tap-service-titan.git
+pip_url: git+https://github.com/MeltanoLabs/tap-service-titan.git
 quality: gold
-repo: https://github.com/archdotdev/tap-service-titan
+repo: https://github.com/MeltanoLabs/tap-service-titan
 settings:
 - description: The url for the ServiceTitan API
   kind: string
@@ -131,4 +131,4 @@ supported_python_versions:
 - '3.13'
 - '3.14'
 usage: ''
-variant: archdotdev
+variant: meltanolabs
