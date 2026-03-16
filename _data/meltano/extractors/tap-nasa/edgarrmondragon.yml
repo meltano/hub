@@ -77,6 +77,10 @@ settings:
   kind: integer
   label: Max Key Length
   name: flattening_max_key_length
+- description: The separator to use when flattening keys.
+  kind: string
+  label: Flattening Separator
+  name: flattening_separator
 - description: Earliest datetime to get data from
   kind: date_iso8601
   label: Start Date

@@ -69,6 +69,10 @@ settings:
   kind: integer
   label: Max Key Length
   name: flattening_max_key_length
+- description: The separator to use when flattening keys.
+  kind: string
+  label: Flattening Separator
+  name: flattening_separator
 - description: The root of the filesystem to read from.
   kind: string
   label: Fs Root
