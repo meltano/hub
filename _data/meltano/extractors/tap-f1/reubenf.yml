@@ -7,6 +7,7 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
+- structured-logging
 description: Highest class of international racing for open-wheel single-seater 
   formula racing cars
 domain_url: https://www.formula1.com/
@@ -74,6 +75,10 @@ settings:
   kind: integer
   label: Max Flattening Depth
   name: flattening_max_depth
+- description: The maximum length of a flattened key.
+  kind: integer
+  label: Max Key Length
+  name: flattening_max_key_length
 - description: Date in ISO 8601 format to get data from (inclusive)
   kind: date_iso8601
   label: Start Date
