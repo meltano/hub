@@ -81,6 +81,24 @@ settings:
   label: Include Freshest Data
   name: include_freshest_data
   value: true
+- description: Google OAuth2 access token
+  kind: password
+  label: Access Token
+  name: oauth_credentials.access_token
+  sensitive: true
+- description: Proxy URL to support token refresh without a client ID/secret
+  kind: string
+  label: Refresh Proxy URL
+  name: oauth_credentials.refresh_proxy_url
+- description: Authorization for proxy URL
+  kind: string
+  label: Refresh Proxy URL Auth
+  name: oauth_credentials.refresh_proxy_url_auth
+- description: Google OAuth2 refresh token
+  kind: password
+  label: Refresh Token
+  name: oauth_credentials.refresh_token
+  sensitive: true
 - description: Project IDs to replicate
   kind: string
   label: Site URL

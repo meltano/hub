@@ -115,6 +115,14 @@ settings:
   label: Max Batch Size
   name: max_batch_size
   value: 10000
+- description: Maximum length for column names. Only applied when catalog_type 
+    is 'postgres'. Names exceeding this limit are truncated to avoid 
+    PostgreSQL's 63-character identifier limit (NAMEDATALEN). Colliding 
+    truncated names get a _{i} suffix. Set to 0 to disable truncation.
+  kind: string
+  label: Max Column Name Length
+  name: max_column_length
+  value: 63
 - description: Schema name in the catalog database to use for Ducklakemetadata 
     tables
   kind: string
