@@ -22,7 +22,7 @@ maintenance_status: active
 name: target-cratedb
 namespace: target_cratedb
 next_steps: ''
-pip_url: git+https://github.com/crate/meltano-target-cratedb.git
+pip_url: meltano-target-cratedb
 quality: gold
 repo: https://github.com/crate/meltano-target-cratedb
 settings:

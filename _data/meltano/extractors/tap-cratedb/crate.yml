@@ -23,7 +23,7 @@ maintenance_status: active
 name: tap-cratedb
 namespace: tap_cratedb
 next_steps: ''
-pip_url: git+https://github.com/crate/meltano-tap-cratedb.git
+pip_url: meltano-tap-cratedb
 quality: gold
 repo: https://github.com/crate/meltano-tap-cratedb
 settings:
