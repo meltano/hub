@@ -246,13 +246,6 @@ settings:
   kind: object
   label: Stream Maps
   name: stream_maps
-- description: Use the COPY command to insert data. This is usually faster than 
-    INSERT statements. This option is only available for the postgresql+psycopg 
-    dialect+driver.
-  kind: boolean
-  label: Use COPY
-  name: use_copy
-  value: false
 - description: User name used to authenticate. Note if sqlalchemy_url is set 
     this will be ignored.
   kind: string
