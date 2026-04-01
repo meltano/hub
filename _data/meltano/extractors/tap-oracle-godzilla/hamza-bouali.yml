@@ -14,10 +14,11 @@ logo_url: /assets/logos/extractors/oracle.png
 maintenance_status: active
 name: tap-oracle-godzilla
 namespace: tap_oracle_godzilla
-variant: hamza-bouali
+next_steps: ''
 pip_url: tap-oracle-godzilla
 quality: silver
 repo: https://github.com/Hamza-Bouali/tap-oracle
+variant: hamza-bouali
 settings:
 - description: Your Oracle host or IP address
   label: Host
