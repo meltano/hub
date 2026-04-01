@@ -124,7 +124,7 @@ extractors:
   tap-copper: airbyte
   tap-courier: airbyte
   tap-cqc-org-uk: birdiecare
-  tap-cratedb: crate
+  tap-cratedb: cratedb
   tap-criteo: edgarrmondragon
   tap-crossbeam: singer-io
   tap-csv: meltanolabs
@@ -646,7 +646,7 @@ loaders:
   target-cassandra: coeff
   target-chromadb: meltanolabs
   target-clickhouse: shaped-ai
-  target-cratedb: crate
+  target-cratedb: cratedb
   target-csv: meltanolabs
   target-datadotworld: datadotworld
   target-db2: infostrux
