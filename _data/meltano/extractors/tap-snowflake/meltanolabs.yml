@@ -75,6 +75,10 @@ settings:
   kind: integer
   label: Max Flattening Depth
   name: flattening_max_depth
+- description: The maximum length of a flattened key.
+  kind: integer
+  label: Max Key Length
+  name: flattening_max_key_length
 - description: The password for your Snowflake user. One of [`password`, 
     `private_key`, `private_key_path`] is required.
   kind: password
