@@ -9,11 +9,11 @@ keywords:
 - database
 - oracle
 - singer
-label: Oracle (Godzilla)
+label: Oracle
 logo_url: /assets/logos/extractors/oracle.png
 maintenance_status: active
-name: tap-oracle-godzilla
-namespace: tap_oracle_godzilla
+name: tap-oracle
+namespace: tap_oracle
 next_steps: ''
 pip_url: tap-oracle-godzilla
 quality: silver
