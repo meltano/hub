@@ -1,0 +1,74 @@
+capabilities:
+- catalog
+- discover
+- state
+- about
+description: Modern Singer tap for Oracle databases, built with the Meltano Singer SDK
+domain_url: https://www.oracle.com/database/
+keywords:
+- database
+- oracle
+- singer
+label: Oracle
+logo_url: /assets/logos/extractors/oracle.png
+maintenance_status: active
+name: tap-oracle
+namespace: tap_oracle
+next_steps: ''
+pip_url: tap-oracle-godzilla
+quality: silver
+repo: https://github.com/Hamza-Bouali/tap-oracle
+settings:
+- description: Your Oracle host or IP address
+  label: Host
+  name: host
+  value: localhost
+- description: Your Oracle port number
+  kind: integer
+  label: Port
+  name: port
+  value: 1521
+- description: Your Oracle username
+  kind: string
+  label: User
+  name: user
+- description: Your Oracle password
+  kind: password
+  label: Password
+  name: password
+  sensitive: true
+- description: Oracle service name (preferred method for connection)
+  kind: string
+  label: Service Name
+  name: service_name
+- description: Oracle System ID (alternative to service_name)
+  kind: string
+  label: SID
+  name: sid
+- description: Comma-separated list of schema names to filter discovery
+  kind: string
+  label: Filter Schemas
+  name: filter_schemas
+- description: Array of tables to filter discovery in format SCHEMA-TABLE
+  kind: array
+  label: Filter Tables
+  name: filter_tables
+- description: Cursor array size for batch fetches (default 1000)
+  kind: integer
+  label: Cursor Array Size
+  name: cursor_array_size
+  value: 1000
+- description: Use thick mode for oracledb driver (requires Oracle Client installation)
+  kind: boolean
+  label: Thick Mode
+  name: thick_mode
+  value: false
+- description: HTTPS proxy URL for connections
+  kind: string
+  label: HTTPS Proxy
+  name: https_proxy
+- description: Start date for incremental replication (ISO format)
+  kind: string
+  label: Start Date
+  name: start_date
+variant: hamza-bouali

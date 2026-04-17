@@ -79,6 +79,8 @@ body:
   validations:
     required: false
 description: Request a new Plugin to Meltano Hub
-labels: [valuestream/Hub]
+labels:
+- valuestream/Hub
+- New Plugin
 name: 🚰 New Plugin
 title: "Add Plugin: <insert plugin name>"
