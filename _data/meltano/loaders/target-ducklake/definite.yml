@@ -123,6 +123,13 @@ settings:
   label: Max Column Name Length
   name: max_column_length
   value: 63
+- description: Maximum age in minutes that records can sit in a sink before a 
+    drain is forced. Larger values batch more aggressively; smaller values flush
+    more often.
+  kind: string
+  label: Max Record Age (Minutes)
+  name: max_record_age_minutes
+  value: 10.0
 - description: Schema name in the catalog database to use for Ducklakemetadata 
     tables
   kind: string
@@ -134,6 +141,13 @@ settings:
   label: Overwrite If No Primary Key
   name: overwrite_if_no_pk
   value: false
+- description: When True, enables parallel draining with max_parallelism=10 
+    (Meltano default). When False, sets max_parallelism=1 to disable parallel 
+    draining.
+  kind: string
+  label: Parallel Draining
+  name: parallel_draining
+  value: true
 - description: Object mapping stream names to arrays of partition column 
     definitions. Each stream key maps directly to an array of column 
     definitions. Can be provided as a JSON string or object.
