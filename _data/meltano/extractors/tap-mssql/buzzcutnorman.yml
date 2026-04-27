@@ -1,11 +1,13 @@
 capabilities:
 - about
+- activate-version
 - batch
 - catalog
 - discover
 - schema-flattening
 - state
 - stream-maps
+- structured-logging
 description: Microsoft SQL Server
 domain_url: https://www.microsoft.com/en-us/sql-server/sql-server-2019
 keywords:
@@ -82,6 +84,10 @@ settings:
   kind: integer
   label: Max Flattening Depth
   name: flattening_max_depth
+- description: The maximum length of a flattened key.
+  kind: integer
+  label: Max Key Length
+  name: flattening_max_key_length
 - description: Turn on Higher Defined(HD) JSON Schema types to assist Targets
   kind: boolean
   label: Hd Jsonschema Types
@@ -152,10 +158,10 @@ settings_group_validation:
   - user
 settings_preamble: ''
 supported_python_versions:
-- '3.9'
 - '3.10'
 - '3.11'
 - '3.12'
 - '3.13'
+- '3.14'
 usage: ''
 variant: buzzcutnorman
