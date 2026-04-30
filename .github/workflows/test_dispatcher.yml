@@ -37,10 +37,14 @@ jobs:
 
       - name: Filter changed files
         id: filter_files
-        run: echo "filtered_files=$(echo ${{ steps.changed_files.outputs.all_changed_files }} | jq -c 'map(select(startswith("_data/meltano/") and (endswith(".yml") and (endswith("airbyte.yml") | not))))' | sed 's/"/\\"/g')" >> "$GITHUB_OUTPUT"
+        env:
+          ALL_CHANGED_FILES: ${{ steps.changed_files.outputs.all_changed_files }}
+        run: echo "filtered_files=$(echo "$ALL_CHANGED_FILES" | jq -c 'map(select(startswith("_data/meltano/") and (endswith(".yml") and (endswith("airbyte.yml") | not))))' | sed 's/"/\\"/g')" >> "$GITHUB_OUTPUT"
 
       - id: set-matrix
-        run: echo "matrix={\"changed_file\":${{ steps.filter_files.outputs.filtered_files }}}" >> "$GITHUB_OUTPUT"
+        env:
+          FILTERED_FILES: ${{ steps.filter_files.outputs.filtered_files }}
+        run: echo "matrix={\"changed_file\":$FILTERED_FILES}" >> "$GITHUB_OUTPUT"
 
   dispatch_tests:
     name: Dispatch tests
