@@ -19,7 +19,7 @@ jobs:
     name: Get changed files
     runs-on: ubuntu-latest
     outputs:
-      matrix: ${{ steps.set-matrix.outputs.matrix }}
+      matrix: ${{ steps.changed_files.outputs.all_changed_files }}
     steps:
       - name: Checkout the repository
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
@@ -33,18 +33,9 @@ jobs:
         uses: tj-actions/changed-files@9426d40962ed5378910ee2e21d5f8c6fcbf2dd96 # v47.0.6
         with:
           sha: ${{ github.event.pull_request.head.sha }}
-          json: "true"
-
-      - name: Filter changed files
-        id: filter_files
-        env:
-          ALL_CHANGED_FILES: ${{ steps.changed_files.outputs.all_changed_files }}
-        run: echo "filtered_files=$(echo "$ALL_CHANGED_FILES" | jq -c 'map(select(startswith("_data/meltano/") and (endswith(".yml") and (endswith("airbyte.yml") | not))))' | sed 's/"/\\"/g')" >> "$GITHUB_OUTPUT"
-
-      - id: set-matrix
-        env:
-          FILTERED_FILES: ${{ steps.filter_files.outputs.filtered_files }}
-        run: echo "matrix={\"changed_file\":$FILTERED_FILES}" >> "$GITHUB_OUTPUT"
+          files: _data/meltano/**/*.yml
+          files_ignore: _data/meltano/**/airbyte.yml
+          matrix: true
 
   dispatch_tests:
     name: Dispatch tests
@@ -52,7 +43,8 @@ jobs:
     needs:
       - get_changed_files
     strategy:
-      matrix: ${{ fromJson(needs.get_changed_files.outputs.matrix) }}
+      matrix:
+        changed_file: ${{ fromJson(needs.get_changed_files.outputs.matrix) }}
       max-parallel: 4
       fail-fast: false
     steps:
