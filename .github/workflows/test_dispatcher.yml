@@ -4,7 +4,7 @@ name: Plugin 'Test' Command Dispatcher
 permissions:
   contents: read
   pull-requests: read
-  
+
 on:
   pull_request_target:
     types:
