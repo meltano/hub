@@ -7,6 +7,7 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
+- structured-logging
 description: Extractor for various geospatial formats (e.g. geojson, osm, shp, 
   gpx)
 domain_url: https://github.com/celine-eu/tap-geo
