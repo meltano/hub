@@ -28,7 +28,7 @@ settings:
   value: false
 - description: When True, automatically attempts to cast timestamp-like fields 
     to timestamp types in ducklake.
-  kind: boolean
+  kind: string
   label: Auto Cast Timestamps
   name: auto_cast_timestamps
   value: false
