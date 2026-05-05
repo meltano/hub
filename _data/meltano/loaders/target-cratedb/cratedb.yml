@@ -15,6 +15,8 @@ keywords:
 - real-time
 - search
 - ai
+- cratedb
+- warehouse
 label: CrateDB
 log_parser: singer-sdk
 logo_url: /assets/logos/loaders/cratedb.svg
@@ -44,7 +46,7 @@ settings:
   kind: integer
   label: Batch Size Rows
   name: batch_size_rows
-- description: 'Postgres schema to send data to, example: tap-clickup'
+- description: 'CrateDB schema to send data to'
   kind: string
   label: Default Target Schema
   name: default_target_schema
@@ -55,7 +57,7 @@ settings:
   kind: string
   label: Dialect+Driver
   name: dialect+driver
-  value: postgresql+psycopg
+  value: crate
 - description: 'One or more LCID locale strings to produce localized output for: https://faker.readthedocs.io/en/master/#localization'
   kind: array
   label: Faker Locale
@@ -85,11 +87,6 @@ settings:
   label: Hard Delete
   name: hard_delete
   value: false
-- description: Hostname for postgres instance. Note if sqlalchemy_url is set 
-    this will be ignored.
-  kind: string
-  label: Host
-  name: host
 - description: If set to true, the target will interpret the content encoding of
     the schema to determine how to store the data. Using this option may result 
     in a more efficient storage of the data but may also result in an error if 
@@ -114,37 +111,40 @@ settings:
   - label: Overwrite
     value: overwrite
   value: append-only
+- description: Hostname for CrateDB instance. Note if sqlalchemy_url is set
+    this will be ignored.
+  kind: string
+  label: Host
+  name: host
+- description: User name used to authenticate. Note if sqlalchemy_url is set
+    this will be ignored.
+  kind: string
+  label: User
+  name: user
 - description: Password used to authenticate. Note if sqlalchemy_url is set this
     will be ignored.
   kind: password
   label: Password
   name: password
   sensitive: true
-- description: The port on which postgres is awaiting connection. Note if 
+- description: The port on which CrateDB is awaiting connection. Note if
     sqlalchemy_url is set this will be ignored.
   kind: integer
   label: Port
   name: port
-  value: 5432
-- description: Whether to process `ACTIVATE_VERSION` messages.
-  kind: boolean
-  label: Process `ACTIVATE_VERSION` messages
-  name: process_activate_version_messages
-  value: true
-- description: If set to true, the target will sanitize null characters in 
-    char/text/varchar fields, as they are not supported by Postgres. See 
-    [postgres 
-    documentation](https://www.postgresql.org/docs/current/functions-string.html)
-    for more information about chr(0) not being supported.
-  kind: boolean
-  label: Sanitize Null Text Characters
-  name: sanitize_null_text_characters
-  value: false
-- description: SQLAlchemy connection string. This will override using host, 
-    user, password, port, dialect, and all ssl settings. It is strongly 
-    recommended the driver is compatible with psycopg3. Note that you must 
-    escape password special characters properly. See 
+  value: 4200
+- description: Schema name. Note if sqlalchemy_url is set this will be ignored.
+  kind: string
+  label: Schema
+  name: schema
+- description: >
+    SQLAlchemy connection string. This will override the host,
+    user, password, port, dialect, and all ssl settings. Note that you must
+    escape password special characters properly. See
     https://docs.sqlalchemy.org/en/20/core/engines.html#escaping-special-characters-such-as-signs-in-passwords
+    Please use `ssl=true` when connecting to CrateDB Cloud.
+
+    Example: crate://[username]:[password]@cratedb.example.org:4200/?ssl=false&schema=[schema_name]
   kind: string
   label: SQLAlchemy URL
   name: sqlalchemy_url
@@ -187,16 +187,25 @@ settings:
   kind: object
   label: Stream Maps
   name: stream_maps
-- description: User name used to authenticate. Note if sqlalchemy_url is set 
-    this will be ignored.
-  kind: string
-  label: User
-  name: user
 - description: Whether to validate the schema of the incoming streams.
   kind: boolean
   label: Validate Records
   name: validate_records
   value: true
+- description: Whether to process `ACTIVATE_VERSION` messages.
+  kind: boolean
+  label: Process `ACTIVATE_VERSION` messages
+  name: process_activate_version_messages
+  value: true
+- description: If set to true, the target will sanitize null characters in
+    char/text/varchar fields, as they are not supported by CrateDB. See
+    [PostgreSQL
+    documentation](https://www.postgresql.org/docs/current/functions-string.html)
+    for more information about chr(0) not being supported.
+  kind: boolean
+  label: Sanitize Null Text Characters
+  name: sanitize_null_text_characters
+  value: false
 settings_group_validation: []
 settings_preamble: ''
 supported_python_versions:

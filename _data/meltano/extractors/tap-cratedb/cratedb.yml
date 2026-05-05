@@ -16,6 +16,8 @@ keywords:
 - real-time
 - search
 - ai
+- cratedb
+- warehouse
 label: CrateDB
 log_parser: singer-sdk
 logo_url: /assets/logos/extractors/cratedb.svg
@@ -53,11 +55,6 @@ settings:
   kind: string
   label: Batch Storage Root
   name: batch_config.storage.root
-- description: Database name. Note if sqlalchemy_url is set this will be 
-    ignored.
-  kind: string
-  label: Database
-  name: database
 - description: 'Defaults to false, if true, date, and timestamp fields will be Strings.
     If you see ValueError: Year is out of range, try setting this to True.'
   kind: boolean
@@ -86,8 +83,8 @@ settings:
   label: Faker Seed
   name: faker_config.seed
 - description: If an array of schema names is provided, the tap will only 
-    process the specified Postgres schemas and ignore others. If left blank, the
-    tap automatically determines ALL available Postgres schemas.
+    process the specified schemas and ignore others. If left blank, the
+    tap automatically determines ALL available schemas.
   kind: array
   label: Filter Schemas
   name: filter_schemas
@@ -104,11 +101,6 @@ settings:
   kind: integer
   label: Max Key Length
   name: flattening_max_key_length
-- description: Hostname for postgres instance. Note if sqlalchemy_url is set 
-    this will be ignored.
-  kind: string
-  label: Host
-  name: host
 - description: Defaults to false, if true, json and jsonb fields will be 
     Objects.
   kind: boolean
@@ -120,20 +112,40 @@ settings:
   kind: integer
   label: Max Record Count
   name: max_record_count
+- description: Hostname for CrateDB instance. Note if sqlalchemy_url is set
+    this will be ignored.
+  kind: string
+  label: Host
+  name: host
+- description: User name used to authenticate. Note if sqlalchemy_url is set
+    this will be ignored.
+  kind: string
+  label: User
+  name: user
 - description: Password used to authenticate. Note if sqlalchemy_url is set this
     will be ignored.
   kind: password
   label: Password
   name: password
   sensitive: true
-- description: The port on which postgres is awaiting connection. Note if 
+- description: The port on which CrateDB is awaiting connection. Note if
     sqlalchemy_url is set this will be ignored.
   kind: integer
   label: Port
   name: port
-  value: 5432
-- description: Example 
-    postgresql://[username]:[password]@localhost:5432/[db_name]
+  value: 4200
+- description: Schema name. Note if sqlalchemy_url is set this will be ignored.
+  kind: string
+  label: Schema
+  name: schema
+- description: >
+    SQLAlchemy connection string. This will override the host,
+    user, password, port, dialect, and all ssl settings. Note that you must
+    escape password special characters properly. See
+    https://docs.sqlalchemy.org/en/20/core/engines.html#escaping-special-characters-such-as-signs-in-passwords
+    Please use `ssl=true` when connecting to CrateDB Cloud.
+
+    Example: crate://[username]:[password]@cratedb.example.org:4200/?ssl=false&schema=[schema_name]
   kind: string
   label: SQLAlchemy URL
   name: sqlalchemy_url
@@ -186,11 +198,6 @@ settings:
   kind: boolean
   label: Use Singer Decimal
   name: use_singer_decimal
-- description: User name used to authenticate. Note if sqlalchemy_url is set 
-    this will be ignored.
-  kind: string
-  label: User
-  name: user
 settings_group_validation: []
 settings_preamble: ''
 supported_python_versions:
