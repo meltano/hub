@@ -34,9 +34,15 @@ on:
         required: false
         default: ''
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+permissions: {}
+
 jobs:
   plugin_tests:
-
+    name: Plugin tests
     runs-on: ubuntu-latest
     permissions:
       contents: write       # to create a github release
@@ -54,8 +60,11 @@ jobs:
 
     - name: Set initial edit mode (to conditionally clear previous comment)
       id: initial-edit-mode
+      env:
+        FROM_SLASH_COMMAND: ${{ github.event.inputs.from-slash-command }}
+        COMMENT_ID: ${{ github.event.inputs.comment-id }}
       run: |
-        should_replace=${{ github.event.inputs.from-slash-command == 'false' && github.event.inputs.comment-id != '' }}
+        should_replace=$([[ "${FROM_SLASH_COMMAND}" == 'false' && -n "${COMMENT_ID}" ]] && echo 'true' || echo 'false')
         echo "edit-mode=$([ ${should_replace} == 'true' ] && echo 'replace' || echo 'append')" >> $GITHUB_OUTPUT
 
     - name: Append 'starting' notification to comment
@@ -81,7 +90,7 @@ jobs:
     - name: Install Meltano
       run: |
         uv tool install --from git+https://github.com/meltano/meltano.git@main meltano
-        meltano init --no-usage-stats ${{ github.workspace }}/project
+        meltano init --no-usage-stats "$GITHUB_WORKSPACE/project"
 
     - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       with:
@@ -90,22 +99,31 @@ jobs:
         ref: ${{ github.event.inputs.git-ref }}
         sparse-checkout: |
           ${{ github.event.inputs.plugin-path }}
+        persist-credentials: false
 
     - name: Add and install plugin
       id: plugin-install
       working-directory: ${{ github.workspace }}/project
       run: |
         echo "Working directory: $PWD"
-        meltano add ${{ github.event.inputs.plugin-type }} ${{ github.event.inputs.name }} --from-ref ${{ github.workspace }}/plugin/${{ github.event.inputs.plugin-path }} 2>&1 | tee install-output.txt
+        meltano add ${GITHUB_EVENT_INPUTS_PLUGIN_TYPE} ${GITHUB_EVENT_INPUTS_NAME} --from-ref "$GITHUB_WORKSPACE/plugin/${GITHUB_EVENT_INPUTS_PLUGIN_PATH}" 2>&1 | tee install-output.txt
         echo "failed=${PIPESTATUS[0]}" >> $GITHUB_ENV
+      env:
+        GITHUB_EVENT_INPUTS_PLUGIN_TYPE: ${{ github.event.inputs.plugin-type }}
+        GITHUB_EVENT_INPUTS_NAME: ${{ github.event.inputs.name }}
+        GITHUB_EVENT_INPUTS_PLUGIN_PATH: ${{ github.event.inputs.plugin-path }}
 
     - name: Create installation failure log
       if: steps.plugin-install.outputs.failed == '1'
       run: |
         echo "JOB_OUTPUT<<EOF" >> $GITHUB_ENV
-        echo "melty-bot % meltano add ${{ github.event.inputs.plugin-type }} ${{ github.event.inputs.name }} --from-ref ${{ github.event.inputs.plugin-path }}" >> $GITHUB_ENV
+        echo "melty-bot % meltano add ${GITHUB_EVENT_INPUTS_PLUGIN_TYPE} ${GITHUB_EVENT_INPUTS_NAME} --from-ref ${GITHUB_EVENT_INPUTS_PLUGIN_PATH}" >> $GITHUB_ENV
         cat install-output.txt >> $GITHUB_ENV
         echo "EOF" >> $GITHUB_ENV
+      env:
+        GITHUB_EVENT_INPUTS_PLUGIN_TYPE: ${{ github.event.inputs.plugin-type }}
+        GITHUB_EVENT_INPUTS_NAME: ${{ github.event.inputs.name }}
+        GITHUB_EVENT_INPUTS_PLUGIN_PATH: ${{ github.event.inputs.plugin-path }}
 
     - name: Abort if installation failed
       if: steps.plugin-install.outputs.failed == '1'
@@ -118,35 +136,45 @@ jobs:
       id: plugin-help
       working-directory: ${{ github.workspace }}/project
       run: |
-        meltano invoke ${{ github.event.inputs.name }} --help | tee help-output.txt
+        meltano invoke ${GITHUB_EVENT_INPUTS_NAME} --help | tee help-output.txt
+      env:
+        GITHUB_EVENT_INPUTS_NAME: ${{ github.event.inputs.name }}
 
     - name: Print plugin version
       id: plugin-version
       continue-on-error: true
       working-directory: ${{ github.workspace }}/project
       run: |
-        meltano invoke ${{ github.event.inputs.name }} --version | tee version-output.txt
+        meltano invoke ${GITHUB_EVENT_INPUTS_NAME} --version | tee version-output.txt
+      env:
+        GITHUB_EVENT_INPUTS_NAME: ${{ github.event.inputs.name }}
 
     - name: Print plugin about
       id: plugin-about
       continue-on-error: true
       working-directory: ${{ github.workspace }}/project
       run: |
-        meltano invoke ${{ github.event.inputs.name }} --about --format=json | tee about-result.json
+        meltano invoke ${GITHUB_EVENT_INPUTS_NAME} --about --format=json | tee about-result.json
+      env:
+        GITHUB_EVENT_INPUTS_NAME: ${{ github.event.inputs.name }}
 
     - name: Print plugin markdown
       id: plugin-markdown
       continue-on-error: true
       working-directory: ${{ github.workspace }}/project
       run: |
-        meltano invoke ${{ github.event.inputs.name }} --about --format=markdown | tee markdown-result.md
+        meltano invoke ${GITHUB_EVENT_INPUTS_NAME} --about --format=markdown | tee markdown-result.md
+      env:
+        GITHUB_EVENT_INPUTS_NAME: ${{ github.event.inputs.name }}
 
     - name: Print discovery output
       id: plugin-catalog
       continue-on-error: true
       working-directory: ${{ github.workspace }}/project
       run: |
-        meltano invoke ${{ github.event.inputs.name }} --discover | tee catalog.json
+        meltano invoke ${GITHUB_EVENT_INPUTS_NAME} --discover | tee catalog.json
+      env:
+        GITHUB_EVENT_INPUTS_NAME: ${{ github.event.inputs.name }}
 
     # Generates the JOB_OUTPUT env var, accessible via '${{ env.JOB_OUTPUT }}''
     # Ref: https://trstringer.com/github-actions-multiline-strings/
@@ -169,7 +197,7 @@ jobs:
         fi
         echo "<details><summary>Usage info</summary>" >> $GITHUB_ENV
         echo -e "\n\`\`\`" >> $GITHUB_ENV
-        echo "melty-bot % meltano invoke ${{ github.event.inputs.name }} --help" >> $GITHUB_ENV
+        echo "melty-bot % meltano invoke ${GITHUB_EVENT_INPUTS_NAME} --help" >> $GITHUB_ENV
         cat help-output.txt >> $GITHUB_ENV
         echo -e "\`\`\`\n" >> $GITHUB_ENV
         echo "</details>" >> $GITHUB_ENV
@@ -215,6 +243,8 @@ jobs:
           echo "</details>" >> $GITHUB_ENV
         fi
         echo "EOF" >> $GITHUB_ENV
+      env:
+        GITHUB_EVENT_INPUTS_NAME: ${{ github.event.inputs.name }}
 
     - name: Append summary output
       uses: peter-evans/create-or-update-comment@e8674b075228eee787fea43ef493e45ece1004c9 # v5.0.0

@@ -9,12 +9,20 @@ on:
     - main
   merge_group:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+permissions: {}
+
 jobs:
   lint:
     name: Lint YAML files
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      with:
+        persist-credentials: false
 
     - name: Get changed files in the docs folder
       id: changed-files
@@ -27,4 +35,6 @@ jobs:
 
     - name: Lint YAML files
       if: steps.changed-files.outputs.any_changed == 'true'
-      run: uvx yamllint ${{ steps.changed-files.outputs.all_changed_files }}
+      run: uvx yamllint ${STEPS_CHANGED_FILES_OUTPUTS_ALL_CHANGED_FILES}
+      env:
+        STEPS_CHANGED_FILES_OUTPUTS_ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}

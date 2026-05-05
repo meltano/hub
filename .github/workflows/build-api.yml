@@ -17,13 +17,22 @@ on:
         description: The base URL of the Hub API
         required: true
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+permissions: {}
+
 jobs:
   build:
+    name: Build API files
     runs-on: ubuntu-latest
     environment: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && 'production' || 'preview' }}
     if: ${{ !github.event.pull_request.head.repo.fork }}
     steps:
     - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      with:
+        persist-credentials: false
 
     - name: Set up Python
       uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
@@ -36,8 +45,10 @@ jobs:
 
     - name: Set preview variables
       if: github.event_name == 'pull_request'
+      env:
+        PR_NUMBER: ${{ github.event.number }}
       run: |
-        echo "HUB_URL=https://deploy-preview-${{ github.event.number }}--meltano-hub.netlify.app" >> $GITHUB_ENV
+        echo "HUB_URL=https://deploy-preview-${PR_NUMBER}--meltano-hub.netlify.app" >> $GITHUB_ENV
 
     - name: Set production variables
       if: github.event_name == 'push' && github.ref == 'refs/heads/main'
@@ -47,7 +58,9 @@ jobs:
     - name: Set custom variables
       if: github.event_name == 'workflow_dispatch'
       run: |
-        echo "HUB_URL=${{ github.event.inputs.hub-url }}" >> $GITHUB_ENV
+        echo "HUB_URL=${GITHUB_EVENT_INPUTS_HUB_URL}" >> $GITHUB_ENV
+      env:
+        GITHUB_EVENT_INPUTS_HUB_URL: ${{ github.event.inputs.hub-url }}
 
     - name: Build
       env:
@@ -55,8 +68,8 @@ jobs:
       run: >
         uv run python utility_scripts/api/make_files.py
         -o _hub_api
-        --hub-url ${{ env.HUB_URL }}
-        --api-url ${{ env.API_URL }}
+        --hub-url ${HUB_URL}
+        --api-url ${API_URL}
 
     - name: Test API Schema
       run: >
@@ -69,6 +82,7 @@ jobs:
         path: "_hub_api/*"
 
   publish:
+    name: Publish API files
     runs-on: ubuntu-latest
     environment: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && 'production' || 'preview' }}
     needs: build
@@ -77,6 +91,8 @@ jobs:
       id-token: write # This is required for requesting the JWT
     steps:
     - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      with:
+        persist-credentials: false
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@ec61189d14ec14c8efccab744f656cffd0e33f37 # v6.1.0
       with:
@@ -89,5 +105,7 @@ jobs:
         name: hub-api-files
         path: "_hub_api"
     - name: Upload to S3
+      env:
+        HUB_API_S3_BUCKET: ${{ secrets.HUB_API_S3_BUCKET }}
       run: |
-        aws s3 sync _hub_api s3://${{ secrets.HUB_API_S3_BUCKET }}/hub-api
+        aws s3 sync _hub_api "s3://${HUB_API_S3_BUCKET}/hub-api"

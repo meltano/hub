@@ -14,14 +14,23 @@ on:
   schedule:
     - cron: '0 9 * * 1' # Run at midnight UTC on Mondays
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+permissions: {}
+
 jobs:
   get_variants_list:
+    name: Get the list of plugin variants
     runs-on: ubuntu-latest
     outputs:
       airbyte_matrix: ${{ steps.setmatrix_airbyte.outputs.airbyte_matrix }}
 
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
       - uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
 
       - name: Install hub-utils
@@ -34,8 +43,10 @@ jobs:
       - name: Set Dynamic Airbyte Matrix
         id: setmatrix_airbyte
         run: |
-           matrixStringifiedObject="{\"include\": ${{ steps.get-variants-list-airbyte.outputs.VARIANTS_AIRBYTE }}}"
+           matrixStringifiedObject="{\"include\": ${STEPS_GET_VARIANTS_LIST_AIRBYTE_OUTPUTS_VARIANTS_AIRBYTE}}"
            echo "airbyte_matrix=$matrixStringifiedObject" >> $GITHUB_OUTPUT
+        env:
+          STEPS_GET_VARIANTS_LIST_AIRBYTE_OUTPUTS_VARIANTS_AIRBYTE: ${{ steps.get-variants-list-airbyte.outputs.VARIANTS_AIRBYTE }}
 
   metadata_extract_airbyte_p1:
     name: Airbyte - Part 1 Metadata Extract
@@ -45,12 +56,14 @@ jobs:
       fail-fast: false
       matrix: ${{ fromJson(needs.get_variants_list.outputs.airbyte_matrix) }}
     container:
-      image: airbyte/${{ matrix.source-name }}:latest
+      image: airbyte/${{ matrix.source-name }}:latest # zizmor: ignore[unpinned-images]
     steps:
       - name: Get Airbyte Spec
         run: |
-          $AIRBYTE_ENTRYPOINT spec | grep '^.*"type":\s*"SPEC".*$' > extractor--${{ matrix.source-name }}--airbyte.json
+          $AIRBYTE_ENTRYPOINT spec | grep '^.*"type":\s*"SPEC".*$' > extractor--${MATRIX_SOURCE_NAME}--airbyte.json
         id: get-airbyte-stdout
+        env:
+          MATRIX_SOURCE_NAME: ${{ matrix.source-name }}
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: extractor--${{ matrix.source-name }}--airbyte.json
@@ -71,6 +84,8 @@ jobs:
       id-token: write # This is required for requesting the JWT
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@ec61189d14ec14c8efccab744f656cffd0e33f37 # v6.1.0
@@ -88,4 +103,7 @@ jobs:
         run: uv tool install ./hub-utils
 
       - name: Upload Metadata
-        run: hub-utils upload-airbyte "/home/runner/work/hub/hub/_data/meltano/${{ matrix.plugin-name }}" extractor--${{ matrix.source-name }}--airbyte.json
+        run: hub-utils upload-airbyte "/home/runner/work/hub/hub/_data/meltano/${MATRIX_PLUGIN_NAME}" extractor--${MATRIX_SOURCE_NAME}--airbyte.json
+        env:
+          MATRIX_PLUGIN_NAME: ${{ matrix.plugin-name }}
+          MATRIX_SOURCE_NAME: ${{ matrix.source-name }}
