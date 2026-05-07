@@ -715,6 +715,7 @@ transforms:
 utilities:
   airflow: apache
   clickhouse: clickhouse
+  cratedb: cratedb
   cron: meltano
   dagster: camisinc
   datahub: datahub-project
