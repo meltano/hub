@@ -7,7 +7,9 @@ capabilities:
 - structured-logging
 - target-schema
 - validate-records
-description: One database for real-time analytics, search, and AI
+description: CrateDB is a distributed and scalable multi-model SQL database for storing and analyzing
+  massive amounts of data in near real-time, even with complex queries. It is PostgreSQL-compatible,
+  and based on Lucene.
 domain_url: https://cratedb.com/database
 executable: target-cratedb
 keywords:
