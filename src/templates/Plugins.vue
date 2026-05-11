@@ -459,6 +459,7 @@
             </div>
             <PluginSidebar
               :name="$page.plugins.name"
+              :label="$page.plugins.label"
               :domain_url="$page.plugins.domain_url"
               :repo="parsedRepo"
               :maintenance_status="$page.plugins.maintenance_status"
