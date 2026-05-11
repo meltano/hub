@@ -29,7 +29,13 @@
         </div>
         <p class="community-card__body">
           {{ label }} is built and maintained by the Meltano community. For connectors that are
-          built, tested, and supported by the Meltano team, explore Meltano Cloud.
+          built, tested, and supported by the Meltano team,
+          <a
+            href="https://meltano.com/connectors?tab=cloud"
+            target="_blank"
+            rel="noopener noreferrer"
+            >explore Meltano Cloud</a
+          >.
         </p>
         <ul class="community-card__perks">
           <li>
