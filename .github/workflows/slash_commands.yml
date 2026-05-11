@@ -10,8 +10,16 @@ name: Slash commands dispatcher
 on:
   issue_comment:
     types: [created]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+permissions: {}
+
 jobs:
   slash_command_dispatch:
+    name: Dispatch Slash Command
     runs-on: ubuntu-latest
     steps:
       - name: Slash Command Dispatch

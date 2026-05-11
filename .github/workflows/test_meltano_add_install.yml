@@ -8,6 +8,12 @@ on:
     branches: [main]
     paths: [_data/meltano/*/*/*.yml]
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+permissions: {}
+
 jobs:
   get_changed_plugins:
     name: Get changed plugins
@@ -19,10 +25,11 @@ jobs:
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Get changed plugins
         id: changed_plugins
-        uses: tj-actions/changed-files@22103cc46bda19c2b464ffe86db46df6922fd323 # v47.0.5
+        uses: tj-actions/changed-files@9426d40962ed5378910ee2e21d5f8c6fcbf2dd96 # v47.0.6
         with:
           files: _data/meltano/*/*/*.yml
           matrix: true
@@ -38,12 +45,14 @@ jobs:
     steps:
       - name: Checkout the repository
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
 
       - name: Set up Python
         uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
 
       - name: Install uv
-        uses: astral-sh/setup-uv@cec208311dfd045dd5311c1add060b2062131d57 # v8.0.0
+        uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
 
       - name: Install Meltano
         run: uv tool install --from git+https://github.com/meltano/meltano.git@main meltano
@@ -59,10 +68,13 @@ jobs:
 
       - name: Test add
         working-directory: test-project
+        env:
+          MATRIX_FILE: ${{ matrix.file }}
+          GIT_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
         run: |
-          ref=https://raw.githubusercontent.com/meltano/hub/${{ github.event.pull_request.head.sha || github.sha }}/${{ matrix.file }}
-          type=$(basename $(dirname $(dirname ${{ matrix.file }})))
-          name=$(basename $(dirname ${{ matrix.file }}))
+          ref=https://raw.githubusercontent.com/meltano/hub/${GIT_SHA}/${MATRIX_FILE}
+          type=$(basename $(dirname $(dirname ${MATRIX_FILE})))
+          name=$(basename $(dirname ${MATRIX_FILE}))
 
           meltano add --no-install --from-ref $ref $type $name
 

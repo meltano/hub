@@ -1,0 +1,47 @@
+commands:
+  start:
+    args: start
+    container_spec:
+      image: docker.io/crate:latest
+      ports:
+        '15432': 5432/tcp
+        '4200': 4200/tcp
+      volumes:
+      - $MELTANO_PROJECT_ROOT/.meltano/utilities/cratedb/data:/data
+definition: is a containerized single-node instance of CrateDB useful for local development.
+description: CrateDB is a distributed and scalable multi-model SQL database for storing and analyzing
+  massive amounts of data in near real-time, even with complex queries. It is PostgreSQL-compatible,
+  and based on Lucene.
+docs: https://cratedb.com/
+domain_url: https://cratedb.com/
+keywords:
+- meltano_sdk
+- real-time
+- search
+- ai
+- cratedb
+- warehouse
+label: CrateDB
+logo_url: /assets/logos/utilities/cratedb.png
+maintenance_status: active
+name: cratedb
+namespace: cratedb
+next_steps: |
+  1. Launch CrateDB:
+
+     ```sh
+     meltano invoke --containers cratedb:start
+     ```
+
+     Connect with your PostgreSQL client at `postgresql://crate:crate@localhost:15432/`,
+     use SQLAlchemy with `crate://crate:crate@localhost:4200/`, or use CrateDB shell
+     like `crash --host localhost:4200`.
+prereq: |
+  #### Dependencies
+
+  CrateDB is packaged as an OCI image so you must have Docker or Podman installed before running the plugin.
+quality: gold
+repo: https://github.com/crate/crate
+settings: []
+settings_group_validation: []
+variant: cratedb
