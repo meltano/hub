@@ -87,7 +87,10 @@
           </div>
           <p class="community-card__section-desc">
             For teams that want an easy, managed setup and personalised expert support,
-            <a href="https://meltano.com/connectors?tab=cloud" target="_blank" rel="noopener noreferrer"
+            <a
+              href="https://meltano.com/connectors?tab=cloud"
+              target="_blank"
+              rel="noopener noreferrer"
               >explore Meltano Cloud
             </a>
           </p>
