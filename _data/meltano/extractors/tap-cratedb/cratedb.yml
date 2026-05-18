@@ -1,0 +1,213 @@
+capabilities:
+- about
+- activate-version
+- batch
+- catalog
+- discover
+- schema-flattening
+- state
+- stream-maps
+- structured-logging
+description: CrateDB is a distributed and scalable multi-model SQL database for storing and analyzing
+  massive amounts of data in near real-time, even with complex queries. It is PostgreSQL-compatible,
+  and based on Lucene.
+domain_url: https://cratedb.com/database
+executable: tap-cratedb
+keywords:
+- meltano_sdk
+- real-time
+- search
+- ai
+- cratedb
+- warehouse
+label: CrateDB
+log_parser: singer-sdk
+logo_url: /assets/logos/extractors/cratedb.svg
+maintenance_status: active
+name: tap-cratedb
+namespace: tap_cratedb
+next_steps: ''
+pip_url: meltano-tap-cratedb
+quality: gold
+repo: https://github.com/crate/meltano-tap-cratedb
+settings:
+- description: Compression format to use for batch files.
+  kind: options
+  label: Batch Compression Format
+  name: batch_config.encoding.compression
+  options:
+  - label: GZIP
+    value: gzip
+  - label: None
+    value: none
+- description: Format to use for batch files.
+  kind: options
+  label: Batch Encoding Format
+  name: batch_config.encoding.format
+  options:
+  - label: JSONL
+    value: jsonl
+  - label: Parquet
+    value: parquet
+- description: Prefix to use when writing batch files.
+  kind: string
+  label: Batch Storage Prefix
+  name: batch_config.storage.prefix
+- description: Root path to use when writing batch files.
+  kind: string
+  label: Batch Storage Root
+  name: batch_config.storage.root
+- description: 'Defaults to false, if true, date, and timestamp fields will be Strings.
+    If you see ValueError: Year is out of range, try setting this to True.'
+  kind: boolean
+  label: Dates As String
+  name: dates_as_string
+  value: false
+- description: Replication method to use if there is not a catalog entry to 
+    override this choice. One of `FULL_TABLE`, `INCREMENTAL`, or `LOG_BASED`.
+  kind: options
+  label: Default Replication Method
+  name: default_replication_method
+  options:
+  - label: Full Table
+    value: FULL_TABLE
+  - label: Incremental
+    value: INCREMENTAL
+  - label: Log Based
+    value: LOG_BASED
+  value: FULL_TABLE
+- description: 'One or more LCID locale strings to produce localized output for: https://faker.readthedocs.io/en/master/#localization'
+  kind: array
+  label: Faker Locale
+  name: faker_config.locale
+- description: 'Value to seed the Faker generator for deterministic output: https://faker.readthedocs.io/en/master/#seeding-the-generator'
+  kind: string
+  label: Faker Seed
+  name: faker_config.seed
+- description: If an array of schema names is provided, the tap will only 
+    process the specified schemas and ignore others. If left blank, the
+    tap automatically determines ALL available schemas.
+  kind: array
+  label: Filter Schemas
+  name: filter_schemas
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Enable Schema Flattening
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Max Flattening Depth
+  name: flattening_max_depth
+- description: The maximum length of a flattened key.
+  kind: integer
+  label: Max Key Length
+  name: flattening_max_key_length
+- description: Defaults to false, if true, json and jsonb fields will be 
+    Objects.
+  kind: boolean
+  label: Json As Object
+  name: json_as_object
+  value: false
+- description: Optional. The maximum number of records to return in a single 
+    stream.
+  kind: integer
+  label: Max Record Count
+  name: max_record_count
+- description: Hostname for CrateDB instance. Note if sqlalchemy_url is set
+    this will be ignored.
+  kind: string
+  label: Host
+  name: host
+- description: User name used to authenticate. Note if sqlalchemy_url is set
+    this will be ignored.
+  kind: string
+  label: User
+  name: user
+- description: Password used to authenticate. Note if sqlalchemy_url is set this
+    will be ignored.
+  kind: password
+  label: Password
+  name: password
+  sensitive: true
+- description: The port on which CrateDB is awaiting connection. Note if
+    sqlalchemy_url is set this will be ignored.
+  kind: integer
+  label: Port
+  name: port
+  value: 4200
+- description: Schema name. Note if sqlalchemy_url is set this will be ignored.
+  kind: string
+  label: Schema
+  name: schema
+- description: >
+    SQLAlchemy connection string. This will override the host,
+    user, password, port, dialect, and all ssl settings. Note that you must
+    escape password special characters properly. See
+    https://docs.sqlalchemy.org/en/20/core/engines.html#escaping-special-characters-such-as-signs-in-passwords
+    Please use `ssl=true` when connecting to CrateDB Cloud.
+
+    Example: crate://[username]:[password]@cratedb.example.org:4200/?ssl=false&schema=[schema_name]
+  kind: string
+  label: SQLAlchemy URL
+  name: sqlalchemy_url
+- description: Enable an ssh tunnel (also known as bastion server), see the 
+    other ssh_tunnel.* properties for more details
+  kind: boolean
+  label: SSH Tunnel Enable
+  name: ssh_tunnel.enable
+  value: false
+- description: Host of the bastion server, this is the host we'll connect to via
+    ssh
+  kind: string
+  label: SSH Tunnel Host
+  name: ssh_tunnel.host
+- description: Port to connect to bastion server
+  kind: integer
+  label: SSH Tunnel Port
+  name: ssh_tunnel.port
+  value: 22
+- description: Private Key for authentication to the bastion server
+  kind: password
+  label: SSH Tunnel Private Key
+  name: ssh_tunnel.private_key
+  sensitive: true
+- description: Private Key Password, leave None if no password is set
+  kind: password
+  label: SSH Tunnel Private Key Password
+  name: ssh_tunnel.private_key_password
+  sensitive: true
+- description: Username to connect to bastion server
+  kind: string
+  label: SSH Tunnel Username
+  name: ssh_tunnel.username
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: User Stream Map Configuration
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: Stream-specific options
+  kind: object
+  label: Stream Options
+  name: stream_options
+- description: Whether to use use strings with `x-singer.decimal` format for 
+    decimals in the discovered schema. This is useful to avoid precision loss 
+    when working with large numbers.
+  kind: boolean
+  label: Use Singer Decimal
+  name: use_singer_decimal
+settings_group_validation: []
+settings_preamble: ''
+supported_python_versions:
+- '3.9'
+- '3.10'
+- '3.11'
+- '3.12'
+- '3.13'
+- '3.14'
+usage: ''
+variant: cratedb

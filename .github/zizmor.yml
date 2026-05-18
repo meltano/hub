@@ -1,0 +1,6 @@
+rules:
+  superfluous-actions:
+    ignore:
+    - metadata-refresh.yml
+    - slash_commands.yml
+    - test-plugin-command.yml

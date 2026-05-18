@@ -187,6 +187,12 @@ settings:
   label: Validate Records
   name: validate_records
   value: true
+- description: Whether to verify SSL certificates when connecting to 
+    Elasticsearch
+  kind: boolean
+  label: Verify Certs
+  name: verify_certs
+  value: true
 settings_group_validation:
 - - host
   - port
@@ -196,5 +202,6 @@ supported_python_versions:
 - '3.10'
 - '3.11'
 - '3.12'
+- '3.13'
 usage: ''
 variant: dtmirizzi

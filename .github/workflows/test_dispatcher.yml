@@ -1,8 +1,12 @@
 
 name: Plugin 'Test' Command Dispatcher
 
+permissions:
+  contents: read
+  pull-requests: read  # Find PR comments
+
 on:
-  pull_request_target:
+  pull_request_target: # zizmor: ignore[dangerous-triggers]
     types:
       - opened
       - synchronize
@@ -10,12 +14,16 @@ on:
     paths:
       - "_data/meltano/*/*/*.yml"
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
 jobs:
   get_changed_files:
     name: Get changed files
     runs-on: ubuntu-latest
     outputs:
-      matrix: ${{ steps.set-matrix.outputs.matrix }}
+      matrix: ${{ steps.changed_files.outputs.all_changed_files }}
     steps:
       - name: Checkout the repository
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
@@ -23,20 +31,16 @@ jobs:
           fetch-depth: 0
           ref: ${{ github.event.pull_request.head.sha }}
           repository: ${{ github.event.pull_request.head.repo.full_name }}
+          persist-credentials: false
 
       - name: Get changed files
         id: changed_files
-        uses: tj-actions/changed-files@22103cc46bda19c2b464ffe86db46df6922fd323 # v47.0.5
+        uses: tj-actions/changed-files@9426d40962ed5378910ee2e21d5f8c6fcbf2dd96 # v47.0.6
         with:
           sha: ${{ github.event.pull_request.head.sha }}
-          json: "true"
-
-      - name: Filter changed files
-        id: filter_files
-        run: echo "filtered_files=$(echo ${{ steps.changed_files.outputs.all_changed_files }} | jq -c 'map(select(startswith("_data/meltano/") and (endswith(".yml") and (endswith("airbyte.yml") | not))))' | sed 's/"/\\"/g')" >> "$GITHUB_OUTPUT"
-
-      - id: set-matrix
-        run: echo "matrix={\"changed_file\":${{ steps.filter_files.outputs.filtered_files }}}" >> "$GITHUB_OUTPUT"
+          files: _data/meltano/**/*.yml
+          files_ignore: _data/meltano/**/airbyte.yml
+          matrix: true
 
   dispatch_tests:
     name: Dispatch tests
@@ -44,7 +48,8 @@ jobs:
     needs:
       - get_changed_files
     strategy:
-      matrix: ${{ fromJson(needs.get_changed_files.outputs.matrix) }}
+      matrix:
+        changed_file: ${{ fromJson(needs.get_changed_files.outputs.matrix) }}
       max-parallel: 4
       fail-fast: false
     steps:
@@ -52,6 +57,7 @@ jobs:
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
 
       - name: Install yq
         env:
@@ -62,15 +68,18 @@ jobs:
           tar xz && mv ${BINARY} yq && chmod u+x yq
 
       - name: Get the name and pip url
+        id: plugin-info
         run: |
-          name="$(basename "$(dirname "${{ matrix.changed_file }}")")"
-          plugin_type="$(basename $(dirname "$(dirname "${{ matrix.changed_file }}")"))"
-          plugin_path="${{ matrix.changed_file }}"
-          variant="$(./yq '.variant' "${{ matrix.changed_file }}")"
-          echo "name=${name}" >> $GITHUB_ENV
-          echo "plugin_type=${plugin_type}" >> $GITHUB_ENV
-          echo "plugin_path=${plugin_path}" >> $GITHUB_ENV
-          echo "prelude=Testing plugin \`${name}\` (\`${variant}\` variant):" >> $GITHUB_ENV
+          name="$(basename "$(dirname "${MATRIX_CHANGED_FILE}")")"
+          plugin_type="$(basename $(dirname "$(dirname "${MATRIX_CHANGED_FILE}")"))"
+          plugin_path="${MATRIX_CHANGED_FILE}"
+          variant="$(./yq '.variant' "${MATRIX_CHANGED_FILE}")"
+          echo "name=${name}" >> $GITHUB_OUTPUT
+          echo "plugin_type=${plugin_type}" >> $GITHUB_OUTPUT
+          echo "plugin_path=${plugin_path}" >> $GITHUB_OUTPUT
+          echo "prelude=Testing plugin \`${name}\` (\`${variant}\` variant):" >> $GITHUB_OUTPUT
+        env:
+          MATRIX_CHANGED_FILE: ${{ matrix.changed_file }}
 
       - name: Find the MeltyBot test-command comment if it exists
         id: find_comment
@@ -78,7 +87,7 @@ jobs:
         with:
           issue-number: ${{ github.event.pull_request.number }}
           comment-author: 'github-actions[bot]'
-          body-includes: ${{ env.prelude }}
+          body-includes: ${{ steps.plugin-info.outputs.prelude }}
 
       - uses: octokit/request-action@b91aabaa861c777dcdb14e2387e30eddf04619ae # v3.0.0
         with:
@@ -89,11 +98,11 @@ jobs:
               "repository": "${{ github.repository }}",
               "comment-id": "${{ steps.find_comment.outputs.comment-id }}",
               "issue-number": "${{ github.event.pull_request.number }}",
-              "name": "${{ env.name }}",
-              "plugin-type": "${{ env.plugin_type }}",
-              "plugin-path": "${{ env.plugin_path }}",
+              "name": "${{ steps.plugin-info.outputs.name }}",
+              "plugin-type": "${{ steps.plugin-info.outputs.plugin_type }}",
+              "plugin-path": "${{ steps.plugin-info.outputs.plugin_path }}",
               "git-ref": "${{ github.event.pull_request.head.sha }}",
-              "prepend-text": "${{ env.prelude }}"
+              "prepend-text": "${{ steps.plugin-info.outputs.prelude }}"
             }
         env:
           GITHUB_TOKEN: ${{ secrets.MELTYBOT_GITHUB_AUTH_TOKEN }}

@@ -11,6 +11,8 @@
             "items": {
                 "type": "string",
                 "enum": [
+                    "about",
+                    "schema-flattening",
                     "stream-maps",
                     "structured-logging"
                 ]
