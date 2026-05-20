@@ -3,8 +3,6 @@
     <div>
       <div class="community-card">
         <!-- Meltano Cloud section -->
-
-        <!-- Meltano Cloud section -->
         <div class="community-card__section">
           <div class="community-card__title-row">
             <svg
