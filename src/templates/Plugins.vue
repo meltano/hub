@@ -3,72 +3,178 @@
     <div class="w-full px-4 mx-auto single-plugin-overview max-w-7xl">
       <div class="single-plugin-detail">
         <div class="single-plugin-top-bar">
-          <table>
-            <tr>
-              <td class="p-5 lg:p-9">
-                <a
-                  v-if="$page.plugins.domain_url"
-                  :href="$page.plugins.domain_url"
-                  target="_blank"
-                  class="flex justify-center w-24 h-24 bg-white lg:w-48 lg:h-48"
-                  rel="noopener noreferrer"
+          <div class="plugin-header">
+            <a
+              v-if="$page.plugins.domain_url"
+              :href="$page.plugins.domain_url"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="plugin-header__logo-box"
+            >
+              <g-image
+                v-if="$page.plugins.logo_url"
+                :src="
+                  require(`!!assets-loader?width=250&height=200&fit=inside!@logos/${$page.plugins.logo_url.replace(
+                    '/assets/logos/',
+                    ''
+                  )}`)
+                "
+                class="plugin-header__logo-img"
+              />
+            </a>
+            <div v-else class="plugin-header__logo-box">
+              <g-image
+                v-if="$page.plugins.logo_url"
+                :src="
+                  require(`!!assets-loader?width=250&height=200&fit=inside!@logos/${$page.plugins.logo_url.replace(
+                    '/assets/logos/',
+                    ''
+                  )}`)
+                "
+                class="plugin-header__logo-img"
+              />
+            </div>
+            <div class="plugin-header__content">
+              <div class="plugin-header__title-row">
+                <p class="plugin-label">{{ $page.plugins.label }}</p>
+                <span class="community-pill">Meltano Community</span>
+              </div>
+              <p class="plugin-variant">
+                {{ $page.plugins.name }} ({{ $page.plugins.variant }} variant)
+                <span v-if="$page.plugins.quality == 'gold'"
+                  ><a href="https://docs.meltano.com/contribute/connectors#connector-quality-matrix"
+                    >🥇</a
+                  ></span
                 >
-                  <g-image
-                    v-if="$page.plugins.logo_url"
-                    :src="
-                      require(`!!assets-loader?width=250&height=200&fit=inside!@logos/${$page.plugins.logo_url.replace(
-                        '/assets/logos/',
-                        ''
-                      )}`)
-                    "
-                    style="object-position: center; object-fit: contain"
-                  />
-                </a>
-                <div v-else>
-                  <g-image
-                    v-if="$page.plugins.logo_url"
-                    :src="
-                      require(`!!assets-loader?width=250&height=200&fit=inside!@logos/${$page.plugins.logo_url.replace(
-                        '/assets/logos/',
-                        ''
-                      )}`)
-                    "
-                  />
-                </div>
-              </td>
-              <td>
-                <p
-                  class="pt-6 pb-4 text-3xl font-bold lg:text-5xl lg:pt-8 lg:pb-6 font-pjs text-purple"
+                <span v-if="$page.plugins.quality == 'silver'"
+                  ><a href="https://docs.meltano.com/contribute/connectors#connector-quality-matrix"
+                    >🥈</a
+                  ></span
                 >
-                  {{ $page.plugins.label }}
-                </p>
-                <p class="text-lg">
-                  <code>{{ $page.plugins.name }} ({{ $page.plugins.variant }} variant)</code>
-                  <span v-if="$page.plugins.quality == 'gold'"
-                    ><a
-                      href="https://docs.meltano.com/contribute/connectors#connector-quality-matrix"
-                      >🥇</a
-                    ></span
-                  >
-                  <span v-if="$page.plugins.quality == 'silver'"
-                    ><a
-                      href="https://docs.meltano.com/contribute/connectors#connector-quality-matrix"
-                      >🥈</a
-                    ></span
-                  >
-                  <span v-if="$page.plugins.quality == 'bronze'"
-                    ><a
-                      href="https://docs.meltano.com/contribute/connectors#connector-quality-matrix"
-                      >🥉</a
-                    ></span
-                  >
-                </p>
-                <p>
-                  <b class="font-hg">{{ $page.plugins.description }}</b>
-                </p>
-              </td>
-            </tr>
-          </table>
+                <span v-if="$page.plugins.quality == 'bronze'"
+                  ><a href="https://docs.meltano.com/contribute/connectors#connector-quality-matrix"
+                    >🥉</a
+                  ></span
+                >
+              </p>
+            </div>
+          </div>
+          <p class="plugin-community-desc">
+            Open source connector supported by the Meltano Community, a growing community of over
+            5500+ data engineers.
+          </p>
+          <div class="plugin-community-actions">
+            <a
+              href="https://github.com/meltano/meltano"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="plugin-action-btn"
+            >
+              <svg
+                width="19"
+                height="18"
+                viewBox="0 0 19 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.61305 3.9375C8.2824 3.42006 7.82674 2.99423 7.28814 2.6993C6.74953 2.40438 6.14532 2.24986 5.53125 2.25C5.2581 2.72225 5.09427 3.24973 5.0518 3.79363C5.00934 4.33754 5.08932 4.88404 5.28586 5.39297C4.90107 5.95961 4.69285 6.62758 4.6875 7.3125V7.875C4.6875 8.77011 5.04308 9.62855 5.67601 10.2615C6.30895 10.8944 7.16739 11.25 8.0625 11.25H11.4375C12.3326 11.25 13.1911 10.8944 13.824 10.2615C14.4569 9.62855 14.8125 8.77011 14.8125 7.875V7.3125C14.8072 6.62758 14.5989 5.95961 14.2141 5.39297C14.4107 4.88404 14.4907 4.33754 14.4482 3.79363C14.4057 3.24973 14.2419 2.72225 13.9688 2.25C13.3547 2.24986 12.7505 2.40438 12.2119 2.6993C11.6733 2.99423 11.2176 3.42006 10.887 3.9375H8.61305Z"
+                  stroke="#3A64FA"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M7.5 16.3125V13.5C7.5 12.9033 7.73705 12.331 8.15901 11.909C8.58097 11.4871 9.15326 11.25 9.75 11.25C10.3467 11.25 10.919 11.4871 11.341 11.909C11.7629 12.331 12 12.9033 12 13.5V16.3125"
+                  stroke="#3A64FA"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M7.5 14.625H5.25C4.65326 14.625 4.08097 14.3879 3.65901 13.966C3.23705 13.544 3 12.9717 3 12.375C3 11.7783 2.76295 11.206 2.34099 10.784C1.91903 10.3621 1.34674 10.125 0.75 10.125"
+                  stroke="#3A64FA"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+
+              Open source
+            </a>
+            <a
+              href="https://meltano.com/slack"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="plugin-action-btn"
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 18 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9 7.3125V9H3.9375C3.48995 9 3.06072 8.82221 2.74426 8.50574C2.42779 8.18928 2.25 7.76005 2.25 7.3125C2.25 6.86495 2.42779 6.43572 2.74426 6.11926C3.06072 5.80279 3.48995 5.625 3.9375 5.625H7.3125C7.76005 5.625 8.18928 5.80279 8.50574 6.11926C8.82221 6.43572 9 6.86495 9 7.3125Z"
+                  stroke="#3A64FA"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M9 5.625H7.3125C6.86495 5.625 6.43572 5.44721 6.11926 5.13074C5.80279 4.81428 5.625 4.38505 5.625 3.9375C5.625 3.48995 5.80279 3.06072 6.11926 2.74426C6.43572 2.42779 6.86495 2.25 7.3125 2.25C7.76005 2.25 8.18928 2.42779 8.50574 2.74426C8.82221 3.06072 9 3.48995 9 3.9375V5.625Z"
+                  stroke="#3A64FA"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M10.6875 9H9V3.9375C9 3.48995 9.17779 3.06072 9.49426 2.74426C9.81072 2.42779 10.2399 2.25 10.6875 2.25C11.1351 2.25 11.5643 2.42779 11.8807 2.74426C12.1972 3.06072 12.375 3.48995 12.375 3.9375V7.3125C12.375 7.76005 12.1972 8.18928 11.8807 8.50574C11.5643 8.82221 11.1351 9 10.6875 9Z"
+                  stroke="#3A64FA"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M12.375 9V7.3125C12.375 6.86495 12.5528 6.43572 12.8693 6.11926C13.1857 5.80279 13.6149 5.625 14.0625 5.625C14.5101 5.625 14.9393 5.80279 15.2557 6.11926C15.5722 6.43572 15.75 6.86495 15.75 7.3125C15.75 7.76005 15.5722 8.18928 15.2557 8.50574C14.9393 8.82221 14.5101 9 14.0625 9H12.375Z"
+                  stroke="#3A64FA"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M9 10.6875V9H14.0625C14.5101 9 14.9393 9.17779 15.2557 9.49426C15.5722 9.81072 15.75 10.2399 15.75 10.6875C15.75 11.1351 15.5722 11.5643 15.2557 11.8807C14.9393 12.1972 14.5101 12.375 14.0625 12.375H10.6875C10.2399 12.375 9.81072 12.1972 9.49426 11.8807C9.17779 11.5643 9 11.1351 9 10.6875Z"
+                  stroke="#3A64FA"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M9 12.375H10.6875C11.1351 12.375 11.5643 12.5528 11.8807 12.8693C12.1972 13.1857 12.375 13.6149 12.375 14.0625C12.375 14.5101 12.1972 14.9393 11.8807 15.2557C11.5643 15.5722 11.1351 15.75 10.6875 15.75C10.2399 15.75 9.81072 15.5722 9.49426 15.2557C9.17779 14.9393 9 14.5101 9 14.0625V12.375Z"
+                  stroke="#3A64FA"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M7.3125 9H9V14.0625C9 14.5101 8.82221 14.9393 8.50574 15.2557C8.18928 15.5722 7.76005 15.75 7.3125 15.75C6.86495 15.75 6.43572 15.5722 6.11926 15.2557C5.80279 14.9393 5.625 14.5101 5.625 14.0625V10.6875C5.625 10.2399 5.80279 9.81072 6.11926 9.49426C6.43572 9.17779 6.86495 9 7.3125 9Z"
+                  stroke="#3A64FA"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M5.625 9V10.6875C5.625 11.1351 5.44721 11.5643 5.13074 11.8807C4.81428 12.1972 4.38505 12.375 3.9375 12.375C3.48995 12.375 3.06072 12.1972 2.74426 11.8807C2.42779 11.5643 2.25 11.1351 2.25 10.6875C2.25 10.2399 2.42779 9.81072 2.74426 9.49426C3.06072 9.17779 3.48995 9 3.9375 9H5.625Z"
+                  stroke="#3A64FA"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              Join Slack community
+            </a>
+          </div>
         </div>
         <div class="w-full">
           <div class="flex flex-col-reverse -mx-2 lg:flex-row">
@@ -632,4 +738,124 @@ query Plugins($path: String!, $name: String!) {
 }
 </page-query>
 
-<style lang="scss"></style>
+<style lang="scss">
+.single-plugin-top-bar {
+  padding: 32px;
+  background: #f4f1ff;
+  border-radius: 8px;
+  border: 1px solid rgba(49, 23, 114, 0.15);
+  margin-bottom: 16px;
+}
+
+.plugin-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 24px;
+
+  &__logo-box {
+    width: 72px;
+    height: 72px;
+    min-width: 72px;
+    background: #ffffff;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 8px;
+  }
+
+  &__logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 6px;
+  }
+
+  &__title-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+}
+
+.plugin-label {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1d2939;
+  margin: 0;
+  line-height: 1.2;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.community-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 13px;
+  background: #e7ddff;
+  color: #4923a9;
+  font-size: 0.875rem;
+  font-weight: 600;
+  white-space: nowrap;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  flex-shrink: 0;
+}
+
+.plugin-variant {
+  font-size: 0.9375rem;
+  color: #475467;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.plugin-community-desc {
+  font-size: 1rem;
+  color: #1d2939;
+  line-height: 1.6;
+  margin: 20px 0 16px;
+}
+
+.plugin-community-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.plugin-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #1d2939 !important;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  text-decoration: none !important;
+  font-family: "Inter", sans-serif;
+  transition: background-color 0.15s ease;
+
+  &:hover {
+    background-color: #f9fafb;
+  }
+
+  &__icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+}
+</style>
