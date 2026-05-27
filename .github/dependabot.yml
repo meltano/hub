@@ -7,6 +7,10 @@ updates:
       time: "12:00"
       timezone: "Etc/UTC"
     labels: [deps]
+    groups:
+      all:
+        patterns:
+          - "*"
     cooldown:
       default-days: 7
   - package-ecosystem: github-actions
