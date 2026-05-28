@@ -18,5 +18,7 @@ jobs:
 
     steps:
       - name: trigger netlify build
+        env:
+          HOOK_URL: ${{ secrets.DAILY_METRICS_REBUILD_HOOK_URL }}
         run: |
-          curl -X POST -d '{}' https://api.netlify.com/build_hooks/62c4902aa8c7b817c112c47b
+          curl -X POST -d '{}' $HOOK_URL
