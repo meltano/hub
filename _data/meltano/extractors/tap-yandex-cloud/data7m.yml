@@ -62,10 +62,9 @@ settings:
   label: Batch Storage Root
   name: batch_config.storage.root
 - description: Yandex Cloud billing account ID to fetch usage and cost data for.
-  kind: password
+  kind: string
   label: Billing Account ID
   name: billing_account_id
-  sensitive: true
 - description: Optional upper bound for usage data extraction. If omitted, the 
     tap uses yesterday in UTC.
   kind: date_iso8601
@@ -131,6 +130,10 @@ settings:
 settings_group_validation:
 - - billing_account_id
   - start_date
+  - iam_token
+- - billing_account_id
+  - start_date
+  - service_account_key_json
 settings_preamble: ''
 usage: ''
 variant: data7m
