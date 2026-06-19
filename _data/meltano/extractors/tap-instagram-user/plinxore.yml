@@ -1,0 +1,141 @@
+capabilities:
+- catalog
+- state
+- discover
+- activate-version
+- about
+- stream-maps
+- schema-flattening
+- batch
+- structured-logging
+description: Singer tap for the Meta Graph API (Instagram Insights), built with the Meltano Singer SDK.
+domain_url: https://developers.facebook.com/docs/instagram-api
+label: Instagram User Insights
+logo_url: /assets/logos/extractors/instagram.png
+maintenance_status: active
+name: tap-instagram-user
+namespace: tap_instagram_user
+next_steps: ''
+pip_url: plinxore-tap-instagram-user
+quality: unknown
+repo: https://github.com/plinxore/tap-instagram-user
+settings:
+- description: Le Long-Lived Token du client
+  kind: password
+  label: Access Token
+  name: access_token
+  sensitive: true
+- description: L'ID du compte Instagram professionnel
+  kind: string
+  label: IG User ID
+  name: ig_user_id
+- description: 'Liste des métriques (et de leurs breakdowns) à extraire, un stream étant généré par combinaison
+    métrique/breakdown. Chaque entrée peut surcharger start_date/days_to_subtract/period/timeframe/metric_type/generate_dates_range
+    pour elle-même ; sinon la valeur globale ci-dessus s''applique. Obligatoire : aucune valeur par défaut.'
+  kind: array
+  label: Metrics
+  name: metrics
+- description: Compression format to use for batch files.
+  kind: options
+  label: Batch Compression Format
+  name: batch_config.encoding.compression
+  options:
+  - label: Gzip
+    value: gzip
+  - label: None
+    value: none
+- description: Format to use for batch files.
+  kind: options
+  label: Batch Encoding Format
+  name: batch_config.encoding.format
+  options:
+  - label: Jsonl
+    value: jsonl
+  - label: Parquet
+    value: parquet
+- description: Prefix to use when writing batch files.
+  kind: string
+  label: Batch Storage Prefix
+  name: batch_config.storage.prefix
+- description: Root path to use when writing batch files.
+  kind: string
+  label: Batch Storage Root
+  name: batch_config.storage.root
+- description: Valeur par défaut du nombre de jours déjà couverts à ré-extraire à chaque run, en plus
+    des jours réellement nouveaux (fenêtre de chevauchement, utile car les insights Meta peuvent encore
+    se corriger plusieurs jours après leur première extraction). 0 = pas de ré-extraction. Surchageable
+    par entrée dans `metrics`.
+  kind: integer
+  label: Days To Subtract
+  name: days_to_subtract
+  value: 0
+- description: 'One or more LCID locale strings to produce localized output for: https://faker.readthedocs.io/en/master/#localization'
+  kind: string
+  label: Faker Locale
+  name: faker_config.locale
+- description: 'Value to seed the Faker generator for deterministic output: https://faker.readthedocs.io/en/master/#seeding-the-generator'
+  kind: string
+  label: Faker Seed
+  name: faker_config.seed
+- description: '''True'' to enable schema flattening and automatically expand nested properties.'
+  kind: boolean
+  label: Enable Schema Flattening
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Max Flattening Depth
+  name: flattening_max_depth
+- description: The maximum length of a flattened key.
+  kind: integer
+  label: Max Key Length
+  name: flattening_max_key_length
+- description: The separator to use when flattening keys.
+  kind: string
+  label: Flattening Separator
+  name: flattening_separator
+- description: '''active'' (défaut) : un appel API par jour (since/until = 1 jour). ''inactive'' : un
+    seul appel couvrant toute la plage since/until (moins d''appels API, mais perd la granularité jour
+    par jour selon ce que renvoie l''API pour la métrique). Surchageable par entrée dans `metrics`.'
+  kind: options
+  label: Generate Dates Range
+  name: generate_dates_range
+  options:
+  - label: Active
+    value: active
+  - label: Inactive
+    value: inactive
+  value: active
+- description: Valeur par défaut du paramètre `metric_type` transmis à l'API Meta Insights pour chaque
+    métrique. Surchageable par entrée dans `metrics`.
+  kind: string
+  label: Metric Type
+  name: metric_type
+  value: total_value
+- description: Valeur par défaut de la granularité demandée à l'API Meta Insights (paramètre `period`).
+    Surchageable par entrée dans `metrics`.
+  kind: string
+  label: Period
+  name: period
+  value: day
+- description: 'Valeur par défaut de ''start_date'' pour toutes les métriques en cas de première extraction
+    (ignorée dès qu''un bookmark existe). Surchageable par entrée dans `metrics` (ex: 2026-05-01T00:00:00Z).
+    Si absente, valeur par défaut calculée automatiquement : le 1er du mois en cours moins 12 mois.'
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: User Stream Map Configuration
+  name: stream_map_config
+- description: Valeur par défaut du paramètre `timeframe` optionnel transmis à l'API Meta Insights. Surchageable
+    par entrée dans `metrics`.
+  kind: string
+  label: Timeframe
+  name: timeframe
+settings_group_validation:
+- - access_token
+  - ig_user_id
+  - metrics
+settings_preamble: ''
+usage: ''
+variant: plinxore
