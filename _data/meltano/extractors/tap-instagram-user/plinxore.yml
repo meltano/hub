@@ -20,18 +20,18 @@ pip_url: plinxore-tap-instagram-user
 quality: unknown
 repo: https://github.com/plinxore/tap-instagram-user
 settings:
-- description: Le Long-Lived Token du client
+- description: The client's Long-Lived Token
   kind: password
   label: Access Token
   name: access_token
   sensitive: true
-- description: L'ID du compte Instagram professionnel
+- description: The professional Instagram account ID
   kind: string
   label: IG User ID
   name: ig_user_id
-- description: 'Liste des métriques (et de leurs breakdowns) à extraire, un stream étant généré par combinaison
-    métrique/breakdown. Chaque entrée peut surcharger start_date/days_to_subtract/period/timeframe/metric_type/generate_dates_range
-    pour elle-même ; sinon la valeur globale ci-dessus s''applique. Obligatoire : aucune valeur par défaut.'
+- description: 'List of metrics (and their breakdowns) to extract; one stream is generated per metric/breakdown
+    combination. Each entry may override start_date/days_to_subtract/period/timeframe/metric_type/generate_dates_range
+    for itself; otherwise the global value above applies. Required: no default value.'
   kind: array
   label: Metrics
   name: metrics
@@ -61,10 +61,9 @@ settings:
   kind: string
   label: Batch Storage Root
   name: batch_config.storage.root
-- description: Valeur par défaut du nombre de jours déjà couverts à ré-extraire à chaque run, en plus
-    des jours réellement nouveaux (fenêtre de chevauchement, utile car les insights Meta peuvent encore
-    se corriger plusieurs jours après leur première extraction). 0 = pas de ré-extraction. Surchageable
-    par entrée dans `metrics`.
+- description: Default number of already-covered days to re-extract on each run, in addition to genuinely
+    new days (overlap window, useful because Meta insights can still be corrected after their first extraction).
+    0 = no re-extraction. Overridable per entry in `metrics`.
   kind: integer
   label: Days To Subtract
   name: days_to_subtract
@@ -93,9 +92,9 @@ settings:
   kind: string
   label: Flattening Separator
   name: flattening_separator
-- description: '''active'' (défaut) : un appel API par jour (since/until = 1 jour). ''inactive'' : un
-    seul appel couvrant toute la plage since/until (moins d''appels API, mais perd la granularité jour
-    par jour selon ce que renvoie l''API pour la métrique). Surchageable par entrée dans `metrics`.'
+- description: '''active'' (default): one API call per day (since/until = 1 day). ''inactive'': a single
+    call covering the whole since/until range (fewer API calls, but loses day-by-day granularity depending
+    on what the API returns for the metric). Overridable per entry in `metrics`.'
   kind: options
   label: Generate Dates Range
   name: generate_dates_range
@@ -105,21 +104,21 @@ settings:
   - label: Inactive
     value: inactive
   value: active
-- description: Valeur par défaut du paramètre `metric_type` transmis à l'API Meta Insights pour chaque
-    métrique. Surchageable par entrée dans `metrics`.
+- description: Default `metric_type` parameter passed to the Meta Insights API for each metric. Overridable
+    per entry in `metrics`.
   kind: string
   label: Metric Type
   name: metric_type
   value: total_value
-- description: Valeur par défaut de la granularité demandée à l'API Meta Insights (paramètre `period`).
-    Surchageable par entrée dans `metrics`.
+- description: Default granularity requested from the Meta Insights API (`period` parameter). Overridable
+    per entry in `metrics`.
   kind: string
   label: Period
   name: period
   value: day
-- description: 'Valeur par défaut de ''start_date'' pour toutes les métriques en cas de première extraction
-    (ignorée dès qu''un bookmark existe). Surchageable par entrée dans `metrics` (ex: 2026-05-01T00:00:00Z).
-    Si absente, valeur par défaut calculée automatiquement : le 1er du mois en cours moins 12 mois.'
+- description: 'Default ''start_date'' for all metrics on first extraction (ignored once a bookmark exists).
+    Overridable per entry in `metrics` (e.g. 2026-05-01T00:00:00Z). If absent, a default value is computed
+    automatically: the 1st of the current month minus 12 months.'
   kind: date_iso8601
   label: Start Date
   name: start_date
@@ -127,8 +126,8 @@ settings:
   kind: object
   label: User Stream Map Configuration
   name: stream_map_config
-- description: Valeur par défaut du paramètre `timeframe` optionnel transmis à l'API Meta Insights. Surchageable
-    par entrée dans `metrics`.
+- description: Default optional `timeframe` parameter passed to the Meta Insights API. Overridable per
+    entry in `metrics`.
   kind: string
   label: Timeframe
   name: timeframe
