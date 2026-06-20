@@ -104,6 +104,32 @@ settings:
   - label: Inactive
     value: inactive
   value: active
+- description: Fields to request on the /media edge for the ig_media stream (must include media_product_type for
+    the insights children). No default; required to enable media extraction.
+  kind: array
+  label: Media Fields
+  name: media_fields
+- description: Page size (limit) for the /media edge.
+  kind: integer
+  label: Media Limit
+  name: media_limit
+  value: 100
+- description: Maximum number of pages to fetch from the /media edge (safety cap against an unbounded pagination
+    loop).
+  kind: integer
+  label: Media Max Pages
+  name: media_max_pages
+  value: 100
+- description: Maps each media_product_type (FEED/REELS/STORY) to the list of metrics valid for it, so invalid metric/type
+    calls are skipped. No default; required when media_metrics is set.
+  kind: object
+  label: Media Metric Compatibility
+  name: media_metric_compatibility
+- description: Per-post insight metrics to extract; one ig_media_<metric> stream is generated per metric/breakdown
+    combination. Requires media_fields and media_metric_compatibility.
+  kind: array
+  label: Media Metrics
+  name: media_metrics
 - description: Default `metric_type` parameter passed to the Meta Insights API for each metric. Overridable
     per entry in `metrics`.
   kind: string
