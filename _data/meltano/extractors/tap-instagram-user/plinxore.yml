@@ -8,7 +8,7 @@ capabilities:
 - schema-flattening
 - batch
 - structured-logging
-description: Singer tap for the Meta Graph API (Instagram Insights), built with the Meltano Singer SDK.
+description: 'Singer tap for the Meta Graph API (Instagram): account-level (user) insights and media with per-post insights, built with the Meltano Singer SDK.'
 domain_url: https://developers.facebook.com/docs/instagram-api
 label: Instagram User Insights
 logo_url: /assets/logos/extractors/instagram.png
