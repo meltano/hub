@@ -142,9 +142,9 @@ settings:
   label: Period
   name: period
   value: day
-- description: 'Default ''start_date'' for all metrics on first extraction (ignored once a bookmark exists).
-    Overridable per entry in `metrics` (e.g. 2026-05-01T00:00:00Z). If absent, a default value is computed
-    automatically: the 1st of the current month minus 12 months.'
+- description: 'Default ''start_date'' for all metrics on first extraction (ignored once a bookmark exists). Overridable
+    per entry in `metrics` (e.g. 2026-05-01T00:00:00Z). No default: required on a stream''s first run (it fails
+    fast if neither this nor a per-metric start_date is set).'
   kind: date_iso8601
   label: Start Date
   name: start_date
