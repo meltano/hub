@@ -125,6 +125,12 @@ settings:
   kind: object
   label: Media Metric Compatibility
   name: media_metric_compatibility
+- description: 'Optional second compatibility axis: maps each media_type (IMAGE/VIDEO/CAROUSEL_ALBUM) to the metrics
+    valid for it. When set, a metric is requested only if valid for both the post''s media_product_type and media_type
+    (e.g. views applies to VIDEO only). Requires media_type in media_fields.'
+  kind: object
+  label: Media Metric Compatibility By Media Type
+  name: media_metric_compatibility_by_media_type
 - description: Per-post insight metrics to extract; one ig_media_<metric> stream is generated per metric/breakdown
     combination. Requires media_fields and media_metric_compatibility.
   kind: array
@@ -136,6 +142,18 @@ settings:
   label: Metric Type
   name: metric_type
   value: total_value
+- description: Behaviour when Meta rejects a media-insights metric with 'does not support the metric' despite the
+    compatibility tables. 'fail' (default) stops the run (stale-table signal, no silent loss); 'skip' logs a WARNING
+    and skips that post/metric.
+  kind: options
+  label: On Unsupported Metric
+  name: on_unsupported_metric
+  options:
+  - label: Fail
+    value: fail
+  - label: Skip
+    value: skip
+  value: fail
 - description: Default granularity requested from the Meta Insights API (`period` parameter). Overridable
     per entry in `metrics`.
   kind: string
