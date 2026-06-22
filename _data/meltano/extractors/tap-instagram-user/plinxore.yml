@@ -8,7 +8,7 @@ capabilities:
 - schema-flattening
 - batch
 - structured-logging
-description: Singer tap for the Meta Graph API (Instagram Insights), built with the Meltano Singer SDK.
+description: 'Singer tap for the Meta Graph API (Instagram): account-level (user) insights and media with per-post insights, built with the Meltano Singer SDK.'
 domain_url: https://developers.facebook.com/docs/instagram-api
 label: Instagram User Insights
 logo_url: /assets/logos/extractors/instagram.png
@@ -104,6 +104,32 @@ settings:
   - label: Inactive
     value: inactive
   value: active
+- description: Fields to request on the /media edge for the ig_media stream (must include media_product_type for
+    the insights children). No default; required to enable media extraction.
+  kind: array
+  label: Media Fields
+  name: media_fields
+- description: Page size (limit) for the /media edge.
+  kind: integer
+  label: Media Limit
+  name: media_limit
+  value: 100
+- description: Maximum number of pages to fetch from the /media edge (safety cap against an unbounded pagination
+    loop).
+  kind: integer
+  label: Media Max Pages
+  name: media_max_pages
+  value: 100
+- description: Maps each media_product_type (FEED/REELS/STORY) to the list of metrics valid for it, so invalid metric/type
+    calls are skipped. No default; required when media_metrics is set.
+  kind: object
+  label: Media Metric Compatibility
+  name: media_metric_compatibility
+- description: Per-post insight metrics to extract; one ig_media_<metric> stream is generated per metric/breakdown
+    combination. Requires media_fields and media_metric_compatibility.
+  kind: array
+  label: Media Metrics
+  name: media_metrics
 - description: Default `metric_type` parameter passed to the Meta Insights API for each metric. Overridable
     per entry in `metrics`.
   kind: string
@@ -116,9 +142,9 @@ settings:
   label: Period
   name: period
   value: day
-- description: 'Default ''start_date'' for all metrics on first extraction (ignored once a bookmark exists).
-    Overridable per entry in `metrics` (e.g. 2026-05-01T00:00:00Z). If absent, a default value is computed
-    automatically: the 1st of the current month minus 12 months.'
+- description: 'Default ''start_date'' for all metrics on first extraction (ignored once a bookmark exists). Overridable
+    per entry in `metrics` (e.g. 2026-05-01T00:00:00Z). No default: required on a stream''s first run (it fails
+    fast if neither this nor a per-metric start_date is set).'
   kind: date_iso8601
   label: Start Date
   name: start_date
