@@ -104,6 +104,12 @@ settings:
   - label: Inactive
     value: inactive
   value: active
+- description: Optional rolling refresh window (days). When set, only the first run backfills (down to media_since);
+    later runs fetch just the last N days, so frozen old posts are not re-listed nor their insights re-fetched.
+    Omit for a full snapshot every run. No default (affects completeness; opt-in).
+  kind: integer
+  label: Media Active Window Days
+  name: media_active_window_days
 - description: Fields to request on the /media edge for the ig_media stream (must include media_product_type for
     the insights children). No default; required to enable media extraction.
   kind: array
@@ -136,6 +142,16 @@ settings:
   kind: array
   label: Media Metrics
   name: media_metrics
+- description: Optional floor date for the /media list (sent as the `since` Unix timestamp). Bounds the first-run
+    backfill. No default (omit = full catalogue, capped at Meta's ~10K most recent media).
+  kind: date_iso8601
+  label: Media Since
+  name: media_since
+- description: Optional ceiling date for the /media list (sent as `until`). Usually unset (= up to now); useful
+    for backfilling a fixed window.
+  kind: date_iso8601
+  label: Media Until
+  name: media_until
 - description: Default `metric_type` parameter passed to the Meta Insights API for each metric. Overridable
     per entry in `metrics`.
   kind: string
@@ -175,6 +191,12 @@ settings:
   kind: string
   label: Timeframe
   name: timeframe
+- description: Fields to request on the IG User node for the `ig_user` stream (e.g. username, followers_count, follows_count,
+    media_count). No default (Meta-controlled vocabulary). Set to enable the account-profile snapshot; omit to skip
+    it.
+  kind: array
+  label: User Fields
+  name: user_fields
 settings_group_validation:
 - - access_token
   - ig_user_id
