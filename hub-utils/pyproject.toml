@@ -6,7 +6,7 @@ authors = [{ name = "pnadolny13", email = "patnadolny@gmail.com" }]
 requires-python = ">=3.12"
 readme = "README.md"
 dependencies = [
-    "boto3~=1.42",
+    "boto3~=1.43",
     "jsonpath-ng~=1.8",
     "requests~=2.32",
     "ruamel-yaml~=0.19",
