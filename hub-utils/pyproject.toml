@@ -11,7 +11,7 @@ dependencies = [
     "requests~=2.32",
     "ruamel-yaml~=0.19",
     "typer~=0.26",
-    "uv~=0.10",
+    "uv~=0.11",
     "yamllint~=1.38",
 ]
 
