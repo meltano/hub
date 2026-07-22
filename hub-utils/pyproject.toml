@@ -20,7 +20,7 @@ hub-utils = "hub_utils.main:app"
 
 [dependency-groups]
 dev = [
-    "mypy>=1.8.0",
+    "mypy>=2.3.0",
     "tox>=4.13.0",
     "typer-cli>=0.0.13",
 ]
