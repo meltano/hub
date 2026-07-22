@@ -3,9 +3,7 @@ updates:
   - package-ecosystem: "uv"
     directory: "/"
     schedule:
-      interval: weekly
-      time: "12:00"
-      timezone: "Etc/UTC"
+      interval: monthly
     labels: [deps]
     groups:
       all:
@@ -16,7 +14,7 @@ updates:
   - package-ecosystem: github-actions
     directory: "/"
     schedule:
-      interval: weekly
+      interval: monthly
     labels: [deps]
     groups:
       github-actions:
