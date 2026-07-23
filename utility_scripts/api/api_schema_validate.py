@@ -59,8 +59,8 @@ class APIValidator:
             validator = Draft7Validator(schema, registry=self.registry)
             try:
                 validator.validate(plugin_data)
-            except Exception as ex:
-                logger.info(f"Validation error for {file_name} with message {str(ex)}")
+            except Exception as ex:  # noqa: BLE001
+                logger.info(f"Validation error for {file_name} with message {ex!s}")
                 self.all_valid = False
             return True
 
@@ -75,10 +75,8 @@ class APIValidator:
         validator = Draft7Validator(schema, registry=self.registry)
         try:
             validator.validate(type_index_data)
-        except Exception as ex:
-            logger.info(
-                f"Validation error for {file_path}/index with message {str(ex)}"
-            )
+        except Exception as ex:  # noqa: BLE001
+            logger.info(f"Validation error for {file_path}/index with message {ex!s}")
             self.all_valid = False
 
     def plugins_validate(self):

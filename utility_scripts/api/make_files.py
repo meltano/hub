@@ -4,8 +4,9 @@ import enum
 import json
 import logging
 import sys
+from collections.abc import Generator
 from pathlib import Path
-from typing import Any, Generator
+from typing import Any
 
 from ruamel.yaml import YAML
 

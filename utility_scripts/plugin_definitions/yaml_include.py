@@ -48,7 +48,8 @@ def merge(a, b, path=None, update=True):
             elif not update:
                 pass
             else:
-                raise Exception("Conflict at %s" % ".".join(path + [str(key)]))
+                msg = "Conflict at {}".format(".".join(path + [str(key)]))
+                raise Exception(msg)  # noqa: TRY002
         else:
             a[key] = b[key]
     return a

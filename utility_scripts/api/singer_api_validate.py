@@ -27,8 +27,8 @@ def connector_validate(connector_dir, job_fail):
                 validate(instance=plugin_data, schema=schema)
             except Exception as e:
                 job_fail = True
-                print(f"Validation error for {file} with message {str(e)}")
-                raise e
+                print(f"Validation error for {file} with message {e!s}")
+                raise
     return job_fail
 
 

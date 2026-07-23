@@ -59,9 +59,12 @@ class PluginSchemaValidator:
             validator = Draft7Validator(schema, registry=self.registry)
             try:
                 validator.validate(plugin_data)
-            except Exception as ex:
+            except Exception as ex:  # noqa: BLE001
                 logger.info(
-                    f"Validation error for {plugin_name}.{variant_name} with message {str(ex)}"
+                    "Validation error for %s.%s with message %s",
+                    plugin_name,
+                    variant_name,
+                    ex,
                 )
                 self.all_valid = False
             return True
