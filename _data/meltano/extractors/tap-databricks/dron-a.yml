@@ -1,0 +1,119 @@
+capabilities:
+- about
+- activate-version
+- catalog
+- discover
+- schema-flattening
+- state
+- stream-maps
+- structured-logging
+description: Singer tap for extracting data from Databricks SQL Warehouses, with
+  PAT and service-principal OAuth authentication.
+domain_url: https://www.databricks.com
+executable: tap-databricks
+keywords:
+- meltano_sdk
+label: Databricks
+log_parser: singer-sdk
+logo_url: /assets/logos/extractors/databricks.png
+maintenance_status: active
+name: tap-databricks
+namespace: tap_databricks
+next_steps: ''
+pip_url: git+https://github.com/dron-a/tap-databricks.git
+quality: unknown
+repo: https://github.com/dron-a/tap-databricks
+settings:
+- description: Databricks personal access token
+  kind: password
+  label: Access Token
+  name: access_token
+  sensitive: true
+- description: Unity Catalog catalog to extract from
+  kind: string
+  label: Catalog
+  name: catalog
+- description: Service principal Client ID (M2M auth)
+  kind: password
+  label: Client ID
+  name: client_id
+  sensitive: true
+- description: Service principal OAuth secret (M2M auth)
+  kind: password
+  label: Client Secret
+  name: client_secret
+  sensitive: true
+- description: 'One or more LCID locale strings to produce localized output for: https://faker.readthedocs.io/en/master/#localization'
+  kind: array
+  label: Faker Locale
+  name: faker_config.locale
+- description: 'Value to seed the Faker generator for deterministic output: https://faker.readthedocs.io/en/master/#seeding-the-generator'
+  kind: integer
+  label: Faker Seed
+  name: faker_config.seed
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Enable Schema Flattening
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Max Flattening Depth
+  name: flattening_max_depth
+- description: The maximum length of a flattened key.
+  kind: integer
+  label: Max Key Length
+  name: flattening_max_key_length
+- description: The separator to use when flattening keys.
+  kind: string
+  label: Flattening Separator
+  name: flattening_separator
+- description: SQL Warehouse / cluster HTTP path, e.g. 
+    /sql/1.0/warehouses/abc123
+  kind: string
+  label: HTTP Path
+  name: http_path
+- description: Optional schema to scope extraction; if omitted, all schemas in 
+    the catalog are discovered
+  kind: string
+  label: Schema
+  name: schema
+- description: Workspace hostname, e.g. dbc-xxxx.cloud.databricks.com (no 
+    https://)
+  kind: string
+  label: Server Hostname
+  name: server_hostname
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: User Stream Map Configuration
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: Whether to use use strings with `x-singer.decimal` format for 
+    decimals in the discovered schema. This is useful to avoid precision loss 
+    when working with large numbers.
+  kind: boolean
+  label: Use Singer Decimal
+  name: use_singer_decimal
+settings_group_validation:
+- - access_token
+  - catalog
+  - http_path
+  - server_hostname
+- - catalog
+  - client_id
+  - client_secret
+  - http_path
+  - server_hostname
+settings_preamble: ''
+supported_python_versions:
+- '3.10'
+- '3.11'
+- '3.12'
+- '3.13'
+- '3.14'
+usage: ''
+variant: dron-a
