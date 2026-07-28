@@ -14,7 +14,7 @@ maintenance_status: active
 name: airflow
 namespace: airflow
 next_steps: |
-  _The version of Airflow currently installed with Meltano (2.1.2) requires that Python be at version 3.9 or lower. Upgrading the Airflow version is tracked in [this issue](https://github.com/meltano/hub/issues/658)._
+  _The version of Airflow currently installed with Meltano (3.3.0) requires that Python 3.10-3.14. Upgrading the Airflow version is tracked in [this issue](https://github.com/meltano/hub/issues/658)._
 
   1. Use the [meltano schedule](https://docs.meltano.com/reference/command-line-interface#schedule) command to create pipeline schedules in your project, to be run by Airflow.
 
@@ -34,8 +34,8 @@ next_steps: |
      By default, the UI will be available at at [`http://localhost:8080`](http://localhost:8080). You can change this using the `webserver.web_server_port` setting documented below.
 
   1. Start Scheduler or execute Airflow commands directly using the instructions in [the Meltano docs](https://docs.meltano.com/guide/orchestration#starting-the-airflow-scheduler).
-pip_url: apache-airflow==2.10.5 --constraint
-  https://raw.githubusercontent.com/apache/airflow/constraints-2.10.5/constraints-${MELTANO__PYTHON_VERSION}.txt
+pip_url: apache-airflow==3.3.0 --constraint
+  https://raw.githubusercontent.com/apache/airflow/constraints-3.3.0/constraints-${MELTANO__PYTHON_VERSION}.txt
 repo: https://github.com/apache/airflow
 requires:
   files:

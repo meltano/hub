@@ -51,9 +51,9 @@ next_steps: |
      By default, the UI will be available at at [`http://localhost:8080`](http://localhost:8080). You can change this using the `webserver.web_server_port` setting documented below.
 
   1. Start Scheduler or execute Airflow commands directly using the instructions in [the Meltano docs](https://docs.meltano.com/guide/orchestration#starting-the-airflow-scheduler).
-pip_url: git+https://github.com/meltano/airflow-ext.git@main apache-airflow==2.10.5
-  --constraint 
-  https://raw.githubusercontent.com/apache/airflow/constraints-2.10.5/constraints-no-providers-${MELTANO__PYTHON_VERSION}.txt
+pip_url: git+https://github.com/meltano/airflow-ext.git@main apache-airflow==3.3.0
+  --constraint
+  https://raw.githubusercontent.com/apache/airflow/constraints-3.3.0/constraints-no-providers-${MELTANO__PYTHON_VERSION}.txt
 repo: https://github.com/apache/airflow
 settings:
 - env: AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION
@@ -103,7 +103,7 @@ settings:
   env: AIRFLOW__LOGGING__DAG_PROCESSOR_MANAGER_LOG_LOCATION
   label: Dag Processor Manager Log Location
   name: logging.dag_processor_manager_log_location
-  value: 
+  value:
     $MELTANO_PROJECT_ROOT/.meltano/utilities/airflow/logs/dag_processor_manager/dag_processor_manager.log
 - description: |
     Where to send the logs of each scheduler process.
