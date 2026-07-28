@@ -1,0 +1,55 @@
+capabilities:
+- about
+- catalog
+- discover
+- schema-flattening
+- state
+- stream-maps
+- structured-logging
+description: Currency exchange rates, supported currencies, and VAT rates
+domain_url: https://unirateapi.com/docs
+keywords:
+- unirate
+- singer
+- meltano
+- elt
+- currency
+- exchange-rate
+- vat
+- fintech
+- api
+- free service
+- meltano_sdk
+label: UniRate
+logo_url: /assets/logos/extractors/unirate.png
+maintenance_status: active
+name: tap-unirate
+namespace: tap_unirate
+pip_url: tap-unirate
+quality: unknown
+repo: https://github.com/UniRate-API/tap-unirate
+settings:
+- description: UniRate API key. Get a free key at https://unirateapi.com.
+  kind: password
+  label: API Key
+  name: api_key
+  sensitive: true
+- description: Base currency (ISO 4217) for the exchange_rates stream. Defaults to
+    USD.
+  kind: string
+  label: Base Currency
+  name: base_currency
+  value: USD
+- description: Override the API base URL (primarily for testing).
+  kind: string
+  label: API Base URL
+  name: base_url
+  value: https://api.unirateapi.com
+settings_group_validation:
+- - api_key
+supported_python_versions:
+- '3.10'
+- '3.11'
+- '3.12'
+- '3.13'
+variant: unirate-api
