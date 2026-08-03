@@ -24,26 +24,16 @@ pip_url: git+https://github.com/MeltanoLabs/tap-service-titan.git
 quality: gold
 repo: https://github.com/MeltanoLabs/tap-service-titan
 settings:
-- description: The URL for the ServiceTitan API
+- description: The url for the ServiceTitan API
   kind: string
   label: API URL
   name: api_url
-  options:
-  - label: Production
-    value: https://api.servicetitan.io
-  - label: Integration
-    value: https://api-integration.servicetitan.io
-  value: https://api.servicetitan.io
-- description: The URL for the ServiceTitan OAuth API
+  value: https://api-integration.servicetitan.io
+- description: The url for the ServiceTitan OAuth API
   kind: string
   label: Auth URL
   name: auth_url
-  options:
-  - label: Production
-    value: https://auth.servicetitan.io/connect/token
-  - label: Integration
-    value: https://auth-integration.servicetitan.io/connect/token
-  value: https://auth.servicetitan.io/connect/token
+  value: https://auth-integration.servicetitan.io/connect/token
 - description: Compression format to use for batch files.
   kind: options
   label: Batch Compression Format
@@ -110,7 +100,7 @@ settings:
   label: St App Key
   name: st_app_key
   sensitive: true
-- description: The start date-time for incremental streams.
+- description: The start date for the records to pull.
   kind: date_iso8601
   label: Start Date
   name: start_date
