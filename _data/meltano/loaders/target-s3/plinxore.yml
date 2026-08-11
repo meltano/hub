@@ -6,9 +6,13 @@ description: "S3-compatible object storage target (JSON/JSONL/CSV/Parquet). This
   the plinxore fork of crowemi/target-s3, maturing it for production use: real gzip
   compression (the original wrote plaintext behind a misleading .gz extension), corrected
   JSONL datetime serialization, configurable handling of source dates the SDK can't
-  parse (e.g. legacy MySQL zero-dates), and a collision-safe per-batch filename scheme
+  parse (e.g. legacy MySQL zero-dates), a collision-safe per-batch filename scheme
   (a monotonic counter plus a UUID) so concurrent or repeated runs can never silently
-  overwrite each other's files."
+  overwrite each other's files, and a Parquet writer with a stable schema across
+  batches (derived once from the Singer SCHEMA rather than re-inferred per batch,
+  so files from the same stream can always be read together) and exact decimal
+  precision for DECIMAL-shaped columns (mapped to decimal128, not float64) --
+  guarantees no other variant of target-s3 currently makes for Parquet output."
 domain_url: https://aws.amazon.com/s3/
 executable: target-s3
 keywords:
@@ -167,13 +171,20 @@ settings:
   kind: object
   label: Format Format Json
   name: format.format_json
-- description: Set true if you want to declare schema of the resulting parquet 
-    file based on taps. Doesn't work with 'anyOf' types or when complex data is 
-    not defined at element level. Doesn't work with validate option for now.
+- description: Derive the Parquet schema once from the stream's Singer SCHEMA 
+    message and reuse it for every batch of that stream, instead of letting 
+    pyarrow infer a schema independently per batch. Per-batch inference (set 
+    this to false to use it) is what causes schema drift between Parquet files 
+    of the same stream -- a batch where a column happens to be all-null infers 
+    that column as pyarrow's null type, while a later batch with real values 
+    infers a real type, producing files that can't be read together. Doesn't 
+    work with 'anyOf' types or when complex data is not defined at element 
+    level. Doesn't work with the validate option (validate only applies to the 
+    per-batch-inference path).
   kind: boolean
   label: Format Format Parquet Get Schema From Tap
   name: format.format_parquet.get_schema_from_tap
-  value: false
+  value: true
 - description: This flag determines whether the data types of incoming data 
     elements should be validated. When set to true, a schema is created from the
     first record and all subsequent records that don't match that data type are 
