@@ -8,11 +8,11 @@ description: "S3-compatible object storage target (JSON/JSONL/CSV/Parquet). This
   JSONL datetime serialization, configurable handling of source dates the SDK can't
   parse (e.g. legacy MySQL zero-dates), a collision-safe per-batch filename scheme
   (a monotonic counter plus a UUID) so concurrent or repeated runs can never silently
-  overwrite each other's files, and a Parquet writer with a stable schema across
-  batches (derived once from the Singer SCHEMA rather than re-inferred per batch,
-  so files from the same stream can always be read together) and exact decimal
-  precision for DECIMAL-shaped columns (mapped to decimal128, not float64) --
-  guarantees no other variant of target-s3 currently makes for Parquet output."
+  overwrite each other's files, and a Parquet writer with a stable schema across batches
+  (derived once from the Singer SCHEMA rather than re-inferred per batch, so files
+  from the same stream can always be read together) and exact decimal precision for
+  DECIMAL-shaped columns (mapped to decimal128, not float64) -- guarantees no other
+  variant of target-s3 currently makes for Parquet output."
 domain_url: https://aws.amazon.com/s3/
 executable: target-s3
 keywords:
@@ -86,6 +86,21 @@ settings:
   - label: Microsecond
     value: microsecond
   value: day
+- description: "Whether to append a random UUID to the key filename, after the '-part-NNNNN'
+    batch counter (which is always present and unaffected by this setting). 'true'
+    (default) guarantees no two runs can ever collide on the same key -- a same-day
+    retry gets fresh UUIDs and its objects accumulate alongside the previous run's
+    instead of overwriting them, which is the safe default for a published target.
+    Set to 'false' to make filenames reusable across runs with the same batch layout,
+    so a rerun overwrites the previous run's objects on matching keys instead of accumulating
+    -- this is one of three things a real full-refresh overwrite needs, not the whole
+    mechanism: it must be combined with purging the key prefix before the run (orchestration)
+    and reading from a fixed path (the consumer). This target only controls naming;
+    it does not purge, deduplicate, or know whether a given run is a full refresh."
+  kind: boolean
+  label: Append Uuid
+  name: append_uuid
+  value: true
 - description: Your AWS access key ID.
   kind: password
   label: Cloud Provider AWS AWS Access Key ID
