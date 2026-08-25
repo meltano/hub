@@ -66,10 +66,19 @@ jobs:
           else
             echo "INVALID_URL=" >> $GITHUB_ENV
           fi
+      - name: Generate MeltyBot token
+        id: app-token
+        if: env.INVALID_URL != ''
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        with:
+          client-id: ${{ secrets.MELTYBOT_APP_CLIENT_ID }}
+          private-key: ${{ secrets.MELTYBOT_APP_PRIVATE_KEY }}
+          permission-issues: write  # to create/update the invalid-urls issue
+
       - uses: JasonEtco/create-an-issue@1b14a70e4d8dc185e5cc76d3bec9eab20257b2c5 # v2.9.2
         if: env.INVALID_URL != ''
         env:
-          GITHUB_TOKEN: ${{ secrets.MELTYBOT_GITHUB_AUTH_TOKEN }}
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
           INVALID_URLS: ${{ env.INVALID_URL }}
         with:
           filename: .github/ISSUE_TEMPLATE/invalid_urls.md
