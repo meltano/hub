@@ -49,11 +49,19 @@ jobs:
       pull-requests: write  # to create and update PRs
 
     steps:
+    - name: Generate MeltyBot token
+      id: app-token
+      uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+      with:
+        client-id: ${{ secrets.MELTYBOT_APP_CLIENT_ID }}
+        private-key: ${{ secrets.MELTYBOT_APP_PRIVATE_KEY }}
+        permission-issues: write  # to react to the triggering comment
+
     - name: Add 👀 reaction
       if: github.event.inputs.from-slash-command == 'true'
       uses: peter-evans/create-or-update-comment@e8674b075228eee787fea43ef493e45ece1004c9 # v5.0.0
       with:
-        token: ${{ secrets.MELTYBOT_GITHUB_AUTH_TOKEN }}
+        token: ${{ steps.app-token.outputs.token }}
         repository: ${{ github.event.inputs.repository }}
         comment-id: ${{ github.event.inputs.comment-id }}
         reactions: eyes
@@ -260,7 +268,7 @@ jobs:
       if: github.event.inputs.from-slash-command == 'true'
       uses: peter-evans/create-or-update-comment@e8674b075228eee787fea43ef493e45ece1004c9 # v5.0.0
       with:
-        token: ${{ secrets.MELTYBOT_GITHUB_AUTH_TOKEN }}
+        token: ${{ steps.app-token.outputs.token }}
         repository: ${{ github.event.inputs.repository }}
         comment-id: ${{ github.event.inputs.comment-id }}
         reactions: hooray
@@ -269,7 +277,7 @@ jobs:
       uses: peter-evans/create-or-update-comment@e8674b075228eee787fea43ef493e45ece1004c9 # v5.0.0
       if: failure() && (github.event.inputs.from-slash-command == 'true')
       with:
-        token: ${{ secrets.MELTYBOT_GITHUB_AUTH_TOKEN }}
+        token: ${{ steps.app-token.outputs.token }}
         repository: ${{ github.event.inputs.repository }}
         comment-id: ${{ github.event.inputs.comment-id }}
         reactions: confused
