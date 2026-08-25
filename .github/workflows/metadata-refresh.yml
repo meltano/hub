@@ -56,10 +56,19 @@ jobs:
       id: date
       run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
 
+    - name: Generate MeltyBot token
+      id: app-token
+      uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+      with:
+        client-id: ${{ secrets.MELTYBOT_APP_CLIENT_ID }}
+        private-key: ${{ secrets.MELTYBOT_APP_PRIVATE_KEY }}
+        permission-contents: write       # to push the metadata refresh branch
+        permission-pull-requests: write  # to open the PR
+
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
       with:
-        token: ${{ secrets.MELTYBOT_GITHUB_AUTH_TOKEN }}
+        token: ${{ steps.app-token.outputs.token }}
         commit-message: Refresh plugin metadata ${{ steps.date.outputs.date }}
         committer: GitHub <noreply@github.com>
         author: MeltyBot <MeltyBot@users.noreply.github.com>

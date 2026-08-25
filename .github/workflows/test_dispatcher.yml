@@ -91,6 +91,14 @@ jobs:
           comment-author: 'github-actions[bot]'
           body-includes: ${{ steps.plugin-info.outputs.prelude }}
 
+      - name: Generate MeltyBot token
+        id: app-token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        with:
+          client-id: ${{ secrets.MELTYBOT_APP_CLIENT_ID }}
+          private-key: ${{ secrets.MELTYBOT_APP_PRIVATE_KEY }}
+          permission-actions: write  # to dispatch test-plugin-command.yml
+
       - uses: octokit/request-action@b91aabaa861c777dcdb14e2387e30eddf04619ae # v3.0.0
         with:
           route: "POST /repos/${{ github.repository }}/actions/workflows/test-plugin-command.yml/dispatches"
@@ -107,4 +115,4 @@ jobs:
               "prepend-text": "${{ steps.plugin-info.outputs.prelude }}"
             }
         env:
-          GITHUB_TOKEN: ${{ secrets.MELTYBOT_GITHUB_AUTH_TOKEN }}
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
