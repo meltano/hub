@@ -1,0 +1,300 @@
+capabilities:
+- about
+- schema-flattening
+- stream-maps
+description: "S3-compatible object storage target (JSON/JSONL/CSV/Parquet). This is
+  the plinxore fork of crowemi/target-s3, maturing it for production use: real gzip
+  compression (the original wrote plaintext behind a misleading .gz extension), corrected
+  JSONL datetime serialization, configurable handling of source dates the SDK can't
+  parse (e.g. legacy MySQL zero-dates), a collision-safe per-batch filename scheme
+  (a monotonic counter plus a UUID) so concurrent or repeated runs can never silently
+  overwrite each other's files, and a Parquet writer with a stable schema across batches
+  (derived once from the Singer SCHEMA rather than re-inferred per batch, so files
+  from the same stream can always be read together) and exact decimal precision for
+  DECIMAL-shaped columns (mapped to decimal128, not float64) -- guarantees no other
+  variant of target-s3 currently makes for Parquet output."
+domain_url: https://aws.amazon.com/s3/
+executable: target-s3
+keywords:
+- meltano_sdk
+- aws
+- file
+label: S3 (Multi Format)
+logo_url: /assets/logos/loaders/s3.png
+maintenance_status: active
+name: target-s3
+namespace: target_s3
+next_steps: ''
+pip_url: plinxore-target-s3
+quality: unknown
+repo: https://github.com/plinxore/target-s3
+settings:
+- description: Add metadata to records.
+  kind: boolean
+  label: Add Record Metadata
+  name: add_record_metadata
+- description: A flag to append the date to the key filename, for readability. 
+    Every filename already carries a monotonic '-part-NNNNN' batch counter 
+    regardless of this setting, so this is purely cosmetic -- it is not what 
+    guarantees batch-to-batch uniqueness.
+  kind: boolean
+  label: Append Date To Filename
+  name: append_date_to_filename
+  value: true
+- description: The grain of the date to append to the filename.
+  kind: options
+  label: Append Date To Filename Grain
+  name: append_date_to_filename_grain
+  options:
+  - label: Year
+    value: year
+  - label: Month
+    value: month
+  - label: Day
+    value: day
+  - label: Hour
+    value: hour
+  - label: Minute
+    value: minute
+  - label: Second
+    value: second
+  - label: Microsecond
+    value: microsecond
+  value: day
+- description: A flag to append the date to the key prefix.
+  kind: boolean
+  label: Append Date To Prefix
+  name: append_date_to_prefix
+  value: true
+- description: The grain of the date to append to the prefix.
+  kind: options
+  label: Append Date To Prefix Grain
+  name: append_date_to_prefix_grain
+  options:
+  - label: Year
+    value: year
+  - label: Month
+    value: month
+  - label: Day
+    value: day
+  - label: Hour
+    value: hour
+  - label: Minute
+    value: minute
+  - label: Second
+    value: second
+  - label: Microsecond
+    value: microsecond
+  value: day
+- description: "Whether to append a random UUID to the key filename, after the '-part-NNNNN'
+    batch counter (which is always present and unaffected by this setting). 'true'
+    (default) guarantees no two runs can ever collide on the same key -- a same-day
+    retry gets fresh UUIDs and its objects accumulate alongside the previous run's
+    instead of overwriting them, which is the safe default for a published target.
+    Set to 'false' to make filenames reusable across runs with the same batch layout,
+    so a rerun overwrites the previous run's objects on matching keys instead of accumulating
+    -- this is one of three things a real full-refresh overwrite needs, not the whole
+    mechanism: it must be combined with purging the key prefix before the run (orchestration)
+    and reading from a fixed path (the consumer). This target only controls naming;
+    it does not purge, deduplicate, or know whether a given run is a full refresh."
+  kind: boolean
+  label: Append Uuid
+  name: append_uuid
+  value: true
+- description: Your AWS access key ID.
+  kind: password
+  label: Cloud Provider AWS AWS Access Key ID
+  name: cloud_provider.aws.aws_access_key_id
+  sensitive: true
+- description: The name of the S3 bucket to write to.
+  kind: password
+  label: Cloud Provider AWS AWS Bucket
+  name: cloud_provider.aws.aws_bucket
+  sensitive: true
+- description: S3-compatible endpoint URL override, e.g. for MinIO or other 
+    non-AWS S3-compatible storage.
+  kind: password
+  label: Cloud Provider AWS AWS Endpoint Override
+  name: cloud_provider.aws.aws_endpoint_override
+  sensitive: true
+- description: Your AWS profile name to optionally use for auth.
+  kind: password
+  label: Cloud Provider AWS AWS Profile Name
+  name: cloud_provider.aws.aws_profile_name
+  sensitive: true
+- description: Your AWS region.
+  kind: password
+  label: Cloud Provider AWS AWS Region
+  name: cloud_provider.aws.aws_region
+  sensitive: true
+- description: Your AWS secret access key.
+  kind: password
+  label: Cloud Provider AWS AWS Secret Access Key
+  name: cloud_provider.aws.aws_secret_access_key
+  sensitive: true
+- description: Optional AWS session token for temporary credentials.
+  kind: password
+  label: Cloud Provider AWS AWS Session Token
+  name: cloud_provider.aws.aws_session_token
+  sensitive: true
+- description: The cloud provider type to use.
+  kind: password
+  label: Cloud Provider Cloud Provider Type
+  name: cloud_provider.cloud_provider_type
+  sensitive: true
+- description: Compression to apply to written files. 'gzip' appends a .gz 
+    suffix and produces real gzip output; 'none' disables compression.
+  kind: options
+  label: Compression
+  name: compression
+  options:
+  - label: None
+    value: none
+  - label: GZIP
+    value: gzip
+  value: gzip
+- description: How to handle date/date-time values the SDK cannot parse (e.g. 
+    MySQL/MyISAM zero-dates like '0000-00-00 00:00:00'). 'null' replaces the 
+    value with null, 'max' replaces it with the max representable timestamp, 
+    'error' aborts the run.
+  kind: options
+  label: Datetime Error Treatment
+  name: datetime_error_treatment
+  options:
+  - label: 'Null'
+    value: 'null'
+  - label: Max
+    value: max
+  - label: Error
+    value: error
+  value: 'null'
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Flattening Enabled
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Flattening Max Depth
+  name: flattening_max_depth
+- description: Configuration object for the csv format type (not yet 
+    implemented).
+  kind: object
+  label: Format Format Csv
+  name: format.format_csv
+- description: Configuration object for the json format type.
+  kind: object
+  label: Format Format Json
+  name: format.format_json
+- description: Derive the Parquet schema once from the stream's Singer SCHEMA 
+    message and reuse it for every batch of that stream, instead of letting 
+    pyarrow infer a schema independently per batch. Per-batch inference (set 
+    this to false to use it) is what causes schema drift between Parquet files 
+    of the same stream -- a batch where a column happens to be all-null infers 
+    that column as pyarrow's null type, while a later batch with real values 
+    infers a real type, producing files that can't be read together. Doesn't 
+    work with 'anyOf' types or when complex data is not defined at element 
+    level. Doesn't work with the validate option (validate only applies to the 
+    per-batch-inference path).
+  kind: boolean
+  label: Format Format Parquet Get Schema From Tap
+  name: format.format_parquet.get_schema_from_tap
+  value: true
+- description: This flag determines whether the data types of incoming data 
+    elements should be validated. When set to true, a schema is created from the
+    first record and all subsequent records that don't match that data type are 
+    cast.
+  kind: boolean
+  label: Format Format Parquet Validate
+  name: format.format_parquet.validate
+  value: false
+- description: The format type of the output files.
+  kind: options
+  label: Format Format Type
+  name: format.format_type
+  options:
+  - label: Parquet
+    value: parquet
+  - label: Json
+    value: json
+  - label: JSONL
+    value: jsonl
+- description: A flag indicating whether to append _process_date to record.
+  kind: boolean
+  label: Include Process Date
+  name: include_process_date
+  value: false
+- description: The method to use when loading data into the destination. 
+    `append-only` will always write all input records whether that records 
+    already exists or not. `upsert` will update existing records and insert new 
+    records. `overwrite` will delete all existing records and insert all input 
+    records.
+  kind: options
+  label: Load Method
+  name: load_method
+  options:
+  - label: Append Only
+    value: append-only
+  - label: Upsert
+    value: upsert
+  - label: Overwrite
+    value: overwrite
+  value: append-only
+- description: Maximum time in minutes between state messages when records are 
+    streamed in.
+  kind: integer
+  label: Max Batch Age
+  name: max_batch_age
+  value: 5.0
+- description: Maximum size of batches when records are streamed in.
+  kind: integer
+  label: Max Batch Size
+  name: max_batch_size
+  value: 10000
+- description: List of key-value strings (e.g., 'tenant=${TENANT}') to prepend 
+    as partitions in the S3 key path after the stream name.
+  kind: array
+  label: Partition By
+  name: partition_by
+- description: A flag (only works if append_date_to_prefix is enabled) to have 
+    partitioning name formatted e.g. 'year=2023/month=01/day=01'.
+  kind: boolean
+  label: Partition Name Enabled
+  name: partition_name_enabled
+  value: false
+- description: The prefix for the key.
+  kind: string
+  label: Prefix
+  name: prefix
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: Stream Map Config
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: The S3 key stream name override.
+  kind: password
+  label: Stream Name Path Override
+  name: stream_name_path_override
+  sensitive: true
+- description: A flag to force the filename to be identical to the stream name.
+  kind: boolean
+  label: Use Raw Stream Name
+  name: use_raw_stream_name
+  value: false
+settings_group_validation:
+- - cloud_provider.aws.aws_bucket
+  - cloud_provider.aws.aws_region
+  - cloud_provider.cloud_provider_type
+  - format.format_type
+settings_preamble: ''
+supported_python_versions:
+- '3.9'
+- '3.10'
+- '3.11'
+- '3.12'
+usage: ''
+variant: plinxore
