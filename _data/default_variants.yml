@@ -306,6 +306,7 @@ extractors:
   tap-listrak: dbt-labs
   tap-livechat: pathlight
   tap-liveperson: singer-io
+  tap-livetennisapi: livetennisapi
   tap-lokalise: airbyte
   tap-looker: singer-io
   tap-lookml: singer-io
