@@ -18,7 +18,7 @@ maintenance_status: beta
 name: tap-cassandra
 namespace: tap_cassandra
 next_steps: ''
-pip_url: git+https://github.com/datarts-tech/tap-cassandra.git
+pip_url: git+https://github.com/datarts-tech/tap-cassandra.git setuptools<82
 quality: silver
 repo: https://github.com/datarts-tech/tap-cassandra
 settings:

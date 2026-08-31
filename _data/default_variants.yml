@@ -117,7 +117,7 @@ extractors:
   tap-coinmarketcap: airbyte
   tap-commercetools: airbyte
   tap-configcat: airbyte
-  tap-confluence: edgarrmondragon
+  tap-confluence: airbyte
   tap-contentful: gthesheep
   tap-convertkit: airbyte
   tap-convex: airbyte
@@ -172,7 +172,7 @@ extractors:
   tap-estoca: muriloo
   tap-eventbrite: hotgluexyz
   tap-everflow: matatika
-  tap-exact: hotgluexyz
+  tap-exact: ticketswap
   tap-exactsales: rafaeljusi
   tap-exacttarget: singer-io
   tap-exchangeratehost: anelendata
@@ -206,7 +206,7 @@ extractors:
   tap-fortnox: hotgluexyz
   tap-freshbooks: hotgluexyz
   tap-freshcaller: hotgluexyz
-  tap-freshdesk: acarter24
+  tap-freshdesk: airbyte
   tap-freshsales: airbyte
   tap-freshservice: airbyte
   tap-freshworks: hotgluexyz
@@ -325,12 +325,10 @@ extractors:
   tap-marketo: singer-io
   tap-marketplacer: hotgluexyz
   tap-mavenlink: dbt-labs
-  tap-megaphone: yujoy
   tap-meltano: matatika
   tap-meltanohub: autoidm
   tap-meltwater: ella6882
   tap-memberful: prratek
-  tap-mercadopago: a-rusi
   tap-meshstack: meshcloud
   tap-messagebird: meltanolabs
   tap-metabase: airbyte
@@ -387,7 +385,7 @@ extractors:
   tap-outreach: singer-io
   tap-pagerduty: goodeggs
   tap-pardot: singer-io
-  tap-parquet: ae-nv
+  tap-parquet: dataops-tk
   tap-partnerize: voxmedia
   tap-partnerstack: airbyte
   tap-partoo: gendarmerienationale
@@ -508,7 +506,7 @@ extractors:
   tap-sling: singer-io
   tap-smaily: airbyte
   tap-smartengage: airbyte
-  tap-smartsheet: brooklyn-data
+  tap-smartsheet: airbyte
   tap-smoke-test: meltano
   tap-sms: jboltron3000
   tap-snapchat-ads: singer-io

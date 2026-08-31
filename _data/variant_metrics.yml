@@ -2831,25 +2831,6 @@ metrics:
     success_projects_unstruct_by_name: 0
     success_projects_unstruct_by_variant: 0
     variant: zookal
-  https://github.com/a-rusi/tap-mercadopago:
-    all_execs: 87
-    all_execs_by_name: 87
-    all_execs_unstruct_by_name: 87
-    all_execs_unstruct_by_variant: 87
-    all_projects: 1
-    all_projects_by_name: 1
-    all_projects_unstruct_by_name: 1
-    all_projects_unstruct_by_variant: 1
-    name: tap-mercadopago
-    pip_url: git+https://github.com/a-rusi/tap-mercadopago.git
-    plugin_type: extractors
-    success_execs_by_name: 87
-    success_execs_unstruct_by_name: 87
-    success_execs_unstruct_by_variant: 87
-    success_projects_by_name: 1
-    success_projects_unstruct_by_name: 1
-    success_projects_unstruct_by_variant: 1
-    variant: a-rusi
   https://github.com/aaimtt/target-kinesis:
     all_execs: 0
     all_execs_by_name: 0
@@ -2869,25 +2850,6 @@ metrics:
     success_projects_unstruct_by_name: 0
     success_projects_unstruct_by_variant: 0
     variant: aaimtt
-  https://github.com/acarter24/tap-freshdesk:
-    all_execs: 283
-    all_execs_by_name: 2537
-    all_execs_unstruct_by_name: 2537
-    all_execs_unstruct_by_variant: 283
-    all_projects: 3
-    all_projects_by_name: 7
-    all_projects_unstruct_by_name: 7
-    all_projects_unstruct_by_variant: 3
-    name: tap-freshdesk
-    pip_url: git+https://github.com/acarter24/tap-freshdesk.git
-    plugin_type: extractors
-    success_execs_by_name: 2284
-    success_execs_unstruct_by_name: 2284
-    success_execs_unstruct_by_variant: 121
-    success_projects_by_name: 7
-    success_projects_unstruct_by_name: 7
-    success_projects_unstruct_by_variant: 2
-    variant: acarter24
   https://github.com/adswerve/singer-tap-amazon-mws:
     all_execs: 0
     all_execs_by_name: 0
@@ -8286,25 +8248,6 @@ metrics:
     success_projects_unstruct_by_name: 8
     success_projects_unstruct_by_variant: 8
     variant: brooklyn-data
-  https://github.com/brooklyn-data/tap-smartsheet:
-    all_execs: 7
-    all_execs_by_name: 20
-    all_execs_unstruct_by_name: 20
-    all_execs_unstruct_by_variant: 7
-    all_projects: 1
-    all_projects_by_name: 2
-    all_projects_unstruct_by_name: 2
-    all_projects_unstruct_by_variant: 1
-    name: tap-smartsheet
-    pip_url: git+https://github.com/brooklyn-data/tap-smartsheet.git
-    plugin_type: extractors
-    success_execs_by_name: 17
-    success_execs_unstruct_by_name: 17
-    success_execs_unstruct_by_variant: 7
-    success_projects_by_name: 2
-    success_projects_unstruct_by_name: 2
-    success_projects_unstruct_by_variant: 1
-    variant: brooklyn-data
   https://github.com/bytecodeio/tap-3plcentral:
     all_execs: 0
     all_execs_by_name: 0
@@ -10337,25 +10280,6 @@ metrics:
     success_projects_by_name: 0
     success_projects_unstruct_by_name: 0
     success_projects_unstruct_by_variant: 0
-    variant: edgarrmondragon
-  https://github.com/edgarrmondragon/tap-confluence:
-    all_execs: 8
-    all_execs_by_name: 109
-    all_execs_unstruct_by_name: 109
-    all_execs_unstruct_by_variant: 8
-    all_projects: 4
-    all_projects_by_name: 6
-    all_projects_unstruct_by_name: 6
-    all_projects_unstruct_by_variant: 4
-    name: tap-confluence
-    pip_url: git+https://github.com/edgarrmondragon/tap-confluence.git
-    plugin_type: extractors
-    success_execs_by_name: 45
-    success_execs_unstruct_by_name: 45
-    success_execs_unstruct_by_variant: 4
-    success_projects_by_name: 4
-    success_projects_unstruct_by_name: 4
-    success_projects_unstruct_by_variant: 2
     variant: edgarrmondragon
   https://github.com/edgarrmondragon/tap-criteo:
     all_execs: 0
@@ -18413,25 +18337,6 @@ metrics:
     success_projects_unstruct_by_name: 45
     success_projects_unstruct_by_variant: 37
     variant: wintersrd
-  https://github.com/yujoy/tap-megaphone:
-    all_execs: 0
-    all_execs_by_name: 138
-    all_execs_unstruct_by_name: 0
-    all_execs_unstruct_by_variant: 0
-    all_projects: 0
-    all_projects_by_name: 2
-    all_projects_unstruct_by_name: 0
-    all_projects_unstruct_by_variant: 0
-    name: tap-megaphone
-    pip_url: tap-megaphone
-    plugin_type: extractors
-    success_execs_by_name: 138
-    success_execs_unstruct_by_name: 0
-    success_execs_unstruct_by_variant: 0
-    success_projects_by_name: 2
-    success_projects_unstruct_by_name: 0
-    success_projects_unstruct_by_variant: 0
-    variant: yujoy
   https://github.com/z3z1ma/dbt-osmosis:
     all_execs: 59
     all_execs_by_name: 0
@@ -18829,25 +18734,6 @@ metrics:
     success_execs_unstruct_by_variant: 0
     success_projects_by_name: 0
     success_projects_unstruct_by_name: 0
-    success_projects_unstruct_by_variant: 0
-    variant: hotgluexyz
-  https://gitlab.com/hotglue/tap-exact:
-    all_execs: 2
-    all_execs_by_name: 202
-    all_execs_unstruct_by_name: 202
-    all_execs_unstruct_by_variant: 2
-    all_projects: 1
-    all_projects_by_name: 3
-    all_projects_unstruct_by_name: 3
-    all_projects_unstruct_by_variant: 1
-    name: tap-exact
-    pip_url: git+https://gitlab.com/hotglue/tap-exact.git
-    plugin_type: extractors
-    success_execs_by_name: 51
-    success_execs_unstruct_by_name: 51
-    success_execs_unstruct_by_variant: 0
-    success_projects_by_name: 1
-    success_projects_unstruct_by_name: 1
     success_projects_unstruct_by_variant: 0
     variant: hotgluexyz
   https://gitlab.com/hotglue/tap-faire:
