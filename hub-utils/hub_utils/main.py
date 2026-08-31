@@ -239,12 +239,12 @@ def get_variant_names(
     [AUTOMATION](https://github.com/meltano/hub/tree/main/.github/workflows) ONLY
 
     Generate a list of variant names for a given set of filters.
-    The list will be formatted as escaped JSON to be used by Github Actions.
+    The list will be formatted as JSON to be used by Github Actions.
     """
     util = Utilities(True)
     util.hub_root = hub_root
     formatted_output = util.get_variant_names(plugin_type, metadata_type, skip, limit)
-    print(json.dumps(formatted_output).replace('"', '\\"'))
+    print(json.dumps(formatted_output))
 
 
 @app.command()
