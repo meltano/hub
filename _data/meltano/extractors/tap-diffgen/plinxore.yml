@@ -1,0 +1,152 @@
+capabilities:
+- about
+- activate-version
+- batch
+- catalog
+- discover
+- schema-flattening
+- state
+- stream-maps
+- structured-logging
+description: "A generic Singer tap for the \"diffgen\" pattern: an application-level
+  audit-log table that journals every INSERT/UPDATE/DELETE made to other tables in
+  the same database. Instead of reading a target table directly, the tap replays that
+  log since the last bookmark and, per event, either repulls the affected row fresh
+  (insert/update) or emits a tombstone -- just the primary key plus is_deleted: true
+  (delete). This is what a plain timestamp-filtered incremental extraction can never
+  represent on its own: a deleted row doesn't show up in a WHERE updated_at > ...
+  query, so deletes silently vanish downstream. Supports PostgreSQL and MySQL, with
+  a per-table tombstones_only mode for tables that already have a separate, conventional
+  incremental tap and just need the DELETE gap filled."
+domain_url: https://en.wikipedia.org/wiki/Change_data_capture
+executable: tap-diffgen
+keywords:
+- meltano_sdk
+label: Diffgen Audit Log
+log_parser: singer-sdk
+logo_url: /assets/logos/extractors/diffgen.png
+maintenance_status: active
+name: tap-diffgen
+namespace: tap_diffgen
+next_steps: ''
+pip_url: plinxore-tap-diffgen
+quality: unknown
+repo: https://github.com/plinxore/tap-diffgen
+settings:
+- description: Compression format to use for batch files.
+  kind: options
+  label: Batch Compression Format
+  name: batch_config.encoding.compression
+  options:
+  - label: GZIP
+    value: gzip
+  - label: None
+    value: none
+- description: Format to use for batch files.
+  kind: options
+  label: Batch Encoding Format
+  name: batch_config.encoding.format
+  options:
+  - label: JSONL
+    value: jsonl
+  - label: Parquet
+    value: parquet
+- description: Prefix to use when writing batch files.
+  kind: string
+  label: Batch Storage Prefix
+  name: batch_config.storage.prefix
+- description: Root path to use when writing batch files.
+  kind: string
+  label: Batch Storage Root
+  name: batch_config.storage.root
+- description: Database name.
+  kind: string
+  label: Database
+  name: database
+- description: 'One or more LCID locale strings to produce localized output for: https://faker.readthedocs.io/en/master/#localization'
+  kind: array
+  label: Faker Locale
+  name: faker_config.locale
+- description: 'Value to seed the Faker generator for deterministic output: https://faker.readthedocs.io/en/master/#seeding-the-generator'
+  kind: string
+  label: Faker Seed
+  name: faker_config.seed
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Enable Schema Flattening
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Max Flattening Depth
+  name: flattening_max_depth
+- description: The maximum length of a flattened key.
+  kind: integer
+  label: Max Key Length
+  name: flattening_max_key_length
+- description: The separator to use when flattening keys.
+  kind: string
+  label: Flattening Separator
+  name: flattening_separator
+- description: Database host.
+  kind: string
+  label: Host
+  name: host
+- description: Database password.
+  kind: password
+  label: Password
+  name: password
+  sensitive: true
+- description: Database port. Defaults to the dialect's standard port (5432 for 
+    postgres, 3306 for mysql) if omitted.
+  kind: integer
+  label: Port
+  name: port
+- description: Schema to look up the diffgen and target tables under. Postgres 
+    only (defaults to 'public' if omitted); ignored for MySQL, where 'database' 
+    already plays this role.
+  kind: string
+  label: Schema
+  name: schema
+- description: Which SQL backend the diffgen and target tables live in.
+  kind: options
+  label: Sql Dialect
+  name: sql_dialect
+  options:
+  - label: Postgres
+    value: postgres
+  - label: Mysql
+    value: mysql
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: User Stream Map Configuration
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: One entry per target table to replicate via diffgen.
+  kind: array
+  label: Tables
+  name: tables
+- description: Database user.
+  kind: string
+  label: User
+  name: user
+settings_group_validation:
+- - database
+  - host
+  - password
+  - sql_dialect
+  - tables
+  - user
+settings_preamble: ''
+supported_python_versions:
+- '3.10'
+- '3.11'
+- '3.12'
+- '3.13'
+- '3.14'
+usage: ''
+variant: plinxore
