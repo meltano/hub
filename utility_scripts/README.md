@@ -25,5 +25,5 @@ uv run python utility_scripts/api/make_files.py -o _hub_api --hub-url $HUB_URL -
 To sync the files with the target S3 bucket, run the following command:
 
 ```bash
-aws s3 sync _hub_api s3://<s3-bucket>/hub-api
+aws s3 sync --content-type application/json _hub_api s3://<s3-bucket>/hub-api
 ```

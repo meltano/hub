@@ -108,4 +108,4 @@ jobs:
       env:
         HUB_API_S3_BUCKET: ${{ secrets.HUB_API_S3_BUCKET }}
       run: |
-        aws s3 sync _hub_api "s3://${HUB_API_S3_BUCKET}/hub-api"
+        aws s3 sync --content-type application/json _hub_api "s3://${HUB_API_S3_BUCKET}/hub-api"
