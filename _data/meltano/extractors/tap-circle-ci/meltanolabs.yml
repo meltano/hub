@@ -76,6 +76,10 @@ settings:
   kind: integer
   label: Max Key Length
   name: flattening_max_key_length
+- description: The separator to use when flattening keys.
+  kind: string
+  label: Flattening Separator
+  name: flattening_separator
 - description: 'Organization slug in the form vcs-slug/org-name. Example: org-slug=gh/CircleCI-Public'
   kind: string
   label: Org Slug
@@ -95,10 +99,6 @@ settings:
   label: Token
   name: token
   sensitive: true
-- description: User-Agent header
-  kind: string
-  label: User Agent
-  name: user_agent
 settings_group_validation:
 - - org_slug
   - token
@@ -109,5 +109,6 @@ supported_python_versions:
 - '3.12'
 - '3.13'
 - '3.14'
+- '3.15'
 usage: ''
 variant: meltanolabs

@@ -30,11 +30,21 @@ settings:
   label: API Key
   name: api_key
   sensitive: true
-- description: The url for the API service
+- description: OAuth app client ID, required when using access_token
+  kind: password
+  label: Client ID
+  name: client_id
+  sensitive: true
+- description: OAuth app client secret, required when using access_token
+  kind: password
+  label: Client Secret
+  name: client_secret
+  sensitive: true
+- description: Base URL for the Faire API
   kind: string
-  label: API URL
-  name: api_url
-  value: https://www.faire.com/api/v1/
+  label: Faire URL
+  name: faire_url
+  value: https://www.faire.com/external-api/v2
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
@@ -56,6 +66,10 @@ settings:
   kind: object
   label: Stream Maps
   name: stream_maps
+- description: Value to send as the User-Agent request header
+  kind: string
+  label: User Agent
+  name: user_agent
 settings_group_validation:
 - - api_key
 settings_preamble: ''

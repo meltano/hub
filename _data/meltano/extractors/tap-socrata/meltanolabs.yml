@@ -7,6 +7,7 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
+- structured-logging
 description: The Socrata Open Data API allows you to programmatically access a 
   wealth of open data resources from governments, non-profits, and NGOs around 
   the world.
@@ -65,6 +66,12 @@ settings:
   kind: string
   label: Batch Storage Root
   name: batch_config.storage.root
+- description: Optional list of Socrata dataset (4x4) IDs to restrict discovery 
+    to. If omitted, every dataset published under `domains` is discovered, which
+    can be a very large number of streams.
+  kind: array
+  label: Dataset IDs
+  name: dataset_ids
 - description: Domain names to query (e.g., ['data. Cityofchicago. Org'])
   kind: array
   label: Domains
@@ -86,6 +93,14 @@ settings:
   kind: integer
   label: Max Flattening Depth
   name: flattening_max_depth
+- description: The maximum length of a flattened key.
+  kind: integer
+  label: Max Key Length
+  name: flattening_max_key_length
+- description: The separator to use when flattening keys.
+  kind: string
+  label: Flattening Separator
+  name: flattening_separator
 - description: Optional Socrata Secret Token paired with App Token
   kind: password
   label: Secret Token
@@ -104,7 +119,8 @@ settings:
   kind: string
   label: User Agent
   name: user_agent
-settings_group_validation: []
+settings_group_validation:
+- - domains
 settings_preamble: ''
 usage: ''
 variant: meltanolabs

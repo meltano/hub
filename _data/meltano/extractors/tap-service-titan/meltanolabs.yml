@@ -25,7 +25,7 @@ quality: gold
 repo: https://github.com/MeltanoLabs/tap-service-titan
 settings:
 - description: The URL for the ServiceTitan API
-  kind: string
+  kind: options
   label: API URL
   name: api_url
   options:
@@ -35,7 +35,7 @@ settings:
     value: https://api-integration.servicetitan.io
   value: https://api.servicetitan.io
 - description: The URL for the ServiceTitan OAuth API
-  kind: string
+  kind: options
   label: Auth URL
   name: auth_url
   options:
@@ -70,6 +70,23 @@ settings:
   kind: string
   label: Batch Storage Root
   name: batch_config.storage.root
+- description: Business unit IDs to request availability for in the `capacities`
+    stream. When omitted, the tap auto-discovers all active business unit IDs 
+    via the `/settings/v2/.../export/business-units` endpoint. Explicit IDs 
+    (auto-discovered or configured) are always sent to the capacity endpoint; an
+    unfiltered query can silently omit business units that aren't part of a 
+    capacity group.
+  kind: array
+  label: Capacities Business Unit IDs
+  name: capacities_business_unit_ids
+- description: Number of days ahead of the current date to pull availability for
+    the `capacities` stream. The stream issues one request per day in the window
+    `[today, today + capacities_lookahead_days]`, so larger values increase the 
+    number of API calls (and runtime) per sync.
+  kind: integer
+  label: Capacities Lookahead Days
+  name: capacities_lookahead_days
+  value: 14
 - description: The client ID to use in authenticating.
   kind: password
   label: Client ID
@@ -105,6 +122,10 @@ settings:
   kind: integer
   label: Max Key Length
   name: flattening_max_key_length
+- description: The separator to use when flattening keys.
+  kind: string
+  label: Flattening Separator
+  name: flattening_separator
 - description: The app key for the Service Titan app used to authenticate.
   kind: password
   label: St App Key

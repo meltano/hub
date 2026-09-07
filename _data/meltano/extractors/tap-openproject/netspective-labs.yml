@@ -87,6 +87,16 @@ settings:
   label: Max Retries
   name: max_retries
   value: 3
+- description: List of project identifiers (slugs) to filter data extraction 
+    (optional, resolved to IDs internally)
+  kind: array
+  label: Project IDentifiers
+  name: project_identifiers
+- description: List of project IDs to filter data extraction (optional, for 
+    per-project ingestion)
+  kind: array
+  label: Project IDs
+  name: project_ids
 - description: Filter projects updated after this date (ISO 8601 format)
   kind: date_iso8601
   label: Start Date
@@ -109,7 +119,7 @@ settings:
   kind: string
   label: User Agent
   name: user_agent
-  value: tap-openproject/0.2.0
+  value: tap-openproject/0.3.0
 settings_group_validation:
 - - api_key
   - base_url

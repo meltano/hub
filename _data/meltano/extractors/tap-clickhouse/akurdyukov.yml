@@ -58,7 +58,8 @@ settings:
   label: Database
   name: database
   value: default
-- description: Driver type
+- description: Driver type. Use native for long or large extracts; HTTP can hit 
+    chunked transfer timeouts.
   kind: options
   label: Driver
   name: driver
@@ -92,6 +93,10 @@ settings:
   label: Host
   name: host
   value: localhost
+- description: 'HTTP driver only: requests connect/read timeout in seconds.'
+  kind: integer
+  label: Http Timeout Seconds
+  name: http_timeout_seconds
 - description: Username password
   kind: password
   label: Password
@@ -116,6 +121,17 @@ settings:
   kind: object
   label: Stream Maps
   name: stream_maps
+- description: 'HTTP driver: max full-query retries after transient read errors before
+    any rows are emitted.'
+  kind: integer
+  label: Stream Retry Max Attempts
+  name: stream_retry_max_attempts
+  value: 3
+- description: Seconds to wait between stream retry attempts.
+  kind: integer
+  label: Stream Retry Wait Seconds
+  name: stream_retry_wait_seconds
+  value: 2
 - description: Whether to use use strings with `x-singer.decimal` format for 
     decimals in the discovered schema. This is useful to avoid precision loss 
     when working with large numbers.

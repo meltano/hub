@@ -48,7 +48,7 @@ settings:
   label: Faker Locale
   name: faker_config.locale
 - description: 'Value to seed the Faker generator for deterministic output: https://faker.readthedocs.io/en/master/#seeding-the-generator'
-  kind: integer
+  kind: string
   label: Faker Seed
   name: faker_config.seed
 - description: "'True' to enable schema flattening and automatically expand nested

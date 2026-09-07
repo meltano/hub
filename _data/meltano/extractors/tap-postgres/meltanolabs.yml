@@ -23,6 +23,15 @@ pip_url: meltanolabs-tap-postgres
 quality: gold
 repo: https://github.com/MeltanoLabs/tap-postgres
 settings:
+- description: If True, LOG_BASED streams without a prior LSN bookmark are 
+    automatically bootstrapped via a FULL_TABLE sync before WAL streaming 
+    begins, with the current WAL flush LSN seeded as the stream's starting 
+    bookmark. If False (default), the WAL reader starts from the earliest entry 
+    (LSN=0). Only applies when log_based_single_connection=True.
+  kind: boolean
+  label: Auto Bootstrap Log Based
+  name: auto_bootstrap_log_based
+  value: false
 - description: Compression format to use for batch files.
   kind: options
   label: Batch Compression Format
@@ -100,6 +109,10 @@ settings:
   kind: integer
   label: Max Key Length
   name: flattening_max_key_length
+- description: The separator to use when flattening keys.
+  kind: string
+  label: Flattening Separator
+  name: flattening_separator
 - description: Hostname for postgres instance. Note if sqlalchemy_url is set 
     this will be ignored.
   kind: string
@@ -110,6 +123,14 @@ settings:
   kind: boolean
   label: Json As Object
   name: json_as_object
+  value: false
+- description: Use a single replication connection to sync all LOG_BASED streams
+    in one pass over the WAL. This avoids redundant WAL scans when multiple 
+    tables use LOG_BASED replication. Only applicable when replication_method is
+    LOG_BASED.
+  kind: boolean
+  label: Log Based Single Connection
+  name: log_based_single_connection
   value: false
 - description: Optional. The maximum number of records to return in a single 
     stream.

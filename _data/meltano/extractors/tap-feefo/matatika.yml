@@ -7,6 +7,7 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
+- structured-logging
 description: Customer review and feedback management platform.
 domain_url: https://business.feefo.com/
 keywords:
@@ -84,6 +85,14 @@ settings:
   kind: integer
   label: Max Flattening Depth
   name: flattening_max_depth
+- description: The maximum length of a flattened key.
+  kind: integer
+  label: Max Key Length
+  name: flattening_max_key_length
+- description: The separator to use when flattening keys.
+  kind: string
+  label: Flattening Separator
+  name: flattening_separator
 - description: Feefo merchant ID (e.g. `example-retail-merchant`)
   kind: password
   label: Merchant ID
@@ -111,9 +120,9 @@ settings:
 settings_group_validation:
 - - merchant_id
 supported_python_versions:
-- '3.9'
 - '3.10'
 - '3.11'
 - '3.12'
 - '3.13'
+- '3.14'
 variant: matatika

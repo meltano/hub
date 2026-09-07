@@ -64,7 +64,9 @@ settings:
   label: Client Access Key ID
   name: client_access_key_id
   sensitive: true
-- description: The ARN of the IAM role to use for accessing S3/Glue catalog
+- description: Second-hop IAM role ARN (customer Glue/lake reader) after 
+    customer_data_access_role_arn when using IRSA; trust must allow the 
+    first-hop role (not necessarily the pod identity)
   kind: string
   label: Client Iam Role Arn
   name: client_iam_role_arn
@@ -82,6 +84,12 @@ settings:
   label: Client Session Token
   name: client_session_token
   sensitive: true
+- description: First AssumeRole hop from IRSA/pod identity (often 
+    `CustomerS3DataAccessRole` in your ops account); also readable from env 
+    TAP_ICEBERG_CUSTOMER_DATA_ACCESS_ROLE_ARN or CUSTOMER_DATA_ACCESS_ROLE_ARN
+  kind: string
+  label: Customer Data Access Role Arn
+  name: customer_data_access_role_arn
 - description: 'One or more LCID locale strings to produce localized output for: https://faker.readthedocs.io/en/master/#localization'
   kind: array
   label: Faker Config Locale

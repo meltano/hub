@@ -102,6 +102,10 @@ settings:
   kind: integer
   label: Max Key Length
   name: flattening_max_key_length
+- description: The separator to use when flattening keys.
+  kind: string
+  label: Flattening Separator
+  name: flattening_separator
 - description: The log level of the API response metrics.
   kind: string
   label: Metrics Log Level
@@ -164,6 +168,13 @@ settings:
   - label: All
     value: all
   value: open
+- description: Number of ProjectV2 items to request per GraphQL page. Defaults 
+    to 100, GitHub's maximum. Lower values can reduce GraphQL query complexity 
+    for projects with many custom fields.
+  kind: integer
+  label: Stream Options Project Items Page Size
+  name: stream_options.project_items.page_size
+  value: 100
 - description: User agent to use for API requests.
   kind: string
   label: User Agent

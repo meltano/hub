@@ -1,7 +1,12 @@
 capabilities:
 - about
+- activate-version
+- batch
+- hard-delete
 - schema-flattening
 - stream-maps
+- structured-logging
+- validate-records
 description: Microsoft SQL Server
 domain_url: https://www.microsoft.com/en-us/sql-server/sql-server-2019
 keywords:
@@ -17,6 +22,63 @@ pip_url: git+https://github.com/MeltanoLabs/target-mssql.git
 quality: gold
 repo: https://github.com/MeltanoLabs/target-mssql
 settings:
+- description: Whether to add metadata fields to records.
+  kind: boolean
+  label: Add Record Metadata
+  name: add_record_metadata
+- description: Azure Storage account name
+  kind: string
+  label: Azure Blob Storage Account Name
+  name: azure_blob_storage.account_name
+- description: Blob container used as the staging area
+  kind: string
+  label: Azure Blob Storage Container
+  name: azure_blob_storage.container
+- description: ''
+  kind: string
+  label: Azure Blob Storage Credential
+  name: azure_blob_storage.credential
+- description: ''
+  kind: string
+  label: Azure Blob Storage Data Source
+  name: azure_blob_storage.data_source
+- description: Path prefix (virtual directory) inside the container
+  kind: string
+  label: Azure Blob Storage Path Prefix
+  name: azure_blob_storage.path_prefix
+  value: target-mssql
+- description: Shared Access Signature token for the storage account (without a 
+    leading '?'). Must grant read/write/delete on blobs.
+  kind: password
+  label: Azure Blob Storage Sas Token
+  name: azure_blob_storage.sas_token
+  sensitive: true
+- description: Compression format to use for batch files.
+  kind: options
+  label: Batch Compression Format
+  name: batch_config.encoding.compression
+  options:
+  - label: GZIP
+    value: gzip
+  - label: None
+    value: none
+- description: Format to use for batch files.
+  kind: string
+  label: Batch Encoding Format
+  name: batch_config.encoding.format
+- description: Prefix to use when writing batch files.
+  kind: string
+  label: Batch Storage Prefix
+  name: batch_config.storage.prefix
+- description: Root path to use when writing batch files.
+  kind: string
+  label: Batch Storage Root
+  name: batch_config.storage.root
+  value: file://
+- description: Maximum number of rows in each batch.
+  kind: integer
+  label: Batch Size Rows
+  name: batch_size_rows
 - description: SQL Server database
   kind: string
   label: Database
@@ -25,19 +87,71 @@ settings:
   kind: string
   label: Default Target Schema
   name: default_target_schema
+- description: The driver to use for the database connection (pymssql or pyodbc)
+  kind: options
+  label: Driver
+  name: driver
+  options:
+  - label: Pymssql
+    value: pymssql
+  - label: Pyodbc
+    value: pyodbc
+  value: pymssql
+- description: 'One or more LCID locale strings to produce localized output for: https://faker.readthedocs.io/en/master/#localization'
+  kind: array
+  label: Faker Locale
+  name: faker_config.locale
+- description: 'Value to seed the Faker generator for deterministic output: https://faker.readthedocs.io/en/master/#seeding-the-generator'
+  kind: string
+  label: Faker Seed
+  name: faker_config.seed
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
-  label: Flattening Enabled
+  label: Enable Schema Flattening
   name: flattening_enabled
 - description: The max depth to flatten schemas.
   kind: integer
-  label: Flattening Max Depth
+  label: Max Flattening Depth
   name: flattening_max_depth
+- description: The maximum length of a flattened key.
+  kind: integer
+  label: Max Key Length
+  name: flattening_max_key_length
+- description: The separator to use when flattening keys.
+  kind: string
+  label: Flattening Separator
+  name: flattening_separator
+- description: Hard delete records.
+  kind: boolean
+  label: Hard Delete
+  name: hard_delete
+  value: false
 - description: SQL Server host
   kind: string
   label: Host
   name: host
+- description: The method to use when loading data into the destination. 
+    `append-only` will always write all input records whether that records 
+    already exists or not. `upsert` will update existing records and insert new 
+    records. `overwrite` will delete all existing records and insert all input 
+    records.
+  kind: options
+  label: Load Method
+  name: load_method
+  options:
+  - label: Append Only
+    value: append-only
+  - label: Upsert
+    value: upsert
+  - label: Overwrite
+    value: overwrite
+  value: append-only
+- description: The ODBC driver to use when driver=pyodbc (e.g. 'ODBC Driver 18 
+    for SQL Server')
+  kind: string
+  label: Odbc Driver
+  name: odbc_driver
 - description: SQL Server password
   kind: password
   label: Password
@@ -53,13 +167,18 @@ settings:
   label: Prefer Float Over Numeric
   name: prefer_float_over_numeric
   value: false
+- description: Whether to process `ACTIVATE_VERSION` messages.
+  kind: boolean
+  label: Process `ACTIVATE_VERSION` messages
+  name: process_activate_version_messages
+  value: true
 - description: SQLAlchemy connection string
   kind: string
   label: SQLAlchemy URL
   name: sqlalchemy_url
 - description: User-defined config values to be used within map expressions.
   kind: object
-  label: Stream Map Config
+  label: User Stream Map Configuration
   name: stream_map_config
 - description: Config object for stream maps capability. For more information 
     check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
@@ -70,12 +189,33 @@ settings:
   kind: string
   label: Table Prefix
   name: table_prefix
+- description: Trust the server certificate without validation (useful for 
+    self-signed certs)
+  kind: boolean
+  label: Trust Server Certificate
+  name: trust_server_certificate
+  value: false
 - description: SQL Server username
   kind: string
   label: Username
   name: username
+- description: Whether to validate the schema of the incoming streams.
+  kind: boolean
+  label: Validate Records
+  name: validate_records
+  value: true
 settings_group_validation:
-- []
+- - azure_blob_storage.account_name
+  - azure_blob_storage.container
+  - azure_blob_storage.credential
+  - azure_blob_storage.data_source
+  - azure_blob_storage.sas_token
 settings_preamble: ''
+supported_python_versions:
+- '3.10'
+- '3.11'
+- '3.12'
+- '3.13'
+- '3.14'
 usage: ''
 variant: meltanolabs
