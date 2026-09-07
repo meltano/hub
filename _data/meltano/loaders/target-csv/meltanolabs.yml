@@ -76,6 +76,10 @@ settings:
   kind: integer
   label: Max Key Length
   name: flattening_max_key_length
+- description: The separator to use when flattening keys.
+  kind: string
+  label: Flattening Separator
+  name: flattening_separator
 - description: The method to use when loading data into the destination. 
     `append-only` will always write all input records whether that records 
     already exists or not. `upsert` will update existing records and insert new 
@@ -149,6 +153,5 @@ supported_python_versions:
 - '3.12'
 - '3.13'
 - '3.14'
-- '3.15'
 usage: ''
 variant: meltanolabs

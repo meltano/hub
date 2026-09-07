@@ -2,6 +2,8 @@ capabilities:
 - about
 - schema-flattening
 - stream-maps
+- structured-logging
+- validate-records
 description: BigQuery loader
 domain_url: https://cloud.google.com/bigquery
 executable: target-bigquery
@@ -19,11 +21,19 @@ pip_url: git+https://github.com/z3z1ma/target-bigquery.git
 quality: gold
 repo: https://github.com/z3z1ma/target-bigquery
 settings:
+- description: Whether to add metadata fields to records.
+  kind: boolean
+  label: Add Record Metadata
+  name: add_record_metadata
 - description: The maximum number of rows to send in a single batch or commit.
   kind: integer
   label: Batch Size
   name: batch_size
   value: 500
+- description: Maximum number of rows in each batch.
+  kind: integer
+  label: Batch Size Rows
+  name: batch_size_rows
 - description: The GCS bucket to use for staging data. Only used if method is 
     gcs_stage.
   kind: string
@@ -36,6 +46,11 @@ settings:
   label: Cluster On Key Properties
   name: cluster_on_key_properties
   value: false
+- description: Optional explicit BigQuery clustering fields. When set, this 
+    takes precedence over cluster_on_key_properties.
+  kind: array
+  label: Clustering Fields
+  name: clustering_fields
 - description: Add an underscore when a column starts with a digit
   kind: boolean
   label: Column Name Transforms Add Underscore When Invalid
@@ -80,7 +95,9 @@ settings:
     records. This is useful for streams that are not unique on the key 
     properties during an ingest but are unique in the source system. Data lake 
     ingestion is often a good example of this where the same unique record may 
-    exist in the lake at different points in time from different extracts.
+    exist in the lake at different points in time from different extracts. 
+    String booleans and pattern strings are accepted for env-based 
+    configuration.
   kind: string
   label: Dedupe Before Upsert
   name: dedupe_before_upsert
@@ -98,15 +115,31 @@ settings:
   label: Fail Fast
   name: fail_fast
   value: true
+- description: 'One or more LCID locale strings to produce localized output for: https://faker.readthedocs.io/en/master/#localization'
+  kind: array
+  label: Faker Locale
+  name: faker_config.locale
+- description: 'Value to seed the Faker generator for deterministic output: https://faker.readthedocs.io/en/master/#seeding-the-generator'
+  kind: string
+  label: Faker Seed
+  name: faker_config.seed
 - description: "'True' to enable schema flattening and automatically expand nested
     properties."
   kind: boolean
-  label: Flattening Enabled
+  label: Enable Schema Flattening
   name: flattening_enabled
 - description: The max depth to flatten schemas.
   kind: integer
-  label: Flattening Max Depth
+  label: Max Flattening Depth
   name: flattening_max_depth
+- description: The maximum length of a flattened key.
+  kind: integer
+  label: Max Key Length
+  name: flattening_max_key_length
+- description: The separator to use when flattening keys.
+  kind: string
+  label: Flattening Separator
+  name: flattening_separator
 - description: Determines whether to generate a view based on the SCHEMA message
     parsed from the tap. Only valid if denormalized=false meaning you are using 
     the fixed JSON column based schema.
@@ -114,6 +147,22 @@ settings:
   label: Generate View
   name: generate_view
   value: false
+- description: The method to use when loading data into the destination. 
+    `append-only` will always write all input records whether that records 
+    already exists or not. `upsert` will update existing records and insert new 
+    records. `overwrite` will delete all existing records and insert all input 
+    records.
+  kind: options
+  label: Load Method
+  name: load_method
+  options:
+  - label: Append Only
+    value: append-only
+  - label: Upsert
+    value: upsert
+  - label: Overwrite
+    value: overwrite
+  value: append-only
 - description: The target dataset/bucket location to materialize data into.
   kind: string
   label: Location
@@ -155,12 +204,13 @@ settings:
   value: false
 - description: Determines if the target table should be overwritten on load. 
     Defaults to false. A value of true will write to a temporary table and then 
-    overwrite the target table inside a transaction (so it is safe). A value of 
-    false will write to the target table directly (append). A value of an array 
-    of strings will evaluate the strings in order using fnmatch. At the end of 
-    the array, the value of the last match will be used. If not matched, the 
-    default value is false. This is mutually exclusive with the `upsert` option.
-    If both are set, `upsert` will take precedence.
+    overwrite the target table atomically with CREATE OR REPLACE TABLE. A value 
+    of false will write to the target table directly (append). String booleans 
+    are accepted for env-based configuration. A string or array of strings will 
+    evaluate the strings in order using fnmatch. At the end of the array, the 
+    value of the last match will be used. If not matched, the default value is 
+    false. This is mutually exclusive with the `upsert` option. If both are set,
+    `upsert` will take precedence.
   kind: string
   label: Overwrite
   name: overwrite
@@ -197,33 +247,62 @@ settings:
   value: 1
 - description: User-defined config values to be used within map expressions.
   kind: object
-  label: Stream Map Config
+  label: User Stream Map Configuration
   name: stream_map_config
 - description: Config object for stream maps capability. For more information 
     check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
   kind: object
   label: Stream Maps
   name: stream_maps
+- description: Number of hours before upsert and overwrite temporary tables 
+    expire. Defaults to 168 hours so long-running syncs do not lose staged data 
+    after one day.
+  kind: integer
+  label: Temporary Table Expiration Hours
+  name: temporary_table_expiration_hours
+  value: 168
+- description: Template for upsert and overwrite temporary table names. Supports
+    {table_name}, {timestamp}, and {uuid}; characters outside letters, digits, 
+    and underscores are normalized to underscores.
+  kind: string
+  label: Temporary Table Name Template
+  name: temporary_table_name_template
+  value: '{table_name}__{timestamp}__{uuid}'
 - description: Default timeout for batch_job and gcs_stage derived LoadJobs.
   kind: integer
   label: Timeout
   name: timeout
   value: 600
+- description: Optional BigQuery PARSE_TIMESTAMP format string used for 
+    generated timestamp view columns when generate_view=true.
+  kind: string
+  label: Timestamp Format
+  name: timestamp_format
 - description: Determines if we should upsert. Defaults to false. A value of 
     true will write to a temporary table and then merge into the target table 
     (upsert). This requires the target table to be unique on the key properties.
-    A value of false will write to the target table directly (append). A value 
-    of an array of strings will evaluate the strings in order using fnmatch. At 
-    the end of the array, the value of the last match will be used. If not 
-    matched, the default value is false (append).
+    A value of false will write to the target table directly (append). String 
+    booleans are accepted for env-based configuration. A string or array of 
+    strings will evaluate the strings in order using fnmatch. At the end of the 
+    array, the value of the last match will be used. If not matched, the default
+    value is false (append).
   kind: string
   label: Upsert
   name: upsert
   value: false
+- description: Whether to validate the schema of the incoming streams.
+  kind: boolean
+  label: Validate Records
+  name: validate_records
+  value: true
 settings_group_validation:
 - - dataset
   - method
   - project
 settings_preamble: ''
+supported_python_versions:
+- '3.10'
+- '3.11'
+- '3.12'
 usage: ''
 variant: z3z1ma

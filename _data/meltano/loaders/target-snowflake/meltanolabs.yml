@@ -1,6 +1,7 @@
 capabilities:
 - about
 - activate-version
+- batch
 - hard-delete
 - schema-flattening
 - stream-maps
@@ -32,6 +33,32 @@ settings:
   label: Add Record Metadata
   name: add_record_metadata
   value: true
+- description: Compression format to use for batch files.
+  kind: options
+  label: Batch Compression Format
+  name: batch_config.encoding.compression
+  options:
+  - label: GZIP
+    value: gzip
+  - label: None
+    value: none
+- description: Format to use for batch files.
+  kind: options
+  label: Batch Encoding Format
+  name: batch_config.encoding.format
+  options:
+  - label: JSONL
+    value: jsonl
+  - label: Parquet
+    value: parquet
+- description: Prefix to use when writing batch files.
+  kind: string
+  label: Batch Storage Prefix
+  name: batch_config.storage.prefix
+- description: Root path to use when writing batch files.
+  kind: string
+  label: Batch Storage Root
+  name: batch_config.storage.root
 - description: Maximum number of rows in each batch.
   kind: integer
   label: Batch Size Rows
@@ -70,16 +97,22 @@ settings:
   kind: integer
   label: Max Key Length
   name: flattening_max_key_length
+- description: The separator to use when flattening keys.
+  kind: string
+  label: Flattening Separator
+  name: flattening_separator
 - description: Hard delete records.
   kind: boolean
   label: Hard Delete
   name: hard_delete
   value: false
-- description: The method to use when loading data into the destination. 
-    `append-only` will always write all input records whether that records 
-    already exists or not. `upsert` will update existing records and insert new 
-    records. `overwrite` will delete all existing records and insert all input 
-    records.
+- description: Controls how records are written to the destination table. 
+    'append-only' always uses COPY INTO, writing every input record as a new row
+    regardless of key properties, without merging or truncating. 'upsert' 
+    (default) uses MERGE INTO, matching on key properties to update existing 
+    rows and insert new ones. 'overwrite' truncates the table then uses COPY 
+    INTO, replacing all existing rows — faster for initial loads but destructive
+    if run on a populated table.
   kind: options
   label: Load Method
   name: load_method
@@ -90,7 +123,12 @@ settings:
     value: upsert
   - label: Overwrite
     value: overwrite
-  value: append-only
+  value: upsert
+- description: Whether to normalise identifiers into snake_case.
+  kind: boolean
+  label: Normalise Casing
+  name: normalise_casing
+  value: false
 - description: OAuth access token for authentication. Token should be valid and 
     not expired.
   kind: password
@@ -124,6 +162,12 @@ settings:
   kind: boolean
   label: Process `ACTIVATE_VERSION` messages
   name: process_activate_version_messages
+  value: true
+- description: Whether letters in double-quoted object identifiers are stored 
+    and resolved as uppercase letters.
+  kind: boolean
+  label: Quoted IDentifiers Ignore Case
+  name: quoted_identifiers_ignore_case
   value: true
 - description: The initial role for the session.
   kind: string
@@ -159,10 +203,25 @@ settings:
   label: Use Browser Authentication
   name: use_browser_authentication
   value: false
+- description: Whether to use raw stream names as table names instead of 
+    informal Singer convention as last hyphen-separated part of stream name.
+  kind: boolean
+  label: Use Raw Stream Names
+  name: use_raw_stream_names
+  value: false
 - description: The login name for your Snowflake user.
   kind: string
   label: User
   name: user
+- description: "Snowflake column type/value format for `format: uuid` string properties.
+    'native' (default) uses SQLAlchemy's native UUID type, which compiles to CHAR(32)
+    on Snowflake and strips dashes from the value. 'string' uses a STRING(36) column
+    and writes the value as-is, preserving dashes."
+  kind: password
+  label: Uuid Format
+  name: uuid_format
+  sensitive: true
+  value: native
 - description: Whether to validate the schema of the incoming streams.
   kind: boolean
   label: Validate Records

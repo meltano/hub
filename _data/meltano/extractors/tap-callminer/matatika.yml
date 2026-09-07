@@ -7,6 +7,7 @@ capabilities:
 - schema-flattening
 - state
 - stream-maps
+- structured-logging
 description: Speech analytics platform designed to help organizations identify, 
   understand, and optimize customer interactions.
 domain_url: https://callminer.com/
@@ -80,6 +81,14 @@ settings:
   kind: integer
   label: Max Flattening Depth
   name: flattening_max_depth
+- description: The maximum length of a flattened key.
+  kind: integer
+  label: Max Key Length
+  name: flattening_max_key_length
+- description: The separator to use when flattening keys.
+  kind: string
+  label: Flattening Separator
+  name: flattening_separator
 - description: Maximum job poll count
   kind: integer
   label: Job Poll Max Count
@@ -145,7 +154,6 @@ settings_group_validation:
 settings_preamble: This tap works with the CallMiner bulk export API - ensure 
   the client credentials you provide reflect this.
 supported_python_versions:
-- '3.9'
 - '3.10'
 - '3.11'
 - '3.12'

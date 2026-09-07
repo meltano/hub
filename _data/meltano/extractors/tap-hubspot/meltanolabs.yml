@@ -28,6 +28,14 @@ settings:
   label: Access Token
   name: access_token
   sensitive: true
+- description: "Mapping of from_object_type to a list of to_object_types to sync associations
+    for, e.g. {'contact': ['company', 'deal']}. Each from/to pair creates a stream
+    named '<from_object_type>_<to_object_type>_associations'. Object type names must
+    match HubSpot's object type names (e.g. 'contact', 'company', 'deal', 'ticket').
+    No association streams are created unless this is set."
+  kind: object
+  label: Associations
+  name: associations
 - description: Compression format to use for batch files.
   kind: options
   label: Batch Compression Format
@@ -64,6 +72,13 @@ settings:
   label: Client Secret
   name: client_secret
   sensitive: true
+- description: List of HubSpot custom CRM object type names to sync (e.g. 
+    ['patches']). Each name must match the API name or fullyQualifiedName in 
+    HubSpot. Requires a HubSpot Enterprise plan and the crm. Objects. Custom. 
+    Read and crm. Schemas. Custom. Read scopes.
+  kind: array
+  label: Custom Object Types
+  name: custom_object_types
 - description: Latest record date to sync
   kind: date_iso8601
   label: End Date
@@ -89,6 +104,10 @@ settings:
   kind: integer
   label: Max Key Length
   name: flattening_max_key_length
+- description: The separator to use when flattening keys.
+  kind: string
+  label: Flattening Separator
+  name: flattening_separator
 - description: The OAuth app refresh token.
   kind: password
   label: Refresh Token

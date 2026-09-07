@@ -69,6 +69,10 @@ settings:
   kind: integer
   label: Max Key Length
   name: flattening_max_key_length
+- description: The separator to use when flattening keys.
+  kind: string
+  label: Flattening Separator
+  name: flattening_separator
 - description: Substack session cookie (substack. Sid) for accessing private 
     endpoints like subscribers and analytics. Not needed for public data.
   kind: password

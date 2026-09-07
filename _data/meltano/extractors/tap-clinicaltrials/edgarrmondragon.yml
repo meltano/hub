@@ -75,6 +75,10 @@ settings:
   kind: integer
   label: Max Key Length
   name: flattening_max_key_length
+- description: The separator to use when flattening keys.
+  kind: string
+  label: Flattening Separator
+  name: flattening_separator
 - description: Sponsor query
   kind: string
   label: Sponsor
@@ -95,8 +99,6 @@ settings:
 settings_group_validation: []
 settings_preamble: ''
 supported_python_versions:
-- '3.10'
-- '3.11'
 - '3.12'
 - '3.13'
 - '3.14'
