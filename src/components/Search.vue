@@ -116,9 +116,11 @@ export default {
         ? plugin.logo_url.replace("/assets/logos/", "")
         : `${plugin.pluginTypePlural}/${plugin.name}.png`;
       try {
+        // eslint-disable-next-line import/no-dynamic-require, global-require
         return require(`!!assets-loader?width=75!@logos/${path}`);
       } catch (e) {
-        return require(`!!assets-loader?width=75!@logos/placeholder.png`);
+        // eslint-disable-next-line global-require, import/no-webpack-loader-syntax, import/no-unresolved
+        return require("!!assets-loader?width=75!@logos/placeholder.png");
       }
     },
   },
