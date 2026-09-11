@@ -63,21 +63,7 @@
               class="grid w-full h-full grid-cols-12 bg-white rounded align-self-center hover:bg-slate-200"
             >
               <div class="grid h-full col-span-3 p-4 place-items-center">
-                <g-image
-                  v-if="plugin.node.logo_url"
-                  :src="
-                    require(`!!assets-loader?width=75!@logos/${plugin.node.logo_url.replace(
-                      '/assets/logos/',
-                      ''
-                    )}`)
-                  "
-                />
-                <g-image
-                  v-else
-                  :src="
-                    require(`!!assets-loader?width=75!@logos/${plugin.node.pluginTypePlural}/${plugin.node.name}.png`)
-                  "
-                />
+                <g-image :src="pluginLogo(plugin.node)" />
               </div>
               <div class="grid col-span-9 grid-rows-3 p-3 align-items-center">
                 <div class="flex pt-1 space-x-3">
@@ -123,6 +109,18 @@ export default {
       searchFocused: true,
       hoveringOnSearchOptions: false,
     };
+  },
+  methods: {
+    pluginLogo(plugin) {
+      const path = plugin.logo_url
+        ? plugin.logo_url.replace("/assets/logos/", "")
+        : `${plugin.pluginTypePlural}/${plugin.name}.png`;
+      try {
+        return require(`!!assets-loader?width=75!@logos/${path}`);
+      } catch (e) {
+        return require(`!!assets-loader?width=75!@logos/placeholder.png`);
+      }
+    },
   },
   computed: {
     searchResults() {
