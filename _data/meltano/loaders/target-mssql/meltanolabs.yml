@@ -74,7 +74,6 @@ settings:
   kind: string
   label: Batch Storage Root
   name: batch_config.storage.root
-  value: file://
 - description: Maximum number of rows in each batch.
   kind: integer
   label: Batch Size Rows

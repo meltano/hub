@@ -49,7 +49,6 @@ settings:
   kind: string
   label: Batch Storage Root
   name: batch_config.storage.root
-  value: file://
 - description: Whether to emit `ACTIVATE_VERSION` messages. If set to `True`, 
     the tap will emit `ACTIVATE_VERSION` messages for each stream.
   kind: boolean

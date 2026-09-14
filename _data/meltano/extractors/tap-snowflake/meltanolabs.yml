@@ -28,6 +28,11 @@ settings:
   kind: string
   label: Account
   name: account
+- description: Maximum number of records in each BATCH file
+  kind: integer
+  label: Batch Size
+  name: batch_config.batch_size
+  value: 100000
 - description: Compression format to use for batch files.
   kind: options
   label: Batch Compression Format
@@ -56,6 +61,7 @@ settings:
   kind: string
   label: Batch Storage Root
   name: batch_config.storage.root
+  value: file://.batch_files
 - description: The initial database for the Snowflake session.
   kind: string
   label: Database
