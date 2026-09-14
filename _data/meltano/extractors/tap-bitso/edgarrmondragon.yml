@@ -50,7 +50,6 @@ settings:
   kind: string
   label: Batch Storage Root
   name: batch_config.storage.root
-  value: file://
 - description: Specifies which book to use for `tickers` and other endpoints
   kind: array
   label: Books
