@@ -15,7 +15,7 @@ logger = logging.getLogger("make_api_files")
 
 DATA_PATH = Path("_data")
 BASE_HUB_URL = "https://hub.meltano.com"
-BASE_API_URL = "https://hub.meltano.com/meltano/api/v1/plugins"
+BASE_API_URL = "https://hub.meltano.com/meltano/api/v1"
 SKIP_FIELDS = [
     "keywords",
     "maintenance_status",
