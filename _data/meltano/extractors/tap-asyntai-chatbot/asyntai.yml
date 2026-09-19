@@ -1,0 +1,114 @@
+capabilities:
+- about
+- activate-version
+- batch
+- catalog
+- discover
+- schema-flattening
+- state
+- stream-maps
+- structured-logging
+description: AI chatbot for websites that answers visitor questions, captures leads and raises support tickets
+domain_url: https://asyntai.com/documentation/api/
+executable: tap-asyntai-chatbot
+keywords:
+- meltano_sdk
+label: Asyntai Chatbot
+logo_url: /assets/logos/extractors/asyntai-chatbot.png
+maintenance_status: active
+name: tap-asyntai-chatbot
+namespace: tap_asyntai_chatbot
+next_steps: ''
+pip_url: tap-asyntai-chatbot
+quality: unknown
+repo: https://github.com/asyntai/tap-asyntai-chatbot
+settings:
+- description: Asyntai API key, from Settings then API in the dashboard.
+  kind: password
+  label: API Key
+  name: api_key
+  sensitive: true
+- description: Base address of the Asyntai API.
+  kind: string
+  label: API URL
+  name: api_url
+- description: Compression format to use for batch files.
+  kind: options
+  label: Batch Compression Format
+  name: batch_config.encoding.compression
+  options:
+  - label: GZIP
+    value: gzip
+  - label: None
+    value: none
+- description: Format to use for batch files.
+  kind: options
+  label: Batch Encoding Format
+  name: batch_config.encoding.format
+  options:
+  - label: JSONL
+    value: jsonl
+  - label: Parquet
+    value: parquet
+- description: Prefix to use when writing batch files.
+  kind: string
+  label: Batch Storage Prefix
+  name: batch_config.storage.prefix
+- description: Root path to use when writing batch files.
+  kind: string
+  label: Batch Storage Root
+  name: batch_config.storage.root
+- description: 'One or more LCID locale strings to produce localized output for: https://faker.readthedocs.io/en/master/#localization'
+  kind: array
+  label: Faker Locale
+  name: faker_config.locale
+- description: 'Value to seed the Faker generator for deterministic output: https://faker.readthedocs.io/en/master/#seeding-the-generator'
+  kind: string
+  label: Faker Seed
+  name: faker_config.seed
+- description: '''True'' to enable schema flattening and automatically expand nested properties.'
+  kind: boolean
+  label: Enable Schema Flattening
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Max Flattening Depth
+  name: flattening_max_depth
+- description: The max length of a flattened property name.
+  kind: integer
+  label: Max Flattening Key Length
+  name: flattening_max_key_length
+- description: The separator between names of flattened properties.
+  kind: string
+  label: Flattening Separator
+  name: flattening_separator
+- description: Rows per request. The API allows 100 at most.
+  kind: integer
+  label: Page Size
+  name: page_size
+- description: Earliest record to read on the first run.
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: User Stream Map Configuration
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+- description: Read one website only. Leave empty for every website.
+  kind: string
+  label: Website ID
+  name: website_id
+settings_group_validation:
+- - api_key
+settings_preamble: ''
+supported_python_versions:
+- '3.10'
+- '3.11'
+- '3.12'
+- '3.13'
+usage: ''
+variant: asyntai
