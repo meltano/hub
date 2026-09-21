@@ -43,14 +43,9 @@ settings:
   - label: None
     value: none
 - description: Format to use for batch files.
-  kind: options
+  kind: string
   label: Batch Encoding Format
   name: batch_config.encoding.format
-  options:
-  - label: JSONL
-    value: jsonl
-  - label: Parquet
-    value: parquet
 - description: Prefix to use when writing batch files.
   kind: string
   label: Batch Storage Prefix
@@ -106,6 +101,25 @@ settings:
   label: Hard Delete
   name: hard_delete
   value: false
+- description: "How records are loaded into Snowflake. 'file_staging' (default) stages
+    local batch files and loads them with COPY INTO/MERGE INTO, per `load_method`;
+    this requires a running warehouse. 'snowpipe_streaming' ingests rows directly
+    via the Snowpipe Streaming API, with no warehouse required and billing based on
+    data ingested. Only key-pair authentication is supported in this mode, and `hard_delete`
+    is not supported. `load_method: overwrite` truncates via a regular SQL connection
+    before streaming begins, same as with `file_staging`. `load_method: upsert` needs
+    MERGE, which streaming doesn't support, so any individual stream with key properties
+    falls back to `file_staging` for that stream only (with a logged warning) rather
+    than failing the whole sync -- other streams keep streaming."
+  kind: options
+  label: Ingestion Method
+  name: ingestion_method
+  options:
+  - label: File Staging
+    value: file_staging
+  - label: Snowpipe Streaming
+    value: snowpipe_streaming
+  value: file_staging
 - description: Controls how records are written to the destination table. 
     'append-only' always uses COPY INTO, writing every input record as a new row
     regardless of key properties, without merging or truncating. 'upsert' 
