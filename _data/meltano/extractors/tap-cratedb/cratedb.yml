@@ -8,9 +8,9 @@ capabilities:
 - state
 - stream-maps
 - structured-logging
-description: CrateDB is a distributed and scalable multi-model SQL database for 
-  storing and analyzing massive amounts of data in near real-time, even with 
-  complex queries. It is PostgreSQL-compatible, and based on Lucene.
+description: CrateDB is a distributed and scalable multi-model SQL database for storing and analyzing
+  massive amounts of data in near real-time, even with complex queries. It is PostgreSQL-compatible,
+  and based on Lucene.
 domain_url: https://cratedb.com/database
 executable: tap-cratedb
 keywords:
@@ -57,11 +57,6 @@ settings:
   kind: string
   label: Batch Storage Root
   name: batch_config.storage.root
-- description: Database name. Note if sqlalchemy_url is set this will be 
-    ignored.
-  kind: string
-  label: Database
-  name: database
 - description: 'Defaults to false, if true, date, and timestamp fields will be Strings.
     If you see ValueError: Year is out of range, try setting this to True.'
   kind: boolean
@@ -90,8 +85,8 @@ settings:
   label: Faker Seed
   name: faker_config.seed
 - description: If an array of schema names is provided, the tap will only 
-    process the specified Postgres schemas and ignore others. If left blank, the
-    tap automatically determines ALL available Postgres schemas.
+    process the specified schemas and ignore others. If left blank, the
+    tap automatically determines ALL available schemas.
   kind: array
   label: Filter Schemas
   name: filter_schemas
@@ -108,11 +103,6 @@ settings:
   kind: integer
   label: Max Key Length
   name: flattening_max_key_length
-- description: Hostname for postgres instance. Note if sqlalchemy_url is set 
-    this will be ignored.
-  kind: string
-  label: Host
-  name: host
 - description: Defaults to false, if true, json and jsonb fields will be 
     Objects.
   kind: boolean
@@ -124,38 +114,32 @@ settings:
   kind: integer
   label: Max Record Count
   name: max_record_count
+- description: Hostname for CrateDB instance. Note if sqlalchemy_url is set
+    this will be ignored.
+  kind: string
+  label: Host
+  name: host
+- description: User name used to authenticate. Note if sqlalchemy_url is set
+    this will be ignored.
+  kind: string
+  label: User
+  name: user
 - description: Password used to authenticate. Note if sqlalchemy_url is set this
     will be ignored.
   kind: password
   label: Password
   name: password
   sensitive: true
-- description: The port on which postgres is awaiting connection. Note if 
+- description: The port on which CrateDB is awaiting connection. Note if
     sqlalchemy_url is set this will be ignored.
   kind: integer
   label: Port
   name: port
-  value: 5432
-- description: The number of seconds to wait for data messages before exiting 
-    the replication loop. Only applicable when replication_method is LOG_BASED.
-  kind: integer
-  label: Replication IDle Exit Seconds
-  name: replication_idle_exit_seconds
-  value: 60
-- description: The maximum number of seconds to run the replication loop for. 
-    Only applicable when replication_method is LOG_BASED.
-  kind: integer
-  label: Replication Max Run Seconds
-  name: replication_max_run_seconds
-  value: 600
-- description: Name of the replication slot to use for logical replication. Must
-    be unique for parallel extractions. Only applicable when replication_method 
-    is LOG_BASED. - Contain only letters, numbers, and underscores. - Be less 
-    than or equal to 63 characters. - Not start with 'pg_'.
+  value: 4200
+- description: Schema name. Note if sqlalchemy_url is set this will be ignored.
   kind: string
-  label: Replication Slot Name
-  name: replication_slot_name
-  value: tappostgres
+  label: Schema
+  name: schema
 - description: >
     SQLAlchemy connection string. This will override the host,
     user, password, port, dialect, and all ssl settings. Note that you must
@@ -197,65 +181,6 @@ settings:
   kind: string
   label: SSH Tunnel Username
   name: ssh_tunnel.username
-- description: The certificate authority that should be used to verify the 
-    server's identity. Can be provided either as the certificate itself (in 
-    .env) or as a filepath to the certificate. Note if sqlalchemy_url is set 
-    this will be ignored.
-  kind: string
-  label: SSL Certificate Authority
-  name: ssl_certificate_authority
-  value: ~/.postgresql/root.crl
-- description: The certificate that should be used to verify your identity to 
-    the server. Can be provided either as the certificate itself (in .env) or as
-    a filepath to the certificate. Note if sqlalchemy_url is set this will be 
-    ignored.
-  kind: string
-  label: SSL Client Certificate
-  name: ssl_client_certificate
-  value: ~/.postgresql/postgresql.crt
-- description: Whether or not to provide client-side certificates as a method of
-    authentication to the server. Use ssl_client_certificate and 
-    ssl_client_private_key for further customization. To use SSL to verify the 
-    server's identity, use ssl_enable instead. Note if sqlalchemy_url is set 
-    this will be ignored.
-  kind: boolean
-  label: SSL Client Certificate Enable
-  name: ssl_client_certificate_enable
-  value: false
-- description: The private key for the certificate you provided. Can be provided
-    either as the certificate itself (in .env) or as a filepath to the 
-    certificate. Note if sqlalchemy_url is set this will be ignored.
-  kind: password
-  label: SSL Client Private Key
-  name: ssl_client_private_key
-  sensitive: true
-  value: ~/.postgresql/postgresql.key
-- description: Whether or not to use ssl to verify the server's identity. Use 
-    ssl_certificate_authority and ssl_mode for further customization. To use a 
-    client certificate to authenticate yourself to the server, use 
-    ssl_client_certificate_enable instead. Note if sqlalchemy_url is set this 
-    will be ignored.
-  kind: boolean
-  label: SSL Enable
-  name: ssl_enable
-  value: false
-- description: SSL Protection method, see [postgres 
-    documentation](https://www.postgresql.org/docs/current/libpq-ssl.html#LIBPQ-SSL-PROTECTION)
-    for more information. Must be one of disable, allow, prefer, require, 
-    verify-ca, or verify-full. Note if sqlalchemy_url is set this will be 
-    ignored.
-  kind: string
-  label: SSL Mode
-  name: ssl_mode
-  value: verify-full
-- description: The folder in which to store SSL certificates provided as raw 
-    values. When a certificate/key is provided as a raw value instead of as a 
-    filepath, it must be written to a file before it can be used. This 
-    configuration option determines where that file is created.
-  kind: string
-  label: SSL Storage Directory
-  name: ssl_storage_directory
-  value: .secrets
 - description: User-defined config values to be used within map expressions.
   kind: object
   label: User Stream Map Configuration
@@ -275,11 +200,6 @@ settings:
   kind: boolean
   label: Use Singer Decimal
   name: use_singer_decimal
-- description: User name used to authenticate. Note if sqlalchemy_url is set 
-    this will be ignored.
-  kind: string
-  label: User
-  name: user
 settings_group_validation: []
 settings_preamble: ''
 supported_python_versions:
