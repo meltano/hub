@@ -28,6 +28,7 @@ settings:
   kind: password
   label: Service Account Secret
   name: password
+  sensitive: true
 - description: Mixpanel Project ID
   kind: integer
   label: Project ID
