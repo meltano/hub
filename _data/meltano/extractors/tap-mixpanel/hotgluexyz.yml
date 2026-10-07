@@ -20,6 +20,19 @@ settings:
   label: API Secret
   name: api_secret
   sensitive: true
+- description: Mixpanel Project Service Account Username
+  kind: string
+  label: Service Account Username
+  name: username
+- description: Mixpanel Project Service Account Secret
+  kind: password
+  label: Service Account Secret
+  name: password
+  sensitive: true
+- description: Mixpanel Project ID
+  kind: integer
+  label: Project ID
+  name: project_id
 - description: Minimum number of days to look-back to
   kind: integer
   label: Attribution Window
