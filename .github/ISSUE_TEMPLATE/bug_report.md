@@ -3,7 +3,6 @@ name: Bug report
 about: Report a potential bug in the MeltanoHub
 title: "\U0001F41B BUG: `Brief description of the problem` "
 labels:
-assignees: taylormurphy,edgarrmondragon
 ---
 
 **Note:** This issue template is for issues related to the MeltanoHub or plugin definitions.
