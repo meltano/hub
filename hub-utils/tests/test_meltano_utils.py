@@ -1001,3 +1001,43 @@ def test_log_parser_property_non_sdk_with_structured_logging():
     assert "log_parser" not in plugin_def
     assert "structured-logging" in plugin_def["capabilities"]
     assert "meltano_sdk" not in plugin_def["keywords"]
+
+
+def _nested_required_about(top_required: list[str]) -> _SDKAboutDict:
+    return {
+        "settings": {
+            "type": "object",
+            "properties": {
+                "account": {"type": ["string"], "description": "Account"},
+                "batch_config": {
+                    "type": ["object", "null"],
+                    "description": "Batch config",
+                    "required": ["encoding"],
+                    "properties": {
+                        "encoding": {
+                            "type": "object",
+                            "description": "Encoding",
+                            "required": ["format"],
+                            "properties": {
+                                "format": {"type": ["string"], "description": "Format"},
+                            },
+                        },
+                    },
+                },
+            },
+            "required": top_required,
+        }
+    }
+
+
+def test_sdk_about_nested_required_of_optional_object_is_not_required():
+    """A required child of an optional object must not become a required setting."""
+    settings, groups, _, _ = parse(_nested_required_about(["account"]))
+    assert "batch_config.encoding.format" in [s["name"] for s in settings]
+    assert groups == [["account"]]
+
+
+def test_sdk_about_nested_required_of_required_object_is_required():
+    """A required child of a required object is unconditionally required."""
+    _, groups, _, _ = parse(_nested_required_about(["account", "batch_config"]))
+    assert sorted(groups[0]) == ["account", "batch_config", "batch_config.encoding.format"]

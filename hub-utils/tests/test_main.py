@@ -1,15 +1,17 @@
 import os
 from unittest.mock import call, patch
 
+import pytest
+
 from hub_utils.main import S3, download_metadata
 
 PATH = os.path.dirname(__file__)
 
 
 @patch.object(S3, "download_latest")
-def test_download_metadata(patch):
+def test_download_metadata(patch, monkeypatch: pytest.MonkeyPatch):
     expected_bucket = "TEST_BUCKET"
-    os.environ["AWS_S3_BUCKET"] = expected_bucket
+    monkeypatch.setenv("AWS_S3_BUCKET", expected_bucket)
     local_path = f"{PATH}/data/output_path"
     hub_yml_path = f"{PATH}/data/hub_data/_data/extractors/tap-csv/meltanolabs.yml"
 
@@ -26,11 +28,11 @@ def test_download_metadata(patch):
 
 
 @patch.object(S3, "download_latest")
-def test_download_metadata_ignore(patch):
+def test_download_metadata_ignore(patch, monkeypatch: pytest.MonkeyPatch):
     expected_bucket = "TEST_BUCKET"
-    os.environ["AWS_S3_BUCKET"] = expected_bucket
+    monkeypatch.setenv("AWS_S3_BUCKET", expected_bucket)
     local_path = f"{PATH}/data/output_path"
-    os.environ["HUB_ROOT_PATH"] = "./tests/"
+    monkeypatch.setenv("HUB_ROOT_PATH", PATH)
     download_metadata(
         local_path,
         # variant_path_list=hub_yml_path,
@@ -56,9 +58,9 @@ def test_download_metadata_ignore(patch):
 
 
 @patch.object(S3, "download_latest")
-def test_download_metadata_list(patch):
+def test_download_metadata_list(patch, monkeypatch: pytest.MonkeyPatch):
     expected_bucket = "TEST_BUCKET"
-    os.environ["AWS_S3_BUCKET"] = expected_bucket
+    monkeypatch.setenv("AWS_S3_BUCKET", expected_bucket)
     local_path = f"{PATH}/data/output_path"
     hub_yml_path = ",".join(
         [

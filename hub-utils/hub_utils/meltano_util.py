@@ -400,7 +400,13 @@ class MeltanoUtil:
         dependent_required_groups = []
 
         # First collect all settings
-        for settings in MeltanoUtil._traverse_schema_properties(settings_raw):
+        # The Airbyte wrapper doesn't list its wrapper objects (`airbyte_spec`,
+        # `connector_config`) as required, but their required children always apply.
+        is_airbyte = "airbyte_spec" in settings_raw.get("properties", {})
+        for settings in MeltanoUtil._traverse_schema_properties(
+            settings_raw,
+            parents_must_be_required=not is_airbyte,
+        ):
             name = settings.get("name")
 
             # Handle stream_maps specially - add as top-level object when we encounter it
@@ -483,7 +489,13 @@ class MeltanoUtil:
                 MeltanoUtil._collect_nested_dependent_required(value, current_path, dependent_groups, field_sep)
 
     @staticmethod
-    def _traverse_schema_properties(schema, field_sep=".", parent_path="", skip_stream_maps_properties=False):
+    def _traverse_schema_properties(
+        schema,
+        field_sep=".",
+        parent_path="",
+        skip_stream_maps_properties=False,
+        parents_must_be_required=True,
+    ):
         fields = []
 
         # If we're inside a stream_maps schema, don't process any properties
@@ -499,7 +511,12 @@ class MeltanoUtil:
                 and key != "stream_maps"
             ):
                 # Add nested properties for all object types EXCEPT stream_maps
-                for subfield in MeltanoUtil._traverse_schema_properties(value, field_sep, parent_path):
+                for subfield in MeltanoUtil._traverse_schema_properties(
+                    value,
+                    field_sep,
+                    parent_path,
+                    parents_must_be_required=parents_must_be_required,
+                ):
                     sub_name = subfield.get("name")
                     full_name = f"{key}{field_sep}{sub_name}"
                     field = {
@@ -514,9 +531,14 @@ class MeltanoUtil:
                     }
                     if "required" in subfield:
                         # accept parent if it was set already
-                        field["required"] = subfield["required"]
+                        sub_required = subfield["required"]
                     else:
-                        field["required"] = sub_name in reqs
+                        sub_required = sub_name in reqs
+                    # A child is only unconditionally required if its parent object is
+                    # too. Otherwise JSON Schema only requires it when the parent is
+                    # present, which a flat settings group can't express.
+                    parent_ok = not parents_must_be_required or key in schema.get("required", [])
+                    field["required"] = bool(sub_required) and parent_ok
 
                     fields.append(field)
             else:
@@ -533,7 +555,12 @@ class MeltanoUtil:
                     }
                 )
         for item in schema.get("oneOf", []):
-            for i in MeltanoUtil._traverse_schema_properties(item, field_sep, parent_path):
+            for i in MeltanoUtil._traverse_schema_properties(
+                item,
+                field_sep,
+                parent_path,
+                parents_must_be_required=parents_must_be_required,
+            ):
                 if i.get("const"):
                     i["description"] = i.get("const") or item.get("title")
                 fields.append(i)
