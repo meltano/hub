@@ -66,6 +66,7 @@ ALLOWED_CAPABILITIES_TAP = {
     "schema-flattening",
     "test",
     "log-based",
+    "start-date",
     "structured-logging",
 }
 
