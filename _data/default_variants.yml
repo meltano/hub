@@ -743,6 +743,9 @@ utilities:
   matatika: matatika
   metabase: metabase
   notebook: matatika
+  pdt-aws: autoidm
+  pdt-azure: autoidm
+  pdt-gcloud: autoidm
   postgres: postgres
   powerbi: lgrosjean
   sqlfluff: sqlfluff
