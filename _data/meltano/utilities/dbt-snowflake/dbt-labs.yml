@@ -69,8 +69,8 @@ next_steps: |-
     # create a starter dbt_project.yml file, a profiles.yml file, and models directory
     meltano invoke dbt-snowflake:initialize
     ```
-pip_url: dbt-core dbt-snowflake meltano-dbt-ext~=0.5.0
-repo: https://github.com/dbt-labs/dbt-snowflake
+pip_url: dbt meltano-dbt-ext~=0.5.0
+repo: https://github.com/dbt-labs/dbt
 settings:
 - description: The snowflake account to connect to.
   kind: string

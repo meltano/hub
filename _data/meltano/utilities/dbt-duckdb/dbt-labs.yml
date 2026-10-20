@@ -70,8 +70,8 @@ next_steps: |
     # create a starter dbt_project.yml file, a profiles.yml file, and models directory
     meltano invoke dbt-duckdb:initialize
     ```
-pip_url: dbt-core dbt-duckdb meltano-dbt-ext~=0.5.0
-repo: https://github.com/jwills/dbt-duckdb
+pip_url: dbt meltano-dbt-ext~=0.5.0
+repo: https://github.com/dbt-labs/dbt
 settings:
 - description: The path on your local filesystem where you would like the DuckDB database
     file and it's associated write-ahead log to be written.
@@ -118,4 +118,4 @@ supported_python_versions:
 - '3.13'
 - '3.14'
 - '3.15'
-variant: jwills
+variant: dbt-labs
