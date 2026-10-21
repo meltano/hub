@@ -69,8 +69,8 @@ next_steps: |-
     # create a starter dbt_project.yml file, a profiles.yml file, and models directory
     meltano invoke dbt-redshift:initialize
     ```
-pip_url: dbt-core dbt-redshift meltano-dbt-ext~=0.5.0
-repo: https://github.com/dbt-labs/dbt-redshift
+pip_url: dbt meltano-dbt-ext~=0.5.0
+repo: https://github.com/dbt-labs/dbt
 settings:
 - description: |
     The auth method to use (to use iam, set to "iam".
