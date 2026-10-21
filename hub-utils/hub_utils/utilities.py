@@ -81,6 +81,7 @@ ALLOWED_CAPABILITIES_TARGET = {
     "hard-delete",
     "datatype-failsafe",
     "structured-logging",
+    "target-schema",
     "validate-records",
 }
 
