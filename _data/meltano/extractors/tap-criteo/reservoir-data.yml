@@ -1,0 +1,142 @@
+capabilities:
+- about
+- activate-version
+- batch
+- catalog
+- discover
+- schema-flattening
+- state
+- stream-maps
+- structured-logging
+description: Advertising Platform
+domain_url: https://www.criteo.com/
+executable: tap-criteo
+keywords:
+- meltano_sdk
+label: Criteo
+logo_url: /assets/logos/extractors/criteo.png
+maintenance_status: active
+name: tap-criteo
+namespace: tap_criteo
+next_steps: ''
+pip_url: git+https://github.com/reservoir-data/tap-criteo.git
+quality: silver
+repo: https://github.com/reservoir-data/tap-criteo
+settings:
+- description: An array of advertiser IDs to extract data for.
+  kind: array
+  label: Advertiser IDs
+  name: advertiser_ids
+- description: Compression format to use for batch files.
+  kind: options
+  label: Batch Compression Format
+  name: batch_config.encoding.compression
+  options:
+  - label: GZIP
+    value: gzip
+  - label: None
+    value: none
+- description: Format to use for batch files.
+  kind: string
+  label: Batch Encoding Format
+  name: batch_config.encoding.format
+- description: Prefix to use when writing batch files.
+  kind: string
+  label: Batch Storage Prefix
+  name: batch_config.storage.prefix
+- description: Root path to use when writing batch files.
+  kind: string
+  label: Batch Storage Root
+  name: batch_config.storage.root
+- description: Your Criteo client ID.
+  kind: password
+  label: Client ID
+  name: client_id
+  sensitive: true
+- description: Your Criteo client secret.
+  kind: password
+  label: Client Secret
+  name: client_secret
+  sensitive: true
+- description: Whether to emit `ACTIVATE_VERSION` messages. If set to `True`, 
+    the tap will emit `ACTIVATE_VERSION` messages for each stream.
+  kind: boolean
+  label: Emit `ACTIVATE_VERSION` messages
+  name: emit_activate_version_messages
+  value: false
+- description: 'One or more LCID locale strings to produce localized output for: https://faker.readthedocs.io/en/master/#localization'
+  kind: array
+  label: Faker Locale
+  name: faker_config.locale
+- description: 'Value to seed the Faker generator for deterministic output: https://faker.readthedocs.io/en/master/#seeding-the-generator'
+  kind: string
+  label: Faker Seed
+  name: faker_config.seed
+- description: "'True' to enable schema flattening and automatically expand nested
+    properties."
+  kind: boolean
+  label: Enable Schema Flattening
+  name: flattening_enabled
+- description: The max depth to flatten schemas.
+  kind: integer
+  label: Max Flattening Depth
+  name: flattening_max_depth
+- description: The maximum length of a flattened key.
+  kind: integer
+  label: Max Key Length
+  name: flattening_max_key_length
+- description: The separator to use when flattening keys.
+  kind: string
+  label: Flattening Separator
+  name: flattening_separator
+- description: |
+    An array of objects defining the stats reports to sync, each object should include:
+
+    * `name` - The report name.
+    * `dimensions` - An array of dimensions.
+    * `metrics` -An array of metrics.
+    * `currency` - Default USD. Optional.
+
+    ```yaml
+      reports:
+      - name: daily_clicks
+        dimensions:
+        - CampaignId
+        - AdsetId
+        - AdvertiserId
+        - Day
+        metrics:
+        - Clicks
+      ```
+  kind: array
+  label: Reports
+  name: reports
+- description: Determines how much historical data will be extracted. Please be 
+    aware that the larger the time period and amount of data, the longer the 
+    initial extraction can be expected to take.
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: User-defined config values to be used within map expressions.
+  kind: object
+  label: User Stream Map Configuration
+  name: stream_map_config
+- description: Config object for stream maps capability. For more information 
+    check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).
+  kind: object
+  label: Stream Maps
+  name: stream_maps
+settings_group_validation:
+- - advertiser_ids
+  - client_id
+  - client_secret
+  - start_date
+settings_preamble: ''
+supported_python_versions:
+- '3.11'
+- '3.12'
+- '3.13'
+- '3.14'
+- '3.15'
+usage: ''
+variant: reservoir-data

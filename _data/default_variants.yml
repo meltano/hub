@@ -39,6 +39,7 @@ extractors:
   tap-applehealth: felippecaso
   tap-appsflyer: singer-io
   tap-appstore: automattic
+  tap-appveyor: reservoir-data
   tap-asana: singer-io
   tap-ashby: airbyte
   tap-ask-nicely: mashey
@@ -59,6 +60,8 @@ extractors:
   tap-basecone: yoast
   tap-bazaarvoice: gthesheep
   tap-beautifulsoup: meltanolabs
+  tap-belvo: reservoir-data
+  tap-betterstack: reservoir-data
   tap-bexio: substringgmbh
   tap-bigcommerce: singer-io
   tap-bigmarker: manuelapilongo
@@ -66,7 +69,8 @@ extractors:
   tap-billwerk: bi-media
   tap-bing-ads: singer-io
   tap-bitbucket: humblebeck
-  tap-bitso: edgarrmondragon
+  tap-bitly: reservoir-data
+  tap-bitso: reservoir-data
   tap-bling: ricardo-muhlstedt
   tap-bling-erp: muriloo
   tap-bls: frasermarlow
@@ -83,6 +87,7 @@ extractors:
   tap-callminer: matatika
   tap-callrail: airbyte
   tap-campaign-monitor: singer-io
+  tap-canny: reservoir-data
   tap-canvas: mwcooley99
   tap-capsulecrm: hotgluexyz
   tap-carbon-intensity: meltano
@@ -94,6 +99,7 @@ extractors:
   tap-chargify: singer-io
   tap-chartmogul: airbyte
   tap-chatitive: codyss
+  tap-checkly: reservoir-data
   tap-chorusai: andyoneal
   tap-churnzero: markestey
   tap-cin7: hotgluexyz
@@ -102,7 +108,7 @@ extractors:
   tap-clickhouse: akurdyukov
   tap-clickup: autoidm
   tap-clientsuccess: antiny
-  tap-clinicaltrials: edgarrmondragon
+  tap-clinicaltrials: reservoir-data
   tap-clockify: quantile-taps
   tap-closeio: singer-io
   tap-cloudwatch: meltanolabs
@@ -127,7 +133,7 @@ extractors:
   tap-courier: airbyte
   tap-cqc-org-uk: birdiecare
   tap-cratedb: cratedb
-  tap-criteo: edgarrmondragon
+  tap-criteo: reservoir-data
   tap-crossbeam: singer-io
   tap-csv: meltanolabs
   tap-currencyfreaks: spacecowboy
@@ -141,7 +147,7 @@ extractors:
   tap-dataverse: mjsqu
   tap-dayforce: goodeggs
   tap-db2: mjsqu
-  tap-dbf: edgarrmondragon
+  tap-dbf: reservoir-data
   tap-dbt: meltanolabs
   tap-dbt-artifacts: prratek
   tap-dearsystems: hotgluexyz
@@ -190,7 +196,7 @@ extractors:
   tap-fastbill: airbyte
   tap-fastly: splitio
   tap-fauna: airbyte
-  tap-fedidb: edgarrmondragon
+  tap-fedidb: reservoir-data
   tap-feed: jawats
   tap-feefo: matatika
   tap-file: airbyte
@@ -203,6 +209,7 @@ extractors:
   tap-flipkart: meltanolabs
   tap-followupboss: hotgluexyz
   tap-forecast: uptilab2
+  tap-forem: reservoir-data
   tap-formbricks: emilklindt
   tap-formstack: hotgluexyz
   tap-fortnox: hotgluexyz
@@ -218,7 +225,7 @@ extractors:
   tap-fxmacrodata: fxmacrodata
   tap-ga4: meltanolabs
   tap-gainsightpx: widen
-  tap-geekbot: edgarrmondragon
+  tap-geekbot: reservoir-data
   tap-genesys: airbyte
   tap-geo: celine-eu
   tap-getlago: airbyte
@@ -238,7 +245,7 @@ extractors:
   tap-google-analytics: meltanolabs
   tap-google-directory: airbyte
   tap-google-pagespeed-insights: airbyte
-  tap-google-play: edgarrmondragon
+  tap-google-play: reservoir-data
   tap-google-search-console: meltanolabs
   tap-google-sheets: matatika
   tap-google-webfonts: airbyte
@@ -257,6 +264,8 @@ extractors:
   tap-helpshift: pathlight
   tap-hibob: potloc
   tap-holidays: goodeggs
+  tap-honeybadger: reservoir-data
+  tap-hookdeck: reservoir-data
   tap-hotjar: epoch8
   tap-hotmart: im-voracity
   tap-hubplanner: airbyte
@@ -297,6 +306,7 @@ extractors:
   tap-kyriba: airbyte
   tap-lastfm: rabidaudio
   tap-launchdarkly: pulumi
+  tap-leaflink: reservoir-data
   tap-lemlist: airbyte
   tap-lessonly: pathlight
   tap-lever: dbt-labs
@@ -355,7 +365,8 @@ extractors:
   tap-my-hours: airbyte
   tap-mysql: transferwise
   tap-n8n: airbyte
-  tap-nasa: edgarrmondragon
+  tap-nasa: reservoir-data
+  tap-neon: reservoir-data
   tap-netlify: franloza
   tap-netohq: hotgluexyz
   tap-netrivals: epoch8
@@ -366,6 +377,7 @@ extractors:
   tap-nikabot: phdesign
   tap-norwaycitybikeapi: andrejakobsen
   tap-notion: renesteeman
+  tap-npm: reservoir-data
   tap-nytimes: airbyte
   tap-officernd: cschouten
   tap-okta: airbyte
@@ -402,11 +414,13 @@ extractors:
   tap-pexels-api: airbyte
   tap-picqer: hotgluexyz
   tap-pingboard: immuta
+  tap-pingdom: reservoir-data
   tap-pinterest-ads: gthesheep
-  tap-pipedream: edgarrmondragon
+  tap-pipedream: reservoir-data
   tap-pipedrive: singer-io
   tap-pivotal-tracker: goodeggs
   tap-plaid: airbyte
+  tap-planetscaleapi: reservoir-data
   tap-planfix: epoch8
   tap-platformpurple: singer-io
   tap-plausible: airbyte
@@ -414,7 +428,9 @@ extractors:
   tap-plentymarkets: hotgluexyz
   tap-podbean: slalom-consulting
   tap-pokeapi: airbyte
+  tap-polarsh: reservoir-data
   tap-polygon-stock-api: airbyte
+  tap-pomelo: reservoir-data
   tap-postgres: meltanolabs
   tap-posthog: airbyte
   tap-postmark: yoast
@@ -430,10 +446,10 @@ extractors:
   tap-pulumi-cloud: meltanolabs
   tap-punk-api: airbyte
   tap-purecloud: pathlight
-  tap-pushbullet: edgarrmondragon
+  tap-pushbullet: reservoir-data
   tap-pxwebapi: storebrand
   tap-pypi: airbyte
-  tap-pypistats: edgarrmondragon
+  tap-pypistats: reservoir-data
   tap-qls: hotgluexyz
   tap-qonto: airbyte
   tap-quaderno: nickleomartin
@@ -444,7 +460,8 @@ extractors:
   tap-quickbutik: hotgluexyz
   tap-rakuten: chrisgoddard
   tap-rd-station-marketing: airbyte
-  tap-readthedocs: edgarrmondragon
+  tap-readme: reservoir-data
+  tap-readthedocs: reservoir-data
   tap-recharge: singer-io
   tap-recreation: airbyte
   tap-recruitee: rawwar
@@ -495,7 +512,7 @@ extractors:
   tap-shipstation: mashey
   tap-shopify: matatika
   tap-shoplazza: hotgluexyz
-  tap-shortcut: edgarrmondragon
+  tap-shortcut: reservoir-data
   tap-shortio: airbyte
   tap-showpad: z3z1ma
   tap-signonsite: singer-io
@@ -515,6 +532,7 @@ extractors:
   tap-snapchat-ads: singer-io
   tap-snapengage: pathlight
   tap-snowflake: meltanolabs
+  tap-socketdev: reservoir-data
   tap-socrata: meltanolabs
   tap-solarvista: matatika
   tap-sonar-cloud: airbyte
@@ -533,11 +551,13 @@ extractors:
   tap-statuspage: airbyte
   tap-stella: pathlight
   tap-strava: dluftspring
+  tap-streakcrm: reservoir-data
   tap-stringee: lamlephamngoc
   tap-stripe: singer-io
   tap-substack: tripleaceme
   tap-suger: pulumi
   tap-sumologic: splitio
+  tap-superhuman: reservoir-data
   tap-survey-sparrow: airbyte
   tap-surveycto: airbyte
   tap-surveymonkey: singer-io
@@ -546,6 +566,7 @@ extractors:
   tap-taboola: singer-io
   tap-talkable: gthesheep
   tap-talkdesk-explore: airbyte
+  tap-tally: reservoir-data
   tap-talon-one: gthesheep
   tap-teamwork: immuta
   tap-tempo: broscorp-net
@@ -564,11 +585,13 @@ extractors:
   tap-toggl: singer-io
   tap-totango: edsoncezar16
   tap-tradera: kgpayne
+  tap-transifex: reservoir-data
   tap-travefy: hotgluexyz
   tap-treez: mashey
   tap-trello: matatika
   tap-trustpilot: dbt-labs
   tap-trustrace: icebug
+  tap-tursoapi: reservoir-data
   tap-tvmaze-schedule: airbyte
   tap-tvsquared: gthesheep
   tap-twilio: transferwise

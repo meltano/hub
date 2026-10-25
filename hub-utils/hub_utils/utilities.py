@@ -399,6 +399,10 @@ class Utilities:
         # TODO: kind of a hack, not sure how to accept an empty string to skip properly
         if image_path == "skip":
             logo_file_name = definition["logo_url"].split("/")[-1]
+            shutil.copyfile(
+                f"{self.hub_root}/static/assets/logos/placeholder.png",
+                f"{self.hub_root}/static/assets/logos/{plugin_type}/{logo_file_name}",
+            )
             print("Logo: Placeholder Used")
         else:
             logo_file_name = definition["logo_url"].split("/")[-1]
