@@ -1,0 +1,72 @@
+commands:
+  deploy:
+    args: deploy
+    description: Deploy each job schedule, or only the ones named, as a scheduled cloud job.
+  describe:
+    args: describe
+    description: Describe the commands of this extension.
+  destroy:
+    args: destroy
+    description: Remove everything deploy created for each schedule, or only the ones named.
+  initialize:
+    args: initialize
+    description: Write a starter pdt.yml in the config_dir folder, unless one exists.
+definition: |
+  deploys each job schedule of a Meltano project as a scheduled container job on Google Cloud Run Jobs, using pdt. The Meltano system database, which holds each extractor's state, is kept in a pdt storage folder in your cloud account between runs.
+description: Deploy each Meltano job schedule as a scheduled job on Google Cloud Run Jobs
+docs: https://github.com/AutoIDM/pdt-meltano#readme
+domain_url: https://github.com/AutoIDM/pdt
+executable: pdt_meltano
+ext_repo: https://github.com/AutoIDM/pdt-meltano
+keywords:
+- meltano_edk
+- google
+- scheduler
+- orchestrator
+- deploy
+- deployments
+- cloud
+label: Google Cloud Run
+logo_url: /assets/logos/utilities/pdt-gcloud.png
+maintenance_status: beta
+name: pdt-gcloud
+namespace: pdt_gcloud
+next_steps: |-
+  1. Add a job schedule if you have none: `meltano schedule add <name> --job <job> --interval '@daily'`.
+  2. Deploy it: `meltano invoke pdt-gcloud:deploy`. The first deploy asks you to sign in to your cloud account. It builds the image with Docker on this computer when Docker works, else in the cloud.
+  3. When a schedule has no successful run yet, deploy asks `Start a run now and show its log? [y/N]`. A run loads data. Press Enter to skip it.
+pip_url: git+https://github.com/AutoIDM/pdt-meltano.git@v0.1.2
+prereq: |-
+  A Google Cloud project. The first deploy asks you to sign in to it.
+repo: https://github.com/AutoIDM/pdt
+settings:
+- description: The folder of the pdt.yml that every pdt plugin of the project reads, for settings such as alerts:. Each Meltano environment uses the same folder unless you set this for the environment.
+  kind: string
+  label: Config Folder
+  name: config_dir
+  value: $MELTANO_PROJECT_ROOT/orchestrate/pdt
+- description: The Google Cloud project that holds the jobs. pdt adds it on your first deploy.
+  kind: string
+  label: Google Cloud Project
+  name: project
+- description: The cloud this entry deploys to. Leave it as it is; each Hub entry sets its own.
+  kind: string
+  label: Provider
+  name: provider
+  value: gcloud
+- description: Which Google Cloud region should hold your jobs?
+  kind: string
+  label: Region
+  name: region
+  value: us-central1
+- description: The time zone of the schedule intervals, such as America/Chicago. The default is Etc/UTC.
+  kind: string
+  label: Time Zone
+  name: timezone
+settings_preamble: |-
+  Settings that are the same for every cloud, such as `alerts:`, live in the `pdt.yml` file in the `config_dir` folder, by default `orchestrate/pdt/pdt.yml`. Every pdt plugin of the project reads this file. Commit it. See [Config](https://github.com/AutoIDM/pdt-meltano#config).
+supported_python_versions:
+- '3.12'
+- '3.13'
+- '3.14'
+variant: autoidm
