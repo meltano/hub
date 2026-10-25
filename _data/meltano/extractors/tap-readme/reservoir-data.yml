@@ -11,7 +11,7 @@ capabilities:
 - structured-logging
 description: "Developer documentation platform for creating interactive API references
   and guides."
-domain_url: ''
+domain_url: https://readme.com
 executable: tap-readme
 keywords:
 - meltano_sdk

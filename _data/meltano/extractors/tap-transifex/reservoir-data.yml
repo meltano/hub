@@ -10,7 +10,7 @@ capabilities:
 - stream-maps
 - structured-logging
 description: "Localization and translation management platform."
-domain_url: ''
+domain_url: https://www.transifex.com
 executable: tap-transifex
 keywords:
 - meltano_sdk

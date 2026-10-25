@@ -11,7 +11,7 @@ capabilities:
 - structured-logging
 description: "CRM that lives inside Gmail for managing sales pipelines, contacts,
   and workflows."
-domain_url: ''
+domain_url: https://www.streak.com
 executable: tap-streakcrm
 keywords:
 - meltano_sdk

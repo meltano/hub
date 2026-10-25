@@ -11,7 +11,7 @@ capabilities:
 - structured-logging
 description: "Monitoring platform for API and browser checks, built around monitoring
   as code."
-domain_url: ''
+domain_url: https://www.checklyhq.com
 executable: tap-checkly
 keywords:
 - meltano_sdk

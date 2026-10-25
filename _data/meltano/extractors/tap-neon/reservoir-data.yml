@@ -10,7 +10,7 @@ capabilities:
 - stream-maps
 - structured-logging
 description: "Serverless Postgres platform with branching and autoscaling."
-domain_url: ''
+domain_url: https://neon.com
 executable: tap-neon
 keywords:
 - meltano_sdk

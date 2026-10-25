@@ -11,7 +11,7 @@ capabilities:
 - structured-logging
 description: "Edge-hosted, SQLite-compatible database platform built on libSQL, accessed
   through the Turso Platform API."
-domain_url: ''
+domain_url: https://turso.tech
 executable: tap-tursoapi
 keywords:
 - meltano_sdk

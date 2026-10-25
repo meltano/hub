@@ -11,7 +11,7 @@ capabilities:
 - structured-logging
 description: "Event gateway for receiving, queuing, and reliably delivering webhooks
   and other asynchronous events."
-domain_url: ''
+domain_url: https://hookdeck.com
 executable: tap-hookdeck
 keywords:
 - meltano_sdk

@@ -11,7 +11,7 @@ capabilities:
 - structured-logging
 description: "Card issuing and payments infrastructure platform for fintechs in Latin
   America."
-domain_url: ''
+domain_url: https://pomelo.la
 executable: tap-pomelo
 keywords:
 - meltano_sdk

@@ -10,7 +10,7 @@ capabilities:
 - stream-maps
 - structured-logging
 description: "Error, uptime, and cron monitoring service for web applications."
-domain_url: ''
+domain_url: https://www.honeybadger.io
 executable: tap-honeybadger
 keywords:
 - meltano_sdk

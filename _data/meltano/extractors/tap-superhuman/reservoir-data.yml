@@ -11,7 +11,7 @@ capabilities:
 - structured-logging
 description: "Collaborative docs platform, formerly Coda, that combines documents,
   tables, and automations."
-domain_url: ''
+domain_url: https://superhuman.com
 executable: tap-superhuman
 keywords:
 - meltano_sdk

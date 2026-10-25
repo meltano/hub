@@ -10,7 +10,7 @@ capabilities:
 - stream-maps
 - structured-logging
 description: "URL shortening and link management platform with click analytics."
-domain_url: ''
+domain_url: https://bitly.com
 executable: tap-bitly
 keywords:
 - meltano_sdk

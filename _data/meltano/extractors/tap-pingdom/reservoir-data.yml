@@ -10,7 +10,7 @@ capabilities:
 - stream-maps
 - structured-logging
 description: "Website uptime and performance monitoring service."
-domain_url: ''
+domain_url: https://www.pingdom.com
 executable: tap-pingdom
 keywords:
 - meltano_sdk

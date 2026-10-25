@@ -11,7 +11,7 @@ capabilities:
 - structured-logging
 description: "Platform for developers to monetize open source projects through funding,
   subscriptions, and digital products."
-domain_url: ''
+domain_url: https://polar.sh
 executable: tap-polarsh
 keywords:
 - meltano_sdk

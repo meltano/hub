@@ -10,7 +10,7 @@ capabilities:
 - stream-maps
 - structured-logging
 description: "Time tracking software for teams and freelancers."
-domain_url: ''
+domain_url: https://toggl.com
 executable: tap-toggl
 keywords:
 - meltano_sdk

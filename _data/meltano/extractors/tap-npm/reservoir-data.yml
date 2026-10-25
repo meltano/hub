@@ -11,7 +11,7 @@ capabilities:
 - structured-logging
 description: "Package registry for JavaScript packages, with package metadata and
   download statistics."
-domain_url: ''
+domain_url: https://www.npmjs.com
 executable: tap-npm
 keywords:
 - meltano_sdk

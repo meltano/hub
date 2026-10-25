@@ -11,7 +11,7 @@ capabilities:
 - structured-logging
 description: "Software supply chain security platform that detects risky open source
   dependencies."
-domain_url: ''
+domain_url: https://socket.dev
 executable: tap-socketdev
 keywords:
 - meltano_sdk

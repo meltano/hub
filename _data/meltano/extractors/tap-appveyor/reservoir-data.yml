@@ -11,7 +11,7 @@ capabilities:
 - structured-logging
 description: "Continuous integration and deployment service for building, testing,
   and deploying projects on Windows, Linux, and macOS."
-domain_url: ''
+domain_url: https://www.appveyor.com
 executable: tap-appveyor
 keywords:
 - meltano_sdk

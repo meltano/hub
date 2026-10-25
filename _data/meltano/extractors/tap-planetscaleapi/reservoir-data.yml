@@ -11,7 +11,7 @@ capabilities:
 - structured-logging
 description: "Serverless MySQL-compatible database platform built on Vitess, accessed
   through its management API."
-domain_url: ''
+domain_url: https://planetscale.com
 executable: tap-planetscaleapi
 keywords:
 - meltano_sdk

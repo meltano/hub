@@ -11,7 +11,7 @@ capabilities:
 - structured-logging
 description: "Event management and ticketing platform for creating, promoting, and
   selling tickets to events."
-domain_url: ''
+domain_url: https://www.eventbrite.com
 executable: tap-eventbrite
 keywords:
 - meltano_sdk

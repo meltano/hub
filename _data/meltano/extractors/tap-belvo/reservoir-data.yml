@@ -11,7 +11,7 @@ capabilities:
 - structured-logging
 description: "Open finance API platform that provides access to bank, fiscal, and
   employment data across Latin America."
-domain_url: ''
+domain_url: https://belvo.com
 executable: tap-belvo
 keywords:
 - meltano_sdk

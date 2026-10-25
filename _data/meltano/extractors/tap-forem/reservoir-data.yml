@@ -11,7 +11,7 @@ capabilities:
 - structured-logging
 description: "Open source platform for building online communities, powering sites
   such as DEV."
-domain_url: ''
+domain_url: https://www.forem.com
 executable: tap-forem
 keywords:
 - meltano_sdk

@@ -10,7 +10,7 @@ capabilities:
 - stream-maps
 - structured-logging
 description: "Online form builder for creating forms and surveys and collecting responses."
-domain_url: ''
+domain_url: https://tally.so
 executable: tap-tally
 keywords:
 - meltano_sdk

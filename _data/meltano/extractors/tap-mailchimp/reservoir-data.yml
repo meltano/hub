@@ -10,7 +10,7 @@ capabilities:
 - stream-maps
 - structured-logging
 description: "Marketing platform for managing audiences and sending email campaigns."
-domain_url: ''
+domain_url: https://mailchimp.com
 executable: tap-mailchimp
 keywords:
 - meltano_sdk

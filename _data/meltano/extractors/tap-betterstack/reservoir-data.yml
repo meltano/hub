@@ -11,7 +11,7 @@ capabilities:
 - structured-logging
 description: "Uptime monitoring, incident management, status pages, and log management
   platform."
-domain_url: ''
+domain_url: https://betterstack.com
 executable: tap-betterstack
 keywords:
 - meltano_sdk

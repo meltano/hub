@@ -11,7 +11,7 @@ capabilities:
 - structured-logging
 description: "Wholesale marketplace and order management platform for the cannabis
   industry."
-domain_url: ''
+domain_url: https://www.leaflink.com
 executable: tap-leaflink
 keywords:
 - meltano_sdk
