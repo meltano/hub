@@ -9,8 +9,8 @@ capabilities:
 - state
 - stream-maps
 - structured-logging
-description: "Serverless MySQL-compatible database platform built on Vitess, accessed
-  through its management API."
+description: Serverless MySQL-compatible database platform built on Vitess, 
+  accessed through its management API.
 domain_url: https://planetscale.com
 executable: tap-planetscaleapi
 keywords:

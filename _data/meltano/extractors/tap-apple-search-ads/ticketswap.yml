@@ -1,11 +1,13 @@
 capabilities:
 - about
+- activate-version
 - batch
 - catalog
 - discover
 - schema-flattening
 - state
 - stream-maps
+- structured-logging
 domain_url: https://searchads.apple.com/
 keywords:
 - meltano_sdk
@@ -76,6 +78,14 @@ settings:
   kind: integer
   label: Max Flattening Depth
   name: flattening_max_depth
+- description: The maximum length of a flattened key.
+  kind: integer
+  label: Max Key Length
+  name: flattening_max_key_length
+- description: The separator to use when flattening keys.
+  kind: string
+  label: Flattening Separator
+  name: flattening_separator
 - description: The organisation that you want to sync. Superseded by `org_ids` 
     if that is set.
   kind: password

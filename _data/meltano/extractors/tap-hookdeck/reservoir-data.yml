@@ -9,8 +9,8 @@ capabilities:
 - state
 - stream-maps
 - structured-logging
-description: "Event gateway for receiving, queuing, and reliably delivering webhooks
-  and other asynchronous events."
+description: Event gateway for receiving, queuing, and reliably delivering 
+  webhooks and other asynchronous events.
 domain_url: https://hookdeck.com
 executable: tap-hookdeck
 keywords:

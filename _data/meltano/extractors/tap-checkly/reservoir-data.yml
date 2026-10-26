@@ -9,8 +9,8 @@ capabilities:
 - state
 - stream-maps
 - structured-logging
-description: "Monitoring platform for API and browser checks, built around monitoring
-  as code."
+description: Monitoring platform for API and browser checks, built around 
+  monitoring as code.
 domain_url: https://www.checklyhq.com
 executable: tap-checkly
 keywords:

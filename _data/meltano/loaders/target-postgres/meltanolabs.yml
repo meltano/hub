@@ -5,6 +5,7 @@ capabilities:
 - schema-flattening
 - stream-maps
 - structured-logging
+- target-schema
 - validate-records
 description: PostgreSQL database loader
 dialect: postgres
@@ -278,6 +279,7 @@ supported_python_versions:
 - '3.12'
 - '3.13'
 - '3.14'
+- '3.15'
 target_schema: $TARGET_POSTGRES_SCHEMA
 usage: ''
 variant: meltanolabs
