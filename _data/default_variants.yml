@@ -537,6 +537,7 @@ extractors:
   tap-solarvista: matatika
   tap-sonar-cloud: airbyte
   tap-spacex-api: airbyte
+  tap-specstream: specstream
   tap-spotify: matatika
   tap-spreadsheets: celine-eu
   tap-spreadsheets-anywhere: ets
