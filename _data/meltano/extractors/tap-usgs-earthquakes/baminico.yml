@@ -1,0 +1,42 @@
+capabilities:
+- about
+- catalog
+- discover
+- state
+- stream-maps
+description: Extract earthquake events from the public USGS Earthquake Catalog API.
+domain_url: https://earthquake.usgs.gov/
+executable: tap-usgs-earthquakes
+keywords:
+- meltano_sdk
+- api
+- earthquakes
+- usgs
+label: USGS Earthquakes
+maintenance_status: active
+name: tap-usgs-earthquakes
+namespace: tap_usgs_earthquakes
+next_steps: ''
+pip_url: git+https://github.com/BaMiniCo/tap-usgs-earthquakes.git@v0.1.0
+quality: bronze
+repo: https://github.com/BaMiniCo/tap-usgs-earthquakes
+settings:
+- description: Earliest event time to scan, in UTC. Defaults to 30 days before execution.
+  kind: date_iso8601
+  label: Start date
+  name: start_date
+- description: Minimum earthquake magnitude. Defaults to all magnitudes.
+  kind: decimal
+  label: Minimum magnitude
+  name: min_magnitude
+- description: Size of each time window requested from USGS. Defaults to 7 days.
+  kind: integer
+  label: Window days
+  name: window_days
+- description: User-Agent sent to the USGS API.
+  kind: string
+  label: User-Agent
+  name: user_agent
+settings_preamble: ''
+usage: ''
+variant: baminico
