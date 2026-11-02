@@ -9,8 +9,8 @@ capabilities:
 - state
 - stream-maps
 - structured-logging
-description: "Package registry for JavaScript packages, with package metadata and
-  download statistics."
+description: Package registry for JavaScript packages, with package metadata and
+  download statistics.
 domain_url: https://www.npmjs.com
 executable: tap-npm
 keywords:
