@@ -5,6 +5,7 @@ capabilities:
 - catalog
 - discover
 - schema-flattening
+- start-date
 - state
 - stream-maps
 - structured-logging
@@ -55,14 +56,9 @@ settings:
   - label: None
     value: none
 - description: Format to use for batch files.
-  kind: options
+  kind: string
   label: Batch Encoding Format
   name: batch_config.encoding.format
-  options:
-  - label: JSONL
-    value: jsonl
-  - label: Parquet
-    value: parquet
 - description: Prefix to use when writing batch files.
   kind: string
   label: Batch Storage Prefix
@@ -71,6 +67,22 @@ settings:
   kind: string
   label: Batch Storage Root
   name: batch_config.storage.root
+- description: "Optional list of MongoDB aggregation pipeline stages to append to
+    the change stream, passed as the `pipeline` argument to `collection.watch()`.
+    Only used in LOG_BASED replication mode. This can be used to reduce the size of
+    change stream events server-side before they are returned to the tap - for example,
+    `[{\"$unset\": \"updateDescription\"}]` will drop the updateDescription field
+    (which the tap does not read) from update events, helping avoid MongoDB's 16MB
+    BSON document size limit on events for collections with large documents. It can
+    also be used for server-side filtering (e.g. `$match`), complementing the operation_types
+    setting. Note: no validation is performed on this pipeline - it is the user's
+    responsibility to ensure the pipeline does not remove fields the tap depends on
+    (`_id`, `operationType`, `clusterTime`, `ns`, and `fullDocument`/`documentKey`),
+    which would cause tap errors."
+  kind: array
+  label: Change Stream Pipeline
+  name: change_stream_pipeline
+  value: []
 - description: Database name from which records will be extracted.
   kind: string
   label: Database
@@ -95,6 +107,23 @@ settings:
   - label: Datetime Clamp
     value: datetime_clamp
   value: datetime
+- description: "How documents are emitted. `object` (the default) emits each document
+    as a single `document` object. `flat` emits each document field declared in the
+    stream's schema as its own column: declare the fields as properties of the stream's
+    catalog schema (e.g. with Meltano's `schema` extra). Values of BSON types JSON
+    Schema can't express (ObjectId, Decimal128, ...) in a `string` property are converted
+    to strings, a value of any other type that doesn't match its declared type fails
+    the sync, undeclared fields are dropped with a warning, and a missing field is
+    null."
+  kind: options
+  label: Document Layout
+  name: document_layout
+  options:
+  - label: Object
+    value: object
+  - label: Flat
+    value: flat
+  value: object
 - description: |
     String (serialized JSON object) containing string-string key-value pairs which will be added to the
     connection string options when using documentdb_credential_json_string. For example, when set to
@@ -112,6 +141,12 @@ settings:
   kind: string
   label: Documentdb Credential Json String
   name: documentdb_credential_json_string
+- description: Whether to emit `ACTIVATE_VERSION` messages. If set to `True`, 
+    the tap will emit `ACTIVATE_VERSION` messages for each stream.
+  kind: boolean
+  label: Emit `ACTIVATE_VERSION` messages
+  name: emit_activate_version_messages
+  value: false
 - description: 'One or more LCID locale strings to produce localized output for: https://faker.readthedocs.io/en/master/#localization'
   kind: array
   label: Faker Locale
