@@ -1,0 +1,62 @@
+capabilities:
+- about
+- activate-version
+- batch
+- catalog
+- discover
+- schema-flattening
+- state
+- stream-maps
+- structured-logging
+description: AI-native accounting and ERP (general ledger, AP, AR, revenue recognition, cash)
+domain_url: https://docs.campfire.ai
+executable: tap-campfire
+keywords:
+- meltano_sdk
+- api
+- accounting
+- erp
+label: Campfire
+logo_url: /assets/logos/extractors/campfire.png
+maintenance_status: active
+name: tap-campfire
+namespace: tap_campfire
+next_steps: ''
+pip_url: git+https://github.com/Mohith26/tap-campfire.git@v0.1.0
+quality: unknown
+repo: https://github.com/Mohith26/tap-campfire
+settings:
+- description: Campfire API key (Settings > API Keys). A 'view only' API user is enough; the tap only sends GET requests.
+  kind: password
+  label: API Key
+  name: api_key
+  sensitive: true
+- description: Incremental streams only read records modified on or after this time on the first sync.
+  kind: date_iso8601
+  label: Start Date
+  name: start_date
+- description: Campfire API base URL.
+  kind: string
+  label: Base URL
+  name: base_url
+  value: https://api.meetcampfire.com
+- description: Records requested per page.
+  kind: integer
+  label: Page Size
+  name: page_size
+  value: 1000
+- description: Client-side request rate limit. Campfire allows 10 requests per second per API user; set to 0 to disable throttling.
+  kind: decimal
+  label: Max Requests Per Second
+  name: max_requests_per_second
+  value: 8
+- description: Also read deleted records (emitted with is_deleted=true) for endpoints that support it.
+  kind: boolean
+  label: Include Deleted
+  name: include_deleted
+  value: true
+settings_group_validation:
+- - api_key
+settings_preamble: ''
+usage: ''
+variant: mohith26
