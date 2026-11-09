@@ -1,0 +1,29 @@
+capabilities:
+- about
+- catalog
+- discover
+- state
+- stream-maps
+description: Every GTM API and its plans, scored and priced
+domain_url: https://datacircle.dev
+keywords:
+- api
+- free service
+- meltano_sdk
+label: Datacircle
+logo_url: /assets/logos/extractors/datacircle.png
+maintenance_status: active
+name: tap-datacircle
+namespace: tap_datacircle
+pip_url: git+https://github.com/waynehamadi/tap-datacircle.git
+quality: unknown
+repo: https://github.com/waynehamadi/tap-datacircle
+settings:
+- description: The Datacircle API base URL.
+  kind: string
+  label: API URL
+  name: api_url
+  value: https://api.datacircle.dev/v1
+settings_group_validation:
+- []
+variant: waynehamadi
