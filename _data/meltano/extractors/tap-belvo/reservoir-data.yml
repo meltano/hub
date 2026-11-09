@@ -9,8 +9,8 @@ capabilities:
 - state
 - stream-maps
 - structured-logging
-description: "Open finance API platform that provides access to bank, fiscal, and
-  employment data across Latin America."
+description: Open finance API platform that provides access to bank, fiscal, and
+  employment data across Latin America.
 domain_url: https://belvo.com
 executable: tap-belvo
 keywords:
@@ -111,9 +111,9 @@ settings_group_validation:
   - secret_id
 settings_preamble: ''
 supported_python_versions:
-- '3.12'
 - '3.13'
 - '3.14'
 - '3.15'
+- '3.16'
 usage: ''
 variant: reservoir-data

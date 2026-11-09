@@ -5,6 +5,7 @@ capabilities:
 - catalog
 - discover
 - schema-flattening
+- start-date
 - state
 - stream-maps
 - structured-logging
@@ -38,14 +39,9 @@ settings:
   - label: None
     value: none
 - description: Format to use for batch files.
-  kind: options
+  kind: string
   label: Batch Encoding Format
   name: batch_config.encoding.format
-  options:
-  - label: JSONL
-    value: jsonl
-  - label: Parquet
-    value: parquet
 - description: Prefix to use when writing batch files.
   kind: string
   label: Batch Storage Prefix
@@ -54,6 +50,12 @@ settings:
   kind: string
   label: Batch Storage Root
   name: batch_config.storage.root
+- description: Whether to emit `ACTIVATE_VERSION` messages. If set to `True`, 
+    the tap will emit `ACTIVATE_VERSION` messages for each stream.
+  kind: boolean
+  label: Emit `ACTIVATE_VERSION` messages
+  name: emit_activate_version_messages
+  value: false
 - description: 'One or more LCID locale strings to produce localized output for: https://faker.readthedocs.io/en/master/#localization'
   kind: array
   label: Faker Locale
@@ -75,6 +77,10 @@ settings:
   kind: integer
   label: Max Key Length
   name: flattening_max_key_length
+- description: The separator to use when flattening keys.
+  kind: string
+  label: Flattening Separator
+  name: flattening_separator
 - description: Earliest datetime to get data from
   kind: date_iso8601
   label: Start Date
@@ -92,10 +98,8 @@ settings_group_validation:
 - - api_key
 settings_preamble: ''
 supported_python_versions:
-- '3.10'
-- '3.11'
-- '3.12'
 - '3.13'
 - '3.14'
+- '3.15'
 usage: ''
 variant: reservoir-data

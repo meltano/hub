@@ -118,6 +118,13 @@ settings:
   kind: object
   label: Org Auth App Keys
   name: org_auth_app_keys
+- description: Organization-specific personal access tokens, such as 
+    fine-grained tokens owned by an organization. A list of objects with `org` 
+    and `token`. When processing repositories from an organization, the tap uses
+    that organization's tokens.
+  kind: array
+  label: Org Auth Tokens
+  name: org_auth_tokens
 - description: An array of strings containing the github organizations to be 
     included
   kind: array

@@ -2,6 +2,7 @@ capabilities:
 - about
 - schema-flattening
 - stream-maps
+- target-schema
 description: Open-source relational database management system
 domain_url: https://www.mysql.com/
 executable: target-mysql

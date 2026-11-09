@@ -6,6 +6,7 @@ capabilities:
 - schema-flattening
 - stream-maps
 - structured-logging
+- target-schema
 - validate-records
 description: Microsoft SQL Server
 domain_url: https://www.microsoft.com/en-us/sql-server/sql-server-2019
@@ -53,27 +54,10 @@ settings:
   label: Azure Blob Storage Sas Token
   name: azure_blob_storage.sas_token
   sensitive: true
-- description: Compression format to use for batch files.
-  kind: options
-  label: Batch Compression Format
-  name: batch_config.encoding.compression
-  options:
-  - label: GZIP
-    value: gzip
-  - label: None
-    value: none
-- description: Format to use for batch files.
-  kind: string
-  label: Batch Encoding Format
-  name: batch_config.encoding.format
-- description: Prefix to use when writing batch files.
-  kind: string
-  label: Batch Storage Prefix
-  name: batch_config.storage.prefix
-- description: Root path to use when writing batch files.
-  kind: string
-  label: Batch Storage Root
-  name: batch_config.storage.root
+- description: Configuration for consuming BATCH messages.
+  kind: object
+  label: Target BATCH Configuration
+  name: batch_config
 - description: Maximum number of rows in each batch.
   kind: integer
   label: Batch Size Rows
