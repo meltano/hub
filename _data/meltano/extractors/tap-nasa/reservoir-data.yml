@@ -5,6 +5,7 @@ capabilities:
 - catalog
 - discover
 - schema-flattening
+- start-date
 - state
 - stream-maps
 - structured-logging

@@ -9,7 +9,7 @@ capabilities:
 - state
 - stream-maps
 - structured-logging
-description: "Website uptime and performance monitoring service."
+description: Website uptime and performance monitoring service.
 domain_url: https://www.pingdom.com
 executable: tap-pingdom
 keywords:
