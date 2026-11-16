@@ -9,7 +9,7 @@ capabilities:
 - state
 - stream-maps
 - structured-logging
-description: "Localization and translation management platform."
+description: Localization and translation management platform.
 domain_url: https://www.transifex.com
 executable: tap-transifex
 keywords:
@@ -99,9 +99,9 @@ settings_group_validation:
 - - token
 settings_preamble: ''
 supported_python_versions:
-- '3.12'
 - '3.13'
 - '3.14'
 - '3.15'
+- '3.16'
 usage: ''
 variant: reservoir-data

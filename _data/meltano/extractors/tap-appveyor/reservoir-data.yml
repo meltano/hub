@@ -9,8 +9,8 @@ capabilities:
 - state
 - stream-maps
 - structured-logging
-description: "Continuous integration and deployment service for building, testing,
-  and deploying projects on Windows, Linux, and macOS."
+description: Continuous integration and deployment service for building, 
+  testing, and deploying projects on Windows, Linux, and macOS.
 domain_url: https://www.appveyor.com
 executable: tap-appveyor
 keywords:
@@ -105,9 +105,9 @@ settings_group_validation:
 - - token
 settings_preamble: ''
 supported_python_versions:
-- '3.12'
 - '3.13'
 - '3.14'
 - '3.15'
+- '3.16'
 usage: ''
 variant: reservoir-data
