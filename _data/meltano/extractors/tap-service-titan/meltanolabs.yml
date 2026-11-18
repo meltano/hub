@@ -29,9 +29,9 @@ settings:
   label: API URL
   name: api_url
   options:
-  - label: Production
+  - label: Https://API Servicetitan Io
     value: https://api.servicetitan.io
-  - label: Integration
+  - label: Https://API Integration Servicetitan Io
     value: https://api-integration.servicetitan.io
   value: https://api.servicetitan.io
 - description: The URL for the ServiceTitan OAuth API
@@ -39,9 +39,9 @@ settings:
   label: Auth URL
   name: auth_url
   options:
-  - label: Production
+  - label: Https://Auth Servicetitan Io/Connect/Token
     value: https://auth.servicetitan.io/connect/token
-  - label: Integration
+  - label: Https://Auth Integration Servicetitan Io/Connect/Token
     value: https://auth-integration.servicetitan.io/connect/token
   value: https://auth.servicetitan.io/connect/token
 - description: Compression format to use for batch files.
