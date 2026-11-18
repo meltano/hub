@@ -9,7 +9,7 @@ capabilities:
 - state
 - stream-maps
 - structured-logging
-description: "Localization and translation management platform."
+description: Localization and translation management platform.
 domain_url: https://www.transifex.com
 executable: tap-transifex
 keywords:

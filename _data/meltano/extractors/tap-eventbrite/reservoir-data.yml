@@ -9,8 +9,8 @@ capabilities:
 - state
 - stream-maps
 - structured-logging
-description: "Event management and ticketing platform for creating, promoting, and
-  selling tickets to events."
+description: Event management and ticketing platform for creating, promoting, 
+  and selling tickets to events.
 domain_url: https://www.eventbrite.com
 executable: tap-eventbrite
 keywords:

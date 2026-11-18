@@ -9,8 +9,8 @@ capabilities:
 - state
 - stream-maps
 - structured-logging
-description: "Customer feedback management platform for collecting, prioritizing,
-  and tracking feature requests."
+description: Customer feedback management platform for collecting, prioritizing,
+  and tracking feature requests.
 domain_url: https://canny.io
 executable: tap-canny
 keywords:

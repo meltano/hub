@@ -1,11 +1,13 @@
 capabilities:
 - about
+- activate-version
 - batch
 - catalog
 - discover
 - schema-flattening
 - state
 - stream-maps
+- structured-logging
 description: Online payment processing for internet businesses
 domain_url: https://stripe.com/docs/api
 executable: tap-stripe
@@ -69,6 +71,14 @@ settings:
   kind: integer
   label: Max Flattening Depth
   name: flattening_max_depth
+- description: The maximum length of a flattened key.
+  kind: integer
+  label: Max Key Length
+  name: flattening_max_key_length
+- description: The separator to use when flattening keys.
+  kind: string
+  label: Flattening Separator
+  name: flattening_separator
 - description: The earliest record date to sync
   kind: date_iso8601
   label: Start Date
@@ -85,6 +95,11 @@ settings:
 settings_group_validation:
 - - api_key
 settings_preamble: ''
-supported_python_versions: []
+supported_python_versions:
+- '3.11'
+- '3.12'
+- '3.13'
+- '3.14'
+- '3.15'
 usage: ''
 variant: ticketswap
