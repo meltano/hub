@@ -9,8 +9,8 @@ capabilities:
 - state
 - stream-maps
 - structured-logging
-description: "Uptime monitoring, incident management, status pages, and log management
-  platform."
+description: Uptime monitoring, incident management, status pages, and log 
+  management platform.
 domain_url: https://betterstack.com
 executable: tap-betterstack
 keywords:

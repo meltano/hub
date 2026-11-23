@@ -9,7 +9,7 @@ capabilities:
 - state
 - stream-maps
 - structured-logging
-description: "Time tracking software for teams and freelancers."
+description: Time tracking software for teams and freelancers.
 domain_url: https://toggl.com
 executable: tap-toggl
 keywords:
