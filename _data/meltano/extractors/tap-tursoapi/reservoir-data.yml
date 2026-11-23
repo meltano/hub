@@ -9,8 +9,8 @@ capabilities:
 - state
 - stream-maps
 - structured-logging
-description: "Edge-hosted, SQLite-compatible database platform built on libSQL, accessed
-  through the Turso Platform API."
+description: Edge-hosted, SQLite-compatible database platform built on libSQL, 
+  accessed through the Turso Platform API.
 domain_url: https://turso.tech
 executable: tap-tursoapi
 keywords:
@@ -100,9 +100,9 @@ settings_group_validation:
 - - token
 settings_preamble: ''
 supported_python_versions:
-- '3.12'
 - '3.13'
 - '3.14'
 - '3.15'
+- '3.16'
 usage: ''
 variant: reservoir-data
