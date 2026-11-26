@@ -1,0 +1,45 @@
+capabilities:
+- about
+- catalog
+- discover
+- state
+description: Curated SaaS and AI launch directory dataset (1,600+ directories with DR, dofollow, and pricing) and product launch leaderboards.
+domain_url: https://saascity.io/
+executable: tap-saascity
+keywords:
+- api
+- mcp
+- saas
+- directories
+label: SaaSCity
+maintenance_status: active
+name: tap-saascity
+namespace: tap_saascity
+next_steps: ''
+pip_url: git+https://github.com/best-directories/tap-saascity.git@v0.1.0
+quality: bronze
+repo: https://github.com/best-directories/tap-saascity
+settings:
+- description: Base URL for the SaaSCity keyless MCP API.
+  kind: string
+  label: API URL
+  name: api_url
+  value: https://saascity.io
+- description: Optional directory category filter (e.g. SaaS Tools, AI Tools, Developer Tools).
+  kind: string
+  label: Category
+  name: category
+- description: Minimum Ahrefs Domain Rating filter (0 to 100).
+  kind: integer
+  label: Minimum DR
+  name: min_dr
+  value: 0
+- description: Extract only verified dofollow launch directories when enabled.
+  kind: boolean
+  label: Dofollow Only
+  name: dofollow_only
+  value: false
+settings_group_validation: []
+settings_preamble: ''
+usage: ''
+variant: best-directories
